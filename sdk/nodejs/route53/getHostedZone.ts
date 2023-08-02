@@ -36,7 +36,7 @@ export interface GetHostedZoneResult {
     /**
      * A complex type that contains information about the VPCs that are associated with the specified hosted zone.
      */
-    readonly vpcs?: outputs.route53.HostedZoneVPC[];
+    readonly vpcs?: outputs.route53.HostedZoneVpc[];
 }
 /**
  * Resource schema for AWS::Route53::HostedZone.

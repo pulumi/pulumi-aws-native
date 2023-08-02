@@ -1302,90 +1302,90 @@ func (in *resolverConfigAutodefinedReverseFlagPtr) ToResolverConfigAutodefinedRe
 }
 
 // ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
-type ResolverDNSSECConfigValidationStatus string
+type ResolverDnssecConfigValidationStatus string
 
 const (
-	ResolverDNSSECConfigValidationStatusEnabling  = ResolverDNSSECConfigValidationStatus("ENABLING")
-	ResolverDNSSECConfigValidationStatusEnabled   = ResolverDNSSECConfigValidationStatus("ENABLED")
-	ResolverDNSSECConfigValidationStatusDisabling = ResolverDNSSECConfigValidationStatus("DISABLING")
-	ResolverDNSSECConfigValidationStatusDisabled  = ResolverDNSSECConfigValidationStatus("DISABLED")
+	ResolverDnssecConfigValidationStatusEnabling  = ResolverDnssecConfigValidationStatus("ENABLING")
+	ResolverDnssecConfigValidationStatusEnabled   = ResolverDnssecConfigValidationStatus("ENABLED")
+	ResolverDnssecConfigValidationStatusDisabling = ResolverDnssecConfigValidationStatus("DISABLING")
+	ResolverDnssecConfigValidationStatusDisabled  = ResolverDnssecConfigValidationStatus("DISABLED")
 )
 
-type ResolverDNSSECConfigValidationStatusOutput struct{ *pulumi.OutputState }
+type ResolverDnssecConfigValidationStatusOutput struct{ *pulumi.OutputState }
 
-func (ResolverDNSSECConfigValidationStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverDNSSECConfigValidationStatus)(nil)).Elem()
+func (ResolverDnssecConfigValidationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverDnssecConfigValidationStatus)(nil)).Elem()
 }
 
-func (o ResolverDNSSECConfigValidationStatusOutput) ToResolverDNSSECConfigValidationStatusOutput() ResolverDNSSECConfigValidationStatusOutput {
+func (o ResolverDnssecConfigValidationStatusOutput) ToResolverDnssecConfigValidationStatusOutput() ResolverDnssecConfigValidationStatusOutput {
 	return o
 }
 
-func (o ResolverDNSSECConfigValidationStatusOutput) ToResolverDNSSECConfigValidationStatusOutputWithContext(ctx context.Context) ResolverDNSSECConfigValidationStatusOutput {
+func (o ResolverDnssecConfigValidationStatusOutput) ToResolverDnssecConfigValidationStatusOutputWithContext(ctx context.Context) ResolverDnssecConfigValidationStatusOutput {
 	return o
 }
 
-func (o ResolverDNSSECConfigValidationStatusOutput) ToResolverDNSSECConfigValidationStatusPtrOutput() ResolverDNSSECConfigValidationStatusPtrOutput {
-	return o.ToResolverDNSSECConfigValidationStatusPtrOutputWithContext(context.Background())
+func (o ResolverDnssecConfigValidationStatusOutput) ToResolverDnssecConfigValidationStatusPtrOutput() ResolverDnssecConfigValidationStatusPtrOutput {
+	return o.ToResolverDnssecConfigValidationStatusPtrOutputWithContext(context.Background())
 }
 
-func (o ResolverDNSSECConfigValidationStatusOutput) ToResolverDNSSECConfigValidationStatusPtrOutputWithContext(ctx context.Context) ResolverDNSSECConfigValidationStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverDNSSECConfigValidationStatus) *ResolverDNSSECConfigValidationStatus {
+func (o ResolverDnssecConfigValidationStatusOutput) ToResolverDnssecConfigValidationStatusPtrOutputWithContext(ctx context.Context) ResolverDnssecConfigValidationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverDnssecConfigValidationStatus) *ResolverDnssecConfigValidationStatus {
 		return &v
-	}).(ResolverDNSSECConfigValidationStatusPtrOutput)
+	}).(ResolverDnssecConfigValidationStatusPtrOutput)
 }
 
-func (o ResolverDNSSECConfigValidationStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o ResolverDnssecConfigValidationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ResolverDNSSECConfigValidationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverDNSSECConfigValidationStatus) string {
+func (o ResolverDnssecConfigValidationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverDnssecConfigValidationStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ResolverDNSSECConfigValidationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ResolverDnssecConfigValidationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ResolverDNSSECConfigValidationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverDNSSECConfigValidationStatus) *string {
+func (o ResolverDnssecConfigValidationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverDnssecConfigValidationStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ResolverDNSSECConfigValidationStatusPtrOutput struct{ *pulumi.OutputState }
+type ResolverDnssecConfigValidationStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (ResolverDNSSECConfigValidationStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverDNSSECConfigValidationStatus)(nil)).Elem()
+func (ResolverDnssecConfigValidationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverDnssecConfigValidationStatus)(nil)).Elem()
 }
 
-func (o ResolverDNSSECConfigValidationStatusPtrOutput) ToResolverDNSSECConfigValidationStatusPtrOutput() ResolverDNSSECConfigValidationStatusPtrOutput {
+func (o ResolverDnssecConfigValidationStatusPtrOutput) ToResolverDnssecConfigValidationStatusPtrOutput() ResolverDnssecConfigValidationStatusPtrOutput {
 	return o
 }
 
-func (o ResolverDNSSECConfigValidationStatusPtrOutput) ToResolverDNSSECConfigValidationStatusPtrOutputWithContext(ctx context.Context) ResolverDNSSECConfigValidationStatusPtrOutput {
+func (o ResolverDnssecConfigValidationStatusPtrOutput) ToResolverDnssecConfigValidationStatusPtrOutputWithContext(ctx context.Context) ResolverDnssecConfigValidationStatusPtrOutput {
 	return o
 }
 
-func (o ResolverDNSSECConfigValidationStatusPtrOutput) Elem() ResolverDNSSECConfigValidationStatusOutput {
-	return o.ApplyT(func(v *ResolverDNSSECConfigValidationStatus) ResolverDNSSECConfigValidationStatus {
+func (o ResolverDnssecConfigValidationStatusPtrOutput) Elem() ResolverDnssecConfigValidationStatusOutput {
+	return o.ApplyT(func(v *ResolverDnssecConfigValidationStatus) ResolverDnssecConfigValidationStatus {
 		if v != nil {
 			return *v
 		}
-		var ret ResolverDNSSECConfigValidationStatus
+		var ret ResolverDnssecConfigValidationStatus
 		return ret
-	}).(ResolverDNSSECConfigValidationStatusOutput)
+	}).(ResolverDnssecConfigValidationStatusOutput)
 }
 
-func (o ResolverDNSSECConfigValidationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ResolverDnssecConfigValidationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ResolverDNSSECConfigValidationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResolverDNSSECConfigValidationStatus) *string {
+func (o ResolverDnssecConfigValidationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResolverDnssecConfigValidationStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -1965,8 +1965,8 @@ func init() {
 	pulumi.RegisterOutputType(ResolverConfigAutodefinedReversePtrOutput{})
 	pulumi.RegisterOutputType(ResolverConfigAutodefinedReverseFlagOutput{})
 	pulumi.RegisterOutputType(ResolverConfigAutodefinedReverseFlagPtrOutput{})
-	pulumi.RegisterOutputType(ResolverDNSSECConfigValidationStatusOutput{})
-	pulumi.RegisterOutputType(ResolverDNSSECConfigValidationStatusPtrOutput{})
+	pulumi.RegisterOutputType(ResolverDnssecConfigValidationStatusOutput{})
+	pulumi.RegisterOutputType(ResolverDnssecConfigValidationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationErrorOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationErrorPtrOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationStatusOutput{})

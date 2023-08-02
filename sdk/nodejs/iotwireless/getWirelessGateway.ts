@@ -45,7 +45,7 @@ export interface GetWirelessGatewayResult {
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
      */
-    readonly loRaWan?: outputs.iotwireless.WirelessGatewayLoRaWANGateway;
+    readonly loRaWan?: outputs.iotwireless.WirelessGatewayLoRaWanGateway;
     /**
      * Name of Wireless Gateway.
      */

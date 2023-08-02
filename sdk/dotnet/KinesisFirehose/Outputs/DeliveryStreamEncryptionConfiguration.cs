@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamEncryptionConfiguration
     {
-        public readonly Outputs.DeliveryStreamKMSEncryptionConfig? KmsEncryptionConfig;
+        public readonly Outputs.DeliveryStreamKmsEncryptionConfig? KmsEncryptionConfig;
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamEncryptionConfigurationNoEncryptionConfig? NoEncryptionConfig;
 
         [OutputConstructor]
         private DeliveryStreamEncryptionConfiguration(
-            Outputs.DeliveryStreamKMSEncryptionConfig? kmsEncryptionConfig,
+            Outputs.DeliveryStreamKmsEncryptionConfig? kmsEncryptionConfig,
 
             Pulumi.AwsNative.KinesisFirehose.DeliveryStreamEncryptionConfigurationNoEncryptionConfig? noEncryptionConfig)
         {

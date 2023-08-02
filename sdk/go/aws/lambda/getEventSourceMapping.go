@@ -35,7 +35,7 @@ type LookupEventSourceMappingResult struct {
 	// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
 	// Document db event source config.
-	DocumentDbEventSourceConfig *EventSourceMappingDocumentDBEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
+	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
 	// Disables the event source mapping to pause polling and invocation.
 	Enabled *bool `pulumi:"enabled"`
 	// The filter criteria to control event filtering.
@@ -120,10 +120,10 @@ func (o LookupEventSourceMappingResultOutput) DestinationConfig() EventSourceMap
 }
 
 // Document db event source config.
-func (o LookupEventSourceMappingResultOutput) DocumentDbEventSourceConfig() EventSourceMappingDocumentDBEventSourceConfigPtrOutput {
-	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingDocumentDBEventSourceConfig {
+func (o LookupEventSourceMappingResultOutput) DocumentDbEventSourceConfig() EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingDocumentDbEventSourceConfig {
 		return v.DocumentDbEventSourceConfig
-	}).(EventSourceMappingDocumentDBEventSourceConfigPtrOutput)
+	}).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
 }
 
 // Disables the event source mapping to pause polling and invocation.

@@ -20,10 +20,10 @@ export type BillingGroup = import("./billingGroup").BillingGroup;
 export const BillingGroup: typeof import("./billingGroup").BillingGroup = null as any;
 utilities.lazyLoad(exports, ["BillingGroup"], () => require("./billingGroup"));
 
-export { CACertificateArgs } from "./cacertificate";
-export type CACertificate = import("./cacertificate").CACertificate;
-export const CACertificate: typeof import("./cacertificate").CACertificate = null as any;
-utilities.lazyLoad(exports, ["CACertificate"], () => require("./cacertificate"));
+export { CaCertificateArgs } from "./caCertificate";
+export type CaCertificate = import("./caCertificate").CaCertificate;
+export const CaCertificate: typeof import("./caCertificate").CaCertificate = null as any;
+utilities.lazyLoad(exports, ["CaCertificate"], () => require("./caCertificate"));
 
 export { CertificateArgs } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
@@ -65,10 +65,10 @@ export const getBillingGroup: typeof import("./getBillingGroup").getBillingGroup
 export const getBillingGroupOutput: typeof import("./getBillingGroup").getBillingGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getBillingGroup","getBillingGroupOutput"], () => require("./getBillingGroup"));
 
-export { GetCACertificateArgs, GetCACertificateResult, GetCACertificateOutputArgs } from "./getCACertificate";
-export const getCACertificate: typeof import("./getCACertificate").getCACertificate = null as any;
-export const getCACertificateOutput: typeof import("./getCACertificate").getCACertificateOutput = null as any;
-utilities.lazyLoad(exports, ["getCACertificate","getCACertificateOutput"], () => require("./getCACertificate"));
+export { GetCaCertificateArgs, GetCaCertificateResult, GetCaCertificateOutputArgs } from "./getCaCertificate";
+export const getCaCertificate: typeof import("./getCaCertificate").getCaCertificate = null as any;
+export const getCaCertificateOutput: typeof import("./getCaCertificate").getCaCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCaCertificate","getCaCertificateOutput"], () => require("./getCaCertificate"));
 
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
@@ -269,8 +269,8 @@ const _module = {
                 return new Authorizer(name, <any>undefined, { urn })
             case "aws-native:iot:BillingGroup":
                 return new BillingGroup(name, <any>undefined, { urn })
-            case "aws-native:iot:CACertificate":
-                return new CACertificate(name, <any>undefined, { urn })
+            case "aws-native:iot:CaCertificate":
+                return new CaCertificate(name, <any>undefined, { urn })
             case "aws-native:iot:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "aws-native:iot:CustomMetric":

@@ -19,7 +19,7 @@ __all__ = [
     'DeliveryStreamProcessorType',
     'DeliveryStreamRedshiftDestinationConfigurationS3BackupMode',
     'DeliveryStreamS3DestinationConfigurationCompressionFormat',
-    'DeliveryStreamSplunkDestinationConfigurationHECEndpointType',
+    'DeliveryStreamSplunkDestinationConfigurationHecEndpointType',
     'DeliveryStreamType',
 ]
 
@@ -107,7 +107,7 @@ class DeliveryStreamS3DestinationConfigurationCompressionFormat(str, Enum):
     HADOOP_SNAPPY = "HADOOP_SNAPPY"
 
 
-class DeliveryStreamSplunkDestinationConfigurationHECEndpointType(str, Enum):
+class DeliveryStreamSplunkDestinationConfigurationHecEndpointType(str, Enum):
     RAW = "Raw"
     EVENT = "Event"
 

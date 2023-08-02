@@ -23,7 +23,7 @@ export interface GetDetectorArgs {
 }
 
 export interface GetDetectorResult {
-    readonly dataSources?: outputs.guardduty.DetectorCFNDataSourceConfigurations;
+    readonly dataSources?: outputs.guardduty.DetectorCfnDataSourceConfigurations;
     readonly enable?: boolean;
     readonly features?: outputs.guardduty.DetectorFeatureConfigurations[];
     readonly findingPublishingFrequency?: string;

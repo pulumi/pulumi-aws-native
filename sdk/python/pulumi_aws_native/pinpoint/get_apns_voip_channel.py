@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetAPNSVoipChannelResult',
-    'AwaitableGetAPNSVoipChannelResult',
+    'GetApnsVoipChannelResult',
+    'AwaitableGetApnsVoipChannelResult',
     'get_apns_voip_channel',
     'get_apns_voip_channel_output',
 ]
 
 @pulumi.output_type
-class GetAPNSVoipChannelResult:
+class GetApnsVoipChannelResult:
     def __init__(__self__, bundle_id=None, certificate=None, default_authentication_method=None, enabled=None, id=None, private_key=None, team_id=None, token_key=None, token_key_id=None):
         if bundle_id and not isinstance(bundle_id, str):
             raise TypeError("Expected argument 'bundle_id' to be a str")
@@ -93,12 +93,12 @@ class GetAPNSVoipChannelResult:
         return pulumi.get(self, "token_key_id")
 
 
-class AwaitableGetAPNSVoipChannelResult(GetAPNSVoipChannelResult):
+class AwaitableGetApnsVoipChannelResult(GetApnsVoipChannelResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetAPNSVoipChannelResult(
+        return GetApnsVoipChannelResult(
             bundle_id=self.bundle_id,
             certificate=self.certificate,
             default_authentication_method=self.default_authentication_method,
@@ -111,16 +111,16 @@ class AwaitableGetAPNSVoipChannelResult(GetAPNSVoipChannelResult):
 
 
 def get_apns_voip_channel(id: Optional[str] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAPNSVoipChannelResult:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApnsVoipChannelResult:
     """
     Resource Type definition for AWS::Pinpoint::APNSVoipChannel
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getAPNSVoipChannel', __args__, opts=opts, typ=GetAPNSVoipChannelResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getApnsVoipChannel', __args__, opts=opts, typ=GetApnsVoipChannelResult).value
 
-    return AwaitableGetAPNSVoipChannelResult(
+    return AwaitableGetApnsVoipChannelResult(
         bundle_id=pulumi.get(__ret__, 'bundle_id'),
         certificate=pulumi.get(__ret__, 'certificate'),
         default_authentication_method=pulumi.get(__ret__, 'default_authentication_method'),
@@ -134,7 +134,7 @@ def get_apns_voip_channel(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_apns_voip_channel)
 def get_apns_voip_channel_output(id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAPNSVoipChannelResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApnsVoipChannelResult]:
     """
     Resource Type definition for AWS::Pinpoint::APNSVoipChannel
     """

@@ -12,26 +12,26 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['WebACLArgs', 'WebACL']
+__all__ = ['WebAclArgs', 'WebAcl']
 
 @pulumi.input_type
-class WebACLArgs:
+class WebAclArgs:
     def __init__(__self__, *,
-                 default_action: pulumi.Input['WebACLDefaultActionArgs'],
-                 scope: pulumi.Input['WebACLScope'],
-                 visibility_config: pulumi.Input['WebACLVisibilityConfigArgs'],
-                 association_config: Optional[pulumi.Input['WebACLAssociationConfigArgs']] = None,
-                 captcha_config: Optional[pulumi.Input['WebACLCaptchaConfigArgs']] = None,
-                 challenge_config: Optional[pulumi.Input['WebACLChallengeConfigArgs']] = None,
-                 custom_response_bodies: Optional[pulumi.Input['WebACLCustomResponseBodiesArgs']] = None,
+                 default_action: pulumi.Input['WebAclDefaultActionArgs'],
+                 scope: pulumi.Input['WebAclScope'],
+                 visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
+                 association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
+                 captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
+                 challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
+                 custom_response_bodies: Optional[pulumi.Input['WebAclCustomResponseBodiesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLTagArgs']]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclTagArgs']]]] = None,
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a WebACL resource.
-        :param pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]] rules: Collection of Rules.
+        The set of arguments for constructing a WebAcl resource.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Collection of Rules.
         """
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "scope", scope)
@@ -57,65 +57,65 @@ class WebACLArgs:
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> pulumi.Input['WebACLDefaultActionArgs']:
+    def default_action(self) -> pulumi.Input['WebAclDefaultActionArgs']:
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: pulumi.Input['WebACLDefaultActionArgs']):
+    def default_action(self, value: pulumi.Input['WebAclDefaultActionArgs']):
         pulumi.set(self, "default_action", value)
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Input['WebACLScope']:
+    def scope(self) -> pulumi.Input['WebAclScope']:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: pulumi.Input['WebACLScope']):
+    def scope(self, value: pulumi.Input['WebAclScope']):
         pulumi.set(self, "scope", value)
 
     @property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> pulumi.Input['WebACLVisibilityConfigArgs']:
+    def visibility_config(self) -> pulumi.Input['WebAclVisibilityConfigArgs']:
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
-    def visibility_config(self, value: pulumi.Input['WebACLVisibilityConfigArgs']):
+    def visibility_config(self, value: pulumi.Input['WebAclVisibilityConfigArgs']):
         pulumi.set(self, "visibility_config", value)
 
     @property
     @pulumi.getter(name="associationConfig")
-    def association_config(self) -> Optional[pulumi.Input['WebACLAssociationConfigArgs']]:
+    def association_config(self) -> Optional[pulumi.Input['WebAclAssociationConfigArgs']]:
         return pulumi.get(self, "association_config")
 
     @association_config.setter
-    def association_config(self, value: Optional[pulumi.Input['WebACLAssociationConfigArgs']]):
+    def association_config(self, value: Optional[pulumi.Input['WebAclAssociationConfigArgs']]):
         pulumi.set(self, "association_config", value)
 
     @property
     @pulumi.getter(name="captchaConfig")
-    def captcha_config(self) -> Optional[pulumi.Input['WebACLCaptchaConfigArgs']]:
+    def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
         return pulumi.get(self, "captcha_config")
 
     @captcha_config.setter
-    def captcha_config(self, value: Optional[pulumi.Input['WebACLCaptchaConfigArgs']]):
+    def captcha_config(self, value: Optional[pulumi.Input['WebAclCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
 
     @property
     @pulumi.getter(name="challengeConfig")
-    def challenge_config(self) -> Optional[pulumi.Input['WebACLChallengeConfigArgs']]:
+    def challenge_config(self) -> Optional[pulumi.Input['WebAclChallengeConfigArgs']]:
         return pulumi.get(self, "challenge_config")
 
     @challenge_config.setter
-    def challenge_config(self, value: Optional[pulumi.Input['WebACLChallengeConfigArgs']]):
+    def challenge_config(self, value: Optional[pulumi.Input['WebAclChallengeConfigArgs']]):
         pulumi.set(self, "challenge_config", value)
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional[pulumi.Input['WebACLCustomResponseBodiesArgs']]:
+    def custom_response_bodies(self) -> Optional[pulumi.Input['WebAclCustomResponseBodiesArgs']]:
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
-    def custom_response_bodies(self, value: Optional[pulumi.Input['WebACLCustomResponseBodiesArgs']]):
+    def custom_response_bodies(self, value: Optional[pulumi.Input['WebAclCustomResponseBodiesArgs']]):
         pulumi.set(self, "custom_response_bodies", value)
 
     @property
@@ -138,23 +138,23 @@ class WebACLArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
         """
         Collection of Rules.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -167,47 +167,47 @@ class WebACLArgs:
         pulumi.set(self, "token_domains", value)
 
 
-class WebACL(pulumi.CustomResource):
+class WebAcl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 association_config: Optional[pulumi.Input[pulumi.InputType['WebACLAssociationConfigArgs']]] = None,
-                 captcha_config: Optional[pulumi.Input[pulumi.InputType['WebACLCaptchaConfigArgs']]] = None,
-                 challenge_config: Optional[pulumi.Input[pulumi.InputType['WebACLChallengeConfigArgs']]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebACLCustomResponseBodiesArgs']]] = None,
-                 default_action: Optional[pulumi.Input[pulumi.InputType['WebACLDefaultActionArgs']]] = None,
+                 association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
+                 captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
+                 challenge_config: Optional[pulumi.Input[pulumi.InputType['WebAclChallengeConfigArgs']]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodiesArgs']]] = None,
+                 default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLRuleArgs']]]]] = None,
-                 scope: Optional[pulumi.Input['WebACLScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLTagArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
+                 scope: Optional[pulumi.Input['WebAclScope']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclTagArgs']]]]] = None,
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 visibility_config: Optional[pulumi.Input[pulumi.InputType['WebACLVisibilityConfigArgs']]] = None,
+                 visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
         """
         Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLRuleArgs']]]] rules: Collection of Rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Collection of Rules.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebACLArgs,
+                 args: WebAclArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
 
         :param str resource_name: The name of the resource.
-        :param WebACLArgs args: The arguments to use to populate this resource's properties.
+        :param WebAclArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebACLArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebAclArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -216,18 +216,18 @@ class WebACL(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 association_config: Optional[pulumi.Input[pulumi.InputType['WebACLAssociationConfigArgs']]] = None,
-                 captcha_config: Optional[pulumi.Input[pulumi.InputType['WebACLCaptchaConfigArgs']]] = None,
-                 challenge_config: Optional[pulumi.Input[pulumi.InputType['WebACLChallengeConfigArgs']]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebACLCustomResponseBodiesArgs']]] = None,
-                 default_action: Optional[pulumi.Input[pulumi.InputType['WebACLDefaultActionArgs']]] = None,
+                 association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
+                 captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
+                 challenge_config: Optional[pulumi.Input[pulumi.InputType['WebAclChallengeConfigArgs']]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodiesArgs']]] = None,
+                 default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLRuleArgs']]]]] = None,
-                 scope: Optional[pulumi.Input['WebACLScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLTagArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
+                 scope: Optional[pulumi.Input['WebAclScope']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclTagArgs']]]]] = None,
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 visibility_config: Optional[pulumi.Input[pulumi.InputType['WebACLVisibilityConfigArgs']]] = None,
+                 visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -235,7 +235,7 @@ class WebACL(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebACLArgs.__new__(WebACLArgs)
+            __props__ = WebAclArgs.__new__(WebAclArgs)
 
             __props__.__dict__["association_config"] = association_config
             __props__.__dict__["captcha_config"] = captcha_config
@@ -258,8 +258,8 @@ class WebACL(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["capacity"] = None
             __props__.__dict__["label_namespace"] = None
-        super(WebACL, __self__).__init__(
-            'aws-native:wafv2:WebACL',
+        super(WebAcl, __self__).__init__(
+            'aws-native:wafv2:WebAcl',
             resource_name,
             __props__,
             opts)
@@ -267,9 +267,9 @@ class WebACL(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebACL':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAcl':
         """
-        Get an existing WebACL resource's state with the given name, id, and optional extra
+        Get an existing WebAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -278,7 +278,7 @@ class WebACL(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = WebACLArgs.__new__(WebACLArgs)
+        __props__ = WebAclArgs.__new__(WebAclArgs)
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["association_config"] = None
@@ -295,7 +295,7 @@ class WebACL(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["token_domains"] = None
         __props__.__dict__["visibility_config"] = None
-        return WebACL(resource_name, opts=opts, __props__=__props__)
+        return WebAcl(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -304,7 +304,7 @@ class WebACL(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationConfig")
-    def association_config(self) -> pulumi.Output[Optional['outputs.WebACLAssociationConfig']]:
+    def association_config(self) -> pulumi.Output[Optional['outputs.WebAclAssociationConfig']]:
         return pulumi.get(self, "association_config")
 
     @property
@@ -314,22 +314,22 @@ class WebACL(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="captchaConfig")
-    def captcha_config(self) -> pulumi.Output[Optional['outputs.WebACLCaptchaConfig']]:
+    def captcha_config(self) -> pulumi.Output[Optional['outputs.WebAclCaptchaConfig']]:
         return pulumi.get(self, "captcha_config")
 
     @property
     @pulumi.getter(name="challengeConfig")
-    def challenge_config(self) -> pulumi.Output[Optional['outputs.WebACLChallengeConfig']]:
+    def challenge_config(self) -> pulumi.Output[Optional['outputs.WebAclChallengeConfig']]:
         return pulumi.get(self, "challenge_config")
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> pulumi.Output[Optional['outputs.WebACLCustomResponseBodies']]:
+    def custom_response_bodies(self) -> pulumi.Output[Optional['outputs.WebAclCustomResponseBodies']]:
         return pulumi.get(self, "custom_response_bodies")
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> pulumi.Output['outputs.WebACLDefaultAction']:
+    def default_action(self) -> pulumi.Output['outputs.WebAclDefaultAction']:
         return pulumi.get(self, "default_action")
 
     @property
@@ -349,7 +349,7 @@ class WebACL(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Output[Optional[Sequence['outputs.WebACLRule']]]:
+    def rules(self) -> pulumi.Output[Optional[Sequence['outputs.WebAclRule']]]:
         """
         Collection of Rules.
         """
@@ -357,12 +357,12 @@ class WebACL(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Output['WebACLScope']:
+    def scope(self) -> pulumi.Output['WebAclScope']:
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.WebACLTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.WebAclTag']]]:
         return pulumi.get(self, "tags")
 
     @property
@@ -372,6 +372,6 @@ class WebACL(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> pulumi.Output['outputs.WebACLVisibilityConfig']:
+    def visibility_config(self) -> pulumi.Output['outputs.WebAclVisibilityConfig']:
         return pulumi.get(self, "visibility_config")
 

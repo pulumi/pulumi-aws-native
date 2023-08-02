@@ -9,15 +9,15 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DRTAccessArgs', 'DRTAccess']
+__all__ = ['DrtAccessArgs', 'DrtAccess']
 
 @pulumi.input_type
-class DRTAccessArgs:
+class DrtAccessArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  log_bucket_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a DRTAccess resource.
+        The set of arguments for constructing a DrtAccess resource.
         :param pulumi.Input[str] role_arn: Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the SRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_bucket_list: Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.
         """
@@ -50,7 +50,7 @@ class DRTAccessArgs:
         pulumi.set(self, "log_bucket_list", value)
 
 
-class DRTAccess(pulumi.CustomResource):
+class DrtAccess(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -70,18 +70,18 @@ class DRTAccess(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DRTAccessArgs,
+                 args: DrtAccessArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
 
         :param str resource_name: The name of the resource.
-        :param DRTAccessArgs args: The arguments to use to populate this resource's properties.
+        :param DrtAccessArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DRTAccessArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DrtAccessArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -99,15 +99,15 @@ class DRTAccess(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DRTAccessArgs.__new__(DRTAccessArgs)
+            __props__ = DrtAccessArgs.__new__(DrtAccessArgs)
 
             __props__.__dict__["log_bucket_list"] = log_bucket_list
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["account_id"] = None
-        super(DRTAccess, __self__).__init__(
-            'aws-native:shield:DRTAccess',
+        super(DrtAccess, __self__).__init__(
+            'aws-native:shield:DrtAccess',
             resource_name,
             __props__,
             opts)
@@ -115,9 +115,9 @@ class DRTAccess(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'DRTAccess':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DrtAccess':
         """
-        Get an existing DRTAccess resource's state with the given name, id, and optional extra
+        Get an existing DrtAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -126,12 +126,12 @@ class DRTAccess(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DRTAccessArgs.__new__(DRTAccessArgs)
+        __props__ = DrtAccessArgs.__new__(DrtAccessArgs)
 
         __props__.__dict__["account_id"] = None
         __props__.__dict__["log_bucket_list"] = None
         __props__.__dict__["role_arn"] = None
-        return DRTAccess(resource_name, opts=opts, __props__=__props__)
+        return DrtAccess(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="accountId")

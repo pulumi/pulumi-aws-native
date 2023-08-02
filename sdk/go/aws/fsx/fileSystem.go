@@ -26,7 +26,7 @@ type FileSystem struct {
 	LustreConfiguration   FileSystemLustreConfigurationPtrOutput  `pulumi:"lustreConfiguration"`
 	LustreMountName       pulumi.StringOutput                     `pulumi:"lustreMountName"`
 	OntapConfiguration    FileSystemOntapConfigurationPtrOutput   `pulumi:"ontapConfiguration"`
-	OpenZfsConfiguration  FileSystemOpenZFSConfigurationPtrOutput `pulumi:"openZfsConfiguration"`
+	OpenZfsConfiguration  FileSystemOpenZfsConfigurationPtrOutput `pulumi:"openZfsConfiguration"`
 	ResourceArn           pulumi.StringOutput                     `pulumi:"resourceArn"`
 	RootVolumeId          pulumi.StringOutput                     `pulumi:"rootVolumeId"`
 	SecurityGroupIds      pulumi.StringArrayOutput                `pulumi:"securityGroupIds"`
@@ -89,7 +89,7 @@ type fileSystemArgs struct {
 	KmsKeyId              *string                         `pulumi:"kmsKeyId"`
 	LustreConfiguration   *FileSystemLustreConfiguration  `pulumi:"lustreConfiguration"`
 	OntapConfiguration    *FileSystemOntapConfiguration   `pulumi:"ontapConfiguration"`
-	OpenZfsConfiguration  *FileSystemOpenZFSConfiguration `pulumi:"openZfsConfiguration"`
+	OpenZfsConfiguration  *FileSystemOpenZfsConfiguration `pulumi:"openZfsConfiguration"`
 	SecurityGroupIds      []string                        `pulumi:"securityGroupIds"`
 	StorageCapacity       *int                            `pulumi:"storageCapacity"`
 	StorageType           *string                         `pulumi:"storageType"`
@@ -106,7 +106,7 @@ type FileSystemArgs struct {
 	KmsKeyId              pulumi.StringPtrInput
 	LustreConfiguration   FileSystemLustreConfigurationPtrInput
 	OntapConfiguration    FileSystemOntapConfigurationPtrInput
-	OpenZfsConfiguration  FileSystemOpenZFSConfigurationPtrInput
+	OpenZfsConfiguration  FileSystemOpenZfsConfigurationPtrInput
 	SecurityGroupIds      pulumi.StringArrayInput
 	StorageCapacity       pulumi.IntPtrInput
 	StorageType           pulumi.StringPtrInput
@@ -184,8 +184,8 @@ func (o FileSystemOutput) OntapConfiguration() FileSystemOntapConfigurationPtrOu
 	return o.ApplyT(func(v *FileSystem) FileSystemOntapConfigurationPtrOutput { return v.OntapConfiguration }).(FileSystemOntapConfigurationPtrOutput)
 }
 
-func (o FileSystemOutput) OpenZfsConfiguration() FileSystemOpenZFSConfigurationPtrOutput {
-	return o.ApplyT(func(v *FileSystem) FileSystemOpenZFSConfigurationPtrOutput { return v.OpenZfsConfiguration }).(FileSystemOpenZFSConfigurationPtrOutput)
+func (o FileSystemOutput) OpenZfsConfiguration() FileSystemOpenZfsConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemOpenZfsConfigurationPtrOutput { return v.OpenZfsConfiguration }).(FileSystemOpenZfsConfigurationPtrOutput)
 }
 
 func (o FileSystemOutput) ResourceArn() pulumi.StringOutput {

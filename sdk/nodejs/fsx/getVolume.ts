@@ -25,7 +25,7 @@ export interface GetVolumeArgs {
 export interface GetVolumeResult {
     readonly name?: string;
     readonly ontapConfiguration?: outputs.fsx.VolumeOntapConfiguration;
-    readonly openZfsConfiguration?: outputs.fsx.VolumeOpenZFSConfiguration;
+    readonly openZfsConfiguration?: outputs.fsx.VolumeOpenZfsConfiguration;
     readonly resourceArn?: string;
     readonly tags?: outputs.fsx.VolumeTag[];
     readonly uuid?: string;

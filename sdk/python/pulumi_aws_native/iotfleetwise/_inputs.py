@@ -11,16 +11,16 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CampaignCollectionScheme0PropertiesArgs',
+    'CampaignCollectionScheme1PropertiesArgs',
     'CampaignConditionBasedCollectionSchemeArgs',
+    'CampaignDataDestinationConfig0PropertiesArgs',
+    'CampaignDataDestinationConfig1PropertiesArgs',
     'CampaignS3ConfigArgs',
     'CampaignSignalInformationArgs',
     'CampaignTagArgs',
     'CampaignTimeBasedCollectionSchemeArgs',
     'CampaignTimestreamConfigArgs',
-    'CollectionScheme0PropertiesArgs',
-    'CollectionScheme1PropertiesArgs',
-    'DataDestinationConfig0PropertiesArgs',
-    'DataDestinationConfig1PropertiesArgs',
     'DecoderManifestCanInterfaceArgs',
     'DecoderManifestCanNetworkInterfaceArgs',
     'DecoderManifestCanSignalDecoderArgs',
@@ -32,19 +32,51 @@ __all__ = [
     'DecoderManifestTagArgs',
     'FleetTagArgs',
     'ModelManifestTagArgs',
-    'Node0PropertiesArgs',
-    'Node1PropertiesArgs',
-    'Node2PropertiesArgs',
-    'Node3PropertiesArgs',
     'SignalCatalogActuatorArgs',
     'SignalCatalogAttributeArgs',
     'SignalCatalogBranchArgs',
+    'SignalCatalogNode0PropertiesArgs',
+    'SignalCatalogNode1PropertiesArgs',
+    'SignalCatalogNode2PropertiesArgs',
+    'SignalCatalogNode3PropertiesArgs',
     'SignalCatalogNodeCountsArgs',
     'SignalCatalogSensorArgs',
     'SignalCatalogTagArgs',
     'VehicleTagArgs',
     'VehicleattributesMapArgs',
 ]
+
+@pulumi.input_type
+class CampaignCollectionScheme0PropertiesArgs:
+    def __init__(__self__, *,
+                 time_based_collection_scheme: pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']):
+        pulumi.set(__self__, "time_based_collection_scheme", time_based_collection_scheme)
+
+    @property
+    @pulumi.getter(name="timeBasedCollectionScheme")
+    def time_based_collection_scheme(self) -> pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']:
+        return pulumi.get(self, "time_based_collection_scheme")
+
+    @time_based_collection_scheme.setter
+    def time_based_collection_scheme(self, value: pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']):
+        pulumi.set(self, "time_based_collection_scheme", value)
+
+
+@pulumi.input_type
+class CampaignCollectionScheme1PropertiesArgs:
+    def __init__(__self__, *,
+                 condition_based_collection_scheme: pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']):
+        pulumi.set(__self__, "condition_based_collection_scheme", condition_based_collection_scheme)
+
+    @property
+    @pulumi.getter(name="conditionBasedCollectionScheme")
+    def condition_based_collection_scheme(self) -> pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']:
+        return pulumi.get(self, "condition_based_collection_scheme")
+
+    @condition_based_collection_scheme.setter
+    def condition_based_collection_scheme(self, value: pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']):
+        pulumi.set(self, "condition_based_collection_scheme", value)
+
 
 @pulumi.input_type
 class CampaignConditionBasedCollectionSchemeArgs:
@@ -96,6 +128,38 @@ class CampaignConditionBasedCollectionSchemeArgs:
     @trigger_mode.setter
     def trigger_mode(self, value: Optional[pulumi.Input['CampaignTriggerMode']]):
         pulumi.set(self, "trigger_mode", value)
+
+
+@pulumi.input_type
+class CampaignDataDestinationConfig0PropertiesArgs:
+    def __init__(__self__, *,
+                 s3_config: pulumi.Input['CampaignS3ConfigArgs']):
+        pulumi.set(__self__, "s3_config", s3_config)
+
+    @property
+    @pulumi.getter(name="s3Config")
+    def s3_config(self) -> pulumi.Input['CampaignS3ConfigArgs']:
+        return pulumi.get(self, "s3_config")
+
+    @s3_config.setter
+    def s3_config(self, value: pulumi.Input['CampaignS3ConfigArgs']):
+        pulumi.set(self, "s3_config", value)
+
+
+@pulumi.input_type
+class CampaignDataDestinationConfig1PropertiesArgs:
+    def __init__(__self__, *,
+                 timestream_config: pulumi.Input['CampaignTimestreamConfigArgs']):
+        pulumi.set(__self__, "timestream_config", timestream_config)
+
+    @property
+    @pulumi.getter(name="timestreamConfig")
+    def timestream_config(self) -> pulumi.Input['CampaignTimestreamConfigArgs']:
+        return pulumi.get(self, "timestream_config")
+
+    @timestream_config.setter
+    def timestream_config(self, value: pulumi.Input['CampaignTimestreamConfigArgs']):
+        pulumi.set(self, "timestream_config", value)
 
 
 @pulumi.input_type
@@ -258,70 +322,6 @@ class CampaignTimestreamConfigArgs:
     @timestream_table_arn.setter
     def timestream_table_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "timestream_table_arn", value)
-
-
-@pulumi.input_type
-class CollectionScheme0PropertiesArgs:
-    def __init__(__self__, *,
-                 time_based_collection_scheme: pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']):
-        pulumi.set(__self__, "time_based_collection_scheme", time_based_collection_scheme)
-
-    @property
-    @pulumi.getter(name="timeBasedCollectionScheme")
-    def time_based_collection_scheme(self) -> pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']:
-        return pulumi.get(self, "time_based_collection_scheme")
-
-    @time_based_collection_scheme.setter
-    def time_based_collection_scheme(self, value: pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']):
-        pulumi.set(self, "time_based_collection_scheme", value)
-
-
-@pulumi.input_type
-class CollectionScheme1PropertiesArgs:
-    def __init__(__self__, *,
-                 condition_based_collection_scheme: pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']):
-        pulumi.set(__self__, "condition_based_collection_scheme", condition_based_collection_scheme)
-
-    @property
-    @pulumi.getter(name="conditionBasedCollectionScheme")
-    def condition_based_collection_scheme(self) -> pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']:
-        return pulumi.get(self, "condition_based_collection_scheme")
-
-    @condition_based_collection_scheme.setter
-    def condition_based_collection_scheme(self, value: pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']):
-        pulumi.set(self, "condition_based_collection_scheme", value)
-
-
-@pulumi.input_type
-class DataDestinationConfig0PropertiesArgs:
-    def __init__(__self__, *,
-                 s3_config: pulumi.Input['CampaignS3ConfigArgs']):
-        pulumi.set(__self__, "s3_config", s3_config)
-
-    @property
-    @pulumi.getter(name="s3Config")
-    def s3_config(self) -> pulumi.Input['CampaignS3ConfigArgs']:
-        return pulumi.get(self, "s3_config")
-
-    @s3_config.setter
-    def s3_config(self, value: pulumi.Input['CampaignS3ConfigArgs']):
-        pulumi.set(self, "s3_config", value)
-
-
-@pulumi.input_type
-class DataDestinationConfig1PropertiesArgs:
-    def __init__(__self__, *,
-                 timestream_config: pulumi.Input['CampaignTimestreamConfigArgs']):
-        pulumi.set(__self__, "timestream_config", timestream_config)
-
-    @property
-    @pulumi.getter(name="timestreamConfig")
-    def timestream_config(self) -> pulumi.Input['CampaignTimestreamConfigArgs']:
-        return pulumi.get(self, "timestream_config")
-
-    @timestream_config.setter
-    def timestream_config(self, value: pulumi.Input['CampaignTimestreamConfigArgs']):
-        pulumi.set(self, "timestream_config", value)
 
 
 @pulumi.input_type
@@ -907,74 +907,6 @@ class ModelManifestTagArgs:
 
 
 @pulumi.input_type
-class Node0PropertiesArgs:
-    def __init__(__self__, *,
-                 branch: Optional[pulumi.Input['SignalCatalogBranchArgs']] = None):
-        if branch is not None:
-            pulumi.set(__self__, "branch", branch)
-
-    @property
-    @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input['SignalCatalogBranchArgs']]:
-        return pulumi.get(self, "branch")
-
-    @branch.setter
-    def branch(self, value: Optional[pulumi.Input['SignalCatalogBranchArgs']]):
-        pulumi.set(self, "branch", value)
-
-
-@pulumi.input_type
-class Node1PropertiesArgs:
-    def __init__(__self__, *,
-                 sensor: Optional[pulumi.Input['SignalCatalogSensorArgs']] = None):
-        if sensor is not None:
-            pulumi.set(__self__, "sensor", sensor)
-
-    @property
-    @pulumi.getter
-    def sensor(self) -> Optional[pulumi.Input['SignalCatalogSensorArgs']]:
-        return pulumi.get(self, "sensor")
-
-    @sensor.setter
-    def sensor(self, value: Optional[pulumi.Input['SignalCatalogSensorArgs']]):
-        pulumi.set(self, "sensor", value)
-
-
-@pulumi.input_type
-class Node2PropertiesArgs:
-    def __init__(__self__, *,
-                 actuator: Optional[pulumi.Input['SignalCatalogActuatorArgs']] = None):
-        if actuator is not None:
-            pulumi.set(__self__, "actuator", actuator)
-
-    @property
-    @pulumi.getter
-    def actuator(self) -> Optional[pulumi.Input['SignalCatalogActuatorArgs']]:
-        return pulumi.get(self, "actuator")
-
-    @actuator.setter
-    def actuator(self, value: Optional[pulumi.Input['SignalCatalogActuatorArgs']]):
-        pulumi.set(self, "actuator", value)
-
-
-@pulumi.input_type
-class Node3PropertiesArgs:
-    def __init__(__self__, *,
-                 attribute: Optional[pulumi.Input['SignalCatalogAttributeArgs']] = None):
-        if attribute is not None:
-            pulumi.set(__self__, "attribute", attribute)
-
-    @property
-    @pulumi.getter
-    def attribute(self) -> Optional[pulumi.Input['SignalCatalogAttributeArgs']]:
-        return pulumi.get(self, "attribute")
-
-    @attribute.setter
-    def attribute(self, value: Optional[pulumi.Input['SignalCatalogAttributeArgs']]):
-        pulumi.set(self, "attribute", value)
-
-
-@pulumi.input_type
 class SignalCatalogActuatorArgs:
     def __init__(__self__, *,
                  data_type: pulumi.Input['SignalCatalogNodeDataType'],
@@ -1210,6 +1142,74 @@ class SignalCatalogBranchArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class SignalCatalogNode0PropertiesArgs:
+    def __init__(__self__, *,
+                 branch: Optional[pulumi.Input['SignalCatalogBranchArgs']] = None):
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input['SignalCatalogBranchArgs']]:
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input['SignalCatalogBranchArgs']]):
+        pulumi.set(self, "branch", value)
+
+
+@pulumi.input_type
+class SignalCatalogNode1PropertiesArgs:
+    def __init__(__self__, *,
+                 sensor: Optional[pulumi.Input['SignalCatalogSensorArgs']] = None):
+        if sensor is not None:
+            pulumi.set(__self__, "sensor", sensor)
+
+    @property
+    @pulumi.getter
+    def sensor(self) -> Optional[pulumi.Input['SignalCatalogSensorArgs']]:
+        return pulumi.get(self, "sensor")
+
+    @sensor.setter
+    def sensor(self, value: Optional[pulumi.Input['SignalCatalogSensorArgs']]):
+        pulumi.set(self, "sensor", value)
+
+
+@pulumi.input_type
+class SignalCatalogNode2PropertiesArgs:
+    def __init__(__self__, *,
+                 actuator: Optional[pulumi.Input['SignalCatalogActuatorArgs']] = None):
+        if actuator is not None:
+            pulumi.set(__self__, "actuator", actuator)
+
+    @property
+    @pulumi.getter
+    def actuator(self) -> Optional[pulumi.Input['SignalCatalogActuatorArgs']]:
+        return pulumi.get(self, "actuator")
+
+    @actuator.setter
+    def actuator(self, value: Optional[pulumi.Input['SignalCatalogActuatorArgs']]):
+        pulumi.set(self, "actuator", value)
+
+
+@pulumi.input_type
+class SignalCatalogNode3PropertiesArgs:
+    def __init__(__self__, *,
+                 attribute: Optional[pulumi.Input['SignalCatalogAttributeArgs']] = None):
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> Optional[pulumi.Input['SignalCatalogAttributeArgs']]:
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: Optional[pulumi.Input['SignalCatalogAttributeArgs']]):
+        pulumi.set(self, "attribute", value)
 
 
 @pulumi.input_type

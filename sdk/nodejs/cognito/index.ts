@@ -55,10 +55,10 @@ export const getUserPoolRiskConfigurationAttachment: typeof import("./getUserPoo
 export const getUserPoolRiskConfigurationAttachmentOutput: typeof import("./getUserPoolRiskConfigurationAttachment").getUserPoolRiskConfigurationAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getUserPoolRiskConfigurationAttachment","getUserPoolRiskConfigurationAttachmentOutput"], () => require("./getUserPoolRiskConfigurationAttachment"));
 
-export { GetUserPoolUICustomizationAttachmentArgs, GetUserPoolUICustomizationAttachmentResult, GetUserPoolUICustomizationAttachmentOutputArgs } from "./getUserPoolUICustomizationAttachment";
-export const getUserPoolUICustomizationAttachment: typeof import("./getUserPoolUICustomizationAttachment").getUserPoolUICustomizationAttachment = null as any;
-export const getUserPoolUICustomizationAttachmentOutput: typeof import("./getUserPoolUICustomizationAttachment").getUserPoolUICustomizationAttachmentOutput = null as any;
-utilities.lazyLoad(exports, ["getUserPoolUICustomizationAttachment","getUserPoolUICustomizationAttachmentOutput"], () => require("./getUserPoolUICustomizationAttachment"));
+export { GetUserPoolUiCustomizationAttachmentArgs, GetUserPoolUiCustomizationAttachmentResult, GetUserPoolUiCustomizationAttachmentOutputArgs } from "./getUserPoolUiCustomizationAttachment";
+export const getUserPoolUiCustomizationAttachment: typeof import("./getUserPoolUiCustomizationAttachment").getUserPoolUiCustomizationAttachment = null as any;
+export const getUserPoolUiCustomizationAttachmentOutput: typeof import("./getUserPoolUiCustomizationAttachment").getUserPoolUiCustomizationAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolUiCustomizationAttachment","getUserPoolUiCustomizationAttachmentOutput"], () => require("./getUserPoolUiCustomizationAttachment"));
 
 export { GetUserPoolUserArgs, GetUserPoolUserResult, GetUserPoolUserOutputArgs } from "./getUserPoolUser";
 export const getUserPoolUser: typeof import("./getUserPoolUser").getUserPoolUser = null as any;
@@ -120,10 +120,10 @@ export type UserPoolRiskConfigurationAttachment = import("./userPoolRiskConfigur
 export const UserPoolRiskConfigurationAttachment: typeof import("./userPoolRiskConfigurationAttachment").UserPoolRiskConfigurationAttachment = null as any;
 utilities.lazyLoad(exports, ["UserPoolRiskConfigurationAttachment"], () => require("./userPoolRiskConfigurationAttachment"));
 
-export { UserPoolUICustomizationAttachmentArgs } from "./userPoolUICustomizationAttachment";
-export type UserPoolUICustomizationAttachment = import("./userPoolUICustomizationAttachment").UserPoolUICustomizationAttachment;
-export const UserPoolUICustomizationAttachment: typeof import("./userPoolUICustomizationAttachment").UserPoolUICustomizationAttachment = null as any;
-utilities.lazyLoad(exports, ["UserPoolUICustomizationAttachment"], () => require("./userPoolUICustomizationAttachment"));
+export { UserPoolUiCustomizationAttachmentArgs } from "./userPoolUiCustomizationAttachment";
+export type UserPoolUiCustomizationAttachment = import("./userPoolUiCustomizationAttachment").UserPoolUiCustomizationAttachment;
+export const UserPoolUiCustomizationAttachment: typeof import("./userPoolUiCustomizationAttachment").UserPoolUiCustomizationAttachment = null as any;
+utilities.lazyLoad(exports, ["UserPoolUiCustomizationAttachment"], () => require("./userPoolUiCustomizationAttachment"));
 
 export { UserPoolUserArgs } from "./userPoolUser";
 export type UserPoolUser = import("./userPoolUser").UserPoolUser;
@@ -160,8 +160,8 @@ const _module = {
                 return new UserPoolResourceServer(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolRiskConfigurationAttachment":
                 return new UserPoolRiskConfigurationAttachment(name, <any>undefined, { urn })
-            case "aws-native:cognito:UserPoolUICustomizationAttachment":
-                return new UserPoolUICustomizationAttachment(name, <any>undefined, { urn })
+            case "aws-native:cognito:UserPoolUiCustomizationAttachment":
+                return new UserPoolUiCustomizationAttachment(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolUser":
                 return new UserPoolUser(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolUserToGroupAttachment":

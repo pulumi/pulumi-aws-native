@@ -18,7 +18,7 @@ class FuotaTaskArgs:
     def __init__(__self__, *,
                  firmware_update_image: pulumi.Input[str],
                  firmware_update_role: pulumi.Input[str],
-                 lo_ra_wan: pulumi.Input['FuotaTaskLoRaWANArgs'],
+                 lo_ra_wan: pulumi.Input['FuotaTaskLoRaWanArgs'],
                  associate_multicast_group: Optional[pulumi.Input[str]] = None,
                  associate_wireless_device: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -30,7 +30,7 @@ class FuotaTaskArgs:
         The set of arguments for constructing a FuotaTask resource.
         :param pulumi.Input[str] firmware_update_image: FUOTA task firmware update image binary S3 link
         :param pulumi.Input[str] firmware_update_role: FUOTA task firmware IAM role for reading S3
-        :param pulumi.Input['FuotaTaskLoRaWANArgs'] lo_ra_wan: FUOTA task LoRaWAN
+        :param pulumi.Input['FuotaTaskLoRaWanArgs'] lo_ra_wan: FUOTA task LoRaWAN
         :param pulumi.Input[str] associate_multicast_group: Multicast group to associate. Only for update request.
         :param pulumi.Input[str] associate_wireless_device: Wireless device to associate. Only for update request.
         :param pulumi.Input[str] description: FUOTA task description
@@ -83,14 +83,14 @@ class FuotaTaskArgs:
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> pulumi.Input['FuotaTaskLoRaWANArgs']:
+    def lo_ra_wan(self) -> pulumi.Input['FuotaTaskLoRaWanArgs']:
         """
         FUOTA task LoRaWAN
         """
         return pulumi.get(self, "lo_ra_wan")
 
     @lo_ra_wan.setter
-    def lo_ra_wan(self, value: pulumi.Input['FuotaTaskLoRaWANArgs']):
+    def lo_ra_wan(self, value: pulumi.Input['FuotaTaskLoRaWanArgs']):
         pulumi.set(self, "lo_ra_wan", value)
 
     @property
@@ -190,7 +190,7 @@ class FuotaTask(pulumi.CustomResource):
                  disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
                  firmware_update_image: Optional[pulumi.Input[str]] = None,
                  firmware_update_role: Optional[pulumi.Input[str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['FuotaTaskLoRaWANArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['FuotaTaskLoRaWanArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FuotaTaskTagArgs']]]]] = None,
                  __props__=None):
@@ -206,7 +206,7 @@ class FuotaTask(pulumi.CustomResource):
         :param pulumi.Input[str] disassociate_wireless_device: Wireless device to disassociate. Only for update request.
         :param pulumi.Input[str] firmware_update_image: FUOTA task firmware update image binary S3 link
         :param pulumi.Input[str] firmware_update_role: FUOTA task firmware IAM role for reading S3
-        :param pulumi.Input[pulumi.InputType['FuotaTaskLoRaWANArgs']] lo_ra_wan: FUOTA task LoRaWAN
+        :param pulumi.Input[pulumi.InputType['FuotaTaskLoRaWanArgs']] lo_ra_wan: FUOTA task LoRaWAN
         :param pulumi.Input[str] name: Name of FUOTA task
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FuotaTaskTagArgs']]]] tags: A list of key-value pairs that contain metadata for the FUOTA task.
         """
@@ -241,7 +241,7 @@ class FuotaTask(pulumi.CustomResource):
                  disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
                  firmware_update_image: Optional[pulumi.Input[str]] = None,
                  firmware_update_role: Optional[pulumi.Input[str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['FuotaTaskLoRaWANArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['FuotaTaskLoRaWanArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FuotaTaskTagArgs']]]]] = None,
                  __props__=None):
@@ -381,7 +381,7 @@ class FuotaTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> pulumi.Output['outputs.FuotaTaskLoRaWAN']:
+    def lo_ra_wan(self) -> pulumi.Output['outputs.FuotaTaskLoRaWan']:
         """
         FUOTA task LoRaWAN
         """

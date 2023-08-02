@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DBClusterParameterGroupArgs', 'DBClusterParameterGroup']
+__all__ = ['DbClusterParameterGroupArgs', 'DbClusterParameterGroup']
 
 @pulumi.input_type
-class DBClusterParameterGroupArgs:
+class DbClusterParameterGroupArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  family: pulumi.Input[str],
                  parameters: Any,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterParameterGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterParameterGroupTagArgs']]]] = None):
         """
-        The set of arguments for constructing a DBClusterParameterGroup resource.
+        The set of arguments for constructing a DbClusterParameterGroup resource.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "family", family)
@@ -70,19 +70,19 @@ class DBClusterParameterGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterParameterGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterParameterGroupTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterParameterGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterParameterGroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""DBClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""DbClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class DBClusterParameterGroup(pulumi.CustomResource):
-    warnings.warn("""DBClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class DbClusterParameterGroup(pulumi.CustomResource):
+    warnings.warn("""DbClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -92,7 +92,7 @@ class DBClusterParameterGroup(pulumi.CustomResource):
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterParameterGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterParameterGroupTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DocDB::DBClusterParameterGroup
@@ -104,18 +104,18 @@ class DBClusterParameterGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DBClusterParameterGroupArgs,
+                 args: DbClusterParameterGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DocDB::DBClusterParameterGroup
 
         :param str resource_name: The name of the resource.
-        :param DBClusterParameterGroupArgs args: The arguments to use to populate this resource's properties.
+        :param DbClusterParameterGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DBClusterParameterGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DbClusterParameterGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -128,16 +128,16 @@ class DBClusterParameterGroup(pulumi.CustomResource):
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterParameterGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterParameterGroupTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DBClusterParameterGroup is deprecated: DBClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""DbClusterParameterGroup is deprecated: DbClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DBClusterParameterGroupArgs.__new__(DBClusterParameterGroupArgs)
+            __props__ = DbClusterParameterGroupArgs.__new__(DbClusterParameterGroupArgs)
 
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
@@ -150,8 +150,8 @@ class DBClusterParameterGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'parameters'")
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
-        super(DBClusterParameterGroup, __self__).__init__(
-            'aws-native:docdb:DBClusterParameterGroup',
+        super(DbClusterParameterGroup, __self__).__init__(
+            'aws-native:docdb:DbClusterParameterGroup',
             resource_name,
             __props__,
             opts)
@@ -159,9 +159,9 @@ class DBClusterParameterGroup(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'DBClusterParameterGroup':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DbClusterParameterGroup':
         """
-        Get an existing DBClusterParameterGroup resource's state with the given name, id, and optional extra
+        Get an existing DbClusterParameterGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -170,14 +170,14 @@ class DBClusterParameterGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DBClusterParameterGroupArgs.__new__(DBClusterParameterGroupArgs)
+        __props__ = DbClusterParameterGroupArgs.__new__(DbClusterParameterGroupArgs)
 
         __props__.__dict__["description"] = None
         __props__.__dict__["family"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["tags"] = None
-        return DBClusterParameterGroup(resource_name, opts=opts, __props__=__props__)
+        return DbClusterParameterGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -201,6 +201,6 @@ class DBClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBClusterParameterGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbClusterParameterGroupTag']]]:
         return pulumi.get(self, "tags")
 

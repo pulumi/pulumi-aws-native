@@ -13,104 +13,104 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type CRLTag struct {
+type CrlTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// CRLTagInput is an input type that accepts CRLTagArgs and CRLTagOutput values.
-// You can construct a concrete instance of `CRLTagInput` via:
+// CrlTagInput is an input type that accepts CrlTagArgs and CrlTagOutput values.
+// You can construct a concrete instance of `CrlTagInput` via:
 //
-//	CRLTagArgs{...}
-type CRLTagInput interface {
+//	CrlTagArgs{...}
+type CrlTagInput interface {
 	pulumi.Input
 
-	ToCRLTagOutput() CRLTagOutput
-	ToCRLTagOutputWithContext(context.Context) CRLTagOutput
+	ToCrlTagOutput() CrlTagOutput
+	ToCrlTagOutputWithContext(context.Context) CrlTagOutput
 }
 
-type CRLTagArgs struct {
+type CrlTagArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (CRLTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CRLTag)(nil)).Elem()
+func (CrlTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrlTag)(nil)).Elem()
 }
 
-func (i CRLTagArgs) ToCRLTagOutput() CRLTagOutput {
-	return i.ToCRLTagOutputWithContext(context.Background())
+func (i CrlTagArgs) ToCrlTagOutput() CrlTagOutput {
+	return i.ToCrlTagOutputWithContext(context.Background())
 }
 
-func (i CRLTagArgs) ToCRLTagOutputWithContext(ctx context.Context) CRLTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CRLTagOutput)
+func (i CrlTagArgs) ToCrlTagOutputWithContext(ctx context.Context) CrlTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrlTagOutput)
 }
 
-// CRLTagArrayInput is an input type that accepts CRLTagArray and CRLTagArrayOutput values.
-// You can construct a concrete instance of `CRLTagArrayInput` via:
+// CrlTagArrayInput is an input type that accepts CrlTagArray and CrlTagArrayOutput values.
+// You can construct a concrete instance of `CrlTagArrayInput` via:
 //
-//	CRLTagArray{ CRLTagArgs{...} }
-type CRLTagArrayInput interface {
+//	CrlTagArray{ CrlTagArgs{...} }
+type CrlTagArrayInput interface {
 	pulumi.Input
 
-	ToCRLTagArrayOutput() CRLTagArrayOutput
-	ToCRLTagArrayOutputWithContext(context.Context) CRLTagArrayOutput
+	ToCrlTagArrayOutput() CrlTagArrayOutput
+	ToCrlTagArrayOutputWithContext(context.Context) CrlTagArrayOutput
 }
 
-type CRLTagArray []CRLTagInput
+type CrlTagArray []CrlTagInput
 
-func (CRLTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CRLTag)(nil)).Elem()
+func (CrlTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrlTag)(nil)).Elem()
 }
 
-func (i CRLTagArray) ToCRLTagArrayOutput() CRLTagArrayOutput {
-	return i.ToCRLTagArrayOutputWithContext(context.Background())
+func (i CrlTagArray) ToCrlTagArrayOutput() CrlTagArrayOutput {
+	return i.ToCrlTagArrayOutputWithContext(context.Background())
 }
 
-func (i CRLTagArray) ToCRLTagArrayOutputWithContext(ctx context.Context) CRLTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CRLTagArrayOutput)
+func (i CrlTagArray) ToCrlTagArrayOutputWithContext(ctx context.Context) CrlTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrlTagArrayOutput)
 }
 
-type CRLTagOutput struct{ *pulumi.OutputState }
+type CrlTagOutput struct{ *pulumi.OutputState }
 
-func (CRLTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CRLTag)(nil)).Elem()
+func (CrlTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrlTag)(nil)).Elem()
 }
 
-func (o CRLTagOutput) ToCRLTagOutput() CRLTagOutput {
+func (o CrlTagOutput) ToCrlTagOutput() CrlTagOutput {
 	return o
 }
 
-func (o CRLTagOutput) ToCRLTagOutputWithContext(ctx context.Context) CRLTagOutput {
+func (o CrlTagOutput) ToCrlTagOutputWithContext(ctx context.Context) CrlTagOutput {
 	return o
 }
 
-func (o CRLTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CRLTag) string { return v.Key }).(pulumi.StringOutput)
+func (o CrlTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CrlTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o CRLTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CRLTag) string { return v.Value }).(pulumi.StringOutput)
+func (o CrlTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CrlTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type CRLTagArrayOutput struct{ *pulumi.OutputState }
+type CrlTagArrayOutput struct{ *pulumi.OutputState }
 
-func (CRLTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CRLTag)(nil)).Elem()
+func (CrlTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrlTag)(nil)).Elem()
 }
 
-func (o CRLTagArrayOutput) ToCRLTagArrayOutput() CRLTagArrayOutput {
+func (o CrlTagArrayOutput) ToCrlTagArrayOutput() CrlTagArrayOutput {
 	return o
 }
 
-func (o CRLTagArrayOutput) ToCRLTagArrayOutputWithContext(ctx context.Context) CRLTagArrayOutput {
+func (o CrlTagArrayOutput) ToCrlTagArrayOutputWithContext(ctx context.Context) CrlTagArrayOutput {
 	return o
 }
 
-func (o CRLTagArrayOutput) Index(i pulumi.IntInput) CRLTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CRLTag {
-		return vs[0].([]CRLTag)[vs[1].(int)]
-	}).(CRLTagOutput)
+func (o CrlTagArrayOutput) Index(i pulumi.IntInput) CrlTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrlTag {
+		return vs[0].([]CrlTag)[vs[1].(int)]
+	}).(CrlTagOutput)
 }
 
 type ProfileTag struct {
@@ -213,14 +213,6 @@ func (o ProfileTagArrayOutput) Index(i pulumi.IntInput) ProfileTagOutput {
 	}).(ProfileTagOutput)
 }
 
-type SourceData0Properties struct {
-	X509CertificateData string `pulumi:"x509CertificateData"`
-}
-
-type SourceData1Properties struct {
-	AcmPcaArn string `pulumi:"acmPcaArn"`
-}
-
 type TrustAnchorSource struct {
 	SourceData interface{}      `pulumi:"sourceData"`
 	SourceType *TrustAnchorType `pulumi:"sourceType"`
@@ -316,6 +308,14 @@ func (o TrustAnchorSourcePtrOutput) SourceType() TrustAnchorTypePtrOutput {
 		}
 		return v.SourceType
 	}).(TrustAnchorTypePtrOutput)
+}
+
+type TrustAnchorSourceData0Properties struct {
+	X509CertificateData string `pulumi:"x509CertificateData"`
+}
+
+type TrustAnchorSourceData1Properties struct {
+	AcmPcaArn string `pulumi:"acmPcaArn"`
 }
 
 type TrustAnchorTag struct {
@@ -419,15 +419,15 @@ func (o TrustAnchorTagArrayOutput) Index(i pulumi.IntInput) TrustAnchorTagOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CRLTagInput)(nil)).Elem(), CRLTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CRLTagArrayInput)(nil)).Elem(), CRLTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrlTagInput)(nil)).Elem(), CrlTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrlTagArrayInput)(nil)).Elem(), CrlTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagInput)(nil)).Elem(), ProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagArrayInput)(nil)).Elem(), ProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorSourceInput)(nil)).Elem(), TrustAnchorSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorTagInput)(nil)).Elem(), TrustAnchorTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorTagArrayInput)(nil)).Elem(), TrustAnchorTagArray{})
-	pulumi.RegisterOutputType(CRLTagOutput{})
-	pulumi.RegisterOutputType(CRLTagArrayOutput{})
+	pulumi.RegisterOutputType(CrlTagOutput{})
+	pulumi.RegisterOutputType(CrlTagArrayOutput{})
 	pulumi.RegisterOutputType(ProfileTagOutput{})
 	pulumi.RegisterOutputType(ProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(TrustAnchorSourceOutput{})

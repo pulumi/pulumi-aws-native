@@ -6,17 +6,17 @@ from enum import Enum
 
 __all__ = [
     'AgentEndpointType',
-    'LocationEFSInTransitEncryption',
-    'LocationFSxONTAPNfsMountOptionsVersion',
-    'LocationFSxONTAPSmbMountOptionsVersion',
-    'LocationFSxOpenZFSMountOptionsVersion',
-    'LocationHDFSAuthenticationType',
-    'LocationHDFSQopConfigurationDataTransferProtection',
-    'LocationHDFSQopConfigurationRpcProtection',
-    'LocationNFSMountOptionsVersion',
+    'LocationEfsInTransitEncryption',
+    'LocationFSxOntapNfsMountOptionsVersion',
+    'LocationFSxOntapSmbMountOptionsVersion',
+    'LocationFSxOpenZfsMountOptionsVersion',
+    'LocationHdfsAuthenticationType',
+    'LocationHdfsQopConfigurationDataTransferProtection',
+    'LocationHdfsQopConfigurationRpcProtection',
+    'LocationNfsMountOptionsVersion',
     'LocationObjectStorageServerProtocol',
     'LocationS3S3StorageClass',
-    'LocationSMBMountOptionsVersion',
+    'LocationSmbMountOptionsVersion',
     'StorageSystemConnectivityStatus',
     'StorageSystemSystemType',
     'TaskFilterRuleFilterType',
@@ -47,7 +47,7 @@ class AgentEndpointType(str, Enum):
     PRIVATE_LINK = "PRIVATE_LINK"
 
 
-class LocationEFSInTransitEncryption(str, Enum):
+class LocationEfsInTransitEncryption(str, Enum):
     """
     Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
     """
@@ -55,7 +55,7 @@ class LocationEFSInTransitEncryption(str, Enum):
     TLS12 = "TLS1_2"
 
 
-class LocationFSxONTAPNfsMountOptionsVersion(str, Enum):
+class LocationFSxOntapNfsMountOptionsVersion(str, Enum):
     """
     The specific NFS version that you want DataSync to use to mount your NFS share.
     """
@@ -65,7 +65,7 @@ class LocationFSxONTAPNfsMountOptionsVersion(str, Enum):
     NFS41 = "NFS4_1"
 
 
-class LocationFSxONTAPSmbMountOptionsVersion(str, Enum):
+class LocationFSxOntapSmbMountOptionsVersion(str, Enum):
     """
     The specific SMB version that you want DataSync to use to mount your SMB share.
     """
@@ -74,7 +74,7 @@ class LocationFSxONTAPSmbMountOptionsVersion(str, Enum):
     SMB3 = "SMB3"
 
 
-class LocationFSxOpenZFSMountOptionsVersion(str, Enum):
+class LocationFSxOpenZfsMountOptionsVersion(str, Enum):
     """
     The specific NFS version that you want DataSync to use to mount your NFS share.
     """
@@ -84,7 +84,7 @@ class LocationFSxOpenZFSMountOptionsVersion(str, Enum):
     NFS41 = "NFS4_1"
 
 
-class LocationHDFSAuthenticationType(str, Enum):
+class LocationHdfsAuthenticationType(str, Enum):
     """
     The authentication mode used to determine identity of user.
     """
@@ -92,7 +92,7 @@ class LocationHDFSAuthenticationType(str, Enum):
     KERBEROS = "KERBEROS"
 
 
-class LocationHDFSQopConfigurationDataTransferProtection(str, Enum):
+class LocationHdfsQopConfigurationDataTransferProtection(str, Enum):
     """
     Configuration for Data Transfer Protection.
     """
@@ -102,7 +102,7 @@ class LocationHDFSQopConfigurationDataTransferProtection(str, Enum):
     DISABLED = "DISABLED"
 
 
-class LocationHDFSQopConfigurationRpcProtection(str, Enum):
+class LocationHdfsQopConfigurationRpcProtection(str, Enum):
     """
     Configuration for RPC Protection.
     """
@@ -112,7 +112,7 @@ class LocationHDFSQopConfigurationRpcProtection(str, Enum):
     DISABLED = "DISABLED"
 
 
-class LocationNFSMountOptionsVersion(str, Enum):
+class LocationNfsMountOptionsVersion(str, Enum):
     """
     The specific NFS version that you want DataSync to use to mount your NFS share.
     """
@@ -143,7 +143,7 @@ class LocationS3S3StorageClass(str, Enum):
     DEEP_ARCHIVE = "DEEP_ARCHIVE"
 
 
-class LocationSMBMountOptionsVersion(str, Enum):
+class LocationSmbMountOptionsVersion(str, Enum):
     """
     The specific SMB version that you want DataSync to use to mount your SMB share.
     """

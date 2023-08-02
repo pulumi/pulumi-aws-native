@@ -49,9 +49,9 @@ export class DeploymentGroup extends pulumi.CustomResource {
     public readonly deploymentConfigName!: pulumi.Output<string | undefined>;
     public readonly deploymentGroupName!: pulumi.Output<string | undefined>;
     public readonly deploymentStyle!: pulumi.Output<outputs.codedeploy.DeploymentGroupDeploymentStyle | undefined>;
-    public readonly ec2TagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupEC2TagFilter[] | undefined>;
-    public readonly ec2TagSet!: pulumi.Output<outputs.codedeploy.DeploymentGroupEC2TagSet | undefined>;
-    public readonly ecsServices!: pulumi.Output<outputs.codedeploy.DeploymentGroupECSService[] | undefined>;
+    public readonly ec2TagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupEc2TagFilter[] | undefined>;
+    public readonly ec2TagSet!: pulumi.Output<outputs.codedeploy.DeploymentGroupEc2TagSet | undefined>;
+    public readonly ecsServices!: pulumi.Output<outputs.codedeploy.DeploymentGroupEcsService[] | undefined>;
     public readonly loadBalancerInfo!: pulumi.Output<outputs.codedeploy.DeploymentGroupLoadBalancerInfo | undefined>;
     public readonly onPremisesInstanceTagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupTagFilter[] | undefined>;
     public readonly onPremisesTagSet!: pulumi.Output<outputs.codedeploy.DeploymentGroupOnPremisesTagSet | undefined>;
@@ -137,9 +137,9 @@ export interface DeploymentGroupArgs {
     deploymentConfigName?: pulumi.Input<string>;
     deploymentGroupName?: pulumi.Input<string>;
     deploymentStyle?: pulumi.Input<inputs.codedeploy.DeploymentGroupDeploymentStyleArgs>;
-    ec2TagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEC2TagFilterArgs>[]>;
-    ec2TagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupEC2TagSetArgs>;
-    ecsServices?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupECSServiceArgs>[]>;
+    ec2TagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEc2TagFilterArgs>[]>;
+    ec2TagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupEc2TagSetArgs>;
+    ecsServices?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEcsServiceArgs>[]>;
     loadBalancerInfo?: pulumi.Input<inputs.codedeploy.DeploymentGroupLoadBalancerInfoArgs>;
     onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTagFilterArgs>[]>;
     onPremisesTagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupOnPremisesTagSetArgs>;

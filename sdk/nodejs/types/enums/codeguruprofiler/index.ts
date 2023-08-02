@@ -4,7 +4,7 @@
 
 export const ProfilingGroupComputePlatform = {
     Default: "Default",
-    AWSLambda: "AWSLambda",
+    AwsLambda: "AWSLambda",
 } as const;
 
 /**

@@ -27,7 +27,7 @@ type HostedZone struct {
 	NameServers        pulumi.StringArrayOutput              `pulumi:"nameServers"`
 	QueryLoggingConfig HostedZoneQueryLoggingConfigPtrOutput `pulumi:"queryLoggingConfig"`
 	// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-	Vpcs HostedZoneVPCArrayOutput `pulumi:"vpcs"`
+	Vpcs HostedZoneVpcArrayOutput `pulumi:"vpcs"`
 }
 
 // NewHostedZone registers a new resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ type hostedZoneArgs struct {
 	Name               *string                       `pulumi:"name"`
 	QueryLoggingConfig *HostedZoneQueryLoggingConfig `pulumi:"queryLoggingConfig"`
 	// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-	Vpcs []HostedZoneVPC `pulumi:"vpcs"`
+	Vpcs []HostedZoneVpc `pulumi:"vpcs"`
 }
 
 // The set of arguments for constructing a HostedZone resource.
@@ -97,7 +97,7 @@ type HostedZoneArgs struct {
 	Name               pulumi.StringPtrInput
 	QueryLoggingConfig HostedZoneQueryLoggingConfigPtrInput
 	// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-	Vpcs HostedZoneVPCArrayInput
+	Vpcs HostedZoneVpcArrayInput
 }
 
 func (HostedZoneArgs) ElementType() reflect.Type {
@@ -164,8 +164,8 @@ func (o HostedZoneOutput) QueryLoggingConfig() HostedZoneQueryLoggingConfigPtrOu
 }
 
 // A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-func (o HostedZoneOutput) Vpcs() HostedZoneVPCArrayOutput {
-	return o.ApplyT(func(v *HostedZone) HostedZoneVPCArrayOutput { return v.Vpcs }).(HostedZoneVPCArrayOutput)
+func (o HostedZoneOutput) Vpcs() HostedZoneVpcArrayOutput {
+	return o.ApplyT(func(v *HostedZone) HostedZoneVpcArrayOutput { return v.Vpcs }).(HostedZoneVpcArrayOutput)
 }
 
 func init() {

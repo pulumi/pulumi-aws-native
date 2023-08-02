@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CRLArgs', 'CRL']
+__all__ = ['CrlArgs', 'Crl']
 
 @pulumi.input_type
-class CRLArgs:
+class CrlArgs:
     def __init__(__self__, *,
                  crl_data: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CRLTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CrlTagArgs']]]] = None,
                  trust_anchor_arn: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a CRL resource.
+        The set of arguments for constructing a Crl resource.
         """
         pulumi.set(__self__, "crl_data", crl_data)
         if enabled is not None:
@@ -63,11 +63,11 @@ class CRLArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CRLTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrlTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CRLTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrlTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -80,7 +80,7 @@ class CRLArgs:
         pulumi.set(self, "trust_anchor_arn", value)
 
 
-class CRL(pulumi.CustomResource):
+class Crl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -88,7 +88,7 @@ class CRL(pulumi.CustomResource):
                  crl_data: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CRLTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrlTagArgs']]]]] = None,
                  trust_anchor_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -101,18 +101,18 @@ class CRL(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CRLArgs,
+                 args: CrlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RolesAnywhere::CRL Resource Type
 
         :param str resource_name: The name of the resource.
-        :param CRLArgs args: The arguments to use to populate this resource's properties.
+        :param CrlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CRLArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CrlArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -124,7 +124,7 @@ class CRL(pulumi.CustomResource):
                  crl_data: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CRLTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrlTagArgs']]]]] = None,
                  trust_anchor_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -133,7 +133,7 @@ class CRL(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CRLArgs.__new__(CRLArgs)
+            __props__ = CrlArgs.__new__(CrlArgs)
 
             if crl_data is None and not opts.urn:
                 raise TypeError("Missing required property 'crl_data'")
@@ -143,8 +143,8 @@ class CRL(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trust_anchor_arn"] = trust_anchor_arn
             __props__.__dict__["crl_id"] = None
-        super(CRL, __self__).__init__(
-            'aws-native:rolesanywhere:CRL',
+        super(Crl, __self__).__init__(
+            'aws-native:rolesanywhere:Crl',
             resource_name,
             __props__,
             opts)
@@ -152,9 +152,9 @@ class CRL(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'CRL':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Crl':
         """
-        Get an existing CRL resource's state with the given name, id, and optional extra
+        Get an existing Crl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -163,7 +163,7 @@ class CRL(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = CRLArgs.__new__(CRLArgs)
+        __props__ = CrlArgs.__new__(CrlArgs)
 
         __props__.__dict__["crl_data"] = None
         __props__.__dict__["crl_id"] = None
@@ -171,7 +171,7 @@ class CRL(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["trust_anchor_arn"] = None
-        return CRL(resource_name, opts=opts, __props__=__props__)
+        return Crl(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="crlData")
@@ -195,7 +195,7 @@ class CRL(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CRLTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CrlTag']]]:
         return pulumi.get(self, "tags")
 
     @property

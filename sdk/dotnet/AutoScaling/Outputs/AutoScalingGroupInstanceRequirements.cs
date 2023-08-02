@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         public readonly int? OnDemandMaxPricePercentageOverLowestPrice;
         public readonly bool? RequireHibernateSupport;
         public readonly int? SpotMaxPricePercentageOverLowestPrice;
-        public readonly Outputs.AutoScalingGroupTotalLocalStorageGBRequest? TotalLocalStorageGb;
+        public readonly Outputs.AutoScalingGroupTotalLocalStorageGbRequest? TotalLocalStorageGb;
         public readonly Outputs.AutoScalingGroupVCpuCountRequest? VCpuCount;
 
         [OutputConstructor]
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
             int? spotMaxPricePercentageOverLowestPrice,
 
-            Outputs.AutoScalingGroupTotalLocalStorageGBRequest? totalLocalStorageGb,
+            Outputs.AutoScalingGroupTotalLocalStorageGbRequest? totalLocalStorageGb,
 
             Outputs.AutoScalingGroupVCpuCountRequest? vCpuCount)
         {

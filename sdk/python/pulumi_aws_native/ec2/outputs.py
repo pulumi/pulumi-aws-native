@@ -28,40 +28,32 @@ __all__ = [
     'ClientVpnEndpointTag',
     'ClientVpnEndpointTagSpecification',
     'CustomerGatewayTag',
-    'DHCPOptionsTag',
     'DestinationOptionsProperties',
-    'EC2FleetAcceleratorCountRequest',
-    'EC2FleetAcceleratorTotalMemoryMiBRequest',
-    'EC2FleetBaselineEbsBandwidthMbpsRequest',
-    'EC2FleetCapacityRebalance',
-    'EC2FleetCapacityReservationOptionsRequest',
-    'EC2FleetFleetLaunchTemplateConfigRequest',
-    'EC2FleetFleetLaunchTemplateOverridesRequest',
-    'EC2FleetFleetLaunchTemplateSpecificationRequest',
-    'EC2FleetInstanceRequirementsRequest',
-    'EC2FleetMaintenanceStrategies',
-    'EC2FleetMemoryGiBPerVCpuRequest',
-    'EC2FleetMemoryMiBRequest',
-    'EC2FleetNetworkBandwidthGbpsRequest',
-    'EC2FleetNetworkInterfaceCountRequest',
-    'EC2FleetOnDemandOptionsRequest',
-    'EC2FleetPlacement',
-    'EC2FleetSpotOptionsRequest',
-    'EC2FleetTag',
-    'EC2FleetTagSpecification',
-    'EC2FleetTargetCapacitySpecificationRequest',
-    'EC2FleetTotalLocalStorageGBRequest',
-    'EC2FleetVCpuCountRangeRequest',
-    'EIPTag',
+    'DhcpOptionsTag',
+    'Ec2FleetAcceleratorCountRequest',
+    'Ec2FleetAcceleratorTotalMemoryMiBRequest',
+    'Ec2FleetBaselineEbsBandwidthMbpsRequest',
+    'Ec2FleetCapacityRebalance',
+    'Ec2FleetCapacityReservationOptionsRequest',
+    'Ec2FleetFleetLaunchTemplateConfigRequest',
+    'Ec2FleetFleetLaunchTemplateOverridesRequest',
+    'Ec2FleetFleetLaunchTemplateSpecificationRequest',
+    'Ec2FleetInstanceRequirementsRequest',
+    'Ec2FleetMaintenanceStrategies',
+    'Ec2FleetMemoryGiBPerVCpuRequest',
+    'Ec2FleetMemoryMiBRequest',
+    'Ec2FleetNetworkBandwidthGbpsRequest',
+    'Ec2FleetNetworkInterfaceCountRequest',
+    'Ec2FleetOnDemandOptionsRequest',
+    'Ec2FleetPlacement',
+    'Ec2FleetSpotOptionsRequest',
+    'Ec2FleetTag',
+    'Ec2FleetTagSpecification',
+    'Ec2FleetTargetCapacitySpecificationRequest',
+    'Ec2FleetTotalLocalStorageGbRequest',
+    'Ec2FleetVCpuCountRangeRequest',
+    'EipTag',
     'FlowLogTag',
-    'IPAMIpamOperatingRegion',
-    'IPAMPoolProvisionedCidr',
-    'IPAMPoolTag',
-    'IPAMResourceDiscoveryAssociationTag',
-    'IPAMResourceDiscoveryIpamOperatingRegion',
-    'IPAMResourceDiscoveryTag',
-    'IPAMScopeTag',
-    'IPAMTag',
     'InstanceAssociationParameter',
     'InstanceBlockDeviceMapping',
     'InstanceCpuOptions',
@@ -82,6 +74,14 @@ __all__ = [
     'InstanceTag',
     'InstanceVolume',
     'InternetGatewayTag',
+    'IpamOperatingRegion',
+    'IpamPoolProvisionedCidr',
+    'IpamPoolTag',
+    'IpamResourceDiscoveryAssociationTag',
+    'IpamResourceDiscoveryIpamOperatingRegion',
+    'IpamResourceDiscoveryTag',
+    'IpamScopeTag',
+    'IpamTag',
     'KeyPairTag',
     'LaunchTemplateAcceleratorCount',
     'LaunchTemplateAcceleratorTotalMemoryMiB',
@@ -118,11 +118,11 @@ __all__ = [
     'LaunchTemplateSpotOptions',
     'LaunchTemplateTag',
     'LaunchTemplateTagSpecification',
-    'LaunchTemplateTotalLocalStorageGB',
+    'LaunchTemplateTotalLocalStorageGb',
     'LaunchTemplateVCpuCount',
     'LocalGatewayRouteTableTag',
-    'LocalGatewayRouteTableVPCAssociationTag',
     'LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag',
+    'LocalGatewayRouteTableVpcAssociationTag',
     'NatGatewayTag',
     'NetworkAclEntryIcmp',
     'NetworkAclEntryPortRange',
@@ -194,7 +194,7 @@ __all__ = [
     'SpotFleetTagSpecification',
     'SpotFleetTargetGroup',
     'SpotFleetTargetGroupsConfig',
-    'SpotFleetTotalLocalStorageGBRequest',
+    'SpotFleetTotalLocalStorageGbRequest',
     'SpotFleetVCpuCountRangeRequest',
     'SubnetTag',
     'TagSpecification',
@@ -211,11 +211,6 @@ __all__ = [
     'TransitGatewayRouteTableTag',
     'TransitGatewayTag',
     'TransitGatewayVpcAttachmentTag',
-    'VPCPeeringConnectionTag',
-    'VPCTag',
-    'VPNConnectionTag',
-    'VPNConnectionVpnTunnelOptionsSpecification',
-    'VPNGatewayTag',
     'VerifiedAccessEndpointLoadBalancerOptions',
     'VerifiedAccessEndpointNetworkInterfaceOptions',
     'VerifiedAccessEndpointTag',
@@ -230,6 +225,11 @@ __all__ = [
     'VerifiedAccessTrustProviderOidcOptions',
     'VerifiedAccessTrustProviderTag',
     'VolumeTag',
+    'VpcPeeringConnectionTag',
+    'VpcTag',
+    'VpnConnectionTag',
+    'VpnConnectionVpnTunnelOptionsSpecification',
+    'VpnGatewayTag',
 ]
 
 @pulumi.output_type
@@ -803,25 +803,6 @@ class CustomerGatewayTag(dict):
 
 
 @pulumi.output_type
-class DHCPOptionsTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class DestinationOptionsProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -869,7 +850,26 @@ class DestinationOptionsProperties(dict):
 
 
 @pulumi.output_type
-class EC2FleetAcceleratorCountRequest(dict):
+class DhcpOptionsTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Ec2FleetAcceleratorCountRequest(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -890,7 +890,7 @@ class EC2FleetAcceleratorCountRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetAcceleratorTotalMemoryMiBRequest(dict):
+class Ec2FleetAcceleratorTotalMemoryMiBRequest(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -911,7 +911,7 @@ class EC2FleetAcceleratorTotalMemoryMiBRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetBaselineEbsBandwidthMbpsRequest(dict):
+class Ec2FleetBaselineEbsBandwidthMbpsRequest(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -932,7 +932,7 @@ class EC2FleetBaselineEbsBandwidthMbpsRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetCapacityRebalance(dict):
+class Ec2FleetCapacityRebalance(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -942,18 +942,18 @@ class EC2FleetCapacityRebalance(dict):
             suggest = "termination_delay"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetCapacityRebalance. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetCapacityRebalance. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetCapacityRebalance.__key_warning(key)
+        Ec2FleetCapacityRebalance.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetCapacityRebalance.__key_warning(key)
+        Ec2FleetCapacityRebalance.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 replacement_strategy: Optional['EC2FleetCapacityRebalanceReplacementStrategy'] = None,
+                 replacement_strategy: Optional['Ec2FleetCapacityRebalanceReplacementStrategy'] = None,
                  termination_delay: Optional[int] = None):
         if replacement_strategy is not None:
             pulumi.set(__self__, "replacement_strategy", replacement_strategy)
@@ -962,7 +962,7 @@ class EC2FleetCapacityRebalance(dict):
 
     @property
     @pulumi.getter(name="replacementStrategy")
-    def replacement_strategy(self) -> Optional['EC2FleetCapacityRebalanceReplacementStrategy']:
+    def replacement_strategy(self) -> Optional['Ec2FleetCapacityRebalanceReplacementStrategy']:
         return pulumi.get(self, "replacement_strategy")
 
     @property
@@ -972,7 +972,7 @@ class EC2FleetCapacityRebalance(dict):
 
 
 @pulumi.output_type
-class EC2FleetCapacityReservationOptionsRequest(dict):
+class Ec2FleetCapacityReservationOptionsRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -980,29 +980,29 @@ class EC2FleetCapacityReservationOptionsRequest(dict):
             suggest = "usage_strategy"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetCapacityReservationOptionsRequest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetCapacityReservationOptionsRequest. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetCapacityReservationOptionsRequest.__key_warning(key)
+        Ec2FleetCapacityReservationOptionsRequest.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetCapacityReservationOptionsRequest.__key_warning(key)
+        Ec2FleetCapacityReservationOptionsRequest.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 usage_strategy: Optional['EC2FleetCapacityReservationOptionsRequestUsageStrategy'] = None):
+                 usage_strategy: Optional['Ec2FleetCapacityReservationOptionsRequestUsageStrategy'] = None):
         if usage_strategy is not None:
             pulumi.set(__self__, "usage_strategy", usage_strategy)
 
     @property
     @pulumi.getter(name="usageStrategy")
-    def usage_strategy(self) -> Optional['EC2FleetCapacityReservationOptionsRequestUsageStrategy']:
+    def usage_strategy(self) -> Optional['Ec2FleetCapacityReservationOptionsRequestUsageStrategy']:
         return pulumi.get(self, "usage_strategy")
 
 
 @pulumi.output_type
-class EC2FleetFleetLaunchTemplateConfigRequest(dict):
+class Ec2FleetFleetLaunchTemplateConfigRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1010,19 +1010,19 @@ class EC2FleetFleetLaunchTemplateConfigRequest(dict):
             suggest = "launch_template_specification"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetFleetLaunchTemplateConfigRequest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetFleetLaunchTemplateConfigRequest. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetFleetLaunchTemplateConfigRequest.__key_warning(key)
+        Ec2FleetFleetLaunchTemplateConfigRequest.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetFleetLaunchTemplateConfigRequest.__key_warning(key)
+        Ec2FleetFleetLaunchTemplateConfigRequest.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 launch_template_specification: Optional['outputs.EC2FleetFleetLaunchTemplateSpecificationRequest'] = None,
-                 overrides: Optional[Sequence['outputs.EC2FleetFleetLaunchTemplateOverridesRequest']] = None):
+                 launch_template_specification: Optional['outputs.Ec2FleetFleetLaunchTemplateSpecificationRequest'] = None,
+                 overrides: Optional[Sequence['outputs.Ec2FleetFleetLaunchTemplateOverridesRequest']] = None):
         if launch_template_specification is not None:
             pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if overrides is not None:
@@ -1030,17 +1030,17 @@ class EC2FleetFleetLaunchTemplateConfigRequest(dict):
 
     @property
     @pulumi.getter(name="launchTemplateSpecification")
-    def launch_template_specification(self) -> Optional['outputs.EC2FleetFleetLaunchTemplateSpecificationRequest']:
+    def launch_template_specification(self) -> Optional['outputs.Ec2FleetFleetLaunchTemplateSpecificationRequest']:
         return pulumi.get(self, "launch_template_specification")
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional[Sequence['outputs.EC2FleetFleetLaunchTemplateOverridesRequest']]:
+    def overrides(self) -> Optional[Sequence['outputs.Ec2FleetFleetLaunchTemplateOverridesRequest']]:
         return pulumi.get(self, "overrides")
 
 
 @pulumi.output_type
-class EC2FleetFleetLaunchTemplateOverridesRequest(dict):
+class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1058,22 +1058,22 @@ class EC2FleetFleetLaunchTemplateOverridesRequest(dict):
             suggest = "weighted_capacity"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetFleetLaunchTemplateOverridesRequest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetFleetLaunchTemplateOverridesRequest. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetFleetLaunchTemplateOverridesRequest.__key_warning(key)
+        Ec2FleetFleetLaunchTemplateOverridesRequest.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetFleetLaunchTemplateOverridesRequest.__key_warning(key)
+        Ec2FleetFleetLaunchTemplateOverridesRequest.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  availability_zone: Optional[str] = None,
-                 instance_requirements: Optional['outputs.EC2FleetInstanceRequirementsRequest'] = None,
+                 instance_requirements: Optional['outputs.Ec2FleetInstanceRequirementsRequest'] = None,
                  instance_type: Optional[str] = None,
                  max_price: Optional[str] = None,
-                 placement: Optional['outputs.EC2FleetPlacement'] = None,
+                 placement: Optional['outputs.Ec2FleetPlacement'] = None,
                  priority: Optional[float] = None,
                  subnet_id: Optional[str] = None,
                  weighted_capacity: Optional[float] = None):
@@ -1101,7 +1101,7 @@ class EC2FleetFleetLaunchTemplateOverridesRequest(dict):
 
     @property
     @pulumi.getter(name="instanceRequirements")
-    def instance_requirements(self) -> Optional['outputs.EC2FleetInstanceRequirementsRequest']:
+    def instance_requirements(self) -> Optional['outputs.Ec2FleetInstanceRequirementsRequest']:
         return pulumi.get(self, "instance_requirements")
 
     @property
@@ -1116,7 +1116,7 @@ class EC2FleetFleetLaunchTemplateOverridesRequest(dict):
 
     @property
     @pulumi.getter
-    def placement(self) -> Optional['outputs.EC2FleetPlacement']:
+    def placement(self) -> Optional['outputs.Ec2FleetPlacement']:
         return pulumi.get(self, "placement")
 
     @property
@@ -1136,7 +1136,7 @@ class EC2FleetFleetLaunchTemplateOverridesRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetFleetLaunchTemplateSpecificationRequest(dict):
+class Ec2FleetFleetLaunchTemplateSpecificationRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1146,14 +1146,14 @@ class EC2FleetFleetLaunchTemplateSpecificationRequest(dict):
             suggest = "launch_template_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetFleetLaunchTemplateSpecificationRequest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetFleetLaunchTemplateSpecificationRequest. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetFleetLaunchTemplateSpecificationRequest.__key_warning(key)
+        Ec2FleetFleetLaunchTemplateSpecificationRequest.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetFleetLaunchTemplateSpecificationRequest.__key_warning(key)
+        Ec2FleetFleetLaunchTemplateSpecificationRequest.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1183,7 +1183,7 @@ class EC2FleetFleetLaunchTemplateSpecificationRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetInstanceRequirementsRequest(dict):
+class Ec2FleetInstanceRequirementsRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1235,40 +1235,40 @@ class EC2FleetInstanceRequirementsRequest(dict):
             suggest = "v_cpu_count"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetInstanceRequirementsRequest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetInstanceRequirementsRequest. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetInstanceRequirementsRequest.__key_warning(key)
+        Ec2FleetInstanceRequirementsRequest.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetInstanceRequirementsRequest.__key_warning(key)
+        Ec2FleetInstanceRequirementsRequest.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 accelerator_count: Optional['outputs.EC2FleetAcceleratorCountRequest'] = None,
-                 accelerator_manufacturers: Optional[Sequence['EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem']] = None,
-                 accelerator_names: Optional[Sequence['EC2FleetInstanceRequirementsRequestAcceleratorNamesItem']] = None,
-                 accelerator_total_memory_mi_b: Optional['outputs.EC2FleetAcceleratorTotalMemoryMiBRequest'] = None,
-                 accelerator_types: Optional[Sequence['EC2FleetInstanceRequirementsRequestAcceleratorTypesItem']] = None,
+                 accelerator_count: Optional['outputs.Ec2FleetAcceleratorCountRequest'] = None,
+                 accelerator_manufacturers: Optional[Sequence['Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem']] = None,
+                 accelerator_names: Optional[Sequence['Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem']] = None,
+                 accelerator_total_memory_mi_b: Optional['outputs.Ec2FleetAcceleratorTotalMemoryMiBRequest'] = None,
+                 accelerator_types: Optional[Sequence['Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem']] = None,
                  allowed_instance_types: Optional[Sequence[str]] = None,
-                 bare_metal: Optional['EC2FleetInstanceRequirementsRequestBareMetal'] = None,
-                 baseline_ebs_bandwidth_mbps: Optional['outputs.EC2FleetBaselineEbsBandwidthMbpsRequest'] = None,
-                 burstable_performance: Optional['EC2FleetInstanceRequirementsRequestBurstablePerformance'] = None,
-                 cpu_manufacturers: Optional[Sequence['EC2FleetInstanceRequirementsRequestCpuManufacturersItem']] = None,
+                 bare_metal: Optional['Ec2FleetInstanceRequirementsRequestBareMetal'] = None,
+                 baseline_ebs_bandwidth_mbps: Optional['outputs.Ec2FleetBaselineEbsBandwidthMbpsRequest'] = None,
+                 burstable_performance: Optional['Ec2FleetInstanceRequirementsRequestBurstablePerformance'] = None,
+                 cpu_manufacturers: Optional[Sequence['Ec2FleetInstanceRequirementsRequestCpuManufacturersItem']] = None,
                  excluded_instance_types: Optional[Sequence[str]] = None,
-                 instance_generations: Optional[Sequence['EC2FleetInstanceRequirementsRequestInstanceGenerationsItem']] = None,
-                 local_storage: Optional['EC2FleetInstanceRequirementsRequestLocalStorage'] = None,
-                 local_storage_types: Optional[Sequence['EC2FleetInstanceRequirementsRequestLocalStorageTypesItem']] = None,
-                 memory_gi_b_per_v_cpu: Optional['outputs.EC2FleetMemoryGiBPerVCpuRequest'] = None,
-                 memory_mi_b: Optional['outputs.EC2FleetMemoryMiBRequest'] = None,
-                 network_bandwidth_gbps: Optional['outputs.EC2FleetNetworkBandwidthGbpsRequest'] = None,
-                 network_interface_count: Optional['outputs.EC2FleetNetworkInterfaceCountRequest'] = None,
+                 instance_generations: Optional[Sequence['Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem']] = None,
+                 local_storage: Optional['Ec2FleetInstanceRequirementsRequestLocalStorage'] = None,
+                 local_storage_types: Optional[Sequence['Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem']] = None,
+                 memory_gi_b_per_v_cpu: Optional['outputs.Ec2FleetMemoryGiBPerVCpuRequest'] = None,
+                 memory_mi_b: Optional['outputs.Ec2FleetMemoryMiBRequest'] = None,
+                 network_bandwidth_gbps: Optional['outputs.Ec2FleetNetworkBandwidthGbpsRequest'] = None,
+                 network_interface_count: Optional['outputs.Ec2FleetNetworkInterfaceCountRequest'] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
                  require_hibernate_support: Optional[bool] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[int] = None,
-                 total_local_storage_gb: Optional['outputs.EC2FleetTotalLocalStorageGBRequest'] = None,
-                 v_cpu_count: Optional['outputs.EC2FleetVCpuCountRangeRequest'] = None):
+                 total_local_storage_gb: Optional['outputs.Ec2FleetTotalLocalStorageGbRequest'] = None,
+                 v_cpu_count: Optional['outputs.Ec2FleetVCpuCountRangeRequest'] = None):
         if accelerator_count is not None:
             pulumi.set(__self__, "accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -1318,27 +1318,27 @@ class EC2FleetInstanceRequirementsRequest(dict):
 
     @property
     @pulumi.getter(name="acceleratorCount")
-    def accelerator_count(self) -> Optional['outputs.EC2FleetAcceleratorCountRequest']:
+    def accelerator_count(self) -> Optional['outputs.Ec2FleetAcceleratorCountRequest']:
         return pulumi.get(self, "accelerator_count")
 
     @property
     @pulumi.getter(name="acceleratorManufacturers")
-    def accelerator_manufacturers(self) -> Optional[Sequence['EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem']]:
+    def accelerator_manufacturers(self) -> Optional[Sequence['Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem']]:
         return pulumi.get(self, "accelerator_manufacturers")
 
     @property
     @pulumi.getter(name="acceleratorNames")
-    def accelerator_names(self) -> Optional[Sequence['EC2FleetInstanceRequirementsRequestAcceleratorNamesItem']]:
+    def accelerator_names(self) -> Optional[Sequence['Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem']]:
         return pulumi.get(self, "accelerator_names")
 
     @property
     @pulumi.getter(name="acceleratorTotalMemoryMiB")
-    def accelerator_total_memory_mi_b(self) -> Optional['outputs.EC2FleetAcceleratorTotalMemoryMiBRequest']:
+    def accelerator_total_memory_mi_b(self) -> Optional['outputs.Ec2FleetAcceleratorTotalMemoryMiBRequest']:
         return pulumi.get(self, "accelerator_total_memory_mi_b")
 
     @property
     @pulumi.getter(name="acceleratorTypes")
-    def accelerator_types(self) -> Optional[Sequence['EC2FleetInstanceRequirementsRequestAcceleratorTypesItem']]:
+    def accelerator_types(self) -> Optional[Sequence['Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem']]:
         return pulumi.get(self, "accelerator_types")
 
     @property
@@ -1348,22 +1348,22 @@ class EC2FleetInstanceRequirementsRequest(dict):
 
     @property
     @pulumi.getter(name="bareMetal")
-    def bare_metal(self) -> Optional['EC2FleetInstanceRequirementsRequestBareMetal']:
+    def bare_metal(self) -> Optional['Ec2FleetInstanceRequirementsRequestBareMetal']:
         return pulumi.get(self, "bare_metal")
 
     @property
     @pulumi.getter(name="baselineEbsBandwidthMbps")
-    def baseline_ebs_bandwidth_mbps(self) -> Optional['outputs.EC2FleetBaselineEbsBandwidthMbpsRequest']:
+    def baseline_ebs_bandwidth_mbps(self) -> Optional['outputs.Ec2FleetBaselineEbsBandwidthMbpsRequest']:
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
     @property
     @pulumi.getter(name="burstablePerformance")
-    def burstable_performance(self) -> Optional['EC2FleetInstanceRequirementsRequestBurstablePerformance']:
+    def burstable_performance(self) -> Optional['Ec2FleetInstanceRequirementsRequestBurstablePerformance']:
         return pulumi.get(self, "burstable_performance")
 
     @property
     @pulumi.getter(name="cpuManufacturers")
-    def cpu_manufacturers(self) -> Optional[Sequence['EC2FleetInstanceRequirementsRequestCpuManufacturersItem']]:
+    def cpu_manufacturers(self) -> Optional[Sequence['Ec2FleetInstanceRequirementsRequestCpuManufacturersItem']]:
         return pulumi.get(self, "cpu_manufacturers")
 
     @property
@@ -1373,37 +1373,37 @@ class EC2FleetInstanceRequirementsRequest(dict):
 
     @property
     @pulumi.getter(name="instanceGenerations")
-    def instance_generations(self) -> Optional[Sequence['EC2FleetInstanceRequirementsRequestInstanceGenerationsItem']]:
+    def instance_generations(self) -> Optional[Sequence['Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem']]:
         return pulumi.get(self, "instance_generations")
 
     @property
     @pulumi.getter(name="localStorage")
-    def local_storage(self) -> Optional['EC2FleetInstanceRequirementsRequestLocalStorage']:
+    def local_storage(self) -> Optional['Ec2FleetInstanceRequirementsRequestLocalStorage']:
         return pulumi.get(self, "local_storage")
 
     @property
     @pulumi.getter(name="localStorageTypes")
-    def local_storage_types(self) -> Optional[Sequence['EC2FleetInstanceRequirementsRequestLocalStorageTypesItem']]:
+    def local_storage_types(self) -> Optional[Sequence['Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem']]:
         return pulumi.get(self, "local_storage_types")
 
     @property
     @pulumi.getter(name="memoryGiBPerVCpu")
-    def memory_gi_b_per_v_cpu(self) -> Optional['outputs.EC2FleetMemoryGiBPerVCpuRequest']:
+    def memory_gi_b_per_v_cpu(self) -> Optional['outputs.Ec2FleetMemoryGiBPerVCpuRequest']:
         return pulumi.get(self, "memory_gi_b_per_v_cpu")
 
     @property
     @pulumi.getter(name="memoryMiB")
-    def memory_mi_b(self) -> Optional['outputs.EC2FleetMemoryMiBRequest']:
+    def memory_mi_b(self) -> Optional['outputs.Ec2FleetMemoryMiBRequest']:
         return pulumi.get(self, "memory_mi_b")
 
     @property
     @pulumi.getter(name="networkBandwidthGbps")
-    def network_bandwidth_gbps(self) -> Optional['outputs.EC2FleetNetworkBandwidthGbpsRequest']:
+    def network_bandwidth_gbps(self) -> Optional['outputs.Ec2FleetNetworkBandwidthGbpsRequest']:
         return pulumi.get(self, "network_bandwidth_gbps")
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
-    def network_interface_count(self) -> Optional['outputs.EC2FleetNetworkInterfaceCountRequest']:
+    def network_interface_count(self) -> Optional['outputs.Ec2FleetNetworkInterfaceCountRequest']:
         return pulumi.get(self, "network_interface_count")
 
     @property
@@ -1423,17 +1423,17 @@ class EC2FleetInstanceRequirementsRequest(dict):
 
     @property
     @pulumi.getter(name="totalLocalStorageGb")
-    def total_local_storage_gb(self) -> Optional['outputs.EC2FleetTotalLocalStorageGBRequest']:
+    def total_local_storage_gb(self) -> Optional['outputs.Ec2FleetTotalLocalStorageGbRequest']:
         return pulumi.get(self, "total_local_storage_gb")
 
     @property
     @pulumi.getter(name="vCpuCount")
-    def v_cpu_count(self) -> Optional['outputs.EC2FleetVCpuCountRangeRequest']:
+    def v_cpu_count(self) -> Optional['outputs.Ec2FleetVCpuCountRangeRequest']:
         return pulumi.get(self, "v_cpu_count")
 
 
 @pulumi.output_type
-class EC2FleetMaintenanceStrategies(dict):
+class Ec2FleetMaintenanceStrategies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1441,29 +1441,29 @@ class EC2FleetMaintenanceStrategies(dict):
             suggest = "capacity_rebalance"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetMaintenanceStrategies. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetMaintenanceStrategies. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetMaintenanceStrategies.__key_warning(key)
+        Ec2FleetMaintenanceStrategies.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetMaintenanceStrategies.__key_warning(key)
+        Ec2FleetMaintenanceStrategies.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 capacity_rebalance: Optional['outputs.EC2FleetCapacityRebalance'] = None):
+                 capacity_rebalance: Optional['outputs.Ec2FleetCapacityRebalance'] = None):
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
 
     @property
     @pulumi.getter(name="capacityRebalance")
-    def capacity_rebalance(self) -> Optional['outputs.EC2FleetCapacityRebalance']:
+    def capacity_rebalance(self) -> Optional['outputs.Ec2FleetCapacityRebalance']:
         return pulumi.get(self, "capacity_rebalance")
 
 
 @pulumi.output_type
-class EC2FleetMemoryGiBPerVCpuRequest(dict):
+class Ec2FleetMemoryGiBPerVCpuRequest(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -1484,7 +1484,7 @@ class EC2FleetMemoryGiBPerVCpuRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetMemoryMiBRequest(dict):
+class Ec2FleetMemoryMiBRequest(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -1505,7 +1505,7 @@ class EC2FleetMemoryMiBRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetNetworkBandwidthGbpsRequest(dict):
+class Ec2FleetNetworkBandwidthGbpsRequest(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -1526,7 +1526,7 @@ class EC2FleetNetworkBandwidthGbpsRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetNetworkInterfaceCountRequest(dict):
+class Ec2FleetNetworkInterfaceCountRequest(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -1547,7 +1547,7 @@ class EC2FleetNetworkInterfaceCountRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetOnDemandOptionsRequest(dict):
+class Ec2FleetOnDemandOptionsRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1565,19 +1565,19 @@ class EC2FleetOnDemandOptionsRequest(dict):
             suggest = "single_instance_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetOnDemandOptionsRequest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetOnDemandOptionsRequest. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetOnDemandOptionsRequest.__key_warning(key)
+        Ec2FleetOnDemandOptionsRequest.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetOnDemandOptionsRequest.__key_warning(key)
+        Ec2FleetOnDemandOptionsRequest.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  allocation_strategy: Optional[str] = None,
-                 capacity_reservation_options: Optional['outputs.EC2FleetCapacityReservationOptionsRequest'] = None,
+                 capacity_reservation_options: Optional['outputs.Ec2FleetCapacityReservationOptionsRequest'] = None,
                  max_total_price: Optional[str] = None,
                  min_target_capacity: Optional[int] = None,
                  single_availability_zone: Optional[bool] = None,
@@ -1602,7 +1602,7 @@ class EC2FleetOnDemandOptionsRequest(dict):
 
     @property
     @pulumi.getter(name="capacityReservationOptions")
-    def capacity_reservation_options(self) -> Optional['outputs.EC2FleetCapacityReservationOptionsRequest']:
+    def capacity_reservation_options(self) -> Optional['outputs.Ec2FleetCapacityReservationOptionsRequest']:
         return pulumi.get(self, "capacity_reservation_options")
 
     @property
@@ -1627,7 +1627,7 @@ class EC2FleetOnDemandOptionsRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetPlacement(dict):
+class Ec2FleetPlacement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1645,14 +1645,14 @@ class EC2FleetPlacement(dict):
             suggest = "spread_domain"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetPlacement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetPlacement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetPlacement.__key_warning(key)
+        Ec2FleetPlacement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetPlacement.__key_warning(key)
+        Ec2FleetPlacement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1723,7 +1723,7 @@ class EC2FleetPlacement(dict):
 
 
 @pulumi.output_type
-class EC2FleetSpotOptionsRequest(dict):
+class Ec2FleetSpotOptionsRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1745,21 +1745,21 @@ class EC2FleetSpotOptionsRequest(dict):
             suggest = "single_instance_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetSpotOptionsRequest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetSpotOptionsRequest. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetSpotOptionsRequest.__key_warning(key)
+        Ec2FleetSpotOptionsRequest.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetSpotOptionsRequest.__key_warning(key)
+        Ec2FleetSpotOptionsRequest.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allocation_strategy: Optional['EC2FleetSpotOptionsRequestAllocationStrategy'] = None,
-                 instance_interruption_behavior: Optional['EC2FleetSpotOptionsRequestInstanceInterruptionBehavior'] = None,
+                 allocation_strategy: Optional['Ec2FleetSpotOptionsRequestAllocationStrategy'] = None,
+                 instance_interruption_behavior: Optional['Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior'] = None,
                  instance_pools_to_use_count: Optional[int] = None,
-                 maintenance_strategies: Optional['outputs.EC2FleetMaintenanceStrategies'] = None,
+                 maintenance_strategies: Optional['outputs.Ec2FleetMaintenanceStrategies'] = None,
                  max_total_price: Optional[str] = None,
                  min_target_capacity: Optional[int] = None,
                  single_availability_zone: Optional[bool] = None,
@@ -1783,12 +1783,12 @@ class EC2FleetSpotOptionsRequest(dict):
 
     @property
     @pulumi.getter(name="allocationStrategy")
-    def allocation_strategy(self) -> Optional['EC2FleetSpotOptionsRequestAllocationStrategy']:
+    def allocation_strategy(self) -> Optional['Ec2FleetSpotOptionsRequestAllocationStrategy']:
         return pulumi.get(self, "allocation_strategy")
 
     @property
     @pulumi.getter(name="instanceInterruptionBehavior")
-    def instance_interruption_behavior(self) -> Optional['EC2FleetSpotOptionsRequestInstanceInterruptionBehavior']:
+    def instance_interruption_behavior(self) -> Optional['Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior']:
         return pulumi.get(self, "instance_interruption_behavior")
 
     @property
@@ -1798,7 +1798,7 @@ class EC2FleetSpotOptionsRequest(dict):
 
     @property
     @pulumi.getter(name="maintenanceStrategies")
-    def maintenance_strategies(self) -> Optional['outputs.EC2FleetMaintenanceStrategies']:
+    def maintenance_strategies(self) -> Optional['outputs.Ec2FleetMaintenanceStrategies']:
         return pulumi.get(self, "maintenance_strategies")
 
     @property
@@ -1823,7 +1823,7 @@ class EC2FleetSpotOptionsRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetTag(dict):
+class Ec2FleetTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -1842,7 +1842,7 @@ class EC2FleetTag(dict):
 
 
 @pulumi.output_type
-class EC2FleetTagSpecification(dict):
+class Ec2FleetTagSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1850,19 +1850,19 @@ class EC2FleetTagSpecification(dict):
             suggest = "resource_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetTagSpecification. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetTagSpecification. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetTagSpecification.__key_warning(key)
+        Ec2FleetTagSpecification.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetTagSpecification.__key_warning(key)
+        Ec2FleetTagSpecification.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_type: Optional['EC2FleetTagSpecificationResourceType'] = None,
-                 tags: Optional[Sequence['outputs.EC2FleetTag']] = None):
+                 resource_type: Optional['Ec2FleetTagSpecificationResourceType'] = None,
+                 tags: Optional[Sequence['outputs.Ec2FleetTag']] = None):
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if tags is not None:
@@ -1870,17 +1870,17 @@ class EC2FleetTagSpecification(dict):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional['EC2FleetTagSpecificationResourceType']:
+    def resource_type(self) -> Optional['Ec2FleetTagSpecificationResourceType']:
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.EC2FleetTag']]:
+    def tags(self) -> Optional[Sequence['outputs.Ec2FleetTag']]:
         return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
-class EC2FleetTargetCapacitySpecificationRequest(dict):
+class Ec2FleetTargetCapacitySpecificationRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1896,22 +1896,22 @@ class EC2FleetTargetCapacitySpecificationRequest(dict):
             suggest = "target_capacity_unit_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EC2FleetTargetCapacitySpecificationRequest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetTargetCapacitySpecificationRequest. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EC2FleetTargetCapacitySpecificationRequest.__key_warning(key)
+        Ec2FleetTargetCapacitySpecificationRequest.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EC2FleetTargetCapacitySpecificationRequest.__key_warning(key)
+        Ec2FleetTargetCapacitySpecificationRequest.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  total_target_capacity: int,
-                 default_target_capacity_type: Optional['EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType'] = None,
+                 default_target_capacity_type: Optional['Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType'] = None,
                  on_demand_target_capacity: Optional[int] = None,
                  spot_target_capacity: Optional[int] = None,
-                 target_capacity_unit_type: Optional['EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType'] = None):
+                 target_capacity_unit_type: Optional['Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType'] = None):
         pulumi.set(__self__, "total_target_capacity", total_target_capacity)
         if default_target_capacity_type is not None:
             pulumi.set(__self__, "default_target_capacity_type", default_target_capacity_type)
@@ -1929,7 +1929,7 @@ class EC2FleetTargetCapacitySpecificationRequest(dict):
 
     @property
     @pulumi.getter(name="defaultTargetCapacityType")
-    def default_target_capacity_type(self) -> Optional['EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType']:
+    def default_target_capacity_type(self) -> Optional['Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType']:
         return pulumi.get(self, "default_target_capacity_type")
 
     @property
@@ -1944,12 +1944,12 @@ class EC2FleetTargetCapacitySpecificationRequest(dict):
 
     @property
     @pulumi.getter(name="targetCapacityUnitType")
-    def target_capacity_unit_type(self) -> Optional['EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType']:
+    def target_capacity_unit_type(self) -> Optional['Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType']:
         return pulumi.get(self, "target_capacity_unit_type")
 
 
 @pulumi.output_type
-class EC2FleetTotalLocalStorageGBRequest(dict):
+class Ec2FleetTotalLocalStorageGbRequest(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -1970,7 +1970,7 @@ class EC2FleetTotalLocalStorageGBRequest(dict):
 
 
 @pulumi.output_type
-class EC2FleetVCpuCountRangeRequest(dict):
+class Ec2FleetVCpuCountRangeRequest(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -1991,7 +1991,7 @@ class EC2FleetVCpuCountRangeRequest(dict):
 
 
 @pulumi.output_type
-class EIPTag(dict):
+class EipTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -2025,267 +2025,6 @@ class FlowLogTag(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class IPAMIpamOperatingRegion(dict):
-    """
-    The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "regionName":
-            suggest = "region_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IPAMIpamOperatingRegion. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IPAMIpamOperatingRegion.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IPAMIpamOperatingRegion.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 region_name: str):
-        """
-        The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-        :param str region_name: The name of the region.
-        """
-        pulumi.set(__self__, "region_name", region_name)
-
-    @property
-    @pulumi.getter(name="regionName")
-    def region_name(self) -> str:
-        """
-        The name of the region.
-        """
-        return pulumi.get(self, "region_name")
-
-
-@pulumi.output_type
-class IPAMPoolProvisionedCidr(dict):
-    """
-    An address space to be inserted into this pool. All allocations must be made from this address space.
-    """
-    def __init__(__self__, *,
-                 cidr: str):
-        """
-        An address space to be inserted into this pool. All allocations must be made from this address space.
-        """
-        pulumi.set(__self__, "cidr", cidr)
-
-    @property
-    @pulumi.getter
-    def cidr(self) -> str:
-        return pulumi.get(self, "cidr")
-
-
-@pulumi.output_type
-class IPAMPoolTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class IPAMResourceDiscoveryAssociationTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class IPAMResourceDiscoveryIpamOperatingRegion(dict):
-    """
-    The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "regionName":
-            suggest = "region_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IPAMResourceDiscoveryIpamOperatingRegion. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IPAMResourceDiscoveryIpamOperatingRegion.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IPAMResourceDiscoveryIpamOperatingRegion.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 region_name: str):
-        """
-        The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
-        :param str region_name: The name of the region.
-        """
-        pulumi.set(__self__, "region_name", region_name)
-
-    @property
-    @pulumi.getter(name="regionName")
-    def region_name(self) -> str:
-        """
-        The name of the region.
-        """
-        return pulumi.get(self, "region_name")
-
-
-@pulumi.output_type
-class IPAMResourceDiscoveryTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class IPAMScopeTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class IPAMTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
         return pulumi.get(self, "value")
 
 
@@ -3033,6 +2772,267 @@ class InternetGatewayTag(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IpamOperatingRegion(dict):
+    """
+    The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionName":
+            suggest = "region_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpamOperatingRegion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpamOperatingRegion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpamOperatingRegion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region_name: str):
+        """
+        The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+        :param str region_name: The name of the region.
+        """
+        pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> str:
+        """
+        The name of the region.
+        """
+        return pulumi.get(self, "region_name")
+
+
+@pulumi.output_type
+class IpamPoolProvisionedCidr(dict):
+    """
+    An address space to be inserted into this pool. All allocations must be made from this address space.
+    """
+    def __init__(__self__, *,
+                 cidr: str):
+        """
+        An address space to be inserted into this pool. All allocations must be made from this address space.
+        """
+        pulumi.set(__self__, "cidr", cidr)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> str:
+        return pulumi.get(self, "cidr")
+
+
+@pulumi.output_type
+class IpamPoolTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IpamResourceDiscoveryAssociationTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IpamResourceDiscoveryIpamOperatingRegion(dict):
+    """
+    The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionName":
+            suggest = "region_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpamResourceDiscoveryIpamOperatingRegion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpamResourceDiscoveryIpamOperatingRegion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpamResourceDiscoveryIpamOperatingRegion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region_name: str):
+        """
+        The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+        :param str region_name: The name of the region.
+        """
+        pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> str:
+        """
+        The name of the region.
+        """
+        return pulumi.get(self, "region_name")
+
+
+@pulumi.output_type
+class IpamResourceDiscoveryTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IpamScopeTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IpamTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
 
@@ -4267,7 +4267,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
                  require_hibernate_support: Optional[bool] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[int] = None,
-                 total_local_storage_gb: Optional['outputs.LaunchTemplateTotalLocalStorageGB'] = None,
+                 total_local_storage_gb: Optional['outputs.LaunchTemplateTotalLocalStorageGb'] = None,
                  v_cpu_count: Optional['outputs.LaunchTemplateVCpuCount'] = None):
         """
         The attributes for the instance types.
@@ -4478,7 +4478,7 @@ class LaunchTemplateInstanceRequirements(dict):
 
     @property
     @pulumi.getter(name="totalLocalStorageGb")
-    def total_local_storage_gb(self) -> Optional['outputs.LaunchTemplateTotalLocalStorageGB']:
+    def total_local_storage_gb(self) -> Optional['outputs.LaunchTemplateTotalLocalStorageGb']:
         return pulumi.get(self, "total_local_storage_gb")
 
     @property
@@ -5660,7 +5660,7 @@ class LaunchTemplateTagSpecification(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateTotalLocalStorageGB(dict):
+class LaunchTemplateTotalLocalStorageGb(dict):
     """
     The minimum and maximum amount of total local storage, in GB.
     """
@@ -5743,7 +5743,7 @@ class LocalGatewayRouteTableTag(dict):
 
 
 @pulumi.output_type
-class LocalGatewayRouteTableVPCAssociationTag(dict):
+class LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
@@ -5764,7 +5764,7 @@ class LocalGatewayRouteTableVPCAssociationTag(dict):
 
 
 @pulumi.output_type
-class LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag(dict):
+class LocalGatewayRouteTableVpcAssociationTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
@@ -8765,7 +8765,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
                  on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
                  require_hibernate_support: Optional[bool] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[int] = None,
-                 total_local_storage_gb: Optional['outputs.SpotFleetTotalLocalStorageGBRequest'] = None,
+                 total_local_storage_gb: Optional['outputs.SpotFleetTotalLocalStorageGbRequest'] = None,
                  v_cpu_count: Optional['outputs.SpotFleetVCpuCountRangeRequest'] = None):
         if accelerator_count is not None:
             pulumi.set(__self__, "accelerator_count", accelerator_count)
@@ -8921,7 +8921,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
 
     @property
     @pulumi.getter(name="totalLocalStorageGb")
-    def total_local_storage_gb(self) -> Optional['outputs.SpotFleetTotalLocalStorageGBRequest']:
+    def total_local_storage_gb(self) -> Optional['outputs.SpotFleetTotalLocalStorageGbRequest']:
         return pulumi.get(self, "total_local_storage_gb")
 
     @property
@@ -9886,7 +9886,7 @@ class SpotFleetTargetGroupsConfig(dict):
 
 
 @pulumi.output_type
-class SpotFleetTotalLocalStorageGBRequest(dict):
+class SpotFleetTotalLocalStorageGbRequest(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -10295,136 +10295,6 @@ class TransitGatewayTag(dict):
 
 @pulumi.output_type
 class TransitGatewayVpcAttachmentTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VPCPeeringConnectionTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VPCTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VPNConnectionTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VPNConnectionVpnTunnelOptionsSpecification(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "preSharedKey":
-            suggest = "pre_shared_key"
-        elif key == "tunnelInsideCidr":
-            suggest = "tunnel_inside_cidr"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VPNConnectionVpnTunnelOptionsSpecification. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VPNConnectionVpnTunnelOptionsSpecification.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VPNConnectionVpnTunnelOptionsSpecification.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 pre_shared_key: Optional[str] = None,
-                 tunnel_inside_cidr: Optional[str] = None):
-        if pre_shared_key is not None:
-            pulumi.set(__self__, "pre_shared_key", pre_shared_key)
-        if tunnel_inside_cidr is not None:
-            pulumi.set(__self__, "tunnel_inside_cidr", tunnel_inside_cidr)
-
-    @property
-    @pulumi.getter(name="preSharedKey")
-    def pre_shared_key(self) -> Optional[str]:
-        return pulumi.get(self, "pre_shared_key")
-
-    @property
-    @pulumi.getter(name="tunnelInsideCidr")
-    def tunnel_inside_cidr(self) -> Optional[str]:
-        return pulumi.get(self, "tunnel_inside_cidr")
-
-
-@pulumi.output_type
-class VPNGatewayTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -11272,6 +11142,136 @@ class VolumeTag(dict):
         """
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpcPeeringConnectionTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpcTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpnConnectionTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpnConnectionVpnTunnelOptionsSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preSharedKey":
+            suggest = "pre_shared_key"
+        elif key == "tunnelInsideCidr":
+            suggest = "tunnel_inside_cidr"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnConnectionVpnTunnelOptionsSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnConnectionVpnTunnelOptionsSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnConnectionVpnTunnelOptionsSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pre_shared_key: Optional[str] = None,
+                 tunnel_inside_cidr: Optional[str] = None):
+        if pre_shared_key is not None:
+            pulumi.set(__self__, "pre_shared_key", pre_shared_key)
+        if tunnel_inside_cidr is not None:
+            pulumi.set(__self__, "tunnel_inside_cidr", tunnel_inside_cidr)
+
+    @property
+    @pulumi.getter(name="preSharedKey")
+    def pre_shared_key(self) -> Optional[str]:
+        return pulumi.get(self, "pre_shared_key")
+
+    @property
+    @pulumi.getter(name="tunnelInsideCidr")
+    def tunnel_inside_cidr(self) -> Optional[str]:
+        return pulumi.get(self, "tunnel_inside_cidr")
+
+
+@pulumi.output_type
+class VpnGatewayTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 

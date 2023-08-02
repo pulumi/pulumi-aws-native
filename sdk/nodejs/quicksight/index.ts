@@ -60,10 +60,10 @@ export const getTopic: typeof import("./getTopic").getTopic = null as any;
 export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
 utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
 
-export { GetVPCConnectionArgs, GetVPCConnectionResult, GetVPCConnectionOutputArgs } from "./getVPCConnection";
-export const getVPCConnection: typeof import("./getVPCConnection").getVPCConnection = null as any;
-export const getVPCConnectionOutput: typeof import("./getVPCConnection").getVPCConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getVPCConnection","getVPCConnectionOutput"], () => require("./getVPCConnection"));
+export { GetVpcConnectionArgs, GetVpcConnectionResult, GetVpcConnectionOutputArgs } from "./getVpcConnection";
+export const getVpcConnection: typeof import("./getVpcConnection").getVpcConnection = null as any;
+export const getVpcConnectionOutput: typeof import("./getVpcConnection").getVpcConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcConnection","getVpcConnectionOutput"], () => require("./getVpcConnection"));
 
 export { RefreshScheduleArgs } from "./refreshSchedule";
 export type RefreshSchedule = import("./refreshSchedule").RefreshSchedule;
@@ -85,10 +85,10 @@ export type Topic = import("./topic").Topic;
 export const Topic: typeof import("./topic").Topic = null as any;
 utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 
-export { VPCConnectionArgs } from "./vpcconnection";
-export type VPCConnection = import("./vpcconnection").VPCConnection;
-export const VPCConnection: typeof import("./vpcconnection").VPCConnection = null as any;
-utilities.lazyLoad(exports, ["VPCConnection"], () => require("./vpcconnection"));
+export { VpcConnectionArgs } from "./vpcConnection";
+export type VpcConnection = import("./vpcConnection").VpcConnection;
+export const VpcConnection: typeof import("./vpcConnection").VpcConnection = null as any;
+utilities.lazyLoad(exports, ["VpcConnection"], () => require("./vpcConnection"));
 
 
 // Export enums:
@@ -114,8 +114,8 @@ const _module = {
                 return new Theme(name, <any>undefined, { urn })
             case "aws-native:quicksight:Topic":
                 return new Topic(name, <any>undefined, { urn })
-            case "aws-native:quicksight:VPCConnection":
-                return new VPCConnection(name, <any>undefined, { urn })
+            case "aws-native:quicksight:VpcConnection":
+                return new VpcConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

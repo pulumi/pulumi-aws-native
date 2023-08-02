@@ -12,22 +12,22 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['LocationFSxOpenZFSArgs', 'LocationFSxOpenZFS']
+__all__ = ['LocationFSxOpenZfsArgs', 'LocationFSxOpenZfs']
 
 @pulumi.input_type
-class LocationFSxOpenZFSArgs:
+class LocationFSxOpenZfsArgs:
     def __init__(__self__, *,
-                 protocol: pulumi.Input['LocationFSxOpenZFSProtocolArgs'],
+                 protocol: pulumi.Input['LocationFSxOpenZfsProtocolArgs'],
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZFSTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZfsTagArgs']]]] = None):
         """
-        The set of arguments for constructing a LocationFSxOpenZFS resource.
+        The set of arguments for constructing a LocationFSxOpenZfs resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
         :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZFSTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZfsTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "security_group_arns", security_group_arns)
@@ -40,11 +40,11 @@ class LocationFSxOpenZFSArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input['LocationFSxOpenZFSProtocolArgs']:
+    def protocol(self) -> pulumi.Input['LocationFSxOpenZfsProtocolArgs']:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input['LocationFSxOpenZFSProtocolArgs']):
+    def protocol(self, value: pulumi.Input['LocationFSxOpenZfsProtocolArgs']):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -85,27 +85,27 @@ class LocationFSxOpenZFSArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZFSTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZfsTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZFSTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZfsTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class LocationFSxOpenZFS(pulumi.CustomResource):
+class LocationFSxOpenZfs(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[pulumi.InputType['LocationFSxOpenZFSProtocolArgs']]] = None,
+                 protocol: Optional[pulumi.Input[pulumi.InputType['LocationFSxOpenZfsProtocolArgs']]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOpenZFSTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOpenZfsTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationFSxOpenZFS.
@@ -115,24 +115,24 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
         :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOpenZFSTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOpenZfsTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocationFSxOpenZFSArgs,
+                 args: LocationFSxOpenZfsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::LocationFSxOpenZFS.
 
         :param str resource_name: The name of the resource.
-        :param LocationFSxOpenZFSArgs args: The arguments to use to populate this resource's properties.
+        :param LocationFSxOpenZfsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocationFSxOpenZFSArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocationFSxOpenZfsArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -142,10 +142,10 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[pulumi.InputType['LocationFSxOpenZFSProtocolArgs']]] = None,
+                 protocol: Optional[pulumi.Input[pulumi.InputType['LocationFSxOpenZfsProtocolArgs']]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOpenZFSTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOpenZfsTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -153,7 +153,7 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocationFSxOpenZFSArgs.__new__(LocationFSxOpenZFSArgs)
+            __props__ = LocationFSxOpenZfsArgs.__new__(LocationFSxOpenZfsArgs)
 
             __props__.__dict__["fsx_filesystem_arn"] = fsx_filesystem_arn
             if protocol is None and not opts.urn:
@@ -166,8 +166,8 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
-        super(LocationFSxOpenZFS, __self__).__init__(
-            'aws-native:datasync:LocationFSxOpenZFS',
+        super(LocationFSxOpenZfs, __self__).__init__(
+            'aws-native:datasync:LocationFSxOpenZfs',
             resource_name,
             __props__,
             opts)
@@ -175,9 +175,9 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'LocationFSxOpenZFS':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'LocationFSxOpenZfs':
         """
-        Get an existing LocationFSxOpenZFS resource's state with the given name, id, and optional extra
+        Get an existing LocationFSxOpenZfs resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -186,7 +186,7 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = LocationFSxOpenZFSArgs.__new__(LocationFSxOpenZFSArgs)
+        __props__ = LocationFSxOpenZfsArgs.__new__(LocationFSxOpenZfsArgs)
 
         __props__.__dict__["fsx_filesystem_arn"] = None
         __props__.__dict__["location_arn"] = None
@@ -195,7 +195,7 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
         __props__.__dict__["security_group_arns"] = None
         __props__.__dict__["subdirectory"] = None
         __props__.__dict__["tags"] = None
-        return LocationFSxOpenZFS(resource_name, opts=opts, __props__=__props__)
+        return LocationFSxOpenZfs(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="fsxFilesystemArn")
@@ -223,7 +223,7 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output['outputs.LocationFSxOpenZFSProtocol']:
+    def protocol(self) -> pulumi.Output['outputs.LocationFSxOpenZfsProtocol']:
         return pulumi.get(self, "protocol")
 
     @property
@@ -244,7 +244,7 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationFSxOpenZFSTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationFSxOpenZfsTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

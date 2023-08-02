@@ -204,7 +204,7 @@ namespace Pulumi.AwsNative.IoTWireless
         }
 
         public static WirelessDeviceType Sidewalk { get; } = new WirelessDeviceType("Sidewalk");
-        public static WirelessDeviceType LoRaWAN { get; } = new WirelessDeviceType("LoRaWAN");
+        public static WirelessDeviceType LoRaWan { get; } = new WirelessDeviceType("LoRaWAN");
 
         public static bool operator ==(WirelessDeviceType left, WirelessDeviceType right) => left.Equals(right);
         public static bool operator !=(WirelessDeviceType left, WirelessDeviceType right) => !left.Equals(right);

@@ -82,7 +82,7 @@ class GetWirelessGatewayResult:
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional['outputs.WirelessGatewayLoRaWANGateway']:
+    def lo_ra_wan(self) -> Optional['outputs.WirelessGatewayLoRaWanGateway']:
         """
         The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
         """

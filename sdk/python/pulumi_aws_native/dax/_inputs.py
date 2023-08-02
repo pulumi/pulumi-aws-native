@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterSSESpecificationArgs',
+    'ClusterSseSpecificationArgs',
 ]
 
 @pulumi.input_type
-class ClusterSSESpecificationArgs:
+class ClusterSseSpecificationArgs:
     def __init__(__self__, *,
                  sse_enabled: Optional[pulumi.Input[bool]] = None):
         if sse_enabled is not None:

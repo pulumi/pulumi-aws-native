@@ -22,7 +22,7 @@ class AnnotationStoreArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  reference: Optional[pulumi.Input['AnnotationStoreReferenceItemArgs']] = None,
                  sse_config: Optional[pulumi.Input['AnnotationStoreSseConfigArgs']] = None,
-                 store_options: Optional[pulumi.Input['StoreOptionsPropertiesArgs']] = None,
+                 store_options: Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input['AnnotationStoreTagMapArgs']] = None):
         """
         The set of arguments for constructing a AnnotationStore resource.
@@ -88,11 +88,11 @@ class AnnotationStoreArgs:
 
     @property
     @pulumi.getter(name="storeOptions")
-    def store_options(self) -> Optional[pulumi.Input['StoreOptionsPropertiesArgs']]:
+    def store_options(self) -> Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']]:
         return pulumi.get(self, "store_options")
 
     @store_options.setter
-    def store_options(self, value: Optional[pulumi.Input['StoreOptionsPropertiesArgs']]):
+    def store_options(self, value: Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']]):
         pulumi.set(self, "store_options", value)
 
     @property
@@ -115,7 +115,7 @@ class AnnotationStore(pulumi.CustomResource):
                  reference: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreReferenceItemArgs']]] = None,
                  sse_config: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreSseConfigArgs']]] = None,
                  store_format: Optional[pulumi.Input['AnnotationStoreStoreFormat']] = None,
-                 store_options: Optional[pulumi.Input[pulumi.InputType['StoreOptionsPropertiesArgs']]] = None,
+                 store_options: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreStoreOptionsPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreTagMapArgs']]] = None,
                  __props__=None):
         """
@@ -153,7 +153,7 @@ class AnnotationStore(pulumi.CustomResource):
                  reference: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreReferenceItemArgs']]] = None,
                  sse_config: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreSseConfigArgs']]] = None,
                  store_format: Optional[pulumi.Input['AnnotationStoreStoreFormat']] = None,
-                 store_options: Optional[pulumi.Input[pulumi.InputType['StoreOptionsPropertiesArgs']]] = None,
+                 store_options: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreStoreOptionsPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreTagMapArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -263,7 +263,7 @@ class AnnotationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storeOptions")
-    def store_options(self) -> pulumi.Output[Optional['outputs.StoreOptionsProperties']]:
+    def store_options(self) -> pulumi.Output[Optional['outputs.AnnotationStoreStoreOptionsProperties']]:
         return pulumi.get(self, "store_options")
 
     @property

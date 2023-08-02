@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.FSx
     {
         public readonly string? Name;
         public readonly Outputs.VolumeOntapConfiguration? OntapConfiguration;
-        public readonly Outputs.VolumeOpenZFSConfiguration? OpenZfsConfiguration;
+        public readonly Outputs.VolumeOpenZfsConfiguration? OpenZfsConfiguration;
         public readonly string? ResourceArn;
         public readonly ImmutableArray<Outputs.VolumeTag> Tags;
         public readonly string? Uuid;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.FSx
 
             Outputs.VolumeOntapConfiguration? ontapConfiguration,
 
-            Outputs.VolumeOpenZFSConfiguration? openZfsConfiguration,
+            Outputs.VolumeOpenZfsConfiguration? openZfsConfiguration,
 
             string? resourceArn,
 

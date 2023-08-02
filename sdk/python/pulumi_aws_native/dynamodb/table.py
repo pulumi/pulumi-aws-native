@@ -27,7 +27,7 @@ class TableArgs:
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']] = None,
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
-                 sse_specification: Optional[pulumi.Input['TableSSESpecificationArgs']] = None,
+                 sse_specification: Optional[pulumi.Input['TableSseSpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['TableStreamSpecificationArgs']] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
@@ -171,11 +171,11 @@ class TableArgs:
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['TableSSESpecificationArgs']]:
+    def sse_specification(self) -> Optional[pulumi.Input['TableSseSpecificationArgs']]:
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['TableSSESpecificationArgs']]):
+    def sse_specification(self, value: Optional[pulumi.Input['TableSseSpecificationArgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @property
@@ -240,7 +240,7 @@ class Table(pulumi.CustomResource):
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSSESpecificationArgs']]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
@@ -288,7 +288,7 @@ class Table(pulumi.CustomResource):
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSSESpecificationArgs']]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
@@ -429,7 +429,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> pulumi.Output[Optional['outputs.TableSSESpecification']]:
+    def sse_specification(self) -> pulumi.Output[Optional['outputs.TableSseSpecification']]:
         return pulumi.get(self, "sse_specification")
 
     @property

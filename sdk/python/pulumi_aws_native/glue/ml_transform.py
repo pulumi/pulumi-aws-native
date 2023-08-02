@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MLTransformArgs', 'MLTransform']
+__all__ = ['MlTransformArgs', 'MlTransform']
 
 @pulumi.input_type
-class MLTransformArgs:
+class MlTransformArgs:
     def __init__(__self__, *,
-                 input_record_tables: pulumi.Input['MLTransformInputRecordTablesArgs'],
+                 input_record_tables: pulumi.Input['MlTransformInputRecordTablesArgs'],
                  role: pulumi.Input[str],
-                 transform_parameters: pulumi.Input['MLTransformTransformParametersArgs'],
+                 transform_parameters: pulumi.Input['MlTransformTransformParametersArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
@@ -27,10 +27,10 @@ class MLTransformArgs:
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 transform_encryption: Optional[pulumi.Input['MLTransformTransformEncryptionArgs']] = None,
+                 transform_encryption: Optional[pulumi.Input['MlTransformTransformEncryptionArgs']] = None,
                  worker_type: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a MLTransform resource.
+        The set of arguments for constructing a MlTransform resource.
         """
         pulumi.set(__self__, "input_record_tables", input_record_tables)
         pulumi.set(__self__, "role", role)
@@ -58,11 +58,11 @@ class MLTransformArgs:
 
     @property
     @pulumi.getter(name="inputRecordTables")
-    def input_record_tables(self) -> pulumi.Input['MLTransformInputRecordTablesArgs']:
+    def input_record_tables(self) -> pulumi.Input['MlTransformInputRecordTablesArgs']:
         return pulumi.get(self, "input_record_tables")
 
     @input_record_tables.setter
-    def input_record_tables(self, value: pulumi.Input['MLTransformInputRecordTablesArgs']):
+    def input_record_tables(self, value: pulumi.Input['MlTransformInputRecordTablesArgs']):
         pulumi.set(self, "input_record_tables", value)
 
     @property
@@ -76,11 +76,11 @@ class MLTransformArgs:
 
     @property
     @pulumi.getter(name="transformParameters")
-    def transform_parameters(self) -> pulumi.Input['MLTransformTransformParametersArgs']:
+    def transform_parameters(self) -> pulumi.Input['MlTransformTransformParametersArgs']:
         return pulumi.get(self, "transform_parameters")
 
     @transform_parameters.setter
-    def transform_parameters(self, value: pulumi.Input['MLTransformTransformParametersArgs']):
+    def transform_parameters(self, value: pulumi.Input['MlTransformTransformParametersArgs']):
         pulumi.set(self, "transform_parameters", value)
 
     @property
@@ -157,11 +157,11 @@ class MLTransformArgs:
 
     @property
     @pulumi.getter(name="transformEncryption")
-    def transform_encryption(self) -> Optional[pulumi.Input['MLTransformTransformEncryptionArgs']]:
+    def transform_encryption(self) -> Optional[pulumi.Input['MlTransformTransformEncryptionArgs']]:
         return pulumi.get(self, "transform_encryption")
 
     @transform_encryption.setter
-    def transform_encryption(self, value: Optional[pulumi.Input['MLTransformTransformEncryptionArgs']]):
+    def transform_encryption(self, value: Optional[pulumi.Input['MlTransformTransformEncryptionArgs']]):
         pulumi.set(self, "transform_encryption", value)
 
     @property
@@ -174,11 +174,11 @@ class MLTransformArgs:
         pulumi.set(self, "worker_type", value)
 
 
-warnings.warn("""MLTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""MlTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class MLTransform(pulumi.CustomResource):
-    warnings.warn("""MLTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class MlTransform(pulumi.CustomResource):
+    warnings.warn("""MlTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -186,7 +186,7 @@ class MLTransform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
-                 input_record_tables: Optional[pulumi.Input[pulumi.InputType['MLTransformInputRecordTablesArgs']]] = None,
+                 input_record_tables: Optional[pulumi.Input[pulumi.InputType['MlTransformInputRecordTablesArgs']]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -194,8 +194,8 @@ class MLTransform(pulumi.CustomResource):
                  role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 transform_encryption: Optional[pulumi.Input[pulumi.InputType['MLTransformTransformEncryptionArgs']]] = None,
-                 transform_parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformTransformParametersArgs']]] = None,
+                 transform_encryption: Optional[pulumi.Input[pulumi.InputType['MlTransformTransformEncryptionArgs']]] = None,
+                 transform_parameters: Optional[pulumi.Input[pulumi.InputType['MlTransformTransformParametersArgs']]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -208,18 +208,18 @@ class MLTransform(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MLTransformArgs,
+                 args: MlTransformArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Glue::MLTransform
 
         :param str resource_name: The name of the resource.
-        :param MLTransformArgs args: The arguments to use to populate this resource's properties.
+        :param MlTransformArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MLTransformArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MlTransformArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -230,7 +230,7 @@ class MLTransform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
-                 input_record_tables: Optional[pulumi.Input[pulumi.InputType['MLTransformInputRecordTablesArgs']]] = None,
+                 input_record_tables: Optional[pulumi.Input[pulumi.InputType['MlTransformInputRecordTablesArgs']]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -238,18 +238,18 @@ class MLTransform(pulumi.CustomResource):
                  role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 transform_encryption: Optional[pulumi.Input[pulumi.InputType['MLTransformTransformEncryptionArgs']]] = None,
-                 transform_parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformTransformParametersArgs']]] = None,
+                 transform_encryption: Optional[pulumi.Input[pulumi.InputType['MlTransformTransformEncryptionArgs']]] = None,
+                 transform_parameters: Optional[pulumi.Input[pulumi.InputType['MlTransformTransformParametersArgs']]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""MLTransform is deprecated: MLTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""MlTransform is deprecated: MlTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MLTransformArgs.__new__(MLTransformArgs)
+            __props__ = MlTransformArgs.__new__(MlTransformArgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["glue_version"] = glue_version
@@ -270,8 +270,8 @@ class MLTransform(pulumi.CustomResource):
                 raise TypeError("Missing required property 'transform_parameters'")
             __props__.__dict__["transform_parameters"] = transform_parameters
             __props__.__dict__["worker_type"] = worker_type
-        super(MLTransform, __self__).__init__(
-            'aws-native:glue:MLTransform',
+        super(MlTransform, __self__).__init__(
+            'aws-native:glue:MlTransform',
             resource_name,
             __props__,
             opts)
@@ -279,9 +279,9 @@ class MLTransform(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'MLTransform':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'MlTransform':
         """
-        Get an existing MLTransform resource's state with the given name, id, and optional extra
+        Get an existing MlTransform resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -290,7 +290,7 @@ class MLTransform(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = MLTransformArgs.__new__(MLTransformArgs)
+        __props__ = MlTransformArgs.__new__(MlTransformArgs)
 
         __props__.__dict__["description"] = None
         __props__.__dict__["glue_version"] = None
@@ -305,7 +305,7 @@ class MLTransform(pulumi.CustomResource):
         __props__.__dict__["transform_encryption"] = None
         __props__.__dict__["transform_parameters"] = None
         __props__.__dict__["worker_type"] = None
-        return MLTransform(resource_name, opts=opts, __props__=__props__)
+        return MlTransform(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -319,7 +319,7 @@ class MLTransform(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputRecordTables")
-    def input_record_tables(self) -> pulumi.Output['outputs.MLTransformInputRecordTables']:
+    def input_record_tables(self) -> pulumi.Output['outputs.MlTransformInputRecordTables']:
         return pulumi.get(self, "input_record_tables")
 
     @property
@@ -359,12 +359,12 @@ class MLTransform(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transformEncryption")
-    def transform_encryption(self) -> pulumi.Output[Optional['outputs.MLTransformTransformEncryption']]:
+    def transform_encryption(self) -> pulumi.Output[Optional['outputs.MlTransformTransformEncryption']]:
         return pulumi.get(self, "transform_encryption")
 
     @property
     @pulumi.getter(name="transformParameters")
-    def transform_parameters(self) -> pulumi.Output['outputs.MLTransformTransformParameters']:
+    def transform_parameters(self) -> pulumi.Output['outputs.MlTransformTransformParameters']:
         return pulumi.get(self, "transform_parameters")
 
     @property

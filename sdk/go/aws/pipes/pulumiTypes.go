@@ -13,158 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type MQBrokerAccessCredentials0Properties struct {
-	// Optional SecretManager ARN which stores the database credentials
-	BasicAuth string `pulumi:"basicAuth"`
-}
-
-type MQBrokerAccessCredentialsProperties struct {
-	// Optional SecretManager ARN which stores the database credentials
-	BasicAuth string `pulumi:"basicAuth"`
-}
-
-// MQBrokerAccessCredentialsPropertiesInput is an input type that accepts MQBrokerAccessCredentialsPropertiesArgs and MQBrokerAccessCredentialsPropertiesOutput values.
-// You can construct a concrete instance of `MQBrokerAccessCredentialsPropertiesInput` via:
-//
-//	MQBrokerAccessCredentialsPropertiesArgs{...}
-type MQBrokerAccessCredentialsPropertiesInput interface {
-	pulumi.Input
-
-	ToMQBrokerAccessCredentialsPropertiesOutput() MQBrokerAccessCredentialsPropertiesOutput
-	ToMQBrokerAccessCredentialsPropertiesOutputWithContext(context.Context) MQBrokerAccessCredentialsPropertiesOutput
-}
-
-type MQBrokerAccessCredentialsPropertiesArgs struct {
-	// Optional SecretManager ARN which stores the database credentials
-	BasicAuth pulumi.StringInput `pulumi:"basicAuth"`
-}
-
-func (MQBrokerAccessCredentialsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MQBrokerAccessCredentialsProperties)(nil)).Elem()
-}
-
-func (i MQBrokerAccessCredentialsPropertiesArgs) ToMQBrokerAccessCredentialsPropertiesOutput() MQBrokerAccessCredentialsPropertiesOutput {
-	return i.ToMQBrokerAccessCredentialsPropertiesOutputWithContext(context.Background())
-}
-
-func (i MQBrokerAccessCredentialsPropertiesArgs) ToMQBrokerAccessCredentialsPropertiesOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MQBrokerAccessCredentialsPropertiesOutput)
-}
-
-func (i MQBrokerAccessCredentialsPropertiesArgs) ToMQBrokerAccessCredentialsPropertiesPtrOutput() MQBrokerAccessCredentialsPropertiesPtrOutput {
-	return i.ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i MQBrokerAccessCredentialsPropertiesArgs) ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MQBrokerAccessCredentialsPropertiesOutput).ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx)
-}
-
-// MQBrokerAccessCredentialsPropertiesPtrInput is an input type that accepts MQBrokerAccessCredentialsPropertiesArgs, MQBrokerAccessCredentialsPropertiesPtr and MQBrokerAccessCredentialsPropertiesPtrOutput values.
-// You can construct a concrete instance of `MQBrokerAccessCredentialsPropertiesPtrInput` via:
-//
-//	        MQBrokerAccessCredentialsPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type MQBrokerAccessCredentialsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToMQBrokerAccessCredentialsPropertiesPtrOutput() MQBrokerAccessCredentialsPropertiesPtrOutput
-	ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Context) MQBrokerAccessCredentialsPropertiesPtrOutput
-}
-
-type mqbrokerAccessCredentialsPropertiesPtrType MQBrokerAccessCredentialsPropertiesArgs
-
-func MQBrokerAccessCredentialsPropertiesPtr(v *MQBrokerAccessCredentialsPropertiesArgs) MQBrokerAccessCredentialsPropertiesPtrInput {
-	return (*mqbrokerAccessCredentialsPropertiesPtrType)(v)
-}
-
-func (*mqbrokerAccessCredentialsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MQBrokerAccessCredentialsProperties)(nil)).Elem()
-}
-
-func (i *mqbrokerAccessCredentialsPropertiesPtrType) ToMQBrokerAccessCredentialsPropertiesPtrOutput() MQBrokerAccessCredentialsPropertiesPtrOutput {
-	return i.ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *mqbrokerAccessCredentialsPropertiesPtrType) ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MQBrokerAccessCredentialsPropertiesPtrOutput)
-}
-
-type MQBrokerAccessCredentialsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MQBrokerAccessCredentialsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MQBrokerAccessCredentialsProperties)(nil)).Elem()
-}
-
-func (o MQBrokerAccessCredentialsPropertiesOutput) ToMQBrokerAccessCredentialsPropertiesOutput() MQBrokerAccessCredentialsPropertiesOutput {
-	return o
-}
-
-func (o MQBrokerAccessCredentialsPropertiesOutput) ToMQBrokerAccessCredentialsPropertiesOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesOutput {
-	return o
-}
-
-func (o MQBrokerAccessCredentialsPropertiesOutput) ToMQBrokerAccessCredentialsPropertiesPtrOutput() MQBrokerAccessCredentialsPropertiesPtrOutput {
-	return o.ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o MQBrokerAccessCredentialsPropertiesOutput) ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MQBrokerAccessCredentialsProperties) *MQBrokerAccessCredentialsProperties {
-		return &v
-	}).(MQBrokerAccessCredentialsPropertiesPtrOutput)
-}
-
-// Optional SecretManager ARN which stores the database credentials
-func (o MQBrokerAccessCredentialsPropertiesOutput) BasicAuth() pulumi.StringOutput {
-	return o.ApplyT(func(v MQBrokerAccessCredentialsProperties) string { return v.BasicAuth }).(pulumi.StringOutput)
-}
-
-type MQBrokerAccessCredentialsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (MQBrokerAccessCredentialsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MQBrokerAccessCredentialsProperties)(nil)).Elem()
-}
-
-func (o MQBrokerAccessCredentialsPropertiesPtrOutput) ToMQBrokerAccessCredentialsPropertiesPtrOutput() MQBrokerAccessCredentialsPropertiesPtrOutput {
-	return o
-}
-
-func (o MQBrokerAccessCredentialsPropertiesPtrOutput) ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesPtrOutput {
-	return o
-}
-
-func (o MQBrokerAccessCredentialsPropertiesPtrOutput) Elem() MQBrokerAccessCredentialsPropertiesOutput {
-	return o.ApplyT(func(v *MQBrokerAccessCredentialsProperties) MQBrokerAccessCredentialsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret MQBrokerAccessCredentialsProperties
-		return ret
-	}).(MQBrokerAccessCredentialsPropertiesOutput)
-}
-
-// Optional SecretManager ARN which stores the database credentials
-func (o MQBrokerAccessCredentialsPropertiesPtrOutput) BasicAuth() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MQBrokerAccessCredentialsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BasicAuth
-	}).(pulumi.StringPtrOutput)
-}
-
-type MSKAccessCredentials0Properties struct {
-	// Optional SecretManager ARN which stores the database credentials
-	SaslScram512Auth string `pulumi:"saslScram512Auth"`
-}
-
-type MSKAccessCredentials1Properties struct {
-	// Optional SecretManager ARN which stores the database credentials
-	ClientCertificateTlsAuth string `pulumi:"clientCertificateTlsAuth"`
-}
-
 type PipeAwsVpcConfiguration struct {
 	AssignPublicIp *PipeAssignPublicIp `pulumi:"assignPublicIp"`
 	SecurityGroups []string            `pulumi:"securityGroups"`
@@ -2979,6 +2827,158 @@ func (o PipeHeaderParametersMapPtrOutput) Elem() PipeHeaderParametersMapOutput {
 	}).(PipeHeaderParametersMapOutput)
 }
 
+type PipeMqBrokerAccessCredentials0Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	BasicAuth string `pulumi:"basicAuth"`
+}
+
+type PipeMqBrokerAccessCredentialsProperties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	BasicAuth string `pulumi:"basicAuth"`
+}
+
+// PipeMqBrokerAccessCredentialsPropertiesInput is an input type that accepts PipeMqBrokerAccessCredentialsPropertiesArgs and PipeMqBrokerAccessCredentialsPropertiesOutput values.
+// You can construct a concrete instance of `PipeMqBrokerAccessCredentialsPropertiesInput` via:
+//
+//	PipeMqBrokerAccessCredentialsPropertiesArgs{...}
+type PipeMqBrokerAccessCredentialsPropertiesInput interface {
+	pulumi.Input
+
+	ToPipeMqBrokerAccessCredentialsPropertiesOutput() PipeMqBrokerAccessCredentialsPropertiesOutput
+	ToPipeMqBrokerAccessCredentialsPropertiesOutputWithContext(context.Context) PipeMqBrokerAccessCredentialsPropertiesOutput
+}
+
+type PipeMqBrokerAccessCredentialsPropertiesArgs struct {
+	// Optional SecretManager ARN which stores the database credentials
+	BasicAuth pulumi.StringInput `pulumi:"basicAuth"`
+}
+
+func (PipeMqBrokerAccessCredentialsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeMqBrokerAccessCredentialsProperties)(nil)).Elem()
+}
+
+func (i PipeMqBrokerAccessCredentialsPropertiesArgs) ToPipeMqBrokerAccessCredentialsPropertiesOutput() PipeMqBrokerAccessCredentialsPropertiesOutput {
+	return i.ToPipeMqBrokerAccessCredentialsPropertiesOutputWithContext(context.Background())
+}
+
+func (i PipeMqBrokerAccessCredentialsPropertiesArgs) ToPipeMqBrokerAccessCredentialsPropertiesOutputWithContext(ctx context.Context) PipeMqBrokerAccessCredentialsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeMqBrokerAccessCredentialsPropertiesOutput)
+}
+
+func (i PipeMqBrokerAccessCredentialsPropertiesArgs) ToPipeMqBrokerAccessCredentialsPropertiesPtrOutput() PipeMqBrokerAccessCredentialsPropertiesPtrOutput {
+	return i.ToPipeMqBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PipeMqBrokerAccessCredentialsPropertiesArgs) ToPipeMqBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) PipeMqBrokerAccessCredentialsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeMqBrokerAccessCredentialsPropertiesOutput).ToPipeMqBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx)
+}
+
+// PipeMqBrokerAccessCredentialsPropertiesPtrInput is an input type that accepts PipeMqBrokerAccessCredentialsPropertiesArgs, PipeMqBrokerAccessCredentialsPropertiesPtr and PipeMqBrokerAccessCredentialsPropertiesPtrOutput values.
+// You can construct a concrete instance of `PipeMqBrokerAccessCredentialsPropertiesPtrInput` via:
+//
+//	        PipeMqBrokerAccessCredentialsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipeMqBrokerAccessCredentialsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPipeMqBrokerAccessCredentialsPropertiesPtrOutput() PipeMqBrokerAccessCredentialsPropertiesPtrOutput
+	ToPipeMqBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Context) PipeMqBrokerAccessCredentialsPropertiesPtrOutput
+}
+
+type pipeMqBrokerAccessCredentialsPropertiesPtrType PipeMqBrokerAccessCredentialsPropertiesArgs
+
+func PipeMqBrokerAccessCredentialsPropertiesPtr(v *PipeMqBrokerAccessCredentialsPropertiesArgs) PipeMqBrokerAccessCredentialsPropertiesPtrInput {
+	return (*pipeMqBrokerAccessCredentialsPropertiesPtrType)(v)
+}
+
+func (*pipeMqBrokerAccessCredentialsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeMqBrokerAccessCredentialsProperties)(nil)).Elem()
+}
+
+func (i *pipeMqBrokerAccessCredentialsPropertiesPtrType) ToPipeMqBrokerAccessCredentialsPropertiesPtrOutput() PipeMqBrokerAccessCredentialsPropertiesPtrOutput {
+	return i.ToPipeMqBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *pipeMqBrokerAccessCredentialsPropertiesPtrType) ToPipeMqBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) PipeMqBrokerAccessCredentialsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeMqBrokerAccessCredentialsPropertiesPtrOutput)
+}
+
+type PipeMqBrokerAccessCredentialsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PipeMqBrokerAccessCredentialsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeMqBrokerAccessCredentialsProperties)(nil)).Elem()
+}
+
+func (o PipeMqBrokerAccessCredentialsPropertiesOutput) ToPipeMqBrokerAccessCredentialsPropertiesOutput() PipeMqBrokerAccessCredentialsPropertiesOutput {
+	return o
+}
+
+func (o PipeMqBrokerAccessCredentialsPropertiesOutput) ToPipeMqBrokerAccessCredentialsPropertiesOutputWithContext(ctx context.Context) PipeMqBrokerAccessCredentialsPropertiesOutput {
+	return o
+}
+
+func (o PipeMqBrokerAccessCredentialsPropertiesOutput) ToPipeMqBrokerAccessCredentialsPropertiesPtrOutput() PipeMqBrokerAccessCredentialsPropertiesPtrOutput {
+	return o.ToPipeMqBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PipeMqBrokerAccessCredentialsPropertiesOutput) ToPipeMqBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) PipeMqBrokerAccessCredentialsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeMqBrokerAccessCredentialsProperties) *PipeMqBrokerAccessCredentialsProperties {
+		return &v
+	}).(PipeMqBrokerAccessCredentialsPropertiesPtrOutput)
+}
+
+// Optional SecretManager ARN which stores the database credentials
+func (o PipeMqBrokerAccessCredentialsPropertiesOutput) BasicAuth() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeMqBrokerAccessCredentialsProperties) string { return v.BasicAuth }).(pulumi.StringOutput)
+}
+
+type PipeMqBrokerAccessCredentialsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PipeMqBrokerAccessCredentialsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeMqBrokerAccessCredentialsProperties)(nil)).Elem()
+}
+
+func (o PipeMqBrokerAccessCredentialsPropertiesPtrOutput) ToPipeMqBrokerAccessCredentialsPropertiesPtrOutput() PipeMqBrokerAccessCredentialsPropertiesPtrOutput {
+	return o
+}
+
+func (o PipeMqBrokerAccessCredentialsPropertiesPtrOutput) ToPipeMqBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) PipeMqBrokerAccessCredentialsPropertiesPtrOutput {
+	return o
+}
+
+func (o PipeMqBrokerAccessCredentialsPropertiesPtrOutput) Elem() PipeMqBrokerAccessCredentialsPropertiesOutput {
+	return o.ApplyT(func(v *PipeMqBrokerAccessCredentialsProperties) PipeMqBrokerAccessCredentialsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PipeMqBrokerAccessCredentialsProperties
+		return ret
+	}).(PipeMqBrokerAccessCredentialsPropertiesOutput)
+}
+
+// Optional SecretManager ARN which stores the database credentials
+func (o PipeMqBrokerAccessCredentialsPropertiesPtrOutput) BasicAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeMqBrokerAccessCredentialsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BasicAuth
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipeMskAccessCredentials0Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	SaslScram512Auth string `pulumi:"saslScram512Auth"`
+}
+
+type PipeMskAccessCredentials1Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	ClientCertificateTlsAuth string `pulumi:"clientCertificateTlsAuth"`
+}
+
 type PipeNetworkConfiguration struct {
 	AwsvpcConfiguration *PipeAwsVpcConfiguration `pulumi:"awsvpcConfiguration"`
 }
@@ -3530,6 +3530,26 @@ func (o PipeSageMakerPipelineParameterArrayOutput) Index(i pulumi.IntInput) Pipe
 	}).(PipeSageMakerPipelineParameterOutput)
 }
 
+type PipeSelfManagedKafkaAccessConfigurationCredentials0Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	BasicAuth string `pulumi:"basicAuth"`
+}
+
+type PipeSelfManagedKafkaAccessConfigurationCredentials1Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	SaslScram512Auth string `pulumi:"saslScram512Auth"`
+}
+
+type PipeSelfManagedKafkaAccessConfigurationCredentials2Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	SaslScram256Auth string `pulumi:"saslScram256Auth"`
+}
+
+type PipeSelfManagedKafkaAccessConfigurationCredentials3Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	ClientCertificateTlsAuth string `pulumi:"clientCertificateTlsAuth"`
+}
+
 type PipeSelfManagedKafkaAccessConfigurationVpc struct {
 	// List of SecurityGroupId.
 	SecurityGroup []string `pulumi:"securityGroup"`
@@ -3686,150 +3706,152 @@ func (o PipeSelfManagedKafkaAccessConfigurationVpcPtrOutput) Subnets() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-type PipeSourceActiveMQBrokerParameters struct {
-	BatchSize                      *int                                `pulumi:"batchSize"`
-	Credentials                    MQBrokerAccessCredentialsProperties `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds *int                                `pulumi:"maximumBatchingWindowInSeconds"`
-	QueueName                      string                              `pulumi:"queueName"`
+type PipeSourceActiveMqBrokerParameters struct {
+	BatchSize                      *int                                    `pulumi:"batchSize"`
+	Credentials                    PipeMqBrokerAccessCredentialsProperties `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds *int                                    `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      string                                  `pulumi:"queueName"`
 }
 
-// PipeSourceActiveMQBrokerParametersInput is an input type that accepts PipeSourceActiveMQBrokerParametersArgs and PipeSourceActiveMQBrokerParametersOutput values.
-// You can construct a concrete instance of `PipeSourceActiveMQBrokerParametersInput` via:
+// PipeSourceActiveMqBrokerParametersInput is an input type that accepts PipeSourceActiveMqBrokerParametersArgs and PipeSourceActiveMqBrokerParametersOutput values.
+// You can construct a concrete instance of `PipeSourceActiveMqBrokerParametersInput` via:
 //
-//	PipeSourceActiveMQBrokerParametersArgs{...}
-type PipeSourceActiveMQBrokerParametersInput interface {
+//	PipeSourceActiveMqBrokerParametersArgs{...}
+type PipeSourceActiveMqBrokerParametersInput interface {
 	pulumi.Input
 
-	ToPipeSourceActiveMQBrokerParametersOutput() PipeSourceActiveMQBrokerParametersOutput
-	ToPipeSourceActiveMQBrokerParametersOutputWithContext(context.Context) PipeSourceActiveMQBrokerParametersOutput
+	ToPipeSourceActiveMqBrokerParametersOutput() PipeSourceActiveMqBrokerParametersOutput
+	ToPipeSourceActiveMqBrokerParametersOutputWithContext(context.Context) PipeSourceActiveMqBrokerParametersOutput
 }
 
-type PipeSourceActiveMQBrokerParametersArgs struct {
-	BatchSize                      pulumi.IntPtrInput                       `pulumi:"batchSize"`
-	Credentials                    MQBrokerAccessCredentialsPropertiesInput `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                       `pulumi:"maximumBatchingWindowInSeconds"`
-	QueueName                      pulumi.StringInput                       `pulumi:"queueName"`
+type PipeSourceActiveMqBrokerParametersArgs struct {
+	BatchSize                      pulumi.IntPtrInput                           `pulumi:"batchSize"`
+	Credentials                    PipeMqBrokerAccessCredentialsPropertiesInput `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                           `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      pulumi.StringInput                           `pulumi:"queueName"`
 }
 
-func (PipeSourceActiveMQBrokerParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeSourceActiveMQBrokerParameters)(nil)).Elem()
+func (PipeSourceActiveMqBrokerParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeSourceActiveMqBrokerParameters)(nil)).Elem()
 }
 
-func (i PipeSourceActiveMQBrokerParametersArgs) ToPipeSourceActiveMQBrokerParametersOutput() PipeSourceActiveMQBrokerParametersOutput {
-	return i.ToPipeSourceActiveMQBrokerParametersOutputWithContext(context.Background())
+func (i PipeSourceActiveMqBrokerParametersArgs) ToPipeSourceActiveMqBrokerParametersOutput() PipeSourceActiveMqBrokerParametersOutput {
+	return i.ToPipeSourceActiveMqBrokerParametersOutputWithContext(context.Background())
 }
 
-func (i PipeSourceActiveMQBrokerParametersArgs) ToPipeSourceActiveMQBrokerParametersOutputWithContext(ctx context.Context) PipeSourceActiveMQBrokerParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceActiveMQBrokerParametersOutput)
+func (i PipeSourceActiveMqBrokerParametersArgs) ToPipeSourceActiveMqBrokerParametersOutputWithContext(ctx context.Context) PipeSourceActiveMqBrokerParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceActiveMqBrokerParametersOutput)
 }
 
-func (i PipeSourceActiveMQBrokerParametersArgs) ToPipeSourceActiveMQBrokerParametersPtrOutput() PipeSourceActiveMQBrokerParametersPtrOutput {
-	return i.ToPipeSourceActiveMQBrokerParametersPtrOutputWithContext(context.Background())
+func (i PipeSourceActiveMqBrokerParametersArgs) ToPipeSourceActiveMqBrokerParametersPtrOutput() PipeSourceActiveMqBrokerParametersPtrOutput {
+	return i.ToPipeSourceActiveMqBrokerParametersPtrOutputWithContext(context.Background())
 }
 
-func (i PipeSourceActiveMQBrokerParametersArgs) ToPipeSourceActiveMQBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceActiveMQBrokerParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceActiveMQBrokerParametersOutput).ToPipeSourceActiveMQBrokerParametersPtrOutputWithContext(ctx)
+func (i PipeSourceActiveMqBrokerParametersArgs) ToPipeSourceActiveMqBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceActiveMqBrokerParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceActiveMqBrokerParametersOutput).ToPipeSourceActiveMqBrokerParametersPtrOutputWithContext(ctx)
 }
 
-// PipeSourceActiveMQBrokerParametersPtrInput is an input type that accepts PipeSourceActiveMQBrokerParametersArgs, PipeSourceActiveMQBrokerParametersPtr and PipeSourceActiveMQBrokerParametersPtrOutput values.
-// You can construct a concrete instance of `PipeSourceActiveMQBrokerParametersPtrInput` via:
+// PipeSourceActiveMqBrokerParametersPtrInput is an input type that accepts PipeSourceActiveMqBrokerParametersArgs, PipeSourceActiveMqBrokerParametersPtr and PipeSourceActiveMqBrokerParametersPtrOutput values.
+// You can construct a concrete instance of `PipeSourceActiveMqBrokerParametersPtrInput` via:
 //
-//	        PipeSourceActiveMQBrokerParametersArgs{...}
+//	        PipeSourceActiveMqBrokerParametersArgs{...}
 //
 //	or:
 //
 //	        nil
-type PipeSourceActiveMQBrokerParametersPtrInput interface {
+type PipeSourceActiveMqBrokerParametersPtrInput interface {
 	pulumi.Input
 
-	ToPipeSourceActiveMQBrokerParametersPtrOutput() PipeSourceActiveMQBrokerParametersPtrOutput
-	ToPipeSourceActiveMQBrokerParametersPtrOutputWithContext(context.Context) PipeSourceActiveMQBrokerParametersPtrOutput
+	ToPipeSourceActiveMqBrokerParametersPtrOutput() PipeSourceActiveMqBrokerParametersPtrOutput
+	ToPipeSourceActiveMqBrokerParametersPtrOutputWithContext(context.Context) PipeSourceActiveMqBrokerParametersPtrOutput
 }
 
-type pipeSourceActiveMQBrokerParametersPtrType PipeSourceActiveMQBrokerParametersArgs
+type pipeSourceActiveMqBrokerParametersPtrType PipeSourceActiveMqBrokerParametersArgs
 
-func PipeSourceActiveMQBrokerParametersPtr(v *PipeSourceActiveMQBrokerParametersArgs) PipeSourceActiveMQBrokerParametersPtrInput {
-	return (*pipeSourceActiveMQBrokerParametersPtrType)(v)
+func PipeSourceActiveMqBrokerParametersPtr(v *PipeSourceActiveMqBrokerParametersArgs) PipeSourceActiveMqBrokerParametersPtrInput {
+	return (*pipeSourceActiveMqBrokerParametersPtrType)(v)
 }
 
-func (*pipeSourceActiveMQBrokerParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeSourceActiveMQBrokerParameters)(nil)).Elem()
+func (*pipeSourceActiveMqBrokerParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeSourceActiveMqBrokerParameters)(nil)).Elem()
 }
 
-func (i *pipeSourceActiveMQBrokerParametersPtrType) ToPipeSourceActiveMQBrokerParametersPtrOutput() PipeSourceActiveMQBrokerParametersPtrOutput {
-	return i.ToPipeSourceActiveMQBrokerParametersPtrOutputWithContext(context.Background())
+func (i *pipeSourceActiveMqBrokerParametersPtrType) ToPipeSourceActiveMqBrokerParametersPtrOutput() PipeSourceActiveMqBrokerParametersPtrOutput {
+	return i.ToPipeSourceActiveMqBrokerParametersPtrOutputWithContext(context.Background())
 }
 
-func (i *pipeSourceActiveMQBrokerParametersPtrType) ToPipeSourceActiveMQBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceActiveMQBrokerParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceActiveMQBrokerParametersPtrOutput)
+func (i *pipeSourceActiveMqBrokerParametersPtrType) ToPipeSourceActiveMqBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceActiveMqBrokerParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceActiveMqBrokerParametersPtrOutput)
 }
 
-type PipeSourceActiveMQBrokerParametersOutput struct{ *pulumi.OutputState }
+type PipeSourceActiveMqBrokerParametersOutput struct{ *pulumi.OutputState }
 
-func (PipeSourceActiveMQBrokerParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeSourceActiveMQBrokerParameters)(nil)).Elem()
+func (PipeSourceActiveMqBrokerParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeSourceActiveMqBrokerParameters)(nil)).Elem()
 }
 
-func (o PipeSourceActiveMQBrokerParametersOutput) ToPipeSourceActiveMQBrokerParametersOutput() PipeSourceActiveMQBrokerParametersOutput {
+func (o PipeSourceActiveMqBrokerParametersOutput) ToPipeSourceActiveMqBrokerParametersOutput() PipeSourceActiveMqBrokerParametersOutput {
 	return o
 }
 
-func (o PipeSourceActiveMQBrokerParametersOutput) ToPipeSourceActiveMQBrokerParametersOutputWithContext(ctx context.Context) PipeSourceActiveMQBrokerParametersOutput {
+func (o PipeSourceActiveMqBrokerParametersOutput) ToPipeSourceActiveMqBrokerParametersOutputWithContext(ctx context.Context) PipeSourceActiveMqBrokerParametersOutput {
 	return o
 }
 
-func (o PipeSourceActiveMQBrokerParametersOutput) ToPipeSourceActiveMQBrokerParametersPtrOutput() PipeSourceActiveMQBrokerParametersPtrOutput {
-	return o.ToPipeSourceActiveMQBrokerParametersPtrOutputWithContext(context.Background())
+func (o PipeSourceActiveMqBrokerParametersOutput) ToPipeSourceActiveMqBrokerParametersPtrOutput() PipeSourceActiveMqBrokerParametersPtrOutput {
+	return o.ToPipeSourceActiveMqBrokerParametersPtrOutputWithContext(context.Background())
 }
 
-func (o PipeSourceActiveMQBrokerParametersOutput) ToPipeSourceActiveMQBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceActiveMQBrokerParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeSourceActiveMQBrokerParameters) *PipeSourceActiveMQBrokerParameters {
+func (o PipeSourceActiveMqBrokerParametersOutput) ToPipeSourceActiveMqBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceActiveMqBrokerParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeSourceActiveMqBrokerParameters) *PipeSourceActiveMqBrokerParameters {
 		return &v
-	}).(PipeSourceActiveMQBrokerParametersPtrOutput)
+	}).(PipeSourceActiveMqBrokerParametersPtrOutput)
 }
 
-func (o PipeSourceActiveMQBrokerParametersOutput) BatchSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PipeSourceActiveMQBrokerParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+func (o PipeSourceActiveMqBrokerParametersOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipeSourceActiveMqBrokerParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceActiveMQBrokerParametersOutput) Credentials() MQBrokerAccessCredentialsPropertiesOutput {
-	return o.ApplyT(func(v PipeSourceActiveMQBrokerParameters) MQBrokerAccessCredentialsProperties { return v.Credentials }).(MQBrokerAccessCredentialsPropertiesOutput)
+func (o PipeSourceActiveMqBrokerParametersOutput) Credentials() PipeMqBrokerAccessCredentialsPropertiesOutput {
+	return o.ApplyT(func(v PipeSourceActiveMqBrokerParameters) PipeMqBrokerAccessCredentialsProperties {
+		return v.Credentials
+	}).(PipeMqBrokerAccessCredentialsPropertiesOutput)
 }
 
-func (o PipeSourceActiveMQBrokerParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PipeSourceActiveMQBrokerParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
+func (o PipeSourceActiveMqBrokerParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipeSourceActiveMqBrokerParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceActiveMQBrokerParametersOutput) QueueName() pulumi.StringOutput {
-	return o.ApplyT(func(v PipeSourceActiveMQBrokerParameters) string { return v.QueueName }).(pulumi.StringOutput)
+func (o PipeSourceActiveMqBrokerParametersOutput) QueueName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeSourceActiveMqBrokerParameters) string { return v.QueueName }).(pulumi.StringOutput)
 }
 
-type PipeSourceActiveMQBrokerParametersPtrOutput struct{ *pulumi.OutputState }
+type PipeSourceActiveMqBrokerParametersPtrOutput struct{ *pulumi.OutputState }
 
-func (PipeSourceActiveMQBrokerParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeSourceActiveMQBrokerParameters)(nil)).Elem()
+func (PipeSourceActiveMqBrokerParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeSourceActiveMqBrokerParameters)(nil)).Elem()
 }
 
-func (o PipeSourceActiveMQBrokerParametersPtrOutput) ToPipeSourceActiveMQBrokerParametersPtrOutput() PipeSourceActiveMQBrokerParametersPtrOutput {
+func (o PipeSourceActiveMqBrokerParametersPtrOutput) ToPipeSourceActiveMqBrokerParametersPtrOutput() PipeSourceActiveMqBrokerParametersPtrOutput {
 	return o
 }
 
-func (o PipeSourceActiveMQBrokerParametersPtrOutput) ToPipeSourceActiveMQBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceActiveMQBrokerParametersPtrOutput {
+func (o PipeSourceActiveMqBrokerParametersPtrOutput) ToPipeSourceActiveMqBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceActiveMqBrokerParametersPtrOutput {
 	return o
 }
 
-func (o PipeSourceActiveMQBrokerParametersPtrOutput) Elem() PipeSourceActiveMQBrokerParametersOutput {
-	return o.ApplyT(func(v *PipeSourceActiveMQBrokerParameters) PipeSourceActiveMQBrokerParameters {
+func (o PipeSourceActiveMqBrokerParametersPtrOutput) Elem() PipeSourceActiveMqBrokerParametersOutput {
+	return o.ApplyT(func(v *PipeSourceActiveMqBrokerParameters) PipeSourceActiveMqBrokerParameters {
 		if v != nil {
 			return *v
 		}
-		var ret PipeSourceActiveMQBrokerParameters
+		var ret PipeSourceActiveMqBrokerParameters
 		return ret
-	}).(PipeSourceActiveMQBrokerParametersOutput)
+	}).(PipeSourceActiveMqBrokerParametersOutput)
 }
 
-func (o PipeSourceActiveMQBrokerParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PipeSourceActiveMQBrokerParameters) *int {
+func (o PipeSourceActiveMqBrokerParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipeSourceActiveMqBrokerParameters) *int {
 		if v == nil {
 			return nil
 		}
@@ -3837,17 +3859,17 @@ func (o PipeSourceActiveMQBrokerParametersPtrOutput) BatchSize() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceActiveMQBrokerParametersPtrOutput) Credentials() MQBrokerAccessCredentialsPropertiesPtrOutput {
-	return o.ApplyT(func(v *PipeSourceActiveMQBrokerParameters) *MQBrokerAccessCredentialsProperties {
+func (o PipeSourceActiveMqBrokerParametersPtrOutput) Credentials() PipeMqBrokerAccessCredentialsPropertiesPtrOutput {
+	return o.ApplyT(func(v *PipeSourceActiveMqBrokerParameters) *PipeMqBrokerAccessCredentialsProperties {
 		if v == nil {
 			return nil
 		}
 		return &v.Credentials
-	}).(MQBrokerAccessCredentialsPropertiesPtrOutput)
+	}).(PipeMqBrokerAccessCredentialsPropertiesPtrOutput)
 }
 
-func (o PipeSourceActiveMQBrokerParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PipeSourceActiveMQBrokerParameters) *int {
+func (o PipeSourceActiveMqBrokerParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipeSourceActiveMqBrokerParameters) *int {
 		if v == nil {
 			return nil
 		}
@@ -3855,8 +3877,8 @@ func (o PipeSourceActiveMQBrokerParametersPtrOutput) MaximumBatchingWindowInSeco
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceActiveMQBrokerParametersPtrOutput) QueueName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PipeSourceActiveMQBrokerParameters) *string {
+func (o PipeSourceActiveMqBrokerParametersPtrOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeSourceActiveMqBrokerParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -3864,7 +3886,7 @@ func (o PipeSourceActiveMQBrokerParametersPtrOutput) QueueName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-type PipeSourceDynamoDBStreamParameters struct {
+type PipeSourceDynamoDbStreamParameters struct {
 	BatchSize                      *int                                  `pulumi:"batchSize"`
 	DeadLetterConfig               *PipeDeadLetterConfig                 `pulumi:"deadLetterConfig"`
 	MaximumBatchingWindowInSeconds *int                                  `pulumi:"maximumBatchingWindowInSeconds"`
@@ -3872,21 +3894,21 @@ type PipeSourceDynamoDBStreamParameters struct {
 	MaximumRetryAttempts           *int                                  `pulumi:"maximumRetryAttempts"`
 	OnPartialBatchItemFailure      *PipeOnPartialBatchItemFailureStreams `pulumi:"onPartialBatchItemFailure"`
 	ParallelizationFactor          *int                                  `pulumi:"parallelizationFactor"`
-	StartingPosition               PipeDynamoDBStreamStartPosition       `pulumi:"startingPosition"`
+	StartingPosition               PipeDynamoDbStreamStartPosition       `pulumi:"startingPosition"`
 }
 
-// PipeSourceDynamoDBStreamParametersInput is an input type that accepts PipeSourceDynamoDBStreamParametersArgs and PipeSourceDynamoDBStreamParametersOutput values.
-// You can construct a concrete instance of `PipeSourceDynamoDBStreamParametersInput` via:
+// PipeSourceDynamoDbStreamParametersInput is an input type that accepts PipeSourceDynamoDbStreamParametersArgs and PipeSourceDynamoDbStreamParametersOutput values.
+// You can construct a concrete instance of `PipeSourceDynamoDbStreamParametersInput` via:
 //
-//	PipeSourceDynamoDBStreamParametersArgs{...}
-type PipeSourceDynamoDBStreamParametersInput interface {
+//	PipeSourceDynamoDbStreamParametersArgs{...}
+type PipeSourceDynamoDbStreamParametersInput interface {
 	pulumi.Input
 
-	ToPipeSourceDynamoDBStreamParametersOutput() PipeSourceDynamoDBStreamParametersOutput
-	ToPipeSourceDynamoDBStreamParametersOutputWithContext(context.Context) PipeSourceDynamoDBStreamParametersOutput
+	ToPipeSourceDynamoDbStreamParametersOutput() PipeSourceDynamoDbStreamParametersOutput
+	ToPipeSourceDynamoDbStreamParametersOutputWithContext(context.Context) PipeSourceDynamoDbStreamParametersOutput
 }
 
-type PipeSourceDynamoDBStreamParametersArgs struct {
+type PipeSourceDynamoDbStreamParametersArgs struct {
 	BatchSize                      pulumi.IntPtrInput                           `pulumi:"batchSize"`
 	DeadLetterConfig               PipeDeadLetterConfigPtrInput                 `pulumi:"deadLetterConfig"`
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                           `pulumi:"maximumBatchingWindowInSeconds"`
@@ -3894,146 +3916,146 @@ type PipeSourceDynamoDBStreamParametersArgs struct {
 	MaximumRetryAttempts           pulumi.IntPtrInput                           `pulumi:"maximumRetryAttempts"`
 	OnPartialBatchItemFailure      PipeOnPartialBatchItemFailureStreamsPtrInput `pulumi:"onPartialBatchItemFailure"`
 	ParallelizationFactor          pulumi.IntPtrInput                           `pulumi:"parallelizationFactor"`
-	StartingPosition               PipeDynamoDBStreamStartPositionInput         `pulumi:"startingPosition"`
+	StartingPosition               PipeDynamoDbStreamStartPositionInput         `pulumi:"startingPosition"`
 }
 
-func (PipeSourceDynamoDBStreamParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeSourceDynamoDBStreamParameters)(nil)).Elem()
+func (PipeSourceDynamoDbStreamParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeSourceDynamoDbStreamParameters)(nil)).Elem()
 }
 
-func (i PipeSourceDynamoDBStreamParametersArgs) ToPipeSourceDynamoDBStreamParametersOutput() PipeSourceDynamoDBStreamParametersOutput {
-	return i.ToPipeSourceDynamoDBStreamParametersOutputWithContext(context.Background())
+func (i PipeSourceDynamoDbStreamParametersArgs) ToPipeSourceDynamoDbStreamParametersOutput() PipeSourceDynamoDbStreamParametersOutput {
+	return i.ToPipeSourceDynamoDbStreamParametersOutputWithContext(context.Background())
 }
 
-func (i PipeSourceDynamoDBStreamParametersArgs) ToPipeSourceDynamoDBStreamParametersOutputWithContext(ctx context.Context) PipeSourceDynamoDBStreamParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceDynamoDBStreamParametersOutput)
+func (i PipeSourceDynamoDbStreamParametersArgs) ToPipeSourceDynamoDbStreamParametersOutputWithContext(ctx context.Context) PipeSourceDynamoDbStreamParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceDynamoDbStreamParametersOutput)
 }
 
-func (i PipeSourceDynamoDBStreamParametersArgs) ToPipeSourceDynamoDBStreamParametersPtrOutput() PipeSourceDynamoDBStreamParametersPtrOutput {
-	return i.ToPipeSourceDynamoDBStreamParametersPtrOutputWithContext(context.Background())
+func (i PipeSourceDynamoDbStreamParametersArgs) ToPipeSourceDynamoDbStreamParametersPtrOutput() PipeSourceDynamoDbStreamParametersPtrOutput {
+	return i.ToPipeSourceDynamoDbStreamParametersPtrOutputWithContext(context.Background())
 }
 
-func (i PipeSourceDynamoDBStreamParametersArgs) ToPipeSourceDynamoDBStreamParametersPtrOutputWithContext(ctx context.Context) PipeSourceDynamoDBStreamParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceDynamoDBStreamParametersOutput).ToPipeSourceDynamoDBStreamParametersPtrOutputWithContext(ctx)
+func (i PipeSourceDynamoDbStreamParametersArgs) ToPipeSourceDynamoDbStreamParametersPtrOutputWithContext(ctx context.Context) PipeSourceDynamoDbStreamParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceDynamoDbStreamParametersOutput).ToPipeSourceDynamoDbStreamParametersPtrOutputWithContext(ctx)
 }
 
-// PipeSourceDynamoDBStreamParametersPtrInput is an input type that accepts PipeSourceDynamoDBStreamParametersArgs, PipeSourceDynamoDBStreamParametersPtr and PipeSourceDynamoDBStreamParametersPtrOutput values.
-// You can construct a concrete instance of `PipeSourceDynamoDBStreamParametersPtrInput` via:
+// PipeSourceDynamoDbStreamParametersPtrInput is an input type that accepts PipeSourceDynamoDbStreamParametersArgs, PipeSourceDynamoDbStreamParametersPtr and PipeSourceDynamoDbStreamParametersPtrOutput values.
+// You can construct a concrete instance of `PipeSourceDynamoDbStreamParametersPtrInput` via:
 //
-//	        PipeSourceDynamoDBStreamParametersArgs{...}
+//	        PipeSourceDynamoDbStreamParametersArgs{...}
 //
 //	or:
 //
 //	        nil
-type PipeSourceDynamoDBStreamParametersPtrInput interface {
+type PipeSourceDynamoDbStreamParametersPtrInput interface {
 	pulumi.Input
 
-	ToPipeSourceDynamoDBStreamParametersPtrOutput() PipeSourceDynamoDBStreamParametersPtrOutput
-	ToPipeSourceDynamoDBStreamParametersPtrOutputWithContext(context.Context) PipeSourceDynamoDBStreamParametersPtrOutput
+	ToPipeSourceDynamoDbStreamParametersPtrOutput() PipeSourceDynamoDbStreamParametersPtrOutput
+	ToPipeSourceDynamoDbStreamParametersPtrOutputWithContext(context.Context) PipeSourceDynamoDbStreamParametersPtrOutput
 }
 
-type pipeSourceDynamoDBStreamParametersPtrType PipeSourceDynamoDBStreamParametersArgs
+type pipeSourceDynamoDbStreamParametersPtrType PipeSourceDynamoDbStreamParametersArgs
 
-func PipeSourceDynamoDBStreamParametersPtr(v *PipeSourceDynamoDBStreamParametersArgs) PipeSourceDynamoDBStreamParametersPtrInput {
-	return (*pipeSourceDynamoDBStreamParametersPtrType)(v)
+func PipeSourceDynamoDbStreamParametersPtr(v *PipeSourceDynamoDbStreamParametersArgs) PipeSourceDynamoDbStreamParametersPtrInput {
+	return (*pipeSourceDynamoDbStreamParametersPtrType)(v)
 }
 
-func (*pipeSourceDynamoDBStreamParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeSourceDynamoDBStreamParameters)(nil)).Elem()
+func (*pipeSourceDynamoDbStreamParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeSourceDynamoDbStreamParameters)(nil)).Elem()
 }
 
-func (i *pipeSourceDynamoDBStreamParametersPtrType) ToPipeSourceDynamoDBStreamParametersPtrOutput() PipeSourceDynamoDBStreamParametersPtrOutput {
-	return i.ToPipeSourceDynamoDBStreamParametersPtrOutputWithContext(context.Background())
+func (i *pipeSourceDynamoDbStreamParametersPtrType) ToPipeSourceDynamoDbStreamParametersPtrOutput() PipeSourceDynamoDbStreamParametersPtrOutput {
+	return i.ToPipeSourceDynamoDbStreamParametersPtrOutputWithContext(context.Background())
 }
 
-func (i *pipeSourceDynamoDBStreamParametersPtrType) ToPipeSourceDynamoDBStreamParametersPtrOutputWithContext(ctx context.Context) PipeSourceDynamoDBStreamParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceDynamoDBStreamParametersPtrOutput)
+func (i *pipeSourceDynamoDbStreamParametersPtrType) ToPipeSourceDynamoDbStreamParametersPtrOutputWithContext(ctx context.Context) PipeSourceDynamoDbStreamParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceDynamoDbStreamParametersPtrOutput)
 }
 
-type PipeSourceDynamoDBStreamParametersOutput struct{ *pulumi.OutputState }
+type PipeSourceDynamoDbStreamParametersOutput struct{ *pulumi.OutputState }
 
-func (PipeSourceDynamoDBStreamParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeSourceDynamoDBStreamParameters)(nil)).Elem()
+func (PipeSourceDynamoDbStreamParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeSourceDynamoDbStreamParameters)(nil)).Elem()
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) ToPipeSourceDynamoDBStreamParametersOutput() PipeSourceDynamoDBStreamParametersOutput {
+func (o PipeSourceDynamoDbStreamParametersOutput) ToPipeSourceDynamoDbStreamParametersOutput() PipeSourceDynamoDbStreamParametersOutput {
 	return o
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) ToPipeSourceDynamoDBStreamParametersOutputWithContext(ctx context.Context) PipeSourceDynamoDBStreamParametersOutput {
+func (o PipeSourceDynamoDbStreamParametersOutput) ToPipeSourceDynamoDbStreamParametersOutputWithContext(ctx context.Context) PipeSourceDynamoDbStreamParametersOutput {
 	return o
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) ToPipeSourceDynamoDBStreamParametersPtrOutput() PipeSourceDynamoDBStreamParametersPtrOutput {
-	return o.ToPipeSourceDynamoDBStreamParametersPtrOutputWithContext(context.Background())
+func (o PipeSourceDynamoDbStreamParametersOutput) ToPipeSourceDynamoDbStreamParametersPtrOutput() PipeSourceDynamoDbStreamParametersPtrOutput {
+	return o.ToPipeSourceDynamoDbStreamParametersPtrOutputWithContext(context.Background())
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) ToPipeSourceDynamoDBStreamParametersPtrOutputWithContext(ctx context.Context) PipeSourceDynamoDBStreamParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeSourceDynamoDBStreamParameters) *PipeSourceDynamoDBStreamParameters {
+func (o PipeSourceDynamoDbStreamParametersOutput) ToPipeSourceDynamoDbStreamParametersPtrOutputWithContext(ctx context.Context) PipeSourceDynamoDbStreamParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeSourceDynamoDbStreamParameters) *PipeSourceDynamoDbStreamParameters {
 		return &v
-	}).(PipeSourceDynamoDBStreamParametersPtrOutput)
+	}).(PipeSourceDynamoDbStreamParametersPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) BatchSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PipeSourceDynamoDBStreamParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+func (o PipeSourceDynamoDbStreamParametersOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) DeadLetterConfig() PipeDeadLetterConfigPtrOutput {
-	return o.ApplyT(func(v PipeSourceDynamoDBStreamParameters) *PipeDeadLetterConfig { return v.DeadLetterConfig }).(PipeDeadLetterConfigPtrOutput)
+func (o PipeSourceDynamoDbStreamParametersOutput) DeadLetterConfig() PipeDeadLetterConfigPtrOutput {
+	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *PipeDeadLetterConfig { return v.DeadLetterConfig }).(PipeDeadLetterConfigPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PipeSourceDynamoDBStreamParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
+func (o PipeSourceDynamoDbStreamParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PipeSourceDynamoDBStreamParameters) *int { return v.MaximumRecordAgeInSeconds }).(pulumi.IntPtrOutput)
+func (o PipeSourceDynamoDbStreamParametersOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *int { return v.MaximumRecordAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PipeSourceDynamoDBStreamParameters) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
+func (o PipeSourceDynamoDbStreamParametersOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) OnPartialBatchItemFailure() PipeOnPartialBatchItemFailureStreamsPtrOutput {
-	return o.ApplyT(func(v PipeSourceDynamoDBStreamParameters) *PipeOnPartialBatchItemFailureStreams {
+func (o PipeSourceDynamoDbStreamParametersOutput) OnPartialBatchItemFailure() PipeOnPartialBatchItemFailureStreamsPtrOutput {
+	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *PipeOnPartialBatchItemFailureStreams {
 		return v.OnPartialBatchItemFailure
 	}).(PipeOnPartialBatchItemFailureStreamsPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) ParallelizationFactor() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PipeSourceDynamoDBStreamParameters) *int { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
+func (o PipeSourceDynamoDbStreamParametersOutput) ParallelizationFactor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *int { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersOutput) StartingPosition() PipeDynamoDBStreamStartPositionOutput {
-	return o.ApplyT(func(v PipeSourceDynamoDBStreamParameters) PipeDynamoDBStreamStartPosition { return v.StartingPosition }).(PipeDynamoDBStreamStartPositionOutput)
+func (o PipeSourceDynamoDbStreamParametersOutput) StartingPosition() PipeDynamoDbStreamStartPositionOutput {
+	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) PipeDynamoDbStreamStartPosition { return v.StartingPosition }).(PipeDynamoDbStreamStartPositionOutput)
 }
 
-type PipeSourceDynamoDBStreamParametersPtrOutput struct{ *pulumi.OutputState }
+type PipeSourceDynamoDbStreamParametersPtrOutput struct{ *pulumi.OutputState }
 
-func (PipeSourceDynamoDBStreamParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeSourceDynamoDBStreamParameters)(nil)).Elem()
+func (PipeSourceDynamoDbStreamParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeSourceDynamoDbStreamParameters)(nil)).Elem()
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) ToPipeSourceDynamoDBStreamParametersPtrOutput() PipeSourceDynamoDBStreamParametersPtrOutput {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) ToPipeSourceDynamoDbStreamParametersPtrOutput() PipeSourceDynamoDbStreamParametersPtrOutput {
 	return o
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) ToPipeSourceDynamoDBStreamParametersPtrOutputWithContext(ctx context.Context) PipeSourceDynamoDBStreamParametersPtrOutput {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) ToPipeSourceDynamoDbStreamParametersPtrOutputWithContext(ctx context.Context) PipeSourceDynamoDbStreamParametersPtrOutput {
 	return o
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) Elem() PipeSourceDynamoDBStreamParametersOutput {
-	return o.ApplyT(func(v *PipeSourceDynamoDBStreamParameters) PipeSourceDynamoDBStreamParameters {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) Elem() PipeSourceDynamoDbStreamParametersOutput {
+	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) PipeSourceDynamoDbStreamParameters {
 		if v != nil {
 			return *v
 		}
-		var ret PipeSourceDynamoDBStreamParameters
+		var ret PipeSourceDynamoDbStreamParameters
 		return ret
-	}).(PipeSourceDynamoDBStreamParametersOutput)
+	}).(PipeSourceDynamoDbStreamParametersOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PipeSourceDynamoDBStreamParameters) *int {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *int {
 		if v == nil {
 			return nil
 		}
@@ -4041,8 +4063,8 @@ func (o PipeSourceDynamoDBStreamParametersPtrOutput) BatchSize() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) DeadLetterConfig() PipeDeadLetterConfigPtrOutput {
-	return o.ApplyT(func(v *PipeSourceDynamoDBStreamParameters) *PipeDeadLetterConfig {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) DeadLetterConfig() PipeDeadLetterConfigPtrOutput {
+	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *PipeDeadLetterConfig {
 		if v == nil {
 			return nil
 		}
@@ -4050,8 +4072,8 @@ func (o PipeSourceDynamoDBStreamParametersPtrOutput) DeadLetterConfig() PipeDead
 	}).(PipeDeadLetterConfigPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PipeSourceDynamoDBStreamParameters) *int {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *int {
 		if v == nil {
 			return nil
 		}
@@ -4059,8 +4081,8 @@ func (o PipeSourceDynamoDBStreamParametersPtrOutput) MaximumBatchingWindowInSeco
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PipeSourceDynamoDBStreamParameters) *int {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *int {
 		if v == nil {
 			return nil
 		}
@@ -4068,8 +4090,8 @@ func (o PipeSourceDynamoDBStreamParametersPtrOutput) MaximumRecordAgeInSeconds()
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PipeSourceDynamoDBStreamParameters) *int {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *int {
 		if v == nil {
 			return nil
 		}
@@ -4077,8 +4099,8 @@ func (o PipeSourceDynamoDBStreamParametersPtrOutput) MaximumRetryAttempts() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) OnPartialBatchItemFailure() PipeOnPartialBatchItemFailureStreamsPtrOutput {
-	return o.ApplyT(func(v *PipeSourceDynamoDBStreamParameters) *PipeOnPartialBatchItemFailureStreams {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) OnPartialBatchItemFailure() PipeOnPartialBatchItemFailureStreamsPtrOutput {
+	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *PipeOnPartialBatchItemFailureStreams {
 		if v == nil {
 			return nil
 		}
@@ -4086,8 +4108,8 @@ func (o PipeSourceDynamoDBStreamParametersPtrOutput) OnPartialBatchItemFailure()
 	}).(PipeOnPartialBatchItemFailureStreamsPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) ParallelizationFactor() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PipeSourceDynamoDBStreamParameters) *int {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) ParallelizationFactor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *int {
 		if v == nil {
 			return nil
 		}
@@ -4095,13 +4117,13 @@ func (o PipeSourceDynamoDBStreamParametersPtrOutput) ParallelizationFactor() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceDynamoDBStreamParametersPtrOutput) StartingPosition() PipeDynamoDBStreamStartPositionPtrOutput {
-	return o.ApplyT(func(v *PipeSourceDynamoDBStreamParameters) *PipeDynamoDBStreamStartPosition {
+func (o PipeSourceDynamoDbStreamParametersPtrOutput) StartingPosition() PipeDynamoDbStreamStartPositionPtrOutput {
+	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *PipeDynamoDbStreamStartPosition {
 		if v == nil {
 			return nil
 		}
 		return &v.StartingPosition
-	}).(PipeDynamoDBStreamStartPositionPtrOutput)
+	}).(PipeDynamoDbStreamStartPositionPtrOutput)
 }
 
 type PipeSourceKinesisStreamParameters struct {
@@ -4364,7 +4386,7 @@ type PipeSourceManagedStreamingKafkaParameters struct {
 	ConsumerGroupId                *string               `pulumi:"consumerGroupId"`
 	Credentials                    interface{}           `pulumi:"credentials"`
 	MaximumBatchingWindowInSeconds *int                  `pulumi:"maximumBatchingWindowInSeconds"`
-	StartingPosition               *PipeMSKStartPosition `pulumi:"startingPosition"`
+	StartingPosition               *PipeMskStartPosition `pulumi:"startingPosition"`
 	TopicName                      string                `pulumi:"topicName"`
 }
 
@@ -4384,7 +4406,7 @@ type PipeSourceManagedStreamingKafkaParametersArgs struct {
 	ConsumerGroupId                pulumi.StringPtrInput        `pulumi:"consumerGroupId"`
 	Credentials                    pulumi.Input                 `pulumi:"credentials"`
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput           `pulumi:"maximumBatchingWindowInSeconds"`
-	StartingPosition               PipeMSKStartPositionPtrInput `pulumi:"startingPosition"`
+	StartingPosition               PipeMskStartPositionPtrInput `pulumi:"startingPosition"`
 	TopicName                      pulumi.StringInput           `pulumi:"topicName"`
 }
 
@@ -4481,8 +4503,8 @@ func (o PipeSourceManagedStreamingKafkaParametersOutput) MaximumBatchingWindowIn
 	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceManagedStreamingKafkaParametersOutput) StartingPosition() PipeMSKStartPositionPtrOutput {
-	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) *PipeMSKStartPosition { return v.StartingPosition }).(PipeMSKStartPositionPtrOutput)
+func (o PipeSourceManagedStreamingKafkaParametersOutput) StartingPosition() PipeMskStartPositionPtrOutput {
+	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) *PipeMskStartPosition { return v.StartingPosition }).(PipeMskStartPositionPtrOutput)
 }
 
 func (o PipeSourceManagedStreamingKafkaParametersOutput) TopicName() pulumi.StringOutput {
@@ -4549,13 +4571,13 @@ func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) MaximumBatchingWindo
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) StartingPosition() PipeMSKStartPositionPtrOutput {
-	return o.ApplyT(func(v *PipeSourceManagedStreamingKafkaParameters) *PipeMSKStartPosition {
+func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) StartingPosition() PipeMskStartPositionPtrOutput {
+	return o.ApplyT(func(v *PipeSourceManagedStreamingKafkaParameters) *PipeMskStartPosition {
 		if v == nil {
 			return nil
 		}
 		return v.StartingPosition
-	}).(PipeMSKStartPositionPtrOutput)
+	}).(PipeMskStartPositionPtrOutput)
 }
 
 func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) TopicName() pulumi.StringPtrOutput {
@@ -4568,12 +4590,12 @@ func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) TopicName() pulumi.S
 }
 
 type PipeSourceParameters struct {
-	ActiveMqBrokerParameters        *PipeSourceActiveMQBrokerParameters        `pulumi:"activeMqBrokerParameters"`
-	DynamoDbStreamParameters        *PipeSourceDynamoDBStreamParameters        `pulumi:"dynamoDbStreamParameters"`
+	ActiveMqBrokerParameters        *PipeSourceActiveMqBrokerParameters        `pulumi:"activeMqBrokerParameters"`
+	DynamoDbStreamParameters        *PipeSourceDynamoDbStreamParameters        `pulumi:"dynamoDbStreamParameters"`
 	FilterCriteria                  *PipeFilterCriteria                        `pulumi:"filterCriteria"`
 	KinesisStreamParameters         *PipeSourceKinesisStreamParameters         `pulumi:"kinesisStreamParameters"`
 	ManagedStreamingKafkaParameters *PipeSourceManagedStreamingKafkaParameters `pulumi:"managedStreamingKafkaParameters"`
-	RabbitMqBrokerParameters        *PipeSourceRabbitMQBrokerParameters        `pulumi:"rabbitMqBrokerParameters"`
+	RabbitMqBrokerParameters        *PipeSourceRabbitMqBrokerParameters        `pulumi:"rabbitMqBrokerParameters"`
 	SelfManagedKafkaParameters      *PipeSourceSelfManagedKafkaParameters      `pulumi:"selfManagedKafkaParameters"`
 	SqsQueueParameters              *PipeSourceSqsQueueParameters              `pulumi:"sqsQueueParameters"`
 }
@@ -4590,12 +4612,12 @@ type PipeSourceParametersInput interface {
 }
 
 type PipeSourceParametersArgs struct {
-	ActiveMqBrokerParameters        PipeSourceActiveMQBrokerParametersPtrInput        `pulumi:"activeMqBrokerParameters"`
-	DynamoDbStreamParameters        PipeSourceDynamoDBStreamParametersPtrInput        `pulumi:"dynamoDbStreamParameters"`
+	ActiveMqBrokerParameters        PipeSourceActiveMqBrokerParametersPtrInput        `pulumi:"activeMqBrokerParameters"`
+	DynamoDbStreamParameters        PipeSourceDynamoDbStreamParametersPtrInput        `pulumi:"dynamoDbStreamParameters"`
 	FilterCriteria                  PipeFilterCriteriaPtrInput                        `pulumi:"filterCriteria"`
 	KinesisStreamParameters         PipeSourceKinesisStreamParametersPtrInput         `pulumi:"kinesisStreamParameters"`
 	ManagedStreamingKafkaParameters PipeSourceManagedStreamingKafkaParametersPtrInput `pulumi:"managedStreamingKafkaParameters"`
-	RabbitMqBrokerParameters        PipeSourceRabbitMQBrokerParametersPtrInput        `pulumi:"rabbitMqBrokerParameters"`
+	RabbitMqBrokerParameters        PipeSourceRabbitMqBrokerParametersPtrInput        `pulumi:"rabbitMqBrokerParameters"`
 	SelfManagedKafkaParameters      PipeSourceSelfManagedKafkaParametersPtrInput      `pulumi:"selfManagedKafkaParameters"`
 	SqsQueueParameters              PipeSourceSqsQueueParametersPtrInput              `pulumi:"sqsQueueParameters"`
 }
@@ -4677,12 +4699,12 @@ func (o PipeSourceParametersOutput) ToPipeSourceParametersPtrOutputWithContext(c
 	}).(PipeSourceParametersPtrOutput)
 }
 
-func (o PipeSourceParametersOutput) ActiveMqBrokerParameters() PipeSourceActiveMQBrokerParametersPtrOutput {
-	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceActiveMQBrokerParameters { return v.ActiveMqBrokerParameters }).(PipeSourceActiveMQBrokerParametersPtrOutput)
+func (o PipeSourceParametersOutput) ActiveMqBrokerParameters() PipeSourceActiveMqBrokerParametersPtrOutput {
+	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceActiveMqBrokerParameters { return v.ActiveMqBrokerParameters }).(PipeSourceActiveMqBrokerParametersPtrOutput)
 }
 
-func (o PipeSourceParametersOutput) DynamoDbStreamParameters() PipeSourceDynamoDBStreamParametersPtrOutput {
-	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceDynamoDBStreamParameters { return v.DynamoDbStreamParameters }).(PipeSourceDynamoDBStreamParametersPtrOutput)
+func (o PipeSourceParametersOutput) DynamoDbStreamParameters() PipeSourceDynamoDbStreamParametersPtrOutput {
+	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceDynamoDbStreamParameters { return v.DynamoDbStreamParameters }).(PipeSourceDynamoDbStreamParametersPtrOutput)
 }
 
 func (o PipeSourceParametersOutput) FilterCriteria() PipeFilterCriteriaPtrOutput {
@@ -4699,8 +4721,8 @@ func (o PipeSourceParametersOutput) ManagedStreamingKafkaParameters() PipeSource
 	}).(PipeSourceManagedStreamingKafkaParametersPtrOutput)
 }
 
-func (o PipeSourceParametersOutput) RabbitMqBrokerParameters() PipeSourceRabbitMQBrokerParametersPtrOutput {
-	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceRabbitMQBrokerParameters { return v.RabbitMqBrokerParameters }).(PipeSourceRabbitMQBrokerParametersPtrOutput)
+func (o PipeSourceParametersOutput) RabbitMqBrokerParameters() PipeSourceRabbitMqBrokerParametersPtrOutput {
+	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceRabbitMqBrokerParameters { return v.RabbitMqBrokerParameters }).(PipeSourceRabbitMqBrokerParametersPtrOutput)
 }
 
 func (o PipeSourceParametersOutput) SelfManagedKafkaParameters() PipeSourceSelfManagedKafkaParametersPtrOutput {
@@ -4737,22 +4759,22 @@ func (o PipeSourceParametersPtrOutput) Elem() PipeSourceParametersOutput {
 	}).(PipeSourceParametersOutput)
 }
 
-func (o PipeSourceParametersPtrOutput) ActiveMqBrokerParameters() PipeSourceActiveMQBrokerParametersPtrOutput {
-	return o.ApplyT(func(v *PipeSourceParameters) *PipeSourceActiveMQBrokerParameters {
+func (o PipeSourceParametersPtrOutput) ActiveMqBrokerParameters() PipeSourceActiveMqBrokerParametersPtrOutput {
+	return o.ApplyT(func(v *PipeSourceParameters) *PipeSourceActiveMqBrokerParameters {
 		if v == nil {
 			return nil
 		}
 		return v.ActiveMqBrokerParameters
-	}).(PipeSourceActiveMQBrokerParametersPtrOutput)
+	}).(PipeSourceActiveMqBrokerParametersPtrOutput)
 }
 
-func (o PipeSourceParametersPtrOutput) DynamoDbStreamParameters() PipeSourceDynamoDBStreamParametersPtrOutput {
-	return o.ApplyT(func(v *PipeSourceParameters) *PipeSourceDynamoDBStreamParameters {
+func (o PipeSourceParametersPtrOutput) DynamoDbStreamParameters() PipeSourceDynamoDbStreamParametersPtrOutput {
+	return o.ApplyT(func(v *PipeSourceParameters) *PipeSourceDynamoDbStreamParameters {
 		if v == nil {
 			return nil
 		}
 		return v.DynamoDbStreamParameters
-	}).(PipeSourceDynamoDBStreamParametersPtrOutput)
+	}).(PipeSourceDynamoDbStreamParametersPtrOutput)
 }
 
 func (o PipeSourceParametersPtrOutput) FilterCriteria() PipeFilterCriteriaPtrOutput {
@@ -4782,13 +4804,13 @@ func (o PipeSourceParametersPtrOutput) ManagedStreamingKafkaParameters() PipeSou
 	}).(PipeSourceManagedStreamingKafkaParametersPtrOutput)
 }
 
-func (o PipeSourceParametersPtrOutput) RabbitMqBrokerParameters() PipeSourceRabbitMQBrokerParametersPtrOutput {
-	return o.ApplyT(func(v *PipeSourceParameters) *PipeSourceRabbitMQBrokerParameters {
+func (o PipeSourceParametersPtrOutput) RabbitMqBrokerParameters() PipeSourceRabbitMqBrokerParametersPtrOutput {
+	return o.ApplyT(func(v *PipeSourceParameters) *PipeSourceRabbitMqBrokerParameters {
 		if v == nil {
 			return nil
 		}
 		return v.RabbitMqBrokerParameters
-	}).(PipeSourceRabbitMQBrokerParametersPtrOutput)
+	}).(PipeSourceRabbitMqBrokerParametersPtrOutput)
 }
 
 func (o PipeSourceParametersPtrOutput) SelfManagedKafkaParameters() PipeSourceSelfManagedKafkaParametersPtrOutput {
@@ -4809,156 +4831,158 @@ func (o PipeSourceParametersPtrOutput) SqsQueueParameters() PipeSourceSqsQueuePa
 	}).(PipeSourceSqsQueueParametersPtrOutput)
 }
 
-type PipeSourceRabbitMQBrokerParameters struct {
-	BatchSize                      *int                                `pulumi:"batchSize"`
-	Credentials                    MQBrokerAccessCredentialsProperties `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds *int                                `pulumi:"maximumBatchingWindowInSeconds"`
-	QueueName                      string                              `pulumi:"queueName"`
-	VirtualHost                    *string                             `pulumi:"virtualHost"`
+type PipeSourceRabbitMqBrokerParameters struct {
+	BatchSize                      *int                                    `pulumi:"batchSize"`
+	Credentials                    PipeMqBrokerAccessCredentialsProperties `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds *int                                    `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      string                                  `pulumi:"queueName"`
+	VirtualHost                    *string                                 `pulumi:"virtualHost"`
 }
 
-// PipeSourceRabbitMQBrokerParametersInput is an input type that accepts PipeSourceRabbitMQBrokerParametersArgs and PipeSourceRabbitMQBrokerParametersOutput values.
-// You can construct a concrete instance of `PipeSourceRabbitMQBrokerParametersInput` via:
+// PipeSourceRabbitMqBrokerParametersInput is an input type that accepts PipeSourceRabbitMqBrokerParametersArgs and PipeSourceRabbitMqBrokerParametersOutput values.
+// You can construct a concrete instance of `PipeSourceRabbitMqBrokerParametersInput` via:
 //
-//	PipeSourceRabbitMQBrokerParametersArgs{...}
-type PipeSourceRabbitMQBrokerParametersInput interface {
+//	PipeSourceRabbitMqBrokerParametersArgs{...}
+type PipeSourceRabbitMqBrokerParametersInput interface {
 	pulumi.Input
 
-	ToPipeSourceRabbitMQBrokerParametersOutput() PipeSourceRabbitMQBrokerParametersOutput
-	ToPipeSourceRabbitMQBrokerParametersOutputWithContext(context.Context) PipeSourceRabbitMQBrokerParametersOutput
+	ToPipeSourceRabbitMqBrokerParametersOutput() PipeSourceRabbitMqBrokerParametersOutput
+	ToPipeSourceRabbitMqBrokerParametersOutputWithContext(context.Context) PipeSourceRabbitMqBrokerParametersOutput
 }
 
-type PipeSourceRabbitMQBrokerParametersArgs struct {
-	BatchSize                      pulumi.IntPtrInput                       `pulumi:"batchSize"`
-	Credentials                    MQBrokerAccessCredentialsPropertiesInput `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                       `pulumi:"maximumBatchingWindowInSeconds"`
-	QueueName                      pulumi.StringInput                       `pulumi:"queueName"`
-	VirtualHost                    pulumi.StringPtrInput                    `pulumi:"virtualHost"`
+type PipeSourceRabbitMqBrokerParametersArgs struct {
+	BatchSize                      pulumi.IntPtrInput                           `pulumi:"batchSize"`
+	Credentials                    PipeMqBrokerAccessCredentialsPropertiesInput `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                           `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      pulumi.StringInput                           `pulumi:"queueName"`
+	VirtualHost                    pulumi.StringPtrInput                        `pulumi:"virtualHost"`
 }
 
-func (PipeSourceRabbitMQBrokerParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeSourceRabbitMQBrokerParameters)(nil)).Elem()
+func (PipeSourceRabbitMqBrokerParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeSourceRabbitMqBrokerParameters)(nil)).Elem()
 }
 
-func (i PipeSourceRabbitMQBrokerParametersArgs) ToPipeSourceRabbitMQBrokerParametersOutput() PipeSourceRabbitMQBrokerParametersOutput {
-	return i.ToPipeSourceRabbitMQBrokerParametersOutputWithContext(context.Background())
+func (i PipeSourceRabbitMqBrokerParametersArgs) ToPipeSourceRabbitMqBrokerParametersOutput() PipeSourceRabbitMqBrokerParametersOutput {
+	return i.ToPipeSourceRabbitMqBrokerParametersOutputWithContext(context.Background())
 }
 
-func (i PipeSourceRabbitMQBrokerParametersArgs) ToPipeSourceRabbitMQBrokerParametersOutputWithContext(ctx context.Context) PipeSourceRabbitMQBrokerParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceRabbitMQBrokerParametersOutput)
+func (i PipeSourceRabbitMqBrokerParametersArgs) ToPipeSourceRabbitMqBrokerParametersOutputWithContext(ctx context.Context) PipeSourceRabbitMqBrokerParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceRabbitMqBrokerParametersOutput)
 }
 
-func (i PipeSourceRabbitMQBrokerParametersArgs) ToPipeSourceRabbitMQBrokerParametersPtrOutput() PipeSourceRabbitMQBrokerParametersPtrOutput {
-	return i.ToPipeSourceRabbitMQBrokerParametersPtrOutputWithContext(context.Background())
+func (i PipeSourceRabbitMqBrokerParametersArgs) ToPipeSourceRabbitMqBrokerParametersPtrOutput() PipeSourceRabbitMqBrokerParametersPtrOutput {
+	return i.ToPipeSourceRabbitMqBrokerParametersPtrOutputWithContext(context.Background())
 }
 
-func (i PipeSourceRabbitMQBrokerParametersArgs) ToPipeSourceRabbitMQBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceRabbitMQBrokerParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceRabbitMQBrokerParametersOutput).ToPipeSourceRabbitMQBrokerParametersPtrOutputWithContext(ctx)
+func (i PipeSourceRabbitMqBrokerParametersArgs) ToPipeSourceRabbitMqBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceRabbitMqBrokerParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceRabbitMqBrokerParametersOutput).ToPipeSourceRabbitMqBrokerParametersPtrOutputWithContext(ctx)
 }
 
-// PipeSourceRabbitMQBrokerParametersPtrInput is an input type that accepts PipeSourceRabbitMQBrokerParametersArgs, PipeSourceRabbitMQBrokerParametersPtr and PipeSourceRabbitMQBrokerParametersPtrOutput values.
-// You can construct a concrete instance of `PipeSourceRabbitMQBrokerParametersPtrInput` via:
+// PipeSourceRabbitMqBrokerParametersPtrInput is an input type that accepts PipeSourceRabbitMqBrokerParametersArgs, PipeSourceRabbitMqBrokerParametersPtr and PipeSourceRabbitMqBrokerParametersPtrOutput values.
+// You can construct a concrete instance of `PipeSourceRabbitMqBrokerParametersPtrInput` via:
 //
-//	        PipeSourceRabbitMQBrokerParametersArgs{...}
+//	        PipeSourceRabbitMqBrokerParametersArgs{...}
 //
 //	or:
 //
 //	        nil
-type PipeSourceRabbitMQBrokerParametersPtrInput interface {
+type PipeSourceRabbitMqBrokerParametersPtrInput interface {
 	pulumi.Input
 
-	ToPipeSourceRabbitMQBrokerParametersPtrOutput() PipeSourceRabbitMQBrokerParametersPtrOutput
-	ToPipeSourceRabbitMQBrokerParametersPtrOutputWithContext(context.Context) PipeSourceRabbitMQBrokerParametersPtrOutput
+	ToPipeSourceRabbitMqBrokerParametersPtrOutput() PipeSourceRabbitMqBrokerParametersPtrOutput
+	ToPipeSourceRabbitMqBrokerParametersPtrOutputWithContext(context.Context) PipeSourceRabbitMqBrokerParametersPtrOutput
 }
 
-type pipeSourceRabbitMQBrokerParametersPtrType PipeSourceRabbitMQBrokerParametersArgs
+type pipeSourceRabbitMqBrokerParametersPtrType PipeSourceRabbitMqBrokerParametersArgs
 
-func PipeSourceRabbitMQBrokerParametersPtr(v *PipeSourceRabbitMQBrokerParametersArgs) PipeSourceRabbitMQBrokerParametersPtrInput {
-	return (*pipeSourceRabbitMQBrokerParametersPtrType)(v)
+func PipeSourceRabbitMqBrokerParametersPtr(v *PipeSourceRabbitMqBrokerParametersArgs) PipeSourceRabbitMqBrokerParametersPtrInput {
+	return (*pipeSourceRabbitMqBrokerParametersPtrType)(v)
 }
 
-func (*pipeSourceRabbitMQBrokerParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeSourceRabbitMQBrokerParameters)(nil)).Elem()
+func (*pipeSourceRabbitMqBrokerParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeSourceRabbitMqBrokerParameters)(nil)).Elem()
 }
 
-func (i *pipeSourceRabbitMQBrokerParametersPtrType) ToPipeSourceRabbitMQBrokerParametersPtrOutput() PipeSourceRabbitMQBrokerParametersPtrOutput {
-	return i.ToPipeSourceRabbitMQBrokerParametersPtrOutputWithContext(context.Background())
+func (i *pipeSourceRabbitMqBrokerParametersPtrType) ToPipeSourceRabbitMqBrokerParametersPtrOutput() PipeSourceRabbitMqBrokerParametersPtrOutput {
+	return i.ToPipeSourceRabbitMqBrokerParametersPtrOutputWithContext(context.Background())
 }
 
-func (i *pipeSourceRabbitMQBrokerParametersPtrType) ToPipeSourceRabbitMQBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceRabbitMQBrokerParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceRabbitMQBrokerParametersPtrOutput)
+func (i *pipeSourceRabbitMqBrokerParametersPtrType) ToPipeSourceRabbitMqBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceRabbitMqBrokerParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceRabbitMqBrokerParametersPtrOutput)
 }
 
-type PipeSourceRabbitMQBrokerParametersOutput struct{ *pulumi.OutputState }
+type PipeSourceRabbitMqBrokerParametersOutput struct{ *pulumi.OutputState }
 
-func (PipeSourceRabbitMQBrokerParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeSourceRabbitMQBrokerParameters)(nil)).Elem()
+func (PipeSourceRabbitMqBrokerParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeSourceRabbitMqBrokerParameters)(nil)).Elem()
 }
 
-func (o PipeSourceRabbitMQBrokerParametersOutput) ToPipeSourceRabbitMQBrokerParametersOutput() PipeSourceRabbitMQBrokerParametersOutput {
+func (o PipeSourceRabbitMqBrokerParametersOutput) ToPipeSourceRabbitMqBrokerParametersOutput() PipeSourceRabbitMqBrokerParametersOutput {
 	return o
 }
 
-func (o PipeSourceRabbitMQBrokerParametersOutput) ToPipeSourceRabbitMQBrokerParametersOutputWithContext(ctx context.Context) PipeSourceRabbitMQBrokerParametersOutput {
+func (o PipeSourceRabbitMqBrokerParametersOutput) ToPipeSourceRabbitMqBrokerParametersOutputWithContext(ctx context.Context) PipeSourceRabbitMqBrokerParametersOutput {
 	return o
 }
 
-func (o PipeSourceRabbitMQBrokerParametersOutput) ToPipeSourceRabbitMQBrokerParametersPtrOutput() PipeSourceRabbitMQBrokerParametersPtrOutput {
-	return o.ToPipeSourceRabbitMQBrokerParametersPtrOutputWithContext(context.Background())
+func (o PipeSourceRabbitMqBrokerParametersOutput) ToPipeSourceRabbitMqBrokerParametersPtrOutput() PipeSourceRabbitMqBrokerParametersPtrOutput {
+	return o.ToPipeSourceRabbitMqBrokerParametersPtrOutputWithContext(context.Background())
 }
 
-func (o PipeSourceRabbitMQBrokerParametersOutput) ToPipeSourceRabbitMQBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceRabbitMQBrokerParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeSourceRabbitMQBrokerParameters) *PipeSourceRabbitMQBrokerParameters {
+func (o PipeSourceRabbitMqBrokerParametersOutput) ToPipeSourceRabbitMqBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceRabbitMqBrokerParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeSourceRabbitMqBrokerParameters) *PipeSourceRabbitMqBrokerParameters {
 		return &v
-	}).(PipeSourceRabbitMQBrokerParametersPtrOutput)
+	}).(PipeSourceRabbitMqBrokerParametersPtrOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersOutput) BatchSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PipeSourceRabbitMQBrokerParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+func (o PipeSourceRabbitMqBrokerParametersOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipeSourceRabbitMqBrokerParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersOutput) Credentials() MQBrokerAccessCredentialsPropertiesOutput {
-	return o.ApplyT(func(v PipeSourceRabbitMQBrokerParameters) MQBrokerAccessCredentialsProperties { return v.Credentials }).(MQBrokerAccessCredentialsPropertiesOutput)
+func (o PipeSourceRabbitMqBrokerParametersOutput) Credentials() PipeMqBrokerAccessCredentialsPropertiesOutput {
+	return o.ApplyT(func(v PipeSourceRabbitMqBrokerParameters) PipeMqBrokerAccessCredentialsProperties {
+		return v.Credentials
+	}).(PipeMqBrokerAccessCredentialsPropertiesOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PipeSourceRabbitMQBrokerParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
+func (o PipeSourceRabbitMqBrokerParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipeSourceRabbitMqBrokerParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersOutput) QueueName() pulumi.StringOutput {
-	return o.ApplyT(func(v PipeSourceRabbitMQBrokerParameters) string { return v.QueueName }).(pulumi.StringOutput)
+func (o PipeSourceRabbitMqBrokerParametersOutput) QueueName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeSourceRabbitMqBrokerParameters) string { return v.QueueName }).(pulumi.StringOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersOutput) VirtualHost() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipeSourceRabbitMQBrokerParameters) *string { return v.VirtualHost }).(pulumi.StringPtrOutput)
+func (o PipeSourceRabbitMqBrokerParametersOutput) VirtualHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeSourceRabbitMqBrokerParameters) *string { return v.VirtualHost }).(pulumi.StringPtrOutput)
 }
 
-type PipeSourceRabbitMQBrokerParametersPtrOutput struct{ *pulumi.OutputState }
+type PipeSourceRabbitMqBrokerParametersPtrOutput struct{ *pulumi.OutputState }
 
-func (PipeSourceRabbitMQBrokerParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeSourceRabbitMQBrokerParameters)(nil)).Elem()
+func (PipeSourceRabbitMqBrokerParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeSourceRabbitMqBrokerParameters)(nil)).Elem()
 }
 
-func (o PipeSourceRabbitMQBrokerParametersPtrOutput) ToPipeSourceRabbitMQBrokerParametersPtrOutput() PipeSourceRabbitMQBrokerParametersPtrOutput {
+func (o PipeSourceRabbitMqBrokerParametersPtrOutput) ToPipeSourceRabbitMqBrokerParametersPtrOutput() PipeSourceRabbitMqBrokerParametersPtrOutput {
 	return o
 }
 
-func (o PipeSourceRabbitMQBrokerParametersPtrOutput) ToPipeSourceRabbitMQBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceRabbitMQBrokerParametersPtrOutput {
+func (o PipeSourceRabbitMqBrokerParametersPtrOutput) ToPipeSourceRabbitMqBrokerParametersPtrOutputWithContext(ctx context.Context) PipeSourceRabbitMqBrokerParametersPtrOutput {
 	return o
 }
 
-func (o PipeSourceRabbitMQBrokerParametersPtrOutput) Elem() PipeSourceRabbitMQBrokerParametersOutput {
-	return o.ApplyT(func(v *PipeSourceRabbitMQBrokerParameters) PipeSourceRabbitMQBrokerParameters {
+func (o PipeSourceRabbitMqBrokerParametersPtrOutput) Elem() PipeSourceRabbitMqBrokerParametersOutput {
+	return o.ApplyT(func(v *PipeSourceRabbitMqBrokerParameters) PipeSourceRabbitMqBrokerParameters {
 		if v != nil {
 			return *v
 		}
-		var ret PipeSourceRabbitMQBrokerParameters
+		var ret PipeSourceRabbitMqBrokerParameters
 		return ret
-	}).(PipeSourceRabbitMQBrokerParametersOutput)
+	}).(PipeSourceRabbitMqBrokerParametersOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PipeSourceRabbitMQBrokerParameters) *int {
+func (o PipeSourceRabbitMqBrokerParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipeSourceRabbitMqBrokerParameters) *int {
 		if v == nil {
 			return nil
 		}
@@ -4966,17 +4990,17 @@ func (o PipeSourceRabbitMQBrokerParametersPtrOutput) BatchSize() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersPtrOutput) Credentials() MQBrokerAccessCredentialsPropertiesPtrOutput {
-	return o.ApplyT(func(v *PipeSourceRabbitMQBrokerParameters) *MQBrokerAccessCredentialsProperties {
+func (o PipeSourceRabbitMqBrokerParametersPtrOutput) Credentials() PipeMqBrokerAccessCredentialsPropertiesPtrOutput {
+	return o.ApplyT(func(v *PipeSourceRabbitMqBrokerParameters) *PipeMqBrokerAccessCredentialsProperties {
 		if v == nil {
 			return nil
 		}
 		return &v.Credentials
-	}).(MQBrokerAccessCredentialsPropertiesPtrOutput)
+	}).(PipeMqBrokerAccessCredentialsPropertiesPtrOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PipeSourceRabbitMQBrokerParameters) *int {
+func (o PipeSourceRabbitMqBrokerParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipeSourceRabbitMqBrokerParameters) *int {
 		if v == nil {
 			return nil
 		}
@@ -4984,8 +5008,8 @@ func (o PipeSourceRabbitMQBrokerParametersPtrOutput) MaximumBatchingWindowInSeco
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersPtrOutput) QueueName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PipeSourceRabbitMQBrokerParameters) *string {
+func (o PipeSourceRabbitMqBrokerParametersPtrOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeSourceRabbitMqBrokerParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -4993,8 +5017,8 @@ func (o PipeSourceRabbitMQBrokerParametersPtrOutput) QueueName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersPtrOutput) VirtualHost() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PipeSourceRabbitMQBrokerParameters) *string {
+func (o PipeSourceRabbitMqBrokerParametersPtrOutput) VirtualHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeSourceRabbitMqBrokerParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -7913,29 +7937,7 @@ func (o PipeTargetStateMachineParametersPtrOutput) InvocationType() PipeTargetIn
 	}).(PipeTargetInvocationTypePtrOutput)
 }
 
-type SelfManagedKafkaAccessConfigurationCredentials0Properties struct {
-	// Optional SecretManager ARN which stores the database credentials
-	BasicAuth string `pulumi:"basicAuth"`
-}
-
-type SelfManagedKafkaAccessConfigurationCredentials1Properties struct {
-	// Optional SecretManager ARN which stores the database credentials
-	SaslScram512Auth string `pulumi:"saslScram512Auth"`
-}
-
-type SelfManagedKafkaAccessConfigurationCredentials2Properties struct {
-	// Optional SecretManager ARN which stores the database credentials
-	SaslScram256Auth string `pulumi:"saslScram256Auth"`
-}
-
-type SelfManagedKafkaAccessConfigurationCredentials3Properties struct {
-	// Optional SecretManager ARN which stores the database credentials
-	ClientCertificateTlsAuth string `pulumi:"clientCertificateTlsAuth"`
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MQBrokerAccessCredentialsPropertiesInput)(nil)).Elem(), MQBrokerAccessCredentialsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MQBrokerAccessCredentialsPropertiesPtrInput)(nil)).Elem(), MQBrokerAccessCredentialsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeAwsVpcConfigurationInput)(nil)).Elem(), PipeAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeAwsVpcConfigurationPtrInput)(nil)).Elem(), PipeAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchArrayPropertiesInput)(nil)).Elem(), PipeBatchArrayPropertiesArgs{})
@@ -7980,6 +7982,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeFilterCriteriaPtrInput)(nil)).Elem(), PipeFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeHeaderParametersMapInput)(nil)).Elem(), PipeHeaderParametersMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeHeaderParametersMapPtrInput)(nil)).Elem(), PipeHeaderParametersMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMqBrokerAccessCredentialsPropertiesInput)(nil)).Elem(), PipeMqBrokerAccessCredentialsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMqBrokerAccessCredentialsPropertiesPtrInput)(nil)).Elem(), PipeMqBrokerAccessCredentialsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeNetworkConfigurationInput)(nil)).Elem(), PipeNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeNetworkConfigurationPtrInput)(nil)).Elem(), PipeNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipePlacementConstraintInput)(nil)).Elem(), PipePlacementConstraintArgs{})
@@ -7992,18 +7996,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSageMakerPipelineParameterArrayInput)(nil)).Elem(), PipeSageMakerPipelineParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationVpcInput)(nil)).Elem(), PipeSelfManagedKafkaAccessConfigurationVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationVpcPtrInput)(nil)).Elem(), PipeSelfManagedKafkaAccessConfigurationVpcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceActiveMQBrokerParametersInput)(nil)).Elem(), PipeSourceActiveMQBrokerParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceActiveMQBrokerParametersPtrInput)(nil)).Elem(), PipeSourceActiveMQBrokerParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceDynamoDBStreamParametersInput)(nil)).Elem(), PipeSourceDynamoDBStreamParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceDynamoDBStreamParametersPtrInput)(nil)).Elem(), PipeSourceDynamoDBStreamParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceActiveMqBrokerParametersInput)(nil)).Elem(), PipeSourceActiveMqBrokerParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceActiveMqBrokerParametersPtrInput)(nil)).Elem(), PipeSourceActiveMqBrokerParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceDynamoDbStreamParametersInput)(nil)).Elem(), PipeSourceDynamoDbStreamParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceDynamoDbStreamParametersPtrInput)(nil)).Elem(), PipeSourceDynamoDbStreamParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceKinesisStreamParametersInput)(nil)).Elem(), PipeSourceKinesisStreamParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceKinesisStreamParametersPtrInput)(nil)).Elem(), PipeSourceKinesisStreamParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceManagedStreamingKafkaParametersInput)(nil)).Elem(), PipeSourceManagedStreamingKafkaParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceManagedStreamingKafkaParametersPtrInput)(nil)).Elem(), PipeSourceManagedStreamingKafkaParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceParametersInput)(nil)).Elem(), PipeSourceParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceParametersPtrInput)(nil)).Elem(), PipeSourceParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceRabbitMQBrokerParametersInput)(nil)).Elem(), PipeSourceRabbitMQBrokerParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceRabbitMQBrokerParametersPtrInput)(nil)).Elem(), PipeSourceRabbitMQBrokerParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceRabbitMqBrokerParametersInput)(nil)).Elem(), PipeSourceRabbitMqBrokerParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceRabbitMqBrokerParametersPtrInput)(nil)).Elem(), PipeSourceRabbitMqBrokerParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceSelfManagedKafkaParametersInput)(nil)).Elem(), PipeSourceSelfManagedKafkaParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceSelfManagedKafkaParametersPtrInput)(nil)).Elem(), PipeSourceSelfManagedKafkaParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceSqsQueueParametersInput)(nil)).Elem(), PipeSourceSqsQueueParametersArgs{})
@@ -8036,8 +8040,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetSqsQueueParametersPtrInput)(nil)).Elem(), PipeTargetSqsQueueParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetStateMachineParametersInput)(nil)).Elem(), PipeTargetStateMachineParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetStateMachineParametersPtrInput)(nil)).Elem(), PipeTargetStateMachineParametersArgs{})
-	pulumi.RegisterOutputType(MQBrokerAccessCredentialsPropertiesOutput{})
-	pulumi.RegisterOutputType(MQBrokerAccessCredentialsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipeAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(PipeAwsVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PipeBatchArrayPropertiesOutput{})
@@ -8082,6 +8084,8 @@ func init() {
 	pulumi.RegisterOutputType(PipeFilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(PipeHeaderParametersMapOutput{})
 	pulumi.RegisterOutputType(PipeHeaderParametersMapPtrOutput{})
+	pulumi.RegisterOutputType(PipeMqBrokerAccessCredentialsPropertiesOutput{})
+	pulumi.RegisterOutputType(PipeMqBrokerAccessCredentialsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipeNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(PipeNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PipePlacementConstraintOutput{})
@@ -8094,18 +8098,18 @@ func init() {
 	pulumi.RegisterOutputType(PipeSageMakerPipelineParameterArrayOutput{})
 	pulumi.RegisterOutputType(PipeSelfManagedKafkaAccessConfigurationVpcOutput{})
 	pulumi.RegisterOutputType(PipeSelfManagedKafkaAccessConfigurationVpcPtrOutput{})
-	pulumi.RegisterOutputType(PipeSourceActiveMQBrokerParametersOutput{})
-	pulumi.RegisterOutputType(PipeSourceActiveMQBrokerParametersPtrOutput{})
-	pulumi.RegisterOutputType(PipeSourceDynamoDBStreamParametersOutput{})
-	pulumi.RegisterOutputType(PipeSourceDynamoDBStreamParametersPtrOutput{})
+	pulumi.RegisterOutputType(PipeSourceActiveMqBrokerParametersOutput{})
+	pulumi.RegisterOutputType(PipeSourceActiveMqBrokerParametersPtrOutput{})
+	pulumi.RegisterOutputType(PipeSourceDynamoDbStreamParametersOutput{})
+	pulumi.RegisterOutputType(PipeSourceDynamoDbStreamParametersPtrOutput{})
 	pulumi.RegisterOutputType(PipeSourceKinesisStreamParametersOutput{})
 	pulumi.RegisterOutputType(PipeSourceKinesisStreamParametersPtrOutput{})
 	pulumi.RegisterOutputType(PipeSourceManagedStreamingKafkaParametersOutput{})
 	pulumi.RegisterOutputType(PipeSourceManagedStreamingKafkaParametersPtrOutput{})
 	pulumi.RegisterOutputType(PipeSourceParametersOutput{})
 	pulumi.RegisterOutputType(PipeSourceParametersPtrOutput{})
-	pulumi.RegisterOutputType(PipeSourceRabbitMQBrokerParametersOutput{})
-	pulumi.RegisterOutputType(PipeSourceRabbitMQBrokerParametersPtrOutput{})
+	pulumi.RegisterOutputType(PipeSourceRabbitMqBrokerParametersOutput{})
+	pulumi.RegisterOutputType(PipeSourceRabbitMqBrokerParametersPtrOutput{})
 	pulumi.RegisterOutputType(PipeSourceSelfManagedKafkaParametersOutput{})
 	pulumi.RegisterOutputType(PipeSourceSelfManagedKafkaParametersPtrOutput{})
 	pulumi.RegisterOutputType(PipeSourceSqsQueueParametersOutput{})

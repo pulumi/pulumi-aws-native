@@ -15,10 +15,10 @@ export const getByteMatchSet: typeof import("./getByteMatchSet").getByteMatchSet
 export const getByteMatchSetOutput: typeof import("./getByteMatchSet").getByteMatchSetOutput = null as any;
 utilities.lazyLoad(exports, ["getByteMatchSet","getByteMatchSetOutput"], () => require("./getByteMatchSet"));
 
-export { GetIPSetArgs, GetIPSetResult, GetIPSetOutputArgs } from "./getIPSet";
-export const getIPSet: typeof import("./getIPSet").getIPSet = null as any;
-export const getIPSetOutput: typeof import("./getIPSet").getIPSetOutput = null as any;
-utilities.lazyLoad(exports, ["getIPSet","getIPSetOutput"], () => require("./getIPSet"));
+export { GetIpSetArgs, GetIpSetResult, GetIpSetOutputArgs } from "./getIpSet";
+export const getIpSet: typeof import("./getIpSet").getIpSet = null as any;
+export const getIpSetOutput: typeof import("./getIpSet").getIpSetOutput = null as any;
+utilities.lazyLoad(exports, ["getIpSet","getIpSetOutput"], () => require("./getIpSet"));
 
 export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
 export const getRule: typeof import("./getRule").getRule = null as any;
@@ -35,20 +35,20 @@ export const getSqlInjectionMatchSet: typeof import("./getSqlInjectionMatchSet")
 export const getSqlInjectionMatchSetOutput: typeof import("./getSqlInjectionMatchSet").getSqlInjectionMatchSetOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlInjectionMatchSet","getSqlInjectionMatchSetOutput"], () => require("./getSqlInjectionMatchSet"));
 
-export { GetWebACLArgs, GetWebACLResult, GetWebACLOutputArgs } from "./getWebACL";
-export const getWebACL: typeof import("./getWebACL").getWebACL = null as any;
-export const getWebACLOutput: typeof import("./getWebACL").getWebACLOutput = null as any;
-utilities.lazyLoad(exports, ["getWebACL","getWebACLOutput"], () => require("./getWebACL"));
+export { GetWebAclArgs, GetWebAclResult, GetWebAclOutputArgs } from "./getWebAcl";
+export const getWebAcl: typeof import("./getWebAcl").getWebAcl = null as any;
+export const getWebAclOutput: typeof import("./getWebAcl").getWebAclOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAcl","getWebAclOutput"], () => require("./getWebAcl"));
 
 export { GetXssMatchSetArgs, GetXssMatchSetResult, GetXssMatchSetOutputArgs } from "./getXssMatchSet";
 export const getXssMatchSet: typeof import("./getXssMatchSet").getXssMatchSet = null as any;
 export const getXssMatchSetOutput: typeof import("./getXssMatchSet").getXssMatchSetOutput = null as any;
 utilities.lazyLoad(exports, ["getXssMatchSet","getXssMatchSetOutput"], () => require("./getXssMatchSet"));
 
-export { IPSetArgs } from "./ipset";
-export type IPSet = import("./ipset").IPSet;
-export const IPSet: typeof import("./ipset").IPSet = null as any;
-utilities.lazyLoad(exports, ["IPSet"], () => require("./ipset"));
+export { IpSetArgs } from "./ipSet";
+export type IpSet = import("./ipSet").IpSet;
+export const IpSet: typeof import("./ipSet").IpSet = null as any;
+utilities.lazyLoad(exports, ["IpSet"], () => require("./ipSet"));
 
 export { RuleArgs } from "./rule";
 export type Rule = import("./rule").Rule;
@@ -65,10 +65,10 @@ export type SqlInjectionMatchSet = import("./sqlInjectionMatchSet").SqlInjection
 export const SqlInjectionMatchSet: typeof import("./sqlInjectionMatchSet").SqlInjectionMatchSet = null as any;
 utilities.lazyLoad(exports, ["SqlInjectionMatchSet"], () => require("./sqlInjectionMatchSet"));
 
-export { WebACLArgs } from "./webACL";
-export type WebACL = import("./webACL").WebACL;
-export const WebACL: typeof import("./webACL").WebACL = null as any;
-utilities.lazyLoad(exports, ["WebACL"], () => require("./webACL"));
+export { WebAclArgs } from "./webAcl";
+export type WebAcl = import("./webAcl").WebAcl;
+export const WebAcl: typeof import("./webAcl").WebAcl = null as any;
+utilities.lazyLoad(exports, ["WebAcl"], () => require("./webAcl"));
 
 export { XssMatchSetArgs } from "./xssMatchSet";
 export type XssMatchSet = import("./xssMatchSet").XssMatchSet;
@@ -82,16 +82,16 @@ const _module = {
         switch (type) {
             case "aws-native:waf:ByteMatchSet":
                 return new ByteMatchSet(name, <any>undefined, { urn })
-            case "aws-native:waf:IPSet":
-                return new IPSet(name, <any>undefined, { urn })
+            case "aws-native:waf:IpSet":
+                return new IpSet(name, <any>undefined, { urn })
             case "aws-native:waf:Rule":
                 return new Rule(name, <any>undefined, { urn })
             case "aws-native:waf:SizeConstraintSet":
                 return new SizeConstraintSet(name, <any>undefined, { urn })
             case "aws-native:waf:SqlInjectionMatchSet":
                 return new SqlInjectionMatchSet(name, <any>undefined, { urn })
-            case "aws-native:waf:WebACL":
-                return new WebACL(name, <any>undefined, { urn })
+            case "aws-native:waf:WebAcl":
+                return new WebAcl(name, <any>undefined, { urn })
             case "aws-native:waf:XssMatchSet":
                 return new XssMatchSet(name, <any>undefined, { urn })
             default:

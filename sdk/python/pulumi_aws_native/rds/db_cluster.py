@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DBClusterArgs', 'DBCluster']
+__all__ = ['DbClusterArgs', 'DbCluster']
 
 @pulumi.input_type
-class DBClusterArgs:
+class DbClusterArgs:
     def __init__(__self__, *,
                  allocated_storage: Optional[pulumi.Input[int]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backtrack_window: Optional[pulumi.Input[int]] = None,
@@ -44,7 +44,7 @@ class DBClusterArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
-                 master_user_secret: Optional[pulumi.Input['DBClusterMasterUserSecretArgs']] = None,
+                 master_user_secret: Optional[pulumi.Input['DbClusterMasterUserSecretArgs']] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -56,24 +56,24 @@ class DBClusterArgs:
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
-                 read_endpoint: Optional[pulumi.Input['DBClusterReadEndpointArgs']] = None,
+                 read_endpoint: Optional[pulumi.Input['DbClusterReadEndpointArgs']] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
-                 scaling_configuration: Optional[pulumi.Input['DBClusterScalingConfigurationArgs']] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input['DBClusterServerlessV2ScalingConfigurationArgs']] = None,
+                 scaling_configuration: Optional[pulumi.Input['DbClusterScalingConfigurationArgs']] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input['DbClusterServerlessV2ScalingConfigurationArgs']] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a DBCluster resource.
+        The set of arguments for constructing a DbCluster resource.
         :param pulumi.Input[int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see Choosing the Regions and Availability Zones in the Amazon Aurora User Guide.
         :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. To disable backtracking, set this value to 0.
@@ -102,7 +102,7 @@ class DBClusterArgs:
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default master key is used. If you specify this property, you must set the StorageEncrypted property to true.
         :param pulumi.Input[bool] manage_master_user_password: A value that indicates whether to manage the master user password with AWS Secrets Manager.
         :param pulumi.Input[str] master_user_password: The master password for the DB instance.
-        :param pulumi.Input['DBClusterMasterUserSecretArgs'] master_user_secret: Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        :param pulumi.Input['DbClusterMasterUserSecretArgs'] master_user_secret: Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         :param pulumi.Input[str] master_username: The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
         :param pulumi.Input[str] monitoring_role_arn: The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
@@ -119,8 +119,8 @@ class DBClusterArgs:
         :param pulumi.Input[str] restore_type: The type of restore to be performed. You can specify one of the following values:
                full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
                copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
-        :param pulumi.Input['DBClusterScalingConfigurationArgs'] scaling_configuration: The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
-        :param pulumi.Input['DBClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+        :param pulumi.Input['DbClusterScalingConfigurationArgs'] scaling_configuration: The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
+        :param pulumi.Input['DbClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
         :param pulumi.Input[str] snapshot_identifier: The identifier for the DB snapshot or DB cluster snapshot to restore from.
                You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
                After you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted.
@@ -129,7 +129,7 @@ class DBClusterArgs:
         :param pulumi.Input[bool] storage_encrypted: Indicates whether the DB instance is encrypted.
                If you specify the DBClusterIdentifier, SnapshotIdentifier, or SourceDBInstanceIdentifier property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[bool] use_latest_restorable_time: A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster is not restored to the latest restorable backup time.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of EC2 VPC security groups to associate with this DB cluster.
         """
@@ -256,14 +256,14 @@ class DBClusterArgs:
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]]]:
+    def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]]]:
         """
         Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         """
         return pulumi.get(self, "associated_roles")
 
     @associated_roles.setter
-    def associated_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]]]):
+    def associated_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]]]):
         pulumi.set(self, "associated_roles", value)
 
     @property
@@ -582,14 +582,14 @@ class DBClusterArgs:
 
     @property
     @pulumi.getter(name="masterUserSecret")
-    def master_user_secret(self) -> Optional[pulumi.Input['DBClusterMasterUserSecretArgs']]:
+    def master_user_secret(self) -> Optional[pulumi.Input['DbClusterMasterUserSecretArgs']]:
         """
         Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         """
         return pulumi.get(self, "master_user_secret")
 
     @master_user_secret.setter
-    def master_user_secret(self, value: Optional[pulumi.Input['DBClusterMasterUserSecretArgs']]):
+    def master_user_secret(self, value: Optional[pulumi.Input['DbClusterMasterUserSecretArgs']]):
         pulumi.set(self, "master_user_secret", value)
 
     @property
@@ -726,11 +726,11 @@ class DBClusterArgs:
 
     @property
     @pulumi.getter(name="readEndpoint")
-    def read_endpoint(self) -> Optional[pulumi.Input['DBClusterReadEndpointArgs']]:
+    def read_endpoint(self) -> Optional[pulumi.Input['DbClusterReadEndpointArgs']]:
         return pulumi.get(self, "read_endpoint")
 
     @read_endpoint.setter
-    def read_endpoint(self, value: Optional[pulumi.Input['DBClusterReadEndpointArgs']]):
+    def read_endpoint(self, value: Optional[pulumi.Input['DbClusterReadEndpointArgs']]):
         pulumi.set(self, "read_endpoint", value)
 
     @property
@@ -773,26 +773,26 @@ class DBClusterArgs:
 
     @property
     @pulumi.getter(name="scalingConfiguration")
-    def scaling_configuration(self) -> Optional[pulumi.Input['DBClusterScalingConfigurationArgs']]:
+    def scaling_configuration(self) -> Optional[pulumi.Input['DbClusterScalingConfigurationArgs']]:
         """
         The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
         """
         return pulumi.get(self, "scaling_configuration")
 
     @scaling_configuration.setter
-    def scaling_configuration(self, value: Optional[pulumi.Input['DBClusterScalingConfigurationArgs']]):
+    def scaling_configuration(self, value: Optional[pulumi.Input['DbClusterScalingConfigurationArgs']]):
         pulumi.set(self, "scaling_configuration", value)
 
     @property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
-    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['DBClusterServerlessV2ScalingConfigurationArgs']]:
+    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['DbClusterServerlessV2ScalingConfigurationArgs']]:
         """
         Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
         """
         return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @serverless_v2_scaling_configuration.setter
-    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['DBClusterServerlessV2ScalingConfigurationArgs']]):
+    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['DbClusterServerlessV2ScalingConfigurationArgs']]):
         pulumi.set(self, "serverless_v2_scaling_configuration", value)
 
     @property
@@ -860,14 +860,14 @@ class DBClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -895,13 +895,13 @@ class DBClusterArgs:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
-class DBCluster(pulumi.CustomResource):
+class DbCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[int]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterRoleArgs']]]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterDbClusterRoleArgs']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backtrack_window: Optional[pulumi.Input[int]] = None,
@@ -928,7 +928,7 @@ class DBCluster(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
-                 master_user_secret: Optional[pulumi.Input[pulumi.InputType['DBClusterMasterUserSecretArgs']]] = None,
+                 master_user_secret: Optional[pulumi.Input[pulumi.InputType['DbClusterMasterUserSecretArgs']]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -940,18 +940,18 @@ class DBCluster(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
-                 read_endpoint: Optional[pulumi.Input[pulumi.InputType['DBClusterReadEndpointArgs']]] = None,
+                 read_endpoint: Optional[pulumi.Input[pulumi.InputType['DbClusterReadEndpointArgs']]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
-                 scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterScalingConfigurationArgs']]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterServerlessV2ScalingConfigurationArgs']]] = None,
+                 scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DbClusterScalingConfigurationArgs']]] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DbClusterServerlessV2ScalingConfigurationArgs']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterTagArgs']]]]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -961,7 +961,7 @@ class DBCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterRoleArgs']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterDbClusterRoleArgs']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see Choosing the Regions and Availability Zones in the Amazon Aurora User Guide.
         :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. To disable backtracking, set this value to 0.
@@ -990,7 +990,7 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default master key is used. If you specify this property, you must set the StorageEncrypted property to true.
         :param pulumi.Input[bool] manage_master_user_password: A value that indicates whether to manage the master user password with AWS Secrets Manager.
         :param pulumi.Input[str] master_user_password: The master password for the DB instance.
-        :param pulumi.Input[pulumi.InputType['DBClusterMasterUserSecretArgs']] master_user_secret: Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        :param pulumi.Input[pulumi.InputType['DbClusterMasterUserSecretArgs']] master_user_secret: Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         :param pulumi.Input[str] master_username: The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
         :param pulumi.Input[str] monitoring_role_arn: The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
@@ -1007,8 +1007,8 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.Input[str] restore_type: The type of restore to be performed. You can specify one of the following values:
                full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
                copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
-        :param pulumi.Input[pulumi.InputType['DBClusterScalingConfigurationArgs']] scaling_configuration: The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
-        :param pulumi.Input[pulumi.InputType['DBClusterServerlessV2ScalingConfigurationArgs']] serverless_v2_scaling_configuration: Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+        :param pulumi.Input[pulumi.InputType['DbClusterScalingConfigurationArgs']] scaling_configuration: The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
+        :param pulumi.Input[pulumi.InputType['DbClusterServerlessV2ScalingConfigurationArgs']] serverless_v2_scaling_configuration: Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
         :param pulumi.Input[str] snapshot_identifier: The identifier for the DB snapshot or DB cluster snapshot to restore from.
                You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
                After you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted.
@@ -1017,7 +1017,7 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] storage_encrypted: Indicates whether the DB instance is encrypted.
                If you specify the DBClusterIdentifier, SnapshotIdentifier, or SourceDBInstanceIdentifier property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[bool] use_latest_restorable_time: A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster is not restored to the latest restorable backup time.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of EC2 VPC security groups to associate with this DB cluster.
         """
@@ -1025,18 +1025,18 @@ class DBCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DBClusterArgs] = None,
+                 args: Optional[DbClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
 
         :param str resource_name: The name of the resource.
-        :param DBClusterArgs args: The arguments to use to populate this resource's properties.
+        :param DbClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DBClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DbClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1046,7 +1046,7 @@ class DBCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[int]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterRoleArgs']]]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterDbClusterRoleArgs']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backtrack_window: Optional[pulumi.Input[int]] = None,
@@ -1073,7 +1073,7 @@ class DBCluster(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
-                 master_user_secret: Optional[pulumi.Input[pulumi.InputType['DBClusterMasterUserSecretArgs']]] = None,
+                 master_user_secret: Optional[pulumi.Input[pulumi.InputType['DbClusterMasterUserSecretArgs']]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -1085,18 +1085,18 @@ class DBCluster(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
-                 read_endpoint: Optional[pulumi.Input[pulumi.InputType['DBClusterReadEndpointArgs']]] = None,
+                 read_endpoint: Optional[pulumi.Input[pulumi.InputType['DbClusterReadEndpointArgs']]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
-                 scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterScalingConfigurationArgs']]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterServerlessV2ScalingConfigurationArgs']]] = None,
+                 scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DbClusterScalingConfigurationArgs']]] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DbClusterServerlessV2ScalingConfigurationArgs']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterTagArgs']]]]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1106,7 +1106,7 @@ class DBCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DBClusterArgs.__new__(DBClusterArgs)
+            __props__ = DbClusterArgs.__new__(DbClusterArgs)
 
             __props__.__dict__["allocated_storage"] = allocated_storage
             __props__.__dict__["associated_roles"] = associated_roles
@@ -1165,8 +1165,8 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["db_cluster_arn"] = None
             __props__.__dict__["db_cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
-        super(DBCluster, __self__).__init__(
-            'aws-native:rds:DBCluster',
+        super(DbCluster, __self__).__init__(
+            'aws-native:rds:DbCluster',
             resource_name,
             __props__,
             opts)
@@ -1174,9 +1174,9 @@ class DBCluster(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'DBCluster':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DbCluster':
         """
-        Get an existing DBCluster resource's state with the given name, id, and optional extra
+        Get an existing DbCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -1185,7 +1185,7 @@ class DBCluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DBClusterArgs.__new__(DBClusterArgs)
+        __props__ = DbClusterArgs.__new__(DbClusterArgs)
 
         __props__.__dict__["allocated_storage"] = None
         __props__.__dict__["associated_roles"] = None
@@ -1244,7 +1244,7 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["use_latest_restorable_time"] = None
         __props__.__dict__["vpc_security_group_ids"] = None
-        return DBCluster(resource_name, opts=opts, __props__=__props__)
+        return DbCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="allocatedStorage")
@@ -1256,7 +1256,7 @@ class DBCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> pulumi.Output[Optional[Sequence['outputs.DBClusterRole']]]:
+    def associated_roles(self) -> pulumi.Output[Optional[Sequence['outputs.DbClusterDbClusterRole']]]:
         """
         Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         """
@@ -1424,7 +1424,7 @@ class DBCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output['outputs.DBClusterEndpoint']:
+    def endpoint(self) -> pulumi.Output['outputs.DbClusterEndpoint']:
         return pulumi.get(self, "endpoint")
 
     @property
@@ -1495,7 +1495,7 @@ class DBCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterUserSecret")
-    def master_user_secret(self) -> pulumi.Output[Optional['outputs.DBClusterMasterUserSecret']]:
+    def master_user_secret(self) -> pulumi.Output[Optional['outputs.DbClusterMasterUserSecret']]:
         """
         Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         """
@@ -1591,7 +1591,7 @@ class DBCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readEndpoint")
-    def read_endpoint(self) -> pulumi.Output[Optional['outputs.DBClusterReadEndpoint']]:
+    def read_endpoint(self) -> pulumi.Output[Optional['outputs.DbClusterReadEndpoint']]:
         return pulumi.get(self, "read_endpoint")
 
     @property
@@ -1622,7 +1622,7 @@ class DBCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scalingConfiguration")
-    def scaling_configuration(self) -> pulumi.Output[Optional['outputs.DBClusterScalingConfiguration']]:
+    def scaling_configuration(self) -> pulumi.Output[Optional['outputs.DbClusterScalingConfiguration']]:
         """
         The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
         """
@@ -1630,7 +1630,7 @@ class DBCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
-    def serverless_v2_scaling_configuration(self) -> pulumi.Output[Optional['outputs.DBClusterServerlessV2ScalingConfiguration']]:
+    def serverless_v2_scaling_configuration(self) -> pulumi.Output[Optional['outputs.DbClusterServerlessV2ScalingConfiguration']]:
         """
         Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
         """
@@ -1681,7 +1681,7 @@ class DBCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBClusterTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbClusterTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

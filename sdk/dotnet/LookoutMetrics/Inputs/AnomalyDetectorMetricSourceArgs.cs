@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public Input<Inputs.AnomalyDetectorCloudwatchConfigArgs>? CloudwatchConfig { get; set; }
 
         [Input("rdsSourceConfig")]
-        public Input<Inputs.AnomalyDetectorRDSSourceConfigArgs>? RdsSourceConfig { get; set; }
+        public Input<Inputs.AnomalyDetectorRdsSourceConfigArgs>? RdsSourceConfig { get; set; }
 
         [Input("redshiftSourceConfig")]
         public Input<Inputs.AnomalyDetectorRedshiftSourceConfigArgs>? RedshiftSourceConfig { get; set; }

@@ -28,7 +28,7 @@ export interface GetGlobalTableResult {
     readonly billingMode?: string;
     readonly globalSecondaryIndexes?: outputs.dynamodb.GlobalTableGlobalSecondaryIndex[];
     readonly replicas?: outputs.dynamodb.GlobalTableReplicaSpecification[];
-    readonly sseSpecification?: outputs.dynamodb.GlobalTableSSESpecification;
+    readonly sseSpecification?: outputs.dynamodb.GlobalTableSseSpecification;
     readonly streamArn?: string;
     readonly streamSpecification?: outputs.dynamodb.GlobalTableStreamSpecification;
     readonly tableId?: string;

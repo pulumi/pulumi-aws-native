@@ -18,7 +18,7 @@ __all__ = [
     'HostedZoneConfigArgs',
     'HostedZoneQueryLoggingConfigArgs',
     'HostedZoneTagArgs',
-    'HostedZoneVPCArgs',
+    'HostedZoneVpcArgs',
     'RecordSetAliasTargetArgs',
     'RecordSetCidrRoutingConfigArgs',
     'RecordSetGeoLocationArgs',
@@ -440,7 +440,7 @@ class HostedZoneTagArgs:
 
 
 @pulumi.input_type
-class HostedZoneVPCArgs:
+class HostedZoneVpcArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[str],
                  vpc_region: pulumi.Input[str]):

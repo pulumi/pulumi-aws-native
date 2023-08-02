@@ -11,8 +11,8 @@ __all__ = [
 
 
 class SigningProfilePlatformId(str, Enum):
-    AWS_LAMBDA_SHA384_ECDSA = "AWSLambda-SHA384-ECDSA"
-    NOTATION_OCISHA384_ECDSA = "Notation-OCI-SHA384-ECDSA"
+    AWS_LAMBDA_SHA384ECDSA = "AWSLambda-SHA384-ECDSA"
+    NOTATION_OCISHA384ECDSA = "Notation-OCI-SHA384-ECDSA"
 
 
 class SigningProfileSignatureValidityPeriodType(str, Enum):

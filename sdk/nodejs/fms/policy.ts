@@ -39,9 +39,9 @@ export class Policy extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly deleteAllPolicyResources!: pulumi.Output<boolean | undefined>;
-    public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyIEMap | undefined>;
+    public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyIeMap | undefined>;
     public readonly excludeResourceTags!: pulumi.Output<boolean>;
-    public readonly includeMap!: pulumi.Output<outputs.fms.PolicyIEMap | undefined>;
+    public readonly includeMap!: pulumi.Output<outputs.fms.PolicyIeMap | undefined>;
     public readonly policyDescription!: pulumi.Output<string | undefined>;
     public readonly policyName!: pulumi.Output<string>;
     public readonly remediationEnabled!: pulumi.Output<boolean>;
@@ -115,9 +115,9 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyArgs {
     deleteAllPolicyResources?: pulumi.Input<boolean>;
-    excludeMap?: pulumi.Input<inputs.fms.PolicyIEMapArgs>;
+    excludeMap?: pulumi.Input<inputs.fms.PolicyIeMapArgs>;
     excludeResourceTags: pulumi.Input<boolean>;
-    includeMap?: pulumi.Input<inputs.fms.PolicyIEMapArgs>;
+    includeMap?: pulumi.Input<inputs.fms.PolicyIeMapArgs>;
     policyDescription?: pulumi.Input<string>;
     policyName?: pulumi.Input<string>;
     remediationEnabled: pulumi.Input<boolean>;

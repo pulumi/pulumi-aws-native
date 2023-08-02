@@ -52,7 +52,7 @@ export const PublicTypeVersionType = {
 export type PublicTypeVersionType = (typeof PublicTypeVersionType)[keyof typeof PublicTypeVersionType];
 
 export const PublisherIdentityProvider = {
-    AWSMarketplace: "AWS_Marketplace",
+    AwsMarketplace: "AWS_Marketplace",
     GitHub: "GitHub",
     Bitbucket: "Bitbucket",
 } as const;

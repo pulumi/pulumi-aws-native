@@ -32,7 +32,7 @@ type LookupGlobalTableResult struct {
 	BillingMode                        *string                                        `pulumi:"billingMode"`
 	GlobalSecondaryIndexes             []GlobalTableGlobalSecondaryIndex              `pulumi:"globalSecondaryIndexes"`
 	Replicas                           []GlobalTableReplicaSpecification              `pulumi:"replicas"`
-	SseSpecification                   *GlobalTableSSESpecification                   `pulumi:"sseSpecification"`
+	SseSpecification                   *GlobalTableSseSpecification                   `pulumi:"sseSpecification"`
 	StreamArn                          *string                                        `pulumi:"streamArn"`
 	StreamSpecification                *GlobalTableStreamSpecification                `pulumi:"streamSpecification"`
 	TableId                            *string                                        `pulumi:"tableId"`
@@ -95,8 +95,8 @@ func (o LookupGlobalTableResultOutput) Replicas() GlobalTableReplicaSpecificatio
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableReplicaSpecification { return v.Replicas }).(GlobalTableReplicaSpecificationArrayOutput)
 }
 
-func (o LookupGlobalTableResultOutput) SseSpecification() GlobalTableSSESpecificationPtrOutput {
-	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableSSESpecification { return v.SseSpecification }).(GlobalTableSSESpecificationPtrOutput)
+func (o LookupGlobalTableResultOutput) SseSpecification() GlobalTableSseSpecificationPtrOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableSseSpecification { return v.SseSpecification }).(GlobalTableSseSpecificationPtrOutput)
 }
 
 func (o LookupGlobalTableResultOutput) StreamArn() pulumi.StringPtrOutput {

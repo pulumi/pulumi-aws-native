@@ -78,7 +78,7 @@ __all__ = [
     'ResponseHeadersPolicySecurityHeadersConfigArgs',
     'ResponseHeadersPolicyServerTimingHeadersConfigArgs',
     'ResponseHeadersPolicyStrictTransportSecurityArgs',
-    'ResponseHeadersPolicyXSSProtectionArgs',
+    'ResponseHeadersPolicyXssProtectionArgs',
     'StreamingDistributionConfigArgs',
     'StreamingDistributionLoggingArgs',
     'StreamingDistributionS3OriginArgs',
@@ -2953,7 +2953,7 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
                  frame_options: Optional[pulumi.Input['ResponseHeadersPolicyFrameOptionsArgs']] = None,
                  referrer_policy: Optional[pulumi.Input['ResponseHeadersPolicyReferrerPolicyArgs']] = None,
                  strict_transport_security: Optional[pulumi.Input['ResponseHeadersPolicyStrictTransportSecurityArgs']] = None,
-                 xss_protection: Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']] = None):
+                 xss_protection: Optional[pulumi.Input['ResponseHeadersPolicyXssProtectionArgs']] = None):
         if content_security_policy is not None:
             pulumi.set(__self__, "content_security_policy", content_security_policy)
         if content_type_options is not None:
@@ -3014,11 +3014,11 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
 
     @property
     @pulumi.getter(name="xssProtection")
-    def xss_protection(self) -> Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']]:
+    def xss_protection(self) -> Optional[pulumi.Input['ResponseHeadersPolicyXssProtectionArgs']]:
         return pulumi.get(self, "xss_protection")
 
     @xss_protection.setter
-    def xss_protection(self, value: Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']]):
+    def xss_protection(self, value: Optional[pulumi.Input['ResponseHeadersPolicyXssProtectionArgs']]):
         pulumi.set(self, "xss_protection", value)
 
 
@@ -3102,7 +3102,7 @@ class ResponseHeadersPolicyStrictTransportSecurityArgs:
 
 
 @pulumi.input_type
-class ResponseHeadersPolicyXSSProtectionArgs:
+class ResponseHeadersPolicyXssProtectionArgs:
     def __init__(__self__, *,
                  override: pulumi.Input[bool],
                  protection: pulumi.Input[bool],

@@ -11,22 +11,16 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApplicationDefinition0PropertiesArgs',
+    'ApplicationDefinition1PropertiesArgs',
     'ApplicationTagMapArgs',
-    'Definition0PropertiesArgs',
-    'Definition1PropertiesArgs',
     'EnvironmentHighAvailabilityConfigArgs',
     'EnvironmentStorageConfigurationArgs',
     'EnvironmentTagMapArgs',
 ]
 
 @pulumi.input_type
-class ApplicationTagMapArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
-class Definition0PropertiesArgs:
+class ApplicationDefinition0PropertiesArgs:
     def __init__(__self__, *,
                  s3_location: pulumi.Input[str]):
         pulumi.set(__self__, "s3_location", s3_location)
@@ -42,7 +36,7 @@ class Definition0PropertiesArgs:
 
 
 @pulumi.input_type
-class Definition1PropertiesArgs:
+class ApplicationDefinition1PropertiesArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str]):
         pulumi.set(__self__, "content", content)
@@ -55,6 +49,12 @@ class Definition1PropertiesArgs:
     @content.setter
     def content(self, value: pulumi.Input[str]):
         pulumi.set(self, "content", value)
+
+
+@pulumi.input_type
+class ApplicationTagMapArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type

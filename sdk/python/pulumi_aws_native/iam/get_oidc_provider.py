@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetOIDCProviderResult',
-    'AwaitableGetOIDCProviderResult',
+    'GetOidcProviderResult',
+    'AwaitableGetOidcProviderResult',
     'get_oidc_provider',
     'get_oidc_provider_output',
 ]
 
 @pulumi.output_type
-class GetOIDCProviderResult:
+class GetOidcProviderResult:
     def __init__(__self__, arn=None, client_id_list=None, tags=None, thumbprint_list=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -48,7 +48,7 @@ class GetOIDCProviderResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.OIDCProviderTag']]:
+    def tags(self) -> Optional[Sequence['outputs.OidcProviderTag']]:
         return pulumi.get(self, "tags")
 
     @property
@@ -57,12 +57,12 @@ class GetOIDCProviderResult:
         return pulumi.get(self, "thumbprint_list")
 
 
-class AwaitableGetOIDCProviderResult(GetOIDCProviderResult):
+class AwaitableGetOidcProviderResult(GetOidcProviderResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetOIDCProviderResult(
+        return GetOidcProviderResult(
             arn=self.arn,
             client_id_list=self.client_id_list,
             tags=self.tags,
@@ -70,7 +70,7 @@ class AwaitableGetOIDCProviderResult(GetOIDCProviderResult):
 
 
 def get_oidc_provider(arn: Optional[str] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOIDCProviderResult:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOidcProviderResult:
     """
     Resource Type definition for AWS::IAM::OIDCProvider
 
@@ -80,9 +80,9 @@ def get_oidc_provider(arn: Optional[str] = None,
     __args__ = dict()
     __args__['arn'] = arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:iam:getOIDCProvider', __args__, opts=opts, typ=GetOIDCProviderResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:iam:getOidcProvider', __args__, opts=opts, typ=GetOidcProviderResult).value
 
-    return AwaitableGetOIDCProviderResult(
+    return AwaitableGetOidcProviderResult(
         arn=pulumi.get(__ret__, 'arn'),
         client_id_list=pulumi.get(__ret__, 'client_id_list'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -91,7 +91,7 @@ def get_oidc_provider(arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_oidc_provider)
 def get_oidc_provider_output(arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOIDCProviderResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOidcProviderResult]:
     """
     Resource Type definition for AWS::IAM::OIDCProvider
 

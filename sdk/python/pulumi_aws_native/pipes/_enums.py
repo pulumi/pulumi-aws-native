@@ -8,12 +8,12 @@ __all__ = [
     'PipeAssignPublicIp',
     'PipeBatchJobDependencyType',
     'PipeBatchResourceRequirementType',
-    'PipeDynamoDBStreamStartPosition',
+    'PipeDynamoDbStreamStartPosition',
     'PipeEcsEnvironmentFileType',
     'PipeEcsResourceRequirementType',
     'PipeKinesisStreamStartPosition',
     'PipeLaunchType',
-    'PipeMSKStartPosition',
+    'PipeMskStartPosition',
     'PipeOnPartialBatchItemFailureStreams',
     'PipePlacementConstraintType',
     'PipePlacementStrategyType',
@@ -41,7 +41,7 @@ class PipeBatchResourceRequirementType(str, Enum):
     VCPU = "VCPU"
 
 
-class PipeDynamoDBStreamStartPosition(str, Enum):
+class PipeDynamoDbStreamStartPosition(str, Enum):
     TRIM_HORIZON = "TRIM_HORIZON"
     LATEST = "LATEST"
 
@@ -67,7 +67,7 @@ class PipeLaunchType(str, Enum):
     EXTERNAL = "EXTERNAL"
 
 
-class PipeMSKStartPosition(str, Enum):
+class PipeMskStartPosition(str, Enum):
     TRIM_HORIZON = "TRIM_HORIZON"
     LATEST = "LATEST"
 

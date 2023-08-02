@@ -17,7 +17,7 @@ __all__ = ['DeviceArgs', 'Device']
 class DeviceArgs:
     def __init__(__self__, *,
                  global_network_id: pulumi.Input[str],
-                 aws_location: Optional[pulumi.Input['DeviceAWSLocationArgs']] = None,
+                 aws_location: Optional[pulumi.Input['DeviceAwsLocationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input['DeviceLocationArgs']] = None,
                  model: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,7 @@ class DeviceArgs:
         """
         The set of arguments for constructing a Device resource.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
-        :param pulumi.Input['DeviceAWSLocationArgs'] aws_location: The Amazon Web Services location of the device, if applicable.
+        :param pulumi.Input['DeviceAwsLocationArgs'] aws_location: The Amazon Web Services location of the device, if applicable.
         :param pulumi.Input[str] description: The description of the device.
         :param pulumi.Input['DeviceLocationArgs'] location: The site location.
         :param pulumi.Input[str] model: The device model
@@ -73,14 +73,14 @@ class DeviceArgs:
 
     @property
     @pulumi.getter(name="awsLocation")
-    def aws_location(self) -> Optional[pulumi.Input['DeviceAWSLocationArgs']]:
+    def aws_location(self) -> Optional[pulumi.Input['DeviceAwsLocationArgs']]:
         """
         The Amazon Web Services location of the device, if applicable.
         """
         return pulumi.get(self, "aws_location")
 
     @aws_location.setter
-    def aws_location(self, value: Optional[pulumi.Input['DeviceAWSLocationArgs']]):
+    def aws_location(self, value: Optional[pulumi.Input['DeviceAwsLocationArgs']]):
         pulumi.set(self, "aws_location", value)
 
     @property
@@ -185,7 +185,7 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_location: Optional[pulumi.Input[pulumi.InputType['DeviceAWSLocationArgs']]] = None,
+                 aws_location: Optional[pulumi.Input[pulumi.InputType['DeviceAwsLocationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['DeviceLocationArgs']]] = None,
@@ -201,7 +201,7 @@ class Device(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeviceAWSLocationArgs']] aws_location: The Amazon Web Services location of the device, if applicable.
+        :param pulumi.Input[pulumi.InputType['DeviceAwsLocationArgs']] aws_location: The Amazon Web Services location of the device, if applicable.
         :param pulumi.Input[str] description: The description of the device.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[pulumi.InputType['DeviceLocationArgs']] location: The site location.
@@ -236,7 +236,7 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_location: Optional[pulumi.Input[pulumi.InputType['DeviceAWSLocationArgs']]] = None,
+                 aws_location: Optional[pulumi.Input[pulumi.InputType['DeviceAwsLocationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['DeviceLocationArgs']]] = None,
@@ -309,7 +309,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsLocation")
-    def aws_location(self) -> pulumi.Output[Optional['outputs.DeviceAWSLocation']]:
+    def aws_location(self) -> pulumi.Output[Optional['outputs.DeviceAwsLocation']]:
         """
         The Amazon Web Services location of the device, if applicable.
         """

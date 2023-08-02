@@ -40,7 +40,7 @@ export class Assessment extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly assessmentId!: pulumi.Output<string>;
     public readonly assessmentReportsDestination!: pulumi.Output<outputs.auditmanager.AssessmentReportsDestination | undefined>;
-    public readonly awsAccount!: pulumi.Output<outputs.auditmanager.AssessmentAWSAccount | undefined>;
+    public readonly awsAccount!: pulumi.Output<outputs.auditmanager.AssessmentAwsAccount | undefined>;
     public /*out*/ readonly creationTime!: pulumi.Output<number>;
     /**
      * The list of delegations.
@@ -109,7 +109,7 @@ export class Assessment extends pulumi.CustomResource {
  */
 export interface AssessmentArgs {
     assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentReportsDestinationArgs>;
-    awsAccount?: pulumi.Input<inputs.auditmanager.AssessmentAWSAccountArgs>;
+    awsAccount?: pulumi.Input<inputs.auditmanager.AssessmentAwsAccountArgs>;
     /**
      * The list of delegations.
      */

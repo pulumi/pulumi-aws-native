@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDBClusterResult',
-    'AwaitableGetDBClusterResult',
+    'GetDbClusterResult',
+    'AwaitableGetDbClusterResult',
     'get_db_cluster',
     'get_db_cluster_output',
 ]
 
 @pulumi.output_type
-class GetDBClusterResult:
+class GetDbClusterResult:
     def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
@@ -151,7 +151,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> Optional[Sequence['outputs.DBClusterRole']]:
+    def associated_roles(self) -> Optional[Sequence['outputs.DbClusterDbClusterRole']]:
         """
         Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         """
@@ -271,7 +271,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Optional['outputs.DBClusterEndpoint']:
+    def endpoint(self) -> Optional['outputs.DbClusterEndpoint']:
         return pulumi.get(self, "endpoint")
 
     @property
@@ -318,7 +318,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter(name="masterUserSecret")
-    def master_user_secret(self) -> Optional['outputs.DBClusterMasterUserSecret']:
+    def master_user_secret(self) -> Optional['outputs.DbClusterMasterUserSecret']:
         """
         Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         """
@@ -406,7 +406,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter(name="readEndpoint")
-    def read_endpoint(self) -> Optional['outputs.DBClusterReadEndpoint']:
+    def read_endpoint(self) -> Optional['outputs.DbClusterReadEndpoint']:
         return pulumi.get(self, "read_endpoint")
 
     @property
@@ -419,7 +419,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter(name="scalingConfiguration")
-    def scaling_configuration(self) -> Optional['outputs.DBClusterScalingConfiguration']:
+    def scaling_configuration(self) -> Optional['outputs.DbClusterScalingConfiguration']:
         """
         The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
         """
@@ -427,7 +427,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
-    def serverless_v2_scaling_configuration(self) -> Optional['outputs.DBClusterServerlessV2ScalingConfiguration']:
+    def serverless_v2_scaling_configuration(self) -> Optional['outputs.DbClusterServerlessV2ScalingConfiguration']:
         """
         Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
         """
@@ -443,7 +443,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBClusterTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DbClusterTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
@@ -458,12 +458,12 @@ class GetDBClusterResult:
         return pulumi.get(self, "vpc_security_group_ids")
 
 
-class AwaitableGetDBClusterResult(GetDBClusterResult):
+class AwaitableGetDbClusterResult(GetDbClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBClusterResult(
+        return GetDbClusterResult(
             allocated_storage=self.allocated_storage,
             associated_roles=self.associated_roles,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
@@ -507,7 +507,7 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
 
 
 def get_db_cluster(db_cluster_identifier: Optional[str] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBClusterResult:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbClusterResult:
     """
     The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
 
@@ -517,9 +517,9 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
     __args__ = dict()
     __args__['dbClusterIdentifier'] = db_cluster_identifier
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBCluster', __args__, opts=opts, typ=GetDBClusterResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbCluster', __args__, opts=opts, typ=GetDbClusterResult).value
 
-    return AwaitableGetDBClusterResult(
+    return AwaitableGetDbClusterResult(
         allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
         associated_roles=pulumi.get(__ret__, 'associated_roles'),
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
@@ -564,7 +564,7 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_cluster)
 def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBClusterResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbClusterResult]:
     """
     The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
 

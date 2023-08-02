@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.GroundStation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ConfigEirpUnits DBW { get; } = new ConfigEirpUnits("dBW");
+        public static ConfigEirpUnits Dbw { get; } = new ConfigEirpUnits("dBW");
 
         public static bool operator ==(ConfigEirpUnits left, ConfigEirpUnits right) => left.Equals(right);
         public static bool operator !=(ConfigEirpUnits left, ConfigEirpUnits right) => !left.Equals(right);

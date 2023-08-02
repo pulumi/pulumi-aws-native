@@ -13,11 +13,27 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CampaignCollectionScheme0Properties struct {
+	TimeBasedCollectionScheme CampaignTimeBasedCollectionScheme `pulumi:"timeBasedCollectionScheme"`
+}
+
+type CampaignCollectionScheme1Properties struct {
+	ConditionBasedCollectionScheme CampaignConditionBasedCollectionScheme `pulumi:"conditionBasedCollectionScheme"`
+}
+
 type CampaignConditionBasedCollectionScheme struct {
 	ConditionLanguageVersion *int                 `pulumi:"conditionLanguageVersion"`
 	Expression               string               `pulumi:"expression"`
 	MinimumTriggerIntervalMs *float64             `pulumi:"minimumTriggerIntervalMs"`
 	TriggerMode              *CampaignTriggerMode `pulumi:"triggerMode"`
+}
+
+type CampaignDataDestinationConfig0Properties struct {
+	S3Config CampaignS3Config `pulumi:"s3Config"`
+}
+
+type CampaignDataDestinationConfig1Properties struct {
+	TimestreamConfig CampaignTimestreamConfig `pulumi:"timestreamConfig"`
 }
 
 type CampaignS3Config struct {
@@ -240,22 +256,6 @@ type CampaignTimeBasedCollectionScheme struct {
 type CampaignTimestreamConfig struct {
 	ExecutionRoleArn   string `pulumi:"executionRoleArn"`
 	TimestreamTableArn string `pulumi:"timestreamTableArn"`
-}
-
-type CollectionScheme0Properties struct {
-	TimeBasedCollectionScheme CampaignTimeBasedCollectionScheme `pulumi:"timeBasedCollectionScheme"`
-}
-
-type CollectionScheme1Properties struct {
-	ConditionBasedCollectionScheme CampaignConditionBasedCollectionScheme `pulumi:"conditionBasedCollectionScheme"`
-}
-
-type DataDestinationConfig0Properties struct {
-	S3Config CampaignS3Config `pulumi:"s3Config"`
-}
-
-type DataDestinationConfig1Properties struct {
-	TimestreamConfig CampaignTimestreamConfig `pulumi:"timestreamConfig"`
 }
 
 type DecoderManifestCanInterface struct {
@@ -623,22 +623,6 @@ func (o ModelManifestTagArrayOutput) Index(i pulumi.IntInput) ModelManifestTagOu
 	}).(ModelManifestTagOutput)
 }
 
-type Node0Properties struct {
-	Branch *SignalCatalogBranch `pulumi:"branch"`
-}
-
-type Node1Properties struct {
-	Sensor *SignalCatalogSensor `pulumi:"sensor"`
-}
-
-type Node2Properties struct {
-	Actuator *SignalCatalogActuator `pulumi:"actuator"`
-}
-
-type Node3Properties struct {
-	Attribute *SignalCatalogAttribute `pulumi:"attribute"`
-}
-
 type SignalCatalogActuator struct {
 	AllowedValues      []string                  `pulumi:"allowedValues"`
 	AssignedValue      *string                   `pulumi:"assignedValue"`
@@ -665,6 +649,22 @@ type SignalCatalogAttribute struct {
 type SignalCatalogBranch struct {
 	Description        *string `pulumi:"description"`
 	FullyQualifiedName string  `pulumi:"fullyQualifiedName"`
+}
+
+type SignalCatalogNode0Properties struct {
+	Branch *SignalCatalogBranch `pulumi:"branch"`
+}
+
+type SignalCatalogNode1Properties struct {
+	Sensor *SignalCatalogSensor `pulumi:"sensor"`
+}
+
+type SignalCatalogNode2Properties struct {
+	Actuator *SignalCatalogActuator `pulumi:"actuator"`
+}
+
+type SignalCatalogNode3Properties struct {
+	Attribute *SignalCatalogAttribute `pulumi:"attribute"`
 }
 
 type SignalCatalogNodeCounts struct {

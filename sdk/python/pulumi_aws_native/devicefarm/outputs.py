@@ -19,7 +19,7 @@ __all__ = [
     'ProjectVpcConfig',
     'TestGridProjectTag',
     'TestGridProjectVpcConfig',
-    'VPCEConfigurationTag',
+    'VpceConfigurationTag',
 ]
 
 @pulumi.output_type
@@ -291,7 +291,7 @@ class TestGridProjectVpcConfig(dict):
 
 
 @pulumi.output_type
-class VPCEConfigurationTag(dict):
+class VpceConfigurationTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

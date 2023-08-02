@@ -54,7 +54,7 @@ class GetServiceProfileResult:
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional['outputs.ServiceProfileLoRaWANServiceProfile']:
+    def lo_ra_wan(self) -> Optional['outputs.ServiceProfileLoRaWanServiceProfile']:
         """
         LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         """

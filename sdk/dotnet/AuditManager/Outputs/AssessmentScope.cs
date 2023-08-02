@@ -19,17 +19,17 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
         /// <summary>
         /// The AWS accounts included in scope.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssessmentAWSAccount> AwsAccounts;
+        public readonly ImmutableArray<Outputs.AssessmentAwsAccount> AwsAccounts;
         /// <summary>
         /// The AWS services included in scope.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssessmentAWSService> AwsServices;
+        public readonly ImmutableArray<Outputs.AssessmentAwsService> AwsServices;
 
         [OutputConstructor]
         private AssessmentScope(
-            ImmutableArray<Outputs.AssessmentAWSAccount> awsAccounts,
+            ImmutableArray<Outputs.AssessmentAwsAccount> awsAccounts,
 
-            ImmutableArray<Outputs.AssessmentAWSService> awsServices)
+            ImmutableArray<Outputs.AssessmentAwsService> awsServices)
         {
             AwsAccounts = awsAccounts;
             AwsServices = awsServices;

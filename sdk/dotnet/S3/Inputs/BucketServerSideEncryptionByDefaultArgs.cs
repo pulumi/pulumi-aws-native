@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         public Input<string>? KmsMasterKeyId { get; set; }
 
         [Input("sseAlgorithm", required: true)]
-        public Input<Pulumi.AwsNative.S3.BucketServerSideEncryptionByDefaultSSEAlgorithm> SseAlgorithm { get; set; } = null!;
+        public Input<Pulumi.AwsNative.S3.BucketServerSideEncryptionByDefaultSseAlgorithm> SseAlgorithm { get; set; } = null!;
 
         public BucketServerSideEncryptionByDefaultArgs()
         {

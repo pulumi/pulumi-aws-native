@@ -29,7 +29,7 @@ type LoadBalancer struct {
 	DnsName                       pulumi.StringOutput                              `pulumi:"dnsName"`
 	HealthCheck                   LoadBalancerHealthCheckPtrOutput                 `pulumi:"healthCheck"`
 	Instances                     pulumi.StringArrayOutput                         `pulumi:"instances"`
-	LbCookieStickinessPolicy      LoadBalancerLBCookieStickinessPolicyArrayOutput  `pulumi:"lbCookieStickinessPolicy"`
+	LbCookieStickinessPolicy      LoadBalancerLbCookieStickinessPolicyArrayOutput  `pulumi:"lbCookieStickinessPolicy"`
 	Listeners                     LoadBalancerListenersArrayOutput                 `pulumi:"listeners"`
 	LoadBalancerName              pulumi.StringPtrOutput                           `pulumi:"loadBalancerName"`
 	Policies                      LoadBalancerPoliciesArrayOutput                  `pulumi:"policies"`
@@ -92,7 +92,7 @@ type loadBalancerArgs struct {
 	CrossZone                     *bool                                   `pulumi:"crossZone"`
 	HealthCheck                   *LoadBalancerHealthCheck                `pulumi:"healthCheck"`
 	Instances                     []string                                `pulumi:"instances"`
-	LbCookieStickinessPolicy      []LoadBalancerLBCookieStickinessPolicy  `pulumi:"lbCookieStickinessPolicy"`
+	LbCookieStickinessPolicy      []LoadBalancerLbCookieStickinessPolicy  `pulumi:"lbCookieStickinessPolicy"`
 	Listeners                     []LoadBalancerListeners                 `pulumi:"listeners"`
 	LoadBalancerName              *string                                 `pulumi:"loadBalancerName"`
 	Policies                      []LoadBalancerPolicies                  `pulumi:"policies"`
@@ -114,7 +114,7 @@ type LoadBalancerArgs struct {
 	CrossZone                     pulumi.BoolPtrInput
 	HealthCheck                   LoadBalancerHealthCheckPtrInput
 	Instances                     pulumi.StringArrayInput
-	LbCookieStickinessPolicy      LoadBalancerLBCookieStickinessPolicyArrayInput
+	LbCookieStickinessPolicy      LoadBalancerLbCookieStickinessPolicyArrayInput
 	Listeners                     LoadBalancerListenersArrayInput
 	LoadBalancerName              pulumi.StringPtrInput
 	Policies                      LoadBalancerPoliciesArrayInput
@@ -209,10 +209,10 @@ func (o LoadBalancerOutput) Instances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Instances }).(pulumi.StringArrayOutput)
 }
 
-func (o LoadBalancerOutput) LbCookieStickinessPolicy() LoadBalancerLBCookieStickinessPolicyArrayOutput {
-	return o.ApplyT(func(v *LoadBalancer) LoadBalancerLBCookieStickinessPolicyArrayOutput {
+func (o LoadBalancerOutput) LbCookieStickinessPolicy() LoadBalancerLbCookieStickinessPolicyArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerLbCookieStickinessPolicyArrayOutput {
 		return v.LbCookieStickinessPolicy
-	}).(LoadBalancerLBCookieStickinessPolicyArrayOutput)
+	}).(LoadBalancerLbCookieStickinessPolicyArrayOutput)
 }
 
 func (o LoadBalancerOutput) Listeners() LoadBalancerListenersArrayOutput {

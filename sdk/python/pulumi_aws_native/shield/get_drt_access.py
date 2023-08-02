@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetDRTAccessResult',
-    'AwaitableGetDRTAccessResult',
+    'GetDrtAccessResult',
+    'AwaitableGetDrtAccessResult',
     'get_drt_access',
     'get_drt_access_output',
 ]
 
 @pulumi.output_type
-class GetDRTAccessResult:
+class GetDrtAccessResult:
     def __init__(__self__, account_id=None, log_bucket_list=None, role_arn=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
@@ -51,28 +51,28 @@ class GetDRTAccessResult:
         return pulumi.get(self, "role_arn")
 
 
-class AwaitableGetDRTAccessResult(GetDRTAccessResult):
+class AwaitableGetDrtAccessResult(GetDrtAccessResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDRTAccessResult(
+        return GetDrtAccessResult(
             account_id=self.account_id,
             log_bucket_list=self.log_bucket_list,
             role_arn=self.role_arn)
 
 
 def get_drt_access(account_id: Optional[str] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDRTAccessResult:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDrtAccessResult:
     """
     Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:shield:getDRTAccess', __args__, opts=opts, typ=GetDRTAccessResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:shield:getDrtAccess', __args__, opts=opts, typ=GetDrtAccessResult).value
 
-    return AwaitableGetDRTAccessResult(
+    return AwaitableGetDrtAccessResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         log_bucket_list=pulumi.get(__ret__, 'log_bucket_list'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
@@ -80,7 +80,7 @@ def get_drt_access(account_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_drt_access)
 def get_drt_access_output(account_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDRTAccessResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDrtAccessResult]:
     """
     Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
     """

@@ -39,7 +39,7 @@ type LookupLoadBalancerResult struct {
 	HealthCheck                   *LoadBalancerHealthCheck                `pulumi:"healthCheck"`
 	Id                            *string                                 `pulumi:"id"`
 	Instances                     []string                                `pulumi:"instances"`
-	LbCookieStickinessPolicy      []LoadBalancerLBCookieStickinessPolicy  `pulumi:"lbCookieStickinessPolicy"`
+	LbCookieStickinessPolicy      []LoadBalancerLbCookieStickinessPolicy  `pulumi:"lbCookieStickinessPolicy"`
 	Listeners                     []LoadBalancerListeners                 `pulumi:"listeners"`
 	Policies                      []LoadBalancerPolicies                  `pulumi:"policies"`
 	SecurityGroups                []string                                `pulumi:"securityGroups"`
@@ -136,10 +136,10 @@ func (o LookupLoadBalancerResultOutput) Instances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) []string { return v.Instances }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) LbCookieStickinessPolicy() LoadBalancerLBCookieStickinessPolicyArrayOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) []LoadBalancerLBCookieStickinessPolicy {
+func (o LookupLoadBalancerResultOutput) LbCookieStickinessPolicy() LoadBalancerLbCookieStickinessPolicyArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []LoadBalancerLbCookieStickinessPolicy {
 		return v.LbCookieStickinessPolicy
-	}).(LoadBalancerLBCookieStickinessPolicyArrayOutput)
+	}).(LoadBalancerLbCookieStickinessPolicyArrayOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) Listeners() LoadBalancerListenersArrayOutput {

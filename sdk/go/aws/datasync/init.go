@@ -23,26 +23,26 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:datasync:Agent":
 		r = &Agent{}
-	case "aws-native:datasync:LocationEFS":
-		r = &LocationEFS{}
+	case "aws-native:datasync:LocationEfs":
+		r = &LocationEfs{}
 	case "aws-native:datasync:LocationFSxLustre":
 		r = &LocationFSxLustre{}
-	case "aws-native:datasync:LocationFSxONTAP":
-		r = &LocationFSxONTAP{}
-	case "aws-native:datasync:LocationFSxOpenZFS":
-		r = &LocationFSxOpenZFS{}
+	case "aws-native:datasync:LocationFSxOntap":
+		r = &LocationFSxOntap{}
+	case "aws-native:datasync:LocationFSxOpenZfs":
+		r = &LocationFSxOpenZfs{}
 	case "aws-native:datasync:LocationFSxWindows":
 		r = &LocationFSxWindows{}
-	case "aws-native:datasync:LocationHDFS":
-		r = &LocationHDFS{}
-	case "aws-native:datasync:LocationNFS":
-		r = &LocationNFS{}
+	case "aws-native:datasync:LocationHdfs":
+		r = &LocationHdfs{}
+	case "aws-native:datasync:LocationNfs":
+		r = &LocationNfs{}
 	case "aws-native:datasync:LocationObjectStorage":
 		r = &LocationObjectStorage{}
 	case "aws-native:datasync:LocationS3":
 		r = &LocationS3{}
-	case "aws-native:datasync:LocationSMB":
-		r = &LocationSMB{}
+	case "aws-native:datasync:LocationSmb":
+		r = &LocationSmb{}
 	case "aws-native:datasync:StorageSystem":
 		r = &StorageSystem{}
 	case "aws-native:datasync:Task":

@@ -22,7 +22,7 @@ class GlobalTableArgs:
                  billing_mode: Optional[pulumi.Input[str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]] = None,
-                 sse_specification: Optional[pulumi.Input['GlobalTableSSESpecificationArgs']] = None,
+                 sse_specification: Optional[pulumi.Input['GlobalTableSseSpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  time_to_live_specification: Optional[pulumi.Input['GlobalTableTimeToLiveSpecificationArgs']] = None,
@@ -106,11 +106,11 @@ class GlobalTableArgs:
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['GlobalTableSSESpecificationArgs']]:
+    def sse_specification(self) -> Optional[pulumi.Input['GlobalTableSseSpecificationArgs']]:
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['GlobalTableSSESpecificationArgs']]):
+    def sse_specification(self, value: Optional[pulumi.Input['GlobalTableSseSpecificationArgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @property
@@ -161,7 +161,7 @@ class GlobalTable(pulumi.CustomResource):
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableKeySchemaArgs']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableLocalSecondaryIndexArgs']]]]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableReplicaSpecificationArgs']]]]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableSSESpecificationArgs']]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableSseSpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableStreamSpecificationArgs']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableTimeToLiveSpecificationArgs']]] = None,
@@ -203,7 +203,7 @@ class GlobalTable(pulumi.CustomResource):
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableKeySchemaArgs']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableLocalSecondaryIndexArgs']]]]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableReplicaSpecificationArgs']]]]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableSSESpecificationArgs']]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableSseSpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableStreamSpecificationArgs']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableTimeToLiveSpecificationArgs']]] = None,
@@ -312,7 +312,7 @@ class GlobalTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableSSESpecification']]:
+    def sse_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableSseSpecification']]:
         return pulumi.get(self, "sse_specification")
 
     @property

@@ -10,44 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DBClusterParameterGroupTagArgs',
-    'DBClusterRoleArgs',
-    'DBClusterServerlessScalingConfigurationArgs',
-    'DBClusterTagArgs',
-    'DBInstanceTagArgs',
-    'DBParameterGroupTagArgs',
-    'DBSubnetGroupTagArgs',
+    'DbClusterDbClusterRoleArgs',
+    'DbClusterParameterGroupTagArgs',
+    'DbClusterServerlessScalingConfigurationArgs',
+    'DbClusterTagArgs',
+    'DbInstanceTagArgs',
+    'DbParameterGroupTagArgs',
+    'DbSubnetGroupTagArgs',
 ]
 
 @pulumi.input_type
-class DBClusterParameterGroupTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class DBClusterRoleArgs:
+class DbClusterDbClusterRoleArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  feature_name: Optional[pulumi.Input[str]] = None):
@@ -86,7 +59,34 @@ class DBClusterRoleArgs:
 
 
 @pulumi.input_type
-class DBClusterServerlessScalingConfigurationArgs:
+class DbClusterParameterGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DbClusterServerlessScalingConfigurationArgs:
     def __init__(__self__, *,
                  max_capacity: pulumi.Input[float],
                  min_capacity: pulumi.Input[float]):
@@ -124,7 +124,7 @@ class DBClusterServerlessScalingConfigurationArgs:
 
 
 @pulumi.input_type
-class DBClusterTagArgs:
+class DbClusterTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
@@ -163,7 +163,7 @@ class DBClusterTagArgs:
 
 
 @pulumi.input_type
-class DBInstanceTagArgs:
+class DbInstanceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -190,7 +190,7 @@ class DBInstanceTagArgs:
 
 
 @pulumi.input_type
-class DBParameterGroupTagArgs:
+class DbParameterGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -217,7 +217,7 @@ class DBParameterGroupTagArgs:
 
 
 @pulumi.input_type
-class DBSubnetGroupTagArgs:
+class DbSubnetGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetMLTransformResult',
-    'AwaitableGetMLTransformResult',
+    'GetMlTransformResult',
+    'AwaitableGetMlTransformResult',
     'get_ml_transform',
     'get_ml_transform_output',
 ]
 
 @pulumi.output_type
-class GetMLTransformResult:
+class GetMlTransformResult:
     def __init__(__self__, description=None, glue_version=None, id=None, max_capacity=None, max_retries=None, name=None, number_of_workers=None, role=None, tags=None, timeout=None, transform_encryption=None, transform_parameters=None, worker_type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
@@ -112,12 +112,12 @@ class GetMLTransformResult:
 
     @property
     @pulumi.getter(name="transformEncryption")
-    def transform_encryption(self) -> Optional['outputs.MLTransformTransformEncryption']:
+    def transform_encryption(self) -> Optional['outputs.MlTransformTransformEncryption']:
         return pulumi.get(self, "transform_encryption")
 
     @property
     @pulumi.getter(name="transformParameters")
-    def transform_parameters(self) -> Optional['outputs.MLTransformTransformParameters']:
+    def transform_parameters(self) -> Optional['outputs.MlTransformTransformParameters']:
         return pulumi.get(self, "transform_parameters")
 
     @property
@@ -126,12 +126,12 @@ class GetMLTransformResult:
         return pulumi.get(self, "worker_type")
 
 
-class AwaitableGetMLTransformResult(GetMLTransformResult):
+class AwaitableGetMlTransformResult(GetMlTransformResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetMLTransformResult(
+        return GetMlTransformResult(
             description=self.description,
             glue_version=self.glue_version,
             id=self.id,
@@ -148,16 +148,16 @@ class AwaitableGetMLTransformResult(GetMLTransformResult):
 
 
 def get_ml_transform(id: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMLTransformResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMlTransformResult:
     """
     Resource Type definition for AWS::Glue::MLTransform
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:glue:getMLTransform', __args__, opts=opts, typ=GetMLTransformResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:glue:getMlTransform', __args__, opts=opts, typ=GetMlTransformResult).value
 
-    return AwaitableGetMLTransformResult(
+    return AwaitableGetMlTransformResult(
         description=pulumi.get(__ret__, 'description'),
         glue_version=pulumi.get(__ret__, 'glue_version'),
         id=pulumi.get(__ret__, 'id'),
@@ -175,7 +175,7 @@ def get_ml_transform(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_ml_transform)
 def get_ml_transform_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMLTransformResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMlTransformResult]:
     """
     Resource Type definition for AWS::Glue::MLTransform
     """

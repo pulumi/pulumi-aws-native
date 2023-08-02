@@ -2427,7 +2427,7 @@ type RuleGroupMatchAttributes struct {
 	Protocols        []int                   `pulumi:"protocols"`
 	SourcePorts      []RuleGroupPortRange    `pulumi:"sourcePorts"`
 	Sources          []RuleGroupAddress      `pulumi:"sources"`
-	TcpFlags         []RuleGroupTCPFlagField `pulumi:"tcpFlags"`
+	TcpFlags         []RuleGroupTcpFlagField `pulumi:"tcpFlags"`
 }
 
 // RuleGroupMatchAttributesInput is an input type that accepts RuleGroupMatchAttributesArgs and RuleGroupMatchAttributesOutput values.
@@ -2447,7 +2447,7 @@ type RuleGroupMatchAttributesArgs struct {
 	Protocols        pulumi.IntArrayInput            `pulumi:"protocols"`
 	SourcePorts      RuleGroupPortRangeArrayInput    `pulumi:"sourcePorts"`
 	Sources          RuleGroupAddressArrayInput      `pulumi:"sources"`
-	TcpFlags         RuleGroupTCPFlagFieldArrayInput `pulumi:"tcpFlags"`
+	TcpFlags         RuleGroupTcpFlagFieldArrayInput `pulumi:"tcpFlags"`
 }
 
 func (RuleGroupMatchAttributesArgs) ElementType() reflect.Type {
@@ -2496,8 +2496,8 @@ func (o RuleGroupMatchAttributesOutput) Sources() RuleGroupAddressArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupAddress { return v.Sources }).(RuleGroupAddressArrayOutput)
 }
 
-func (o RuleGroupMatchAttributesOutput) TcpFlags() RuleGroupTCPFlagFieldArrayOutput {
-	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupTCPFlagField { return v.TcpFlags }).(RuleGroupTCPFlagFieldArrayOutput)
+func (o RuleGroupMatchAttributesOutput) TcpFlags() RuleGroupTcpFlagFieldArrayOutput {
+	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupTcpFlagField { return v.TcpFlags }).(RuleGroupTcpFlagFieldArrayOutput)
 }
 
 type RuleGroupPortRange struct {
@@ -3999,106 +3999,6 @@ func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) StatelessRules() RuleG
 	}).(RuleGroupStatelessRuleArrayOutput)
 }
 
-type RuleGroupTCPFlagField struct {
-	Flags []RuleGroupTCPFlag `pulumi:"flags"`
-	Masks []RuleGroupTCPFlag `pulumi:"masks"`
-}
-
-// RuleGroupTCPFlagFieldInput is an input type that accepts RuleGroupTCPFlagFieldArgs and RuleGroupTCPFlagFieldOutput values.
-// You can construct a concrete instance of `RuleGroupTCPFlagFieldInput` via:
-//
-//	RuleGroupTCPFlagFieldArgs{...}
-type RuleGroupTCPFlagFieldInput interface {
-	pulumi.Input
-
-	ToRuleGroupTCPFlagFieldOutput() RuleGroupTCPFlagFieldOutput
-	ToRuleGroupTCPFlagFieldOutputWithContext(context.Context) RuleGroupTCPFlagFieldOutput
-}
-
-type RuleGroupTCPFlagFieldArgs struct {
-	Flags RuleGroupTCPFlagArrayInput `pulumi:"flags"`
-	Masks RuleGroupTCPFlagArrayInput `pulumi:"masks"`
-}
-
-func (RuleGroupTCPFlagFieldArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTCPFlagField)(nil)).Elem()
-}
-
-func (i RuleGroupTCPFlagFieldArgs) ToRuleGroupTCPFlagFieldOutput() RuleGroupTCPFlagFieldOutput {
-	return i.ToRuleGroupTCPFlagFieldOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTCPFlagFieldArgs) ToRuleGroupTCPFlagFieldOutputWithContext(ctx context.Context) RuleGroupTCPFlagFieldOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTCPFlagFieldOutput)
-}
-
-// RuleGroupTCPFlagFieldArrayInput is an input type that accepts RuleGroupTCPFlagFieldArray and RuleGroupTCPFlagFieldArrayOutput values.
-// You can construct a concrete instance of `RuleGroupTCPFlagFieldArrayInput` via:
-//
-//	RuleGroupTCPFlagFieldArray{ RuleGroupTCPFlagFieldArgs{...} }
-type RuleGroupTCPFlagFieldArrayInput interface {
-	pulumi.Input
-
-	ToRuleGroupTCPFlagFieldArrayOutput() RuleGroupTCPFlagFieldArrayOutput
-	ToRuleGroupTCPFlagFieldArrayOutputWithContext(context.Context) RuleGroupTCPFlagFieldArrayOutput
-}
-
-type RuleGroupTCPFlagFieldArray []RuleGroupTCPFlagFieldInput
-
-func (RuleGroupTCPFlagFieldArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupTCPFlagField)(nil)).Elem()
-}
-
-func (i RuleGroupTCPFlagFieldArray) ToRuleGroupTCPFlagFieldArrayOutput() RuleGroupTCPFlagFieldArrayOutput {
-	return i.ToRuleGroupTCPFlagFieldArrayOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTCPFlagFieldArray) ToRuleGroupTCPFlagFieldArrayOutputWithContext(ctx context.Context) RuleGroupTCPFlagFieldArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTCPFlagFieldArrayOutput)
-}
-
-type RuleGroupTCPFlagFieldOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTCPFlagFieldOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTCPFlagField)(nil)).Elem()
-}
-
-func (o RuleGroupTCPFlagFieldOutput) ToRuleGroupTCPFlagFieldOutput() RuleGroupTCPFlagFieldOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagFieldOutput) ToRuleGroupTCPFlagFieldOutputWithContext(ctx context.Context) RuleGroupTCPFlagFieldOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagFieldOutput) Flags() RuleGroupTCPFlagArrayOutput {
-	return o.ApplyT(func(v RuleGroupTCPFlagField) []RuleGroupTCPFlag { return v.Flags }).(RuleGroupTCPFlagArrayOutput)
-}
-
-func (o RuleGroupTCPFlagFieldOutput) Masks() RuleGroupTCPFlagArrayOutput {
-	return o.ApplyT(func(v RuleGroupTCPFlagField) []RuleGroupTCPFlag { return v.Masks }).(RuleGroupTCPFlagArrayOutput)
-}
-
-type RuleGroupTCPFlagFieldArrayOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTCPFlagFieldArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupTCPFlagField)(nil)).Elem()
-}
-
-func (o RuleGroupTCPFlagFieldArrayOutput) ToRuleGroupTCPFlagFieldArrayOutput() RuleGroupTCPFlagFieldArrayOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagFieldArrayOutput) ToRuleGroupTCPFlagFieldArrayOutputWithContext(ctx context.Context) RuleGroupTCPFlagFieldArrayOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagFieldArrayOutput) Index(i pulumi.IntInput) RuleGroupTCPFlagFieldOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupTCPFlagField {
-		return vs[0].([]RuleGroupTCPFlagField)[vs[1].(int)]
-	}).(RuleGroupTCPFlagFieldOutput)
-}
-
 type RuleGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -4199,6 +4099,106 @@ func (o RuleGroupTagArrayOutput) Index(i pulumi.IntInput) RuleGroupTagOutput {
 	}).(RuleGroupTagOutput)
 }
 
+type RuleGroupTcpFlagField struct {
+	Flags []RuleGroupTcpFlag `pulumi:"flags"`
+	Masks []RuleGroupTcpFlag `pulumi:"masks"`
+}
+
+// RuleGroupTcpFlagFieldInput is an input type that accepts RuleGroupTcpFlagFieldArgs and RuleGroupTcpFlagFieldOutput values.
+// You can construct a concrete instance of `RuleGroupTcpFlagFieldInput` via:
+//
+//	RuleGroupTcpFlagFieldArgs{...}
+type RuleGroupTcpFlagFieldInput interface {
+	pulumi.Input
+
+	ToRuleGroupTcpFlagFieldOutput() RuleGroupTcpFlagFieldOutput
+	ToRuleGroupTcpFlagFieldOutputWithContext(context.Context) RuleGroupTcpFlagFieldOutput
+}
+
+type RuleGroupTcpFlagFieldArgs struct {
+	Flags RuleGroupTcpFlagArrayInput `pulumi:"flags"`
+	Masks RuleGroupTcpFlagArrayInput `pulumi:"masks"`
+}
+
+func (RuleGroupTcpFlagFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupTcpFlagField)(nil)).Elem()
+}
+
+func (i RuleGroupTcpFlagFieldArgs) ToRuleGroupTcpFlagFieldOutput() RuleGroupTcpFlagFieldOutput {
+	return i.ToRuleGroupTcpFlagFieldOutputWithContext(context.Background())
+}
+
+func (i RuleGroupTcpFlagFieldArgs) ToRuleGroupTcpFlagFieldOutputWithContext(ctx context.Context) RuleGroupTcpFlagFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTcpFlagFieldOutput)
+}
+
+// RuleGroupTcpFlagFieldArrayInput is an input type that accepts RuleGroupTcpFlagFieldArray and RuleGroupTcpFlagFieldArrayOutput values.
+// You can construct a concrete instance of `RuleGroupTcpFlagFieldArrayInput` via:
+//
+//	RuleGroupTcpFlagFieldArray{ RuleGroupTcpFlagFieldArgs{...} }
+type RuleGroupTcpFlagFieldArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupTcpFlagFieldArrayOutput() RuleGroupTcpFlagFieldArrayOutput
+	ToRuleGroupTcpFlagFieldArrayOutputWithContext(context.Context) RuleGroupTcpFlagFieldArrayOutput
+}
+
+type RuleGroupTcpFlagFieldArray []RuleGroupTcpFlagFieldInput
+
+func (RuleGroupTcpFlagFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupTcpFlagField)(nil)).Elem()
+}
+
+func (i RuleGroupTcpFlagFieldArray) ToRuleGroupTcpFlagFieldArrayOutput() RuleGroupTcpFlagFieldArrayOutput {
+	return i.ToRuleGroupTcpFlagFieldArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupTcpFlagFieldArray) ToRuleGroupTcpFlagFieldArrayOutputWithContext(ctx context.Context) RuleGroupTcpFlagFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTcpFlagFieldArrayOutput)
+}
+
+type RuleGroupTcpFlagFieldOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupTcpFlagFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupTcpFlagField)(nil)).Elem()
+}
+
+func (o RuleGroupTcpFlagFieldOutput) ToRuleGroupTcpFlagFieldOutput() RuleGroupTcpFlagFieldOutput {
+	return o
+}
+
+func (o RuleGroupTcpFlagFieldOutput) ToRuleGroupTcpFlagFieldOutputWithContext(ctx context.Context) RuleGroupTcpFlagFieldOutput {
+	return o
+}
+
+func (o RuleGroupTcpFlagFieldOutput) Flags() RuleGroupTcpFlagArrayOutput {
+	return o.ApplyT(func(v RuleGroupTcpFlagField) []RuleGroupTcpFlag { return v.Flags }).(RuleGroupTcpFlagArrayOutput)
+}
+
+func (o RuleGroupTcpFlagFieldOutput) Masks() RuleGroupTcpFlagArrayOutput {
+	return o.ApplyT(func(v RuleGroupTcpFlagField) []RuleGroupTcpFlag { return v.Masks }).(RuleGroupTcpFlagArrayOutput)
+}
+
+type RuleGroupTcpFlagFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupTcpFlagFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupTcpFlagField)(nil)).Elem()
+}
+
+func (o RuleGroupTcpFlagFieldArrayOutput) ToRuleGroupTcpFlagFieldArrayOutput() RuleGroupTcpFlagFieldArrayOutput {
+	return o
+}
+
+func (o RuleGroupTcpFlagFieldArrayOutput) ToRuleGroupTcpFlagFieldArrayOutputWithContext(ctx context.Context) RuleGroupTcpFlagFieldArrayOutput {
+	return o
+}
+
+func (o RuleGroupTcpFlagFieldArrayOutput) Index(i pulumi.IntInput) RuleGroupTcpFlagFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupTcpFlagField {
+		return vs[0].([]RuleGroupTcpFlagField)[vs[1].(int)]
+	}).(RuleGroupTcpFlagFieldOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyTypeInput)(nil)).Elem(), FirewallPolicyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyActionDefinitionInput)(nil)).Elem(), FirewallPolicyActionDefinitionArgs{})
@@ -4263,10 +4263,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatelessRuleArrayInput)(nil)).Elem(), RuleGroupStatelessRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatelessRulesAndCustomActionsInput)(nil)).Elem(), RuleGroupStatelessRulesAndCustomActionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatelessRulesAndCustomActionsPtrInput)(nil)).Elem(), RuleGroupStatelessRulesAndCustomActionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTCPFlagFieldInput)(nil)).Elem(), RuleGroupTCPFlagFieldArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTCPFlagFieldArrayInput)(nil)).Elem(), RuleGroupTCPFlagFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTagInput)(nil)).Elem(), RuleGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTagArrayInput)(nil)).Elem(), RuleGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTcpFlagFieldInput)(nil)).Elem(), RuleGroupTcpFlagFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTcpFlagFieldArrayInput)(nil)).Elem(), RuleGroupTcpFlagFieldArray{})
 	pulumi.RegisterOutputType(FirewallPolicyTypeOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyActionDefinitionOutput{})
@@ -4332,8 +4332,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupStatelessRuleArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRulesAndCustomActionsOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRulesAndCustomActionsPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupTCPFlagFieldOutput{})
-	pulumi.RegisterOutputType(RuleGroupTCPFlagFieldArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTagOutput{})
 	pulumi.RegisterOutputType(RuleGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupTcpFlagFieldOutput{})
+	pulumi.RegisterOutputType(RuleGroupTcpFlagFieldArrayOutput{})
 }

@@ -23,11 +23,11 @@ __all__ = [
     'DeploymentGroupDeploymentReadyOptionArgs',
     'DeploymentGroupDeploymentStyleArgs',
     'DeploymentGroupDeploymentArgs',
-    'DeploymentGroupEC2TagFilterArgs',
-    'DeploymentGroupEC2TagSetListObjectArgs',
-    'DeploymentGroupEC2TagSetArgs',
-    'DeploymentGroupECSServiceArgs',
-    'DeploymentGroupELBInfoArgs',
+    'DeploymentGroupEc2TagFilterArgs',
+    'DeploymentGroupEc2TagSetListObjectArgs',
+    'DeploymentGroupEc2TagSetArgs',
+    'DeploymentGroupEcsServiceArgs',
+    'DeploymentGroupElbInfoArgs',
     'DeploymentGroupGitHubLocationArgs',
     'DeploymentGroupGreenFleetProvisioningOptionArgs',
     'DeploymentGroupLoadBalancerInfoArgs',
@@ -447,7 +447,7 @@ class DeploymentGroupDeploymentArgs:
 
 
 @pulumi.input_type
-class DeploymentGroupEC2TagFilterArgs:
+class DeploymentGroupEc2TagFilterArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -488,41 +488,41 @@ class DeploymentGroupEC2TagFilterArgs:
 
 
 @pulumi.input_type
-class DeploymentGroupEC2TagSetListObjectArgs:
+class DeploymentGroupEc2TagSetListObjectArgs:
     def __init__(__self__, *,
-                 ec2_tag_group: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEC2TagFilterArgs']]]] = None):
+                 ec2_tag_group: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]] = None):
         if ec2_tag_group is not None:
             pulumi.set(__self__, "ec2_tag_group", ec2_tag_group)
 
     @property
     @pulumi.getter(name="ec2TagGroup")
-    def ec2_tag_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEC2TagFilterArgs']]]]:
+    def ec2_tag_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]:
         return pulumi.get(self, "ec2_tag_group")
 
     @ec2_tag_group.setter
-    def ec2_tag_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEC2TagFilterArgs']]]]):
+    def ec2_tag_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]):
         pulumi.set(self, "ec2_tag_group", value)
 
 
 @pulumi.input_type
-class DeploymentGroupEC2TagSetArgs:
+class DeploymentGroupEc2TagSetArgs:
     def __init__(__self__, *,
-                 ec2_tag_set_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEC2TagSetListObjectArgs']]]] = None):
+                 ec2_tag_set_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgs']]]] = None):
         if ec2_tag_set_list is not None:
             pulumi.set(__self__, "ec2_tag_set_list", ec2_tag_set_list)
 
     @property
     @pulumi.getter(name="ec2TagSetList")
-    def ec2_tag_set_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEC2TagSetListObjectArgs']]]]:
+    def ec2_tag_set_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgs']]]]:
         return pulumi.get(self, "ec2_tag_set_list")
 
     @ec2_tag_set_list.setter
-    def ec2_tag_set_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEC2TagSetListObjectArgs']]]]):
+    def ec2_tag_set_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgs']]]]):
         pulumi.set(self, "ec2_tag_set_list", value)
 
 
 @pulumi.input_type
-class DeploymentGroupECSServiceArgs:
+class DeploymentGroupEcsServiceArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
                  service_name: pulumi.Input[str]):
@@ -549,7 +549,7 @@ class DeploymentGroupECSServiceArgs:
 
 
 @pulumi.input_type
-class DeploymentGroupELBInfoArgs:
+class DeploymentGroupElbInfoArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
         if name is not None:
@@ -612,7 +612,7 @@ class DeploymentGroupGreenFleetProvisioningOptionArgs:
 @pulumi.input_type
 class DeploymentGroupLoadBalancerInfoArgs:
     def __init__(__self__, *,
-                 elb_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupELBInfoArgs']]]] = None,
+                 elb_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupElbInfoArgs']]]] = None,
                  target_group_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]] = None,
                  target_group_pair_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]] = None):
         if elb_info_list is not None:
@@ -624,11 +624,11 @@ class DeploymentGroupLoadBalancerInfoArgs:
 
     @property
     @pulumi.getter(name="elbInfoList")
-    def elb_info_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupELBInfoArgs']]]]:
+    def elb_info_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupElbInfoArgs']]]]:
         return pulumi.get(self, "elb_info_list")
 
     @elb_info_list.setter
-    def elb_info_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupELBInfoArgs']]]]):
+    def elb_info_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupElbInfoArgs']]]]):
         pulumi.set(self, "elb_info_list", value)
 
     @property

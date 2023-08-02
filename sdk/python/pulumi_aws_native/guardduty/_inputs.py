@@ -10,28 +10,28 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DetectorCFNDataSourceConfigurationsArgs',
-    'DetectorCFNKubernetesAuditLogsConfigurationArgs',
-    'DetectorCFNKubernetesConfigurationArgs',
-    'DetectorCFNMalwareProtectionConfigurationArgs',
-    'DetectorCFNS3LogsConfigurationArgs',
-    'DetectorCFNScanEc2InstanceWithFindingsConfigurationArgs',
+    'DetectorCfnDataSourceConfigurationsArgs',
+    'DetectorCfnKubernetesAuditLogsConfigurationArgs',
+    'DetectorCfnKubernetesConfigurationArgs',
+    'DetectorCfnMalwareProtectionConfigurationArgs',
+    'DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs',
+    'DetectorCfns3LogsConfigurationArgs',
     'DetectorFeatureAdditionalConfigurationArgs',
     'DetectorFeatureConfigurationsArgs',
     'DetectorTagArgs',
     'FilterConditionArgs',
     'FilterFindingCriteriaArgs',
     'FilterTagArgs',
-    'IPSetTagArgs',
+    'IpSetTagArgs',
     'ThreatIntelSetTagArgs',
 ]
 
 @pulumi.input_type
-class DetectorCFNDataSourceConfigurationsArgs:
+class DetectorCfnDataSourceConfigurationsArgs:
     def __init__(__self__, *,
-                 kubernetes: Optional[pulumi.Input['DetectorCFNKubernetesConfigurationArgs']] = None,
-                 malware_protection: Optional[pulumi.Input['DetectorCFNMalwareProtectionConfigurationArgs']] = None,
-                 s3_logs: Optional[pulumi.Input['DetectorCFNS3LogsConfigurationArgs']] = None):
+                 kubernetes: Optional[pulumi.Input['DetectorCfnKubernetesConfigurationArgs']] = None,
+                 malware_protection: Optional[pulumi.Input['DetectorCfnMalwareProtectionConfigurationArgs']] = None,
+                 s3_logs: Optional[pulumi.Input['DetectorCfns3LogsConfigurationArgs']] = None):
         if kubernetes is not None:
             pulumi.set(__self__, "kubernetes", kubernetes)
         if malware_protection is not None:
@@ -41,34 +41,34 @@ class DetectorCFNDataSourceConfigurationsArgs:
 
     @property
     @pulumi.getter
-    def kubernetes(self) -> Optional[pulumi.Input['DetectorCFNKubernetesConfigurationArgs']]:
+    def kubernetes(self) -> Optional[pulumi.Input['DetectorCfnKubernetesConfigurationArgs']]:
         return pulumi.get(self, "kubernetes")
 
     @kubernetes.setter
-    def kubernetes(self, value: Optional[pulumi.Input['DetectorCFNKubernetesConfigurationArgs']]):
+    def kubernetes(self, value: Optional[pulumi.Input['DetectorCfnKubernetesConfigurationArgs']]):
         pulumi.set(self, "kubernetes", value)
 
     @property
     @pulumi.getter(name="malwareProtection")
-    def malware_protection(self) -> Optional[pulumi.Input['DetectorCFNMalwareProtectionConfigurationArgs']]:
+    def malware_protection(self) -> Optional[pulumi.Input['DetectorCfnMalwareProtectionConfigurationArgs']]:
         return pulumi.get(self, "malware_protection")
 
     @malware_protection.setter
-    def malware_protection(self, value: Optional[pulumi.Input['DetectorCFNMalwareProtectionConfigurationArgs']]):
+    def malware_protection(self, value: Optional[pulumi.Input['DetectorCfnMalwareProtectionConfigurationArgs']]):
         pulumi.set(self, "malware_protection", value)
 
     @property
     @pulumi.getter(name="s3Logs")
-    def s3_logs(self) -> Optional[pulumi.Input['DetectorCFNS3LogsConfigurationArgs']]:
+    def s3_logs(self) -> Optional[pulumi.Input['DetectorCfns3LogsConfigurationArgs']]:
         return pulumi.get(self, "s3_logs")
 
     @s3_logs.setter
-    def s3_logs(self, value: Optional[pulumi.Input['DetectorCFNS3LogsConfigurationArgs']]):
+    def s3_logs(self, value: Optional[pulumi.Input['DetectorCfns3LogsConfigurationArgs']]):
         pulumi.set(self, "s3_logs", value)
 
 
 @pulumi.input_type
-class DetectorCFNKubernetesAuditLogsConfigurationArgs:
+class DetectorCfnKubernetesAuditLogsConfigurationArgs:
     def __init__(__self__, *,
                  enable: Optional[pulumi.Input[bool]] = None):
         if enable is not None:
@@ -85,58 +85,41 @@ class DetectorCFNKubernetesAuditLogsConfigurationArgs:
 
 
 @pulumi.input_type
-class DetectorCFNKubernetesConfigurationArgs:
+class DetectorCfnKubernetesConfigurationArgs:
     def __init__(__self__, *,
-                 audit_logs: Optional[pulumi.Input['DetectorCFNKubernetesAuditLogsConfigurationArgs']] = None):
+                 audit_logs: Optional[pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']] = None):
         if audit_logs is not None:
             pulumi.set(__self__, "audit_logs", audit_logs)
 
     @property
     @pulumi.getter(name="auditLogs")
-    def audit_logs(self) -> Optional[pulumi.Input['DetectorCFNKubernetesAuditLogsConfigurationArgs']]:
+    def audit_logs(self) -> Optional[pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']]:
         return pulumi.get(self, "audit_logs")
 
     @audit_logs.setter
-    def audit_logs(self, value: Optional[pulumi.Input['DetectorCFNKubernetesAuditLogsConfigurationArgs']]):
+    def audit_logs(self, value: Optional[pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']]):
         pulumi.set(self, "audit_logs", value)
 
 
 @pulumi.input_type
-class DetectorCFNMalwareProtectionConfigurationArgs:
+class DetectorCfnMalwareProtectionConfigurationArgs:
     def __init__(__self__, *,
-                 scan_ec2_instance_with_findings: Optional[pulumi.Input['DetectorCFNScanEc2InstanceWithFindingsConfigurationArgs']] = None):
+                 scan_ec2_instance_with_findings: Optional[pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs']] = None):
         if scan_ec2_instance_with_findings is not None:
             pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
     @property
     @pulumi.getter(name="scanEc2InstanceWithFindings")
-    def scan_ec2_instance_with_findings(self) -> Optional[pulumi.Input['DetectorCFNScanEc2InstanceWithFindingsConfigurationArgs']]:
+    def scan_ec2_instance_with_findings(self) -> Optional[pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs']]:
         return pulumi.get(self, "scan_ec2_instance_with_findings")
 
     @scan_ec2_instance_with_findings.setter
-    def scan_ec2_instance_with_findings(self, value: Optional[pulumi.Input['DetectorCFNScanEc2InstanceWithFindingsConfigurationArgs']]):
+    def scan_ec2_instance_with_findings(self, value: Optional[pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs']]):
         pulumi.set(self, "scan_ec2_instance_with_findings", value)
 
 
 @pulumi.input_type
-class DetectorCFNS3LogsConfigurationArgs:
-    def __init__(__self__, *,
-                 enable: Optional[pulumi.Input[bool]] = None):
-        if enable is not None:
-            pulumi.set(__self__, "enable", enable)
-
-    @property
-    @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable")
-
-    @enable.setter
-    def enable(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable", value)
-
-
-@pulumi.input_type
-class DetectorCFNScanEc2InstanceWithFindingsConfigurationArgs:
+class DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs:
     def __init__(__self__, *,
                  ebs_volumes: Optional[pulumi.Input[bool]] = None):
         if ebs_volumes is not None:
@@ -150,6 +133,23 @@ class DetectorCFNScanEc2InstanceWithFindingsConfigurationArgs:
     @ebs_volumes.setter
     def ebs_volumes(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ebs_volumes", value)
+
+
+@pulumi.input_type
+class DetectorCfns3LogsConfigurationArgs:
+    def __init__(__self__, *,
+                 enable: Optional[pulumi.Input[bool]] = None):
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable", value)
 
 
 @pulumi.input_type
@@ -455,7 +455,7 @@ class FilterTagArgs:
 
 
 @pulumi.input_type
-class IPSetTagArgs:
+class IpSetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

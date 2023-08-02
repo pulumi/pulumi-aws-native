@@ -13,6 +13,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApplicationDefinition0Properties struct {
+	S3Location string `pulumi:"s3Location"`
+}
+
+type ApplicationDefinition1Properties struct {
+	Content string `pulumi:"content"`
+}
+
 type ApplicationTagMap struct {
 }
 
@@ -129,14 +137,6 @@ func (o ApplicationTagMapPtrOutput) Elem() ApplicationTagMapOutput {
 		var ret ApplicationTagMap
 		return ret
 	}).(ApplicationTagMapOutput)
-}
-
-type Definition0Properties struct {
-	S3Location string `pulumi:"s3Location"`
-}
-
-type Definition1Properties struct {
-	Content string `pulumi:"content"`
 }
 
 // Defines the details of a high availability configuration.

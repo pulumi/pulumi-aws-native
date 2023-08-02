@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<string>? CustomMessage { get; set; }
 
         [Input("customSmsSender")]
-        public Input<Inputs.UserPoolCustomSMSSenderArgs>? CustomSmsSender { get; set; }
+        public Input<Inputs.UserPoolCustomSmsSenderArgs>? CustomSmsSender { get; set; }
 
         [Input("defineAuthChallenge")]
         public Input<string>? DefineAuthChallenge { get; set; }

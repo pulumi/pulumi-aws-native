@@ -44,7 +44,7 @@ export class DeviceProfile extends pulumi.CustomResource {
     /**
      * LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.DeviceProfileLoRaWANDeviceProfile | undefined>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.DeviceProfileLoRaWanDeviceProfile | undefined>;
     /**
      * Name of service profile
      */
@@ -87,7 +87,7 @@ export interface DeviceProfileArgs {
     /**
      * LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
      */
-    loRaWan?: pulumi.Input<inputs.iotwireless.DeviceProfileLoRaWANDeviceProfileArgs>;
+    loRaWan?: pulumi.Input<inputs.iotwireless.DeviceProfileLoRaWanDeviceProfileArgs>;
     /**
      * Name of service profile
      */

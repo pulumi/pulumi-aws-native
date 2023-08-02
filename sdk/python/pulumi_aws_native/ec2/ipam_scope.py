@@ -12,18 +12,18 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['IPAMScopeArgs', 'IPAMScope']
+__all__ = ['IpamScopeArgs', 'IpamScope']
 
 @pulumi.input_type
-class IPAMScopeArgs:
+class IpamScopeArgs:
     def __init__(__self__, *,
                  ipam_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMScopeTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamScopeTagArgs']]]] = None):
         """
-        The set of arguments for constructing a IPAMScope resource.
+        The set of arguments for constructing a IpamScope resource.
         :param pulumi.Input[str] ipam_id: The Id of the IPAM this scope is a part of.
-        :param pulumi.Input[Sequence[pulumi.Input['IPAMScopeTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['IpamScopeTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "ipam_id", ipam_id)
         if description is not None:
@@ -54,25 +54,25 @@ class IPAMScopeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPAMScopeTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamScopeTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMScopeTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamScopeTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class IPAMScope(pulumi.CustomResource):
+class IpamScope(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMScopeTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamScopeTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EC2::IPAMScope Type
@@ -80,24 +80,24 @@ class IPAMScope(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ipam_id: The Id of the IPAM this scope is a part of.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMScopeTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamScopeTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IPAMScopeArgs,
+                 args: IpamScopeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAMScope Type
 
         :param str resource_name: The name of the resource.
-        :param IPAMScopeArgs args: The arguments to use to populate this resource's properties.
+        :param IpamScopeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IPAMScopeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IpamScopeArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -108,7 +108,7 @@ class IPAMScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMScopeTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamScopeTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -116,7 +116,7 @@ class IPAMScope(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IPAMScopeArgs.__new__(IPAMScopeArgs)
+            __props__ = IpamScopeArgs.__new__(IpamScopeArgs)
 
             __props__.__dict__["description"] = description
             if ipam_id is None and not opts.urn:
@@ -129,8 +129,8 @@ class IPAMScope(pulumi.CustomResource):
             __props__.__dict__["ipam_scope_type"] = None
             __props__.__dict__["is_default"] = None
             __props__.__dict__["pool_count"] = None
-        super(IPAMScope, __self__).__init__(
-            'aws-native:ec2:IPAMScope',
+        super(IpamScope, __self__).__init__(
+            'aws-native:ec2:IpamScope',
             resource_name,
             __props__,
             opts)
@@ -138,9 +138,9 @@ class IPAMScope(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'IPAMScope':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IpamScope':
         """
-        Get an existing IPAMScope resource's state with the given name, id, and optional extra
+        Get an existing IpamScope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -149,7 +149,7 @@ class IPAMScope(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = IPAMScopeArgs.__new__(IPAMScopeArgs)
+        __props__ = IpamScopeArgs.__new__(IpamScopeArgs)
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
@@ -160,7 +160,7 @@ class IPAMScope(pulumi.CustomResource):
         __props__.__dict__["is_default"] = None
         __props__.__dict__["pool_count"] = None
         __props__.__dict__["tags"] = None
-        return IPAMScope(resource_name, opts=opts, __props__=__props__)
+        return IpamScope(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -201,7 +201,7 @@ class IPAMScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> pulumi.Output['IPAMScopeIpamScopeType']:
+    def ipam_scope_type(self) -> pulumi.Output['IpamScopeType']:
         """
         Determines whether this scope contains publicly routable space or space for a private network
         """
@@ -225,7 +225,7 @@ class IPAMScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IPAMScopeTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IpamScopeTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

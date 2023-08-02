@@ -2994,7 +2994,7 @@ type ReceiptRuleAction struct {
 	BounceAction    *ReceiptRuleBounceAction    `pulumi:"bounceAction"`
 	LambdaAction    *ReceiptRuleLambdaAction    `pulumi:"lambdaAction"`
 	S3Action        *ReceiptRuleS3Action        `pulumi:"s3Action"`
-	SnsAction       *ReceiptRuleSNSAction       `pulumi:"snsAction"`
+	SnsAction       *ReceiptRuleSnsAction       `pulumi:"snsAction"`
 	StopAction      *ReceiptRuleStopAction      `pulumi:"stopAction"`
 	WorkmailAction  *ReceiptRuleWorkmailAction  `pulumi:"workmailAction"`
 }
@@ -3015,7 +3015,7 @@ type ReceiptRuleActionArgs struct {
 	BounceAction    ReceiptRuleBounceActionPtrInput    `pulumi:"bounceAction"`
 	LambdaAction    ReceiptRuleLambdaActionPtrInput    `pulumi:"lambdaAction"`
 	S3Action        ReceiptRuleS3ActionPtrInput        `pulumi:"s3Action"`
-	SnsAction       ReceiptRuleSNSActionPtrInput       `pulumi:"snsAction"`
+	SnsAction       ReceiptRuleSnsActionPtrInput       `pulumi:"snsAction"`
 	StopAction      ReceiptRuleStopActionPtrInput      `pulumi:"stopAction"`
 	WorkmailAction  ReceiptRuleWorkmailActionPtrInput  `pulumi:"workmailAction"`
 }
@@ -3087,8 +3087,8 @@ func (o ReceiptRuleActionOutput) S3Action() ReceiptRuleS3ActionPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleS3Action { return v.S3Action }).(ReceiptRuleS3ActionPtrOutput)
 }
 
-func (o ReceiptRuleActionOutput) SnsAction() ReceiptRuleSNSActionPtrOutput {
-	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleSNSAction { return v.SnsAction }).(ReceiptRuleSNSActionPtrOutput)
+func (o ReceiptRuleActionOutput) SnsAction() ReceiptRuleSnsActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleSnsAction { return v.SnsAction }).(ReceiptRuleSnsActionPtrOutput)
 }
 
 func (o ReceiptRuleActionOutput) StopAction() ReceiptRuleStopActionPtrOutput {
@@ -3958,138 +3958,138 @@ func (o ReceiptRuleS3ActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ReceiptRuleSNSAction struct {
+type ReceiptRuleSnsAction struct {
 	Encoding *string `pulumi:"encoding"`
 	TopicArn *string `pulumi:"topicArn"`
 }
 
-// ReceiptRuleSNSActionInput is an input type that accepts ReceiptRuleSNSActionArgs and ReceiptRuleSNSActionOutput values.
-// You can construct a concrete instance of `ReceiptRuleSNSActionInput` via:
+// ReceiptRuleSnsActionInput is an input type that accepts ReceiptRuleSnsActionArgs and ReceiptRuleSnsActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleSnsActionInput` via:
 //
-//	ReceiptRuleSNSActionArgs{...}
-type ReceiptRuleSNSActionInput interface {
+//	ReceiptRuleSnsActionArgs{...}
+type ReceiptRuleSnsActionInput interface {
 	pulumi.Input
 
-	ToReceiptRuleSNSActionOutput() ReceiptRuleSNSActionOutput
-	ToReceiptRuleSNSActionOutputWithContext(context.Context) ReceiptRuleSNSActionOutput
+	ToReceiptRuleSnsActionOutput() ReceiptRuleSnsActionOutput
+	ToReceiptRuleSnsActionOutputWithContext(context.Context) ReceiptRuleSnsActionOutput
 }
 
-type ReceiptRuleSNSActionArgs struct {
+type ReceiptRuleSnsActionArgs struct {
 	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
 	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
 }
 
-func (ReceiptRuleSNSActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReceiptRuleSNSAction)(nil)).Elem()
+func (ReceiptRuleSnsActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSnsAction)(nil)).Elem()
 }
 
-func (i ReceiptRuleSNSActionArgs) ToReceiptRuleSNSActionOutput() ReceiptRuleSNSActionOutput {
-	return i.ToReceiptRuleSNSActionOutputWithContext(context.Background())
+func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionOutput() ReceiptRuleSnsActionOutput {
+	return i.ToReceiptRuleSnsActionOutputWithContext(context.Background())
 }
 
-func (i ReceiptRuleSNSActionArgs) ToReceiptRuleSNSActionOutputWithContext(ctx context.Context) ReceiptRuleSNSActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSNSActionOutput)
+func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionOutputWithContext(ctx context.Context) ReceiptRuleSnsActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSnsActionOutput)
 }
 
-func (i ReceiptRuleSNSActionArgs) ToReceiptRuleSNSActionPtrOutput() ReceiptRuleSNSActionPtrOutput {
-	return i.ToReceiptRuleSNSActionPtrOutputWithContext(context.Background())
+func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionPtrOutput() ReceiptRuleSnsActionPtrOutput {
+	return i.ToReceiptRuleSnsActionPtrOutputWithContext(context.Background())
 }
 
-func (i ReceiptRuleSNSActionArgs) ToReceiptRuleSNSActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSNSActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSNSActionOutput).ToReceiptRuleSNSActionPtrOutputWithContext(ctx)
+func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSnsActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSnsActionOutput).ToReceiptRuleSnsActionPtrOutputWithContext(ctx)
 }
 
-// ReceiptRuleSNSActionPtrInput is an input type that accepts ReceiptRuleSNSActionArgs, ReceiptRuleSNSActionPtr and ReceiptRuleSNSActionPtrOutput values.
-// You can construct a concrete instance of `ReceiptRuleSNSActionPtrInput` via:
+// ReceiptRuleSnsActionPtrInput is an input type that accepts ReceiptRuleSnsActionArgs, ReceiptRuleSnsActionPtr and ReceiptRuleSnsActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleSnsActionPtrInput` via:
 //
-//	        ReceiptRuleSNSActionArgs{...}
+//	        ReceiptRuleSnsActionArgs{...}
 //
 //	or:
 //
 //	        nil
-type ReceiptRuleSNSActionPtrInput interface {
+type ReceiptRuleSnsActionPtrInput interface {
 	pulumi.Input
 
-	ToReceiptRuleSNSActionPtrOutput() ReceiptRuleSNSActionPtrOutput
-	ToReceiptRuleSNSActionPtrOutputWithContext(context.Context) ReceiptRuleSNSActionPtrOutput
+	ToReceiptRuleSnsActionPtrOutput() ReceiptRuleSnsActionPtrOutput
+	ToReceiptRuleSnsActionPtrOutputWithContext(context.Context) ReceiptRuleSnsActionPtrOutput
 }
 
-type receiptRuleSNSActionPtrType ReceiptRuleSNSActionArgs
+type receiptRuleSnsActionPtrType ReceiptRuleSnsActionArgs
 
-func ReceiptRuleSNSActionPtr(v *ReceiptRuleSNSActionArgs) ReceiptRuleSNSActionPtrInput {
-	return (*receiptRuleSNSActionPtrType)(v)
+func ReceiptRuleSnsActionPtr(v *ReceiptRuleSnsActionArgs) ReceiptRuleSnsActionPtrInput {
+	return (*receiptRuleSnsActionPtrType)(v)
 }
 
-func (*receiptRuleSNSActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReceiptRuleSNSAction)(nil)).Elem()
+func (*receiptRuleSnsActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleSnsAction)(nil)).Elem()
 }
 
-func (i *receiptRuleSNSActionPtrType) ToReceiptRuleSNSActionPtrOutput() ReceiptRuleSNSActionPtrOutput {
-	return i.ToReceiptRuleSNSActionPtrOutputWithContext(context.Background())
+func (i *receiptRuleSnsActionPtrType) ToReceiptRuleSnsActionPtrOutput() ReceiptRuleSnsActionPtrOutput {
+	return i.ToReceiptRuleSnsActionPtrOutputWithContext(context.Background())
 }
 
-func (i *receiptRuleSNSActionPtrType) ToReceiptRuleSNSActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSNSActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSNSActionPtrOutput)
+func (i *receiptRuleSnsActionPtrType) ToReceiptRuleSnsActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSnsActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSnsActionPtrOutput)
 }
 
-type ReceiptRuleSNSActionOutput struct{ *pulumi.OutputState }
+type ReceiptRuleSnsActionOutput struct{ *pulumi.OutputState }
 
-func (ReceiptRuleSNSActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReceiptRuleSNSAction)(nil)).Elem()
+func (ReceiptRuleSnsActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSnsAction)(nil)).Elem()
 }
 
-func (o ReceiptRuleSNSActionOutput) ToReceiptRuleSNSActionOutput() ReceiptRuleSNSActionOutput {
+func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionOutput() ReceiptRuleSnsActionOutput {
 	return o
 }
 
-func (o ReceiptRuleSNSActionOutput) ToReceiptRuleSNSActionOutputWithContext(ctx context.Context) ReceiptRuleSNSActionOutput {
+func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionOutputWithContext(ctx context.Context) ReceiptRuleSnsActionOutput {
 	return o
 }
 
-func (o ReceiptRuleSNSActionOutput) ToReceiptRuleSNSActionPtrOutput() ReceiptRuleSNSActionPtrOutput {
-	return o.ToReceiptRuleSNSActionPtrOutputWithContext(context.Background())
+func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionPtrOutput() ReceiptRuleSnsActionPtrOutput {
+	return o.ToReceiptRuleSnsActionPtrOutputWithContext(context.Background())
 }
 
-func (o ReceiptRuleSNSActionOutput) ToReceiptRuleSNSActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSNSActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleSNSAction) *ReceiptRuleSNSAction {
+func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSnsActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleSnsAction) *ReceiptRuleSnsAction {
 		return &v
-	}).(ReceiptRuleSNSActionPtrOutput)
+	}).(ReceiptRuleSnsActionPtrOutput)
 }
 
-func (o ReceiptRuleSNSActionOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReceiptRuleSNSAction) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+func (o ReceiptRuleSnsActionOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleSnsAction) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
-func (o ReceiptRuleSNSActionOutput) TopicArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReceiptRuleSNSAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+func (o ReceiptRuleSnsActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleSnsAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }
 
-type ReceiptRuleSNSActionPtrOutput struct{ *pulumi.OutputState }
+type ReceiptRuleSnsActionPtrOutput struct{ *pulumi.OutputState }
 
-func (ReceiptRuleSNSActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReceiptRuleSNSAction)(nil)).Elem()
+func (ReceiptRuleSnsActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleSnsAction)(nil)).Elem()
 }
 
-func (o ReceiptRuleSNSActionPtrOutput) ToReceiptRuleSNSActionPtrOutput() ReceiptRuleSNSActionPtrOutput {
+func (o ReceiptRuleSnsActionPtrOutput) ToReceiptRuleSnsActionPtrOutput() ReceiptRuleSnsActionPtrOutput {
 	return o
 }
 
-func (o ReceiptRuleSNSActionPtrOutput) ToReceiptRuleSNSActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSNSActionPtrOutput {
+func (o ReceiptRuleSnsActionPtrOutput) ToReceiptRuleSnsActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSnsActionPtrOutput {
 	return o
 }
 
-func (o ReceiptRuleSNSActionPtrOutput) Elem() ReceiptRuleSNSActionOutput {
-	return o.ApplyT(func(v *ReceiptRuleSNSAction) ReceiptRuleSNSAction {
+func (o ReceiptRuleSnsActionPtrOutput) Elem() ReceiptRuleSnsActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleSnsAction) ReceiptRuleSnsAction {
 		if v != nil {
 			return *v
 		}
-		var ret ReceiptRuleSNSAction
+		var ret ReceiptRuleSnsAction
 		return ret
-	}).(ReceiptRuleSNSActionOutput)
+	}).(ReceiptRuleSnsActionOutput)
 }
 
-func (o ReceiptRuleSNSActionPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReceiptRuleSNSAction) *string {
+func (o ReceiptRuleSnsActionPtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleSnsAction) *string {
 		if v == nil {
 			return nil
 		}
@@ -4097,8 +4097,8 @@ func (o ReceiptRuleSNSActionPtrOutput) Encoding() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ReceiptRuleSNSActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReceiptRuleSNSAction) *string {
+func (o ReceiptRuleSnsActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleSnsAction) *string {
 		if v == nil {
 			return nil
 		}
@@ -4932,8 +4932,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleRuleInput)(nil)).Elem(), ReceiptRuleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleS3ActionInput)(nil)).Elem(), ReceiptRuleS3ActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleS3ActionPtrInput)(nil)).Elem(), ReceiptRuleS3ActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSNSActionInput)(nil)).Elem(), ReceiptRuleSNSActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSNSActionPtrInput)(nil)).Elem(), ReceiptRuleSNSActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSnsActionInput)(nil)).Elem(), ReceiptRuleSnsActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSnsActionPtrInput)(nil)).Elem(), ReceiptRuleSnsActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleStopActionInput)(nil)).Elem(), ReceiptRuleStopActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleStopActionPtrInput)(nil)).Elem(), ReceiptRuleStopActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleWorkmailActionInput)(nil)).Elem(), ReceiptRuleWorkmailActionArgs{})
@@ -4998,8 +4998,8 @@ func init() {
 	pulumi.RegisterOutputType(ReceiptRuleRulePtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleS3ActionOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleS3ActionPtrOutput{})
-	pulumi.RegisterOutputType(ReceiptRuleSNSActionOutput{})
-	pulumi.RegisterOutputType(ReceiptRuleSNSActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleSnsActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleSnsActionPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleStopActionOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleStopActionPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleWorkmailActionOutput{})

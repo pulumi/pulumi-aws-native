@@ -15,6 +15,7 @@ __all__ = [
     'AnnotationStoreReferenceItemArgs',
     'AnnotationStoreSchemaItemArgs',
     'AnnotationStoreSseConfigArgs',
+    'AnnotationStoreStoreOptionsPropertiesArgs',
     'AnnotationStoreTagMapArgs',
     'AnnotationStoreTsvStoreOptionsArgs',
     'ReferenceStoreSseConfigArgs',
@@ -22,7 +23,6 @@ __all__ = [
     'RunGroupTagMapArgs',
     'SequenceStoreSseConfigArgs',
     'SequenceStoreTagMapArgs',
-    'StoreOptionsPropertiesArgs',
     'VariantStoreReferenceItemArgs',
     'VariantStoreSseConfigArgs',
     'VariantStoreTagMapArgs',
@@ -84,6 +84,22 @@ class AnnotationStoreSseConfigArgs:
     @key_arn.setter
     def key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_arn", value)
+
+
+@pulumi.input_type
+class AnnotationStoreStoreOptionsPropertiesArgs:
+    def __init__(__self__, *,
+                 tsv_store_options: pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']):
+        pulumi.set(__self__, "tsv_store_options", tsv_store_options)
+
+    @property
+    @pulumi.getter(name="tsvStoreOptions")
+    def tsv_store_options(self) -> pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']:
+        return pulumi.get(self, "tsv_store_options")
+
+    @tsv_store_options.setter
+    def tsv_store_options(self, value: pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']):
+        pulumi.set(self, "tsv_store_options", value)
 
 
 @pulumi.input_type
@@ -222,22 +238,6 @@ class SequenceStoreSseConfigArgs:
 class SequenceStoreTagMapArgs:
     def __init__(__self__):
         pass
-
-
-@pulumi.input_type
-class StoreOptionsPropertiesArgs:
-    def __init__(__self__, *,
-                 tsv_store_options: pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']):
-        pulumi.set(__self__, "tsv_store_options", tsv_store_options)
-
-    @property
-    @pulumi.getter(name="tsvStoreOptions")
-    def tsv_store_options(self) -> pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']:
-        return pulumi.get(self, "tsv_store_options")
-
-    @tsv_store_options.setter
-    def tsv_store_options(self, value: pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']):
-        pulumi.set(self, "tsv_store_options", value)
 
 
 @pulumi.input_type

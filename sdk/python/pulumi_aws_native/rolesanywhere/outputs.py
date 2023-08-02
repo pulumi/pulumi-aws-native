@@ -12,16 +12,16 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'CRLTag',
+    'CrlTag',
     'ProfileTag',
-    'SourceData0Properties',
-    'SourceData1Properties',
     'TrustAnchorSource',
+    'TrustAnchorSourceData0Properties',
+    'TrustAnchorSourceData1Properties',
     'TrustAnchorTag',
 ]
 
 @pulumi.output_type
-class CRLTag(dict):
+class CrlTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -56,64 +56,6 @@ class ProfileTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class SourceData0Properties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "x509CertificateData":
-            suggest = "x509_certificate_data"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SourceData0Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SourceData0Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SourceData0Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 x509_certificate_data: str):
-        pulumi.set(__self__, "x509_certificate_data", x509_certificate_data)
-
-    @property
-    @pulumi.getter(name="x509CertificateData")
-    def x509_certificate_data(self) -> str:
-        return pulumi.get(self, "x509_certificate_data")
-
-
-@pulumi.output_type
-class SourceData1Properties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "acmPcaArn":
-            suggest = "acm_pca_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SourceData1Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SourceData1Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SourceData1Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 acm_pca_arn: str):
-        pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
-
-    @property
-    @pulumi.getter(name="acmPcaArn")
-    def acm_pca_arn(self) -> str:
-        return pulumi.get(self, "acm_pca_arn")
 
 
 @pulumi.output_type
@@ -154,6 +96,64 @@ class TrustAnchorSource(dict):
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional['TrustAnchorType']:
         return pulumi.get(self, "source_type")
+
+
+@pulumi.output_type
+class TrustAnchorSourceData0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "x509CertificateData":
+            suggest = "x509_certificate_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustAnchorSourceData0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustAnchorSourceData0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustAnchorSourceData0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 x509_certificate_data: str):
+        pulumi.set(__self__, "x509_certificate_data", x509_certificate_data)
+
+    @property
+    @pulumi.getter(name="x509CertificateData")
+    def x509_certificate_data(self) -> str:
+        return pulumi.get(self, "x509_certificate_data")
+
+
+@pulumi.output_type
+class TrustAnchorSourceData1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acmPcaArn":
+            suggest = "acm_pca_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustAnchorSourceData1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustAnchorSourceData1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustAnchorSourceData1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 acm_pca_arn: str):
+        pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
+
+    @property
+    @pulumi.getter(name="acmPcaArn")
+    def acm_pca_arn(self) -> str:
+        return pulumi.get(self, "acm_pca_arn")
 
 
 @pulumi.output_type

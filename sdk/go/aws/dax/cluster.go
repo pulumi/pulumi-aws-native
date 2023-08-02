@@ -32,7 +32,7 @@ type Cluster struct {
 	PreferredMaintenanceWindow    pulumi.StringPtrOutput           `pulumi:"preferredMaintenanceWindow"`
 	ReplicationFactor             pulumi.IntOutput                 `pulumi:"replicationFactor"`
 	SecurityGroupIds              pulumi.StringArrayOutput         `pulumi:"securityGroupIds"`
-	SseSpecification              ClusterSSESpecificationPtrOutput `pulumi:"sseSpecification"`
+	SseSpecification              ClusterSseSpecificationPtrOutput `pulumi:"sseSpecification"`
 	SubnetGroupName               pulumi.StringPtrOutput           `pulumi:"subnetGroupName"`
 	Tags                          pulumi.AnyOutput                 `pulumi:"tags"`
 }
@@ -97,7 +97,7 @@ type clusterArgs struct {
 	PreferredMaintenanceWindow    *string                  `pulumi:"preferredMaintenanceWindow"`
 	ReplicationFactor             int                      `pulumi:"replicationFactor"`
 	SecurityGroupIds              []string                 `pulumi:"securityGroupIds"`
-	SseSpecification              *ClusterSSESpecification `pulumi:"sseSpecification"`
+	SseSpecification              *ClusterSseSpecification `pulumi:"sseSpecification"`
 	SubnetGroupName               *string                  `pulumi:"subnetGroupName"`
 	Tags                          interface{}              `pulumi:"tags"`
 }
@@ -115,7 +115,7 @@ type ClusterArgs struct {
 	PreferredMaintenanceWindow    pulumi.StringPtrInput
 	ReplicationFactor             pulumi.IntInput
 	SecurityGroupIds              pulumi.StringArrayInput
-	SseSpecification              ClusterSSESpecificationPtrInput
+	SseSpecification              ClusterSseSpecificationPtrInput
 	SubnetGroupName               pulumi.StringPtrInput
 	Tags                          pulumi.Input
 }
@@ -213,8 +213,8 @@ func (o ClusterOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-func (o ClusterOutput) SseSpecification() ClusterSSESpecificationPtrOutput {
-	return o.ApplyT(func(v *Cluster) ClusterSSESpecificationPtrOutput { return v.SseSpecification }).(ClusterSSESpecificationPtrOutput)
+func (o ClusterOutput) SseSpecification() ClusterSseSpecificationPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterSseSpecificationPtrOutput { return v.SseSpecification }).(ClusterSseSpecificationPtrOutput)
 }
 
 func (o ClusterOutput) SubnetGroupName() pulumi.StringPtrOutput {

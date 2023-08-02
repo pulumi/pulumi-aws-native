@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetCACertificateResult',
-    'AwaitableGetCACertificateResult',
+    'GetCaCertificateResult',
+    'AwaitableGetCaCertificateResult',
     'get_ca_certificate',
     'get_ca_certificate_output',
 ]
 
 @pulumi.output_type
-class GetCACertificateResult:
+class GetCaCertificateResult:
     def __init__(__self__, arn=None, auto_registration_status=None, id=None, registration_config=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -47,7 +47,7 @@ class GetCACertificateResult:
 
     @property
     @pulumi.getter(name="autoRegistrationStatus")
-    def auto_registration_status(self) -> Optional['CACertificateAutoRegistrationStatus']:
+    def auto_registration_status(self) -> Optional['CaCertificateAutoRegistrationStatus']:
         return pulumi.get(self, "auto_registration_status")
 
     @property
@@ -57,29 +57,29 @@ class GetCACertificateResult:
 
     @property
     @pulumi.getter(name="registrationConfig")
-    def registration_config(self) -> Optional['outputs.CACertificateRegistrationConfig']:
+    def registration_config(self) -> Optional['outputs.CaCertificateRegistrationConfig']:
         return pulumi.get(self, "registration_config")
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['CACertificateStatus']:
+    def status(self) -> Optional['CaCertificateStatus']:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.CACertificateTag']]:
+    def tags(self) -> Optional[Sequence['outputs.CaCertificateTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetCACertificateResult(GetCACertificateResult):
+class AwaitableGetCaCertificateResult(GetCaCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetCACertificateResult(
+        return GetCaCertificateResult(
             arn=self.arn,
             auto_registration_status=self.auto_registration_status,
             id=self.id,
@@ -89,16 +89,16 @@ class AwaitableGetCACertificateResult(GetCACertificateResult):
 
 
 def get_ca_certificate(id: Optional[str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCACertificateResult:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCaCertificateResult:
     """
     Registers a CA Certificate in IoT.
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:iot:getCACertificate', __args__, opts=opts, typ=GetCACertificateResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:iot:getCaCertificate', __args__, opts=opts, typ=GetCaCertificateResult).value
 
-    return AwaitableGetCACertificateResult(
+    return AwaitableGetCaCertificateResult(
         arn=pulumi.get(__ret__, 'arn'),
         auto_registration_status=pulumi.get(__ret__, 'auto_registration_status'),
         id=pulumi.get(__ret__, 'id'),
@@ -109,7 +109,7 @@ def get_ca_certificate(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_ca_certificate)
 def get_ca_certificate_output(id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCACertificateResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCaCertificateResult]:
     """
     Registers a CA Certificate in IoT.
     """

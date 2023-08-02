@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetGCMChannelResult',
-    'AwaitableGetGCMChannelResult',
+    'GetGcmChannelResult',
+    'AwaitableGetGcmChannelResult',
     'get_gcm_channel',
     'get_gcm_channel_output',
 ]
 
 @pulumi.output_type
-class GetGCMChannelResult:
+class GetGcmChannelResult:
     def __init__(__self__, api_key=None, enabled=None, id=None):
         if api_key and not isinstance(api_key, str):
             raise TypeError("Expected argument 'api_key' to be a str")
@@ -45,28 +45,28 @@ class GetGCMChannelResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetGCMChannelResult(GetGCMChannelResult):
+class AwaitableGetGcmChannelResult(GetGcmChannelResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetGCMChannelResult(
+        return GetGcmChannelResult(
             api_key=self.api_key,
             enabled=self.enabled,
             id=self.id)
 
 
 def get_gcm_channel(id: Optional[str] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGCMChannelResult:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGcmChannelResult:
     """
     Resource Type definition for AWS::Pinpoint::GCMChannel
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getGCMChannel', __args__, opts=opts, typ=GetGCMChannelResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getGcmChannel', __args__, opts=opts, typ=GetGcmChannelResult).value
 
-    return AwaitableGetGCMChannelResult(
+    return AwaitableGetGcmChannelResult(
         api_key=pulumi.get(__ret__, 'api_key'),
         enabled=pulumi.get(__ret__, 'enabled'),
         id=pulumi.get(__ret__, 'id'))
@@ -74,7 +74,7 @@ def get_gcm_channel(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_gcm_channel)
 def get_gcm_channel_output(id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGCMChannelResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGcmChannelResult]:
     """
     Resource Type definition for AWS::Pinpoint::GCMChannel
     """

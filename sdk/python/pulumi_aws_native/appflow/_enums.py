@@ -28,8 +28,8 @@ __all__ = [
     'FlowPrefixType',
     'FlowS3ConnectorOperator',
     'FlowS3InputFormatConfigS3InputFileType',
-    'FlowSAPODataConnectorOperator',
     'FlowSalesforceConnectorOperator',
+    'FlowSapoDataConnectorOperator',
     'FlowScheduledTriggerPropertiesDataPullMode',
     'FlowServiceNowConnectorOperator',
     'FlowSingularConnectorOperator',
@@ -324,7 +324,7 @@ class FlowS3InputFormatConfigS3InputFileType(str, Enum):
     JSON = "JSON"
 
 
-class FlowSAPODataConnectorOperator(str, Enum):
+class FlowSalesforceConnectorOperator(str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
     CONTAINS = "CONTAINS"
@@ -348,7 +348,7 @@ class FlowSAPODataConnectorOperator(str, Enum):
     NO_OP = "NO_OP"
 
 
-class FlowSalesforceConnectorOperator(str, Enum):
+class FlowSapoDataConnectorOperator(str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
     CONTAINS = "CONTAINS"

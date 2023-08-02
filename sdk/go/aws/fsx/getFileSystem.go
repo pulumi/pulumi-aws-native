@@ -32,7 +32,7 @@ type LookupFileSystemResult struct {
 	LustreConfiguration  *FileSystemLustreConfiguration  `pulumi:"lustreConfiguration"`
 	LustreMountName      *string                         `pulumi:"lustreMountName"`
 	OntapConfiguration   *FileSystemOntapConfiguration   `pulumi:"ontapConfiguration"`
-	OpenZfsConfiguration *FileSystemOpenZFSConfiguration `pulumi:"openZfsConfiguration"`
+	OpenZfsConfiguration *FileSystemOpenZfsConfiguration `pulumi:"openZfsConfiguration"`
 	ResourceArn          *string                         `pulumi:"resourceArn"`
 	RootVolumeId         *string                         `pulumi:"rootVolumeId"`
 	StorageCapacity      *int                            `pulumi:"storageCapacity"`
@@ -95,8 +95,8 @@ func (o LookupFileSystemResultOutput) OntapConfiguration() FileSystemOntapConfig
 	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemOntapConfiguration { return v.OntapConfiguration }).(FileSystemOntapConfigurationPtrOutput)
 }
 
-func (o LookupFileSystemResultOutput) OpenZfsConfiguration() FileSystemOpenZFSConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemOpenZFSConfiguration { return v.OpenZfsConfiguration }).(FileSystemOpenZFSConfigurationPtrOutput)
+func (o LookupFileSystemResultOutput) OpenZfsConfiguration() FileSystemOpenZfsConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemOpenZfsConfiguration { return v.OpenZfsConfiguration }).(FileSystemOpenZfsConfigurationPtrOutput)
 }
 
 func (o LookupFileSystemResultOutput) ResourceArn() pulumi.StringPtrOutput {

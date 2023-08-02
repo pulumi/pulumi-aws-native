@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetLocationFSxOpenZFSResult',
-    'AwaitableGetLocationFSxOpenZFSResult',
+    'GetLocationFSxOpenZfsResult',
+    'AwaitableGetLocationFSxOpenZfsResult',
     'get_location_f_sx_open_zfs',
     'get_location_f_sx_open_zfs_output',
 ]
 
 @pulumi.output_type
-class GetLocationFSxOpenZFSResult:
+class GetLocationFSxOpenZfsResult:
     def __init__(__self__, location_arn=None, location_uri=None, tags=None):
         if location_arn and not isinstance(location_arn, str):
             raise TypeError("Expected argument 'location_arn' to be a str")
@@ -48,26 +48,26 @@ class GetLocationFSxOpenZFSResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.LocationFSxOpenZFSTag']]:
+    def tags(self) -> Optional[Sequence['outputs.LocationFSxOpenZfsTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLocationFSxOpenZFSResult(GetLocationFSxOpenZFSResult):
+class AwaitableGetLocationFSxOpenZfsResult(GetLocationFSxOpenZfsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetLocationFSxOpenZFSResult(
+        return GetLocationFSxOpenZfsResult(
             location_arn=self.location_arn,
             location_uri=self.location_uri,
             tags=self.tags)
 
 
 def get_location_f_sx_open_zfs(location_arn: Optional[str] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationFSxOpenZFSResult:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationFSxOpenZfsResult:
     """
     Resource schema for AWS::DataSync::LocationFSxOpenZFS.
 
@@ -77,9 +77,9 @@ def get_location_f_sx_open_zfs(location_arn: Optional[str] = None,
     __args__ = dict()
     __args__['locationArn'] = location_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationFSxOpenZFS', __args__, opts=opts, typ=GetLocationFSxOpenZFSResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationFSxOpenZfs', __args__, opts=opts, typ=GetLocationFSxOpenZfsResult).value
 
-    return AwaitableGetLocationFSxOpenZFSResult(
+    return AwaitableGetLocationFSxOpenZfsResult(
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -87,7 +87,7 @@ def get_location_f_sx_open_zfs(location_arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_location_f_sx_open_zfs)
 def get_location_f_sx_open_zfs_output(location_arn: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationFSxOpenZFSResult]:
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationFSxOpenZfsResult]:
     """
     Resource schema for AWS::DataSync::LocationFSxOpenZFS.
 

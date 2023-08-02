@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> FieldId { get; set; } = null!;
 
         [Input("urlStyling")]
-        public Input<Inputs.TemplateTableFieldURLConfigurationArgs>? UrlStyling { get; set; }
+        public Input<Inputs.TemplateTableFieldUrlConfigurationArgs>? UrlStyling { get; set; }
 
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }

@@ -19,7 +19,7 @@ class DataSourceArgs:
                  api_id: pulumi.Input[str],
                  type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 dynamo_db_config: Optional[pulumi.Input['DataSourceDynamoDBConfigArgs']] = None,
+                 dynamo_db_config: Optional[pulumi.Input['DataSourceDynamoDbConfigArgs']] = None,
                  elasticsearch_config: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']] = None,
                  event_bridge_config: Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']] = None,
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
@@ -83,11 +83,11 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter(name="dynamoDbConfig")
-    def dynamo_db_config(self) -> Optional[pulumi.Input['DataSourceDynamoDBConfigArgs']]:
+    def dynamo_db_config(self) -> Optional[pulumi.Input['DataSourceDynamoDbConfigArgs']]:
         return pulumi.get(self, "dynamo_db_config")
 
     @dynamo_db_config.setter
-    def dynamo_db_config(self, value: Optional[pulumi.Input['DataSourceDynamoDBConfigArgs']]):
+    def dynamo_db_config(self, value: Optional[pulumi.Input['DataSourceDynamoDbConfigArgs']]):
         pulumi.set(self, "dynamo_db_config", value)
 
     @property
@@ -175,7 +175,7 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 dynamo_db_config: Optional[pulumi.Input[pulumi.InputType['DataSourceDynamoDBConfigArgs']]] = None,
+                 dynamo_db_config: Optional[pulumi.Input[pulumi.InputType['DataSourceDynamoDbConfigArgs']]] = None,
                  elasticsearch_config: Optional[pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']]] = None,
                  event_bridge_config: Optional[pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']]] = None,
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
@@ -218,7 +218,7 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 dynamo_db_config: Optional[pulumi.Input[pulumi.InputType['DataSourceDynamoDBConfigArgs']]] = None,
+                 dynamo_db_config: Optional[pulumi.Input[pulumi.InputType['DataSourceDynamoDbConfigArgs']]] = None,
                  elasticsearch_config: Optional[pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']]] = None,
                  event_bridge_config: Optional[pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']]] = None,
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
@@ -309,7 +309,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dynamoDbConfig")
-    def dynamo_db_config(self) -> pulumi.Output[Optional['outputs.DataSourceDynamoDBConfig']]:
+    def dynamo_db_config(self) -> pulumi.Output[Optional['outputs.DataSourceDynamoDbConfig']]:
         return pulumi.get(self, "dynamo_db_config")
 
     @property

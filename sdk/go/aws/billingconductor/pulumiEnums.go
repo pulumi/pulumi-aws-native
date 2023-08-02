@@ -359,7 +359,7 @@ type PricingRuleBillingEntity string
 
 const (
 	PricingRuleBillingEntityAws            = PricingRuleBillingEntity("AWS")
-	PricingRuleBillingEntityAWSMarketplace = PricingRuleBillingEntity("AWS Marketplace")
+	PricingRuleBillingEntityAwsMarketplace = PricingRuleBillingEntity("AWS Marketplace")
 	PricingRuleBillingEntityAispl          = PricingRuleBillingEntity("AISPL")
 )
 

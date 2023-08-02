@@ -25,7 +25,7 @@ export type CustomLineItemType = (typeof CustomLineItemType)[keyof typeof Custom
 
 export const PricingRuleBillingEntity = {
     Aws: "AWS",
-    AWSMarketplace: "AWS Marketplace",
+    AwsMarketplace: "AWS Marketplace",
     Aispl: "AISPL",
 } as const;
 

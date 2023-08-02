@@ -45,8 +45,8 @@ __all__ = [
     'RuleGroupStatefulRuleArgs',
     'RuleGroupStatelessRulesAndCustomActionsArgs',
     'RuleGroupStatelessRuleArgs',
-    'RuleGroupTCPFlagFieldArgs',
     'RuleGroupTagArgs',
+    'RuleGroupTcpFlagFieldArgs',
     'RuleGroupArgs',
 ]
 
@@ -668,7 +668,7 @@ class RuleGroupMatchAttributesArgs:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]] = None,
-                 tcp_flags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlagFieldArgs']]]] = None):
+                 tcp_flags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgs']]]] = None):
         if destination_ports is not None:
             pulumi.set(__self__, "destination_ports", destination_ports)
         if destinations is not None:
@@ -729,11 +729,11 @@ class RuleGroupMatchAttributesArgs:
 
     @property
     @pulumi.getter(name="tcpFlags")
-    def tcp_flags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlagFieldArgs']]]]:
+    def tcp_flags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgs']]]]:
         return pulumi.get(self, "tcp_flags")
 
     @tcp_flags.setter
-    def tcp_flags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlagFieldArgs']]]]):
+    def tcp_flags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgs']]]]):
         pulumi.set(self, "tcp_flags", value)
 
 
@@ -1083,34 +1083,6 @@ class RuleGroupStatelessRuleArgs:
 
 
 @pulumi.input_type
-class RuleGroupTCPFlagFieldArgs:
-    def __init__(__self__, *,
-                 flags: pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]],
-                 masks: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]]] = None):
-        pulumi.set(__self__, "flags", flags)
-        if masks is not None:
-            pulumi.set(__self__, "masks", masks)
-
-    @property
-    @pulumi.getter
-    def flags(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]]:
-        return pulumi.get(self, "flags")
-
-    @flags.setter
-    def flags(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]]):
-        pulumi.set(self, "flags", value)
-
-    @property
-    @pulumi.getter
-    def masks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]]]:
-        return pulumi.get(self, "masks")
-
-    @masks.setter
-    def masks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]]]):
-        pulumi.set(self, "masks", value)
-
-
-@pulumi.input_type
 class RuleGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -1135,6 +1107,34 @@ class RuleGroupTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RuleGroupTcpFlagFieldArgs:
+    def __init__(__self__, *,
+                 flags: pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]],
+                 masks: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]] = None):
+        pulumi.set(__self__, "flags", flags)
+        if masks is not None:
+            pulumi.set(__self__, "masks", masks)
+
+    @property
+    @pulumi.getter
+    def flags(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]:
+        return pulumi.get(self, "flags")
+
+    @flags.setter
+    def flags(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]):
+        pulumi.set(self, "flags", value)
+
+    @property
+    @pulumi.getter
+    def masks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]]:
+        return pulumi.get(self, "masks")
+
+    @masks.setter
+    def masks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]]):
+        pulumi.set(self, "masks", value)
 
 
 @pulumi.input_type

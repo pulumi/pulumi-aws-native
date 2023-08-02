@@ -280,103 +280,103 @@ export const Region = {
     /**
      * Africa (Cape Town)
      */
-    AFSouth1: "af-south-1",
+    AfSouth1: "af-south-1",
     /**
      * Asia Pacific (Hong Kong)
      */
-    APEast1: "ap-east-1",
+    ApEast1: "ap-east-1",
     /**
      * Asia Pacific (Tokyo)
      */
-    APNortheast1: "ap-northeast-1",
+    ApNortheast1: "ap-northeast-1",
     /**
      * Asia Pacific (Seoul)
      */
-    APNortheast2: "ap-northeast-2",
+    ApNortheast2: "ap-northeast-2",
     /**
      * Asia Pacific (Osaka)
      */
-    APNortheast3: "ap-northeast-3",
+    ApNortheast3: "ap-northeast-3",
     /**
      * Asia Pacific (Mumbai)
      */
-    APSouth1: "ap-south-1",
+    ApSouth1: "ap-south-1",
     /**
      * Asia Pacific (Singapore)
      */
-    APSoutheast1: "ap-southeast-1",
+    ApSoutheast1: "ap-southeast-1",
     /**
      * Asia Pacific (Sydney)
      */
-    APSoutheast2: "ap-southeast-2",
+    ApSoutheast2: "ap-southeast-2",
     /**
      * Canada (Central)
      */
-    CACentral: "ca-central-1",
+    CaCentral: "ca-central-1",
     /**
      * China (Beijing)
      */
-    CNNorth1: "cn-north-1",
+    CnNorth1: "cn-north-1",
     /**
      * China (Ningxia)
      */
-    CNNorthwest1: "cn-northwest-1",
+    CnNorthwest1: "cn-northwest-1",
     /**
      * Europe (Frankfurt)
      */
-    EUCentral1: "eu-central-1",
+    EuCentral1: "eu-central-1",
     /**
      * Europe (Stockholm)
      */
-    EUNorth1: "eu-north-1",
+    EuNorth1: "eu-north-1",
     /**
      * Europe (Ireland)
      */
-    EUWest1: "eu-west-1",
+    EuWest1: "eu-west-1",
     /**
      * Europe (London)
      */
-    EUWest2: "eu-west-2",
+    EuWest2: "eu-west-2",
     /**
      * Europe (Paris)
      */
-    EUWest3: "eu-west-3",
+    EuWest3: "eu-west-3",
     /**
      * Europe (Milan)
      */
-    EUSouth1: "eu-south-1",
+    EuSouth1: "eu-south-1",
     /**
      * Middle East (Bahrain)
      */
-    MESouth1: "me-south-1",
+    MeSouth1: "me-south-1",
     /**
      * South America (São Paulo)
      */
-    SAEast1: "sa-east-1",
+    SaEast1: "sa-east-1",
     /**
      * AWS GovCloud (US-East)
      */
-    USGovEast1: "us-gov-east-1",
+    UsGovEast1: "us-gov-east-1",
     /**
      * AWS GovCloud (US-West)
      */
-    USGovWest1: "us-gov-west-1",
+    UsGovWest1: "us-gov-west-1",
     /**
      * US East (N. Virginia)
      */
-    USEast1: "us-east-1",
+    UsEast1: "us-east-1",
     /**
      * US East (Ohio)
      */
-    USEast2: "us-east-2",
+    UsEast2: "us-east-2",
     /**
      * US West (N. California)
      */
-    USWest1: "us-west-1",
+    UsWest1: "us-west-1",
     /**
      * US West (Oregon)
      */
-    USWest2: "us-west-2",
+    UsWest2: "us-west-2",
 } as const;
 
 /**

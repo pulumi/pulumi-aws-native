@@ -11,7 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'PolicyIEMapArgs',
+    'PolicyIeMapArgs',
     'PolicyNetworkFirewallPolicyArgs',
     'PolicyOptionArgs',
     'PolicyResourceTagArgs',
@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class PolicyIEMapArgs:
+class PolicyIeMapArgs:
     def __init__(__self__, *,
                  account: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orgunit: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):

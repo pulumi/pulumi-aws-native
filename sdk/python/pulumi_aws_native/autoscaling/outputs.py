@@ -28,7 +28,7 @@ __all__ = [
     'AutoScalingGroupNetworkInterfaceCountRequest',
     'AutoScalingGroupNotificationConfiguration',
     'AutoScalingGroupTagProperty',
-    'AutoScalingGroupTotalLocalStorageGBRequest',
+    'AutoScalingGroupTotalLocalStorageGbRequest',
     'AutoScalingGroupVCpuCountRequest',
     'LaunchConfigurationBlockDevice',
     'LaunchConfigurationBlockDeviceMapping',
@@ -200,7 +200,7 @@ class AutoScalingGroupInstanceRequirements(dict):
                  on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
                  require_hibernate_support: Optional[bool] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[int] = None,
-                 total_local_storage_gb: Optional['outputs.AutoScalingGroupTotalLocalStorageGBRequest'] = None,
+                 total_local_storage_gb: Optional['outputs.AutoScalingGroupTotalLocalStorageGbRequest'] = None,
                  v_cpu_count: Optional['outputs.AutoScalingGroupVCpuCountRequest'] = None):
         if accelerator_count is not None:
             pulumi.set(__self__, "accelerator_count", accelerator_count)
@@ -356,7 +356,7 @@ class AutoScalingGroupInstanceRequirements(dict):
 
     @property
     @pulumi.getter(name="totalLocalStorageGb")
-    def total_local_storage_gb(self) -> Optional['outputs.AutoScalingGroupTotalLocalStorageGBRequest']:
+    def total_local_storage_gb(self) -> Optional['outputs.AutoScalingGroupTotalLocalStorageGbRequest']:
         return pulumi.get(self, "total_local_storage_gb")
 
     @property
@@ -903,7 +903,7 @@ class AutoScalingGroupTagProperty(dict):
 
 
 @pulumi.output_type
-class AutoScalingGroupTotalLocalStorageGBRequest(dict):
+class AutoScalingGroupTotalLocalStorageGbRequest(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):

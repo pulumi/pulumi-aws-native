@@ -44,7 +44,7 @@ export class ServiceProfile extends pulumi.CustomResource {
     /**
      * LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.ServiceProfileLoRaWANServiceProfile | undefined>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.ServiceProfileLoRaWanServiceProfile | undefined>;
     /**
      * Name of service profile
      */
@@ -87,7 +87,7 @@ export interface ServiceProfileArgs {
     /**
      * LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
      */
-    loRaWan?: pulumi.Input<inputs.iotwireless.ServiceProfileLoRaWANServiceProfileArgs>;
+    loRaWan?: pulumi.Input<inputs.iotwireless.ServiceProfileLoRaWanServiceProfileArgs>;
     /**
      * Name of service profile
      */

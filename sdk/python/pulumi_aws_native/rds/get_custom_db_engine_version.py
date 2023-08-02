@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetCustomDBEngineVersionResult',
-    'AwaitableGetCustomDBEngineVersionResult',
+    'GetCustomDbEngineVersionResult',
+    'AwaitableGetCustomDbEngineVersionResult',
     'get_custom_db_engine_version',
     'get_custom_db_engine_version_output',
 ]
 
 @pulumi.output_type
-class GetCustomDBEngineVersionResult:
+class GetCustomDbEngineVersionResult:
     def __init__(__self__, db_engine_version_arn=None, description=None, status=None, tags=None):
         if db_engine_version_arn and not isinstance(db_engine_version_arn, str):
             raise TypeError("Expected argument 'db_engine_version_arn' to be a str")
@@ -52,7 +52,7 @@ class GetCustomDBEngineVersionResult:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['CustomDBEngineVersionStatus']:
+    def status(self) -> Optional['CustomDbEngineVersionStatus']:
         """
         The availability status to be assigned to the CEV.
         """
@@ -60,19 +60,19 @@ class GetCustomDBEngineVersionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.CustomDBEngineVersionTag']]:
+    def tags(self) -> Optional[Sequence['outputs.CustomDbEngineVersionTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetCustomDBEngineVersionResult(GetCustomDBEngineVersionResult):
+class AwaitableGetCustomDbEngineVersionResult(GetCustomDbEngineVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetCustomDBEngineVersionResult(
+        return GetCustomDbEngineVersionResult(
             db_engine_version_arn=self.db_engine_version_arn,
             description=self.description,
             status=self.status,
@@ -81,7 +81,7 @@ class AwaitableGetCustomDBEngineVersionResult(GetCustomDBEngineVersionResult):
 
 def get_custom_db_engine_version(engine: Optional[str] = None,
                                  engine_version: Optional[str] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDBEngineVersionResult:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDbEngineVersionResult:
     """
     The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
 
@@ -93,9 +93,9 @@ def get_custom_db_engine_version(engine: Optional[str] = None,
     __args__['engine'] = engine
     __args__['engineVersion'] = engine_version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:rds:getCustomDBEngineVersion', __args__, opts=opts, typ=GetCustomDBEngineVersionResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:rds:getCustomDbEngineVersion', __args__, opts=opts, typ=GetCustomDbEngineVersionResult).value
 
-    return AwaitableGetCustomDBEngineVersionResult(
+    return AwaitableGetCustomDbEngineVersionResult(
         db_engine_version_arn=pulumi.get(__ret__, 'db_engine_version_arn'),
         description=pulumi.get(__ret__, 'description'),
         status=pulumi.get(__ret__, 'status'),
@@ -105,7 +105,7 @@ def get_custom_db_engine_version(engine: Optional[str] = None,
 @_utilities.lift_output_func(get_custom_db_engine_version)
 def get_custom_db_engine_version_output(engine: Optional[pulumi.Input[str]] = None,
                                         engine_version: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDBEngineVersionResult]:
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDbEngineVersionResult]:
     """
     The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
 

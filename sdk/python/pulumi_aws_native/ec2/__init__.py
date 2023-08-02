@@ -18,7 +18,7 @@ from .dhcp_options import *
 from .ec2_fleet import *
 from .egress_only_internet_gateway import *
 from .eip import *
-from .eipassociation import *
+from .eip_association import *
 from .enclave_certificate_iam_role_association import *
 from .flow_log import *
 from .gateway_route_table_association import *
@@ -34,7 +34,7 @@ from .get_dhcp_options import *
 from .get_ec2_fleet import *
 from .get_egress_only_internet_gateway import *
 from .get_eip import *
-from .get_eipassociation import *
+from .get_eip_association import *
 from .get_enclave_certificate_iam_role_association import *
 from .get_flow_log import *
 from .get_gateway_route_table_association import *
@@ -53,7 +53,7 @@ from .get_launch_template import *
 from .get_local_gateway_route import *
 from .get_local_gateway_route_table import *
 from .get_local_gateway_route_table_virtual_interface_group_association import *
-from .get_local_gateway_route_table_vpcassociation import *
+from .get_local_gateway_route_table_vpc_association import *
 from .get_nat_gateway import *
 from .get_network_acl import *
 from .get_network_acl_entry import *
@@ -124,7 +124,7 @@ from .launch_template import *
 from .local_gateway_route import *
 from .local_gateway_route_table import *
 from .local_gateway_route_table_virtual_interface_group_association import *
-from .local_gateway_route_table_vpcassociation import *
+from .local_gateway_route_table_vpc_association import *
 from .nat_gateway import *
 from .network_acl import *
 from .network_acl_entry import *

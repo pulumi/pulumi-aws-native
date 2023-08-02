@@ -50,7 +50,7 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly engineName!: pulumi.Output<string>;
     public /*out*/ readonly externalId!: pulumi.Output<string>;
     public readonly extraConnectionAttributes!: pulumi.Output<string | undefined>;
-    public readonly gcpMySqlSettings!: pulumi.Output<outputs.dms.EndpointGcpMySQLSettings | undefined>;
+    public readonly gcpMySqlSettings!: pulumi.Output<outputs.dms.EndpointGcpMySqlSettings | undefined>;
     public readonly ibmDb2Settings!: pulumi.Output<outputs.dms.EndpointIbmDb2Settings | undefined>;
     public readonly kafkaSettings!: pulumi.Output<outputs.dms.EndpointKafkaSettings | undefined>;
     public readonly kinesisSettings!: pulumi.Output<outputs.dms.EndpointKinesisSettings | undefined>;
@@ -176,7 +176,7 @@ export interface EndpointArgs {
     endpointType: pulumi.Input<string>;
     engineName: pulumi.Input<string>;
     extraConnectionAttributes?: pulumi.Input<string>;
-    gcpMySqlSettings?: pulumi.Input<inputs.dms.EndpointGcpMySQLSettingsArgs>;
+    gcpMySqlSettings?: pulumi.Input<inputs.dms.EndpointGcpMySqlSettingsArgs>;
     ibmDb2Settings?: pulumi.Input<inputs.dms.EndpointIbmDb2SettingsArgs>;
     kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettingsArgs>;
     kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettingsArgs>;

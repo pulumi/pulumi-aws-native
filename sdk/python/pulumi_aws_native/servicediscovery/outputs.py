@@ -14,11 +14,11 @@ __all__ = [
     'HttpNamespaceTag',
     'PrivateDnsNamespacePrivateDnsPropertiesMutable',
     'PrivateDnsNamespaceProperties',
-    'PrivateDnsNamespaceSOA',
+    'PrivateDnsNamespaceSoa',
     'PrivateDnsNamespaceTag',
     'PublicDnsNamespaceProperties',
     'PublicDnsNamespacePublicDnsPropertiesMutable',
-    'PublicDnsNamespaceSOA',
+    'PublicDnsNamespaceSoa',
     'PublicDnsNamespaceTag',
     'ServiceDnsConfig',
     'ServiceDnsRecord',
@@ -49,13 +49,13 @@ class HttpNamespaceTag(dict):
 @pulumi.output_type
 class PrivateDnsNamespacePrivateDnsPropertiesMutable(dict):
     def __init__(__self__, *,
-                 soa: Optional['outputs.PrivateDnsNamespaceSOA'] = None):
+                 soa: Optional['outputs.PrivateDnsNamespaceSoa'] = None):
         if soa is not None:
             pulumi.set(__self__, "soa", soa)
 
     @property
     @pulumi.getter
-    def soa(self) -> Optional['outputs.PrivateDnsNamespaceSOA']:
+    def soa(self) -> Optional['outputs.PrivateDnsNamespaceSoa']:
         return pulumi.get(self, "soa")
 
 
@@ -90,7 +90,7 @@ class PrivateDnsNamespaceProperties(dict):
 
 
 @pulumi.output_type
-class PrivateDnsNamespaceSOA(dict):
+class PrivateDnsNamespaceSoa(dict):
     def __init__(__self__, *,
                  ttl: Optional[float] = None):
         if ttl is not None:
@@ -154,18 +154,18 @@ class PublicDnsNamespaceProperties(dict):
 @pulumi.output_type
 class PublicDnsNamespacePublicDnsPropertiesMutable(dict):
     def __init__(__self__, *,
-                 soa: Optional['outputs.PublicDnsNamespaceSOA'] = None):
+                 soa: Optional['outputs.PublicDnsNamespaceSoa'] = None):
         if soa is not None:
             pulumi.set(__self__, "soa", soa)
 
     @property
     @pulumi.getter
-    def soa(self) -> Optional['outputs.PublicDnsNamespaceSOA']:
+    def soa(self) -> Optional['outputs.PublicDnsNamespaceSoa']:
         return pulumi.get(self, "soa")
 
 
 @pulumi.output_type
-class PublicDnsNamespaceSOA(dict):
+class PublicDnsNamespaceSoa(dict):
     def __init__(__self__, *,
                  ttl: Optional[float] = None):
         if ttl is not None:

@@ -17,8 +17,8 @@ __all__ = [
     'CanaryS3EncryptionArgs',
     'CanaryScheduleArgs',
     'CanaryTagArgs',
-    'CanaryVPCConfigArgs',
     'CanaryVisualReferenceArgs',
+    'CanaryVpcConfigArgs',
     'GroupTagArgs',
 ]
 
@@ -336,45 +336,6 @@ class CanaryTagArgs:
 
 
 @pulumi.input_type
-class CanaryVPCConfigArgs:
-    def __init__(__self__, *,
-                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 vpc_id: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
-
-    @property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        return pulumi.get(self, "security_group_ids")
-
-    @security_group_ids.setter
-    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "security_group_ids", value)
-
-    @property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        return pulumi.get(self, "subnet_ids")
-
-    @subnet_ids.setter
-    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "subnet_ids", value)
-
-    @property
-    @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "vpc_id")
-
-    @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vpc_id", value)
-
-
-@pulumi.input_type
 class CanaryVisualReferenceArgs:
     def __init__(__self__, *,
                  base_canary_run_id: pulumi.Input[str],
@@ -410,6 +371,45 @@ class CanaryVisualReferenceArgs:
     @base_screenshots.setter
     def base_screenshots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]]):
         pulumi.set(self, "base_screenshots", value)
+
+
+@pulumi.input_type
+class CanaryVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 @pulumi.input_type

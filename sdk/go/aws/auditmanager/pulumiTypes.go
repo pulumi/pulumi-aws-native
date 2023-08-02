@@ -14,171 +14,171 @@ import (
 var _ = internal.GetEnvOrDefault
 
 // The AWS account associated with the assessment.
-type AssessmentAWSAccount struct {
+type AssessmentAwsAccount struct {
 	EmailAddress *string `pulumi:"emailAddress"`
 	Id           *string `pulumi:"id"`
 	Name         *string `pulumi:"name"`
 }
 
-// AssessmentAWSAccountInput is an input type that accepts AssessmentAWSAccountArgs and AssessmentAWSAccountOutput values.
-// You can construct a concrete instance of `AssessmentAWSAccountInput` via:
+// AssessmentAwsAccountInput is an input type that accepts AssessmentAwsAccountArgs and AssessmentAwsAccountOutput values.
+// You can construct a concrete instance of `AssessmentAwsAccountInput` via:
 //
-//	AssessmentAWSAccountArgs{...}
-type AssessmentAWSAccountInput interface {
+//	AssessmentAwsAccountArgs{...}
+type AssessmentAwsAccountInput interface {
 	pulumi.Input
 
-	ToAssessmentAWSAccountOutput() AssessmentAWSAccountOutput
-	ToAssessmentAWSAccountOutputWithContext(context.Context) AssessmentAWSAccountOutput
+	ToAssessmentAwsAccountOutput() AssessmentAwsAccountOutput
+	ToAssessmentAwsAccountOutputWithContext(context.Context) AssessmentAwsAccountOutput
 }
 
 // The AWS account associated with the assessment.
-type AssessmentAWSAccountArgs struct {
+type AssessmentAwsAccountArgs struct {
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
 	Id           pulumi.StringPtrInput `pulumi:"id"`
 	Name         pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (AssessmentAWSAccountArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAWSAccount)(nil)).Elem()
+func (AssessmentAwsAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentAwsAccount)(nil)).Elem()
 }
 
-func (i AssessmentAWSAccountArgs) ToAssessmentAWSAccountOutput() AssessmentAWSAccountOutput {
-	return i.ToAssessmentAWSAccountOutputWithContext(context.Background())
+func (i AssessmentAwsAccountArgs) ToAssessmentAwsAccountOutput() AssessmentAwsAccountOutput {
+	return i.ToAssessmentAwsAccountOutputWithContext(context.Background())
 }
 
-func (i AssessmentAWSAccountArgs) ToAssessmentAWSAccountOutputWithContext(ctx context.Context) AssessmentAWSAccountOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountOutput)
+func (i AssessmentAwsAccountArgs) ToAssessmentAwsAccountOutputWithContext(ctx context.Context) AssessmentAwsAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAwsAccountOutput)
 }
 
-func (i AssessmentAWSAccountArgs) ToAssessmentAWSAccountPtrOutput() AssessmentAWSAccountPtrOutput {
-	return i.ToAssessmentAWSAccountPtrOutputWithContext(context.Background())
+func (i AssessmentAwsAccountArgs) ToAssessmentAwsAccountPtrOutput() AssessmentAwsAccountPtrOutput {
+	return i.ToAssessmentAwsAccountPtrOutputWithContext(context.Background())
 }
 
-func (i AssessmentAWSAccountArgs) ToAssessmentAWSAccountPtrOutputWithContext(ctx context.Context) AssessmentAWSAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountOutput).ToAssessmentAWSAccountPtrOutputWithContext(ctx)
+func (i AssessmentAwsAccountArgs) ToAssessmentAwsAccountPtrOutputWithContext(ctx context.Context) AssessmentAwsAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAwsAccountOutput).ToAssessmentAwsAccountPtrOutputWithContext(ctx)
 }
 
-// AssessmentAWSAccountPtrInput is an input type that accepts AssessmentAWSAccountArgs, AssessmentAWSAccountPtr and AssessmentAWSAccountPtrOutput values.
-// You can construct a concrete instance of `AssessmentAWSAccountPtrInput` via:
+// AssessmentAwsAccountPtrInput is an input type that accepts AssessmentAwsAccountArgs, AssessmentAwsAccountPtr and AssessmentAwsAccountPtrOutput values.
+// You can construct a concrete instance of `AssessmentAwsAccountPtrInput` via:
 //
-//	        AssessmentAWSAccountArgs{...}
+//	        AssessmentAwsAccountArgs{...}
 //
 //	or:
 //
 //	        nil
-type AssessmentAWSAccountPtrInput interface {
+type AssessmentAwsAccountPtrInput interface {
 	pulumi.Input
 
-	ToAssessmentAWSAccountPtrOutput() AssessmentAWSAccountPtrOutput
-	ToAssessmentAWSAccountPtrOutputWithContext(context.Context) AssessmentAWSAccountPtrOutput
+	ToAssessmentAwsAccountPtrOutput() AssessmentAwsAccountPtrOutput
+	ToAssessmentAwsAccountPtrOutputWithContext(context.Context) AssessmentAwsAccountPtrOutput
 }
 
-type assessmentAWSAccountPtrType AssessmentAWSAccountArgs
+type assessmentAwsAccountPtrType AssessmentAwsAccountArgs
 
-func AssessmentAWSAccountPtr(v *AssessmentAWSAccountArgs) AssessmentAWSAccountPtrInput {
-	return (*assessmentAWSAccountPtrType)(v)
+func AssessmentAwsAccountPtr(v *AssessmentAwsAccountArgs) AssessmentAwsAccountPtrInput {
+	return (*assessmentAwsAccountPtrType)(v)
 }
 
-func (*assessmentAWSAccountPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentAWSAccount)(nil)).Elem()
+func (*assessmentAwsAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentAwsAccount)(nil)).Elem()
 }
 
-func (i *assessmentAWSAccountPtrType) ToAssessmentAWSAccountPtrOutput() AssessmentAWSAccountPtrOutput {
-	return i.ToAssessmentAWSAccountPtrOutputWithContext(context.Background())
+func (i *assessmentAwsAccountPtrType) ToAssessmentAwsAccountPtrOutput() AssessmentAwsAccountPtrOutput {
+	return i.ToAssessmentAwsAccountPtrOutputWithContext(context.Background())
 }
 
-func (i *assessmentAWSAccountPtrType) ToAssessmentAWSAccountPtrOutputWithContext(ctx context.Context) AssessmentAWSAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountPtrOutput)
+func (i *assessmentAwsAccountPtrType) ToAssessmentAwsAccountPtrOutputWithContext(ctx context.Context) AssessmentAwsAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAwsAccountPtrOutput)
 }
 
-// AssessmentAWSAccountArrayInput is an input type that accepts AssessmentAWSAccountArray and AssessmentAWSAccountArrayOutput values.
-// You can construct a concrete instance of `AssessmentAWSAccountArrayInput` via:
+// AssessmentAwsAccountArrayInput is an input type that accepts AssessmentAwsAccountArray and AssessmentAwsAccountArrayOutput values.
+// You can construct a concrete instance of `AssessmentAwsAccountArrayInput` via:
 //
-//	AssessmentAWSAccountArray{ AssessmentAWSAccountArgs{...} }
-type AssessmentAWSAccountArrayInput interface {
+//	AssessmentAwsAccountArray{ AssessmentAwsAccountArgs{...} }
+type AssessmentAwsAccountArrayInput interface {
 	pulumi.Input
 
-	ToAssessmentAWSAccountArrayOutput() AssessmentAWSAccountArrayOutput
-	ToAssessmentAWSAccountArrayOutputWithContext(context.Context) AssessmentAWSAccountArrayOutput
+	ToAssessmentAwsAccountArrayOutput() AssessmentAwsAccountArrayOutput
+	ToAssessmentAwsAccountArrayOutputWithContext(context.Context) AssessmentAwsAccountArrayOutput
 }
 
-type AssessmentAWSAccountArray []AssessmentAWSAccountInput
+type AssessmentAwsAccountArray []AssessmentAwsAccountInput
 
-func (AssessmentAWSAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssessmentAWSAccount)(nil)).Elem()
+func (AssessmentAwsAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssessmentAwsAccount)(nil)).Elem()
 }
 
-func (i AssessmentAWSAccountArray) ToAssessmentAWSAccountArrayOutput() AssessmentAWSAccountArrayOutput {
-	return i.ToAssessmentAWSAccountArrayOutputWithContext(context.Background())
+func (i AssessmentAwsAccountArray) ToAssessmentAwsAccountArrayOutput() AssessmentAwsAccountArrayOutput {
+	return i.ToAssessmentAwsAccountArrayOutputWithContext(context.Background())
 }
 
-func (i AssessmentAWSAccountArray) ToAssessmentAWSAccountArrayOutputWithContext(ctx context.Context) AssessmentAWSAccountArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountArrayOutput)
+func (i AssessmentAwsAccountArray) ToAssessmentAwsAccountArrayOutputWithContext(ctx context.Context) AssessmentAwsAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAwsAccountArrayOutput)
 }
 
 // The AWS account associated with the assessment.
-type AssessmentAWSAccountOutput struct{ *pulumi.OutputState }
+type AssessmentAwsAccountOutput struct{ *pulumi.OutputState }
 
-func (AssessmentAWSAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAWSAccount)(nil)).Elem()
+func (AssessmentAwsAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentAwsAccount)(nil)).Elem()
 }
 
-func (o AssessmentAWSAccountOutput) ToAssessmentAWSAccountOutput() AssessmentAWSAccountOutput {
+func (o AssessmentAwsAccountOutput) ToAssessmentAwsAccountOutput() AssessmentAwsAccountOutput {
 	return o
 }
 
-func (o AssessmentAWSAccountOutput) ToAssessmentAWSAccountOutputWithContext(ctx context.Context) AssessmentAWSAccountOutput {
+func (o AssessmentAwsAccountOutput) ToAssessmentAwsAccountOutputWithContext(ctx context.Context) AssessmentAwsAccountOutput {
 	return o
 }
 
-func (o AssessmentAWSAccountOutput) ToAssessmentAWSAccountPtrOutput() AssessmentAWSAccountPtrOutput {
-	return o.ToAssessmentAWSAccountPtrOutputWithContext(context.Background())
+func (o AssessmentAwsAccountOutput) ToAssessmentAwsAccountPtrOutput() AssessmentAwsAccountPtrOutput {
+	return o.ToAssessmentAwsAccountPtrOutputWithContext(context.Background())
 }
 
-func (o AssessmentAWSAccountOutput) ToAssessmentAWSAccountPtrOutputWithContext(ctx context.Context) AssessmentAWSAccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentAWSAccount) *AssessmentAWSAccount {
+func (o AssessmentAwsAccountOutput) ToAssessmentAwsAccountPtrOutputWithContext(ctx context.Context) AssessmentAwsAccountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentAwsAccount) *AssessmentAwsAccount {
 		return &v
-	}).(AssessmentAWSAccountPtrOutput)
+	}).(AssessmentAwsAccountPtrOutput)
 }
 
-func (o AssessmentAWSAccountOutput) EmailAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentAWSAccount) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
+func (o AssessmentAwsAccountOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentAwsAccount) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o AssessmentAWSAccountOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentAWSAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o AssessmentAwsAccountOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentAwsAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o AssessmentAWSAccountOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentAWSAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o AssessmentAwsAccountOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentAwsAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type AssessmentAWSAccountPtrOutput struct{ *pulumi.OutputState }
+type AssessmentAwsAccountPtrOutput struct{ *pulumi.OutputState }
 
-func (AssessmentAWSAccountPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentAWSAccount)(nil)).Elem()
+func (AssessmentAwsAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentAwsAccount)(nil)).Elem()
 }
 
-func (o AssessmentAWSAccountPtrOutput) ToAssessmentAWSAccountPtrOutput() AssessmentAWSAccountPtrOutput {
+func (o AssessmentAwsAccountPtrOutput) ToAssessmentAwsAccountPtrOutput() AssessmentAwsAccountPtrOutput {
 	return o
 }
 
-func (o AssessmentAWSAccountPtrOutput) ToAssessmentAWSAccountPtrOutputWithContext(ctx context.Context) AssessmentAWSAccountPtrOutput {
+func (o AssessmentAwsAccountPtrOutput) ToAssessmentAwsAccountPtrOutputWithContext(ctx context.Context) AssessmentAwsAccountPtrOutput {
 	return o
 }
 
-func (o AssessmentAWSAccountPtrOutput) Elem() AssessmentAWSAccountOutput {
-	return o.ApplyT(func(v *AssessmentAWSAccount) AssessmentAWSAccount {
+func (o AssessmentAwsAccountPtrOutput) Elem() AssessmentAwsAccountOutput {
+	return o.ApplyT(func(v *AssessmentAwsAccount) AssessmentAwsAccount {
 		if v != nil {
 			return *v
 		}
-		var ret AssessmentAWSAccount
+		var ret AssessmentAwsAccount
 		return ret
-	}).(AssessmentAWSAccountOutput)
+	}).(AssessmentAwsAccountOutput)
 }
 
-func (o AssessmentAWSAccountPtrOutput) EmailAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentAWSAccount) *string {
+func (o AssessmentAwsAccountPtrOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentAwsAccount) *string {
 		if v == nil {
 			return nil
 		}
@@ -186,8 +186,8 @@ func (o AssessmentAWSAccountPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AssessmentAWSAccountPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentAWSAccount) *string {
+func (o AssessmentAwsAccountPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentAwsAccount) *string {
 		if v == nil {
 			return nil
 		}
@@ -195,8 +195,8 @@ func (o AssessmentAWSAccountPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AssessmentAWSAccountPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentAWSAccount) *string {
+func (o AssessmentAwsAccountPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentAwsAccount) *string {
 		if v == nil {
 			return nil
 		}
@@ -204,121 +204,121 @@ func (o AssessmentAWSAccountPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type AssessmentAWSAccountArrayOutput struct{ *pulumi.OutputState }
+type AssessmentAwsAccountArrayOutput struct{ *pulumi.OutputState }
 
-func (AssessmentAWSAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssessmentAWSAccount)(nil)).Elem()
+func (AssessmentAwsAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssessmentAwsAccount)(nil)).Elem()
 }
 
-func (o AssessmentAWSAccountArrayOutput) ToAssessmentAWSAccountArrayOutput() AssessmentAWSAccountArrayOutput {
+func (o AssessmentAwsAccountArrayOutput) ToAssessmentAwsAccountArrayOutput() AssessmentAwsAccountArrayOutput {
 	return o
 }
 
-func (o AssessmentAWSAccountArrayOutput) ToAssessmentAWSAccountArrayOutputWithContext(ctx context.Context) AssessmentAWSAccountArrayOutput {
+func (o AssessmentAwsAccountArrayOutput) ToAssessmentAwsAccountArrayOutputWithContext(ctx context.Context) AssessmentAwsAccountArrayOutput {
 	return o
 }
 
-func (o AssessmentAWSAccountArrayOutput) Index(i pulumi.IntInput) AssessmentAWSAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentAWSAccount {
-		return vs[0].([]AssessmentAWSAccount)[vs[1].(int)]
-	}).(AssessmentAWSAccountOutput)
+func (o AssessmentAwsAccountArrayOutput) Index(i pulumi.IntInput) AssessmentAwsAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentAwsAccount {
+		return vs[0].([]AssessmentAwsAccount)[vs[1].(int)]
+	}).(AssessmentAwsAccountOutput)
 }
 
 // An AWS service such as Amazon S3, AWS CloudTrail, and so on.
-type AssessmentAWSService struct {
+type AssessmentAwsService struct {
 	ServiceName *string `pulumi:"serviceName"`
 }
 
-// AssessmentAWSServiceInput is an input type that accepts AssessmentAWSServiceArgs and AssessmentAWSServiceOutput values.
-// You can construct a concrete instance of `AssessmentAWSServiceInput` via:
+// AssessmentAwsServiceInput is an input type that accepts AssessmentAwsServiceArgs and AssessmentAwsServiceOutput values.
+// You can construct a concrete instance of `AssessmentAwsServiceInput` via:
 //
-//	AssessmentAWSServiceArgs{...}
-type AssessmentAWSServiceInput interface {
+//	AssessmentAwsServiceArgs{...}
+type AssessmentAwsServiceInput interface {
 	pulumi.Input
 
-	ToAssessmentAWSServiceOutput() AssessmentAWSServiceOutput
-	ToAssessmentAWSServiceOutputWithContext(context.Context) AssessmentAWSServiceOutput
+	ToAssessmentAwsServiceOutput() AssessmentAwsServiceOutput
+	ToAssessmentAwsServiceOutputWithContext(context.Context) AssessmentAwsServiceOutput
 }
 
 // An AWS service such as Amazon S3, AWS CloudTrail, and so on.
-type AssessmentAWSServiceArgs struct {
+type AssessmentAwsServiceArgs struct {
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 }
 
-func (AssessmentAWSServiceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAWSService)(nil)).Elem()
+func (AssessmentAwsServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentAwsService)(nil)).Elem()
 }
 
-func (i AssessmentAWSServiceArgs) ToAssessmentAWSServiceOutput() AssessmentAWSServiceOutput {
-	return i.ToAssessmentAWSServiceOutputWithContext(context.Background())
+func (i AssessmentAwsServiceArgs) ToAssessmentAwsServiceOutput() AssessmentAwsServiceOutput {
+	return i.ToAssessmentAwsServiceOutputWithContext(context.Background())
 }
 
-func (i AssessmentAWSServiceArgs) ToAssessmentAWSServiceOutputWithContext(ctx context.Context) AssessmentAWSServiceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSServiceOutput)
+func (i AssessmentAwsServiceArgs) ToAssessmentAwsServiceOutputWithContext(ctx context.Context) AssessmentAwsServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAwsServiceOutput)
 }
 
-// AssessmentAWSServiceArrayInput is an input type that accepts AssessmentAWSServiceArray and AssessmentAWSServiceArrayOutput values.
-// You can construct a concrete instance of `AssessmentAWSServiceArrayInput` via:
+// AssessmentAwsServiceArrayInput is an input type that accepts AssessmentAwsServiceArray and AssessmentAwsServiceArrayOutput values.
+// You can construct a concrete instance of `AssessmentAwsServiceArrayInput` via:
 //
-//	AssessmentAWSServiceArray{ AssessmentAWSServiceArgs{...} }
-type AssessmentAWSServiceArrayInput interface {
+//	AssessmentAwsServiceArray{ AssessmentAwsServiceArgs{...} }
+type AssessmentAwsServiceArrayInput interface {
 	pulumi.Input
 
-	ToAssessmentAWSServiceArrayOutput() AssessmentAWSServiceArrayOutput
-	ToAssessmentAWSServiceArrayOutputWithContext(context.Context) AssessmentAWSServiceArrayOutput
+	ToAssessmentAwsServiceArrayOutput() AssessmentAwsServiceArrayOutput
+	ToAssessmentAwsServiceArrayOutputWithContext(context.Context) AssessmentAwsServiceArrayOutput
 }
 
-type AssessmentAWSServiceArray []AssessmentAWSServiceInput
+type AssessmentAwsServiceArray []AssessmentAwsServiceInput
 
-func (AssessmentAWSServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssessmentAWSService)(nil)).Elem()
+func (AssessmentAwsServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssessmentAwsService)(nil)).Elem()
 }
 
-func (i AssessmentAWSServiceArray) ToAssessmentAWSServiceArrayOutput() AssessmentAWSServiceArrayOutput {
-	return i.ToAssessmentAWSServiceArrayOutputWithContext(context.Background())
+func (i AssessmentAwsServiceArray) ToAssessmentAwsServiceArrayOutput() AssessmentAwsServiceArrayOutput {
+	return i.ToAssessmentAwsServiceArrayOutputWithContext(context.Background())
 }
 
-func (i AssessmentAWSServiceArray) ToAssessmentAWSServiceArrayOutputWithContext(ctx context.Context) AssessmentAWSServiceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSServiceArrayOutput)
+func (i AssessmentAwsServiceArray) ToAssessmentAwsServiceArrayOutputWithContext(ctx context.Context) AssessmentAwsServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAwsServiceArrayOutput)
 }
 
 // An AWS service such as Amazon S3, AWS CloudTrail, and so on.
-type AssessmentAWSServiceOutput struct{ *pulumi.OutputState }
+type AssessmentAwsServiceOutput struct{ *pulumi.OutputState }
 
-func (AssessmentAWSServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAWSService)(nil)).Elem()
+func (AssessmentAwsServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentAwsService)(nil)).Elem()
 }
 
-func (o AssessmentAWSServiceOutput) ToAssessmentAWSServiceOutput() AssessmentAWSServiceOutput {
+func (o AssessmentAwsServiceOutput) ToAssessmentAwsServiceOutput() AssessmentAwsServiceOutput {
 	return o
 }
 
-func (o AssessmentAWSServiceOutput) ToAssessmentAWSServiceOutputWithContext(ctx context.Context) AssessmentAWSServiceOutput {
+func (o AssessmentAwsServiceOutput) ToAssessmentAwsServiceOutputWithContext(ctx context.Context) AssessmentAwsServiceOutput {
 	return o
 }
 
-func (o AssessmentAWSServiceOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentAWSService) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
+func (o AssessmentAwsServiceOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentAwsService) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
-type AssessmentAWSServiceArrayOutput struct{ *pulumi.OutputState }
+type AssessmentAwsServiceArrayOutput struct{ *pulumi.OutputState }
 
-func (AssessmentAWSServiceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssessmentAWSService)(nil)).Elem()
+func (AssessmentAwsServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssessmentAwsService)(nil)).Elem()
 }
 
-func (o AssessmentAWSServiceArrayOutput) ToAssessmentAWSServiceArrayOutput() AssessmentAWSServiceArrayOutput {
+func (o AssessmentAwsServiceArrayOutput) ToAssessmentAwsServiceArrayOutput() AssessmentAwsServiceArrayOutput {
 	return o
 }
 
-func (o AssessmentAWSServiceArrayOutput) ToAssessmentAWSServiceArrayOutputWithContext(ctx context.Context) AssessmentAWSServiceArrayOutput {
+func (o AssessmentAwsServiceArrayOutput) ToAssessmentAwsServiceArrayOutputWithContext(ctx context.Context) AssessmentAwsServiceArrayOutput {
 	return o
 }
 
-func (o AssessmentAWSServiceArrayOutput) Index(i pulumi.IntInput) AssessmentAWSServiceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentAWSService {
-		return vs[0].([]AssessmentAWSService)[vs[1].(int)]
-	}).(AssessmentAWSServiceOutput)
+func (o AssessmentAwsServiceArrayOutput) Index(i pulumi.IntInput) AssessmentAwsServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentAwsService {
+		return vs[0].([]AssessmentAwsService)[vs[1].(int)]
+	}).(AssessmentAwsServiceOutput)
 }
 
 // The assignment of a control set to a delegate for review.
@@ -735,9 +735,9 @@ func (o AssessmentRoleArrayOutput) Index(i pulumi.IntInput) AssessmentRoleOutput
 // The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
 type AssessmentScope struct {
 	// The AWS accounts included in scope.
-	AwsAccounts []AssessmentAWSAccount `pulumi:"awsAccounts"`
+	AwsAccounts []AssessmentAwsAccount `pulumi:"awsAccounts"`
 	// The AWS services included in scope.
-	AwsServices []AssessmentAWSService `pulumi:"awsServices"`
+	AwsServices []AssessmentAwsService `pulumi:"awsServices"`
 }
 
 // AssessmentScopeInput is an input type that accepts AssessmentScopeArgs and AssessmentScopeOutput values.
@@ -754,9 +754,9 @@ type AssessmentScopeInput interface {
 // The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
 type AssessmentScopeArgs struct {
 	// The AWS accounts included in scope.
-	AwsAccounts AssessmentAWSAccountArrayInput `pulumi:"awsAccounts"`
+	AwsAccounts AssessmentAwsAccountArrayInput `pulumi:"awsAccounts"`
 	// The AWS services included in scope.
-	AwsServices AssessmentAWSServiceArrayInput `pulumi:"awsServices"`
+	AwsServices AssessmentAwsServiceArrayInput `pulumi:"awsServices"`
 }
 
 func (AssessmentScopeArgs) ElementType() reflect.Type {
@@ -838,13 +838,13 @@ func (o AssessmentScopeOutput) ToAssessmentScopePtrOutputWithContext(ctx context
 }
 
 // The AWS accounts included in scope.
-func (o AssessmentScopeOutput) AwsAccounts() AssessmentAWSAccountArrayOutput {
-	return o.ApplyT(func(v AssessmentScope) []AssessmentAWSAccount { return v.AwsAccounts }).(AssessmentAWSAccountArrayOutput)
+func (o AssessmentScopeOutput) AwsAccounts() AssessmentAwsAccountArrayOutput {
+	return o.ApplyT(func(v AssessmentScope) []AssessmentAwsAccount { return v.AwsAccounts }).(AssessmentAwsAccountArrayOutput)
 }
 
 // The AWS services included in scope.
-func (o AssessmentScopeOutput) AwsServices() AssessmentAWSServiceArrayOutput {
-	return o.ApplyT(func(v AssessmentScope) []AssessmentAWSService { return v.AwsServices }).(AssessmentAWSServiceArrayOutput)
+func (o AssessmentScopeOutput) AwsServices() AssessmentAwsServiceArrayOutput {
+	return o.ApplyT(func(v AssessmentScope) []AssessmentAwsService { return v.AwsServices }).(AssessmentAwsServiceArrayOutput)
 }
 
 type AssessmentScopePtrOutput struct{ *pulumi.OutputState }
@@ -872,23 +872,23 @@ func (o AssessmentScopePtrOutput) Elem() AssessmentScopeOutput {
 }
 
 // The AWS accounts included in scope.
-func (o AssessmentScopePtrOutput) AwsAccounts() AssessmentAWSAccountArrayOutput {
-	return o.ApplyT(func(v *AssessmentScope) []AssessmentAWSAccount {
+func (o AssessmentScopePtrOutput) AwsAccounts() AssessmentAwsAccountArrayOutput {
+	return o.ApplyT(func(v *AssessmentScope) []AssessmentAwsAccount {
 		if v == nil {
 			return nil
 		}
 		return v.AwsAccounts
-	}).(AssessmentAWSAccountArrayOutput)
+	}).(AssessmentAwsAccountArrayOutput)
 }
 
 // The AWS services included in scope.
-func (o AssessmentScopePtrOutput) AwsServices() AssessmentAWSServiceArrayOutput {
-	return o.ApplyT(func(v *AssessmentScope) []AssessmentAWSService {
+func (o AssessmentScopePtrOutput) AwsServices() AssessmentAwsServiceArrayOutput {
+	return o.ApplyT(func(v *AssessmentScope) []AssessmentAwsService {
 		if v == nil {
 			return nil
 		}
 		return v.AwsServices
-	}).(AssessmentAWSServiceArrayOutput)
+	}).(AssessmentAwsServiceArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1001,11 +1001,11 @@ func (o AssessmentTagArrayOutput) Index(i pulumi.IntInput) AssessmentTagOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSAccountInput)(nil)).Elem(), AssessmentAWSAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSAccountPtrInput)(nil)).Elem(), AssessmentAWSAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSAccountArrayInput)(nil)).Elem(), AssessmentAWSAccountArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSServiceInput)(nil)).Elem(), AssessmentAWSServiceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSServiceArrayInput)(nil)).Elem(), AssessmentAWSServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAwsAccountInput)(nil)).Elem(), AssessmentAwsAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAwsAccountPtrInput)(nil)).Elem(), AssessmentAwsAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAwsAccountArrayInput)(nil)).Elem(), AssessmentAwsAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAwsServiceInput)(nil)).Elem(), AssessmentAwsServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAwsServiceArrayInput)(nil)).Elem(), AssessmentAwsServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentDelegationInput)(nil)).Elem(), AssessmentDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentDelegationArrayInput)(nil)).Elem(), AssessmentDelegationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentReportsDestinationInput)(nil)).Elem(), AssessmentReportsDestinationArgs{})
@@ -1016,11 +1016,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentScopePtrInput)(nil)).Elem(), AssessmentScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTagInput)(nil)).Elem(), AssessmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTagArrayInput)(nil)).Elem(), AssessmentTagArray{})
-	pulumi.RegisterOutputType(AssessmentAWSAccountOutput{})
-	pulumi.RegisterOutputType(AssessmentAWSAccountPtrOutput{})
-	pulumi.RegisterOutputType(AssessmentAWSAccountArrayOutput{})
-	pulumi.RegisterOutputType(AssessmentAWSServiceOutput{})
-	pulumi.RegisterOutputType(AssessmentAWSServiceArrayOutput{})
+	pulumi.RegisterOutputType(AssessmentAwsAccountOutput{})
+	pulumi.RegisterOutputType(AssessmentAwsAccountPtrOutput{})
+	pulumi.RegisterOutputType(AssessmentAwsAccountArrayOutput{})
+	pulumi.RegisterOutputType(AssessmentAwsServiceOutput{})
+	pulumi.RegisterOutputType(AssessmentAwsServiceArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentDelegationOutput{})
 	pulumi.RegisterOutputType(AssessmentDelegationArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentReportsDestinationOutput{})

@@ -12,7 +12,7 @@ export const CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment =
  */
 export type CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment = (typeof CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment)[keyof typeof CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment];
 
-export const EventSourceMappingDocumentDBEventSourceConfigFullDocument = {
+export const EventSourceMappingDocumentDbEventSourceConfigFullDocument = {
     UpdateLookup: "UpdateLookup",
     Default: "Default",
 } as const;
@@ -20,7 +20,7 @@ export const EventSourceMappingDocumentDBEventSourceConfigFullDocument = {
 /**
  * Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
  */
-export type EventSourceMappingDocumentDBEventSourceConfigFullDocument = (typeof EventSourceMappingDocumentDBEventSourceConfigFullDocument)[keyof typeof EventSourceMappingDocumentDBEventSourceConfigFullDocument];
+export type EventSourceMappingDocumentDbEventSourceConfigFullDocument = (typeof EventSourceMappingDocumentDbEventSourceConfigFullDocument)[keyof typeof EventSourceMappingDocumentDbEventSourceConfigFullDocument];
 
 export const EventSourceMappingFunctionResponseTypesItem = {
     ReportBatchItemFailures: "ReportBatchItemFailures",

@@ -503,124 +503,124 @@ func (in *pipeBatchResourceRequirementTypePtr) ToPipeBatchResourceRequirementTyp
 	return pulumi.ToOutputWithContext(ctx, in).(PipeBatchResourceRequirementTypePtrOutput)
 }
 
-type PipeDynamoDBStreamStartPosition string
+type PipeDynamoDbStreamStartPosition string
 
 const (
-	PipeDynamoDBStreamStartPositionTrimHorizon = PipeDynamoDBStreamStartPosition("TRIM_HORIZON")
-	PipeDynamoDBStreamStartPositionLatest      = PipeDynamoDBStreamStartPosition("LATEST")
+	PipeDynamoDbStreamStartPositionTrimHorizon = PipeDynamoDbStreamStartPosition("TRIM_HORIZON")
+	PipeDynamoDbStreamStartPositionLatest      = PipeDynamoDbStreamStartPosition("LATEST")
 )
 
-func (PipeDynamoDBStreamStartPosition) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeDynamoDBStreamStartPosition)(nil)).Elem()
+func (PipeDynamoDbStreamStartPosition) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeDynamoDbStreamStartPosition)(nil)).Elem()
 }
 
-func (e PipeDynamoDBStreamStartPosition) ToPipeDynamoDBStreamStartPositionOutput() PipeDynamoDBStreamStartPositionOutput {
-	return pulumi.ToOutput(e).(PipeDynamoDBStreamStartPositionOutput)
+func (e PipeDynamoDbStreamStartPosition) ToPipeDynamoDbStreamStartPositionOutput() PipeDynamoDbStreamStartPositionOutput {
+	return pulumi.ToOutput(e).(PipeDynamoDbStreamStartPositionOutput)
 }
 
-func (e PipeDynamoDBStreamStartPosition) ToPipeDynamoDBStreamStartPositionOutputWithContext(ctx context.Context) PipeDynamoDBStreamStartPositionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PipeDynamoDBStreamStartPositionOutput)
+func (e PipeDynamoDbStreamStartPosition) ToPipeDynamoDbStreamStartPositionOutputWithContext(ctx context.Context) PipeDynamoDbStreamStartPositionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipeDynamoDbStreamStartPositionOutput)
 }
 
-func (e PipeDynamoDBStreamStartPosition) ToPipeDynamoDBStreamStartPositionPtrOutput() PipeDynamoDBStreamStartPositionPtrOutput {
-	return e.ToPipeDynamoDBStreamStartPositionPtrOutputWithContext(context.Background())
+func (e PipeDynamoDbStreamStartPosition) ToPipeDynamoDbStreamStartPositionPtrOutput() PipeDynamoDbStreamStartPositionPtrOutput {
+	return e.ToPipeDynamoDbStreamStartPositionPtrOutputWithContext(context.Background())
 }
 
-func (e PipeDynamoDBStreamStartPosition) ToPipeDynamoDBStreamStartPositionPtrOutputWithContext(ctx context.Context) PipeDynamoDBStreamStartPositionPtrOutput {
-	return PipeDynamoDBStreamStartPosition(e).ToPipeDynamoDBStreamStartPositionOutputWithContext(ctx).ToPipeDynamoDBStreamStartPositionPtrOutputWithContext(ctx)
+func (e PipeDynamoDbStreamStartPosition) ToPipeDynamoDbStreamStartPositionPtrOutputWithContext(ctx context.Context) PipeDynamoDbStreamStartPositionPtrOutput {
+	return PipeDynamoDbStreamStartPosition(e).ToPipeDynamoDbStreamStartPositionOutputWithContext(ctx).ToPipeDynamoDbStreamStartPositionPtrOutputWithContext(ctx)
 }
 
-func (e PipeDynamoDBStreamStartPosition) ToStringOutput() pulumi.StringOutput {
+func (e PipeDynamoDbStreamStartPosition) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PipeDynamoDBStreamStartPosition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e PipeDynamoDbStreamStartPosition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PipeDynamoDBStreamStartPosition) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e PipeDynamoDbStreamStartPosition) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e PipeDynamoDBStreamStartPosition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e PipeDynamoDbStreamStartPosition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PipeDynamoDBStreamStartPositionOutput struct{ *pulumi.OutputState }
+type PipeDynamoDbStreamStartPositionOutput struct{ *pulumi.OutputState }
 
-func (PipeDynamoDBStreamStartPositionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeDynamoDBStreamStartPosition)(nil)).Elem()
+func (PipeDynamoDbStreamStartPositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeDynamoDbStreamStartPosition)(nil)).Elem()
 }
 
-func (o PipeDynamoDBStreamStartPositionOutput) ToPipeDynamoDBStreamStartPositionOutput() PipeDynamoDBStreamStartPositionOutput {
+func (o PipeDynamoDbStreamStartPositionOutput) ToPipeDynamoDbStreamStartPositionOutput() PipeDynamoDbStreamStartPositionOutput {
 	return o
 }
 
-func (o PipeDynamoDBStreamStartPositionOutput) ToPipeDynamoDBStreamStartPositionOutputWithContext(ctx context.Context) PipeDynamoDBStreamStartPositionOutput {
+func (o PipeDynamoDbStreamStartPositionOutput) ToPipeDynamoDbStreamStartPositionOutputWithContext(ctx context.Context) PipeDynamoDbStreamStartPositionOutput {
 	return o
 }
 
-func (o PipeDynamoDBStreamStartPositionOutput) ToPipeDynamoDBStreamStartPositionPtrOutput() PipeDynamoDBStreamStartPositionPtrOutput {
-	return o.ToPipeDynamoDBStreamStartPositionPtrOutputWithContext(context.Background())
+func (o PipeDynamoDbStreamStartPositionOutput) ToPipeDynamoDbStreamStartPositionPtrOutput() PipeDynamoDbStreamStartPositionPtrOutput {
+	return o.ToPipeDynamoDbStreamStartPositionPtrOutputWithContext(context.Background())
 }
 
-func (o PipeDynamoDBStreamStartPositionOutput) ToPipeDynamoDBStreamStartPositionPtrOutputWithContext(ctx context.Context) PipeDynamoDBStreamStartPositionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeDynamoDBStreamStartPosition) *PipeDynamoDBStreamStartPosition {
+func (o PipeDynamoDbStreamStartPositionOutput) ToPipeDynamoDbStreamStartPositionPtrOutputWithContext(ctx context.Context) PipeDynamoDbStreamStartPositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeDynamoDbStreamStartPosition) *PipeDynamoDbStreamStartPosition {
 		return &v
-	}).(PipeDynamoDBStreamStartPositionPtrOutput)
+	}).(PipeDynamoDbStreamStartPositionPtrOutput)
 }
 
-func (o PipeDynamoDBStreamStartPositionOutput) ToStringOutput() pulumi.StringOutput {
+func (o PipeDynamoDbStreamStartPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o PipeDynamoDBStreamStartPositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeDynamoDBStreamStartPosition) string {
+func (o PipeDynamoDbStreamStartPositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeDynamoDbStreamStartPosition) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o PipeDynamoDBStreamStartPositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PipeDynamoDbStreamStartPositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PipeDynamoDBStreamStartPositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeDynamoDBStreamStartPosition) *string {
+func (o PipeDynamoDbStreamStartPositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeDynamoDbStreamStartPosition) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type PipeDynamoDBStreamStartPositionPtrOutput struct{ *pulumi.OutputState }
+type PipeDynamoDbStreamStartPositionPtrOutput struct{ *pulumi.OutputState }
 
-func (PipeDynamoDBStreamStartPositionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeDynamoDBStreamStartPosition)(nil)).Elem()
+func (PipeDynamoDbStreamStartPositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeDynamoDbStreamStartPosition)(nil)).Elem()
 }
 
-func (o PipeDynamoDBStreamStartPositionPtrOutput) ToPipeDynamoDBStreamStartPositionPtrOutput() PipeDynamoDBStreamStartPositionPtrOutput {
+func (o PipeDynamoDbStreamStartPositionPtrOutput) ToPipeDynamoDbStreamStartPositionPtrOutput() PipeDynamoDbStreamStartPositionPtrOutput {
 	return o
 }
 
-func (o PipeDynamoDBStreamStartPositionPtrOutput) ToPipeDynamoDBStreamStartPositionPtrOutputWithContext(ctx context.Context) PipeDynamoDBStreamStartPositionPtrOutput {
+func (o PipeDynamoDbStreamStartPositionPtrOutput) ToPipeDynamoDbStreamStartPositionPtrOutputWithContext(ctx context.Context) PipeDynamoDbStreamStartPositionPtrOutput {
 	return o
 }
 
-func (o PipeDynamoDBStreamStartPositionPtrOutput) Elem() PipeDynamoDBStreamStartPositionOutput {
-	return o.ApplyT(func(v *PipeDynamoDBStreamStartPosition) PipeDynamoDBStreamStartPosition {
+func (o PipeDynamoDbStreamStartPositionPtrOutput) Elem() PipeDynamoDbStreamStartPositionOutput {
+	return o.ApplyT(func(v *PipeDynamoDbStreamStartPosition) PipeDynamoDbStreamStartPosition {
 		if v != nil {
 			return *v
 		}
-		var ret PipeDynamoDBStreamStartPosition
+		var ret PipeDynamoDbStreamStartPosition
 		return ret
-	}).(PipeDynamoDBStreamStartPositionOutput)
+	}).(PipeDynamoDbStreamStartPositionOutput)
 }
 
-func (o PipeDynamoDBStreamStartPositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PipeDynamoDbStreamStartPositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PipeDynamoDBStreamStartPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeDynamoDBStreamStartPosition) *string {
+func (o PipeDynamoDbStreamStartPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeDynamoDbStreamStartPosition) *string {
 		if e == nil {
 			return nil
 		}
@@ -629,42 +629,42 @@ func (o PipeDynamoDBStreamStartPositionPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeDynamoDBStreamStartPositionInput is an input type that accepts PipeDynamoDBStreamStartPositionArgs and PipeDynamoDBStreamStartPositionOutput values.
-// You can construct a concrete instance of `PipeDynamoDBStreamStartPositionInput` via:
+// PipeDynamoDbStreamStartPositionInput is an input type that accepts PipeDynamoDbStreamStartPositionArgs and PipeDynamoDbStreamStartPositionOutput values.
+// You can construct a concrete instance of `PipeDynamoDbStreamStartPositionInput` via:
 //
-//	PipeDynamoDBStreamStartPositionArgs{...}
-type PipeDynamoDBStreamStartPositionInput interface {
+//	PipeDynamoDbStreamStartPositionArgs{...}
+type PipeDynamoDbStreamStartPositionInput interface {
 	pulumi.Input
 
-	ToPipeDynamoDBStreamStartPositionOutput() PipeDynamoDBStreamStartPositionOutput
-	ToPipeDynamoDBStreamStartPositionOutputWithContext(context.Context) PipeDynamoDBStreamStartPositionOutput
+	ToPipeDynamoDbStreamStartPositionOutput() PipeDynamoDbStreamStartPositionOutput
+	ToPipeDynamoDbStreamStartPositionOutputWithContext(context.Context) PipeDynamoDbStreamStartPositionOutput
 }
 
-var pipeDynamoDBStreamStartPositionPtrType = reflect.TypeOf((**PipeDynamoDBStreamStartPosition)(nil)).Elem()
+var pipeDynamoDbStreamStartPositionPtrType = reflect.TypeOf((**PipeDynamoDbStreamStartPosition)(nil)).Elem()
 
-type PipeDynamoDBStreamStartPositionPtrInput interface {
+type PipeDynamoDbStreamStartPositionPtrInput interface {
 	pulumi.Input
 
-	ToPipeDynamoDBStreamStartPositionPtrOutput() PipeDynamoDBStreamStartPositionPtrOutput
-	ToPipeDynamoDBStreamStartPositionPtrOutputWithContext(context.Context) PipeDynamoDBStreamStartPositionPtrOutput
+	ToPipeDynamoDbStreamStartPositionPtrOutput() PipeDynamoDbStreamStartPositionPtrOutput
+	ToPipeDynamoDbStreamStartPositionPtrOutputWithContext(context.Context) PipeDynamoDbStreamStartPositionPtrOutput
 }
 
-type pipeDynamoDBStreamStartPositionPtr string
+type pipeDynamoDbStreamStartPositionPtr string
 
-func PipeDynamoDBStreamStartPositionPtr(v string) PipeDynamoDBStreamStartPositionPtrInput {
-	return (*pipeDynamoDBStreamStartPositionPtr)(&v)
+func PipeDynamoDbStreamStartPositionPtr(v string) PipeDynamoDbStreamStartPositionPtrInput {
+	return (*pipeDynamoDbStreamStartPositionPtr)(&v)
 }
 
-func (*pipeDynamoDBStreamStartPositionPtr) ElementType() reflect.Type {
-	return pipeDynamoDBStreamStartPositionPtrType
+func (*pipeDynamoDbStreamStartPositionPtr) ElementType() reflect.Type {
+	return pipeDynamoDbStreamStartPositionPtrType
 }
 
-func (in *pipeDynamoDBStreamStartPositionPtr) ToPipeDynamoDBStreamStartPositionPtrOutput() PipeDynamoDBStreamStartPositionPtrOutput {
-	return pulumi.ToOutput(in).(PipeDynamoDBStreamStartPositionPtrOutput)
+func (in *pipeDynamoDbStreamStartPositionPtr) ToPipeDynamoDbStreamStartPositionPtrOutput() PipeDynamoDbStreamStartPositionPtrOutput {
+	return pulumi.ToOutput(in).(PipeDynamoDbStreamStartPositionPtrOutput)
 }
 
-func (in *pipeDynamoDBStreamStartPositionPtr) ToPipeDynamoDBStreamStartPositionPtrOutputWithContext(ctx context.Context) PipeDynamoDBStreamStartPositionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PipeDynamoDBStreamStartPositionPtrOutput)
+func (in *pipeDynamoDbStreamStartPositionPtr) ToPipeDynamoDbStreamStartPositionPtrOutputWithContext(ctx context.Context) PipeDynamoDbStreamStartPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipeDynamoDbStreamStartPositionPtrOutput)
 }
 
 type PipeEcsEnvironmentFileType string
@@ -1324,124 +1324,124 @@ func (in *pipeLaunchTypePtr) ToPipeLaunchTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(PipeLaunchTypePtrOutput)
 }
 
-type PipeMSKStartPosition string
+type PipeMskStartPosition string
 
 const (
-	PipeMSKStartPositionTrimHorizon = PipeMSKStartPosition("TRIM_HORIZON")
-	PipeMSKStartPositionLatest      = PipeMSKStartPosition("LATEST")
+	PipeMskStartPositionTrimHorizon = PipeMskStartPosition("TRIM_HORIZON")
+	PipeMskStartPositionLatest      = PipeMskStartPosition("LATEST")
 )
 
-func (PipeMSKStartPosition) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeMSKStartPosition)(nil)).Elem()
+func (PipeMskStartPosition) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeMskStartPosition)(nil)).Elem()
 }
 
-func (e PipeMSKStartPosition) ToPipeMSKStartPositionOutput() PipeMSKStartPositionOutput {
-	return pulumi.ToOutput(e).(PipeMSKStartPositionOutput)
+func (e PipeMskStartPosition) ToPipeMskStartPositionOutput() PipeMskStartPositionOutput {
+	return pulumi.ToOutput(e).(PipeMskStartPositionOutput)
 }
 
-func (e PipeMSKStartPosition) ToPipeMSKStartPositionOutputWithContext(ctx context.Context) PipeMSKStartPositionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PipeMSKStartPositionOutput)
+func (e PipeMskStartPosition) ToPipeMskStartPositionOutputWithContext(ctx context.Context) PipeMskStartPositionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipeMskStartPositionOutput)
 }
 
-func (e PipeMSKStartPosition) ToPipeMSKStartPositionPtrOutput() PipeMSKStartPositionPtrOutput {
-	return e.ToPipeMSKStartPositionPtrOutputWithContext(context.Background())
+func (e PipeMskStartPosition) ToPipeMskStartPositionPtrOutput() PipeMskStartPositionPtrOutput {
+	return e.ToPipeMskStartPositionPtrOutputWithContext(context.Background())
 }
 
-func (e PipeMSKStartPosition) ToPipeMSKStartPositionPtrOutputWithContext(ctx context.Context) PipeMSKStartPositionPtrOutput {
-	return PipeMSKStartPosition(e).ToPipeMSKStartPositionOutputWithContext(ctx).ToPipeMSKStartPositionPtrOutputWithContext(ctx)
+func (e PipeMskStartPosition) ToPipeMskStartPositionPtrOutputWithContext(ctx context.Context) PipeMskStartPositionPtrOutput {
+	return PipeMskStartPosition(e).ToPipeMskStartPositionOutputWithContext(ctx).ToPipeMskStartPositionPtrOutputWithContext(ctx)
 }
 
-func (e PipeMSKStartPosition) ToStringOutput() pulumi.StringOutput {
+func (e PipeMskStartPosition) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PipeMSKStartPosition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e PipeMskStartPosition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PipeMSKStartPosition) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e PipeMskStartPosition) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e PipeMSKStartPosition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e PipeMskStartPosition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PipeMSKStartPositionOutput struct{ *pulumi.OutputState }
+type PipeMskStartPositionOutput struct{ *pulumi.OutputState }
 
-func (PipeMSKStartPositionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeMSKStartPosition)(nil)).Elem()
+func (PipeMskStartPositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeMskStartPosition)(nil)).Elem()
 }
 
-func (o PipeMSKStartPositionOutput) ToPipeMSKStartPositionOutput() PipeMSKStartPositionOutput {
+func (o PipeMskStartPositionOutput) ToPipeMskStartPositionOutput() PipeMskStartPositionOutput {
 	return o
 }
 
-func (o PipeMSKStartPositionOutput) ToPipeMSKStartPositionOutputWithContext(ctx context.Context) PipeMSKStartPositionOutput {
+func (o PipeMskStartPositionOutput) ToPipeMskStartPositionOutputWithContext(ctx context.Context) PipeMskStartPositionOutput {
 	return o
 }
 
-func (o PipeMSKStartPositionOutput) ToPipeMSKStartPositionPtrOutput() PipeMSKStartPositionPtrOutput {
-	return o.ToPipeMSKStartPositionPtrOutputWithContext(context.Background())
+func (o PipeMskStartPositionOutput) ToPipeMskStartPositionPtrOutput() PipeMskStartPositionPtrOutput {
+	return o.ToPipeMskStartPositionPtrOutputWithContext(context.Background())
 }
 
-func (o PipeMSKStartPositionOutput) ToPipeMSKStartPositionPtrOutputWithContext(ctx context.Context) PipeMSKStartPositionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeMSKStartPosition) *PipeMSKStartPosition {
+func (o PipeMskStartPositionOutput) ToPipeMskStartPositionPtrOutputWithContext(ctx context.Context) PipeMskStartPositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeMskStartPosition) *PipeMskStartPosition {
 		return &v
-	}).(PipeMSKStartPositionPtrOutput)
+	}).(PipeMskStartPositionPtrOutput)
 }
 
-func (o PipeMSKStartPositionOutput) ToStringOutput() pulumi.StringOutput {
+func (o PipeMskStartPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o PipeMSKStartPositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeMSKStartPosition) string {
+func (o PipeMskStartPositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeMskStartPosition) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o PipeMSKStartPositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PipeMskStartPositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PipeMSKStartPositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeMSKStartPosition) *string {
+func (o PipeMskStartPositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeMskStartPosition) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type PipeMSKStartPositionPtrOutput struct{ *pulumi.OutputState }
+type PipeMskStartPositionPtrOutput struct{ *pulumi.OutputState }
 
-func (PipeMSKStartPositionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeMSKStartPosition)(nil)).Elem()
+func (PipeMskStartPositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeMskStartPosition)(nil)).Elem()
 }
 
-func (o PipeMSKStartPositionPtrOutput) ToPipeMSKStartPositionPtrOutput() PipeMSKStartPositionPtrOutput {
+func (o PipeMskStartPositionPtrOutput) ToPipeMskStartPositionPtrOutput() PipeMskStartPositionPtrOutput {
 	return o
 }
 
-func (o PipeMSKStartPositionPtrOutput) ToPipeMSKStartPositionPtrOutputWithContext(ctx context.Context) PipeMSKStartPositionPtrOutput {
+func (o PipeMskStartPositionPtrOutput) ToPipeMskStartPositionPtrOutputWithContext(ctx context.Context) PipeMskStartPositionPtrOutput {
 	return o
 }
 
-func (o PipeMSKStartPositionPtrOutput) Elem() PipeMSKStartPositionOutput {
-	return o.ApplyT(func(v *PipeMSKStartPosition) PipeMSKStartPosition {
+func (o PipeMskStartPositionPtrOutput) Elem() PipeMskStartPositionOutput {
+	return o.ApplyT(func(v *PipeMskStartPosition) PipeMskStartPosition {
 		if v != nil {
 			return *v
 		}
-		var ret PipeMSKStartPosition
+		var ret PipeMskStartPosition
 		return ret
-	}).(PipeMSKStartPositionOutput)
+	}).(PipeMskStartPositionOutput)
 }
 
-func (o PipeMSKStartPositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PipeMskStartPositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PipeMSKStartPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeMSKStartPosition) *string {
+func (o PipeMskStartPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeMskStartPosition) *string {
 		if e == nil {
 			return nil
 		}
@@ -1450,42 +1450,42 @@ func (o PipeMSKStartPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeMSKStartPositionInput is an input type that accepts PipeMSKStartPositionArgs and PipeMSKStartPositionOutput values.
-// You can construct a concrete instance of `PipeMSKStartPositionInput` via:
+// PipeMskStartPositionInput is an input type that accepts PipeMskStartPositionArgs and PipeMskStartPositionOutput values.
+// You can construct a concrete instance of `PipeMskStartPositionInput` via:
 //
-//	PipeMSKStartPositionArgs{...}
-type PipeMSKStartPositionInput interface {
+//	PipeMskStartPositionArgs{...}
+type PipeMskStartPositionInput interface {
 	pulumi.Input
 
-	ToPipeMSKStartPositionOutput() PipeMSKStartPositionOutput
-	ToPipeMSKStartPositionOutputWithContext(context.Context) PipeMSKStartPositionOutput
+	ToPipeMskStartPositionOutput() PipeMskStartPositionOutput
+	ToPipeMskStartPositionOutputWithContext(context.Context) PipeMskStartPositionOutput
 }
 
-var pipeMSKStartPositionPtrType = reflect.TypeOf((**PipeMSKStartPosition)(nil)).Elem()
+var pipeMskStartPositionPtrType = reflect.TypeOf((**PipeMskStartPosition)(nil)).Elem()
 
-type PipeMSKStartPositionPtrInput interface {
+type PipeMskStartPositionPtrInput interface {
 	pulumi.Input
 
-	ToPipeMSKStartPositionPtrOutput() PipeMSKStartPositionPtrOutput
-	ToPipeMSKStartPositionPtrOutputWithContext(context.Context) PipeMSKStartPositionPtrOutput
+	ToPipeMskStartPositionPtrOutput() PipeMskStartPositionPtrOutput
+	ToPipeMskStartPositionPtrOutputWithContext(context.Context) PipeMskStartPositionPtrOutput
 }
 
-type pipeMSKStartPositionPtr string
+type pipeMskStartPositionPtr string
 
-func PipeMSKStartPositionPtr(v string) PipeMSKStartPositionPtrInput {
-	return (*pipeMSKStartPositionPtr)(&v)
+func PipeMskStartPositionPtr(v string) PipeMskStartPositionPtrInput {
+	return (*pipeMskStartPositionPtr)(&v)
 }
 
-func (*pipeMSKStartPositionPtr) ElementType() reflect.Type {
-	return pipeMSKStartPositionPtrType
+func (*pipeMskStartPositionPtr) ElementType() reflect.Type {
+	return pipeMskStartPositionPtrType
 }
 
-func (in *pipeMSKStartPositionPtr) ToPipeMSKStartPositionPtrOutput() PipeMSKStartPositionPtrOutput {
-	return pulumi.ToOutput(in).(PipeMSKStartPositionPtrOutput)
+func (in *pipeMskStartPositionPtr) ToPipeMskStartPositionPtrOutput() PipeMskStartPositionPtrOutput {
+	return pulumi.ToOutput(in).(PipeMskStartPositionPtrOutput)
 }
 
-func (in *pipeMSKStartPositionPtr) ToPipeMSKStartPositionPtrOutputWithContext(ctx context.Context) PipeMSKStartPositionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PipeMSKStartPositionPtrOutput)
+func (in *pipeMskStartPositionPtr) ToPipeMskStartPositionPtrOutputWithContext(ctx context.Context) PipeMskStartPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipeMskStartPositionPtrOutput)
 }
 
 type PipeOnPartialBatchItemFailureStreams string
@@ -2741,8 +2741,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchJobDependencyTypePtrInput)(nil)).Elem(), PipeBatchJobDependencyType("N_TO_N"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchResourceRequirementTypeInput)(nil)).Elem(), PipeBatchResourceRequirementType("GPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchResourceRequirementTypePtrInput)(nil)).Elem(), PipeBatchResourceRequirementType("GPU"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeDynamoDBStreamStartPositionInput)(nil)).Elem(), PipeDynamoDBStreamStartPosition("TRIM_HORIZON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeDynamoDBStreamStartPositionPtrInput)(nil)).Elem(), PipeDynamoDBStreamStartPosition("TRIM_HORIZON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeDynamoDbStreamStartPositionInput)(nil)).Elem(), PipeDynamoDbStreamStartPosition("TRIM_HORIZON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeDynamoDbStreamStartPositionPtrInput)(nil)).Elem(), PipeDynamoDbStreamStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsEnvironmentFileTypeInput)(nil)).Elem(), PipeEcsEnvironmentFileType("s3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsEnvironmentFileTypePtrInput)(nil)).Elem(), PipeEcsEnvironmentFileType("s3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsResourceRequirementTypeInput)(nil)).Elem(), PipeEcsResourceRequirementType("GPU"))
@@ -2751,8 +2751,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeKinesisStreamStartPositionPtrInput)(nil)).Elem(), PipeKinesisStreamStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeLaunchTypeInput)(nil)).Elem(), PipeLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeLaunchTypePtrInput)(nil)).Elem(), PipeLaunchType("EC2"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeMSKStartPositionInput)(nil)).Elem(), PipeMSKStartPosition("TRIM_HORIZON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeMSKStartPositionPtrInput)(nil)).Elem(), PipeMSKStartPosition("TRIM_HORIZON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMskStartPositionInput)(nil)).Elem(), PipeMskStartPosition("TRIM_HORIZON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMskStartPositionPtrInput)(nil)).Elem(), PipeMskStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeOnPartialBatchItemFailureStreamsInput)(nil)).Elem(), PipeOnPartialBatchItemFailureStreams("AUTOMATIC_BISECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeOnPartialBatchItemFailureStreamsPtrInput)(nil)).Elem(), PipeOnPartialBatchItemFailureStreams("AUTOMATIC_BISECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipePlacementConstraintTypeInput)(nil)).Elem(), PipePlacementConstraintType("distinctInstance"))
@@ -2773,8 +2773,8 @@ func init() {
 	pulumi.RegisterOutputType(PipeBatchJobDependencyTypePtrOutput{})
 	pulumi.RegisterOutputType(PipeBatchResourceRequirementTypeOutput{})
 	pulumi.RegisterOutputType(PipeBatchResourceRequirementTypePtrOutput{})
-	pulumi.RegisterOutputType(PipeDynamoDBStreamStartPositionOutput{})
-	pulumi.RegisterOutputType(PipeDynamoDBStreamStartPositionPtrOutput{})
+	pulumi.RegisterOutputType(PipeDynamoDbStreamStartPositionOutput{})
+	pulumi.RegisterOutputType(PipeDynamoDbStreamStartPositionPtrOutput{})
 	pulumi.RegisterOutputType(PipeEcsEnvironmentFileTypeOutput{})
 	pulumi.RegisterOutputType(PipeEcsEnvironmentFileTypePtrOutput{})
 	pulumi.RegisterOutputType(PipeEcsResourceRequirementTypeOutput{})
@@ -2783,8 +2783,8 @@ func init() {
 	pulumi.RegisterOutputType(PipeKinesisStreamStartPositionPtrOutput{})
 	pulumi.RegisterOutputType(PipeLaunchTypeOutput{})
 	pulumi.RegisterOutputType(PipeLaunchTypePtrOutput{})
-	pulumi.RegisterOutputType(PipeMSKStartPositionOutput{})
-	pulumi.RegisterOutputType(PipeMSKStartPositionPtrOutput{})
+	pulumi.RegisterOutputType(PipeMskStartPositionOutput{})
+	pulumi.RegisterOutputType(PipeMskStartPositionPtrOutput{})
 	pulumi.RegisterOutputType(PipeOnPartialBatchItemFailureStreamsOutput{})
 	pulumi.RegisterOutputType(PipeOnPartialBatchItemFailureStreamsPtrOutput{})
 	pulumi.RegisterOutputType(PipePlacementConstraintTypeOutput{})

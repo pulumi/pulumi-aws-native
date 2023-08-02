@@ -37,8 +37,8 @@ __all__ = [
     'DeliveryStreamHttpEndpointDestinationConfiguration',
     'DeliveryStreamHttpEndpointRequestConfiguration',
     'DeliveryStreamInputFormatConfiguration',
-    'DeliveryStreamKMSEncryptionConfig',
     'DeliveryStreamKinesisStreamSourceConfiguration',
+    'DeliveryStreamKmsEncryptionConfig',
     'DeliveryStreamOpenXJsonSerDe',
     'DeliveryStreamOrcSerDe',
     'DeliveryStreamOutputFormatConfiguration',
@@ -1023,7 +1023,7 @@ class DeliveryStreamEncryptionConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 kms_encryption_config: Optional['outputs.DeliveryStreamKMSEncryptionConfig'] = None,
+                 kms_encryption_config: Optional['outputs.DeliveryStreamKmsEncryptionConfig'] = None,
                  no_encryption_config: Optional['DeliveryStreamEncryptionConfigurationNoEncryptionConfig'] = None):
         if kms_encryption_config is not None:
             pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)
@@ -1032,7 +1032,7 @@ class DeliveryStreamEncryptionConfiguration(dict):
 
     @property
     @pulumi.getter(name="kmsEncryptionConfig")
-    def kms_encryption_config(self) -> Optional['outputs.DeliveryStreamKMSEncryptionConfig']:
+    def kms_encryption_config(self) -> Optional['outputs.DeliveryStreamKmsEncryptionConfig']:
         return pulumi.get(self, "kms_encryption_config")
 
     @property
@@ -1501,35 +1501,6 @@ class DeliveryStreamInputFormatConfiguration(dict):
 
 
 @pulumi.output_type
-class DeliveryStreamKMSEncryptionConfig(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "awskmsKeyArn":
-            suggest = "awskms_key_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamKMSEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeliveryStreamKMSEncryptionConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeliveryStreamKMSEncryptionConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 awskms_key_arn: str):
-        pulumi.set(__self__, "awskms_key_arn", awskms_key_arn)
-
-    @property
-    @pulumi.getter(name="awskmsKeyArn")
-    def awskms_key_arn(self) -> str:
-        return pulumi.get(self, "awskms_key_arn")
-
-
-@pulumi.output_type
 class DeliveryStreamKinesisStreamSourceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1565,6 +1536,35 @@ class DeliveryStreamKinesisStreamSourceConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class DeliveryStreamKmsEncryptionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awskmsKeyArn":
+            suggest = "awskms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamKmsEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamKmsEncryptionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamKmsEncryptionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 awskms_key_arn: str):
+        pulumi.set(__self__, "awskms_key_arn", awskms_key_arn)
+
+    @property
+    @pulumi.getter(name="awskmsKeyArn")
+    def awskms_key_arn(self) -> str:
+        return pulumi.get(self, "awskms_key_arn")
 
 
 @pulumi.output_type
@@ -2336,7 +2336,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
 
     def __init__(__self__, *,
                  hec_endpoint: str,
-                 hec_endpoint_type: 'DeliveryStreamSplunkDestinationConfigurationHECEndpointType',
+                 hec_endpoint_type: 'DeliveryStreamSplunkDestinationConfigurationHecEndpointType',
                  hec_token: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
@@ -2366,7 +2366,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
 
     @property
     @pulumi.getter(name="hecEndpointType")
-    def hec_endpoint_type(self) -> 'DeliveryStreamSplunkDestinationConfigurationHECEndpointType':
+    def hec_endpoint_type(self) -> 'DeliveryStreamSplunkDestinationConfigurationHecEndpointType':
         return pulumi.get(self, "hec_endpoint_type")
 
     @property

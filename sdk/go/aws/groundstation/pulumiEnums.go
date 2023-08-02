@@ -178,7 +178,7 @@ func (in *configBandwidthUnitsPtr) ToConfigBandwidthUnitsPtrOutputWithContext(ct
 type ConfigEirpUnits string
 
 const (
-	ConfigEirpUnitsDBW = ConfigEirpUnits("dBW")
+	ConfigEirpUnitsDbw = ConfigEirpUnits("dBW")
 )
 
 func (ConfigEirpUnits) ElementType() reflect.Type {

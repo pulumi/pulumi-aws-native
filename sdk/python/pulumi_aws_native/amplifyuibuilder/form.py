@@ -24,7 +24,7 @@ class FormArgs:
                  sectional_elements: pulumi.Input['FormSectionalElementMapArgs'],
                  style: pulumi.Input['FormStyleArgs'],
                  app_id: Optional[pulumi.Input[str]] = None,
-                 cta: Optional[pulumi.Input['FormCTAArgs']] = None,
+                 cta: Optional[pulumi.Input['FormCtaArgs']] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -116,11 +116,11 @@ class FormArgs:
 
     @property
     @pulumi.getter
-    def cta(self) -> Optional[pulumi.Input['FormCTAArgs']]:
+    def cta(self) -> Optional[pulumi.Input['FormCtaArgs']]:
         return pulumi.get(self, "cta")
 
     @cta.setter
-    def cta(self, value: Optional[pulumi.Input['FormCTAArgs']]):
+    def cta(self, value: Optional[pulumi.Input['FormCtaArgs']]):
         pulumi.set(self, "cta", value)
 
     @property
@@ -166,7 +166,7 @@ class Form(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 cta: Optional[pulumi.Input[pulumi.InputType['FormCTAArgs']]] = None,
+                 cta: Optional[pulumi.Input[pulumi.InputType['FormCtaArgs']]] = None,
                  data_type: Optional[pulumi.Input[pulumi.InputType['FormDataTypeConfigArgs']]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  fields: Optional[pulumi.Input[pulumi.InputType['FormFieldsMapArgs']]] = None,
@@ -209,7 +209,7 @@ class Form(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 cta: Optional[pulumi.Input[pulumi.InputType['FormCTAArgs']]] = None,
+                 cta: Optional[pulumi.Input[pulumi.InputType['FormCtaArgs']]] = None,
                  data_type: Optional[pulumi.Input[pulumi.InputType['FormDataTypeConfigArgs']]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  fields: Optional[pulumi.Input[pulumi.InputType['FormFieldsMapArgs']]] = None,
@@ -296,7 +296,7 @@ class Form(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cta(self) -> pulumi.Output[Optional['outputs.FormCTA']]:
+    def cta(self) -> pulumi.Output[Optional['outputs.FormCta']]:
         return pulumi.get(self, "cta")
 
     @property

@@ -14,140 +14,140 @@ import (
 var _ = internal.GetEnvOrDefault
 
 // An FMS includeMap or excludeMap.
-type PolicyIEMap struct {
+type PolicyIeMap struct {
 	Account []string `pulumi:"account"`
 	Orgunit []string `pulumi:"orgunit"`
 }
 
-// PolicyIEMapInput is an input type that accepts PolicyIEMap and PolicyIEMapOutput values.
-// You can construct a concrete instance of `PolicyIEMapInput` via:
+// PolicyIeMapInput is an input type that accepts PolicyIeMap and PolicyIeMapOutput values.
+// You can construct a concrete instance of `PolicyIeMapInput` via:
 //
-//	PolicyIEMap{ "key": PolicyIEArgs{...} }
-type PolicyIEMapInput interface {
+//	PolicyIeMap{ "key": PolicyIeArgs{...} }
+type PolicyIeMapInput interface {
 	pulumi.Input
 
-	ToPolicyIEMapOutput() PolicyIEMapOutput
-	ToPolicyIEMapOutputWithContext(context.Context) PolicyIEMapOutput
+	ToPolicyIeMapOutput() PolicyIeMapOutput
+	ToPolicyIeMapOutputWithContext(context.Context) PolicyIeMapOutput
 }
 
 // An FMS includeMap or excludeMap.
-type PolicyIEMapArgs struct {
+type PolicyIeMapArgs struct {
 	Account pulumi.StringArrayInput `pulumi:"account"`
 	Orgunit pulumi.StringArrayInput `pulumi:"orgunit"`
 }
 
-func (PolicyIEMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyIEMap)(nil)).Elem()
+func (PolicyIeMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyIeMap)(nil)).Elem()
 }
 
-func (i PolicyIEMapArgs) ToPolicyIEMapOutput() PolicyIEMapOutput {
-	return i.ToPolicyIEMapOutputWithContext(context.Background())
+func (i PolicyIeMapArgs) ToPolicyIeMapOutput() PolicyIeMapOutput {
+	return i.ToPolicyIeMapOutputWithContext(context.Background())
 }
 
-func (i PolicyIEMapArgs) ToPolicyIEMapOutputWithContext(ctx context.Context) PolicyIEMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyIEMapOutput)
+func (i PolicyIeMapArgs) ToPolicyIeMapOutputWithContext(ctx context.Context) PolicyIeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyIeMapOutput)
 }
 
-func (i PolicyIEMapArgs) ToPolicyIEMapPtrOutput() PolicyIEMapPtrOutput {
-	return i.ToPolicyIEMapPtrOutputWithContext(context.Background())
+func (i PolicyIeMapArgs) ToPolicyIeMapPtrOutput() PolicyIeMapPtrOutput {
+	return i.ToPolicyIeMapPtrOutputWithContext(context.Background())
 }
 
-func (i PolicyIEMapArgs) ToPolicyIEMapPtrOutputWithContext(ctx context.Context) PolicyIEMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyIEMapOutput).ToPolicyIEMapPtrOutputWithContext(ctx)
+func (i PolicyIeMapArgs) ToPolicyIeMapPtrOutputWithContext(ctx context.Context) PolicyIeMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyIeMapOutput).ToPolicyIeMapPtrOutputWithContext(ctx)
 }
 
-// PolicyIEMapPtrInput is an input type that accepts PolicyIEMapArgs, PolicyIEMapPtr and PolicyIEMapPtrOutput values.
-// You can construct a concrete instance of `PolicyIEMapPtrInput` via:
+// PolicyIeMapPtrInput is an input type that accepts PolicyIeMapArgs, PolicyIeMapPtr and PolicyIeMapPtrOutput values.
+// You can construct a concrete instance of `PolicyIeMapPtrInput` via:
 //
-//	        PolicyIEMapArgs{...}
+//	        PolicyIeMapArgs{...}
 //
 //	or:
 //
 //	        nil
-type PolicyIEMapPtrInput interface {
+type PolicyIeMapPtrInput interface {
 	pulumi.Input
 
-	ToPolicyIEMapPtrOutput() PolicyIEMapPtrOutput
-	ToPolicyIEMapPtrOutputWithContext(context.Context) PolicyIEMapPtrOutput
+	ToPolicyIeMapPtrOutput() PolicyIeMapPtrOutput
+	ToPolicyIeMapPtrOutputWithContext(context.Context) PolicyIeMapPtrOutput
 }
 
-type policyIEMapPtrType PolicyIEMapArgs
+type policyIeMapPtrType PolicyIeMapArgs
 
-func PolicyIEMapPtr(v *PolicyIEMapArgs) PolicyIEMapPtrInput {
-	return (*policyIEMapPtrType)(v)
+func PolicyIeMapPtr(v *PolicyIeMapArgs) PolicyIeMapPtrInput {
+	return (*policyIeMapPtrType)(v)
 }
 
-func (*policyIEMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyIEMap)(nil)).Elem()
+func (*policyIeMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyIeMap)(nil)).Elem()
 }
 
-func (i *policyIEMapPtrType) ToPolicyIEMapPtrOutput() PolicyIEMapPtrOutput {
-	return i.ToPolicyIEMapPtrOutputWithContext(context.Background())
+func (i *policyIeMapPtrType) ToPolicyIeMapPtrOutput() PolicyIeMapPtrOutput {
+	return i.ToPolicyIeMapPtrOutputWithContext(context.Background())
 }
 
-func (i *policyIEMapPtrType) ToPolicyIEMapPtrOutputWithContext(ctx context.Context) PolicyIEMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyIEMapPtrOutput)
+func (i *policyIeMapPtrType) ToPolicyIeMapPtrOutputWithContext(ctx context.Context) PolicyIeMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyIeMapPtrOutput)
 }
 
 // An FMS includeMap or excludeMap.
-type PolicyIEMapOutput struct{ *pulumi.OutputState }
+type PolicyIeMapOutput struct{ *pulumi.OutputState }
 
-func (PolicyIEMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyIEMap)(nil)).Elem()
+func (PolicyIeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyIeMap)(nil)).Elem()
 }
 
-func (o PolicyIEMapOutput) ToPolicyIEMapOutput() PolicyIEMapOutput {
+func (o PolicyIeMapOutput) ToPolicyIeMapOutput() PolicyIeMapOutput {
 	return o
 }
 
-func (o PolicyIEMapOutput) ToPolicyIEMapOutputWithContext(ctx context.Context) PolicyIEMapOutput {
+func (o PolicyIeMapOutput) ToPolicyIeMapOutputWithContext(ctx context.Context) PolicyIeMapOutput {
 	return o
 }
 
-func (o PolicyIEMapOutput) ToPolicyIEMapPtrOutput() PolicyIEMapPtrOutput {
-	return o.ToPolicyIEMapPtrOutputWithContext(context.Background())
+func (o PolicyIeMapOutput) ToPolicyIeMapPtrOutput() PolicyIeMapPtrOutput {
+	return o.ToPolicyIeMapPtrOutputWithContext(context.Background())
 }
 
-func (o PolicyIEMapOutput) ToPolicyIEMapPtrOutputWithContext(ctx context.Context) PolicyIEMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyIEMap) *PolicyIEMap {
+func (o PolicyIeMapOutput) ToPolicyIeMapPtrOutputWithContext(ctx context.Context) PolicyIeMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyIeMap) *PolicyIeMap {
 		return &v
-	}).(PolicyIEMapPtrOutput)
+	}).(PolicyIeMapPtrOutput)
 }
 
-func (o PolicyIEMapOutput) Account() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PolicyIEMap) []string { return v.Account }).(pulumi.StringArrayOutput)
+func (o PolicyIeMapOutput) Account() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyIeMap) []string { return v.Account }).(pulumi.StringArrayOutput)
 }
 
-func (o PolicyIEMapOutput) Orgunit() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PolicyIEMap) []string { return v.Orgunit }).(pulumi.StringArrayOutput)
+func (o PolicyIeMapOutput) Orgunit() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyIeMap) []string { return v.Orgunit }).(pulumi.StringArrayOutput)
 }
 
-type PolicyIEMapPtrOutput struct{ *pulumi.OutputState }
+type PolicyIeMapPtrOutput struct{ *pulumi.OutputState }
 
-func (PolicyIEMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyIEMap)(nil)).Elem()
+func (PolicyIeMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyIeMap)(nil)).Elem()
 }
 
-func (o PolicyIEMapPtrOutput) ToPolicyIEMapPtrOutput() PolicyIEMapPtrOutput {
+func (o PolicyIeMapPtrOutput) ToPolicyIeMapPtrOutput() PolicyIeMapPtrOutput {
 	return o
 }
 
-func (o PolicyIEMapPtrOutput) ToPolicyIEMapPtrOutputWithContext(ctx context.Context) PolicyIEMapPtrOutput {
+func (o PolicyIeMapPtrOutput) ToPolicyIeMapPtrOutputWithContext(ctx context.Context) PolicyIeMapPtrOutput {
 	return o
 }
 
-func (o PolicyIEMapPtrOutput) Elem() PolicyIEMapOutput {
-	return o.ApplyT(func(v *PolicyIEMap) PolicyIEMap {
+func (o PolicyIeMapPtrOutput) Elem() PolicyIeMapOutput {
+	return o.ApplyT(func(v *PolicyIeMap) PolicyIeMap {
 		if v != nil {
 			return *v
 		}
-		var ret PolicyIEMap
+		var ret PolicyIeMap
 		return ret
-	}).(PolicyIEMapOutput)
+	}).(PolicyIeMapOutput)
 }
 
-func (o PolicyIEMapPtrOutput) Account() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PolicyIEMap) []string {
+func (o PolicyIeMapPtrOutput) Account() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyIeMap) []string {
 		if v == nil {
 			return nil
 		}
@@ -155,8 +155,8 @@ func (o PolicyIEMapPtrOutput) Account() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o PolicyIEMapPtrOutput) Orgunit() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PolicyIEMap) []string {
+func (o PolicyIeMapPtrOutput) Orgunit() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyIeMap) []string {
 		if v == nil {
 			return nil
 		}
@@ -1012,8 +1012,8 @@ func (o ResourceSetTagArrayOutput) Index(i pulumi.IntInput) ResourceSetTagOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIEMapInput)(nil)).Elem(), PolicyIEMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIEMapPtrInput)(nil)).Elem(), PolicyIEMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIeMapInput)(nil)).Elem(), PolicyIeMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIeMapPtrInput)(nil)).Elem(), PolicyIeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyNetworkFirewallPolicyInput)(nil)).Elem(), PolicyNetworkFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyNetworkFirewallPolicyPtrInput)(nil)).Elem(), PolicyNetworkFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyOptionInput)(nil)).Elem(), PolicyOptionArgs{})
@@ -1027,8 +1027,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyThirdPartyFirewallPolicyPtrInput)(nil)).Elem(), PolicyThirdPartyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTagInput)(nil)).Elem(), ResourceSetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTagArrayInput)(nil)).Elem(), ResourceSetTagArray{})
-	pulumi.RegisterOutputType(PolicyIEMapOutput{})
-	pulumi.RegisterOutputType(PolicyIEMapPtrOutput{})
+	pulumi.RegisterOutputType(PolicyIeMapOutput{})
+	pulumi.RegisterOutputType(PolicyIeMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicyNetworkFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(PolicyNetworkFirewallPolicyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyOptionOutput{})

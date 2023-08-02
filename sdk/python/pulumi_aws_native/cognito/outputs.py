@@ -20,7 +20,7 @@ __all__ = [
     'UserPoolClientAnalyticsConfiguration',
     'UserPoolClientTokenValidityUnits',
     'UserPoolCustomEmailSender',
-    'UserPoolCustomSMSSender',
+    'UserPoolCustomSmsSender',
     'UserPoolDeviceConfiguration',
     'UserPoolDomainCustomDomainConfigType',
     'UserPoolEmailConfiguration',
@@ -459,7 +459,7 @@ class UserPoolCustomEmailSender(dict):
 
 
 @pulumi.output_type
-class UserPoolCustomSMSSender(dict):
+class UserPoolCustomSmsSender(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -469,14 +469,14 @@ class UserPoolCustomSMSSender(dict):
             suggest = "lambda_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserPoolCustomSMSSender. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolCustomSmsSender. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        UserPoolCustomSMSSender.__key_warning(key)
+        UserPoolCustomSmsSender.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        UserPoolCustomSMSSender.__key_warning(key)
+        UserPoolCustomSmsSender.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -735,7 +735,7 @@ class UserPoolLambdaConfig(dict):
                  create_auth_challenge: Optional[str] = None,
                  custom_email_sender: Optional['outputs.UserPoolCustomEmailSender'] = None,
                  custom_message: Optional[str] = None,
-                 custom_sms_sender: Optional['outputs.UserPoolCustomSMSSender'] = None,
+                 custom_sms_sender: Optional['outputs.UserPoolCustomSmsSender'] = None,
                  define_auth_challenge: Optional[str] = None,
                  kms_key_id: Optional[str] = None,
                  post_authentication: Optional[str] = None,
@@ -789,7 +789,7 @@ class UserPoolLambdaConfig(dict):
 
     @property
     @pulumi.getter(name="customSmsSender")
-    def custom_sms_sender(self) -> Optional['outputs.UserPoolCustomSMSSender']:
+    def custom_sms_sender(self) -> Optional['outputs.UserPoolCustomSmsSender']:
         return pulumi.get(self, "custom_sms_sender")
 
     @property

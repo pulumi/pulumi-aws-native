@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<Inputs.BotPlainTextMessageArgs>? PlainTextMessage { get; set; }
 
         [Input("ssmlMessage")]
-        public Input<Inputs.BotSSMLMessageArgs>? SsmlMessage { get; set; }
+        public Input<Inputs.BotSsmlMessageArgs>? SsmlMessage { get; set; }
 
         public BotMessageArgs()
         {

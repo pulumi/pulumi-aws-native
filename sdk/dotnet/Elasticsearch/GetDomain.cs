@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public readonly string? DomainArn;
         public readonly string? DomainEndpoint;
         public readonly Outputs.DomainEndpointOptions? DomainEndpointOptions;
-        public readonly Outputs.DomainEBSOptions? EbsOptions;
+        public readonly Outputs.DomainEbsOptions? EbsOptions;
         public readonly Outputs.DomainElasticsearchClusterConfig? ElasticsearchClusterConfig;
         public readonly string? ElasticsearchVersion;
         public readonly Outputs.DomainEncryptionAtRestOptions? EncryptionAtRestOptions;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public readonly Outputs.DomainNodeToNodeEncryptionOptions? NodeToNodeEncryptionOptions;
         public readonly Outputs.DomainSnapshotOptions? SnapshotOptions;
         public readonly ImmutableArray<Outputs.DomainTag> Tags;
-        public readonly Outputs.DomainVPCOptions? VpcOptions;
+        public readonly Outputs.DomainVpcOptions? VpcOptions;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Elasticsearch
 
             Outputs.DomainEndpointOptions? domainEndpointOptions,
 
-            Outputs.DomainEBSOptions? ebsOptions,
+            Outputs.DomainEbsOptions? ebsOptions,
 
             Outputs.DomainElasticsearchClusterConfig? elasticsearchClusterConfig,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Elasticsearch
 
             ImmutableArray<Outputs.DomainTag> tags,
 
-            Outputs.DomainVPCOptions? vpcOptions)
+            Outputs.DomainVpcOptions? vpcOptions)
         {
             AccessPolicies = accessPolicies;
             AdvancedOptions = advancedOptions;

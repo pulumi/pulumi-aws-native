@@ -113,7 +113,7 @@ export const ResolverConfigAutodefinedReverseFlag = {
  */
 export type ResolverConfigAutodefinedReverseFlag = (typeof ResolverConfigAutodefinedReverseFlag)[keyof typeof ResolverConfigAutodefinedReverseFlag];
 
-export const ResolverDNSSECConfigValidationStatus = {
+export const ResolverDnssecConfigValidationStatus = {
     Enabling: "ENABLING",
     Enabled: "ENABLED",
     Disabling: "DISABLING",
@@ -123,7 +123,7 @@ export const ResolverDNSSECConfigValidationStatus = {
 /**
  * ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
  */
-export type ResolverDNSSECConfigValidationStatus = (typeof ResolverDNSSECConfigValidationStatus)[keyof typeof ResolverDNSSECConfigValidationStatus];
+export type ResolverDnssecConfigValidationStatus = (typeof ResolverDnssecConfigValidationStatus)[keyof typeof ResolverDnssecConfigValidationStatus];
 
 export const ResolverQueryLoggingConfigAssociationError = {
     None: "NONE",

@@ -18,11 +18,11 @@ __all__ = ['CampaignArgs', 'Campaign']
 class CampaignArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['CampaignUpdateCampaignAction'],
-                 collection_scheme: pulumi.Input[Union['CollectionScheme0PropertiesArgs', 'CollectionScheme1PropertiesArgs']],
+                 collection_scheme: pulumi.Input[Union['CampaignCollectionScheme0PropertiesArgs', 'CampaignCollectionScheme1PropertiesArgs']],
                  signal_catalog_arn: pulumi.Input[str],
                  target_arn: pulumi.Input[str],
                  compression: Optional[pulumi.Input['CampaignCompression']] = None,
-                 data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDestinationConfig0PropertiesArgs', 'DataDestinationConfig1PropertiesArgs']]]]] = None,
+                 data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CampaignDataDestinationConfig0PropertiesArgs', 'CampaignDataDestinationConfig1PropertiesArgs']]]]] = None,
                  data_extra_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics_mode: Optional[pulumi.Input['CampaignDiagnosticsMode']] = None,
@@ -79,11 +79,11 @@ class CampaignArgs:
 
     @property
     @pulumi.getter(name="collectionScheme")
-    def collection_scheme(self) -> pulumi.Input[Union['CollectionScheme0PropertiesArgs', 'CollectionScheme1PropertiesArgs']]:
+    def collection_scheme(self) -> pulumi.Input[Union['CampaignCollectionScheme0PropertiesArgs', 'CampaignCollectionScheme1PropertiesArgs']]:
         return pulumi.get(self, "collection_scheme")
 
     @collection_scheme.setter
-    def collection_scheme(self, value: pulumi.Input[Union['CollectionScheme0PropertiesArgs', 'CollectionScheme1PropertiesArgs']]):
+    def collection_scheme(self, value: pulumi.Input[Union['CampaignCollectionScheme0PropertiesArgs', 'CampaignCollectionScheme1PropertiesArgs']]):
         pulumi.set(self, "collection_scheme", value)
 
     @property
@@ -115,11 +115,11 @@ class CampaignArgs:
 
     @property
     @pulumi.getter(name="dataDestinationConfigs")
-    def data_destination_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDestinationConfig0PropertiesArgs', 'DataDestinationConfig1PropertiesArgs']]]]]:
+    def data_destination_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['CampaignDataDestinationConfig0PropertiesArgs', 'CampaignDataDestinationConfig1PropertiesArgs']]]]]:
         return pulumi.get(self, "data_destination_configs")
 
     @data_destination_configs.setter
-    def data_destination_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDestinationConfig0PropertiesArgs', 'DataDestinationConfig1PropertiesArgs']]]]]):
+    def data_destination_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CampaignDataDestinationConfig0PropertiesArgs', 'CampaignDataDestinationConfig1PropertiesArgs']]]]]):
         pulumi.set(self, "data_destination_configs", value)
 
     @property
@@ -233,9 +233,9 @@ class Campaign(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input['CampaignUpdateCampaignAction']] = None,
-                 collection_scheme: Optional[pulumi.Input[Union[pulumi.InputType['CollectionScheme0PropertiesArgs'], pulumi.InputType['CollectionScheme1PropertiesArgs']]]] = None,
+                 collection_scheme: Optional[pulumi.Input[Union[pulumi.InputType['CampaignCollectionScheme0PropertiesArgs'], pulumi.InputType['CampaignCollectionScheme1PropertiesArgs']]]] = None,
                  compression: Optional[pulumi.Input['CampaignCompression']] = None,
-                 data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DataDestinationConfig0PropertiesArgs'], pulumi.InputType['DataDestinationConfig1PropertiesArgs']]]]]] = None,
+                 data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CampaignDataDestinationConfig0PropertiesArgs'], pulumi.InputType['CampaignDataDestinationConfig1PropertiesArgs']]]]]] = None,
                  data_extra_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics_mode: Optional[pulumi.Input['CampaignDiagnosticsMode']] = None,
@@ -281,9 +281,9 @@ class Campaign(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input['CampaignUpdateCampaignAction']] = None,
-                 collection_scheme: Optional[pulumi.Input[Union[pulumi.InputType['CollectionScheme0PropertiesArgs'], pulumi.InputType['CollectionScheme1PropertiesArgs']]]] = None,
+                 collection_scheme: Optional[pulumi.Input[Union[pulumi.InputType['CampaignCollectionScheme0PropertiesArgs'], pulumi.InputType['CampaignCollectionScheme1PropertiesArgs']]]] = None,
                  compression: Optional[pulumi.Input['CampaignCompression']] = None,
-                 data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DataDestinationConfig0PropertiesArgs'], pulumi.InputType['DataDestinationConfig1PropertiesArgs']]]]]] = None,
+                 data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CampaignDataDestinationConfig0PropertiesArgs'], pulumi.InputType['CampaignDataDestinationConfig1PropertiesArgs']]]]]] = None,
                  data_extra_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics_mode: Optional[pulumi.Input['CampaignDiagnosticsMode']] = None,

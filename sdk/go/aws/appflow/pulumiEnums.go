@@ -353,7 +353,7 @@ const (
 	ConnectorProfileConnectorTypeGoogleanalytics = ConnectorProfileConnectorType("Googleanalytics")
 	ConnectorProfileConnectorTypeZendesk         = ConnectorProfileConnectorType("Zendesk")
 	ConnectorProfileConnectorTypeServicenow      = ConnectorProfileConnectorType("Servicenow")
-	ConnectorProfileConnectorTypeSAPOData        = ConnectorProfileConnectorType("SAPOData")
+	ConnectorProfileConnectorTypeSapoData        = ConnectorProfileConnectorType("SAPOData")
 	ConnectorProfileConnectorTypeDatadog         = ConnectorProfileConnectorType("Datadog")
 	ConnectorProfileConnectorTypeTrendmicro      = ConnectorProfileConnectorType("Trendmicro")
 	ConnectorProfileConnectorTypeSnowflake       = ConnectorProfileConnectorType("Snowflake")
@@ -1016,7 +1016,7 @@ func (in *flowAmplitudeConnectorOperatorPtr) ToFlowAmplitudeConnectorOperatorPtr
 type FlowConnectorType string
 
 const (
-	FlowConnectorTypeSAPOData        = FlowConnectorType("SAPOData")
+	FlowConnectorTypeSapoData        = FlowConnectorType("SAPOData")
 	FlowConnectorTypeSalesforce      = FlowConnectorType("Salesforce")
 	FlowConnectorTypePardot          = FlowConnectorType("Pardot")
 	FlowConnectorTypeSingular        = FlowConnectorType("Singular")
@@ -3990,189 +3990,6 @@ func (in *flowS3InputFormatConfigS3InputFileTypePtr) ToFlowS3InputFormatConfigS3
 	return pulumi.ToOutputWithContext(ctx, in).(FlowS3InputFormatConfigS3InputFileTypePtrOutput)
 }
 
-type FlowSAPODataConnectorOperator string
-
-const (
-	FlowSAPODataConnectorOperatorProjection           = FlowSAPODataConnectorOperator("PROJECTION")
-	FlowSAPODataConnectorOperatorLessThan             = FlowSAPODataConnectorOperator("LESS_THAN")
-	FlowSAPODataConnectorOperatorContains             = FlowSAPODataConnectorOperator("CONTAINS")
-	FlowSAPODataConnectorOperatorGreaterThan          = FlowSAPODataConnectorOperator("GREATER_THAN")
-	FlowSAPODataConnectorOperatorBetween              = FlowSAPODataConnectorOperator("BETWEEN")
-	FlowSAPODataConnectorOperatorLessThanOrEqualTo    = FlowSAPODataConnectorOperator("LESS_THAN_OR_EQUAL_TO")
-	FlowSAPODataConnectorOperatorGreaterThanOrEqualTo = FlowSAPODataConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
-	FlowSAPODataConnectorOperatorEqualTo              = FlowSAPODataConnectorOperator("EQUAL_TO")
-	FlowSAPODataConnectorOperatorNotEqualTo           = FlowSAPODataConnectorOperator("NOT_EQUAL_TO")
-	FlowSAPODataConnectorOperatorAddition             = FlowSAPODataConnectorOperator("ADDITION")
-	FlowSAPODataConnectorOperatorMultiplication       = FlowSAPODataConnectorOperator("MULTIPLICATION")
-	FlowSAPODataConnectorOperatorDivision             = FlowSAPODataConnectorOperator("DIVISION")
-	FlowSAPODataConnectorOperatorSubtraction          = FlowSAPODataConnectorOperator("SUBTRACTION")
-	FlowSAPODataConnectorOperatorMaskAll              = FlowSAPODataConnectorOperator("MASK_ALL")
-	FlowSAPODataConnectorOperatorMaskFirstN           = FlowSAPODataConnectorOperator("MASK_FIRST_N")
-	FlowSAPODataConnectorOperatorMaskLastN            = FlowSAPODataConnectorOperator("MASK_LAST_N")
-	FlowSAPODataConnectorOperatorValidateNonNull      = FlowSAPODataConnectorOperator("VALIDATE_NON_NULL")
-	FlowSAPODataConnectorOperatorValidateNonZero      = FlowSAPODataConnectorOperator("VALIDATE_NON_ZERO")
-	FlowSAPODataConnectorOperatorValidateNonNegative  = FlowSAPODataConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowSAPODataConnectorOperatorValidateNumeric      = FlowSAPODataConnectorOperator("VALIDATE_NUMERIC")
-	FlowSAPODataConnectorOperatorNoOp                 = FlowSAPODataConnectorOperator("NO_OP")
-)
-
-func (FlowSAPODataConnectorOperator) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowSAPODataConnectorOperator)(nil)).Elem()
-}
-
-func (e FlowSAPODataConnectorOperator) ToFlowSAPODataConnectorOperatorOutput() FlowSAPODataConnectorOperatorOutput {
-	return pulumi.ToOutput(e).(FlowSAPODataConnectorOperatorOutput)
-}
-
-func (e FlowSAPODataConnectorOperator) ToFlowSAPODataConnectorOperatorOutputWithContext(ctx context.Context) FlowSAPODataConnectorOperatorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FlowSAPODataConnectorOperatorOutput)
-}
-
-func (e FlowSAPODataConnectorOperator) ToFlowSAPODataConnectorOperatorPtrOutput() FlowSAPODataConnectorOperatorPtrOutput {
-	return e.ToFlowSAPODataConnectorOperatorPtrOutputWithContext(context.Background())
-}
-
-func (e FlowSAPODataConnectorOperator) ToFlowSAPODataConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSAPODataConnectorOperatorPtrOutput {
-	return FlowSAPODataConnectorOperator(e).ToFlowSAPODataConnectorOperatorOutputWithContext(ctx).ToFlowSAPODataConnectorOperatorPtrOutputWithContext(ctx)
-}
-
-func (e FlowSAPODataConnectorOperator) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FlowSAPODataConnectorOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FlowSAPODataConnectorOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FlowSAPODataConnectorOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type FlowSAPODataConnectorOperatorOutput struct{ *pulumi.OutputState }
-
-func (FlowSAPODataConnectorOperatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowSAPODataConnectorOperator)(nil)).Elem()
-}
-
-func (o FlowSAPODataConnectorOperatorOutput) ToFlowSAPODataConnectorOperatorOutput() FlowSAPODataConnectorOperatorOutput {
-	return o
-}
-
-func (o FlowSAPODataConnectorOperatorOutput) ToFlowSAPODataConnectorOperatorOutputWithContext(ctx context.Context) FlowSAPODataConnectorOperatorOutput {
-	return o
-}
-
-func (o FlowSAPODataConnectorOperatorOutput) ToFlowSAPODataConnectorOperatorPtrOutput() FlowSAPODataConnectorOperatorPtrOutput {
-	return o.ToFlowSAPODataConnectorOperatorPtrOutputWithContext(context.Background())
-}
-
-func (o FlowSAPODataConnectorOperatorOutput) ToFlowSAPODataConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSAPODataConnectorOperatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSAPODataConnectorOperator) *FlowSAPODataConnectorOperator {
-		return &v
-	}).(FlowSAPODataConnectorOperatorPtrOutput)
-}
-
-func (o FlowSAPODataConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o FlowSAPODataConnectorOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSAPODataConnectorOperator) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o FlowSAPODataConnectorOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o FlowSAPODataConnectorOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSAPODataConnectorOperator) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type FlowSAPODataConnectorOperatorPtrOutput struct{ *pulumi.OutputState }
-
-func (FlowSAPODataConnectorOperatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowSAPODataConnectorOperator)(nil)).Elem()
-}
-
-func (o FlowSAPODataConnectorOperatorPtrOutput) ToFlowSAPODataConnectorOperatorPtrOutput() FlowSAPODataConnectorOperatorPtrOutput {
-	return o
-}
-
-func (o FlowSAPODataConnectorOperatorPtrOutput) ToFlowSAPODataConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSAPODataConnectorOperatorPtrOutput {
-	return o
-}
-
-func (o FlowSAPODataConnectorOperatorPtrOutput) Elem() FlowSAPODataConnectorOperatorOutput {
-	return o.ApplyT(func(v *FlowSAPODataConnectorOperator) FlowSAPODataConnectorOperator {
-		if v != nil {
-			return *v
-		}
-		var ret FlowSAPODataConnectorOperator
-		return ret
-	}).(FlowSAPODataConnectorOperatorOutput)
-}
-
-func (o FlowSAPODataConnectorOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o FlowSAPODataConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowSAPODataConnectorOperator) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// FlowSAPODataConnectorOperatorInput is an input type that accepts FlowSAPODataConnectorOperatorArgs and FlowSAPODataConnectorOperatorOutput values.
-// You can construct a concrete instance of `FlowSAPODataConnectorOperatorInput` via:
-//
-//	FlowSAPODataConnectorOperatorArgs{...}
-type FlowSAPODataConnectorOperatorInput interface {
-	pulumi.Input
-
-	ToFlowSAPODataConnectorOperatorOutput() FlowSAPODataConnectorOperatorOutput
-	ToFlowSAPODataConnectorOperatorOutputWithContext(context.Context) FlowSAPODataConnectorOperatorOutput
-}
-
-var flowSAPODataConnectorOperatorPtrType = reflect.TypeOf((**FlowSAPODataConnectorOperator)(nil)).Elem()
-
-type FlowSAPODataConnectorOperatorPtrInput interface {
-	pulumi.Input
-
-	ToFlowSAPODataConnectorOperatorPtrOutput() FlowSAPODataConnectorOperatorPtrOutput
-	ToFlowSAPODataConnectorOperatorPtrOutputWithContext(context.Context) FlowSAPODataConnectorOperatorPtrOutput
-}
-
-type flowSAPODataConnectorOperatorPtr string
-
-func FlowSAPODataConnectorOperatorPtr(v string) FlowSAPODataConnectorOperatorPtrInput {
-	return (*flowSAPODataConnectorOperatorPtr)(&v)
-}
-
-func (*flowSAPODataConnectorOperatorPtr) ElementType() reflect.Type {
-	return flowSAPODataConnectorOperatorPtrType
-}
-
-func (in *flowSAPODataConnectorOperatorPtr) ToFlowSAPODataConnectorOperatorPtrOutput() FlowSAPODataConnectorOperatorPtrOutput {
-	return pulumi.ToOutput(in).(FlowSAPODataConnectorOperatorPtrOutput)
-}
-
-func (in *flowSAPODataConnectorOperatorPtr) ToFlowSAPODataConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSAPODataConnectorOperatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FlowSAPODataConnectorOperatorPtrOutput)
-}
-
 type FlowSalesforceConnectorOperator string
 
 const (
@@ -4354,6 +4171,189 @@ func (in *flowSalesforceConnectorOperatorPtr) ToFlowSalesforceConnectorOperatorP
 
 func (in *flowSalesforceConnectorOperatorPtr) ToFlowSalesforceConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSalesforceConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSalesforceConnectorOperatorPtrOutput)
+}
+
+type FlowSapoDataConnectorOperator string
+
+const (
+	FlowSapoDataConnectorOperatorProjection           = FlowSapoDataConnectorOperator("PROJECTION")
+	FlowSapoDataConnectorOperatorLessThan             = FlowSapoDataConnectorOperator("LESS_THAN")
+	FlowSapoDataConnectorOperatorContains             = FlowSapoDataConnectorOperator("CONTAINS")
+	FlowSapoDataConnectorOperatorGreaterThan          = FlowSapoDataConnectorOperator("GREATER_THAN")
+	FlowSapoDataConnectorOperatorBetween              = FlowSapoDataConnectorOperator("BETWEEN")
+	FlowSapoDataConnectorOperatorLessThanOrEqualTo    = FlowSapoDataConnectorOperator("LESS_THAN_OR_EQUAL_TO")
+	FlowSapoDataConnectorOperatorGreaterThanOrEqualTo = FlowSapoDataConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
+	FlowSapoDataConnectorOperatorEqualTo              = FlowSapoDataConnectorOperator("EQUAL_TO")
+	FlowSapoDataConnectorOperatorNotEqualTo           = FlowSapoDataConnectorOperator("NOT_EQUAL_TO")
+	FlowSapoDataConnectorOperatorAddition             = FlowSapoDataConnectorOperator("ADDITION")
+	FlowSapoDataConnectorOperatorMultiplication       = FlowSapoDataConnectorOperator("MULTIPLICATION")
+	FlowSapoDataConnectorOperatorDivision             = FlowSapoDataConnectorOperator("DIVISION")
+	FlowSapoDataConnectorOperatorSubtraction          = FlowSapoDataConnectorOperator("SUBTRACTION")
+	FlowSapoDataConnectorOperatorMaskAll              = FlowSapoDataConnectorOperator("MASK_ALL")
+	FlowSapoDataConnectorOperatorMaskFirstN           = FlowSapoDataConnectorOperator("MASK_FIRST_N")
+	FlowSapoDataConnectorOperatorMaskLastN            = FlowSapoDataConnectorOperator("MASK_LAST_N")
+	FlowSapoDataConnectorOperatorValidateNonNull      = FlowSapoDataConnectorOperator("VALIDATE_NON_NULL")
+	FlowSapoDataConnectorOperatorValidateNonZero      = FlowSapoDataConnectorOperator("VALIDATE_NON_ZERO")
+	FlowSapoDataConnectorOperatorValidateNonNegative  = FlowSapoDataConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowSapoDataConnectorOperatorValidateNumeric      = FlowSapoDataConnectorOperator("VALIDATE_NUMERIC")
+	FlowSapoDataConnectorOperatorNoOp                 = FlowSapoDataConnectorOperator("NO_OP")
+)
+
+func (FlowSapoDataConnectorOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSapoDataConnectorOperator)(nil)).Elem()
+}
+
+func (e FlowSapoDataConnectorOperator) ToFlowSapoDataConnectorOperatorOutput() FlowSapoDataConnectorOperatorOutput {
+	return pulumi.ToOutput(e).(FlowSapoDataConnectorOperatorOutput)
+}
+
+func (e FlowSapoDataConnectorOperator) ToFlowSapoDataConnectorOperatorOutputWithContext(ctx context.Context) FlowSapoDataConnectorOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowSapoDataConnectorOperatorOutput)
+}
+
+func (e FlowSapoDataConnectorOperator) ToFlowSapoDataConnectorOperatorPtrOutput() FlowSapoDataConnectorOperatorPtrOutput {
+	return e.ToFlowSapoDataConnectorOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e FlowSapoDataConnectorOperator) ToFlowSapoDataConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSapoDataConnectorOperatorPtrOutput {
+	return FlowSapoDataConnectorOperator(e).ToFlowSapoDataConnectorOperatorOutputWithContext(ctx).ToFlowSapoDataConnectorOperatorPtrOutputWithContext(ctx)
+}
+
+func (e FlowSapoDataConnectorOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSapoDataConnectorOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSapoDataConnectorOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowSapoDataConnectorOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowSapoDataConnectorOperatorOutput struct{ *pulumi.OutputState }
+
+func (FlowSapoDataConnectorOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSapoDataConnectorOperator)(nil)).Elem()
+}
+
+func (o FlowSapoDataConnectorOperatorOutput) ToFlowSapoDataConnectorOperatorOutput() FlowSapoDataConnectorOperatorOutput {
+	return o
+}
+
+func (o FlowSapoDataConnectorOperatorOutput) ToFlowSapoDataConnectorOperatorOutputWithContext(ctx context.Context) FlowSapoDataConnectorOperatorOutput {
+	return o
+}
+
+func (o FlowSapoDataConnectorOperatorOutput) ToFlowSapoDataConnectorOperatorPtrOutput() FlowSapoDataConnectorOperatorPtrOutput {
+	return o.ToFlowSapoDataConnectorOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSapoDataConnectorOperatorOutput) ToFlowSapoDataConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSapoDataConnectorOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSapoDataConnectorOperator) *FlowSapoDataConnectorOperator {
+		return &v
+	}).(FlowSapoDataConnectorOperatorPtrOutput)
+}
+
+func (o FlowSapoDataConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowSapoDataConnectorOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSapoDataConnectorOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowSapoDataConnectorOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSapoDataConnectorOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSapoDataConnectorOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowSapoDataConnectorOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSapoDataConnectorOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSapoDataConnectorOperator)(nil)).Elem()
+}
+
+func (o FlowSapoDataConnectorOperatorPtrOutput) ToFlowSapoDataConnectorOperatorPtrOutput() FlowSapoDataConnectorOperatorPtrOutput {
+	return o
+}
+
+func (o FlowSapoDataConnectorOperatorPtrOutput) ToFlowSapoDataConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSapoDataConnectorOperatorPtrOutput {
+	return o
+}
+
+func (o FlowSapoDataConnectorOperatorPtrOutput) Elem() FlowSapoDataConnectorOperatorOutput {
+	return o.ApplyT(func(v *FlowSapoDataConnectorOperator) FlowSapoDataConnectorOperator {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSapoDataConnectorOperator
+		return ret
+	}).(FlowSapoDataConnectorOperatorOutput)
+}
+
+func (o FlowSapoDataConnectorOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSapoDataConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowSapoDataConnectorOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowSapoDataConnectorOperatorInput is an input type that accepts FlowSapoDataConnectorOperatorArgs and FlowSapoDataConnectorOperatorOutput values.
+// You can construct a concrete instance of `FlowSapoDataConnectorOperatorInput` via:
+//
+//	FlowSapoDataConnectorOperatorArgs{...}
+type FlowSapoDataConnectorOperatorInput interface {
+	pulumi.Input
+
+	ToFlowSapoDataConnectorOperatorOutput() FlowSapoDataConnectorOperatorOutput
+	ToFlowSapoDataConnectorOperatorOutputWithContext(context.Context) FlowSapoDataConnectorOperatorOutput
+}
+
+var flowSapoDataConnectorOperatorPtrType = reflect.TypeOf((**FlowSapoDataConnectorOperator)(nil)).Elem()
+
+type FlowSapoDataConnectorOperatorPtrInput interface {
+	pulumi.Input
+
+	ToFlowSapoDataConnectorOperatorPtrOutput() FlowSapoDataConnectorOperatorPtrOutput
+	ToFlowSapoDataConnectorOperatorPtrOutputWithContext(context.Context) FlowSapoDataConnectorOperatorPtrOutput
+}
+
+type flowSapoDataConnectorOperatorPtr string
+
+func FlowSapoDataConnectorOperatorPtr(v string) FlowSapoDataConnectorOperatorPtrInput {
+	return (*flowSapoDataConnectorOperatorPtr)(&v)
+}
+
+func (*flowSapoDataConnectorOperatorPtr) ElementType() reflect.Type {
+	return flowSapoDataConnectorOperatorPtrType
+}
+
+func (in *flowSapoDataConnectorOperatorPtr) ToFlowSapoDataConnectorOperatorPtrOutput() FlowSapoDataConnectorOperatorPtrOutput {
+	return pulumi.ToOutput(in).(FlowSapoDataConnectorOperatorPtrOutput)
+}
+
+func (in *flowSapoDataConnectorOperatorPtr) ToFlowSapoDataConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowSapoDataConnectorOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowSapoDataConnectorOperatorPtrOutput)
 }
 
 type FlowScheduledTriggerPropertiesDataPullMode string
@@ -6306,10 +6306,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3ConnectorOperatorPtrInput)(nil)).Elem(), FlowS3ConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3InputFormatConfigS3InputFileTypeInput)(nil)).Elem(), FlowS3InputFormatConfigS3InputFileType("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3InputFormatConfigS3InputFileTypePtrInput)(nil)).Elem(), FlowS3InputFormatConfigS3InputFileType("CSV"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowSAPODataConnectorOperatorInput)(nil)).Elem(), FlowSAPODataConnectorOperator("PROJECTION"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowSAPODataConnectorOperatorPtrInput)(nil)).Elem(), FlowSAPODataConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSalesforceConnectorOperatorInput)(nil)).Elem(), FlowSalesforceConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSalesforceConnectorOperatorPtrInput)(nil)).Elem(), FlowSalesforceConnectorOperator("PROJECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataConnectorOperatorInput)(nil)).Elem(), FlowSapoDataConnectorOperator("PROJECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataConnectorOperatorPtrInput)(nil)).Elem(), FlowSapoDataConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowScheduledTriggerPropertiesDataPullModeInput)(nil)).Elem(), FlowScheduledTriggerPropertiesDataPullMode("Incremental"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowScheduledTriggerPropertiesDataPullModePtrInput)(nil)).Elem(), FlowScheduledTriggerPropertiesDataPullMode("Incremental"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowServiceNowConnectorOperatorInput)(nil)).Elem(), FlowServiceNowConnectorOperator("PROJECTION"))
@@ -6379,10 +6379,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowS3ConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowS3InputFormatConfigS3InputFileTypeOutput{})
 	pulumi.RegisterOutputType(FlowS3InputFormatConfigS3InputFileTypePtrOutput{})
-	pulumi.RegisterOutputType(FlowSAPODataConnectorOperatorOutput{})
-	pulumi.RegisterOutputType(FlowSAPODataConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowSalesforceConnectorOperatorOutput{})
 	pulumi.RegisterOutputType(FlowSalesforceConnectorOperatorPtrOutput{})
+	pulumi.RegisterOutputType(FlowSapoDataConnectorOperatorOutput{})
+	pulumi.RegisterOutputType(FlowSapoDataConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowScheduledTriggerPropertiesDataPullModeOutput{})
 	pulumi.RegisterOutputType(FlowScheduledTriggerPropertiesDataPullModePtrOutput{})
 	pulumi.RegisterOutputType(FlowServiceNowConnectorOperatorOutput{})

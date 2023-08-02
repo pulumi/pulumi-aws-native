@@ -1363,138 +1363,138 @@ func (o UserPoolCustomEmailSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-type UserPoolCustomSMSSender struct {
+type UserPoolCustomSmsSender struct {
 	LambdaArn     *string `pulumi:"lambdaArn"`
 	LambdaVersion *string `pulumi:"lambdaVersion"`
 }
 
-// UserPoolCustomSMSSenderInput is an input type that accepts UserPoolCustomSMSSenderArgs and UserPoolCustomSMSSenderOutput values.
-// You can construct a concrete instance of `UserPoolCustomSMSSenderInput` via:
+// UserPoolCustomSmsSenderInput is an input type that accepts UserPoolCustomSmsSenderArgs and UserPoolCustomSmsSenderOutput values.
+// You can construct a concrete instance of `UserPoolCustomSmsSenderInput` via:
 //
-//	UserPoolCustomSMSSenderArgs{...}
-type UserPoolCustomSMSSenderInput interface {
+//	UserPoolCustomSmsSenderArgs{...}
+type UserPoolCustomSmsSenderInput interface {
 	pulumi.Input
 
-	ToUserPoolCustomSMSSenderOutput() UserPoolCustomSMSSenderOutput
-	ToUserPoolCustomSMSSenderOutputWithContext(context.Context) UserPoolCustomSMSSenderOutput
+	ToUserPoolCustomSmsSenderOutput() UserPoolCustomSmsSenderOutput
+	ToUserPoolCustomSmsSenderOutputWithContext(context.Context) UserPoolCustomSmsSenderOutput
 }
 
-type UserPoolCustomSMSSenderArgs struct {
+type UserPoolCustomSmsSenderArgs struct {
 	LambdaArn     pulumi.StringPtrInput `pulumi:"lambdaArn"`
 	LambdaVersion pulumi.StringPtrInput `pulumi:"lambdaVersion"`
 }
 
-func (UserPoolCustomSMSSenderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolCustomSMSSender)(nil)).Elem()
+func (UserPoolCustomSmsSenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolCustomSmsSender)(nil)).Elem()
 }
 
-func (i UserPoolCustomSMSSenderArgs) ToUserPoolCustomSMSSenderOutput() UserPoolCustomSMSSenderOutput {
-	return i.ToUserPoolCustomSMSSenderOutputWithContext(context.Background())
+func (i UserPoolCustomSmsSenderArgs) ToUserPoolCustomSmsSenderOutput() UserPoolCustomSmsSenderOutput {
+	return i.ToUserPoolCustomSmsSenderOutputWithContext(context.Background())
 }
 
-func (i UserPoolCustomSMSSenderArgs) ToUserPoolCustomSMSSenderOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSMSSenderOutput)
+func (i UserPoolCustomSmsSenderArgs) ToUserPoolCustomSmsSenderOutputWithContext(ctx context.Context) UserPoolCustomSmsSenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSmsSenderOutput)
 }
 
-func (i UserPoolCustomSMSSenderArgs) ToUserPoolCustomSMSSenderPtrOutput() UserPoolCustomSMSSenderPtrOutput {
-	return i.ToUserPoolCustomSMSSenderPtrOutputWithContext(context.Background())
+func (i UserPoolCustomSmsSenderArgs) ToUserPoolCustomSmsSenderPtrOutput() UserPoolCustomSmsSenderPtrOutput {
+	return i.ToUserPoolCustomSmsSenderPtrOutputWithContext(context.Background())
 }
 
-func (i UserPoolCustomSMSSenderArgs) ToUserPoolCustomSMSSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSMSSenderOutput).ToUserPoolCustomSMSSenderPtrOutputWithContext(ctx)
+func (i UserPoolCustomSmsSenderArgs) ToUserPoolCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSmsSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSmsSenderOutput).ToUserPoolCustomSmsSenderPtrOutputWithContext(ctx)
 }
 
-// UserPoolCustomSMSSenderPtrInput is an input type that accepts UserPoolCustomSMSSenderArgs, UserPoolCustomSMSSenderPtr and UserPoolCustomSMSSenderPtrOutput values.
-// You can construct a concrete instance of `UserPoolCustomSMSSenderPtrInput` via:
+// UserPoolCustomSmsSenderPtrInput is an input type that accepts UserPoolCustomSmsSenderArgs, UserPoolCustomSmsSenderPtr and UserPoolCustomSmsSenderPtrOutput values.
+// You can construct a concrete instance of `UserPoolCustomSmsSenderPtrInput` via:
 //
-//	        UserPoolCustomSMSSenderArgs{...}
+//	        UserPoolCustomSmsSenderArgs{...}
 //
 //	or:
 //
 //	        nil
-type UserPoolCustomSMSSenderPtrInput interface {
+type UserPoolCustomSmsSenderPtrInput interface {
 	pulumi.Input
 
-	ToUserPoolCustomSMSSenderPtrOutput() UserPoolCustomSMSSenderPtrOutput
-	ToUserPoolCustomSMSSenderPtrOutputWithContext(context.Context) UserPoolCustomSMSSenderPtrOutput
+	ToUserPoolCustomSmsSenderPtrOutput() UserPoolCustomSmsSenderPtrOutput
+	ToUserPoolCustomSmsSenderPtrOutputWithContext(context.Context) UserPoolCustomSmsSenderPtrOutput
 }
 
-type userPoolCustomSMSSenderPtrType UserPoolCustomSMSSenderArgs
+type userPoolCustomSmsSenderPtrType UserPoolCustomSmsSenderArgs
 
-func UserPoolCustomSMSSenderPtr(v *UserPoolCustomSMSSenderArgs) UserPoolCustomSMSSenderPtrInput {
-	return (*userPoolCustomSMSSenderPtrType)(v)
+func UserPoolCustomSmsSenderPtr(v *UserPoolCustomSmsSenderArgs) UserPoolCustomSmsSenderPtrInput {
+	return (*userPoolCustomSmsSenderPtrType)(v)
 }
 
-func (*userPoolCustomSMSSenderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPoolCustomSMSSender)(nil)).Elem()
+func (*userPoolCustomSmsSenderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolCustomSmsSender)(nil)).Elem()
 }
 
-func (i *userPoolCustomSMSSenderPtrType) ToUserPoolCustomSMSSenderPtrOutput() UserPoolCustomSMSSenderPtrOutput {
-	return i.ToUserPoolCustomSMSSenderPtrOutputWithContext(context.Background())
+func (i *userPoolCustomSmsSenderPtrType) ToUserPoolCustomSmsSenderPtrOutput() UserPoolCustomSmsSenderPtrOutput {
+	return i.ToUserPoolCustomSmsSenderPtrOutputWithContext(context.Background())
 }
 
-func (i *userPoolCustomSMSSenderPtrType) ToUserPoolCustomSMSSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSMSSenderPtrOutput)
+func (i *userPoolCustomSmsSenderPtrType) ToUserPoolCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSmsSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSmsSenderPtrOutput)
 }
 
-type UserPoolCustomSMSSenderOutput struct{ *pulumi.OutputState }
+type UserPoolCustomSmsSenderOutput struct{ *pulumi.OutputState }
 
-func (UserPoolCustomSMSSenderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolCustomSMSSender)(nil)).Elem()
+func (UserPoolCustomSmsSenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolCustomSmsSender)(nil)).Elem()
 }
 
-func (o UserPoolCustomSMSSenderOutput) ToUserPoolCustomSMSSenderOutput() UserPoolCustomSMSSenderOutput {
+func (o UserPoolCustomSmsSenderOutput) ToUserPoolCustomSmsSenderOutput() UserPoolCustomSmsSenderOutput {
 	return o
 }
 
-func (o UserPoolCustomSMSSenderOutput) ToUserPoolCustomSMSSenderOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderOutput {
+func (o UserPoolCustomSmsSenderOutput) ToUserPoolCustomSmsSenderOutputWithContext(ctx context.Context) UserPoolCustomSmsSenderOutput {
 	return o
 }
 
-func (o UserPoolCustomSMSSenderOutput) ToUserPoolCustomSMSSenderPtrOutput() UserPoolCustomSMSSenderPtrOutput {
-	return o.ToUserPoolCustomSMSSenderPtrOutputWithContext(context.Background())
+func (o UserPoolCustomSmsSenderOutput) ToUserPoolCustomSmsSenderPtrOutput() UserPoolCustomSmsSenderPtrOutput {
+	return o.ToUserPoolCustomSmsSenderPtrOutputWithContext(context.Background())
 }
 
-func (o UserPoolCustomSMSSenderOutput) ToUserPoolCustomSMSSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolCustomSMSSender) *UserPoolCustomSMSSender {
+func (o UserPoolCustomSmsSenderOutput) ToUserPoolCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSmsSenderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolCustomSmsSender) *UserPoolCustomSmsSender {
 		return &v
-	}).(UserPoolCustomSMSSenderPtrOutput)
+	}).(UserPoolCustomSmsSenderPtrOutput)
 }
 
-func (o UserPoolCustomSMSSenderOutput) LambdaArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserPoolCustomSMSSender) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
+func (o UserPoolCustomSmsSenderOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolCustomSmsSender) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolCustomSMSSenderOutput) LambdaVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserPoolCustomSMSSender) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
+func (o UserPoolCustomSmsSenderOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolCustomSmsSender) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
 }
 
-type UserPoolCustomSMSSenderPtrOutput struct{ *pulumi.OutputState }
+type UserPoolCustomSmsSenderPtrOutput struct{ *pulumi.OutputState }
 
-func (UserPoolCustomSMSSenderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPoolCustomSMSSender)(nil)).Elem()
+func (UserPoolCustomSmsSenderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolCustomSmsSender)(nil)).Elem()
 }
 
-func (o UserPoolCustomSMSSenderPtrOutput) ToUserPoolCustomSMSSenderPtrOutput() UserPoolCustomSMSSenderPtrOutput {
+func (o UserPoolCustomSmsSenderPtrOutput) ToUserPoolCustomSmsSenderPtrOutput() UserPoolCustomSmsSenderPtrOutput {
 	return o
 }
 
-func (o UserPoolCustomSMSSenderPtrOutput) ToUserPoolCustomSMSSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderPtrOutput {
+func (o UserPoolCustomSmsSenderPtrOutput) ToUserPoolCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSmsSenderPtrOutput {
 	return o
 }
 
-func (o UserPoolCustomSMSSenderPtrOutput) Elem() UserPoolCustomSMSSenderOutput {
-	return o.ApplyT(func(v *UserPoolCustomSMSSender) UserPoolCustomSMSSender {
+func (o UserPoolCustomSmsSenderPtrOutput) Elem() UserPoolCustomSmsSenderOutput {
+	return o.ApplyT(func(v *UserPoolCustomSmsSender) UserPoolCustomSmsSender {
 		if v != nil {
 			return *v
 		}
-		var ret UserPoolCustomSMSSender
+		var ret UserPoolCustomSmsSender
 		return ret
-	}).(UserPoolCustomSMSSenderOutput)
+	}).(UserPoolCustomSmsSenderOutput)
 }
 
-func (o UserPoolCustomSMSSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserPoolCustomSMSSender) *string {
+func (o UserPoolCustomSmsSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolCustomSmsSender) *string {
 		if v == nil {
 			return nil
 		}
@@ -1502,8 +1502,8 @@ func (o UserPoolCustomSMSSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolCustomSMSSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserPoolCustomSMSSender) *string {
+func (o UserPoolCustomSmsSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolCustomSmsSender) *string {
 		if v == nil {
 			return nil
 		}
@@ -2152,7 +2152,7 @@ type UserPoolLambdaConfig struct {
 	CreateAuthChallenge         *string                    `pulumi:"createAuthChallenge"`
 	CustomEmailSender           *UserPoolCustomEmailSender `pulumi:"customEmailSender"`
 	CustomMessage               *string                    `pulumi:"customMessage"`
-	CustomSmsSender             *UserPoolCustomSMSSender   `pulumi:"customSmsSender"`
+	CustomSmsSender             *UserPoolCustomSmsSender   `pulumi:"customSmsSender"`
 	DefineAuthChallenge         *string                    `pulumi:"defineAuthChallenge"`
 	KmsKeyId                    *string                    `pulumi:"kmsKeyId"`
 	PostAuthentication          *string                    `pulumi:"postAuthentication"`
@@ -2179,7 +2179,7 @@ type UserPoolLambdaConfigArgs struct {
 	CreateAuthChallenge         pulumi.StringPtrInput             `pulumi:"createAuthChallenge"`
 	CustomEmailSender           UserPoolCustomEmailSenderPtrInput `pulumi:"customEmailSender"`
 	CustomMessage               pulumi.StringPtrInput             `pulumi:"customMessage"`
-	CustomSmsSender             UserPoolCustomSMSSenderPtrInput   `pulumi:"customSmsSender"`
+	CustomSmsSender             UserPoolCustomSmsSenderPtrInput   `pulumi:"customSmsSender"`
 	DefineAuthChallenge         pulumi.StringPtrInput             `pulumi:"defineAuthChallenge"`
 	KmsKeyId                    pulumi.StringPtrInput             `pulumi:"kmsKeyId"`
 	PostAuthentication          pulumi.StringPtrInput             `pulumi:"postAuthentication"`
@@ -2280,8 +2280,8 @@ func (o UserPoolLambdaConfigOutput) CustomMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.CustomMessage }).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolLambdaConfigOutput) CustomSmsSender() UserPoolCustomSMSSenderPtrOutput {
-	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolCustomSMSSender { return v.CustomSmsSender }).(UserPoolCustomSMSSenderPtrOutput)
+func (o UserPoolLambdaConfigOutput) CustomSmsSender() UserPoolCustomSmsSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolCustomSmsSender { return v.CustomSmsSender }).(UserPoolCustomSmsSenderPtrOutput)
 }
 
 func (o UserPoolLambdaConfigOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
@@ -2371,13 +2371,13 @@ func (o UserPoolLambdaConfigPtrOutput) CustomMessage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolLambdaConfigPtrOutput) CustomSmsSender() UserPoolCustomSMSSenderPtrOutput {
-	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolCustomSMSSender {
+func (o UserPoolLambdaConfigPtrOutput) CustomSmsSender() UserPoolCustomSmsSenderPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolCustomSmsSender {
 		if v == nil {
 			return nil
 		}
 		return v.CustomSmsSender
-	}).(UserPoolCustomSMSSenderPtrOutput)
+	}).(UserPoolCustomSmsSenderPtrOutput)
 }
 
 func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
@@ -5475,8 +5475,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientTokenValidityUnitsPtrInput)(nil)).Elem(), UserPoolClientTokenValidityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomEmailSenderInput)(nil)).Elem(), UserPoolCustomEmailSenderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomEmailSenderPtrInput)(nil)).Elem(), UserPoolCustomEmailSenderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomSMSSenderInput)(nil)).Elem(), UserPoolCustomSMSSenderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomSMSSenderPtrInput)(nil)).Elem(), UserPoolCustomSMSSenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomSmsSenderInput)(nil)).Elem(), UserPoolCustomSmsSenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomSmsSenderPtrInput)(nil)).Elem(), UserPoolCustomSmsSenderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDeviceConfigurationInput)(nil)).Elem(), UserPoolDeviceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDeviceConfigurationPtrInput)(nil)).Elem(), UserPoolDeviceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainCustomDomainConfigTypeInput)(nil)).Elem(), UserPoolDomainCustomDomainConfigTypeArgs{})
@@ -5545,8 +5545,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolCustomEmailSenderOutput{})
 	pulumi.RegisterOutputType(UserPoolCustomEmailSenderPtrOutput{})
-	pulumi.RegisterOutputType(UserPoolCustomSMSSenderOutput{})
-	pulumi.RegisterOutputType(UserPoolCustomSMSSenderPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolCustomSmsSenderOutput{})
+	pulumi.RegisterOutputType(UserPoolCustomSmsSenderPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDomainCustomDomainConfigTypeOutput{})

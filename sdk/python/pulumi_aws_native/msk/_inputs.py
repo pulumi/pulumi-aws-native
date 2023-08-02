@@ -17,7 +17,7 @@ __all__ = [
     'ClusterCloudWatchLogsArgs',
     'ClusterConfigurationInfoArgs',
     'ClusterConnectivityInfoArgs',
-    'ClusterEBSStorageInfoArgs',
+    'ClusterEbsStorageInfoArgs',
     'ClusterEncryptionAtRestArgs',
     'ClusterEncryptionInTransitArgs',
     'ClusterEncryptionInfoArgs',
@@ -291,7 +291,7 @@ class ClusterConnectivityInfoArgs:
 
 
 @pulumi.input_type
-class ClusterEBSStorageInfoArgs:
+class ClusterEbsStorageInfoArgs:
     def __init__(__self__, *,
                  provisioned_throughput: Optional[pulumi.Input['ClusterProvisionedThroughputArgs']] = None,
                  volume_size: Optional[pulumi.Input[int]] = None):
@@ -664,17 +664,17 @@ class ClusterScramArgs:
 @pulumi.input_type
 class ClusterStorageInfoArgs:
     def __init__(__self__, *,
-                 ebs_storage_info: Optional[pulumi.Input['ClusterEBSStorageInfoArgs']] = None):
+                 ebs_storage_info: Optional[pulumi.Input['ClusterEbsStorageInfoArgs']] = None):
         if ebs_storage_info is not None:
             pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
 
     @property
     @pulumi.getter(name="ebsStorageInfo")
-    def ebs_storage_info(self) -> Optional[pulumi.Input['ClusterEBSStorageInfoArgs']]:
+    def ebs_storage_info(self) -> Optional[pulumi.Input['ClusterEbsStorageInfoArgs']]:
         return pulumi.get(self, "ebs_storage_info")
 
     @ebs_storage_info.setter
-    def ebs_storage_info(self, value: Optional[pulumi.Input['ClusterEBSStorageInfoArgs']]):
+    def ebs_storage_info(self, value: Optional[pulumi.Input['ClusterEbsStorageInfoArgs']]):
         pulumi.set(self, "ebs_storage_info", value)
 
 

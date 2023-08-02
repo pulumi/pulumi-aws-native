@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.Forecast.Inputs
     public sealed class SchemaPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
-        private InputList<Inputs.AttributesItemPropertiesArgs>? _attributes;
-        public InputList<Inputs.AttributesItemPropertiesArgs> Attributes
+        private InputList<Inputs.DatasetAttributesItemPropertiesArgs>? _attributes;
+        public InputList<Inputs.DatasetAttributesItemPropertiesArgs> Attributes
         {
-            get => _attributes ?? (_attributes = new InputList<Inputs.AttributesItemPropertiesArgs>());
+            get => _attributes ?? (_attributes = new InputList<Inputs.DatasetAttributesItemPropertiesArgs>());
             set => _attributes = value;
         }
 

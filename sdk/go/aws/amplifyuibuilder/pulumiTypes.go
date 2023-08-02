@@ -955,18 +955,6 @@ func (o ComponentVariantValuesPtrOutput) Elem() ComponentVariantValuesOutput {
 	}).(ComponentVariantValuesOutput)
 }
 
-type FieldPosition0Properties struct {
-	Fixed FormFixedPosition `pulumi:"fixed"`
-}
-
-type FieldPosition1Properties struct {
-	RightOf string `pulumi:"rightOf"`
-}
-
-type FieldPosition2Properties struct {
-	Below string `pulumi:"below"`
-}
-
 type FormButton struct {
 	Children *string     `pulumi:"children"`
 	Excluded *bool       `pulumi:"excluded"`
@@ -1130,150 +1118,150 @@ func (o FormButtonPtrOutput) Position() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-type FormCTA struct {
+type FormCta struct {
 	Cancel   *FormButton          `pulumi:"cancel"`
 	Clear    *FormButton          `pulumi:"clear"`
 	Position *FormButtonsPosition `pulumi:"position"`
 	Submit   *FormButton          `pulumi:"submit"`
 }
 
-// FormCTAInput is an input type that accepts FormCTAArgs and FormCTAOutput values.
-// You can construct a concrete instance of `FormCTAInput` via:
+// FormCtaInput is an input type that accepts FormCtaArgs and FormCtaOutput values.
+// You can construct a concrete instance of `FormCtaInput` via:
 //
-//	FormCTAArgs{...}
-type FormCTAInput interface {
+//	FormCtaArgs{...}
+type FormCtaInput interface {
 	pulumi.Input
 
-	ToFormCTAOutput() FormCTAOutput
-	ToFormCTAOutputWithContext(context.Context) FormCTAOutput
+	ToFormCtaOutput() FormCtaOutput
+	ToFormCtaOutputWithContext(context.Context) FormCtaOutput
 }
 
-type FormCTAArgs struct {
+type FormCtaArgs struct {
 	Cancel   FormButtonPtrInput          `pulumi:"cancel"`
 	Clear    FormButtonPtrInput          `pulumi:"clear"`
 	Position FormButtonsPositionPtrInput `pulumi:"position"`
 	Submit   FormButtonPtrInput          `pulumi:"submit"`
 }
 
-func (FormCTAArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormCTA)(nil)).Elem()
+func (FormCtaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormCta)(nil)).Elem()
 }
 
-func (i FormCTAArgs) ToFormCTAOutput() FormCTAOutput {
-	return i.ToFormCTAOutputWithContext(context.Background())
+func (i FormCtaArgs) ToFormCtaOutput() FormCtaOutput {
+	return i.ToFormCtaOutputWithContext(context.Background())
 }
 
-func (i FormCTAArgs) ToFormCTAOutputWithContext(ctx context.Context) FormCTAOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormCTAOutput)
+func (i FormCtaArgs) ToFormCtaOutputWithContext(ctx context.Context) FormCtaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormCtaOutput)
 }
 
-func (i FormCTAArgs) ToFormCTAPtrOutput() FormCTAPtrOutput {
-	return i.ToFormCTAPtrOutputWithContext(context.Background())
+func (i FormCtaArgs) ToFormCtaPtrOutput() FormCtaPtrOutput {
+	return i.ToFormCtaPtrOutputWithContext(context.Background())
 }
 
-func (i FormCTAArgs) ToFormCTAPtrOutputWithContext(ctx context.Context) FormCTAPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormCTAOutput).ToFormCTAPtrOutputWithContext(ctx)
+func (i FormCtaArgs) ToFormCtaPtrOutputWithContext(ctx context.Context) FormCtaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormCtaOutput).ToFormCtaPtrOutputWithContext(ctx)
 }
 
-// FormCTAPtrInput is an input type that accepts FormCTAArgs, FormCTAPtr and FormCTAPtrOutput values.
-// You can construct a concrete instance of `FormCTAPtrInput` via:
+// FormCtaPtrInput is an input type that accepts FormCtaArgs, FormCtaPtr and FormCtaPtrOutput values.
+// You can construct a concrete instance of `FormCtaPtrInput` via:
 //
-//	        FormCTAArgs{...}
+//	        FormCtaArgs{...}
 //
 //	or:
 //
 //	        nil
-type FormCTAPtrInput interface {
+type FormCtaPtrInput interface {
 	pulumi.Input
 
-	ToFormCTAPtrOutput() FormCTAPtrOutput
-	ToFormCTAPtrOutputWithContext(context.Context) FormCTAPtrOutput
+	ToFormCtaPtrOutput() FormCtaPtrOutput
+	ToFormCtaPtrOutputWithContext(context.Context) FormCtaPtrOutput
 }
 
-type formCTAPtrType FormCTAArgs
+type formCtaPtrType FormCtaArgs
 
-func FormCTAPtr(v *FormCTAArgs) FormCTAPtrInput {
-	return (*formCTAPtrType)(v)
+func FormCtaPtr(v *FormCtaArgs) FormCtaPtrInput {
+	return (*formCtaPtrType)(v)
 }
 
-func (*formCTAPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormCTA)(nil)).Elem()
+func (*formCtaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormCta)(nil)).Elem()
 }
 
-func (i *formCTAPtrType) ToFormCTAPtrOutput() FormCTAPtrOutput {
-	return i.ToFormCTAPtrOutputWithContext(context.Background())
+func (i *formCtaPtrType) ToFormCtaPtrOutput() FormCtaPtrOutput {
+	return i.ToFormCtaPtrOutputWithContext(context.Background())
 }
 
-func (i *formCTAPtrType) ToFormCTAPtrOutputWithContext(ctx context.Context) FormCTAPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormCTAPtrOutput)
+func (i *formCtaPtrType) ToFormCtaPtrOutputWithContext(ctx context.Context) FormCtaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormCtaPtrOutput)
 }
 
-type FormCTAOutput struct{ *pulumi.OutputState }
+type FormCtaOutput struct{ *pulumi.OutputState }
 
-func (FormCTAOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormCTA)(nil)).Elem()
+func (FormCtaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormCta)(nil)).Elem()
 }
 
-func (o FormCTAOutput) ToFormCTAOutput() FormCTAOutput {
+func (o FormCtaOutput) ToFormCtaOutput() FormCtaOutput {
 	return o
 }
 
-func (o FormCTAOutput) ToFormCTAOutputWithContext(ctx context.Context) FormCTAOutput {
+func (o FormCtaOutput) ToFormCtaOutputWithContext(ctx context.Context) FormCtaOutput {
 	return o
 }
 
-func (o FormCTAOutput) ToFormCTAPtrOutput() FormCTAPtrOutput {
-	return o.ToFormCTAPtrOutputWithContext(context.Background())
+func (o FormCtaOutput) ToFormCtaPtrOutput() FormCtaPtrOutput {
+	return o.ToFormCtaPtrOutputWithContext(context.Background())
 }
 
-func (o FormCTAOutput) ToFormCTAPtrOutputWithContext(ctx context.Context) FormCTAPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormCTA) *FormCTA {
+func (o FormCtaOutput) ToFormCtaPtrOutputWithContext(ctx context.Context) FormCtaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormCta) *FormCta {
 		return &v
-	}).(FormCTAPtrOutput)
+	}).(FormCtaPtrOutput)
 }
 
-func (o FormCTAOutput) Cancel() FormButtonPtrOutput {
-	return o.ApplyT(func(v FormCTA) *FormButton { return v.Cancel }).(FormButtonPtrOutput)
+func (o FormCtaOutput) Cancel() FormButtonPtrOutput {
+	return o.ApplyT(func(v FormCta) *FormButton { return v.Cancel }).(FormButtonPtrOutput)
 }
 
-func (o FormCTAOutput) Clear() FormButtonPtrOutput {
-	return o.ApplyT(func(v FormCTA) *FormButton { return v.Clear }).(FormButtonPtrOutput)
+func (o FormCtaOutput) Clear() FormButtonPtrOutput {
+	return o.ApplyT(func(v FormCta) *FormButton { return v.Clear }).(FormButtonPtrOutput)
 }
 
-func (o FormCTAOutput) Position() FormButtonsPositionPtrOutput {
-	return o.ApplyT(func(v FormCTA) *FormButtonsPosition { return v.Position }).(FormButtonsPositionPtrOutput)
+func (o FormCtaOutput) Position() FormButtonsPositionPtrOutput {
+	return o.ApplyT(func(v FormCta) *FormButtonsPosition { return v.Position }).(FormButtonsPositionPtrOutput)
 }
 
-func (o FormCTAOutput) Submit() FormButtonPtrOutput {
-	return o.ApplyT(func(v FormCTA) *FormButton { return v.Submit }).(FormButtonPtrOutput)
+func (o FormCtaOutput) Submit() FormButtonPtrOutput {
+	return o.ApplyT(func(v FormCta) *FormButton { return v.Submit }).(FormButtonPtrOutput)
 }
 
-type FormCTAPtrOutput struct{ *pulumi.OutputState }
+type FormCtaPtrOutput struct{ *pulumi.OutputState }
 
-func (FormCTAPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormCTA)(nil)).Elem()
+func (FormCtaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormCta)(nil)).Elem()
 }
 
-func (o FormCTAPtrOutput) ToFormCTAPtrOutput() FormCTAPtrOutput {
+func (o FormCtaPtrOutput) ToFormCtaPtrOutput() FormCtaPtrOutput {
 	return o
 }
 
-func (o FormCTAPtrOutput) ToFormCTAPtrOutputWithContext(ctx context.Context) FormCTAPtrOutput {
+func (o FormCtaPtrOutput) ToFormCtaPtrOutputWithContext(ctx context.Context) FormCtaPtrOutput {
 	return o
 }
 
-func (o FormCTAPtrOutput) Elem() FormCTAOutput {
-	return o.ApplyT(func(v *FormCTA) FormCTA {
+func (o FormCtaPtrOutput) Elem() FormCtaOutput {
+	return o.ApplyT(func(v *FormCta) FormCta {
 		if v != nil {
 			return *v
 		}
-		var ret FormCTA
+		var ret FormCta
 		return ret
-	}).(FormCTAOutput)
+	}).(FormCtaOutput)
 }
 
-func (o FormCTAPtrOutput) Cancel() FormButtonPtrOutput {
-	return o.ApplyT(func(v *FormCTA) *FormButton {
+func (o FormCtaPtrOutput) Cancel() FormButtonPtrOutput {
+	return o.ApplyT(func(v *FormCta) *FormButton {
 		if v == nil {
 			return nil
 		}
@@ -1281,8 +1269,8 @@ func (o FormCTAPtrOutput) Cancel() FormButtonPtrOutput {
 	}).(FormButtonPtrOutput)
 }
 
-func (o FormCTAPtrOutput) Clear() FormButtonPtrOutput {
-	return o.ApplyT(func(v *FormCTA) *FormButton {
+func (o FormCtaPtrOutput) Clear() FormButtonPtrOutput {
+	return o.ApplyT(func(v *FormCta) *FormButton {
 		if v == nil {
 			return nil
 		}
@@ -1290,8 +1278,8 @@ func (o FormCTAPtrOutput) Clear() FormButtonPtrOutput {
 	}).(FormButtonPtrOutput)
 }
 
-func (o FormCTAPtrOutput) Position() FormButtonsPositionPtrOutput {
-	return o.ApplyT(func(v *FormCTA) *FormButtonsPosition {
+func (o FormCtaPtrOutput) Position() FormButtonsPositionPtrOutput {
+	return o.ApplyT(func(v *FormCta) *FormButtonsPosition {
 		if v == nil {
 			return nil
 		}
@@ -1299,8 +1287,8 @@ func (o FormCTAPtrOutput) Position() FormButtonsPositionPtrOutput {
 	}).(FormButtonsPositionPtrOutput)
 }
 
-func (o FormCTAPtrOutput) Submit() FormButtonPtrOutput {
-	return o.ApplyT(func(v *FormCTA) *FormButton {
+func (o FormCtaPtrOutput) Submit() FormButtonPtrOutput {
+	return o.ApplyT(func(v *FormCta) *FormButton {
 		if v == nil {
 			return nil
 		}
@@ -1403,6 +1391,18 @@ func (o FormDataTypeConfigPtrOutput) DataTypeName() pulumi.StringPtrOutput {
 		}
 		return &v.DataTypeName
 	}).(pulumi.StringPtrOutput)
+}
+
+type FormFieldPosition0Properties struct {
+	Fixed FormFixedPosition `pulumi:"fixed"`
+}
+
+type FormFieldPosition1Properties struct {
+	RightOf string `pulumi:"rightOf"`
+}
+
+type FormFieldPosition2Properties struct {
+	Below string `pulumi:"below"`
 }
 
 type FormFieldsMap struct {
@@ -2162,8 +2162,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVariantValuesPtrInput)(nil)).Elem(), ComponentVariantValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormButtonInput)(nil)).Elem(), FormButtonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormButtonPtrInput)(nil)).Elem(), FormButtonArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormCTAInput)(nil)).Elem(), FormCTAArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormCTAPtrInput)(nil)).Elem(), FormCTAArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormCtaInput)(nil)).Elem(), FormCtaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormCtaPtrInput)(nil)).Elem(), FormCtaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormDataTypeConfigInput)(nil)).Elem(), FormDataTypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldsMapInput)(nil)).Elem(), FormFieldsMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormSectionalElementMapInput)(nil)).Elem(), FormSectionalElementMapArgs{})
@@ -2196,8 +2196,8 @@ func init() {
 	pulumi.RegisterOutputType(ComponentVariantValuesPtrOutput{})
 	pulumi.RegisterOutputType(FormButtonOutput{})
 	pulumi.RegisterOutputType(FormButtonPtrOutput{})
-	pulumi.RegisterOutputType(FormCTAOutput{})
-	pulumi.RegisterOutputType(FormCTAPtrOutput{})
+	pulumi.RegisterOutputType(FormCtaOutput{})
+	pulumi.RegisterOutputType(FormCtaPtrOutput{})
 	pulumi.RegisterOutputType(FormDataTypeConfigOutput{})
 	pulumi.RegisterOutputType(FormDataTypeConfigPtrOutput{})
 	pulumi.RegisterOutputType(FormFieldsMapOutput{})

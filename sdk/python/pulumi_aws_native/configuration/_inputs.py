@@ -30,7 +30,7 @@ __all__ = [
     'RemediationConfigurationExecutionControlsArgs',
     'RemediationConfigurationSsmControlsArgs',
     'StoredQueryTagArgs',
-    'TemplateSSMDocumentDetailsPropertiesArgs',
+    'TemplateSsmDocumentDetailsPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -1039,7 +1039,7 @@ class StoredQueryTagArgs:
 
 
 @pulumi.input_type
-class TemplateSSMDocumentDetailsPropertiesArgs:
+class TemplateSsmDocumentDetailsPropertiesArgs:
     def __init__(__self__, *,
                  document_name: Optional[pulumi.Input[str]] = None,
                  document_version: Optional[pulumi.Input[str]] = None):

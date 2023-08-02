@@ -55,7 +55,7 @@ export class HostedZone extends pulumi.CustomResource {
     /**
      * A complex type that contains information about the VPCs that are associated with the specified hosted zone.
      */
-    public readonly vpcs!: pulumi.Output<outputs.route53.HostedZoneVPC[] | undefined>;
+    public readonly vpcs!: pulumi.Output<outputs.route53.HostedZoneVpc[] | undefined>;
 
     /**
      * Create a HostedZone resource with the given unique name, arguments, and options.
@@ -108,5 +108,5 @@ export interface HostedZoneArgs {
     /**
      * A complex type that contains information about the VPCs that are associated with the specified hosted zone.
      */
-    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.HostedZoneVPCArgs>[]>;
+    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.HostedZoneVpcArgs>[]>;
 }

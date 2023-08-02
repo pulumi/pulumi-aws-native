@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetIPAMPoolResult',
-    'AwaitableGetIPAMPoolResult',
+    'GetIpamPoolResult',
+    'AwaitableGetIpamPoolResult',
     'get_ipam_pool',
     'get_ipam_pool_output',
 ]
 
 @pulumi.output_type
-class GetIPAMPoolResult:
+class GetIpamPoolResult:
     def __init__(__self__, allocation_default_netmask_length=None, allocation_max_netmask_length=None, allocation_min_netmask_length=None, allocation_resource_tags=None, arn=None, auto_import=None, description=None, ipam_arn=None, ipam_pool_id=None, ipam_scope_arn=None, ipam_scope_type=None, pool_depth=None, provisioned_cidrs=None, state=None, state_message=None, tags=None):
         if allocation_default_netmask_length and not isinstance(allocation_default_netmask_length, int):
             raise TypeError("Expected argument 'allocation_default_netmask_length' to be a int")
@@ -96,7 +96,7 @@ class GetIPAMPoolResult:
 
     @property
     @pulumi.getter(name="allocationResourceTags")
-    def allocation_resource_tags(self) -> Optional[Sequence['outputs.IPAMPoolTag']]:
+    def allocation_resource_tags(self) -> Optional[Sequence['outputs.IpamPoolTag']]:
         """
         When specified, an allocation will not be allowed unless a resource has a matching set of tags.
         """
@@ -149,7 +149,7 @@ class GetIPAMPoolResult:
 
     @property
     @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> Optional['IPAMPoolIpamScopeType']:
+    def ipam_scope_type(self) -> Optional['IpamPoolIpamScopeType']:
         """
         Determines whether this scope contains publicly routable space or space for a private network
         """
@@ -165,7 +165,7 @@ class GetIPAMPoolResult:
 
     @property
     @pulumi.getter(name="provisionedCidrs")
-    def provisioned_cidrs(self) -> Optional[Sequence['outputs.IPAMPoolProvisionedCidr']]:
+    def provisioned_cidrs(self) -> Optional[Sequence['outputs.IpamPoolProvisionedCidr']]:
         """
         A list of cidrs representing the address space available for allocation in this pool.
         """
@@ -173,7 +173,7 @@ class GetIPAMPoolResult:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional['IPAMPoolState']:
+    def state(self) -> Optional['IpamPoolState']:
         """
         The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
         """
@@ -189,19 +189,19 @@ class GetIPAMPoolResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.IPAMPoolTag']]:
+    def tags(self) -> Optional[Sequence['outputs.IpamPoolTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIPAMPoolResult(GetIPAMPoolResult):
+class AwaitableGetIpamPoolResult(GetIpamPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIPAMPoolResult(
+        return GetIpamPoolResult(
             allocation_default_netmask_length=self.allocation_default_netmask_length,
             allocation_max_netmask_length=self.allocation_max_netmask_length,
             allocation_min_netmask_length=self.allocation_min_netmask_length,
@@ -221,7 +221,7 @@ class AwaitableGetIPAMPoolResult(GetIPAMPoolResult):
 
 
 def get_ipam_pool(ipam_pool_id: Optional[str] = None,
-                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPAMPoolResult:
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamPoolResult:
     """
     Resource Schema of AWS::EC2::IPAMPool Type
 
@@ -231,9 +231,9 @@ def get_ipam_pool(ipam_pool_id: Optional[str] = None,
     __args__ = dict()
     __args__['ipamPoolId'] = ipam_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMPool', __args__, opts=opts, typ=GetIPAMPoolResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIpamPool', __args__, opts=opts, typ=GetIpamPoolResult).value
 
-    return AwaitableGetIPAMPoolResult(
+    return AwaitableGetIpamPoolResult(
         allocation_default_netmask_length=pulumi.get(__ret__, 'allocation_default_netmask_length'),
         allocation_max_netmask_length=pulumi.get(__ret__, 'allocation_max_netmask_length'),
         allocation_min_netmask_length=pulumi.get(__ret__, 'allocation_min_netmask_length'),
@@ -254,7 +254,7 @@ def get_ipam_pool(ipam_pool_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_ipam_pool)
 def get_ipam_pool_output(ipam_pool_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPAMPoolResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamPoolResult]:
     """
     Resource Schema of AWS::EC2::IPAMPool Type
 

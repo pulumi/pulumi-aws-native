@@ -16,7 +16,11 @@ __all__ = [
     'AppBlockBuilderVpcConfig',
     'AppBlockS3Location',
     'AppBlockScriptDetails',
+    'AppBlockTag0Properties',
+    'AppBlockTag1Properties',
     'ApplicationS3Location',
+    'ApplicationTag0Properties',
+    'ApplicationTag1Properties',
     'DirectoryConfigCertificateBasedAuthProperties',
     'DirectoryConfigServiceAccountCredentials',
     'EntitlementAttribute',
@@ -35,8 +39,6 @@ __all__ = [
     'StackStreamingExperienceSettings',
     'StackTag',
     'StackUserSetting',
-    'Tag0Properties',
-    'Tag1Properties',
 ]
 
 @pulumi.output_type
@@ -233,6 +235,63 @@ class AppBlockScriptDetails(dict):
 
 
 @pulumi.output_type
+class AppBlockTag0Properties(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AppBlockTag1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagKey":
+            suggest = "tag_key"
+        elif key == "tagValue":
+            suggest = "tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppBlockTag1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppBlockTag1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppBlockTag1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_key: str,
+                 tag_value: str):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> str:
+        return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> str:
+        return pulumi.get(self, "tag_value")
+
+
+@pulumi.output_type
 class ApplicationS3Location(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -268,6 +327,63 @@ class ApplicationS3Location(dict):
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> str:
         return pulumi.get(self, "s3_key")
+
+
+@pulumi.output_type
+class ApplicationTag0Properties(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationTag1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagKey":
+            suggest = "tag_key"
+        elif key == "tagValue":
+            suggest = "tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationTag1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationTag1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationTag1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_key: str,
+                 tag_value: str):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> str:
+        return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> str:
+        return pulumi.get(self, "tag_value")
 
 
 @pulumi.output_type
@@ -856,62 +972,5 @@ class StackUserSetting(dict):
     @pulumi.getter
     def permission(self) -> str:
         return pulumi.get(self, "permission")
-
-
-@pulumi.output_type
-class Tag0Properties(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class Tag1Properties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tagKey":
-            suggest = "tag_key"
-        elif key == "tagValue":
-            suggest = "tag_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Tag1Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Tag1Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Tag1Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 tag_key: str,
-                 tag_value: str):
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_value", tag_value)
-
-    @property
-    @pulumi.getter(name="tagKey")
-    def tag_key(self) -> str:
-        return pulumi.get(self, "tag_key")
-
-    @property
-    @pulumi.getter(name="tagValue")
-    def tag_value(self) -> str:
-        return pulumi.get(self, "tag_value")
 
 

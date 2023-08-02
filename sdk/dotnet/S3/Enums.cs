@@ -669,27 +669,27 @@ namespace Pulumi.AwsNative.S3
     }
 
     [EnumType]
-    public readonly struct BucketServerSideEncryptionByDefaultSSEAlgorithm : IEquatable<BucketServerSideEncryptionByDefaultSSEAlgorithm>
+    public readonly struct BucketServerSideEncryptionByDefaultSseAlgorithm : IEquatable<BucketServerSideEncryptionByDefaultSseAlgorithm>
     {
         private readonly string _value;
 
-        private BucketServerSideEncryptionByDefaultSSEAlgorithm(string value)
+        private BucketServerSideEncryptionByDefaultSseAlgorithm(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static BucketServerSideEncryptionByDefaultSSEAlgorithm Awskms { get; } = new BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms");
-        public static BucketServerSideEncryptionByDefaultSSEAlgorithm Aes256 { get; } = new BucketServerSideEncryptionByDefaultSSEAlgorithm("AES256");
-        public static BucketServerSideEncryptionByDefaultSSEAlgorithm Awskmsdsse { get; } = new BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms:dsse");
+        public static BucketServerSideEncryptionByDefaultSseAlgorithm Awskms { get; } = new BucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms");
+        public static BucketServerSideEncryptionByDefaultSseAlgorithm Aes256 { get; } = new BucketServerSideEncryptionByDefaultSseAlgorithm("AES256");
+        public static BucketServerSideEncryptionByDefaultSseAlgorithm Awskmsdsse { get; } = new BucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms:dsse");
 
-        public static bool operator ==(BucketServerSideEncryptionByDefaultSSEAlgorithm left, BucketServerSideEncryptionByDefaultSSEAlgorithm right) => left.Equals(right);
-        public static bool operator !=(BucketServerSideEncryptionByDefaultSSEAlgorithm left, BucketServerSideEncryptionByDefaultSSEAlgorithm right) => !left.Equals(right);
+        public static bool operator ==(BucketServerSideEncryptionByDefaultSseAlgorithm left, BucketServerSideEncryptionByDefaultSseAlgorithm right) => left.Equals(right);
+        public static bool operator !=(BucketServerSideEncryptionByDefaultSseAlgorithm left, BucketServerSideEncryptionByDefaultSseAlgorithm right) => !left.Equals(right);
 
-        public static explicit operator string(BucketServerSideEncryptionByDefaultSSEAlgorithm value) => value._value;
+        public static explicit operator string(BucketServerSideEncryptionByDefaultSseAlgorithm value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is BucketServerSideEncryptionByDefaultSSEAlgorithm other && Equals(other);
-        public bool Equals(BucketServerSideEncryptionByDefaultSSEAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is BucketServerSideEncryptionByDefaultSseAlgorithm other && Equals(other);
+        public bool Equals(BucketServerSideEncryptionByDefaultSseAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

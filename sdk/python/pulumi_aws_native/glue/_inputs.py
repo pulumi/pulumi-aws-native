@@ -14,14 +14,14 @@ __all__ = [
     'ClassifierCsvClassifierArgs',
     'ClassifierGrokClassifierArgs',
     'ClassifierJsonClassifierArgs',
-    'ClassifierXMLClassifierArgs',
+    'ClassifierXmlClassifierArgs',
     'ConnectionInputArgs',
     'ConnectionPhysicalConnectionRequirementsArgs',
     'CrawlerCatalogTargetArgs',
     'CrawlerDeltaTargetArgs',
-    'CrawlerDynamoDBTargetArgs',
+    'CrawlerDynamoDbTargetArgs',
     'CrawlerJdbcTargetArgs',
-    'CrawlerMongoDBTargetArgs',
+    'CrawlerMongoDbTargetArgs',
     'CrawlerRecrawlPolicyArgs',
     'CrawlerS3TargetArgs',
     'CrawlerScheduleArgs',
@@ -40,12 +40,12 @@ __all__ = [
     'JobConnectionsListArgs',
     'JobExecutionPropertyArgs',
     'JobNotificationPropertyArgs',
-    'MLTransformFindMatchesParametersArgs',
-    'MLTransformGlueTablesArgs',
-    'MLTransformInputRecordTablesArgs',
-    'MLTransformMLUserDataEncryptionArgs',
-    'MLTransformTransformEncryptionArgs',
-    'MLTransformTransformParametersArgs',
+    'MlTransformFindMatchesParametersArgs',
+    'MlTransformGlueTablesArgs',
+    'MlTransformInputRecordTablesArgs',
+    'MlTransformMlUserDataEncryptionArgs',
+    'MlTransformTransformEncryptionArgs',
+    'MlTransformTransformParametersArgs',
     'PartitionColumnArgs',
     'PartitionInputArgs',
     'PartitionOrderArgs',
@@ -248,7 +248,7 @@ class ClassifierJsonClassifierArgs:
 
 
 @pulumi.input_type
-class ClassifierXMLClassifierArgs:
+class ClassifierXmlClassifierArgs:
     def __init__(__self__, *,
                  classification: pulumi.Input[str],
                  row_tag: pulumi.Input[str],
@@ -522,7 +522,7 @@ class CrawlerDeltaTargetArgs:
 
 
 @pulumi.input_type
-class CrawlerDynamoDBTargetArgs:
+class CrawlerDynamoDbTargetArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None):
         if path is not None:
@@ -580,7 +580,7 @@ class CrawlerJdbcTargetArgs:
 
 
 @pulumi.input_type
-class CrawlerMongoDBTargetArgs:
+class CrawlerMongoDbTargetArgs:
     def __init__(__self__, *,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
@@ -753,9 +753,9 @@ class CrawlerTargetsArgs:
     def __init__(__self__, *,
                  catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
                  delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
-                 dynamo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDBTargetArgs']]]] = None,
+                 dynamo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
-                 mongo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDBTargetArgs']]]] = None,
+                 mongo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]]] = None,
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None):
         if catalog_targets is not None:
             pulumi.set(__self__, "catalog_targets", catalog_targets)
@@ -790,11 +790,11 @@ class CrawlerTargetsArgs:
 
     @property
     @pulumi.getter(name="dynamoDbTargets")
-    def dynamo_db_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDBTargetArgs']]]]:
+    def dynamo_db_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]]]:
         return pulumi.get(self, "dynamo_db_targets")
 
     @dynamo_db_targets.setter
-    def dynamo_db_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDBTargetArgs']]]]):
+    def dynamo_db_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]]]):
         pulumi.set(self, "dynamo_db_targets", value)
 
     @property
@@ -808,11 +808,11 @@ class CrawlerTargetsArgs:
 
     @property
     @pulumi.getter(name="mongoDbTargets")
-    def mongo_db_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDBTargetArgs']]]]:
+    def mongo_db_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]]]:
         return pulumi.get(self, "mongo_db_targets")
 
     @mongo_db_targets.setter
-    def mongo_db_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDBTargetArgs']]]]):
+    def mongo_db_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]]]):
         pulumi.set(self, "mongo_db_targets", value)
 
     @property
@@ -1239,7 +1239,7 @@ class JobNotificationPropertyArgs:
 
 
 @pulumi.input_type
-class MLTransformFindMatchesParametersArgs:
+class MlTransformFindMatchesParametersArgs:
     def __init__(__self__, *,
                  primary_key_column_name: pulumi.Input[str],
                  accuracy_cost_tradeoff: Optional[pulumi.Input[float]] = None,
@@ -1291,7 +1291,7 @@ class MLTransformFindMatchesParametersArgs:
 
 
 @pulumi.input_type
-class MLTransformGlueTablesArgs:
+class MlTransformGlueTablesArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  table_name: pulumi.Input[str],
@@ -1342,24 +1342,24 @@ class MLTransformGlueTablesArgs:
 
 
 @pulumi.input_type
-class MLTransformInputRecordTablesArgs:
+class MlTransformInputRecordTablesArgs:
     def __init__(__self__, *,
-                 glue_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformGlueTablesArgs']]]] = None):
+                 glue_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MlTransformGlueTablesArgs']]]] = None):
         if glue_tables is not None:
             pulumi.set(__self__, "glue_tables", glue_tables)
 
     @property
     @pulumi.getter(name="glueTables")
-    def glue_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformGlueTablesArgs']]]]:
+    def glue_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MlTransformGlueTablesArgs']]]]:
         return pulumi.get(self, "glue_tables")
 
     @glue_tables.setter
-    def glue_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformGlueTablesArgs']]]]):
+    def glue_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MlTransformGlueTablesArgs']]]]):
         pulumi.set(self, "glue_tables", value)
 
 
 @pulumi.input_type
-class MLTransformMLUserDataEncryptionArgs:
+class MlTransformMlUserDataEncryptionArgs:
     def __init__(__self__, *,
                  ml_user_data_encryption_mode: pulumi.Input[str],
                  kms_key_id: Optional[pulumi.Input[str]] = None):
@@ -1387,9 +1387,9 @@ class MLTransformMLUserDataEncryptionArgs:
 
 
 @pulumi.input_type
-class MLTransformTransformEncryptionArgs:
+class MlTransformTransformEncryptionArgs:
     def __init__(__self__, *,
-                 ml_user_data_encryption: Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']] = None,
+                 ml_user_data_encryption: Optional[pulumi.Input['MlTransformMlUserDataEncryptionArgs']] = None,
                  task_run_security_configuration_name: Optional[pulumi.Input[str]] = None):
         if ml_user_data_encryption is not None:
             pulumi.set(__self__, "ml_user_data_encryption", ml_user_data_encryption)
@@ -1398,11 +1398,11 @@ class MLTransformTransformEncryptionArgs:
 
     @property
     @pulumi.getter(name="mlUserDataEncryption")
-    def ml_user_data_encryption(self) -> Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']]:
+    def ml_user_data_encryption(self) -> Optional[pulumi.Input['MlTransformMlUserDataEncryptionArgs']]:
         return pulumi.get(self, "ml_user_data_encryption")
 
     @ml_user_data_encryption.setter
-    def ml_user_data_encryption(self, value: Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']]):
+    def ml_user_data_encryption(self, value: Optional[pulumi.Input['MlTransformMlUserDataEncryptionArgs']]):
         pulumi.set(self, "ml_user_data_encryption", value)
 
     @property
@@ -1416,10 +1416,10 @@ class MLTransformTransformEncryptionArgs:
 
 
 @pulumi.input_type
-class MLTransformTransformParametersArgs:
+class MlTransformTransformParametersArgs:
     def __init__(__self__, *,
                  transform_type: pulumi.Input[str],
-                 find_matches_parameters: Optional[pulumi.Input['MLTransformFindMatchesParametersArgs']] = None):
+                 find_matches_parameters: Optional[pulumi.Input['MlTransformFindMatchesParametersArgs']] = None):
         pulumi.set(__self__, "transform_type", transform_type)
         if find_matches_parameters is not None:
             pulumi.set(__self__, "find_matches_parameters", find_matches_parameters)
@@ -1435,11 +1435,11 @@ class MLTransformTransformParametersArgs:
 
     @property
     @pulumi.getter(name="findMatchesParameters")
-    def find_matches_parameters(self) -> Optional[pulumi.Input['MLTransformFindMatchesParametersArgs']]:
+    def find_matches_parameters(self) -> Optional[pulumi.Input['MlTransformFindMatchesParametersArgs']]:
         return pulumi.get(self, "find_matches_parameters")
 
     @find_matches_parameters.setter
-    def find_matches_parameters(self, value: Optional[pulumi.Input['MLTransformFindMatchesParametersArgs']]):
+    def find_matches_parameters(self, value: Optional[pulumi.Input['MlTransformFindMatchesParametersArgs']]):
         pulumi.set(self, "find_matches_parameters", value)
 
 

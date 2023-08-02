@@ -13,138 +13,138 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type ApplicationCSVMappingParameters struct {
+type ApplicationCsvMappingParameters struct {
 	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
 	RecordRowDelimiter    string `pulumi:"recordRowDelimiter"`
 }
 
-// ApplicationCSVMappingParametersInput is an input type that accepts ApplicationCSVMappingParametersArgs and ApplicationCSVMappingParametersOutput values.
-// You can construct a concrete instance of `ApplicationCSVMappingParametersInput` via:
+// ApplicationCsvMappingParametersInput is an input type that accepts ApplicationCsvMappingParametersArgs and ApplicationCsvMappingParametersOutput values.
+// You can construct a concrete instance of `ApplicationCsvMappingParametersInput` via:
 //
-//	ApplicationCSVMappingParametersArgs{...}
-type ApplicationCSVMappingParametersInput interface {
+//	ApplicationCsvMappingParametersArgs{...}
+type ApplicationCsvMappingParametersInput interface {
 	pulumi.Input
 
-	ToApplicationCSVMappingParametersOutput() ApplicationCSVMappingParametersOutput
-	ToApplicationCSVMappingParametersOutputWithContext(context.Context) ApplicationCSVMappingParametersOutput
+	ToApplicationCsvMappingParametersOutput() ApplicationCsvMappingParametersOutput
+	ToApplicationCsvMappingParametersOutputWithContext(context.Context) ApplicationCsvMappingParametersOutput
 }
 
-type ApplicationCSVMappingParametersArgs struct {
+type ApplicationCsvMappingParametersArgs struct {
 	RecordColumnDelimiter pulumi.StringInput `pulumi:"recordColumnDelimiter"`
 	RecordRowDelimiter    pulumi.StringInput `pulumi:"recordRowDelimiter"`
 }
 
-func (ApplicationCSVMappingParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationCSVMappingParameters)(nil)).Elem()
+func (ApplicationCsvMappingParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCsvMappingParameters)(nil)).Elem()
 }
 
-func (i ApplicationCSVMappingParametersArgs) ToApplicationCSVMappingParametersOutput() ApplicationCSVMappingParametersOutput {
-	return i.ToApplicationCSVMappingParametersOutputWithContext(context.Background())
+func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersOutput() ApplicationCsvMappingParametersOutput {
+	return i.ToApplicationCsvMappingParametersOutputWithContext(context.Background())
 }
 
-func (i ApplicationCSVMappingParametersArgs) ToApplicationCSVMappingParametersOutputWithContext(ctx context.Context) ApplicationCSVMappingParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCSVMappingParametersOutput)
+func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCsvMappingParametersOutput)
 }
 
-func (i ApplicationCSVMappingParametersArgs) ToApplicationCSVMappingParametersPtrOutput() ApplicationCSVMappingParametersPtrOutput {
-	return i.ToApplicationCSVMappingParametersPtrOutputWithContext(context.Background())
+func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput {
+	return i.ToApplicationCsvMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationCSVMappingParametersArgs) ToApplicationCSVMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCSVMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCSVMappingParametersOutput).ToApplicationCSVMappingParametersPtrOutputWithContext(ctx)
+func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCsvMappingParametersOutput).ToApplicationCsvMappingParametersPtrOutputWithContext(ctx)
 }
 
-// ApplicationCSVMappingParametersPtrInput is an input type that accepts ApplicationCSVMappingParametersArgs, ApplicationCSVMappingParametersPtr and ApplicationCSVMappingParametersPtrOutput values.
-// You can construct a concrete instance of `ApplicationCSVMappingParametersPtrInput` via:
+// ApplicationCsvMappingParametersPtrInput is an input type that accepts ApplicationCsvMappingParametersArgs, ApplicationCsvMappingParametersPtr and ApplicationCsvMappingParametersPtrOutput values.
+// You can construct a concrete instance of `ApplicationCsvMappingParametersPtrInput` via:
 //
-//	        ApplicationCSVMappingParametersArgs{...}
+//	        ApplicationCsvMappingParametersArgs{...}
 //
 //	or:
 //
 //	        nil
-type ApplicationCSVMappingParametersPtrInput interface {
+type ApplicationCsvMappingParametersPtrInput interface {
 	pulumi.Input
 
-	ToApplicationCSVMappingParametersPtrOutput() ApplicationCSVMappingParametersPtrOutput
-	ToApplicationCSVMappingParametersPtrOutputWithContext(context.Context) ApplicationCSVMappingParametersPtrOutput
+	ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput
+	ToApplicationCsvMappingParametersPtrOutputWithContext(context.Context) ApplicationCsvMappingParametersPtrOutput
 }
 
-type applicationCSVMappingParametersPtrType ApplicationCSVMappingParametersArgs
+type applicationCsvMappingParametersPtrType ApplicationCsvMappingParametersArgs
 
-func ApplicationCSVMappingParametersPtr(v *ApplicationCSVMappingParametersArgs) ApplicationCSVMappingParametersPtrInput {
-	return (*applicationCSVMappingParametersPtrType)(v)
+func ApplicationCsvMappingParametersPtr(v *ApplicationCsvMappingParametersArgs) ApplicationCsvMappingParametersPtrInput {
+	return (*applicationCsvMappingParametersPtrType)(v)
 }
 
-func (*applicationCSVMappingParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationCSVMappingParameters)(nil)).Elem()
+func (*applicationCsvMappingParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationCsvMappingParameters)(nil)).Elem()
 }
 
-func (i *applicationCSVMappingParametersPtrType) ToApplicationCSVMappingParametersPtrOutput() ApplicationCSVMappingParametersPtrOutput {
-	return i.ToApplicationCSVMappingParametersPtrOutputWithContext(context.Background())
+func (i *applicationCsvMappingParametersPtrType) ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput {
+	return i.ToApplicationCsvMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationCSVMappingParametersPtrType) ToApplicationCSVMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCSVMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCSVMappingParametersPtrOutput)
+func (i *applicationCsvMappingParametersPtrType) ToApplicationCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCsvMappingParametersPtrOutput)
 }
 
-type ApplicationCSVMappingParametersOutput struct{ *pulumi.OutputState }
+type ApplicationCsvMappingParametersOutput struct{ *pulumi.OutputState }
 
-func (ApplicationCSVMappingParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationCSVMappingParameters)(nil)).Elem()
+func (ApplicationCsvMappingParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCsvMappingParameters)(nil)).Elem()
 }
 
-func (o ApplicationCSVMappingParametersOutput) ToApplicationCSVMappingParametersOutput() ApplicationCSVMappingParametersOutput {
+func (o ApplicationCsvMappingParametersOutput) ToApplicationCsvMappingParametersOutput() ApplicationCsvMappingParametersOutput {
 	return o
 }
 
-func (o ApplicationCSVMappingParametersOutput) ToApplicationCSVMappingParametersOutputWithContext(ctx context.Context) ApplicationCSVMappingParametersOutput {
+func (o ApplicationCsvMappingParametersOutput) ToApplicationCsvMappingParametersOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersOutput {
 	return o
 }
 
-func (o ApplicationCSVMappingParametersOutput) ToApplicationCSVMappingParametersPtrOutput() ApplicationCSVMappingParametersPtrOutput {
-	return o.ToApplicationCSVMappingParametersPtrOutputWithContext(context.Background())
+func (o ApplicationCsvMappingParametersOutput) ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput {
+	return o.ToApplicationCsvMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationCSVMappingParametersOutput) ToApplicationCSVMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCSVMappingParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCSVMappingParameters) *ApplicationCSVMappingParameters {
+func (o ApplicationCsvMappingParametersOutput) ToApplicationCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCsvMappingParameters) *ApplicationCsvMappingParameters {
 		return &v
-	}).(ApplicationCSVMappingParametersPtrOutput)
+	}).(ApplicationCsvMappingParametersPtrOutput)
 }
 
-func (o ApplicationCSVMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationCSVMappingParameters) string { return v.RecordColumnDelimiter }).(pulumi.StringOutput)
+func (o ApplicationCsvMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationCsvMappingParameters) string { return v.RecordColumnDelimiter }).(pulumi.StringOutput)
 }
 
-func (o ApplicationCSVMappingParametersOutput) RecordRowDelimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationCSVMappingParameters) string { return v.RecordRowDelimiter }).(pulumi.StringOutput)
+func (o ApplicationCsvMappingParametersOutput) RecordRowDelimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationCsvMappingParameters) string { return v.RecordRowDelimiter }).(pulumi.StringOutput)
 }
 
-type ApplicationCSVMappingParametersPtrOutput struct{ *pulumi.OutputState }
+type ApplicationCsvMappingParametersPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationCSVMappingParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationCSVMappingParameters)(nil)).Elem()
+func (ApplicationCsvMappingParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationCsvMappingParameters)(nil)).Elem()
 }
 
-func (o ApplicationCSVMappingParametersPtrOutput) ToApplicationCSVMappingParametersPtrOutput() ApplicationCSVMappingParametersPtrOutput {
+func (o ApplicationCsvMappingParametersPtrOutput) ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput {
 	return o
 }
 
-func (o ApplicationCSVMappingParametersPtrOutput) ToApplicationCSVMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCSVMappingParametersPtrOutput {
+func (o ApplicationCsvMappingParametersPtrOutput) ToApplicationCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersPtrOutput {
 	return o
 }
 
-func (o ApplicationCSVMappingParametersPtrOutput) Elem() ApplicationCSVMappingParametersOutput {
-	return o.ApplyT(func(v *ApplicationCSVMappingParameters) ApplicationCSVMappingParameters {
+func (o ApplicationCsvMappingParametersPtrOutput) Elem() ApplicationCsvMappingParametersOutput {
+	return o.ApplyT(func(v *ApplicationCsvMappingParameters) ApplicationCsvMappingParameters {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationCSVMappingParameters
+		var ret ApplicationCsvMappingParameters
 		return ret
-	}).(ApplicationCSVMappingParametersOutput)
+	}).(ApplicationCsvMappingParametersOutput)
 }
 
-func (o ApplicationCSVMappingParametersPtrOutput) RecordColumnDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationCSVMappingParameters) *string {
+func (o ApplicationCsvMappingParametersPtrOutput) RecordColumnDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationCsvMappingParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -152,8 +152,8 @@ func (o ApplicationCSVMappingParametersPtrOutput) RecordColumnDelimiter() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationCSVMappingParametersPtrOutput) RecordRowDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationCSVMappingParameters) *string {
+func (o ApplicationCsvMappingParametersPtrOutput) RecordRowDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationCsvMappingParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -764,132 +764,132 @@ func (o ApplicationInputSchemaOutput) RecordFormat() ApplicationRecordFormatOutp
 	return o.ApplyT(func(v ApplicationInputSchema) ApplicationRecordFormat { return v.RecordFormat }).(ApplicationRecordFormatOutput)
 }
 
-type ApplicationJSONMappingParameters struct {
+type ApplicationJsonMappingParameters struct {
 	RecordRowPath string `pulumi:"recordRowPath"`
 }
 
-// ApplicationJSONMappingParametersInput is an input type that accepts ApplicationJSONMappingParametersArgs and ApplicationJSONMappingParametersOutput values.
-// You can construct a concrete instance of `ApplicationJSONMappingParametersInput` via:
+// ApplicationJsonMappingParametersInput is an input type that accepts ApplicationJsonMappingParametersArgs and ApplicationJsonMappingParametersOutput values.
+// You can construct a concrete instance of `ApplicationJsonMappingParametersInput` via:
 //
-//	ApplicationJSONMappingParametersArgs{...}
-type ApplicationJSONMappingParametersInput interface {
+//	ApplicationJsonMappingParametersArgs{...}
+type ApplicationJsonMappingParametersInput interface {
 	pulumi.Input
 
-	ToApplicationJSONMappingParametersOutput() ApplicationJSONMappingParametersOutput
-	ToApplicationJSONMappingParametersOutputWithContext(context.Context) ApplicationJSONMappingParametersOutput
+	ToApplicationJsonMappingParametersOutput() ApplicationJsonMappingParametersOutput
+	ToApplicationJsonMappingParametersOutputWithContext(context.Context) ApplicationJsonMappingParametersOutput
 }
 
-type ApplicationJSONMappingParametersArgs struct {
+type ApplicationJsonMappingParametersArgs struct {
 	RecordRowPath pulumi.StringInput `pulumi:"recordRowPath"`
 }
 
-func (ApplicationJSONMappingParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationJSONMappingParameters)(nil)).Elem()
+func (ApplicationJsonMappingParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJsonMappingParameters)(nil)).Elem()
 }
 
-func (i ApplicationJSONMappingParametersArgs) ToApplicationJSONMappingParametersOutput() ApplicationJSONMappingParametersOutput {
-	return i.ToApplicationJSONMappingParametersOutputWithContext(context.Background())
+func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParametersOutput() ApplicationJsonMappingParametersOutput {
+	return i.ToApplicationJsonMappingParametersOutputWithContext(context.Background())
 }
 
-func (i ApplicationJSONMappingParametersArgs) ToApplicationJSONMappingParametersOutputWithContext(ctx context.Context) ApplicationJSONMappingParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJSONMappingParametersOutput)
+func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParametersOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJsonMappingParametersOutput)
 }
 
-func (i ApplicationJSONMappingParametersArgs) ToApplicationJSONMappingParametersPtrOutput() ApplicationJSONMappingParametersPtrOutput {
-	return i.ToApplicationJSONMappingParametersPtrOutputWithContext(context.Background())
+func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput {
+	return i.ToApplicationJsonMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationJSONMappingParametersArgs) ToApplicationJSONMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJSONMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJSONMappingParametersOutput).ToApplicationJSONMappingParametersPtrOutputWithContext(ctx)
+func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJsonMappingParametersOutput).ToApplicationJsonMappingParametersPtrOutputWithContext(ctx)
 }
 
-// ApplicationJSONMappingParametersPtrInput is an input type that accepts ApplicationJSONMappingParametersArgs, ApplicationJSONMappingParametersPtr and ApplicationJSONMappingParametersPtrOutput values.
-// You can construct a concrete instance of `ApplicationJSONMappingParametersPtrInput` via:
+// ApplicationJsonMappingParametersPtrInput is an input type that accepts ApplicationJsonMappingParametersArgs, ApplicationJsonMappingParametersPtr and ApplicationJsonMappingParametersPtrOutput values.
+// You can construct a concrete instance of `ApplicationJsonMappingParametersPtrInput` via:
 //
-//	        ApplicationJSONMappingParametersArgs{...}
+//	        ApplicationJsonMappingParametersArgs{...}
 //
 //	or:
 //
 //	        nil
-type ApplicationJSONMappingParametersPtrInput interface {
+type ApplicationJsonMappingParametersPtrInput interface {
 	pulumi.Input
 
-	ToApplicationJSONMappingParametersPtrOutput() ApplicationJSONMappingParametersPtrOutput
-	ToApplicationJSONMappingParametersPtrOutputWithContext(context.Context) ApplicationJSONMappingParametersPtrOutput
+	ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput
+	ToApplicationJsonMappingParametersPtrOutputWithContext(context.Context) ApplicationJsonMappingParametersPtrOutput
 }
 
-type applicationJSONMappingParametersPtrType ApplicationJSONMappingParametersArgs
+type applicationJsonMappingParametersPtrType ApplicationJsonMappingParametersArgs
 
-func ApplicationJSONMappingParametersPtr(v *ApplicationJSONMappingParametersArgs) ApplicationJSONMappingParametersPtrInput {
-	return (*applicationJSONMappingParametersPtrType)(v)
+func ApplicationJsonMappingParametersPtr(v *ApplicationJsonMappingParametersArgs) ApplicationJsonMappingParametersPtrInput {
+	return (*applicationJsonMappingParametersPtrType)(v)
 }
 
-func (*applicationJSONMappingParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationJSONMappingParameters)(nil)).Elem()
+func (*applicationJsonMappingParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationJsonMappingParameters)(nil)).Elem()
 }
 
-func (i *applicationJSONMappingParametersPtrType) ToApplicationJSONMappingParametersPtrOutput() ApplicationJSONMappingParametersPtrOutput {
-	return i.ToApplicationJSONMappingParametersPtrOutputWithContext(context.Background())
+func (i *applicationJsonMappingParametersPtrType) ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput {
+	return i.ToApplicationJsonMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationJSONMappingParametersPtrType) ToApplicationJSONMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJSONMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJSONMappingParametersPtrOutput)
+func (i *applicationJsonMappingParametersPtrType) ToApplicationJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJsonMappingParametersPtrOutput)
 }
 
-type ApplicationJSONMappingParametersOutput struct{ *pulumi.OutputState }
+type ApplicationJsonMappingParametersOutput struct{ *pulumi.OutputState }
 
-func (ApplicationJSONMappingParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationJSONMappingParameters)(nil)).Elem()
+func (ApplicationJsonMappingParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJsonMappingParameters)(nil)).Elem()
 }
 
-func (o ApplicationJSONMappingParametersOutput) ToApplicationJSONMappingParametersOutput() ApplicationJSONMappingParametersOutput {
+func (o ApplicationJsonMappingParametersOutput) ToApplicationJsonMappingParametersOutput() ApplicationJsonMappingParametersOutput {
 	return o
 }
 
-func (o ApplicationJSONMappingParametersOutput) ToApplicationJSONMappingParametersOutputWithContext(ctx context.Context) ApplicationJSONMappingParametersOutput {
+func (o ApplicationJsonMappingParametersOutput) ToApplicationJsonMappingParametersOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersOutput {
 	return o
 }
 
-func (o ApplicationJSONMappingParametersOutput) ToApplicationJSONMappingParametersPtrOutput() ApplicationJSONMappingParametersPtrOutput {
-	return o.ToApplicationJSONMappingParametersPtrOutputWithContext(context.Background())
+func (o ApplicationJsonMappingParametersOutput) ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput {
+	return o.ToApplicationJsonMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationJSONMappingParametersOutput) ToApplicationJSONMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJSONMappingParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJSONMappingParameters) *ApplicationJSONMappingParameters {
+func (o ApplicationJsonMappingParametersOutput) ToApplicationJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJsonMappingParameters) *ApplicationJsonMappingParameters {
 		return &v
-	}).(ApplicationJSONMappingParametersPtrOutput)
+	}).(ApplicationJsonMappingParametersPtrOutput)
 }
 
-func (o ApplicationJSONMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationJSONMappingParameters) string { return v.RecordRowPath }).(pulumi.StringOutput)
+func (o ApplicationJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationJsonMappingParameters) string { return v.RecordRowPath }).(pulumi.StringOutput)
 }
 
-type ApplicationJSONMappingParametersPtrOutput struct{ *pulumi.OutputState }
+type ApplicationJsonMappingParametersPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationJSONMappingParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationJSONMappingParameters)(nil)).Elem()
+func (ApplicationJsonMappingParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationJsonMappingParameters)(nil)).Elem()
 }
 
-func (o ApplicationJSONMappingParametersPtrOutput) ToApplicationJSONMappingParametersPtrOutput() ApplicationJSONMappingParametersPtrOutput {
+func (o ApplicationJsonMappingParametersPtrOutput) ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput {
 	return o
 }
 
-func (o ApplicationJSONMappingParametersPtrOutput) ToApplicationJSONMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJSONMappingParametersPtrOutput {
+func (o ApplicationJsonMappingParametersPtrOutput) ToApplicationJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersPtrOutput {
 	return o
 }
 
-func (o ApplicationJSONMappingParametersPtrOutput) Elem() ApplicationJSONMappingParametersOutput {
-	return o.ApplyT(func(v *ApplicationJSONMappingParameters) ApplicationJSONMappingParameters {
+func (o ApplicationJsonMappingParametersPtrOutput) Elem() ApplicationJsonMappingParametersOutput {
+	return o.ApplyT(func(v *ApplicationJsonMappingParameters) ApplicationJsonMappingParameters {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationJSONMappingParameters
+		var ret ApplicationJsonMappingParameters
 		return ret
-	}).(ApplicationJSONMappingParametersOutput)
+	}).(ApplicationJsonMappingParametersOutput)
 }
 
-func (o ApplicationJSONMappingParametersPtrOutput) RecordRowPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationJSONMappingParameters) *string {
+func (o ApplicationJsonMappingParametersPtrOutput) RecordRowPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationJsonMappingParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -1194,8 +1194,8 @@ func (o ApplicationKinesisStreamsInputPtrOutput) RoleArn() pulumi.StringPtrOutpu
 }
 
 type ApplicationMappingParameters struct {
-	CsvMappingParameters  *ApplicationCSVMappingParameters  `pulumi:"csvMappingParameters"`
-	JsonMappingParameters *ApplicationJSONMappingParameters `pulumi:"jsonMappingParameters"`
+	CsvMappingParameters  *ApplicationCsvMappingParameters  `pulumi:"csvMappingParameters"`
+	JsonMappingParameters *ApplicationJsonMappingParameters `pulumi:"jsonMappingParameters"`
 }
 
 // ApplicationMappingParametersInput is an input type that accepts ApplicationMappingParametersArgs and ApplicationMappingParametersOutput values.
@@ -1210,8 +1210,8 @@ type ApplicationMappingParametersInput interface {
 }
 
 type ApplicationMappingParametersArgs struct {
-	CsvMappingParameters  ApplicationCSVMappingParametersPtrInput  `pulumi:"csvMappingParameters"`
-	JsonMappingParameters ApplicationJSONMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
+	CsvMappingParameters  ApplicationCsvMappingParametersPtrInput  `pulumi:"csvMappingParameters"`
+	JsonMappingParameters ApplicationJsonMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
 }
 
 func (ApplicationMappingParametersArgs) ElementType() reflect.Type {
@@ -1291,12 +1291,12 @@ func (o ApplicationMappingParametersOutput) ToApplicationMappingParametersPtrOut
 	}).(ApplicationMappingParametersPtrOutput)
 }
 
-func (o ApplicationMappingParametersOutput) CsvMappingParameters() ApplicationCSVMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationCSVMappingParameters { return v.CsvMappingParameters }).(ApplicationCSVMappingParametersPtrOutput)
+func (o ApplicationMappingParametersOutput) CsvMappingParameters() ApplicationCsvMappingParametersPtrOutput {
+	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationCsvMappingParameters { return v.CsvMappingParameters }).(ApplicationCsvMappingParametersPtrOutput)
 }
 
-func (o ApplicationMappingParametersOutput) JsonMappingParameters() ApplicationJSONMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationJSONMappingParameters { return v.JsonMappingParameters }).(ApplicationJSONMappingParametersPtrOutput)
+func (o ApplicationMappingParametersOutput) JsonMappingParameters() ApplicationJsonMappingParametersPtrOutput {
+	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationJsonMappingParameters { return v.JsonMappingParameters }).(ApplicationJsonMappingParametersPtrOutput)
 }
 
 type ApplicationMappingParametersPtrOutput struct{ *pulumi.OutputState }
@@ -1323,22 +1323,22 @@ func (o ApplicationMappingParametersPtrOutput) Elem() ApplicationMappingParamete
 	}).(ApplicationMappingParametersOutput)
 }
 
-func (o ApplicationMappingParametersPtrOutput) CsvMappingParameters() ApplicationCSVMappingParametersPtrOutput {
-	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationCSVMappingParameters {
+func (o ApplicationMappingParametersPtrOutput) CsvMappingParameters() ApplicationCsvMappingParametersPtrOutput {
+	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationCsvMappingParameters {
 		if v == nil {
 			return nil
 		}
 		return v.CsvMappingParameters
-	}).(ApplicationCSVMappingParametersPtrOutput)
+	}).(ApplicationCsvMappingParametersPtrOutput)
 }
 
-func (o ApplicationMappingParametersPtrOutput) JsonMappingParameters() ApplicationJSONMappingParametersPtrOutput {
-	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationJSONMappingParameters {
+func (o ApplicationMappingParametersPtrOutput) JsonMappingParameters() ApplicationJsonMappingParametersPtrOutput {
+	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationJsonMappingParameters {
 		if v == nil {
 			return nil
 		}
 		return v.JsonMappingParameters
-	}).(ApplicationJSONMappingParametersPtrOutput)
+	}).(ApplicationJsonMappingParametersPtrOutput)
 }
 
 type ApplicationOutputResourceDestinationSchema struct {
@@ -2178,138 +2178,138 @@ func (o ApplicationRecordFormatOutput) RecordFormatType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationRecordFormat) string { return v.RecordFormatType }).(pulumi.StringOutput)
 }
 
-type ApplicationReferenceDataSourceCSVMappingParameters struct {
+type ApplicationReferenceDataSourceCsvMappingParameters struct {
 	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
 	RecordRowDelimiter    string `pulumi:"recordRowDelimiter"`
 }
 
-// ApplicationReferenceDataSourceCSVMappingParametersInput is an input type that accepts ApplicationReferenceDataSourceCSVMappingParametersArgs and ApplicationReferenceDataSourceCSVMappingParametersOutput values.
-// You can construct a concrete instance of `ApplicationReferenceDataSourceCSVMappingParametersInput` via:
+// ApplicationReferenceDataSourceCsvMappingParametersInput is an input type that accepts ApplicationReferenceDataSourceCsvMappingParametersArgs and ApplicationReferenceDataSourceCsvMappingParametersOutput values.
+// You can construct a concrete instance of `ApplicationReferenceDataSourceCsvMappingParametersInput` via:
 //
-//	ApplicationReferenceDataSourceCSVMappingParametersArgs{...}
-type ApplicationReferenceDataSourceCSVMappingParametersInput interface {
+//	ApplicationReferenceDataSourceCsvMappingParametersArgs{...}
+type ApplicationReferenceDataSourceCsvMappingParametersInput interface {
 	pulumi.Input
 
-	ToApplicationReferenceDataSourceCSVMappingParametersOutput() ApplicationReferenceDataSourceCSVMappingParametersOutput
-	ToApplicationReferenceDataSourceCSVMappingParametersOutputWithContext(context.Context) ApplicationReferenceDataSourceCSVMappingParametersOutput
+	ToApplicationReferenceDataSourceCsvMappingParametersOutput() ApplicationReferenceDataSourceCsvMappingParametersOutput
+	ToApplicationReferenceDataSourceCsvMappingParametersOutputWithContext(context.Context) ApplicationReferenceDataSourceCsvMappingParametersOutput
 }
 
-type ApplicationReferenceDataSourceCSVMappingParametersArgs struct {
+type ApplicationReferenceDataSourceCsvMappingParametersArgs struct {
 	RecordColumnDelimiter pulumi.StringInput `pulumi:"recordColumnDelimiter"`
 	RecordRowDelimiter    pulumi.StringInput `pulumi:"recordRowDelimiter"`
 }
 
-func (ApplicationReferenceDataSourceCSVMappingParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationReferenceDataSourceCSVMappingParameters)(nil)).Elem()
+func (ApplicationReferenceDataSourceCsvMappingParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationReferenceDataSourceCsvMappingParameters)(nil)).Elem()
 }
 
-func (i ApplicationReferenceDataSourceCSVMappingParametersArgs) ToApplicationReferenceDataSourceCSVMappingParametersOutput() ApplicationReferenceDataSourceCSVMappingParametersOutput {
-	return i.ToApplicationReferenceDataSourceCSVMappingParametersOutputWithContext(context.Background())
+func (i ApplicationReferenceDataSourceCsvMappingParametersArgs) ToApplicationReferenceDataSourceCsvMappingParametersOutput() ApplicationReferenceDataSourceCsvMappingParametersOutput {
+	return i.ToApplicationReferenceDataSourceCsvMappingParametersOutputWithContext(context.Background())
 }
 
-func (i ApplicationReferenceDataSourceCSVMappingParametersArgs) ToApplicationReferenceDataSourceCSVMappingParametersOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCSVMappingParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceCSVMappingParametersOutput)
+func (i ApplicationReferenceDataSourceCsvMappingParametersArgs) ToApplicationReferenceDataSourceCsvMappingParametersOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCsvMappingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceCsvMappingParametersOutput)
 }
 
-func (i ApplicationReferenceDataSourceCSVMappingParametersArgs) ToApplicationReferenceDataSourceCSVMappingParametersPtrOutput() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
-	return i.ToApplicationReferenceDataSourceCSVMappingParametersPtrOutputWithContext(context.Background())
+func (i ApplicationReferenceDataSourceCsvMappingParametersArgs) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutput() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
+	return i.ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationReferenceDataSourceCSVMappingParametersArgs) ToApplicationReferenceDataSourceCSVMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceCSVMappingParametersOutput).ToApplicationReferenceDataSourceCSVMappingParametersPtrOutputWithContext(ctx)
+func (i ApplicationReferenceDataSourceCsvMappingParametersArgs) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceCsvMappingParametersOutput).ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(ctx)
 }
 
-// ApplicationReferenceDataSourceCSVMappingParametersPtrInput is an input type that accepts ApplicationReferenceDataSourceCSVMappingParametersArgs, ApplicationReferenceDataSourceCSVMappingParametersPtr and ApplicationReferenceDataSourceCSVMappingParametersPtrOutput values.
-// You can construct a concrete instance of `ApplicationReferenceDataSourceCSVMappingParametersPtrInput` via:
+// ApplicationReferenceDataSourceCsvMappingParametersPtrInput is an input type that accepts ApplicationReferenceDataSourceCsvMappingParametersArgs, ApplicationReferenceDataSourceCsvMappingParametersPtr and ApplicationReferenceDataSourceCsvMappingParametersPtrOutput values.
+// You can construct a concrete instance of `ApplicationReferenceDataSourceCsvMappingParametersPtrInput` via:
 //
-//	        ApplicationReferenceDataSourceCSVMappingParametersArgs{...}
+//	        ApplicationReferenceDataSourceCsvMappingParametersArgs{...}
 //
 //	or:
 //
 //	        nil
-type ApplicationReferenceDataSourceCSVMappingParametersPtrInput interface {
+type ApplicationReferenceDataSourceCsvMappingParametersPtrInput interface {
 	pulumi.Input
 
-	ToApplicationReferenceDataSourceCSVMappingParametersPtrOutput() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput
-	ToApplicationReferenceDataSourceCSVMappingParametersPtrOutputWithContext(context.Context) ApplicationReferenceDataSourceCSVMappingParametersPtrOutput
+	ToApplicationReferenceDataSourceCsvMappingParametersPtrOutput() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput
+	ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(context.Context) ApplicationReferenceDataSourceCsvMappingParametersPtrOutput
 }
 
-type applicationReferenceDataSourceCSVMappingParametersPtrType ApplicationReferenceDataSourceCSVMappingParametersArgs
+type applicationReferenceDataSourceCsvMappingParametersPtrType ApplicationReferenceDataSourceCsvMappingParametersArgs
 
-func ApplicationReferenceDataSourceCSVMappingParametersPtr(v *ApplicationReferenceDataSourceCSVMappingParametersArgs) ApplicationReferenceDataSourceCSVMappingParametersPtrInput {
-	return (*applicationReferenceDataSourceCSVMappingParametersPtrType)(v)
+func ApplicationReferenceDataSourceCsvMappingParametersPtr(v *ApplicationReferenceDataSourceCsvMappingParametersArgs) ApplicationReferenceDataSourceCsvMappingParametersPtrInput {
+	return (*applicationReferenceDataSourceCsvMappingParametersPtrType)(v)
 }
 
-func (*applicationReferenceDataSourceCSVMappingParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationReferenceDataSourceCSVMappingParameters)(nil)).Elem()
+func (*applicationReferenceDataSourceCsvMappingParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationReferenceDataSourceCsvMappingParameters)(nil)).Elem()
 }
 
-func (i *applicationReferenceDataSourceCSVMappingParametersPtrType) ToApplicationReferenceDataSourceCSVMappingParametersPtrOutput() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
-	return i.ToApplicationReferenceDataSourceCSVMappingParametersPtrOutputWithContext(context.Background())
+func (i *applicationReferenceDataSourceCsvMappingParametersPtrType) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutput() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
+	return i.ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationReferenceDataSourceCSVMappingParametersPtrType) ToApplicationReferenceDataSourceCSVMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceCSVMappingParametersPtrOutput)
+func (i *applicationReferenceDataSourceCsvMappingParametersPtrType) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceCsvMappingParametersPtrOutput)
 }
 
-type ApplicationReferenceDataSourceCSVMappingParametersOutput struct{ *pulumi.OutputState }
+type ApplicationReferenceDataSourceCsvMappingParametersOutput struct{ *pulumi.OutputState }
 
-func (ApplicationReferenceDataSourceCSVMappingParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationReferenceDataSourceCSVMappingParameters)(nil)).Elem()
+func (ApplicationReferenceDataSourceCsvMappingParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationReferenceDataSourceCsvMappingParameters)(nil)).Elem()
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersOutput) ToApplicationReferenceDataSourceCSVMappingParametersOutput() ApplicationReferenceDataSourceCSVMappingParametersOutput {
+func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) ToApplicationReferenceDataSourceCsvMappingParametersOutput() ApplicationReferenceDataSourceCsvMappingParametersOutput {
 	return o
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersOutput) ToApplicationReferenceDataSourceCSVMappingParametersOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCSVMappingParametersOutput {
+func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) ToApplicationReferenceDataSourceCsvMappingParametersOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCsvMappingParametersOutput {
 	return o
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersOutput) ToApplicationReferenceDataSourceCSVMappingParametersPtrOutput() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
-	return o.ToApplicationReferenceDataSourceCSVMappingParametersPtrOutputWithContext(context.Background())
+func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutput() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
+	return o.ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersOutput) ToApplicationReferenceDataSourceCSVMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationReferenceDataSourceCSVMappingParameters) *ApplicationReferenceDataSourceCSVMappingParameters {
+func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationReferenceDataSourceCsvMappingParameters) *ApplicationReferenceDataSourceCsvMappingParameters {
 		return &v
-	}).(ApplicationReferenceDataSourceCSVMappingParametersPtrOutput)
+	}).(ApplicationReferenceDataSourceCsvMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationReferenceDataSourceCSVMappingParameters) string { return v.RecordColumnDelimiter }).(pulumi.StringOutput)
+func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationReferenceDataSourceCsvMappingParameters) string { return v.RecordColumnDelimiter }).(pulumi.StringOutput)
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersOutput) RecordRowDelimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationReferenceDataSourceCSVMappingParameters) string { return v.RecordRowDelimiter }).(pulumi.StringOutput)
+func (o ApplicationReferenceDataSourceCsvMappingParametersOutput) RecordRowDelimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationReferenceDataSourceCsvMappingParameters) string { return v.RecordRowDelimiter }).(pulumi.StringOutput)
 }
 
-type ApplicationReferenceDataSourceCSVMappingParametersPtrOutput struct{ *pulumi.OutputState }
+type ApplicationReferenceDataSourceCsvMappingParametersPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationReferenceDataSourceCSVMappingParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationReferenceDataSourceCSVMappingParameters)(nil)).Elem()
+func (ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationReferenceDataSourceCsvMappingParameters)(nil)).Elem()
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersPtrOutput) ToApplicationReferenceDataSourceCSVMappingParametersPtrOutput() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutput() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
 	return o
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersPtrOutput) ToApplicationReferenceDataSourceCSVMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) ToApplicationReferenceDataSourceCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
 	return o
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersPtrOutput) Elem() ApplicationReferenceDataSourceCSVMappingParametersOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceCSVMappingParameters) ApplicationReferenceDataSourceCSVMappingParameters {
+func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) Elem() ApplicationReferenceDataSourceCsvMappingParametersOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceCsvMappingParameters) ApplicationReferenceDataSourceCsvMappingParameters {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationReferenceDataSourceCSVMappingParameters
+		var ret ApplicationReferenceDataSourceCsvMappingParameters
 		return ret
-	}).(ApplicationReferenceDataSourceCSVMappingParametersOutput)
+	}).(ApplicationReferenceDataSourceCsvMappingParametersOutput)
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersPtrOutput) RecordColumnDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceCSVMappingParameters) *string {
+func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) RecordColumnDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceCsvMappingParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -2317,8 +2317,8 @@ func (o ApplicationReferenceDataSourceCSVMappingParametersPtrOutput) RecordColum
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceCSVMappingParametersPtrOutput) RecordRowDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceCSVMappingParameters) *string {
+func (o ApplicationReferenceDataSourceCsvMappingParametersPtrOutput) RecordRowDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceCsvMappingParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -2326,132 +2326,132 @@ func (o ApplicationReferenceDataSourceCSVMappingParametersPtrOutput) RecordRowDe
 	}).(pulumi.StringPtrOutput)
 }
 
-type ApplicationReferenceDataSourceJSONMappingParameters struct {
+type ApplicationReferenceDataSourceJsonMappingParameters struct {
 	RecordRowPath string `pulumi:"recordRowPath"`
 }
 
-// ApplicationReferenceDataSourceJSONMappingParametersInput is an input type that accepts ApplicationReferenceDataSourceJSONMappingParametersArgs and ApplicationReferenceDataSourceJSONMappingParametersOutput values.
-// You can construct a concrete instance of `ApplicationReferenceDataSourceJSONMappingParametersInput` via:
+// ApplicationReferenceDataSourceJsonMappingParametersInput is an input type that accepts ApplicationReferenceDataSourceJsonMappingParametersArgs and ApplicationReferenceDataSourceJsonMappingParametersOutput values.
+// You can construct a concrete instance of `ApplicationReferenceDataSourceJsonMappingParametersInput` via:
 //
-//	ApplicationReferenceDataSourceJSONMappingParametersArgs{...}
-type ApplicationReferenceDataSourceJSONMappingParametersInput interface {
+//	ApplicationReferenceDataSourceJsonMappingParametersArgs{...}
+type ApplicationReferenceDataSourceJsonMappingParametersInput interface {
 	pulumi.Input
 
-	ToApplicationReferenceDataSourceJSONMappingParametersOutput() ApplicationReferenceDataSourceJSONMappingParametersOutput
-	ToApplicationReferenceDataSourceJSONMappingParametersOutputWithContext(context.Context) ApplicationReferenceDataSourceJSONMappingParametersOutput
+	ToApplicationReferenceDataSourceJsonMappingParametersOutput() ApplicationReferenceDataSourceJsonMappingParametersOutput
+	ToApplicationReferenceDataSourceJsonMappingParametersOutputWithContext(context.Context) ApplicationReferenceDataSourceJsonMappingParametersOutput
 }
 
-type ApplicationReferenceDataSourceJSONMappingParametersArgs struct {
+type ApplicationReferenceDataSourceJsonMappingParametersArgs struct {
 	RecordRowPath pulumi.StringInput `pulumi:"recordRowPath"`
 }
 
-func (ApplicationReferenceDataSourceJSONMappingParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationReferenceDataSourceJSONMappingParameters)(nil)).Elem()
+func (ApplicationReferenceDataSourceJsonMappingParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationReferenceDataSourceJsonMappingParameters)(nil)).Elem()
 }
 
-func (i ApplicationReferenceDataSourceJSONMappingParametersArgs) ToApplicationReferenceDataSourceJSONMappingParametersOutput() ApplicationReferenceDataSourceJSONMappingParametersOutput {
-	return i.ToApplicationReferenceDataSourceJSONMappingParametersOutputWithContext(context.Background())
+func (i ApplicationReferenceDataSourceJsonMappingParametersArgs) ToApplicationReferenceDataSourceJsonMappingParametersOutput() ApplicationReferenceDataSourceJsonMappingParametersOutput {
+	return i.ToApplicationReferenceDataSourceJsonMappingParametersOutputWithContext(context.Background())
 }
 
-func (i ApplicationReferenceDataSourceJSONMappingParametersArgs) ToApplicationReferenceDataSourceJSONMappingParametersOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJSONMappingParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceJSONMappingParametersOutput)
+func (i ApplicationReferenceDataSourceJsonMappingParametersArgs) ToApplicationReferenceDataSourceJsonMappingParametersOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJsonMappingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceJsonMappingParametersOutput)
 }
 
-func (i ApplicationReferenceDataSourceJSONMappingParametersArgs) ToApplicationReferenceDataSourceJSONMappingParametersPtrOutput() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
-	return i.ToApplicationReferenceDataSourceJSONMappingParametersPtrOutputWithContext(context.Background())
+func (i ApplicationReferenceDataSourceJsonMappingParametersArgs) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutput() ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
+	return i.ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationReferenceDataSourceJSONMappingParametersArgs) ToApplicationReferenceDataSourceJSONMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceJSONMappingParametersOutput).ToApplicationReferenceDataSourceJSONMappingParametersPtrOutputWithContext(ctx)
+func (i ApplicationReferenceDataSourceJsonMappingParametersArgs) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceJsonMappingParametersOutput).ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(ctx)
 }
 
-// ApplicationReferenceDataSourceJSONMappingParametersPtrInput is an input type that accepts ApplicationReferenceDataSourceJSONMappingParametersArgs, ApplicationReferenceDataSourceJSONMappingParametersPtr and ApplicationReferenceDataSourceJSONMappingParametersPtrOutput values.
-// You can construct a concrete instance of `ApplicationReferenceDataSourceJSONMappingParametersPtrInput` via:
+// ApplicationReferenceDataSourceJsonMappingParametersPtrInput is an input type that accepts ApplicationReferenceDataSourceJsonMappingParametersArgs, ApplicationReferenceDataSourceJsonMappingParametersPtr and ApplicationReferenceDataSourceJsonMappingParametersPtrOutput values.
+// You can construct a concrete instance of `ApplicationReferenceDataSourceJsonMappingParametersPtrInput` via:
 //
-//	        ApplicationReferenceDataSourceJSONMappingParametersArgs{...}
+//	        ApplicationReferenceDataSourceJsonMappingParametersArgs{...}
 //
 //	or:
 //
 //	        nil
-type ApplicationReferenceDataSourceJSONMappingParametersPtrInput interface {
+type ApplicationReferenceDataSourceJsonMappingParametersPtrInput interface {
 	pulumi.Input
 
-	ToApplicationReferenceDataSourceJSONMappingParametersPtrOutput() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput
-	ToApplicationReferenceDataSourceJSONMappingParametersPtrOutputWithContext(context.Context) ApplicationReferenceDataSourceJSONMappingParametersPtrOutput
+	ToApplicationReferenceDataSourceJsonMappingParametersPtrOutput() ApplicationReferenceDataSourceJsonMappingParametersPtrOutput
+	ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(context.Context) ApplicationReferenceDataSourceJsonMappingParametersPtrOutput
 }
 
-type applicationReferenceDataSourceJSONMappingParametersPtrType ApplicationReferenceDataSourceJSONMappingParametersArgs
+type applicationReferenceDataSourceJsonMappingParametersPtrType ApplicationReferenceDataSourceJsonMappingParametersArgs
 
-func ApplicationReferenceDataSourceJSONMappingParametersPtr(v *ApplicationReferenceDataSourceJSONMappingParametersArgs) ApplicationReferenceDataSourceJSONMappingParametersPtrInput {
-	return (*applicationReferenceDataSourceJSONMappingParametersPtrType)(v)
+func ApplicationReferenceDataSourceJsonMappingParametersPtr(v *ApplicationReferenceDataSourceJsonMappingParametersArgs) ApplicationReferenceDataSourceJsonMappingParametersPtrInput {
+	return (*applicationReferenceDataSourceJsonMappingParametersPtrType)(v)
 }
 
-func (*applicationReferenceDataSourceJSONMappingParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationReferenceDataSourceJSONMappingParameters)(nil)).Elem()
+func (*applicationReferenceDataSourceJsonMappingParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationReferenceDataSourceJsonMappingParameters)(nil)).Elem()
 }
 
-func (i *applicationReferenceDataSourceJSONMappingParametersPtrType) ToApplicationReferenceDataSourceJSONMappingParametersPtrOutput() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
-	return i.ToApplicationReferenceDataSourceJSONMappingParametersPtrOutputWithContext(context.Background())
+func (i *applicationReferenceDataSourceJsonMappingParametersPtrType) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutput() ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
+	return i.ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationReferenceDataSourceJSONMappingParametersPtrType) ToApplicationReferenceDataSourceJSONMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceJSONMappingParametersPtrOutput)
+func (i *applicationReferenceDataSourceJsonMappingParametersPtrType) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceJsonMappingParametersPtrOutput)
 }
 
-type ApplicationReferenceDataSourceJSONMappingParametersOutput struct{ *pulumi.OutputState }
+type ApplicationReferenceDataSourceJsonMappingParametersOutput struct{ *pulumi.OutputState }
 
-func (ApplicationReferenceDataSourceJSONMappingParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationReferenceDataSourceJSONMappingParameters)(nil)).Elem()
+func (ApplicationReferenceDataSourceJsonMappingParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationReferenceDataSourceJsonMappingParameters)(nil)).Elem()
 }
 
-func (o ApplicationReferenceDataSourceJSONMappingParametersOutput) ToApplicationReferenceDataSourceJSONMappingParametersOutput() ApplicationReferenceDataSourceJSONMappingParametersOutput {
+func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) ToApplicationReferenceDataSourceJsonMappingParametersOutput() ApplicationReferenceDataSourceJsonMappingParametersOutput {
 	return o
 }
 
-func (o ApplicationReferenceDataSourceJSONMappingParametersOutput) ToApplicationReferenceDataSourceJSONMappingParametersOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJSONMappingParametersOutput {
+func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) ToApplicationReferenceDataSourceJsonMappingParametersOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJsonMappingParametersOutput {
 	return o
 }
 
-func (o ApplicationReferenceDataSourceJSONMappingParametersOutput) ToApplicationReferenceDataSourceJSONMappingParametersPtrOutput() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
-	return o.ToApplicationReferenceDataSourceJSONMappingParametersPtrOutputWithContext(context.Background())
+func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutput() ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
+	return o.ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationReferenceDataSourceJSONMappingParametersOutput) ToApplicationReferenceDataSourceJSONMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationReferenceDataSourceJSONMappingParameters) *ApplicationReferenceDataSourceJSONMappingParameters {
+func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationReferenceDataSourceJsonMappingParameters) *ApplicationReferenceDataSourceJsonMappingParameters {
 		return &v
-	}).(ApplicationReferenceDataSourceJSONMappingParametersPtrOutput)
+	}).(ApplicationReferenceDataSourceJsonMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceJSONMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationReferenceDataSourceJSONMappingParameters) string { return v.RecordRowPath }).(pulumi.StringOutput)
+func (o ApplicationReferenceDataSourceJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationReferenceDataSourceJsonMappingParameters) string { return v.RecordRowPath }).(pulumi.StringOutput)
 }
 
-type ApplicationReferenceDataSourceJSONMappingParametersPtrOutput struct{ *pulumi.OutputState }
+type ApplicationReferenceDataSourceJsonMappingParametersPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationReferenceDataSourceJSONMappingParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationReferenceDataSourceJSONMappingParameters)(nil)).Elem()
+func (ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationReferenceDataSourceJsonMappingParameters)(nil)).Elem()
 }
 
-func (o ApplicationReferenceDataSourceJSONMappingParametersPtrOutput) ToApplicationReferenceDataSourceJSONMappingParametersPtrOutput() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutput() ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
 	return o
 }
 
-func (o ApplicationReferenceDataSourceJSONMappingParametersPtrOutput) ToApplicationReferenceDataSourceJSONMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) ToApplicationReferenceDataSourceJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
 	return o
 }
 
-func (o ApplicationReferenceDataSourceJSONMappingParametersPtrOutput) Elem() ApplicationReferenceDataSourceJSONMappingParametersOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceJSONMappingParameters) ApplicationReferenceDataSourceJSONMappingParameters {
+func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) Elem() ApplicationReferenceDataSourceJsonMappingParametersOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceJsonMappingParameters) ApplicationReferenceDataSourceJsonMappingParameters {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationReferenceDataSourceJSONMappingParameters
+		var ret ApplicationReferenceDataSourceJsonMappingParameters
 		return ret
-	}).(ApplicationReferenceDataSourceJSONMappingParametersOutput)
+	}).(ApplicationReferenceDataSourceJsonMappingParametersOutput)
 }
 
-func (o ApplicationReferenceDataSourceJSONMappingParametersPtrOutput) RecordRowPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceJSONMappingParameters) *string {
+func (o ApplicationReferenceDataSourceJsonMappingParametersPtrOutput) RecordRowPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceJsonMappingParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -2460,8 +2460,8 @@ func (o ApplicationReferenceDataSourceJSONMappingParametersPtrOutput) RecordRowP
 }
 
 type ApplicationReferenceDataSourceMappingParameters struct {
-	CsvMappingParameters  *ApplicationReferenceDataSourceCSVMappingParameters  `pulumi:"csvMappingParameters"`
-	JsonMappingParameters *ApplicationReferenceDataSourceJSONMappingParameters `pulumi:"jsonMappingParameters"`
+	CsvMappingParameters  *ApplicationReferenceDataSourceCsvMappingParameters  `pulumi:"csvMappingParameters"`
+	JsonMappingParameters *ApplicationReferenceDataSourceJsonMappingParameters `pulumi:"jsonMappingParameters"`
 }
 
 // ApplicationReferenceDataSourceMappingParametersInput is an input type that accepts ApplicationReferenceDataSourceMappingParametersArgs and ApplicationReferenceDataSourceMappingParametersOutput values.
@@ -2476,8 +2476,8 @@ type ApplicationReferenceDataSourceMappingParametersInput interface {
 }
 
 type ApplicationReferenceDataSourceMappingParametersArgs struct {
-	CsvMappingParameters  ApplicationReferenceDataSourceCSVMappingParametersPtrInput  `pulumi:"csvMappingParameters"`
-	JsonMappingParameters ApplicationReferenceDataSourceJSONMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
+	CsvMappingParameters  ApplicationReferenceDataSourceCsvMappingParametersPtrInput  `pulumi:"csvMappingParameters"`
+	JsonMappingParameters ApplicationReferenceDataSourceJsonMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
 }
 
 func (ApplicationReferenceDataSourceMappingParametersArgs) ElementType() reflect.Type {
@@ -2557,16 +2557,16 @@ func (o ApplicationReferenceDataSourceMappingParametersOutput) ToApplicationRefe
 	}).(ApplicationReferenceDataSourceMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersOutput) CsvMappingParameters() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceCSVMappingParameters {
+func (o ApplicationReferenceDataSourceMappingParametersOutput) CsvMappingParameters() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
+	return o.ApplyT(func(v ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceCsvMappingParameters {
 		return v.CsvMappingParameters
-	}).(ApplicationReferenceDataSourceCSVMappingParametersPtrOutput)
+	}).(ApplicationReferenceDataSourceCsvMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersOutput) JsonMappingParameters() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceJSONMappingParameters {
+func (o ApplicationReferenceDataSourceMappingParametersOutput) JsonMappingParameters() ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
+	return o.ApplyT(func(v ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceJsonMappingParameters {
 		return v.JsonMappingParameters
-	}).(ApplicationReferenceDataSourceJSONMappingParametersPtrOutput)
+	}).(ApplicationReferenceDataSourceJsonMappingParametersPtrOutput)
 }
 
 type ApplicationReferenceDataSourceMappingParametersPtrOutput struct{ *pulumi.OutputState }
@@ -2593,22 +2593,22 @@ func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) Elem() Applica
 	}).(ApplicationReferenceDataSourceMappingParametersOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) CsvMappingParameters() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceCSVMappingParameters {
+func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) CsvMappingParameters() ApplicationReferenceDataSourceCsvMappingParametersPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceCsvMappingParameters {
 		if v == nil {
 			return nil
 		}
 		return v.CsvMappingParameters
-	}).(ApplicationReferenceDataSourceCSVMappingParametersPtrOutput)
+	}).(ApplicationReferenceDataSourceCsvMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) JsonMappingParameters() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceJSONMappingParameters {
+func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) JsonMappingParameters() ApplicationReferenceDataSourceJsonMappingParametersPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceJsonMappingParameters {
 		if v == nil {
 			return nil
 		}
 		return v.JsonMappingParameters
-	}).(ApplicationReferenceDataSourceJSONMappingParametersPtrOutput)
+	}).(ApplicationReferenceDataSourceJsonMappingParametersPtrOutput)
 }
 
 type ApplicationReferenceDataSourceRecordColumn struct {
@@ -3212,8 +3212,8 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ReferenceR
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCSVMappingParametersInput)(nil)).Elem(), ApplicationCSVMappingParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCSVMappingParametersPtrInput)(nil)).Elem(), ApplicationCSVMappingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCsvMappingParametersInput)(nil)).Elem(), ApplicationCsvMappingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCsvMappingParametersPtrInput)(nil)).Elem(), ApplicationCsvMappingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputTypeInput)(nil)).Elem(), ApplicationInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputTypeArrayInput)(nil)).Elem(), ApplicationInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputLambdaProcessorInput)(nil)).Elem(), ApplicationInputLambdaProcessorArgs{})
@@ -3223,8 +3223,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputProcessingConfigurationInput)(nil)).Elem(), ApplicationInputProcessingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputProcessingConfigurationPtrInput)(nil)).Elem(), ApplicationInputProcessingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputSchemaInput)(nil)).Elem(), ApplicationInputSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJSONMappingParametersInput)(nil)).Elem(), ApplicationJSONMappingParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJSONMappingParametersPtrInput)(nil)).Elem(), ApplicationJSONMappingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJsonMappingParametersInput)(nil)).Elem(), ApplicationJsonMappingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJsonMappingParametersPtrInput)(nil)).Elem(), ApplicationJsonMappingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisFirehoseInputInput)(nil)).Elem(), ApplicationKinesisFirehoseInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisFirehoseInputPtrInput)(nil)).Elem(), ApplicationKinesisFirehoseInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisStreamsInputInput)(nil)).Elem(), ApplicationKinesisStreamsInputArgs{})
@@ -3242,10 +3242,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRecordColumnInput)(nil)).Elem(), ApplicationRecordColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRecordColumnArrayInput)(nil)).Elem(), ApplicationRecordColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRecordFormatInput)(nil)).Elem(), ApplicationRecordFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceCSVMappingParametersInput)(nil)).Elem(), ApplicationReferenceDataSourceCSVMappingParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceCSVMappingParametersPtrInput)(nil)).Elem(), ApplicationReferenceDataSourceCSVMappingParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceJSONMappingParametersInput)(nil)).Elem(), ApplicationReferenceDataSourceJSONMappingParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceJSONMappingParametersPtrInput)(nil)).Elem(), ApplicationReferenceDataSourceJSONMappingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceCsvMappingParametersInput)(nil)).Elem(), ApplicationReferenceDataSourceCsvMappingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceCsvMappingParametersPtrInput)(nil)).Elem(), ApplicationReferenceDataSourceCsvMappingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceJsonMappingParametersInput)(nil)).Elem(), ApplicationReferenceDataSourceJsonMappingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceJsonMappingParametersPtrInput)(nil)).Elem(), ApplicationReferenceDataSourceJsonMappingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceMappingParametersInput)(nil)).Elem(), ApplicationReferenceDataSourceMappingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceMappingParametersPtrInput)(nil)).Elem(), ApplicationReferenceDataSourceMappingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceRecordColumnInput)(nil)).Elem(), ApplicationReferenceDataSourceRecordColumnArgs{})
@@ -3255,8 +3255,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceReferenceSchemaInput)(nil)).Elem(), ApplicationReferenceDataSourceReferenceSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceS3ReferenceDataSourceInput)(nil)).Elem(), ApplicationReferenceDataSourceS3ReferenceDataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceS3ReferenceDataSourcePtrInput)(nil)).Elem(), ApplicationReferenceDataSourceS3ReferenceDataSourceArgs{})
-	pulumi.RegisterOutputType(ApplicationCSVMappingParametersOutput{})
-	pulumi.RegisterOutputType(ApplicationCSVMappingParametersPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationCsvMappingParametersOutput{})
+	pulumi.RegisterOutputType(ApplicationCsvMappingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInputTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationInputLambdaProcessorOutput{})
@@ -3266,8 +3266,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInputProcessingConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationInputProcessingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInputSchemaOutput{})
-	pulumi.RegisterOutputType(ApplicationJSONMappingParametersOutput{})
-	pulumi.RegisterOutputType(ApplicationJSONMappingParametersPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationJsonMappingParametersOutput{})
+	pulumi.RegisterOutputType(ApplicationJsonMappingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationKinesisFirehoseInputOutput{})
 	pulumi.RegisterOutputType(ApplicationKinesisFirehoseInputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationKinesisStreamsInputOutput{})
@@ -3287,10 +3287,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationRecordColumnOutput{})
 	pulumi.RegisterOutputType(ApplicationRecordColumnArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationRecordFormatOutput{})
-	pulumi.RegisterOutputType(ApplicationReferenceDataSourceCSVMappingParametersOutput{})
-	pulumi.RegisterOutputType(ApplicationReferenceDataSourceCSVMappingParametersPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationReferenceDataSourceJSONMappingParametersOutput{})
-	pulumi.RegisterOutputType(ApplicationReferenceDataSourceJSONMappingParametersPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationReferenceDataSourceCsvMappingParametersOutput{})
+	pulumi.RegisterOutputType(ApplicationReferenceDataSourceCsvMappingParametersPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationReferenceDataSourceJsonMappingParametersOutput{})
+	pulumi.RegisterOutputType(ApplicationReferenceDataSourceJsonMappingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceMappingParametersOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceMappingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceRecordColumnOutput{})

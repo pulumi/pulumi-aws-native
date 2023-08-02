@@ -18,7 +18,7 @@ type DeviceProfile struct {
 	// Service profile Arn. Returned after successful create.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
-	LoRaWan DeviceProfileLoRaWANDeviceProfilePtrOutput `pulumi:"loRaWan"`
+	LoRaWan DeviceProfileLoRaWanDeviceProfilePtrOutput `pulumi:"loRaWan"`
 	// Name of service profile
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device profile.
@@ -66,7 +66,7 @@ func (DeviceProfileState) ElementType() reflect.Type {
 
 type deviceProfileArgs struct {
 	// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
-	LoRaWan *DeviceProfileLoRaWANDeviceProfile `pulumi:"loRaWan"`
+	LoRaWan *DeviceProfileLoRaWanDeviceProfile `pulumi:"loRaWan"`
 	// Name of service profile
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device profile.
@@ -76,7 +76,7 @@ type deviceProfileArgs struct {
 // The set of arguments for constructing a DeviceProfile resource.
 type DeviceProfileArgs struct {
 	// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
-	LoRaWan DeviceProfileLoRaWANDeviceProfilePtrInput
+	LoRaWan DeviceProfileLoRaWanDeviceProfilePtrInput
 	// Name of service profile
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the device profile.
@@ -126,8 +126,8 @@ func (o DeviceProfileOutput) Arn() pulumi.StringOutput {
 }
 
 // LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
-func (o DeviceProfileOutput) LoRaWan() DeviceProfileLoRaWANDeviceProfilePtrOutput {
-	return o.ApplyT(func(v *DeviceProfile) DeviceProfileLoRaWANDeviceProfilePtrOutput { return v.LoRaWan }).(DeviceProfileLoRaWANDeviceProfilePtrOutput)
+func (o DeviceProfileOutput) LoRaWan() DeviceProfileLoRaWanDeviceProfilePtrOutput {
+	return o.ApplyT(func(v *DeviceProfile) DeviceProfileLoRaWanDeviceProfilePtrOutput { return v.LoRaWan }).(DeviceProfileLoRaWanDeviceProfilePtrOutput)
 }
 
 // Name of service profile

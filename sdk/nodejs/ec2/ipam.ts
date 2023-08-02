@@ -10,31 +10,31 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema of AWS::EC2::IPAM Type
  */
-export class IPAM extends pulumi.CustomResource {
+export class Ipam extends pulumi.CustomResource {
     /**
-     * Get an existing IPAM resource's state with the given name, ID, and optional extra
+     * Get an existing Ipam resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IPAM {
-        return new IPAM(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Ipam {
+        return new Ipam(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ec2:IPAM';
+    public static readonly __pulumiType = 'aws-native:ec2:Ipam';
 
     /**
-     * Returns true if the given object is an instance of IPAM.  This is designed to work even
+     * Returns true if the given object is an instance of Ipam.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is IPAM {
+    public static isInstance(obj: any): obj is Ipam {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === IPAM.__pulumiType;
+        return obj['__pulumiType'] === Ipam.__pulumiType;
     }
 
     /**
@@ -57,7 +57,7 @@ export class IPAM extends pulumi.CustomResource {
     /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
      */
-    public readonly operatingRegions!: pulumi.Output<outputs.ec2.IPAMIpamOperatingRegion[] | undefined>;
+    public readonly operatingRegions!: pulumi.Output<outputs.ec2.IpamOperatingRegion[] | undefined>;
     /**
      * The Id of the default scope for publicly routable IP space, created with this IPAM.
      */
@@ -77,16 +77,16 @@ export class IPAM extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.IPAMTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ec2.IpamTag[] | undefined>;
 
     /**
-     * Create a IPAM resource with the given unique name, arguments, and options.
+     * Create a Ipam resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: IPAMArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: IpamArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -115,21 +115,21 @@ export class IPAM extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IPAM.__pulumiType, name, resourceInputs, opts);
+        super(Ipam.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a IPAM resource.
+ * The set of arguments for constructing a Ipam resource.
  */
-export interface IPAMArgs {
+export interface IpamArgs {
     description?: pulumi.Input<string>;
     /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
      */
-    operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.IPAMIpamOperatingRegionArgs>[]>;
+    operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamOperatingRegionArgs>[]>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.IPAMTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.IpamTagArgs>[]>;
 }

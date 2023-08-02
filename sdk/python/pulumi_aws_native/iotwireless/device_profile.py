@@ -16,12 +16,12 @@ __all__ = ['DeviceProfileArgs', 'DeviceProfile']
 @pulumi.input_type
 class DeviceProfileArgs:
     def __init__(__self__, *,
-                 lo_ra_wan: Optional[pulumi.Input['DeviceProfileLoRaWANDeviceProfileArgs']] = None,
+                 lo_ra_wan: Optional[pulumi.Input['DeviceProfileLoRaWanDeviceProfileArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a DeviceProfile resource.
-        :param pulumi.Input['DeviceProfileLoRaWANDeviceProfileArgs'] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
+        :param pulumi.Input['DeviceProfileLoRaWanDeviceProfileArgs'] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
         :param pulumi.Input[str] name: Name of service profile
         :param pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]] tags: A list of key-value pairs that contain metadata for the device profile.
         """
@@ -34,14 +34,14 @@ class DeviceProfileArgs:
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional[pulumi.Input['DeviceProfileLoRaWANDeviceProfileArgs']]:
+    def lo_ra_wan(self) -> Optional[pulumi.Input['DeviceProfileLoRaWanDeviceProfileArgs']]:
         """
         LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
         """
         return pulumi.get(self, "lo_ra_wan")
 
     @lo_ra_wan.setter
-    def lo_ra_wan(self, value: Optional[pulumi.Input['DeviceProfileLoRaWANDeviceProfileArgs']]):
+    def lo_ra_wan(self, value: Optional[pulumi.Input['DeviceProfileLoRaWanDeviceProfileArgs']]):
         pulumi.set(self, "lo_ra_wan", value)
 
     @property
@@ -74,7 +74,7 @@ class DeviceProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['DeviceProfileLoRaWANDeviceProfileArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['DeviceProfileLoRaWanDeviceProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceProfileTagArgs']]]]] = None,
                  __props__=None):
@@ -83,7 +83,7 @@ class DeviceProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeviceProfileLoRaWANDeviceProfileArgs']] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
+        :param pulumi.Input[pulumi.InputType['DeviceProfileLoRaWanDeviceProfileArgs']] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
         :param pulumi.Input[str] name: Name of service profile
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceProfileTagArgs']]]] tags: A list of key-value pairs that contain metadata for the device profile.
         """
@@ -111,7 +111,7 @@ class DeviceProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['DeviceProfileLoRaWANDeviceProfileArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['DeviceProfileLoRaWanDeviceProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceProfileTagArgs']]]]] = None,
                  __props__=None):
@@ -165,7 +165,7 @@ class DeviceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.DeviceProfileLoRaWANDeviceProfile']]:
+    def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.DeviceProfileLoRaWanDeviceProfile']]:
         """
         LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
         """

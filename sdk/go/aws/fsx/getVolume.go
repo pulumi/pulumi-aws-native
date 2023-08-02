@@ -29,7 +29,7 @@ type LookupVolumeArgs struct {
 type LookupVolumeResult struct {
 	Name                 *string                     `pulumi:"name"`
 	OntapConfiguration   *VolumeOntapConfiguration   `pulumi:"ontapConfiguration"`
-	OpenZfsConfiguration *VolumeOpenZFSConfiguration `pulumi:"openZfsConfiguration"`
+	OpenZfsConfiguration *VolumeOpenZfsConfiguration `pulumi:"openZfsConfiguration"`
 	ResourceArn          *string                     `pulumi:"resourceArn"`
 	Tags                 []VolumeTag                 `pulumi:"tags"`
 	Uuid                 *string                     `pulumi:"uuid"`
@@ -79,8 +79,8 @@ func (o LookupVolumeResultOutput) OntapConfiguration() VolumeOntapConfigurationP
 	return o.ApplyT(func(v LookupVolumeResult) *VolumeOntapConfiguration { return v.OntapConfiguration }).(VolumeOntapConfigurationPtrOutput)
 }
 
-func (o LookupVolumeResultOutput) OpenZfsConfiguration() VolumeOpenZFSConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupVolumeResult) *VolumeOpenZFSConfiguration { return v.OpenZfsConfiguration }).(VolumeOpenZFSConfigurationPtrOutput)
+func (o LookupVolumeResultOutput) OpenZfsConfiguration() VolumeOpenZfsConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *VolumeOpenZfsConfiguration { return v.OpenZfsConfiguration }).(VolumeOpenZfsConfigurationPtrOutput)
 }
 
 func (o LookupVolumeResultOutput) ResourceArn() pulumi.StringPtrOutput {

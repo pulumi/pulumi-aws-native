@@ -64,7 +64,7 @@ export class ConformancePack extends pulumi.CustomResource {
     /**
      * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
      */
-    public readonly templateSsmDocumentDetails!: pulumi.Output<outputs.configuration.TemplateSSMDocumentDetailsProperties | undefined>;
+    public readonly templateSsmDocumentDetails!: pulumi.Output<outputs.configuration.TemplateSsmDocumentDetailsProperties | undefined>;
 
     /**
      * Create a ConformancePack resource with the given unique name, arguments, and options.
@@ -129,5 +129,5 @@ export interface ConformancePackArgs {
     /**
      * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
      */
-    templateSsmDocumentDetails?: pulumi.Input<inputs.configuration.TemplateSSMDocumentDetailsPropertiesArgs>;
+    templateSsmDocumentDetails?: pulumi.Input<inputs.configuration.TemplateSsmDocumentDetailsPropertiesArgs>;
 }

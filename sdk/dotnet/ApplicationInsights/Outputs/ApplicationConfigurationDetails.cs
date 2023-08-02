@@ -27,15 +27,15 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// The HA cluster Prometheus Exporter settings.
         /// </summary>
-        public readonly Outputs.ApplicationHAClusterPrometheusExporter? HaClusterPrometheusExporter;
+        public readonly Outputs.ApplicationHaClusterPrometheusExporter? HaClusterPrometheusExporter;
         /// <summary>
         /// The HANA DB Prometheus Exporter settings.
         /// </summary>
-        public readonly Outputs.ApplicationHANAPrometheusExporter? HanaPrometheusExporter;
+        public readonly Outputs.ApplicationHanaPrometheusExporter? HanaPrometheusExporter;
         /// <summary>
         /// The JMX Prometheus Exporter settings.
         /// </summary>
-        public readonly Outputs.ApplicationJMXPrometheusExporter? JmxPrometheusExporter;
+        public readonly Outputs.ApplicationJmxPrometheusExporter? JmxPrometheusExporter;
         /// <summary>
         /// A list of logs to monitor for the component.
         /// </summary>
@@ -51,11 +51,11 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
             ImmutableArray<Outputs.ApplicationAlarm> alarms,
 
-            Outputs.ApplicationHAClusterPrometheusExporter? haClusterPrometheusExporter,
+            Outputs.ApplicationHaClusterPrometheusExporter? haClusterPrometheusExporter,
 
-            Outputs.ApplicationHANAPrometheusExporter? hanaPrometheusExporter,
+            Outputs.ApplicationHanaPrometheusExporter? hanaPrometheusExporter,
 
-            Outputs.ApplicationJMXPrometheusExporter? jmxPrometheusExporter,
+            Outputs.ApplicationJmxPrometheusExporter? jmxPrometheusExporter,
 
             ImmutableArray<Outputs.ApplicationLog> logs,
 

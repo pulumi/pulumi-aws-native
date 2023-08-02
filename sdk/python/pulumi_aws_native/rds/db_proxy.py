@@ -12,32 +12,32 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['DBProxyArgs', 'DBProxy']
+__all__ = ['DbProxyArgs', 'DbProxy']
 
 @pulumi.input_type
-class DBProxyArgs:
+class DbProxyArgs:
     def __init__(__self__, *,
-                 auth: pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]],
-                 engine_family: pulumi.Input['DBProxyEngineFamily'],
+                 auth: pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]],
+                 engine_family: pulumi.Input['DbProxyEngineFamily'],
                  role_arn: pulumi.Input[str],
                  vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  db_proxy_name: Optional[pulumi.Input[str]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
                  require_tls: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a DBProxy resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]] auth: The authorization mechanism that the proxy uses.
-        :param pulumi.Input['DBProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
+        The set of arguments for constructing a DbProxy resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]] auth: The authorization mechanism that the proxy uses.
+        :param pulumi.Input['DbProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
         :param pulumi.Input[str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
         :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         :param pulumi.Input[bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-        :param pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+        :param pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new proxy.
         """
         pulumi.set(__self__, "auth", auth)
@@ -59,26 +59,26 @@ class DBProxyArgs:
 
     @property
     @pulumi.getter
-    def auth(self) -> pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]]:
+    def auth(self) -> pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]]:
         """
         The authorization mechanism that the proxy uses.
         """
         return pulumi.get(self, "auth")
 
     @auth.setter
-    def auth(self, value: pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]]):
+    def auth(self, value: pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]]):
         pulumi.set(self, "auth", value)
 
     @property
     @pulumi.getter(name="engineFamily")
-    def engine_family(self) -> pulumi.Input['DBProxyEngineFamily']:
+    def engine_family(self) -> pulumi.Input['DbProxyEngineFamily']:
         """
         The kinds of databases that the proxy can connect to.
         """
         return pulumi.get(self, "engine_family")
 
     @engine_family.setter
-    def engine_family(self, value: pulumi.Input['DBProxyEngineFamily']):
+    def engine_family(self, value: pulumi.Input['DbProxyEngineFamily']):
         pulumi.set(self, "engine_family", value)
 
     @property
@@ -155,14 +155,14 @@ class DBProxyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]]]:
         """
         An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -178,19 +178,19 @@ class DBProxyArgs:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
-class DBProxy(pulumi.CustomResource):
+class DbProxy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]]] = None,
+                 auth: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbProxyAuthFormatArgs']]]]] = None,
                  db_proxy_name: Optional[pulumi.Input[str]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
-                 engine_family: Optional[pulumi.Input['DBProxyEngineFamily']] = None,
+                 engine_family: Optional[pulumi.Input['DbProxyEngineFamily']] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
                  require_tls: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyTagFormatArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbProxyTagFormatArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -199,14 +199,14 @@ class DBProxy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]] auth: The authorization mechanism that the proxy uses.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbProxyAuthFormatArgs']]]] auth: The authorization mechanism that the proxy uses.
         :param pulumi.Input[str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
-        :param pulumi.Input['DBProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
+        :param pulumi.Input['DbProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
         :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         :param pulumi.Input[bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyTagFormatArgs']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbProxyTagFormatArgs']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
         """
@@ -214,18 +214,18 @@ class DBProxy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DBProxyArgs,
+                 args: DbProxyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::RDS::DBProxy
 
         :param str resource_name: The name of the resource.
-        :param DBProxyArgs args: The arguments to use to populate this resource's properties.
+        :param DbProxyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DBProxyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DbProxyArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -234,14 +234,14 @@ class DBProxy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]]] = None,
+                 auth: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbProxyAuthFormatArgs']]]]] = None,
                  db_proxy_name: Optional[pulumi.Input[str]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
-                 engine_family: Optional[pulumi.Input['DBProxyEngineFamily']] = None,
+                 engine_family: Optional[pulumi.Input['DbProxyEngineFamily']] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
                  require_tls: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyTagFormatArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbProxyTagFormatArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -251,7 +251,7 @@ class DBProxy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DBProxyArgs.__new__(DBProxyArgs)
+            __props__ = DbProxyArgs.__new__(DbProxyArgs)
 
             if auth is None and not opts.urn:
                 raise TypeError("Missing required property 'auth'")
@@ -274,8 +274,8 @@ class DBProxy(pulumi.CustomResource):
             __props__.__dict__["db_proxy_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["vpc_id"] = None
-        super(DBProxy, __self__).__init__(
-            'aws-native:rds:DBProxy',
+        super(DbProxy, __self__).__init__(
+            'aws-native:rds:DbProxy',
             resource_name,
             __props__,
             opts)
@@ -283,9 +283,9 @@ class DBProxy(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'DBProxy':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DbProxy':
         """
-        Get an existing DBProxy resource's state with the given name, id, and optional extra
+        Get an existing DbProxy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -294,7 +294,7 @@ class DBProxy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DBProxyArgs.__new__(DBProxyArgs)
+        __props__ = DbProxyArgs.__new__(DbProxyArgs)
 
         __props__.__dict__["auth"] = None
         __props__.__dict__["db_proxy_arn"] = None
@@ -309,11 +309,11 @@ class DBProxy(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = None
         __props__.__dict__["vpc_security_group_ids"] = None
         __props__.__dict__["vpc_subnet_ids"] = None
-        return DBProxy(resource_name, opts=opts, __props__=__props__)
+        return DbProxy(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
-    def auth(self) -> pulumi.Output[Sequence['outputs.DBProxyAuthFormat']]:
+    def auth(self) -> pulumi.Output[Sequence['outputs.DbProxyAuthFormat']]:
         """
         The authorization mechanism that the proxy uses.
         """
@@ -353,7 +353,7 @@ class DBProxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineFamily")
-    def engine_family(self) -> pulumi.Output['DBProxyEngineFamily']:
+    def engine_family(self) -> pulumi.Output['DbProxyEngineFamily']:
         """
         The kinds of databases that the proxy can connect to.
         """
@@ -385,7 +385,7 @@ class DBProxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBProxyTagFormat']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbProxyTagFormat']]]:
         """
         An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         """

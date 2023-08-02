@@ -11,7 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ACLTag',
+    'AclTag',
     'AuthenticationModeProperties',
     'ClusterEndpoint',
     'ClusterTag',
@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ACLTag(dict):
+class AclTag(dict):
     """
     A key-value pair to associate with a resource.
     """

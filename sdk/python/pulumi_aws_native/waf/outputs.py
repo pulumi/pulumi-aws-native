@@ -13,14 +13,14 @@ from . import outputs
 __all__ = [
     'ByteMatchSetByteMatchTuple',
     'ByteMatchSetFieldToMatch',
-    'IPSetDescriptor',
+    'IpSetIpSetDescriptor',
     'RulePredicate',
     'SizeConstraintSetFieldToMatch',
     'SizeConstraintSetSizeConstraint',
     'SqlInjectionMatchSetFieldToMatch',
     'SqlInjectionMatchSetSqlInjectionMatchTuple',
-    'WebACLActivatedRule',
-    'WebACLWafAction',
+    'WebAclActivatedRule',
+    'WebAclWafAction',
     'XssMatchSetFieldToMatch',
     'XssMatchSetXssMatchTuple',
 ]
@@ -113,7 +113,7 @@ class ByteMatchSetFieldToMatch(dict):
 
 
 @pulumi.output_type
-class IPSetDescriptor(dict):
+class IpSetIpSetDescriptor(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -307,7 +307,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
 
 
 @pulumi.output_type
-class WebACLActivatedRule(dict):
+class WebAclActivatedRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -315,20 +315,20 @@ class WebACLActivatedRule(dict):
             suggest = "rule_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLActivatedRule. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclActivatedRule. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLActivatedRule.__key_warning(key)
+        WebAclActivatedRule.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLActivatedRule.__key_warning(key)
+        WebAclActivatedRule.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  priority: int,
                  rule_id: str,
-                 action: Optional['outputs.WebACLWafAction'] = None):
+                 action: Optional['outputs.WebAclWafAction'] = None):
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_id", rule_id)
         if action is not None:
@@ -346,12 +346,12 @@ class WebACLActivatedRule(dict):
 
     @property
     @pulumi.getter
-    def action(self) -> Optional['outputs.WebACLWafAction']:
+    def action(self) -> Optional['outputs.WebAclWafAction']:
         return pulumi.get(self, "action")
 
 
 @pulumi.output_type
-class WebACLWafAction(dict):
+class WebAclWafAction(dict):
     def __init__(__self__, *,
                  type: str):
         pulumi.set(__self__, "type", type)

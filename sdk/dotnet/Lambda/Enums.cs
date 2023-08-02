@@ -42,26 +42,26 @@ namespace Pulumi.AwsNative.Lambda
     /// Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
     /// </summary>
     [EnumType]
-    public readonly struct EventSourceMappingDocumentDBEventSourceConfigFullDocument : IEquatable<EventSourceMappingDocumentDBEventSourceConfigFullDocument>
+    public readonly struct EventSourceMappingDocumentDbEventSourceConfigFullDocument : IEquatable<EventSourceMappingDocumentDbEventSourceConfigFullDocument>
     {
         private readonly string _value;
 
-        private EventSourceMappingDocumentDBEventSourceConfigFullDocument(string value)
+        private EventSourceMappingDocumentDbEventSourceConfigFullDocument(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static EventSourceMappingDocumentDBEventSourceConfigFullDocument UpdateLookup { get; } = new EventSourceMappingDocumentDBEventSourceConfigFullDocument("UpdateLookup");
-        public static EventSourceMappingDocumentDBEventSourceConfigFullDocument Default { get; } = new EventSourceMappingDocumentDBEventSourceConfigFullDocument("Default");
+        public static EventSourceMappingDocumentDbEventSourceConfigFullDocument UpdateLookup { get; } = new EventSourceMappingDocumentDbEventSourceConfigFullDocument("UpdateLookup");
+        public static EventSourceMappingDocumentDbEventSourceConfigFullDocument Default { get; } = new EventSourceMappingDocumentDbEventSourceConfigFullDocument("Default");
 
-        public static bool operator ==(EventSourceMappingDocumentDBEventSourceConfigFullDocument left, EventSourceMappingDocumentDBEventSourceConfigFullDocument right) => left.Equals(right);
-        public static bool operator !=(EventSourceMappingDocumentDBEventSourceConfigFullDocument left, EventSourceMappingDocumentDBEventSourceConfigFullDocument right) => !left.Equals(right);
+        public static bool operator ==(EventSourceMappingDocumentDbEventSourceConfigFullDocument left, EventSourceMappingDocumentDbEventSourceConfigFullDocument right) => left.Equals(right);
+        public static bool operator !=(EventSourceMappingDocumentDbEventSourceConfigFullDocument left, EventSourceMappingDocumentDbEventSourceConfigFullDocument right) => !left.Equals(right);
 
-        public static explicit operator string(EventSourceMappingDocumentDBEventSourceConfigFullDocument value) => value._value;
+        public static explicit operator string(EventSourceMappingDocumentDbEventSourceConfigFullDocument value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EventSourceMappingDocumentDBEventSourceConfigFullDocument other && Equals(other);
-        public bool Equals(EventSourceMappingDocumentDBEventSourceConfigFullDocument other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is EventSourceMappingDocumentDbEventSourceConfigFullDocument other && Equals(other);
+        public bool Equals(EventSourceMappingDocumentDbEventSourceConfigFullDocument other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

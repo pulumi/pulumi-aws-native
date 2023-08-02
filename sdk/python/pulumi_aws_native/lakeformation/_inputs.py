@@ -31,16 +31,16 @@ __all__ = [
     'PrincipalPermissionsDataLakePrincipalArgs',
     'PrincipalPermissionsDataLocationResourceArgs',
     'PrincipalPermissionsDatabaseResourceArgs',
-    'PrincipalPermissionsLFTagKeyResourceArgs',
-    'PrincipalPermissionsLFTagPolicyResourceArgs',
-    'PrincipalPermissionsLFTagArgs',
+    'PrincipalPermissionsLfTagKeyResourceArgs',
+    'PrincipalPermissionsLfTagPolicyResourceArgs',
+    'PrincipalPermissionsLfTagArgs',
     'PrincipalPermissionsResourceArgs',
     'PrincipalPermissionsTableResourceArgs',
     'PrincipalPermissionsTableWildcardArgs',
     'PrincipalPermissionsTableWithColumnsResourceArgs',
     'TagAssociationCatalogResourceArgs',
     'TagAssociationDatabaseResourceArgs',
-    'TagAssociationLFTagPairArgs',
+    'TagAssociationLfTagPairArgs',
     'TagAssociationResourceArgs',
     'TagAssociationTableResourceArgs',
     'TagAssociationTableWildcardArgs',
@@ -548,7 +548,7 @@ class PrincipalPermissionsDatabaseResourceArgs:
 
 
 @pulumi.input_type
-class PrincipalPermissionsLFTagKeyResourceArgs:
+class PrincipalPermissionsLfTagKeyResourceArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  tag_key: pulumi.Input[str],
@@ -586,10 +586,10 @@ class PrincipalPermissionsLFTagKeyResourceArgs:
 
 
 @pulumi.input_type
-class PrincipalPermissionsLFTagPolicyResourceArgs:
+class PrincipalPermissionsLfTagPolicyResourceArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
-                 expression: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLFTagArgs']]],
+                 expression: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]],
                  resource_type: pulumi.Input['PrincipalPermissionsResourceType']):
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "expression", expression)
@@ -606,11 +606,11 @@ class PrincipalPermissionsLFTagPolicyResourceArgs:
 
     @property
     @pulumi.getter
-    def expression(self) -> pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLFTagArgs']]]:
+    def expression(self) -> pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]]:
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLFTagArgs']]]):
+    def expression(self, value: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]]):
         pulumi.set(self, "expression", value)
 
     @property
@@ -624,7 +624,7 @@ class PrincipalPermissionsLFTagPolicyResourceArgs:
 
 
 @pulumi.input_type
-class PrincipalPermissionsLFTagArgs:
+class PrincipalPermissionsLfTagArgs:
     def __init__(__self__, *,
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -659,8 +659,8 @@ class PrincipalPermissionsResourceArgs:
                  data_cells_filter: Optional[pulumi.Input['PrincipalPermissionsDataCellsFilterResourceArgs']] = None,
                  data_location: Optional[pulumi.Input['PrincipalPermissionsDataLocationResourceArgs']] = None,
                  database: Optional[pulumi.Input['PrincipalPermissionsDatabaseResourceArgs']] = None,
-                 lf_tag: Optional[pulumi.Input['PrincipalPermissionsLFTagKeyResourceArgs']] = None,
-                 lf_tag_policy: Optional[pulumi.Input['PrincipalPermissionsLFTagPolicyResourceArgs']] = None,
+                 lf_tag: Optional[pulumi.Input['PrincipalPermissionsLfTagKeyResourceArgs']] = None,
+                 lf_tag_policy: Optional[pulumi.Input['PrincipalPermissionsLfTagPolicyResourceArgs']] = None,
                  table: Optional[pulumi.Input['PrincipalPermissionsTableResourceArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['PrincipalPermissionsTableWithColumnsResourceArgs']] = None):
         if catalog is not None:
@@ -718,20 +718,20 @@ class PrincipalPermissionsResourceArgs:
 
     @property
     @pulumi.getter(name="lfTag")
-    def lf_tag(self) -> Optional[pulumi.Input['PrincipalPermissionsLFTagKeyResourceArgs']]:
+    def lf_tag(self) -> Optional[pulumi.Input['PrincipalPermissionsLfTagKeyResourceArgs']]:
         return pulumi.get(self, "lf_tag")
 
     @lf_tag.setter
-    def lf_tag(self, value: Optional[pulumi.Input['PrincipalPermissionsLFTagKeyResourceArgs']]):
+    def lf_tag(self, value: Optional[pulumi.Input['PrincipalPermissionsLfTagKeyResourceArgs']]):
         pulumi.set(self, "lf_tag", value)
 
     @property
     @pulumi.getter(name="lfTagPolicy")
-    def lf_tag_policy(self) -> Optional[pulumi.Input['PrincipalPermissionsLFTagPolicyResourceArgs']]:
+    def lf_tag_policy(self) -> Optional[pulumi.Input['PrincipalPermissionsLfTagPolicyResourceArgs']]:
         return pulumi.get(self, "lf_tag_policy")
 
     @lf_tag_policy.setter
-    def lf_tag_policy(self, value: Optional[pulumi.Input['PrincipalPermissionsLFTagPolicyResourceArgs']]):
+    def lf_tag_policy(self, value: Optional[pulumi.Input['PrincipalPermissionsLfTagPolicyResourceArgs']]):
         pulumi.set(self, "lf_tag_policy", value)
 
     @property
@@ -906,7 +906,7 @@ class TagAssociationDatabaseResourceArgs:
 
 
 @pulumi.input_type
-class TagAssociationLFTagPairArgs:
+class TagAssociationLfTagPairArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  tag_key: pulumi.Input[str],

@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Document db event source config.
         /// </summary>
-        public readonly Outputs.EventSourceMappingDocumentDBEventSourceConfig? DocumentDbEventSourceConfig;
+        public readonly Outputs.EventSourceMappingDocumentDbEventSourceConfig? DocumentDbEventSourceConfig;
         /// <summary>
         /// Disables the event source mapping to pause polling and invocation.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.Lambda
 
             Outputs.EventSourceMappingDestinationConfig? destinationConfig,
 
-            Outputs.EventSourceMappingDocumentDBEventSourceConfig? documentDbEventSourceConfig,
+            Outputs.EventSourceMappingDocumentDbEventSourceConfig? documentDbEventSourceConfig,
 
             bool? enabled,
 

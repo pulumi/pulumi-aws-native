@@ -18,7 +18,7 @@ __all__ = ['AssessmentArgs', 'Assessment']
 class AssessmentArgs:
     def __init__(__self__, *,
                  assessment_reports_destination: Optional[pulumi.Input['AssessmentReportsDestinationArgs']] = None,
-                 aws_account: Optional[pulumi.Input['AssessmentAWSAccountArgs']] = None,
+                 aws_account: Optional[pulumi.Input['AssessmentAwsAccountArgs']] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
@@ -65,11 +65,11 @@ class AssessmentArgs:
 
     @property
     @pulumi.getter(name="awsAccount")
-    def aws_account(self) -> Optional[pulumi.Input['AssessmentAWSAccountArgs']]:
+    def aws_account(self) -> Optional[pulumi.Input['AssessmentAwsAccountArgs']]:
         return pulumi.get(self, "aws_account")
 
     @aws_account.setter
-    def aws_account(self, value: Optional[pulumi.Input['AssessmentAWSAccountArgs']]):
+    def aws_account(self, value: Optional[pulumi.Input['AssessmentAwsAccountArgs']]):
         pulumi.set(self, "aws_account", value)
 
     @property
@@ -160,7 +160,7 @@ class Assessment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentReportsDestinationArgs']]] = None,
-                 aws_account: Optional[pulumi.Input[pulumi.InputType['AssessmentAWSAccountArgs']]] = None,
+                 aws_account: Optional[pulumi.Input[pulumi.InputType['AssessmentAwsAccountArgs']]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentDelegationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
@@ -204,7 +204,7 @@ class Assessment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentReportsDestinationArgs']]] = None,
-                 aws_account: Optional[pulumi.Input[pulumi.InputType['AssessmentAWSAccountArgs']]] = None,
+                 aws_account: Optional[pulumi.Input[pulumi.InputType['AssessmentAwsAccountArgs']]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentDelegationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
@@ -289,7 +289,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccount")
-    def aws_account(self) -> pulumi.Output[Optional['outputs.AssessmentAWSAccount']]:
+    def aws_account(self) -> pulumi.Output[Optional['outputs.AssessmentAwsAccount']]:
         return pulumi.get(self, "aws_account")
 
     @property

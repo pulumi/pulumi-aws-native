@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { FHIRDatastoreArgs } from "./fhirdatastore";
-export type FHIRDatastore = import("./fhirdatastore").FHIRDatastore;
-export const FHIRDatastore: typeof import("./fhirdatastore").FHIRDatastore = null as any;
-utilities.lazyLoad(exports, ["FHIRDatastore"], () => require("./fhirdatastore"));
+export { FhirDatastoreArgs } from "./fhirDatastore";
+export type FhirDatastore = import("./fhirDatastore").FhirDatastore;
+export const FhirDatastore: typeof import("./fhirDatastore").FhirDatastore = null as any;
+utilities.lazyLoad(exports, ["FhirDatastore"], () => require("./fhirDatastore"));
 
-export { GetFHIRDatastoreArgs, GetFHIRDatastoreResult, GetFHIRDatastoreOutputArgs } from "./getFHIRDatastore";
-export const getFHIRDatastore: typeof import("./getFHIRDatastore").getFHIRDatastore = null as any;
-export const getFHIRDatastoreOutput: typeof import("./getFHIRDatastore").getFHIRDatastoreOutput = null as any;
-utilities.lazyLoad(exports, ["getFHIRDatastore","getFHIRDatastoreOutput"], () => require("./getFHIRDatastore"));
+export { GetFhirDatastoreArgs, GetFhirDatastoreResult, GetFhirDatastoreOutputArgs } from "./getFhirDatastore";
+export const getFhirDatastore: typeof import("./getFhirDatastore").getFhirDatastore = null as any;
+export const getFhirDatastoreOutput: typeof import("./getFhirDatastore").getFhirDatastoreOutput = null as any;
+utilities.lazyLoad(exports, ["getFhirDatastore","getFhirDatastoreOutput"], () => require("./getFhirDatastore"));
 
 
 // Export enums:
@@ -23,8 +23,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:healthlake:FHIRDatastore":
-                return new FHIRDatastore(name, <any>undefined, { urn })
+            case "aws-native:healthlake:FhirDatastore":
+                return new FhirDatastore(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

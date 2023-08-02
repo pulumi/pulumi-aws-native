@@ -46,7 +46,7 @@ type Canary struct {
 	// Visual reference configuration for visual testing
 	VisualReference CanaryVisualReferencePtrOutput `pulumi:"visualReference"`
 	// Provide VPC Configuration if enabled.
-	VpcConfig CanaryVPCConfigPtrOutput `pulumi:"vpcConfig"`
+	VpcConfig CanaryVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewCanary registers a new resource with the given unique name, arguments, and options.
@@ -132,7 +132,7 @@ type canaryArgs struct {
 	// Visual reference configuration for visual testing
 	VisualReference *CanaryVisualReference `pulumi:"visualReference"`
 	// Provide VPC Configuration if enabled.
-	VpcConfig *CanaryVPCConfig `pulumi:"vpcConfig"`
+	VpcConfig *CanaryVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Canary resource.
@@ -165,7 +165,7 @@ type CanaryArgs struct {
 	// Visual reference configuration for visual testing
 	VisualReference CanaryVisualReferencePtrInput
 	// Provide VPC Configuration if enabled.
-	VpcConfig CanaryVPCConfigPtrInput
+	VpcConfig CanaryVpcConfigPtrInput
 }
 
 func (CanaryArgs) ElementType() reflect.Type {
@@ -280,8 +280,8 @@ func (o CanaryOutput) VisualReference() CanaryVisualReferencePtrOutput {
 }
 
 // Provide VPC Configuration if enabled.
-func (o CanaryOutput) VpcConfig() CanaryVPCConfigPtrOutput {
-	return o.ApplyT(func(v *Canary) CanaryVPCConfigPtrOutput { return v.VpcConfig }).(CanaryVPCConfigPtrOutput)
+func (o CanaryOutput) VpcConfig() CanaryVpcConfigPtrOutput {
+	return o.ApplyT(func(v *Canary) CanaryVpcConfigPtrOutput { return v.VpcConfig }).(CanaryVpcConfigPtrOutput)
 }
 
 func init() {

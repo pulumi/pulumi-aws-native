@@ -156,7 +156,7 @@ func (o AlarmModelAcknowledgeFlowPtrOutput) Enabled() pulumi.BoolPtrOutput {
 // The actions to be performed.
 type AlarmModelAlarmAction struct {
 	DynamoDBv2      *AlarmModelDynamoDBv2      `pulumi:"dynamoDBv2"`
-	DynamoDb        *AlarmModelDynamoDB        `pulumi:"dynamoDb"`
+	DynamoDb        *AlarmModelDynamoDb        `pulumi:"dynamoDb"`
 	Firehose        *AlarmModelFirehose        `pulumi:"firehose"`
 	IotEvents       *AlarmModelIotEvents       `pulumi:"iotEvents"`
 	IotSiteWise     *AlarmModelIotSiteWise     `pulumi:"iotSiteWise"`
@@ -180,7 +180,7 @@ type AlarmModelAlarmActionInput interface {
 // The actions to be performed.
 type AlarmModelAlarmActionArgs struct {
 	DynamoDBv2      AlarmModelDynamoDBv2PtrInput      `pulumi:"dynamoDBv2"`
-	DynamoDb        AlarmModelDynamoDBPtrInput        `pulumi:"dynamoDb"`
+	DynamoDb        AlarmModelDynamoDbPtrInput        `pulumi:"dynamoDb"`
 	Firehose        AlarmModelFirehosePtrInput        `pulumi:"firehose"`
 	IotEvents       AlarmModelIotEventsPtrInput       `pulumi:"iotEvents"`
 	IotSiteWise     AlarmModelIotSiteWisePtrInput     `pulumi:"iotSiteWise"`
@@ -246,8 +246,8 @@ func (o AlarmModelAlarmActionOutput) DynamoDBv2() AlarmModelDynamoDBv2PtrOutput 
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelDynamoDBv2 { return v.DynamoDBv2 }).(AlarmModelDynamoDBv2PtrOutput)
 }
 
-func (o AlarmModelAlarmActionOutput) DynamoDb() AlarmModelDynamoDBPtrOutput {
-	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelDynamoDB { return v.DynamoDb }).(AlarmModelDynamoDBPtrOutput)
+func (o AlarmModelAlarmActionOutput) DynamoDb() AlarmModelDynamoDbPtrOutput {
+	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelDynamoDb { return v.DynamoDb }).(AlarmModelDynamoDbPtrOutput)
 }
 
 func (o AlarmModelAlarmActionOutput) Firehose() AlarmModelFirehosePtrOutput {
@@ -1198,401 +1198,6 @@ func (o AlarmModelAssetPropertyVariantPtrOutput) StringValue() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
-type AlarmModelDynamoDB struct {
-	// The name of the hash key (also called the partition key).
-	HashKeyField string `pulumi:"hashKeyField"`
-	// The data type for the hash key (also called the partition key). You can specify the following values:
-	//
-	// * `STRING` - The hash key is a string.
-	//
-	// * `NUMBER` - The hash key is a number.
-	//
-	// If you don't specify `hashKeyType`, the default value is `STRING`.
-	HashKeyType *string `pulumi:"hashKeyType"`
-	// The value of the hash key (also called the partition key).
-	HashKeyValue string `pulumi:"hashKeyValue"`
-	// The type of operation to perform. You can specify the following values:
-	//
-	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//
-	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-	Operation *string            `pulumi:"operation"`
-	Payload   *AlarmModelPayload `pulumi:"payload"`
-	// The name of the DynamoDB column that receives the action payload.
-	//
-	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
-	PayloadField *string `pulumi:"payloadField"`
-	// The name of the range key (also called the sort key).
-	RangeKeyField *string `pulumi:"rangeKeyField"`
-	// The data type for the range key (also called the sort key), You can specify the following values:
-	//
-	// * `STRING` - The range key is a string.
-	//
-	// * `NUMBER` - The range key is number.
-	//
-	// If you don't specify `rangeKeyField`, the default value is `STRING`.
-	RangeKeyType *string `pulumi:"rangeKeyType"`
-	// The value of the range key (also called the sort key).
-	RangeKeyValue *string `pulumi:"rangeKeyValue"`
-	// The name of the DynamoDB table.
-	TableName string `pulumi:"tableName"`
-}
-
-// AlarmModelDynamoDBInput is an input type that accepts AlarmModelDynamoDBArgs and AlarmModelDynamoDBOutput values.
-// You can construct a concrete instance of `AlarmModelDynamoDBInput` via:
-//
-//	AlarmModelDynamoDBArgs{...}
-type AlarmModelDynamoDBInput interface {
-	pulumi.Input
-
-	ToAlarmModelDynamoDBOutput() AlarmModelDynamoDBOutput
-	ToAlarmModelDynamoDBOutputWithContext(context.Context) AlarmModelDynamoDBOutput
-}
-
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
-type AlarmModelDynamoDBArgs struct {
-	// The name of the hash key (also called the partition key).
-	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
-	// The data type for the hash key (also called the partition key). You can specify the following values:
-	//
-	// * `STRING` - The hash key is a string.
-	//
-	// * `NUMBER` - The hash key is a number.
-	//
-	// If you don't specify `hashKeyType`, the default value is `STRING`.
-	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
-	// The value of the hash key (also called the partition key).
-	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
-	// The type of operation to perform. You can specify the following values:
-	//
-	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//
-	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-	Operation pulumi.StringPtrInput     `pulumi:"operation"`
-	Payload   AlarmModelPayloadPtrInput `pulumi:"payload"`
-	// The name of the DynamoDB column that receives the action payload.
-	//
-	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
-	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
-	// The name of the range key (also called the sort key).
-	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
-	// The data type for the range key (also called the sort key), You can specify the following values:
-	//
-	// * `STRING` - The range key is a string.
-	//
-	// * `NUMBER` - The range key is number.
-	//
-	// If you don't specify `rangeKeyField`, the default value is `STRING`.
-	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
-	// The value of the range key (also called the sort key).
-	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
-	// The name of the DynamoDB table.
-	TableName pulumi.StringInput `pulumi:"tableName"`
-}
-
-func (AlarmModelDynamoDBArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlarmModelDynamoDB)(nil)).Elem()
-}
-
-func (i AlarmModelDynamoDBArgs) ToAlarmModelDynamoDBOutput() AlarmModelDynamoDBOutput {
-	return i.ToAlarmModelDynamoDBOutputWithContext(context.Background())
-}
-
-func (i AlarmModelDynamoDBArgs) ToAlarmModelDynamoDBOutputWithContext(ctx context.Context) AlarmModelDynamoDBOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDBOutput)
-}
-
-func (i AlarmModelDynamoDBArgs) ToAlarmModelDynamoDBPtrOutput() AlarmModelDynamoDBPtrOutput {
-	return i.ToAlarmModelDynamoDBPtrOutputWithContext(context.Background())
-}
-
-func (i AlarmModelDynamoDBArgs) ToAlarmModelDynamoDBPtrOutputWithContext(ctx context.Context) AlarmModelDynamoDBPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDBOutput).ToAlarmModelDynamoDBPtrOutputWithContext(ctx)
-}
-
-// AlarmModelDynamoDBPtrInput is an input type that accepts AlarmModelDynamoDBArgs, AlarmModelDynamoDBPtr and AlarmModelDynamoDBPtrOutput values.
-// You can construct a concrete instance of `AlarmModelDynamoDBPtrInput` via:
-//
-//	        AlarmModelDynamoDBArgs{...}
-//
-//	or:
-//
-//	        nil
-type AlarmModelDynamoDBPtrInput interface {
-	pulumi.Input
-
-	ToAlarmModelDynamoDBPtrOutput() AlarmModelDynamoDBPtrOutput
-	ToAlarmModelDynamoDBPtrOutputWithContext(context.Context) AlarmModelDynamoDBPtrOutput
-}
-
-type alarmModelDynamoDBPtrType AlarmModelDynamoDBArgs
-
-func AlarmModelDynamoDBPtr(v *AlarmModelDynamoDBArgs) AlarmModelDynamoDBPtrInput {
-	return (*alarmModelDynamoDBPtrType)(v)
-}
-
-func (*alarmModelDynamoDBPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlarmModelDynamoDB)(nil)).Elem()
-}
-
-func (i *alarmModelDynamoDBPtrType) ToAlarmModelDynamoDBPtrOutput() AlarmModelDynamoDBPtrOutput {
-	return i.ToAlarmModelDynamoDBPtrOutputWithContext(context.Background())
-}
-
-func (i *alarmModelDynamoDBPtrType) ToAlarmModelDynamoDBPtrOutputWithContext(ctx context.Context) AlarmModelDynamoDBPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDBPtrOutput)
-}
-
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
-type AlarmModelDynamoDBOutput struct{ *pulumi.OutputState }
-
-func (AlarmModelDynamoDBOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlarmModelDynamoDB)(nil)).Elem()
-}
-
-func (o AlarmModelDynamoDBOutput) ToAlarmModelDynamoDBOutput() AlarmModelDynamoDBOutput {
-	return o
-}
-
-func (o AlarmModelDynamoDBOutput) ToAlarmModelDynamoDBOutputWithContext(ctx context.Context) AlarmModelDynamoDBOutput {
-	return o
-}
-
-func (o AlarmModelDynamoDBOutput) ToAlarmModelDynamoDBPtrOutput() AlarmModelDynamoDBPtrOutput {
-	return o.ToAlarmModelDynamoDBPtrOutputWithContext(context.Background())
-}
-
-func (o AlarmModelDynamoDBOutput) ToAlarmModelDynamoDBPtrOutputWithContext(ctx context.Context) AlarmModelDynamoDBPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmModelDynamoDB) *AlarmModelDynamoDB {
-		return &v
-	}).(AlarmModelDynamoDBPtrOutput)
-}
-
-// The name of the hash key (also called the partition key).
-func (o AlarmModelDynamoDBOutput) HashKeyField() pulumi.StringOutput {
-	return o.ApplyT(func(v AlarmModelDynamoDB) string { return v.HashKeyField }).(pulumi.StringOutput)
-}
-
-// The data type for the hash key (also called the partition key). You can specify the following values:
-//
-// * `STRING` - The hash key is a string.
-//
-// * `NUMBER` - The hash key is a number.
-//
-// If you don't specify `hashKeyType`, the default value is `STRING`.
-func (o AlarmModelDynamoDBOutput) HashKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlarmModelDynamoDB) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
-}
-
-// The value of the hash key (also called the partition key).
-func (o AlarmModelDynamoDBOutput) HashKeyValue() pulumi.StringOutput {
-	return o.ApplyT(func(v AlarmModelDynamoDB) string { return v.HashKeyValue }).(pulumi.StringOutput)
-}
-
-// The type of operation to perform. You can specify the following values:
-//
-// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-//
-// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-//
-// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-//
-// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-func (o AlarmModelDynamoDBOutput) Operation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlarmModelDynamoDB) *string { return v.Operation }).(pulumi.StringPtrOutput)
-}
-
-func (o AlarmModelDynamoDBOutput) Payload() AlarmModelPayloadPtrOutput {
-	return o.ApplyT(func(v AlarmModelDynamoDB) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
-}
-
-// The name of the DynamoDB column that receives the action payload.
-//
-// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
-func (o AlarmModelDynamoDBOutput) PayloadField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlarmModelDynamoDB) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
-}
-
-// The name of the range key (also called the sort key).
-func (o AlarmModelDynamoDBOutput) RangeKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlarmModelDynamoDB) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
-}
-
-// The data type for the range key (also called the sort key), You can specify the following values:
-//
-// * `STRING` - The range key is a string.
-//
-// * `NUMBER` - The range key is number.
-//
-// If you don't specify `rangeKeyField`, the default value is `STRING`.
-func (o AlarmModelDynamoDBOutput) RangeKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlarmModelDynamoDB) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
-}
-
-// The value of the range key (also called the sort key).
-func (o AlarmModelDynamoDBOutput) RangeKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlarmModelDynamoDB) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
-}
-
-// The name of the DynamoDB table.
-func (o AlarmModelDynamoDBOutput) TableName() pulumi.StringOutput {
-	return o.ApplyT(func(v AlarmModelDynamoDB) string { return v.TableName }).(pulumi.StringOutput)
-}
-
-type AlarmModelDynamoDBPtrOutput struct{ *pulumi.OutputState }
-
-func (AlarmModelDynamoDBPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlarmModelDynamoDB)(nil)).Elem()
-}
-
-func (o AlarmModelDynamoDBPtrOutput) ToAlarmModelDynamoDBPtrOutput() AlarmModelDynamoDBPtrOutput {
-	return o
-}
-
-func (o AlarmModelDynamoDBPtrOutput) ToAlarmModelDynamoDBPtrOutputWithContext(ctx context.Context) AlarmModelDynamoDBPtrOutput {
-	return o
-}
-
-func (o AlarmModelDynamoDBPtrOutput) Elem() AlarmModelDynamoDBOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) AlarmModelDynamoDB {
-		if v != nil {
-			return *v
-		}
-		var ret AlarmModelDynamoDB
-		return ret
-	}).(AlarmModelDynamoDBOutput)
-}
-
-// The name of the hash key (also called the partition key).
-func (o AlarmModelDynamoDBPtrOutput) HashKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HashKeyField
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data type for the hash key (also called the partition key). You can specify the following values:
-//
-// * `STRING` - The hash key is a string.
-//
-// * `NUMBER` - The hash key is a number.
-//
-// If you don't specify `hashKeyType`, the default value is `STRING`.
-func (o AlarmModelDynamoDBPtrOutput) HashKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HashKeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the hash key (also called the partition key).
-func (o AlarmModelDynamoDBPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HashKeyValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of operation to perform. You can specify the following values:
-//
-// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-//
-// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-//
-// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-//
-// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-func (o AlarmModelDynamoDBPtrOutput) Operation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Operation
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AlarmModelDynamoDBPtrOutput) Payload() AlarmModelPayloadPtrOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) *AlarmModelPayload {
-		if v == nil {
-			return nil
-		}
-		return v.Payload
-	}).(AlarmModelPayloadPtrOutput)
-}
-
-// The name of the DynamoDB column that receives the action payload.
-//
-// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
-func (o AlarmModelDynamoDBPtrOutput) PayloadField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PayloadField
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the range key (also called the sort key).
-func (o AlarmModelDynamoDBPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyField
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data type for the range key (also called the sort key), You can specify the following values:
-//
-// * `STRING` - The range key is a string.
-//
-// * `NUMBER` - The range key is number.
-//
-// If you don't specify `rangeKeyField`, the default value is `STRING`.
-func (o AlarmModelDynamoDBPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the range key (also called the sort key).
-func (o AlarmModelDynamoDBPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the DynamoDB table.
-func (o AlarmModelDynamoDBPtrOutput) TableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlarmModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TableName
-	}).(pulumi.StringPtrOutput)
-}
-
 // Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 //
 // You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
@@ -1747,6 +1352,401 @@ func (o AlarmModelDynamoDBv2PtrOutput) Payload() AlarmModelPayloadPtrOutput {
 // The name of the DynamoDB table.
 func (o AlarmModelDynamoDBv2PtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelDynamoDBv2) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+type AlarmModelDynamoDb struct {
+	// The name of the hash key (also called the partition key).
+	HashKeyField string `pulumi:"hashKeyField"`
+	// The data type for the hash key (also called the partition key). You can specify the following values:
+	//
+	// * `STRING` - The hash key is a string.
+	//
+	// * `NUMBER` - The hash key is a number.
+	//
+	// If you don't specify `hashKeyType`, the default value is `STRING`.
+	HashKeyType *string `pulumi:"hashKeyType"`
+	// The value of the hash key (also called the partition key).
+	HashKeyValue string `pulumi:"hashKeyValue"`
+	// The type of operation to perform. You can specify the following values:
+	//
+	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//
+	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+	Operation *string            `pulumi:"operation"`
+	Payload   *AlarmModelPayload `pulumi:"payload"`
+	// The name of the DynamoDB column that receives the action payload.
+	//
+	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+	PayloadField *string `pulumi:"payloadField"`
+	// The name of the range key (also called the sort key).
+	RangeKeyField *string `pulumi:"rangeKeyField"`
+	// The data type for the range key (also called the sort key), You can specify the following values:
+	//
+	// * `STRING` - The range key is a string.
+	//
+	// * `NUMBER` - The range key is number.
+	//
+	// If you don't specify `rangeKeyField`, the default value is `STRING`.
+	RangeKeyType *string `pulumi:"rangeKeyType"`
+	// The value of the range key (also called the sort key).
+	RangeKeyValue *string `pulumi:"rangeKeyValue"`
+	// The name of the DynamoDB table.
+	TableName string `pulumi:"tableName"`
+}
+
+// AlarmModelDynamoDbInput is an input type that accepts AlarmModelDynamoDbArgs and AlarmModelDynamoDbOutput values.
+// You can construct a concrete instance of `AlarmModelDynamoDbInput` via:
+//
+//	AlarmModelDynamoDbArgs{...}
+type AlarmModelDynamoDbInput interface {
+	pulumi.Input
+
+	ToAlarmModelDynamoDbOutput() AlarmModelDynamoDbOutput
+	ToAlarmModelDynamoDbOutputWithContext(context.Context) AlarmModelDynamoDbOutput
+}
+
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+type AlarmModelDynamoDbArgs struct {
+	// The name of the hash key (also called the partition key).
+	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
+	// The data type for the hash key (also called the partition key). You can specify the following values:
+	//
+	// * `STRING` - The hash key is a string.
+	//
+	// * `NUMBER` - The hash key is a number.
+	//
+	// If you don't specify `hashKeyType`, the default value is `STRING`.
+	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
+	// The value of the hash key (also called the partition key).
+	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
+	// The type of operation to perform. You can specify the following values:
+	//
+	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//
+	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+	Operation pulumi.StringPtrInput     `pulumi:"operation"`
+	Payload   AlarmModelPayloadPtrInput `pulumi:"payload"`
+	// The name of the DynamoDB column that receives the action payload.
+	//
+	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
+	// The name of the range key (also called the sort key).
+	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
+	// The data type for the range key (also called the sort key), You can specify the following values:
+	//
+	// * `STRING` - The range key is a string.
+	//
+	// * `NUMBER` - The range key is number.
+	//
+	// If you don't specify `rangeKeyField`, the default value is `STRING`.
+	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
+	// The value of the range key (also called the sort key).
+	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
+	// The name of the DynamoDB table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (AlarmModelDynamoDbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmModelDynamoDb)(nil)).Elem()
+}
+
+func (i AlarmModelDynamoDbArgs) ToAlarmModelDynamoDbOutput() AlarmModelDynamoDbOutput {
+	return i.ToAlarmModelDynamoDbOutputWithContext(context.Background())
+}
+
+func (i AlarmModelDynamoDbArgs) ToAlarmModelDynamoDbOutputWithContext(ctx context.Context) AlarmModelDynamoDbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDbOutput)
+}
+
+func (i AlarmModelDynamoDbArgs) ToAlarmModelDynamoDbPtrOutput() AlarmModelDynamoDbPtrOutput {
+	return i.ToAlarmModelDynamoDbPtrOutputWithContext(context.Background())
+}
+
+func (i AlarmModelDynamoDbArgs) ToAlarmModelDynamoDbPtrOutputWithContext(ctx context.Context) AlarmModelDynamoDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDbOutput).ToAlarmModelDynamoDbPtrOutputWithContext(ctx)
+}
+
+// AlarmModelDynamoDbPtrInput is an input type that accepts AlarmModelDynamoDbArgs, AlarmModelDynamoDbPtr and AlarmModelDynamoDbPtrOutput values.
+// You can construct a concrete instance of `AlarmModelDynamoDbPtrInput` via:
+//
+//	        AlarmModelDynamoDbArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmModelDynamoDbPtrInput interface {
+	pulumi.Input
+
+	ToAlarmModelDynamoDbPtrOutput() AlarmModelDynamoDbPtrOutput
+	ToAlarmModelDynamoDbPtrOutputWithContext(context.Context) AlarmModelDynamoDbPtrOutput
+}
+
+type alarmModelDynamoDbPtrType AlarmModelDynamoDbArgs
+
+func AlarmModelDynamoDbPtr(v *AlarmModelDynamoDbArgs) AlarmModelDynamoDbPtrInput {
+	return (*alarmModelDynamoDbPtrType)(v)
+}
+
+func (*alarmModelDynamoDbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmModelDynamoDb)(nil)).Elem()
+}
+
+func (i *alarmModelDynamoDbPtrType) ToAlarmModelDynamoDbPtrOutput() AlarmModelDynamoDbPtrOutput {
+	return i.ToAlarmModelDynamoDbPtrOutputWithContext(context.Background())
+}
+
+func (i *alarmModelDynamoDbPtrType) ToAlarmModelDynamoDbPtrOutputWithContext(ctx context.Context) AlarmModelDynamoDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDbPtrOutput)
+}
+
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+type AlarmModelDynamoDbOutput struct{ *pulumi.OutputState }
+
+func (AlarmModelDynamoDbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmModelDynamoDb)(nil)).Elem()
+}
+
+func (o AlarmModelDynamoDbOutput) ToAlarmModelDynamoDbOutput() AlarmModelDynamoDbOutput {
+	return o
+}
+
+func (o AlarmModelDynamoDbOutput) ToAlarmModelDynamoDbOutputWithContext(ctx context.Context) AlarmModelDynamoDbOutput {
+	return o
+}
+
+func (o AlarmModelDynamoDbOutput) ToAlarmModelDynamoDbPtrOutput() AlarmModelDynamoDbPtrOutput {
+	return o.ToAlarmModelDynamoDbPtrOutputWithContext(context.Background())
+}
+
+func (o AlarmModelDynamoDbOutput) ToAlarmModelDynamoDbPtrOutputWithContext(ctx context.Context) AlarmModelDynamoDbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmModelDynamoDb) *AlarmModelDynamoDb {
+		return &v
+	}).(AlarmModelDynamoDbPtrOutput)
+}
+
+// The name of the hash key (also called the partition key).
+func (o AlarmModelDynamoDbOutput) HashKeyField() pulumi.StringOutput {
+	return o.ApplyT(func(v AlarmModelDynamoDb) string { return v.HashKeyField }).(pulumi.StringOutput)
+}
+
+// The data type for the hash key (also called the partition key). You can specify the following values:
+//
+// * `STRING` - The hash key is a string.
+//
+// * `NUMBER` - The hash key is a number.
+//
+// If you don't specify `hashKeyType`, the default value is `STRING`.
+func (o AlarmModelDynamoDbOutput) HashKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
+}
+
+// The value of the hash key (also called the partition key).
+func (o AlarmModelDynamoDbOutput) HashKeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v AlarmModelDynamoDb) string { return v.HashKeyValue }).(pulumi.StringOutput)
+}
+
+// The type of operation to perform. You can specify the following values:
+//
+// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+//
+// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+func (o AlarmModelDynamoDbOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmModelDynamoDbOutput) Payload() AlarmModelPayloadPtrOutput {
+	return o.ApplyT(func(v AlarmModelDynamoDb) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
+}
+
+// The name of the DynamoDB column that receives the action payload.
+//
+// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+func (o AlarmModelDynamoDbOutput) PayloadField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
+}
+
+// The name of the range key (also called the sort key).
+func (o AlarmModelDynamoDbOutput) RangeKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
+}
+
+// The data type for the range key (also called the sort key), You can specify the following values:
+//
+// * `STRING` - The range key is a string.
+//
+// * `NUMBER` - The range key is number.
+//
+// If you don't specify `rangeKeyField`, the default value is `STRING`.
+func (o AlarmModelDynamoDbOutput) RangeKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
+}
+
+// The value of the range key (also called the sort key).
+func (o AlarmModelDynamoDbOutput) RangeKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
+}
+
+// The name of the DynamoDB table.
+func (o AlarmModelDynamoDbOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v AlarmModelDynamoDb) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type AlarmModelDynamoDbPtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmModelDynamoDbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmModelDynamoDb)(nil)).Elem()
+}
+
+func (o AlarmModelDynamoDbPtrOutput) ToAlarmModelDynamoDbPtrOutput() AlarmModelDynamoDbPtrOutput {
+	return o
+}
+
+func (o AlarmModelDynamoDbPtrOutput) ToAlarmModelDynamoDbPtrOutputWithContext(ctx context.Context) AlarmModelDynamoDbPtrOutput {
+	return o
+}
+
+func (o AlarmModelDynamoDbPtrOutput) Elem() AlarmModelDynamoDbOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) AlarmModelDynamoDb {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmModelDynamoDb
+		return ret
+	}).(AlarmModelDynamoDbOutput)
+}
+
+// The name of the hash key (also called the partition key).
+func (o AlarmModelDynamoDbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HashKeyField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data type for the hash key (also called the partition key). You can specify the following values:
+//
+// * `STRING` - The hash key is a string.
+//
+// * `NUMBER` - The hash key is a number.
+//
+// If you don't specify `hashKeyType`, the default value is `STRING`.
+func (o AlarmModelDynamoDbPtrOutput) HashKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HashKeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the hash key (also called the partition key).
+func (o AlarmModelDynamoDbPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HashKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of operation to perform. You can specify the following values:
+//
+// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+//
+// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+func (o AlarmModelDynamoDbPtrOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmModelDynamoDbPtrOutput) Payload() AlarmModelPayloadPtrOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) *AlarmModelPayload {
+		if v == nil {
+			return nil
+		}
+		return v.Payload
+	}).(AlarmModelPayloadPtrOutput)
+}
+
+// The name of the DynamoDB column that receives the action payload.
+//
+// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+func (o AlarmModelDynamoDbPtrOutput) PayloadField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the range key (also called the sort key).
+func (o AlarmModelDynamoDbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data type for the range key (also called the sort key), You can specify the following values:
+//
+// * `STRING` - The range key is a string.
+//
+// * `NUMBER` - The range key is number.
+//
+// If you don't specify `rangeKeyField`, the default value is `STRING`.
+func (o AlarmModelDynamoDbPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the range key (also called the sort key).
+func (o AlarmModelDynamoDbPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the DynamoDB table.
+func (o AlarmModelDynamoDbPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
 		if v == nil {
 			return nil
 		}
@@ -3524,7 +3524,7 @@ func (o AlarmModelTagArrayOutput) Index(i pulumi.IntInput) AlarmModelTagOutput {
 type DetectorModelAction struct {
 	ClearTimer      *DetectorModelClearTimer      `pulumi:"clearTimer"`
 	DynamoDBv2      *DetectorModelDynamoDBv2      `pulumi:"dynamoDBv2"`
-	DynamoDb        *DetectorModelDynamoDB        `pulumi:"dynamoDb"`
+	DynamoDb        *DetectorModelDynamoDb        `pulumi:"dynamoDb"`
 	Firehose        *DetectorModelFirehose        `pulumi:"firehose"`
 	IotEvents       *DetectorModelIotEvents       `pulumi:"iotEvents"`
 	IotSiteWise     *DetectorModelIotSiteWise     `pulumi:"iotSiteWise"`
@@ -3552,7 +3552,7 @@ type DetectorModelActionInput interface {
 type DetectorModelActionArgs struct {
 	ClearTimer      DetectorModelClearTimerPtrInput      `pulumi:"clearTimer"`
 	DynamoDBv2      DetectorModelDynamoDBv2PtrInput      `pulumi:"dynamoDBv2"`
-	DynamoDb        DetectorModelDynamoDBPtrInput        `pulumi:"dynamoDb"`
+	DynamoDb        DetectorModelDynamoDbPtrInput        `pulumi:"dynamoDb"`
 	Firehose        DetectorModelFirehosePtrInput        `pulumi:"firehose"`
 	IotEvents       DetectorModelIotEventsPtrInput       `pulumi:"iotEvents"`
 	IotSiteWise     DetectorModelIotSiteWisePtrInput     `pulumi:"iotSiteWise"`
@@ -3625,8 +3625,8 @@ func (o DetectorModelActionOutput) DynamoDBv2() DetectorModelDynamoDBv2PtrOutput
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDBv2 { return v.DynamoDBv2 }).(DetectorModelDynamoDBv2PtrOutput)
 }
 
-func (o DetectorModelActionOutput) DynamoDb() DetectorModelDynamoDBPtrOutput {
-	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDB { return v.DynamoDb }).(DetectorModelDynamoDBPtrOutput)
+func (o DetectorModelActionOutput) DynamoDb() DetectorModelDynamoDbPtrOutput {
+	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDb { return v.DynamoDb }).(DetectorModelDynamoDbPtrOutput)
 }
 
 func (o DetectorModelActionOutput) Firehose() DetectorModelFirehosePtrOutput {
@@ -4459,401 +4459,6 @@ func (o DetectorModelDefinitionPtrOutput) States() DetectorModelStateTypeArrayOu
 	}).(DetectorModelStateTypeArrayOutput)
 }
 
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
-type DetectorModelDynamoDB struct {
-	// The name of the hash key (also called the partition key).
-	HashKeyField string `pulumi:"hashKeyField"`
-	// The data type for the hash key (also called the partition key). You can specify the following values:
-	//
-	// * `STRING` - The hash key is a string.
-	//
-	// * `NUMBER` - The hash key is a number.
-	//
-	// If you don't specify `hashKeyType`, the default value is `STRING`.
-	HashKeyType *string `pulumi:"hashKeyType"`
-	// The value of the hash key (also called the partition key).
-	HashKeyValue string `pulumi:"hashKeyValue"`
-	// The type of operation to perform. You can specify the following values:
-	//
-	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//
-	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-	Operation *string               `pulumi:"operation"`
-	Payload   *DetectorModelPayload `pulumi:"payload"`
-	// The name of the DynamoDB column that receives the action payload.
-	//
-	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
-	PayloadField *string `pulumi:"payloadField"`
-	// The name of the range key (also called the sort key).
-	RangeKeyField *string `pulumi:"rangeKeyField"`
-	// The data type for the range key (also called the sort key), You can specify the following values:
-	//
-	// * `STRING` - The range key is a string.
-	//
-	// * `NUMBER` - The range key is number.
-	//
-	// If you don't specify `rangeKeyField`, the default value is `STRING`.
-	RangeKeyType *string `pulumi:"rangeKeyType"`
-	// The value of the range key (also called the sort key).
-	RangeKeyValue *string `pulumi:"rangeKeyValue"`
-	// The name of the DynamoDB table.
-	TableName string `pulumi:"tableName"`
-}
-
-// DetectorModelDynamoDBInput is an input type that accepts DetectorModelDynamoDBArgs and DetectorModelDynamoDBOutput values.
-// You can construct a concrete instance of `DetectorModelDynamoDBInput` via:
-//
-//	DetectorModelDynamoDBArgs{...}
-type DetectorModelDynamoDBInput interface {
-	pulumi.Input
-
-	ToDetectorModelDynamoDBOutput() DetectorModelDynamoDBOutput
-	ToDetectorModelDynamoDBOutputWithContext(context.Context) DetectorModelDynamoDBOutput
-}
-
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
-type DetectorModelDynamoDBArgs struct {
-	// The name of the hash key (also called the partition key).
-	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
-	// The data type for the hash key (also called the partition key). You can specify the following values:
-	//
-	// * `STRING` - The hash key is a string.
-	//
-	// * `NUMBER` - The hash key is a number.
-	//
-	// If you don't specify `hashKeyType`, the default value is `STRING`.
-	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
-	// The value of the hash key (also called the partition key).
-	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
-	// The type of operation to perform. You can specify the following values:
-	//
-	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//
-	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-	Operation pulumi.StringPtrInput        `pulumi:"operation"`
-	Payload   DetectorModelPayloadPtrInput `pulumi:"payload"`
-	// The name of the DynamoDB column that receives the action payload.
-	//
-	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
-	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
-	// The name of the range key (also called the sort key).
-	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
-	// The data type for the range key (also called the sort key), You can specify the following values:
-	//
-	// * `STRING` - The range key is a string.
-	//
-	// * `NUMBER` - The range key is number.
-	//
-	// If you don't specify `rangeKeyField`, the default value is `STRING`.
-	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
-	// The value of the range key (also called the sort key).
-	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
-	// The name of the DynamoDB table.
-	TableName pulumi.StringInput `pulumi:"tableName"`
-}
-
-func (DetectorModelDynamoDBArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorModelDynamoDB)(nil)).Elem()
-}
-
-func (i DetectorModelDynamoDBArgs) ToDetectorModelDynamoDBOutput() DetectorModelDynamoDBOutput {
-	return i.ToDetectorModelDynamoDBOutputWithContext(context.Background())
-}
-
-func (i DetectorModelDynamoDBArgs) ToDetectorModelDynamoDBOutputWithContext(ctx context.Context) DetectorModelDynamoDBOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDBOutput)
-}
-
-func (i DetectorModelDynamoDBArgs) ToDetectorModelDynamoDBPtrOutput() DetectorModelDynamoDBPtrOutput {
-	return i.ToDetectorModelDynamoDBPtrOutputWithContext(context.Background())
-}
-
-func (i DetectorModelDynamoDBArgs) ToDetectorModelDynamoDBPtrOutputWithContext(ctx context.Context) DetectorModelDynamoDBPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDBOutput).ToDetectorModelDynamoDBPtrOutputWithContext(ctx)
-}
-
-// DetectorModelDynamoDBPtrInput is an input type that accepts DetectorModelDynamoDBArgs, DetectorModelDynamoDBPtr and DetectorModelDynamoDBPtrOutput values.
-// You can construct a concrete instance of `DetectorModelDynamoDBPtrInput` via:
-//
-//	        DetectorModelDynamoDBArgs{...}
-//
-//	or:
-//
-//	        nil
-type DetectorModelDynamoDBPtrInput interface {
-	pulumi.Input
-
-	ToDetectorModelDynamoDBPtrOutput() DetectorModelDynamoDBPtrOutput
-	ToDetectorModelDynamoDBPtrOutputWithContext(context.Context) DetectorModelDynamoDBPtrOutput
-}
-
-type detectorModelDynamoDBPtrType DetectorModelDynamoDBArgs
-
-func DetectorModelDynamoDBPtr(v *DetectorModelDynamoDBArgs) DetectorModelDynamoDBPtrInput {
-	return (*detectorModelDynamoDBPtrType)(v)
-}
-
-func (*detectorModelDynamoDBPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DetectorModelDynamoDB)(nil)).Elem()
-}
-
-func (i *detectorModelDynamoDBPtrType) ToDetectorModelDynamoDBPtrOutput() DetectorModelDynamoDBPtrOutput {
-	return i.ToDetectorModelDynamoDBPtrOutputWithContext(context.Background())
-}
-
-func (i *detectorModelDynamoDBPtrType) ToDetectorModelDynamoDBPtrOutputWithContext(ctx context.Context) DetectorModelDynamoDBPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDBPtrOutput)
-}
-
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
-type DetectorModelDynamoDBOutput struct{ *pulumi.OutputState }
-
-func (DetectorModelDynamoDBOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorModelDynamoDB)(nil)).Elem()
-}
-
-func (o DetectorModelDynamoDBOutput) ToDetectorModelDynamoDBOutput() DetectorModelDynamoDBOutput {
-	return o
-}
-
-func (o DetectorModelDynamoDBOutput) ToDetectorModelDynamoDBOutputWithContext(ctx context.Context) DetectorModelDynamoDBOutput {
-	return o
-}
-
-func (o DetectorModelDynamoDBOutput) ToDetectorModelDynamoDBPtrOutput() DetectorModelDynamoDBPtrOutput {
-	return o.ToDetectorModelDynamoDBPtrOutputWithContext(context.Background())
-}
-
-func (o DetectorModelDynamoDBOutput) ToDetectorModelDynamoDBPtrOutputWithContext(ctx context.Context) DetectorModelDynamoDBPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelDynamoDB) *DetectorModelDynamoDB {
-		return &v
-	}).(DetectorModelDynamoDBPtrOutput)
-}
-
-// The name of the hash key (also called the partition key).
-func (o DetectorModelDynamoDBOutput) HashKeyField() pulumi.StringOutput {
-	return o.ApplyT(func(v DetectorModelDynamoDB) string { return v.HashKeyField }).(pulumi.StringOutput)
-}
-
-// The data type for the hash key (also called the partition key). You can specify the following values:
-//
-// * `STRING` - The hash key is a string.
-//
-// * `NUMBER` - The hash key is a number.
-//
-// If you don't specify `hashKeyType`, the default value is `STRING`.
-func (o DetectorModelDynamoDBOutput) HashKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
-}
-
-// The value of the hash key (also called the partition key).
-func (o DetectorModelDynamoDBOutput) HashKeyValue() pulumi.StringOutput {
-	return o.ApplyT(func(v DetectorModelDynamoDB) string { return v.HashKeyValue }).(pulumi.StringOutput)
-}
-
-// The type of operation to perform. You can specify the following values:
-//
-// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-//
-// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-//
-// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-//
-// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-func (o DetectorModelDynamoDBOutput) Operation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.Operation }).(pulumi.StringPtrOutput)
-}
-
-func (o DetectorModelDynamoDBOutput) Payload() DetectorModelPayloadPtrOutput {
-	return o.ApplyT(func(v DetectorModelDynamoDB) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
-}
-
-// The name of the DynamoDB column that receives the action payload.
-//
-// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
-func (o DetectorModelDynamoDBOutput) PayloadField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
-}
-
-// The name of the range key (also called the sort key).
-func (o DetectorModelDynamoDBOutput) RangeKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
-}
-
-// The data type for the range key (also called the sort key), You can specify the following values:
-//
-// * `STRING` - The range key is a string.
-//
-// * `NUMBER` - The range key is number.
-//
-// If you don't specify `rangeKeyField`, the default value is `STRING`.
-func (o DetectorModelDynamoDBOutput) RangeKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
-}
-
-// The value of the range key (also called the sort key).
-func (o DetectorModelDynamoDBOutput) RangeKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
-}
-
-// The name of the DynamoDB table.
-func (o DetectorModelDynamoDBOutput) TableName() pulumi.StringOutput {
-	return o.ApplyT(func(v DetectorModelDynamoDB) string { return v.TableName }).(pulumi.StringOutput)
-}
-
-type DetectorModelDynamoDBPtrOutput struct{ *pulumi.OutputState }
-
-func (DetectorModelDynamoDBPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DetectorModelDynamoDB)(nil)).Elem()
-}
-
-func (o DetectorModelDynamoDBPtrOutput) ToDetectorModelDynamoDBPtrOutput() DetectorModelDynamoDBPtrOutput {
-	return o
-}
-
-func (o DetectorModelDynamoDBPtrOutput) ToDetectorModelDynamoDBPtrOutputWithContext(ctx context.Context) DetectorModelDynamoDBPtrOutput {
-	return o
-}
-
-func (o DetectorModelDynamoDBPtrOutput) Elem() DetectorModelDynamoDBOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) DetectorModelDynamoDB {
-		if v != nil {
-			return *v
-		}
-		var ret DetectorModelDynamoDB
-		return ret
-	}).(DetectorModelDynamoDBOutput)
-}
-
-// The name of the hash key (also called the partition key).
-func (o DetectorModelDynamoDBPtrOutput) HashKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HashKeyField
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data type for the hash key (also called the partition key). You can specify the following values:
-//
-// * `STRING` - The hash key is a string.
-//
-// * `NUMBER` - The hash key is a number.
-//
-// If you don't specify `hashKeyType`, the default value is `STRING`.
-func (o DetectorModelDynamoDBPtrOutput) HashKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HashKeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the hash key (also called the partition key).
-func (o DetectorModelDynamoDBPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HashKeyValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of operation to perform. You can specify the following values:
-//
-// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-//
-// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-//
-// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-//
-// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-func (o DetectorModelDynamoDBPtrOutput) Operation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Operation
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DetectorModelDynamoDBPtrOutput) Payload() DetectorModelPayloadPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) *DetectorModelPayload {
-		if v == nil {
-			return nil
-		}
-		return v.Payload
-	}).(DetectorModelPayloadPtrOutput)
-}
-
-// The name of the DynamoDB column that receives the action payload.
-//
-// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
-func (o DetectorModelDynamoDBPtrOutput) PayloadField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PayloadField
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the range key (also called the sort key).
-func (o DetectorModelDynamoDBPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyField
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data type for the range key (also called the sort key), You can specify the following values:
-//
-// * `STRING` - The range key is a string.
-//
-// * `NUMBER` - The range key is number.
-//
-// If you don't specify `rangeKeyField`, the default value is `STRING`.
-func (o DetectorModelDynamoDBPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the range key (also called the sort key).
-func (o DetectorModelDynamoDBPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the DynamoDB table.
-func (o DetectorModelDynamoDBPtrOutput) TableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TableName
-	}).(pulumi.StringPtrOutput)
-}
-
 // Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 //
 // You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
@@ -5008,6 +4613,401 @@ func (o DetectorModelDynamoDBv2PtrOutput) Payload() DetectorModelPayloadPtrOutpu
 // The name of the DynamoDB table.
 func (o DetectorModelDynamoDBv2PtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDBv2) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+type DetectorModelDynamoDb struct {
+	// The name of the hash key (also called the partition key).
+	HashKeyField string `pulumi:"hashKeyField"`
+	// The data type for the hash key (also called the partition key). You can specify the following values:
+	//
+	// * `STRING` - The hash key is a string.
+	//
+	// * `NUMBER` - The hash key is a number.
+	//
+	// If you don't specify `hashKeyType`, the default value is `STRING`.
+	HashKeyType *string `pulumi:"hashKeyType"`
+	// The value of the hash key (also called the partition key).
+	HashKeyValue string `pulumi:"hashKeyValue"`
+	// The type of operation to perform. You can specify the following values:
+	//
+	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//
+	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+	Operation *string               `pulumi:"operation"`
+	Payload   *DetectorModelPayload `pulumi:"payload"`
+	// The name of the DynamoDB column that receives the action payload.
+	//
+	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+	PayloadField *string `pulumi:"payloadField"`
+	// The name of the range key (also called the sort key).
+	RangeKeyField *string `pulumi:"rangeKeyField"`
+	// The data type for the range key (also called the sort key), You can specify the following values:
+	//
+	// * `STRING` - The range key is a string.
+	//
+	// * `NUMBER` - The range key is number.
+	//
+	// If you don't specify `rangeKeyField`, the default value is `STRING`.
+	RangeKeyType *string `pulumi:"rangeKeyType"`
+	// The value of the range key (also called the sort key).
+	RangeKeyValue *string `pulumi:"rangeKeyValue"`
+	// The name of the DynamoDB table.
+	TableName string `pulumi:"tableName"`
+}
+
+// DetectorModelDynamoDbInput is an input type that accepts DetectorModelDynamoDbArgs and DetectorModelDynamoDbOutput values.
+// You can construct a concrete instance of `DetectorModelDynamoDbInput` via:
+//
+//	DetectorModelDynamoDbArgs{...}
+type DetectorModelDynamoDbInput interface {
+	pulumi.Input
+
+	ToDetectorModelDynamoDbOutput() DetectorModelDynamoDbOutput
+	ToDetectorModelDynamoDbOutputWithContext(context.Context) DetectorModelDynamoDbOutput
+}
+
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+type DetectorModelDynamoDbArgs struct {
+	// The name of the hash key (also called the partition key).
+	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
+	// The data type for the hash key (also called the partition key). You can specify the following values:
+	//
+	// * `STRING` - The hash key is a string.
+	//
+	// * `NUMBER` - The hash key is a number.
+	//
+	// If you don't specify `hashKeyType`, the default value is `STRING`.
+	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
+	// The value of the hash key (also called the partition key).
+	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
+	// The type of operation to perform. You can specify the following values:
+	//
+	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//
+	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+	Operation pulumi.StringPtrInput        `pulumi:"operation"`
+	Payload   DetectorModelPayloadPtrInput `pulumi:"payload"`
+	// The name of the DynamoDB column that receives the action payload.
+	//
+	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
+	// The name of the range key (also called the sort key).
+	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
+	// The data type for the range key (also called the sort key), You can specify the following values:
+	//
+	// * `STRING` - The range key is a string.
+	//
+	// * `NUMBER` - The range key is number.
+	//
+	// If you don't specify `rangeKeyField`, the default value is `STRING`.
+	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
+	// The value of the range key (also called the sort key).
+	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
+	// The name of the DynamoDB table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (DetectorModelDynamoDbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorModelDynamoDb)(nil)).Elem()
+}
+
+func (i DetectorModelDynamoDbArgs) ToDetectorModelDynamoDbOutput() DetectorModelDynamoDbOutput {
+	return i.ToDetectorModelDynamoDbOutputWithContext(context.Background())
+}
+
+func (i DetectorModelDynamoDbArgs) ToDetectorModelDynamoDbOutputWithContext(ctx context.Context) DetectorModelDynamoDbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDbOutput)
+}
+
+func (i DetectorModelDynamoDbArgs) ToDetectorModelDynamoDbPtrOutput() DetectorModelDynamoDbPtrOutput {
+	return i.ToDetectorModelDynamoDbPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorModelDynamoDbArgs) ToDetectorModelDynamoDbPtrOutputWithContext(ctx context.Context) DetectorModelDynamoDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDbOutput).ToDetectorModelDynamoDbPtrOutputWithContext(ctx)
+}
+
+// DetectorModelDynamoDbPtrInput is an input type that accepts DetectorModelDynamoDbArgs, DetectorModelDynamoDbPtr and DetectorModelDynamoDbPtrOutput values.
+// You can construct a concrete instance of `DetectorModelDynamoDbPtrInput` via:
+//
+//	        DetectorModelDynamoDbArgs{...}
+//
+//	or:
+//
+//	        nil
+type DetectorModelDynamoDbPtrInput interface {
+	pulumi.Input
+
+	ToDetectorModelDynamoDbPtrOutput() DetectorModelDynamoDbPtrOutput
+	ToDetectorModelDynamoDbPtrOutputWithContext(context.Context) DetectorModelDynamoDbPtrOutput
+}
+
+type detectorModelDynamoDbPtrType DetectorModelDynamoDbArgs
+
+func DetectorModelDynamoDbPtr(v *DetectorModelDynamoDbArgs) DetectorModelDynamoDbPtrInput {
+	return (*detectorModelDynamoDbPtrType)(v)
+}
+
+func (*detectorModelDynamoDbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorModelDynamoDb)(nil)).Elem()
+}
+
+func (i *detectorModelDynamoDbPtrType) ToDetectorModelDynamoDbPtrOutput() DetectorModelDynamoDbPtrOutput {
+	return i.ToDetectorModelDynamoDbPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorModelDynamoDbPtrType) ToDetectorModelDynamoDbPtrOutputWithContext(ctx context.Context) DetectorModelDynamoDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDbPtrOutput)
+}
+
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+type DetectorModelDynamoDbOutput struct{ *pulumi.OutputState }
+
+func (DetectorModelDynamoDbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorModelDynamoDb)(nil)).Elem()
+}
+
+func (o DetectorModelDynamoDbOutput) ToDetectorModelDynamoDbOutput() DetectorModelDynamoDbOutput {
+	return o
+}
+
+func (o DetectorModelDynamoDbOutput) ToDetectorModelDynamoDbOutputWithContext(ctx context.Context) DetectorModelDynamoDbOutput {
+	return o
+}
+
+func (o DetectorModelDynamoDbOutput) ToDetectorModelDynamoDbPtrOutput() DetectorModelDynamoDbPtrOutput {
+	return o.ToDetectorModelDynamoDbPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorModelDynamoDbOutput) ToDetectorModelDynamoDbPtrOutputWithContext(ctx context.Context) DetectorModelDynamoDbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelDynamoDb) *DetectorModelDynamoDb {
+		return &v
+	}).(DetectorModelDynamoDbPtrOutput)
+}
+
+// The name of the hash key (also called the partition key).
+func (o DetectorModelDynamoDbOutput) HashKeyField() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorModelDynamoDb) string { return v.HashKeyField }).(pulumi.StringOutput)
+}
+
+// The data type for the hash key (also called the partition key). You can specify the following values:
+//
+// * `STRING` - The hash key is a string.
+//
+// * `NUMBER` - The hash key is a number.
+//
+// If you don't specify `hashKeyType`, the default value is `STRING`.
+func (o DetectorModelDynamoDbOutput) HashKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
+}
+
+// The value of the hash key (also called the partition key).
+func (o DetectorModelDynamoDbOutput) HashKeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorModelDynamoDb) string { return v.HashKeyValue }).(pulumi.StringOutput)
+}
+
+// The type of operation to perform. You can specify the following values:
+//
+// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+//
+// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+func (o DetectorModelDynamoDbOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
+func (o DetectorModelDynamoDbOutput) Payload() DetectorModelPayloadPtrOutput {
+	return o.ApplyT(func(v DetectorModelDynamoDb) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
+}
+
+// The name of the DynamoDB column that receives the action payload.
+//
+// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+func (o DetectorModelDynamoDbOutput) PayloadField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
+}
+
+// The name of the range key (also called the sort key).
+func (o DetectorModelDynamoDbOutput) RangeKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
+}
+
+// The data type for the range key (also called the sort key), You can specify the following values:
+//
+// * `STRING` - The range key is a string.
+//
+// * `NUMBER` - The range key is number.
+//
+// If you don't specify `rangeKeyField`, the default value is `STRING`.
+func (o DetectorModelDynamoDbOutput) RangeKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
+}
+
+// The value of the range key (also called the sort key).
+func (o DetectorModelDynamoDbOutput) RangeKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
+}
+
+// The name of the DynamoDB table.
+func (o DetectorModelDynamoDbOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorModelDynamoDb) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type DetectorModelDynamoDbPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorModelDynamoDbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorModelDynamoDb)(nil)).Elem()
+}
+
+func (o DetectorModelDynamoDbPtrOutput) ToDetectorModelDynamoDbPtrOutput() DetectorModelDynamoDbPtrOutput {
+	return o
+}
+
+func (o DetectorModelDynamoDbPtrOutput) ToDetectorModelDynamoDbPtrOutputWithContext(ctx context.Context) DetectorModelDynamoDbPtrOutput {
+	return o
+}
+
+func (o DetectorModelDynamoDbPtrOutput) Elem() DetectorModelDynamoDbOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) DetectorModelDynamoDb {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorModelDynamoDb
+		return ret
+	}).(DetectorModelDynamoDbOutput)
+}
+
+// The name of the hash key (also called the partition key).
+func (o DetectorModelDynamoDbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HashKeyField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data type for the hash key (also called the partition key). You can specify the following values:
+//
+// * `STRING` - The hash key is a string.
+//
+// * `NUMBER` - The hash key is a number.
+//
+// If you don't specify `hashKeyType`, the default value is `STRING`.
+func (o DetectorModelDynamoDbPtrOutput) HashKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HashKeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the hash key (also called the partition key).
+func (o DetectorModelDynamoDbPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HashKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of operation to perform. You can specify the following values:
+//
+// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+//
+// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+func (o DetectorModelDynamoDbPtrOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DetectorModelDynamoDbPtrOutput) Payload() DetectorModelPayloadPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) *DetectorModelPayload {
+		if v == nil {
+			return nil
+		}
+		return v.Payload
+	}).(DetectorModelPayloadPtrOutput)
+}
+
+// The name of the DynamoDB column that receives the action payload.
+//
+// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+func (o DetectorModelDynamoDbPtrOutput) PayloadField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the range key (also called the sort key).
+func (o DetectorModelDynamoDbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data type for the range key (also called the sort key), You can specify the following values:
+//
+// * `STRING` - The range key is a string.
+//
+// * `NUMBER` - The range key is number.
+//
+// If you don't specify `rangeKeyField`, the default value is `STRING`.
+func (o DetectorModelDynamoDbPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the range key (also called the sort key).
+func (o DetectorModelDynamoDbPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the DynamoDB table.
+func (o DetectorModelDynamoDbPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
 		if v == nil {
 			return nil
 		}
@@ -8062,10 +8062,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelAssetPropertyValuePtrInput)(nil)).Elem(), AlarmModelAssetPropertyValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelAssetPropertyVariantInput)(nil)).Elem(), AlarmModelAssetPropertyVariantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelAssetPropertyVariantPtrInput)(nil)).Elem(), AlarmModelAssetPropertyVariantArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelDynamoDBInput)(nil)).Elem(), AlarmModelDynamoDBArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelDynamoDBPtrInput)(nil)).Elem(), AlarmModelDynamoDBArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelDynamoDBv2Input)(nil)).Elem(), AlarmModelDynamoDBv2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelDynamoDBv2PtrInput)(nil)).Elem(), AlarmModelDynamoDBv2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelDynamoDbInput)(nil)).Elem(), AlarmModelDynamoDbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelDynamoDbPtrInput)(nil)).Elem(), AlarmModelDynamoDbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelFirehoseInput)(nil)).Elem(), AlarmModelFirehoseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelFirehosePtrInput)(nil)).Elem(), AlarmModelFirehoseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelInitializationConfigurationInput)(nil)).Elem(), AlarmModelInitializationConfigurationArgs{})
@@ -8099,10 +8099,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelClearTimerInput)(nil)).Elem(), DetectorModelClearTimerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelClearTimerPtrInput)(nil)).Elem(), DetectorModelClearTimerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDefinitionInput)(nil)).Elem(), DetectorModelDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDynamoDBInput)(nil)).Elem(), DetectorModelDynamoDBArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDynamoDBPtrInput)(nil)).Elem(), DetectorModelDynamoDBArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDynamoDBv2Input)(nil)).Elem(), DetectorModelDynamoDBv2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDynamoDBv2PtrInput)(nil)).Elem(), DetectorModelDynamoDBv2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDynamoDbInput)(nil)).Elem(), DetectorModelDynamoDbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDynamoDbPtrInput)(nil)).Elem(), DetectorModelDynamoDbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelEventInput)(nil)).Elem(), DetectorModelEventArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelEventArrayInput)(nil)).Elem(), DetectorModelEventArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelFirehoseInput)(nil)).Elem(), DetectorModelFirehoseArgs{})
@@ -8160,10 +8160,10 @@ func init() {
 	pulumi.RegisterOutputType(AlarmModelAssetPropertyValuePtrOutput{})
 	pulumi.RegisterOutputType(AlarmModelAssetPropertyVariantOutput{})
 	pulumi.RegisterOutputType(AlarmModelAssetPropertyVariantPtrOutput{})
-	pulumi.RegisterOutputType(AlarmModelDynamoDBOutput{})
-	pulumi.RegisterOutputType(AlarmModelDynamoDBPtrOutput{})
 	pulumi.RegisterOutputType(AlarmModelDynamoDBv2Output{})
 	pulumi.RegisterOutputType(AlarmModelDynamoDBv2PtrOutput{})
+	pulumi.RegisterOutputType(AlarmModelDynamoDbOutput{})
+	pulumi.RegisterOutputType(AlarmModelDynamoDbPtrOutput{})
 	pulumi.RegisterOutputType(AlarmModelFirehoseOutput{})
 	pulumi.RegisterOutputType(AlarmModelFirehosePtrOutput{})
 	pulumi.RegisterOutputType(AlarmModelInitializationConfigurationOutput{})
@@ -8198,10 +8198,10 @@ func init() {
 	pulumi.RegisterOutputType(DetectorModelClearTimerPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelDefinitionOutput{})
 	pulumi.RegisterOutputType(DetectorModelDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(DetectorModelDynamoDBOutput{})
-	pulumi.RegisterOutputType(DetectorModelDynamoDBPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBv2Output{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBv2PtrOutput{})
+	pulumi.RegisterOutputType(DetectorModelDynamoDbOutput{})
+	pulumi.RegisterOutputType(DetectorModelDynamoDbPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelEventOutput{})
 	pulumi.RegisterOutputType(DetectorModelEventArrayOutput{})
 	pulumi.RegisterOutputType(DetectorModelFirehoseOutput{})

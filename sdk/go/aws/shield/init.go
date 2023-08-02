@@ -21,8 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:shield:DRTAccess":
-		r = &DRTAccess{}
+	case "aws-native:shield:DrtAccess":
+		r = &DrtAccess{}
 	case "aws-native:shield:ProactiveEngagement":
 		r = &ProactiveEngagement{}
 	case "aws-native:shield:Protection":

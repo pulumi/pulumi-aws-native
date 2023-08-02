@@ -1007,147 +1007,147 @@ func (o CoreNetworkTagArrayOutput) Index(i pulumi.IntInput) CoreNetworkTagOutput
 }
 
 // The Amazon Web Services location of the device, if applicable.
-type DeviceAWSLocation struct {
+type DeviceAwsLocation struct {
 	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
 	SubnetArn *string `pulumi:"subnetArn"`
 	// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
 	Zone *string `pulumi:"zone"`
 }
 
-// DeviceAWSLocationInput is an input type that accepts DeviceAWSLocationArgs and DeviceAWSLocationOutput values.
-// You can construct a concrete instance of `DeviceAWSLocationInput` via:
+// DeviceAwsLocationInput is an input type that accepts DeviceAwsLocationArgs and DeviceAwsLocationOutput values.
+// You can construct a concrete instance of `DeviceAwsLocationInput` via:
 //
-//	DeviceAWSLocationArgs{...}
-type DeviceAWSLocationInput interface {
+//	DeviceAwsLocationArgs{...}
+type DeviceAwsLocationInput interface {
 	pulumi.Input
 
-	ToDeviceAWSLocationOutput() DeviceAWSLocationOutput
-	ToDeviceAWSLocationOutputWithContext(context.Context) DeviceAWSLocationOutput
+	ToDeviceAwsLocationOutput() DeviceAwsLocationOutput
+	ToDeviceAwsLocationOutputWithContext(context.Context) DeviceAwsLocationOutput
 }
 
 // The Amazon Web Services location of the device, if applicable.
-type DeviceAWSLocationArgs struct {
+type DeviceAwsLocationArgs struct {
 	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
 	SubnetArn pulumi.StringPtrInput `pulumi:"subnetArn"`
 	// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
 	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
-func (DeviceAWSLocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceAWSLocation)(nil)).Elem()
+func (DeviceAwsLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceAwsLocation)(nil)).Elem()
 }
 
-func (i DeviceAWSLocationArgs) ToDeviceAWSLocationOutput() DeviceAWSLocationOutput {
-	return i.ToDeviceAWSLocationOutputWithContext(context.Background())
+func (i DeviceAwsLocationArgs) ToDeviceAwsLocationOutput() DeviceAwsLocationOutput {
+	return i.ToDeviceAwsLocationOutputWithContext(context.Background())
 }
 
-func (i DeviceAWSLocationArgs) ToDeviceAWSLocationOutputWithContext(ctx context.Context) DeviceAWSLocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceAWSLocationOutput)
+func (i DeviceAwsLocationArgs) ToDeviceAwsLocationOutputWithContext(ctx context.Context) DeviceAwsLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceAwsLocationOutput)
 }
 
-func (i DeviceAWSLocationArgs) ToDeviceAWSLocationPtrOutput() DeviceAWSLocationPtrOutput {
-	return i.ToDeviceAWSLocationPtrOutputWithContext(context.Background())
+func (i DeviceAwsLocationArgs) ToDeviceAwsLocationPtrOutput() DeviceAwsLocationPtrOutput {
+	return i.ToDeviceAwsLocationPtrOutputWithContext(context.Background())
 }
 
-func (i DeviceAWSLocationArgs) ToDeviceAWSLocationPtrOutputWithContext(ctx context.Context) DeviceAWSLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceAWSLocationOutput).ToDeviceAWSLocationPtrOutputWithContext(ctx)
+func (i DeviceAwsLocationArgs) ToDeviceAwsLocationPtrOutputWithContext(ctx context.Context) DeviceAwsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceAwsLocationOutput).ToDeviceAwsLocationPtrOutputWithContext(ctx)
 }
 
-// DeviceAWSLocationPtrInput is an input type that accepts DeviceAWSLocationArgs, DeviceAWSLocationPtr and DeviceAWSLocationPtrOutput values.
-// You can construct a concrete instance of `DeviceAWSLocationPtrInput` via:
+// DeviceAwsLocationPtrInput is an input type that accepts DeviceAwsLocationArgs, DeviceAwsLocationPtr and DeviceAwsLocationPtrOutput values.
+// You can construct a concrete instance of `DeviceAwsLocationPtrInput` via:
 //
-//	        DeviceAWSLocationArgs{...}
+//	        DeviceAwsLocationArgs{...}
 //
 //	or:
 //
 //	        nil
-type DeviceAWSLocationPtrInput interface {
+type DeviceAwsLocationPtrInput interface {
 	pulumi.Input
 
-	ToDeviceAWSLocationPtrOutput() DeviceAWSLocationPtrOutput
-	ToDeviceAWSLocationPtrOutputWithContext(context.Context) DeviceAWSLocationPtrOutput
+	ToDeviceAwsLocationPtrOutput() DeviceAwsLocationPtrOutput
+	ToDeviceAwsLocationPtrOutputWithContext(context.Context) DeviceAwsLocationPtrOutput
 }
 
-type deviceAWSLocationPtrType DeviceAWSLocationArgs
+type deviceAwsLocationPtrType DeviceAwsLocationArgs
 
-func DeviceAWSLocationPtr(v *DeviceAWSLocationArgs) DeviceAWSLocationPtrInput {
-	return (*deviceAWSLocationPtrType)(v)
+func DeviceAwsLocationPtr(v *DeviceAwsLocationArgs) DeviceAwsLocationPtrInput {
+	return (*deviceAwsLocationPtrType)(v)
 }
 
-func (*deviceAWSLocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceAWSLocation)(nil)).Elem()
+func (*deviceAwsLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceAwsLocation)(nil)).Elem()
 }
 
-func (i *deviceAWSLocationPtrType) ToDeviceAWSLocationPtrOutput() DeviceAWSLocationPtrOutput {
-	return i.ToDeviceAWSLocationPtrOutputWithContext(context.Background())
+func (i *deviceAwsLocationPtrType) ToDeviceAwsLocationPtrOutput() DeviceAwsLocationPtrOutput {
+	return i.ToDeviceAwsLocationPtrOutputWithContext(context.Background())
 }
 
-func (i *deviceAWSLocationPtrType) ToDeviceAWSLocationPtrOutputWithContext(ctx context.Context) DeviceAWSLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceAWSLocationPtrOutput)
+func (i *deviceAwsLocationPtrType) ToDeviceAwsLocationPtrOutputWithContext(ctx context.Context) DeviceAwsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceAwsLocationPtrOutput)
 }
 
 // The Amazon Web Services location of the device, if applicable.
-type DeviceAWSLocationOutput struct{ *pulumi.OutputState }
+type DeviceAwsLocationOutput struct{ *pulumi.OutputState }
 
-func (DeviceAWSLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceAWSLocation)(nil)).Elem()
+func (DeviceAwsLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceAwsLocation)(nil)).Elem()
 }
 
-func (o DeviceAWSLocationOutput) ToDeviceAWSLocationOutput() DeviceAWSLocationOutput {
+func (o DeviceAwsLocationOutput) ToDeviceAwsLocationOutput() DeviceAwsLocationOutput {
 	return o
 }
 
-func (o DeviceAWSLocationOutput) ToDeviceAWSLocationOutputWithContext(ctx context.Context) DeviceAWSLocationOutput {
+func (o DeviceAwsLocationOutput) ToDeviceAwsLocationOutputWithContext(ctx context.Context) DeviceAwsLocationOutput {
 	return o
 }
 
-func (o DeviceAWSLocationOutput) ToDeviceAWSLocationPtrOutput() DeviceAWSLocationPtrOutput {
-	return o.ToDeviceAWSLocationPtrOutputWithContext(context.Background())
+func (o DeviceAwsLocationOutput) ToDeviceAwsLocationPtrOutput() DeviceAwsLocationPtrOutput {
+	return o.ToDeviceAwsLocationPtrOutputWithContext(context.Background())
 }
 
-func (o DeviceAWSLocationOutput) ToDeviceAWSLocationPtrOutputWithContext(ctx context.Context) DeviceAWSLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceAWSLocation) *DeviceAWSLocation {
+func (o DeviceAwsLocationOutput) ToDeviceAwsLocationPtrOutputWithContext(ctx context.Context) DeviceAwsLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceAwsLocation) *DeviceAwsLocation {
 		return &v
-	}).(DeviceAWSLocationPtrOutput)
+	}).(DeviceAwsLocationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the subnet that the device is located in.
-func (o DeviceAWSLocationOutput) SubnetArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceAWSLocation) *string { return v.SubnetArn }).(pulumi.StringPtrOutput)
+func (o DeviceAwsLocationOutput) SubnetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceAwsLocation) *string { return v.SubnetArn }).(pulumi.StringPtrOutput)
 }
 
 // The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
-func (o DeviceAWSLocationOutput) Zone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceAWSLocation) *string { return v.Zone }).(pulumi.StringPtrOutput)
+func (o DeviceAwsLocationOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceAwsLocation) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
-type DeviceAWSLocationPtrOutput struct{ *pulumi.OutputState }
+type DeviceAwsLocationPtrOutput struct{ *pulumi.OutputState }
 
-func (DeviceAWSLocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceAWSLocation)(nil)).Elem()
+func (DeviceAwsLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceAwsLocation)(nil)).Elem()
 }
 
-func (o DeviceAWSLocationPtrOutput) ToDeviceAWSLocationPtrOutput() DeviceAWSLocationPtrOutput {
+func (o DeviceAwsLocationPtrOutput) ToDeviceAwsLocationPtrOutput() DeviceAwsLocationPtrOutput {
 	return o
 }
 
-func (o DeviceAWSLocationPtrOutput) ToDeviceAWSLocationPtrOutputWithContext(ctx context.Context) DeviceAWSLocationPtrOutput {
+func (o DeviceAwsLocationPtrOutput) ToDeviceAwsLocationPtrOutputWithContext(ctx context.Context) DeviceAwsLocationPtrOutput {
 	return o
 }
 
-func (o DeviceAWSLocationPtrOutput) Elem() DeviceAWSLocationOutput {
-	return o.ApplyT(func(v *DeviceAWSLocation) DeviceAWSLocation {
+func (o DeviceAwsLocationPtrOutput) Elem() DeviceAwsLocationOutput {
+	return o.ApplyT(func(v *DeviceAwsLocation) DeviceAwsLocation {
 		if v != nil {
 			return *v
 		}
-		var ret DeviceAWSLocation
+		var ret DeviceAwsLocation
 		return ret
-	}).(DeviceAWSLocationOutput)
+	}).(DeviceAwsLocationOutput)
 }
 
 // The Amazon Resource Name (ARN) of the subnet that the device is located in.
-func (o DeviceAWSLocationPtrOutput) SubnetArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceAWSLocation) *string {
+func (o DeviceAwsLocationPtrOutput) SubnetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceAwsLocation) *string {
 		if v == nil {
 			return nil
 		}
@@ -1156,8 +1156,8 @@ func (o DeviceAWSLocationPtrOutput) SubnetArn() pulumi.StringPtrOutput {
 }
 
 // The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
-func (o DeviceAWSLocationPtrOutput) Zone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceAWSLocation) *string {
+func (o DeviceAwsLocationPtrOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceAwsLocation) *string {
 		if v == nil {
 			return nil
 		}
@@ -3198,8 +3198,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerTagArrayInput)(nil)).Elem(), ConnectPeerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkTagInput)(nil)).Elem(), CoreNetworkTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkTagArrayInput)(nil)).Elem(), CoreNetworkTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAWSLocationInput)(nil)).Elem(), DeviceAWSLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAWSLocationPtrInput)(nil)).Elem(), DeviceAWSLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationInput)(nil)).Elem(), DeviceAwsLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationPtrInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationPtrInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTagInput)(nil)).Elem(), DeviceTagArgs{})
@@ -3248,8 +3248,8 @@ func init() {
 	pulumi.RegisterOutputType(CoreNetworkSegmentArrayOutput{})
 	pulumi.RegisterOutputType(CoreNetworkTagOutput{})
 	pulumi.RegisterOutputType(CoreNetworkTagArrayOutput{})
-	pulumi.RegisterOutputType(DeviceAWSLocationOutput{})
-	pulumi.RegisterOutputType(DeviceAWSLocationPtrOutput{})
+	pulumi.RegisterOutputType(DeviceAwsLocationOutput{})
+	pulumi.RegisterOutputType(DeviceAwsLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceLocationOutput{})
 	pulumi.RegisterOutputType(DeviceLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceTagOutput{})

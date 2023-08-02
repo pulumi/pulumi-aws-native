@@ -14,172 +14,281 @@ import (
 var _ = internal.GetEnvOrDefault
 
 // A key-value pair to associate with a resource.
-type CustomDBEngineVersionTag struct {
+type CustomDbEngineVersionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value *string `pulumi:"value"`
 }
 
-// CustomDBEngineVersionTagInput is an input type that accepts CustomDBEngineVersionTagArgs and CustomDBEngineVersionTagOutput values.
-// You can construct a concrete instance of `CustomDBEngineVersionTagInput` via:
+// CustomDbEngineVersionTagInput is an input type that accepts CustomDbEngineVersionTagArgs and CustomDbEngineVersionTagOutput values.
+// You can construct a concrete instance of `CustomDbEngineVersionTagInput` via:
 //
-//	CustomDBEngineVersionTagArgs{...}
-type CustomDBEngineVersionTagInput interface {
+//	CustomDbEngineVersionTagArgs{...}
+type CustomDbEngineVersionTagInput interface {
 	pulumi.Input
 
-	ToCustomDBEngineVersionTagOutput() CustomDBEngineVersionTagOutput
-	ToCustomDBEngineVersionTagOutputWithContext(context.Context) CustomDBEngineVersionTagOutput
+	ToCustomDbEngineVersionTagOutput() CustomDbEngineVersionTagOutput
+	ToCustomDbEngineVersionTagOutputWithContext(context.Context) CustomDbEngineVersionTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type CustomDBEngineVersionTagArgs struct {
+type CustomDbEngineVersionTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (CustomDBEngineVersionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDBEngineVersionTag)(nil)).Elem()
+func (CustomDbEngineVersionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDbEngineVersionTag)(nil)).Elem()
 }
 
-func (i CustomDBEngineVersionTagArgs) ToCustomDBEngineVersionTagOutput() CustomDBEngineVersionTagOutput {
-	return i.ToCustomDBEngineVersionTagOutputWithContext(context.Background())
+func (i CustomDbEngineVersionTagArgs) ToCustomDbEngineVersionTagOutput() CustomDbEngineVersionTagOutput {
+	return i.ToCustomDbEngineVersionTagOutputWithContext(context.Background())
 }
 
-func (i CustomDBEngineVersionTagArgs) ToCustomDBEngineVersionTagOutputWithContext(ctx context.Context) CustomDBEngineVersionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDBEngineVersionTagOutput)
+func (i CustomDbEngineVersionTagArgs) ToCustomDbEngineVersionTagOutputWithContext(ctx context.Context) CustomDbEngineVersionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDbEngineVersionTagOutput)
 }
 
-// CustomDBEngineVersionTagArrayInput is an input type that accepts CustomDBEngineVersionTagArray and CustomDBEngineVersionTagArrayOutput values.
-// You can construct a concrete instance of `CustomDBEngineVersionTagArrayInput` via:
+// CustomDbEngineVersionTagArrayInput is an input type that accepts CustomDbEngineVersionTagArray and CustomDbEngineVersionTagArrayOutput values.
+// You can construct a concrete instance of `CustomDbEngineVersionTagArrayInput` via:
 //
-//	CustomDBEngineVersionTagArray{ CustomDBEngineVersionTagArgs{...} }
-type CustomDBEngineVersionTagArrayInput interface {
+//	CustomDbEngineVersionTagArray{ CustomDbEngineVersionTagArgs{...} }
+type CustomDbEngineVersionTagArrayInput interface {
 	pulumi.Input
 
-	ToCustomDBEngineVersionTagArrayOutput() CustomDBEngineVersionTagArrayOutput
-	ToCustomDBEngineVersionTagArrayOutputWithContext(context.Context) CustomDBEngineVersionTagArrayOutput
+	ToCustomDbEngineVersionTagArrayOutput() CustomDbEngineVersionTagArrayOutput
+	ToCustomDbEngineVersionTagArrayOutputWithContext(context.Context) CustomDbEngineVersionTagArrayOutput
 }
 
-type CustomDBEngineVersionTagArray []CustomDBEngineVersionTagInput
+type CustomDbEngineVersionTagArray []CustomDbEngineVersionTagInput
 
-func (CustomDBEngineVersionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomDBEngineVersionTag)(nil)).Elem()
+func (CustomDbEngineVersionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDbEngineVersionTag)(nil)).Elem()
 }
 
-func (i CustomDBEngineVersionTagArray) ToCustomDBEngineVersionTagArrayOutput() CustomDBEngineVersionTagArrayOutput {
-	return i.ToCustomDBEngineVersionTagArrayOutputWithContext(context.Background())
+func (i CustomDbEngineVersionTagArray) ToCustomDbEngineVersionTagArrayOutput() CustomDbEngineVersionTagArrayOutput {
+	return i.ToCustomDbEngineVersionTagArrayOutputWithContext(context.Background())
 }
 
-func (i CustomDBEngineVersionTagArray) ToCustomDBEngineVersionTagArrayOutputWithContext(ctx context.Context) CustomDBEngineVersionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDBEngineVersionTagArrayOutput)
+func (i CustomDbEngineVersionTagArray) ToCustomDbEngineVersionTagArrayOutputWithContext(ctx context.Context) CustomDbEngineVersionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDbEngineVersionTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type CustomDBEngineVersionTagOutput struct{ *pulumi.OutputState }
+type CustomDbEngineVersionTagOutput struct{ *pulumi.OutputState }
 
-func (CustomDBEngineVersionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDBEngineVersionTag)(nil)).Elem()
+func (CustomDbEngineVersionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDbEngineVersionTag)(nil)).Elem()
 }
 
-func (o CustomDBEngineVersionTagOutput) ToCustomDBEngineVersionTagOutput() CustomDBEngineVersionTagOutput {
+func (o CustomDbEngineVersionTagOutput) ToCustomDbEngineVersionTagOutput() CustomDbEngineVersionTagOutput {
 	return o
 }
 
-func (o CustomDBEngineVersionTagOutput) ToCustomDBEngineVersionTagOutputWithContext(ctx context.Context) CustomDBEngineVersionTagOutput {
+func (o CustomDbEngineVersionTagOutput) ToCustomDbEngineVersionTagOutputWithContext(ctx context.Context) CustomDbEngineVersionTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CustomDBEngineVersionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDBEngineVersionTag) string { return v.Key }).(pulumi.StringOutput)
+func (o CustomDbEngineVersionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDbEngineVersionTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CustomDBEngineVersionTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDBEngineVersionTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o CustomDbEngineVersionTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDbEngineVersionTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type CustomDBEngineVersionTagArrayOutput struct{ *pulumi.OutputState }
+type CustomDbEngineVersionTagArrayOutput struct{ *pulumi.OutputState }
 
-func (CustomDBEngineVersionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomDBEngineVersionTag)(nil)).Elem()
+func (CustomDbEngineVersionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDbEngineVersionTag)(nil)).Elem()
 }
 
-func (o CustomDBEngineVersionTagArrayOutput) ToCustomDBEngineVersionTagArrayOutput() CustomDBEngineVersionTagArrayOutput {
+func (o CustomDbEngineVersionTagArrayOutput) ToCustomDbEngineVersionTagArrayOutput() CustomDbEngineVersionTagArrayOutput {
 	return o
 }
 
-func (o CustomDBEngineVersionTagArrayOutput) ToCustomDBEngineVersionTagArrayOutputWithContext(ctx context.Context) CustomDBEngineVersionTagArrayOutput {
+func (o CustomDbEngineVersionTagArrayOutput) ToCustomDbEngineVersionTagArrayOutputWithContext(ctx context.Context) CustomDbEngineVersionTagArrayOutput {
 	return o
 }
 
-func (o CustomDBEngineVersionTagArrayOutput) Index(i pulumi.IntInput) CustomDBEngineVersionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDBEngineVersionTag {
-		return vs[0].([]CustomDBEngineVersionTag)[vs[1].(int)]
-	}).(CustomDBEngineVersionTagOutput)
+func (o CustomDbEngineVersionTagArrayOutput) Index(i pulumi.IntInput) CustomDbEngineVersionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDbEngineVersionTag {
+		return vs[0].([]CustomDbEngineVersionTag)[vs[1].(int)]
+	}).(CustomDbEngineVersionTagOutput)
 }
 
-type DBClusterEndpoint struct {
+// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+type DbClusterDbClusterRole struct {
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+	FeatureName *string `pulumi:"featureName"`
+	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// DbClusterDbClusterRoleInput is an input type that accepts DbClusterDbClusterRoleArgs and DbClusterDbClusterRoleOutput values.
+// You can construct a concrete instance of `DbClusterDbClusterRoleInput` via:
+//
+//	DbClusterDbClusterRoleArgs{...}
+type DbClusterDbClusterRoleInput interface {
+	pulumi.Input
+
+	ToDbClusterDbClusterRoleOutput() DbClusterDbClusterRoleOutput
+	ToDbClusterDbClusterRoleOutputWithContext(context.Context) DbClusterDbClusterRoleOutput
+}
+
+// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+type DbClusterDbClusterRoleArgs struct {
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
+	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (DbClusterDbClusterRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterDbClusterRole)(nil)).Elem()
+}
+
+func (i DbClusterDbClusterRoleArgs) ToDbClusterDbClusterRoleOutput() DbClusterDbClusterRoleOutput {
+	return i.ToDbClusterDbClusterRoleOutputWithContext(context.Background())
+}
+
+func (i DbClusterDbClusterRoleArgs) ToDbClusterDbClusterRoleOutputWithContext(ctx context.Context) DbClusterDbClusterRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterDbClusterRoleOutput)
+}
+
+// DbClusterDbClusterRoleArrayInput is an input type that accepts DbClusterDbClusterRoleArray and DbClusterDbClusterRoleArrayOutput values.
+// You can construct a concrete instance of `DbClusterDbClusterRoleArrayInput` via:
+//
+//	DbClusterDbClusterRoleArray{ DbClusterDbClusterRoleArgs{...} }
+type DbClusterDbClusterRoleArrayInput interface {
+	pulumi.Input
+
+	ToDbClusterDbClusterRoleArrayOutput() DbClusterDbClusterRoleArrayOutput
+	ToDbClusterDbClusterRoleArrayOutputWithContext(context.Context) DbClusterDbClusterRoleArrayOutput
+}
+
+type DbClusterDbClusterRoleArray []DbClusterDbClusterRoleInput
+
+func (DbClusterDbClusterRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbClusterDbClusterRole)(nil)).Elem()
+}
+
+func (i DbClusterDbClusterRoleArray) ToDbClusterDbClusterRoleArrayOutput() DbClusterDbClusterRoleArrayOutput {
+	return i.ToDbClusterDbClusterRoleArrayOutputWithContext(context.Background())
+}
+
+func (i DbClusterDbClusterRoleArray) ToDbClusterDbClusterRoleArrayOutputWithContext(ctx context.Context) DbClusterDbClusterRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterDbClusterRoleArrayOutput)
+}
+
+// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+type DbClusterDbClusterRoleOutput struct{ *pulumi.OutputState }
+
+func (DbClusterDbClusterRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterDbClusterRole)(nil)).Elem()
+}
+
+func (o DbClusterDbClusterRoleOutput) ToDbClusterDbClusterRoleOutput() DbClusterDbClusterRoleOutput {
+	return o
+}
+
+func (o DbClusterDbClusterRoleOutput) ToDbClusterDbClusterRoleOutputWithContext(ctx context.Context) DbClusterDbClusterRoleOutput {
+	return o
+}
+
+// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+func (o DbClusterDbClusterRoleOutput) FeatureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterDbClusterRole) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+func (o DbClusterDbClusterRoleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DbClusterDbClusterRole) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type DbClusterDbClusterRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (DbClusterDbClusterRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbClusterDbClusterRole)(nil)).Elem()
+}
+
+func (o DbClusterDbClusterRoleArrayOutput) ToDbClusterDbClusterRoleArrayOutput() DbClusterDbClusterRoleArrayOutput {
+	return o
+}
+
+func (o DbClusterDbClusterRoleArrayOutput) ToDbClusterDbClusterRoleArrayOutputWithContext(ctx context.Context) DbClusterDbClusterRoleArrayOutput {
+	return o
+}
+
+func (o DbClusterDbClusterRoleArrayOutput) Index(i pulumi.IntInput) DbClusterDbClusterRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbClusterDbClusterRole {
+		return vs[0].([]DbClusterDbClusterRole)[vs[1].(int)]
+	}).(DbClusterDbClusterRoleOutput)
+}
+
+type DbClusterEndpoint struct {
 	// The connection endpoint for the DB cluster.
 	Address *string `pulumi:"address"`
 	// The port number that will accept connections on this DB cluster.
 	Port *string `pulumi:"port"`
 }
 
-type DBClusterEndpointOutput struct{ *pulumi.OutputState }
+type DbClusterEndpointOutput struct{ *pulumi.OutputState }
 
-func (DBClusterEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterEndpoint)(nil)).Elem()
+func (DbClusterEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterEndpoint)(nil)).Elem()
 }
 
-func (o DBClusterEndpointOutput) ToDBClusterEndpointOutput() DBClusterEndpointOutput {
+func (o DbClusterEndpointOutput) ToDbClusterEndpointOutput() DbClusterEndpointOutput {
 	return o
 }
 
-func (o DBClusterEndpointOutput) ToDBClusterEndpointOutputWithContext(ctx context.Context) DBClusterEndpointOutput {
+func (o DbClusterEndpointOutput) ToDbClusterEndpointOutputWithContext(ctx context.Context) DbClusterEndpointOutput {
 	return o
 }
 
 // The connection endpoint for the DB cluster.
-func (o DBClusterEndpointOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+func (o DbClusterEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // The port number that will accept connections on this DB cluster.
-func (o DBClusterEndpointOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBClusterEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
+func (o DbClusterEndpointOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-type DBClusterEndpointPtrOutput struct{ *pulumi.OutputState }
+type DbClusterEndpointPtrOutput struct{ *pulumi.OutputState }
 
-func (DBClusterEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBClusterEndpoint)(nil)).Elem()
+func (DbClusterEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterEndpoint)(nil)).Elem()
 }
 
-func (o DBClusterEndpointPtrOutput) ToDBClusterEndpointPtrOutput() DBClusterEndpointPtrOutput {
+func (o DbClusterEndpointPtrOutput) ToDbClusterEndpointPtrOutput() DbClusterEndpointPtrOutput {
 	return o
 }
 
-func (o DBClusterEndpointPtrOutput) ToDBClusterEndpointPtrOutputWithContext(ctx context.Context) DBClusterEndpointPtrOutput {
+func (o DbClusterEndpointPtrOutput) ToDbClusterEndpointPtrOutputWithContext(ctx context.Context) DbClusterEndpointPtrOutput {
 	return o
 }
 
-func (o DBClusterEndpointPtrOutput) Elem() DBClusterEndpointOutput {
-	return o.ApplyT(func(v *DBClusterEndpoint) DBClusterEndpoint {
+func (o DbClusterEndpointPtrOutput) Elem() DbClusterEndpointOutput {
+	return o.ApplyT(func(v *DbClusterEndpoint) DbClusterEndpoint {
 		if v != nil {
 			return *v
 		}
-		var ret DBClusterEndpoint
+		var ret DbClusterEndpoint
 		return ret
-	}).(DBClusterEndpointOutput)
+	}).(DbClusterEndpointOutput)
 }
 
 // The connection endpoint for the DB cluster.
-func (o DBClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBClusterEndpoint) *string {
+func (o DbClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterEndpoint) *string {
 		if v == nil {
 			return nil
 		}
@@ -188,8 +297,8 @@ func (o DBClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 }
 
 // The port number that will accept connections on this DB cluster.
-func (o DBClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBClusterEndpoint) *string {
+func (o DbClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterEndpoint) *string {
 		if v == nil {
 			return nil
 		}
@@ -197,145 +306,145 @@ func (o DBClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBClusterMasterUserSecret struct {
+type DbClusterMasterUserSecret struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Amazon Resource Name (ARN) of the secret.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
-// DBClusterMasterUserSecretInput is an input type that accepts DBClusterMasterUserSecretArgs and DBClusterMasterUserSecretOutput values.
-// You can construct a concrete instance of `DBClusterMasterUserSecretInput` via:
+// DbClusterMasterUserSecretInput is an input type that accepts DbClusterMasterUserSecretArgs and DbClusterMasterUserSecretOutput values.
+// You can construct a concrete instance of `DbClusterMasterUserSecretInput` via:
 //
-//	DBClusterMasterUserSecretArgs{...}
-type DBClusterMasterUserSecretInput interface {
+//	DbClusterMasterUserSecretArgs{...}
+type DbClusterMasterUserSecretInput interface {
 	pulumi.Input
 
-	ToDBClusterMasterUserSecretOutput() DBClusterMasterUserSecretOutput
-	ToDBClusterMasterUserSecretOutputWithContext(context.Context) DBClusterMasterUserSecretOutput
+	ToDbClusterMasterUserSecretOutput() DbClusterMasterUserSecretOutput
+	ToDbClusterMasterUserSecretOutputWithContext(context.Context) DbClusterMasterUserSecretOutput
 }
 
-type DBClusterMasterUserSecretArgs struct {
+type DbClusterMasterUserSecretArgs struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Amazon Resource Name (ARN) of the secret.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
-func (DBClusterMasterUserSecretArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterMasterUserSecret)(nil)).Elem()
+func (DbClusterMasterUserSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterMasterUserSecret)(nil)).Elem()
 }
 
-func (i DBClusterMasterUserSecretArgs) ToDBClusterMasterUserSecretOutput() DBClusterMasterUserSecretOutput {
-	return i.ToDBClusterMasterUserSecretOutputWithContext(context.Background())
+func (i DbClusterMasterUserSecretArgs) ToDbClusterMasterUserSecretOutput() DbClusterMasterUserSecretOutput {
+	return i.ToDbClusterMasterUserSecretOutputWithContext(context.Background())
 }
 
-func (i DBClusterMasterUserSecretArgs) ToDBClusterMasterUserSecretOutputWithContext(ctx context.Context) DBClusterMasterUserSecretOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterMasterUserSecretOutput)
+func (i DbClusterMasterUserSecretArgs) ToDbClusterMasterUserSecretOutputWithContext(ctx context.Context) DbClusterMasterUserSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterMasterUserSecretOutput)
 }
 
-func (i DBClusterMasterUserSecretArgs) ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput {
-	return i.ToDBClusterMasterUserSecretPtrOutputWithContext(context.Background())
+func (i DbClusterMasterUserSecretArgs) ToDbClusterMasterUserSecretPtrOutput() DbClusterMasterUserSecretPtrOutput {
+	return i.ToDbClusterMasterUserSecretPtrOutputWithContext(context.Background())
 }
 
-func (i DBClusterMasterUserSecretArgs) ToDBClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DBClusterMasterUserSecretPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterMasterUserSecretOutput).ToDBClusterMasterUserSecretPtrOutputWithContext(ctx)
+func (i DbClusterMasterUserSecretArgs) ToDbClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DbClusterMasterUserSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterMasterUserSecretOutput).ToDbClusterMasterUserSecretPtrOutputWithContext(ctx)
 }
 
-// DBClusterMasterUserSecretPtrInput is an input type that accepts DBClusterMasterUserSecretArgs, DBClusterMasterUserSecretPtr and DBClusterMasterUserSecretPtrOutput values.
-// You can construct a concrete instance of `DBClusterMasterUserSecretPtrInput` via:
+// DbClusterMasterUserSecretPtrInput is an input type that accepts DbClusterMasterUserSecretArgs, DbClusterMasterUserSecretPtr and DbClusterMasterUserSecretPtrOutput values.
+// You can construct a concrete instance of `DbClusterMasterUserSecretPtrInput` via:
 //
-//	        DBClusterMasterUserSecretArgs{...}
+//	        DbClusterMasterUserSecretArgs{...}
 //
 //	or:
 //
 //	        nil
-type DBClusterMasterUserSecretPtrInput interface {
+type DbClusterMasterUserSecretPtrInput interface {
 	pulumi.Input
 
-	ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput
-	ToDBClusterMasterUserSecretPtrOutputWithContext(context.Context) DBClusterMasterUserSecretPtrOutput
+	ToDbClusterMasterUserSecretPtrOutput() DbClusterMasterUserSecretPtrOutput
+	ToDbClusterMasterUserSecretPtrOutputWithContext(context.Context) DbClusterMasterUserSecretPtrOutput
 }
 
-type dbclusterMasterUserSecretPtrType DBClusterMasterUserSecretArgs
+type dbClusterMasterUserSecretPtrType DbClusterMasterUserSecretArgs
 
-func DBClusterMasterUserSecretPtr(v *DBClusterMasterUserSecretArgs) DBClusterMasterUserSecretPtrInput {
-	return (*dbclusterMasterUserSecretPtrType)(v)
+func DbClusterMasterUserSecretPtr(v *DbClusterMasterUserSecretArgs) DbClusterMasterUserSecretPtrInput {
+	return (*dbClusterMasterUserSecretPtrType)(v)
 }
 
-func (*dbclusterMasterUserSecretPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBClusterMasterUserSecret)(nil)).Elem()
+func (*dbClusterMasterUserSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterMasterUserSecret)(nil)).Elem()
 }
 
-func (i *dbclusterMasterUserSecretPtrType) ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput {
-	return i.ToDBClusterMasterUserSecretPtrOutputWithContext(context.Background())
+func (i *dbClusterMasterUserSecretPtrType) ToDbClusterMasterUserSecretPtrOutput() DbClusterMasterUserSecretPtrOutput {
+	return i.ToDbClusterMasterUserSecretPtrOutputWithContext(context.Background())
 }
 
-func (i *dbclusterMasterUserSecretPtrType) ToDBClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DBClusterMasterUserSecretPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterMasterUserSecretPtrOutput)
+func (i *dbClusterMasterUserSecretPtrType) ToDbClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DbClusterMasterUserSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterMasterUserSecretPtrOutput)
 }
 
-type DBClusterMasterUserSecretOutput struct{ *pulumi.OutputState }
+type DbClusterMasterUserSecretOutput struct{ *pulumi.OutputState }
 
-func (DBClusterMasterUserSecretOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterMasterUserSecret)(nil)).Elem()
+func (DbClusterMasterUserSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterMasterUserSecret)(nil)).Elem()
 }
 
-func (o DBClusterMasterUserSecretOutput) ToDBClusterMasterUserSecretOutput() DBClusterMasterUserSecretOutput {
+func (o DbClusterMasterUserSecretOutput) ToDbClusterMasterUserSecretOutput() DbClusterMasterUserSecretOutput {
 	return o
 }
 
-func (o DBClusterMasterUserSecretOutput) ToDBClusterMasterUserSecretOutputWithContext(ctx context.Context) DBClusterMasterUserSecretOutput {
+func (o DbClusterMasterUserSecretOutput) ToDbClusterMasterUserSecretOutputWithContext(ctx context.Context) DbClusterMasterUserSecretOutput {
 	return o
 }
 
-func (o DBClusterMasterUserSecretOutput) ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput {
-	return o.ToDBClusterMasterUserSecretPtrOutputWithContext(context.Background())
+func (o DbClusterMasterUserSecretOutput) ToDbClusterMasterUserSecretPtrOutput() DbClusterMasterUserSecretPtrOutput {
+	return o.ToDbClusterMasterUserSecretPtrOutputWithContext(context.Background())
 }
 
-func (o DBClusterMasterUserSecretOutput) ToDBClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DBClusterMasterUserSecretPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBClusterMasterUserSecret) *DBClusterMasterUserSecret {
+func (o DbClusterMasterUserSecretOutput) ToDbClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DbClusterMasterUserSecretPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbClusterMasterUserSecret) *DbClusterMasterUserSecret {
 		return &v
-	}).(DBClusterMasterUserSecretPtrOutput)
+	}).(DbClusterMasterUserSecretPtrOutput)
 }
 
 // The AWS KMS key identifier that is used to encrypt the secret.
-func (o DBClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+func (o DbClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the secret.
-func (o DBClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+func (o DbClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-type DBClusterMasterUserSecretPtrOutput struct{ *pulumi.OutputState }
+type DbClusterMasterUserSecretPtrOutput struct{ *pulumi.OutputState }
 
-func (DBClusterMasterUserSecretPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBClusterMasterUserSecret)(nil)).Elem()
+func (DbClusterMasterUserSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterMasterUserSecret)(nil)).Elem()
 }
 
-func (o DBClusterMasterUserSecretPtrOutput) ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput {
+func (o DbClusterMasterUserSecretPtrOutput) ToDbClusterMasterUserSecretPtrOutput() DbClusterMasterUserSecretPtrOutput {
 	return o
 }
 
-func (o DBClusterMasterUserSecretPtrOutput) ToDBClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DBClusterMasterUserSecretPtrOutput {
+func (o DbClusterMasterUserSecretPtrOutput) ToDbClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DbClusterMasterUserSecretPtrOutput {
 	return o
 }
 
-func (o DBClusterMasterUserSecretPtrOutput) Elem() DBClusterMasterUserSecretOutput {
-	return o.ApplyT(func(v *DBClusterMasterUserSecret) DBClusterMasterUserSecret {
+func (o DbClusterMasterUserSecretPtrOutput) Elem() DbClusterMasterUserSecretOutput {
+	return o.ApplyT(func(v *DbClusterMasterUserSecret) DbClusterMasterUserSecret {
 		if v != nil {
 			return *v
 		}
-		var ret DBClusterMasterUserSecret
+		var ret DbClusterMasterUserSecret
 		return ret
-	}).(DBClusterMasterUserSecretOutput)
+	}).(DbClusterMasterUserSecretOutput)
 }
 
 // The AWS KMS key identifier that is used to encrypt the secret.
-func (o DBClusterMasterUserSecretPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBClusterMasterUserSecret) *string {
+func (o DbClusterMasterUserSecretPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterMasterUserSecret) *string {
 		if v == nil {
 			return nil
 		}
@@ -344,8 +453,8 @@ func (o DBClusterMasterUserSecretPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 }
 
 // The Amazon Resource Name (ARN) of the secret.
-func (o DBClusterMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBClusterMasterUserSecret) *string {
+func (o DbClusterMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterMasterUserSecret) *string {
 		if v == nil {
 			return nil
 		}
@@ -354,244 +463,244 @@ func (o DBClusterMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
 }
 
 // A key-value pair to associate with a resource.
-type DBClusterParameterGroupTag struct {
+type DbClusterParameterGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value *string `pulumi:"value"`
 }
 
-// DBClusterParameterGroupTagInput is an input type that accepts DBClusterParameterGroupTagArgs and DBClusterParameterGroupTagOutput values.
-// You can construct a concrete instance of `DBClusterParameterGroupTagInput` via:
+// DbClusterParameterGroupTagInput is an input type that accepts DbClusterParameterGroupTagArgs and DbClusterParameterGroupTagOutput values.
+// You can construct a concrete instance of `DbClusterParameterGroupTagInput` via:
 //
-//	DBClusterParameterGroupTagArgs{...}
-type DBClusterParameterGroupTagInput interface {
+//	DbClusterParameterGroupTagArgs{...}
+type DbClusterParameterGroupTagInput interface {
 	pulumi.Input
 
-	ToDBClusterParameterGroupTagOutput() DBClusterParameterGroupTagOutput
-	ToDBClusterParameterGroupTagOutputWithContext(context.Context) DBClusterParameterGroupTagOutput
+	ToDbClusterParameterGroupTagOutput() DbClusterParameterGroupTagOutput
+	ToDbClusterParameterGroupTagOutputWithContext(context.Context) DbClusterParameterGroupTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type DBClusterParameterGroupTagArgs struct {
+type DbClusterParameterGroupTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (DBClusterParameterGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterParameterGroupTag)(nil)).Elem()
+func (DbClusterParameterGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterParameterGroupTag)(nil)).Elem()
 }
 
-func (i DBClusterParameterGroupTagArgs) ToDBClusterParameterGroupTagOutput() DBClusterParameterGroupTagOutput {
-	return i.ToDBClusterParameterGroupTagOutputWithContext(context.Background())
+func (i DbClusterParameterGroupTagArgs) ToDbClusterParameterGroupTagOutput() DbClusterParameterGroupTagOutput {
+	return i.ToDbClusterParameterGroupTagOutputWithContext(context.Background())
 }
 
-func (i DBClusterParameterGroupTagArgs) ToDBClusterParameterGroupTagOutputWithContext(ctx context.Context) DBClusterParameterGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterParameterGroupTagOutput)
+func (i DbClusterParameterGroupTagArgs) ToDbClusterParameterGroupTagOutputWithContext(ctx context.Context) DbClusterParameterGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterParameterGroupTagOutput)
 }
 
-// DBClusterParameterGroupTagArrayInput is an input type that accepts DBClusterParameterGroupTagArray and DBClusterParameterGroupTagArrayOutput values.
-// You can construct a concrete instance of `DBClusterParameterGroupTagArrayInput` via:
+// DbClusterParameterGroupTagArrayInput is an input type that accepts DbClusterParameterGroupTagArray and DbClusterParameterGroupTagArrayOutput values.
+// You can construct a concrete instance of `DbClusterParameterGroupTagArrayInput` via:
 //
-//	DBClusterParameterGroupTagArray{ DBClusterParameterGroupTagArgs{...} }
-type DBClusterParameterGroupTagArrayInput interface {
+//	DbClusterParameterGroupTagArray{ DbClusterParameterGroupTagArgs{...} }
+type DbClusterParameterGroupTagArrayInput interface {
 	pulumi.Input
 
-	ToDBClusterParameterGroupTagArrayOutput() DBClusterParameterGroupTagArrayOutput
-	ToDBClusterParameterGroupTagArrayOutputWithContext(context.Context) DBClusterParameterGroupTagArrayOutput
+	ToDbClusterParameterGroupTagArrayOutput() DbClusterParameterGroupTagArrayOutput
+	ToDbClusterParameterGroupTagArrayOutputWithContext(context.Context) DbClusterParameterGroupTagArrayOutput
 }
 
-type DBClusterParameterGroupTagArray []DBClusterParameterGroupTagInput
+type DbClusterParameterGroupTagArray []DbClusterParameterGroupTagInput
 
-func (DBClusterParameterGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBClusterParameterGroupTag)(nil)).Elem()
+func (DbClusterParameterGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbClusterParameterGroupTag)(nil)).Elem()
 }
 
-func (i DBClusterParameterGroupTagArray) ToDBClusterParameterGroupTagArrayOutput() DBClusterParameterGroupTagArrayOutput {
-	return i.ToDBClusterParameterGroupTagArrayOutputWithContext(context.Background())
+func (i DbClusterParameterGroupTagArray) ToDbClusterParameterGroupTagArrayOutput() DbClusterParameterGroupTagArrayOutput {
+	return i.ToDbClusterParameterGroupTagArrayOutputWithContext(context.Background())
 }
 
-func (i DBClusterParameterGroupTagArray) ToDBClusterParameterGroupTagArrayOutputWithContext(ctx context.Context) DBClusterParameterGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterParameterGroupTagArrayOutput)
+func (i DbClusterParameterGroupTagArray) ToDbClusterParameterGroupTagArrayOutputWithContext(ctx context.Context) DbClusterParameterGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterParameterGroupTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type DBClusterParameterGroupTagOutput struct{ *pulumi.OutputState }
+type DbClusterParameterGroupTagOutput struct{ *pulumi.OutputState }
 
-func (DBClusterParameterGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterParameterGroupTag)(nil)).Elem()
+func (DbClusterParameterGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterParameterGroupTag)(nil)).Elem()
 }
 
-func (o DBClusterParameterGroupTagOutput) ToDBClusterParameterGroupTagOutput() DBClusterParameterGroupTagOutput {
+func (o DbClusterParameterGroupTagOutput) ToDbClusterParameterGroupTagOutput() DbClusterParameterGroupTagOutput {
 	return o
 }
 
-func (o DBClusterParameterGroupTagOutput) ToDBClusterParameterGroupTagOutputWithContext(ctx context.Context) DBClusterParameterGroupTagOutput {
+func (o DbClusterParameterGroupTagOutput) ToDbClusterParameterGroupTagOutputWithContext(ctx context.Context) DbClusterParameterGroupTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBClusterParameterGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DBClusterParameterGroupTag) string { return v.Key }).(pulumi.StringOutput)
+func (o DbClusterParameterGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DbClusterParameterGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBClusterParameterGroupTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBClusterParameterGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o DbClusterParameterGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterParameterGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DBClusterParameterGroupTagArrayOutput struct{ *pulumi.OutputState }
+type DbClusterParameterGroupTagArrayOutput struct{ *pulumi.OutputState }
 
-func (DBClusterParameterGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBClusterParameterGroupTag)(nil)).Elem()
+func (DbClusterParameterGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbClusterParameterGroupTag)(nil)).Elem()
 }
 
-func (o DBClusterParameterGroupTagArrayOutput) ToDBClusterParameterGroupTagArrayOutput() DBClusterParameterGroupTagArrayOutput {
+func (o DbClusterParameterGroupTagArrayOutput) ToDbClusterParameterGroupTagArrayOutput() DbClusterParameterGroupTagArrayOutput {
 	return o
 }
 
-func (o DBClusterParameterGroupTagArrayOutput) ToDBClusterParameterGroupTagArrayOutputWithContext(ctx context.Context) DBClusterParameterGroupTagArrayOutput {
+func (o DbClusterParameterGroupTagArrayOutput) ToDbClusterParameterGroupTagArrayOutputWithContext(ctx context.Context) DbClusterParameterGroupTagArrayOutput {
 	return o
 }
 
-func (o DBClusterParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DBClusterParameterGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBClusterParameterGroupTag {
-		return vs[0].([]DBClusterParameterGroupTag)[vs[1].(int)]
-	}).(DBClusterParameterGroupTagOutput)
+func (o DbClusterParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DbClusterParameterGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbClusterParameterGroupTag {
+		return vs[0].([]DbClusterParameterGroupTag)[vs[1].(int)]
+	}).(DbClusterParameterGroupTagOutput)
 }
 
-type DBClusterReadEndpoint struct {
+type DbClusterReadEndpoint struct {
 	// The reader endpoint for the DB cluster.
 	Address *string `pulumi:"address"`
 }
 
-// DBClusterReadEndpointInput is an input type that accepts DBClusterReadEndpointArgs and DBClusterReadEndpointOutput values.
-// You can construct a concrete instance of `DBClusterReadEndpointInput` via:
+// DbClusterReadEndpointInput is an input type that accepts DbClusterReadEndpointArgs and DbClusterReadEndpointOutput values.
+// You can construct a concrete instance of `DbClusterReadEndpointInput` via:
 //
-//	DBClusterReadEndpointArgs{...}
-type DBClusterReadEndpointInput interface {
+//	DbClusterReadEndpointArgs{...}
+type DbClusterReadEndpointInput interface {
 	pulumi.Input
 
-	ToDBClusterReadEndpointOutput() DBClusterReadEndpointOutput
-	ToDBClusterReadEndpointOutputWithContext(context.Context) DBClusterReadEndpointOutput
+	ToDbClusterReadEndpointOutput() DbClusterReadEndpointOutput
+	ToDbClusterReadEndpointOutputWithContext(context.Context) DbClusterReadEndpointOutput
 }
 
-type DBClusterReadEndpointArgs struct {
+type DbClusterReadEndpointArgs struct {
 	// The reader endpoint for the DB cluster.
 	Address pulumi.StringPtrInput `pulumi:"address"`
 }
 
-func (DBClusterReadEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterReadEndpoint)(nil)).Elem()
+func (DbClusterReadEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterReadEndpoint)(nil)).Elem()
 }
 
-func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointOutput() DBClusterReadEndpointOutput {
-	return i.ToDBClusterReadEndpointOutputWithContext(context.Background())
+func (i DbClusterReadEndpointArgs) ToDbClusterReadEndpointOutput() DbClusterReadEndpointOutput {
+	return i.ToDbClusterReadEndpointOutputWithContext(context.Background())
 }
 
-func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointOutputWithContext(ctx context.Context) DBClusterReadEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterReadEndpointOutput)
+func (i DbClusterReadEndpointArgs) ToDbClusterReadEndpointOutputWithContext(ctx context.Context) DbClusterReadEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterReadEndpointOutput)
 }
 
-func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput {
-	return i.ToDBClusterReadEndpointPtrOutputWithContext(context.Background())
+func (i DbClusterReadEndpointArgs) ToDbClusterReadEndpointPtrOutput() DbClusterReadEndpointPtrOutput {
+	return i.ToDbClusterReadEndpointPtrOutputWithContext(context.Background())
 }
 
-func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointPtrOutputWithContext(ctx context.Context) DBClusterReadEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterReadEndpointOutput).ToDBClusterReadEndpointPtrOutputWithContext(ctx)
+func (i DbClusterReadEndpointArgs) ToDbClusterReadEndpointPtrOutputWithContext(ctx context.Context) DbClusterReadEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterReadEndpointOutput).ToDbClusterReadEndpointPtrOutputWithContext(ctx)
 }
 
-// DBClusterReadEndpointPtrInput is an input type that accepts DBClusterReadEndpointArgs, DBClusterReadEndpointPtr and DBClusterReadEndpointPtrOutput values.
-// You can construct a concrete instance of `DBClusterReadEndpointPtrInput` via:
+// DbClusterReadEndpointPtrInput is an input type that accepts DbClusterReadEndpointArgs, DbClusterReadEndpointPtr and DbClusterReadEndpointPtrOutput values.
+// You can construct a concrete instance of `DbClusterReadEndpointPtrInput` via:
 //
-//	        DBClusterReadEndpointArgs{...}
+//	        DbClusterReadEndpointArgs{...}
 //
 //	or:
 //
 //	        nil
-type DBClusterReadEndpointPtrInput interface {
+type DbClusterReadEndpointPtrInput interface {
 	pulumi.Input
 
-	ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput
-	ToDBClusterReadEndpointPtrOutputWithContext(context.Context) DBClusterReadEndpointPtrOutput
+	ToDbClusterReadEndpointPtrOutput() DbClusterReadEndpointPtrOutput
+	ToDbClusterReadEndpointPtrOutputWithContext(context.Context) DbClusterReadEndpointPtrOutput
 }
 
-type dbclusterReadEndpointPtrType DBClusterReadEndpointArgs
+type dbClusterReadEndpointPtrType DbClusterReadEndpointArgs
 
-func DBClusterReadEndpointPtr(v *DBClusterReadEndpointArgs) DBClusterReadEndpointPtrInput {
-	return (*dbclusterReadEndpointPtrType)(v)
+func DbClusterReadEndpointPtr(v *DbClusterReadEndpointArgs) DbClusterReadEndpointPtrInput {
+	return (*dbClusterReadEndpointPtrType)(v)
 }
 
-func (*dbclusterReadEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBClusterReadEndpoint)(nil)).Elem()
+func (*dbClusterReadEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterReadEndpoint)(nil)).Elem()
 }
 
-func (i *dbclusterReadEndpointPtrType) ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput {
-	return i.ToDBClusterReadEndpointPtrOutputWithContext(context.Background())
+func (i *dbClusterReadEndpointPtrType) ToDbClusterReadEndpointPtrOutput() DbClusterReadEndpointPtrOutput {
+	return i.ToDbClusterReadEndpointPtrOutputWithContext(context.Background())
 }
 
-func (i *dbclusterReadEndpointPtrType) ToDBClusterReadEndpointPtrOutputWithContext(ctx context.Context) DBClusterReadEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterReadEndpointPtrOutput)
+func (i *dbClusterReadEndpointPtrType) ToDbClusterReadEndpointPtrOutputWithContext(ctx context.Context) DbClusterReadEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterReadEndpointPtrOutput)
 }
 
-type DBClusterReadEndpointOutput struct{ *pulumi.OutputState }
+type DbClusterReadEndpointOutput struct{ *pulumi.OutputState }
 
-func (DBClusterReadEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterReadEndpoint)(nil)).Elem()
+func (DbClusterReadEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterReadEndpoint)(nil)).Elem()
 }
 
-func (o DBClusterReadEndpointOutput) ToDBClusterReadEndpointOutput() DBClusterReadEndpointOutput {
+func (o DbClusterReadEndpointOutput) ToDbClusterReadEndpointOutput() DbClusterReadEndpointOutput {
 	return o
 }
 
-func (o DBClusterReadEndpointOutput) ToDBClusterReadEndpointOutputWithContext(ctx context.Context) DBClusterReadEndpointOutput {
+func (o DbClusterReadEndpointOutput) ToDbClusterReadEndpointOutputWithContext(ctx context.Context) DbClusterReadEndpointOutput {
 	return o
 }
 
-func (o DBClusterReadEndpointOutput) ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput {
-	return o.ToDBClusterReadEndpointPtrOutputWithContext(context.Background())
+func (o DbClusterReadEndpointOutput) ToDbClusterReadEndpointPtrOutput() DbClusterReadEndpointPtrOutput {
+	return o.ToDbClusterReadEndpointPtrOutputWithContext(context.Background())
 }
 
-func (o DBClusterReadEndpointOutput) ToDBClusterReadEndpointPtrOutputWithContext(ctx context.Context) DBClusterReadEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBClusterReadEndpoint) *DBClusterReadEndpoint {
+func (o DbClusterReadEndpointOutput) ToDbClusterReadEndpointPtrOutputWithContext(ctx context.Context) DbClusterReadEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbClusterReadEndpoint) *DbClusterReadEndpoint {
 		return &v
-	}).(DBClusterReadEndpointPtrOutput)
+	}).(DbClusterReadEndpointPtrOutput)
 }
 
 // The reader endpoint for the DB cluster.
-func (o DBClusterReadEndpointOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBClusterReadEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+func (o DbClusterReadEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterReadEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-type DBClusterReadEndpointPtrOutput struct{ *pulumi.OutputState }
+type DbClusterReadEndpointPtrOutput struct{ *pulumi.OutputState }
 
-func (DBClusterReadEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBClusterReadEndpoint)(nil)).Elem()
+func (DbClusterReadEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterReadEndpoint)(nil)).Elem()
 }
 
-func (o DBClusterReadEndpointPtrOutput) ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput {
+func (o DbClusterReadEndpointPtrOutput) ToDbClusterReadEndpointPtrOutput() DbClusterReadEndpointPtrOutput {
 	return o
 }
 
-func (o DBClusterReadEndpointPtrOutput) ToDBClusterReadEndpointPtrOutputWithContext(ctx context.Context) DBClusterReadEndpointPtrOutput {
+func (o DbClusterReadEndpointPtrOutput) ToDbClusterReadEndpointPtrOutputWithContext(ctx context.Context) DbClusterReadEndpointPtrOutput {
 	return o
 }
 
-func (o DBClusterReadEndpointPtrOutput) Elem() DBClusterReadEndpointOutput {
-	return o.ApplyT(func(v *DBClusterReadEndpoint) DBClusterReadEndpoint {
+func (o DbClusterReadEndpointPtrOutput) Elem() DbClusterReadEndpointOutput {
+	return o.ApplyT(func(v *DbClusterReadEndpoint) DbClusterReadEndpoint {
 		if v != nil {
 			return *v
 		}
-		var ret DBClusterReadEndpoint
+		var ret DbClusterReadEndpoint
 		return ret
-	}).(DBClusterReadEndpointOutput)
+	}).(DbClusterReadEndpointOutput)
 }
 
 // The reader endpoint for the DB cluster.
-func (o DBClusterReadEndpointPtrOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBClusterReadEndpoint) *string {
+func (o DbClusterReadEndpointPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterReadEndpoint) *string {
 		if v == nil {
 			return nil
 		}
@@ -599,117 +708,8 @@ func (o DBClusterReadEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
-type DBClusterRole struct {
-	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
-	FeatureName *string `pulumi:"featureName"`
-	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-	RoleArn string `pulumi:"roleArn"`
-}
-
-// DBClusterRoleInput is an input type that accepts DBClusterRoleArgs and DBClusterRoleOutput values.
-// You can construct a concrete instance of `DBClusterRoleInput` via:
-//
-//	DBClusterRoleArgs{...}
-type DBClusterRoleInput interface {
-	pulumi.Input
-
-	ToDBClusterRoleOutput() DBClusterRoleOutput
-	ToDBClusterRoleOutputWithContext(context.Context) DBClusterRoleOutput
-}
-
-// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
-type DBClusterRoleArgs struct {
-	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
-	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
-	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-}
-
-func (DBClusterRoleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterRole)(nil)).Elem()
-}
-
-func (i DBClusterRoleArgs) ToDBClusterRoleOutput() DBClusterRoleOutput {
-	return i.ToDBClusterRoleOutputWithContext(context.Background())
-}
-
-func (i DBClusterRoleArgs) ToDBClusterRoleOutputWithContext(ctx context.Context) DBClusterRoleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterRoleOutput)
-}
-
-// DBClusterRoleArrayInput is an input type that accepts DBClusterRoleArray and DBClusterRoleArrayOutput values.
-// You can construct a concrete instance of `DBClusterRoleArrayInput` via:
-//
-//	DBClusterRoleArray{ DBClusterRoleArgs{...} }
-type DBClusterRoleArrayInput interface {
-	pulumi.Input
-
-	ToDBClusterRoleArrayOutput() DBClusterRoleArrayOutput
-	ToDBClusterRoleArrayOutputWithContext(context.Context) DBClusterRoleArrayOutput
-}
-
-type DBClusterRoleArray []DBClusterRoleInput
-
-func (DBClusterRoleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBClusterRole)(nil)).Elem()
-}
-
-func (i DBClusterRoleArray) ToDBClusterRoleArrayOutput() DBClusterRoleArrayOutput {
-	return i.ToDBClusterRoleArrayOutputWithContext(context.Background())
-}
-
-func (i DBClusterRoleArray) ToDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterRoleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterRoleArrayOutput)
-}
-
-// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
-type DBClusterRoleOutput struct{ *pulumi.OutputState }
-
-func (DBClusterRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterRole)(nil)).Elem()
-}
-
-func (o DBClusterRoleOutput) ToDBClusterRoleOutput() DBClusterRoleOutput {
-	return o
-}
-
-func (o DBClusterRoleOutput) ToDBClusterRoleOutputWithContext(ctx context.Context) DBClusterRoleOutput {
-	return o
-}
-
-// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
-func (o DBClusterRoleOutput) FeatureName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBClusterRole) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-func (o DBClusterRoleOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DBClusterRole) string { return v.RoleArn }).(pulumi.StringOutput)
-}
-
-type DBClusterRoleArrayOutput struct{ *pulumi.OutputState }
-
-func (DBClusterRoleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBClusterRole)(nil)).Elem()
-}
-
-func (o DBClusterRoleArrayOutput) ToDBClusterRoleArrayOutput() DBClusterRoleArrayOutput {
-	return o
-}
-
-func (o DBClusterRoleArrayOutput) ToDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterRoleArrayOutput {
-	return o
-}
-
-func (o DBClusterRoleArrayOutput) Index(i pulumi.IntInput) DBClusterRoleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBClusterRole {
-		return vs[0].([]DBClusterRole)[vs[1].(int)]
-	}).(DBClusterRoleOutput)
-}
-
 // The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
-type DBClusterScalingConfiguration struct {
+type DbClusterScalingConfiguration struct {
 	// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
 	AutoPause *bool `pulumi:"autoPause"`
 	// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
@@ -735,19 +735,19 @@ type DBClusterScalingConfiguration struct {
 	TimeoutAction *string `pulumi:"timeoutAction"`
 }
 
-// DBClusterScalingConfigurationInput is an input type that accepts DBClusterScalingConfigurationArgs and DBClusterScalingConfigurationOutput values.
-// You can construct a concrete instance of `DBClusterScalingConfigurationInput` via:
+// DbClusterScalingConfigurationInput is an input type that accepts DbClusterScalingConfigurationArgs and DbClusterScalingConfigurationOutput values.
+// You can construct a concrete instance of `DbClusterScalingConfigurationInput` via:
 //
-//	DBClusterScalingConfigurationArgs{...}
-type DBClusterScalingConfigurationInput interface {
+//	DbClusterScalingConfigurationArgs{...}
+type DbClusterScalingConfigurationInput interface {
 	pulumi.Input
 
-	ToDBClusterScalingConfigurationOutput() DBClusterScalingConfigurationOutput
-	ToDBClusterScalingConfigurationOutputWithContext(context.Context) DBClusterScalingConfigurationOutput
+	ToDbClusterScalingConfigurationOutput() DbClusterScalingConfigurationOutput
+	ToDbClusterScalingConfigurationOutputWithContext(context.Context) DbClusterScalingConfigurationOutput
 }
 
 // The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
-type DBClusterScalingConfigurationArgs struct {
+type DbClusterScalingConfigurationArgs struct {
 	// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
 	AutoPause pulumi.BoolPtrInput `pulumi:"autoPause"`
 	// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
@@ -773,114 +773,114 @@ type DBClusterScalingConfigurationArgs struct {
 	TimeoutAction pulumi.StringPtrInput `pulumi:"timeoutAction"`
 }
 
-func (DBClusterScalingConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterScalingConfiguration)(nil)).Elem()
+func (DbClusterScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterScalingConfiguration)(nil)).Elem()
 }
 
-func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationOutput() DBClusterScalingConfigurationOutput {
-	return i.ToDBClusterScalingConfigurationOutputWithContext(context.Background())
+func (i DbClusterScalingConfigurationArgs) ToDbClusterScalingConfigurationOutput() DbClusterScalingConfigurationOutput {
+	return i.ToDbClusterScalingConfigurationOutputWithContext(context.Background())
 }
 
-func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationOutputWithContext(ctx context.Context) DBClusterScalingConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterScalingConfigurationOutput)
+func (i DbClusterScalingConfigurationArgs) ToDbClusterScalingConfigurationOutputWithContext(ctx context.Context) DbClusterScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterScalingConfigurationOutput)
 }
 
-func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput {
-	return i.ToDBClusterScalingConfigurationPtrOutputWithContext(context.Background())
+func (i DbClusterScalingConfigurationArgs) ToDbClusterScalingConfigurationPtrOutput() DbClusterScalingConfigurationPtrOutput {
+	return i.ToDbClusterScalingConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterScalingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterScalingConfigurationOutput).ToDBClusterScalingConfigurationPtrOutputWithContext(ctx)
+func (i DbClusterScalingConfigurationArgs) ToDbClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DbClusterScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterScalingConfigurationOutput).ToDbClusterScalingConfigurationPtrOutputWithContext(ctx)
 }
 
-// DBClusterScalingConfigurationPtrInput is an input type that accepts DBClusterScalingConfigurationArgs, DBClusterScalingConfigurationPtr and DBClusterScalingConfigurationPtrOutput values.
-// You can construct a concrete instance of `DBClusterScalingConfigurationPtrInput` via:
+// DbClusterScalingConfigurationPtrInput is an input type that accepts DbClusterScalingConfigurationArgs, DbClusterScalingConfigurationPtr and DbClusterScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DbClusterScalingConfigurationPtrInput` via:
 //
-//	        DBClusterScalingConfigurationArgs{...}
+//	        DbClusterScalingConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type DBClusterScalingConfigurationPtrInput interface {
+type DbClusterScalingConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput
-	ToDBClusterScalingConfigurationPtrOutputWithContext(context.Context) DBClusterScalingConfigurationPtrOutput
+	ToDbClusterScalingConfigurationPtrOutput() DbClusterScalingConfigurationPtrOutput
+	ToDbClusterScalingConfigurationPtrOutputWithContext(context.Context) DbClusterScalingConfigurationPtrOutput
 }
 
-type dbclusterScalingConfigurationPtrType DBClusterScalingConfigurationArgs
+type dbClusterScalingConfigurationPtrType DbClusterScalingConfigurationArgs
 
-func DBClusterScalingConfigurationPtr(v *DBClusterScalingConfigurationArgs) DBClusterScalingConfigurationPtrInput {
-	return (*dbclusterScalingConfigurationPtrType)(v)
+func DbClusterScalingConfigurationPtr(v *DbClusterScalingConfigurationArgs) DbClusterScalingConfigurationPtrInput {
+	return (*dbClusterScalingConfigurationPtrType)(v)
 }
 
-func (*dbclusterScalingConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBClusterScalingConfiguration)(nil)).Elem()
+func (*dbClusterScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterScalingConfiguration)(nil)).Elem()
 }
 
-func (i *dbclusterScalingConfigurationPtrType) ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput {
-	return i.ToDBClusterScalingConfigurationPtrOutputWithContext(context.Background())
+func (i *dbClusterScalingConfigurationPtrType) ToDbClusterScalingConfigurationPtrOutput() DbClusterScalingConfigurationPtrOutput {
+	return i.ToDbClusterScalingConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *dbclusterScalingConfigurationPtrType) ToDBClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterScalingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterScalingConfigurationPtrOutput)
+func (i *dbClusterScalingConfigurationPtrType) ToDbClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DbClusterScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterScalingConfigurationPtrOutput)
 }
 
 // The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
-type DBClusterScalingConfigurationOutput struct{ *pulumi.OutputState }
+type DbClusterScalingConfigurationOutput struct{ *pulumi.OutputState }
 
-func (DBClusterScalingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterScalingConfiguration)(nil)).Elem()
+func (DbClusterScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterScalingConfiguration)(nil)).Elem()
 }
 
-func (o DBClusterScalingConfigurationOutput) ToDBClusterScalingConfigurationOutput() DBClusterScalingConfigurationOutput {
+func (o DbClusterScalingConfigurationOutput) ToDbClusterScalingConfigurationOutput() DbClusterScalingConfigurationOutput {
 	return o
 }
 
-func (o DBClusterScalingConfigurationOutput) ToDBClusterScalingConfigurationOutputWithContext(ctx context.Context) DBClusterScalingConfigurationOutput {
+func (o DbClusterScalingConfigurationOutput) ToDbClusterScalingConfigurationOutputWithContext(ctx context.Context) DbClusterScalingConfigurationOutput {
 	return o
 }
 
-func (o DBClusterScalingConfigurationOutput) ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput {
-	return o.ToDBClusterScalingConfigurationPtrOutputWithContext(context.Background())
+func (o DbClusterScalingConfigurationOutput) ToDbClusterScalingConfigurationPtrOutput() DbClusterScalingConfigurationPtrOutput {
+	return o.ToDbClusterScalingConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o DBClusterScalingConfigurationOutput) ToDBClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterScalingConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBClusterScalingConfiguration) *DBClusterScalingConfiguration {
+func (o DbClusterScalingConfigurationOutput) ToDbClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DbClusterScalingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbClusterScalingConfiguration) *DbClusterScalingConfiguration {
 		return &v
-	}).(DBClusterScalingConfigurationPtrOutput)
+	}).(DbClusterScalingConfigurationPtrOutput)
 }
 
 // A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
-func (o DBClusterScalingConfigurationOutput) AutoPause() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DBClusterScalingConfiguration) *bool { return v.AutoPause }).(pulumi.BoolPtrOutput)
+func (o DbClusterScalingConfigurationOutput) AutoPause() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DbClusterScalingConfiguration) *bool { return v.AutoPause }).(pulumi.BoolPtrOutput)
 }
 
 // The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
 // For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
 // For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
 // The maximum capacity must be greater than or equal to the minimum capacity.
-func (o DBClusterScalingConfigurationOutput) MaxCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+func (o DbClusterScalingConfigurationOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
 // The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
 // For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
 // For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
 // The minimum capacity must be less than or equal to the maximum capacity.
-func (o DBClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
+func (o DbClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
 
 // The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
 // The default is 300.
-func (o DBClusterScalingConfigurationOutput) SecondsBeforeTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.SecondsBeforeTimeout }).(pulumi.IntPtrOutput)
+func (o DbClusterScalingConfigurationOutput) SecondsBeforeTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbClusterScalingConfiguration) *int { return v.SecondsBeforeTimeout }).(pulumi.IntPtrOutput)
 }
 
 // The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
-func (o DBClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
+func (o DbClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
 }
 
 // The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
@@ -888,37 +888,37 @@ func (o DBClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntP
 // RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
 //
 // For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
-func (o DBClusterScalingConfigurationOutput) TimeoutAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBClusterScalingConfiguration) *string { return v.TimeoutAction }).(pulumi.StringPtrOutput)
+func (o DbClusterScalingConfigurationOutput) TimeoutAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterScalingConfiguration) *string { return v.TimeoutAction }).(pulumi.StringPtrOutput)
 }
 
-type DBClusterScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+type DbClusterScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (DBClusterScalingConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBClusterScalingConfiguration)(nil)).Elem()
+func (DbClusterScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterScalingConfiguration)(nil)).Elem()
 }
 
-func (o DBClusterScalingConfigurationPtrOutput) ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput {
+func (o DbClusterScalingConfigurationPtrOutput) ToDbClusterScalingConfigurationPtrOutput() DbClusterScalingConfigurationPtrOutput {
 	return o
 }
 
-func (o DBClusterScalingConfigurationPtrOutput) ToDBClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterScalingConfigurationPtrOutput {
+func (o DbClusterScalingConfigurationPtrOutput) ToDbClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DbClusterScalingConfigurationPtrOutput {
 	return o
 }
 
-func (o DBClusterScalingConfigurationPtrOutput) Elem() DBClusterScalingConfigurationOutput {
-	return o.ApplyT(func(v *DBClusterScalingConfiguration) DBClusterScalingConfiguration {
+func (o DbClusterScalingConfigurationPtrOutput) Elem() DbClusterScalingConfigurationOutput {
+	return o.ApplyT(func(v *DbClusterScalingConfiguration) DbClusterScalingConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret DBClusterScalingConfiguration
+		var ret DbClusterScalingConfiguration
 		return ret
-	}).(DBClusterScalingConfigurationOutput)
+	}).(DbClusterScalingConfigurationOutput)
 }
 
 // A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
-func (o DBClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DBClusterScalingConfiguration) *bool {
+func (o DbClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DbClusterScalingConfiguration) *bool {
 		if v == nil {
 			return nil
 		}
@@ -930,8 +930,8 @@ func (o DBClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput
 // For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
 // For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
 // The maximum capacity must be greater than or equal to the minimum capacity.
-func (o DBClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
+func (o DbClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DbClusterScalingConfiguration) *int {
 		if v == nil {
 			return nil
 		}
@@ -943,8 +943,8 @@ func (o DBClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutpu
 // For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
 // For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
 // The minimum capacity must be less than or equal to the maximum capacity.
-func (o DBClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
+func (o DbClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DbClusterScalingConfiguration) *int {
 		if v == nil {
 			return nil
 		}
@@ -954,8 +954,8 @@ func (o DBClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutpu
 
 // The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
 // The default is 300.
-func (o DBClusterScalingConfigurationPtrOutput) SecondsBeforeTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
+func (o DbClusterScalingConfigurationPtrOutput) SecondsBeforeTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DbClusterScalingConfiguration) *int {
 		if v == nil {
 			return nil
 		}
@@ -964,8 +964,8 @@ func (o DBClusterScalingConfigurationPtrOutput) SecondsBeforeTimeout() pulumi.In
 }
 
 // The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
-func (o DBClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
+func (o DbClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DbClusterScalingConfiguration) *int {
 		if v == nil {
 			return nil
 		}
@@ -978,8 +978,8 @@ func (o DBClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.I
 // RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
 //
 // For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
-func (o DBClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBClusterScalingConfiguration) *string {
+func (o DbClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterScalingConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -988,147 +988,147 @@ func (o DBClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtr
 }
 
 // Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
-type DBClusterServerlessV2ScalingConfiguration struct {
+type DbClusterServerlessV2ScalingConfiguration struct {
 	// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
 	// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 }
 
-// DBClusterServerlessV2ScalingConfigurationInput is an input type that accepts DBClusterServerlessV2ScalingConfigurationArgs and DBClusterServerlessV2ScalingConfigurationOutput values.
-// You can construct a concrete instance of `DBClusterServerlessV2ScalingConfigurationInput` via:
+// DbClusterServerlessV2ScalingConfigurationInput is an input type that accepts DbClusterServerlessV2ScalingConfigurationArgs and DbClusterServerlessV2ScalingConfigurationOutput values.
+// You can construct a concrete instance of `DbClusterServerlessV2ScalingConfigurationInput` via:
 //
-//	DBClusterServerlessV2ScalingConfigurationArgs{...}
-type DBClusterServerlessV2ScalingConfigurationInput interface {
+//	DbClusterServerlessV2ScalingConfigurationArgs{...}
+type DbClusterServerlessV2ScalingConfigurationInput interface {
 	pulumi.Input
 
-	ToDBClusterServerlessV2ScalingConfigurationOutput() DBClusterServerlessV2ScalingConfigurationOutput
-	ToDBClusterServerlessV2ScalingConfigurationOutputWithContext(context.Context) DBClusterServerlessV2ScalingConfigurationOutput
+	ToDbClusterServerlessV2ScalingConfigurationOutput() DbClusterServerlessV2ScalingConfigurationOutput
+	ToDbClusterServerlessV2ScalingConfigurationOutputWithContext(context.Context) DbClusterServerlessV2ScalingConfigurationOutput
 }
 
 // Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
-type DBClusterServerlessV2ScalingConfigurationArgs struct {
+type DbClusterServerlessV2ScalingConfigurationArgs struct {
 	// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
 	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
 	// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
 	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
 }
 
-func (DBClusterServerlessV2ScalingConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+func (DbClusterServerlessV2ScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterServerlessV2ScalingConfiguration)(nil)).Elem()
 }
 
-func (i DBClusterServerlessV2ScalingConfigurationArgs) ToDBClusterServerlessV2ScalingConfigurationOutput() DBClusterServerlessV2ScalingConfigurationOutput {
-	return i.ToDBClusterServerlessV2ScalingConfigurationOutputWithContext(context.Background())
+func (i DbClusterServerlessV2ScalingConfigurationArgs) ToDbClusterServerlessV2ScalingConfigurationOutput() DbClusterServerlessV2ScalingConfigurationOutput {
+	return i.ToDbClusterServerlessV2ScalingConfigurationOutputWithContext(context.Background())
 }
 
-func (i DBClusterServerlessV2ScalingConfigurationArgs) ToDBClusterServerlessV2ScalingConfigurationOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessV2ScalingConfigurationOutput)
+func (i DbClusterServerlessV2ScalingConfigurationArgs) ToDbClusterServerlessV2ScalingConfigurationOutputWithContext(ctx context.Context) DbClusterServerlessV2ScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterServerlessV2ScalingConfigurationOutput)
 }
 
-func (i DBClusterServerlessV2ScalingConfigurationArgs) ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput {
-	return i.ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
+func (i DbClusterServerlessV2ScalingConfigurationArgs) ToDbClusterServerlessV2ScalingConfigurationPtrOutput() DbClusterServerlessV2ScalingConfigurationPtrOutput {
+	return i.ToDbClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i DBClusterServerlessV2ScalingConfigurationArgs) ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessV2ScalingConfigurationOutput).ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx)
+func (i DbClusterServerlessV2ScalingConfigurationArgs) ToDbClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DbClusterServerlessV2ScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterServerlessV2ScalingConfigurationOutput).ToDbClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx)
 }
 
-// DBClusterServerlessV2ScalingConfigurationPtrInput is an input type that accepts DBClusterServerlessV2ScalingConfigurationArgs, DBClusterServerlessV2ScalingConfigurationPtr and DBClusterServerlessV2ScalingConfigurationPtrOutput values.
-// You can construct a concrete instance of `DBClusterServerlessV2ScalingConfigurationPtrInput` via:
+// DbClusterServerlessV2ScalingConfigurationPtrInput is an input type that accepts DbClusterServerlessV2ScalingConfigurationArgs, DbClusterServerlessV2ScalingConfigurationPtr and DbClusterServerlessV2ScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DbClusterServerlessV2ScalingConfigurationPtrInput` via:
 //
-//	        DBClusterServerlessV2ScalingConfigurationArgs{...}
+//	        DbClusterServerlessV2ScalingConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type DBClusterServerlessV2ScalingConfigurationPtrInput interface {
+type DbClusterServerlessV2ScalingConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput
-	ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput
+	ToDbClusterServerlessV2ScalingConfigurationPtrOutput() DbClusterServerlessV2ScalingConfigurationPtrOutput
+	ToDbClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Context) DbClusterServerlessV2ScalingConfigurationPtrOutput
 }
 
-type dbclusterServerlessV2ScalingConfigurationPtrType DBClusterServerlessV2ScalingConfigurationArgs
+type dbClusterServerlessV2ScalingConfigurationPtrType DbClusterServerlessV2ScalingConfigurationArgs
 
-func DBClusterServerlessV2ScalingConfigurationPtr(v *DBClusterServerlessV2ScalingConfigurationArgs) DBClusterServerlessV2ScalingConfigurationPtrInput {
-	return (*dbclusterServerlessV2ScalingConfigurationPtrType)(v)
+func DbClusterServerlessV2ScalingConfigurationPtr(v *DbClusterServerlessV2ScalingConfigurationArgs) DbClusterServerlessV2ScalingConfigurationPtrInput {
+	return (*dbClusterServerlessV2ScalingConfigurationPtrType)(v)
 }
 
-func (*dbclusterServerlessV2ScalingConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+func (*dbClusterServerlessV2ScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterServerlessV2ScalingConfiguration)(nil)).Elem()
 }
 
-func (i *dbclusterServerlessV2ScalingConfigurationPtrType) ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput {
-	return i.ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
+func (i *dbClusterServerlessV2ScalingConfigurationPtrType) ToDbClusterServerlessV2ScalingConfigurationPtrOutput() DbClusterServerlessV2ScalingConfigurationPtrOutput {
+	return i.ToDbClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *dbclusterServerlessV2ScalingConfigurationPtrType) ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessV2ScalingConfigurationPtrOutput)
+func (i *dbClusterServerlessV2ScalingConfigurationPtrType) ToDbClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DbClusterServerlessV2ScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
 // Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
-type DBClusterServerlessV2ScalingConfigurationOutput struct{ *pulumi.OutputState }
+type DbClusterServerlessV2ScalingConfigurationOutput struct{ *pulumi.OutputState }
 
-func (DBClusterServerlessV2ScalingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+func (DbClusterServerlessV2ScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterServerlessV2ScalingConfiguration)(nil)).Elem()
 }
 
-func (o DBClusterServerlessV2ScalingConfigurationOutput) ToDBClusterServerlessV2ScalingConfigurationOutput() DBClusterServerlessV2ScalingConfigurationOutput {
+func (o DbClusterServerlessV2ScalingConfigurationOutput) ToDbClusterServerlessV2ScalingConfigurationOutput() DbClusterServerlessV2ScalingConfigurationOutput {
 	return o
 }
 
-func (o DBClusterServerlessV2ScalingConfigurationOutput) ToDBClusterServerlessV2ScalingConfigurationOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationOutput {
+func (o DbClusterServerlessV2ScalingConfigurationOutput) ToDbClusterServerlessV2ScalingConfigurationOutputWithContext(ctx context.Context) DbClusterServerlessV2ScalingConfigurationOutput {
 	return o
 }
 
-func (o DBClusterServerlessV2ScalingConfigurationOutput) ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput {
-	return o.ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
+func (o DbClusterServerlessV2ScalingConfigurationOutput) ToDbClusterServerlessV2ScalingConfigurationPtrOutput() DbClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o.ToDbClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o DBClusterServerlessV2ScalingConfigurationOutput) ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBClusterServerlessV2ScalingConfiguration) *DBClusterServerlessV2ScalingConfiguration {
+func (o DbClusterServerlessV2ScalingConfigurationOutput) ToDbClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DbClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbClusterServerlessV2ScalingConfiguration) *DbClusterServerlessV2ScalingConfiguration {
 		return &v
-	}).(DBClusterServerlessV2ScalingConfigurationPtrOutput)
+	}).(DbClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
 // The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
-func (o DBClusterServerlessV2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DBClusterServerlessV2ScalingConfiguration) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
+func (o DbClusterServerlessV2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DbClusterServerlessV2ScalingConfiguration) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
-func (o DBClusterServerlessV2ScalingConfigurationOutput) MinCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DBClusterServerlessV2ScalingConfiguration) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
+func (o DbClusterServerlessV2ScalingConfigurationOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DbClusterServerlessV2ScalingConfiguration) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
 }
 
-type DBClusterServerlessV2ScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+type DbClusterServerlessV2ScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (DBClusterServerlessV2ScalingConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+func (DbClusterServerlessV2ScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterServerlessV2ScalingConfiguration)(nil)).Elem()
 }
 
-func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput {
+func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) ToDbClusterServerlessV2ScalingConfigurationPtrOutput() DbClusterServerlessV2ScalingConfigurationPtrOutput {
 	return o
 }
 
-func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput {
+func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) ToDbClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DbClusterServerlessV2ScalingConfigurationPtrOutput {
 	return o
 }
 
-func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) Elem() DBClusterServerlessV2ScalingConfigurationOutput {
-	return o.ApplyT(func(v *DBClusterServerlessV2ScalingConfiguration) DBClusterServerlessV2ScalingConfiguration {
+func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) Elem() DbClusterServerlessV2ScalingConfigurationOutput {
+	return o.ApplyT(func(v *DbClusterServerlessV2ScalingConfiguration) DbClusterServerlessV2ScalingConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret DBClusterServerlessV2ScalingConfiguration
+		var ret DbClusterServerlessV2ScalingConfiguration
 		return ret
-	}).(DBClusterServerlessV2ScalingConfigurationOutput)
+	}).(DbClusterServerlessV2ScalingConfigurationOutput)
 }
 
 // The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
-func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DBClusterServerlessV2ScalingConfiguration) *float64 {
+func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DbClusterServerlessV2ScalingConfiguration) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -1137,8 +1137,8 @@ func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) MaxCapacity() pulumi
 }
 
 // The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
-func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DBClusterServerlessV2ScalingConfiguration) *float64 {
+func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DbClusterServerlessV2ScalingConfiguration) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -1147,253 +1147,253 @@ func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) MinCapacity() pulumi
 }
 
 // A key-value pair to associate with a resource.
-type DBClusterTag struct {
+type DbClusterTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value *string `pulumi:"value"`
 }
 
-// DBClusterTagInput is an input type that accepts DBClusterTagArgs and DBClusterTagOutput values.
-// You can construct a concrete instance of `DBClusterTagInput` via:
+// DbClusterTagInput is an input type that accepts DbClusterTagArgs and DbClusterTagOutput values.
+// You can construct a concrete instance of `DbClusterTagInput` via:
 //
-//	DBClusterTagArgs{...}
-type DBClusterTagInput interface {
+//	DbClusterTagArgs{...}
+type DbClusterTagInput interface {
 	pulumi.Input
 
-	ToDBClusterTagOutput() DBClusterTagOutput
-	ToDBClusterTagOutputWithContext(context.Context) DBClusterTagOutput
+	ToDbClusterTagOutput() DbClusterTagOutput
+	ToDbClusterTagOutputWithContext(context.Context) DbClusterTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type DBClusterTagArgs struct {
+type DbClusterTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (DBClusterTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterTag)(nil)).Elem()
+func (DbClusterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterTag)(nil)).Elem()
 }
 
-func (i DBClusterTagArgs) ToDBClusterTagOutput() DBClusterTagOutput {
-	return i.ToDBClusterTagOutputWithContext(context.Background())
+func (i DbClusterTagArgs) ToDbClusterTagOutput() DbClusterTagOutput {
+	return i.ToDbClusterTagOutputWithContext(context.Background())
 }
 
-func (i DBClusterTagArgs) ToDBClusterTagOutputWithContext(ctx context.Context) DBClusterTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterTagOutput)
+func (i DbClusterTagArgs) ToDbClusterTagOutputWithContext(ctx context.Context) DbClusterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterTagOutput)
 }
 
-// DBClusterTagArrayInput is an input type that accepts DBClusterTagArray and DBClusterTagArrayOutput values.
-// You can construct a concrete instance of `DBClusterTagArrayInput` via:
+// DbClusterTagArrayInput is an input type that accepts DbClusterTagArray and DbClusterTagArrayOutput values.
+// You can construct a concrete instance of `DbClusterTagArrayInput` via:
 //
-//	DBClusterTagArray{ DBClusterTagArgs{...} }
-type DBClusterTagArrayInput interface {
+//	DbClusterTagArray{ DbClusterTagArgs{...} }
+type DbClusterTagArrayInput interface {
 	pulumi.Input
 
-	ToDBClusterTagArrayOutput() DBClusterTagArrayOutput
-	ToDBClusterTagArrayOutputWithContext(context.Context) DBClusterTagArrayOutput
+	ToDbClusterTagArrayOutput() DbClusterTagArrayOutput
+	ToDbClusterTagArrayOutputWithContext(context.Context) DbClusterTagArrayOutput
 }
 
-type DBClusterTagArray []DBClusterTagInput
+type DbClusterTagArray []DbClusterTagInput
 
-func (DBClusterTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBClusterTag)(nil)).Elem()
+func (DbClusterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbClusterTag)(nil)).Elem()
 }
 
-func (i DBClusterTagArray) ToDBClusterTagArrayOutput() DBClusterTagArrayOutput {
-	return i.ToDBClusterTagArrayOutputWithContext(context.Background())
+func (i DbClusterTagArray) ToDbClusterTagArrayOutput() DbClusterTagArrayOutput {
+	return i.ToDbClusterTagArrayOutputWithContext(context.Background())
 }
 
-func (i DBClusterTagArray) ToDBClusterTagArrayOutputWithContext(ctx context.Context) DBClusterTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterTagArrayOutput)
+func (i DbClusterTagArray) ToDbClusterTagArrayOutputWithContext(ctx context.Context) DbClusterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type DBClusterTagOutput struct{ *pulumi.OutputState }
+type DbClusterTagOutput struct{ *pulumi.OutputState }
 
-func (DBClusterTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterTag)(nil)).Elem()
+func (DbClusterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterTag)(nil)).Elem()
 }
 
-func (o DBClusterTagOutput) ToDBClusterTagOutput() DBClusterTagOutput {
+func (o DbClusterTagOutput) ToDbClusterTagOutput() DbClusterTagOutput {
 	return o
 }
 
-func (o DBClusterTagOutput) ToDBClusterTagOutputWithContext(ctx context.Context) DBClusterTagOutput {
+func (o DbClusterTagOutput) ToDbClusterTagOutputWithContext(ctx context.Context) DbClusterTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBClusterTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DBClusterTag) string { return v.Key }).(pulumi.StringOutput)
+func (o DbClusterTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DbClusterTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBClusterTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBClusterTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o DbClusterTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DBClusterTagArrayOutput struct{ *pulumi.OutputState }
+type DbClusterTagArrayOutput struct{ *pulumi.OutputState }
 
-func (DBClusterTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBClusterTag)(nil)).Elem()
+func (DbClusterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbClusterTag)(nil)).Elem()
 }
 
-func (o DBClusterTagArrayOutput) ToDBClusterTagArrayOutput() DBClusterTagArrayOutput {
+func (o DbClusterTagArrayOutput) ToDbClusterTagArrayOutput() DbClusterTagArrayOutput {
 	return o
 }
 
-func (o DBClusterTagArrayOutput) ToDBClusterTagArrayOutputWithContext(ctx context.Context) DBClusterTagArrayOutput {
+func (o DbClusterTagArrayOutput) ToDbClusterTagArrayOutputWithContext(ctx context.Context) DbClusterTagArrayOutput {
 	return o
 }
 
-func (o DBClusterTagArrayOutput) Index(i pulumi.IntInput) DBClusterTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBClusterTag {
-		return vs[0].([]DBClusterTag)[vs[1].(int)]
-	}).(DBClusterTagOutput)
+func (o DbClusterTagArrayOutput) Index(i pulumi.IntInput) DbClusterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbClusterTag {
+		return vs[0].([]DbClusterTag)[vs[1].(int)]
+	}).(DbClusterTagOutput)
 }
 
-type DBInstanceCertificateDetails struct {
+type DbInstanceCertificateDetails struct {
 	// The CA identifier of the CA certificate used for the DB instance's server certificate.
 	CaIdentifier *string `pulumi:"caIdentifier"`
 	// The expiration date of the DB instance’s server certificate.
 	ValidTill *string `pulumi:"validTill"`
 }
 
-// DBInstanceCertificateDetailsInput is an input type that accepts DBInstanceCertificateDetailsArgs and DBInstanceCertificateDetailsOutput values.
-// You can construct a concrete instance of `DBInstanceCertificateDetailsInput` via:
+// DbInstanceCertificateDetailsInput is an input type that accepts DbInstanceCertificateDetailsArgs and DbInstanceCertificateDetailsOutput values.
+// You can construct a concrete instance of `DbInstanceCertificateDetailsInput` via:
 //
-//	DBInstanceCertificateDetailsArgs{...}
-type DBInstanceCertificateDetailsInput interface {
+//	DbInstanceCertificateDetailsArgs{...}
+type DbInstanceCertificateDetailsInput interface {
 	pulumi.Input
 
-	ToDBInstanceCertificateDetailsOutput() DBInstanceCertificateDetailsOutput
-	ToDBInstanceCertificateDetailsOutputWithContext(context.Context) DBInstanceCertificateDetailsOutput
+	ToDbInstanceCertificateDetailsOutput() DbInstanceCertificateDetailsOutput
+	ToDbInstanceCertificateDetailsOutputWithContext(context.Context) DbInstanceCertificateDetailsOutput
 }
 
-type DBInstanceCertificateDetailsArgs struct {
+type DbInstanceCertificateDetailsArgs struct {
 	// The CA identifier of the CA certificate used for the DB instance's server certificate.
 	CaIdentifier pulumi.StringPtrInput `pulumi:"caIdentifier"`
 	// The expiration date of the DB instance’s server certificate.
 	ValidTill pulumi.StringPtrInput `pulumi:"validTill"`
 }
 
-func (DBInstanceCertificateDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceCertificateDetails)(nil)).Elem()
+func (DbInstanceCertificateDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceCertificateDetails)(nil)).Elem()
 }
 
-func (i DBInstanceCertificateDetailsArgs) ToDBInstanceCertificateDetailsOutput() DBInstanceCertificateDetailsOutput {
-	return i.ToDBInstanceCertificateDetailsOutputWithContext(context.Background())
+func (i DbInstanceCertificateDetailsArgs) ToDbInstanceCertificateDetailsOutput() DbInstanceCertificateDetailsOutput {
+	return i.ToDbInstanceCertificateDetailsOutputWithContext(context.Background())
 }
 
-func (i DBInstanceCertificateDetailsArgs) ToDBInstanceCertificateDetailsOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceCertificateDetailsOutput)
+func (i DbInstanceCertificateDetailsArgs) ToDbInstanceCertificateDetailsOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceCertificateDetailsOutput)
 }
 
-func (i DBInstanceCertificateDetailsArgs) ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput {
-	return i.ToDBInstanceCertificateDetailsPtrOutputWithContext(context.Background())
+func (i DbInstanceCertificateDetailsArgs) ToDbInstanceCertificateDetailsPtrOutput() DbInstanceCertificateDetailsPtrOutput {
+	return i.ToDbInstanceCertificateDetailsPtrOutputWithContext(context.Background())
 }
 
-func (i DBInstanceCertificateDetailsArgs) ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceCertificateDetailsOutput).ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx)
+func (i DbInstanceCertificateDetailsArgs) ToDbInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceCertificateDetailsOutput).ToDbInstanceCertificateDetailsPtrOutputWithContext(ctx)
 }
 
-// DBInstanceCertificateDetailsPtrInput is an input type that accepts DBInstanceCertificateDetailsArgs, DBInstanceCertificateDetailsPtr and DBInstanceCertificateDetailsPtrOutput values.
-// You can construct a concrete instance of `DBInstanceCertificateDetailsPtrInput` via:
+// DbInstanceCertificateDetailsPtrInput is an input type that accepts DbInstanceCertificateDetailsArgs, DbInstanceCertificateDetailsPtr and DbInstanceCertificateDetailsPtrOutput values.
+// You can construct a concrete instance of `DbInstanceCertificateDetailsPtrInput` via:
 //
-//	        DBInstanceCertificateDetailsArgs{...}
+//	        DbInstanceCertificateDetailsArgs{...}
 //
 //	or:
 //
 //	        nil
-type DBInstanceCertificateDetailsPtrInput interface {
+type DbInstanceCertificateDetailsPtrInput interface {
 	pulumi.Input
 
-	ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput
-	ToDBInstanceCertificateDetailsPtrOutputWithContext(context.Context) DBInstanceCertificateDetailsPtrOutput
+	ToDbInstanceCertificateDetailsPtrOutput() DbInstanceCertificateDetailsPtrOutput
+	ToDbInstanceCertificateDetailsPtrOutputWithContext(context.Context) DbInstanceCertificateDetailsPtrOutput
 }
 
-type dbinstanceCertificateDetailsPtrType DBInstanceCertificateDetailsArgs
+type dbInstanceCertificateDetailsPtrType DbInstanceCertificateDetailsArgs
 
-func DBInstanceCertificateDetailsPtr(v *DBInstanceCertificateDetailsArgs) DBInstanceCertificateDetailsPtrInput {
-	return (*dbinstanceCertificateDetailsPtrType)(v)
+func DbInstanceCertificateDetailsPtr(v *DbInstanceCertificateDetailsArgs) DbInstanceCertificateDetailsPtrInput {
+	return (*dbInstanceCertificateDetailsPtrType)(v)
 }
 
-func (*dbinstanceCertificateDetailsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBInstanceCertificateDetails)(nil)).Elem()
+func (*dbInstanceCertificateDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbInstanceCertificateDetails)(nil)).Elem()
 }
 
-func (i *dbinstanceCertificateDetailsPtrType) ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput {
-	return i.ToDBInstanceCertificateDetailsPtrOutputWithContext(context.Background())
+func (i *dbInstanceCertificateDetailsPtrType) ToDbInstanceCertificateDetailsPtrOutput() DbInstanceCertificateDetailsPtrOutput {
+	return i.ToDbInstanceCertificateDetailsPtrOutputWithContext(context.Background())
 }
 
-func (i *dbinstanceCertificateDetailsPtrType) ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceCertificateDetailsPtrOutput)
+func (i *dbInstanceCertificateDetailsPtrType) ToDbInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceCertificateDetailsPtrOutput)
 }
 
-type DBInstanceCertificateDetailsOutput struct{ *pulumi.OutputState }
+type DbInstanceCertificateDetailsOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceCertificateDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceCertificateDetails)(nil)).Elem()
+func (DbInstanceCertificateDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceCertificateDetails)(nil)).Elem()
 }
 
-func (o DBInstanceCertificateDetailsOutput) ToDBInstanceCertificateDetailsOutput() DBInstanceCertificateDetailsOutput {
+func (o DbInstanceCertificateDetailsOutput) ToDbInstanceCertificateDetailsOutput() DbInstanceCertificateDetailsOutput {
 	return o
 }
 
-func (o DBInstanceCertificateDetailsOutput) ToDBInstanceCertificateDetailsOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsOutput {
+func (o DbInstanceCertificateDetailsOutput) ToDbInstanceCertificateDetailsOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsOutput {
 	return o
 }
 
-func (o DBInstanceCertificateDetailsOutput) ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput {
-	return o.ToDBInstanceCertificateDetailsPtrOutputWithContext(context.Background())
+func (o DbInstanceCertificateDetailsOutput) ToDbInstanceCertificateDetailsPtrOutput() DbInstanceCertificateDetailsPtrOutput {
+	return o.ToDbInstanceCertificateDetailsPtrOutputWithContext(context.Background())
 }
 
-func (o DBInstanceCertificateDetailsOutput) ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBInstanceCertificateDetails) *DBInstanceCertificateDetails {
+func (o DbInstanceCertificateDetailsOutput) ToDbInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbInstanceCertificateDetails) *DbInstanceCertificateDetails {
 		return &v
-	}).(DBInstanceCertificateDetailsPtrOutput)
+	}).(DbInstanceCertificateDetailsPtrOutput)
 }
 
 // The CA identifier of the CA certificate used for the DB instance's server certificate.
-func (o DBInstanceCertificateDetailsOutput) CaIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceCertificateDetails) *string { return v.CaIdentifier }).(pulumi.StringPtrOutput)
+func (o DbInstanceCertificateDetailsOutput) CaIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceCertificateDetails) *string { return v.CaIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The expiration date of the DB instance’s server certificate.
-func (o DBInstanceCertificateDetailsOutput) ValidTill() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceCertificateDetails) *string { return v.ValidTill }).(pulumi.StringPtrOutput)
+func (o DbInstanceCertificateDetailsOutput) ValidTill() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceCertificateDetails) *string { return v.ValidTill }).(pulumi.StringPtrOutput)
 }
 
-type DBInstanceCertificateDetailsPtrOutput struct{ *pulumi.OutputState }
+type DbInstanceCertificateDetailsPtrOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceCertificateDetailsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBInstanceCertificateDetails)(nil)).Elem()
+func (DbInstanceCertificateDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbInstanceCertificateDetails)(nil)).Elem()
 }
 
-func (o DBInstanceCertificateDetailsPtrOutput) ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput {
+func (o DbInstanceCertificateDetailsPtrOutput) ToDbInstanceCertificateDetailsPtrOutput() DbInstanceCertificateDetailsPtrOutput {
 	return o
 }
 
-func (o DBInstanceCertificateDetailsPtrOutput) ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsPtrOutput {
+func (o DbInstanceCertificateDetailsPtrOutput) ToDbInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsPtrOutput {
 	return o
 }
 
-func (o DBInstanceCertificateDetailsPtrOutput) Elem() DBInstanceCertificateDetailsOutput {
-	return o.ApplyT(func(v *DBInstanceCertificateDetails) DBInstanceCertificateDetails {
+func (o DbInstanceCertificateDetailsPtrOutput) Elem() DbInstanceCertificateDetailsOutput {
+	return o.ApplyT(func(v *DbInstanceCertificateDetails) DbInstanceCertificateDetails {
 		if v != nil {
 			return *v
 		}
-		var ret DBInstanceCertificateDetails
+		var ret DbInstanceCertificateDetails
 		return ret
-	}).(DBInstanceCertificateDetailsOutput)
+	}).(DbInstanceCertificateDetailsOutput)
 }
 
 // The CA identifier of the CA certificate used for the DB instance's server certificate.
-func (o DBInstanceCertificateDetailsPtrOutput) CaIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstanceCertificateDetails) *string {
+func (o DbInstanceCertificateDetailsPtrOutput) CaIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstanceCertificateDetails) *string {
 		if v == nil {
 			return nil
 		}
@@ -1402,8 +1402,8 @@ func (o DBInstanceCertificateDetailsPtrOutput) CaIdentifier() pulumi.StringPtrOu
 }
 
 // The expiration date of the DB instance’s server certificate.
-func (o DBInstanceCertificateDetailsPtrOutput) ValidTill() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstanceCertificateDetails) *string {
+func (o DbInstanceCertificateDetailsPtrOutput) ValidTill() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstanceCertificateDetails) *string {
 		if v == nil {
 			return nil
 		}
@@ -1411,7 +1411,113 @@ func (o DBInstanceCertificateDetailsPtrOutput) ValidTill() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBInstanceEndpoint struct {
+type DbInstanceDbInstanceRole struct {
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+	FeatureName string `pulumi:"featureName"`
+	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// DbInstanceDbInstanceRoleInput is an input type that accepts DbInstanceDbInstanceRoleArgs and DbInstanceDbInstanceRoleOutput values.
+// You can construct a concrete instance of `DbInstanceDbInstanceRoleInput` via:
+//
+//	DbInstanceDbInstanceRoleArgs{...}
+type DbInstanceDbInstanceRoleInput interface {
+	pulumi.Input
+
+	ToDbInstanceDbInstanceRoleOutput() DbInstanceDbInstanceRoleOutput
+	ToDbInstanceDbInstanceRoleOutputWithContext(context.Context) DbInstanceDbInstanceRoleOutput
+}
+
+type DbInstanceDbInstanceRoleArgs struct {
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+	FeatureName pulumi.StringInput `pulumi:"featureName"`
+	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (DbInstanceDbInstanceRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceDbInstanceRole)(nil)).Elem()
+}
+
+func (i DbInstanceDbInstanceRoleArgs) ToDbInstanceDbInstanceRoleOutput() DbInstanceDbInstanceRoleOutput {
+	return i.ToDbInstanceDbInstanceRoleOutputWithContext(context.Background())
+}
+
+func (i DbInstanceDbInstanceRoleArgs) ToDbInstanceDbInstanceRoleOutputWithContext(ctx context.Context) DbInstanceDbInstanceRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceDbInstanceRoleOutput)
+}
+
+// DbInstanceDbInstanceRoleArrayInput is an input type that accepts DbInstanceDbInstanceRoleArray and DbInstanceDbInstanceRoleArrayOutput values.
+// You can construct a concrete instance of `DbInstanceDbInstanceRoleArrayInput` via:
+//
+//	DbInstanceDbInstanceRoleArray{ DbInstanceDbInstanceRoleArgs{...} }
+type DbInstanceDbInstanceRoleArrayInput interface {
+	pulumi.Input
+
+	ToDbInstanceDbInstanceRoleArrayOutput() DbInstanceDbInstanceRoleArrayOutput
+	ToDbInstanceDbInstanceRoleArrayOutputWithContext(context.Context) DbInstanceDbInstanceRoleArrayOutput
+}
+
+type DbInstanceDbInstanceRoleArray []DbInstanceDbInstanceRoleInput
+
+func (DbInstanceDbInstanceRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbInstanceDbInstanceRole)(nil)).Elem()
+}
+
+func (i DbInstanceDbInstanceRoleArray) ToDbInstanceDbInstanceRoleArrayOutput() DbInstanceDbInstanceRoleArrayOutput {
+	return i.ToDbInstanceDbInstanceRoleArrayOutputWithContext(context.Background())
+}
+
+func (i DbInstanceDbInstanceRoleArray) ToDbInstanceDbInstanceRoleArrayOutputWithContext(ctx context.Context) DbInstanceDbInstanceRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceDbInstanceRoleArrayOutput)
+}
+
+type DbInstanceDbInstanceRoleOutput struct{ *pulumi.OutputState }
+
+func (DbInstanceDbInstanceRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceDbInstanceRole)(nil)).Elem()
+}
+
+func (o DbInstanceDbInstanceRoleOutput) ToDbInstanceDbInstanceRoleOutput() DbInstanceDbInstanceRoleOutput {
+	return o
+}
+
+func (o DbInstanceDbInstanceRoleOutput) ToDbInstanceDbInstanceRoleOutputWithContext(ctx context.Context) DbInstanceDbInstanceRoleOutput {
+	return o
+}
+
+// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+func (o DbInstanceDbInstanceRoleOutput) FeatureName() pulumi.StringOutput {
+	return o.ApplyT(func(v DbInstanceDbInstanceRole) string { return v.FeatureName }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+func (o DbInstanceDbInstanceRoleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DbInstanceDbInstanceRole) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type DbInstanceDbInstanceRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (DbInstanceDbInstanceRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbInstanceDbInstanceRole)(nil)).Elem()
+}
+
+func (o DbInstanceDbInstanceRoleArrayOutput) ToDbInstanceDbInstanceRoleArrayOutput() DbInstanceDbInstanceRoleArrayOutput {
+	return o
+}
+
+func (o DbInstanceDbInstanceRoleArrayOutput) ToDbInstanceDbInstanceRoleArrayOutputWithContext(ctx context.Context) DbInstanceDbInstanceRoleArrayOutput {
+	return o
+}
+
+func (o DbInstanceDbInstanceRoleArrayOutput) Index(i pulumi.IntInput) DbInstanceDbInstanceRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbInstanceDbInstanceRole {
+		return vs[0].([]DbInstanceDbInstanceRole)[vs[1].(int)]
+	}).(DbInstanceDbInstanceRoleOutput)
+}
+
+type DbInstanceEndpoint struct {
 	// Specifies the DNS address of the DB instance.
 	Address *string `pulumi:"address"`
 	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
@@ -1420,18 +1526,18 @@ type DBInstanceEndpoint struct {
 	Port *string `pulumi:"port"`
 }
 
-// DBInstanceEndpointInput is an input type that accepts DBInstanceEndpointArgs and DBInstanceEndpointOutput values.
-// You can construct a concrete instance of `DBInstanceEndpointInput` via:
+// DbInstanceEndpointInput is an input type that accepts DbInstanceEndpointArgs and DbInstanceEndpointOutput values.
+// You can construct a concrete instance of `DbInstanceEndpointInput` via:
 //
-//	DBInstanceEndpointArgs{...}
-type DBInstanceEndpointInput interface {
+//	DbInstanceEndpointArgs{...}
+type DbInstanceEndpointInput interface {
 	pulumi.Input
 
-	ToDBInstanceEndpointOutput() DBInstanceEndpointOutput
-	ToDBInstanceEndpointOutputWithContext(context.Context) DBInstanceEndpointOutput
+	ToDbInstanceEndpointOutput() DbInstanceEndpointOutput
+	ToDbInstanceEndpointOutputWithContext(context.Context) DbInstanceEndpointOutput
 }
 
-type DBInstanceEndpointArgs struct {
+type DbInstanceEndpointArgs struct {
 	// Specifies the DNS address of the DB instance.
 	Address pulumi.StringPtrInput `pulumi:"address"`
 	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
@@ -1440,125 +1546,125 @@ type DBInstanceEndpointArgs struct {
 	Port pulumi.StringPtrInput `pulumi:"port"`
 }
 
-func (DBInstanceEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceEndpoint)(nil)).Elem()
+func (DbInstanceEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceEndpoint)(nil)).Elem()
 }
 
-func (i DBInstanceEndpointArgs) ToDBInstanceEndpointOutput() DBInstanceEndpointOutput {
-	return i.ToDBInstanceEndpointOutputWithContext(context.Background())
+func (i DbInstanceEndpointArgs) ToDbInstanceEndpointOutput() DbInstanceEndpointOutput {
+	return i.ToDbInstanceEndpointOutputWithContext(context.Background())
 }
 
-func (i DBInstanceEndpointArgs) ToDBInstanceEndpointOutputWithContext(ctx context.Context) DBInstanceEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceEndpointOutput)
+func (i DbInstanceEndpointArgs) ToDbInstanceEndpointOutputWithContext(ctx context.Context) DbInstanceEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceEndpointOutput)
 }
 
-func (i DBInstanceEndpointArgs) ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput {
-	return i.ToDBInstanceEndpointPtrOutputWithContext(context.Background())
+func (i DbInstanceEndpointArgs) ToDbInstanceEndpointPtrOutput() DbInstanceEndpointPtrOutput {
+	return i.ToDbInstanceEndpointPtrOutputWithContext(context.Background())
 }
 
-func (i DBInstanceEndpointArgs) ToDBInstanceEndpointPtrOutputWithContext(ctx context.Context) DBInstanceEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceEndpointOutput).ToDBInstanceEndpointPtrOutputWithContext(ctx)
+func (i DbInstanceEndpointArgs) ToDbInstanceEndpointPtrOutputWithContext(ctx context.Context) DbInstanceEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceEndpointOutput).ToDbInstanceEndpointPtrOutputWithContext(ctx)
 }
 
-// DBInstanceEndpointPtrInput is an input type that accepts DBInstanceEndpointArgs, DBInstanceEndpointPtr and DBInstanceEndpointPtrOutput values.
-// You can construct a concrete instance of `DBInstanceEndpointPtrInput` via:
+// DbInstanceEndpointPtrInput is an input type that accepts DbInstanceEndpointArgs, DbInstanceEndpointPtr and DbInstanceEndpointPtrOutput values.
+// You can construct a concrete instance of `DbInstanceEndpointPtrInput` via:
 //
-//	        DBInstanceEndpointArgs{...}
+//	        DbInstanceEndpointArgs{...}
 //
 //	or:
 //
 //	        nil
-type DBInstanceEndpointPtrInput interface {
+type DbInstanceEndpointPtrInput interface {
 	pulumi.Input
 
-	ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput
-	ToDBInstanceEndpointPtrOutputWithContext(context.Context) DBInstanceEndpointPtrOutput
+	ToDbInstanceEndpointPtrOutput() DbInstanceEndpointPtrOutput
+	ToDbInstanceEndpointPtrOutputWithContext(context.Context) DbInstanceEndpointPtrOutput
 }
 
-type dbinstanceEndpointPtrType DBInstanceEndpointArgs
+type dbInstanceEndpointPtrType DbInstanceEndpointArgs
 
-func DBInstanceEndpointPtr(v *DBInstanceEndpointArgs) DBInstanceEndpointPtrInput {
-	return (*dbinstanceEndpointPtrType)(v)
+func DbInstanceEndpointPtr(v *DbInstanceEndpointArgs) DbInstanceEndpointPtrInput {
+	return (*dbInstanceEndpointPtrType)(v)
 }
 
-func (*dbinstanceEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBInstanceEndpoint)(nil)).Elem()
+func (*dbInstanceEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbInstanceEndpoint)(nil)).Elem()
 }
 
-func (i *dbinstanceEndpointPtrType) ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput {
-	return i.ToDBInstanceEndpointPtrOutputWithContext(context.Background())
+func (i *dbInstanceEndpointPtrType) ToDbInstanceEndpointPtrOutput() DbInstanceEndpointPtrOutput {
+	return i.ToDbInstanceEndpointPtrOutputWithContext(context.Background())
 }
 
-func (i *dbinstanceEndpointPtrType) ToDBInstanceEndpointPtrOutputWithContext(ctx context.Context) DBInstanceEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceEndpointPtrOutput)
+func (i *dbInstanceEndpointPtrType) ToDbInstanceEndpointPtrOutputWithContext(ctx context.Context) DbInstanceEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceEndpointPtrOutput)
 }
 
-type DBInstanceEndpointOutput struct{ *pulumi.OutputState }
+type DbInstanceEndpointOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceEndpoint)(nil)).Elem()
+func (DbInstanceEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceEndpoint)(nil)).Elem()
 }
 
-func (o DBInstanceEndpointOutput) ToDBInstanceEndpointOutput() DBInstanceEndpointOutput {
+func (o DbInstanceEndpointOutput) ToDbInstanceEndpointOutput() DbInstanceEndpointOutput {
 	return o
 }
 
-func (o DBInstanceEndpointOutput) ToDBInstanceEndpointOutputWithContext(ctx context.Context) DBInstanceEndpointOutput {
+func (o DbInstanceEndpointOutput) ToDbInstanceEndpointOutputWithContext(ctx context.Context) DbInstanceEndpointOutput {
 	return o
 }
 
-func (o DBInstanceEndpointOutput) ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput {
-	return o.ToDBInstanceEndpointPtrOutputWithContext(context.Background())
+func (o DbInstanceEndpointOutput) ToDbInstanceEndpointPtrOutput() DbInstanceEndpointPtrOutput {
+	return o.ToDbInstanceEndpointPtrOutputWithContext(context.Background())
 }
 
-func (o DBInstanceEndpointOutput) ToDBInstanceEndpointPtrOutputWithContext(ctx context.Context) DBInstanceEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBInstanceEndpoint) *DBInstanceEndpoint {
+func (o DbInstanceEndpointOutput) ToDbInstanceEndpointPtrOutputWithContext(ctx context.Context) DbInstanceEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbInstanceEndpoint) *DbInstanceEndpoint {
 		return &v
-	}).(DBInstanceEndpointPtrOutput)
+	}).(DbInstanceEndpointPtrOutput)
 }
 
 // Specifies the DNS address of the DB instance.
-func (o DBInstanceEndpointOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+func (o DbInstanceEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-func (o DBInstanceEndpointOutput) HostedZoneId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceEndpoint) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+func (o DbInstanceEndpointOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceEndpoint) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the port that the database engine is listening on.
-func (o DBInstanceEndpointOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
+func (o DbInstanceEndpointOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-type DBInstanceEndpointPtrOutput struct{ *pulumi.OutputState }
+type DbInstanceEndpointPtrOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBInstanceEndpoint)(nil)).Elem()
+func (DbInstanceEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbInstanceEndpoint)(nil)).Elem()
 }
 
-func (o DBInstanceEndpointPtrOutput) ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput {
+func (o DbInstanceEndpointPtrOutput) ToDbInstanceEndpointPtrOutput() DbInstanceEndpointPtrOutput {
 	return o
 }
 
-func (o DBInstanceEndpointPtrOutput) ToDBInstanceEndpointPtrOutputWithContext(ctx context.Context) DBInstanceEndpointPtrOutput {
+func (o DbInstanceEndpointPtrOutput) ToDbInstanceEndpointPtrOutputWithContext(ctx context.Context) DbInstanceEndpointPtrOutput {
 	return o
 }
 
-func (o DBInstanceEndpointPtrOutput) Elem() DBInstanceEndpointOutput {
-	return o.ApplyT(func(v *DBInstanceEndpoint) DBInstanceEndpoint {
+func (o DbInstanceEndpointPtrOutput) Elem() DbInstanceEndpointOutput {
+	return o.ApplyT(func(v *DbInstanceEndpoint) DbInstanceEndpoint {
 		if v != nil {
 			return *v
 		}
-		var ret DBInstanceEndpoint
+		var ret DbInstanceEndpoint
 		return ret
-	}).(DBInstanceEndpointOutput)
+	}).(DbInstanceEndpointOutput)
 }
 
 // Specifies the DNS address of the DB instance.
-func (o DBInstanceEndpointPtrOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstanceEndpoint) *string {
+func (o DbInstanceEndpointPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstanceEndpoint) *string {
 		if v == nil {
 			return nil
 		}
@@ -1567,8 +1673,8 @@ func (o DBInstanceEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 }
 
 // Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-func (o DBInstanceEndpointPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstanceEndpoint) *string {
+func (o DbInstanceEndpointPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstanceEndpoint) *string {
 		if v == nil {
 			return nil
 		}
@@ -1577,8 +1683,8 @@ func (o DBInstanceEndpointPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
 }
 
 // Specifies the port that the database engine is listening on.
-func (o DBInstanceEndpointPtrOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstanceEndpoint) *string {
+func (o DbInstanceEndpointPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstanceEndpoint) *string {
 		if v == nil {
 			return nil
 		}
@@ -1586,145 +1692,145 @@ func (o DBInstanceEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBInstanceMasterUserSecret struct {
+type DbInstanceMasterUserSecret struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Amazon Resource Name (ARN) of the secret.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
-// DBInstanceMasterUserSecretInput is an input type that accepts DBInstanceMasterUserSecretArgs and DBInstanceMasterUserSecretOutput values.
-// You can construct a concrete instance of `DBInstanceMasterUserSecretInput` via:
+// DbInstanceMasterUserSecretInput is an input type that accepts DbInstanceMasterUserSecretArgs and DbInstanceMasterUserSecretOutput values.
+// You can construct a concrete instance of `DbInstanceMasterUserSecretInput` via:
 //
-//	DBInstanceMasterUserSecretArgs{...}
-type DBInstanceMasterUserSecretInput interface {
+//	DbInstanceMasterUserSecretArgs{...}
+type DbInstanceMasterUserSecretInput interface {
 	pulumi.Input
 
-	ToDBInstanceMasterUserSecretOutput() DBInstanceMasterUserSecretOutput
-	ToDBInstanceMasterUserSecretOutputWithContext(context.Context) DBInstanceMasterUserSecretOutput
+	ToDbInstanceMasterUserSecretOutput() DbInstanceMasterUserSecretOutput
+	ToDbInstanceMasterUserSecretOutputWithContext(context.Context) DbInstanceMasterUserSecretOutput
 }
 
-type DBInstanceMasterUserSecretArgs struct {
+type DbInstanceMasterUserSecretArgs struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Amazon Resource Name (ARN) of the secret.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
-func (DBInstanceMasterUserSecretArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceMasterUserSecret)(nil)).Elem()
+func (DbInstanceMasterUserSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceMasterUserSecret)(nil)).Elem()
 }
 
-func (i DBInstanceMasterUserSecretArgs) ToDBInstanceMasterUserSecretOutput() DBInstanceMasterUserSecretOutput {
-	return i.ToDBInstanceMasterUserSecretOutputWithContext(context.Background())
+func (i DbInstanceMasterUserSecretArgs) ToDbInstanceMasterUserSecretOutput() DbInstanceMasterUserSecretOutput {
+	return i.ToDbInstanceMasterUserSecretOutputWithContext(context.Background())
 }
 
-func (i DBInstanceMasterUserSecretArgs) ToDBInstanceMasterUserSecretOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceMasterUserSecretOutput)
+func (i DbInstanceMasterUserSecretArgs) ToDbInstanceMasterUserSecretOutputWithContext(ctx context.Context) DbInstanceMasterUserSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceMasterUserSecretOutput)
 }
 
-func (i DBInstanceMasterUserSecretArgs) ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput {
-	return i.ToDBInstanceMasterUserSecretPtrOutputWithContext(context.Background())
+func (i DbInstanceMasterUserSecretArgs) ToDbInstanceMasterUserSecretPtrOutput() DbInstanceMasterUserSecretPtrOutput {
+	return i.ToDbInstanceMasterUserSecretPtrOutputWithContext(context.Background())
 }
 
-func (i DBInstanceMasterUserSecretArgs) ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceMasterUserSecretOutput).ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx)
+func (i DbInstanceMasterUserSecretArgs) ToDbInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DbInstanceMasterUserSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceMasterUserSecretOutput).ToDbInstanceMasterUserSecretPtrOutputWithContext(ctx)
 }
 
-// DBInstanceMasterUserSecretPtrInput is an input type that accepts DBInstanceMasterUserSecretArgs, DBInstanceMasterUserSecretPtr and DBInstanceMasterUserSecretPtrOutput values.
-// You can construct a concrete instance of `DBInstanceMasterUserSecretPtrInput` via:
+// DbInstanceMasterUserSecretPtrInput is an input type that accepts DbInstanceMasterUserSecretArgs, DbInstanceMasterUserSecretPtr and DbInstanceMasterUserSecretPtrOutput values.
+// You can construct a concrete instance of `DbInstanceMasterUserSecretPtrInput` via:
 //
-//	        DBInstanceMasterUserSecretArgs{...}
+//	        DbInstanceMasterUserSecretArgs{...}
 //
 //	or:
 //
 //	        nil
-type DBInstanceMasterUserSecretPtrInput interface {
+type DbInstanceMasterUserSecretPtrInput interface {
 	pulumi.Input
 
-	ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput
-	ToDBInstanceMasterUserSecretPtrOutputWithContext(context.Context) DBInstanceMasterUserSecretPtrOutput
+	ToDbInstanceMasterUserSecretPtrOutput() DbInstanceMasterUserSecretPtrOutput
+	ToDbInstanceMasterUserSecretPtrOutputWithContext(context.Context) DbInstanceMasterUserSecretPtrOutput
 }
 
-type dbinstanceMasterUserSecretPtrType DBInstanceMasterUserSecretArgs
+type dbInstanceMasterUserSecretPtrType DbInstanceMasterUserSecretArgs
 
-func DBInstanceMasterUserSecretPtr(v *DBInstanceMasterUserSecretArgs) DBInstanceMasterUserSecretPtrInput {
-	return (*dbinstanceMasterUserSecretPtrType)(v)
+func DbInstanceMasterUserSecretPtr(v *DbInstanceMasterUserSecretArgs) DbInstanceMasterUserSecretPtrInput {
+	return (*dbInstanceMasterUserSecretPtrType)(v)
 }
 
-func (*dbinstanceMasterUserSecretPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBInstanceMasterUserSecret)(nil)).Elem()
+func (*dbInstanceMasterUserSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbInstanceMasterUserSecret)(nil)).Elem()
 }
 
-func (i *dbinstanceMasterUserSecretPtrType) ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput {
-	return i.ToDBInstanceMasterUserSecretPtrOutputWithContext(context.Background())
+func (i *dbInstanceMasterUserSecretPtrType) ToDbInstanceMasterUserSecretPtrOutput() DbInstanceMasterUserSecretPtrOutput {
+	return i.ToDbInstanceMasterUserSecretPtrOutputWithContext(context.Background())
 }
 
-func (i *dbinstanceMasterUserSecretPtrType) ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceMasterUserSecretPtrOutput)
+func (i *dbInstanceMasterUserSecretPtrType) ToDbInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DbInstanceMasterUserSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceMasterUserSecretPtrOutput)
 }
 
-type DBInstanceMasterUserSecretOutput struct{ *pulumi.OutputState }
+type DbInstanceMasterUserSecretOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceMasterUserSecretOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceMasterUserSecret)(nil)).Elem()
+func (DbInstanceMasterUserSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceMasterUserSecret)(nil)).Elem()
 }
 
-func (o DBInstanceMasterUserSecretOutput) ToDBInstanceMasterUserSecretOutput() DBInstanceMasterUserSecretOutput {
+func (o DbInstanceMasterUserSecretOutput) ToDbInstanceMasterUserSecretOutput() DbInstanceMasterUserSecretOutput {
 	return o
 }
 
-func (o DBInstanceMasterUserSecretOutput) ToDBInstanceMasterUserSecretOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretOutput {
+func (o DbInstanceMasterUserSecretOutput) ToDbInstanceMasterUserSecretOutputWithContext(ctx context.Context) DbInstanceMasterUserSecretOutput {
 	return o
 }
 
-func (o DBInstanceMasterUserSecretOutput) ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput {
-	return o.ToDBInstanceMasterUserSecretPtrOutputWithContext(context.Background())
+func (o DbInstanceMasterUserSecretOutput) ToDbInstanceMasterUserSecretPtrOutput() DbInstanceMasterUserSecretPtrOutput {
+	return o.ToDbInstanceMasterUserSecretPtrOutputWithContext(context.Background())
 }
 
-func (o DBInstanceMasterUserSecretOutput) ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBInstanceMasterUserSecret) *DBInstanceMasterUserSecret {
+func (o DbInstanceMasterUserSecretOutput) ToDbInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DbInstanceMasterUserSecretPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbInstanceMasterUserSecret) *DbInstanceMasterUserSecret {
 		return &v
-	}).(DBInstanceMasterUserSecretPtrOutput)
+	}).(DbInstanceMasterUserSecretPtrOutput)
 }
 
 // The AWS KMS key identifier that is used to encrypt the secret.
-func (o DBInstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+func (o DbInstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the secret.
-func (o DBInstanceMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+func (o DbInstanceMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-type DBInstanceMasterUserSecretPtrOutput struct{ *pulumi.OutputState }
+type DbInstanceMasterUserSecretPtrOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceMasterUserSecretPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBInstanceMasterUserSecret)(nil)).Elem()
+func (DbInstanceMasterUserSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbInstanceMasterUserSecret)(nil)).Elem()
 }
 
-func (o DBInstanceMasterUserSecretPtrOutput) ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput {
+func (o DbInstanceMasterUserSecretPtrOutput) ToDbInstanceMasterUserSecretPtrOutput() DbInstanceMasterUserSecretPtrOutput {
 	return o
 }
 
-func (o DBInstanceMasterUserSecretPtrOutput) ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretPtrOutput {
+func (o DbInstanceMasterUserSecretPtrOutput) ToDbInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DbInstanceMasterUserSecretPtrOutput {
 	return o
 }
 
-func (o DBInstanceMasterUserSecretPtrOutput) Elem() DBInstanceMasterUserSecretOutput {
-	return o.ApplyT(func(v *DBInstanceMasterUserSecret) DBInstanceMasterUserSecret {
+func (o DbInstanceMasterUserSecretPtrOutput) Elem() DbInstanceMasterUserSecretOutput {
+	return o.ApplyT(func(v *DbInstanceMasterUserSecret) DbInstanceMasterUserSecret {
 		if v != nil {
 			return *v
 		}
-		var ret DBInstanceMasterUserSecret
+		var ret DbInstanceMasterUserSecret
 		return ret
-	}).(DBInstanceMasterUserSecretOutput)
+	}).(DbInstanceMasterUserSecretOutput)
 }
 
 // The AWS KMS key identifier that is used to encrypt the secret.
-func (o DBInstanceMasterUserSecretPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstanceMasterUserSecret) *string {
+func (o DbInstanceMasterUserSecretPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstanceMasterUserSecret) *string {
 		if v == nil {
 			return nil
 		}
@@ -1733,8 +1839,8 @@ func (o DBInstanceMasterUserSecretPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 }
 
 // The Amazon Resource Name (ARN) of the secret.
-func (o DBInstanceMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstanceMasterUserSecret) *string {
+func (o DbInstanceMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstanceMasterUserSecret) *string {
 		if v == nil {
 			return nil
 		}
@@ -1742,770 +1848,664 @@ func (o DBInstanceMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBInstanceProcessorFeature struct {
+type DbInstanceProcessorFeature struct {
 	// The name of the processor feature. Valid names are coreCount and threadsPerCore.
-	Name *DBInstanceProcessorFeatureName `pulumi:"name"`
+	Name *DbInstanceProcessorFeatureName `pulumi:"name"`
 	// The value of a processor feature name.
 	Value *string `pulumi:"value"`
 }
 
-// DBInstanceProcessorFeatureInput is an input type that accepts DBInstanceProcessorFeatureArgs and DBInstanceProcessorFeatureOutput values.
-// You can construct a concrete instance of `DBInstanceProcessorFeatureInput` via:
+// DbInstanceProcessorFeatureInput is an input type that accepts DbInstanceProcessorFeatureArgs and DbInstanceProcessorFeatureOutput values.
+// You can construct a concrete instance of `DbInstanceProcessorFeatureInput` via:
 //
-//	DBInstanceProcessorFeatureArgs{...}
-type DBInstanceProcessorFeatureInput interface {
+//	DbInstanceProcessorFeatureArgs{...}
+type DbInstanceProcessorFeatureInput interface {
 	pulumi.Input
 
-	ToDBInstanceProcessorFeatureOutput() DBInstanceProcessorFeatureOutput
-	ToDBInstanceProcessorFeatureOutputWithContext(context.Context) DBInstanceProcessorFeatureOutput
+	ToDbInstanceProcessorFeatureOutput() DbInstanceProcessorFeatureOutput
+	ToDbInstanceProcessorFeatureOutputWithContext(context.Context) DbInstanceProcessorFeatureOutput
 }
 
-type DBInstanceProcessorFeatureArgs struct {
+type DbInstanceProcessorFeatureArgs struct {
 	// The name of the processor feature. Valid names are coreCount and threadsPerCore.
-	Name DBInstanceProcessorFeatureNamePtrInput `pulumi:"name"`
+	Name DbInstanceProcessorFeatureNamePtrInput `pulumi:"name"`
 	// The value of a processor feature name.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (DBInstanceProcessorFeatureArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceProcessorFeature)(nil)).Elem()
+func (DbInstanceProcessorFeatureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceProcessorFeature)(nil)).Elem()
 }
 
-func (i DBInstanceProcessorFeatureArgs) ToDBInstanceProcessorFeatureOutput() DBInstanceProcessorFeatureOutput {
-	return i.ToDBInstanceProcessorFeatureOutputWithContext(context.Background())
+func (i DbInstanceProcessorFeatureArgs) ToDbInstanceProcessorFeatureOutput() DbInstanceProcessorFeatureOutput {
+	return i.ToDbInstanceProcessorFeatureOutputWithContext(context.Background())
 }
 
-func (i DBInstanceProcessorFeatureArgs) ToDBInstanceProcessorFeatureOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceProcessorFeatureOutput)
+func (i DbInstanceProcessorFeatureArgs) ToDbInstanceProcessorFeatureOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceProcessorFeatureOutput)
 }
 
-// DBInstanceProcessorFeatureArrayInput is an input type that accepts DBInstanceProcessorFeatureArray and DBInstanceProcessorFeatureArrayOutput values.
-// You can construct a concrete instance of `DBInstanceProcessorFeatureArrayInput` via:
+// DbInstanceProcessorFeatureArrayInput is an input type that accepts DbInstanceProcessorFeatureArray and DbInstanceProcessorFeatureArrayOutput values.
+// You can construct a concrete instance of `DbInstanceProcessorFeatureArrayInput` via:
 //
-//	DBInstanceProcessorFeatureArray{ DBInstanceProcessorFeatureArgs{...} }
-type DBInstanceProcessorFeatureArrayInput interface {
+//	DbInstanceProcessorFeatureArray{ DbInstanceProcessorFeatureArgs{...} }
+type DbInstanceProcessorFeatureArrayInput interface {
 	pulumi.Input
 
-	ToDBInstanceProcessorFeatureArrayOutput() DBInstanceProcessorFeatureArrayOutput
-	ToDBInstanceProcessorFeatureArrayOutputWithContext(context.Context) DBInstanceProcessorFeatureArrayOutput
+	ToDbInstanceProcessorFeatureArrayOutput() DbInstanceProcessorFeatureArrayOutput
+	ToDbInstanceProcessorFeatureArrayOutputWithContext(context.Context) DbInstanceProcessorFeatureArrayOutput
 }
 
-type DBInstanceProcessorFeatureArray []DBInstanceProcessorFeatureInput
+type DbInstanceProcessorFeatureArray []DbInstanceProcessorFeatureInput
 
-func (DBInstanceProcessorFeatureArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBInstanceProcessorFeature)(nil)).Elem()
+func (DbInstanceProcessorFeatureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbInstanceProcessorFeature)(nil)).Elem()
 }
 
-func (i DBInstanceProcessorFeatureArray) ToDBInstanceProcessorFeatureArrayOutput() DBInstanceProcessorFeatureArrayOutput {
-	return i.ToDBInstanceProcessorFeatureArrayOutputWithContext(context.Background())
+func (i DbInstanceProcessorFeatureArray) ToDbInstanceProcessorFeatureArrayOutput() DbInstanceProcessorFeatureArrayOutput {
+	return i.ToDbInstanceProcessorFeatureArrayOutputWithContext(context.Background())
 }
 
-func (i DBInstanceProcessorFeatureArray) ToDBInstanceProcessorFeatureArrayOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceProcessorFeatureArrayOutput)
+func (i DbInstanceProcessorFeatureArray) ToDbInstanceProcessorFeatureArrayOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceProcessorFeatureArrayOutput)
 }
 
-type DBInstanceProcessorFeatureOutput struct{ *pulumi.OutputState }
+type DbInstanceProcessorFeatureOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceProcessorFeatureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceProcessorFeature)(nil)).Elem()
+func (DbInstanceProcessorFeatureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceProcessorFeature)(nil)).Elem()
 }
 
-func (o DBInstanceProcessorFeatureOutput) ToDBInstanceProcessorFeatureOutput() DBInstanceProcessorFeatureOutput {
+func (o DbInstanceProcessorFeatureOutput) ToDbInstanceProcessorFeatureOutput() DbInstanceProcessorFeatureOutput {
 	return o
 }
 
-func (o DBInstanceProcessorFeatureOutput) ToDBInstanceProcessorFeatureOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureOutput {
+func (o DbInstanceProcessorFeatureOutput) ToDbInstanceProcessorFeatureOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureOutput {
 	return o
 }
 
 // The name of the processor feature. Valid names are coreCount and threadsPerCore.
-func (o DBInstanceProcessorFeatureOutput) Name() DBInstanceProcessorFeatureNamePtrOutput {
-	return o.ApplyT(func(v DBInstanceProcessorFeature) *DBInstanceProcessorFeatureName { return v.Name }).(DBInstanceProcessorFeatureNamePtrOutput)
+func (o DbInstanceProcessorFeatureOutput) Name() DbInstanceProcessorFeatureNamePtrOutput {
+	return o.ApplyT(func(v DbInstanceProcessorFeature) *DbInstanceProcessorFeatureName { return v.Name }).(DbInstanceProcessorFeatureNamePtrOutput)
 }
 
 // The value of a processor feature name.
-func (o DBInstanceProcessorFeatureOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceProcessorFeature) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o DbInstanceProcessorFeatureOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceProcessorFeature) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DBInstanceProcessorFeatureArrayOutput struct{ *pulumi.OutputState }
+type DbInstanceProcessorFeatureArrayOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceProcessorFeatureArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBInstanceProcessorFeature)(nil)).Elem()
+func (DbInstanceProcessorFeatureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbInstanceProcessorFeature)(nil)).Elem()
 }
 
-func (o DBInstanceProcessorFeatureArrayOutput) ToDBInstanceProcessorFeatureArrayOutput() DBInstanceProcessorFeatureArrayOutput {
+func (o DbInstanceProcessorFeatureArrayOutput) ToDbInstanceProcessorFeatureArrayOutput() DbInstanceProcessorFeatureArrayOutput {
 	return o
 }
 
-func (o DBInstanceProcessorFeatureArrayOutput) ToDBInstanceProcessorFeatureArrayOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureArrayOutput {
+func (o DbInstanceProcessorFeatureArrayOutput) ToDbInstanceProcessorFeatureArrayOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureArrayOutput {
 	return o
 }
 
-func (o DBInstanceProcessorFeatureArrayOutput) Index(i pulumi.IntInput) DBInstanceProcessorFeatureOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBInstanceProcessorFeature {
-		return vs[0].([]DBInstanceProcessorFeature)[vs[1].(int)]
-	}).(DBInstanceProcessorFeatureOutput)
-}
-
-type DBInstanceRole struct {
-	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
-	FeatureName string `pulumi:"featureName"`
-	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-	RoleArn string `pulumi:"roleArn"`
-}
-
-// DBInstanceRoleInput is an input type that accepts DBInstanceRoleArgs and DBInstanceRoleOutput values.
-// You can construct a concrete instance of `DBInstanceRoleInput` via:
-//
-//	DBInstanceRoleArgs{...}
-type DBInstanceRoleInput interface {
-	pulumi.Input
-
-	ToDBInstanceRoleOutput() DBInstanceRoleOutput
-	ToDBInstanceRoleOutputWithContext(context.Context) DBInstanceRoleOutput
-}
-
-type DBInstanceRoleArgs struct {
-	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
-	FeatureName pulumi.StringInput `pulumi:"featureName"`
-	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-}
-
-func (DBInstanceRoleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceRole)(nil)).Elem()
-}
-
-func (i DBInstanceRoleArgs) ToDBInstanceRoleOutput() DBInstanceRoleOutput {
-	return i.ToDBInstanceRoleOutputWithContext(context.Background())
-}
-
-func (i DBInstanceRoleArgs) ToDBInstanceRoleOutputWithContext(ctx context.Context) DBInstanceRoleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceRoleOutput)
-}
-
-// DBInstanceRoleArrayInput is an input type that accepts DBInstanceRoleArray and DBInstanceRoleArrayOutput values.
-// You can construct a concrete instance of `DBInstanceRoleArrayInput` via:
-//
-//	DBInstanceRoleArray{ DBInstanceRoleArgs{...} }
-type DBInstanceRoleArrayInput interface {
-	pulumi.Input
-
-	ToDBInstanceRoleArrayOutput() DBInstanceRoleArrayOutput
-	ToDBInstanceRoleArrayOutputWithContext(context.Context) DBInstanceRoleArrayOutput
-}
-
-type DBInstanceRoleArray []DBInstanceRoleInput
-
-func (DBInstanceRoleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBInstanceRole)(nil)).Elem()
-}
-
-func (i DBInstanceRoleArray) ToDBInstanceRoleArrayOutput() DBInstanceRoleArrayOutput {
-	return i.ToDBInstanceRoleArrayOutputWithContext(context.Background())
-}
-
-func (i DBInstanceRoleArray) ToDBInstanceRoleArrayOutputWithContext(ctx context.Context) DBInstanceRoleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceRoleArrayOutput)
-}
-
-type DBInstanceRoleOutput struct{ *pulumi.OutputState }
-
-func (DBInstanceRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceRole)(nil)).Elem()
-}
-
-func (o DBInstanceRoleOutput) ToDBInstanceRoleOutput() DBInstanceRoleOutput {
-	return o
-}
-
-func (o DBInstanceRoleOutput) ToDBInstanceRoleOutputWithContext(ctx context.Context) DBInstanceRoleOutput {
-	return o
-}
-
-// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
-func (o DBInstanceRoleOutput) FeatureName() pulumi.StringOutput {
-	return o.ApplyT(func(v DBInstanceRole) string { return v.FeatureName }).(pulumi.StringOutput)
-}
-
-// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-func (o DBInstanceRoleOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DBInstanceRole) string { return v.RoleArn }).(pulumi.StringOutput)
-}
-
-type DBInstanceRoleArrayOutput struct{ *pulumi.OutputState }
-
-func (DBInstanceRoleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBInstanceRole)(nil)).Elem()
-}
-
-func (o DBInstanceRoleArrayOutput) ToDBInstanceRoleArrayOutput() DBInstanceRoleArrayOutput {
-	return o
-}
-
-func (o DBInstanceRoleArrayOutput) ToDBInstanceRoleArrayOutputWithContext(ctx context.Context) DBInstanceRoleArrayOutput {
-	return o
-}
-
-func (o DBInstanceRoleArrayOutput) Index(i pulumi.IntInput) DBInstanceRoleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBInstanceRole {
-		return vs[0].([]DBInstanceRole)[vs[1].(int)]
-	}).(DBInstanceRoleOutput)
+func (o DbInstanceProcessorFeatureArrayOutput) Index(i pulumi.IntInput) DbInstanceProcessorFeatureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbInstanceProcessorFeature {
+		return vs[0].([]DbInstanceProcessorFeature)[vs[1].(int)]
+	}).(DbInstanceProcessorFeatureOutput)
 }
 
 // A key-value pair to associate with a resource.
-type DBInstanceTag struct {
+type DbInstanceTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value *string `pulumi:"value"`
 }
 
-// DBInstanceTagInput is an input type that accepts DBInstanceTagArgs and DBInstanceTagOutput values.
-// You can construct a concrete instance of `DBInstanceTagInput` via:
+// DbInstanceTagInput is an input type that accepts DbInstanceTagArgs and DbInstanceTagOutput values.
+// You can construct a concrete instance of `DbInstanceTagInput` via:
 //
-//	DBInstanceTagArgs{...}
-type DBInstanceTagInput interface {
+//	DbInstanceTagArgs{...}
+type DbInstanceTagInput interface {
 	pulumi.Input
 
-	ToDBInstanceTagOutput() DBInstanceTagOutput
-	ToDBInstanceTagOutputWithContext(context.Context) DBInstanceTagOutput
+	ToDbInstanceTagOutput() DbInstanceTagOutput
+	ToDbInstanceTagOutputWithContext(context.Context) DbInstanceTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type DBInstanceTagArgs struct {
+type DbInstanceTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (DBInstanceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceTag)(nil)).Elem()
+func (DbInstanceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceTag)(nil)).Elem()
 }
 
-func (i DBInstanceTagArgs) ToDBInstanceTagOutput() DBInstanceTagOutput {
-	return i.ToDBInstanceTagOutputWithContext(context.Background())
+func (i DbInstanceTagArgs) ToDbInstanceTagOutput() DbInstanceTagOutput {
+	return i.ToDbInstanceTagOutputWithContext(context.Background())
 }
 
-func (i DBInstanceTagArgs) ToDBInstanceTagOutputWithContext(ctx context.Context) DBInstanceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceTagOutput)
+func (i DbInstanceTagArgs) ToDbInstanceTagOutputWithContext(ctx context.Context) DbInstanceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceTagOutput)
 }
 
-// DBInstanceTagArrayInput is an input type that accepts DBInstanceTagArray and DBInstanceTagArrayOutput values.
-// You can construct a concrete instance of `DBInstanceTagArrayInput` via:
+// DbInstanceTagArrayInput is an input type that accepts DbInstanceTagArray and DbInstanceTagArrayOutput values.
+// You can construct a concrete instance of `DbInstanceTagArrayInput` via:
 //
-//	DBInstanceTagArray{ DBInstanceTagArgs{...} }
-type DBInstanceTagArrayInput interface {
+//	DbInstanceTagArray{ DbInstanceTagArgs{...} }
+type DbInstanceTagArrayInput interface {
 	pulumi.Input
 
-	ToDBInstanceTagArrayOutput() DBInstanceTagArrayOutput
-	ToDBInstanceTagArrayOutputWithContext(context.Context) DBInstanceTagArrayOutput
+	ToDbInstanceTagArrayOutput() DbInstanceTagArrayOutput
+	ToDbInstanceTagArrayOutputWithContext(context.Context) DbInstanceTagArrayOutput
 }
 
-type DBInstanceTagArray []DBInstanceTagInput
+type DbInstanceTagArray []DbInstanceTagInput
 
-func (DBInstanceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBInstanceTag)(nil)).Elem()
+func (DbInstanceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbInstanceTag)(nil)).Elem()
 }
 
-func (i DBInstanceTagArray) ToDBInstanceTagArrayOutput() DBInstanceTagArrayOutput {
-	return i.ToDBInstanceTagArrayOutputWithContext(context.Background())
+func (i DbInstanceTagArray) ToDbInstanceTagArrayOutput() DbInstanceTagArrayOutput {
+	return i.ToDbInstanceTagArrayOutputWithContext(context.Background())
 }
 
-func (i DBInstanceTagArray) ToDBInstanceTagArrayOutputWithContext(ctx context.Context) DBInstanceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceTagArrayOutput)
+func (i DbInstanceTagArray) ToDbInstanceTagArrayOutputWithContext(ctx context.Context) DbInstanceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type DBInstanceTagOutput struct{ *pulumi.OutputState }
+type DbInstanceTagOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceTag)(nil)).Elem()
+func (DbInstanceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceTag)(nil)).Elem()
 }
 
-func (o DBInstanceTagOutput) ToDBInstanceTagOutput() DBInstanceTagOutput {
+func (o DbInstanceTagOutput) ToDbInstanceTagOutput() DbInstanceTagOutput {
 	return o
 }
 
-func (o DBInstanceTagOutput) ToDBInstanceTagOutputWithContext(ctx context.Context) DBInstanceTagOutput {
+func (o DbInstanceTagOutput) ToDbInstanceTagOutputWithContext(ctx context.Context) DbInstanceTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBInstanceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DBInstanceTag) string { return v.Key }).(pulumi.StringOutput)
+func (o DbInstanceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DbInstanceTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBInstanceTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o DbInstanceTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DBInstanceTagArrayOutput struct{ *pulumi.OutputState }
+type DbInstanceTagArrayOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBInstanceTag)(nil)).Elem()
+func (DbInstanceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbInstanceTag)(nil)).Elem()
 }
 
-func (o DBInstanceTagArrayOutput) ToDBInstanceTagArrayOutput() DBInstanceTagArrayOutput {
+func (o DbInstanceTagArrayOutput) ToDbInstanceTagArrayOutput() DbInstanceTagArrayOutput {
 	return o
 }
 
-func (o DBInstanceTagArrayOutput) ToDBInstanceTagArrayOutputWithContext(ctx context.Context) DBInstanceTagArrayOutput {
+func (o DbInstanceTagArrayOutput) ToDbInstanceTagArrayOutputWithContext(ctx context.Context) DbInstanceTagArrayOutput {
 	return o
 }
 
-func (o DBInstanceTagArrayOutput) Index(i pulumi.IntInput) DBInstanceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBInstanceTag {
-		return vs[0].([]DBInstanceTag)[vs[1].(int)]
-	}).(DBInstanceTagOutput)
+func (o DbInstanceTagArrayOutput) Index(i pulumi.IntInput) DbInstanceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbInstanceTag {
+		return vs[0].([]DbInstanceTag)[vs[1].(int)]
+	}).(DbInstanceTagOutput)
 }
 
 // A key-value pair to associate with a resource.
-type DBParameterGroupTag struct {
+type DbParameterGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value *string `pulumi:"value"`
 }
 
-// DBParameterGroupTagInput is an input type that accepts DBParameterGroupTagArgs and DBParameterGroupTagOutput values.
-// You can construct a concrete instance of `DBParameterGroupTagInput` via:
+// DbParameterGroupTagInput is an input type that accepts DbParameterGroupTagArgs and DbParameterGroupTagOutput values.
+// You can construct a concrete instance of `DbParameterGroupTagInput` via:
 //
-//	DBParameterGroupTagArgs{...}
-type DBParameterGroupTagInput interface {
+//	DbParameterGroupTagArgs{...}
+type DbParameterGroupTagInput interface {
 	pulumi.Input
 
-	ToDBParameterGroupTagOutput() DBParameterGroupTagOutput
-	ToDBParameterGroupTagOutputWithContext(context.Context) DBParameterGroupTagOutput
+	ToDbParameterGroupTagOutput() DbParameterGroupTagOutput
+	ToDbParameterGroupTagOutputWithContext(context.Context) DbParameterGroupTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type DBParameterGroupTagArgs struct {
+type DbParameterGroupTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (DBParameterGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBParameterGroupTag)(nil)).Elem()
+func (DbParameterGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbParameterGroupTag)(nil)).Elem()
 }
 
-func (i DBParameterGroupTagArgs) ToDBParameterGroupTagOutput() DBParameterGroupTagOutput {
-	return i.ToDBParameterGroupTagOutputWithContext(context.Background())
+func (i DbParameterGroupTagArgs) ToDbParameterGroupTagOutput() DbParameterGroupTagOutput {
+	return i.ToDbParameterGroupTagOutputWithContext(context.Background())
 }
 
-func (i DBParameterGroupTagArgs) ToDBParameterGroupTagOutputWithContext(ctx context.Context) DBParameterGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBParameterGroupTagOutput)
+func (i DbParameterGroupTagArgs) ToDbParameterGroupTagOutputWithContext(ctx context.Context) DbParameterGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbParameterGroupTagOutput)
 }
 
-// DBParameterGroupTagArrayInput is an input type that accepts DBParameterGroupTagArray and DBParameterGroupTagArrayOutput values.
-// You can construct a concrete instance of `DBParameterGroupTagArrayInput` via:
+// DbParameterGroupTagArrayInput is an input type that accepts DbParameterGroupTagArray and DbParameterGroupTagArrayOutput values.
+// You can construct a concrete instance of `DbParameterGroupTagArrayInput` via:
 //
-//	DBParameterGroupTagArray{ DBParameterGroupTagArgs{...} }
-type DBParameterGroupTagArrayInput interface {
+//	DbParameterGroupTagArray{ DbParameterGroupTagArgs{...} }
+type DbParameterGroupTagArrayInput interface {
 	pulumi.Input
 
-	ToDBParameterGroupTagArrayOutput() DBParameterGroupTagArrayOutput
-	ToDBParameterGroupTagArrayOutputWithContext(context.Context) DBParameterGroupTagArrayOutput
+	ToDbParameterGroupTagArrayOutput() DbParameterGroupTagArrayOutput
+	ToDbParameterGroupTagArrayOutputWithContext(context.Context) DbParameterGroupTagArrayOutput
 }
 
-type DBParameterGroupTagArray []DBParameterGroupTagInput
+type DbParameterGroupTagArray []DbParameterGroupTagInput
 
-func (DBParameterGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBParameterGroupTag)(nil)).Elem()
+func (DbParameterGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbParameterGroupTag)(nil)).Elem()
 }
 
-func (i DBParameterGroupTagArray) ToDBParameterGroupTagArrayOutput() DBParameterGroupTagArrayOutput {
-	return i.ToDBParameterGroupTagArrayOutputWithContext(context.Background())
+func (i DbParameterGroupTagArray) ToDbParameterGroupTagArrayOutput() DbParameterGroupTagArrayOutput {
+	return i.ToDbParameterGroupTagArrayOutputWithContext(context.Background())
 }
 
-func (i DBParameterGroupTagArray) ToDBParameterGroupTagArrayOutputWithContext(ctx context.Context) DBParameterGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBParameterGroupTagArrayOutput)
+func (i DbParameterGroupTagArray) ToDbParameterGroupTagArrayOutputWithContext(ctx context.Context) DbParameterGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbParameterGroupTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type DBParameterGroupTagOutput struct{ *pulumi.OutputState }
+type DbParameterGroupTagOutput struct{ *pulumi.OutputState }
 
-func (DBParameterGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBParameterGroupTag)(nil)).Elem()
+func (DbParameterGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbParameterGroupTag)(nil)).Elem()
 }
 
-func (o DBParameterGroupTagOutput) ToDBParameterGroupTagOutput() DBParameterGroupTagOutput {
+func (o DbParameterGroupTagOutput) ToDbParameterGroupTagOutput() DbParameterGroupTagOutput {
 	return o
 }
 
-func (o DBParameterGroupTagOutput) ToDBParameterGroupTagOutputWithContext(ctx context.Context) DBParameterGroupTagOutput {
+func (o DbParameterGroupTagOutput) ToDbParameterGroupTagOutputWithContext(ctx context.Context) DbParameterGroupTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBParameterGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DBParameterGroupTag) string { return v.Key }).(pulumi.StringOutput)
+func (o DbParameterGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DbParameterGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBParameterGroupTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBParameterGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o DbParameterGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbParameterGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DBParameterGroupTagArrayOutput struct{ *pulumi.OutputState }
+type DbParameterGroupTagArrayOutput struct{ *pulumi.OutputState }
 
-func (DBParameterGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBParameterGroupTag)(nil)).Elem()
+func (DbParameterGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbParameterGroupTag)(nil)).Elem()
 }
 
-func (o DBParameterGroupTagArrayOutput) ToDBParameterGroupTagArrayOutput() DBParameterGroupTagArrayOutput {
+func (o DbParameterGroupTagArrayOutput) ToDbParameterGroupTagArrayOutput() DbParameterGroupTagArrayOutput {
 	return o
 }
 
-func (o DBParameterGroupTagArrayOutput) ToDBParameterGroupTagArrayOutputWithContext(ctx context.Context) DBParameterGroupTagArrayOutput {
+func (o DbParameterGroupTagArrayOutput) ToDbParameterGroupTagArrayOutputWithContext(ctx context.Context) DbParameterGroupTagArrayOutput {
 	return o
 }
 
-func (o DBParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DBParameterGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBParameterGroupTag {
-		return vs[0].([]DBParameterGroupTag)[vs[1].(int)]
-	}).(DBParameterGroupTagOutput)
+func (o DbParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DbParameterGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbParameterGroupTag {
+		return vs[0].([]DbParameterGroupTag)[vs[1].(int)]
+	}).(DbParameterGroupTagOutput)
 }
 
-type DBProxyAuthFormat struct {
+type DbProxyAuthFormat struct {
 	// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
-	AuthScheme *DBProxyAuthFormatAuthScheme `pulumi:"authScheme"`
+	AuthScheme *DbProxyAuthFormatAuthScheme `pulumi:"authScheme"`
 	// The type of authentication the proxy uses for connections from clients.
-	ClientPasswordAuthType *DBProxyAuthFormatClientPasswordAuthType `pulumi:"clientPasswordAuthType"`
+	ClientPasswordAuthType *DbProxyAuthFormatClientPasswordAuthType `pulumi:"clientPasswordAuthType"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description *string `pulumi:"description"`
 	// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
-	IamAuth *DBProxyAuthFormatIAMAuth `pulumi:"iamAuth"`
+	IamAuth *DbProxyAuthFormatIamAuth `pulumi:"iamAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
-// DBProxyAuthFormatInput is an input type that accepts DBProxyAuthFormatArgs and DBProxyAuthFormatOutput values.
-// You can construct a concrete instance of `DBProxyAuthFormatInput` via:
+// DbProxyAuthFormatInput is an input type that accepts DbProxyAuthFormatArgs and DbProxyAuthFormatOutput values.
+// You can construct a concrete instance of `DbProxyAuthFormatInput` via:
 //
-//	DBProxyAuthFormatArgs{...}
-type DBProxyAuthFormatInput interface {
+//	DbProxyAuthFormatArgs{...}
+type DbProxyAuthFormatInput interface {
 	pulumi.Input
 
-	ToDBProxyAuthFormatOutput() DBProxyAuthFormatOutput
-	ToDBProxyAuthFormatOutputWithContext(context.Context) DBProxyAuthFormatOutput
+	ToDbProxyAuthFormatOutput() DbProxyAuthFormatOutput
+	ToDbProxyAuthFormatOutputWithContext(context.Context) DbProxyAuthFormatOutput
 }
 
-type DBProxyAuthFormatArgs struct {
+type DbProxyAuthFormatArgs struct {
 	// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
-	AuthScheme DBProxyAuthFormatAuthSchemePtrInput `pulumi:"authScheme"`
+	AuthScheme DbProxyAuthFormatAuthSchemePtrInput `pulumi:"authScheme"`
 	// The type of authentication the proxy uses for connections from clients.
-	ClientPasswordAuthType DBProxyAuthFormatClientPasswordAuthTypePtrInput `pulumi:"clientPasswordAuthType"`
+	ClientPasswordAuthType DbProxyAuthFormatClientPasswordAuthTypePtrInput `pulumi:"clientPasswordAuthType"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
-	IamAuth DBProxyAuthFormatIAMAuthPtrInput `pulumi:"iamAuth"`
+	IamAuth DbProxyAuthFormatIamAuthPtrInput `pulumi:"iamAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
-func (DBProxyAuthFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyAuthFormat)(nil)).Elem()
+func (DbProxyAuthFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyAuthFormat)(nil)).Elem()
 }
 
-func (i DBProxyAuthFormatArgs) ToDBProxyAuthFormatOutput() DBProxyAuthFormatOutput {
-	return i.ToDBProxyAuthFormatOutputWithContext(context.Background())
+func (i DbProxyAuthFormatArgs) ToDbProxyAuthFormatOutput() DbProxyAuthFormatOutput {
+	return i.ToDbProxyAuthFormatOutputWithContext(context.Background())
 }
 
-func (i DBProxyAuthFormatArgs) ToDBProxyAuthFormatOutputWithContext(ctx context.Context) DBProxyAuthFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBProxyAuthFormatOutput)
+func (i DbProxyAuthFormatArgs) ToDbProxyAuthFormatOutputWithContext(ctx context.Context) DbProxyAuthFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbProxyAuthFormatOutput)
 }
 
-// DBProxyAuthFormatArrayInput is an input type that accepts DBProxyAuthFormatArray and DBProxyAuthFormatArrayOutput values.
-// You can construct a concrete instance of `DBProxyAuthFormatArrayInput` via:
+// DbProxyAuthFormatArrayInput is an input type that accepts DbProxyAuthFormatArray and DbProxyAuthFormatArrayOutput values.
+// You can construct a concrete instance of `DbProxyAuthFormatArrayInput` via:
 //
-//	DBProxyAuthFormatArray{ DBProxyAuthFormatArgs{...} }
-type DBProxyAuthFormatArrayInput interface {
+//	DbProxyAuthFormatArray{ DbProxyAuthFormatArgs{...} }
+type DbProxyAuthFormatArrayInput interface {
 	pulumi.Input
 
-	ToDBProxyAuthFormatArrayOutput() DBProxyAuthFormatArrayOutput
-	ToDBProxyAuthFormatArrayOutputWithContext(context.Context) DBProxyAuthFormatArrayOutput
+	ToDbProxyAuthFormatArrayOutput() DbProxyAuthFormatArrayOutput
+	ToDbProxyAuthFormatArrayOutputWithContext(context.Context) DbProxyAuthFormatArrayOutput
 }
 
-type DBProxyAuthFormatArray []DBProxyAuthFormatInput
+type DbProxyAuthFormatArray []DbProxyAuthFormatInput
 
-func (DBProxyAuthFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBProxyAuthFormat)(nil)).Elem()
+func (DbProxyAuthFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbProxyAuthFormat)(nil)).Elem()
 }
 
-func (i DBProxyAuthFormatArray) ToDBProxyAuthFormatArrayOutput() DBProxyAuthFormatArrayOutput {
-	return i.ToDBProxyAuthFormatArrayOutputWithContext(context.Background())
+func (i DbProxyAuthFormatArray) ToDbProxyAuthFormatArrayOutput() DbProxyAuthFormatArrayOutput {
+	return i.ToDbProxyAuthFormatArrayOutputWithContext(context.Background())
 }
 
-func (i DBProxyAuthFormatArray) ToDBProxyAuthFormatArrayOutputWithContext(ctx context.Context) DBProxyAuthFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBProxyAuthFormatArrayOutput)
+func (i DbProxyAuthFormatArray) ToDbProxyAuthFormatArrayOutputWithContext(ctx context.Context) DbProxyAuthFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbProxyAuthFormatArrayOutput)
 }
 
-type DBProxyAuthFormatOutput struct{ *pulumi.OutputState }
+type DbProxyAuthFormatOutput struct{ *pulumi.OutputState }
 
-func (DBProxyAuthFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyAuthFormat)(nil)).Elem()
+func (DbProxyAuthFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyAuthFormat)(nil)).Elem()
 }
 
-func (o DBProxyAuthFormatOutput) ToDBProxyAuthFormatOutput() DBProxyAuthFormatOutput {
+func (o DbProxyAuthFormatOutput) ToDbProxyAuthFormatOutput() DbProxyAuthFormatOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatOutput) ToDBProxyAuthFormatOutputWithContext(ctx context.Context) DBProxyAuthFormatOutput {
+func (o DbProxyAuthFormatOutput) ToDbProxyAuthFormatOutputWithContext(ctx context.Context) DbProxyAuthFormatOutput {
 	return o
 }
 
 // The type of authentication that the proxy uses for connections from the proxy to the underlying database.
-func (o DBProxyAuthFormatOutput) AuthScheme() DBProxyAuthFormatAuthSchemePtrOutput {
-	return o.ApplyT(func(v DBProxyAuthFormat) *DBProxyAuthFormatAuthScheme { return v.AuthScheme }).(DBProxyAuthFormatAuthSchemePtrOutput)
+func (o DbProxyAuthFormatOutput) AuthScheme() DbProxyAuthFormatAuthSchemePtrOutput {
+	return o.ApplyT(func(v DbProxyAuthFormat) *DbProxyAuthFormatAuthScheme { return v.AuthScheme }).(DbProxyAuthFormatAuthSchemePtrOutput)
 }
 
 // The type of authentication the proxy uses for connections from clients.
-func (o DBProxyAuthFormatOutput) ClientPasswordAuthType() DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
-	return o.ApplyT(func(v DBProxyAuthFormat) *DBProxyAuthFormatClientPasswordAuthType { return v.ClientPasswordAuthType }).(DBProxyAuthFormatClientPasswordAuthTypePtrOutput)
+func (o DbProxyAuthFormatOutput) ClientPasswordAuthType() DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return o.ApplyT(func(v DbProxyAuthFormat) *DbProxyAuthFormatClientPasswordAuthType { return v.ClientPasswordAuthType }).(DbProxyAuthFormatClientPasswordAuthTypePtrOutput)
 }
 
 // A user-specified description about the authentication used by a proxy to log in as a specific database user.
-func (o DBProxyAuthFormatOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o DbProxyAuthFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbProxyAuthFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
-func (o DBProxyAuthFormatOutput) IamAuth() DBProxyAuthFormatIAMAuthPtrOutput {
-	return o.ApplyT(func(v DBProxyAuthFormat) *DBProxyAuthFormatIAMAuth { return v.IamAuth }).(DBProxyAuthFormatIAMAuthPtrOutput)
+func (o DbProxyAuthFormatOutput) IamAuth() DbProxyAuthFormatIamAuthPtrOutput {
+	return o.ApplyT(func(v DbProxyAuthFormat) *DbProxyAuthFormatIamAuth { return v.IamAuth }).(DbProxyAuthFormatIamAuthPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
-func (o DBProxyAuthFormatOutput) SecretArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+func (o DbProxyAuthFormatOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbProxyAuthFormat) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-type DBProxyAuthFormatArrayOutput struct{ *pulumi.OutputState }
+type DbProxyAuthFormatArrayOutput struct{ *pulumi.OutputState }
 
-func (DBProxyAuthFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBProxyAuthFormat)(nil)).Elem()
+func (DbProxyAuthFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbProxyAuthFormat)(nil)).Elem()
 }
 
-func (o DBProxyAuthFormatArrayOutput) ToDBProxyAuthFormatArrayOutput() DBProxyAuthFormatArrayOutput {
+func (o DbProxyAuthFormatArrayOutput) ToDbProxyAuthFormatArrayOutput() DbProxyAuthFormatArrayOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatArrayOutput) ToDBProxyAuthFormatArrayOutputWithContext(ctx context.Context) DBProxyAuthFormatArrayOutput {
+func (o DbProxyAuthFormatArrayOutput) ToDbProxyAuthFormatArrayOutputWithContext(ctx context.Context) DbProxyAuthFormatArrayOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatArrayOutput) Index(i pulumi.IntInput) DBProxyAuthFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBProxyAuthFormat {
-		return vs[0].([]DBProxyAuthFormat)[vs[1].(int)]
-	}).(DBProxyAuthFormatOutput)
+func (o DbProxyAuthFormatArrayOutput) Index(i pulumi.IntInput) DbProxyAuthFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbProxyAuthFormat {
+		return vs[0].([]DbProxyAuthFormat)[vs[1].(int)]
+	}).(DbProxyAuthFormatOutput)
 }
 
-type DBProxyEndpointTagFormat struct {
+type DbProxyEndpointTagFormat struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
-// DBProxyEndpointTagFormatInput is an input type that accepts DBProxyEndpointTagFormatArgs and DBProxyEndpointTagFormatOutput values.
-// You can construct a concrete instance of `DBProxyEndpointTagFormatInput` via:
+// DbProxyEndpointTagFormatInput is an input type that accepts DbProxyEndpointTagFormatArgs and DbProxyEndpointTagFormatOutput values.
+// You can construct a concrete instance of `DbProxyEndpointTagFormatInput` via:
 //
-//	DBProxyEndpointTagFormatArgs{...}
-type DBProxyEndpointTagFormatInput interface {
+//	DbProxyEndpointTagFormatArgs{...}
+type DbProxyEndpointTagFormatInput interface {
 	pulumi.Input
 
-	ToDBProxyEndpointTagFormatOutput() DBProxyEndpointTagFormatOutput
-	ToDBProxyEndpointTagFormatOutputWithContext(context.Context) DBProxyEndpointTagFormatOutput
+	ToDbProxyEndpointTagFormatOutput() DbProxyEndpointTagFormatOutput
+	ToDbProxyEndpointTagFormatOutputWithContext(context.Context) DbProxyEndpointTagFormatOutput
 }
 
-type DBProxyEndpointTagFormatArgs struct {
+type DbProxyEndpointTagFormatArgs struct {
 	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (DBProxyEndpointTagFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyEndpointTagFormat)(nil)).Elem()
+func (DbProxyEndpointTagFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyEndpointTagFormat)(nil)).Elem()
 }
 
-func (i DBProxyEndpointTagFormatArgs) ToDBProxyEndpointTagFormatOutput() DBProxyEndpointTagFormatOutput {
-	return i.ToDBProxyEndpointTagFormatOutputWithContext(context.Background())
+func (i DbProxyEndpointTagFormatArgs) ToDbProxyEndpointTagFormatOutput() DbProxyEndpointTagFormatOutput {
+	return i.ToDbProxyEndpointTagFormatOutputWithContext(context.Background())
 }
 
-func (i DBProxyEndpointTagFormatArgs) ToDBProxyEndpointTagFormatOutputWithContext(ctx context.Context) DBProxyEndpointTagFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBProxyEndpointTagFormatOutput)
+func (i DbProxyEndpointTagFormatArgs) ToDbProxyEndpointTagFormatOutputWithContext(ctx context.Context) DbProxyEndpointTagFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbProxyEndpointTagFormatOutput)
 }
 
-// DBProxyEndpointTagFormatArrayInput is an input type that accepts DBProxyEndpointTagFormatArray and DBProxyEndpointTagFormatArrayOutput values.
-// You can construct a concrete instance of `DBProxyEndpointTagFormatArrayInput` via:
+// DbProxyEndpointTagFormatArrayInput is an input type that accepts DbProxyEndpointTagFormatArray and DbProxyEndpointTagFormatArrayOutput values.
+// You can construct a concrete instance of `DbProxyEndpointTagFormatArrayInput` via:
 //
-//	DBProxyEndpointTagFormatArray{ DBProxyEndpointTagFormatArgs{...} }
-type DBProxyEndpointTagFormatArrayInput interface {
+//	DbProxyEndpointTagFormatArray{ DbProxyEndpointTagFormatArgs{...} }
+type DbProxyEndpointTagFormatArrayInput interface {
 	pulumi.Input
 
-	ToDBProxyEndpointTagFormatArrayOutput() DBProxyEndpointTagFormatArrayOutput
-	ToDBProxyEndpointTagFormatArrayOutputWithContext(context.Context) DBProxyEndpointTagFormatArrayOutput
+	ToDbProxyEndpointTagFormatArrayOutput() DbProxyEndpointTagFormatArrayOutput
+	ToDbProxyEndpointTagFormatArrayOutputWithContext(context.Context) DbProxyEndpointTagFormatArrayOutput
 }
 
-type DBProxyEndpointTagFormatArray []DBProxyEndpointTagFormatInput
+type DbProxyEndpointTagFormatArray []DbProxyEndpointTagFormatInput
 
-func (DBProxyEndpointTagFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBProxyEndpointTagFormat)(nil)).Elem()
+func (DbProxyEndpointTagFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbProxyEndpointTagFormat)(nil)).Elem()
 }
 
-func (i DBProxyEndpointTagFormatArray) ToDBProxyEndpointTagFormatArrayOutput() DBProxyEndpointTagFormatArrayOutput {
-	return i.ToDBProxyEndpointTagFormatArrayOutputWithContext(context.Background())
+func (i DbProxyEndpointTagFormatArray) ToDbProxyEndpointTagFormatArrayOutput() DbProxyEndpointTagFormatArrayOutput {
+	return i.ToDbProxyEndpointTagFormatArrayOutputWithContext(context.Background())
 }
 
-func (i DBProxyEndpointTagFormatArray) ToDBProxyEndpointTagFormatArrayOutputWithContext(ctx context.Context) DBProxyEndpointTagFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBProxyEndpointTagFormatArrayOutput)
+func (i DbProxyEndpointTagFormatArray) ToDbProxyEndpointTagFormatArrayOutputWithContext(ctx context.Context) DbProxyEndpointTagFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbProxyEndpointTagFormatArrayOutput)
 }
 
-type DBProxyEndpointTagFormatOutput struct{ *pulumi.OutputState }
+type DbProxyEndpointTagFormatOutput struct{ *pulumi.OutputState }
 
-func (DBProxyEndpointTagFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyEndpointTagFormat)(nil)).Elem()
+func (DbProxyEndpointTagFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyEndpointTagFormat)(nil)).Elem()
 }
 
-func (o DBProxyEndpointTagFormatOutput) ToDBProxyEndpointTagFormatOutput() DBProxyEndpointTagFormatOutput {
+func (o DbProxyEndpointTagFormatOutput) ToDbProxyEndpointTagFormatOutput() DbProxyEndpointTagFormatOutput {
 	return o
 }
 
-func (o DBProxyEndpointTagFormatOutput) ToDBProxyEndpointTagFormatOutputWithContext(ctx context.Context) DBProxyEndpointTagFormatOutput {
+func (o DbProxyEndpointTagFormatOutput) ToDbProxyEndpointTagFormatOutputWithContext(ctx context.Context) DbProxyEndpointTagFormatOutput {
 	return o
 }
 
-func (o DBProxyEndpointTagFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBProxyEndpointTagFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+func (o DbProxyEndpointTagFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbProxyEndpointTagFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-func (o DBProxyEndpointTagFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBProxyEndpointTagFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o DbProxyEndpointTagFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbProxyEndpointTagFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DBProxyEndpointTagFormatArrayOutput struct{ *pulumi.OutputState }
+type DbProxyEndpointTagFormatArrayOutput struct{ *pulumi.OutputState }
 
-func (DBProxyEndpointTagFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBProxyEndpointTagFormat)(nil)).Elem()
+func (DbProxyEndpointTagFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbProxyEndpointTagFormat)(nil)).Elem()
 }
 
-func (o DBProxyEndpointTagFormatArrayOutput) ToDBProxyEndpointTagFormatArrayOutput() DBProxyEndpointTagFormatArrayOutput {
+func (o DbProxyEndpointTagFormatArrayOutput) ToDbProxyEndpointTagFormatArrayOutput() DbProxyEndpointTagFormatArrayOutput {
 	return o
 }
 
-func (o DBProxyEndpointTagFormatArrayOutput) ToDBProxyEndpointTagFormatArrayOutputWithContext(ctx context.Context) DBProxyEndpointTagFormatArrayOutput {
+func (o DbProxyEndpointTagFormatArrayOutput) ToDbProxyEndpointTagFormatArrayOutputWithContext(ctx context.Context) DbProxyEndpointTagFormatArrayOutput {
 	return o
 }
 
-func (o DBProxyEndpointTagFormatArrayOutput) Index(i pulumi.IntInput) DBProxyEndpointTagFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBProxyEndpointTagFormat {
-		return vs[0].([]DBProxyEndpointTagFormat)[vs[1].(int)]
-	}).(DBProxyEndpointTagFormatOutput)
+func (o DbProxyEndpointTagFormatArrayOutput) Index(i pulumi.IntInput) DbProxyEndpointTagFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbProxyEndpointTagFormat {
+		return vs[0].([]DbProxyEndpointTagFormat)[vs[1].(int)]
+	}).(DbProxyEndpointTagFormatOutput)
 }
 
-type DBProxyTagFormat struct {
+type DbProxyTagFormat struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
-// DBProxyTagFormatInput is an input type that accepts DBProxyTagFormatArgs and DBProxyTagFormatOutput values.
-// You can construct a concrete instance of `DBProxyTagFormatInput` via:
+// DbProxyTagFormatInput is an input type that accepts DbProxyTagFormatArgs and DbProxyTagFormatOutput values.
+// You can construct a concrete instance of `DbProxyTagFormatInput` via:
 //
-//	DBProxyTagFormatArgs{...}
-type DBProxyTagFormatInput interface {
+//	DbProxyTagFormatArgs{...}
+type DbProxyTagFormatInput interface {
 	pulumi.Input
 
-	ToDBProxyTagFormatOutput() DBProxyTagFormatOutput
-	ToDBProxyTagFormatOutputWithContext(context.Context) DBProxyTagFormatOutput
+	ToDbProxyTagFormatOutput() DbProxyTagFormatOutput
+	ToDbProxyTagFormatOutputWithContext(context.Context) DbProxyTagFormatOutput
 }
 
-type DBProxyTagFormatArgs struct {
+type DbProxyTagFormatArgs struct {
 	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (DBProxyTagFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyTagFormat)(nil)).Elem()
+func (DbProxyTagFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyTagFormat)(nil)).Elem()
 }
 
-func (i DBProxyTagFormatArgs) ToDBProxyTagFormatOutput() DBProxyTagFormatOutput {
-	return i.ToDBProxyTagFormatOutputWithContext(context.Background())
+func (i DbProxyTagFormatArgs) ToDbProxyTagFormatOutput() DbProxyTagFormatOutput {
+	return i.ToDbProxyTagFormatOutputWithContext(context.Background())
 }
 
-func (i DBProxyTagFormatArgs) ToDBProxyTagFormatOutputWithContext(ctx context.Context) DBProxyTagFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTagFormatOutput)
+func (i DbProxyTagFormatArgs) ToDbProxyTagFormatOutputWithContext(ctx context.Context) DbProxyTagFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbProxyTagFormatOutput)
 }
 
-// DBProxyTagFormatArrayInput is an input type that accepts DBProxyTagFormatArray and DBProxyTagFormatArrayOutput values.
-// You can construct a concrete instance of `DBProxyTagFormatArrayInput` via:
+// DbProxyTagFormatArrayInput is an input type that accepts DbProxyTagFormatArray and DbProxyTagFormatArrayOutput values.
+// You can construct a concrete instance of `DbProxyTagFormatArrayInput` via:
 //
-//	DBProxyTagFormatArray{ DBProxyTagFormatArgs{...} }
-type DBProxyTagFormatArrayInput interface {
+//	DbProxyTagFormatArray{ DbProxyTagFormatArgs{...} }
+type DbProxyTagFormatArrayInput interface {
 	pulumi.Input
 
-	ToDBProxyTagFormatArrayOutput() DBProxyTagFormatArrayOutput
-	ToDBProxyTagFormatArrayOutputWithContext(context.Context) DBProxyTagFormatArrayOutput
+	ToDbProxyTagFormatArrayOutput() DbProxyTagFormatArrayOutput
+	ToDbProxyTagFormatArrayOutputWithContext(context.Context) DbProxyTagFormatArrayOutput
 }
 
-type DBProxyTagFormatArray []DBProxyTagFormatInput
+type DbProxyTagFormatArray []DbProxyTagFormatInput
 
-func (DBProxyTagFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBProxyTagFormat)(nil)).Elem()
+func (DbProxyTagFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbProxyTagFormat)(nil)).Elem()
 }
 
-func (i DBProxyTagFormatArray) ToDBProxyTagFormatArrayOutput() DBProxyTagFormatArrayOutput {
-	return i.ToDBProxyTagFormatArrayOutputWithContext(context.Background())
+func (i DbProxyTagFormatArray) ToDbProxyTagFormatArrayOutput() DbProxyTagFormatArrayOutput {
+	return i.ToDbProxyTagFormatArrayOutputWithContext(context.Background())
 }
 
-func (i DBProxyTagFormatArray) ToDBProxyTagFormatArrayOutputWithContext(ctx context.Context) DBProxyTagFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTagFormatArrayOutput)
+func (i DbProxyTagFormatArray) ToDbProxyTagFormatArrayOutputWithContext(ctx context.Context) DbProxyTagFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbProxyTagFormatArrayOutput)
 }
 
-type DBProxyTagFormatOutput struct{ *pulumi.OutputState }
+type DbProxyTagFormatOutput struct{ *pulumi.OutputState }
 
-func (DBProxyTagFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyTagFormat)(nil)).Elem()
+func (DbProxyTagFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyTagFormat)(nil)).Elem()
 }
 
-func (o DBProxyTagFormatOutput) ToDBProxyTagFormatOutput() DBProxyTagFormatOutput {
+func (o DbProxyTagFormatOutput) ToDbProxyTagFormatOutput() DbProxyTagFormatOutput {
 	return o
 }
 
-func (o DBProxyTagFormatOutput) ToDBProxyTagFormatOutputWithContext(ctx context.Context) DBProxyTagFormatOutput {
+func (o DbProxyTagFormatOutput) ToDbProxyTagFormatOutputWithContext(ctx context.Context) DbProxyTagFormatOutput {
 	return o
 }
 
-func (o DBProxyTagFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBProxyTagFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+func (o DbProxyTagFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbProxyTagFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-func (o DBProxyTagFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBProxyTagFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o DbProxyTagFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbProxyTagFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DBProxyTagFormatArrayOutput struct{ *pulumi.OutputState }
+type DbProxyTagFormatArrayOutput struct{ *pulumi.OutputState }
 
-func (DBProxyTagFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBProxyTagFormat)(nil)).Elem()
+func (DbProxyTagFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbProxyTagFormat)(nil)).Elem()
 }
 
-func (o DBProxyTagFormatArrayOutput) ToDBProxyTagFormatArrayOutput() DBProxyTagFormatArrayOutput {
+func (o DbProxyTagFormatArrayOutput) ToDbProxyTagFormatArrayOutput() DbProxyTagFormatArrayOutput {
 	return o
 }
 
-func (o DBProxyTagFormatArrayOutput) ToDBProxyTagFormatArrayOutputWithContext(ctx context.Context) DBProxyTagFormatArrayOutput {
+func (o DbProxyTagFormatArrayOutput) ToDbProxyTagFormatArrayOutputWithContext(ctx context.Context) DbProxyTagFormatArrayOutput {
 	return o
 }
 
-func (o DBProxyTagFormatArrayOutput) Index(i pulumi.IntInput) DBProxyTagFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBProxyTagFormat {
-		return vs[0].([]DBProxyTagFormat)[vs[1].(int)]
-	}).(DBProxyTagFormatOutput)
+func (o DbProxyTagFormatArrayOutput) Index(i pulumi.IntInput) DbProxyTagFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbProxyTagFormat {
+		return vs[0].([]DbProxyTagFormat)[vs[1].(int)]
+	}).(DbProxyTagFormatOutput)
 }
 
-type DBProxyTargetGroupConnectionPoolConfigurationInfoFormat struct {
+type DbProxyTargetGroupConnectionPoolConfigurationInfoFormat struct {
 	// The number of seconds for a proxy to wait for a connection to become available in the connection pool.
 	ConnectionBorrowTimeout *int `pulumi:"connectionBorrowTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection.
@@ -2518,18 +2518,18 @@ type DBProxyTargetGroupConnectionPoolConfigurationInfoFormat struct {
 	SessionPinningFilters []string `pulumi:"sessionPinningFilters"`
 }
 
-// DBProxyTargetGroupConnectionPoolConfigurationInfoFormatInput is an input type that accepts DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs and DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput values.
-// You can construct a concrete instance of `DBProxyTargetGroupConnectionPoolConfigurationInfoFormatInput` via:
+// DbProxyTargetGroupConnectionPoolConfigurationInfoFormatInput is an input type that accepts DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs and DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput values.
+// You can construct a concrete instance of `DbProxyTargetGroupConnectionPoolConfigurationInfoFormatInput` via:
 //
-//	DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{...}
-type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatInput interface {
+//	DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{...}
+type DbProxyTargetGroupConnectionPoolConfigurationInfoFormatInput interface {
 	pulumi.Input
 
-	ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput
-	ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutputWithContext(context.Context) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput
+	ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput
+	ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutputWithContext(context.Context) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput
 }
 
-type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs struct {
+type DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs struct {
 	// The number of seconds for a proxy to wait for a connection to become available in the connection pool.
 	ConnectionBorrowTimeout pulumi.IntPtrInput `pulumi:"connectionBorrowTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection.
@@ -2542,139 +2542,139 @@ type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs struct {
 	SessionPinningFilters pulumi.StringArrayInput `pulumi:"sessionPinningFilters"`
 }
 
-func (DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyTargetGroupConnectionPoolConfigurationInfoFormat)(nil)).Elem()
+func (DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyTargetGroupConnectionPoolConfigurationInfoFormat)(nil)).Elem()
 }
 
-func (i DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
-	return i.ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutputWithContext(context.Background())
+func (i DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
+	return i.ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutputWithContext(context.Background())
 }
 
-func (i DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutputWithContext(ctx context.Context) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput)
+func (i DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutputWithContext(ctx context.Context) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput)
 }
 
-func (i DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
-	return i.ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(context.Background())
+func (i DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
+	return i.ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(context.Background())
 }
 
-func (i DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx context.Context) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput).ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx)
+func (i DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx context.Context) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput).ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx)
 }
 
-// DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput is an input type that accepts DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs, DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtr and DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput values.
-// You can construct a concrete instance of `DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput` via:
+// DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput is an input type that accepts DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs, DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtr and DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput values.
+// You can construct a concrete instance of `DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput` via:
 //
-//	        DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{...}
+//	        DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{...}
 //
 //	or:
 //
 //	        nil
-type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput interface {
+type DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput interface {
 	pulumi.Input
 
-	ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput
-	ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(context.Context) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput
+	ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput
+	ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(context.Context) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput
 }
 
-type dbproxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs
+type dbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs
 
-func DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtr(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput {
-	return (*dbproxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType)(v)
+func DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtr(v *DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput {
+	return (*dbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType)(v)
 }
 
-func (*dbproxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBProxyTargetGroupConnectionPoolConfigurationInfoFormat)(nil)).Elem()
+func (*dbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyTargetGroupConnectionPoolConfigurationInfoFormat)(nil)).Elem()
 }
 
-func (i *dbproxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
-	return i.ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(context.Background())
+func (i *dbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
+	return i.ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(context.Background())
 }
 
-func (i *dbproxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx context.Context) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
+func (i *dbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx context.Context) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
 }
 
-type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput struct{ *pulumi.OutputState }
+type DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput struct{ *pulumi.OutputState }
 
-func (DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyTargetGroupConnectionPoolConfigurationInfoFormat)(nil)).Elem()
+func (DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyTargetGroupConnectionPoolConfigurationInfoFormat)(nil)).Elem()
 }
 
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
 	return o
 }
 
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutputWithContext(ctx context.Context) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutputWithContext(ctx context.Context) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
 	return o
 }
 
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
-	return o.ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(context.Background())
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
+	return o.ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx context.Context) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx context.Context) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat {
 		return &v
-	}).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
+	}).(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
 }
 
 // The number of seconds for a proxy to wait for a connection to become available in the connection pool.
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int { return v.ConnectionBorrowTimeout }).(pulumi.IntPtrOutput)
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int { return v.ConnectionBorrowTimeout }).(pulumi.IntPtrOutput)
 }
 
 // One or more SQL statements for the proxy to run when opening each new database connection.
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) InitQuery() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *string { return v.InitQuery }).(pulumi.StringPtrOutput)
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) InitQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) *string { return v.InitQuery }).(pulumi.StringPtrOutput)
 }
 
 // The maximum size of the connection pool for each target in a target group.
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int { return v.MaxConnectionsPercent }).(pulumi.IntPtrOutput)
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int { return v.MaxConnectionsPercent }).(pulumi.IntPtrOutput)
 }
 
 // Controls how actively the proxy closes idle database connections in the connection pool.
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) MaxIdleConnectionsPercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) MaxIdleConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
 		return v.MaxIdleConnectionsPercent
 	}).(pulumi.IntPtrOutput)
 }
 
 // Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) SessionPinningFilters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) []string {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) SessionPinningFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) []string {
 		return v.SessionPinningFilters
 	}).(pulumi.StringArrayOutput)
 }
 
-type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput struct{ *pulumi.OutputState }
+type DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput struct{ *pulumi.OutputState }
 
-func (DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBProxyTargetGroupConnectionPoolConfigurationInfoFormat)(nil)).Elem()
+func (DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyTargetGroupConnectionPoolConfigurationInfoFormat)(nil)).Elem()
 }
 
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
 	return o
 }
 
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx context.Context) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ToDbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx context.Context) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
 	return o
 }
 
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Elem() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) DBProxyTargetGroupConnectionPoolConfigurationInfoFormat {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Elem() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
+	return o.ApplyT(func(v *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) DbProxyTargetGroupConnectionPoolConfigurationInfoFormat {
 		if v != nil {
 			return *v
 		}
-		var ret DBProxyTargetGroupConnectionPoolConfigurationInfoFormat
+		var ret DbProxyTargetGroupConnectionPoolConfigurationInfoFormat
 		return ret
-	}).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput)
+	}).(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput)
 }
 
 // The number of seconds for a proxy to wait for a connection to become available in the connection pool.
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
 		if v == nil {
 			return nil
 		}
@@ -2683,8 +2683,8 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Connec
 }
 
 // One or more SQL statements for the proxy to run when opening each new database connection.
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) InitQuery() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *string {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) InitQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) *string {
 		if v == nil {
 			return nil
 		}
@@ -2693,8 +2693,8 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) InitQu
 }
 
 // The maximum size of the connection pool for each target in a target group.
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
 		if v == nil {
 			return nil
 		}
@@ -2703,8 +2703,8 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) MaxCon
 }
 
 // Controls how actively the proxy closes idle database connections in the connection pool.
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) MaxIdleConnectionsPercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) MaxIdleConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
 		if v == nil {
 			return nil
 		}
@@ -2713,8 +2713,8 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) MaxIdl
 }
 
 // Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
-func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) SessionPinningFilters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) []string {
+func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) SessionPinningFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat) []string {
 		if v == nil {
 			return nil
 		}
@@ -2722,325 +2722,325 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Sessio
 	}).(pulumi.StringArrayOutput)
 }
 
-type DBSecurityGroupIngressType struct {
+type DbSecurityGroupIngressType struct {
 	Cidrip                  *string `pulumi:"cidrip"`
 	Ec2SecurityGroupId      *string `pulumi:"ec2SecurityGroupId"`
 	Ec2SecurityGroupName    *string `pulumi:"ec2SecurityGroupName"`
 	Ec2SecurityGroupOwnerId *string `pulumi:"ec2SecurityGroupOwnerId"`
 }
 
-// DBSecurityGroupIngressTypeInput is an input type that accepts DBSecurityGroupIngressTypeArgs and DBSecurityGroupIngressTypeOutput values.
-// You can construct a concrete instance of `DBSecurityGroupIngressTypeInput` via:
+// DbSecurityGroupIngressTypeInput is an input type that accepts DbSecurityGroupIngressTypeArgs and DbSecurityGroupIngressTypeOutput values.
+// You can construct a concrete instance of `DbSecurityGroupIngressTypeInput` via:
 //
-//	DBSecurityGroupIngressTypeArgs{...}
-type DBSecurityGroupIngressTypeInput interface {
+//	DbSecurityGroupIngressTypeArgs{...}
+type DbSecurityGroupIngressTypeInput interface {
 	pulumi.Input
 
-	ToDBSecurityGroupIngressTypeOutput() DBSecurityGroupIngressTypeOutput
-	ToDBSecurityGroupIngressTypeOutputWithContext(context.Context) DBSecurityGroupIngressTypeOutput
+	ToDbSecurityGroupIngressTypeOutput() DbSecurityGroupIngressTypeOutput
+	ToDbSecurityGroupIngressTypeOutputWithContext(context.Context) DbSecurityGroupIngressTypeOutput
 }
 
-type DBSecurityGroupIngressTypeArgs struct {
+type DbSecurityGroupIngressTypeArgs struct {
 	Cidrip                  pulumi.StringPtrInput `pulumi:"cidrip"`
 	Ec2SecurityGroupId      pulumi.StringPtrInput `pulumi:"ec2SecurityGroupId"`
 	Ec2SecurityGroupName    pulumi.StringPtrInput `pulumi:"ec2SecurityGroupName"`
 	Ec2SecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"ec2SecurityGroupOwnerId"`
 }
 
-func (DBSecurityGroupIngressTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBSecurityGroupIngressType)(nil)).Elem()
+func (DbSecurityGroupIngressTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbSecurityGroupIngressType)(nil)).Elem()
 }
 
-func (i DBSecurityGroupIngressTypeArgs) ToDBSecurityGroupIngressTypeOutput() DBSecurityGroupIngressTypeOutput {
-	return i.ToDBSecurityGroupIngressTypeOutputWithContext(context.Background())
+func (i DbSecurityGroupIngressTypeArgs) ToDbSecurityGroupIngressTypeOutput() DbSecurityGroupIngressTypeOutput {
+	return i.ToDbSecurityGroupIngressTypeOutputWithContext(context.Background())
 }
 
-func (i DBSecurityGroupIngressTypeArgs) ToDBSecurityGroupIngressTypeOutputWithContext(ctx context.Context) DBSecurityGroupIngressTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupIngressTypeOutput)
+func (i DbSecurityGroupIngressTypeArgs) ToDbSecurityGroupIngressTypeOutputWithContext(ctx context.Context) DbSecurityGroupIngressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbSecurityGroupIngressTypeOutput)
 }
 
-// DBSecurityGroupIngressTypeArrayInput is an input type that accepts DBSecurityGroupIngressTypeArray and DBSecurityGroupIngressTypeArrayOutput values.
-// You can construct a concrete instance of `DBSecurityGroupIngressTypeArrayInput` via:
+// DbSecurityGroupIngressTypeArrayInput is an input type that accepts DbSecurityGroupIngressTypeArray and DbSecurityGroupIngressTypeArrayOutput values.
+// You can construct a concrete instance of `DbSecurityGroupIngressTypeArrayInput` via:
 //
-//	DBSecurityGroupIngressTypeArray{ DBSecurityGroupIngressTypeArgs{...} }
-type DBSecurityGroupIngressTypeArrayInput interface {
+//	DbSecurityGroupIngressTypeArray{ DbSecurityGroupIngressTypeArgs{...} }
+type DbSecurityGroupIngressTypeArrayInput interface {
 	pulumi.Input
 
-	ToDBSecurityGroupIngressTypeArrayOutput() DBSecurityGroupIngressTypeArrayOutput
-	ToDBSecurityGroupIngressTypeArrayOutputWithContext(context.Context) DBSecurityGroupIngressTypeArrayOutput
+	ToDbSecurityGroupIngressTypeArrayOutput() DbSecurityGroupIngressTypeArrayOutput
+	ToDbSecurityGroupIngressTypeArrayOutputWithContext(context.Context) DbSecurityGroupIngressTypeArrayOutput
 }
 
-type DBSecurityGroupIngressTypeArray []DBSecurityGroupIngressTypeInput
+type DbSecurityGroupIngressTypeArray []DbSecurityGroupIngressTypeInput
 
-func (DBSecurityGroupIngressTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBSecurityGroupIngressType)(nil)).Elem()
+func (DbSecurityGroupIngressTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbSecurityGroupIngressType)(nil)).Elem()
 }
 
-func (i DBSecurityGroupIngressTypeArray) ToDBSecurityGroupIngressTypeArrayOutput() DBSecurityGroupIngressTypeArrayOutput {
-	return i.ToDBSecurityGroupIngressTypeArrayOutputWithContext(context.Background())
+func (i DbSecurityGroupIngressTypeArray) ToDbSecurityGroupIngressTypeArrayOutput() DbSecurityGroupIngressTypeArrayOutput {
+	return i.ToDbSecurityGroupIngressTypeArrayOutputWithContext(context.Background())
 }
 
-func (i DBSecurityGroupIngressTypeArray) ToDBSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) DBSecurityGroupIngressTypeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupIngressTypeArrayOutput)
+func (i DbSecurityGroupIngressTypeArray) ToDbSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) DbSecurityGroupIngressTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbSecurityGroupIngressTypeArrayOutput)
 }
 
-type DBSecurityGroupIngressTypeOutput struct{ *pulumi.OutputState }
+type DbSecurityGroupIngressTypeOutput struct{ *pulumi.OutputState }
 
-func (DBSecurityGroupIngressTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBSecurityGroupIngressType)(nil)).Elem()
+func (DbSecurityGroupIngressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbSecurityGroupIngressType)(nil)).Elem()
 }
 
-func (o DBSecurityGroupIngressTypeOutput) ToDBSecurityGroupIngressTypeOutput() DBSecurityGroupIngressTypeOutput {
+func (o DbSecurityGroupIngressTypeOutput) ToDbSecurityGroupIngressTypeOutput() DbSecurityGroupIngressTypeOutput {
 	return o
 }
 
-func (o DBSecurityGroupIngressTypeOutput) ToDBSecurityGroupIngressTypeOutputWithContext(ctx context.Context) DBSecurityGroupIngressTypeOutput {
+func (o DbSecurityGroupIngressTypeOutput) ToDbSecurityGroupIngressTypeOutputWithContext(ctx context.Context) DbSecurityGroupIngressTypeOutput {
 	return o
 }
 
-func (o DBSecurityGroupIngressTypeOutput) Cidrip() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.Cidrip }).(pulumi.StringPtrOutput)
+func (o DbSecurityGroupIngressTypeOutput) Cidrip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbSecurityGroupIngressType) *string { return v.Cidrip }).(pulumi.StringPtrOutput)
 }
 
-func (o DBSecurityGroupIngressTypeOutput) Ec2SecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.Ec2SecurityGroupId }).(pulumi.StringPtrOutput)
+func (o DbSecurityGroupIngressTypeOutput) Ec2SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbSecurityGroupIngressType) *string { return v.Ec2SecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
-func (o DBSecurityGroupIngressTypeOutput) Ec2SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.Ec2SecurityGroupName }).(pulumi.StringPtrOutput)
+func (o DbSecurityGroupIngressTypeOutput) Ec2SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbSecurityGroupIngressType) *string { return v.Ec2SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o DBSecurityGroupIngressTypeOutput) Ec2SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.Ec2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+func (o DbSecurityGroupIngressTypeOutput) Ec2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbSecurityGroupIngressType) *string { return v.Ec2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
 }
 
-type DBSecurityGroupIngressTypeArrayOutput struct{ *pulumi.OutputState }
+type DbSecurityGroupIngressTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (DBSecurityGroupIngressTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBSecurityGroupIngressType)(nil)).Elem()
+func (DbSecurityGroupIngressTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbSecurityGroupIngressType)(nil)).Elem()
 }
 
-func (o DBSecurityGroupIngressTypeArrayOutput) ToDBSecurityGroupIngressTypeArrayOutput() DBSecurityGroupIngressTypeArrayOutput {
+func (o DbSecurityGroupIngressTypeArrayOutput) ToDbSecurityGroupIngressTypeArrayOutput() DbSecurityGroupIngressTypeArrayOutput {
 	return o
 }
 
-func (o DBSecurityGroupIngressTypeArrayOutput) ToDBSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) DBSecurityGroupIngressTypeArrayOutput {
+func (o DbSecurityGroupIngressTypeArrayOutput) ToDbSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) DbSecurityGroupIngressTypeArrayOutput {
 	return o
 }
 
-func (o DBSecurityGroupIngressTypeArrayOutput) Index(i pulumi.IntInput) DBSecurityGroupIngressTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBSecurityGroupIngressType {
-		return vs[0].([]DBSecurityGroupIngressType)[vs[1].(int)]
-	}).(DBSecurityGroupIngressTypeOutput)
+func (o DbSecurityGroupIngressTypeArrayOutput) Index(i pulumi.IntInput) DbSecurityGroupIngressTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbSecurityGroupIngressType {
+		return vs[0].([]DbSecurityGroupIngressType)[vs[1].(int)]
+	}).(DbSecurityGroupIngressTypeOutput)
 }
 
-type DBSecurityGroupTag struct {
+type DbSecurityGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// DBSecurityGroupTagInput is an input type that accepts DBSecurityGroupTagArgs and DBSecurityGroupTagOutput values.
-// You can construct a concrete instance of `DBSecurityGroupTagInput` via:
+// DbSecurityGroupTagInput is an input type that accepts DbSecurityGroupTagArgs and DbSecurityGroupTagOutput values.
+// You can construct a concrete instance of `DbSecurityGroupTagInput` via:
 //
-//	DBSecurityGroupTagArgs{...}
-type DBSecurityGroupTagInput interface {
+//	DbSecurityGroupTagArgs{...}
+type DbSecurityGroupTagInput interface {
 	pulumi.Input
 
-	ToDBSecurityGroupTagOutput() DBSecurityGroupTagOutput
-	ToDBSecurityGroupTagOutputWithContext(context.Context) DBSecurityGroupTagOutput
+	ToDbSecurityGroupTagOutput() DbSecurityGroupTagOutput
+	ToDbSecurityGroupTagOutputWithContext(context.Context) DbSecurityGroupTagOutput
 }
 
-type DBSecurityGroupTagArgs struct {
+type DbSecurityGroupTagArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (DBSecurityGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBSecurityGroupTag)(nil)).Elem()
+func (DbSecurityGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbSecurityGroupTag)(nil)).Elem()
 }
 
-func (i DBSecurityGroupTagArgs) ToDBSecurityGroupTagOutput() DBSecurityGroupTagOutput {
-	return i.ToDBSecurityGroupTagOutputWithContext(context.Background())
+func (i DbSecurityGroupTagArgs) ToDbSecurityGroupTagOutput() DbSecurityGroupTagOutput {
+	return i.ToDbSecurityGroupTagOutputWithContext(context.Background())
 }
 
-func (i DBSecurityGroupTagArgs) ToDBSecurityGroupTagOutputWithContext(ctx context.Context) DBSecurityGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupTagOutput)
+func (i DbSecurityGroupTagArgs) ToDbSecurityGroupTagOutputWithContext(ctx context.Context) DbSecurityGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbSecurityGroupTagOutput)
 }
 
-// DBSecurityGroupTagArrayInput is an input type that accepts DBSecurityGroupTagArray and DBSecurityGroupTagArrayOutput values.
-// You can construct a concrete instance of `DBSecurityGroupTagArrayInput` via:
+// DbSecurityGroupTagArrayInput is an input type that accepts DbSecurityGroupTagArray and DbSecurityGroupTagArrayOutput values.
+// You can construct a concrete instance of `DbSecurityGroupTagArrayInput` via:
 //
-//	DBSecurityGroupTagArray{ DBSecurityGroupTagArgs{...} }
-type DBSecurityGroupTagArrayInput interface {
+//	DbSecurityGroupTagArray{ DbSecurityGroupTagArgs{...} }
+type DbSecurityGroupTagArrayInput interface {
 	pulumi.Input
 
-	ToDBSecurityGroupTagArrayOutput() DBSecurityGroupTagArrayOutput
-	ToDBSecurityGroupTagArrayOutputWithContext(context.Context) DBSecurityGroupTagArrayOutput
+	ToDbSecurityGroupTagArrayOutput() DbSecurityGroupTagArrayOutput
+	ToDbSecurityGroupTagArrayOutputWithContext(context.Context) DbSecurityGroupTagArrayOutput
 }
 
-type DBSecurityGroupTagArray []DBSecurityGroupTagInput
+type DbSecurityGroupTagArray []DbSecurityGroupTagInput
 
-func (DBSecurityGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBSecurityGroupTag)(nil)).Elem()
+func (DbSecurityGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbSecurityGroupTag)(nil)).Elem()
 }
 
-func (i DBSecurityGroupTagArray) ToDBSecurityGroupTagArrayOutput() DBSecurityGroupTagArrayOutput {
-	return i.ToDBSecurityGroupTagArrayOutputWithContext(context.Background())
+func (i DbSecurityGroupTagArray) ToDbSecurityGroupTagArrayOutput() DbSecurityGroupTagArrayOutput {
+	return i.ToDbSecurityGroupTagArrayOutputWithContext(context.Background())
 }
 
-func (i DBSecurityGroupTagArray) ToDBSecurityGroupTagArrayOutputWithContext(ctx context.Context) DBSecurityGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupTagArrayOutput)
+func (i DbSecurityGroupTagArray) ToDbSecurityGroupTagArrayOutputWithContext(ctx context.Context) DbSecurityGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbSecurityGroupTagArrayOutput)
 }
 
-type DBSecurityGroupTagOutput struct{ *pulumi.OutputState }
+type DbSecurityGroupTagOutput struct{ *pulumi.OutputState }
 
-func (DBSecurityGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBSecurityGroupTag)(nil)).Elem()
+func (DbSecurityGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbSecurityGroupTag)(nil)).Elem()
 }
 
-func (o DBSecurityGroupTagOutput) ToDBSecurityGroupTagOutput() DBSecurityGroupTagOutput {
+func (o DbSecurityGroupTagOutput) ToDbSecurityGroupTagOutput() DbSecurityGroupTagOutput {
 	return o
 }
 
-func (o DBSecurityGroupTagOutput) ToDBSecurityGroupTagOutputWithContext(ctx context.Context) DBSecurityGroupTagOutput {
+func (o DbSecurityGroupTagOutput) ToDbSecurityGroupTagOutputWithContext(ctx context.Context) DbSecurityGroupTagOutput {
 	return o
 }
 
-func (o DBSecurityGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DBSecurityGroupTag) string { return v.Key }).(pulumi.StringOutput)
+func (o DbSecurityGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DbSecurityGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o DBSecurityGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DBSecurityGroupTag) string { return v.Value }).(pulumi.StringOutput)
+func (o DbSecurityGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DbSecurityGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type DBSecurityGroupTagArrayOutput struct{ *pulumi.OutputState }
+type DbSecurityGroupTagArrayOutput struct{ *pulumi.OutputState }
 
-func (DBSecurityGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBSecurityGroupTag)(nil)).Elem()
+func (DbSecurityGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbSecurityGroupTag)(nil)).Elem()
 }
 
-func (o DBSecurityGroupTagArrayOutput) ToDBSecurityGroupTagArrayOutput() DBSecurityGroupTagArrayOutput {
+func (o DbSecurityGroupTagArrayOutput) ToDbSecurityGroupTagArrayOutput() DbSecurityGroupTagArrayOutput {
 	return o
 }
 
-func (o DBSecurityGroupTagArrayOutput) ToDBSecurityGroupTagArrayOutputWithContext(ctx context.Context) DBSecurityGroupTagArrayOutput {
+func (o DbSecurityGroupTagArrayOutput) ToDbSecurityGroupTagArrayOutputWithContext(ctx context.Context) DbSecurityGroupTagArrayOutput {
 	return o
 }
 
-func (o DBSecurityGroupTagArrayOutput) Index(i pulumi.IntInput) DBSecurityGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBSecurityGroupTag {
-		return vs[0].([]DBSecurityGroupTag)[vs[1].(int)]
-	}).(DBSecurityGroupTagOutput)
+func (o DbSecurityGroupTagArrayOutput) Index(i pulumi.IntInput) DbSecurityGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbSecurityGroupTag {
+		return vs[0].([]DbSecurityGroupTag)[vs[1].(int)]
+	}).(DbSecurityGroupTagOutput)
 }
 
 // A key-value pair to associate with a resource.
-type DBSubnetGroupTag struct {
+type DbSubnetGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value *string `pulumi:"value"`
 }
 
-// DBSubnetGroupTagInput is an input type that accepts DBSubnetGroupTagArgs and DBSubnetGroupTagOutput values.
-// You can construct a concrete instance of `DBSubnetGroupTagInput` via:
+// DbSubnetGroupTagInput is an input type that accepts DbSubnetGroupTagArgs and DbSubnetGroupTagOutput values.
+// You can construct a concrete instance of `DbSubnetGroupTagInput` via:
 //
-//	DBSubnetGroupTagArgs{...}
-type DBSubnetGroupTagInput interface {
+//	DbSubnetGroupTagArgs{...}
+type DbSubnetGroupTagInput interface {
 	pulumi.Input
 
-	ToDBSubnetGroupTagOutput() DBSubnetGroupTagOutput
-	ToDBSubnetGroupTagOutputWithContext(context.Context) DBSubnetGroupTagOutput
+	ToDbSubnetGroupTagOutput() DbSubnetGroupTagOutput
+	ToDbSubnetGroupTagOutputWithContext(context.Context) DbSubnetGroupTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type DBSubnetGroupTagArgs struct {
+type DbSubnetGroupTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (DBSubnetGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBSubnetGroupTag)(nil)).Elem()
+func (DbSubnetGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbSubnetGroupTag)(nil)).Elem()
 }
 
-func (i DBSubnetGroupTagArgs) ToDBSubnetGroupTagOutput() DBSubnetGroupTagOutput {
-	return i.ToDBSubnetGroupTagOutputWithContext(context.Background())
+func (i DbSubnetGroupTagArgs) ToDbSubnetGroupTagOutput() DbSubnetGroupTagOutput {
+	return i.ToDbSubnetGroupTagOutputWithContext(context.Background())
 }
 
-func (i DBSubnetGroupTagArgs) ToDBSubnetGroupTagOutputWithContext(ctx context.Context) DBSubnetGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBSubnetGroupTagOutput)
+func (i DbSubnetGroupTagArgs) ToDbSubnetGroupTagOutputWithContext(ctx context.Context) DbSubnetGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbSubnetGroupTagOutput)
 }
 
-// DBSubnetGroupTagArrayInput is an input type that accepts DBSubnetGroupTagArray and DBSubnetGroupTagArrayOutput values.
-// You can construct a concrete instance of `DBSubnetGroupTagArrayInput` via:
+// DbSubnetGroupTagArrayInput is an input type that accepts DbSubnetGroupTagArray and DbSubnetGroupTagArrayOutput values.
+// You can construct a concrete instance of `DbSubnetGroupTagArrayInput` via:
 //
-//	DBSubnetGroupTagArray{ DBSubnetGroupTagArgs{...} }
-type DBSubnetGroupTagArrayInput interface {
+//	DbSubnetGroupTagArray{ DbSubnetGroupTagArgs{...} }
+type DbSubnetGroupTagArrayInput interface {
 	pulumi.Input
 
-	ToDBSubnetGroupTagArrayOutput() DBSubnetGroupTagArrayOutput
-	ToDBSubnetGroupTagArrayOutputWithContext(context.Context) DBSubnetGroupTagArrayOutput
+	ToDbSubnetGroupTagArrayOutput() DbSubnetGroupTagArrayOutput
+	ToDbSubnetGroupTagArrayOutputWithContext(context.Context) DbSubnetGroupTagArrayOutput
 }
 
-type DBSubnetGroupTagArray []DBSubnetGroupTagInput
+type DbSubnetGroupTagArray []DbSubnetGroupTagInput
 
-func (DBSubnetGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBSubnetGroupTag)(nil)).Elem()
+func (DbSubnetGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbSubnetGroupTag)(nil)).Elem()
 }
 
-func (i DBSubnetGroupTagArray) ToDBSubnetGroupTagArrayOutput() DBSubnetGroupTagArrayOutput {
-	return i.ToDBSubnetGroupTagArrayOutputWithContext(context.Background())
+func (i DbSubnetGroupTagArray) ToDbSubnetGroupTagArrayOutput() DbSubnetGroupTagArrayOutput {
+	return i.ToDbSubnetGroupTagArrayOutputWithContext(context.Background())
 }
 
-func (i DBSubnetGroupTagArray) ToDBSubnetGroupTagArrayOutputWithContext(ctx context.Context) DBSubnetGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBSubnetGroupTagArrayOutput)
+func (i DbSubnetGroupTagArray) ToDbSubnetGroupTagArrayOutputWithContext(ctx context.Context) DbSubnetGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbSubnetGroupTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type DBSubnetGroupTagOutput struct{ *pulumi.OutputState }
+type DbSubnetGroupTagOutput struct{ *pulumi.OutputState }
 
-func (DBSubnetGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBSubnetGroupTag)(nil)).Elem()
+func (DbSubnetGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbSubnetGroupTag)(nil)).Elem()
 }
 
-func (o DBSubnetGroupTagOutput) ToDBSubnetGroupTagOutput() DBSubnetGroupTagOutput {
+func (o DbSubnetGroupTagOutput) ToDbSubnetGroupTagOutput() DbSubnetGroupTagOutput {
 	return o
 }
 
-func (o DBSubnetGroupTagOutput) ToDBSubnetGroupTagOutputWithContext(ctx context.Context) DBSubnetGroupTagOutput {
+func (o DbSubnetGroupTagOutput) ToDbSubnetGroupTagOutputWithContext(ctx context.Context) DbSubnetGroupTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBSubnetGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DBSubnetGroupTag) string { return v.Key }).(pulumi.StringOutput)
+func (o DbSubnetGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DbSubnetGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBSubnetGroupTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBSubnetGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o DbSubnetGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbSubnetGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DBSubnetGroupTagArrayOutput struct{ *pulumi.OutputState }
+type DbSubnetGroupTagArrayOutput struct{ *pulumi.OutputState }
 
-func (DBSubnetGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBSubnetGroupTag)(nil)).Elem()
+func (DbSubnetGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbSubnetGroupTag)(nil)).Elem()
 }
 
-func (o DBSubnetGroupTagArrayOutput) ToDBSubnetGroupTagArrayOutput() DBSubnetGroupTagArrayOutput {
+func (o DbSubnetGroupTagArrayOutput) ToDbSubnetGroupTagArrayOutput() DbSubnetGroupTagArrayOutput {
 	return o
 }
 
-func (o DBSubnetGroupTagArrayOutput) ToDBSubnetGroupTagArrayOutputWithContext(ctx context.Context) DBSubnetGroupTagArrayOutput {
+func (o DbSubnetGroupTagArrayOutput) ToDbSubnetGroupTagArrayOutputWithContext(ctx context.Context) DbSubnetGroupTagArrayOutput {
 	return o
 }
 
-func (o DBSubnetGroupTagArrayOutput) Index(i pulumi.IntInput) DBSubnetGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBSubnetGroupTag {
-		return vs[0].([]DBSubnetGroupTag)[vs[1].(int)]
-	}).(DBSubnetGroupTagOutput)
+func (o DbSubnetGroupTagArrayOutput) Index(i pulumi.IntInput) DbSubnetGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbSubnetGroupTag {
+		return vs[0].([]DbSubnetGroupTag)[vs[1].(int)]
+	}).(DbSubnetGroupTagOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -3516,50 +3516,50 @@ func (o OptionGroupTagArrayOutput) Index(i pulumi.IntInput) OptionGroupTagOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDBEngineVersionTagInput)(nil)).Elem(), CustomDBEngineVersionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDBEngineVersionTagArrayInput)(nil)).Elem(), CustomDBEngineVersionTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterMasterUserSecretInput)(nil)).Elem(), DBClusterMasterUserSecretArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterMasterUserSecretPtrInput)(nil)).Elem(), DBClusterMasterUserSecretArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterParameterGroupTagInput)(nil)).Elem(), DBClusterParameterGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterParameterGroupTagArrayInput)(nil)).Elem(), DBClusterParameterGroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterReadEndpointInput)(nil)).Elem(), DBClusterReadEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterReadEndpointPtrInput)(nil)).Elem(), DBClusterReadEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterRoleInput)(nil)).Elem(), DBClusterRoleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterRoleArrayInput)(nil)).Elem(), DBClusterRoleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterScalingConfigurationInput)(nil)).Elem(), DBClusterScalingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterScalingConfigurationPtrInput)(nil)).Elem(), DBClusterScalingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterServerlessV2ScalingConfigurationInput)(nil)).Elem(), DBClusterServerlessV2ScalingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterServerlessV2ScalingConfigurationPtrInput)(nil)).Elem(), DBClusterServerlessV2ScalingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagInput)(nil)).Elem(), DBClusterTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagArrayInput)(nil)).Elem(), DBClusterTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceCertificateDetailsInput)(nil)).Elem(), DBInstanceCertificateDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceCertificateDetailsPtrInput)(nil)).Elem(), DBInstanceCertificateDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceEndpointInput)(nil)).Elem(), DBInstanceEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceEndpointPtrInput)(nil)).Elem(), DBInstanceEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceMasterUserSecretInput)(nil)).Elem(), DBInstanceMasterUserSecretArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceMasterUserSecretPtrInput)(nil)).Elem(), DBInstanceMasterUserSecretArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureInput)(nil)).Elem(), DBInstanceProcessorFeatureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureArrayInput)(nil)).Elem(), DBInstanceProcessorFeatureArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceRoleInput)(nil)).Elem(), DBInstanceRoleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceRoleArrayInput)(nil)).Elem(), DBInstanceRoleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceTagInput)(nil)).Elem(), DBInstanceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceTagArrayInput)(nil)).Elem(), DBInstanceTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBParameterGroupTagInput)(nil)).Elem(), DBParameterGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBParameterGroupTagArrayInput)(nil)).Elem(), DBParameterGroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatInput)(nil)).Elem(), DBProxyAuthFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatArrayInput)(nil)).Elem(), DBProxyAuthFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointTagFormatInput)(nil)).Elem(), DBProxyEndpointTagFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointTagFormatArrayInput)(nil)).Elem(), DBProxyEndpointTagFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTagFormatInput)(nil)).Elem(), DBProxyTagFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTagFormatArrayInput)(nil)).Elem(), DBProxyTagFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupConnectionPoolConfigurationInfoFormatInput)(nil)).Elem(), DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput)(nil)).Elem(), DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBSecurityGroupIngressTypeInput)(nil)).Elem(), DBSecurityGroupIngressTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBSecurityGroupIngressTypeArrayInput)(nil)).Elem(), DBSecurityGroupIngressTypeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBSecurityGroupTagInput)(nil)).Elem(), DBSecurityGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBSecurityGroupTagArrayInput)(nil)).Elem(), DBSecurityGroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBSubnetGroupTagInput)(nil)).Elem(), DBSubnetGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DBSubnetGroupTagArrayInput)(nil)).Elem(), DBSubnetGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDbEngineVersionTagInput)(nil)).Elem(), CustomDbEngineVersionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDbEngineVersionTagArrayInput)(nil)).Elem(), CustomDbEngineVersionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterDbClusterRoleInput)(nil)).Elem(), DbClusterDbClusterRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterDbClusterRoleArrayInput)(nil)).Elem(), DbClusterDbClusterRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterMasterUserSecretInput)(nil)).Elem(), DbClusterMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterMasterUserSecretPtrInput)(nil)).Elem(), DbClusterMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterParameterGroupTagInput)(nil)).Elem(), DbClusterParameterGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterParameterGroupTagArrayInput)(nil)).Elem(), DbClusterParameterGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterReadEndpointInput)(nil)).Elem(), DbClusterReadEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterReadEndpointPtrInput)(nil)).Elem(), DbClusterReadEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterScalingConfigurationInput)(nil)).Elem(), DbClusterScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterScalingConfigurationPtrInput)(nil)).Elem(), DbClusterScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterServerlessV2ScalingConfigurationInput)(nil)).Elem(), DbClusterServerlessV2ScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterServerlessV2ScalingConfigurationPtrInput)(nil)).Elem(), DbClusterServerlessV2ScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterTagInput)(nil)).Elem(), DbClusterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterTagArrayInput)(nil)).Elem(), DbClusterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceCertificateDetailsInput)(nil)).Elem(), DbInstanceCertificateDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceCertificateDetailsPtrInput)(nil)).Elem(), DbInstanceCertificateDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceDbInstanceRoleInput)(nil)).Elem(), DbInstanceDbInstanceRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceDbInstanceRoleArrayInput)(nil)).Elem(), DbInstanceDbInstanceRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceEndpointInput)(nil)).Elem(), DbInstanceEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceEndpointPtrInput)(nil)).Elem(), DbInstanceEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceMasterUserSecretInput)(nil)).Elem(), DbInstanceMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceMasterUserSecretPtrInput)(nil)).Elem(), DbInstanceMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceProcessorFeatureInput)(nil)).Elem(), DbInstanceProcessorFeatureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceProcessorFeatureArrayInput)(nil)).Elem(), DbInstanceProcessorFeatureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceTagInput)(nil)).Elem(), DbInstanceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceTagArrayInput)(nil)).Elem(), DbInstanceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbParameterGroupTagInput)(nil)).Elem(), DbParameterGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbParameterGroupTagArrayInput)(nil)).Elem(), DbParameterGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatInput)(nil)).Elem(), DbProxyAuthFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatArrayInput)(nil)).Elem(), DbProxyAuthFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEndpointTagFormatInput)(nil)).Elem(), DbProxyEndpointTagFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEndpointTagFormatArrayInput)(nil)).Elem(), DbProxyEndpointTagFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTagFormatInput)(nil)).Elem(), DbProxyTagFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTagFormatArrayInput)(nil)).Elem(), DbProxyTagFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetGroupConnectionPoolConfigurationInfoFormatInput)(nil)).Elem(), DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput)(nil)).Elem(), DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbSecurityGroupIngressTypeInput)(nil)).Elem(), DbSecurityGroupIngressTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbSecurityGroupIngressTypeArrayInput)(nil)).Elem(), DbSecurityGroupIngressTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbSecurityGroupTagInput)(nil)).Elem(), DbSecurityGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbSecurityGroupTagArrayInput)(nil)).Elem(), DbSecurityGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbSubnetGroupTagInput)(nil)).Elem(), DbSubnetGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbSubnetGroupTagArrayInput)(nil)).Elem(), DbSubnetGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagInput)(nil)).Elem(), EventSubscriptionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagArrayInput)(nil)).Elem(), EventSubscriptionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionConfigurationInput)(nil)).Elem(), OptionGroupOptionConfigurationArgs{})
@@ -3568,52 +3568,52 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionSettingArrayInput)(nil)).Elem(), OptionGroupOptionSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupTagInput)(nil)).Elem(), OptionGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupTagArrayInput)(nil)).Elem(), OptionGroupTagArray{})
-	pulumi.RegisterOutputType(CustomDBEngineVersionTagOutput{})
-	pulumi.RegisterOutputType(CustomDBEngineVersionTagArrayOutput{})
-	pulumi.RegisterOutputType(DBClusterEndpointOutput{})
-	pulumi.RegisterOutputType(DBClusterEndpointPtrOutput{})
-	pulumi.RegisterOutputType(DBClusterMasterUserSecretOutput{})
-	pulumi.RegisterOutputType(DBClusterMasterUserSecretPtrOutput{})
-	pulumi.RegisterOutputType(DBClusterParameterGroupTagOutput{})
-	pulumi.RegisterOutputType(DBClusterParameterGroupTagArrayOutput{})
-	pulumi.RegisterOutputType(DBClusterReadEndpointOutput{})
-	pulumi.RegisterOutputType(DBClusterReadEndpointPtrOutput{})
-	pulumi.RegisterOutputType(DBClusterRoleOutput{})
-	pulumi.RegisterOutputType(DBClusterRoleArrayOutput{})
-	pulumi.RegisterOutputType(DBClusterScalingConfigurationOutput{})
-	pulumi.RegisterOutputType(DBClusterScalingConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DBClusterServerlessV2ScalingConfigurationOutput{})
-	pulumi.RegisterOutputType(DBClusterServerlessV2ScalingConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DBClusterTagOutput{})
-	pulumi.RegisterOutputType(DBClusterTagArrayOutput{})
-	pulumi.RegisterOutputType(DBInstanceCertificateDetailsOutput{})
-	pulumi.RegisterOutputType(DBInstanceCertificateDetailsPtrOutput{})
-	pulumi.RegisterOutputType(DBInstanceEndpointOutput{})
-	pulumi.RegisterOutputType(DBInstanceEndpointPtrOutput{})
-	pulumi.RegisterOutputType(DBInstanceMasterUserSecretOutput{})
-	pulumi.RegisterOutputType(DBInstanceMasterUserSecretPtrOutput{})
-	pulumi.RegisterOutputType(DBInstanceProcessorFeatureOutput{})
-	pulumi.RegisterOutputType(DBInstanceProcessorFeatureArrayOutput{})
-	pulumi.RegisterOutputType(DBInstanceRoleOutput{})
-	pulumi.RegisterOutputType(DBInstanceRoleArrayOutput{})
-	pulumi.RegisterOutputType(DBInstanceTagOutput{})
-	pulumi.RegisterOutputType(DBInstanceTagArrayOutput{})
-	pulumi.RegisterOutputType(DBParameterGroupTagOutput{})
-	pulumi.RegisterOutputType(DBParameterGroupTagArrayOutput{})
-	pulumi.RegisterOutputType(DBProxyAuthFormatOutput{})
-	pulumi.RegisterOutputType(DBProxyAuthFormatArrayOutput{})
-	pulumi.RegisterOutputType(DBProxyEndpointTagFormatOutput{})
-	pulumi.RegisterOutputType(DBProxyEndpointTagFormatArrayOutput{})
-	pulumi.RegisterOutputType(DBProxyTagFormatOutput{})
-	pulumi.RegisterOutputType(DBProxyTagFormatArrayOutput{})
-	pulumi.RegisterOutputType(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput{})
-	pulumi.RegisterOutputType(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput{})
-	pulumi.RegisterOutputType(DBSecurityGroupIngressTypeOutput{})
-	pulumi.RegisterOutputType(DBSecurityGroupIngressTypeArrayOutput{})
-	pulumi.RegisterOutputType(DBSecurityGroupTagOutput{})
-	pulumi.RegisterOutputType(DBSecurityGroupTagArrayOutput{})
-	pulumi.RegisterOutputType(DBSubnetGroupTagOutput{})
-	pulumi.RegisterOutputType(DBSubnetGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(CustomDbEngineVersionTagOutput{})
+	pulumi.RegisterOutputType(CustomDbEngineVersionTagArrayOutput{})
+	pulumi.RegisterOutputType(DbClusterDbClusterRoleOutput{})
+	pulumi.RegisterOutputType(DbClusterDbClusterRoleArrayOutput{})
+	pulumi.RegisterOutputType(DbClusterEndpointOutput{})
+	pulumi.RegisterOutputType(DbClusterEndpointPtrOutput{})
+	pulumi.RegisterOutputType(DbClusterMasterUserSecretOutput{})
+	pulumi.RegisterOutputType(DbClusterMasterUserSecretPtrOutput{})
+	pulumi.RegisterOutputType(DbClusterParameterGroupTagOutput{})
+	pulumi.RegisterOutputType(DbClusterParameterGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(DbClusterReadEndpointOutput{})
+	pulumi.RegisterOutputType(DbClusterReadEndpointPtrOutput{})
+	pulumi.RegisterOutputType(DbClusterScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(DbClusterScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DbClusterServerlessV2ScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(DbClusterServerlessV2ScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DbClusterTagOutput{})
+	pulumi.RegisterOutputType(DbClusterTagArrayOutput{})
+	pulumi.RegisterOutputType(DbInstanceCertificateDetailsOutput{})
+	pulumi.RegisterOutputType(DbInstanceCertificateDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DbInstanceDbInstanceRoleOutput{})
+	pulumi.RegisterOutputType(DbInstanceDbInstanceRoleArrayOutput{})
+	pulumi.RegisterOutputType(DbInstanceEndpointOutput{})
+	pulumi.RegisterOutputType(DbInstanceEndpointPtrOutput{})
+	pulumi.RegisterOutputType(DbInstanceMasterUserSecretOutput{})
+	pulumi.RegisterOutputType(DbInstanceMasterUserSecretPtrOutput{})
+	pulumi.RegisterOutputType(DbInstanceProcessorFeatureOutput{})
+	pulumi.RegisterOutputType(DbInstanceProcessorFeatureArrayOutput{})
+	pulumi.RegisterOutputType(DbInstanceTagOutput{})
+	pulumi.RegisterOutputType(DbInstanceTagArrayOutput{})
+	pulumi.RegisterOutputType(DbParameterGroupTagOutput{})
+	pulumi.RegisterOutputType(DbParameterGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(DbProxyAuthFormatOutput{})
+	pulumi.RegisterOutputType(DbProxyAuthFormatArrayOutput{})
+	pulumi.RegisterOutputType(DbProxyEndpointTagFormatOutput{})
+	pulumi.RegisterOutputType(DbProxyEndpointTagFormatArrayOutput{})
+	pulumi.RegisterOutputType(DbProxyTagFormatOutput{})
+	pulumi.RegisterOutputType(DbProxyTagFormatArrayOutput{})
+	pulumi.RegisterOutputType(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput{})
+	pulumi.RegisterOutputType(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput{})
+	pulumi.RegisterOutputType(DbSecurityGroupIngressTypeOutput{})
+	pulumi.RegisterOutputType(DbSecurityGroupIngressTypeArrayOutput{})
+	pulumi.RegisterOutputType(DbSecurityGroupTagOutput{})
+	pulumi.RegisterOutputType(DbSecurityGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(DbSubnetGroupTagOutput{})
+	pulumi.RegisterOutputType(DbSubnetGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionTagOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionTagArrayOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationOutput{})

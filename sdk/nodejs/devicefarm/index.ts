@@ -35,10 +35,10 @@ export const getTestGridProject: typeof import("./getTestGridProject").getTestGr
 export const getTestGridProjectOutput: typeof import("./getTestGridProject").getTestGridProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getTestGridProject","getTestGridProjectOutput"], () => require("./getTestGridProject"));
 
-export { GetVPCEConfigurationArgs, GetVPCEConfigurationResult, GetVPCEConfigurationOutputArgs } from "./getVPCEConfiguration";
-export const getVPCEConfiguration: typeof import("./getVPCEConfiguration").getVPCEConfiguration = null as any;
-export const getVPCEConfigurationOutput: typeof import("./getVPCEConfiguration").getVPCEConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["getVPCEConfiguration","getVPCEConfigurationOutput"], () => require("./getVPCEConfiguration"));
+export { GetVpceConfigurationArgs, GetVpceConfigurationResult, GetVpceConfigurationOutputArgs } from "./getVpceConfiguration";
+export const getVpceConfiguration: typeof import("./getVpceConfiguration").getVpceConfiguration = null as any;
+export const getVpceConfigurationOutput: typeof import("./getVpceConfiguration").getVpceConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getVpceConfiguration","getVpceConfigurationOutput"], () => require("./getVpceConfiguration"));
 
 export { InstanceProfileArgs } from "./instanceProfile";
 export type InstanceProfile = import("./instanceProfile").InstanceProfile;
@@ -60,10 +60,10 @@ export type TestGridProject = import("./testGridProject").TestGridProject;
 export const TestGridProject: typeof import("./testGridProject").TestGridProject = null as any;
 utilities.lazyLoad(exports, ["TestGridProject"], () => require("./testGridProject"));
 
-export { VPCEConfigurationArgs } from "./vpceconfiguration";
-export type VPCEConfiguration = import("./vpceconfiguration").VPCEConfiguration;
-export const VPCEConfiguration: typeof import("./vpceconfiguration").VPCEConfiguration = null as any;
-utilities.lazyLoad(exports, ["VPCEConfiguration"], () => require("./vpceconfiguration"));
+export { VpceConfigurationArgs } from "./vpceConfiguration";
+export type VpceConfiguration = import("./vpceConfiguration").VpceConfiguration;
+export const VpceConfiguration: typeof import("./vpceConfiguration").VpceConfiguration = null as any;
+utilities.lazyLoad(exports, ["VpceConfiguration"], () => require("./vpceConfiguration"));
 
 
 // Export enums:
@@ -83,8 +83,8 @@ const _module = {
                 return new Project(name, <any>undefined, { urn })
             case "aws-native:devicefarm:TestGridProject":
                 return new TestGridProject(name, <any>undefined, { urn })
-            case "aws-native:devicefarm:VPCEConfiguration":
-                return new VPCEConfiguration(name, <any>undefined, { urn })
+            case "aws-native:devicefarm:VpceConfiguration":
+                return new VpceConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

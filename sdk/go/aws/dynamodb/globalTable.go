@@ -23,7 +23,7 @@ type GlobalTable struct {
 	KeySchema                          GlobalTableKeySchemaArrayOutput                        `pulumi:"keySchema"`
 	LocalSecondaryIndexes              GlobalTableLocalSecondaryIndexArrayOutput              `pulumi:"localSecondaryIndexes"`
 	Replicas                           GlobalTableReplicaSpecificationArrayOutput             `pulumi:"replicas"`
-	SseSpecification                   GlobalTableSSESpecificationPtrOutput                   `pulumi:"sseSpecification"`
+	SseSpecification                   GlobalTableSseSpecificationPtrOutput                   `pulumi:"sseSpecification"`
 	StreamArn                          pulumi.StringOutput                                    `pulumi:"streamArn"`
 	StreamSpecification                GlobalTableStreamSpecificationPtrOutput                `pulumi:"streamSpecification"`
 	TableId                            pulumi.StringOutput                                    `pulumi:"tableId"`
@@ -87,7 +87,7 @@ type globalTableArgs struct {
 	KeySchema                          []GlobalTableKeySchema                         `pulumi:"keySchema"`
 	LocalSecondaryIndexes              []GlobalTableLocalSecondaryIndex               `pulumi:"localSecondaryIndexes"`
 	Replicas                           []GlobalTableReplicaSpecification              `pulumi:"replicas"`
-	SseSpecification                   *GlobalTableSSESpecification                   `pulumi:"sseSpecification"`
+	SseSpecification                   *GlobalTableSseSpecification                   `pulumi:"sseSpecification"`
 	StreamSpecification                *GlobalTableStreamSpecification                `pulumi:"streamSpecification"`
 	TableName                          *string                                        `pulumi:"tableName"`
 	TimeToLiveSpecification            *GlobalTableTimeToLiveSpecification            `pulumi:"timeToLiveSpecification"`
@@ -102,7 +102,7 @@ type GlobalTableArgs struct {
 	KeySchema                          GlobalTableKeySchemaArrayInput
 	LocalSecondaryIndexes              GlobalTableLocalSecondaryIndexArrayInput
 	Replicas                           GlobalTableReplicaSpecificationArrayInput
-	SseSpecification                   GlobalTableSSESpecificationPtrInput
+	SseSpecification                   GlobalTableSseSpecificationPtrInput
 	StreamSpecification                GlobalTableStreamSpecificationPtrInput
 	TableName                          pulumi.StringPtrInput
 	TimeToLiveSpecification            GlobalTableTimeToLiveSpecificationPtrInput
@@ -174,8 +174,8 @@ func (o GlobalTableOutput) Replicas() GlobalTableReplicaSpecificationArrayOutput
 	return o.ApplyT(func(v *GlobalTable) GlobalTableReplicaSpecificationArrayOutput { return v.Replicas }).(GlobalTableReplicaSpecificationArrayOutput)
 }
 
-func (o GlobalTableOutput) SseSpecification() GlobalTableSSESpecificationPtrOutput {
-	return o.ApplyT(func(v *GlobalTable) GlobalTableSSESpecificationPtrOutput { return v.SseSpecification }).(GlobalTableSSESpecificationPtrOutput)
+func (o GlobalTableOutput) SseSpecification() GlobalTableSseSpecificationPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableSseSpecificationPtrOutput { return v.SseSpecification }).(GlobalTableSseSpecificationPtrOutput)
 }
 
 func (o GlobalTableOutput) StreamArn() pulumi.StringOutput {

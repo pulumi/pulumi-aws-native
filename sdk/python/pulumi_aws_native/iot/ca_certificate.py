@@ -12,22 +12,22 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['CACertificateArgs', 'CACertificate']
+__all__ = ['CaCertificateArgs', 'CaCertificate']
 
 @pulumi.input_type
-class CACertificateArgs:
+class CaCertificateArgs:
     def __init__(__self__, *,
                  ca_certificate_pem: pulumi.Input[str],
-                 status: pulumi.Input['CACertificateStatus'],
-                 auto_registration_status: Optional[pulumi.Input['CACertificateAutoRegistrationStatus']] = None,
-                 certificate_mode: Optional[pulumi.Input['CACertificateCertificateMode']] = None,
-                 registration_config: Optional[pulumi.Input['CACertificateRegistrationConfigArgs']] = None,
+                 status: pulumi.Input['CaCertificateStatus'],
+                 auto_registration_status: Optional[pulumi.Input['CaCertificateAutoRegistrationStatus']] = None,
+                 certificate_mode: Optional[pulumi.Input['CaCertificateCertificateMode']] = None,
+                 registration_config: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']] = None,
                  remove_auto_registration: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CACertificateTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CaCertificateTagArgs']]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a CACertificate resource.
-        :param pulumi.Input[Sequence[pulumi.Input['CACertificateTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        The set of arguments for constructing a CaCertificate resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CaCertificateTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] verification_certificate_pem: The private key verification certificate.
         """
         pulumi.set(__self__, "ca_certificate_pem", ca_certificate_pem)
@@ -56,38 +56,38 @@ class CACertificateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input['CACertificateStatus']:
+    def status(self) -> pulumi.Input['CaCertificateStatus']:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input['CACertificateStatus']):
+    def status(self, value: pulumi.Input['CaCertificateStatus']):
         pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter(name="autoRegistrationStatus")
-    def auto_registration_status(self) -> Optional[pulumi.Input['CACertificateAutoRegistrationStatus']]:
+    def auto_registration_status(self) -> Optional[pulumi.Input['CaCertificateAutoRegistrationStatus']]:
         return pulumi.get(self, "auto_registration_status")
 
     @auto_registration_status.setter
-    def auto_registration_status(self, value: Optional[pulumi.Input['CACertificateAutoRegistrationStatus']]):
+    def auto_registration_status(self, value: Optional[pulumi.Input['CaCertificateAutoRegistrationStatus']]):
         pulumi.set(self, "auto_registration_status", value)
 
     @property
     @pulumi.getter(name="certificateMode")
-    def certificate_mode(self) -> Optional[pulumi.Input['CACertificateCertificateMode']]:
+    def certificate_mode(self) -> Optional[pulumi.Input['CaCertificateCertificateMode']]:
         return pulumi.get(self, "certificate_mode")
 
     @certificate_mode.setter
-    def certificate_mode(self, value: Optional[pulumi.Input['CACertificateCertificateMode']]):
+    def certificate_mode(self, value: Optional[pulumi.Input['CaCertificateCertificateMode']]):
         pulumi.set(self, "certificate_mode", value)
 
     @property
     @pulumi.getter(name="registrationConfig")
-    def registration_config(self) -> Optional[pulumi.Input['CACertificateRegistrationConfigArgs']]:
+    def registration_config(self) -> Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]:
         return pulumi.get(self, "registration_config")
 
     @registration_config.setter
-    def registration_config(self, value: Optional[pulumi.Input['CACertificateRegistrationConfigArgs']]):
+    def registration_config(self, value: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]):
         pulumi.set(self, "registration_config", value)
 
     @property
@@ -101,14 +101,14 @@ class CACertificateArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CACertificateTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CaCertificateTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CACertificateTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CaCertificateTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -124,18 +124,18 @@ class CACertificateArgs:
         pulumi.set(self, "verification_certificate_pem", value)
 
 
-class CACertificate(pulumi.CustomResource):
+class CaCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_registration_status: Optional[pulumi.Input['CACertificateAutoRegistrationStatus']] = None,
+                 auto_registration_status: Optional[pulumi.Input['CaCertificateAutoRegistrationStatus']] = None,
                  ca_certificate_pem: Optional[pulumi.Input[str]] = None,
-                 certificate_mode: Optional[pulumi.Input['CACertificateCertificateMode']] = None,
-                 registration_config: Optional[pulumi.Input[pulumi.InputType['CACertificateRegistrationConfigArgs']]] = None,
+                 certificate_mode: Optional[pulumi.Input['CaCertificateCertificateMode']] = None,
+                 registration_config: Optional[pulumi.Input[pulumi.InputType['CaCertificateRegistrationConfigArgs']]] = None,
                  remove_auto_registration: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input['CACertificateStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CACertificateTagArgs']]]]] = None,
+                 status: Optional[pulumi.Input['CaCertificateStatus']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CaCertificateTagArgs']]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -143,25 +143,25 @@ class CACertificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CACertificateTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CaCertificateTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] verification_certificate_pem: The private key verification certificate.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CACertificateArgs,
+                 args: CaCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registers a CA Certificate in IoT.
 
         :param str resource_name: The name of the resource.
-        :param CACertificateArgs args: The arguments to use to populate this resource's properties.
+        :param CaCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CACertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CaCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -170,13 +170,13 @@ class CACertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_registration_status: Optional[pulumi.Input['CACertificateAutoRegistrationStatus']] = None,
+                 auto_registration_status: Optional[pulumi.Input['CaCertificateAutoRegistrationStatus']] = None,
                  ca_certificate_pem: Optional[pulumi.Input[str]] = None,
-                 certificate_mode: Optional[pulumi.Input['CACertificateCertificateMode']] = None,
-                 registration_config: Optional[pulumi.Input[pulumi.InputType['CACertificateRegistrationConfigArgs']]] = None,
+                 certificate_mode: Optional[pulumi.Input['CaCertificateCertificateMode']] = None,
+                 registration_config: Optional[pulumi.Input[pulumi.InputType['CaCertificateRegistrationConfigArgs']]] = None,
                  remove_auto_registration: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input['CACertificateStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CACertificateTagArgs']]]]] = None,
+                 status: Optional[pulumi.Input['CaCertificateStatus']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CaCertificateTagArgs']]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -185,7 +185,7 @@ class CACertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CACertificateArgs.__new__(CACertificateArgs)
+            __props__ = CaCertificateArgs.__new__(CaCertificateArgs)
 
             __props__.__dict__["auto_registration_status"] = auto_registration_status
             if ca_certificate_pem is None and not opts.urn:
@@ -200,8 +200,8 @@ class CACertificate(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["verification_certificate_pem"] = verification_certificate_pem
             __props__.__dict__["arn"] = None
-        super(CACertificate, __self__).__init__(
-            'aws-native:iot:CACertificate',
+        super(CaCertificate, __self__).__init__(
+            'aws-native:iot:CaCertificate',
             resource_name,
             __props__,
             opts)
@@ -209,9 +209,9 @@ class CACertificate(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'CACertificate':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'CaCertificate':
         """
-        Get an existing CACertificate resource's state with the given name, id, and optional extra
+        Get an existing CaCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -220,7 +220,7 @@ class CACertificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = CACertificateArgs.__new__(CACertificateArgs)
+        __props__ = CaCertificateArgs.__new__(CaCertificateArgs)
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_registration_status"] = None
@@ -231,7 +231,7 @@ class CACertificate(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["verification_certificate_pem"] = None
-        return CACertificate(resource_name, opts=opts, __props__=__props__)
+        return CaCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -240,7 +240,7 @@ class CACertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoRegistrationStatus")
-    def auto_registration_status(self) -> pulumi.Output[Optional['CACertificateAutoRegistrationStatus']]:
+    def auto_registration_status(self) -> pulumi.Output[Optional['CaCertificateAutoRegistrationStatus']]:
         return pulumi.get(self, "auto_registration_status")
 
     @property
@@ -250,12 +250,12 @@ class CACertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateMode")
-    def certificate_mode(self) -> pulumi.Output[Optional['CACertificateCertificateMode']]:
+    def certificate_mode(self) -> pulumi.Output[Optional['CaCertificateCertificateMode']]:
         return pulumi.get(self, "certificate_mode")
 
     @property
     @pulumi.getter(name="registrationConfig")
-    def registration_config(self) -> pulumi.Output[Optional['outputs.CACertificateRegistrationConfig']]:
+    def registration_config(self) -> pulumi.Output[Optional['outputs.CaCertificateRegistrationConfig']]:
         return pulumi.get(self, "registration_config")
 
     @property
@@ -265,12 +265,12 @@ class CACertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output['CACertificateStatus']:
+    def status(self) -> pulumi.Output['CaCertificateStatus']:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CACertificateTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CaCertificateTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

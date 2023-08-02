@@ -70,7 +70,6 @@ __all__ = [
     'BotResponseSpecification',
     'BotS3BucketLogDestination',
     'BotS3Location',
-    'BotSSMLMessage',
     'BotSampleUtterance',
     'BotSampleValue',
     'BotSessionAttribute',
@@ -87,6 +86,7 @@ __all__ = [
     'BotSlotValueOverrideMap',
     'BotSlotValueRegexFilter',
     'BotSlotValueSelectionSetting',
+    'BotSsmlMessage',
     'BotStillWaitingResponseSpecification',
     'BotTag',
     'BotTestBotAliasSettings',
@@ -2700,7 +2700,7 @@ class BotMessage(dict):
                  custom_payload: Optional['outputs.BotCustomPayload'] = None,
                  image_response_card: Optional['outputs.BotImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.BotPlainTextMessage'] = None,
-                 ssml_message: Optional['outputs.BotSSMLMessage'] = None):
+                 ssml_message: Optional['outputs.BotSsmlMessage'] = None):
         """
         The primary message that Amazon Lex should send to the user.
         """
@@ -2730,7 +2730,7 @@ class BotMessage(dict):
 
     @property
     @pulumi.getter(name="ssmlMessage")
-    def ssml_message(self) -> Optional['outputs.BotSSMLMessage']:
+    def ssml_message(self) -> Optional['outputs.BotSsmlMessage']:
         return pulumi.get(self, "ssml_message")
 
 
@@ -3477,28 +3477,6 @@ class BotS3Location(dict):
         For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
         """
         return pulumi.get(self, "s3_object_version")
-
-
-@pulumi.output_type
-class BotSSMLMessage(dict):
-    """
-    A message in Speech Synthesis Markup Language (SSML).
-    """
-    def __init__(__self__, *,
-                 value: str):
-        """
-        A message in Speech Synthesis Markup Language (SSML).
-        :param str value: The SSML text that defines the prompt.
-        """
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The SSML text that defines the prompt.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -4349,6 +4327,28 @@ class BotSlotValueSelectionSetting(dict):
     @pulumi.getter(name="regexFilter")
     def regex_filter(self) -> Optional['outputs.BotSlotValueRegexFilter']:
         return pulumi.get(self, "regex_filter")
+
+
+@pulumi.output_type
+class BotSsmlMessage(dict):
+    """
+    A message in Speech Synthesis Markup Language (SSML).
+    """
+    def __init__(__self__, *,
+                 value: str):
+        """
+        A message in Speech Synthesis Markup Language (SSML).
+        :param str value: The SSML text that defines the prompt.
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The SSML text that defines the prompt.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

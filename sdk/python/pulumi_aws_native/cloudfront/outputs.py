@@ -79,7 +79,7 @@ __all__ = [
     'ResponseHeadersPolicySecurityHeadersConfig',
     'ResponseHeadersPolicyServerTimingHeadersConfig',
     'ResponseHeadersPolicyStrictTransportSecurity',
-    'ResponseHeadersPolicyXSSProtection',
+    'ResponseHeadersPolicyXssProtection',
     'StreamingDistributionConfig',
     'StreamingDistributionLogging',
     'StreamingDistributionS3Origin',
@@ -3112,7 +3112,7 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
                  frame_options: Optional['outputs.ResponseHeadersPolicyFrameOptions'] = None,
                  referrer_policy: Optional['outputs.ResponseHeadersPolicyReferrerPolicy'] = None,
                  strict_transport_security: Optional['outputs.ResponseHeadersPolicyStrictTransportSecurity'] = None,
-                 xss_protection: Optional['outputs.ResponseHeadersPolicyXSSProtection'] = None):
+                 xss_protection: Optional['outputs.ResponseHeadersPolicyXssProtection'] = None):
         if content_security_policy is not None:
             pulumi.set(__self__, "content_security_policy", content_security_policy)
         if content_type_options is not None:
@@ -3153,7 +3153,7 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
 
     @property
     @pulumi.getter(name="xssProtection")
-    def xss_protection(self) -> Optional['outputs.ResponseHeadersPolicyXSSProtection']:
+    def xss_protection(self) -> Optional['outputs.ResponseHeadersPolicyXssProtection']:
         return pulumi.get(self, "xss_protection")
 
 
@@ -3249,7 +3249,7 @@ class ResponseHeadersPolicyStrictTransportSecurity(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyXSSProtection(dict):
+class ResponseHeadersPolicyXssProtection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3259,14 +3259,14 @@ class ResponseHeadersPolicyXSSProtection(dict):
             suggest = "report_uri"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyXSSProtection. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyXssProtection. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResponseHeadersPolicyXSSProtection.__key_warning(key)
+        ResponseHeadersPolicyXssProtection.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResponseHeadersPolicyXSSProtection.__key_warning(key)
+        ResponseHeadersPolicyXssProtection.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

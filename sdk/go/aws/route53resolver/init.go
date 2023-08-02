@@ -29,8 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallRuleGroupAssociation{}
 	case "aws-native:route53resolver:ResolverConfig":
 		r = &ResolverConfig{}
-	case "aws-native:route53resolver:ResolverDNSSECConfig":
-		r = &ResolverDNSSECConfig{}
+	case "aws-native:route53resolver:ResolverDnssecConfig":
+		r = &ResolverDnssecConfig{}
 	case "aws-native:route53resolver:ResolverEndpoint":
 		r = &ResolverEndpoint{}
 	case "aws-native:route53resolver:ResolverQueryLoggingConfig":

@@ -11,27 +11,27 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VPNConnectionArgs', 'VPNConnection']
+__all__ = ['VpnConnectionArgs', 'VpnConnection']
 
 @pulumi.input_type
-class VPNConnectionArgs:
+class VpnConnectionArgs:
     def __init__(__self__, *,
                  customer_gateway_id: pulumi.Input[str],
                  type: pulumi.Input[str],
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VPNConnectionTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionTagArgs']]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-                 vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['VPNConnectionVpnTunnelOptionsSpecificationArgs']]]] = None):
+                 vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] = None):
         """
-        The set of arguments for constructing a VPNConnection resource.
+        The set of arguments for constructing a VpnConnection resource.
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway at your end of the VPN connection.
         :param pulumi.Input[str] type: The type of VPN connection.
         :param pulumi.Input[bool] static_routes_only: Indicates whether the VPN connection uses static routes only.
-        :param pulumi.Input[Sequence[pulumi.Input['VPNConnectionTagArgs']]] tags: Any tags assigned to the VPN connection.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionTagArgs']]] tags: Any tags assigned to the VPN connection.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway associated with the VPN connection.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
-        :param pulumi.Input[Sequence[pulumi.Input['VPNConnectionVpnTunnelOptionsSpecificationArgs']]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
         """
         pulumi.set(__self__, "customer_gateway_id", customer_gateway_id)
         pulumi.set(__self__, "type", type)
@@ -84,14 +84,14 @@ class VPNConnectionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VPNConnectionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionTagArgs']]]]:
         """
         Any tags assigned to the VPN connection.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VPNConnectionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -120,29 +120,29 @@ class VPNConnectionArgs:
 
     @property
     @pulumi.getter(name="vpnTunnelOptionsSpecifications")
-    def vpn_tunnel_options_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VPNConnectionVpnTunnelOptionsSpecificationArgs']]]]:
+    def vpn_tunnel_options_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]]:
         """
         The tunnel options for the VPN connection.
         """
         return pulumi.get(self, "vpn_tunnel_options_specifications")
 
     @vpn_tunnel_options_specifications.setter
-    def vpn_tunnel_options_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VPNConnectionVpnTunnelOptionsSpecificationArgs']]]]):
+    def vpn_tunnel_options_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]]):
         pulumi.set(self, "vpn_tunnel_options_specifications", value)
 
 
-class VPNConnection(pulumi.CustomResource):
+class VpnConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_gateway_id: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNConnectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionTagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-                 vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNConnectionVpnTunnelOptionsSpecificationArgs']]]]] = None,
+                 vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPNConnection
@@ -151,28 +151,28 @@ class VPNConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway at your end of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Indicates whether the VPN connection uses static routes only.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNConnectionTagArgs']]]] tags: Any tags assigned to the VPN connection.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionTagArgs']]]] tags: Any tags assigned to the VPN connection.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway associated with the VPN connection.
         :param pulumi.Input[str] type: The type of VPN connection.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNConnectionVpnTunnelOptionsSpecificationArgs']]]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPNConnectionArgs,
+                 args: VpnConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPNConnection
 
         :param str resource_name: The name of the resource.
-        :param VPNConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param VpnConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPNConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpnConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -183,11 +183,11 @@ class VPNConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_gateway_id: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNConnectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionTagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-                 vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNConnectionVpnTunnelOptionsSpecificationArgs']]]]] = None,
+                 vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -195,7 +195,7 @@ class VPNConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPNConnectionArgs.__new__(VPNConnectionArgs)
+            __props__ = VpnConnectionArgs.__new__(VpnConnectionArgs)
 
             if customer_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'customer_gateway_id'")
@@ -209,8 +209,8 @@ class VPNConnection(pulumi.CustomResource):
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
             __props__.__dict__["vpn_tunnel_options_specifications"] = vpn_tunnel_options_specifications
             __props__.__dict__["vpn_connection_id"] = None
-        super(VPNConnection, __self__).__init__(
-            'aws-native:ec2:VPNConnection',
+        super(VpnConnection, __self__).__init__(
+            'aws-native:ec2:VpnConnection',
             resource_name,
             __props__,
             opts)
@@ -218,9 +218,9 @@ class VPNConnection(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPNConnection':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpnConnection':
         """
-        Get an existing VPNConnection resource's state with the given name, id, and optional extra
+        Get an existing VpnConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -229,7 +229,7 @@ class VPNConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPNConnectionArgs.__new__(VPNConnectionArgs)
+        __props__ = VpnConnectionArgs.__new__(VpnConnectionArgs)
 
         __props__.__dict__["customer_gateway_id"] = None
         __props__.__dict__["static_routes_only"] = None
@@ -239,7 +239,7 @@ class VPNConnection(pulumi.CustomResource):
         __props__.__dict__["vpn_connection_id"] = None
         __props__.__dict__["vpn_gateway_id"] = None
         __props__.__dict__["vpn_tunnel_options_specifications"] = None
-        return VPNConnection(resource_name, opts=opts, __props__=__props__)
+        return VpnConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="customerGatewayId")
@@ -259,7 +259,7 @@ class VPNConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VPNConnectionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VpnConnectionTag']]]:
         """
         Any tags assigned to the VPN connection.
         """
@@ -299,7 +299,7 @@ class VPNConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnTunnelOptionsSpecifications")
-    def vpn_tunnel_options_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.VPNConnectionVpnTunnelOptionsSpecification']]]:
+    def vpn_tunnel_options_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.VpnConnectionVpnTunnelOptionsSpecification']]]:
         """
         The tunnel options for the VPN connection.
         """

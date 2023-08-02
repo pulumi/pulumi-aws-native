@@ -6471,7 +6471,7 @@ type BotMessage struct {
 	CustomPayload     *BotCustomPayload     `pulumi:"customPayload"`
 	ImageResponseCard *BotImageResponseCard `pulumi:"imageResponseCard"`
 	PlainTextMessage  *BotPlainTextMessage  `pulumi:"plainTextMessage"`
-	SsmlMessage       *BotSSMLMessage       `pulumi:"ssmlMessage"`
+	SsmlMessage       *BotSsmlMessage       `pulumi:"ssmlMessage"`
 }
 
 // BotMessageInput is an input type that accepts BotMessageArgs and BotMessageOutput values.
@@ -6490,7 +6490,7 @@ type BotMessageArgs struct {
 	CustomPayload     BotCustomPayloadPtrInput     `pulumi:"customPayload"`
 	ImageResponseCard BotImageResponseCardPtrInput `pulumi:"imageResponseCard"`
 	PlainTextMessage  BotPlainTextMessagePtrInput  `pulumi:"plainTextMessage"`
-	SsmlMessage       BotSSMLMessagePtrInput       `pulumi:"ssmlMessage"`
+	SsmlMessage       BotSsmlMessagePtrInput       `pulumi:"ssmlMessage"`
 }
 
 func (BotMessageArgs) ElementType() reflect.Type {
@@ -6557,8 +6557,8 @@ func (o BotMessageOutput) PlainTextMessage() BotPlainTextMessagePtrOutput {
 	return o.ApplyT(func(v BotMessage) *BotPlainTextMessage { return v.PlainTextMessage }).(BotPlainTextMessagePtrOutput)
 }
 
-func (o BotMessageOutput) SsmlMessage() BotSSMLMessagePtrOutput {
-	return o.ApplyT(func(v BotMessage) *BotSSMLMessage { return v.SsmlMessage }).(BotSSMLMessagePtrOutput)
+func (o BotMessageOutput) SsmlMessage() BotSsmlMessagePtrOutput {
+	return o.ApplyT(func(v BotMessage) *BotSsmlMessage { return v.SsmlMessage }).(BotSsmlMessagePtrOutput)
 }
 
 type BotMessageArrayOutput struct{ *pulumi.OutputState }
@@ -8423,146 +8423,6 @@ func (o BotS3LocationPtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.S3ObjectVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// A message in Speech Synthesis Markup Language (SSML).
-type BotSSMLMessage struct {
-	// The SSML text that defines the prompt.
-	Value string `pulumi:"value"`
-}
-
-// BotSSMLMessageInput is an input type that accepts BotSSMLMessageArgs and BotSSMLMessageOutput values.
-// You can construct a concrete instance of `BotSSMLMessageInput` via:
-//
-//	BotSSMLMessageArgs{...}
-type BotSSMLMessageInput interface {
-	pulumi.Input
-
-	ToBotSSMLMessageOutput() BotSSMLMessageOutput
-	ToBotSSMLMessageOutputWithContext(context.Context) BotSSMLMessageOutput
-}
-
-// A message in Speech Synthesis Markup Language (SSML).
-type BotSSMLMessageArgs struct {
-	// The SSML text that defines the prompt.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (BotSSMLMessageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotSSMLMessage)(nil)).Elem()
-}
-
-func (i BotSSMLMessageArgs) ToBotSSMLMessageOutput() BotSSMLMessageOutput {
-	return i.ToBotSSMLMessageOutputWithContext(context.Background())
-}
-
-func (i BotSSMLMessageArgs) ToBotSSMLMessageOutputWithContext(ctx context.Context) BotSSMLMessageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotSSMLMessageOutput)
-}
-
-func (i BotSSMLMessageArgs) ToBotSSMLMessagePtrOutput() BotSSMLMessagePtrOutput {
-	return i.ToBotSSMLMessagePtrOutputWithContext(context.Background())
-}
-
-func (i BotSSMLMessageArgs) ToBotSSMLMessagePtrOutputWithContext(ctx context.Context) BotSSMLMessagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotSSMLMessageOutput).ToBotSSMLMessagePtrOutputWithContext(ctx)
-}
-
-// BotSSMLMessagePtrInput is an input type that accepts BotSSMLMessageArgs, BotSSMLMessagePtr and BotSSMLMessagePtrOutput values.
-// You can construct a concrete instance of `BotSSMLMessagePtrInput` via:
-//
-//	        BotSSMLMessageArgs{...}
-//
-//	or:
-//
-//	        nil
-type BotSSMLMessagePtrInput interface {
-	pulumi.Input
-
-	ToBotSSMLMessagePtrOutput() BotSSMLMessagePtrOutput
-	ToBotSSMLMessagePtrOutputWithContext(context.Context) BotSSMLMessagePtrOutput
-}
-
-type botSSMLMessagePtrType BotSSMLMessageArgs
-
-func BotSSMLMessagePtr(v *BotSSMLMessageArgs) BotSSMLMessagePtrInput {
-	return (*botSSMLMessagePtrType)(v)
-}
-
-func (*botSSMLMessagePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotSSMLMessage)(nil)).Elem()
-}
-
-func (i *botSSMLMessagePtrType) ToBotSSMLMessagePtrOutput() BotSSMLMessagePtrOutput {
-	return i.ToBotSSMLMessagePtrOutputWithContext(context.Background())
-}
-
-func (i *botSSMLMessagePtrType) ToBotSSMLMessagePtrOutputWithContext(ctx context.Context) BotSSMLMessagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotSSMLMessagePtrOutput)
-}
-
-// A message in Speech Synthesis Markup Language (SSML).
-type BotSSMLMessageOutput struct{ *pulumi.OutputState }
-
-func (BotSSMLMessageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotSSMLMessage)(nil)).Elem()
-}
-
-func (o BotSSMLMessageOutput) ToBotSSMLMessageOutput() BotSSMLMessageOutput {
-	return o
-}
-
-func (o BotSSMLMessageOutput) ToBotSSMLMessageOutputWithContext(ctx context.Context) BotSSMLMessageOutput {
-	return o
-}
-
-func (o BotSSMLMessageOutput) ToBotSSMLMessagePtrOutput() BotSSMLMessagePtrOutput {
-	return o.ToBotSSMLMessagePtrOutputWithContext(context.Background())
-}
-
-func (o BotSSMLMessageOutput) ToBotSSMLMessagePtrOutputWithContext(ctx context.Context) BotSSMLMessagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotSSMLMessage) *BotSSMLMessage {
-		return &v
-	}).(BotSSMLMessagePtrOutput)
-}
-
-// The SSML text that defines the prompt.
-func (o BotSSMLMessageOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v BotSSMLMessage) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type BotSSMLMessagePtrOutput struct{ *pulumi.OutputState }
-
-func (BotSSMLMessagePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotSSMLMessage)(nil)).Elem()
-}
-
-func (o BotSSMLMessagePtrOutput) ToBotSSMLMessagePtrOutput() BotSSMLMessagePtrOutput {
-	return o
-}
-
-func (o BotSSMLMessagePtrOutput) ToBotSSMLMessagePtrOutputWithContext(ctx context.Context) BotSSMLMessagePtrOutput {
-	return o
-}
-
-func (o BotSSMLMessagePtrOutput) Elem() BotSSMLMessageOutput {
-	return o.ApplyT(func(v *BotSSMLMessage) BotSSMLMessage {
-		if v != nil {
-			return *v
-		}
-		var ret BotSSMLMessage
-		return ret
-	}).(BotSSMLMessageOutput)
-}
-
-// The SSML text that defines the prompt.
-func (o BotSSMLMessagePtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BotSSMLMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10720,6 +10580,146 @@ func (o BotSlotValueSelectionSettingPtrOutput) ResolutionStrategy() BotSlotValue
 	}).(BotSlotValueResolutionStrategyPtrOutput)
 }
 
+// A message in Speech Synthesis Markup Language (SSML).
+type BotSsmlMessage struct {
+	// The SSML text that defines the prompt.
+	Value string `pulumi:"value"`
+}
+
+// BotSsmlMessageInput is an input type that accepts BotSsmlMessageArgs and BotSsmlMessageOutput values.
+// You can construct a concrete instance of `BotSsmlMessageInput` via:
+//
+//	BotSsmlMessageArgs{...}
+type BotSsmlMessageInput interface {
+	pulumi.Input
+
+	ToBotSsmlMessageOutput() BotSsmlMessageOutput
+	ToBotSsmlMessageOutputWithContext(context.Context) BotSsmlMessageOutput
+}
+
+// A message in Speech Synthesis Markup Language (SSML).
+type BotSsmlMessageArgs struct {
+	// The SSML text that defines the prompt.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BotSsmlMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSsmlMessage)(nil)).Elem()
+}
+
+func (i BotSsmlMessageArgs) ToBotSsmlMessageOutput() BotSsmlMessageOutput {
+	return i.ToBotSsmlMessageOutputWithContext(context.Background())
+}
+
+func (i BotSsmlMessageArgs) ToBotSsmlMessageOutputWithContext(ctx context.Context) BotSsmlMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSsmlMessageOutput)
+}
+
+func (i BotSsmlMessageArgs) ToBotSsmlMessagePtrOutput() BotSsmlMessagePtrOutput {
+	return i.ToBotSsmlMessagePtrOutputWithContext(context.Background())
+}
+
+func (i BotSsmlMessageArgs) ToBotSsmlMessagePtrOutputWithContext(ctx context.Context) BotSsmlMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSsmlMessageOutput).ToBotSsmlMessagePtrOutputWithContext(ctx)
+}
+
+// BotSsmlMessagePtrInput is an input type that accepts BotSsmlMessageArgs, BotSsmlMessagePtr and BotSsmlMessagePtrOutput values.
+// You can construct a concrete instance of `BotSsmlMessagePtrInput` via:
+//
+//	        BotSsmlMessageArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotSsmlMessagePtrInput interface {
+	pulumi.Input
+
+	ToBotSsmlMessagePtrOutput() BotSsmlMessagePtrOutput
+	ToBotSsmlMessagePtrOutputWithContext(context.Context) BotSsmlMessagePtrOutput
+}
+
+type botSsmlMessagePtrType BotSsmlMessageArgs
+
+func BotSsmlMessagePtr(v *BotSsmlMessageArgs) BotSsmlMessagePtrInput {
+	return (*botSsmlMessagePtrType)(v)
+}
+
+func (*botSsmlMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotSsmlMessage)(nil)).Elem()
+}
+
+func (i *botSsmlMessagePtrType) ToBotSsmlMessagePtrOutput() BotSsmlMessagePtrOutput {
+	return i.ToBotSsmlMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *botSsmlMessagePtrType) ToBotSsmlMessagePtrOutputWithContext(ctx context.Context) BotSsmlMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSsmlMessagePtrOutput)
+}
+
+// A message in Speech Synthesis Markup Language (SSML).
+type BotSsmlMessageOutput struct{ *pulumi.OutputState }
+
+func (BotSsmlMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSsmlMessage)(nil)).Elem()
+}
+
+func (o BotSsmlMessageOutput) ToBotSsmlMessageOutput() BotSsmlMessageOutput {
+	return o
+}
+
+func (o BotSsmlMessageOutput) ToBotSsmlMessageOutputWithContext(ctx context.Context) BotSsmlMessageOutput {
+	return o
+}
+
+func (o BotSsmlMessageOutput) ToBotSsmlMessagePtrOutput() BotSsmlMessagePtrOutput {
+	return o.ToBotSsmlMessagePtrOutputWithContext(context.Background())
+}
+
+func (o BotSsmlMessageOutput) ToBotSsmlMessagePtrOutputWithContext(ctx context.Context) BotSsmlMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotSsmlMessage) *BotSsmlMessage {
+		return &v
+	}).(BotSsmlMessagePtrOutput)
+}
+
+// The SSML text that defines the prompt.
+func (o BotSsmlMessageOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BotSsmlMessage) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BotSsmlMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (BotSsmlMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotSsmlMessage)(nil)).Elem()
+}
+
+func (o BotSsmlMessagePtrOutput) ToBotSsmlMessagePtrOutput() BotSsmlMessagePtrOutput {
+	return o
+}
+
+func (o BotSsmlMessagePtrOutput) ToBotSsmlMessagePtrOutputWithContext(ctx context.Context) BotSsmlMessagePtrOutput {
+	return o
+}
+
+func (o BotSsmlMessagePtrOutput) Elem() BotSsmlMessageOutput {
+	return o.ApplyT(func(v *BotSsmlMessage) BotSsmlMessage {
+		if v != nil {
+			return *v
+		}
+		var ret BotSsmlMessage
+		return ret
+	}).(BotSsmlMessageOutput)
+}
+
+// The SSML text that defines the prompt.
+func (o BotSsmlMessagePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotSsmlMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 // StillWaitingResponseSpecification.
 type BotStillWaitingResponseSpecification struct {
 	// Indicates whether the user can interrupt a speech prompt from the bot.
@@ -12409,8 +12409,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotS3BucketLogDestinationInput)(nil)).Elem(), BotS3BucketLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotS3LocationInput)(nil)).Elem(), BotS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotS3LocationPtrInput)(nil)).Elem(), BotS3LocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotSSMLMessageInput)(nil)).Elem(), BotSSMLMessageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotSSMLMessagePtrInput)(nil)).Elem(), BotSSMLMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSampleUtteranceInput)(nil)).Elem(), BotSampleUtteranceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSampleUtteranceArrayInput)(nil)).Elem(), BotSampleUtteranceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSampleValueInput)(nil)).Elem(), BotSampleValueArgs{})
@@ -12443,6 +12441,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueRegexFilterPtrInput)(nil)).Elem(), BotSlotValueRegexFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueSelectionSettingInput)(nil)).Elem(), BotSlotValueSelectionSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueSelectionSettingPtrInput)(nil)).Elem(), BotSlotValueSelectionSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSsmlMessageInput)(nil)).Elem(), BotSsmlMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSsmlMessagePtrInput)(nil)).Elem(), BotSsmlMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotStillWaitingResponseSpecificationInput)(nil)).Elem(), BotStillWaitingResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotStillWaitingResponseSpecificationPtrInput)(nil)).Elem(), BotStillWaitingResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTagInput)(nil)).Elem(), BotTagArgs{})
@@ -12572,8 +12572,6 @@ func init() {
 	pulumi.RegisterOutputType(BotS3BucketLogDestinationOutput{})
 	pulumi.RegisterOutputType(BotS3LocationOutput{})
 	pulumi.RegisterOutputType(BotS3LocationPtrOutput{})
-	pulumi.RegisterOutputType(BotSSMLMessageOutput{})
-	pulumi.RegisterOutputType(BotSSMLMessagePtrOutput{})
 	pulumi.RegisterOutputType(BotSampleUtteranceOutput{})
 	pulumi.RegisterOutputType(BotSampleUtteranceArrayOutput{})
 	pulumi.RegisterOutputType(BotSampleValueOutput{})
@@ -12606,6 +12604,8 @@ func init() {
 	pulumi.RegisterOutputType(BotSlotValueRegexFilterPtrOutput{})
 	pulumi.RegisterOutputType(BotSlotValueSelectionSettingOutput{})
 	pulumi.RegisterOutputType(BotSlotValueSelectionSettingPtrOutput{})
+	pulumi.RegisterOutputType(BotSsmlMessageOutput{})
+	pulumi.RegisterOutputType(BotSsmlMessagePtrOutput{})
 	pulumi.RegisterOutputType(BotStillWaitingResponseSpecificationOutput{})
 	pulumi.RegisterOutputType(BotStillWaitingResponseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotTagOutput{})

@@ -308,40 +308,6 @@ namespace Pulumi.AwsNative.NetworkFirewall
     }
 
     [EnumType]
-    public readonly struct RuleGroupTCPFlag : IEquatable<RuleGroupTCPFlag>
-    {
-        private readonly string _value;
-
-        private RuleGroupTCPFlag(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RuleGroupTCPFlag Fin { get; } = new RuleGroupTCPFlag("FIN");
-        public static RuleGroupTCPFlag Syn { get; } = new RuleGroupTCPFlag("SYN");
-        public static RuleGroupTCPFlag Rst { get; } = new RuleGroupTCPFlag("RST");
-        public static RuleGroupTCPFlag Psh { get; } = new RuleGroupTCPFlag("PSH");
-        public static RuleGroupTCPFlag Ack { get; } = new RuleGroupTCPFlag("ACK");
-        public static RuleGroupTCPFlag Urg { get; } = new RuleGroupTCPFlag("URG");
-        public static RuleGroupTCPFlag Ece { get; } = new RuleGroupTCPFlag("ECE");
-        public static RuleGroupTCPFlag Cwr { get; } = new RuleGroupTCPFlag("CWR");
-
-        public static bool operator ==(RuleGroupTCPFlag left, RuleGroupTCPFlag right) => left.Equals(right);
-        public static bool operator !=(RuleGroupTCPFlag left, RuleGroupTCPFlag right) => !left.Equals(right);
-
-        public static explicit operator string(RuleGroupTCPFlag value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RuleGroupTCPFlag other && Equals(other);
-        public bool Equals(RuleGroupTCPFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct RuleGroupTargetType : IEquatable<RuleGroupTargetType>
     {
         private readonly string _value;
@@ -362,6 +328,40 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleGroupTargetType other && Equals(other);
         public bool Equals(RuleGroupTargetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RuleGroupTcpFlag : IEquatable<RuleGroupTcpFlag>
+    {
+        private readonly string _value;
+
+        private RuleGroupTcpFlag(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupTcpFlag Fin { get; } = new RuleGroupTcpFlag("FIN");
+        public static RuleGroupTcpFlag Syn { get; } = new RuleGroupTcpFlag("SYN");
+        public static RuleGroupTcpFlag Rst { get; } = new RuleGroupTcpFlag("RST");
+        public static RuleGroupTcpFlag Psh { get; } = new RuleGroupTcpFlag("PSH");
+        public static RuleGroupTcpFlag Ack { get; } = new RuleGroupTcpFlag("ACK");
+        public static RuleGroupTcpFlag Urg { get; } = new RuleGroupTcpFlag("URG");
+        public static RuleGroupTcpFlag Ece { get; } = new RuleGroupTcpFlag("ECE");
+        public static RuleGroupTcpFlag Cwr { get; } = new RuleGroupTcpFlag("CWR");
+
+        public static bool operator ==(RuleGroupTcpFlag left, RuleGroupTcpFlag right) => left.Equals(right);
+        public static bool operator !=(RuleGroupTcpFlag left, RuleGroupTcpFlag right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupTcpFlag value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupTcpFlag other && Equals(other);
+        public bool Equals(RuleGroupTcpFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

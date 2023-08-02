@@ -26,7 +26,7 @@ type Domain struct {
 	DomainEndpointOptions       DomainEndpointOptionsPtrOutput              `pulumi:"domainEndpointOptions"`
 	DomainEndpoints             pulumi.AnyOutput                            `pulumi:"domainEndpoints"`
 	DomainName                  pulumi.StringPtrOutput                      `pulumi:"domainName"`
-	EbsOptions                  DomainEBSOptionsPtrOutput                   `pulumi:"ebsOptions"`
+	EbsOptions                  DomainEbsOptionsPtrOutput                   `pulumi:"ebsOptions"`
 	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrOutput      `pulumi:"encryptionAtRestOptions"`
 	EngineVersion               pulumi.StringPtrOutput                      `pulumi:"engineVersion"`
 	LogPublishingOptions        pulumi.AnyOutput                            `pulumi:"logPublishingOptions"`
@@ -37,7 +37,7 @@ type Domain struct {
 	SoftwareUpdateOptions       DomainSoftwareUpdateOptionsPtrOutput        `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       DomainTagArrayOutput      `pulumi:"tags"`
-	VpcOptions DomainVPCOptionsPtrOutput `pulumi:"vpcOptions"`
+	VpcOptions DomainVpcOptionsPtrOutput `pulumi:"vpcOptions"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ type domainArgs struct {
 	CognitoOptions              *DomainCognitoOptions               `pulumi:"cognitoOptions"`
 	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
 	DomainName                  *string                             `pulumi:"domainName"`
-	EbsOptions                  *DomainEBSOptions                   `pulumi:"ebsOptions"`
+	EbsOptions                  *DomainEbsOptions                   `pulumi:"ebsOptions"`
 	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
 	EngineVersion               *string                             `pulumi:"engineVersion"`
 	LogPublishingOptions        interface{}                         `pulumi:"logPublishingOptions"`
@@ -97,7 +97,7 @@ type domainArgs struct {
 	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions        `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       []DomainTag       `pulumi:"tags"`
-	VpcOptions *DomainVPCOptions `pulumi:"vpcOptions"`
+	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -109,7 +109,7 @@ type DomainArgs struct {
 	CognitoOptions              DomainCognitoOptionsPtrInput
 	DomainEndpointOptions       DomainEndpointOptionsPtrInput
 	DomainName                  pulumi.StringPtrInput
-	EbsOptions                  DomainEBSOptionsPtrInput
+	EbsOptions                  DomainEbsOptionsPtrInput
 	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrInput
 	EngineVersion               pulumi.StringPtrInput
 	LogPublishingOptions        pulumi.Input
@@ -119,7 +119,7 @@ type DomainArgs struct {
 	SoftwareUpdateOptions       DomainSoftwareUpdateOptionsPtrInput
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       DomainTagArrayInput
-	VpcOptions DomainVPCOptionsPtrInput
+	VpcOptions DomainVpcOptionsPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -203,8 +203,8 @@ func (o DomainOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainOutput) EbsOptions() DomainEBSOptionsPtrOutput {
-	return o.ApplyT(func(v *Domain) DomainEBSOptionsPtrOutput { return v.EbsOptions }).(DomainEBSOptionsPtrOutput)
+func (o DomainOutput) EbsOptions() DomainEbsOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainEbsOptionsPtrOutput { return v.EbsOptions }).(DomainEbsOptionsPtrOutput)
 }
 
 func (o DomainOutput) EncryptionAtRestOptions() DomainEncryptionAtRestOptionsPtrOutput {
@@ -244,8 +244,8 @@ func (o DomainOutput) Tags() DomainTagArrayOutput {
 	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
 }
 
-func (o DomainOutput) VpcOptions() DomainVPCOptionsPtrOutput {
-	return o.ApplyT(func(v *Domain) DomainVPCOptionsPtrOutput { return v.VpcOptions }).(DomainVPCOptionsPtrOutput)
+func (o DomainOutput) VpcOptions() DomainVpcOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainVpcOptionsPtrOutput { return v.VpcOptions }).(DomainVpcOptionsPtrOutput)
 }
 
 func init() {

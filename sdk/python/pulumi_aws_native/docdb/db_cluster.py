@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DBClusterArgs', 'DBCluster']
+__all__ = ['DbClusterArgs', 'DbCluster']
 
 @pulumi.input_type
-class DBClusterArgs:
+class DbClusterArgs:
     def __init__(__self__, *,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
@@ -36,11 +36,11 @@ class DBClusterArgs:
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a DBCluster resource.
+        The set of arguments for constructing a DbCluster resource.
         """
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
@@ -271,11 +271,11 @@ class DBClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -297,11 +297,11 @@ class DBClusterArgs:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
-warnings.warn("""DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""DbCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class DBCluster(pulumi.CustomResource):
-    warnings.warn("""DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class DbCluster(pulumi.CustomResource):
+    warnings.warn("""DbCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -327,7 +327,7 @@ class DBCluster(pulumi.CustomResource):
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterTagArgs']]]]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -341,18 +341,18 @@ class DBCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DBClusterArgs] = None,
+                 args: Optional[DbClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DocDB::DBCluster
 
         :param str resource_name: The name of the resource.
-        :param DBClusterArgs args: The arguments to use to populate this resource's properties.
+        :param DbClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DBClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DbClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -381,18 +381,18 @@ class DBCluster(pulumi.CustomResource):
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterTagArgs']]]]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DBCluster is deprecated: DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""DbCluster is deprecated: DbCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DBClusterArgs.__new__(DBClusterArgs)
+            __props__ = DbClusterArgs.__new__(DbClusterArgs)
 
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["backup_retention_period"] = backup_retention_period
@@ -420,8 +420,8 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["read_endpoint"] = None
-        super(DBCluster, __self__).__init__(
-            'aws-native:docdb:DBCluster',
+        super(DbCluster, __self__).__init__(
+            'aws-native:docdb:DbCluster',
             resource_name,
             __props__,
             opts)
@@ -429,9 +429,9 @@ class DBCluster(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'DBCluster':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DbCluster':
         """
-        Get an existing DBCluster resource's state with the given name, id, and optional extra
+        Get an existing DbCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -440,7 +440,7 @@ class DBCluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DBClusterArgs.__new__(DBClusterArgs)
+        __props__ = DbClusterArgs.__new__(DbClusterArgs)
 
         __props__.__dict__["availability_zones"] = None
         __props__.__dict__["backup_retention_period"] = None
@@ -468,7 +468,7 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["use_latest_restorable_time"] = None
         __props__.__dict__["vpc_security_group_ids"] = None
-        return DBCluster(resource_name, opts=opts, __props__=__props__)
+        return DbCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -587,7 +587,7 @@ class DBCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBClusterTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbClusterTag']]]:
         return pulumi.get(self, "tags")
 
     @property

@@ -139,7 +139,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="ebsOptions")
-    def ebs_options(self) -> Optional['outputs.DomainEBSOptions']:
+    def ebs_options(self) -> Optional['outputs.DomainEbsOptions']:
         return pulumi.get(self, "ebs_options")
 
     @property
@@ -197,7 +197,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="vpcOptions")
-    def vpc_options(self) -> Optional['outputs.DomainVPCOptions']:
+    def vpc_options(self) -> Optional['outputs.DomainVpcOptions']:
         return pulumi.get(self, "vpc_options")
 
 

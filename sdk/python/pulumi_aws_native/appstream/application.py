@@ -26,7 +26,7 @@ class ApplicationArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  launch_parameters: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Tag0PropertiesArgs', 'Tag1PropertiesArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Application resource.
@@ -143,11 +143,11 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['Tag0PropertiesArgs', 'Tag1PropertiesArgs']]]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Tag0PropertiesArgs', 'Tag1PropertiesArgs']]]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -175,7 +175,7 @@ class Application(pulumi.CustomResource):
                  launch_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['Tag0PropertiesArgs'], pulumi.InputType['Tag1PropertiesArgs']]]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ApplicationTag0PropertiesArgs'], pulumi.InputType['ApplicationTag1PropertiesArgs']]]]]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -218,7 +218,7 @@ class Application(pulumi.CustomResource):
                  launch_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['Tag0PropertiesArgs'], pulumi.InputType['Tag1PropertiesArgs']]]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ApplicationTag0PropertiesArgs'], pulumi.InputType['ApplicationTag1PropertiesArgs']]]]]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -18,7 +18,7 @@ type Assessment struct {
 	Arn                          pulumi.StringOutput                   `pulumi:"arn"`
 	AssessmentId                 pulumi.StringOutput                   `pulumi:"assessmentId"`
 	AssessmentReportsDestination AssessmentReportsDestinationPtrOutput `pulumi:"assessmentReportsDestination"`
-	AwsAccount                   AssessmentAWSAccountPtrOutput         `pulumi:"awsAccount"`
+	AwsAccount                   AssessmentAwsAccountPtrOutput         `pulumi:"awsAccount"`
 	CreationTime                 pulumi.Float64Output                  `pulumi:"creationTime"`
 	// The list of delegations.
 	Delegations AssessmentDelegationArrayOutput `pulumi:"delegations"`
@@ -74,7 +74,7 @@ func (AssessmentState) ElementType() reflect.Type {
 
 type assessmentArgs struct {
 	AssessmentReportsDestination *AssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
-	AwsAccount                   *AssessmentAWSAccount         `pulumi:"awsAccount"`
+	AwsAccount                   *AssessmentAwsAccount         `pulumi:"awsAccount"`
 	// The list of delegations.
 	Delegations []AssessmentDelegation `pulumi:"delegations"`
 	Description *string                `pulumi:"description"`
@@ -91,7 +91,7 @@ type assessmentArgs struct {
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
 	AssessmentReportsDestination AssessmentReportsDestinationPtrInput
-	AwsAccount                   AssessmentAWSAccountPtrInput
+	AwsAccount                   AssessmentAwsAccountPtrInput
 	// The list of delegations.
 	Delegations AssessmentDelegationArrayInput
 	Description pulumi.StringPtrInput
@@ -154,8 +154,8 @@ func (o AssessmentOutput) AssessmentReportsDestination() AssessmentReportsDestin
 	return o.ApplyT(func(v *Assessment) AssessmentReportsDestinationPtrOutput { return v.AssessmentReportsDestination }).(AssessmentReportsDestinationPtrOutput)
 }
 
-func (o AssessmentOutput) AwsAccount() AssessmentAWSAccountPtrOutput {
-	return o.ApplyT(func(v *Assessment) AssessmentAWSAccountPtrOutput { return v.AwsAccount }).(AssessmentAWSAccountPtrOutput)
+func (o AssessmentOutput) AwsAccount() AssessmentAwsAccountPtrOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentAwsAccountPtrOutput { return v.AwsAccount }).(AssessmentAwsAccountPtrOutput)
 }
 
 func (o AssessmentOutput) CreationTime() pulumi.Float64Output {

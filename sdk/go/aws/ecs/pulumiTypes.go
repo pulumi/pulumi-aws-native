@@ -3691,7 +3691,7 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 
 type TaskDefinitionAuthorizationConfig struct {
 	AccessPointId *string                               `pulumi:"accessPointId"`
-	Iam           *TaskDefinitionAuthorizationConfigIAM `pulumi:"iam"`
+	Iam           *TaskDefinitionAuthorizationConfigIam `pulumi:"iam"`
 }
 
 // TaskDefinitionAuthorizationConfigInput is an input type that accepts TaskDefinitionAuthorizationConfigArgs and TaskDefinitionAuthorizationConfigOutput values.
@@ -3707,7 +3707,7 @@ type TaskDefinitionAuthorizationConfigInput interface {
 
 type TaskDefinitionAuthorizationConfigArgs struct {
 	AccessPointId pulumi.StringPtrInput                        `pulumi:"accessPointId"`
-	Iam           TaskDefinitionAuthorizationConfigIAMPtrInput `pulumi:"iam"`
+	Iam           TaskDefinitionAuthorizationConfigIamPtrInput `pulumi:"iam"`
 }
 
 func (TaskDefinitionAuthorizationConfigArgs) ElementType() reflect.Type {
@@ -3791,8 +3791,8 @@ func (o TaskDefinitionAuthorizationConfigOutput) AccessPointId() pulumi.StringPt
 	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigOutput) Iam() TaskDefinitionAuthorizationConfigIAMPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *TaskDefinitionAuthorizationConfigIAM { return v.Iam }).(TaskDefinitionAuthorizationConfigIAMPtrOutput)
+func (o TaskDefinitionAuthorizationConfigOutput) Iam() TaskDefinitionAuthorizationConfigIamPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *TaskDefinitionAuthorizationConfigIam { return v.Iam }).(TaskDefinitionAuthorizationConfigIamPtrOutput)
 }
 
 type TaskDefinitionAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
@@ -3828,13 +3828,13 @@ func (o TaskDefinitionAuthorizationConfigPtrOutput) AccessPointId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigPtrOutput) Iam() TaskDefinitionAuthorizationConfigIAMPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfig) *TaskDefinitionAuthorizationConfigIAM {
+func (o TaskDefinitionAuthorizationConfigPtrOutput) Iam() TaskDefinitionAuthorizationConfigIamPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfig) *TaskDefinitionAuthorizationConfigIam {
 		if v == nil {
 			return nil
 		}
 		return v.Iam
-	}).(TaskDefinitionAuthorizationConfigIAMPtrOutput)
+	}).(TaskDefinitionAuthorizationConfigIamPtrOutput)
 }
 
 // List of container definitions that are passed to the Docker daemon on a container instance
@@ -4585,160 +4585,160 @@ func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Scope() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-type TaskDefinitionEFSVolumeConfiguration struct {
+type TaskDefinitionEfsVolumeConfiguration struct {
 	AuthorizationConfig   *TaskDefinitionAuthorizationConfig                     `pulumi:"authorizationConfig"`
 	FilesystemId          string                                                 `pulumi:"filesystemId"`
 	RootDirectory         *string                                                `pulumi:"rootDirectory"`
-	TransitEncryption     *TaskDefinitionEFSVolumeConfigurationTransitEncryption `pulumi:"transitEncryption"`
+	TransitEncryption     *TaskDefinitionEfsVolumeConfigurationTransitEncryption `pulumi:"transitEncryption"`
 	TransitEncryptionPort *int                                                   `pulumi:"transitEncryptionPort"`
 }
 
-// TaskDefinitionEFSVolumeConfigurationInput is an input type that accepts TaskDefinitionEFSVolumeConfigurationArgs and TaskDefinitionEFSVolumeConfigurationOutput values.
-// You can construct a concrete instance of `TaskDefinitionEFSVolumeConfigurationInput` via:
+// TaskDefinitionEfsVolumeConfigurationInput is an input type that accepts TaskDefinitionEfsVolumeConfigurationArgs and TaskDefinitionEfsVolumeConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionEfsVolumeConfigurationInput` via:
 //
-//	TaskDefinitionEFSVolumeConfigurationArgs{...}
-type TaskDefinitionEFSVolumeConfigurationInput interface {
+//	TaskDefinitionEfsVolumeConfigurationArgs{...}
+type TaskDefinitionEfsVolumeConfigurationInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionEFSVolumeConfigurationOutput() TaskDefinitionEFSVolumeConfigurationOutput
-	ToTaskDefinitionEFSVolumeConfigurationOutputWithContext(context.Context) TaskDefinitionEFSVolumeConfigurationOutput
+	ToTaskDefinitionEfsVolumeConfigurationOutput() TaskDefinitionEfsVolumeConfigurationOutput
+	ToTaskDefinitionEfsVolumeConfigurationOutputWithContext(context.Context) TaskDefinitionEfsVolumeConfigurationOutput
 }
 
-type TaskDefinitionEFSVolumeConfigurationArgs struct {
+type TaskDefinitionEfsVolumeConfigurationArgs struct {
 	AuthorizationConfig   TaskDefinitionAuthorizationConfigPtrInput                     `pulumi:"authorizationConfig"`
 	FilesystemId          pulumi.StringInput                                            `pulumi:"filesystemId"`
 	RootDirectory         pulumi.StringPtrInput                                         `pulumi:"rootDirectory"`
-	TransitEncryption     TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrInput `pulumi:"transitEncryption"`
+	TransitEncryption     TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrInput `pulumi:"transitEncryption"`
 	TransitEncryptionPort pulumi.IntPtrInput                                            `pulumi:"transitEncryptionPort"`
 }
 
-func (TaskDefinitionEFSVolumeConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionEFSVolumeConfiguration)(nil)).Elem()
+func (TaskDefinitionEfsVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionEfsVolumeConfiguration)(nil)).Elem()
 }
 
-func (i TaskDefinitionEFSVolumeConfigurationArgs) ToTaskDefinitionEFSVolumeConfigurationOutput() TaskDefinitionEFSVolumeConfigurationOutput {
-	return i.ToTaskDefinitionEFSVolumeConfigurationOutputWithContext(context.Background())
+func (i TaskDefinitionEfsVolumeConfigurationArgs) ToTaskDefinitionEfsVolumeConfigurationOutput() TaskDefinitionEfsVolumeConfigurationOutput {
+	return i.ToTaskDefinitionEfsVolumeConfigurationOutputWithContext(context.Background())
 }
 
-func (i TaskDefinitionEFSVolumeConfigurationArgs) ToTaskDefinitionEFSVolumeConfigurationOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEFSVolumeConfigurationOutput)
+func (i TaskDefinitionEfsVolumeConfigurationArgs) ToTaskDefinitionEfsVolumeConfigurationOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEfsVolumeConfigurationOutput)
 }
 
-func (i TaskDefinitionEFSVolumeConfigurationArgs) ToTaskDefinitionEFSVolumeConfigurationPtrOutput() TaskDefinitionEFSVolumeConfigurationPtrOutput {
-	return i.ToTaskDefinitionEFSVolumeConfigurationPtrOutputWithContext(context.Background())
+func (i TaskDefinitionEfsVolumeConfigurationArgs) ToTaskDefinitionEfsVolumeConfigurationPtrOutput() TaskDefinitionEfsVolumeConfigurationPtrOutput {
+	return i.ToTaskDefinitionEfsVolumeConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i TaskDefinitionEFSVolumeConfigurationArgs) ToTaskDefinitionEFSVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEFSVolumeConfigurationOutput).ToTaskDefinitionEFSVolumeConfigurationPtrOutputWithContext(ctx)
+func (i TaskDefinitionEfsVolumeConfigurationArgs) ToTaskDefinitionEfsVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEfsVolumeConfigurationOutput).ToTaskDefinitionEfsVolumeConfigurationPtrOutputWithContext(ctx)
 }
 
-// TaskDefinitionEFSVolumeConfigurationPtrInput is an input type that accepts TaskDefinitionEFSVolumeConfigurationArgs, TaskDefinitionEFSVolumeConfigurationPtr and TaskDefinitionEFSVolumeConfigurationPtrOutput values.
-// You can construct a concrete instance of `TaskDefinitionEFSVolumeConfigurationPtrInput` via:
+// TaskDefinitionEfsVolumeConfigurationPtrInput is an input type that accepts TaskDefinitionEfsVolumeConfigurationArgs, TaskDefinitionEfsVolumeConfigurationPtr and TaskDefinitionEfsVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionEfsVolumeConfigurationPtrInput` via:
 //
-//	        TaskDefinitionEFSVolumeConfigurationArgs{...}
+//	        TaskDefinitionEfsVolumeConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type TaskDefinitionEFSVolumeConfigurationPtrInput interface {
+type TaskDefinitionEfsVolumeConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionEFSVolumeConfigurationPtrOutput() TaskDefinitionEFSVolumeConfigurationPtrOutput
-	ToTaskDefinitionEFSVolumeConfigurationPtrOutputWithContext(context.Context) TaskDefinitionEFSVolumeConfigurationPtrOutput
+	ToTaskDefinitionEfsVolumeConfigurationPtrOutput() TaskDefinitionEfsVolumeConfigurationPtrOutput
+	ToTaskDefinitionEfsVolumeConfigurationPtrOutputWithContext(context.Context) TaskDefinitionEfsVolumeConfigurationPtrOutput
 }
 
-type taskDefinitionEFSVolumeConfigurationPtrType TaskDefinitionEFSVolumeConfigurationArgs
+type taskDefinitionEfsVolumeConfigurationPtrType TaskDefinitionEfsVolumeConfigurationArgs
 
-func TaskDefinitionEFSVolumeConfigurationPtr(v *TaskDefinitionEFSVolumeConfigurationArgs) TaskDefinitionEFSVolumeConfigurationPtrInput {
-	return (*taskDefinitionEFSVolumeConfigurationPtrType)(v)
+func TaskDefinitionEfsVolumeConfigurationPtr(v *TaskDefinitionEfsVolumeConfigurationArgs) TaskDefinitionEfsVolumeConfigurationPtrInput {
+	return (*taskDefinitionEfsVolumeConfigurationPtrType)(v)
 }
 
-func (*taskDefinitionEFSVolumeConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionEFSVolumeConfiguration)(nil)).Elem()
+func (*taskDefinitionEfsVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionEfsVolumeConfiguration)(nil)).Elem()
 }
 
-func (i *taskDefinitionEFSVolumeConfigurationPtrType) ToTaskDefinitionEFSVolumeConfigurationPtrOutput() TaskDefinitionEFSVolumeConfigurationPtrOutput {
-	return i.ToTaskDefinitionEFSVolumeConfigurationPtrOutputWithContext(context.Background())
+func (i *taskDefinitionEfsVolumeConfigurationPtrType) ToTaskDefinitionEfsVolumeConfigurationPtrOutput() TaskDefinitionEfsVolumeConfigurationPtrOutput {
+	return i.ToTaskDefinitionEfsVolumeConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *taskDefinitionEFSVolumeConfigurationPtrType) ToTaskDefinitionEFSVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEFSVolumeConfigurationPtrOutput)
+func (i *taskDefinitionEfsVolumeConfigurationPtrType) ToTaskDefinitionEfsVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEfsVolumeConfigurationPtrOutput)
 }
 
-type TaskDefinitionEFSVolumeConfigurationOutput struct{ *pulumi.OutputState }
+type TaskDefinitionEfsVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionEFSVolumeConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionEFSVolumeConfiguration)(nil)).Elem()
+func (TaskDefinitionEfsVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionEfsVolumeConfiguration)(nil)).Elem()
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationOutput) ToTaskDefinitionEFSVolumeConfigurationOutput() TaskDefinitionEFSVolumeConfigurationOutput {
+func (o TaskDefinitionEfsVolumeConfigurationOutput) ToTaskDefinitionEfsVolumeConfigurationOutput() TaskDefinitionEfsVolumeConfigurationOutput {
 	return o
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationOutput) ToTaskDefinitionEFSVolumeConfigurationOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationOutput {
+func (o TaskDefinitionEfsVolumeConfigurationOutput) ToTaskDefinitionEfsVolumeConfigurationOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationOutput {
 	return o
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationOutput) ToTaskDefinitionEFSVolumeConfigurationPtrOutput() TaskDefinitionEFSVolumeConfigurationPtrOutput {
-	return o.ToTaskDefinitionEFSVolumeConfigurationPtrOutputWithContext(context.Background())
+func (o TaskDefinitionEfsVolumeConfigurationOutput) ToTaskDefinitionEfsVolumeConfigurationPtrOutput() TaskDefinitionEfsVolumeConfigurationPtrOutput {
+	return o.ToTaskDefinitionEfsVolumeConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationOutput) ToTaskDefinitionEFSVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionEFSVolumeConfiguration) *TaskDefinitionEFSVolumeConfiguration {
+func (o TaskDefinitionEfsVolumeConfigurationOutput) ToTaskDefinitionEfsVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionEfsVolumeConfiguration) *TaskDefinitionEfsVolumeConfiguration {
 		return &v
-	}).(TaskDefinitionEFSVolumeConfigurationPtrOutput)
+	}).(TaskDefinitionEfsVolumeConfigurationPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationOutput) AuthorizationConfig() TaskDefinitionAuthorizationConfigPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *TaskDefinitionAuthorizationConfig {
+func (o TaskDefinitionEfsVolumeConfigurationOutput) AuthorizationConfig() TaskDefinitionAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionEfsVolumeConfiguration) *TaskDefinitionAuthorizationConfig {
 		return v.AuthorizationConfig
 	}).(TaskDefinitionAuthorizationConfigPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationOutput) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) string { return v.FilesystemId }).(pulumi.StringOutput)
+func (o TaskDefinitionEfsVolumeConfigurationOutput) FilesystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionEfsVolumeConfiguration) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationOutput) RootDirectory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
+func (o TaskDefinitionEfsVolumeConfigurationOutput) RootDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionEfsVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationOutput) TransitEncryption() TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *TaskDefinitionEFSVolumeConfigurationTransitEncryption {
+func (o TaskDefinitionEfsVolumeConfigurationOutput) TransitEncryption() TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionEfsVolumeConfiguration) *TaskDefinitionEfsVolumeConfigurationTransitEncryption {
 		return v.TransitEncryption
-	}).(TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput)
+	}).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *int { return v.TransitEncryptionPort }).(pulumi.IntPtrOutput)
+func (o TaskDefinitionEfsVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionEfsVolumeConfiguration) *int { return v.TransitEncryptionPort }).(pulumi.IntPtrOutput)
 }
 
-type TaskDefinitionEFSVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+type TaskDefinitionEfsVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionEFSVolumeConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionEFSVolumeConfiguration)(nil)).Elem()
+func (TaskDefinitionEfsVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionEfsVolumeConfiguration)(nil)).Elem()
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) ToTaskDefinitionEFSVolumeConfigurationPtrOutput() TaskDefinitionEFSVolumeConfigurationPtrOutput {
+func (o TaskDefinitionEfsVolumeConfigurationPtrOutput) ToTaskDefinitionEfsVolumeConfigurationPtrOutput() TaskDefinitionEfsVolumeConfigurationPtrOutput {
 	return o
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) ToTaskDefinitionEFSVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationPtrOutput {
+func (o TaskDefinitionEfsVolumeConfigurationPtrOutput) ToTaskDefinitionEfsVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationPtrOutput {
 	return o
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) Elem() TaskDefinitionEFSVolumeConfigurationOutput {
-	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) TaskDefinitionEFSVolumeConfiguration {
+func (o TaskDefinitionEfsVolumeConfigurationPtrOutput) Elem() TaskDefinitionEfsVolumeConfigurationOutput {
+	return o.ApplyT(func(v *TaskDefinitionEfsVolumeConfiguration) TaskDefinitionEfsVolumeConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret TaskDefinitionEFSVolumeConfiguration
+		var ret TaskDefinitionEfsVolumeConfiguration
 		return ret
-	}).(TaskDefinitionEFSVolumeConfigurationOutput)
+	}).(TaskDefinitionEfsVolumeConfigurationOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) AuthorizationConfig() TaskDefinitionAuthorizationConfigPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *TaskDefinitionAuthorizationConfig {
+func (o TaskDefinitionEfsVolumeConfigurationPtrOutput) AuthorizationConfig() TaskDefinitionAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionEfsVolumeConfiguration) *TaskDefinitionAuthorizationConfig {
 		if v == nil {
 			return nil
 		}
@@ -4746,8 +4746,8 @@ func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) AuthorizationConfig() Tas
 	}).(TaskDefinitionAuthorizationConfigPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) FilesystemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *string {
+func (o TaskDefinitionEfsVolumeConfigurationPtrOutput) FilesystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionEfsVolumeConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -4755,8 +4755,8 @@ func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) FilesystemId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *string {
+func (o TaskDefinitionEfsVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionEfsVolumeConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -4764,17 +4764,17 @@ func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) RootDirectory() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) TransitEncryption() TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *TaskDefinitionEFSVolumeConfigurationTransitEncryption {
+func (o TaskDefinitionEfsVolumeConfigurationPtrOutput) TransitEncryption() TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionEfsVolumeConfiguration) *TaskDefinitionEfsVolumeConfigurationTransitEncryption {
 		if v == nil {
 			return nil
 		}
 		return v.TransitEncryption
-	}).(TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput)
+	}).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *int {
+func (o TaskDefinitionEfsVolumeConfigurationPtrOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionEfsVolumeConfiguration) *int {
 		if v == nil {
 			return nil
 		}
@@ -7736,7 +7736,7 @@ func (o TaskDefinitionUlimitArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 
 type TaskDefinitionVolume struct {
 	DockerVolumeConfiguration *TaskDefinitionDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
-	EfsVolumeConfiguration    *TaskDefinitionEFSVolumeConfiguration    `pulumi:"efsVolumeConfiguration"`
+	EfsVolumeConfiguration    *TaskDefinitionEfsVolumeConfiguration    `pulumi:"efsVolumeConfiguration"`
 	Host                      *TaskDefinitionHostVolumeProperties      `pulumi:"host"`
 	Name                      *string                                  `pulumi:"name"`
 }
@@ -7754,7 +7754,7 @@ type TaskDefinitionVolumeInput interface {
 
 type TaskDefinitionVolumeArgs struct {
 	DockerVolumeConfiguration TaskDefinitionDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
-	EfsVolumeConfiguration    TaskDefinitionEFSVolumeConfigurationPtrInput    `pulumi:"efsVolumeConfiguration"`
+	EfsVolumeConfiguration    TaskDefinitionEfsVolumeConfigurationPtrInput    `pulumi:"efsVolumeConfiguration"`
 	Host                      TaskDefinitionHostVolumePropertiesPtrInput      `pulumi:"host"`
 	Name                      pulumi.StringPtrInput                           `pulumi:"name"`
 }
@@ -7816,8 +7816,8 @@ func (o TaskDefinitionVolumeOutput) DockerVolumeConfiguration() TaskDefinitionDo
 	}).(TaskDefinitionDockerVolumeConfigurationPtrOutput)
 }
 
-func (o TaskDefinitionVolumeOutput) EfsVolumeConfiguration() TaskDefinitionEFSVolumeConfigurationPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionEFSVolumeConfiguration { return v.EfsVolumeConfiguration }).(TaskDefinitionEFSVolumeConfigurationPtrOutput)
+func (o TaskDefinitionVolumeOutput) EfsVolumeConfiguration() TaskDefinitionEfsVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionEfsVolumeConfiguration { return v.EfsVolumeConfiguration }).(TaskDefinitionEfsVolumeConfigurationPtrOutput)
 }
 
 func (o TaskDefinitionVolumeOutput) Host() TaskDefinitionHostVolumePropertiesPtrOutput {
@@ -8726,8 +8726,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionDeviceArrayInput)(nil)).Elem(), TaskDefinitionDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionDockerVolumeConfigurationInput)(nil)).Elem(), TaskDefinitionDockerVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionDockerVolumeConfigurationPtrInput)(nil)).Elem(), TaskDefinitionDockerVolumeConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEFSVolumeConfigurationInput)(nil)).Elem(), TaskDefinitionEFSVolumeConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEFSVolumeConfigurationPtrInput)(nil)).Elem(), TaskDefinitionEFSVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEfsVolumeConfigurationInput)(nil)).Elem(), TaskDefinitionEfsVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEfsVolumeConfigurationPtrInput)(nil)).Elem(), TaskDefinitionEfsVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEnvironmentFileInput)(nil)).Elem(), TaskDefinitionEnvironmentFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEnvironmentFileArrayInput)(nil)).Elem(), TaskDefinitionEnvironmentFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStorageInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
@@ -8854,8 +8854,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionDeviceArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionDockerVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionDockerVolumeConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionEFSVolumeConfigurationOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionEFSVolumeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionEfsVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionEfsVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEnvironmentFileOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEnvironmentFileArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStorageOutput{})

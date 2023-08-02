@@ -5,35 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetMicrosoftADArgs, GetMicrosoftADResult, GetMicrosoftADOutputArgs } from "./getMicrosoftAD";
-export const getMicrosoftAD: typeof import("./getMicrosoftAD").getMicrosoftAD = null as any;
-export const getMicrosoftADOutput: typeof import("./getMicrosoftAD").getMicrosoftADOutput = null as any;
-utilities.lazyLoad(exports, ["getMicrosoftAD","getMicrosoftADOutput"], () => require("./getMicrosoftAD"));
+export { GetMicrosoftAdArgs, GetMicrosoftAdResult, GetMicrosoftAdOutputArgs } from "./getMicrosoftAd";
+export const getMicrosoftAd: typeof import("./getMicrosoftAd").getMicrosoftAd = null as any;
+export const getMicrosoftAdOutput: typeof import("./getMicrosoftAd").getMicrosoftAdOutput = null as any;
+utilities.lazyLoad(exports, ["getMicrosoftAd","getMicrosoftAdOutput"], () => require("./getMicrosoftAd"));
 
-export { GetSimpleADArgs, GetSimpleADResult, GetSimpleADOutputArgs } from "./getSimpleAD";
-export const getSimpleAD: typeof import("./getSimpleAD").getSimpleAD = null as any;
-export const getSimpleADOutput: typeof import("./getSimpleAD").getSimpleADOutput = null as any;
-utilities.lazyLoad(exports, ["getSimpleAD","getSimpleADOutput"], () => require("./getSimpleAD"));
+export { GetSimpleAdArgs, GetSimpleAdResult, GetSimpleAdOutputArgs } from "./getSimpleAd";
+export const getSimpleAd: typeof import("./getSimpleAd").getSimpleAd = null as any;
+export const getSimpleAdOutput: typeof import("./getSimpleAd").getSimpleAdOutput = null as any;
+utilities.lazyLoad(exports, ["getSimpleAd","getSimpleAdOutput"], () => require("./getSimpleAd"));
 
-export { MicrosoftADArgs } from "./microsoftAD";
-export type MicrosoftAD = import("./microsoftAD").MicrosoftAD;
-export const MicrosoftAD: typeof import("./microsoftAD").MicrosoftAD = null as any;
-utilities.lazyLoad(exports, ["MicrosoftAD"], () => require("./microsoftAD"));
+export { MicrosoftAdArgs } from "./microsoftAd";
+export type MicrosoftAd = import("./microsoftAd").MicrosoftAd;
+export const MicrosoftAd: typeof import("./microsoftAd").MicrosoftAd = null as any;
+utilities.lazyLoad(exports, ["MicrosoftAd"], () => require("./microsoftAd"));
 
-export { SimpleADArgs } from "./simpleAD";
-export type SimpleAD = import("./simpleAD").SimpleAD;
-export const SimpleAD: typeof import("./simpleAD").SimpleAD = null as any;
-utilities.lazyLoad(exports, ["SimpleAD"], () => require("./simpleAD"));
+export { SimpleAdArgs } from "./simpleAd";
+export type SimpleAd = import("./simpleAd").SimpleAd;
+export const SimpleAd: typeof import("./simpleAd").SimpleAd = null as any;
+utilities.lazyLoad(exports, ["SimpleAd"], () => require("./simpleAd"));
 
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:directoryservice:MicrosoftAD":
-                return new MicrosoftAD(name, <any>undefined, { urn })
-            case "aws-native:directoryservice:SimpleAD":
-                return new SimpleAD(name, <any>undefined, { urn })
+            case "aws-native:directoryservice:MicrosoftAd":
+                return new MicrosoftAd(name, <any>undefined, { urn })
+            case "aws-native:directoryservice:SimpleAd":
+                return new SimpleAd(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("collectionScheme")]
-        public Output<Union<Outputs.CollectionScheme0Properties, Outputs.CollectionScheme1Properties>> CollectionScheme { get; private set; } = null!;
+        public Output<Union<Outputs.CampaignCollectionScheme0Properties, Outputs.CampaignCollectionScheme1Properties>> CollectionScheme { get; private set; } = null!;
 
         [Output("compression")]
         public Output<Pulumi.AwsNative.IoTFleetWise.CampaignCompression?> Compression { get; private set; } = null!;
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Output<string> CreationTime { get; private set; } = null!;
 
         [Output("dataDestinationConfigs")]
-        public Output<ImmutableArray<Union<Outputs.DataDestinationConfig0Properties, Outputs.DataDestinationConfig1Properties>>> DataDestinationConfigs { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.CampaignDataDestinationConfig0Properties, Outputs.CampaignDataDestinationConfig1Properties>>> DataDestinationConfigs { get; private set; } = null!;
 
         [Output("dataExtraDimensions")]
         public Output<ImmutableArray<string>> DataExtraDimensions { get; private set; } = null!;
@@ -128,16 +128,16 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Input<Pulumi.AwsNative.IoTFleetWise.CampaignUpdateCampaignAction> Action { get; set; } = null!;
 
         [Input("collectionScheme", required: true)]
-        public InputUnion<Inputs.CollectionScheme0PropertiesArgs, Inputs.CollectionScheme1PropertiesArgs> CollectionScheme { get; set; } = null!;
+        public InputUnion<Inputs.CampaignCollectionScheme0PropertiesArgs, Inputs.CampaignCollectionScheme1PropertiesArgs> CollectionScheme { get; set; } = null!;
 
         [Input("compression")]
         public Input<Pulumi.AwsNative.IoTFleetWise.CampaignCompression>? Compression { get; set; }
 
         [Input("dataDestinationConfigs")]
-        private InputList<Union<Inputs.DataDestinationConfig0PropertiesArgs, Inputs.DataDestinationConfig1PropertiesArgs>>? _dataDestinationConfigs;
-        public InputList<Union<Inputs.DataDestinationConfig0PropertiesArgs, Inputs.DataDestinationConfig1PropertiesArgs>> DataDestinationConfigs
+        private InputList<Union<Inputs.CampaignDataDestinationConfig0PropertiesArgs, Inputs.CampaignDataDestinationConfig1PropertiesArgs>>? _dataDestinationConfigs;
+        public InputList<Union<Inputs.CampaignDataDestinationConfig0PropertiesArgs, Inputs.CampaignDataDestinationConfig1PropertiesArgs>> DataDestinationConfigs
         {
-            get => _dataDestinationConfigs ?? (_dataDestinationConfigs = new InputList<Union<Inputs.DataDestinationConfig0PropertiesArgs, Inputs.DataDestinationConfig1PropertiesArgs>>());
+            get => _dataDestinationConfigs ?? (_dataDestinationConfigs = new InputList<Union<Inputs.CampaignDataDestinationConfig0PropertiesArgs, Inputs.CampaignDataDestinationConfig1PropertiesArgs>>());
             set => _dataDestinationConfigs = value;
         }
 

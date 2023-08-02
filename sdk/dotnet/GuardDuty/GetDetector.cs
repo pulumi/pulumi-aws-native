@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetDetectorResult
     {
-        public readonly Outputs.DetectorCFNDataSourceConfigurations? DataSources;
+        public readonly Outputs.DetectorCfnDataSourceConfigurations? DataSources;
         public readonly bool? Enable;
         public readonly ImmutableArray<Outputs.DetectorFeatureConfigurations> Features;
         public readonly string? FindingPublishingFrequency;
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.GuardDuty
 
         [OutputConstructor]
         private GetDetectorResult(
-            Outputs.DetectorCFNDataSourceConfigurations? dataSources,
+            Outputs.DetectorCfnDataSourceConfigurations? dataSources,
 
             bool? enable,
 

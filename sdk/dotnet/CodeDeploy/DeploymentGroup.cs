@@ -44,13 +44,13 @@ namespace Pulumi.AwsNative.CodeDeploy
         public Output<Outputs.DeploymentGroupDeploymentStyle?> DeploymentStyle { get; private set; } = null!;
 
         [Output("ec2TagFilters")]
-        public Output<ImmutableArray<Outputs.DeploymentGroupEC2TagFilter>> Ec2TagFilters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeploymentGroupEc2TagFilter>> Ec2TagFilters { get; private set; } = null!;
 
         [Output("ec2TagSet")]
-        public Output<Outputs.DeploymentGroupEC2TagSet?> Ec2TagSet { get; private set; } = null!;
+        public Output<Outputs.DeploymentGroupEc2TagSet?> Ec2TagSet { get; private set; } = null!;
 
         [Output("ecsServices")]
-        public Output<ImmutableArray<Outputs.DeploymentGroupECSService>> EcsServices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeploymentGroupEcsService>> EcsServices { get; private set; } = null!;
 
         [Output("loadBalancerInfo")]
         public Output<Outputs.DeploymentGroupLoadBalancerInfo?> LoadBalancerInfo { get; private set; } = null!;
@@ -151,21 +151,21 @@ namespace Pulumi.AwsNative.CodeDeploy
         public Input<Inputs.DeploymentGroupDeploymentStyleArgs>? DeploymentStyle { get; set; }
 
         [Input("ec2TagFilters")]
-        private InputList<Inputs.DeploymentGroupEC2TagFilterArgs>? _ec2TagFilters;
-        public InputList<Inputs.DeploymentGroupEC2TagFilterArgs> Ec2TagFilters
+        private InputList<Inputs.DeploymentGroupEc2TagFilterArgs>? _ec2TagFilters;
+        public InputList<Inputs.DeploymentGroupEc2TagFilterArgs> Ec2TagFilters
         {
-            get => _ec2TagFilters ?? (_ec2TagFilters = new InputList<Inputs.DeploymentGroupEC2TagFilterArgs>());
+            get => _ec2TagFilters ?? (_ec2TagFilters = new InputList<Inputs.DeploymentGroupEc2TagFilterArgs>());
             set => _ec2TagFilters = value;
         }
 
         [Input("ec2TagSet")]
-        public Input<Inputs.DeploymentGroupEC2TagSetArgs>? Ec2TagSet { get; set; }
+        public Input<Inputs.DeploymentGroupEc2TagSetArgs>? Ec2TagSet { get; set; }
 
         [Input("ecsServices")]
-        private InputList<Inputs.DeploymentGroupECSServiceArgs>? _ecsServices;
-        public InputList<Inputs.DeploymentGroupECSServiceArgs> EcsServices
+        private InputList<Inputs.DeploymentGroupEcsServiceArgs>? _ecsServices;
+        public InputList<Inputs.DeploymentGroupEcsServiceArgs> EcsServices
         {
-            get => _ecsServices ?? (_ecsServices = new InputList<Inputs.DeploymentGroupECSServiceArgs>());
+            get => _ecsServices ?? (_ecsServices = new InputList<Inputs.DeploymentGroupEcsServiceArgs>());
             set => _ecsServices = value;
         }
 

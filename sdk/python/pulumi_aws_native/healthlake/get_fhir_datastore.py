@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetFHIRDatastoreResult',
-    'AwaitableGetFHIRDatastoreResult',
+    'GetFhirDatastoreResult',
+    'AwaitableGetFhirDatastoreResult',
     'get_fhir_datastore',
     'get_fhir_datastore_output',
 ]
 
 @pulumi.output_type
-class GetFHIRDatastoreResult:
+class GetFhirDatastoreResult:
     def __init__(__self__, created_at=None, datastore_arn=None, datastore_endpoint=None, datastore_id=None, datastore_status=None, tags=None):
         if created_at and not isinstance(created_at, dict):
             raise TypeError("Expected argument 'created_at' to be a dict")
@@ -42,7 +42,7 @@ class GetFHIRDatastoreResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional['outputs.FHIRDatastoreCreatedAt']:
+    def created_at(self) -> Optional['outputs.FhirDatastoreCreatedAt']:
         return pulumi.get(self, "created_at")
 
     @property
@@ -62,21 +62,21 @@ class GetFHIRDatastoreResult:
 
     @property
     @pulumi.getter(name="datastoreStatus")
-    def datastore_status(self) -> Optional['FHIRDatastoreDatastoreStatus']:
+    def datastore_status(self) -> Optional['FhirDatastoreDatastoreStatus']:
         return pulumi.get(self, "datastore_status")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.FHIRDatastoreTag']]:
+    def tags(self) -> Optional[Sequence['outputs.FhirDatastoreTag']]:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetFHIRDatastoreResult(GetFHIRDatastoreResult):
+class AwaitableGetFhirDatastoreResult(GetFhirDatastoreResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetFHIRDatastoreResult(
+        return GetFhirDatastoreResult(
             created_at=self.created_at,
             datastore_arn=self.datastore_arn,
             datastore_endpoint=self.datastore_endpoint,
@@ -86,16 +86,16 @@ class AwaitableGetFHIRDatastoreResult(GetFHIRDatastoreResult):
 
 
 def get_fhir_datastore(datastore_id: Optional[str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFHIRDatastoreResult:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFhirDatastoreResult:
     """
     HealthLake FHIR Datastore
     """
     __args__ = dict()
     __args__['datastoreId'] = datastore_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:healthlake:getFHIRDatastore', __args__, opts=opts, typ=GetFHIRDatastoreResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:healthlake:getFhirDatastore', __args__, opts=opts, typ=GetFhirDatastoreResult).value
 
-    return AwaitableGetFHIRDatastoreResult(
+    return AwaitableGetFhirDatastoreResult(
         created_at=pulumi.get(__ret__, 'created_at'),
         datastore_arn=pulumi.get(__ret__, 'datastore_arn'),
         datastore_endpoint=pulumi.get(__ret__, 'datastore_endpoint'),
@@ -106,7 +106,7 @@ def get_fhir_datastore(datastore_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_fhir_datastore)
 def get_fhir_datastore_output(datastore_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFHIRDatastoreResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirDatastoreResult]:
     """
     HealthLake FHIR Datastore
     """

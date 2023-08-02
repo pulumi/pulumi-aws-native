@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetLocationNFSResult',
-    'AwaitableGetLocationNFSResult',
+    'GetLocationNfsResult',
+    'AwaitableGetLocationNfsResult',
     'get_location_nfs',
     'get_location_nfs_output',
 ]
 
 @pulumi.output_type
-class GetLocationNFSResult:
+class GetLocationNfsResult:
     def __init__(__self__, location_arn=None, location_uri=None, mount_options=None, on_prem_config=None, tags=None):
         if location_arn and not isinstance(location_arn, str):
             raise TypeError("Expected argument 'location_arn' to be a str")
@@ -55,29 +55,29 @@ class GetLocationNFSResult:
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> Optional['outputs.LocationNFSMountOptions']:
+    def mount_options(self) -> Optional['outputs.LocationNfsMountOptions']:
         return pulumi.get(self, "mount_options")
 
     @property
     @pulumi.getter(name="onPremConfig")
-    def on_prem_config(self) -> Optional['outputs.LocationNFSOnPremConfig']:
+    def on_prem_config(self) -> Optional['outputs.LocationNfsOnPremConfig']:
         return pulumi.get(self, "on_prem_config")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.LocationNFSTag']]:
+    def tags(self) -> Optional[Sequence['outputs.LocationNfsTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLocationNFSResult(GetLocationNFSResult):
+class AwaitableGetLocationNfsResult(GetLocationNfsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetLocationNFSResult(
+        return GetLocationNfsResult(
             location_arn=self.location_arn,
             location_uri=self.location_uri,
             mount_options=self.mount_options,
@@ -86,7 +86,7 @@ class AwaitableGetLocationNFSResult(GetLocationNFSResult):
 
 
 def get_location_nfs(location_arn: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationNFSResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationNfsResult:
     """
     Resource schema for AWS::DataSync::LocationNFS
 
@@ -96,9 +96,9 @@ def get_location_nfs(location_arn: Optional[str] = None,
     __args__ = dict()
     __args__['locationArn'] = location_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationNFS', __args__, opts=opts, typ=GetLocationNFSResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationNfs', __args__, opts=opts, typ=GetLocationNfsResult).value
 
-    return AwaitableGetLocationNFSResult(
+    return AwaitableGetLocationNfsResult(
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         mount_options=pulumi.get(__ret__, 'mount_options'),
@@ -108,7 +108,7 @@ def get_location_nfs(location_arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_location_nfs)
 def get_location_nfs_output(location_arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationNFSResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationNfsResult]:
     """
     Resource schema for AWS::DataSync::LocationNFS
 

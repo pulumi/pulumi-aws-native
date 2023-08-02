@@ -44,7 +44,7 @@ __all__ = [
     'TaskDefinitionContainerDependencyArgs',
     'TaskDefinitionDeviceArgs',
     'TaskDefinitionDockerVolumeConfigurationArgs',
-    'TaskDefinitionEFSVolumeConfigurationArgs',
+    'TaskDefinitionEfsVolumeConfigurationArgs',
     'TaskDefinitionEnvironmentFileArgs',
     'TaskDefinitionEphemeralStorageArgs',
     'TaskDefinitionFirelensConfigurationArgs',
@@ -1147,7 +1147,7 @@ class ServiceTagArgs:
 class TaskDefinitionAuthorizationConfigArgs:
     def __init__(__self__, *,
                  access_point_id: Optional[pulumi.Input[str]] = None,
-                 iam: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']] = None):
+                 iam: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIam']] = None):
         if access_point_id is not None:
             pulumi.set(__self__, "access_point_id", access_point_id)
         if iam is not None:
@@ -1164,11 +1164,11 @@ class TaskDefinitionAuthorizationConfigArgs:
 
     @property
     @pulumi.getter
-    def iam(self) -> Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']]:
+    def iam(self) -> Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIam']]:
         return pulumi.get(self, "iam")
 
     @iam.setter
-    def iam(self, value: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']]):
+    def iam(self, value: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIam']]):
         pulumi.set(self, "iam", value)
 
 
@@ -1806,12 +1806,12 @@ class TaskDefinitionDockerVolumeConfigurationArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionEFSVolumeConfigurationArgs:
+class TaskDefinitionEfsVolumeConfigurationArgs:
     def __init__(__self__, *,
                  filesystem_id: pulumi.Input[str],
                  authorization_config: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigArgs']] = None,
                  root_directory: Optional[pulumi.Input[str]] = None,
-                 transit_encryption: Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationTransitEncryption']] = None,
+                 transit_encryption: Optional[pulumi.Input['TaskDefinitionEfsVolumeConfigurationTransitEncryption']] = None,
                  transit_encryption_port: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         if authorization_config is not None:
@@ -1852,11 +1852,11 @@ class TaskDefinitionEFSVolumeConfigurationArgs:
 
     @property
     @pulumi.getter(name="transitEncryption")
-    def transit_encryption(self) -> Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationTransitEncryption']]:
+    def transit_encryption(self) -> Optional[pulumi.Input['TaskDefinitionEfsVolumeConfigurationTransitEncryption']]:
         return pulumi.get(self, "transit_encryption")
 
     @transit_encryption.setter
-    def transit_encryption(self, value: Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationTransitEncryption']]):
+    def transit_encryption(self, value: Optional[pulumi.Input['TaskDefinitionEfsVolumeConfigurationTransitEncryption']]):
         pulumi.set(self, "transit_encryption", value)
 
     @property
@@ -2749,7 +2749,7 @@ class TaskDefinitionVolumeFromArgs:
 class TaskDefinitionVolumeArgs:
     def __init__(__self__, *,
                  docker_volume_configuration: Optional[pulumi.Input['TaskDefinitionDockerVolumeConfigurationArgs']] = None,
-                 efs_volume_configuration: Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationArgs']] = None,
+                 efs_volume_configuration: Optional[pulumi.Input['TaskDefinitionEfsVolumeConfigurationArgs']] = None,
                  host: Optional[pulumi.Input['TaskDefinitionHostVolumePropertiesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         if docker_volume_configuration is not None:
@@ -2772,11 +2772,11 @@ class TaskDefinitionVolumeArgs:
 
     @property
     @pulumi.getter(name="efsVolumeConfiguration")
-    def efs_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationArgs']]:
+    def efs_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionEfsVolumeConfigurationArgs']]:
         return pulumi.get(self, "efs_volume_configuration")
 
     @efs_volume_configuration.setter
-    def efs_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationArgs']]):
+    def efs_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionEfsVolumeConfigurationArgs']]):
         pulumi.set(self, "efs_volume_configuration", value)
 
     @property

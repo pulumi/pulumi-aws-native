@@ -23,7 +23,7 @@ class DomainArgs:
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
                  domain_endpoint_options: Optional[pulumi.Input['DomainEndpointOptionsArgs']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 ebs_options: Optional[pulumi.Input['DomainEBSOptionsArgs']] = None,
+                 ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
                  encryption_at_rest_options: Optional[pulumi.Input['DomainEncryptionAtRestOptionsArgs']] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[Any] = None,
@@ -32,7 +32,7 @@ class DomainArgs:
                  snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
                  software_update_options: Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
-                 vpc_options: Optional[pulumi.Input['DomainVPCOptionsArgs']] = None):
+                 vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
@@ -137,11 +137,11 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="ebsOptions")
-    def ebs_options(self) -> Optional[pulumi.Input['DomainEBSOptionsArgs']]:
+    def ebs_options(self) -> Optional[pulumi.Input['DomainEbsOptionsArgs']]:
         return pulumi.get(self, "ebs_options")
 
     @ebs_options.setter
-    def ebs_options(self, value: Optional[pulumi.Input['DomainEBSOptionsArgs']]):
+    def ebs_options(self, value: Optional[pulumi.Input['DomainEbsOptionsArgs']]):
         pulumi.set(self, "ebs_options", value)
 
     @property
@@ -221,11 +221,11 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="vpcOptions")
-    def vpc_options(self) -> Optional[pulumi.Input['DomainVPCOptionsArgs']]:
+    def vpc_options(self) -> Optional[pulumi.Input['DomainVpcOptionsArgs']]:
         return pulumi.get(self, "vpc_options")
 
     @vpc_options.setter
-    def vpc_options(self, value: Optional[pulumi.Input['DomainVPCOptionsArgs']]):
+    def vpc_options(self, value: Optional[pulumi.Input['DomainVpcOptionsArgs']]):
         pulumi.set(self, "vpc_options", value)
 
 
@@ -241,7 +241,7 @@ class Domain(pulumi.CustomResource):
                  cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainEndpointOptionsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEBSOptionsArgs']]] = None,
+                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[Any] = None,
@@ -250,7 +250,7 @@ class Domain(pulumi.CustomResource):
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
                  software_update_options: Optional[pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
-                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVPCOptionsArgs']]] = None,
+                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -290,7 +290,7 @@ class Domain(pulumi.CustomResource):
                  cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainEndpointOptionsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEBSOptionsArgs']]] = None,
+                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[Any] = None,
@@ -299,7 +299,7 @@ class Domain(pulumi.CustomResource):
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
                  software_update_options: Optional[pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
-                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVPCOptionsArgs']]] = None,
+                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -434,7 +434,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptions")
-    def ebs_options(self) -> pulumi.Output[Optional['outputs.DomainEBSOptions']]:
+    def ebs_options(self) -> pulumi.Output[Optional['outputs.DomainEbsOptions']]:
         return pulumi.get(self, "ebs_options")
 
     @property
@@ -487,6 +487,6 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcOptions")
-    def vpc_options(self) -> pulumi.Output[Optional['outputs.DomainVPCOptions']]:
+    def vpc_options(self) -> pulumi.Output[Optional['outputs.DomainVpcOptions']]:
         return pulumi.get(self, "vpc_options")
 

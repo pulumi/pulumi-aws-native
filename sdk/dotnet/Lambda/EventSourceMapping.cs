@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Lambda
         /// Document db event source config.
         /// </summary>
         [Output("documentDbEventSourceConfig")]
-        public Output<Outputs.EventSourceMappingDocumentDBEventSourceConfig?> DocumentDbEventSourceConfig { get; private set; } = null!;
+        public Output<Outputs.EventSourceMappingDocumentDbEventSourceConfig?> DocumentDbEventSourceConfig { get; private set; } = null!;
 
         /// <summary>
         /// Disables the event source mapping to pause polling and invocation.
@@ -226,7 +226,7 @@ namespace Pulumi.AwsNative.Lambda
         /// Document db event source config.
         /// </summary>
         [Input("documentDbEventSourceConfig")]
-        public Input<Inputs.EventSourceMappingDocumentDBEventSourceConfigArgs>? DocumentDbEventSourceConfig { get; set; }
+        public Input<Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs>? DocumentDbEventSourceConfig { get; set; }
 
         /// <summary>
         /// Disables the event source mapping to pause polling and invocation.

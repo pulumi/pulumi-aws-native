@@ -5,19 +5,19 @@
 from enum import Enum
 
 __all__ = [
-    'CustomDBEngineVersionStatus',
-    'DBInstanceProcessorFeatureName',
-    'DBProxyAuthFormatAuthScheme',
-    'DBProxyAuthFormatClientPasswordAuthType',
-    'DBProxyAuthFormatIAMAuth',
-    'DBProxyEndpointTargetRole',
-    'DBProxyEngineFamily',
-    'DBProxyTargetGroupTargetGroupName',
+    'CustomDbEngineVersionStatus',
+    'DbInstanceProcessorFeatureName',
+    'DbProxyAuthFormatAuthScheme',
+    'DbProxyAuthFormatClientPasswordAuthType',
+    'DbProxyAuthFormatIamAuth',
+    'DbProxyEndpointTargetRole',
+    'DbProxyEngineFamily',
+    'DbProxyTargetGroupTargetGroupName',
     'GlobalClusterEngine',
 ]
 
 
-class CustomDBEngineVersionStatus(str, Enum):
+class CustomDbEngineVersionStatus(str, Enum):
     """
     The availability status to be assigned to the CEV.
     """
@@ -26,7 +26,7 @@ class CustomDBEngineVersionStatus(str, Enum):
     INACTIVE_EXCEPT_RESTORE = "inactive-except-restore"
 
 
-class DBInstanceProcessorFeatureName(str, Enum):
+class DbInstanceProcessorFeatureName(str, Enum):
     """
     The name of the processor feature. Valid names are coreCount and threadsPerCore.
     """
@@ -34,14 +34,14 @@ class DBInstanceProcessorFeatureName(str, Enum):
     THREADS_PER_CORE = "threadsPerCore"
 
 
-class DBProxyAuthFormatAuthScheme(str, Enum):
+class DbProxyAuthFormatAuthScheme(str, Enum):
     """
     The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
     """
     SECRETS = "SECRETS"
 
 
-class DBProxyAuthFormatClientPasswordAuthType(str, Enum):
+class DbProxyAuthFormatClientPasswordAuthType(str, Enum):
     """
     The type of authentication the proxy uses for connections from clients.
     """
@@ -51,7 +51,7 @@ class DBProxyAuthFormatClientPasswordAuthType(str, Enum):
     SQL_SERVER_AUTHENTICATION = "SQL_SERVER_AUTHENTICATION"
 
 
-class DBProxyAuthFormatIAMAuth(str, Enum):
+class DbProxyAuthFormatIamAuth(str, Enum):
     """
     Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
     """
@@ -60,7 +60,7 @@ class DBProxyAuthFormatIAMAuth(str, Enum):
     ENABLED = "ENABLED"
 
 
-class DBProxyEndpointTargetRole(str, Enum):
+class DbProxyEndpointTargetRole(str, Enum):
     """
     A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
     """
@@ -68,7 +68,7 @@ class DBProxyEndpointTargetRole(str, Enum):
     READ_ONLY = "READ_ONLY"
 
 
-class DBProxyEngineFamily(str, Enum):
+class DbProxyEngineFamily(str, Enum):
     """
     The kinds of databases that the proxy can connect to.
     """
@@ -77,7 +77,7 @@ class DBProxyEngineFamily(str, Enum):
     SQLSERVER = "SQLSERVER"
 
 
-class DBProxyTargetGroupTargetGroupName(str, Enum):
+class DbProxyTargetGroupTargetGroupName(str, Enum):
     """
     The identifier for the DBProxyTargetGroup
     """

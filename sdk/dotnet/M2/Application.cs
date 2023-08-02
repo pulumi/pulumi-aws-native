@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.M2
         public Output<string> ApplicationId { get; private set; } = null!;
 
         [Output("definition")]
-        public Output<Union<Outputs.Definition0Properties, Outputs.Definition1Properties>> Definition { get; private set; } = null!;
+        public Output<Union<Outputs.ApplicationDefinition0Properties, Outputs.ApplicationDefinition1Properties>> Definition { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.M2
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         [Input("definition", required: true)]
-        public InputUnion<Inputs.Definition0PropertiesArgs, Inputs.Definition1PropertiesArgs> Definition { get; set; } = null!;
+        public InputUnion<Inputs.ApplicationDefinition0PropertiesArgs, Inputs.ApplicationDefinition1PropertiesArgs> Definition { get; set; } = null!;
 
         [Input("description")]
         public Input<string>? Description { get; set; }

@@ -19,7 +19,7 @@ __all__ = [
     'HostedZoneConfig',
     'HostedZoneQueryLoggingConfig',
     'HostedZoneTag',
-    'HostedZoneVPC',
+    'HostedZoneVpc',
     'RecordSetAliasTarget',
     'RecordSetCidrRoutingConfig',
     'RecordSetGeoLocation',
@@ -430,7 +430,7 @@ class HostedZoneTag(dict):
 
 
 @pulumi.output_type
-class HostedZoneVPC(dict):
+class HostedZoneVpc(dict):
     """
     A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
     """
@@ -443,14 +443,14 @@ class HostedZoneVPC(dict):
             suggest = "vpc_region"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HostedZoneVPC. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in HostedZoneVpc. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        HostedZoneVPC.__key_warning(key)
+        HostedZoneVpc.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        HostedZoneVPC.__key_warning(key)
+        HostedZoneVpc.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

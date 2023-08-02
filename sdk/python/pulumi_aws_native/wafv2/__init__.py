@@ -16,6 +16,6 @@ from .logging_configuration import *
 from .regex_pattern_set import *
 from .rule_group import *
 from .web_acl import *
-from .web_aclassociation import *
+from .web_acl_association import *
 from ._inputs import *
 from . import outputs

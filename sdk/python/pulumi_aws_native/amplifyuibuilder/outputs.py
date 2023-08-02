@@ -21,12 +21,12 @@ __all__ = [
     'ComponentTags',
     'ComponentVariant',
     'ComponentVariantValues',
-    'FieldPosition0Properties',
-    'FieldPosition1Properties',
-    'FieldPosition2Properties',
     'FormButton',
-    'FormCTA',
+    'FormCta',
     'FormDataTypeConfig',
+    'FormFieldPosition0Properties',
+    'FormFieldPosition1Properties',
+    'FormFieldPosition2Properties',
     'FormFieldsMap',
     'FormSectionalElementMap',
     'FormStyle',
@@ -178,59 +178,6 @@ class ComponentVariantValues(dict):
 
 
 @pulumi.output_type
-class FieldPosition0Properties(dict):
-    def __init__(__self__, *,
-                 fixed: 'FormFixedPosition'):
-        pulumi.set(__self__, "fixed", fixed)
-
-    @property
-    @pulumi.getter
-    def fixed(self) -> 'FormFixedPosition':
-        return pulumi.get(self, "fixed")
-
-
-@pulumi.output_type
-class FieldPosition1Properties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "rightOf":
-            suggest = "right_of"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FieldPosition1Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FieldPosition1Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FieldPosition1Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 right_of: str):
-        pulumi.set(__self__, "right_of", right_of)
-
-    @property
-    @pulumi.getter(name="rightOf")
-    def right_of(self) -> str:
-        return pulumi.get(self, "right_of")
-
-
-@pulumi.output_type
-class FieldPosition2Properties(dict):
-    def __init__(__self__, *,
-                 below: str):
-        pulumi.set(__self__, "below", below)
-
-    @property
-    @pulumi.getter
-    def below(self) -> str:
-        return pulumi.get(self, "below")
-
-
-@pulumi.output_type
 class FormButton(dict):
     def __init__(__self__, *,
                  children: Optional[str] = None,
@@ -260,7 +207,7 @@ class FormButton(dict):
 
 
 @pulumi.output_type
-class FormCTA(dict):
+class FormCta(dict):
     def __init__(__self__, *,
                  cancel: Optional['outputs.FormButton'] = None,
                  clear: Optional['outputs.FormButton'] = None,
@@ -332,6 +279,59 @@ class FormDataTypeConfig(dict):
     @pulumi.getter(name="dataTypeName")
     def data_type_name(self) -> str:
         return pulumi.get(self, "data_type_name")
+
+
+@pulumi.output_type
+class FormFieldPosition0Properties(dict):
+    def __init__(__self__, *,
+                 fixed: 'FormFixedPosition'):
+        pulumi.set(__self__, "fixed", fixed)
+
+    @property
+    @pulumi.getter
+    def fixed(self) -> 'FormFixedPosition':
+        return pulumi.get(self, "fixed")
+
+
+@pulumi.output_type
+class FormFieldPosition1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rightOf":
+            suggest = "right_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FormFieldPosition1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FormFieldPosition1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FormFieldPosition1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 right_of: str):
+        pulumi.set(__self__, "right_of", right_of)
+
+    @property
+    @pulumi.getter(name="rightOf")
+    def right_of(self) -> str:
+        return pulumi.get(self, "right_of")
+
+
+@pulumi.output_type
+class FormFieldPosition2Properties(dict):
+    def __init__(__self__, *,
+                 below: str):
+        pulumi.set(__self__, "below", below)
+
+    @property
+    @pulumi.getter
+    def below(self) -> str:
+        return pulumi.get(self, "below")
 
 
 @pulumi.output_type

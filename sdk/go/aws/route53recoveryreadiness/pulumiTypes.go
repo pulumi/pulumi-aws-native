@@ -314,7 +314,7 @@ func (o RecoveryGroupTagArrayOutput) Index(i pulumi.IntInput) RecoveryGroupTagOu
 }
 
 // A component for DNS/routing control readiness checks.
-type ResourceSetDNSTargetResource struct {
+type ResourceSetDnsTargetResource struct {
 	// The domain name that acts as an ingress point to a portion of the customer application.
 	DomainName *string `pulumi:"domainName"`
 	// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
@@ -326,19 +326,19 @@ type ResourceSetDNSTargetResource struct {
 	TargetResource *ResourceSetTargetResource `pulumi:"targetResource"`
 }
 
-// ResourceSetDNSTargetResourceInput is an input type that accepts ResourceSetDNSTargetResourceArgs and ResourceSetDNSTargetResourceOutput values.
-// You can construct a concrete instance of `ResourceSetDNSTargetResourceInput` via:
+// ResourceSetDnsTargetResourceInput is an input type that accepts ResourceSetDnsTargetResourceArgs and ResourceSetDnsTargetResourceOutput values.
+// You can construct a concrete instance of `ResourceSetDnsTargetResourceInput` via:
 //
-//	ResourceSetDNSTargetResourceArgs{...}
-type ResourceSetDNSTargetResourceInput interface {
+//	ResourceSetDnsTargetResourceArgs{...}
+type ResourceSetDnsTargetResourceInput interface {
 	pulumi.Input
 
-	ToResourceSetDNSTargetResourceOutput() ResourceSetDNSTargetResourceOutput
-	ToResourceSetDNSTargetResourceOutputWithContext(context.Context) ResourceSetDNSTargetResourceOutput
+	ToResourceSetDnsTargetResourceOutput() ResourceSetDnsTargetResourceOutput
+	ToResourceSetDnsTargetResourceOutputWithContext(context.Context) ResourceSetDnsTargetResourceOutput
 }
 
 // A component for DNS/routing control readiness checks.
-type ResourceSetDNSTargetResourceArgs struct {
+type ResourceSetDnsTargetResourceArgs struct {
 	// The domain name that acts as an ingress point to a portion of the customer application.
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
 	// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
@@ -350,135 +350,135 @@ type ResourceSetDNSTargetResourceArgs struct {
 	TargetResource ResourceSetTargetResourcePtrInput `pulumi:"targetResource"`
 }
 
-func (ResourceSetDNSTargetResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSetDNSTargetResource)(nil)).Elem()
+func (ResourceSetDnsTargetResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetDnsTargetResource)(nil)).Elem()
 }
 
-func (i ResourceSetDNSTargetResourceArgs) ToResourceSetDNSTargetResourceOutput() ResourceSetDNSTargetResourceOutput {
-	return i.ToResourceSetDNSTargetResourceOutputWithContext(context.Background())
+func (i ResourceSetDnsTargetResourceArgs) ToResourceSetDnsTargetResourceOutput() ResourceSetDnsTargetResourceOutput {
+	return i.ToResourceSetDnsTargetResourceOutputWithContext(context.Background())
 }
 
-func (i ResourceSetDNSTargetResourceArgs) ToResourceSetDNSTargetResourceOutputWithContext(ctx context.Context) ResourceSetDNSTargetResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDNSTargetResourceOutput)
+func (i ResourceSetDnsTargetResourceArgs) ToResourceSetDnsTargetResourceOutputWithContext(ctx context.Context) ResourceSetDnsTargetResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDnsTargetResourceOutput)
 }
 
-func (i ResourceSetDNSTargetResourceArgs) ToResourceSetDNSTargetResourcePtrOutput() ResourceSetDNSTargetResourcePtrOutput {
-	return i.ToResourceSetDNSTargetResourcePtrOutputWithContext(context.Background())
+func (i ResourceSetDnsTargetResourceArgs) ToResourceSetDnsTargetResourcePtrOutput() ResourceSetDnsTargetResourcePtrOutput {
+	return i.ToResourceSetDnsTargetResourcePtrOutputWithContext(context.Background())
 }
 
-func (i ResourceSetDNSTargetResourceArgs) ToResourceSetDNSTargetResourcePtrOutputWithContext(ctx context.Context) ResourceSetDNSTargetResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDNSTargetResourceOutput).ToResourceSetDNSTargetResourcePtrOutputWithContext(ctx)
+func (i ResourceSetDnsTargetResourceArgs) ToResourceSetDnsTargetResourcePtrOutputWithContext(ctx context.Context) ResourceSetDnsTargetResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDnsTargetResourceOutput).ToResourceSetDnsTargetResourcePtrOutputWithContext(ctx)
 }
 
-// ResourceSetDNSTargetResourcePtrInput is an input type that accepts ResourceSetDNSTargetResourceArgs, ResourceSetDNSTargetResourcePtr and ResourceSetDNSTargetResourcePtrOutput values.
-// You can construct a concrete instance of `ResourceSetDNSTargetResourcePtrInput` via:
+// ResourceSetDnsTargetResourcePtrInput is an input type that accepts ResourceSetDnsTargetResourceArgs, ResourceSetDnsTargetResourcePtr and ResourceSetDnsTargetResourcePtrOutput values.
+// You can construct a concrete instance of `ResourceSetDnsTargetResourcePtrInput` via:
 //
-//	        ResourceSetDNSTargetResourceArgs{...}
+//	        ResourceSetDnsTargetResourceArgs{...}
 //
 //	or:
 //
 //	        nil
-type ResourceSetDNSTargetResourcePtrInput interface {
+type ResourceSetDnsTargetResourcePtrInput interface {
 	pulumi.Input
 
-	ToResourceSetDNSTargetResourcePtrOutput() ResourceSetDNSTargetResourcePtrOutput
-	ToResourceSetDNSTargetResourcePtrOutputWithContext(context.Context) ResourceSetDNSTargetResourcePtrOutput
+	ToResourceSetDnsTargetResourcePtrOutput() ResourceSetDnsTargetResourcePtrOutput
+	ToResourceSetDnsTargetResourcePtrOutputWithContext(context.Context) ResourceSetDnsTargetResourcePtrOutput
 }
 
-type resourceSetDNSTargetResourcePtrType ResourceSetDNSTargetResourceArgs
+type resourceSetDnsTargetResourcePtrType ResourceSetDnsTargetResourceArgs
 
-func ResourceSetDNSTargetResourcePtr(v *ResourceSetDNSTargetResourceArgs) ResourceSetDNSTargetResourcePtrInput {
-	return (*resourceSetDNSTargetResourcePtrType)(v)
+func ResourceSetDnsTargetResourcePtr(v *ResourceSetDnsTargetResourceArgs) ResourceSetDnsTargetResourcePtrInput {
+	return (*resourceSetDnsTargetResourcePtrType)(v)
 }
 
-func (*resourceSetDNSTargetResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSetDNSTargetResource)(nil)).Elem()
+func (*resourceSetDnsTargetResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSetDnsTargetResource)(nil)).Elem()
 }
 
-func (i *resourceSetDNSTargetResourcePtrType) ToResourceSetDNSTargetResourcePtrOutput() ResourceSetDNSTargetResourcePtrOutput {
-	return i.ToResourceSetDNSTargetResourcePtrOutputWithContext(context.Background())
+func (i *resourceSetDnsTargetResourcePtrType) ToResourceSetDnsTargetResourcePtrOutput() ResourceSetDnsTargetResourcePtrOutput {
+	return i.ToResourceSetDnsTargetResourcePtrOutputWithContext(context.Background())
 }
 
-func (i *resourceSetDNSTargetResourcePtrType) ToResourceSetDNSTargetResourcePtrOutputWithContext(ctx context.Context) ResourceSetDNSTargetResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDNSTargetResourcePtrOutput)
+func (i *resourceSetDnsTargetResourcePtrType) ToResourceSetDnsTargetResourcePtrOutputWithContext(ctx context.Context) ResourceSetDnsTargetResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDnsTargetResourcePtrOutput)
 }
 
 // A component for DNS/routing control readiness checks.
-type ResourceSetDNSTargetResourceOutput struct{ *pulumi.OutputState }
+type ResourceSetDnsTargetResourceOutput struct{ *pulumi.OutputState }
 
-func (ResourceSetDNSTargetResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSetDNSTargetResource)(nil)).Elem()
+func (ResourceSetDnsTargetResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetDnsTargetResource)(nil)).Elem()
 }
 
-func (o ResourceSetDNSTargetResourceOutput) ToResourceSetDNSTargetResourceOutput() ResourceSetDNSTargetResourceOutput {
+func (o ResourceSetDnsTargetResourceOutput) ToResourceSetDnsTargetResourceOutput() ResourceSetDnsTargetResourceOutput {
 	return o
 }
 
-func (o ResourceSetDNSTargetResourceOutput) ToResourceSetDNSTargetResourceOutputWithContext(ctx context.Context) ResourceSetDNSTargetResourceOutput {
+func (o ResourceSetDnsTargetResourceOutput) ToResourceSetDnsTargetResourceOutputWithContext(ctx context.Context) ResourceSetDnsTargetResourceOutput {
 	return o
 }
 
-func (o ResourceSetDNSTargetResourceOutput) ToResourceSetDNSTargetResourcePtrOutput() ResourceSetDNSTargetResourcePtrOutput {
-	return o.ToResourceSetDNSTargetResourcePtrOutputWithContext(context.Background())
+func (o ResourceSetDnsTargetResourceOutput) ToResourceSetDnsTargetResourcePtrOutput() ResourceSetDnsTargetResourcePtrOutput {
+	return o.ToResourceSetDnsTargetResourcePtrOutputWithContext(context.Background())
 }
 
-func (o ResourceSetDNSTargetResourceOutput) ToResourceSetDNSTargetResourcePtrOutputWithContext(ctx context.Context) ResourceSetDNSTargetResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetDNSTargetResource) *ResourceSetDNSTargetResource {
+func (o ResourceSetDnsTargetResourceOutput) ToResourceSetDnsTargetResourcePtrOutputWithContext(ctx context.Context) ResourceSetDnsTargetResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetDnsTargetResource) *ResourceSetDnsTargetResource {
 		return &v
-	}).(ResourceSetDNSTargetResourcePtrOutput)
+	}).(ResourceSetDnsTargetResourcePtrOutput)
 }
 
 // The domain name that acts as an ingress point to a portion of the customer application.
-func (o ResourceSetDNSTargetResourceOutput) DomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSetDNSTargetResource) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+func (o ResourceSetDnsTargetResourceOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetDnsTargetResource) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
-func (o ResourceSetDNSTargetResourceOutput) HostedZoneArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSetDNSTargetResource) *string { return v.HostedZoneArn }).(pulumi.StringPtrOutput)
+func (o ResourceSetDnsTargetResourceOutput) HostedZoneArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetDnsTargetResource) *string { return v.HostedZoneArn }).(pulumi.StringPtrOutput)
 }
 
 // The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
-func (o ResourceSetDNSTargetResourceOutput) RecordSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSetDNSTargetResource) *string { return v.RecordSetId }).(pulumi.StringPtrOutput)
+func (o ResourceSetDnsTargetResourceOutput) RecordSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetDnsTargetResource) *string { return v.RecordSetId }).(pulumi.StringPtrOutput)
 }
 
 // The type of DNS record of the target resource.
-func (o ResourceSetDNSTargetResourceOutput) RecordType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSetDNSTargetResource) *string { return v.RecordType }).(pulumi.StringPtrOutput)
+func (o ResourceSetDnsTargetResourceOutput) RecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetDnsTargetResource) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
 
-func (o ResourceSetDNSTargetResourceOutput) TargetResource() ResourceSetTargetResourcePtrOutput {
-	return o.ApplyT(func(v ResourceSetDNSTargetResource) *ResourceSetTargetResource { return v.TargetResource }).(ResourceSetTargetResourcePtrOutput)
+func (o ResourceSetDnsTargetResourceOutput) TargetResource() ResourceSetTargetResourcePtrOutput {
+	return o.ApplyT(func(v ResourceSetDnsTargetResource) *ResourceSetTargetResource { return v.TargetResource }).(ResourceSetTargetResourcePtrOutput)
 }
 
-type ResourceSetDNSTargetResourcePtrOutput struct{ *pulumi.OutputState }
+type ResourceSetDnsTargetResourcePtrOutput struct{ *pulumi.OutputState }
 
-func (ResourceSetDNSTargetResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSetDNSTargetResource)(nil)).Elem()
+func (ResourceSetDnsTargetResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSetDnsTargetResource)(nil)).Elem()
 }
 
-func (o ResourceSetDNSTargetResourcePtrOutput) ToResourceSetDNSTargetResourcePtrOutput() ResourceSetDNSTargetResourcePtrOutput {
+func (o ResourceSetDnsTargetResourcePtrOutput) ToResourceSetDnsTargetResourcePtrOutput() ResourceSetDnsTargetResourcePtrOutput {
 	return o
 }
 
-func (o ResourceSetDNSTargetResourcePtrOutput) ToResourceSetDNSTargetResourcePtrOutputWithContext(ctx context.Context) ResourceSetDNSTargetResourcePtrOutput {
+func (o ResourceSetDnsTargetResourcePtrOutput) ToResourceSetDnsTargetResourcePtrOutputWithContext(ctx context.Context) ResourceSetDnsTargetResourcePtrOutput {
 	return o
 }
 
-func (o ResourceSetDNSTargetResourcePtrOutput) Elem() ResourceSetDNSTargetResourceOutput {
-	return o.ApplyT(func(v *ResourceSetDNSTargetResource) ResourceSetDNSTargetResource {
+func (o ResourceSetDnsTargetResourcePtrOutput) Elem() ResourceSetDnsTargetResourceOutput {
+	return o.ApplyT(func(v *ResourceSetDnsTargetResource) ResourceSetDnsTargetResource {
 		if v != nil {
 			return *v
 		}
-		var ret ResourceSetDNSTargetResource
+		var ret ResourceSetDnsTargetResource
 		return ret
-	}).(ResourceSetDNSTargetResourceOutput)
+	}).(ResourceSetDnsTargetResourceOutput)
 }
 
 // The domain name that acts as an ingress point to a portion of the customer application.
-func (o ResourceSetDNSTargetResourcePtrOutput) DomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSetDNSTargetResource) *string {
+func (o ResourceSetDnsTargetResourcePtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSetDnsTargetResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -487,8 +487,8 @@ func (o ResourceSetDNSTargetResourcePtrOutput) DomainName() pulumi.StringPtrOutp
 }
 
 // The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
-func (o ResourceSetDNSTargetResourcePtrOutput) HostedZoneArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSetDNSTargetResource) *string {
+func (o ResourceSetDnsTargetResourcePtrOutput) HostedZoneArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSetDnsTargetResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -497,8 +497,8 @@ func (o ResourceSetDNSTargetResourcePtrOutput) HostedZoneArn() pulumi.StringPtrO
 }
 
 // The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
-func (o ResourceSetDNSTargetResourcePtrOutput) RecordSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSetDNSTargetResource) *string {
+func (o ResourceSetDnsTargetResourcePtrOutput) RecordSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSetDnsTargetResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -507,8 +507,8 @@ func (o ResourceSetDNSTargetResourcePtrOutput) RecordSetId() pulumi.StringPtrOut
 }
 
 // The type of DNS record of the target resource.
-func (o ResourceSetDNSTargetResourcePtrOutput) RecordType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSetDNSTargetResource) *string {
+func (o ResourceSetDnsTargetResourcePtrOutput) RecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSetDnsTargetResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -516,8 +516,8 @@ func (o ResourceSetDNSTargetResourcePtrOutput) RecordType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ResourceSetDNSTargetResourcePtrOutput) TargetResource() ResourceSetTargetResourcePtrOutput {
-	return o.ApplyT(func(v *ResourceSetDNSTargetResource) *ResourceSetTargetResource {
+func (o ResourceSetDnsTargetResourcePtrOutput) TargetResource() ResourceSetTargetResourcePtrOutput {
+	return o.ApplyT(func(v *ResourceSetDnsTargetResource) *ResourceSetTargetResource {
 		if v == nil {
 			return nil
 		}
@@ -526,138 +526,138 @@ func (o ResourceSetDNSTargetResourcePtrOutput) TargetResource() ResourceSetTarge
 }
 
 // The Network Load Balancer resource that a DNS target resource points to.
-type ResourceSetNLBResource struct {
+type ResourceSetNlbResource struct {
 	// A Network Load Balancer resource Amazon Resource Name (ARN).
 	Arn *string `pulumi:"arn"`
 }
 
-// ResourceSetNLBResourceInput is an input type that accepts ResourceSetNLBResourceArgs and ResourceSetNLBResourceOutput values.
-// You can construct a concrete instance of `ResourceSetNLBResourceInput` via:
+// ResourceSetNlbResourceInput is an input type that accepts ResourceSetNlbResourceArgs and ResourceSetNlbResourceOutput values.
+// You can construct a concrete instance of `ResourceSetNlbResourceInput` via:
 //
-//	ResourceSetNLBResourceArgs{...}
-type ResourceSetNLBResourceInput interface {
+//	ResourceSetNlbResourceArgs{...}
+type ResourceSetNlbResourceInput interface {
 	pulumi.Input
 
-	ToResourceSetNLBResourceOutput() ResourceSetNLBResourceOutput
-	ToResourceSetNLBResourceOutputWithContext(context.Context) ResourceSetNLBResourceOutput
+	ToResourceSetNlbResourceOutput() ResourceSetNlbResourceOutput
+	ToResourceSetNlbResourceOutputWithContext(context.Context) ResourceSetNlbResourceOutput
 }
 
 // The Network Load Balancer resource that a DNS target resource points to.
-type ResourceSetNLBResourceArgs struct {
+type ResourceSetNlbResourceArgs struct {
 	// A Network Load Balancer resource Amazon Resource Name (ARN).
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
-func (ResourceSetNLBResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSetNLBResource)(nil)).Elem()
+func (ResourceSetNlbResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetNlbResource)(nil)).Elem()
 }
 
-func (i ResourceSetNLBResourceArgs) ToResourceSetNLBResourceOutput() ResourceSetNLBResourceOutput {
-	return i.ToResourceSetNLBResourceOutputWithContext(context.Background())
+func (i ResourceSetNlbResourceArgs) ToResourceSetNlbResourceOutput() ResourceSetNlbResourceOutput {
+	return i.ToResourceSetNlbResourceOutputWithContext(context.Background())
 }
 
-func (i ResourceSetNLBResourceArgs) ToResourceSetNLBResourceOutputWithContext(ctx context.Context) ResourceSetNLBResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetNLBResourceOutput)
+func (i ResourceSetNlbResourceArgs) ToResourceSetNlbResourceOutputWithContext(ctx context.Context) ResourceSetNlbResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetNlbResourceOutput)
 }
 
-func (i ResourceSetNLBResourceArgs) ToResourceSetNLBResourcePtrOutput() ResourceSetNLBResourcePtrOutput {
-	return i.ToResourceSetNLBResourcePtrOutputWithContext(context.Background())
+func (i ResourceSetNlbResourceArgs) ToResourceSetNlbResourcePtrOutput() ResourceSetNlbResourcePtrOutput {
+	return i.ToResourceSetNlbResourcePtrOutputWithContext(context.Background())
 }
 
-func (i ResourceSetNLBResourceArgs) ToResourceSetNLBResourcePtrOutputWithContext(ctx context.Context) ResourceSetNLBResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetNLBResourceOutput).ToResourceSetNLBResourcePtrOutputWithContext(ctx)
+func (i ResourceSetNlbResourceArgs) ToResourceSetNlbResourcePtrOutputWithContext(ctx context.Context) ResourceSetNlbResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetNlbResourceOutput).ToResourceSetNlbResourcePtrOutputWithContext(ctx)
 }
 
-// ResourceSetNLBResourcePtrInput is an input type that accepts ResourceSetNLBResourceArgs, ResourceSetNLBResourcePtr and ResourceSetNLBResourcePtrOutput values.
-// You can construct a concrete instance of `ResourceSetNLBResourcePtrInput` via:
+// ResourceSetNlbResourcePtrInput is an input type that accepts ResourceSetNlbResourceArgs, ResourceSetNlbResourcePtr and ResourceSetNlbResourcePtrOutput values.
+// You can construct a concrete instance of `ResourceSetNlbResourcePtrInput` via:
 //
-//	        ResourceSetNLBResourceArgs{...}
+//	        ResourceSetNlbResourceArgs{...}
 //
 //	or:
 //
 //	        nil
-type ResourceSetNLBResourcePtrInput interface {
+type ResourceSetNlbResourcePtrInput interface {
 	pulumi.Input
 
-	ToResourceSetNLBResourcePtrOutput() ResourceSetNLBResourcePtrOutput
-	ToResourceSetNLBResourcePtrOutputWithContext(context.Context) ResourceSetNLBResourcePtrOutput
+	ToResourceSetNlbResourcePtrOutput() ResourceSetNlbResourcePtrOutput
+	ToResourceSetNlbResourcePtrOutputWithContext(context.Context) ResourceSetNlbResourcePtrOutput
 }
 
-type resourceSetNLBResourcePtrType ResourceSetNLBResourceArgs
+type resourceSetNlbResourcePtrType ResourceSetNlbResourceArgs
 
-func ResourceSetNLBResourcePtr(v *ResourceSetNLBResourceArgs) ResourceSetNLBResourcePtrInput {
-	return (*resourceSetNLBResourcePtrType)(v)
+func ResourceSetNlbResourcePtr(v *ResourceSetNlbResourceArgs) ResourceSetNlbResourcePtrInput {
+	return (*resourceSetNlbResourcePtrType)(v)
 }
 
-func (*resourceSetNLBResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSetNLBResource)(nil)).Elem()
+func (*resourceSetNlbResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSetNlbResource)(nil)).Elem()
 }
 
-func (i *resourceSetNLBResourcePtrType) ToResourceSetNLBResourcePtrOutput() ResourceSetNLBResourcePtrOutput {
-	return i.ToResourceSetNLBResourcePtrOutputWithContext(context.Background())
+func (i *resourceSetNlbResourcePtrType) ToResourceSetNlbResourcePtrOutput() ResourceSetNlbResourcePtrOutput {
+	return i.ToResourceSetNlbResourcePtrOutputWithContext(context.Background())
 }
 
-func (i *resourceSetNLBResourcePtrType) ToResourceSetNLBResourcePtrOutputWithContext(ctx context.Context) ResourceSetNLBResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetNLBResourcePtrOutput)
+func (i *resourceSetNlbResourcePtrType) ToResourceSetNlbResourcePtrOutputWithContext(ctx context.Context) ResourceSetNlbResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetNlbResourcePtrOutput)
 }
 
 // The Network Load Balancer resource that a DNS target resource points to.
-type ResourceSetNLBResourceOutput struct{ *pulumi.OutputState }
+type ResourceSetNlbResourceOutput struct{ *pulumi.OutputState }
 
-func (ResourceSetNLBResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSetNLBResource)(nil)).Elem()
+func (ResourceSetNlbResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetNlbResource)(nil)).Elem()
 }
 
-func (o ResourceSetNLBResourceOutput) ToResourceSetNLBResourceOutput() ResourceSetNLBResourceOutput {
+func (o ResourceSetNlbResourceOutput) ToResourceSetNlbResourceOutput() ResourceSetNlbResourceOutput {
 	return o
 }
 
-func (o ResourceSetNLBResourceOutput) ToResourceSetNLBResourceOutputWithContext(ctx context.Context) ResourceSetNLBResourceOutput {
+func (o ResourceSetNlbResourceOutput) ToResourceSetNlbResourceOutputWithContext(ctx context.Context) ResourceSetNlbResourceOutput {
 	return o
 }
 
-func (o ResourceSetNLBResourceOutput) ToResourceSetNLBResourcePtrOutput() ResourceSetNLBResourcePtrOutput {
-	return o.ToResourceSetNLBResourcePtrOutputWithContext(context.Background())
+func (o ResourceSetNlbResourceOutput) ToResourceSetNlbResourcePtrOutput() ResourceSetNlbResourcePtrOutput {
+	return o.ToResourceSetNlbResourcePtrOutputWithContext(context.Background())
 }
 
-func (o ResourceSetNLBResourceOutput) ToResourceSetNLBResourcePtrOutputWithContext(ctx context.Context) ResourceSetNLBResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetNLBResource) *ResourceSetNLBResource {
+func (o ResourceSetNlbResourceOutput) ToResourceSetNlbResourcePtrOutputWithContext(ctx context.Context) ResourceSetNlbResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetNlbResource) *ResourceSetNlbResource {
 		return &v
-	}).(ResourceSetNLBResourcePtrOutput)
+	}).(ResourceSetNlbResourcePtrOutput)
 }
 
 // A Network Load Balancer resource Amazon Resource Name (ARN).
-func (o ResourceSetNLBResourceOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSetNLBResource) *string { return v.Arn }).(pulumi.StringPtrOutput)
+func (o ResourceSetNlbResourceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetNlbResource) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-type ResourceSetNLBResourcePtrOutput struct{ *pulumi.OutputState }
+type ResourceSetNlbResourcePtrOutput struct{ *pulumi.OutputState }
 
-func (ResourceSetNLBResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSetNLBResource)(nil)).Elem()
+func (ResourceSetNlbResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSetNlbResource)(nil)).Elem()
 }
 
-func (o ResourceSetNLBResourcePtrOutput) ToResourceSetNLBResourcePtrOutput() ResourceSetNLBResourcePtrOutput {
+func (o ResourceSetNlbResourcePtrOutput) ToResourceSetNlbResourcePtrOutput() ResourceSetNlbResourcePtrOutput {
 	return o
 }
 
-func (o ResourceSetNLBResourcePtrOutput) ToResourceSetNLBResourcePtrOutputWithContext(ctx context.Context) ResourceSetNLBResourcePtrOutput {
+func (o ResourceSetNlbResourcePtrOutput) ToResourceSetNlbResourcePtrOutputWithContext(ctx context.Context) ResourceSetNlbResourcePtrOutput {
 	return o
 }
 
-func (o ResourceSetNLBResourcePtrOutput) Elem() ResourceSetNLBResourceOutput {
-	return o.ApplyT(func(v *ResourceSetNLBResource) ResourceSetNLBResource {
+func (o ResourceSetNlbResourcePtrOutput) Elem() ResourceSetNlbResourceOutput {
+	return o.ApplyT(func(v *ResourceSetNlbResource) ResourceSetNlbResource {
 		if v != nil {
 			return *v
 		}
-		var ret ResourceSetNLBResource
+		var ret ResourceSetNlbResource
 		return ret
-	}).(ResourceSetNLBResourceOutput)
+	}).(ResourceSetNlbResourceOutput)
 }
 
 // A Network Load Balancer resource Amazon Resource Name (ARN).
-func (o ResourceSetNLBResourcePtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSetNLBResource) *string {
+func (o ResourceSetNlbResourcePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSetNlbResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -828,7 +828,7 @@ func (o ResourceSetR53ResourceRecordPtrOutput) RecordSetId() pulumi.StringPtrOut
 type ResourceSetResource struct {
 	// The component identifier of the resource, generated when DNS target resource is used.
 	ComponentId       *string                       `pulumi:"componentId"`
-	DnsTargetResource *ResourceSetDNSTargetResource `pulumi:"dnsTargetResource"`
+	DnsTargetResource *ResourceSetDnsTargetResource `pulumi:"dnsTargetResource"`
 	// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
 	ReadinessScopes []string `pulumi:"readinessScopes"`
 	// The Amazon Resource Name (ARN) of the AWS resource.
@@ -850,7 +850,7 @@ type ResourceSetResourceInput interface {
 type ResourceSetResourceArgs struct {
 	// The component identifier of the resource, generated when DNS target resource is used.
 	ComponentId       pulumi.StringPtrInput                `pulumi:"componentId"`
-	DnsTargetResource ResourceSetDNSTargetResourcePtrInput `pulumi:"dnsTargetResource"`
+	DnsTargetResource ResourceSetDnsTargetResourcePtrInput `pulumi:"dnsTargetResource"`
 	// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
 	ReadinessScopes pulumi.StringArrayInput `pulumi:"readinessScopes"`
 	// The Amazon Resource Name (ARN) of the AWS resource.
@@ -914,8 +914,8 @@ func (o ResourceSetResourceOutput) ComponentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResource) *string { return v.ComponentId }).(pulumi.StringPtrOutput)
 }
 
-func (o ResourceSetResourceOutput) DnsTargetResource() ResourceSetDNSTargetResourcePtrOutput {
-	return o.ApplyT(func(v ResourceSetResource) *ResourceSetDNSTargetResource { return v.DnsTargetResource }).(ResourceSetDNSTargetResourcePtrOutput)
+func (o ResourceSetResourceOutput) DnsTargetResource() ResourceSetDnsTargetResourcePtrOutput {
+	return o.ApplyT(func(v ResourceSetResource) *ResourceSetDnsTargetResource { return v.DnsTargetResource }).(ResourceSetDnsTargetResourcePtrOutput)
 }
 
 // A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
@@ -1050,7 +1050,7 @@ func (o ResourceSetTagArrayOutput) Index(i pulumi.IntInput) ResourceSetTagOutput
 
 // The target resource that the Route 53 record points to.
 type ResourceSetTargetResource struct {
-	NlbResource *ResourceSetNLBResource       `pulumi:"nlbResource"`
+	NlbResource *ResourceSetNlbResource       `pulumi:"nlbResource"`
 	R53Resource *ResourceSetR53ResourceRecord `pulumi:"r53Resource"`
 }
 
@@ -1067,7 +1067,7 @@ type ResourceSetTargetResourceInput interface {
 
 // The target resource that the Route 53 record points to.
 type ResourceSetTargetResourceArgs struct {
-	NlbResource ResourceSetNLBResourcePtrInput       `pulumi:"nlbResource"`
+	NlbResource ResourceSetNlbResourcePtrInput       `pulumi:"nlbResource"`
 	R53Resource ResourceSetR53ResourceRecordPtrInput `pulumi:"r53Resource"`
 }
 
@@ -1149,8 +1149,8 @@ func (o ResourceSetTargetResourceOutput) ToResourceSetTargetResourcePtrOutputWit
 	}).(ResourceSetTargetResourcePtrOutput)
 }
 
-func (o ResourceSetTargetResourceOutput) NlbResource() ResourceSetNLBResourcePtrOutput {
-	return o.ApplyT(func(v ResourceSetTargetResource) *ResourceSetNLBResource { return v.NlbResource }).(ResourceSetNLBResourcePtrOutput)
+func (o ResourceSetTargetResourceOutput) NlbResource() ResourceSetNlbResourcePtrOutput {
+	return o.ApplyT(func(v ResourceSetTargetResource) *ResourceSetNlbResource { return v.NlbResource }).(ResourceSetNlbResourcePtrOutput)
 }
 
 func (o ResourceSetTargetResourceOutput) R53Resource() ResourceSetR53ResourceRecordPtrOutput {
@@ -1181,13 +1181,13 @@ func (o ResourceSetTargetResourcePtrOutput) Elem() ResourceSetTargetResourceOutp
 	}).(ResourceSetTargetResourceOutput)
 }
 
-func (o ResourceSetTargetResourcePtrOutput) NlbResource() ResourceSetNLBResourcePtrOutput {
-	return o.ApplyT(func(v *ResourceSetTargetResource) *ResourceSetNLBResource {
+func (o ResourceSetTargetResourcePtrOutput) NlbResource() ResourceSetNlbResourcePtrOutput {
+	return o.ApplyT(func(v *ResourceSetTargetResource) *ResourceSetNlbResource {
 		if v == nil {
 			return nil
 		}
 		return v.NlbResource
-	}).(ResourceSetNLBResourcePtrOutput)
+	}).(ResourceSetNlbResourcePtrOutput)
 }
 
 func (o ResourceSetTargetResourcePtrOutput) R53Resource() ResourceSetR53ResourceRecordPtrOutput {
@@ -1206,10 +1206,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckTagArrayInput)(nil)).Elem(), ReadinessCheckTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupTagInput)(nil)).Elem(), RecoveryGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupTagArrayInput)(nil)).Elem(), RecoveryGroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetDNSTargetResourceInput)(nil)).Elem(), ResourceSetDNSTargetResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetDNSTargetResourcePtrInput)(nil)).Elem(), ResourceSetDNSTargetResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetNLBResourceInput)(nil)).Elem(), ResourceSetNLBResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetNLBResourcePtrInput)(nil)).Elem(), ResourceSetNLBResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetDnsTargetResourceInput)(nil)).Elem(), ResourceSetDnsTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetDnsTargetResourcePtrInput)(nil)).Elem(), ResourceSetDnsTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetNlbResourceInput)(nil)).Elem(), ResourceSetNlbResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetNlbResourcePtrInput)(nil)).Elem(), ResourceSetNlbResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetR53ResourceRecordInput)(nil)).Elem(), ResourceSetR53ResourceRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetR53ResourceRecordPtrInput)(nil)).Elem(), ResourceSetR53ResourceRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceInput)(nil)).Elem(), ResourceSetResourceArgs{})
@@ -1224,10 +1224,10 @@ func init() {
 	pulumi.RegisterOutputType(ReadinessCheckTagArrayOutput{})
 	pulumi.RegisterOutputType(RecoveryGroupTagOutput{})
 	pulumi.RegisterOutputType(RecoveryGroupTagArrayOutput{})
-	pulumi.RegisterOutputType(ResourceSetDNSTargetResourceOutput{})
-	pulumi.RegisterOutputType(ResourceSetDNSTargetResourcePtrOutput{})
-	pulumi.RegisterOutputType(ResourceSetNLBResourceOutput{})
-	pulumi.RegisterOutputType(ResourceSetNLBResourcePtrOutput{})
+	pulumi.RegisterOutputType(ResourceSetDnsTargetResourceOutput{})
+	pulumi.RegisterOutputType(ResourceSetDnsTargetResourcePtrOutput{})
+	pulumi.RegisterOutputType(ResourceSetNlbResourceOutput{})
+	pulumi.RegisterOutputType(ResourceSetNlbResourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetR53ResourceRecordOutput{})
 	pulumi.RegisterOutputType(ResourceSetR53ResourceRecordPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetResourceOutput{})

@@ -17,9 +17,9 @@ namespace Pulumi.AwsNative.Oam
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LinkResourceType AWSCloudWatchMetric { get; } = new LinkResourceType("AWS::CloudWatch::Metric");
-        public static LinkResourceType AWSLogsLogGroup { get; } = new LinkResourceType("AWS::Logs::LogGroup");
-        public static LinkResourceType AWSXRayTrace { get; } = new LinkResourceType("AWS::XRay::Trace");
+        public static LinkResourceType AwsCloudWatchMetric { get; } = new LinkResourceType("AWS::CloudWatch::Metric");
+        public static LinkResourceType AwsLogsLogGroup { get; } = new LinkResourceType("AWS::Logs::LogGroup");
+        public static LinkResourceType AwsxRayTrace { get; } = new LinkResourceType("AWS::XRay::Trace");
 
         public static bool operator ==(LinkResourceType left, LinkResourceType right) => left.Equals(right);
         public static bool operator !=(LinkResourceType left, LinkResourceType right) => !left.Equals(right);

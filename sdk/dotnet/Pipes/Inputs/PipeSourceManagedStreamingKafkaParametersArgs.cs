@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<string>? ConsumerGroupId { get; set; }
 
         [Input("credentials")]
-        public InputUnion<Inputs.MSKAccessCredentials0PropertiesArgs, Inputs.MSKAccessCredentials1PropertiesArgs>? Credentials { get; set; }
+        public InputUnion<Inputs.PipeMskAccessCredentials0PropertiesArgs, Inputs.PipeMskAccessCredentials1PropertiesArgs>? Credentials { get; set; }
 
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
 
         [Input("startingPosition")]
-        public Input<Pulumi.AwsNative.Pipes.PipeMSKStartPosition>? StartingPosition { get; set; }
+        public Input<Pulumi.AwsNative.Pipes.PipeMskStartPosition>? StartingPosition { get; set; }
 
         [Input("topicName", required: true)]
         public Input<string> TopicName { get; set; } = null!;

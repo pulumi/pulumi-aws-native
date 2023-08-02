@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { DRTAccessArgs } from "./drtaccess";
-export type DRTAccess = import("./drtaccess").DRTAccess;
-export const DRTAccess: typeof import("./drtaccess").DRTAccess = null as any;
-utilities.lazyLoad(exports, ["DRTAccess"], () => require("./drtaccess"));
+export { DrtAccessArgs } from "./drtAccess";
+export type DrtAccess = import("./drtAccess").DrtAccess;
+export const DrtAccess: typeof import("./drtAccess").DrtAccess = null as any;
+utilities.lazyLoad(exports, ["DrtAccess"], () => require("./drtAccess"));
 
-export { GetDRTAccessArgs, GetDRTAccessResult, GetDRTAccessOutputArgs } from "./getDRTAccess";
-export const getDRTAccess: typeof import("./getDRTAccess").getDRTAccess = null as any;
-export const getDRTAccessOutput: typeof import("./getDRTAccess").getDRTAccessOutput = null as any;
-utilities.lazyLoad(exports, ["getDRTAccess","getDRTAccessOutput"], () => require("./getDRTAccess"));
+export { GetDrtAccessArgs, GetDrtAccessResult, GetDrtAccessOutputArgs } from "./getDrtAccess";
+export const getDrtAccess: typeof import("./getDrtAccess").getDrtAccess = null as any;
+export const getDrtAccessOutput: typeof import("./getDrtAccess").getDrtAccessOutput = null as any;
+utilities.lazyLoad(exports, ["getDrtAccess","getDrtAccessOutput"], () => require("./getDrtAccess"));
 
 export { GetProactiveEngagementArgs, GetProactiveEngagementResult, GetProactiveEngagementOutputArgs } from "./getProactiveEngagement";
 export const getProactiveEngagement: typeof import("./getProactiveEngagement").getProactiveEngagement = null as any;
@@ -53,8 +53,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:shield:DRTAccess":
-                return new DRTAccess(name, <any>undefined, { urn })
+            case "aws-native:shield:DrtAccess":
+                return new DrtAccess(name, <any>undefined, { urn })
             case "aws-native:shield:ProactiveEngagement":
                 return new ProactiveEngagement(name, <any>undefined, { urn })
             case "aws-native:shield:Protection":

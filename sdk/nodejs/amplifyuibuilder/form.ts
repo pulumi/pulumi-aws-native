@@ -38,7 +38,7 @@ export class Form extends pulumi.CustomResource {
     }
 
     public readonly appId!: pulumi.Output<string | undefined>;
-    public readonly cta!: pulumi.Output<outputs.amplifyuibuilder.FormCTA | undefined>;
+    public readonly cta!: pulumi.Output<outputs.amplifyuibuilder.FormCta | undefined>;
     public readonly dataType!: pulumi.Output<outputs.amplifyuibuilder.FormDataTypeConfig>;
     public readonly environmentName!: pulumi.Output<string | undefined>;
     public readonly fields!: pulumi.Output<outputs.amplifyuibuilder.FormFieldsMap>;
@@ -115,7 +115,7 @@ export class Form extends pulumi.CustomResource {
  */
 export interface FormArgs {
     appId?: pulumi.Input<string>;
-    cta?: pulumi.Input<inputs.amplifyuibuilder.FormCTAArgs>;
+    cta?: pulumi.Input<inputs.amplifyuibuilder.FormCtaArgs>;
     dataType: pulumi.Input<inputs.amplifyuibuilder.FormDataTypeConfigArgs>;
     environmentName?: pulumi.Input<string>;
     fields: pulumi.Input<inputs.amplifyuibuilder.FormFieldsMapArgs>;

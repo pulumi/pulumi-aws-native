@@ -27,7 +27,7 @@ type LookupDetectorArgs struct {
 }
 
 type LookupDetectorResult struct {
-	DataSources                *DetectorCFNDataSourceConfigurations `pulumi:"dataSources"`
+	DataSources                *DetectorCfnDataSourceConfigurations `pulumi:"dataSources"`
 	Enable                     *bool                                `pulumi:"enable"`
 	Features                   []DetectorFeatureConfigurations      `pulumi:"features"`
 	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
@@ -70,8 +70,8 @@ func (o LookupDetectorResultOutput) ToLookupDetectorResultOutputWithContext(ctx 
 	return o
 }
 
-func (o LookupDetectorResultOutput) DataSources() DetectorCFNDataSourceConfigurationsPtrOutput {
-	return o.ApplyT(func(v LookupDetectorResult) *DetectorCFNDataSourceConfigurations { return v.DataSources }).(DetectorCFNDataSourceConfigurationsPtrOutput)
+func (o LookupDetectorResultOutput) DataSources() DetectorCfnDataSourceConfigurationsPtrOutput {
+	return o.ApplyT(func(v LookupDetectorResult) *DetectorCfnDataSourceConfigurations { return v.DataSources }).(DetectorCfnDataSourceConfigurationsPtrOutput)
 }
 
 func (o LookupDetectorResultOutput) Enable() pulumi.BoolPtrOutput {

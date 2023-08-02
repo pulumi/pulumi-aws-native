@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MicrosoftADArgs', 'MicrosoftAD']
+__all__ = ['MicrosoftAdArgs', 'MicrosoftAd']
 
 @pulumi.input_type
-class MicrosoftADArgs:
+class MicrosoftAdArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
-                 vpc_settings: pulumi.Input['MicrosoftADVpcSettingsArgs'],
+                 vpc_settings: pulumi.Input['MicrosoftAdVpcSettingsArgs'],
                  create_alias: Optional[pulumi.Input[bool]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  enable_sso: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a MicrosoftAD resource.
+        The set of arguments for constructing a MicrosoftAd resource.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "vpc_settings", vpc_settings)
@@ -50,11 +50,11 @@ class MicrosoftADArgs:
 
     @property
     @pulumi.getter(name="vpcSettings")
-    def vpc_settings(self) -> pulumi.Input['MicrosoftADVpcSettingsArgs']:
+    def vpc_settings(self) -> pulumi.Input['MicrosoftAdVpcSettingsArgs']:
         return pulumi.get(self, "vpc_settings")
 
     @vpc_settings.setter
-    def vpc_settings(self, value: pulumi.Input['MicrosoftADVpcSettingsArgs']):
+    def vpc_settings(self, value: pulumi.Input['MicrosoftAdVpcSettingsArgs']):
         pulumi.set(self, "vpc_settings", value)
 
     @property
@@ -103,11 +103,11 @@ class MicrosoftADArgs:
         pulumi.set(self, "short_name", value)
 
 
-warnings.warn("""MicrosoftAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""MicrosoftAd is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class MicrosoftAD(pulumi.CustomResource):
-    warnings.warn("""MicrosoftAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class MicrosoftAd(pulumi.CustomResource):
+    warnings.warn("""MicrosoftAd is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -119,7 +119,7 @@ class MicrosoftAD(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
-                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['MicrosoftADVpcSettingsArgs']]] = None,
+                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['MicrosoftAdVpcSettingsArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectoryService::MicrosoftAD
@@ -131,18 +131,18 @@ class MicrosoftAD(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MicrosoftADArgs,
+                 args: MicrosoftAdArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DirectoryService::MicrosoftAD
 
         :param str resource_name: The name of the resource.
-        :param MicrosoftADArgs args: The arguments to use to populate this resource's properties.
+        :param MicrosoftAdArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MicrosoftADArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MicrosoftAdArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -157,16 +157,16 @@ class MicrosoftAD(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
-                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['MicrosoftADVpcSettingsArgs']]] = None,
+                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['MicrosoftAdVpcSettingsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""MicrosoftAD is deprecated: MicrosoftAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""MicrosoftAd is deprecated: MicrosoftAd is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MicrosoftADArgs.__new__(MicrosoftADArgs)
+            __props__ = MicrosoftAdArgs.__new__(MicrosoftAdArgs)
 
             __props__.__dict__["create_alias"] = create_alias
             __props__.__dict__["edition"] = edition
@@ -181,8 +181,8 @@ class MicrosoftAD(pulumi.CustomResource):
             __props__.__dict__["vpc_settings"] = vpc_settings
             __props__.__dict__["alias"] = None
             __props__.__dict__["dns_ip_addresses"] = None
-        super(MicrosoftAD, __self__).__init__(
-            'aws-native:directoryservice:MicrosoftAD',
+        super(MicrosoftAd, __self__).__init__(
+            'aws-native:directoryservice:MicrosoftAd',
             resource_name,
             __props__,
             opts)
@@ -190,9 +190,9 @@ class MicrosoftAD(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'MicrosoftAD':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'MicrosoftAd':
         """
-        Get an existing MicrosoftAD resource's state with the given name, id, and optional extra
+        Get an existing MicrosoftAd resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -201,7 +201,7 @@ class MicrosoftAD(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = MicrosoftADArgs.__new__(MicrosoftADArgs)
+        __props__ = MicrosoftAdArgs.__new__(MicrosoftAdArgs)
 
         __props__.__dict__["alias"] = None
         __props__.__dict__["create_alias"] = None
@@ -212,7 +212,7 @@ class MicrosoftAD(pulumi.CustomResource):
         __props__.__dict__["password"] = None
         __props__.__dict__["short_name"] = None
         __props__.__dict__["vpc_settings"] = None
-        return MicrosoftAD(resource_name, opts=opts, __props__=__props__)
+        return MicrosoftAd(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -256,6 +256,6 @@ class MicrosoftAD(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSettings")
-    def vpc_settings(self) -> pulumi.Output['outputs.MicrosoftADVpcSettings']:
+    def vpc_settings(self) -> pulumi.Output['outputs.MicrosoftAdVpcSettings']:
         return pulumi.get(self, "vpc_settings")
 

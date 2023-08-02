@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// FUOTA task LoRaWAN
         /// </summary>
-        public readonly Outputs.FuotaTaskLoRaWAN? LoRaWan;
+        public readonly Outputs.FuotaTaskLoRaWan? LoRaWan;
         /// <summary>
         /// Name of FUOTA task
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? id,
 
-            Outputs.FuotaTaskLoRaWAN? loRaWan,
+            Outputs.FuotaTaskLoRaWan? loRaWan,
 
             string? name,
 

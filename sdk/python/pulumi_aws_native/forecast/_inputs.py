@@ -11,7 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AttributesItemPropertiesArgs',
+    'DatasetAttributesItemPropertiesArgs',
     'DatasetGroupTagArgs',
     'EncryptionConfigPropertiesArgs',
     'SchemaPropertiesArgs',
@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class AttributesItemPropertiesArgs:
+class DatasetAttributesItemPropertiesArgs:
     def __init__(__self__, *,
                  attribute_name: Optional[pulumi.Input[str]] = None,
                  attribute_type: Optional[pulumi.Input['DatasetAttributesItemPropertiesAttributeType']] = None):
@@ -127,17 +127,17 @@ class EncryptionConfigPropertiesArgs:
 @pulumi.input_type
 class SchemaPropertiesArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['AttributesItemPropertiesArgs']]]] = None):
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]] = None):
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AttributesItemPropertiesArgs']]]]:
+    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AttributesItemPropertiesArgs']]]]):
+    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]]):
         pulumi.set(self, "attributes", value)
 
 

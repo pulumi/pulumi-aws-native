@@ -22,7 +22,7 @@ class EventSourceMappingArgs:
                  batch_size: Optional[pulumi.Input[int]] = None,
                  bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
                  destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
-                 document_db_event_source_config: Optional[pulumi.Input['EventSourceMappingDocumentDBEventSourceConfigArgs']] = None,
+                 document_db_event_source_config: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  filter_criteria: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']] = None,
@@ -47,7 +47,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input[int] batch_size: The maximum number of items to retrieve in a single batch.
         :param pulumi.Input[bool] bisect_batch_on_function_error: (Streams) If the function returns an error, split the batch in two and retry.
         :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-        :param pulumi.Input['EventSourceMappingDocumentDBEventSourceConfigArgs'] document_db_event_source_config: Document db event source config.
+        :param pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs'] document_db_event_source_config: Document db event source config.
         :param pulumi.Input[bool] enabled: Disables the event source mapping to pause polling and invocation.
         :param pulumi.Input[str] event_source_arn: The Amazon Resource Name (ARN) of the event source.
         :param pulumi.Input['EventSourceMappingFilterCriteriaArgs'] filter_criteria: The filter criteria to control event filtering.
@@ -174,14 +174,14 @@ class EventSourceMappingArgs:
 
     @property
     @pulumi.getter(name="documentDbEventSourceConfig")
-    def document_db_event_source_config(self) -> Optional[pulumi.Input['EventSourceMappingDocumentDBEventSourceConfigArgs']]:
+    def document_db_event_source_config(self) -> Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs']]:
         """
         Document db event source config.
         """
         return pulumi.get(self, "document_db_event_source_config")
 
     @document_db_event_source_config.setter
-    def document_db_event_source_config(self, value: Optional[pulumi.Input['EventSourceMappingDocumentDBEventSourceConfigArgs']]):
+    def document_db_event_source_config(self, value: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs']]):
         pulumi.set(self, "document_db_event_source_config", value)
 
     @property
@@ -398,7 +398,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  batch_size: Optional[pulumi.Input[int]] = None,
                  bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
                  destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
-                 document_db_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDBEventSourceConfigArgs']]] = None,
+                 document_db_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDbEventSourceConfigArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  filter_criteria: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']]] = None,
@@ -427,7 +427,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[int] batch_size: The maximum number of items to retrieve in a single batch.
         :param pulumi.Input[bool] bisect_batch_on_function_error: (Streams) If the function returns an error, split the batch in two and retry.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']] destination_config: (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-        :param pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDBEventSourceConfigArgs']] document_db_event_source_config: Document db event source config.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDbEventSourceConfigArgs']] document_db_event_source_config: Document db event source config.
         :param pulumi.Input[bool] enabled: Disables the event source mapping to pause polling and invocation.
         :param pulumi.Input[str] event_source_arn: The Amazon Resource Name (ARN) of the event source.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']] filter_criteria: The filter criteria to control event filtering.
@@ -475,7 +475,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  batch_size: Optional[pulumi.Input[int]] = None,
                  bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
                  destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
-                 document_db_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDBEventSourceConfigArgs']]] = None,
+                 document_db_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDbEventSourceConfigArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  filter_criteria: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']]] = None,
@@ -609,7 +609,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentDbEventSourceConfig")
-    def document_db_event_source_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingDocumentDBEventSourceConfig']]:
+    def document_db_event_source_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingDocumentDbEventSourceConfig']]:
         """
         Document db event source config.
         """

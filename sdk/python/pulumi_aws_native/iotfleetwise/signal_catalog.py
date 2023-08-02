@@ -20,7 +20,7 @@ class SignalCatalogArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_counts: Optional[pulumi.Input['SignalCatalogNodeCountsArgs']] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Node0PropertiesArgs', 'Node1PropertiesArgs', 'Node2PropertiesArgs', 'Node3PropertiesArgs']]]]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalCatalogNode0PropertiesArgs', 'SignalCatalogNode1PropertiesArgs', 'SignalCatalogNode2PropertiesArgs', 'SignalCatalogNode3PropertiesArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SignalCatalogTagArgs']]]] = None):
         """
         The set of arguments for constructing a SignalCatalog resource.
@@ -65,11 +65,11 @@ class SignalCatalogArgs:
 
     @property
     @pulumi.getter
-    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['Node0PropertiesArgs', 'Node1PropertiesArgs', 'Node2PropertiesArgs', 'Node3PropertiesArgs']]]]]:
+    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalCatalogNode0PropertiesArgs', 'SignalCatalogNode1PropertiesArgs', 'SignalCatalogNode2PropertiesArgs', 'SignalCatalogNode3PropertiesArgs']]]]]:
         return pulumi.get(self, "nodes")
 
     @nodes.setter
-    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Node0PropertiesArgs', 'Node1PropertiesArgs', 'Node2PropertiesArgs', 'Node3PropertiesArgs']]]]]):
+    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalCatalogNode0PropertiesArgs', 'SignalCatalogNode1PropertiesArgs', 'SignalCatalogNode2PropertiesArgs', 'SignalCatalogNode3PropertiesArgs']]]]]):
         pulumi.set(self, "nodes", value)
 
     @property
@@ -95,7 +95,7 @@ class SignalCatalog(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_counts: Optional[pulumi.Input[pulumi.InputType['SignalCatalogNodeCountsArgs']]] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['Node0PropertiesArgs'], pulumi.InputType['Node1PropertiesArgs'], pulumi.InputType['Node2PropertiesArgs'], pulumi.InputType['Node3PropertiesArgs']]]]]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['SignalCatalogNode0PropertiesArgs'], pulumi.InputType['SignalCatalogNode1PropertiesArgs'], pulumi.InputType['SignalCatalogNode2PropertiesArgs'], pulumi.InputType['SignalCatalogNode3PropertiesArgs']]]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalCatalogTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -131,7 +131,7 @@ class SignalCatalog(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_counts: Optional[pulumi.Input[pulumi.InputType['SignalCatalogNodeCountsArgs']]] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['Node0PropertiesArgs'], pulumi.InputType['Node1PropertiesArgs'], pulumi.InputType['Node2PropertiesArgs'], pulumi.InputType['Node3PropertiesArgs']]]]]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['SignalCatalogNode0PropertiesArgs'], pulumi.InputType['SignalCatalogNode1PropertiesArgs'], pulumi.InputType['SignalCatalogNode2PropertiesArgs'], pulumi.InputType['SignalCatalogNode3PropertiesArgs']]]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalCatalogTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""SignalCatalog is deprecated: SignalCatalog is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")

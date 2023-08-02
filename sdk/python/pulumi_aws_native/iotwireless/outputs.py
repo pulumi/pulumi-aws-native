@@ -13,36 +13,36 @@ from ._enums import *
 
 __all__ = [
     'DestinationTag',
-    'DeviceProfileLoRaWANDeviceProfile',
+    'DeviceProfileLoRaWanDeviceProfile',
     'DeviceProfileTag',
-    'FuotaTaskLoRaWAN',
+    'FuotaTaskLoRaWan',
     'FuotaTaskTag',
-    'MulticastGroupLoRaWAN',
+    'MulticastGroupLoRaWan',
     'MulticastGroupTag',
     'NetworkAnalyzerConfigurationTag',
     'PartnerAccountSidewalkAccountInfo',
     'PartnerAccountSidewalkAccountInfoWithFingerprint',
     'PartnerAccountSidewalkUpdateAccount',
     'PartnerAccountTag',
-    'ServiceProfileLoRaWANServiceProfile',
+    'ServiceProfileLoRaWanServiceProfile',
     'ServiceProfileTag',
     'SidewalkProperties',
-    'TaskDefinitionLoRaWANGatewayVersion',
-    'TaskDefinitionLoRaWANUpdateGatewayTaskCreate',
-    'TaskDefinitionLoRaWANUpdateGatewayTaskEntry',
+    'TaskDefinitionLoRaWanGatewayVersion',
+    'TaskDefinitionLoRaWanUpdateGatewayTaskCreate',
+    'TaskDefinitionLoRaWanUpdateGatewayTaskEntry',
     'TaskDefinitionTag',
     'TaskDefinitionUpdateWirelessGatewayTaskCreate',
     'TraceContentProperties',
     'WirelessDeviceAbpV10x',
     'WirelessDeviceAbpV11',
     'WirelessDeviceImportTaskTag',
-    'WirelessDeviceLoRaWANDevice',
+    'WirelessDeviceLoRaWanDevice',
     'WirelessDeviceOtaaV10x',
     'WirelessDeviceOtaaV11',
     'WirelessDeviceSessionKeysAbpV10x',
     'WirelessDeviceSessionKeysAbpV11',
     'WirelessDeviceTag',
-    'WirelessGatewayLoRaWANGateway',
+    'WirelessGatewayLoRaWanGateway',
     'WirelessGatewayTag',
 ]
 
@@ -68,7 +68,7 @@ class DestinationTag(dict):
 
 
 @pulumi.output_type
-class DeviceProfileLoRaWANDeviceProfile(dict):
+class DeviceProfileLoRaWanDeviceProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -112,14 +112,14 @@ class DeviceProfileLoRaWANDeviceProfile(dict):
             suggest = "supports_join"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeviceProfileLoRaWANDeviceProfile. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DeviceProfileLoRaWanDeviceProfile. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DeviceProfileLoRaWANDeviceProfile.__key_warning(key)
+        DeviceProfileLoRaWanDeviceProfile.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DeviceProfileLoRaWANDeviceProfile.__key_warning(key)
+        DeviceProfileLoRaWanDeviceProfile.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -299,7 +299,7 @@ class DeviceProfileTag(dict):
 
 
 @pulumi.output_type
-class FuotaTaskLoRaWAN(dict):
+class FuotaTaskLoRaWan(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -309,14 +309,14 @@ class FuotaTaskLoRaWAN(dict):
             suggest = "start_time"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FuotaTaskLoRaWAN. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FuotaTaskLoRaWan. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FuotaTaskLoRaWAN.__key_warning(key)
+        FuotaTaskLoRaWan.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FuotaTaskLoRaWAN.__key_warning(key)
+        FuotaTaskLoRaWan.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -369,7 +369,7 @@ class FuotaTaskTag(dict):
 
 
 @pulumi.output_type
-class MulticastGroupLoRaWAN(dict):
+class MulticastGroupLoRaWan(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -383,14 +383,14 @@ class MulticastGroupLoRaWAN(dict):
             suggest = "number_of_devices_requested"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MulticastGroupLoRaWAN. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MulticastGroupLoRaWan. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MulticastGroupLoRaWAN.__key_warning(key)
+        MulticastGroupLoRaWan.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MulticastGroupLoRaWAN.__key_warning(key)
+        MulticastGroupLoRaWan.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -625,7 +625,7 @@ class PartnerAccountTag(dict):
 
 
 @pulumi.output_type
-class ServiceProfileLoRaWANServiceProfile(dict):
+class ServiceProfileLoRaWanServiceProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -669,14 +669,14 @@ class ServiceProfileLoRaWANServiceProfile(dict):
             suggest = "ul_rate_policy"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceProfileLoRaWANServiceProfile. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServiceProfileLoRaWanServiceProfile. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ServiceProfileLoRaWANServiceProfile.__key_warning(key)
+        ServiceProfileLoRaWanServiceProfile.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ServiceProfileLoRaWANServiceProfile.__key_warning(key)
+        ServiceProfileLoRaWanServiceProfile.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -920,7 +920,7 @@ class SidewalkProperties(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionLoRaWANGatewayVersion(dict):
+class TaskDefinitionLoRaWanGatewayVersion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -928,14 +928,14 @@ class TaskDefinitionLoRaWANGatewayVersion(dict):
             suggest = "package_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionLoRaWANGatewayVersion. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionLoRaWanGatewayVersion. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TaskDefinitionLoRaWANGatewayVersion.__key_warning(key)
+        TaskDefinitionLoRaWanGatewayVersion.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TaskDefinitionLoRaWANGatewayVersion.__key_warning(key)
+        TaskDefinitionLoRaWanGatewayVersion.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -966,7 +966,7 @@ class TaskDefinitionLoRaWANGatewayVersion(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionLoRaWANUpdateGatewayTaskCreate(dict):
+class TaskDefinitionLoRaWanUpdateGatewayTaskCreate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -980,21 +980,21 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskCreate(dict):
             suggest = "update_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionLoRaWANUpdateGatewayTaskCreate. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionLoRaWanUpdateGatewayTaskCreate. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TaskDefinitionLoRaWANUpdateGatewayTaskCreate.__key_warning(key)
+        TaskDefinitionLoRaWanUpdateGatewayTaskCreate.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TaskDefinitionLoRaWANUpdateGatewayTaskCreate.__key_warning(key)
+        TaskDefinitionLoRaWanUpdateGatewayTaskCreate.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 current_version: Optional['outputs.TaskDefinitionLoRaWANGatewayVersion'] = None,
+                 current_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
                  sig_key_crc: Optional[int] = None,
                  update_signature: Optional[str] = None,
-                 update_version: Optional['outputs.TaskDefinitionLoRaWANGatewayVersion'] = None):
+                 update_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None):
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
         if sig_key_crc is not None:
@@ -1006,7 +1006,7 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskCreate(dict):
 
     @property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional['outputs.TaskDefinitionLoRaWANGatewayVersion']:
+    def current_version(self) -> Optional['outputs.TaskDefinitionLoRaWanGatewayVersion']:
         return pulumi.get(self, "current_version")
 
     @property
@@ -1021,12 +1021,12 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskCreate(dict):
 
     @property
     @pulumi.getter(name="updateVersion")
-    def update_version(self) -> Optional['outputs.TaskDefinitionLoRaWANGatewayVersion']:
+    def update_version(self) -> Optional['outputs.TaskDefinitionLoRaWanGatewayVersion']:
         return pulumi.get(self, "update_version")
 
 
 @pulumi.output_type
-class TaskDefinitionLoRaWANUpdateGatewayTaskEntry(dict):
+class TaskDefinitionLoRaWanUpdateGatewayTaskEntry(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1036,19 +1036,19 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskEntry(dict):
             suggest = "update_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionLoRaWANUpdateGatewayTaskEntry. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionLoRaWanUpdateGatewayTaskEntry. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TaskDefinitionLoRaWANUpdateGatewayTaskEntry.__key_warning(key)
+        TaskDefinitionLoRaWanUpdateGatewayTaskEntry.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TaskDefinitionLoRaWANUpdateGatewayTaskEntry.__key_warning(key)
+        TaskDefinitionLoRaWanUpdateGatewayTaskEntry.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 current_version: Optional['outputs.TaskDefinitionLoRaWANGatewayVersion'] = None,
-                 update_version: Optional['outputs.TaskDefinitionLoRaWANGatewayVersion'] = None):
+                 current_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
+                 update_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None):
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
         if update_version is not None:
@@ -1056,12 +1056,12 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskEntry(dict):
 
     @property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional['outputs.TaskDefinitionLoRaWANGatewayVersion']:
+    def current_version(self) -> Optional['outputs.TaskDefinitionLoRaWanGatewayVersion']:
         return pulumi.get(self, "current_version")
 
     @property
     @pulumi.getter(name="updateVersion")
-    def update_version(self) -> Optional['outputs.TaskDefinitionLoRaWANGatewayVersion']:
+    def update_version(self) -> Optional['outputs.TaskDefinitionLoRaWanGatewayVersion']:
         return pulumi.get(self, "update_version")
 
 
@@ -1110,7 +1110,7 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreate(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 lo_ra_wan: Optional['outputs.TaskDefinitionLoRaWANUpdateGatewayTaskCreate'] = None,
+                 lo_ra_wan: Optional['outputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreate'] = None,
                  update_data_role: Optional[str] = None,
                  update_data_source: Optional[str] = None):
         if lo_ra_wan is not None:
@@ -1122,7 +1122,7 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreate(dict):
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional['outputs.TaskDefinitionLoRaWANUpdateGatewayTaskCreate']:
+    def lo_ra_wan(self) -> Optional['outputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreate']:
         return pulumi.get(self, "lo_ra_wan")
 
     @property
@@ -1292,7 +1292,7 @@ class WirelessDeviceImportTaskTag(dict):
 
 
 @pulumi.output_type
-class WirelessDeviceLoRaWANDevice(dict):
+class WirelessDeviceLoRaWanDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1312,14 +1312,14 @@ class WirelessDeviceLoRaWANDevice(dict):
             suggest = "service_profile_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WirelessDeviceLoRaWANDevice. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WirelessDeviceLoRaWanDevice. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WirelessDeviceLoRaWANDevice.__key_warning(key)
+        WirelessDeviceLoRaWanDevice.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WirelessDeviceLoRaWANDevice.__key_warning(key)
+        WirelessDeviceLoRaWanDevice.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1582,7 +1582,7 @@ class WirelessDeviceTag(dict):
 
 
 @pulumi.output_type
-class WirelessGatewayLoRaWANGateway(dict):
+class WirelessGatewayLoRaWanGateway(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1592,14 +1592,14 @@ class WirelessGatewayLoRaWANGateway(dict):
             suggest = "rf_region"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WirelessGatewayLoRaWANGateway. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WirelessGatewayLoRaWanGateway. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WirelessGatewayLoRaWANGateway.__key_warning(key)
+        WirelessGatewayLoRaWanGateway.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WirelessGatewayLoRaWANGateway.__key_warning(key)
+        WirelessGatewayLoRaWanGateway.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

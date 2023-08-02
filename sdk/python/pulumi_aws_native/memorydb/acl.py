@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ACLArgs', 'ACL']
+__all__ = ['AclArgs', 'Acl']
 
 @pulumi.input_type
-class ACLArgs:
+class AclArgs:
     def __init__(__self__, *,
                  acl_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ACLTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AclTagArgs']]]] = None,
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a ACL resource.
+        The set of arguments for constructing a Acl resource.
         :param pulumi.Input[str] acl_name: The name of the acl.
-        :param pulumi.Input[Sequence[pulumi.Input['ACLTagArgs']]] tags: An array of key-value pairs to apply to this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['AclTagArgs']]] tags: An array of key-value pairs to apply to this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_names: List of users associated to this acl.
         """
         if acl_name is not None:
@@ -46,14 +46,14 @@ class ACLArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ACLTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AclTagArgs']]]]:
         """
         An array of key-value pairs to apply to this cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ACLTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AclTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -69,13 +69,13 @@ class ACLArgs:
         pulumi.set(self, "user_names", value)
 
 
-class ACL(pulumi.CustomResource):
+class Acl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acl_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ACLTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AclTagArgs']]]]] = None,
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -84,25 +84,25 @@ class ACL(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acl_name: The name of the acl.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ACLTagArgs']]]] tags: An array of key-value pairs to apply to this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AclTagArgs']]]] tags: An array of key-value pairs to apply to this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_names: List of users associated to this acl.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ACLArgs] = None,
+                 args: Optional[AclArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MemoryDB::ACL
 
         :param str resource_name: The name of the resource.
-        :param ACLArgs args: The arguments to use to populate this resource's properties.
+        :param AclArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ACLArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AclArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -112,7 +112,7 @@ class ACL(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acl_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ACLTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AclTagArgs']]]]] = None,
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -121,15 +121,15 @@ class ACL(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ACLArgs.__new__(ACLArgs)
+            __props__ = AclArgs.__new__(AclArgs)
 
             __props__.__dict__["acl_name"] = acl_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_names"] = user_names
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
-        super(ACL, __self__).__init__(
-            'aws-native:memorydb:ACL',
+        super(Acl, __self__).__init__(
+            'aws-native:memorydb:Acl',
             resource_name,
             __props__,
             opts)
@@ -137,9 +137,9 @@ class ACL(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'ACL':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Acl':
         """
-        Get an existing ACL resource's state with the given name, id, and optional extra
+        Get an existing Acl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -148,14 +148,14 @@ class ACL(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ACLArgs.__new__(ACLArgs)
+        __props__ = AclArgs.__new__(AclArgs)
 
         __props__.__dict__["acl_name"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["user_names"] = None
-        return ACL(resource_name, opts=opts, __props__=__props__)
+        return Acl(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="aclName")
@@ -183,7 +183,7 @@ class ACL(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ACLTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AclTag']]]:
         """
         An array of key-value pairs to apply to this cluster.
         """

@@ -58,8 +58,8 @@ export const ApplicationLogEncoding = {
 export type ApplicationLogEncoding = (typeof ApplicationLogEncoding)[keyof typeof ApplicationLogEncoding];
 
 export const ApplicationSubComponentTypeConfigurationSubComponentType = {
-    AWSEC2Instance: "AWS::EC2::Instance",
-    AWSEC2Volume: "AWS::EC2::Volume",
+    Awsec2Instance: "AWS::EC2::Instance",
+    Awsec2Volume: "AWS::EC2::Volume",
 } as const;
 
 /**

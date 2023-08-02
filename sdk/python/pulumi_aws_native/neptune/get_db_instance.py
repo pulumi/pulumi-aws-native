@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDBInstanceResult',
-    'AwaitableGetDBInstanceResult',
+    'GetDbInstanceResult',
+    'AwaitableGetDbInstanceResult',
     'get_db_instance',
     'get_db_instance_output',
 ]
 
 @pulumi.output_type
-class GetDBInstanceResult:
+class GetDbInstanceResult:
     def __init__(__self__, allow_major_version_upgrade=None, auto_minor_version_upgrade=None, db_instance_class=None, db_parameter_group_name=None, endpoint=None, id=None, port=None, preferred_maintenance_window=None, tags=None):
         if allow_major_version_upgrade and not isinstance(allow_major_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_major_version_upgrade' to be a bool")
@@ -90,16 +90,16 @@ class GetDBInstanceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBInstanceTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DbInstanceTag']]:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDBInstanceResult(GetDBInstanceResult):
+class AwaitableGetDbInstanceResult(GetDbInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBInstanceResult(
+        return GetDbInstanceResult(
             allow_major_version_upgrade=self.allow_major_version_upgrade,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             db_instance_class=self.db_instance_class,
@@ -112,16 +112,16 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
 
 
 def get_db_instance(id: Optional[str] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBInstanceResult:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbInstanceResult:
     """
     Resource Type definition for AWS::Neptune::DBInstance
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBInstance', __args__, opts=opts, typ=GetDBInstanceResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDbInstance', __args__, opts=opts, typ=GetDbInstanceResult).value
 
-    return AwaitableGetDBInstanceResult(
+    return AwaitableGetDbInstanceResult(
         allow_major_version_upgrade=pulumi.get(__ret__, 'allow_major_version_upgrade'),
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
         db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
@@ -135,7 +135,7 @@ def get_db_instance(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_instance)
 def get_db_instance_output(id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBInstanceResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbInstanceResult]:
     """
     Resource Type definition for AWS::Neptune::DBInstance
     """

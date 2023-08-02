@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
     {
         public readonly string? Arn;
         public readonly string? CreationTime;
-        public readonly ImmutableArray<Union<Outputs.DataDestinationConfig0Properties, Outputs.DataDestinationConfig1Properties>> DataDestinationConfigs;
+        public readonly ImmutableArray<Union<Outputs.CampaignDataDestinationConfig0Properties, Outputs.CampaignDataDestinationConfig1Properties>> DataDestinationConfigs;
         public readonly ImmutableArray<string> DataExtraDimensions;
         public readonly string? Description;
         public readonly string? LastModificationTime;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
 
             string? creationTime,
 
-            ImmutableArray<Union<Outputs.DataDestinationConfig0Properties, Outputs.DataDestinationConfig1Properties>> dataDestinationConfigs,
+            ImmutableArray<Union<Outputs.CampaignDataDestinationConfig0Properties, Outputs.CampaignDataDestinationConfig1Properties>> dataDestinationConfigs,
 
             ImmutableArray<string> dataExtraDimensions,
 

@@ -74,7 +74,7 @@ export interface GetCanaryResult {
     /**
      * Provide VPC Configuration if enabled.
      */
-    readonly vpcConfig?: outputs.synthetics.CanaryVPCConfig;
+    readonly vpcConfig?: outputs.synthetics.CanaryVpcConfig;
 }
 /**
  * Resource Type definition for AWS::Synthetics::Canary

@@ -49,7 +49,7 @@ export interface GetMulticastGroupResult {
     /**
      * Multicast group LoRaWAN
      */
-    readonly loRaWan?: outputs.iotwireless.MulticastGroupLoRaWAN;
+    readonly loRaWan?: outputs.iotwireless.MulticastGroupLoRaWan;
     /**
      * Name of Multicast group
      */

@@ -25,10 +25,10 @@ export const getFilter: typeof import("./getFilter").getFilter = null as any;
 export const getFilterOutput: typeof import("./getFilter").getFilterOutput = null as any;
 utilities.lazyLoad(exports, ["getFilter","getFilterOutput"], () => require("./getFilter"));
 
-export { GetIPSetArgs, GetIPSetResult, GetIPSetOutputArgs } from "./getIPSet";
-export const getIPSet: typeof import("./getIPSet").getIPSet = null as any;
-export const getIPSetOutput: typeof import("./getIPSet").getIPSetOutput = null as any;
-utilities.lazyLoad(exports, ["getIPSet","getIPSetOutput"], () => require("./getIPSet"));
+export { GetIpSetArgs, GetIpSetResult, GetIpSetOutputArgs } from "./getIpSet";
+export const getIpSet: typeof import("./getIpSet").getIpSet = null as any;
+export const getIpSetOutput: typeof import("./getIpSet").getIpSetOutput = null as any;
+utilities.lazyLoad(exports, ["getIpSet","getIpSetOutput"], () => require("./getIpSet"));
 
 export { GetMemberArgs, GetMemberResult, GetMemberOutputArgs } from "./getMember";
 export const getMember: typeof import("./getMember").getMember = null as any;
@@ -40,10 +40,10 @@ export const getThreatIntelSet: typeof import("./getThreatIntelSet").getThreatIn
 export const getThreatIntelSetOutput: typeof import("./getThreatIntelSet").getThreatIntelSetOutput = null as any;
 utilities.lazyLoad(exports, ["getThreatIntelSet","getThreatIntelSetOutput"], () => require("./getThreatIntelSet"));
 
-export { IPSetArgs } from "./ipset";
-export type IPSet = import("./ipset").IPSet;
-export const IPSet: typeof import("./ipset").IPSet = null as any;
-utilities.lazyLoad(exports, ["IPSet"], () => require("./ipset"));
+export { IpSetArgs } from "./ipSet";
+export type IpSet = import("./ipSet").IpSet;
+export const IpSet: typeof import("./ipSet").IpSet = null as any;
+utilities.lazyLoad(exports, ["IpSet"], () => require("./ipSet"));
 
 export { MasterArgs } from "./master";
 export type Master = import("./master").Master;
@@ -69,8 +69,8 @@ const _module = {
                 return new Detector(name, <any>undefined, { urn })
             case "aws-native:guardduty:Filter":
                 return new Filter(name, <any>undefined, { urn })
-            case "aws-native:guardduty:IPSet":
-                return new IPSet(name, <any>undefined, { urn })
+            case "aws-native:guardduty:IpSet":
+                return new IpSet(name, <any>undefined, { urn })
             case "aws-native:guardduty:Master":
                 return new Master(name, <any>undefined, { urn })
             case "aws-native:guardduty:Member":

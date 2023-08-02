@@ -19,8 +19,8 @@ __all__ = [
     'AuthorizerTagArgs',
     'BillingGroupPropertiesPropertiesArgs',
     'BillingGroupTagArgs',
-    'CACertificateRegistrationConfigArgs',
-    'CACertificateTagArgs',
+    'CaCertificateRegistrationConfigArgs',
+    'CaCertificateTagArgs',
     'CustomMetricTagArgs',
     'DimensionTagArgs',
     'DomainConfigurationAuthorizerConfigArgs',
@@ -42,7 +42,7 @@ __all__ = [
     'MitigationActionPublishFindingToSnsParamsArgs',
     'MitigationActionReplaceDefaultPolicyVersionParamsArgs',
     'MitigationActionTagArgs',
-    'MitigationActionUpdateCACertificateParamsArgs',
+    'MitigationActionUpdateCaCertificateParamsArgs',
     'MitigationActionUpdateDeviceCertificateParamsArgs',
     'PresignedUrlConfigPropertiesArgs',
     'ProvisioningTemplateProvisioningHookArgs',
@@ -73,8 +73,8 @@ __all__ = [
     'TopicRuleCloudwatchMetricActionArgs',
     'TopicRuleDestinationHttpUrlDestinationSummaryArgs',
     'TopicRuleDestinationVpcDestinationPropertiesArgs',
-    'TopicRuleDynamoDBActionArgs',
     'TopicRuleDynamoDBv2ActionArgs',
+    'TopicRuleDynamoDbActionArgs',
     'TopicRuleElasticsearchActionArgs',
     'TopicRuleFirehoseActionArgs',
     'TopicRuleHttpActionHeaderArgs',
@@ -507,7 +507,7 @@ class BillingGroupTagArgs:
 
 
 @pulumi.input_type
-class CACertificateRegistrationConfigArgs:
+class CaCertificateRegistrationConfigArgs:
     def __init__(__self__, *,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
@@ -548,7 +548,7 @@ class CACertificateRegistrationConfigArgs:
 
 
 @pulumi.input_type
-class CACertificateTagArgs:
+class CaCertificateTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -1126,7 +1126,7 @@ class MitigationActionActionParamsArgs:
                  enable_io_t_logging_params: Optional[pulumi.Input['MitigationActionEnableIoTLoggingParamsArgs']] = None,
                  publish_finding_to_sns_params: Optional[pulumi.Input['MitigationActionPublishFindingToSnsParamsArgs']] = None,
                  replace_default_policy_version_params: Optional[pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgs']] = None,
-                 update_ca_certificate_params: Optional[pulumi.Input['MitigationActionUpdateCACertificateParamsArgs']] = None,
+                 update_ca_certificate_params: Optional[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgs']] = None,
                  update_device_certificate_params: Optional[pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgs']] = None):
         """
         The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
@@ -1182,11 +1182,11 @@ class MitigationActionActionParamsArgs:
 
     @property
     @pulumi.getter(name="updateCaCertificateParams")
-    def update_ca_certificate_params(self) -> Optional[pulumi.Input['MitigationActionUpdateCACertificateParamsArgs']]:
+    def update_ca_certificate_params(self) -> Optional[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgs']]:
         return pulumi.get(self, "update_ca_certificate_params")
 
     @update_ca_certificate_params.setter
-    def update_ca_certificate_params(self, value: Optional[pulumi.Input['MitigationActionUpdateCACertificateParamsArgs']]):
+    def update_ca_certificate_params(self, value: Optional[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgs']]):
         pulumi.set(self, "update_ca_certificate_params", value)
 
     @property
@@ -1357,9 +1357,9 @@ class MitigationActionTagArgs:
 
 
 @pulumi.input_type
-class MitigationActionUpdateCACertificateParamsArgs:
+class MitigationActionUpdateCaCertificateParamsArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input['MitigationActionUpdateCACertificateParamsAction']):
+                 action: pulumi.Input['MitigationActionUpdateCaCertificateParamsAction']):
         """
         Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
         """
@@ -1367,11 +1367,11 @@ class MitigationActionUpdateCACertificateParamsArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input['MitigationActionUpdateCACertificateParamsAction']:
+    def action(self) -> pulumi.Input['MitigationActionUpdateCaCertificateParamsAction']:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input['MitigationActionUpdateCACertificateParamsAction']):
+    def action(self, value: pulumi.Input['MitigationActionUpdateCaCertificateParamsAction']):
         pulumi.set(self, "action", value)
 
 
@@ -2202,7 +2202,7 @@ class TopicRuleActionArgs:
                  cloudwatch_logs: Optional[pulumi.Input['TopicRuleCloudwatchLogsActionArgs']] = None,
                  cloudwatch_metric: Optional[pulumi.Input['TopicRuleCloudwatchMetricActionArgs']] = None,
                  dynamo_d_bv2: Optional[pulumi.Input['TopicRuleDynamoDBv2ActionArgs']] = None,
-                 dynamo_db: Optional[pulumi.Input['TopicRuleDynamoDBActionArgs']] = None,
+                 dynamo_db: Optional[pulumi.Input['TopicRuleDynamoDbActionArgs']] = None,
                  elasticsearch: Optional[pulumi.Input['TopicRuleElasticsearchActionArgs']] = None,
                  firehose: Optional[pulumi.Input['TopicRuleFirehoseActionArgs']] = None,
                  http: Optional[pulumi.Input['TopicRuleHttpActionArgs']] = None,
@@ -2303,11 +2303,11 @@ class TopicRuleActionArgs:
 
     @property
     @pulumi.getter(name="dynamoDb")
-    def dynamo_db(self) -> Optional[pulumi.Input['TopicRuleDynamoDBActionArgs']]:
+    def dynamo_db(self) -> Optional[pulumi.Input['TopicRuleDynamoDbActionArgs']]:
         return pulumi.get(self, "dynamo_db")
 
     @dynamo_db.setter
-    def dynamo_db(self, value: Optional[pulumi.Input['TopicRuleDynamoDBActionArgs']]):
+    def dynamo_db(self, value: Optional[pulumi.Input['TopicRuleDynamoDbActionArgs']]):
         pulumi.set(self, "dynamo_db", value)
 
     @property
@@ -2815,7 +2815,36 @@ class TopicRuleDestinationVpcDestinationPropertiesArgs:
 
 
 @pulumi.input_type
-class TopicRuleDynamoDBActionArgs:
+class TopicRuleDynamoDBv2ActionArgs:
+    def __init__(__self__, *,
+                 put_item: Optional[pulumi.Input['TopicRulePutItemInputArgs']] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        if put_item is not None:
+            pulumi.set(__self__, "put_item", put_item)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="putItem")
+    def put_item(self) -> Optional[pulumi.Input['TopicRulePutItemInputArgs']]:
+        return pulumi.get(self, "put_item")
+
+    @put_item.setter
+    def put_item(self, value: Optional[pulumi.Input['TopicRulePutItemInputArgs']]):
+        pulumi.set(self, "put_item", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class TopicRuleDynamoDbActionArgs:
     def __init__(__self__, *,
                  hash_key_field: pulumi.Input[str],
                  hash_key_value: pulumi.Input[str],
@@ -2921,35 +2950,6 @@ class TopicRuleDynamoDBActionArgs:
     @range_key_value.setter
     def range_key_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "range_key_value", value)
-
-
-@pulumi.input_type
-class TopicRuleDynamoDBv2ActionArgs:
-    def __init__(__self__, *,
-                 put_item: Optional[pulumi.Input['TopicRulePutItemInputArgs']] = None,
-                 role_arn: Optional[pulumi.Input[str]] = None):
-        if put_item is not None:
-            pulumi.set(__self__, "put_item", put_item)
-        if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
-
-    @property
-    @pulumi.getter(name="putItem")
-    def put_item(self) -> Optional[pulumi.Input['TopicRulePutItemInputArgs']]:
-        return pulumi.get(self, "put_item")
-
-    @put_item.setter
-    def put_item(self, value: Optional[pulumi.Input['TopicRulePutItemInputArgs']]):
-        pulumi.set(self, "put_item", value)
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "role_arn", value)
 
 
 @pulumi.input_type

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateTableFieldLinkConfiguration
     {
         public readonly Outputs.TemplateTableFieldLinkContentConfiguration Content;
-        public readonly Pulumi.AwsNative.QuickSight.TemplateURLTargetConfiguration Target;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateUrlTargetConfiguration Target;
 
         [OutputConstructor]
         private TemplateTableFieldLinkConfiguration(
             Outputs.TemplateTableFieldLinkContentConfiguration content,
 
-            Pulumi.AwsNative.QuickSight.TemplateURLTargetConfiguration target)
+            Pulumi.AwsNative.QuickSight.TemplateUrlTargetConfiguration target)
         {
             Content = content;
             Target = target;

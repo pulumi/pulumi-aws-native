@@ -27,7 +27,7 @@ export interface GetClassifierResult {
     readonly grokClassifier?: outputs.glue.ClassifierGrokClassifier;
     readonly id?: string;
     readonly jsonClassifier?: outputs.glue.ClassifierJsonClassifier;
-    readonly xmlClassifier?: outputs.glue.ClassifierXMLClassifier;
+    readonly xmlClassifier?: outputs.glue.ClassifierXmlClassifier;
 }
 /**
  * Resource Type definition for AWS::Glue::Classifier

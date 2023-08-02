@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         public readonly string? CreateAuthChallenge;
         public readonly Outputs.UserPoolCustomEmailSender? CustomEmailSender;
         public readonly string? CustomMessage;
-        public readonly Outputs.UserPoolCustomSMSSender? CustomSmsSender;
+        public readonly Outputs.UserPoolCustomSmsSender? CustomSmsSender;
         public readonly string? DefineAuthChallenge;
         public readonly string? KmsKeyId;
         public readonly string? PostAuthentication;
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
 
             string? customMessage,
 
-            Outputs.UserPoolCustomSMSSender? customSmsSender,
+            Outputs.UserPoolCustomSmsSender? customSmsSender,
 
             string? defineAuthChallenge,
 

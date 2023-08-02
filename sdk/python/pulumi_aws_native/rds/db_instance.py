@@ -12,19 +12,19 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['DBInstanceArgs', 'DBInstance']
+__all__ = ['DbInstanceArgs', 'DbInstance']
 
 @pulumi.input_type
-class DBInstanceArgs:
+class DbInstanceArgs:
     def __init__(__self__, *,
                  allocated_storage: Optional[pulumi.Input[str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceRoleArgs']]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
-                 certificate_details: Optional[pulumi.Input['DBInstanceCertificateDetailsArgs']] = None,
+                 certificate_details: Optional[pulumi.Input['DbInstanceCertificateDetailsArgs']] = None,
                  certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -45,7 +45,7 @@ class DBInstanceArgs:
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-                 endpoint: Optional[pulumi.Input['DBInstanceEndpointArgs']] = None,
+                 endpoint: Optional[pulumi.Input['DbInstanceEndpointArgs']] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
@@ -53,7 +53,7 @@ class DBInstanceArgs:
                  license_model: Optional[pulumi.Input[str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
-                 master_user_secret: Optional[pulumi.Input['DBInstanceMasterUserSecretArgs']] = None,
+                 master_user_secret: Optional[pulumi.Input['DbInstanceMasterUserSecretArgs']] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  max_allocated_storage: Optional[pulumi.Input[int]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
@@ -67,7 +67,7 @@ class DBInstanceArgs:
                  port: Optional[pulumi.Input[str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-                 processor_features: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceProcessorFeatureArgs']]]] = None,
+                 processor_features: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceProcessorFeatureArgs']]]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replica_mode: Optional[pulumi.Input[str]] = None,
@@ -80,7 +80,7 @@ class DBInstanceArgs:
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]] = None,
                  tde_credential_arn: Optional[pulumi.Input[str]] = None,
                  tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -88,15 +88,15 @@ class DBInstanceArgs:
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a DBInstance resource.
+        The set of arguments for constructing a DbInstance resource.
         :param pulumi.Input[str] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the database instance.
         :param pulumi.Input[bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
-        :param pulumi.Input[Sequence[pulumi.Input['DBInstanceRoleArgs']]] associated_roles: The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]] associated_roles: The AWS Identity and Access Management (IAM) roles associated with the DB instance.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
         :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
         :param pulumi.Input[str] ca_certificate_identifier: The identifier of the CA certificate for this DB instance.
-        :param pulumi.Input['DBInstanceCertificateDetailsArgs'] certificate_details: Returns the details of the DB instance's server certificate.
+        :param pulumi.Input['DbInstanceCertificateDetailsArgs'] certificate_details: Returns the details of the DB instance's server certificate.
         :param pulumi.Input[bool] certificate_rotation_restart: A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
                By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
                If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
@@ -134,7 +134,7 @@ class DBInstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB instance.
-        :param pulumi.Input['DBInstanceEndpointArgs'] endpoint: Specifies the connection endpoint.
+        :param pulumi.Input['DbInstanceEndpointArgs'] endpoint: Specifies the connection endpoint.
         :param pulumi.Input[str] engine: The name of the database engine that you want to use for this DB instance.
         :param pulumi.Input[str] engine_version: The version number of the database engine to use.
         :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) that the database provisions.
@@ -142,7 +142,7 @@ class DBInstanceArgs:
         :param pulumi.Input[str] license_model: License model information for this DB instance.
         :param pulumi.Input[bool] manage_master_user_password: A value that indicates whether to manage the master user password with AWS Secrets Manager.
         :param pulumi.Input[str] master_user_password: The password for the master user.
-        :param pulumi.Input['DBInstanceMasterUserSecretArgs'] master_user_secret: Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        :param pulumi.Input['DbInstanceMasterUserSecretArgs'] master_user_secret: Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         :param pulumi.Input[str] master_username: The master user name for the DB instance.
         :param pulumi.Input[int] max_allocated_storage: The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -156,7 +156,7 @@ class DBInstanceArgs:
         :param pulumi.Input[str] port: The port number on which the database accepts connections.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter.
         :param pulumi.Input[str] preferred_maintenance_window: he weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-        :param pulumi.Input[Sequence[pulumi.Input['DBInstanceProcessorFeatureArgs']]] processor_features: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input['DbInstanceProcessorFeatureArgs']]] processor_features: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
         :param pulumi.Input[int] promotion_tier: A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
         :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
         :param pulumi.Input[str] replica_mode: The open mode of an Oracle read replica. The default is open-read-only.
@@ -169,7 +169,7 @@ class DBInstanceArgs:
         :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
         :param pulumi.Input[int] storage_throughput: Specifies the storage throughput for the DB instance.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]] tags: Tags to assign to the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]] tags: Tags to assign to the DB instance.
         :param pulumi.Input[str] tde_credential_arn: The ARN from the key store with which to associate the instance for TDE encryption.
         :param pulumi.Input[str] tde_credential_password: The password for the given ARN from the key store in order to access the device.
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
@@ -344,14 +344,14 @@ class DBInstanceArgs:
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceRoleArgs']]]]:
+    def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]]]:
         """
         The AWS Identity and Access Management (IAM) roles associated with the DB instance.
         """
         return pulumi.get(self, "associated_roles")
 
     @associated_roles.setter
-    def associated_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceRoleArgs']]]]):
+    def associated_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]]]):
         pulumi.set(self, "associated_roles", value)
 
     @property
@@ -404,14 +404,14 @@ class DBInstanceArgs:
 
     @property
     @pulumi.getter(name="certificateDetails")
-    def certificate_details(self) -> Optional[pulumi.Input['DBInstanceCertificateDetailsArgs']]:
+    def certificate_details(self) -> Optional[pulumi.Input['DbInstanceCertificateDetailsArgs']]:
         """
         Returns the details of the DB instance's server certificate.
         """
         return pulumi.get(self, "certificate_details")
 
     @certificate_details.setter
-    def certificate_details(self, value: Optional[pulumi.Input['DBInstanceCertificateDetailsArgs']]):
+    def certificate_details(self, value: Optional[pulumi.Input['DbInstanceCertificateDetailsArgs']]):
         pulumi.set(self, "certificate_details", value)
 
     @property
@@ -673,14 +673,14 @@ class DBInstanceArgs:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input['DBInstanceEndpointArgs']]:
+    def endpoint(self) -> Optional[pulumi.Input['DbInstanceEndpointArgs']]:
         """
         Specifies the connection endpoint.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input['DBInstanceEndpointArgs']]):
+    def endpoint(self, value: Optional[pulumi.Input['DbInstanceEndpointArgs']]):
         pulumi.set(self, "endpoint", value)
 
     @property
@@ -769,14 +769,14 @@ class DBInstanceArgs:
 
     @property
     @pulumi.getter(name="masterUserSecret")
-    def master_user_secret(self) -> Optional[pulumi.Input['DBInstanceMasterUserSecretArgs']]:
+    def master_user_secret(self) -> Optional[pulumi.Input['DbInstanceMasterUserSecretArgs']]:
         """
         Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         """
         return pulumi.get(self, "master_user_secret")
 
     @master_user_secret.setter
-    def master_user_secret(self, value: Optional[pulumi.Input['DBInstanceMasterUserSecretArgs']]):
+    def master_user_secret(self, value: Optional[pulumi.Input['DbInstanceMasterUserSecretArgs']]):
         pulumi.set(self, "master_user_secret", value)
 
     @property
@@ -937,14 +937,14 @@ class DBInstanceArgs:
 
     @property
     @pulumi.getter(name="processorFeatures")
-    def processor_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceProcessorFeatureArgs']]]]:
+    def processor_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceProcessorFeatureArgs']]]]:
         """
         The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
         """
         return pulumi.get(self, "processor_features")
 
     @processor_features.setter
-    def processor_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceProcessorFeatureArgs']]]]):
+    def processor_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceProcessorFeatureArgs']]]]):
         pulumi.set(self, "processor_features", value)
 
     @property
@@ -1093,14 +1093,14 @@ class DBInstanceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]]:
         """
         Tags to assign to the DB instance.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -1176,19 +1176,19 @@ class DBInstanceArgs:
         pulumi.set(self, "vpc_security_groups", value)
 
 
-class DBInstance(pulumi.CustomResource):
+class DbInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceRoleArgs']]]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceDbInstanceRoleArgs']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
-                 certificate_details: Optional[pulumi.Input[pulumi.InputType['DBInstanceCertificateDetailsArgs']]] = None,
+                 certificate_details: Optional[pulumi.Input[pulumi.InputType['DbInstanceCertificateDetailsArgs']]] = None,
                  certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -1209,7 +1209,7 @@ class DBInstance(pulumi.CustomResource):
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-                 endpoint: Optional[pulumi.Input[pulumi.InputType['DBInstanceEndpointArgs']]] = None,
+                 endpoint: Optional[pulumi.Input[pulumi.InputType['DbInstanceEndpointArgs']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
@@ -1217,7 +1217,7 @@ class DBInstance(pulumi.CustomResource):
                  license_model: Optional[pulumi.Input[str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
-                 master_user_secret: Optional[pulumi.Input[pulumi.InputType['DBInstanceMasterUserSecretArgs']]] = None,
+                 master_user_secret: Optional[pulumi.Input[pulumi.InputType['DbInstanceMasterUserSecretArgs']]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  max_allocated_storage: Optional[pulumi.Input[int]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
@@ -1231,7 +1231,7 @@ class DBInstance(pulumi.CustomResource):
                  port: Optional[pulumi.Input[str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-                 processor_features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceProcessorFeatureArgs']]]]] = None,
+                 processor_features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceProcessorFeatureArgs']]]]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replica_mode: Optional[pulumi.Input[str]] = None,
@@ -1244,7 +1244,7 @@ class DBInstance(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceTagArgs']]]]] = None,
                  tde_credential_arn: Optional[pulumi.Input[str]] = None,
                  tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -1259,12 +1259,12 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the database instance.
         :param pulumi.Input[bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceRoleArgs']]]] associated_roles: The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceDbInstanceRoleArgs']]]] associated_roles: The AWS Identity and Access Management (IAM) roles associated with the DB instance.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
         :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
         :param pulumi.Input[str] ca_certificate_identifier: The identifier of the CA certificate for this DB instance.
-        :param pulumi.Input[pulumi.InputType['DBInstanceCertificateDetailsArgs']] certificate_details: Returns the details of the DB instance's server certificate.
+        :param pulumi.Input[pulumi.InputType['DbInstanceCertificateDetailsArgs']] certificate_details: Returns the details of the DB instance's server certificate.
         :param pulumi.Input[bool] certificate_rotation_restart: A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
                By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
                If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
@@ -1302,7 +1302,7 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB instance.
-        :param pulumi.Input[pulumi.InputType['DBInstanceEndpointArgs']] endpoint: Specifies the connection endpoint.
+        :param pulumi.Input[pulumi.InputType['DbInstanceEndpointArgs']] endpoint: Specifies the connection endpoint.
         :param pulumi.Input[str] engine: The name of the database engine that you want to use for this DB instance.
         :param pulumi.Input[str] engine_version: The version number of the database engine to use.
         :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) that the database provisions.
@@ -1310,7 +1310,7 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[str] license_model: License model information for this DB instance.
         :param pulumi.Input[bool] manage_master_user_password: A value that indicates whether to manage the master user password with AWS Secrets Manager.
         :param pulumi.Input[str] master_user_password: The password for the master user.
-        :param pulumi.Input[pulumi.InputType['DBInstanceMasterUserSecretArgs']] master_user_secret: Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        :param pulumi.Input[pulumi.InputType['DbInstanceMasterUserSecretArgs']] master_user_secret: Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         :param pulumi.Input[str] master_username: The master user name for the DB instance.
         :param pulumi.Input[int] max_allocated_storage: The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -1324,7 +1324,7 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[str] port: The port number on which the database accepts connections.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter.
         :param pulumi.Input[str] preferred_maintenance_window: he weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceProcessorFeatureArgs']]]] processor_features: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceProcessorFeatureArgs']]]] processor_features: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
         :param pulumi.Input[int] promotion_tier: A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
         :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
         :param pulumi.Input[str] replica_mode: The open mode of an Oracle read replica. The default is open-read-only.
@@ -1337,7 +1337,7 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
         :param pulumi.Input[int] storage_throughput: Specifies the storage throughput for the DB instance.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]] tags: Tags to assign to the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceTagArgs']]]] tags: Tags to assign to the DB instance.
         :param pulumi.Input[str] tde_credential_arn: The ARN from the key store with which to associate the instance for TDE encryption.
         :param pulumi.Input[str] tde_credential_password: The password for the given ARN from the key store in order to access the device.
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
@@ -1349,18 +1349,18 @@ class DBInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DBInstanceArgs] = None,
+                 args: Optional[DbInstanceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
 
         :param str resource_name: The name of the resource.
-        :param DBInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param DbInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DBInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DbInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1371,12 +1371,12 @@ class DBInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceRoleArgs']]]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceDbInstanceRoleArgs']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
-                 certificate_details: Optional[pulumi.Input[pulumi.InputType['DBInstanceCertificateDetailsArgs']]] = None,
+                 certificate_details: Optional[pulumi.Input[pulumi.InputType['DbInstanceCertificateDetailsArgs']]] = None,
                  certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -1397,7 +1397,7 @@ class DBInstance(pulumi.CustomResource):
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-                 endpoint: Optional[pulumi.Input[pulumi.InputType['DBInstanceEndpointArgs']]] = None,
+                 endpoint: Optional[pulumi.Input[pulumi.InputType['DbInstanceEndpointArgs']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
@@ -1405,7 +1405,7 @@ class DBInstance(pulumi.CustomResource):
                  license_model: Optional[pulumi.Input[str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
-                 master_user_secret: Optional[pulumi.Input[pulumi.InputType['DBInstanceMasterUserSecretArgs']]] = None,
+                 master_user_secret: Optional[pulumi.Input[pulumi.InputType['DbInstanceMasterUserSecretArgs']]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  max_allocated_storage: Optional[pulumi.Input[int]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
@@ -1419,7 +1419,7 @@ class DBInstance(pulumi.CustomResource):
                  port: Optional[pulumi.Input[str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-                 processor_features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceProcessorFeatureArgs']]]]] = None,
+                 processor_features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceProcessorFeatureArgs']]]]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replica_mode: Optional[pulumi.Input[str]] = None,
@@ -1432,7 +1432,7 @@ class DBInstance(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceTagArgs']]]]] = None,
                  tde_credential_arn: Optional[pulumi.Input[str]] = None,
                  tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -1446,7 +1446,7 @@ class DBInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DBInstanceArgs.__new__(DBInstanceArgs)
+            __props__ = DbInstanceArgs.__new__(DbInstanceArgs)
 
             __props__.__dict__["allocated_storage"] = allocated_storage
             __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade
@@ -1521,8 +1521,8 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["db_instance_arn"] = None
             __props__.__dict__["db_system_id"] = None
             __props__.__dict__["dbi_resource_id"] = None
-        super(DBInstance, __self__).__init__(
-            'aws-native:rds:DBInstance',
+        super(DbInstance, __self__).__init__(
+            'aws-native:rds:DbInstance',
             resource_name,
             __props__,
             opts)
@@ -1530,9 +1530,9 @@ class DBInstance(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'DBInstance':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DbInstance':
         """
-        Get an existing DBInstance resource's state with the given name, id, and optional extra
+        Get an existing DbInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -1541,7 +1541,7 @@ class DBInstance(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DBInstanceArgs.__new__(DBInstanceArgs)
+        __props__ = DbInstanceArgs.__new__(DbInstanceArgs)
 
         __props__.__dict__["allocated_storage"] = None
         __props__.__dict__["allow_major_version_upgrade"] = None
@@ -1616,7 +1616,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["use_default_processor_features"] = None
         __props__.__dict__["use_latest_restorable_time"] = None
         __props__.__dict__["vpc_security_groups"] = None
-        return DBInstance(resource_name, opts=opts, __props__=__props__)
+        return DbInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="allocatedStorage")
@@ -1636,7 +1636,7 @@ class DBInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> pulumi.Output[Optional[Sequence['outputs.DBInstanceRole']]]:
+    def associated_roles(self) -> pulumi.Output[Optional[Sequence['outputs.DbInstanceDbInstanceRole']]]:
         """
         The AWS Identity and Access Management (IAM) roles associated with the DB instance.
         """
@@ -1676,7 +1676,7 @@ class DBInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateDetails")
-    def certificate_details(self) -> pulumi.Output[Optional['outputs.DBInstanceCertificateDetails']]:
+    def certificate_details(self) -> pulumi.Output[Optional['outputs.DbInstanceCertificateDetails']]:
         """
         Returns the details of the DB instance's server certificate.
         """
@@ -1885,7 +1885,7 @@ class DBInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[Optional['outputs.DBInstanceEndpoint']]:
+    def endpoint(self) -> pulumi.Output[Optional['outputs.DbInstanceEndpoint']]:
         """
         Specifies the connection endpoint.
         """
@@ -1949,7 +1949,7 @@ class DBInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterUserSecret")
-    def master_user_secret(self) -> pulumi.Output[Optional['outputs.DBInstanceMasterUserSecret']]:
+    def master_user_secret(self) -> pulumi.Output[Optional['outputs.DbInstanceMasterUserSecret']]:
         """
         Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         """
@@ -2061,7 +2061,7 @@ class DBInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="processorFeatures")
-    def processor_features(self) -> pulumi.Output[Optional[Sequence['outputs.DBInstanceProcessorFeature']]]:
+    def processor_features(self) -> pulumi.Output[Optional[Sequence['outputs.DbInstanceProcessorFeature']]]:
         """
         The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
         """
@@ -2165,7 +2165,7 @@ class DBInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBInstanceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbInstanceTag']]]:
         """
         Tags to assign to the DB instance.
         """

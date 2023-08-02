@@ -15,7 +15,7 @@ __all__ = [
     'FirewallRuleGroupStatus',
     'ResolverConfigAutodefinedReverse',
     'ResolverConfigAutodefinedReverseFlag',
-    'ResolverDNSSECConfigValidationStatus',
+    'ResolverDnssecConfigValidationStatus',
     'ResolverQueryLoggingConfigAssociationError',
     'ResolverQueryLoggingConfigAssociationStatus',
     'ResolverQueryLoggingConfigShareStatus',
@@ -115,7 +115,7 @@ class ResolverConfigAutodefinedReverseFlag(str, Enum):
     DISABLE = "DISABLE"
 
 
-class ResolverDNSSECConfigValidationStatus(str, Enum):
+class ResolverDnssecConfigValidationStatus(str, Enum):
     """
     ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
     """

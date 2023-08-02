@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetVPCResult',
-    'AwaitableGetVPCResult',
+    'GetVpcResult',
+    'AwaitableGetVpcResult',
     'get_vpc',
     'get_vpc_output',
 ]
 
 @pulumi.output_type
-class GetVPCResult:
+class GetVpcResult:
     def __init__(__self__, cidr_block_associations=None, default_network_acl=None, default_security_group=None, enable_dns_hostnames=None, enable_dns_support=None, instance_tenancy=None, ipv6_cidr_blocks=None, tags=None, vpc_id=None):
         if cidr_block_associations and not isinstance(cidr_block_associations, list):
             raise TypeError("Expected argument 'cidr_block_associations' to be a list")
@@ -112,7 +112,7 @@ class GetVPCResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.VPCTag']]:
+    def tags(self) -> Optional[Sequence['outputs.VpcTag']]:
         """
         The tags for the VPC.
         """
@@ -127,12 +127,12 @@ class GetVPCResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetVPCResult(GetVPCResult):
+class AwaitableGetVpcResult(GetVpcResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVPCResult(
+        return GetVpcResult(
             cidr_block_associations=self.cidr_block_associations,
             default_network_acl=self.default_network_acl,
             default_security_group=self.default_security_group,
@@ -145,7 +145,7 @@ class AwaitableGetVPCResult(GetVPCResult):
 
 
 def get_vpc(vpc_id: Optional[str] = None,
-            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPCResult:
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcResult:
     """
     Resource Type definition for AWS::EC2::VPC
 
@@ -155,9 +155,9 @@ def get_vpc(vpc_id: Optional[str] = None,
     __args__ = dict()
     __args__['vpcId'] = vpc_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPC', __args__, opts=opts, typ=GetVPCResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpc', __args__, opts=opts, typ=GetVpcResult).value
 
-    return AwaitableGetVPCResult(
+    return AwaitableGetVpcResult(
         cidr_block_associations=pulumi.get(__ret__, 'cidr_block_associations'),
         default_network_acl=pulumi.get(__ret__, 'default_network_acl'),
         default_security_group=pulumi.get(__ret__, 'default_security_group'),
@@ -171,7 +171,7 @@ def get_vpc(vpc_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_vpc)
 def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcResult]:
     """
     Resource Type definition for AWS::EC2::VPC
 

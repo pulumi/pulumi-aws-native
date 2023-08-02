@@ -2288,7 +2288,7 @@ class BucketS3KeyFilterArgs:
 @pulumi.input_type
 class BucketServerSideEncryptionByDefaultArgs:
     def __init__(__self__, *,
-                 sse_algorithm: pulumi.Input['BucketServerSideEncryptionByDefaultSSEAlgorithm'],
+                 sse_algorithm: pulumi.Input['BucketServerSideEncryptionByDefaultSseAlgorithm'],
                  kms_master_key_id: Optional[pulumi.Input[str]] = None):
         """
         Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
@@ -2300,11 +2300,11 @@ class BucketServerSideEncryptionByDefaultArgs:
 
     @property
     @pulumi.getter(name="sseAlgorithm")
-    def sse_algorithm(self) -> pulumi.Input['BucketServerSideEncryptionByDefaultSSEAlgorithm']:
+    def sse_algorithm(self) -> pulumi.Input['BucketServerSideEncryptionByDefaultSseAlgorithm']:
         return pulumi.get(self, "sse_algorithm")
 
     @sse_algorithm.setter
-    def sse_algorithm(self, value: pulumi.Input['BucketServerSideEncryptionByDefaultSSEAlgorithm']):
+    def sse_algorithm(self, value: pulumi.Input['BucketServerSideEncryptionByDefaultSseAlgorithm']):
         pulumi.set(self, "sse_algorithm", value)
 
     @property

@@ -49,7 +49,7 @@ export interface GetWirelessDeviceResult {
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
      */
-    readonly loRaWan?: outputs.iotwireless.WirelessDeviceLoRaWANDevice;
+    readonly loRaWan?: outputs.iotwireless.WirelessDeviceLoRaWanDevice;
     /**
      * Wireless device name
      */

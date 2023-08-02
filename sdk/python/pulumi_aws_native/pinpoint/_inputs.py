@@ -44,14 +44,14 @@ __all__ = [
     'InAppTemplateHeaderConfigArgs',
     'InAppTemplateInAppMessageContentArgs',
     'InAppTemplateOverrideButtonConfigurationArgs',
-    'PushTemplateAPNSPushNotificationTemplateArgs',
     'PushTemplateAndroidPushNotificationTemplateArgs',
+    'PushTemplateApnsPushNotificationTemplateArgs',
     'PushTemplateDefaultPushNotificationTemplateArgs',
     'SegmentBehaviorArgs',
     'SegmentCoordinatesArgs',
     'SegmentDemographicArgs',
     'SegmentDimensionsArgs',
-    'SegmentGPSPointArgs',
+    'SegmentGpsPointArgs',
     'SegmentGroupsArgs',
     'SegmentLocationArgs',
     'SegmentRecencyArgs',
@@ -1841,83 +1841,6 @@ class InAppTemplateOverrideButtonConfigurationArgs:
 
 
 @pulumi.input_type
-class PushTemplateAPNSPushNotificationTemplateArgs:
-    def __init__(__self__, *,
-                 action: Optional[pulumi.Input[str]] = None,
-                 body: Optional[pulumi.Input[str]] = None,
-                 media_url: Optional[pulumi.Input[str]] = None,
-                 sound: Optional[pulumi.Input[str]] = None,
-                 title: Optional[pulumi.Input[str]] = None,
-                 url: Optional[pulumi.Input[str]] = None):
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-        if body is not None:
-            pulumi.set(__self__, "body", body)
-        if media_url is not None:
-            pulumi.set(__self__, "media_url", media_url)
-        if sound is not None:
-            pulumi.set(__self__, "sound", sound)
-        if title is not None:
-            pulumi.set(__self__, "title", title)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "action", value)
-
-    @property
-    @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "body")
-
-    @body.setter
-    def body(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "body", value)
-
-    @property
-    @pulumi.getter(name="mediaUrl")
-    def media_url(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "media_url")
-
-    @media_url.setter
-    def media_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "media_url", value)
-
-    @property
-    @pulumi.getter
-    def sound(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "sound")
-
-    @sound.setter
-    def sound(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sound", value)
-
-    @property
-    @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "title")
-
-    @title.setter
-    def title(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "title", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "url", value)
-
-
-@pulumi.input_type
 class PushTemplateAndroidPushNotificationTemplateArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
@@ -1989,6 +1912,83 @@ class PushTemplateAndroidPushNotificationTemplateArgs:
     @small_image_icon_url.setter
     def small_image_icon_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "small_image_icon_url", value)
+
+    @property
+    @pulumi.getter
+    def sound(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sound")
+
+    @sound.setter
+    def sound(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sound", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class PushTemplateApnsPushNotificationTemplateArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 body: Optional[pulumi.Input[str]] = None,
+                 media_url: Optional[pulumi.Input[str]] = None,
+                 sound: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if media_url is not None:
+            pulumi.set(__self__, "media_url", media_url)
+        if sound is not None:
+            pulumi.set(__self__, "sound", sound)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="mediaUrl")
+    def media_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "media_url")
+
+    @media_url.setter
+    def media_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "media_url", value)
 
     @property
     @pulumi.getter
@@ -2282,7 +2282,7 @@ class SegmentDimensionsArgs:
 
 
 @pulumi.input_type
-class SegmentGPSPointArgs:
+class SegmentGpsPointArgs:
     def __init__(__self__, *,
                  coordinates: pulumi.Input['SegmentCoordinatesArgs'],
                  range_in_kilometers: pulumi.Input[float]):
@@ -2341,7 +2341,7 @@ class SegmentGroupsArgs:
 class SegmentLocationArgs:
     def __init__(__self__, *,
                  country: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
-                 gps_point: Optional[pulumi.Input['SegmentGPSPointArgs']] = None):
+                 gps_point: Optional[pulumi.Input['SegmentGpsPointArgs']] = None):
         if country is not None:
             pulumi.set(__self__, "country", country)
         if gps_point is not None:
@@ -2358,11 +2358,11 @@ class SegmentLocationArgs:
 
     @property
     @pulumi.getter(name="gpsPoint")
-    def gps_point(self) -> Optional[pulumi.Input['SegmentGPSPointArgs']]:
+    def gps_point(self) -> Optional[pulumi.Input['SegmentGpsPointArgs']]:
         return pulumi.get(self, "gps_point")
 
     @gps_point.setter
-    def gps_point(self, value: Optional[pulumi.Input['SegmentGPSPointArgs']]):
+    def gps_point(self, value: Optional[pulumi.Input['SegmentGpsPointArgs']]):
         pulumi.set(self, "gps_point", value)
 
 

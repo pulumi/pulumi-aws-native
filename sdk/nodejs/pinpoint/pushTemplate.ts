@@ -41,7 +41,7 @@ export class PushTemplate extends pulumi.CustomResource {
     }
 
     public readonly adm!: pulumi.Output<outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate | undefined>;
-    public readonly apns!: pulumi.Output<outputs.pinpoint.PushTemplateAPNSPushNotificationTemplate | undefined>;
+    public readonly apns!: pulumi.Output<outputs.pinpoint.PushTemplateApnsPushNotificationTemplate | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly baidu!: pulumi.Output<outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate | undefined>;
     public readonly default!: pulumi.Output<outputs.pinpoint.PushTemplateDefaultPushNotificationTemplate | undefined>;
@@ -99,7 +99,7 @@ export class PushTemplate extends pulumi.CustomResource {
  */
 export interface PushTemplateArgs {
     adm?: pulumi.Input<inputs.pinpoint.PushTemplateAndroidPushNotificationTemplateArgs>;
-    apns?: pulumi.Input<inputs.pinpoint.PushTemplateAPNSPushNotificationTemplateArgs>;
+    apns?: pulumi.Input<inputs.pinpoint.PushTemplateApnsPushNotificationTemplateArgs>;
     baidu?: pulumi.Input<inputs.pinpoint.PushTemplateAndroidPushNotificationTemplateArgs>;
     default?: pulumi.Input<inputs.pinpoint.PushTemplateDefaultPushNotificationTemplateArgs>;
     defaultSubstitutions?: pulumi.Input<string>;

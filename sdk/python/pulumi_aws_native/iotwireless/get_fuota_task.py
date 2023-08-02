@@ -142,7 +142,7 @@ class GetFuotaTaskResult:
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional['outputs.FuotaTaskLoRaWAN']:
+    def lo_ra_wan(self) -> Optional['outputs.FuotaTaskLoRaWan']:
         """
         FUOTA task LoRaWAN
         """

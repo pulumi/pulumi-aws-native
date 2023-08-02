@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
         /// <summary>
         /// The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
         /// </summary>
-        public readonly Outputs.FilterAndOperatorProperties? AndOperator;
+        public readonly Outputs.BucketFilterAndOperatorProperties? AndOperator;
         /// <summary>
         /// Object key prefix that identifies one or more objects to which this rule applies.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
 
         [OutputConstructor]
         private BucketRuleFilterProperties(
-            Outputs.FilterAndOperatorProperties? andOperator,
+            Outputs.BucketFilterAndOperatorProperties? andOperator,
 
             string? prefix,
 

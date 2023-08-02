@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.ThemeTypographyArgs>? Typography { get; set; }
 
         [Input("uiColorPalette")]
-        public Input<Inputs.ThemeUIColorPaletteArgs>? UiColorPalette { get; set; }
+        public Input<Inputs.ThemeUiColorPaletteArgs>? UiColorPalette { get; set; }
 
         public ThemeConfigurationArgs()
         {

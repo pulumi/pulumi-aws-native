@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     public sealed class SegmentLocation
     {
         public readonly Outputs.SegmentSetDimension? Country;
-        public readonly Outputs.SegmentGPSPoint? GpsPoint;
+        public readonly Outputs.SegmentGpsPoint? GpsPoint;
 
         [OutputConstructor]
         private SegmentLocation(
             Outputs.SegmentSetDimension? country,
 
-            Outputs.SegmentGPSPoint? gpsPoint)
+            Outputs.SegmentGpsPoint? gpsPoint)
         {
             Country = country;
             GpsPoint = gpsPoint;

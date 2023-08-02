@@ -1670,221 +1670,6 @@ func (in *ruleGroupStatefulRuleActionPtr) ToRuleGroupStatefulRuleActionPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupStatefulRuleActionPtrOutput)
 }
 
-type RuleGroupTCPFlag string
-
-const (
-	RuleGroupTCPFlagFin = RuleGroupTCPFlag("FIN")
-	RuleGroupTCPFlagSyn = RuleGroupTCPFlag("SYN")
-	RuleGroupTCPFlagRst = RuleGroupTCPFlag("RST")
-	RuleGroupTCPFlagPsh = RuleGroupTCPFlag("PSH")
-	RuleGroupTCPFlagAck = RuleGroupTCPFlag("ACK")
-	RuleGroupTCPFlagUrg = RuleGroupTCPFlag("URG")
-	RuleGroupTCPFlagEce = RuleGroupTCPFlag("ECE")
-	RuleGroupTCPFlagCwr = RuleGroupTCPFlag("CWR")
-)
-
-func (RuleGroupTCPFlag) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTCPFlag)(nil)).Elem()
-}
-
-func (e RuleGroupTCPFlag) ToRuleGroupTCPFlagOutput() RuleGroupTCPFlagOutput {
-	return pulumi.ToOutput(e).(RuleGroupTCPFlagOutput)
-}
-
-func (e RuleGroupTCPFlag) ToRuleGroupTCPFlagOutputWithContext(ctx context.Context) RuleGroupTCPFlagOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupTCPFlagOutput)
-}
-
-func (e RuleGroupTCPFlag) ToRuleGroupTCPFlagPtrOutput() RuleGroupTCPFlagPtrOutput {
-	return e.ToRuleGroupTCPFlagPtrOutputWithContext(context.Background())
-}
-
-func (e RuleGroupTCPFlag) ToRuleGroupTCPFlagPtrOutputWithContext(ctx context.Context) RuleGroupTCPFlagPtrOutput {
-	return RuleGroupTCPFlag(e).ToRuleGroupTCPFlagOutputWithContext(ctx).ToRuleGroupTCPFlagPtrOutputWithContext(ctx)
-}
-
-func (e RuleGroupTCPFlag) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RuleGroupTCPFlag) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RuleGroupTCPFlag) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e RuleGroupTCPFlag) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type RuleGroupTCPFlagOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTCPFlagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTCPFlag)(nil)).Elem()
-}
-
-func (o RuleGroupTCPFlagOutput) ToRuleGroupTCPFlagOutput() RuleGroupTCPFlagOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagOutput) ToRuleGroupTCPFlagOutputWithContext(ctx context.Context) RuleGroupTCPFlagOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagOutput) ToRuleGroupTCPFlagPtrOutput() RuleGroupTCPFlagPtrOutput {
-	return o.ToRuleGroupTCPFlagPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupTCPFlagOutput) ToRuleGroupTCPFlagPtrOutputWithContext(ctx context.Context) RuleGroupTCPFlagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupTCPFlag) *RuleGroupTCPFlag {
-		return &v
-	}).(RuleGroupTCPFlagPtrOutput)
-}
-
-func (o RuleGroupTCPFlagOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o RuleGroupTCPFlagOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupTCPFlag) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o RuleGroupTCPFlagOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupTCPFlagOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupTCPFlag) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type RuleGroupTCPFlagPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTCPFlagPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupTCPFlag)(nil)).Elem()
-}
-
-func (o RuleGroupTCPFlagPtrOutput) ToRuleGroupTCPFlagPtrOutput() RuleGroupTCPFlagPtrOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagPtrOutput) ToRuleGroupTCPFlagPtrOutputWithContext(ctx context.Context) RuleGroupTCPFlagPtrOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagPtrOutput) Elem() RuleGroupTCPFlagOutput {
-	return o.ApplyT(func(v *RuleGroupTCPFlag) RuleGroupTCPFlag {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupTCPFlag
-		return ret
-	}).(RuleGroupTCPFlagOutput)
-}
-
-func (o RuleGroupTCPFlagPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupTCPFlagPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupTCPFlag) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// RuleGroupTCPFlagInput is an input type that accepts RuleGroupTCPFlagArgs and RuleGroupTCPFlagOutput values.
-// You can construct a concrete instance of `RuleGroupTCPFlagInput` via:
-//
-//	RuleGroupTCPFlagArgs{...}
-type RuleGroupTCPFlagInput interface {
-	pulumi.Input
-
-	ToRuleGroupTCPFlagOutput() RuleGroupTCPFlagOutput
-	ToRuleGroupTCPFlagOutputWithContext(context.Context) RuleGroupTCPFlagOutput
-}
-
-var ruleGroupTCPFlagPtrType = reflect.TypeOf((**RuleGroupTCPFlag)(nil)).Elem()
-
-type RuleGroupTCPFlagPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupTCPFlagPtrOutput() RuleGroupTCPFlagPtrOutput
-	ToRuleGroupTCPFlagPtrOutputWithContext(context.Context) RuleGroupTCPFlagPtrOutput
-}
-
-type ruleGroupTCPFlagPtr string
-
-func RuleGroupTCPFlagPtr(v string) RuleGroupTCPFlagPtrInput {
-	return (*ruleGroupTCPFlagPtr)(&v)
-}
-
-func (*ruleGroupTCPFlagPtr) ElementType() reflect.Type {
-	return ruleGroupTCPFlagPtrType
-}
-
-func (in *ruleGroupTCPFlagPtr) ToRuleGroupTCPFlagPtrOutput() RuleGroupTCPFlagPtrOutput {
-	return pulumi.ToOutput(in).(RuleGroupTCPFlagPtrOutput)
-}
-
-func (in *ruleGroupTCPFlagPtr) ToRuleGroupTCPFlagPtrOutputWithContext(ctx context.Context) RuleGroupTCPFlagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupTCPFlagPtrOutput)
-}
-
-// RuleGroupTCPFlagArrayInput is an input type that accepts RuleGroupTCPFlagArray and RuleGroupTCPFlagArrayOutput values.
-// You can construct a concrete instance of `RuleGroupTCPFlagArrayInput` via:
-//
-//	RuleGroupTCPFlagArray{ RuleGroupTCPFlagArgs{...} }
-type RuleGroupTCPFlagArrayInput interface {
-	pulumi.Input
-
-	ToRuleGroupTCPFlagArrayOutput() RuleGroupTCPFlagArrayOutput
-	ToRuleGroupTCPFlagArrayOutputWithContext(context.Context) RuleGroupTCPFlagArrayOutput
-}
-
-type RuleGroupTCPFlagArray []RuleGroupTCPFlag
-
-func (RuleGroupTCPFlagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupTCPFlag)(nil)).Elem()
-}
-
-func (i RuleGroupTCPFlagArray) ToRuleGroupTCPFlagArrayOutput() RuleGroupTCPFlagArrayOutput {
-	return i.ToRuleGroupTCPFlagArrayOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTCPFlagArray) ToRuleGroupTCPFlagArrayOutputWithContext(ctx context.Context) RuleGroupTCPFlagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTCPFlagArrayOutput)
-}
-
-type RuleGroupTCPFlagArrayOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTCPFlagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupTCPFlag)(nil)).Elem()
-}
-
-func (o RuleGroupTCPFlagArrayOutput) ToRuleGroupTCPFlagArrayOutput() RuleGroupTCPFlagArrayOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagArrayOutput) ToRuleGroupTCPFlagArrayOutputWithContext(ctx context.Context) RuleGroupTCPFlagArrayOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagArrayOutput) Index(i pulumi.IntInput) RuleGroupTCPFlagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupTCPFlag {
-		return vs[0].([]RuleGroupTCPFlag)[vs[1].(int)]
-	}).(RuleGroupTCPFlagOutput)
-}
-
 type RuleGroupTargetType string
 
 const (
@@ -2094,6 +1879,221 @@ func (o RuleGroupTargetTypeArrayOutput) Index(i pulumi.IntInput) RuleGroupTarget
 	}).(RuleGroupTargetTypeOutput)
 }
 
+type RuleGroupTcpFlag string
+
+const (
+	RuleGroupTcpFlagFin = RuleGroupTcpFlag("FIN")
+	RuleGroupTcpFlagSyn = RuleGroupTcpFlag("SYN")
+	RuleGroupTcpFlagRst = RuleGroupTcpFlag("RST")
+	RuleGroupTcpFlagPsh = RuleGroupTcpFlag("PSH")
+	RuleGroupTcpFlagAck = RuleGroupTcpFlag("ACK")
+	RuleGroupTcpFlagUrg = RuleGroupTcpFlag("URG")
+	RuleGroupTcpFlagEce = RuleGroupTcpFlag("ECE")
+	RuleGroupTcpFlagCwr = RuleGroupTcpFlag("CWR")
+)
+
+func (RuleGroupTcpFlag) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupTcpFlag)(nil)).Elem()
+}
+
+func (e RuleGroupTcpFlag) ToRuleGroupTcpFlagOutput() RuleGroupTcpFlagOutput {
+	return pulumi.ToOutput(e).(RuleGroupTcpFlagOutput)
+}
+
+func (e RuleGroupTcpFlag) ToRuleGroupTcpFlagOutputWithContext(ctx context.Context) RuleGroupTcpFlagOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupTcpFlagOutput)
+}
+
+func (e RuleGroupTcpFlag) ToRuleGroupTcpFlagPtrOutput() RuleGroupTcpFlagPtrOutput {
+	return e.ToRuleGroupTcpFlagPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupTcpFlag) ToRuleGroupTcpFlagPtrOutputWithContext(ctx context.Context) RuleGroupTcpFlagPtrOutput {
+	return RuleGroupTcpFlag(e).ToRuleGroupTcpFlagOutputWithContext(ctx).ToRuleGroupTcpFlagPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupTcpFlag) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupTcpFlag) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupTcpFlag) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupTcpFlag) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupTcpFlagOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupTcpFlagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupTcpFlag)(nil)).Elem()
+}
+
+func (o RuleGroupTcpFlagOutput) ToRuleGroupTcpFlagOutput() RuleGroupTcpFlagOutput {
+	return o
+}
+
+func (o RuleGroupTcpFlagOutput) ToRuleGroupTcpFlagOutputWithContext(ctx context.Context) RuleGroupTcpFlagOutput {
+	return o
+}
+
+func (o RuleGroupTcpFlagOutput) ToRuleGroupTcpFlagPtrOutput() RuleGroupTcpFlagPtrOutput {
+	return o.ToRuleGroupTcpFlagPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupTcpFlagOutput) ToRuleGroupTcpFlagPtrOutputWithContext(ctx context.Context) RuleGroupTcpFlagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupTcpFlag) *RuleGroupTcpFlag {
+		return &v
+	}).(RuleGroupTcpFlagPtrOutput)
+}
+
+func (o RuleGroupTcpFlagOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupTcpFlagOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupTcpFlag) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupTcpFlagOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupTcpFlagOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupTcpFlag) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupTcpFlagPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupTcpFlagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupTcpFlag)(nil)).Elem()
+}
+
+func (o RuleGroupTcpFlagPtrOutput) ToRuleGroupTcpFlagPtrOutput() RuleGroupTcpFlagPtrOutput {
+	return o
+}
+
+func (o RuleGroupTcpFlagPtrOutput) ToRuleGroupTcpFlagPtrOutputWithContext(ctx context.Context) RuleGroupTcpFlagPtrOutput {
+	return o
+}
+
+func (o RuleGroupTcpFlagPtrOutput) Elem() RuleGroupTcpFlagOutput {
+	return o.ApplyT(func(v *RuleGroupTcpFlag) RuleGroupTcpFlag {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupTcpFlag
+		return ret
+	}).(RuleGroupTcpFlagOutput)
+}
+
+func (o RuleGroupTcpFlagPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupTcpFlagPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupTcpFlag) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupTcpFlagInput is an input type that accepts RuleGroupTcpFlagArgs and RuleGroupTcpFlagOutput values.
+// You can construct a concrete instance of `RuleGroupTcpFlagInput` via:
+//
+//	RuleGroupTcpFlagArgs{...}
+type RuleGroupTcpFlagInput interface {
+	pulumi.Input
+
+	ToRuleGroupTcpFlagOutput() RuleGroupTcpFlagOutput
+	ToRuleGroupTcpFlagOutputWithContext(context.Context) RuleGroupTcpFlagOutput
+}
+
+var ruleGroupTcpFlagPtrType = reflect.TypeOf((**RuleGroupTcpFlag)(nil)).Elem()
+
+type RuleGroupTcpFlagPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupTcpFlagPtrOutput() RuleGroupTcpFlagPtrOutput
+	ToRuleGroupTcpFlagPtrOutputWithContext(context.Context) RuleGroupTcpFlagPtrOutput
+}
+
+type ruleGroupTcpFlagPtr string
+
+func RuleGroupTcpFlagPtr(v string) RuleGroupTcpFlagPtrInput {
+	return (*ruleGroupTcpFlagPtr)(&v)
+}
+
+func (*ruleGroupTcpFlagPtr) ElementType() reflect.Type {
+	return ruleGroupTcpFlagPtrType
+}
+
+func (in *ruleGroupTcpFlagPtr) ToRuleGroupTcpFlagPtrOutput() RuleGroupTcpFlagPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupTcpFlagPtrOutput)
+}
+
+func (in *ruleGroupTcpFlagPtr) ToRuleGroupTcpFlagPtrOutputWithContext(ctx context.Context) RuleGroupTcpFlagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupTcpFlagPtrOutput)
+}
+
+// RuleGroupTcpFlagArrayInput is an input type that accepts RuleGroupTcpFlagArray and RuleGroupTcpFlagArrayOutput values.
+// You can construct a concrete instance of `RuleGroupTcpFlagArrayInput` via:
+//
+//	RuleGroupTcpFlagArray{ RuleGroupTcpFlagArgs{...} }
+type RuleGroupTcpFlagArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupTcpFlagArrayOutput() RuleGroupTcpFlagArrayOutput
+	ToRuleGroupTcpFlagArrayOutputWithContext(context.Context) RuleGroupTcpFlagArrayOutput
+}
+
+type RuleGroupTcpFlagArray []RuleGroupTcpFlag
+
+func (RuleGroupTcpFlagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupTcpFlag)(nil)).Elem()
+}
+
+func (i RuleGroupTcpFlagArray) ToRuleGroupTcpFlagArrayOutput() RuleGroupTcpFlagArrayOutput {
+	return i.ToRuleGroupTcpFlagArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupTcpFlagArray) ToRuleGroupTcpFlagArrayOutputWithContext(ctx context.Context) RuleGroupTcpFlagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTcpFlagArrayOutput)
+}
+
+type RuleGroupTcpFlagArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupTcpFlagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupTcpFlag)(nil)).Elem()
+}
+
+func (o RuleGroupTcpFlagArrayOutput) ToRuleGroupTcpFlagArrayOutput() RuleGroupTcpFlagArrayOutput {
+	return o
+}
+
+func (o RuleGroupTcpFlagArrayOutput) ToRuleGroupTcpFlagArrayOutputWithContext(ctx context.Context) RuleGroupTcpFlagArrayOutput {
+	return o
+}
+
+func (o RuleGroupTcpFlagArrayOutput) Index(i pulumi.IntInput) RuleGroupTcpFlagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupTcpFlag {
+		return vs[0].([]RuleGroupTcpFlag)[vs[1].(int)]
+	}).(RuleGroupTcpFlagOutput)
+}
+
 type RuleGroupTypeEnum string
 
 const (
@@ -2279,12 +2279,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleOrderPtrInput)(nil)).Elem(), RuleGroupRuleOrder("DEFAULT_ACTION_ORDER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatefulRuleActionInput)(nil)).Elem(), RuleGroupStatefulRuleAction("PASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatefulRuleActionPtrInput)(nil)).Elem(), RuleGroupStatefulRuleAction("PASS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTCPFlagInput)(nil)).Elem(), RuleGroupTCPFlag("FIN"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTCPFlagPtrInput)(nil)).Elem(), RuleGroupTCPFlag("FIN"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTCPFlagArrayInput)(nil)).Elem(), RuleGroupTCPFlagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTargetTypeInput)(nil)).Elem(), RuleGroupTargetType("TLS_SNI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTargetTypePtrInput)(nil)).Elem(), RuleGroupTargetType("TLS_SNI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTargetTypeArrayInput)(nil)).Elem(), RuleGroupTargetTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTcpFlagInput)(nil)).Elem(), RuleGroupTcpFlag("FIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTcpFlagPtrInput)(nil)).Elem(), RuleGroupTcpFlag("FIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTcpFlagArrayInput)(nil)).Elem(), RuleGroupTcpFlagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTypeEnumInput)(nil)).Elem(), RuleGroupTypeEnum("STATELESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTypeEnumPtrInput)(nil)).Elem(), RuleGroupTypeEnum("STATELESS"))
 	pulumi.RegisterOutputType(FirewallPolicyOverrideActionOutput{})
@@ -2307,12 +2307,12 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRuleOrderPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatefulRuleActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatefulRuleActionPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupTCPFlagOutput{})
-	pulumi.RegisterOutputType(RuleGroupTCPFlagPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupTCPFlagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTargetTypeOutput{})
 	pulumi.RegisterOutputType(RuleGroupTargetTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupTargetTypeArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupTcpFlagOutput{})
+	pulumi.RegisterOutputType(RuleGroupTcpFlagPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupTcpFlagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTypeEnumOutput{})
 	pulumi.RegisterOutputType(RuleGroupTypeEnumPtrOutput{})
 }

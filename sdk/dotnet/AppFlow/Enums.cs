@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.AppFlow
         public static ConnectorProfileConnectorType Googleanalytics { get; } = new ConnectorProfileConnectorType("Googleanalytics");
         public static ConnectorProfileConnectorType Zendesk { get; } = new ConnectorProfileConnectorType("Zendesk");
         public static ConnectorProfileConnectorType Servicenow { get; } = new ConnectorProfileConnectorType("Servicenow");
-        public static ConnectorProfileConnectorType SAPOData { get; } = new ConnectorProfileConnectorType("SAPOData");
+        public static ConnectorProfileConnectorType SapoData { get; } = new ConnectorProfileConnectorType("SAPOData");
         public static ConnectorProfileConnectorType Datadog { get; } = new ConnectorProfileConnectorType("Datadog");
         public static ConnectorProfileConnectorType Trendmicro { get; } = new ConnectorProfileConnectorType("Trendmicro");
         public static ConnectorProfileConnectorType Snowflake { get; } = new ConnectorProfileConnectorType("Snowflake");
@@ -206,7 +206,7 @@ namespace Pulumi.AwsNative.AppFlow
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static FlowConnectorType SAPOData { get; } = new FlowConnectorType("SAPOData");
+        public static FlowConnectorType SapoData { get; } = new FlowConnectorType("SAPOData");
         public static FlowConnectorType Salesforce { get; } = new FlowConnectorType("Salesforce");
         public static FlowConnectorType Pardot { get; } = new FlowConnectorType("Pardot");
         public static FlowConnectorType Singular { get; } = new FlowConnectorType("Singular");
@@ -817,53 +817,6 @@ namespace Pulumi.AwsNative.AppFlow
     }
 
     [EnumType]
-    public readonly struct FlowSAPODataConnectorOperator : IEquatable<FlowSAPODataConnectorOperator>
-    {
-        private readonly string _value;
-
-        private FlowSAPODataConnectorOperator(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FlowSAPODataConnectorOperator Projection { get; } = new FlowSAPODataConnectorOperator("PROJECTION");
-        public static FlowSAPODataConnectorOperator LessThan { get; } = new FlowSAPODataConnectorOperator("LESS_THAN");
-        public static FlowSAPODataConnectorOperator Contains { get; } = new FlowSAPODataConnectorOperator("CONTAINS");
-        public static FlowSAPODataConnectorOperator GreaterThan { get; } = new FlowSAPODataConnectorOperator("GREATER_THAN");
-        public static FlowSAPODataConnectorOperator Between { get; } = new FlowSAPODataConnectorOperator("BETWEEN");
-        public static FlowSAPODataConnectorOperator LessThanOrEqualTo { get; } = new FlowSAPODataConnectorOperator("LESS_THAN_OR_EQUAL_TO");
-        public static FlowSAPODataConnectorOperator GreaterThanOrEqualTo { get; } = new FlowSAPODataConnectorOperator("GREATER_THAN_OR_EQUAL_TO");
-        public static FlowSAPODataConnectorOperator EqualTo { get; } = new FlowSAPODataConnectorOperator("EQUAL_TO");
-        public static FlowSAPODataConnectorOperator NotEqualTo { get; } = new FlowSAPODataConnectorOperator("NOT_EQUAL_TO");
-        public static FlowSAPODataConnectorOperator Addition { get; } = new FlowSAPODataConnectorOperator("ADDITION");
-        public static FlowSAPODataConnectorOperator Multiplication { get; } = new FlowSAPODataConnectorOperator("MULTIPLICATION");
-        public static FlowSAPODataConnectorOperator Division { get; } = new FlowSAPODataConnectorOperator("DIVISION");
-        public static FlowSAPODataConnectorOperator Subtraction { get; } = new FlowSAPODataConnectorOperator("SUBTRACTION");
-        public static FlowSAPODataConnectorOperator MaskAll { get; } = new FlowSAPODataConnectorOperator("MASK_ALL");
-        public static FlowSAPODataConnectorOperator MaskFirstN { get; } = new FlowSAPODataConnectorOperator("MASK_FIRST_N");
-        public static FlowSAPODataConnectorOperator MaskLastN { get; } = new FlowSAPODataConnectorOperator("MASK_LAST_N");
-        public static FlowSAPODataConnectorOperator ValidateNonNull { get; } = new FlowSAPODataConnectorOperator("VALIDATE_NON_NULL");
-        public static FlowSAPODataConnectorOperator ValidateNonZero { get; } = new FlowSAPODataConnectorOperator("VALIDATE_NON_ZERO");
-        public static FlowSAPODataConnectorOperator ValidateNonNegative { get; } = new FlowSAPODataConnectorOperator("VALIDATE_NON_NEGATIVE");
-        public static FlowSAPODataConnectorOperator ValidateNumeric { get; } = new FlowSAPODataConnectorOperator("VALIDATE_NUMERIC");
-        public static FlowSAPODataConnectorOperator NoOp { get; } = new FlowSAPODataConnectorOperator("NO_OP");
-
-        public static bool operator ==(FlowSAPODataConnectorOperator left, FlowSAPODataConnectorOperator right) => left.Equals(right);
-        public static bool operator !=(FlowSAPODataConnectorOperator left, FlowSAPODataConnectorOperator right) => !left.Equals(right);
-
-        public static explicit operator string(FlowSAPODataConnectorOperator value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FlowSAPODataConnectorOperator other && Equals(other);
-        public bool Equals(FlowSAPODataConnectorOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct FlowSalesforceConnectorOperator : IEquatable<FlowSalesforceConnectorOperator>
     {
         private readonly string _value;
@@ -903,6 +856,53 @@ namespace Pulumi.AwsNative.AppFlow
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowSalesforceConnectorOperator other && Equals(other);
         public bool Equals(FlowSalesforceConnectorOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FlowSapoDataConnectorOperator : IEquatable<FlowSapoDataConnectorOperator>
+    {
+        private readonly string _value;
+
+        private FlowSapoDataConnectorOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowSapoDataConnectorOperator Projection { get; } = new FlowSapoDataConnectorOperator("PROJECTION");
+        public static FlowSapoDataConnectorOperator LessThan { get; } = new FlowSapoDataConnectorOperator("LESS_THAN");
+        public static FlowSapoDataConnectorOperator Contains { get; } = new FlowSapoDataConnectorOperator("CONTAINS");
+        public static FlowSapoDataConnectorOperator GreaterThan { get; } = new FlowSapoDataConnectorOperator("GREATER_THAN");
+        public static FlowSapoDataConnectorOperator Between { get; } = new FlowSapoDataConnectorOperator("BETWEEN");
+        public static FlowSapoDataConnectorOperator LessThanOrEqualTo { get; } = new FlowSapoDataConnectorOperator("LESS_THAN_OR_EQUAL_TO");
+        public static FlowSapoDataConnectorOperator GreaterThanOrEqualTo { get; } = new FlowSapoDataConnectorOperator("GREATER_THAN_OR_EQUAL_TO");
+        public static FlowSapoDataConnectorOperator EqualTo { get; } = new FlowSapoDataConnectorOperator("EQUAL_TO");
+        public static FlowSapoDataConnectorOperator NotEqualTo { get; } = new FlowSapoDataConnectorOperator("NOT_EQUAL_TO");
+        public static FlowSapoDataConnectorOperator Addition { get; } = new FlowSapoDataConnectorOperator("ADDITION");
+        public static FlowSapoDataConnectorOperator Multiplication { get; } = new FlowSapoDataConnectorOperator("MULTIPLICATION");
+        public static FlowSapoDataConnectorOperator Division { get; } = new FlowSapoDataConnectorOperator("DIVISION");
+        public static FlowSapoDataConnectorOperator Subtraction { get; } = new FlowSapoDataConnectorOperator("SUBTRACTION");
+        public static FlowSapoDataConnectorOperator MaskAll { get; } = new FlowSapoDataConnectorOperator("MASK_ALL");
+        public static FlowSapoDataConnectorOperator MaskFirstN { get; } = new FlowSapoDataConnectorOperator("MASK_FIRST_N");
+        public static FlowSapoDataConnectorOperator MaskLastN { get; } = new FlowSapoDataConnectorOperator("MASK_LAST_N");
+        public static FlowSapoDataConnectorOperator ValidateNonNull { get; } = new FlowSapoDataConnectorOperator("VALIDATE_NON_NULL");
+        public static FlowSapoDataConnectorOperator ValidateNonZero { get; } = new FlowSapoDataConnectorOperator("VALIDATE_NON_ZERO");
+        public static FlowSapoDataConnectorOperator ValidateNonNegative { get; } = new FlowSapoDataConnectorOperator("VALIDATE_NON_NEGATIVE");
+        public static FlowSapoDataConnectorOperator ValidateNumeric { get; } = new FlowSapoDataConnectorOperator("VALIDATE_NUMERIC");
+        public static FlowSapoDataConnectorOperator NoOp { get; } = new FlowSapoDataConnectorOperator("NO_OP");
+
+        public static bool operator ==(FlowSapoDataConnectorOperator left, FlowSapoDataConnectorOperator right) => left.Equals(right);
+        public static bool operator !=(FlowSapoDataConnectorOperator left, FlowSapoDataConnectorOperator right) => !left.Equals(right);
+
+        public static explicit operator string(FlowSapoDataConnectorOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowSapoDataConnectorOperator other && Equals(other);
+        public bool Equals(FlowSapoDataConnectorOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

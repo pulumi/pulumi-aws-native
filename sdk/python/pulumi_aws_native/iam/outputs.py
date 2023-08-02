@@ -11,15 +11,15 @@ from .. import _utilities
 
 __all__ = [
     'GroupPolicy',
-    'OIDCProviderTag',
+    'OidcProviderTag',
     'RolePolicy',
     'RoleTag',
-    'SAMLProviderTag',
+    'SamlProviderTag',
     'ServerCertificateTag',
     'UserLoginProfile',
     'UserPolicy',
     'UserTag',
-    'VirtualMFADeviceTag',
+    'VirtualMfaDeviceTag',
 ]
 
 @pulumi.output_type
@@ -61,7 +61,7 @@ class GroupPolicy(dict):
 
 
 @pulumi.output_type
-class OIDCProviderTag(dict):
+class OidcProviderTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -179,7 +179,7 @@ class RoleTag(dict):
 
 
 @pulumi.output_type
-class SAMLProviderTag(dict):
+class SamlProviderTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -339,7 +339,7 @@ class UserTag(dict):
 
 
 @pulumi.output_type
-class VirtualMFADeviceTag(dict):
+class VirtualMfaDeviceTag(dict):
     """
     A key-value pair to associate with a resource.
     """

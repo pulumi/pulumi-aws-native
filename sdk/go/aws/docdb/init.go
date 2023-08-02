@@ -21,14 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:docdb:DBCluster":
-		r = &DBCluster{}
-	case "aws-native:docdb:DBClusterParameterGroup":
-		r = &DBClusterParameterGroup{}
-	case "aws-native:docdb:DBInstance":
-		r = &DBInstance{}
-	case "aws-native:docdb:DBSubnetGroup":
-		r = &DBSubnetGroup{}
+	case "aws-native:docdb:DbCluster":
+		r = &DbCluster{}
+	case "aws-native:docdb:DbClusterParameterGroup":
+		r = &DbClusterParameterGroup{}
+	case "aws-native:docdb:DbInstance":
+		r = &DbInstance{}
+	case "aws-native:docdb:DbSubnetGroup":
+		r = &DbSubnetGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

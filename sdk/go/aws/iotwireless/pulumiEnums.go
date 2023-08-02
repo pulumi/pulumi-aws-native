@@ -932,7 +932,7 @@ type WirelessDeviceType string
 
 const (
 	WirelessDeviceTypeSidewalk = WirelessDeviceType("Sidewalk")
-	WirelessDeviceTypeLoRaWAN  = WirelessDeviceType("LoRaWAN")
+	WirelessDeviceTypeLoRaWan  = WirelessDeviceType("LoRaWAN")
 )
 
 func (WirelessDeviceType) ElementType() reflect.Type {

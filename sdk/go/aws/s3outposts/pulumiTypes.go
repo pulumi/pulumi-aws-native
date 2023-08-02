@@ -205,6 +205,169 @@ func (o BucketAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pul
 	}).(pulumi.IntPtrOutput)
 }
 
+type BucketFilterAndOperator0Properties struct {
+	// Prefix identifies one or more objects to which the rule applies.
+	Prefix *string `pulumi:"prefix"`
+	// All of these tags must exist in the object's tag set in order for the rule to apply.
+	Tags []BucketFilterTag `pulumi:"tags"`
+}
+
+type BucketFilterAndOperatorProperties struct {
+	// Prefix identifies one or more objects to which the rule applies.
+	Prefix *string `pulumi:"prefix"`
+	// All of these tags must exist in the object's tag set in order for the rule to apply.
+	Tags []BucketFilterTag `pulumi:"tags"`
+}
+
+// BucketFilterAndOperatorPropertiesInput is an input type that accepts BucketFilterAndOperatorPropertiesArgs and BucketFilterAndOperatorPropertiesOutput values.
+// You can construct a concrete instance of `BucketFilterAndOperatorPropertiesInput` via:
+//
+//	BucketFilterAndOperatorPropertiesArgs{...}
+type BucketFilterAndOperatorPropertiesInput interface {
+	pulumi.Input
+
+	ToBucketFilterAndOperatorPropertiesOutput() BucketFilterAndOperatorPropertiesOutput
+	ToBucketFilterAndOperatorPropertiesOutputWithContext(context.Context) BucketFilterAndOperatorPropertiesOutput
+}
+
+type BucketFilterAndOperatorPropertiesArgs struct {
+	// Prefix identifies one or more objects to which the rule applies.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// All of these tags must exist in the object's tag set in order for the rule to apply.
+	Tags BucketFilterTagArrayInput `pulumi:"tags"`
+}
+
+func (BucketFilterAndOperatorPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketFilterAndOperatorProperties)(nil)).Elem()
+}
+
+func (i BucketFilterAndOperatorPropertiesArgs) ToBucketFilterAndOperatorPropertiesOutput() BucketFilterAndOperatorPropertiesOutput {
+	return i.ToBucketFilterAndOperatorPropertiesOutputWithContext(context.Background())
+}
+
+func (i BucketFilterAndOperatorPropertiesArgs) ToBucketFilterAndOperatorPropertiesOutputWithContext(ctx context.Context) BucketFilterAndOperatorPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterAndOperatorPropertiesOutput)
+}
+
+func (i BucketFilterAndOperatorPropertiesArgs) ToBucketFilterAndOperatorPropertiesPtrOutput() BucketFilterAndOperatorPropertiesPtrOutput {
+	return i.ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BucketFilterAndOperatorPropertiesArgs) ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(ctx context.Context) BucketFilterAndOperatorPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterAndOperatorPropertiesOutput).ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(ctx)
+}
+
+// BucketFilterAndOperatorPropertiesPtrInput is an input type that accepts BucketFilterAndOperatorPropertiesArgs, BucketFilterAndOperatorPropertiesPtr and BucketFilterAndOperatorPropertiesPtrOutput values.
+// You can construct a concrete instance of `BucketFilterAndOperatorPropertiesPtrInput` via:
+//
+//	        BucketFilterAndOperatorPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketFilterAndOperatorPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBucketFilterAndOperatorPropertiesPtrOutput() BucketFilterAndOperatorPropertiesPtrOutput
+	ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(context.Context) BucketFilterAndOperatorPropertiesPtrOutput
+}
+
+type bucketFilterAndOperatorPropertiesPtrType BucketFilterAndOperatorPropertiesArgs
+
+func BucketFilterAndOperatorPropertiesPtr(v *BucketFilterAndOperatorPropertiesArgs) BucketFilterAndOperatorPropertiesPtrInput {
+	return (*bucketFilterAndOperatorPropertiesPtrType)(v)
+}
+
+func (*bucketFilterAndOperatorPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketFilterAndOperatorProperties)(nil)).Elem()
+}
+
+func (i *bucketFilterAndOperatorPropertiesPtrType) ToBucketFilterAndOperatorPropertiesPtrOutput() BucketFilterAndOperatorPropertiesPtrOutput {
+	return i.ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketFilterAndOperatorPropertiesPtrType) ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(ctx context.Context) BucketFilterAndOperatorPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterAndOperatorPropertiesPtrOutput)
+}
+
+type BucketFilterAndOperatorPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BucketFilterAndOperatorPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketFilterAndOperatorProperties)(nil)).Elem()
+}
+
+func (o BucketFilterAndOperatorPropertiesOutput) ToBucketFilterAndOperatorPropertiesOutput() BucketFilterAndOperatorPropertiesOutput {
+	return o
+}
+
+func (o BucketFilterAndOperatorPropertiesOutput) ToBucketFilterAndOperatorPropertiesOutputWithContext(ctx context.Context) BucketFilterAndOperatorPropertiesOutput {
+	return o
+}
+
+func (o BucketFilterAndOperatorPropertiesOutput) ToBucketFilterAndOperatorPropertiesPtrOutput() BucketFilterAndOperatorPropertiesPtrOutput {
+	return o.ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BucketFilterAndOperatorPropertiesOutput) ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(ctx context.Context) BucketFilterAndOperatorPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketFilterAndOperatorProperties) *BucketFilterAndOperatorProperties {
+		return &v
+	}).(BucketFilterAndOperatorPropertiesPtrOutput)
+}
+
+// Prefix identifies one or more objects to which the rule applies.
+func (o BucketFilterAndOperatorPropertiesOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketFilterAndOperatorProperties) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// All of these tags must exist in the object's tag set in order for the rule to apply.
+func (o BucketFilterAndOperatorPropertiesOutput) Tags() BucketFilterTagArrayOutput {
+	return o.ApplyT(func(v BucketFilterAndOperatorProperties) []BucketFilterTag { return v.Tags }).(BucketFilterTagArrayOutput)
+}
+
+type BucketFilterAndOperatorPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketFilterAndOperatorPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketFilterAndOperatorProperties)(nil)).Elem()
+}
+
+func (o BucketFilterAndOperatorPropertiesPtrOutput) ToBucketFilterAndOperatorPropertiesPtrOutput() BucketFilterAndOperatorPropertiesPtrOutput {
+	return o
+}
+
+func (o BucketFilterAndOperatorPropertiesPtrOutput) ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(ctx context.Context) BucketFilterAndOperatorPropertiesPtrOutput {
+	return o
+}
+
+func (o BucketFilterAndOperatorPropertiesPtrOutput) Elem() BucketFilterAndOperatorPropertiesOutput {
+	return o.ApplyT(func(v *BucketFilterAndOperatorProperties) BucketFilterAndOperatorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BucketFilterAndOperatorProperties
+		return ret
+	}).(BucketFilterAndOperatorPropertiesOutput)
+}
+
+// Prefix identifies one or more objects to which the rule applies.
+func (o BucketFilterAndOperatorPropertiesPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketFilterAndOperatorProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// All of these tags must exist in the object's tag set in order for the rule to apply.
+func (o BucketFilterAndOperatorPropertiesPtrOutput) Tags() BucketFilterTagArrayOutput {
+	return o.ApplyT(func(v *BucketFilterAndOperatorProperties) []BucketFilterTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(BucketFilterTagArrayOutput)
+}
+
 // Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
 type BucketFilterTag struct {
 	Key   string `pulumi:"key"`
@@ -683,7 +846,7 @@ func (o BucketRuleArrayOutput) Index(i pulumi.IntInput) BucketRuleOutput {
 // The container for the filter of the lifecycle rule.
 type BucketRuleFilterProperties struct {
 	// The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
-	AndOperator *FilterAndOperatorProperties `pulumi:"andOperator"`
+	AndOperator *BucketFilterAndOperatorProperties `pulumi:"andOperator"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
 	Prefix *string `pulumi:"prefix"`
 	// Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
@@ -704,7 +867,7 @@ type BucketRuleFilterPropertiesInput interface {
 // The container for the filter of the lifecycle rule.
 type BucketRuleFilterPropertiesArgs struct {
 	// The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
-	AndOperator FilterAndOperatorPropertiesPtrInput `pulumi:"andOperator"`
+	AndOperator BucketFilterAndOperatorPropertiesPtrInput `pulumi:"andOperator"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
@@ -790,8 +953,8 @@ func (o BucketRuleFilterPropertiesOutput) ToBucketRuleFilterPropertiesPtrOutputW
 }
 
 // The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
-func (o BucketRuleFilterPropertiesOutput) AndOperator() FilterAndOperatorPropertiesPtrOutput {
-	return o.ApplyT(func(v BucketRuleFilterProperties) *FilterAndOperatorProperties { return v.AndOperator }).(FilterAndOperatorPropertiesPtrOutput)
+func (o BucketRuleFilterPropertiesOutput) AndOperator() BucketFilterAndOperatorPropertiesPtrOutput {
+	return o.ApplyT(func(v BucketRuleFilterProperties) *BucketFilterAndOperatorProperties { return v.AndOperator }).(BucketFilterAndOperatorPropertiesPtrOutput)
 }
 
 // Object key prefix that identifies one or more objects to which this rule applies.
@@ -829,13 +992,13 @@ func (o BucketRuleFilterPropertiesPtrOutput) Elem() BucketRuleFilterPropertiesOu
 }
 
 // The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
-func (o BucketRuleFilterPropertiesPtrOutput) AndOperator() FilterAndOperatorPropertiesPtrOutput {
-	return o.ApplyT(func(v *BucketRuleFilterProperties) *FilterAndOperatorProperties {
+func (o BucketRuleFilterPropertiesPtrOutput) AndOperator() BucketFilterAndOperatorPropertiesPtrOutput {
+	return o.ApplyT(func(v *BucketRuleFilterProperties) *BucketFilterAndOperatorProperties {
 		if v == nil {
 			return nil
 		}
 		return v.AndOperator
-	}).(FilterAndOperatorPropertiesPtrOutput)
+	}).(BucketFilterAndOperatorPropertiesPtrOutput)
 }
 
 // Object key prefix that identifies one or more objects to which this rule applies.
@@ -1158,173 +1321,12 @@ func (o EndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointNe
 	}).(EndpointNetworkInterfaceOutput)
 }
 
-type FilterAndOperator0Properties struct {
-	// Prefix identifies one or more objects to which the rule applies.
-	Prefix *string `pulumi:"prefix"`
-	// All of these tags must exist in the object's tag set in order for the rule to apply.
-	Tags []BucketFilterTag `pulumi:"tags"`
-}
-
-type FilterAndOperatorProperties struct {
-	// Prefix identifies one or more objects to which the rule applies.
-	Prefix *string `pulumi:"prefix"`
-	// All of these tags must exist in the object's tag set in order for the rule to apply.
-	Tags []BucketFilterTag `pulumi:"tags"`
-}
-
-// FilterAndOperatorPropertiesInput is an input type that accepts FilterAndOperatorPropertiesArgs and FilterAndOperatorPropertiesOutput values.
-// You can construct a concrete instance of `FilterAndOperatorPropertiesInput` via:
-//
-//	FilterAndOperatorPropertiesArgs{...}
-type FilterAndOperatorPropertiesInput interface {
-	pulumi.Input
-
-	ToFilterAndOperatorPropertiesOutput() FilterAndOperatorPropertiesOutput
-	ToFilterAndOperatorPropertiesOutputWithContext(context.Context) FilterAndOperatorPropertiesOutput
-}
-
-type FilterAndOperatorPropertiesArgs struct {
-	// Prefix identifies one or more objects to which the rule applies.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// All of these tags must exist in the object's tag set in order for the rule to apply.
-	Tags BucketFilterTagArrayInput `pulumi:"tags"`
-}
-
-func (FilterAndOperatorPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterAndOperatorProperties)(nil)).Elem()
-}
-
-func (i FilterAndOperatorPropertiesArgs) ToFilterAndOperatorPropertiesOutput() FilterAndOperatorPropertiesOutput {
-	return i.ToFilterAndOperatorPropertiesOutputWithContext(context.Background())
-}
-
-func (i FilterAndOperatorPropertiesArgs) ToFilterAndOperatorPropertiesOutputWithContext(ctx context.Context) FilterAndOperatorPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterAndOperatorPropertiesOutput)
-}
-
-func (i FilterAndOperatorPropertiesArgs) ToFilterAndOperatorPropertiesPtrOutput() FilterAndOperatorPropertiesPtrOutput {
-	return i.ToFilterAndOperatorPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i FilterAndOperatorPropertiesArgs) ToFilterAndOperatorPropertiesPtrOutputWithContext(ctx context.Context) FilterAndOperatorPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterAndOperatorPropertiesOutput).ToFilterAndOperatorPropertiesPtrOutputWithContext(ctx)
-}
-
-// FilterAndOperatorPropertiesPtrInput is an input type that accepts FilterAndOperatorPropertiesArgs, FilterAndOperatorPropertiesPtr and FilterAndOperatorPropertiesPtrOutput values.
-// You can construct a concrete instance of `FilterAndOperatorPropertiesPtrInput` via:
-//
-//	        FilterAndOperatorPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type FilterAndOperatorPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToFilterAndOperatorPropertiesPtrOutput() FilterAndOperatorPropertiesPtrOutput
-	ToFilterAndOperatorPropertiesPtrOutputWithContext(context.Context) FilterAndOperatorPropertiesPtrOutput
-}
-
-type filterAndOperatorPropertiesPtrType FilterAndOperatorPropertiesArgs
-
-func FilterAndOperatorPropertiesPtr(v *FilterAndOperatorPropertiesArgs) FilterAndOperatorPropertiesPtrInput {
-	return (*filterAndOperatorPropertiesPtrType)(v)
-}
-
-func (*filterAndOperatorPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterAndOperatorProperties)(nil)).Elem()
-}
-
-func (i *filterAndOperatorPropertiesPtrType) ToFilterAndOperatorPropertiesPtrOutput() FilterAndOperatorPropertiesPtrOutput {
-	return i.ToFilterAndOperatorPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *filterAndOperatorPropertiesPtrType) ToFilterAndOperatorPropertiesPtrOutputWithContext(ctx context.Context) FilterAndOperatorPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterAndOperatorPropertiesPtrOutput)
-}
-
-type FilterAndOperatorPropertiesOutput struct{ *pulumi.OutputState }
-
-func (FilterAndOperatorPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterAndOperatorProperties)(nil)).Elem()
-}
-
-func (o FilterAndOperatorPropertiesOutput) ToFilterAndOperatorPropertiesOutput() FilterAndOperatorPropertiesOutput {
-	return o
-}
-
-func (o FilterAndOperatorPropertiesOutput) ToFilterAndOperatorPropertiesOutputWithContext(ctx context.Context) FilterAndOperatorPropertiesOutput {
-	return o
-}
-
-func (o FilterAndOperatorPropertiesOutput) ToFilterAndOperatorPropertiesPtrOutput() FilterAndOperatorPropertiesPtrOutput {
-	return o.ToFilterAndOperatorPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o FilterAndOperatorPropertiesOutput) ToFilterAndOperatorPropertiesPtrOutputWithContext(ctx context.Context) FilterAndOperatorPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilterAndOperatorProperties) *FilterAndOperatorProperties {
-		return &v
-	}).(FilterAndOperatorPropertiesPtrOutput)
-}
-
-// Prefix identifies one or more objects to which the rule applies.
-func (o FilterAndOperatorPropertiesOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FilterAndOperatorProperties) *string { return v.Prefix }).(pulumi.StringPtrOutput)
-}
-
-// All of these tags must exist in the object's tag set in order for the rule to apply.
-func (o FilterAndOperatorPropertiesOutput) Tags() BucketFilterTagArrayOutput {
-	return o.ApplyT(func(v FilterAndOperatorProperties) []BucketFilterTag { return v.Tags }).(BucketFilterTagArrayOutput)
-}
-
-type FilterAndOperatorPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (FilterAndOperatorPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterAndOperatorProperties)(nil)).Elem()
-}
-
-func (o FilterAndOperatorPropertiesPtrOutput) ToFilterAndOperatorPropertiesPtrOutput() FilterAndOperatorPropertiesPtrOutput {
-	return o
-}
-
-func (o FilterAndOperatorPropertiesPtrOutput) ToFilterAndOperatorPropertiesPtrOutputWithContext(ctx context.Context) FilterAndOperatorPropertiesPtrOutput {
-	return o
-}
-
-func (o FilterAndOperatorPropertiesPtrOutput) Elem() FilterAndOperatorPropertiesOutput {
-	return o.ApplyT(func(v *FilterAndOperatorProperties) FilterAndOperatorProperties {
-		if v != nil {
-			return *v
-		}
-		var ret FilterAndOperatorProperties
-		return ret
-	}).(FilterAndOperatorPropertiesOutput)
-}
-
-// Prefix identifies one or more objects to which the rule applies.
-func (o FilterAndOperatorPropertiesPtrOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FilterAndOperatorProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Prefix
-	}).(pulumi.StringPtrOutput)
-}
-
-// All of these tags must exist in the object's tag set in order for the rule to apply.
-func (o FilterAndOperatorPropertiesPtrOutput) Tags() BucketFilterTagArrayOutput {
-	return o.ApplyT(func(v *FilterAndOperatorProperties) []BucketFilterTag {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(BucketFilterTagArrayOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointVpcConfigurationInput)(nil)).Elem(), AccessPointVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAbortIncompleteMultipartUploadInput)(nil)).Elem(), BucketAbortIncompleteMultipartUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAbortIncompleteMultipartUploadPtrInput)(nil)).Elem(), BucketAbortIncompleteMultipartUploadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketFilterAndOperatorPropertiesInput)(nil)).Elem(), BucketFilterAndOperatorPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketFilterAndOperatorPropertiesPtrInput)(nil)).Elem(), BucketFilterAndOperatorPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketFilterTagInput)(nil)).Elem(), BucketFilterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketFilterTagPtrInput)(nil)).Elem(), BucketFilterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketFilterTagArrayInput)(nil)).Elem(), BucketFilterTagArray{})
@@ -1338,11 +1340,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagArrayInput)(nil)).Elem(), BucketTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointFailedReasonInput)(nil)).Elem(), EndpointFailedReasonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointFailedReasonPtrInput)(nil)).Elem(), EndpointFailedReasonArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FilterAndOperatorPropertiesInput)(nil)).Elem(), FilterAndOperatorPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FilterAndOperatorPropertiesPtrInput)(nil)).Elem(), FilterAndOperatorPropertiesArgs{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketAbortIncompleteMultipartUploadOutput{})
 	pulumi.RegisterOutputType(BucketAbortIncompleteMultipartUploadPtrOutput{})
+	pulumi.RegisterOutputType(BucketFilterAndOperatorPropertiesOutput{})
+	pulumi.RegisterOutputType(BucketFilterAndOperatorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BucketFilterTagOutput{})
 	pulumi.RegisterOutputType(BucketFilterTagPtrOutput{})
 	pulumi.RegisterOutputType(BucketFilterTagArrayOutput{})
@@ -1358,6 +1360,4 @@ func init() {
 	pulumi.RegisterOutputType(EndpointFailedReasonPtrOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceArrayOutput{})
-	pulumi.RegisterOutputType(FilterAndOperatorPropertiesOutput{})
-	pulumi.RegisterOutputType(FilterAndOperatorPropertiesPtrOutput{})
 }

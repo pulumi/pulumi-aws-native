@@ -6,9 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AuthorizerStatus',
-    'CACertificateAutoRegistrationStatus',
-    'CACertificateCertificateMode',
-    'CACertificateStatus',
+    'CaCertificateAutoRegistrationStatus',
+    'CaCertificateCertificateMode',
+    'CaCertificateStatus',
     'CertificateMode',
     'CertificateStatus',
     'CustomMetricMetricType',
@@ -23,7 +23,7 @@ __all__ = [
     'LoggingDefaultLogLevel',
     'MitigationActionEnableIoTLoggingParamsLogLevel',
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
-    'MitigationActionUpdateCACertificateParamsAction',
+    'MitigationActionUpdateCaCertificateParamsAction',
     'MitigationActionUpdateDeviceCertificateParamsAction',
     'ProvisioningTemplateTemplateType',
     'ResourceSpecificLoggingLogLevel',
@@ -44,17 +44,17 @@ class AuthorizerStatus(str, Enum):
     INACTIVE = "INACTIVE"
 
 
-class CACertificateAutoRegistrationStatus(str, Enum):
+class CaCertificateAutoRegistrationStatus(str, Enum):
     ENABLE = "ENABLE"
     DISABLE = "DISABLE"
 
 
-class CACertificateCertificateMode(str, Enum):
+class CaCertificateCertificateMode(str, Enum):
     DEFAULT = "DEFAULT"
     SNI_ONLY = "SNI_ONLY"
 
 
-class CACertificateStatus(str, Enum):
+class CaCertificateStatus(str, Enum):
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"
 
@@ -153,7 +153,7 @@ class MitigationActionReplaceDefaultPolicyVersionParamsTemplateName(str, Enum):
     BLANK_POLICY = "BLANK_POLICY"
 
 
-class MitigationActionUpdateCACertificateParamsAction(str, Enum):
+class MitigationActionUpdateCaCertificateParamsAction(str, Enum):
     DEACTIVATE = "DEACTIVATE"
 
 

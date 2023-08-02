@@ -5,23 +5,23 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { EnvironmentEC2Args } from "./environmentEC2";
-export type EnvironmentEC2 = import("./environmentEC2").EnvironmentEC2;
-export const EnvironmentEC2: typeof import("./environmentEC2").EnvironmentEC2 = null as any;
-utilities.lazyLoad(exports, ["EnvironmentEC2"], () => require("./environmentEC2"));
+export { EnvironmentEc2Args } from "./environmentEc2";
+export type EnvironmentEc2 = import("./environmentEc2").EnvironmentEc2;
+export const EnvironmentEc2: typeof import("./environmentEc2").EnvironmentEc2 = null as any;
+utilities.lazyLoad(exports, ["EnvironmentEc2"], () => require("./environmentEc2"));
 
-export { GetEnvironmentEC2Args, GetEnvironmentEC2Result, GetEnvironmentEC2OutputArgs } from "./getEnvironmentEC2";
-export const getEnvironmentEC2: typeof import("./getEnvironmentEC2").getEnvironmentEC2 = null as any;
-export const getEnvironmentEC2Output: typeof import("./getEnvironmentEC2").getEnvironmentEC2Output = null as any;
-utilities.lazyLoad(exports, ["getEnvironmentEC2","getEnvironmentEC2Output"], () => require("./getEnvironmentEC2"));
+export { GetEnvironmentEc2Args, GetEnvironmentEc2Result, GetEnvironmentEc2OutputArgs } from "./getEnvironmentEc2";
+export const getEnvironmentEc2: typeof import("./getEnvironmentEc2").getEnvironmentEc2 = null as any;
+export const getEnvironmentEc2Output: typeof import("./getEnvironmentEc2").getEnvironmentEc2Output = null as any;
+utilities.lazyLoad(exports, ["getEnvironmentEc2","getEnvironmentEc2Output"], () => require("./getEnvironmentEc2"));
 
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:cloud9:EnvironmentEC2":
-                return new EnvironmentEC2(name, <any>undefined, { urn })
+            case "aws-native:cloud9:EnvironmentEc2":
+                return new EnvironmentEc2(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

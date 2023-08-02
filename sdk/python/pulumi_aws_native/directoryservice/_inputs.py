@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'MicrosoftADVpcSettingsArgs',
-    'SimpleADVpcSettingsArgs',
+    'MicrosoftAdVpcSettingsArgs',
+    'SimpleAdVpcSettingsArgs',
 ]
 
 @pulumi.input_type
-class MicrosoftADVpcSettingsArgs:
+class MicrosoftAdVpcSettingsArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str]):
@@ -42,7 +42,7 @@ class MicrosoftADVpcSettingsArgs:
 
 
 @pulumi.input_type
-class SimpleADVpcSettingsArgs:
+class SimpleAdVpcSettingsArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str]):

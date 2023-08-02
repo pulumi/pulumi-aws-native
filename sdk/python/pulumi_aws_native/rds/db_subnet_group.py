@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DBSubnetGroupArgs', 'DBSubnetGroup']
+__all__ = ['DbSubnetGroupArgs', 'DbSubnetGroup']
 
 @pulumi.input_type
-class DBSubnetGroupArgs:
+class DbSubnetGroupArgs:
     def __init__(__self__, *,
                  db_subnet_group_description: pulumi.Input[str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBSubnetGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbSubnetGroupTagArgs']]]] = None):
         """
-        The set of arguments for constructing a DBSubnetGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DBSubnetGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        The set of arguments for constructing a DbSubnetGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DbSubnetGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "db_subnet_group_description", db_subnet_group_description)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -60,18 +60,18 @@ class DBSubnetGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBSubnetGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbSubnetGroupTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBSubnetGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbSubnetGroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class DBSubnetGroup(pulumi.CustomResource):
+class DbSubnetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -79,31 +79,31 @@ class DBSubnetGroup(pulumi.CustomResource):
                  db_subnet_group_description: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSubnetGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbSubnetGroupTagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSubnetGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbSubnetGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DBSubnetGroupArgs,
+                 args: DbSubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
 
         :param str resource_name: The name of the resource.
-        :param DBSubnetGroupArgs args: The arguments to use to populate this resource's properties.
+        :param DbSubnetGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DBSubnetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DbSubnetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -115,7 +115,7 @@ class DBSubnetGroup(pulumi.CustomResource):
                  db_subnet_group_description: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSubnetGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbSubnetGroupTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -123,7 +123,7 @@ class DBSubnetGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DBSubnetGroupArgs.__new__(DBSubnetGroupArgs)
+            __props__ = DbSubnetGroupArgs.__new__(DbSubnetGroupArgs)
 
             if db_subnet_group_description is None and not opts.urn:
                 raise TypeError("Missing required property 'db_subnet_group_description'")
@@ -133,8 +133,8 @@ class DBSubnetGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
-        super(DBSubnetGroup, __self__).__init__(
-            'aws-native:rds:DBSubnetGroup',
+        super(DbSubnetGroup, __self__).__init__(
+            'aws-native:rds:DbSubnetGroup',
             resource_name,
             __props__,
             opts)
@@ -142,9 +142,9 @@ class DBSubnetGroup(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'DBSubnetGroup':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DbSubnetGroup':
         """
-        Get an existing DBSubnetGroup resource's state with the given name, id, and optional extra
+        Get an existing DbSubnetGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -153,13 +153,13 @@ class DBSubnetGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DBSubnetGroupArgs.__new__(DBSubnetGroupArgs)
+        __props__ = DbSubnetGroupArgs.__new__(DbSubnetGroupArgs)
 
         __props__.__dict__["db_subnet_group_description"] = None
         __props__.__dict__["db_subnet_group_name"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
-        return DBSubnetGroup(resource_name, opts=opts, __props__=__props__)
+        return DbSubnetGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="dbSubnetGroupDescription")
@@ -178,7 +178,7 @@ class DBSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBSubnetGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbSubnetGroupTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

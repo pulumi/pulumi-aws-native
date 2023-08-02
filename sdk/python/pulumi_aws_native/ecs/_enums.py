@@ -16,8 +16,8 @@ __all__ = [
     'ServicePlacementStrategyType',
     'ServicePropagateTags',
     'ServiceSchedulingStrategy',
-    'TaskDefinitionAuthorizationConfigIAM',
-    'TaskDefinitionEFSVolumeConfigurationTransitEncryption',
+    'TaskDefinitionAuthorizationConfigIam',
+    'TaskDefinitionEfsVolumeConfigurationTransitEncryption',
     'TaskDefinitionPortMappingAppProtocol',
     'TaskSetAwsVpcConfigurationAssignPublicIp',
     'TaskSetLaunchType',
@@ -89,12 +89,12 @@ class ServiceSchedulingStrategy(str, Enum):
     REPLICA = "REPLICA"
 
 
-class TaskDefinitionAuthorizationConfigIAM(str, Enum):
+class TaskDefinitionAuthorizationConfigIam(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
-class TaskDefinitionEFSVolumeConfigurationTransitEncryption(str, Enum):
+class TaskDefinitionEfsVolumeConfigurationTransitEncryption(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 

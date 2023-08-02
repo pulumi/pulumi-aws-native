@@ -983,104 +983,104 @@ func (o TestGridProjectVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type VPCEConfigurationTag struct {
+type VpceConfigurationTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// VPCEConfigurationTagInput is an input type that accepts VPCEConfigurationTagArgs and VPCEConfigurationTagOutput values.
-// You can construct a concrete instance of `VPCEConfigurationTagInput` via:
+// VpceConfigurationTagInput is an input type that accepts VpceConfigurationTagArgs and VpceConfigurationTagOutput values.
+// You can construct a concrete instance of `VpceConfigurationTagInput` via:
 //
-//	VPCEConfigurationTagArgs{...}
-type VPCEConfigurationTagInput interface {
+//	VpceConfigurationTagArgs{...}
+type VpceConfigurationTagInput interface {
 	pulumi.Input
 
-	ToVPCEConfigurationTagOutput() VPCEConfigurationTagOutput
-	ToVPCEConfigurationTagOutputWithContext(context.Context) VPCEConfigurationTagOutput
+	ToVpceConfigurationTagOutput() VpceConfigurationTagOutput
+	ToVpceConfigurationTagOutputWithContext(context.Context) VpceConfigurationTagOutput
 }
 
-type VPCEConfigurationTagArgs struct {
+type VpceConfigurationTagArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (VPCEConfigurationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEConfigurationTag)(nil)).Elem()
+func (VpceConfigurationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpceConfigurationTag)(nil)).Elem()
 }
 
-func (i VPCEConfigurationTagArgs) ToVPCEConfigurationTagOutput() VPCEConfigurationTagOutput {
-	return i.ToVPCEConfigurationTagOutputWithContext(context.Background())
+func (i VpceConfigurationTagArgs) ToVpceConfigurationTagOutput() VpceConfigurationTagOutput {
+	return i.ToVpceConfigurationTagOutputWithContext(context.Background())
 }
 
-func (i VPCEConfigurationTagArgs) ToVPCEConfigurationTagOutputWithContext(ctx context.Context) VPCEConfigurationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPCEConfigurationTagOutput)
+func (i VpceConfigurationTagArgs) ToVpceConfigurationTagOutputWithContext(ctx context.Context) VpceConfigurationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpceConfigurationTagOutput)
 }
 
-// VPCEConfigurationTagArrayInput is an input type that accepts VPCEConfigurationTagArray and VPCEConfigurationTagArrayOutput values.
-// You can construct a concrete instance of `VPCEConfigurationTagArrayInput` via:
+// VpceConfigurationTagArrayInput is an input type that accepts VpceConfigurationTagArray and VpceConfigurationTagArrayOutput values.
+// You can construct a concrete instance of `VpceConfigurationTagArrayInput` via:
 //
-//	VPCEConfigurationTagArray{ VPCEConfigurationTagArgs{...} }
-type VPCEConfigurationTagArrayInput interface {
+//	VpceConfigurationTagArray{ VpceConfigurationTagArgs{...} }
+type VpceConfigurationTagArrayInput interface {
 	pulumi.Input
 
-	ToVPCEConfigurationTagArrayOutput() VPCEConfigurationTagArrayOutput
-	ToVPCEConfigurationTagArrayOutputWithContext(context.Context) VPCEConfigurationTagArrayOutput
+	ToVpceConfigurationTagArrayOutput() VpceConfigurationTagArrayOutput
+	ToVpceConfigurationTagArrayOutputWithContext(context.Context) VpceConfigurationTagArrayOutput
 }
 
-type VPCEConfigurationTagArray []VPCEConfigurationTagInput
+type VpceConfigurationTagArray []VpceConfigurationTagInput
 
-func (VPCEConfigurationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPCEConfigurationTag)(nil)).Elem()
+func (VpceConfigurationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpceConfigurationTag)(nil)).Elem()
 }
 
-func (i VPCEConfigurationTagArray) ToVPCEConfigurationTagArrayOutput() VPCEConfigurationTagArrayOutput {
-	return i.ToVPCEConfigurationTagArrayOutputWithContext(context.Background())
+func (i VpceConfigurationTagArray) ToVpceConfigurationTagArrayOutput() VpceConfigurationTagArrayOutput {
+	return i.ToVpceConfigurationTagArrayOutputWithContext(context.Background())
 }
 
-func (i VPCEConfigurationTagArray) ToVPCEConfigurationTagArrayOutputWithContext(ctx context.Context) VPCEConfigurationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPCEConfigurationTagArrayOutput)
+func (i VpceConfigurationTagArray) ToVpceConfigurationTagArrayOutputWithContext(ctx context.Context) VpceConfigurationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpceConfigurationTagArrayOutput)
 }
 
-type VPCEConfigurationTagOutput struct{ *pulumi.OutputState }
+type VpceConfigurationTagOutput struct{ *pulumi.OutputState }
 
-func (VPCEConfigurationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEConfigurationTag)(nil)).Elem()
+func (VpceConfigurationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpceConfigurationTag)(nil)).Elem()
 }
 
-func (o VPCEConfigurationTagOutput) ToVPCEConfigurationTagOutput() VPCEConfigurationTagOutput {
+func (o VpceConfigurationTagOutput) ToVpceConfigurationTagOutput() VpceConfigurationTagOutput {
 	return o
 }
 
-func (o VPCEConfigurationTagOutput) ToVPCEConfigurationTagOutputWithContext(ctx context.Context) VPCEConfigurationTagOutput {
+func (o VpceConfigurationTagOutput) ToVpceConfigurationTagOutputWithContext(ctx context.Context) VpceConfigurationTagOutput {
 	return o
 }
 
-func (o VPCEConfigurationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VPCEConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
+func (o VpceConfigurationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VpceConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o VPCEConfigurationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VPCEConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
+func (o VpceConfigurationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VpceConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type VPCEConfigurationTagArrayOutput struct{ *pulumi.OutputState }
+type VpceConfigurationTagArrayOutput struct{ *pulumi.OutputState }
 
-func (VPCEConfigurationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPCEConfigurationTag)(nil)).Elem()
+func (VpceConfigurationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpceConfigurationTag)(nil)).Elem()
 }
 
-func (o VPCEConfigurationTagArrayOutput) ToVPCEConfigurationTagArrayOutput() VPCEConfigurationTagArrayOutput {
+func (o VpceConfigurationTagArrayOutput) ToVpceConfigurationTagArrayOutput() VpceConfigurationTagArrayOutput {
 	return o
 }
 
-func (o VPCEConfigurationTagArrayOutput) ToVPCEConfigurationTagArrayOutputWithContext(ctx context.Context) VPCEConfigurationTagArrayOutput {
+func (o VpceConfigurationTagArrayOutput) ToVpceConfigurationTagArrayOutputWithContext(ctx context.Context) VpceConfigurationTagArrayOutput {
 	return o
 }
 
-func (o VPCEConfigurationTagArrayOutput) Index(i pulumi.IntInput) VPCEConfigurationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPCEConfigurationTag {
-		return vs[0].([]VPCEConfigurationTag)[vs[1].(int)]
-	}).(VPCEConfigurationTagOutput)
+func (o VpceConfigurationTagArrayOutput) Index(i pulumi.IntInput) VpceConfigurationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpceConfigurationTag {
+		return vs[0].([]VpceConfigurationTag)[vs[1].(int)]
+	}).(VpceConfigurationTagOutput)
 }
 
 func init() {
@@ -1100,8 +1100,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectTagArrayInput)(nil)).Elem(), TestGridProjectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectVpcConfigInput)(nil)).Elem(), TestGridProjectVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectVpcConfigPtrInput)(nil)).Elem(), TestGridProjectVpcConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPCEConfigurationTagInput)(nil)).Elem(), VPCEConfigurationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPCEConfigurationTagArrayInput)(nil)).Elem(), VPCEConfigurationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpceConfigurationTagInput)(nil)).Elem(), VpceConfigurationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpceConfigurationTagArrayInput)(nil)).Elem(), VpceConfigurationTagArray{})
 	pulumi.RegisterOutputType(DevicePoolRuleOutput{})
 	pulumi.RegisterOutputType(DevicePoolRuleArrayOutput{})
 	pulumi.RegisterOutputType(DevicePoolTagOutput{})
@@ -1118,6 +1118,6 @@ func init() {
 	pulumi.RegisterOutputType(TestGridProjectTagArrayOutput{})
 	pulumi.RegisterOutputType(TestGridProjectVpcConfigOutput{})
 	pulumi.RegisterOutputType(TestGridProjectVpcConfigPtrOutput{})
-	pulumi.RegisterOutputType(VPCEConfigurationTagOutput{})
-	pulumi.RegisterOutputType(VPCEConfigurationTagArrayOutput{})
+	pulumi.RegisterOutputType(VpceConfigurationTagOutput{})
+	pulumi.RegisterOutputType(VpceConfigurationTagArrayOutput{})
 }

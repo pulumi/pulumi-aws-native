@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     public sealed class AlarmModelAlarmAction
     {
         public readonly Outputs.AlarmModelDynamoDBv2? DynamoDBv2;
-        public readonly Outputs.AlarmModelDynamoDB? DynamoDb;
+        public readonly Outputs.AlarmModelDynamoDb? DynamoDb;
         public readonly Outputs.AlarmModelFirehose? Firehose;
         public readonly Outputs.AlarmModelIotEvents? IotEvents;
         public readonly Outputs.AlarmModelIotSiteWise? IotSiteWise;
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         private AlarmModelAlarmAction(
             Outputs.AlarmModelDynamoDBv2? dynamoDBv2,
 
-            Outputs.AlarmModelDynamoDB? dynamoDb,
+            Outputs.AlarmModelDynamoDb? dynamoDb,
 
             Outputs.AlarmModelFirehose? firehose,
 

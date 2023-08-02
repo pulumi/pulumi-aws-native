@@ -15,8 +15,8 @@ __all__ = [
     'RuleGroupHeaderProtocol',
     'RuleGroupRuleOrder',
     'RuleGroupStatefulRuleAction',
-    'RuleGroupTCPFlag',
     'RuleGroupTargetType',
+    'RuleGroupTcpFlag',
     'RuleGroupTypeEnum',
 ]
 
@@ -91,7 +91,12 @@ class RuleGroupStatefulRuleAction(str, Enum):
     REJECT = "REJECT"
 
 
-class RuleGroupTCPFlag(str, Enum):
+class RuleGroupTargetType(str, Enum):
+    TLS_SNI = "TLS_SNI"
+    HTTP_HOST = "HTTP_HOST"
+
+
+class RuleGroupTcpFlag(str, Enum):
     FIN = "FIN"
     SYN = "SYN"
     RST = "RST"
@@ -100,11 +105,6 @@ class RuleGroupTCPFlag(str, Enum):
     URG = "URG"
     ECE = "ECE"
     CWR = "CWR"
-
-
-class RuleGroupTargetType(str, Enum):
-    TLS_SNI = "TLS_SNI"
-    HTTP_HOST = "HTTP_HOST"
 
 
 class RuleGroupTypeEnum(str, Enum):

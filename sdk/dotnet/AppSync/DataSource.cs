@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.AppSync
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("dynamoDbConfig")]
-        public Output<Outputs.DataSourceDynamoDBConfig?> DynamoDbConfig { get; private set; } = null!;
+        public Output<Outputs.DataSourceDynamoDbConfig?> DynamoDbConfig { get; private set; } = null!;
 
         [Output("elasticsearchConfig")]
         public Output<Outputs.DataSourceElasticsearchConfig?> ElasticsearchConfig { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.AppSync
         public Input<string>? Description { get; set; }
 
         [Input("dynamoDbConfig")]
-        public Input<Inputs.DataSourceDynamoDBConfigArgs>? DynamoDbConfig { get; set; }
+        public Input<Inputs.DataSourceDynamoDbConfigArgs>? DynamoDbConfig { get; set; }
 
         [Input("elasticsearchConfig")]
         public Input<Inputs.DataSourceElasticsearchConfigArgs>? ElasticsearchConfig { get; set; }

@@ -14,7 +14,7 @@ __all__ = [
     'EndpointDocDbSettingsArgs',
     'EndpointDynamoDbSettingsArgs',
     'EndpointElasticsearchSettingsArgs',
-    'EndpointGcpMySQLSettingsArgs',
+    'EndpointGcpMySqlSettingsArgs',
     'EndpointIbmDb2SettingsArgs',
     'EndpointKafkaSettingsArgs',
     'EndpointKinesisSettingsArgs',
@@ -173,7 +173,7 @@ class EndpointElasticsearchSettingsArgs:
 
 
 @pulumi.input_type
-class EndpointGcpMySQLSettingsArgs:
+class EndpointGcpMySqlSettingsArgs:
     def __init__(__self__, *,
                  after_connect_script: Optional[pulumi.Input[str]] = None,
                  clean_source_metadata_on_mismatch: Optional[pulumi.Input[bool]] = None,

@@ -40,7 +40,7 @@ export class Detector extends pulumi.CustomResource {
         return obj['__pulumiType'] === Detector.__pulumiType;
     }
 
-    public readonly dataSources!: pulumi.Output<outputs.guardduty.DetectorCFNDataSourceConfigurations | undefined>;
+    public readonly dataSources!: pulumi.Output<outputs.guardduty.DetectorCfnDataSourceConfigurations | undefined>;
     public readonly enable!: pulumi.Output<boolean>;
     public readonly features!: pulumi.Output<outputs.guardduty.DetectorFeatureConfigurations[] | undefined>;
     public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
@@ -83,7 +83,7 @@ export class Detector extends pulumi.CustomResource {
  * The set of arguments for constructing a Detector resource.
  */
 export interface DetectorArgs {
-    dataSources?: pulumi.Input<inputs.guardduty.DetectorCFNDataSourceConfigurationsArgs>;
+    dataSources?: pulumi.Input<inputs.guardduty.DetectorCfnDataSourceConfigurationsArgs>;
     enable: pulumi.Input<boolean>;
     features?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorFeatureConfigurationsArgs>[]>;
     findingPublishingFrequency?: pulumi.Input<string>;

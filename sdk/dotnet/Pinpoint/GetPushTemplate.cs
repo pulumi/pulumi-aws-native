@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Pinpoint
     public sealed class GetPushTemplateResult
     {
         public readonly Outputs.PushTemplateAndroidPushNotificationTemplate? Adm;
-        public readonly Outputs.PushTemplateAPNSPushNotificationTemplate? Apns;
+        public readonly Outputs.PushTemplateApnsPushNotificationTemplate? Apns;
         public readonly string? Arn;
         public readonly Outputs.PushTemplateAndroidPushNotificationTemplate? Baidu;
         public readonly Outputs.PushTemplateDefaultPushNotificationTemplate? Default;
@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Pinpoint
         private GetPushTemplateResult(
             Outputs.PushTemplateAndroidPushNotificationTemplate? adm,
 
-            Outputs.PushTemplateAPNSPushNotificationTemplate? apns,
+            Outputs.PushTemplateApnsPushNotificationTemplate? apns,
 
             string? arn,
 

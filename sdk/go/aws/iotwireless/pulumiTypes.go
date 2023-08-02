@@ -113,7 +113,7 @@ func (o DestinationTagArrayOutput) Index(i pulumi.IntInput) DestinationTagOutput
 	}).(DestinationTagOutput)
 }
 
-type DeviceProfileLoRaWANDeviceProfile struct {
+type DeviceProfileLoRaWanDeviceProfile struct {
 	ClassBTimeout          *int    `pulumi:"classBTimeout"`
 	ClassCTimeout          *int    `pulumi:"classCTimeout"`
 	FactoryPresetFreqsList []int   `pulumi:"factoryPresetFreqsList"`
@@ -135,18 +135,18 @@ type DeviceProfileLoRaWANDeviceProfile struct {
 	SupportsJoin           *bool   `pulumi:"supportsJoin"`
 }
 
-// DeviceProfileLoRaWANDeviceProfileInput is an input type that accepts DeviceProfileLoRaWANDeviceProfileArgs and DeviceProfileLoRaWANDeviceProfileOutput values.
-// You can construct a concrete instance of `DeviceProfileLoRaWANDeviceProfileInput` via:
+// DeviceProfileLoRaWanDeviceProfileInput is an input type that accepts DeviceProfileLoRaWanDeviceProfileArgs and DeviceProfileLoRaWanDeviceProfileOutput values.
+// You can construct a concrete instance of `DeviceProfileLoRaWanDeviceProfileInput` via:
 //
-//	DeviceProfileLoRaWANDeviceProfileArgs{...}
-type DeviceProfileLoRaWANDeviceProfileInput interface {
+//	DeviceProfileLoRaWanDeviceProfileArgs{...}
+type DeviceProfileLoRaWanDeviceProfileInput interface {
 	pulumi.Input
 
-	ToDeviceProfileLoRaWANDeviceProfileOutput() DeviceProfileLoRaWANDeviceProfileOutput
-	ToDeviceProfileLoRaWANDeviceProfileOutputWithContext(context.Context) DeviceProfileLoRaWANDeviceProfileOutput
+	ToDeviceProfileLoRaWanDeviceProfileOutput() DeviceProfileLoRaWanDeviceProfileOutput
+	ToDeviceProfileLoRaWanDeviceProfileOutputWithContext(context.Context) DeviceProfileLoRaWanDeviceProfileOutput
 }
 
-type DeviceProfileLoRaWANDeviceProfileArgs struct {
+type DeviceProfileLoRaWanDeviceProfileArgs struct {
 	ClassBTimeout          pulumi.IntPtrInput    `pulumi:"classBTimeout"`
 	ClassCTimeout          pulumi.IntPtrInput    `pulumi:"classCTimeout"`
 	FactoryPresetFreqsList pulumi.IntArrayInput  `pulumi:"factoryPresetFreqsList"`
@@ -168,185 +168,185 @@ type DeviceProfileLoRaWANDeviceProfileArgs struct {
 	SupportsJoin           pulumi.BoolPtrInput   `pulumi:"supportsJoin"`
 }
 
-func (DeviceProfileLoRaWANDeviceProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceProfileLoRaWANDeviceProfile)(nil)).Elem()
+func (DeviceProfileLoRaWanDeviceProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceProfileLoRaWanDeviceProfile)(nil)).Elem()
 }
 
-func (i DeviceProfileLoRaWANDeviceProfileArgs) ToDeviceProfileLoRaWANDeviceProfileOutput() DeviceProfileLoRaWANDeviceProfileOutput {
-	return i.ToDeviceProfileLoRaWANDeviceProfileOutputWithContext(context.Background())
+func (i DeviceProfileLoRaWanDeviceProfileArgs) ToDeviceProfileLoRaWanDeviceProfileOutput() DeviceProfileLoRaWanDeviceProfileOutput {
+	return i.ToDeviceProfileLoRaWanDeviceProfileOutputWithContext(context.Background())
 }
 
-func (i DeviceProfileLoRaWANDeviceProfileArgs) ToDeviceProfileLoRaWANDeviceProfileOutputWithContext(ctx context.Context) DeviceProfileLoRaWANDeviceProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileLoRaWANDeviceProfileOutput)
+func (i DeviceProfileLoRaWanDeviceProfileArgs) ToDeviceProfileLoRaWanDeviceProfileOutputWithContext(ctx context.Context) DeviceProfileLoRaWanDeviceProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileLoRaWanDeviceProfileOutput)
 }
 
-func (i DeviceProfileLoRaWANDeviceProfileArgs) ToDeviceProfileLoRaWANDeviceProfilePtrOutput() DeviceProfileLoRaWANDeviceProfilePtrOutput {
-	return i.ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(context.Background())
+func (i DeviceProfileLoRaWanDeviceProfileArgs) ToDeviceProfileLoRaWanDeviceProfilePtrOutput() DeviceProfileLoRaWanDeviceProfilePtrOutput {
+	return i.ToDeviceProfileLoRaWanDeviceProfilePtrOutputWithContext(context.Background())
 }
 
-func (i DeviceProfileLoRaWANDeviceProfileArgs) ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(ctx context.Context) DeviceProfileLoRaWANDeviceProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileLoRaWANDeviceProfileOutput).ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(ctx)
+func (i DeviceProfileLoRaWanDeviceProfileArgs) ToDeviceProfileLoRaWanDeviceProfilePtrOutputWithContext(ctx context.Context) DeviceProfileLoRaWanDeviceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileLoRaWanDeviceProfileOutput).ToDeviceProfileLoRaWanDeviceProfilePtrOutputWithContext(ctx)
 }
 
-// DeviceProfileLoRaWANDeviceProfilePtrInput is an input type that accepts DeviceProfileLoRaWANDeviceProfileArgs, DeviceProfileLoRaWANDeviceProfilePtr and DeviceProfileLoRaWANDeviceProfilePtrOutput values.
-// You can construct a concrete instance of `DeviceProfileLoRaWANDeviceProfilePtrInput` via:
+// DeviceProfileLoRaWanDeviceProfilePtrInput is an input type that accepts DeviceProfileLoRaWanDeviceProfileArgs, DeviceProfileLoRaWanDeviceProfilePtr and DeviceProfileLoRaWanDeviceProfilePtrOutput values.
+// You can construct a concrete instance of `DeviceProfileLoRaWanDeviceProfilePtrInput` via:
 //
-//	        DeviceProfileLoRaWANDeviceProfileArgs{...}
+//	        DeviceProfileLoRaWanDeviceProfileArgs{...}
 //
 //	or:
 //
 //	        nil
-type DeviceProfileLoRaWANDeviceProfilePtrInput interface {
+type DeviceProfileLoRaWanDeviceProfilePtrInput interface {
 	pulumi.Input
 
-	ToDeviceProfileLoRaWANDeviceProfilePtrOutput() DeviceProfileLoRaWANDeviceProfilePtrOutput
-	ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(context.Context) DeviceProfileLoRaWANDeviceProfilePtrOutput
+	ToDeviceProfileLoRaWanDeviceProfilePtrOutput() DeviceProfileLoRaWanDeviceProfilePtrOutput
+	ToDeviceProfileLoRaWanDeviceProfilePtrOutputWithContext(context.Context) DeviceProfileLoRaWanDeviceProfilePtrOutput
 }
 
-type deviceProfileLoRaWANDeviceProfilePtrType DeviceProfileLoRaWANDeviceProfileArgs
+type deviceProfileLoRaWanDeviceProfilePtrType DeviceProfileLoRaWanDeviceProfileArgs
 
-func DeviceProfileLoRaWANDeviceProfilePtr(v *DeviceProfileLoRaWANDeviceProfileArgs) DeviceProfileLoRaWANDeviceProfilePtrInput {
-	return (*deviceProfileLoRaWANDeviceProfilePtrType)(v)
+func DeviceProfileLoRaWanDeviceProfilePtr(v *DeviceProfileLoRaWanDeviceProfileArgs) DeviceProfileLoRaWanDeviceProfilePtrInput {
+	return (*deviceProfileLoRaWanDeviceProfilePtrType)(v)
 }
 
-func (*deviceProfileLoRaWANDeviceProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceProfileLoRaWANDeviceProfile)(nil)).Elem()
+func (*deviceProfileLoRaWanDeviceProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceProfileLoRaWanDeviceProfile)(nil)).Elem()
 }
 
-func (i *deviceProfileLoRaWANDeviceProfilePtrType) ToDeviceProfileLoRaWANDeviceProfilePtrOutput() DeviceProfileLoRaWANDeviceProfilePtrOutput {
-	return i.ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(context.Background())
+func (i *deviceProfileLoRaWanDeviceProfilePtrType) ToDeviceProfileLoRaWanDeviceProfilePtrOutput() DeviceProfileLoRaWanDeviceProfilePtrOutput {
+	return i.ToDeviceProfileLoRaWanDeviceProfilePtrOutputWithContext(context.Background())
 }
 
-func (i *deviceProfileLoRaWANDeviceProfilePtrType) ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(ctx context.Context) DeviceProfileLoRaWANDeviceProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileLoRaWANDeviceProfilePtrOutput)
+func (i *deviceProfileLoRaWanDeviceProfilePtrType) ToDeviceProfileLoRaWanDeviceProfilePtrOutputWithContext(ctx context.Context) DeviceProfileLoRaWanDeviceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileLoRaWanDeviceProfilePtrOutput)
 }
 
-type DeviceProfileLoRaWANDeviceProfileOutput struct{ *pulumi.OutputState }
+type DeviceProfileLoRaWanDeviceProfileOutput struct{ *pulumi.OutputState }
 
-func (DeviceProfileLoRaWANDeviceProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceProfileLoRaWANDeviceProfile)(nil)).Elem()
+func (DeviceProfileLoRaWanDeviceProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceProfileLoRaWanDeviceProfile)(nil)).Elem()
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) ToDeviceProfileLoRaWANDeviceProfileOutput() DeviceProfileLoRaWANDeviceProfileOutput {
+func (o DeviceProfileLoRaWanDeviceProfileOutput) ToDeviceProfileLoRaWanDeviceProfileOutput() DeviceProfileLoRaWanDeviceProfileOutput {
 	return o
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) ToDeviceProfileLoRaWANDeviceProfileOutputWithContext(ctx context.Context) DeviceProfileLoRaWANDeviceProfileOutput {
+func (o DeviceProfileLoRaWanDeviceProfileOutput) ToDeviceProfileLoRaWanDeviceProfileOutputWithContext(ctx context.Context) DeviceProfileLoRaWanDeviceProfileOutput {
 	return o
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) ToDeviceProfileLoRaWANDeviceProfilePtrOutput() DeviceProfileLoRaWANDeviceProfilePtrOutput {
-	return o.ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(context.Background())
+func (o DeviceProfileLoRaWanDeviceProfileOutput) ToDeviceProfileLoRaWanDeviceProfilePtrOutput() DeviceProfileLoRaWanDeviceProfilePtrOutput {
+	return o.ToDeviceProfileLoRaWanDeviceProfilePtrOutputWithContext(context.Background())
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(ctx context.Context) DeviceProfileLoRaWANDeviceProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceProfileLoRaWANDeviceProfile) *DeviceProfileLoRaWANDeviceProfile {
+func (o DeviceProfileLoRaWanDeviceProfileOutput) ToDeviceProfileLoRaWanDeviceProfilePtrOutputWithContext(ctx context.Context) DeviceProfileLoRaWanDeviceProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceProfileLoRaWanDeviceProfile) *DeviceProfileLoRaWanDeviceProfile {
 		return &v
-	}).(DeviceProfileLoRaWANDeviceProfilePtrOutput)
+	}).(DeviceProfileLoRaWanDeviceProfilePtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) ClassBTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.ClassBTimeout }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) ClassBTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.ClassBTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) ClassCTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.ClassCTimeout }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) ClassCTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.ClassCTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) FactoryPresetFreqsList() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) []int { return v.FactoryPresetFreqsList }).(pulumi.IntArrayOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) FactoryPresetFreqsList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) []int { return v.FactoryPresetFreqsList }).(pulumi.IntArrayOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) MacVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *string { return v.MacVersion }).(pulumi.StringPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) MacVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *string { return v.MacVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) MaxDutyCycle() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.MaxDutyCycle }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) MaxDutyCycle() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.MaxDutyCycle }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) MaxEirp() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.MaxEirp }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) MaxEirp() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.MaxEirp }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) PingSlotDr() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.PingSlotDr }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) PingSlotDr() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.PingSlotDr }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) PingSlotFreq() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.PingSlotFreq }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) PingSlotFreq() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.PingSlotFreq }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) PingSlotPeriod() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.PingSlotPeriod }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) PingSlotPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.PingSlotPeriod }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) RegParamsRevision() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *string { return v.RegParamsRevision }).(pulumi.StringPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) RegParamsRevision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *string { return v.RegParamsRevision }).(pulumi.StringPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) RfRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *string { return v.RfRegion }).(pulumi.StringPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) RfRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *string { return v.RfRegion }).(pulumi.StringPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) RxDataRate2() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.RxDataRate2 }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) RxDataRate2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.RxDataRate2 }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) RxDelay1() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.RxDelay1 }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) RxDelay1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.RxDelay1 }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) RxDrOffset1() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.RxDrOffset1 }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) RxDrOffset1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.RxDrOffset1 }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) RxFreq2() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.RxFreq2 }).(pulumi.IntPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) RxFreq2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.RxFreq2 }).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) Supports32BitFCnt() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *bool { return v.Supports32BitFCnt }).(pulumi.BoolPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) Supports32BitFCnt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *bool { return v.Supports32BitFCnt }).(pulumi.BoolPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) SupportsClassB() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *bool { return v.SupportsClassB }).(pulumi.BoolPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) SupportsClassB() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *bool { return v.SupportsClassB }).(pulumi.BoolPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) SupportsClassC() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *bool { return v.SupportsClassC }).(pulumi.BoolPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) SupportsClassC() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *bool { return v.SupportsClassC }).(pulumi.BoolPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfileOutput) SupportsJoin() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *bool { return v.SupportsJoin }).(pulumi.BoolPtrOutput)
+func (o DeviceProfileLoRaWanDeviceProfileOutput) SupportsJoin() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *bool { return v.SupportsJoin }).(pulumi.BoolPtrOutput)
 }
 
-type DeviceProfileLoRaWANDeviceProfilePtrOutput struct{ *pulumi.OutputState }
+type DeviceProfileLoRaWanDeviceProfilePtrOutput struct{ *pulumi.OutputState }
 
-func (DeviceProfileLoRaWANDeviceProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceProfileLoRaWANDeviceProfile)(nil)).Elem()
+func (DeviceProfileLoRaWanDeviceProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceProfileLoRaWanDeviceProfile)(nil)).Elem()
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ToDeviceProfileLoRaWANDeviceProfilePtrOutput() DeviceProfileLoRaWANDeviceProfilePtrOutput {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) ToDeviceProfileLoRaWanDeviceProfilePtrOutput() DeviceProfileLoRaWanDeviceProfilePtrOutput {
 	return o
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(ctx context.Context) DeviceProfileLoRaWANDeviceProfilePtrOutput {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) ToDeviceProfileLoRaWanDeviceProfilePtrOutputWithContext(ctx context.Context) DeviceProfileLoRaWanDeviceProfilePtrOutput {
 	return o
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) Elem() DeviceProfileLoRaWANDeviceProfileOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) DeviceProfileLoRaWANDeviceProfile {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) Elem() DeviceProfileLoRaWanDeviceProfileOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) DeviceProfileLoRaWanDeviceProfile {
 		if v != nil {
 			return *v
 		}
-		var ret DeviceProfileLoRaWANDeviceProfile
+		var ret DeviceProfileLoRaWanDeviceProfile
 		return ret
-	}).(DeviceProfileLoRaWANDeviceProfileOutput)
+	}).(DeviceProfileLoRaWanDeviceProfileOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ClassBTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) ClassBTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -354,8 +354,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ClassBTimeout() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ClassCTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) ClassCTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -363,8 +363,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ClassCTimeout() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) FactoryPresetFreqsList() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) []int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) FactoryPresetFreqsList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) []int {
 		if v == nil {
 			return nil
 		}
@@ -372,8 +372,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) FactoryPresetFreqsList() pul
 	}).(pulumi.IntArrayOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MacVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *string {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) MacVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *string {
 		if v == nil {
 			return nil
 		}
@@ -381,8 +381,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MacVersion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MaxDutyCycle() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) MaxDutyCycle() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -390,8 +390,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MaxDutyCycle() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MaxEirp() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) MaxEirp() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -399,8 +399,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MaxEirp() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotDr() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) PingSlotDr() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -408,8 +408,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotDr() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotFreq() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) PingSlotFreq() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -417,8 +417,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotFreq() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotPeriod() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) PingSlotPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -426,8 +426,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotPeriod() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RegParamsRevision() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *string {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RegParamsRevision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *string {
 		if v == nil {
 			return nil
 		}
@@ -435,8 +435,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RegParamsRevision() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RfRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *string {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RfRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *string {
 		if v == nil {
 			return nil
 		}
@@ -444,8 +444,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RfRegion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxDataRate2() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxDataRate2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -453,8 +453,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxDataRate2() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxDelay1() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxDelay1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -462,8 +462,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxDelay1() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxDrOffset1() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxDrOffset1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -471,8 +471,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxDrOffset1() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxFreq2() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxFreq2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -480,8 +480,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxFreq2() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) Supports32BitFCnt() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *bool {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) Supports32BitFCnt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -489,8 +489,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) Supports32BitFCnt() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsClassB() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *bool {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) SupportsClassB() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -498,8 +498,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsClassB() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsClassC() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *bool {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) SupportsClassC() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -507,8 +507,8 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsClassC() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsJoin() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *bool {
+func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) SupportsJoin() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -616,94 +616,94 @@ func (o DeviceProfileTagArrayOutput) Index(i pulumi.IntInput) DeviceProfileTagOu
 	}).(DeviceProfileTagOutput)
 }
 
-type FuotaTaskLoRaWAN struct {
+type FuotaTaskLoRaWan struct {
 	// FUOTA task LoRaWAN RF region
 	RfRegion string `pulumi:"rfRegion"`
 	// FUOTA task LoRaWAN start time
 	StartTime *string `pulumi:"startTime"`
 }
 
-// FuotaTaskLoRaWANInput is an input type that accepts FuotaTaskLoRaWANArgs and FuotaTaskLoRaWANOutput values.
-// You can construct a concrete instance of `FuotaTaskLoRaWANInput` via:
+// FuotaTaskLoRaWanInput is an input type that accepts FuotaTaskLoRaWanArgs and FuotaTaskLoRaWanOutput values.
+// You can construct a concrete instance of `FuotaTaskLoRaWanInput` via:
 //
-//	FuotaTaskLoRaWANArgs{...}
-type FuotaTaskLoRaWANInput interface {
+//	FuotaTaskLoRaWanArgs{...}
+type FuotaTaskLoRaWanInput interface {
 	pulumi.Input
 
-	ToFuotaTaskLoRaWANOutput() FuotaTaskLoRaWANOutput
-	ToFuotaTaskLoRaWANOutputWithContext(context.Context) FuotaTaskLoRaWANOutput
+	ToFuotaTaskLoRaWanOutput() FuotaTaskLoRaWanOutput
+	ToFuotaTaskLoRaWanOutputWithContext(context.Context) FuotaTaskLoRaWanOutput
 }
 
-type FuotaTaskLoRaWANArgs struct {
+type FuotaTaskLoRaWanArgs struct {
 	// FUOTA task LoRaWAN RF region
 	RfRegion pulumi.StringInput `pulumi:"rfRegion"`
 	// FUOTA task LoRaWAN start time
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
-func (FuotaTaskLoRaWANArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FuotaTaskLoRaWAN)(nil)).Elem()
+func (FuotaTaskLoRaWanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FuotaTaskLoRaWan)(nil)).Elem()
 }
 
-func (i FuotaTaskLoRaWANArgs) ToFuotaTaskLoRaWANOutput() FuotaTaskLoRaWANOutput {
-	return i.ToFuotaTaskLoRaWANOutputWithContext(context.Background())
+func (i FuotaTaskLoRaWanArgs) ToFuotaTaskLoRaWanOutput() FuotaTaskLoRaWanOutput {
+	return i.ToFuotaTaskLoRaWanOutputWithContext(context.Background())
 }
 
-func (i FuotaTaskLoRaWANArgs) ToFuotaTaskLoRaWANOutputWithContext(ctx context.Context) FuotaTaskLoRaWANOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskLoRaWANOutput)
+func (i FuotaTaskLoRaWanArgs) ToFuotaTaskLoRaWanOutputWithContext(ctx context.Context) FuotaTaskLoRaWanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskLoRaWanOutput)
 }
 
-type FuotaTaskLoRaWANOutput struct{ *pulumi.OutputState }
+type FuotaTaskLoRaWanOutput struct{ *pulumi.OutputState }
 
-func (FuotaTaskLoRaWANOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FuotaTaskLoRaWAN)(nil)).Elem()
+func (FuotaTaskLoRaWanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FuotaTaskLoRaWan)(nil)).Elem()
 }
 
-func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANOutput() FuotaTaskLoRaWANOutput {
+func (o FuotaTaskLoRaWanOutput) ToFuotaTaskLoRaWanOutput() FuotaTaskLoRaWanOutput {
 	return o
 }
 
-func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANOutputWithContext(ctx context.Context) FuotaTaskLoRaWANOutput {
+func (o FuotaTaskLoRaWanOutput) ToFuotaTaskLoRaWanOutputWithContext(ctx context.Context) FuotaTaskLoRaWanOutput {
 	return o
 }
 
 // FUOTA task LoRaWAN RF region
-func (o FuotaTaskLoRaWANOutput) RfRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v FuotaTaskLoRaWAN) string { return v.RfRegion }).(pulumi.StringOutput)
+func (o FuotaTaskLoRaWanOutput) RfRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v FuotaTaskLoRaWan) string { return v.RfRegion }).(pulumi.StringOutput)
 }
 
 // FUOTA task LoRaWAN start time
-func (o FuotaTaskLoRaWANOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FuotaTaskLoRaWAN) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+func (o FuotaTaskLoRaWanOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FuotaTaskLoRaWan) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-type FuotaTaskLoRaWANPtrOutput struct{ *pulumi.OutputState }
+type FuotaTaskLoRaWanPtrOutput struct{ *pulumi.OutputState }
 
-func (FuotaTaskLoRaWANPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FuotaTaskLoRaWAN)(nil)).Elem()
+func (FuotaTaskLoRaWanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FuotaTaskLoRaWan)(nil)).Elem()
 }
 
-func (o FuotaTaskLoRaWANPtrOutput) ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput {
+func (o FuotaTaskLoRaWanPtrOutput) ToFuotaTaskLoRaWanPtrOutput() FuotaTaskLoRaWanPtrOutput {
 	return o
 }
 
-func (o FuotaTaskLoRaWANPtrOutput) ToFuotaTaskLoRaWANPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWANPtrOutput {
+func (o FuotaTaskLoRaWanPtrOutput) ToFuotaTaskLoRaWanPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWanPtrOutput {
 	return o
 }
 
-func (o FuotaTaskLoRaWANPtrOutput) Elem() FuotaTaskLoRaWANOutput {
-	return o.ApplyT(func(v *FuotaTaskLoRaWAN) FuotaTaskLoRaWAN {
+func (o FuotaTaskLoRaWanPtrOutput) Elem() FuotaTaskLoRaWanOutput {
+	return o.ApplyT(func(v *FuotaTaskLoRaWan) FuotaTaskLoRaWan {
 		if v != nil {
 			return *v
 		}
-		var ret FuotaTaskLoRaWAN
+		var ret FuotaTaskLoRaWan
 		return ret
-	}).(FuotaTaskLoRaWANOutput)
+	}).(FuotaTaskLoRaWanOutput)
 }
 
 // FUOTA task LoRaWAN RF region
-func (o FuotaTaskLoRaWANPtrOutput) RfRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FuotaTaskLoRaWAN) *string {
+func (o FuotaTaskLoRaWanPtrOutput) RfRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FuotaTaskLoRaWan) *string {
 		if v == nil {
 			return nil
 		}
@@ -712,8 +712,8 @@ func (o FuotaTaskLoRaWANPtrOutput) RfRegion() pulumi.StringPtrOutput {
 }
 
 // FUOTA task LoRaWAN start time
-func (o FuotaTaskLoRaWANPtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FuotaTaskLoRaWAN) *string {
+func (o FuotaTaskLoRaWanPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FuotaTaskLoRaWan) *string {
 		if v == nil {
 			return nil
 		}
@@ -821,7 +821,7 @@ func (o FuotaTaskTagArrayOutput) Index(i pulumi.IntInput) FuotaTaskTagOutput {
 	}).(FuotaTaskTagOutput)
 }
 
-type MulticastGroupLoRaWAN struct {
+type MulticastGroupLoRaWan struct {
 	// Multicast group LoRaWAN DL Class
 	DlClass string `pulumi:"dlClass"`
 	// Multicast group number of devices in group. Returned after successful read.
@@ -832,18 +832,18 @@ type MulticastGroupLoRaWAN struct {
 	RfRegion string `pulumi:"rfRegion"`
 }
 
-// MulticastGroupLoRaWANInput is an input type that accepts MulticastGroupLoRaWANArgs and MulticastGroupLoRaWANOutput values.
-// You can construct a concrete instance of `MulticastGroupLoRaWANInput` via:
+// MulticastGroupLoRaWanInput is an input type that accepts MulticastGroupLoRaWanArgs and MulticastGroupLoRaWanOutput values.
+// You can construct a concrete instance of `MulticastGroupLoRaWanInput` via:
 //
-//	MulticastGroupLoRaWANArgs{...}
-type MulticastGroupLoRaWANInput interface {
+//	MulticastGroupLoRaWanArgs{...}
+type MulticastGroupLoRaWanInput interface {
 	pulumi.Input
 
-	ToMulticastGroupLoRaWANOutput() MulticastGroupLoRaWANOutput
-	ToMulticastGroupLoRaWANOutputWithContext(context.Context) MulticastGroupLoRaWANOutput
+	ToMulticastGroupLoRaWanOutput() MulticastGroupLoRaWanOutput
+	ToMulticastGroupLoRaWanOutputWithContext(context.Context) MulticastGroupLoRaWanOutput
 }
 
-type MulticastGroupLoRaWANArgs struct {
+type MulticastGroupLoRaWanArgs struct {
 	// Multicast group LoRaWAN DL Class
 	DlClass pulumi.StringInput `pulumi:"dlClass"`
 	// Multicast group number of devices in group. Returned after successful read.
@@ -854,79 +854,79 @@ type MulticastGroupLoRaWANArgs struct {
 	RfRegion pulumi.StringInput `pulumi:"rfRegion"`
 }
 
-func (MulticastGroupLoRaWANArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MulticastGroupLoRaWAN)(nil)).Elem()
+func (MulticastGroupLoRaWanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MulticastGroupLoRaWan)(nil)).Elem()
 }
 
-func (i MulticastGroupLoRaWANArgs) ToMulticastGroupLoRaWANOutput() MulticastGroupLoRaWANOutput {
-	return i.ToMulticastGroupLoRaWANOutputWithContext(context.Background())
+func (i MulticastGroupLoRaWanArgs) ToMulticastGroupLoRaWanOutput() MulticastGroupLoRaWanOutput {
+	return i.ToMulticastGroupLoRaWanOutputWithContext(context.Background())
 }
 
-func (i MulticastGroupLoRaWANArgs) ToMulticastGroupLoRaWANOutputWithContext(ctx context.Context) MulticastGroupLoRaWANOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupLoRaWANOutput)
+func (i MulticastGroupLoRaWanArgs) ToMulticastGroupLoRaWanOutputWithContext(ctx context.Context) MulticastGroupLoRaWanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupLoRaWanOutput)
 }
 
-type MulticastGroupLoRaWANOutput struct{ *pulumi.OutputState }
+type MulticastGroupLoRaWanOutput struct{ *pulumi.OutputState }
 
-func (MulticastGroupLoRaWANOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MulticastGroupLoRaWAN)(nil)).Elem()
+func (MulticastGroupLoRaWanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MulticastGroupLoRaWan)(nil)).Elem()
 }
 
-func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANOutput() MulticastGroupLoRaWANOutput {
+func (o MulticastGroupLoRaWanOutput) ToMulticastGroupLoRaWanOutput() MulticastGroupLoRaWanOutput {
 	return o
 }
 
-func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANOutputWithContext(ctx context.Context) MulticastGroupLoRaWANOutput {
+func (o MulticastGroupLoRaWanOutput) ToMulticastGroupLoRaWanOutputWithContext(ctx context.Context) MulticastGroupLoRaWanOutput {
 	return o
 }
 
 // Multicast group LoRaWAN DL Class
-func (o MulticastGroupLoRaWANOutput) DlClass() pulumi.StringOutput {
-	return o.ApplyT(func(v MulticastGroupLoRaWAN) string { return v.DlClass }).(pulumi.StringOutput)
+func (o MulticastGroupLoRaWanOutput) DlClass() pulumi.StringOutput {
+	return o.ApplyT(func(v MulticastGroupLoRaWan) string { return v.DlClass }).(pulumi.StringOutput)
 }
 
 // Multicast group number of devices in group. Returned after successful read.
-func (o MulticastGroupLoRaWANOutput) NumberOfDevicesInGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MulticastGroupLoRaWAN) *int { return v.NumberOfDevicesInGroup }).(pulumi.IntPtrOutput)
+func (o MulticastGroupLoRaWanOutput) NumberOfDevicesInGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MulticastGroupLoRaWan) *int { return v.NumberOfDevicesInGroup }).(pulumi.IntPtrOutput)
 }
 
 // Multicast group number of devices requested. Returned after successful read.
-func (o MulticastGroupLoRaWANOutput) NumberOfDevicesRequested() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v MulticastGroupLoRaWAN) *int { return v.NumberOfDevicesRequested }).(pulumi.IntPtrOutput)
+func (o MulticastGroupLoRaWanOutput) NumberOfDevicesRequested() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MulticastGroupLoRaWan) *int { return v.NumberOfDevicesRequested }).(pulumi.IntPtrOutput)
 }
 
 // Multicast group LoRaWAN RF region
-func (o MulticastGroupLoRaWANOutput) RfRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v MulticastGroupLoRaWAN) string { return v.RfRegion }).(pulumi.StringOutput)
+func (o MulticastGroupLoRaWanOutput) RfRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v MulticastGroupLoRaWan) string { return v.RfRegion }).(pulumi.StringOutput)
 }
 
-type MulticastGroupLoRaWANPtrOutput struct{ *pulumi.OutputState }
+type MulticastGroupLoRaWanPtrOutput struct{ *pulumi.OutputState }
 
-func (MulticastGroupLoRaWANPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MulticastGroupLoRaWAN)(nil)).Elem()
+func (MulticastGroupLoRaWanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MulticastGroupLoRaWan)(nil)).Elem()
 }
 
-func (o MulticastGroupLoRaWANPtrOutput) ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput {
+func (o MulticastGroupLoRaWanPtrOutput) ToMulticastGroupLoRaWanPtrOutput() MulticastGroupLoRaWanPtrOutput {
 	return o
 }
 
-func (o MulticastGroupLoRaWANPtrOutput) ToMulticastGroupLoRaWANPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWANPtrOutput {
+func (o MulticastGroupLoRaWanPtrOutput) ToMulticastGroupLoRaWanPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWanPtrOutput {
 	return o
 }
 
-func (o MulticastGroupLoRaWANPtrOutput) Elem() MulticastGroupLoRaWANOutput {
-	return o.ApplyT(func(v *MulticastGroupLoRaWAN) MulticastGroupLoRaWAN {
+func (o MulticastGroupLoRaWanPtrOutput) Elem() MulticastGroupLoRaWanOutput {
+	return o.ApplyT(func(v *MulticastGroupLoRaWan) MulticastGroupLoRaWan {
 		if v != nil {
 			return *v
 		}
-		var ret MulticastGroupLoRaWAN
+		var ret MulticastGroupLoRaWan
 		return ret
-	}).(MulticastGroupLoRaWANOutput)
+	}).(MulticastGroupLoRaWanOutput)
 }
 
 // Multicast group LoRaWAN DL Class
-func (o MulticastGroupLoRaWANPtrOutput) DlClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *string {
+func (o MulticastGroupLoRaWanPtrOutput) DlClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MulticastGroupLoRaWan) *string {
 		if v == nil {
 			return nil
 		}
@@ -935,8 +935,8 @@ func (o MulticastGroupLoRaWANPtrOutput) DlClass() pulumi.StringPtrOutput {
 }
 
 // Multicast group number of devices in group. Returned after successful read.
-func (o MulticastGroupLoRaWANPtrOutput) NumberOfDevicesInGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *int {
+func (o MulticastGroupLoRaWanPtrOutput) NumberOfDevicesInGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MulticastGroupLoRaWan) *int {
 		if v == nil {
 			return nil
 		}
@@ -945,8 +945,8 @@ func (o MulticastGroupLoRaWANPtrOutput) NumberOfDevicesInGroup() pulumi.IntPtrOu
 }
 
 // Multicast group number of devices requested. Returned after successful read.
-func (o MulticastGroupLoRaWANPtrOutput) NumberOfDevicesRequested() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *int {
+func (o MulticastGroupLoRaWanPtrOutput) NumberOfDevicesRequested() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MulticastGroupLoRaWan) *int {
 		if v == nil {
 			return nil
 		}
@@ -955,8 +955,8 @@ func (o MulticastGroupLoRaWANPtrOutput) NumberOfDevicesRequested() pulumi.IntPtr
 }
 
 // Multicast group LoRaWAN RF region
-func (o MulticastGroupLoRaWANPtrOutput) RfRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *string {
+func (o MulticastGroupLoRaWanPtrOutput) RfRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MulticastGroupLoRaWan) *string {
 		if v == nil {
 			return nil
 		}
@@ -1702,7 +1702,7 @@ func (o PartnerAccountTagArrayOutput) Index(i pulumi.IntInput) PartnerAccountTag
 	}).(PartnerAccountTagOutput)
 }
 
-type ServiceProfileLoRaWANServiceProfile struct {
+type ServiceProfileLoRaWanServiceProfile struct {
 	AddGwMetadata          *bool   `pulumi:"addGwMetadata"`
 	ChannelMask            *string `pulumi:"channelMask"`
 	DevStatusReqFreq       *int    `pulumi:"devStatusReqFreq"`
@@ -1724,18 +1724,18 @@ type ServiceProfileLoRaWANServiceProfile struct {
 	UlRatePolicy           *string `pulumi:"ulRatePolicy"`
 }
 
-// ServiceProfileLoRaWANServiceProfileInput is an input type that accepts ServiceProfileLoRaWANServiceProfileArgs and ServiceProfileLoRaWANServiceProfileOutput values.
-// You can construct a concrete instance of `ServiceProfileLoRaWANServiceProfileInput` via:
+// ServiceProfileLoRaWanServiceProfileInput is an input type that accepts ServiceProfileLoRaWanServiceProfileArgs and ServiceProfileLoRaWanServiceProfileOutput values.
+// You can construct a concrete instance of `ServiceProfileLoRaWanServiceProfileInput` via:
 //
-//	ServiceProfileLoRaWANServiceProfileArgs{...}
-type ServiceProfileLoRaWANServiceProfileInput interface {
+//	ServiceProfileLoRaWanServiceProfileArgs{...}
+type ServiceProfileLoRaWanServiceProfileInput interface {
 	pulumi.Input
 
-	ToServiceProfileLoRaWANServiceProfileOutput() ServiceProfileLoRaWANServiceProfileOutput
-	ToServiceProfileLoRaWANServiceProfileOutputWithContext(context.Context) ServiceProfileLoRaWANServiceProfileOutput
+	ToServiceProfileLoRaWanServiceProfileOutput() ServiceProfileLoRaWanServiceProfileOutput
+	ToServiceProfileLoRaWanServiceProfileOutputWithContext(context.Context) ServiceProfileLoRaWanServiceProfileOutput
 }
 
-type ServiceProfileLoRaWANServiceProfileArgs struct {
+type ServiceProfileLoRaWanServiceProfileArgs struct {
 	AddGwMetadata          pulumi.BoolPtrInput   `pulumi:"addGwMetadata"`
 	ChannelMask            pulumi.StringPtrInput `pulumi:"channelMask"`
 	DevStatusReqFreq       pulumi.IntPtrInput    `pulumi:"devStatusReqFreq"`
@@ -1757,185 +1757,185 @@ type ServiceProfileLoRaWANServiceProfileArgs struct {
 	UlRatePolicy           pulumi.StringPtrInput `pulumi:"ulRatePolicy"`
 }
 
-func (ServiceProfileLoRaWANServiceProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProfileLoRaWANServiceProfile)(nil)).Elem()
+func (ServiceProfileLoRaWanServiceProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProfileLoRaWanServiceProfile)(nil)).Elem()
 }
 
-func (i ServiceProfileLoRaWANServiceProfileArgs) ToServiceProfileLoRaWANServiceProfileOutput() ServiceProfileLoRaWANServiceProfileOutput {
-	return i.ToServiceProfileLoRaWANServiceProfileOutputWithContext(context.Background())
+func (i ServiceProfileLoRaWanServiceProfileArgs) ToServiceProfileLoRaWanServiceProfileOutput() ServiceProfileLoRaWanServiceProfileOutput {
+	return i.ToServiceProfileLoRaWanServiceProfileOutputWithContext(context.Background())
 }
 
-func (i ServiceProfileLoRaWANServiceProfileArgs) ToServiceProfileLoRaWANServiceProfileOutputWithContext(ctx context.Context) ServiceProfileLoRaWANServiceProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileLoRaWANServiceProfileOutput)
+func (i ServiceProfileLoRaWanServiceProfileArgs) ToServiceProfileLoRaWanServiceProfileOutputWithContext(ctx context.Context) ServiceProfileLoRaWanServiceProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileLoRaWanServiceProfileOutput)
 }
 
-func (i ServiceProfileLoRaWANServiceProfileArgs) ToServiceProfileLoRaWANServiceProfilePtrOutput() ServiceProfileLoRaWANServiceProfilePtrOutput {
-	return i.ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(context.Background())
+func (i ServiceProfileLoRaWanServiceProfileArgs) ToServiceProfileLoRaWanServiceProfilePtrOutput() ServiceProfileLoRaWanServiceProfilePtrOutput {
+	return i.ToServiceProfileLoRaWanServiceProfilePtrOutputWithContext(context.Background())
 }
 
-func (i ServiceProfileLoRaWANServiceProfileArgs) ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(ctx context.Context) ServiceProfileLoRaWANServiceProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileLoRaWANServiceProfileOutput).ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(ctx)
+func (i ServiceProfileLoRaWanServiceProfileArgs) ToServiceProfileLoRaWanServiceProfilePtrOutputWithContext(ctx context.Context) ServiceProfileLoRaWanServiceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileLoRaWanServiceProfileOutput).ToServiceProfileLoRaWanServiceProfilePtrOutputWithContext(ctx)
 }
 
-// ServiceProfileLoRaWANServiceProfilePtrInput is an input type that accepts ServiceProfileLoRaWANServiceProfileArgs, ServiceProfileLoRaWANServiceProfilePtr and ServiceProfileLoRaWANServiceProfilePtrOutput values.
-// You can construct a concrete instance of `ServiceProfileLoRaWANServiceProfilePtrInput` via:
+// ServiceProfileLoRaWanServiceProfilePtrInput is an input type that accepts ServiceProfileLoRaWanServiceProfileArgs, ServiceProfileLoRaWanServiceProfilePtr and ServiceProfileLoRaWanServiceProfilePtrOutput values.
+// You can construct a concrete instance of `ServiceProfileLoRaWanServiceProfilePtrInput` via:
 //
-//	        ServiceProfileLoRaWANServiceProfileArgs{...}
+//	        ServiceProfileLoRaWanServiceProfileArgs{...}
 //
 //	or:
 //
 //	        nil
-type ServiceProfileLoRaWANServiceProfilePtrInput interface {
+type ServiceProfileLoRaWanServiceProfilePtrInput interface {
 	pulumi.Input
 
-	ToServiceProfileLoRaWANServiceProfilePtrOutput() ServiceProfileLoRaWANServiceProfilePtrOutput
-	ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(context.Context) ServiceProfileLoRaWANServiceProfilePtrOutput
+	ToServiceProfileLoRaWanServiceProfilePtrOutput() ServiceProfileLoRaWanServiceProfilePtrOutput
+	ToServiceProfileLoRaWanServiceProfilePtrOutputWithContext(context.Context) ServiceProfileLoRaWanServiceProfilePtrOutput
 }
 
-type serviceProfileLoRaWANServiceProfilePtrType ServiceProfileLoRaWANServiceProfileArgs
+type serviceProfileLoRaWanServiceProfilePtrType ServiceProfileLoRaWanServiceProfileArgs
 
-func ServiceProfileLoRaWANServiceProfilePtr(v *ServiceProfileLoRaWANServiceProfileArgs) ServiceProfileLoRaWANServiceProfilePtrInput {
-	return (*serviceProfileLoRaWANServiceProfilePtrType)(v)
+func ServiceProfileLoRaWanServiceProfilePtr(v *ServiceProfileLoRaWanServiceProfileArgs) ServiceProfileLoRaWanServiceProfilePtrInput {
+	return (*serviceProfileLoRaWanServiceProfilePtrType)(v)
 }
 
-func (*serviceProfileLoRaWANServiceProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceProfileLoRaWANServiceProfile)(nil)).Elem()
+func (*serviceProfileLoRaWanServiceProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceProfileLoRaWanServiceProfile)(nil)).Elem()
 }
 
-func (i *serviceProfileLoRaWANServiceProfilePtrType) ToServiceProfileLoRaWANServiceProfilePtrOutput() ServiceProfileLoRaWANServiceProfilePtrOutput {
-	return i.ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(context.Background())
+func (i *serviceProfileLoRaWanServiceProfilePtrType) ToServiceProfileLoRaWanServiceProfilePtrOutput() ServiceProfileLoRaWanServiceProfilePtrOutput {
+	return i.ToServiceProfileLoRaWanServiceProfilePtrOutputWithContext(context.Background())
 }
 
-func (i *serviceProfileLoRaWANServiceProfilePtrType) ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(ctx context.Context) ServiceProfileLoRaWANServiceProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileLoRaWANServiceProfilePtrOutput)
+func (i *serviceProfileLoRaWanServiceProfilePtrType) ToServiceProfileLoRaWanServiceProfilePtrOutputWithContext(ctx context.Context) ServiceProfileLoRaWanServiceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileLoRaWanServiceProfilePtrOutput)
 }
 
-type ServiceProfileLoRaWANServiceProfileOutput struct{ *pulumi.OutputState }
+type ServiceProfileLoRaWanServiceProfileOutput struct{ *pulumi.OutputState }
 
-func (ServiceProfileLoRaWANServiceProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProfileLoRaWANServiceProfile)(nil)).Elem()
+func (ServiceProfileLoRaWanServiceProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProfileLoRaWanServiceProfile)(nil)).Elem()
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) ToServiceProfileLoRaWANServiceProfileOutput() ServiceProfileLoRaWANServiceProfileOutput {
+func (o ServiceProfileLoRaWanServiceProfileOutput) ToServiceProfileLoRaWanServiceProfileOutput() ServiceProfileLoRaWanServiceProfileOutput {
 	return o
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) ToServiceProfileLoRaWANServiceProfileOutputWithContext(ctx context.Context) ServiceProfileLoRaWANServiceProfileOutput {
+func (o ServiceProfileLoRaWanServiceProfileOutput) ToServiceProfileLoRaWanServiceProfileOutputWithContext(ctx context.Context) ServiceProfileLoRaWanServiceProfileOutput {
 	return o
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) ToServiceProfileLoRaWANServiceProfilePtrOutput() ServiceProfileLoRaWANServiceProfilePtrOutput {
-	return o.ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(context.Background())
+func (o ServiceProfileLoRaWanServiceProfileOutput) ToServiceProfileLoRaWanServiceProfilePtrOutput() ServiceProfileLoRaWanServiceProfilePtrOutput {
+	return o.ToServiceProfileLoRaWanServiceProfilePtrOutputWithContext(context.Background())
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(ctx context.Context) ServiceProfileLoRaWANServiceProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceProfileLoRaWANServiceProfile) *ServiceProfileLoRaWANServiceProfile {
+func (o ServiceProfileLoRaWanServiceProfileOutput) ToServiceProfileLoRaWanServiceProfilePtrOutputWithContext(ctx context.Context) ServiceProfileLoRaWanServiceProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceProfileLoRaWanServiceProfile) *ServiceProfileLoRaWanServiceProfile {
 		return &v
-	}).(ServiceProfileLoRaWANServiceProfilePtrOutput)
+	}).(ServiceProfileLoRaWanServiceProfilePtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) AddGwMetadata() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.AddGwMetadata }).(pulumi.BoolPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) AddGwMetadata() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.AddGwMetadata }).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) ChannelMask() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *string { return v.ChannelMask }).(pulumi.StringPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) ChannelMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *string { return v.ChannelMask }).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) DevStatusReqFreq() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.DevStatusReqFreq }).(pulumi.IntPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) DevStatusReqFreq() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.DevStatusReqFreq }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) DlBucketSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.DlBucketSize }).(pulumi.IntPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) DlBucketSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.DlBucketSize }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) DlRate() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.DlRate }).(pulumi.IntPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) DlRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.DlRate }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) DlRatePolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *string { return v.DlRatePolicy }).(pulumi.StringPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) DlRatePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *string { return v.DlRatePolicy }).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) DrMax() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.DrMax }).(pulumi.IntPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) DrMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.DrMax }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) DrMin() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.DrMin }).(pulumi.IntPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) DrMin() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.DrMin }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) HrAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.HrAllowed }).(pulumi.BoolPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) HrAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.HrAllowed }).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) MinGwDiversity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.MinGwDiversity }).(pulumi.IntPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) MinGwDiversity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.MinGwDiversity }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) NwkGeoLoc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.NwkGeoLoc }).(pulumi.BoolPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) NwkGeoLoc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.NwkGeoLoc }).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) PrAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.PrAllowed }).(pulumi.BoolPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) PrAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.PrAllowed }).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) RaAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.RaAllowed }).(pulumi.BoolPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) RaAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.RaAllowed }).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) ReportDevStatusBattery() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.ReportDevStatusBattery }).(pulumi.BoolPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) ReportDevStatusBattery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.ReportDevStatusBattery }).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) ReportDevStatusMargin() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.ReportDevStatusMargin }).(pulumi.BoolPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) ReportDevStatusMargin() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.ReportDevStatusMargin }).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) TargetPer() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.TargetPer }).(pulumi.IntPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) TargetPer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.TargetPer }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) UlBucketSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.UlBucketSize }).(pulumi.IntPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) UlBucketSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.UlBucketSize }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) UlRate() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.UlRate }).(pulumi.IntPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) UlRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.UlRate }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfileOutput) UlRatePolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *string { return v.UlRatePolicy }).(pulumi.StringPtrOutput)
+func (o ServiceProfileLoRaWanServiceProfileOutput) UlRatePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *string { return v.UlRatePolicy }).(pulumi.StringPtrOutput)
 }
 
-type ServiceProfileLoRaWANServiceProfilePtrOutput struct{ *pulumi.OutputState }
+type ServiceProfileLoRaWanServiceProfilePtrOutput struct{ *pulumi.OutputState }
 
-func (ServiceProfileLoRaWANServiceProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceProfileLoRaWANServiceProfile)(nil)).Elem()
+func (ServiceProfileLoRaWanServiceProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceProfileLoRaWanServiceProfile)(nil)).Elem()
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ToServiceProfileLoRaWANServiceProfilePtrOutput() ServiceProfileLoRaWANServiceProfilePtrOutput {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ToServiceProfileLoRaWanServiceProfilePtrOutput() ServiceProfileLoRaWanServiceProfilePtrOutput {
 	return o
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(ctx context.Context) ServiceProfileLoRaWANServiceProfilePtrOutput {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ToServiceProfileLoRaWanServiceProfilePtrOutputWithContext(ctx context.Context) ServiceProfileLoRaWanServiceProfilePtrOutput {
 	return o
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) Elem() ServiceProfileLoRaWANServiceProfileOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) ServiceProfileLoRaWANServiceProfile {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) Elem() ServiceProfileLoRaWanServiceProfileOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) ServiceProfileLoRaWanServiceProfile {
 		if v != nil {
 			return *v
 		}
-		var ret ServiceProfileLoRaWANServiceProfile
+		var ret ServiceProfileLoRaWanServiceProfile
 		return ret
-	}).(ServiceProfileLoRaWANServiceProfileOutput)
+	}).(ServiceProfileLoRaWanServiceProfileOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) AddGwMetadata() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) AddGwMetadata() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1943,8 +1943,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) AddGwMetadata() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ChannelMask() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *string {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ChannelMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *string {
 		if v == nil {
 			return nil
 		}
@@ -1952,8 +1952,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ChannelMask() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DevStatusReqFreq() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DevStatusReqFreq() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -1961,8 +1961,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DevStatusReqFreq() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlBucketSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DlBucketSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -1970,8 +1970,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlBucketSize() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlRate() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DlRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -1979,8 +1979,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlRate() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlRatePolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *string {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DlRatePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *string {
 		if v == nil {
 			return nil
 		}
@@ -1988,8 +1988,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlRatePolicy() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DrMax() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DrMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -1997,8 +1997,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DrMax() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DrMin() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DrMin() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -2006,8 +2006,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DrMin() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) HrAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) HrAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -2015,8 +2015,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) HrAllowed() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) MinGwDiversity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) MinGwDiversity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -2024,8 +2024,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) MinGwDiversity() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) NwkGeoLoc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) NwkGeoLoc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -2033,8 +2033,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) NwkGeoLoc() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) PrAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) PrAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -2042,8 +2042,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) PrAllowed() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) RaAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) RaAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -2051,8 +2051,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) RaAllowed() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ReportDevStatusBattery() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ReportDevStatusBattery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -2060,8 +2060,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ReportDevStatusBattery() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ReportDevStatusMargin() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ReportDevStatusMargin() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
 			return nil
 		}
@@ -2069,8 +2069,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ReportDevStatusMargin() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) TargetPer() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) TargetPer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -2078,8 +2078,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) TargetPer() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlBucketSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) UlBucketSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -2087,8 +2087,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlBucketSize() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlRate() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) UlRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
 			return nil
 		}
@@ -2096,8 +2096,8 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlRate() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlRatePolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *string {
+func (o ServiceProfileLoRaWanServiceProfilePtrOutput) UlRatePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *string {
 		if v == nil {
 			return nil
 		}
@@ -2335,144 +2335,144 @@ func (o SidewalkPropertiesPtrOutput) SidewalkManufacturingSn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-type TaskDefinitionLoRaWANGatewayVersion struct {
+type TaskDefinitionLoRaWanGatewayVersion struct {
 	Model          *string `pulumi:"model"`
 	PackageVersion *string `pulumi:"packageVersion"`
 	Station        *string `pulumi:"station"`
 }
 
-// TaskDefinitionLoRaWANGatewayVersionInput is an input type that accepts TaskDefinitionLoRaWANGatewayVersionArgs and TaskDefinitionLoRaWANGatewayVersionOutput values.
-// You can construct a concrete instance of `TaskDefinitionLoRaWANGatewayVersionInput` via:
+// TaskDefinitionLoRaWanGatewayVersionInput is an input type that accepts TaskDefinitionLoRaWanGatewayVersionArgs and TaskDefinitionLoRaWanGatewayVersionOutput values.
+// You can construct a concrete instance of `TaskDefinitionLoRaWanGatewayVersionInput` via:
 //
-//	TaskDefinitionLoRaWANGatewayVersionArgs{...}
-type TaskDefinitionLoRaWANGatewayVersionInput interface {
+//	TaskDefinitionLoRaWanGatewayVersionArgs{...}
+type TaskDefinitionLoRaWanGatewayVersionInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionLoRaWANGatewayVersionOutput() TaskDefinitionLoRaWANGatewayVersionOutput
-	ToTaskDefinitionLoRaWANGatewayVersionOutputWithContext(context.Context) TaskDefinitionLoRaWANGatewayVersionOutput
+	ToTaskDefinitionLoRaWanGatewayVersionOutput() TaskDefinitionLoRaWanGatewayVersionOutput
+	ToTaskDefinitionLoRaWanGatewayVersionOutputWithContext(context.Context) TaskDefinitionLoRaWanGatewayVersionOutput
 }
 
-type TaskDefinitionLoRaWANGatewayVersionArgs struct {
+type TaskDefinitionLoRaWanGatewayVersionArgs struct {
 	Model          pulumi.StringPtrInput `pulumi:"model"`
 	PackageVersion pulumi.StringPtrInput `pulumi:"packageVersion"`
 	Station        pulumi.StringPtrInput `pulumi:"station"`
 }
 
-func (TaskDefinitionLoRaWANGatewayVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionLoRaWANGatewayVersion)(nil)).Elem()
+func (TaskDefinitionLoRaWanGatewayVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionLoRaWanGatewayVersion)(nil)).Elem()
 }
 
-func (i TaskDefinitionLoRaWANGatewayVersionArgs) ToTaskDefinitionLoRaWANGatewayVersionOutput() TaskDefinitionLoRaWANGatewayVersionOutput {
-	return i.ToTaskDefinitionLoRaWANGatewayVersionOutputWithContext(context.Background())
+func (i TaskDefinitionLoRaWanGatewayVersionArgs) ToTaskDefinitionLoRaWanGatewayVersionOutput() TaskDefinitionLoRaWanGatewayVersionOutput {
+	return i.ToTaskDefinitionLoRaWanGatewayVersionOutputWithContext(context.Background())
 }
 
-func (i TaskDefinitionLoRaWANGatewayVersionArgs) ToTaskDefinitionLoRaWANGatewayVersionOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANGatewayVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANGatewayVersionOutput)
+func (i TaskDefinitionLoRaWanGatewayVersionArgs) ToTaskDefinitionLoRaWanGatewayVersionOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanGatewayVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWanGatewayVersionOutput)
 }
 
-func (i TaskDefinitionLoRaWANGatewayVersionArgs) ToTaskDefinitionLoRaWANGatewayVersionPtrOutput() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return i.ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(context.Background())
+func (i TaskDefinitionLoRaWanGatewayVersionArgs) ToTaskDefinitionLoRaWanGatewayVersionPtrOutput() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return i.ToTaskDefinitionLoRaWanGatewayVersionPtrOutputWithContext(context.Background())
 }
 
-func (i TaskDefinitionLoRaWANGatewayVersionArgs) ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANGatewayVersionOutput).ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(ctx)
+func (i TaskDefinitionLoRaWanGatewayVersionArgs) ToTaskDefinitionLoRaWanGatewayVersionPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWanGatewayVersionOutput).ToTaskDefinitionLoRaWanGatewayVersionPtrOutputWithContext(ctx)
 }
 
-// TaskDefinitionLoRaWANGatewayVersionPtrInput is an input type that accepts TaskDefinitionLoRaWANGatewayVersionArgs, TaskDefinitionLoRaWANGatewayVersionPtr and TaskDefinitionLoRaWANGatewayVersionPtrOutput values.
-// You can construct a concrete instance of `TaskDefinitionLoRaWANGatewayVersionPtrInput` via:
+// TaskDefinitionLoRaWanGatewayVersionPtrInput is an input type that accepts TaskDefinitionLoRaWanGatewayVersionArgs, TaskDefinitionLoRaWanGatewayVersionPtr and TaskDefinitionLoRaWanGatewayVersionPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionLoRaWanGatewayVersionPtrInput` via:
 //
-//	        TaskDefinitionLoRaWANGatewayVersionArgs{...}
+//	        TaskDefinitionLoRaWanGatewayVersionArgs{...}
 //
 //	or:
 //
 //	        nil
-type TaskDefinitionLoRaWANGatewayVersionPtrInput interface {
+type TaskDefinitionLoRaWanGatewayVersionPtrInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionLoRaWANGatewayVersionPtrOutput() TaskDefinitionLoRaWANGatewayVersionPtrOutput
-	ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(context.Context) TaskDefinitionLoRaWANGatewayVersionPtrOutput
+	ToTaskDefinitionLoRaWanGatewayVersionPtrOutput() TaskDefinitionLoRaWanGatewayVersionPtrOutput
+	ToTaskDefinitionLoRaWanGatewayVersionPtrOutputWithContext(context.Context) TaskDefinitionLoRaWanGatewayVersionPtrOutput
 }
 
-type taskDefinitionLoRaWANGatewayVersionPtrType TaskDefinitionLoRaWANGatewayVersionArgs
+type taskDefinitionLoRaWanGatewayVersionPtrType TaskDefinitionLoRaWanGatewayVersionArgs
 
-func TaskDefinitionLoRaWANGatewayVersionPtr(v *TaskDefinitionLoRaWANGatewayVersionArgs) TaskDefinitionLoRaWANGatewayVersionPtrInput {
-	return (*taskDefinitionLoRaWANGatewayVersionPtrType)(v)
+func TaskDefinitionLoRaWanGatewayVersionPtr(v *TaskDefinitionLoRaWanGatewayVersionArgs) TaskDefinitionLoRaWanGatewayVersionPtrInput {
+	return (*taskDefinitionLoRaWanGatewayVersionPtrType)(v)
 }
 
-func (*taskDefinitionLoRaWANGatewayVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionLoRaWANGatewayVersion)(nil)).Elem()
+func (*taskDefinitionLoRaWanGatewayVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionLoRaWanGatewayVersion)(nil)).Elem()
 }
 
-func (i *taskDefinitionLoRaWANGatewayVersionPtrType) ToTaskDefinitionLoRaWANGatewayVersionPtrOutput() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return i.ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(context.Background())
+func (i *taskDefinitionLoRaWanGatewayVersionPtrType) ToTaskDefinitionLoRaWanGatewayVersionPtrOutput() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return i.ToTaskDefinitionLoRaWanGatewayVersionPtrOutputWithContext(context.Background())
 }
 
-func (i *taskDefinitionLoRaWANGatewayVersionPtrType) ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+func (i *taskDefinitionLoRaWanGatewayVersionPtrType) ToTaskDefinitionLoRaWanGatewayVersionPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-type TaskDefinitionLoRaWANGatewayVersionOutput struct{ *pulumi.OutputState }
+type TaskDefinitionLoRaWanGatewayVersionOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionLoRaWANGatewayVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionLoRaWANGatewayVersion)(nil)).Elem()
+func (TaskDefinitionLoRaWanGatewayVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionLoRaWanGatewayVersion)(nil)).Elem()
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionOutput) ToTaskDefinitionLoRaWANGatewayVersionOutput() TaskDefinitionLoRaWANGatewayVersionOutput {
+func (o TaskDefinitionLoRaWanGatewayVersionOutput) ToTaskDefinitionLoRaWanGatewayVersionOutput() TaskDefinitionLoRaWanGatewayVersionOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionOutput) ToTaskDefinitionLoRaWANGatewayVersionOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANGatewayVersionOutput {
+func (o TaskDefinitionLoRaWanGatewayVersionOutput) ToTaskDefinitionLoRaWanGatewayVersionOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanGatewayVersionOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionOutput) ToTaskDefinitionLoRaWANGatewayVersionPtrOutput() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return o.ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(context.Background())
+func (o TaskDefinitionLoRaWanGatewayVersionOutput) ToTaskDefinitionLoRaWanGatewayVersionPtrOutput() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return o.ToTaskDefinitionLoRaWanGatewayVersionPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionOutput) ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionLoRaWANGatewayVersion) *TaskDefinitionLoRaWANGatewayVersion {
+func (o TaskDefinitionLoRaWanGatewayVersionOutput) ToTaskDefinitionLoRaWanGatewayVersionPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionLoRaWanGatewayVersion) *TaskDefinitionLoRaWanGatewayVersion {
 		return &v
-	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionOutput) Model() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionLoRaWANGatewayVersion) *string { return v.Model }).(pulumi.StringPtrOutput)
+func (o TaskDefinitionLoRaWanGatewayVersionOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionLoRaWanGatewayVersion) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionOutput) PackageVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionLoRaWANGatewayVersion) *string { return v.PackageVersion }).(pulumi.StringPtrOutput)
+func (o TaskDefinitionLoRaWanGatewayVersionOutput) PackageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionLoRaWanGatewayVersion) *string { return v.PackageVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionOutput) Station() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionLoRaWANGatewayVersion) *string { return v.Station }).(pulumi.StringPtrOutput)
+func (o TaskDefinitionLoRaWanGatewayVersionOutput) Station() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionLoRaWanGatewayVersion) *string { return v.Station }).(pulumi.StringPtrOutput)
 }
 
-type TaskDefinitionLoRaWANGatewayVersionPtrOutput struct{ *pulumi.OutputState }
+type TaskDefinitionLoRaWanGatewayVersionPtrOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionLoRaWANGatewayVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionLoRaWANGatewayVersion)(nil)).Elem()
+func (TaskDefinitionLoRaWanGatewayVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionLoRaWanGatewayVersion)(nil)).Elem()
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) ToTaskDefinitionLoRaWANGatewayVersionPtrOutput() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
+func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) ToTaskDefinitionLoRaWanGatewayVersionPtrOutput() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANGatewayVersionPtrOutput {
+func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) ToTaskDefinitionLoRaWanGatewayVersionPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Elem() TaskDefinitionLoRaWANGatewayVersionOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANGatewayVersion) TaskDefinitionLoRaWANGatewayVersion {
+func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) Elem() TaskDefinitionLoRaWanGatewayVersionOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanGatewayVersion) TaskDefinitionLoRaWanGatewayVersion {
 		if v != nil {
 			return *v
 		}
-		var ret TaskDefinitionLoRaWANGatewayVersion
+		var ret TaskDefinitionLoRaWanGatewayVersion
 		return ret
-	}).(TaskDefinitionLoRaWANGatewayVersionOutput)
+	}).(TaskDefinitionLoRaWanGatewayVersionOutput)
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Model() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANGatewayVersion) *string {
+func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanGatewayVersion) *string {
 		if v == nil {
 			return nil
 		}
@@ -2480,8 +2480,8 @@ func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Model() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) PackageVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANGatewayVersion) *string {
+func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) PackageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanGatewayVersion) *string {
 		if v == nil {
 			return nil
 		}
@@ -2489,8 +2489,8 @@ func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) PackageVersion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Station() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANGatewayVersion) *string {
+func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) Station() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanGatewayVersion) *string {
 		if v == nil {
 			return nil
 		}
@@ -2498,163 +2498,163 @@ func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Station() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-type TaskDefinitionLoRaWANUpdateGatewayTaskCreate struct {
-	CurrentVersion  *TaskDefinitionLoRaWANGatewayVersion `pulumi:"currentVersion"`
+type TaskDefinitionLoRaWanUpdateGatewayTaskCreate struct {
+	CurrentVersion  *TaskDefinitionLoRaWanGatewayVersion `pulumi:"currentVersion"`
 	SigKeyCrc       *int                                 `pulumi:"sigKeyCrc"`
 	UpdateSignature *string                              `pulumi:"updateSignature"`
-	UpdateVersion   *TaskDefinitionLoRaWANGatewayVersion `pulumi:"updateVersion"`
+	UpdateVersion   *TaskDefinitionLoRaWanGatewayVersion `pulumi:"updateVersion"`
 }
 
-// TaskDefinitionLoRaWANUpdateGatewayTaskCreateInput is an input type that accepts TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs and TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput values.
-// You can construct a concrete instance of `TaskDefinitionLoRaWANUpdateGatewayTaskCreateInput` via:
+// TaskDefinitionLoRaWanUpdateGatewayTaskCreateInput is an input type that accepts TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs and TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput values.
+// You can construct a concrete instance of `TaskDefinitionLoRaWanUpdateGatewayTaskCreateInput` via:
 //
-//	TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs{...}
-type TaskDefinitionLoRaWANUpdateGatewayTaskCreateInput interface {
+//	TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs{...}
+type TaskDefinitionLoRaWanUpdateGatewayTaskCreateInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput() TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput
-	ToTaskDefinitionLoRaWANUpdateGatewayTaskCreateOutputWithContext(context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput
+	ToTaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput() TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput
+	ToTaskDefinitionLoRaWanUpdateGatewayTaskCreateOutputWithContext(context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput
 }
 
-type TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs struct {
-	CurrentVersion  TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"currentVersion"`
+type TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs struct {
+	CurrentVersion  TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"currentVersion"`
 	SigKeyCrc       pulumi.IntPtrInput                          `pulumi:"sigKeyCrc"`
 	UpdateSignature pulumi.StringPtrInput                       `pulumi:"updateSignature"`
-	UpdateVersion   TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"updateVersion"`
+	UpdateVersion   TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"updateVersion"`
 }
 
-func (TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionLoRaWANUpdateGatewayTaskCreate)(nil)).Elem()
+func (TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskCreate)(nil)).Elem()
 }
 
-func (i TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput() TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput {
-	return i.ToTaskDefinitionLoRaWANUpdateGatewayTaskCreateOutputWithContext(context.Background())
+func (i TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput() TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput {
+	return i.ToTaskDefinitionLoRaWanUpdateGatewayTaskCreateOutputWithContext(context.Background())
 }
 
-func (i TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreateOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput)
+func (i TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreateOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput)
 }
 
-func (i TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
-	return i.ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(context.Background())
+func (i TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
+	return i.ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutputWithContext(context.Background())
 }
 
-func (i TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput).ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(ctx)
+func (i TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput).ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutputWithContext(ctx)
 }
 
-// TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput is an input type that accepts TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs, TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtr and TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput values.
-// You can construct a concrete instance of `TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput` via:
+// TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrInput is an input type that accepts TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs, TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtr and TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrInput` via:
 //
-//	        TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs{...}
+//	        TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs{...}
 //
 //	or:
 //
 //	        nil
-type TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput interface {
+type TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput
-	ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput
+	ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput
+	ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutputWithContext(context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput
 }
 
-type taskDefinitionLoRaWANUpdateGatewayTaskCreatePtrType TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs
+type taskDefinitionLoRaWanUpdateGatewayTaskCreatePtrType TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs
 
-func TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtr(v *TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput {
-	return (*taskDefinitionLoRaWANUpdateGatewayTaskCreatePtrType)(v)
+func TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtr(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs) TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrInput {
+	return (*taskDefinitionLoRaWanUpdateGatewayTaskCreatePtrType)(v)
 }
 
-func (*taskDefinitionLoRaWANUpdateGatewayTaskCreatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionLoRaWANUpdateGatewayTaskCreate)(nil)).Elem()
+func (*taskDefinitionLoRaWanUpdateGatewayTaskCreatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionLoRaWanUpdateGatewayTaskCreate)(nil)).Elem()
 }
 
-func (i *taskDefinitionLoRaWANUpdateGatewayTaskCreatePtrType) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
-	return i.ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(context.Background())
+func (i *taskDefinitionLoRaWanUpdateGatewayTaskCreatePtrType) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
+	return i.ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutputWithContext(context.Background())
 }
 
-func (i *taskDefinitionLoRaWANUpdateGatewayTaskCreatePtrType) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
+func (i *taskDefinitionLoRaWanUpdateGatewayTaskCreatePtrType) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput)
 }
 
-type TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput struct{ *pulumi.OutputState }
+type TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionLoRaWANUpdateGatewayTaskCreate)(nil)).Elem()
+func (TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskCreate)(nil)).Elem()
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput() TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput() TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreateOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreateOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
-	return o.ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(context.Background())
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
+	return o.ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *TaskDefinitionLoRaWANUpdateGatewayTaskCreate {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanUpdateGatewayTaskCreate {
 		return &v
-	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
+	}).(TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) CurrentVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *TaskDefinitionLoRaWANGatewayVersion {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.CurrentVersion
-	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) SigKeyCrc() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *int { return v.SigKeyCrc }).(pulumi.IntPtrOutput)
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) SigKeyCrc() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *int { return v.SigKeyCrc }).(pulumi.IntPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) UpdateSignature() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *string { return v.UpdateSignature }).(pulumi.StringPtrOutput)
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) UpdateSignature() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *string { return v.UpdateSignature }).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) UpdateVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *TaskDefinitionLoRaWANGatewayVersion {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.UpdateVersion
-	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-type TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput struct{ *pulumi.OutputState }
+type TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionLoRaWANUpdateGatewayTaskCreate)(nil)).Elem()
+func (TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionLoRaWanUpdateGatewayTaskCreate)(nil)).Elem()
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) Elem() TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskCreate) TaskDefinitionLoRaWANUpdateGatewayTaskCreate {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) Elem() TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) TaskDefinitionLoRaWanUpdateGatewayTaskCreate {
 		if v != nil {
 			return *v
 		}
-		var ret TaskDefinitionLoRaWANUpdateGatewayTaskCreate
+		var ret TaskDefinitionLoRaWanUpdateGatewayTaskCreate
 		return ret
-	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput)
+	}).(TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) CurrentVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *TaskDefinitionLoRaWANGatewayVersion {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
 			return nil
 		}
 		return v.CurrentVersion
-	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) SigKeyCrc() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *int {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) SigKeyCrc() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *int {
 		if v == nil {
 			return nil
 		}
@@ -2662,8 +2662,8 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) SigKeyCrc() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) UpdateSignature() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *string {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) UpdateSignature() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *string {
 		if v == nil {
 			return nil
 		}
@@ -2671,165 +2671,165 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) UpdateSignature()
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) UpdateVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *TaskDefinitionLoRaWANGatewayVersion {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
 			return nil
 		}
 		return v.UpdateVersion
-	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-type TaskDefinitionLoRaWANUpdateGatewayTaskEntry struct {
-	CurrentVersion *TaskDefinitionLoRaWANGatewayVersion `pulumi:"currentVersion"`
-	UpdateVersion  *TaskDefinitionLoRaWANGatewayVersion `pulumi:"updateVersion"`
+type TaskDefinitionLoRaWanUpdateGatewayTaskEntry struct {
+	CurrentVersion *TaskDefinitionLoRaWanGatewayVersion `pulumi:"currentVersion"`
+	UpdateVersion  *TaskDefinitionLoRaWanGatewayVersion `pulumi:"updateVersion"`
 }
 
-// TaskDefinitionLoRaWANUpdateGatewayTaskEntryInput is an input type that accepts TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs and TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput values.
-// You can construct a concrete instance of `TaskDefinitionLoRaWANUpdateGatewayTaskEntryInput` via:
+// TaskDefinitionLoRaWanUpdateGatewayTaskEntryInput is an input type that accepts TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs and TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput values.
+// You can construct a concrete instance of `TaskDefinitionLoRaWanUpdateGatewayTaskEntryInput` via:
 //
-//	TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs{...}
-type TaskDefinitionLoRaWANUpdateGatewayTaskEntryInput interface {
+//	TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs{...}
+type TaskDefinitionLoRaWanUpdateGatewayTaskEntryInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput() TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput
-	ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryOutputWithContext(context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput
+	ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput() TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput
+	ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryOutputWithContext(context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput
 }
 
-type TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs struct {
-	CurrentVersion TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"currentVersion"`
-	UpdateVersion  TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"updateVersion"`
+type TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs struct {
+	CurrentVersion TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"currentVersion"`
+	UpdateVersion  TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"updateVersion"`
 }
 
-func (TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionLoRaWANUpdateGatewayTaskEntry)(nil)).Elem()
+func (TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskEntry)(nil)).Elem()
 }
 
-func (i TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput() TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput {
-	return i.ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryOutputWithContext(context.Background())
+func (i TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput() TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput {
+	return i.ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryOutputWithContext(context.Background())
 }
 
-func (i TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput)
+func (i TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput)
 }
 
-func (i TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
-	return i.ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(context.Background())
+func (i TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput {
+	return i.ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutputWithContext(context.Background())
 }
 
-func (i TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput).ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(ctx)
+func (i TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput).ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutputWithContext(ctx)
 }
 
-// TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrInput is an input type that accepts TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs, TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtr and TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput values.
-// You can construct a concrete instance of `TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrInput` via:
+// TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrInput is an input type that accepts TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs, TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtr and TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrInput` via:
 //
-//	        TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs{...}
+//	        TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs{...}
 //
 //	or:
 //
 //	        nil
-type TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrInput interface {
+type TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput
-	ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput
+	ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput
+	ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutputWithContext(context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput
 }
 
-type taskDefinitionLoRaWANUpdateGatewayTaskEntryPtrType TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs
+type taskDefinitionLoRaWanUpdateGatewayTaskEntryPtrType TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs
 
-func TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtr(v *TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrInput {
-	return (*taskDefinitionLoRaWANUpdateGatewayTaskEntryPtrType)(v)
+func TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtr(v *TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs) TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrInput {
+	return (*taskDefinitionLoRaWanUpdateGatewayTaskEntryPtrType)(v)
 }
 
-func (*taskDefinitionLoRaWANUpdateGatewayTaskEntryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionLoRaWANUpdateGatewayTaskEntry)(nil)).Elem()
+func (*taskDefinitionLoRaWanUpdateGatewayTaskEntryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionLoRaWanUpdateGatewayTaskEntry)(nil)).Elem()
 }
 
-func (i *taskDefinitionLoRaWANUpdateGatewayTaskEntryPtrType) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
-	return i.ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(context.Background())
+func (i *taskDefinitionLoRaWanUpdateGatewayTaskEntryPtrType) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput {
+	return i.ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutputWithContext(context.Background())
 }
 
-func (i *taskDefinitionLoRaWANUpdateGatewayTaskEntryPtrType) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput)
+func (i *taskDefinitionLoRaWanUpdateGatewayTaskEntryPtrType) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput)
 }
 
-type TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput struct{ *pulumi.OutputState }
+type TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionLoRaWANUpdateGatewayTaskEntry)(nil)).Elem()
+func (TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskEntry)(nil)).Elem()
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput() TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput() TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
-	return o.ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(context.Background())
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput {
+	return o.ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionLoRaWANUpdateGatewayTaskEntry) *TaskDefinitionLoRaWANUpdateGatewayTaskEntry {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanUpdateGatewayTaskEntry {
 		return &v
-	}).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput)
+	}).(TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) CurrentVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskEntry) *TaskDefinitionLoRaWANGatewayVersion {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.CurrentVersion
-	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) UpdateVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskEntry) *TaskDefinitionLoRaWANGatewayVersion {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.UpdateVersion
-	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-type TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput struct{ *pulumi.OutputState }
+type TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionLoRaWANUpdateGatewayTaskEntry)(nil)).Elem()
+func (TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionLoRaWanUpdateGatewayTaskEntry)(nil)).Elem()
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) ToTaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput {
 	return o
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) Elem() TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskEntry) TaskDefinitionLoRaWANUpdateGatewayTaskEntry {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) Elem() TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskEntry) TaskDefinitionLoRaWanUpdateGatewayTaskEntry {
 		if v != nil {
 			return *v
 		}
-		var ret TaskDefinitionLoRaWANUpdateGatewayTaskEntry
+		var ret TaskDefinitionLoRaWanUpdateGatewayTaskEntry
 		return ret
-	}).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput)
+	}).(TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) CurrentVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskEntry) *TaskDefinitionLoRaWANGatewayVersion {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
 			return nil
 		}
 		return v.CurrentVersion
-	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) UpdateVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskEntry) *TaskDefinitionLoRaWANGatewayVersion {
+func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
 			return nil
 		}
 		return v.UpdateVersion
-	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
 type TaskDefinitionTag struct {
@@ -2933,7 +2933,7 @@ func (o TaskDefinitionTagArrayOutput) Index(i pulumi.IntInput) TaskDefinitionTag
 }
 
 type TaskDefinitionUpdateWirelessGatewayTaskCreate struct {
-	LoRaWan          *TaskDefinitionLoRaWANUpdateGatewayTaskCreate `pulumi:"loRaWan"`
+	LoRaWan          *TaskDefinitionLoRaWanUpdateGatewayTaskCreate `pulumi:"loRaWan"`
 	UpdateDataRole   *string                                       `pulumi:"updateDataRole"`
 	UpdateDataSource *string                                       `pulumi:"updateDataSource"`
 }
@@ -2950,7 +2950,7 @@ type TaskDefinitionUpdateWirelessGatewayTaskCreateInput interface {
 }
 
 type TaskDefinitionUpdateWirelessGatewayTaskCreateArgs struct {
-	LoRaWan          TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput `pulumi:"loRaWan"`
+	LoRaWan          TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrInput `pulumi:"loRaWan"`
 	UpdateDataRole   pulumi.StringPtrInput                                `pulumi:"updateDataRole"`
 	UpdateDataSource pulumi.StringPtrInput                                `pulumi:"updateDataSource"`
 }
@@ -3032,10 +3032,10 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) ToTaskDefinitionUpd
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput)
 }
 
-func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) LoRaWan() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
-	return o.ApplyT(func(v TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWANUpdateGatewayTaskCreate {
+func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) LoRaWan() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
+	return o.ApplyT(func(v TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWanUpdateGatewayTaskCreate {
 		return v.LoRaWan
-	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
+	}).(TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput)
 }
 
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) UpdateDataRole() pulumi.StringPtrOutput {
@@ -3070,13 +3070,13 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) Elem() TaskDefin
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreateOutput)
 }
 
-func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) LoRaWan() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWANUpdateGatewayTaskCreate {
+func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) LoRaWan() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWanUpdateGatewayTaskCreate {
 		if v == nil {
 			return nil
 		}
 		return v.LoRaWan
-	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
+	}).(TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput)
 }
 
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) UpdateDataRole() pulumi.StringPtrOutput {
@@ -3655,7 +3655,7 @@ func (o WirelessDeviceImportTaskTagArrayOutput) Index(i pulumi.IntInput) Wireles
 	}).(WirelessDeviceImportTaskTagOutput)
 }
 
-type WirelessDeviceLoRaWANDevice struct {
+type WirelessDeviceLoRaWanDevice struct {
 	AbpV10x          *WirelessDeviceAbpV10x  `pulumi:"abpV10x"`
 	AbpV11           *WirelessDeviceAbpV11   `pulumi:"abpV11"`
 	DevEui           *string                 `pulumi:"devEui"`
@@ -3665,18 +3665,18 @@ type WirelessDeviceLoRaWANDevice struct {
 	ServiceProfileId *string                 `pulumi:"serviceProfileId"`
 }
 
-// WirelessDeviceLoRaWANDeviceInput is an input type that accepts WirelessDeviceLoRaWANDeviceArgs and WirelessDeviceLoRaWANDeviceOutput values.
-// You can construct a concrete instance of `WirelessDeviceLoRaWANDeviceInput` via:
+// WirelessDeviceLoRaWanDeviceInput is an input type that accepts WirelessDeviceLoRaWanDeviceArgs and WirelessDeviceLoRaWanDeviceOutput values.
+// You can construct a concrete instance of `WirelessDeviceLoRaWanDeviceInput` via:
 //
-//	WirelessDeviceLoRaWANDeviceArgs{...}
-type WirelessDeviceLoRaWANDeviceInput interface {
+//	WirelessDeviceLoRaWanDeviceArgs{...}
+type WirelessDeviceLoRaWanDeviceInput interface {
 	pulumi.Input
 
-	ToWirelessDeviceLoRaWANDeviceOutput() WirelessDeviceLoRaWANDeviceOutput
-	ToWirelessDeviceLoRaWANDeviceOutputWithContext(context.Context) WirelessDeviceLoRaWANDeviceOutput
+	ToWirelessDeviceLoRaWanDeviceOutput() WirelessDeviceLoRaWanDeviceOutput
+	ToWirelessDeviceLoRaWanDeviceOutputWithContext(context.Context) WirelessDeviceLoRaWanDeviceOutput
 }
 
-type WirelessDeviceLoRaWANDeviceArgs struct {
+type WirelessDeviceLoRaWanDeviceArgs struct {
 	AbpV10x          WirelessDeviceAbpV10xPtrInput  `pulumi:"abpV10x"`
 	AbpV11           WirelessDeviceAbpV11PtrInput   `pulumi:"abpV11"`
 	DevEui           pulumi.StringPtrInput          `pulumi:"devEui"`
@@ -3686,137 +3686,137 @@ type WirelessDeviceLoRaWANDeviceArgs struct {
 	ServiceProfileId pulumi.StringPtrInput          `pulumi:"serviceProfileId"`
 }
 
-func (WirelessDeviceLoRaWANDeviceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessDeviceLoRaWANDevice)(nil)).Elem()
+func (WirelessDeviceLoRaWanDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceLoRaWanDevice)(nil)).Elem()
 }
 
-func (i WirelessDeviceLoRaWANDeviceArgs) ToWirelessDeviceLoRaWANDeviceOutput() WirelessDeviceLoRaWANDeviceOutput {
-	return i.ToWirelessDeviceLoRaWANDeviceOutputWithContext(context.Background())
+func (i WirelessDeviceLoRaWanDeviceArgs) ToWirelessDeviceLoRaWanDeviceOutput() WirelessDeviceLoRaWanDeviceOutput {
+	return i.ToWirelessDeviceLoRaWanDeviceOutputWithContext(context.Background())
 }
 
-func (i WirelessDeviceLoRaWANDeviceArgs) ToWirelessDeviceLoRaWANDeviceOutputWithContext(ctx context.Context) WirelessDeviceLoRaWANDeviceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceLoRaWANDeviceOutput)
+func (i WirelessDeviceLoRaWanDeviceArgs) ToWirelessDeviceLoRaWanDeviceOutputWithContext(ctx context.Context) WirelessDeviceLoRaWanDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceLoRaWanDeviceOutput)
 }
 
-func (i WirelessDeviceLoRaWANDeviceArgs) ToWirelessDeviceLoRaWANDevicePtrOutput() WirelessDeviceLoRaWANDevicePtrOutput {
-	return i.ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(context.Background())
+func (i WirelessDeviceLoRaWanDeviceArgs) ToWirelessDeviceLoRaWanDevicePtrOutput() WirelessDeviceLoRaWanDevicePtrOutput {
+	return i.ToWirelessDeviceLoRaWanDevicePtrOutputWithContext(context.Background())
 }
 
-func (i WirelessDeviceLoRaWANDeviceArgs) ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(ctx context.Context) WirelessDeviceLoRaWANDevicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceLoRaWANDeviceOutput).ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(ctx)
+func (i WirelessDeviceLoRaWanDeviceArgs) ToWirelessDeviceLoRaWanDevicePtrOutputWithContext(ctx context.Context) WirelessDeviceLoRaWanDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceLoRaWanDeviceOutput).ToWirelessDeviceLoRaWanDevicePtrOutputWithContext(ctx)
 }
 
-// WirelessDeviceLoRaWANDevicePtrInput is an input type that accepts WirelessDeviceLoRaWANDeviceArgs, WirelessDeviceLoRaWANDevicePtr and WirelessDeviceLoRaWANDevicePtrOutput values.
-// You can construct a concrete instance of `WirelessDeviceLoRaWANDevicePtrInput` via:
+// WirelessDeviceLoRaWanDevicePtrInput is an input type that accepts WirelessDeviceLoRaWanDeviceArgs, WirelessDeviceLoRaWanDevicePtr and WirelessDeviceLoRaWanDevicePtrOutput values.
+// You can construct a concrete instance of `WirelessDeviceLoRaWanDevicePtrInput` via:
 //
-//	        WirelessDeviceLoRaWANDeviceArgs{...}
+//	        WirelessDeviceLoRaWanDeviceArgs{...}
 //
 //	or:
 //
 //	        nil
-type WirelessDeviceLoRaWANDevicePtrInput interface {
+type WirelessDeviceLoRaWanDevicePtrInput interface {
 	pulumi.Input
 
-	ToWirelessDeviceLoRaWANDevicePtrOutput() WirelessDeviceLoRaWANDevicePtrOutput
-	ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(context.Context) WirelessDeviceLoRaWANDevicePtrOutput
+	ToWirelessDeviceLoRaWanDevicePtrOutput() WirelessDeviceLoRaWanDevicePtrOutput
+	ToWirelessDeviceLoRaWanDevicePtrOutputWithContext(context.Context) WirelessDeviceLoRaWanDevicePtrOutput
 }
 
-type wirelessDeviceLoRaWANDevicePtrType WirelessDeviceLoRaWANDeviceArgs
+type wirelessDeviceLoRaWanDevicePtrType WirelessDeviceLoRaWanDeviceArgs
 
-func WirelessDeviceLoRaWANDevicePtr(v *WirelessDeviceLoRaWANDeviceArgs) WirelessDeviceLoRaWANDevicePtrInput {
-	return (*wirelessDeviceLoRaWANDevicePtrType)(v)
+func WirelessDeviceLoRaWanDevicePtr(v *WirelessDeviceLoRaWanDeviceArgs) WirelessDeviceLoRaWanDevicePtrInput {
+	return (*wirelessDeviceLoRaWanDevicePtrType)(v)
 }
 
-func (*wirelessDeviceLoRaWANDevicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WirelessDeviceLoRaWANDevice)(nil)).Elem()
+func (*wirelessDeviceLoRaWanDevicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WirelessDeviceLoRaWanDevice)(nil)).Elem()
 }
 
-func (i *wirelessDeviceLoRaWANDevicePtrType) ToWirelessDeviceLoRaWANDevicePtrOutput() WirelessDeviceLoRaWANDevicePtrOutput {
-	return i.ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(context.Background())
+func (i *wirelessDeviceLoRaWanDevicePtrType) ToWirelessDeviceLoRaWanDevicePtrOutput() WirelessDeviceLoRaWanDevicePtrOutput {
+	return i.ToWirelessDeviceLoRaWanDevicePtrOutputWithContext(context.Background())
 }
 
-func (i *wirelessDeviceLoRaWANDevicePtrType) ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(ctx context.Context) WirelessDeviceLoRaWANDevicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceLoRaWANDevicePtrOutput)
+func (i *wirelessDeviceLoRaWanDevicePtrType) ToWirelessDeviceLoRaWanDevicePtrOutputWithContext(ctx context.Context) WirelessDeviceLoRaWanDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceLoRaWanDevicePtrOutput)
 }
 
-type WirelessDeviceLoRaWANDeviceOutput struct{ *pulumi.OutputState }
+type WirelessDeviceLoRaWanDeviceOutput struct{ *pulumi.OutputState }
 
-func (WirelessDeviceLoRaWANDeviceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessDeviceLoRaWANDevice)(nil)).Elem()
+func (WirelessDeviceLoRaWanDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceLoRaWanDevice)(nil)).Elem()
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) ToWirelessDeviceLoRaWANDeviceOutput() WirelessDeviceLoRaWANDeviceOutput {
+func (o WirelessDeviceLoRaWanDeviceOutput) ToWirelessDeviceLoRaWanDeviceOutput() WirelessDeviceLoRaWanDeviceOutput {
 	return o
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) ToWirelessDeviceLoRaWANDeviceOutputWithContext(ctx context.Context) WirelessDeviceLoRaWANDeviceOutput {
+func (o WirelessDeviceLoRaWanDeviceOutput) ToWirelessDeviceLoRaWanDeviceOutputWithContext(ctx context.Context) WirelessDeviceLoRaWanDeviceOutput {
 	return o
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) ToWirelessDeviceLoRaWANDevicePtrOutput() WirelessDeviceLoRaWANDevicePtrOutput {
-	return o.ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(context.Background())
+func (o WirelessDeviceLoRaWanDeviceOutput) ToWirelessDeviceLoRaWanDevicePtrOutput() WirelessDeviceLoRaWanDevicePtrOutput {
+	return o.ToWirelessDeviceLoRaWanDevicePtrOutputWithContext(context.Background())
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(ctx context.Context) WirelessDeviceLoRaWANDevicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WirelessDeviceLoRaWANDevice) *WirelessDeviceLoRaWANDevice {
+func (o WirelessDeviceLoRaWanDeviceOutput) ToWirelessDeviceLoRaWanDevicePtrOutputWithContext(ctx context.Context) WirelessDeviceLoRaWanDevicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WirelessDeviceLoRaWanDevice) *WirelessDeviceLoRaWanDevice {
 		return &v
-	}).(WirelessDeviceLoRaWANDevicePtrOutput)
+	}).(WirelessDeviceLoRaWanDevicePtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
-	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *WirelessDeviceAbpV10x { return v.AbpV10x }).(WirelessDeviceAbpV10xPtrOutput)
+func (o WirelessDeviceLoRaWanDeviceOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
+	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceAbpV10x { return v.AbpV10x }).(WirelessDeviceAbpV10xPtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) AbpV11() WirelessDeviceAbpV11PtrOutput {
-	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *WirelessDeviceAbpV11 { return v.AbpV11 }).(WirelessDeviceAbpV11PtrOutput)
+func (o WirelessDeviceLoRaWanDeviceOutput) AbpV11() WirelessDeviceAbpV11PtrOutput {
+	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceAbpV11 { return v.AbpV11 }).(WirelessDeviceAbpV11PtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) DevEui() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *string { return v.DevEui }).(pulumi.StringPtrOutput)
+func (o WirelessDeviceLoRaWanDeviceOutput) DevEui() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *string { return v.DevEui }).(pulumi.StringPtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) DeviceProfileId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *string { return v.DeviceProfileId }).(pulumi.StringPtrOutput)
+func (o WirelessDeviceLoRaWanDeviceOutput) DeviceProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *string { return v.DeviceProfileId }).(pulumi.StringPtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) OtaaV10x() WirelessDeviceOtaaV10xPtrOutput {
-	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *WirelessDeviceOtaaV10x { return v.OtaaV10x }).(WirelessDeviceOtaaV10xPtrOutput)
+func (o WirelessDeviceLoRaWanDeviceOutput) OtaaV10x() WirelessDeviceOtaaV10xPtrOutput {
+	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceOtaaV10x { return v.OtaaV10x }).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) OtaaV11() WirelessDeviceOtaaV11PtrOutput {
-	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *WirelessDeviceOtaaV11 { return v.OtaaV11 }).(WirelessDeviceOtaaV11PtrOutput)
+func (o WirelessDeviceLoRaWanDeviceOutput) OtaaV11() WirelessDeviceOtaaV11PtrOutput {
+	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceOtaaV11 { return v.OtaaV11 }).(WirelessDeviceOtaaV11PtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDeviceOutput) ServiceProfileId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *string { return v.ServiceProfileId }).(pulumi.StringPtrOutput)
+func (o WirelessDeviceLoRaWanDeviceOutput) ServiceProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *string { return v.ServiceProfileId }).(pulumi.StringPtrOutput)
 }
 
-type WirelessDeviceLoRaWANDevicePtrOutput struct{ *pulumi.OutputState }
+type WirelessDeviceLoRaWanDevicePtrOutput struct{ *pulumi.OutputState }
 
-func (WirelessDeviceLoRaWANDevicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WirelessDeviceLoRaWANDevice)(nil)).Elem()
+func (WirelessDeviceLoRaWanDevicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WirelessDeviceLoRaWanDevice)(nil)).Elem()
 }
 
-func (o WirelessDeviceLoRaWANDevicePtrOutput) ToWirelessDeviceLoRaWANDevicePtrOutput() WirelessDeviceLoRaWANDevicePtrOutput {
+func (o WirelessDeviceLoRaWanDevicePtrOutput) ToWirelessDeviceLoRaWanDevicePtrOutput() WirelessDeviceLoRaWanDevicePtrOutput {
 	return o
 }
 
-func (o WirelessDeviceLoRaWANDevicePtrOutput) ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(ctx context.Context) WirelessDeviceLoRaWANDevicePtrOutput {
+func (o WirelessDeviceLoRaWanDevicePtrOutput) ToWirelessDeviceLoRaWanDevicePtrOutputWithContext(ctx context.Context) WirelessDeviceLoRaWanDevicePtrOutput {
 	return o
 }
 
-func (o WirelessDeviceLoRaWANDevicePtrOutput) Elem() WirelessDeviceLoRaWANDeviceOutput {
-	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) WirelessDeviceLoRaWANDevice {
+func (o WirelessDeviceLoRaWanDevicePtrOutput) Elem() WirelessDeviceLoRaWanDeviceOutput {
+	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) WirelessDeviceLoRaWanDevice {
 		if v != nil {
 			return *v
 		}
-		var ret WirelessDeviceLoRaWANDevice
+		var ret WirelessDeviceLoRaWanDevice
 		return ret
-	}).(WirelessDeviceLoRaWANDeviceOutput)
+	}).(WirelessDeviceLoRaWanDeviceOutput)
 }
 
-func (o WirelessDeviceLoRaWANDevicePtrOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
-	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *WirelessDeviceAbpV10x {
+func (o WirelessDeviceLoRaWanDevicePtrOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
+	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *WirelessDeviceAbpV10x {
 		if v == nil {
 			return nil
 		}
@@ -3824,8 +3824,8 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) AbpV10x() WirelessDeviceAbpV10xPtr
 	}).(WirelessDeviceAbpV10xPtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDevicePtrOutput) AbpV11() WirelessDeviceAbpV11PtrOutput {
-	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *WirelessDeviceAbpV11 {
+func (o WirelessDeviceLoRaWanDevicePtrOutput) AbpV11() WirelessDeviceAbpV11PtrOutput {
+	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *WirelessDeviceAbpV11 {
 		if v == nil {
 			return nil
 		}
@@ -3833,8 +3833,8 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) AbpV11() WirelessDeviceAbpV11PtrOu
 	}).(WirelessDeviceAbpV11PtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDevicePtrOutput) DevEui() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *string {
+func (o WirelessDeviceLoRaWanDevicePtrOutput) DevEui() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *string {
 		if v == nil {
 			return nil
 		}
@@ -3842,8 +3842,8 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) DevEui() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDevicePtrOutput) DeviceProfileId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *string {
+func (o WirelessDeviceLoRaWanDevicePtrOutput) DeviceProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *string {
 		if v == nil {
 			return nil
 		}
@@ -3851,8 +3851,8 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) DeviceProfileId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDevicePtrOutput) OtaaV10x() WirelessDeviceOtaaV10xPtrOutput {
-	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *WirelessDeviceOtaaV10x {
+func (o WirelessDeviceLoRaWanDevicePtrOutput) OtaaV10x() WirelessDeviceOtaaV10xPtrOutput {
+	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *WirelessDeviceOtaaV10x {
 		if v == nil {
 			return nil
 		}
@@ -3860,8 +3860,8 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) OtaaV10x() WirelessDeviceOtaaV10xP
 	}).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDevicePtrOutput) OtaaV11() WirelessDeviceOtaaV11PtrOutput {
-	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *WirelessDeviceOtaaV11 {
+func (o WirelessDeviceLoRaWanDevicePtrOutput) OtaaV11() WirelessDeviceOtaaV11PtrOutput {
+	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *WirelessDeviceOtaaV11 {
 		if v == nil {
 			return nil
 		}
@@ -3869,8 +3869,8 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) OtaaV11() WirelessDeviceOtaaV11Ptr
 	}).(WirelessDeviceOtaaV11PtrOutput)
 }
 
-func (o WirelessDeviceLoRaWANDevicePtrOutput) ServiceProfileId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *string {
+func (o WirelessDeviceLoRaWanDevicePtrOutput) ServiceProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *string {
 		if v == nil {
 			return nil
 		}
@@ -4615,87 +4615,87 @@ func (o WirelessDeviceTagArrayOutput) Index(i pulumi.IntInput) WirelessDeviceTag
 	}).(WirelessDeviceTagOutput)
 }
 
-type WirelessGatewayLoRaWANGateway struct {
+type WirelessGatewayLoRaWanGateway struct {
 	GatewayEui string `pulumi:"gatewayEui"`
 	RfRegion   string `pulumi:"rfRegion"`
 }
 
-// WirelessGatewayLoRaWANGatewayInput is an input type that accepts WirelessGatewayLoRaWANGatewayArgs and WirelessGatewayLoRaWANGatewayOutput values.
-// You can construct a concrete instance of `WirelessGatewayLoRaWANGatewayInput` via:
+// WirelessGatewayLoRaWanGatewayInput is an input type that accepts WirelessGatewayLoRaWanGatewayArgs and WirelessGatewayLoRaWanGatewayOutput values.
+// You can construct a concrete instance of `WirelessGatewayLoRaWanGatewayInput` via:
 //
-//	WirelessGatewayLoRaWANGatewayArgs{...}
-type WirelessGatewayLoRaWANGatewayInput interface {
+//	WirelessGatewayLoRaWanGatewayArgs{...}
+type WirelessGatewayLoRaWanGatewayInput interface {
 	pulumi.Input
 
-	ToWirelessGatewayLoRaWANGatewayOutput() WirelessGatewayLoRaWANGatewayOutput
-	ToWirelessGatewayLoRaWANGatewayOutputWithContext(context.Context) WirelessGatewayLoRaWANGatewayOutput
+	ToWirelessGatewayLoRaWanGatewayOutput() WirelessGatewayLoRaWanGatewayOutput
+	ToWirelessGatewayLoRaWanGatewayOutputWithContext(context.Context) WirelessGatewayLoRaWanGatewayOutput
 }
 
-type WirelessGatewayLoRaWANGatewayArgs struct {
+type WirelessGatewayLoRaWanGatewayArgs struct {
 	GatewayEui pulumi.StringInput `pulumi:"gatewayEui"`
 	RfRegion   pulumi.StringInput `pulumi:"rfRegion"`
 }
 
-func (WirelessGatewayLoRaWANGatewayArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessGatewayLoRaWANGateway)(nil)).Elem()
+func (WirelessGatewayLoRaWanGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessGatewayLoRaWanGateway)(nil)).Elem()
 }
 
-func (i WirelessGatewayLoRaWANGatewayArgs) ToWirelessGatewayLoRaWANGatewayOutput() WirelessGatewayLoRaWANGatewayOutput {
-	return i.ToWirelessGatewayLoRaWANGatewayOutputWithContext(context.Background())
+func (i WirelessGatewayLoRaWanGatewayArgs) ToWirelessGatewayLoRaWanGatewayOutput() WirelessGatewayLoRaWanGatewayOutput {
+	return i.ToWirelessGatewayLoRaWanGatewayOutputWithContext(context.Background())
 }
 
-func (i WirelessGatewayLoRaWANGatewayArgs) ToWirelessGatewayLoRaWANGatewayOutputWithContext(ctx context.Context) WirelessGatewayLoRaWANGatewayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayLoRaWANGatewayOutput)
+func (i WirelessGatewayLoRaWanGatewayArgs) ToWirelessGatewayLoRaWanGatewayOutputWithContext(ctx context.Context) WirelessGatewayLoRaWanGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayLoRaWanGatewayOutput)
 }
 
-type WirelessGatewayLoRaWANGatewayOutput struct{ *pulumi.OutputState }
+type WirelessGatewayLoRaWanGatewayOutput struct{ *pulumi.OutputState }
 
-func (WirelessGatewayLoRaWANGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessGatewayLoRaWANGateway)(nil)).Elem()
+func (WirelessGatewayLoRaWanGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessGatewayLoRaWanGateway)(nil)).Elem()
 }
 
-func (o WirelessGatewayLoRaWANGatewayOutput) ToWirelessGatewayLoRaWANGatewayOutput() WirelessGatewayLoRaWANGatewayOutput {
+func (o WirelessGatewayLoRaWanGatewayOutput) ToWirelessGatewayLoRaWanGatewayOutput() WirelessGatewayLoRaWanGatewayOutput {
 	return o
 }
 
-func (o WirelessGatewayLoRaWANGatewayOutput) ToWirelessGatewayLoRaWANGatewayOutputWithContext(ctx context.Context) WirelessGatewayLoRaWANGatewayOutput {
+func (o WirelessGatewayLoRaWanGatewayOutput) ToWirelessGatewayLoRaWanGatewayOutputWithContext(ctx context.Context) WirelessGatewayLoRaWanGatewayOutput {
 	return o
 }
 
-func (o WirelessGatewayLoRaWANGatewayOutput) GatewayEui() pulumi.StringOutput {
-	return o.ApplyT(func(v WirelessGatewayLoRaWANGateway) string { return v.GatewayEui }).(pulumi.StringOutput)
+func (o WirelessGatewayLoRaWanGatewayOutput) GatewayEui() pulumi.StringOutput {
+	return o.ApplyT(func(v WirelessGatewayLoRaWanGateway) string { return v.GatewayEui }).(pulumi.StringOutput)
 }
 
-func (o WirelessGatewayLoRaWANGatewayOutput) RfRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v WirelessGatewayLoRaWANGateway) string { return v.RfRegion }).(pulumi.StringOutput)
+func (o WirelessGatewayLoRaWanGatewayOutput) RfRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v WirelessGatewayLoRaWanGateway) string { return v.RfRegion }).(pulumi.StringOutput)
 }
 
-type WirelessGatewayLoRaWANGatewayPtrOutput struct{ *pulumi.OutputState }
+type WirelessGatewayLoRaWanGatewayPtrOutput struct{ *pulumi.OutputState }
 
-func (WirelessGatewayLoRaWANGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WirelessGatewayLoRaWANGateway)(nil)).Elem()
+func (WirelessGatewayLoRaWanGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WirelessGatewayLoRaWanGateway)(nil)).Elem()
 }
 
-func (o WirelessGatewayLoRaWANGatewayPtrOutput) ToWirelessGatewayLoRaWANGatewayPtrOutput() WirelessGatewayLoRaWANGatewayPtrOutput {
+func (o WirelessGatewayLoRaWanGatewayPtrOutput) ToWirelessGatewayLoRaWanGatewayPtrOutput() WirelessGatewayLoRaWanGatewayPtrOutput {
 	return o
 }
 
-func (o WirelessGatewayLoRaWANGatewayPtrOutput) ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(ctx context.Context) WirelessGatewayLoRaWANGatewayPtrOutput {
+func (o WirelessGatewayLoRaWanGatewayPtrOutput) ToWirelessGatewayLoRaWanGatewayPtrOutputWithContext(ctx context.Context) WirelessGatewayLoRaWanGatewayPtrOutput {
 	return o
 }
 
-func (o WirelessGatewayLoRaWANGatewayPtrOutput) Elem() WirelessGatewayLoRaWANGatewayOutput {
-	return o.ApplyT(func(v *WirelessGatewayLoRaWANGateway) WirelessGatewayLoRaWANGateway {
+func (o WirelessGatewayLoRaWanGatewayPtrOutput) Elem() WirelessGatewayLoRaWanGatewayOutput {
+	return o.ApplyT(func(v *WirelessGatewayLoRaWanGateway) WirelessGatewayLoRaWanGateway {
 		if v != nil {
 			return *v
 		}
-		var ret WirelessGatewayLoRaWANGateway
+		var ret WirelessGatewayLoRaWanGateway
 		return ret
-	}).(WirelessGatewayLoRaWANGatewayOutput)
+	}).(WirelessGatewayLoRaWanGatewayOutput)
 }
 
-func (o WirelessGatewayLoRaWANGatewayPtrOutput) GatewayEui() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WirelessGatewayLoRaWANGateway) *string {
+func (o WirelessGatewayLoRaWanGatewayPtrOutput) GatewayEui() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessGatewayLoRaWanGateway) *string {
 		if v == nil {
 			return nil
 		}
@@ -4703,8 +4703,8 @@ func (o WirelessGatewayLoRaWANGatewayPtrOutput) GatewayEui() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o WirelessGatewayLoRaWANGatewayPtrOutput) RfRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WirelessGatewayLoRaWANGateway) *string {
+func (o WirelessGatewayLoRaWanGatewayPtrOutput) RfRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessGatewayLoRaWanGateway) *string {
 		if v == nil {
 			return nil
 		}
@@ -4815,14 +4815,14 @@ func (o WirelessGatewayTagArrayOutput) Index(i pulumi.IntInput) WirelessGatewayT
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DestinationTagInput)(nil)).Elem(), DestinationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DestinationTagArrayInput)(nil)).Elem(), DestinationTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileLoRaWANDeviceProfileInput)(nil)).Elem(), DeviceProfileLoRaWANDeviceProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileLoRaWANDeviceProfilePtrInput)(nil)).Elem(), DeviceProfileLoRaWANDeviceProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileLoRaWanDeviceProfileInput)(nil)).Elem(), DeviceProfileLoRaWanDeviceProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileLoRaWanDeviceProfilePtrInput)(nil)).Elem(), DeviceProfileLoRaWanDeviceProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileTagInput)(nil)).Elem(), DeviceProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileTagArrayInput)(nil)).Elem(), DeviceProfileTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskLoRaWANInput)(nil)).Elem(), FuotaTaskLoRaWANArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskLoRaWanInput)(nil)).Elem(), FuotaTaskLoRaWanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskTagInput)(nil)).Elem(), FuotaTaskTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskTagArrayInput)(nil)).Elem(), FuotaTaskTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupLoRaWANInput)(nil)).Elem(), MulticastGroupLoRaWANArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupLoRaWanInput)(nil)).Elem(), MulticastGroupLoRaWanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupTagInput)(nil)).Elem(), MulticastGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupTagArrayInput)(nil)).Elem(), MulticastGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationTagInput)(nil)).Elem(), NetworkAnalyzerConfigurationTagArgs{})
@@ -4835,17 +4835,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkUpdateAccountPtrInput)(nil)).Elem(), PartnerAccountSidewalkUpdateAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountTagInput)(nil)).Elem(), PartnerAccountTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountTagArrayInput)(nil)).Elem(), PartnerAccountTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileLoRaWANServiceProfileInput)(nil)).Elem(), ServiceProfileLoRaWANServiceProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileLoRaWANServiceProfilePtrInput)(nil)).Elem(), ServiceProfileLoRaWANServiceProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileLoRaWanServiceProfileInput)(nil)).Elem(), ServiceProfileLoRaWanServiceProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileLoRaWanServiceProfilePtrInput)(nil)).Elem(), ServiceProfileLoRaWanServiceProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileTagInput)(nil)).Elem(), ServiceProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileTagArrayInput)(nil)).Elem(), ServiceProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SidewalkPropertiesInput)(nil)).Elem(), SidewalkPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWANGatewayVersionInput)(nil)).Elem(), TaskDefinitionLoRaWANGatewayVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWANGatewayVersionPtrInput)(nil)).Elem(), TaskDefinitionLoRaWANGatewayVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWANUpdateGatewayTaskCreateInput)(nil)).Elem(), TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput)(nil)).Elem(), TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWANUpdateGatewayTaskEntryInput)(nil)).Elem(), TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrInput)(nil)).Elem(), TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanGatewayVersionInput)(nil)).Elem(), TaskDefinitionLoRaWanGatewayVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanGatewayVersionPtrInput)(nil)).Elem(), TaskDefinitionLoRaWanGatewayVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskCreateInput)(nil)).Elem(), TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrInput)(nil)).Elem(), TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskEntryInput)(nil)).Elem(), TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrInput)(nil)).Elem(), TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTagInput)(nil)).Elem(), TaskDefinitionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTagArrayInput)(nil)).Elem(), TaskDefinitionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionUpdateWirelessGatewayTaskCreateInput)(nil)).Elem(), TaskDefinitionUpdateWirelessGatewayTaskCreateArgs{})
@@ -4858,8 +4858,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV11PtrInput)(nil)).Elem(), WirelessDeviceAbpV11Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceImportTaskTagInput)(nil)).Elem(), WirelessDeviceImportTaskTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceImportTaskTagArrayInput)(nil)).Elem(), WirelessDeviceImportTaskTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceLoRaWANDeviceInput)(nil)).Elem(), WirelessDeviceLoRaWANDeviceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceLoRaWANDevicePtrInput)(nil)).Elem(), WirelessDeviceLoRaWANDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceLoRaWanDeviceInput)(nil)).Elem(), WirelessDeviceLoRaWanDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceLoRaWanDevicePtrInput)(nil)).Elem(), WirelessDeviceLoRaWanDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceOtaaV10xInput)(nil)).Elem(), WirelessDeviceOtaaV10xArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceOtaaV10xPtrInput)(nil)).Elem(), WirelessDeviceOtaaV10xArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceOtaaV11Input)(nil)).Elem(), WirelessDeviceOtaaV11Args{})
@@ -4870,21 +4870,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceSessionKeysAbpV11PtrInput)(nil)).Elem(), WirelessDeviceSessionKeysAbpV11Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTagInput)(nil)).Elem(), WirelessDeviceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTagArrayInput)(nil)).Elem(), WirelessDeviceTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayLoRaWANGatewayInput)(nil)).Elem(), WirelessGatewayLoRaWANGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayLoRaWanGatewayInput)(nil)).Elem(), WirelessGatewayLoRaWanGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayTagInput)(nil)).Elem(), WirelessGatewayTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayTagArrayInput)(nil)).Elem(), WirelessGatewayTagArray{})
 	pulumi.RegisterOutputType(DestinationTagOutput{})
 	pulumi.RegisterOutputType(DestinationTagArrayOutput{})
-	pulumi.RegisterOutputType(DeviceProfileLoRaWANDeviceProfileOutput{})
-	pulumi.RegisterOutputType(DeviceProfileLoRaWANDeviceProfilePtrOutput{})
+	pulumi.RegisterOutputType(DeviceProfileLoRaWanDeviceProfileOutput{})
+	pulumi.RegisterOutputType(DeviceProfileLoRaWanDeviceProfilePtrOutput{})
 	pulumi.RegisterOutputType(DeviceProfileTagOutput{})
 	pulumi.RegisterOutputType(DeviceProfileTagArrayOutput{})
-	pulumi.RegisterOutputType(FuotaTaskLoRaWANOutput{})
-	pulumi.RegisterOutputType(FuotaTaskLoRaWANPtrOutput{})
+	pulumi.RegisterOutputType(FuotaTaskLoRaWanOutput{})
+	pulumi.RegisterOutputType(FuotaTaskLoRaWanPtrOutput{})
 	pulumi.RegisterOutputType(FuotaTaskTagOutput{})
 	pulumi.RegisterOutputType(FuotaTaskTagArrayOutput{})
-	pulumi.RegisterOutputType(MulticastGroupLoRaWANOutput{})
-	pulumi.RegisterOutputType(MulticastGroupLoRaWANPtrOutput{})
+	pulumi.RegisterOutputType(MulticastGroupLoRaWanOutput{})
+	pulumi.RegisterOutputType(MulticastGroupLoRaWanPtrOutput{})
 	pulumi.RegisterOutputType(MulticastGroupTagOutput{})
 	pulumi.RegisterOutputType(MulticastGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationTagOutput{})
@@ -4897,18 +4897,18 @@ func init() {
 	pulumi.RegisterOutputType(PartnerAccountSidewalkUpdateAccountPtrOutput{})
 	pulumi.RegisterOutputType(PartnerAccountTagOutput{})
 	pulumi.RegisterOutputType(PartnerAccountTagArrayOutput{})
-	pulumi.RegisterOutputType(ServiceProfileLoRaWANServiceProfileOutput{})
-	pulumi.RegisterOutputType(ServiceProfileLoRaWANServiceProfilePtrOutput{})
+	pulumi.RegisterOutputType(ServiceProfileLoRaWanServiceProfileOutput{})
+	pulumi.RegisterOutputType(ServiceProfileLoRaWanServiceProfilePtrOutput{})
 	pulumi.RegisterOutputType(ServiceProfileTagOutput{})
 	pulumi.RegisterOutputType(ServiceProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(SidewalkPropertiesOutput{})
 	pulumi.RegisterOutputType(SidewalkPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionLoRaWANGatewayVersionOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionLoRaWANGatewayVersionPtrOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionLoRaWanGatewayVersionOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionLoRaWanGatewayVersionPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTagOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUpdateWirelessGatewayTaskCreateOutput{})
@@ -4921,8 +4921,8 @@ func init() {
 	pulumi.RegisterOutputType(WirelessDeviceAbpV11PtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceImportTaskTagOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceImportTaskTagArrayOutput{})
-	pulumi.RegisterOutputType(WirelessDeviceLoRaWANDeviceOutput{})
-	pulumi.RegisterOutputType(WirelessDeviceLoRaWANDevicePtrOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceLoRaWanDeviceOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceLoRaWanDevicePtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceOtaaV10xOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceOtaaV10xPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceOtaaV11Output{})
@@ -4933,8 +4933,8 @@ func init() {
 	pulumi.RegisterOutputType(WirelessDeviceSessionKeysAbpV11PtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceTagOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceTagArrayOutput{})
-	pulumi.RegisterOutputType(WirelessGatewayLoRaWANGatewayOutput{})
-	pulumi.RegisterOutputType(WirelessGatewayLoRaWANGatewayPtrOutput{})
+	pulumi.RegisterOutputType(WirelessGatewayLoRaWanGatewayOutput{})
+	pulumi.RegisterOutputType(WirelessGatewayLoRaWanGatewayPtrOutput{})
 	pulumi.RegisterOutputType(WirelessGatewayTagOutput{})
 	pulumi.RegisterOutputType(WirelessGatewayTagArrayOutput{})
 }

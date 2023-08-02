@@ -16,7 +16,7 @@ __all__ = [
     'ConnectPeerBgpOptionsArgs',
     'ConnectPeerTagArgs',
     'CoreNetworkTagArgs',
-    'DeviceAWSLocationArgs',
+    'DeviceAwsLocationArgs',
     'DeviceLocationArgs',
     'DeviceTagArgs',
     'GlobalNetworkTagArgs',
@@ -249,7 +249,7 @@ class CoreNetworkTagArgs:
 
 
 @pulumi.input_type
-class DeviceAWSLocationArgs:
+class DeviceAwsLocationArgs:
     def __init__(__self__, *,
                  subnet_arn: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None):

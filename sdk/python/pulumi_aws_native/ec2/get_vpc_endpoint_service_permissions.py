@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetVPCEndpointServicePermissionsResult',
-    'AwaitableGetVPCEndpointServicePermissionsResult',
+    'GetVpcEndpointServicePermissionsResult',
+    'AwaitableGetVpcEndpointServicePermissionsResult',
     'get_vpc_endpoint_service_permissions',
     'get_vpc_endpoint_service_permissions_output',
 ]
 
 @pulumi.output_type
-class GetVPCEndpointServicePermissionsResult:
+class GetVpcEndpointServicePermissionsResult:
     def __init__(__self__, allowed_principals=None):
         if allowed_principals and not isinstance(allowed_principals, list):
             raise TypeError("Expected argument 'allowed_principals' to be a list")
@@ -29,32 +29,32 @@ class GetVPCEndpointServicePermissionsResult:
         return pulumi.get(self, "allowed_principals")
 
 
-class AwaitableGetVPCEndpointServicePermissionsResult(GetVPCEndpointServicePermissionsResult):
+class AwaitableGetVpcEndpointServicePermissionsResult(GetVpcEndpointServicePermissionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVPCEndpointServicePermissionsResult(
+        return GetVpcEndpointServicePermissionsResult(
             allowed_principals=self.allowed_principals)
 
 
 def get_vpc_endpoint_service_permissions(service_id: Optional[str] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPCEndpointServicePermissionsResult:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointServicePermissionsResult:
     """
     Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
     """
     __args__ = dict()
     __args__['serviceId'] = service_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCEndpointServicePermissions', __args__, opts=opts, typ=GetVPCEndpointServicePermissionsResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpcEndpointServicePermissions', __args__, opts=opts, typ=GetVpcEndpointServicePermissionsResult).value
 
-    return AwaitableGetVPCEndpointServicePermissionsResult(
+    return AwaitableGetVpcEndpointServicePermissionsResult(
         allowed_principals=pulumi.get(__ret__, 'allowed_principals'))
 
 
 @_utilities.lift_output_func(get_vpc_endpoint_service_permissions)
 def get_vpc_endpoint_service_permissions_output(service_id: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCEndpointServicePermissionsResult]:
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointServicePermissionsResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
     """

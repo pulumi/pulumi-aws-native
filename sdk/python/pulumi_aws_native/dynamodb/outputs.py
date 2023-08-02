@@ -22,9 +22,9 @@ __all__ = [
     'GlobalTableProjection',
     'GlobalTableReadProvisionedThroughputSettings',
     'GlobalTableReplicaGlobalSecondaryIndexSpecification',
-    'GlobalTableReplicaSSESpecification',
     'GlobalTableReplicaSpecification',
-    'GlobalTableSSESpecification',
+    'GlobalTableReplicaSseSpecification',
+    'GlobalTableSseSpecification',
     'GlobalTableStreamSpecification',
     'GlobalTableTag',
     'GlobalTableTargetTrackingScalingPolicyConfiguration',
@@ -43,7 +43,7 @@ __all__ = [
     'TableProjection',
     'TableProvisionedThroughput',
     'TableS3BucketSource',
-    'TableSSESpecification',
+    'TableSseSpecification',
     'TableStreamSpecification',
     'TableTag',
     'TableTimeToLiveSpecification',
@@ -483,35 +483,6 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecification(dict):
 
 
 @pulumi.output_type
-class GlobalTableReplicaSSESpecification(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "kmsMasterKeyId":
-            suggest = "kms_master_key_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GlobalTableReplicaSSESpecification. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GlobalTableReplicaSSESpecification.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GlobalTableReplicaSSESpecification.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 kms_master_key_id: str):
-        pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
-
-    @property
-    @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> str:
-        return pulumi.get(self, "kms_master_key_id")
-
-
-@pulumi.output_type
 class GlobalTableReplicaSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -552,7 +523,7 @@ class GlobalTableReplicaSpecification(dict):
                  kinesis_stream_specification: Optional['outputs.GlobalTableKinesisStreamSpecification'] = None,
                  point_in_time_recovery_specification: Optional['outputs.GlobalTablePointInTimeRecoverySpecification'] = None,
                  read_provisioned_throughput_settings: Optional['outputs.GlobalTableReadProvisionedThroughputSettings'] = None,
-                 sse_specification: Optional['outputs.GlobalTableReplicaSSESpecification'] = None,
+                 sse_specification: Optional['outputs.GlobalTableReplicaSseSpecification'] = None,
                  table_class: Optional[str] = None,
                  tags: Optional[Sequence['outputs.GlobalTableTag']] = None):
         pulumi.set(__self__, "region", region)
@@ -612,7 +583,7 @@ class GlobalTableReplicaSpecification(dict):
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional['outputs.GlobalTableReplicaSSESpecification']:
+    def sse_specification(self) -> Optional['outputs.GlobalTableReplicaSseSpecification']:
         return pulumi.get(self, "sse_specification")
 
     @property
@@ -627,7 +598,36 @@ class GlobalTableReplicaSpecification(dict):
 
 
 @pulumi.output_type
-class GlobalTableSSESpecification(dict):
+class GlobalTableReplicaSseSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsMasterKeyId":
+            suggest = "kms_master_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableReplicaSseSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalTableReplicaSseSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalTableReplicaSseSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_master_key_id: str):
+        pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+
+    @property
+    @pulumi.getter(name="kmsMasterKeyId")
+    def kms_master_key_id(self) -> str:
+        return pulumi.get(self, "kms_master_key_id")
+
+
+@pulumi.output_type
+class GlobalTableSseSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -637,14 +637,14 @@ class GlobalTableSSESpecification(dict):
             suggest = "sse_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GlobalTableSSESpecification. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableSseSpecification. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GlobalTableSSESpecification.__key_warning(key)
+        GlobalTableSseSpecification.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GlobalTableSSESpecification.__key_warning(key)
+        GlobalTableSseSpecification.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1333,7 +1333,7 @@ class TableS3BucketSource(dict):
 
 
 @pulumi.output_type
-class TableSSESpecification(dict):
+class TableSseSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1345,14 +1345,14 @@ class TableSSESpecification(dict):
             suggest = "sse_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TableSSESpecification. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TableSseSpecification. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TableSSESpecification.__key_warning(key)
+        TableSseSpecification.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TableSSESpecification.__key_warning(key)
+        TableSseSpecification.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

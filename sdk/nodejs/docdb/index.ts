@@ -5,59 +5,59 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { DBClusterArgs } from "./dbcluster";
-export type DBCluster = import("./dbcluster").DBCluster;
-export const DBCluster: typeof import("./dbcluster").DBCluster = null as any;
-utilities.lazyLoad(exports, ["DBCluster"], () => require("./dbcluster"));
+export { DbClusterArgs } from "./dbCluster";
+export type DbCluster = import("./dbCluster").DbCluster;
+export const DbCluster: typeof import("./dbCluster").DbCluster = null as any;
+utilities.lazyLoad(exports, ["DbCluster"], () => require("./dbCluster"));
 
-export { DBClusterParameterGroupArgs } from "./dbclusterParameterGroup";
-export type DBClusterParameterGroup = import("./dbclusterParameterGroup").DBClusterParameterGroup;
-export const DBClusterParameterGroup: typeof import("./dbclusterParameterGroup").DBClusterParameterGroup = null as any;
-utilities.lazyLoad(exports, ["DBClusterParameterGroup"], () => require("./dbclusterParameterGroup"));
+export { DbClusterParameterGroupArgs } from "./dbClusterParameterGroup";
+export type DbClusterParameterGroup = import("./dbClusterParameterGroup").DbClusterParameterGroup;
+export const DbClusterParameterGroup: typeof import("./dbClusterParameterGroup").DbClusterParameterGroup = null as any;
+utilities.lazyLoad(exports, ["DbClusterParameterGroup"], () => require("./dbClusterParameterGroup"));
 
-export { DBInstanceArgs } from "./dbinstance";
-export type DBInstance = import("./dbinstance").DBInstance;
-export const DBInstance: typeof import("./dbinstance").DBInstance = null as any;
-utilities.lazyLoad(exports, ["DBInstance"], () => require("./dbinstance"));
+export { DbInstanceArgs } from "./dbInstance";
+export type DbInstance = import("./dbInstance").DbInstance;
+export const DbInstance: typeof import("./dbInstance").DbInstance = null as any;
+utilities.lazyLoad(exports, ["DbInstance"], () => require("./dbInstance"));
 
-export { DBSubnetGroupArgs } from "./dbsubnetGroup";
-export type DBSubnetGroup = import("./dbsubnetGroup").DBSubnetGroup;
-export const DBSubnetGroup: typeof import("./dbsubnetGroup").DBSubnetGroup = null as any;
-utilities.lazyLoad(exports, ["DBSubnetGroup"], () => require("./dbsubnetGroup"));
+export { DbSubnetGroupArgs } from "./dbSubnetGroup";
+export type DbSubnetGroup = import("./dbSubnetGroup").DbSubnetGroup;
+export const DbSubnetGroup: typeof import("./dbSubnetGroup").DbSubnetGroup = null as any;
+utilities.lazyLoad(exports, ["DbSubnetGroup"], () => require("./dbSubnetGroup"));
 
-export { GetDBClusterArgs, GetDBClusterResult, GetDBClusterOutputArgs } from "./getDBCluster";
-export const getDBCluster: typeof import("./getDBCluster").getDBCluster = null as any;
-export const getDBClusterOutput: typeof import("./getDBCluster").getDBClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getDBCluster","getDBClusterOutput"], () => require("./getDBCluster"));
+export { GetDbClusterArgs, GetDbClusterResult, GetDbClusterOutputArgs } from "./getDbCluster";
+export const getDbCluster: typeof import("./getDbCluster").getDbCluster = null as any;
+export const getDbClusterOutput: typeof import("./getDbCluster").getDbClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getDbCluster","getDbClusterOutput"], () => require("./getDbCluster"));
 
-export { GetDBClusterParameterGroupArgs, GetDBClusterParameterGroupResult, GetDBClusterParameterGroupOutputArgs } from "./getDBClusterParameterGroup";
-export const getDBClusterParameterGroup: typeof import("./getDBClusterParameterGroup").getDBClusterParameterGroup = null as any;
-export const getDBClusterParameterGroupOutput: typeof import("./getDBClusterParameterGroup").getDBClusterParameterGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getDBClusterParameterGroup","getDBClusterParameterGroupOutput"], () => require("./getDBClusterParameterGroup"));
+export { GetDbClusterParameterGroupArgs, GetDbClusterParameterGroupResult, GetDbClusterParameterGroupOutputArgs } from "./getDbClusterParameterGroup";
+export const getDbClusterParameterGroup: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroup = null as any;
+export const getDbClusterParameterGroupOutput: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbClusterParameterGroup","getDbClusterParameterGroupOutput"], () => require("./getDbClusterParameterGroup"));
 
-export { GetDBInstanceArgs, GetDBInstanceResult, GetDBInstanceOutputArgs } from "./getDBInstance";
-export const getDBInstance: typeof import("./getDBInstance").getDBInstance = null as any;
-export const getDBInstanceOutput: typeof import("./getDBInstance").getDBInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getDBInstance","getDBInstanceOutput"], () => require("./getDBInstance"));
+export { GetDbInstanceArgs, GetDbInstanceResult, GetDbInstanceOutputArgs } from "./getDbInstance";
+export const getDbInstance: typeof import("./getDbInstance").getDbInstance = null as any;
+export const getDbInstanceOutput: typeof import("./getDbInstance").getDbInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getDbInstance","getDbInstanceOutput"], () => require("./getDbInstance"));
 
-export { GetDBSubnetGroupArgs, GetDBSubnetGroupResult, GetDBSubnetGroupOutputArgs } from "./getDBSubnetGroup";
-export const getDBSubnetGroup: typeof import("./getDBSubnetGroup").getDBSubnetGroup = null as any;
-export const getDBSubnetGroupOutput: typeof import("./getDBSubnetGroup").getDBSubnetGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getDBSubnetGroup","getDBSubnetGroupOutput"], () => require("./getDBSubnetGroup"));
+export { GetDbSubnetGroupArgs, GetDbSubnetGroupResult, GetDbSubnetGroupOutputArgs } from "./getDbSubnetGroup";
+export const getDbSubnetGroup: typeof import("./getDbSubnetGroup").getDbSubnetGroup = null as any;
+export const getDbSubnetGroupOutput: typeof import("./getDbSubnetGroup").getDbSubnetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbSubnetGroup","getDbSubnetGroupOutput"], () => require("./getDbSubnetGroup"));
 
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:docdb:DBCluster":
-                return new DBCluster(name, <any>undefined, { urn })
-            case "aws-native:docdb:DBClusterParameterGroup":
-                return new DBClusterParameterGroup(name, <any>undefined, { urn })
-            case "aws-native:docdb:DBInstance":
-                return new DBInstance(name, <any>undefined, { urn })
-            case "aws-native:docdb:DBSubnetGroup":
-                return new DBSubnetGroup(name, <any>undefined, { urn })
+            case "aws-native:docdb:DbCluster":
+                return new DbCluster(name, <any>undefined, { urn })
+            case "aws-native:docdb:DbClusterParameterGroup":
+                return new DbClusterParameterGroup(name, <any>undefined, { urn })
+            case "aws-native:docdb:DbInstance":
+                return new DbInstance(name, <any>undefined, { urn })
+            case "aws-native:docdb:DbSubnetGroup":
+                return new DbSubnetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -12,8 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AssessmentAWSAccount',
-    'AssessmentAWSService',
+    'AssessmentAwsAccount',
+    'AssessmentAwsService',
     'AssessmentDelegation',
     'AssessmentReportsDestination',
     'AssessmentRole',
@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AssessmentAWSAccount(dict):
+class AssessmentAwsAccount(dict):
     """
     The AWS account associated with the assessment.
     """
@@ -33,14 +33,14 @@ class AssessmentAWSAccount(dict):
             suggest = "email_address"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssessmentAWSAccount. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentAwsAccount. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AssessmentAWSAccount.__key_warning(key)
+        AssessmentAwsAccount.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AssessmentAWSAccount.__key_warning(key)
+        AssessmentAwsAccount.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -74,7 +74,7 @@ class AssessmentAWSAccount(dict):
 
 
 @pulumi.output_type
-class AssessmentAWSService(dict):
+class AssessmentAwsService(dict):
     """
     An AWS service such as Amazon S3, AWS CloudTrail, and so on.
     """
@@ -85,14 +85,14 @@ class AssessmentAWSService(dict):
             suggest = "service_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssessmentAWSService. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentAwsService. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AssessmentAWSService.__key_warning(key)
+        AssessmentAwsService.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AssessmentAWSService.__key_warning(key)
+        AssessmentAwsService.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -354,12 +354,12 @@ class AssessmentScope(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aws_accounts: Optional[Sequence['outputs.AssessmentAWSAccount']] = None,
-                 aws_services: Optional[Sequence['outputs.AssessmentAWSService']] = None):
+                 aws_accounts: Optional[Sequence['outputs.AssessmentAwsAccount']] = None,
+                 aws_services: Optional[Sequence['outputs.AssessmentAwsService']] = None):
         """
         The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
-        :param Sequence['AssessmentAWSAccount'] aws_accounts: The AWS accounts included in scope.
-        :param Sequence['AssessmentAWSService'] aws_services: The AWS services included in scope.
+        :param Sequence['AssessmentAwsAccount'] aws_accounts: The AWS accounts included in scope.
+        :param Sequence['AssessmentAwsService'] aws_services: The AWS services included in scope.
         """
         if aws_accounts is not None:
             pulumi.set(__self__, "aws_accounts", aws_accounts)
@@ -368,7 +368,7 @@ class AssessmentScope(dict):
 
     @property
     @pulumi.getter(name="awsAccounts")
-    def aws_accounts(self) -> Optional[Sequence['outputs.AssessmentAWSAccount']]:
+    def aws_accounts(self) -> Optional[Sequence['outputs.AssessmentAwsAccount']]:
         """
         The AWS accounts included in scope.
         """
@@ -376,7 +376,7 @@ class AssessmentScope(dict):
 
     @property
     @pulumi.getter(name="awsServices")
-    def aws_services(self) -> Optional[Sequence['outputs.AssessmentAWSService']]:
+    def aws_services(self) -> Optional[Sequence['outputs.AssessmentAwsService']]:
         """
         The AWS services included in scope.
         """

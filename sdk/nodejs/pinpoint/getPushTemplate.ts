@@ -24,7 +24,7 @@ export interface GetPushTemplateArgs {
 
 export interface GetPushTemplateResult {
     readonly adm?: outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate;
-    readonly apns?: outputs.pinpoint.PushTemplateAPNSPushNotificationTemplate;
+    readonly apns?: outputs.pinpoint.PushTemplateApnsPushNotificationTemplate;
     readonly arn?: string;
     readonly baidu?: outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate;
     readonly default?: outputs.pinpoint.PushTemplateDefaultPushNotificationTemplate;

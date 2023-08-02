@@ -5,30 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ADMChannelArgs } from "./admchannel";
-export type ADMChannel = import("./admchannel").ADMChannel;
-export const ADMChannel: typeof import("./admchannel").ADMChannel = null as any;
-utilities.lazyLoad(exports, ["ADMChannel"], () => require("./admchannel"));
+export { AdmChannelArgs } from "./admChannel";
+export type AdmChannel = import("./admChannel").AdmChannel;
+export const AdmChannel: typeof import("./admChannel").AdmChannel = null as any;
+utilities.lazyLoad(exports, ["AdmChannel"], () => require("./admChannel"));
 
-export { APNSChannelArgs } from "./apnschannel";
-export type APNSChannel = import("./apnschannel").APNSChannel;
-export const APNSChannel: typeof import("./apnschannel").APNSChannel = null as any;
-utilities.lazyLoad(exports, ["APNSChannel"], () => require("./apnschannel"));
+export { ApnsChannelArgs } from "./apnsChannel";
+export type ApnsChannel = import("./apnsChannel").ApnsChannel;
+export const ApnsChannel: typeof import("./apnsChannel").ApnsChannel = null as any;
+utilities.lazyLoad(exports, ["ApnsChannel"], () => require("./apnsChannel"));
 
-export { APNSSandboxChannelArgs } from "./apnssandboxChannel";
-export type APNSSandboxChannel = import("./apnssandboxChannel").APNSSandboxChannel;
-export const APNSSandboxChannel: typeof import("./apnssandboxChannel").APNSSandboxChannel = null as any;
-utilities.lazyLoad(exports, ["APNSSandboxChannel"], () => require("./apnssandboxChannel"));
+export { ApnsSandboxChannelArgs } from "./apnsSandboxChannel";
+export type ApnsSandboxChannel = import("./apnsSandboxChannel").ApnsSandboxChannel;
+export const ApnsSandboxChannel: typeof import("./apnsSandboxChannel").ApnsSandboxChannel = null as any;
+utilities.lazyLoad(exports, ["ApnsSandboxChannel"], () => require("./apnsSandboxChannel"));
 
-export { APNSVoipChannelArgs } from "./apnsvoipChannel";
-export type APNSVoipChannel = import("./apnsvoipChannel").APNSVoipChannel;
-export const APNSVoipChannel: typeof import("./apnsvoipChannel").APNSVoipChannel = null as any;
-utilities.lazyLoad(exports, ["APNSVoipChannel"], () => require("./apnsvoipChannel"));
+export { ApnsVoipChannelArgs } from "./apnsVoipChannel";
+export type ApnsVoipChannel = import("./apnsVoipChannel").ApnsVoipChannel;
+export const ApnsVoipChannel: typeof import("./apnsVoipChannel").ApnsVoipChannel = null as any;
+utilities.lazyLoad(exports, ["ApnsVoipChannel"], () => require("./apnsVoipChannel"));
 
-export { APNSVoipSandboxChannelArgs } from "./apnsvoipSandboxChannel";
-export type APNSVoipSandboxChannel = import("./apnsvoipSandboxChannel").APNSVoipSandboxChannel;
-export const APNSVoipSandboxChannel: typeof import("./apnsvoipSandboxChannel").APNSVoipSandboxChannel = null as any;
-utilities.lazyLoad(exports, ["APNSVoipSandboxChannel"], () => require("./apnsvoipSandboxChannel"));
+export { ApnsVoipSandboxChannelArgs } from "./apnsVoipSandboxChannel";
+export type ApnsVoipSandboxChannel = import("./apnsVoipSandboxChannel").ApnsVoipSandboxChannel;
+export const ApnsVoipSandboxChannel: typeof import("./apnsVoipSandboxChannel").ApnsVoipSandboxChannel = null as any;
+utilities.lazyLoad(exports, ["ApnsVoipSandboxChannel"], () => require("./apnsVoipSandboxChannel"));
 
 export { AppArgs } from "./app";
 export type App = import("./app").App;
@@ -65,35 +65,35 @@ export type EventStream = import("./eventStream").EventStream;
 export const EventStream: typeof import("./eventStream").EventStream = null as any;
 utilities.lazyLoad(exports, ["EventStream"], () => require("./eventStream"));
 
-export { GCMChannelArgs } from "./gcmchannel";
-export type GCMChannel = import("./gcmchannel").GCMChannel;
-export const GCMChannel: typeof import("./gcmchannel").GCMChannel = null as any;
-utilities.lazyLoad(exports, ["GCMChannel"], () => require("./gcmchannel"));
+export { GcmChannelArgs } from "./gcmChannel";
+export type GcmChannel = import("./gcmChannel").GcmChannel;
+export const GcmChannel: typeof import("./gcmChannel").GcmChannel = null as any;
+utilities.lazyLoad(exports, ["GcmChannel"], () => require("./gcmChannel"));
 
-export { GetADMChannelArgs, GetADMChannelResult, GetADMChannelOutputArgs } from "./getADMChannel";
-export const getADMChannel: typeof import("./getADMChannel").getADMChannel = null as any;
-export const getADMChannelOutput: typeof import("./getADMChannel").getADMChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getADMChannel","getADMChannelOutput"], () => require("./getADMChannel"));
+export { GetAdmChannelArgs, GetAdmChannelResult, GetAdmChannelOutputArgs } from "./getAdmChannel";
+export const getAdmChannel: typeof import("./getAdmChannel").getAdmChannel = null as any;
+export const getAdmChannelOutput: typeof import("./getAdmChannel").getAdmChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getAdmChannel","getAdmChannelOutput"], () => require("./getAdmChannel"));
 
-export { GetAPNSChannelArgs, GetAPNSChannelResult, GetAPNSChannelOutputArgs } from "./getAPNSChannel";
-export const getAPNSChannel: typeof import("./getAPNSChannel").getAPNSChannel = null as any;
-export const getAPNSChannelOutput: typeof import("./getAPNSChannel").getAPNSChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getAPNSChannel","getAPNSChannelOutput"], () => require("./getAPNSChannel"));
+export { GetApnsChannelArgs, GetApnsChannelResult, GetApnsChannelOutputArgs } from "./getApnsChannel";
+export const getApnsChannel: typeof import("./getApnsChannel").getApnsChannel = null as any;
+export const getApnsChannelOutput: typeof import("./getApnsChannel").getApnsChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getApnsChannel","getApnsChannelOutput"], () => require("./getApnsChannel"));
 
-export { GetAPNSSandboxChannelArgs, GetAPNSSandboxChannelResult, GetAPNSSandboxChannelOutputArgs } from "./getAPNSSandboxChannel";
-export const getAPNSSandboxChannel: typeof import("./getAPNSSandboxChannel").getAPNSSandboxChannel = null as any;
-export const getAPNSSandboxChannelOutput: typeof import("./getAPNSSandboxChannel").getAPNSSandboxChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getAPNSSandboxChannel","getAPNSSandboxChannelOutput"], () => require("./getAPNSSandboxChannel"));
+export { GetApnsSandboxChannelArgs, GetApnsSandboxChannelResult, GetApnsSandboxChannelOutputArgs } from "./getApnsSandboxChannel";
+export const getApnsSandboxChannel: typeof import("./getApnsSandboxChannel").getApnsSandboxChannel = null as any;
+export const getApnsSandboxChannelOutput: typeof import("./getApnsSandboxChannel").getApnsSandboxChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getApnsSandboxChannel","getApnsSandboxChannelOutput"], () => require("./getApnsSandboxChannel"));
 
-export { GetAPNSVoipChannelArgs, GetAPNSVoipChannelResult, GetAPNSVoipChannelOutputArgs } from "./getAPNSVoipChannel";
-export const getAPNSVoipChannel: typeof import("./getAPNSVoipChannel").getAPNSVoipChannel = null as any;
-export const getAPNSVoipChannelOutput: typeof import("./getAPNSVoipChannel").getAPNSVoipChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getAPNSVoipChannel","getAPNSVoipChannelOutput"], () => require("./getAPNSVoipChannel"));
+export { GetApnsVoipChannelArgs, GetApnsVoipChannelResult, GetApnsVoipChannelOutputArgs } from "./getApnsVoipChannel";
+export const getApnsVoipChannel: typeof import("./getApnsVoipChannel").getApnsVoipChannel = null as any;
+export const getApnsVoipChannelOutput: typeof import("./getApnsVoipChannel").getApnsVoipChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getApnsVoipChannel","getApnsVoipChannelOutput"], () => require("./getApnsVoipChannel"));
 
-export { GetAPNSVoipSandboxChannelArgs, GetAPNSVoipSandboxChannelResult, GetAPNSVoipSandboxChannelOutputArgs } from "./getAPNSVoipSandboxChannel";
-export const getAPNSVoipSandboxChannel: typeof import("./getAPNSVoipSandboxChannel").getAPNSVoipSandboxChannel = null as any;
-export const getAPNSVoipSandboxChannelOutput: typeof import("./getAPNSVoipSandboxChannel").getAPNSVoipSandboxChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getAPNSVoipSandboxChannel","getAPNSVoipSandboxChannelOutput"], () => require("./getAPNSVoipSandboxChannel"));
+export { GetApnsVoipSandboxChannelArgs, GetApnsVoipSandboxChannelResult, GetApnsVoipSandboxChannelOutputArgs } from "./getApnsVoipSandboxChannel";
+export const getApnsVoipSandboxChannel: typeof import("./getApnsVoipSandboxChannel").getApnsVoipSandboxChannel = null as any;
+export const getApnsVoipSandboxChannelOutput: typeof import("./getApnsVoipSandboxChannel").getApnsVoipSandboxChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getApnsVoipSandboxChannel","getApnsVoipSandboxChannelOutput"], () => require("./getApnsVoipSandboxChannel"));
 
 export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
 export const getApp: typeof import("./getApp").getApp = null as any;
@@ -130,10 +130,10 @@ export const getEventStream: typeof import("./getEventStream").getEventStream = 
 export const getEventStreamOutput: typeof import("./getEventStream").getEventStreamOutput = null as any;
 utilities.lazyLoad(exports, ["getEventStream","getEventStreamOutput"], () => require("./getEventStream"));
 
-export { GetGCMChannelArgs, GetGCMChannelResult, GetGCMChannelOutputArgs } from "./getGCMChannel";
-export const getGCMChannel: typeof import("./getGCMChannel").getGCMChannel = null as any;
-export const getGCMChannelOutput: typeof import("./getGCMChannel").getGCMChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getGCMChannel","getGCMChannelOutput"], () => require("./getGCMChannel"));
+export { GetGcmChannelArgs, GetGcmChannelResult, GetGcmChannelOutputArgs } from "./getGcmChannel";
+export const getGcmChannel: typeof import("./getGcmChannel").getGcmChannel = null as any;
+export const getGcmChannelOutput: typeof import("./getGcmChannel").getGcmChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getGcmChannel","getGcmChannelOutput"], () => require("./getGcmChannel"));
 
 export { GetInAppTemplateArgs, GetInAppTemplateResult, GetInAppTemplateOutputArgs } from "./getInAppTemplate";
 export const getInAppTemplate: typeof import("./getInAppTemplate").getInAppTemplate = null as any;
@@ -145,15 +145,15 @@ export const getPushTemplate: typeof import("./getPushTemplate").getPushTemplate
 export const getPushTemplateOutput: typeof import("./getPushTemplate").getPushTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getPushTemplate","getPushTemplateOutput"], () => require("./getPushTemplate"));
 
-export { GetSMSChannelArgs, GetSMSChannelResult, GetSMSChannelOutputArgs } from "./getSMSChannel";
-export const getSMSChannel: typeof import("./getSMSChannel").getSMSChannel = null as any;
-export const getSMSChannelOutput: typeof import("./getSMSChannel").getSMSChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getSMSChannel","getSMSChannelOutput"], () => require("./getSMSChannel"));
-
 export { GetSegmentArgs, GetSegmentResult, GetSegmentOutputArgs } from "./getSegment";
 export const getSegment: typeof import("./getSegment").getSegment = null as any;
 export const getSegmentOutput: typeof import("./getSegment").getSegmentOutput = null as any;
 utilities.lazyLoad(exports, ["getSegment","getSegmentOutput"], () => require("./getSegment"));
+
+export { GetSmsChannelArgs, GetSmsChannelResult, GetSmsChannelOutputArgs } from "./getSmsChannel";
+export const getSmsChannel: typeof import("./getSmsChannel").getSmsChannel = null as any;
+export const getSmsChannelOutput: typeof import("./getSmsChannel").getSmsChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getSmsChannel","getSmsChannelOutput"], () => require("./getSmsChannel"));
 
 export { GetSmsTemplateArgs, GetSmsTemplateResult, GetSmsTemplateOutputArgs } from "./getSmsTemplate";
 export const getSmsTemplate: typeof import("./getSmsTemplate").getSmsTemplate = null as any;
@@ -180,15 +180,15 @@ export type Segment = import("./segment").Segment;
 export const Segment: typeof import("./segment").Segment = null as any;
 utilities.lazyLoad(exports, ["Segment"], () => require("./segment"));
 
+export { SmsChannelArgs } from "./smsChannel";
+export type SmsChannel = import("./smsChannel").SmsChannel;
+export const SmsChannel: typeof import("./smsChannel").SmsChannel = null as any;
+utilities.lazyLoad(exports, ["SmsChannel"], () => require("./smsChannel"));
+
 export { SmsTemplateArgs } from "./smsTemplate";
 export type SmsTemplate = import("./smsTemplate").SmsTemplate;
 export const SmsTemplate: typeof import("./smsTemplate").SmsTemplate = null as any;
 utilities.lazyLoad(exports, ["SmsTemplate"], () => require("./smsTemplate"));
-
-export { SMSChannelArgs } from "./smschannel";
-export type SMSChannel = import("./smschannel").SMSChannel;
-export const SMSChannel: typeof import("./smschannel").SMSChannel = null as any;
-utilities.lazyLoad(exports, ["SMSChannel"], () => require("./smschannel"));
 
 export { VoiceChannelArgs } from "./voiceChannel";
 export type VoiceChannel = import("./voiceChannel").VoiceChannel;
@@ -203,16 +203,16 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:pinpoint:ADMChannel":
-                return new ADMChannel(name, <any>undefined, { urn })
-            case "aws-native:pinpoint:APNSChannel":
-                return new APNSChannel(name, <any>undefined, { urn })
-            case "aws-native:pinpoint:APNSSandboxChannel":
-                return new APNSSandboxChannel(name, <any>undefined, { urn })
-            case "aws-native:pinpoint:APNSVoipChannel":
-                return new APNSVoipChannel(name, <any>undefined, { urn })
-            case "aws-native:pinpoint:APNSVoipSandboxChannel":
-                return new APNSVoipSandboxChannel(name, <any>undefined, { urn })
+            case "aws-native:pinpoint:AdmChannel":
+                return new AdmChannel(name, <any>undefined, { urn })
+            case "aws-native:pinpoint:ApnsChannel":
+                return new ApnsChannel(name, <any>undefined, { urn })
+            case "aws-native:pinpoint:ApnsSandboxChannel":
+                return new ApnsSandboxChannel(name, <any>undefined, { urn })
+            case "aws-native:pinpoint:ApnsVoipChannel":
+                return new ApnsVoipChannel(name, <any>undefined, { urn })
+            case "aws-native:pinpoint:ApnsVoipSandboxChannel":
+                return new ApnsVoipSandboxChannel(name, <any>undefined, { urn })
             case "aws-native:pinpoint:App":
                 return new App(name, <any>undefined, { urn })
             case "aws-native:pinpoint:ApplicationSettings":
@@ -227,16 +227,16 @@ const _module = {
                 return new EmailTemplate(name, <any>undefined, { urn })
             case "aws-native:pinpoint:EventStream":
                 return new EventStream(name, <any>undefined, { urn })
-            case "aws-native:pinpoint:GCMChannel":
-                return new GCMChannel(name, <any>undefined, { urn })
+            case "aws-native:pinpoint:GcmChannel":
+                return new GcmChannel(name, <any>undefined, { urn })
             case "aws-native:pinpoint:InAppTemplate":
                 return new InAppTemplate(name, <any>undefined, { urn })
             case "aws-native:pinpoint:PushTemplate":
                 return new PushTemplate(name, <any>undefined, { urn })
-            case "aws-native:pinpoint:SMSChannel":
-                return new SMSChannel(name, <any>undefined, { urn })
             case "aws-native:pinpoint:Segment":
                 return new Segment(name, <any>undefined, { urn })
+            case "aws-native:pinpoint:SmsChannel":
+                return new SmsChannel(name, <any>undefined, { urn })
             case "aws-native:pinpoint:SmsTemplate":
                 return new SmsTemplate(name, <any>undefined, { urn })
             case "aws-native:pinpoint:VoiceChannel":

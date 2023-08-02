@@ -118,7 +118,7 @@ __all__ = [
     'ChannelMultiplexOutputSettingsArgs',
     'ChannelMultiplexProgramChannelDestinationSettingsArgs',
     'ChannelNetworkInputSettingsArgs',
-    'ChannelNielsenCBETArgs',
+    'ChannelNielsenCbetArgs',
     'ChannelNielsenConfigurationArgs',
     'ChannelNielsenNaesIiNwArgs',
     'ChannelNielsenWatermarksSettingsArgs',
@@ -7469,7 +7469,7 @@ class ChannelNetworkInputSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelNielsenCBETArgs:
+class ChannelNielsenCbetArgs:
     def __init__(__self__, *,
                  cbet_check_digit_string: Optional[pulumi.Input[str]] = None,
                  cbet_stepaside: Optional[pulumi.Input[str]] = None,
@@ -7582,7 +7582,7 @@ class ChannelNielsenNaesIiNwArgs:
 @pulumi.input_type
 class ChannelNielsenWatermarksSettingsArgs:
     def __init__(__self__, *,
-                 nielsen_cbet_settings: Optional[pulumi.Input['ChannelNielsenCBETArgs']] = None,
+                 nielsen_cbet_settings: Optional[pulumi.Input['ChannelNielsenCbetArgs']] = None,
                  nielsen_distribution_type: Optional[pulumi.Input[str]] = None,
                  nielsen_naes_ii_nw_settings: Optional[pulumi.Input['ChannelNielsenNaesIiNwArgs']] = None):
         if nielsen_cbet_settings is not None:
@@ -7594,11 +7594,11 @@ class ChannelNielsenWatermarksSettingsArgs:
 
     @property
     @pulumi.getter(name="nielsenCbetSettings")
-    def nielsen_cbet_settings(self) -> Optional[pulumi.Input['ChannelNielsenCBETArgs']]:
+    def nielsen_cbet_settings(self) -> Optional[pulumi.Input['ChannelNielsenCbetArgs']]:
         return pulumi.get(self, "nielsen_cbet_settings")
 
     @nielsen_cbet_settings.setter
-    def nielsen_cbet_settings(self, value: Optional[pulumi.Input['ChannelNielsenCBETArgs']]):
+    def nielsen_cbet_settings(self, value: Optional[pulumi.Input['ChannelNielsenCbetArgs']]):
         pulumi.set(self, "nielsen_cbet_settings", value)
 
     @property

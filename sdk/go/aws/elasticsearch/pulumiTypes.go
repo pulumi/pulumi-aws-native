@@ -502,150 +502,150 @@ func (o DomainColdStorageOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-type DomainEBSOptions struct {
+type DomainEbsOptions struct {
 	EbsEnabled *bool   `pulumi:"ebsEnabled"`
 	Iops       *int    `pulumi:"iops"`
 	VolumeSize *int    `pulumi:"volumeSize"`
 	VolumeType *string `pulumi:"volumeType"`
 }
 
-// DomainEBSOptionsInput is an input type that accepts DomainEBSOptionsArgs and DomainEBSOptionsOutput values.
-// You can construct a concrete instance of `DomainEBSOptionsInput` via:
+// DomainEbsOptionsInput is an input type that accepts DomainEbsOptionsArgs and DomainEbsOptionsOutput values.
+// You can construct a concrete instance of `DomainEbsOptionsInput` via:
 //
-//	DomainEBSOptionsArgs{...}
-type DomainEBSOptionsInput interface {
+//	DomainEbsOptionsArgs{...}
+type DomainEbsOptionsInput interface {
 	pulumi.Input
 
-	ToDomainEBSOptionsOutput() DomainEBSOptionsOutput
-	ToDomainEBSOptionsOutputWithContext(context.Context) DomainEBSOptionsOutput
+	ToDomainEbsOptionsOutput() DomainEbsOptionsOutput
+	ToDomainEbsOptionsOutputWithContext(context.Context) DomainEbsOptionsOutput
 }
 
-type DomainEBSOptionsArgs struct {
+type DomainEbsOptionsArgs struct {
 	EbsEnabled pulumi.BoolPtrInput   `pulumi:"ebsEnabled"`
 	Iops       pulumi.IntPtrInput    `pulumi:"iops"`
 	VolumeSize pulumi.IntPtrInput    `pulumi:"volumeSize"`
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
-func (DomainEBSOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainEBSOptions)(nil)).Elem()
+func (DomainEbsOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainEbsOptions)(nil)).Elem()
 }
 
-func (i DomainEBSOptionsArgs) ToDomainEBSOptionsOutput() DomainEBSOptionsOutput {
-	return i.ToDomainEBSOptionsOutputWithContext(context.Background())
+func (i DomainEbsOptionsArgs) ToDomainEbsOptionsOutput() DomainEbsOptionsOutput {
+	return i.ToDomainEbsOptionsOutputWithContext(context.Background())
 }
 
-func (i DomainEBSOptionsArgs) ToDomainEBSOptionsOutputWithContext(ctx context.Context) DomainEBSOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainEBSOptionsOutput)
+func (i DomainEbsOptionsArgs) ToDomainEbsOptionsOutputWithContext(ctx context.Context) DomainEbsOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainEbsOptionsOutput)
 }
 
-func (i DomainEBSOptionsArgs) ToDomainEBSOptionsPtrOutput() DomainEBSOptionsPtrOutput {
-	return i.ToDomainEBSOptionsPtrOutputWithContext(context.Background())
+func (i DomainEbsOptionsArgs) ToDomainEbsOptionsPtrOutput() DomainEbsOptionsPtrOutput {
+	return i.ToDomainEbsOptionsPtrOutputWithContext(context.Background())
 }
 
-func (i DomainEBSOptionsArgs) ToDomainEBSOptionsPtrOutputWithContext(ctx context.Context) DomainEBSOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainEBSOptionsOutput).ToDomainEBSOptionsPtrOutputWithContext(ctx)
+func (i DomainEbsOptionsArgs) ToDomainEbsOptionsPtrOutputWithContext(ctx context.Context) DomainEbsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainEbsOptionsOutput).ToDomainEbsOptionsPtrOutputWithContext(ctx)
 }
 
-// DomainEBSOptionsPtrInput is an input type that accepts DomainEBSOptionsArgs, DomainEBSOptionsPtr and DomainEBSOptionsPtrOutput values.
-// You can construct a concrete instance of `DomainEBSOptionsPtrInput` via:
+// DomainEbsOptionsPtrInput is an input type that accepts DomainEbsOptionsArgs, DomainEbsOptionsPtr and DomainEbsOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainEbsOptionsPtrInput` via:
 //
-//	        DomainEBSOptionsArgs{...}
+//	        DomainEbsOptionsArgs{...}
 //
 //	or:
 //
 //	        nil
-type DomainEBSOptionsPtrInput interface {
+type DomainEbsOptionsPtrInput interface {
 	pulumi.Input
 
-	ToDomainEBSOptionsPtrOutput() DomainEBSOptionsPtrOutput
-	ToDomainEBSOptionsPtrOutputWithContext(context.Context) DomainEBSOptionsPtrOutput
+	ToDomainEbsOptionsPtrOutput() DomainEbsOptionsPtrOutput
+	ToDomainEbsOptionsPtrOutputWithContext(context.Context) DomainEbsOptionsPtrOutput
 }
 
-type domainEBSOptionsPtrType DomainEBSOptionsArgs
+type domainEbsOptionsPtrType DomainEbsOptionsArgs
 
-func DomainEBSOptionsPtr(v *DomainEBSOptionsArgs) DomainEBSOptionsPtrInput {
-	return (*domainEBSOptionsPtrType)(v)
+func DomainEbsOptionsPtr(v *DomainEbsOptionsArgs) DomainEbsOptionsPtrInput {
+	return (*domainEbsOptionsPtrType)(v)
 }
 
-func (*domainEBSOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainEBSOptions)(nil)).Elem()
+func (*domainEbsOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainEbsOptions)(nil)).Elem()
 }
 
-func (i *domainEBSOptionsPtrType) ToDomainEBSOptionsPtrOutput() DomainEBSOptionsPtrOutput {
-	return i.ToDomainEBSOptionsPtrOutputWithContext(context.Background())
+func (i *domainEbsOptionsPtrType) ToDomainEbsOptionsPtrOutput() DomainEbsOptionsPtrOutput {
+	return i.ToDomainEbsOptionsPtrOutputWithContext(context.Background())
 }
 
-func (i *domainEBSOptionsPtrType) ToDomainEBSOptionsPtrOutputWithContext(ctx context.Context) DomainEBSOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainEBSOptionsPtrOutput)
+func (i *domainEbsOptionsPtrType) ToDomainEbsOptionsPtrOutputWithContext(ctx context.Context) DomainEbsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainEbsOptionsPtrOutput)
 }
 
-type DomainEBSOptionsOutput struct{ *pulumi.OutputState }
+type DomainEbsOptionsOutput struct{ *pulumi.OutputState }
 
-func (DomainEBSOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainEBSOptions)(nil)).Elem()
+func (DomainEbsOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainEbsOptions)(nil)).Elem()
 }
 
-func (o DomainEBSOptionsOutput) ToDomainEBSOptionsOutput() DomainEBSOptionsOutput {
+func (o DomainEbsOptionsOutput) ToDomainEbsOptionsOutput() DomainEbsOptionsOutput {
 	return o
 }
 
-func (o DomainEBSOptionsOutput) ToDomainEBSOptionsOutputWithContext(ctx context.Context) DomainEBSOptionsOutput {
+func (o DomainEbsOptionsOutput) ToDomainEbsOptionsOutputWithContext(ctx context.Context) DomainEbsOptionsOutput {
 	return o
 }
 
-func (o DomainEBSOptionsOutput) ToDomainEBSOptionsPtrOutput() DomainEBSOptionsPtrOutput {
-	return o.ToDomainEBSOptionsPtrOutputWithContext(context.Background())
+func (o DomainEbsOptionsOutput) ToDomainEbsOptionsPtrOutput() DomainEbsOptionsPtrOutput {
+	return o.ToDomainEbsOptionsPtrOutputWithContext(context.Background())
 }
 
-func (o DomainEBSOptionsOutput) ToDomainEBSOptionsPtrOutputWithContext(ctx context.Context) DomainEBSOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainEBSOptions) *DomainEBSOptions {
+func (o DomainEbsOptionsOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx context.Context) DomainEbsOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainEbsOptions) *DomainEbsOptions {
 		return &v
-	}).(DomainEBSOptionsPtrOutput)
+	}).(DomainEbsOptionsPtrOutput)
 }
 
-func (o DomainEBSOptionsOutput) EbsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainEBSOptions) *bool { return v.EbsEnabled }).(pulumi.BoolPtrOutput)
+func (o DomainEbsOptionsOutput) EbsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainEbsOptions) *bool { return v.EbsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o DomainEBSOptionsOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainEBSOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
+func (o DomainEbsOptionsOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-func (o DomainEBSOptionsOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainEBSOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+func (o DomainEbsOptionsOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainEbsOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-func (o DomainEBSOptionsOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainEBSOptions) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+func (o DomainEbsOptionsOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainEbsOptions) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
-type DomainEBSOptionsPtrOutput struct{ *pulumi.OutputState }
+type DomainEbsOptionsPtrOutput struct{ *pulumi.OutputState }
 
-func (DomainEBSOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainEBSOptions)(nil)).Elem()
+func (DomainEbsOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainEbsOptions)(nil)).Elem()
 }
 
-func (o DomainEBSOptionsPtrOutput) ToDomainEBSOptionsPtrOutput() DomainEBSOptionsPtrOutput {
+func (o DomainEbsOptionsPtrOutput) ToDomainEbsOptionsPtrOutput() DomainEbsOptionsPtrOutput {
 	return o
 }
 
-func (o DomainEBSOptionsPtrOutput) ToDomainEBSOptionsPtrOutputWithContext(ctx context.Context) DomainEBSOptionsPtrOutput {
+func (o DomainEbsOptionsPtrOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx context.Context) DomainEbsOptionsPtrOutput {
 	return o
 }
 
-func (o DomainEBSOptionsPtrOutput) Elem() DomainEBSOptionsOutput {
-	return o.ApplyT(func(v *DomainEBSOptions) DomainEBSOptions {
+func (o DomainEbsOptionsPtrOutput) Elem() DomainEbsOptionsOutput {
+	return o.ApplyT(func(v *DomainEbsOptions) DomainEbsOptions {
 		if v != nil {
 			return *v
 		}
-		var ret DomainEBSOptions
+		var ret DomainEbsOptions
 		return ret
-	}).(DomainEBSOptionsOutput)
+	}).(DomainEbsOptionsOutput)
 }
 
-func (o DomainEBSOptionsPtrOutput) EbsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DomainEBSOptions) *bool {
+func (o DomainEbsOptionsPtrOutput) EbsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainEbsOptions) *bool {
 		if v == nil {
 			return nil
 		}
@@ -653,8 +653,8 @@ func (o DomainEBSOptionsPtrOutput) EbsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o DomainEBSOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DomainEBSOptions) *int {
+func (o DomainEbsOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainEbsOptions) *int {
 		if v == nil {
 			return nil
 		}
@@ -662,8 +662,8 @@ func (o DomainEBSOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DomainEBSOptionsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DomainEBSOptions) *int {
+func (o DomainEbsOptionsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainEbsOptions) *int {
 		if v == nil {
 			return nil
 		}
@@ -671,8 +671,8 @@ func (o DomainEBSOptionsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DomainEBSOptionsPtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainEBSOptions) *string {
+func (o DomainEbsOptionsPtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainEbsOptions) *string {
 		if v == nil {
 			return nil
 		}
@@ -1833,138 +1833,138 @@ func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
 	}).(DomainTagOutput)
 }
 
-type DomainVPCOptions struct {
+type DomainVpcOptions struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	SubnetIds        []string `pulumi:"subnetIds"`
 }
 
-// DomainVPCOptionsInput is an input type that accepts DomainVPCOptionsArgs and DomainVPCOptionsOutput values.
-// You can construct a concrete instance of `DomainVPCOptionsInput` via:
+// DomainVpcOptionsInput is an input type that accepts DomainVpcOptionsArgs and DomainVpcOptionsOutput values.
+// You can construct a concrete instance of `DomainVpcOptionsInput` via:
 //
-//	DomainVPCOptionsArgs{...}
-type DomainVPCOptionsInput interface {
+//	DomainVpcOptionsArgs{...}
+type DomainVpcOptionsInput interface {
 	pulumi.Input
 
-	ToDomainVPCOptionsOutput() DomainVPCOptionsOutput
-	ToDomainVPCOptionsOutputWithContext(context.Context) DomainVPCOptionsOutput
+	ToDomainVpcOptionsOutput() DomainVpcOptionsOutput
+	ToDomainVpcOptionsOutputWithContext(context.Context) DomainVpcOptionsOutput
 }
 
-type DomainVPCOptionsArgs struct {
+type DomainVpcOptionsArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
-func (DomainVPCOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainVPCOptions)(nil)).Elem()
+func (DomainVpcOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainVpcOptions)(nil)).Elem()
 }
 
-func (i DomainVPCOptionsArgs) ToDomainVPCOptionsOutput() DomainVPCOptionsOutput {
-	return i.ToDomainVPCOptionsOutputWithContext(context.Background())
+func (i DomainVpcOptionsArgs) ToDomainVpcOptionsOutput() DomainVpcOptionsOutput {
+	return i.ToDomainVpcOptionsOutputWithContext(context.Background())
 }
 
-func (i DomainVPCOptionsArgs) ToDomainVPCOptionsOutputWithContext(ctx context.Context) DomainVPCOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainVPCOptionsOutput)
+func (i DomainVpcOptionsArgs) ToDomainVpcOptionsOutputWithContext(ctx context.Context) DomainVpcOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainVpcOptionsOutput)
 }
 
-func (i DomainVPCOptionsArgs) ToDomainVPCOptionsPtrOutput() DomainVPCOptionsPtrOutput {
-	return i.ToDomainVPCOptionsPtrOutputWithContext(context.Background())
+func (i DomainVpcOptionsArgs) ToDomainVpcOptionsPtrOutput() DomainVpcOptionsPtrOutput {
+	return i.ToDomainVpcOptionsPtrOutputWithContext(context.Background())
 }
 
-func (i DomainVPCOptionsArgs) ToDomainVPCOptionsPtrOutputWithContext(ctx context.Context) DomainVPCOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainVPCOptionsOutput).ToDomainVPCOptionsPtrOutputWithContext(ctx)
+func (i DomainVpcOptionsArgs) ToDomainVpcOptionsPtrOutputWithContext(ctx context.Context) DomainVpcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainVpcOptionsOutput).ToDomainVpcOptionsPtrOutputWithContext(ctx)
 }
 
-// DomainVPCOptionsPtrInput is an input type that accepts DomainVPCOptionsArgs, DomainVPCOptionsPtr and DomainVPCOptionsPtrOutput values.
-// You can construct a concrete instance of `DomainVPCOptionsPtrInput` via:
+// DomainVpcOptionsPtrInput is an input type that accepts DomainVpcOptionsArgs, DomainVpcOptionsPtr and DomainVpcOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainVpcOptionsPtrInput` via:
 //
-//	        DomainVPCOptionsArgs{...}
+//	        DomainVpcOptionsArgs{...}
 //
 //	or:
 //
 //	        nil
-type DomainVPCOptionsPtrInput interface {
+type DomainVpcOptionsPtrInput interface {
 	pulumi.Input
 
-	ToDomainVPCOptionsPtrOutput() DomainVPCOptionsPtrOutput
-	ToDomainVPCOptionsPtrOutputWithContext(context.Context) DomainVPCOptionsPtrOutput
+	ToDomainVpcOptionsPtrOutput() DomainVpcOptionsPtrOutput
+	ToDomainVpcOptionsPtrOutputWithContext(context.Context) DomainVpcOptionsPtrOutput
 }
 
-type domainVPCOptionsPtrType DomainVPCOptionsArgs
+type domainVpcOptionsPtrType DomainVpcOptionsArgs
 
-func DomainVPCOptionsPtr(v *DomainVPCOptionsArgs) DomainVPCOptionsPtrInput {
-	return (*domainVPCOptionsPtrType)(v)
+func DomainVpcOptionsPtr(v *DomainVpcOptionsArgs) DomainVpcOptionsPtrInput {
+	return (*domainVpcOptionsPtrType)(v)
 }
 
-func (*domainVPCOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainVPCOptions)(nil)).Elem()
+func (*domainVpcOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainVpcOptions)(nil)).Elem()
 }
 
-func (i *domainVPCOptionsPtrType) ToDomainVPCOptionsPtrOutput() DomainVPCOptionsPtrOutput {
-	return i.ToDomainVPCOptionsPtrOutputWithContext(context.Background())
+func (i *domainVpcOptionsPtrType) ToDomainVpcOptionsPtrOutput() DomainVpcOptionsPtrOutput {
+	return i.ToDomainVpcOptionsPtrOutputWithContext(context.Background())
 }
 
-func (i *domainVPCOptionsPtrType) ToDomainVPCOptionsPtrOutputWithContext(ctx context.Context) DomainVPCOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainVPCOptionsPtrOutput)
+func (i *domainVpcOptionsPtrType) ToDomainVpcOptionsPtrOutputWithContext(ctx context.Context) DomainVpcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainVpcOptionsPtrOutput)
 }
 
-type DomainVPCOptionsOutput struct{ *pulumi.OutputState }
+type DomainVpcOptionsOutput struct{ *pulumi.OutputState }
 
-func (DomainVPCOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainVPCOptions)(nil)).Elem()
+func (DomainVpcOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainVpcOptions)(nil)).Elem()
 }
 
-func (o DomainVPCOptionsOutput) ToDomainVPCOptionsOutput() DomainVPCOptionsOutput {
+func (o DomainVpcOptionsOutput) ToDomainVpcOptionsOutput() DomainVpcOptionsOutput {
 	return o
 }
 
-func (o DomainVPCOptionsOutput) ToDomainVPCOptionsOutputWithContext(ctx context.Context) DomainVPCOptionsOutput {
+func (o DomainVpcOptionsOutput) ToDomainVpcOptionsOutputWithContext(ctx context.Context) DomainVpcOptionsOutput {
 	return o
 }
 
-func (o DomainVPCOptionsOutput) ToDomainVPCOptionsPtrOutput() DomainVPCOptionsPtrOutput {
-	return o.ToDomainVPCOptionsPtrOutputWithContext(context.Background())
+func (o DomainVpcOptionsOutput) ToDomainVpcOptionsPtrOutput() DomainVpcOptionsPtrOutput {
+	return o.ToDomainVpcOptionsPtrOutputWithContext(context.Background())
 }
 
-func (o DomainVPCOptionsOutput) ToDomainVPCOptionsPtrOutputWithContext(ctx context.Context) DomainVPCOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainVPCOptions) *DomainVPCOptions {
+func (o DomainVpcOptionsOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx context.Context) DomainVpcOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainVpcOptions) *DomainVpcOptions {
 		return &v
-	}).(DomainVPCOptionsPtrOutput)
+	}).(DomainVpcOptionsPtrOutput)
 }
 
-func (o DomainVPCOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DomainVPCOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+func (o DomainVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-func (o DomainVPCOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DomainVPCOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+func (o DomainVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-type DomainVPCOptionsPtrOutput struct{ *pulumi.OutputState }
+type DomainVpcOptionsPtrOutput struct{ *pulumi.OutputState }
 
-func (DomainVPCOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainVPCOptions)(nil)).Elem()
+func (DomainVpcOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainVpcOptions)(nil)).Elem()
 }
 
-func (o DomainVPCOptionsPtrOutput) ToDomainVPCOptionsPtrOutput() DomainVPCOptionsPtrOutput {
+func (o DomainVpcOptionsPtrOutput) ToDomainVpcOptionsPtrOutput() DomainVpcOptionsPtrOutput {
 	return o
 }
 
-func (o DomainVPCOptionsPtrOutput) ToDomainVPCOptionsPtrOutputWithContext(ctx context.Context) DomainVPCOptionsPtrOutput {
+func (o DomainVpcOptionsPtrOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx context.Context) DomainVpcOptionsPtrOutput {
 	return o
 }
 
-func (o DomainVPCOptionsPtrOutput) Elem() DomainVPCOptionsOutput {
-	return o.ApplyT(func(v *DomainVPCOptions) DomainVPCOptions {
+func (o DomainVpcOptionsPtrOutput) Elem() DomainVpcOptionsOutput {
+	return o.ApplyT(func(v *DomainVpcOptions) DomainVpcOptions {
 		if v != nil {
 			return *v
 		}
-		var ret DomainVPCOptions
+		var ret DomainVpcOptions
 		return ret
-	}).(DomainVPCOptionsOutput)
+	}).(DomainVpcOptionsOutput)
 }
 
-func (o DomainVPCOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DomainVPCOptions) []string {
+func (o DomainVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainVpcOptions) []string {
 		if v == nil {
 			return nil
 		}
@@ -1972,8 +1972,8 @@ func (o DomainVPCOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o DomainVPCOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DomainVPCOptions) []string {
+func (o DomainVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainVpcOptions) []string {
 		if v == nil {
 			return nil
 		}
@@ -2121,8 +2121,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCognitoOptionsPtrInput)(nil)).Elem(), DomainCognitoOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainColdStorageOptionsInput)(nil)).Elem(), DomainColdStorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainColdStorageOptionsPtrInput)(nil)).Elem(), DomainColdStorageOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainEBSOptionsInput)(nil)).Elem(), DomainEBSOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainEBSOptionsPtrInput)(nil)).Elem(), DomainEBSOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainEbsOptionsInput)(nil)).Elem(), DomainEbsOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainEbsOptionsPtrInput)(nil)).Elem(), DomainEbsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainElasticsearchClusterConfigInput)(nil)).Elem(), DomainElasticsearchClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainElasticsearchClusterConfigPtrInput)(nil)).Elem(), DomainElasticsearchClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEncryptionAtRestOptionsInput)(nil)).Elem(), DomainEncryptionAtRestOptionsArgs{})
@@ -2137,8 +2137,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsPtrInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagArrayInput)(nil)).Elem(), DomainTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainVPCOptionsInput)(nil)).Elem(), DomainVPCOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainVPCOptionsPtrInput)(nil)).Elem(), DomainVPCOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsInput)(nil)).Elem(), DomainVpcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsPtrInput)(nil)).Elem(), DomainVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainZoneAwarenessConfigInput)(nil)).Elem(), DomainZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainZoneAwarenessConfigPtrInput)(nil)).Elem(), DomainZoneAwarenessConfigArgs{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsInputOutput{})
@@ -2147,8 +2147,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainCognitoOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainColdStorageOptionsOutput{})
 	pulumi.RegisterOutputType(DomainColdStorageOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DomainEBSOptionsOutput{})
-	pulumi.RegisterOutputType(DomainEBSOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainEbsOptionsOutput{})
+	pulumi.RegisterOutputType(DomainEbsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainElasticsearchClusterConfigOutput{})
 	pulumi.RegisterOutputType(DomainElasticsearchClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsOutput{})
@@ -2163,8 +2163,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainSnapshotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainTagOutput{})
 	pulumi.RegisterOutputType(DomainTagArrayOutput{})
-	pulumi.RegisterOutputType(DomainVPCOptionsOutput{})
-	pulumi.RegisterOutputType(DomainVPCOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainVpcOptionsOutput{})
+	pulumi.RegisterOutputType(DomainVpcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainZoneAwarenessConfigOutput{})
 	pulumi.RegisterOutputType(DomainZoneAwarenessConfigPtrOutput{})
 }

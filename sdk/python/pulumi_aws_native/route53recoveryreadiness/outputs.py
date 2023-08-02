@@ -14,8 +14,8 @@ __all__ = [
     'CellTag',
     'ReadinessCheckTag',
     'RecoveryGroupTag',
-    'ResourceSetDNSTargetResource',
-    'ResourceSetNLBResource',
+    'ResourceSetDnsTargetResource',
+    'ResourceSetNlbResource',
     'ResourceSetR53ResourceRecord',
     'ResourceSetResource',
     'ResourceSetTag',
@@ -80,7 +80,7 @@ class RecoveryGroupTag(dict):
 
 
 @pulumi.output_type
-class ResourceSetDNSTargetResource(dict):
+class ResourceSetDnsTargetResource(dict):
     """
     A component for DNS/routing control readiness checks.
     """
@@ -99,14 +99,14 @@ class ResourceSetDNSTargetResource(dict):
             suggest = "target_resource"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceSetDNSTargetResource. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceSetDnsTargetResource. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceSetDNSTargetResource.__key_warning(key)
+        ResourceSetDnsTargetResource.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceSetDNSTargetResource.__key_warning(key)
+        ResourceSetDnsTargetResource.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -172,7 +172,7 @@ class ResourceSetDNSTargetResource(dict):
 
 
 @pulumi.output_type
-class ResourceSetNLBResource(dict):
+class ResourceSetNlbResource(dict):
     """
     The Network Load Balancer resource that a DNS target resource points to.
     """
@@ -278,7 +278,7 @@ class ResourceSetResource(dict):
 
     def __init__(__self__, *,
                  component_id: Optional[str] = None,
-                 dns_target_resource: Optional['outputs.ResourceSetDNSTargetResource'] = None,
+                 dns_target_resource: Optional['outputs.ResourceSetDnsTargetResource'] = None,
                  readiness_scopes: Optional[Sequence[str]] = None,
                  resource_arn: Optional[str] = None):
         """
@@ -306,7 +306,7 @@ class ResourceSetResource(dict):
 
     @property
     @pulumi.getter(name="dnsTargetResource")
-    def dns_target_resource(self) -> Optional['outputs.ResourceSetDNSTargetResource']:
+    def dns_target_resource(self) -> Optional['outputs.ResourceSetDnsTargetResource']:
         return pulumi.get(self, "dns_target_resource")
 
     @property
@@ -370,7 +370,7 @@ class ResourceSetTargetResource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 nlb_resource: Optional['outputs.ResourceSetNLBResource'] = None,
+                 nlb_resource: Optional['outputs.ResourceSetNlbResource'] = None,
                  r53_resource: Optional['outputs.ResourceSetR53ResourceRecord'] = None):
         """
         The target resource that the Route 53 record points to.
@@ -382,7 +382,7 @@ class ResourceSetTargetResource(dict):
 
     @property
     @pulumi.getter(name="nlbResource")
-    def nlb_resource(self) -> Optional['outputs.ResourceSetNLBResource']:
+    def nlb_resource(self) -> Optional['outputs.ResourceSetNlbResource']:
         return pulumi.get(self, "nlb_resource")
 
     @property

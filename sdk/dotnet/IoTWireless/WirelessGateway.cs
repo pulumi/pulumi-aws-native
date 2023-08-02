@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
         /// </summary>
         [Output("loRaWan")]
-        public Output<Outputs.WirelessGatewayLoRaWANGateway> LoRaWan { get; private set; } = null!;
+        public Output<Outputs.WirelessGatewayLoRaWanGateway> LoRaWan { get; private set; } = null!;
 
         /// <summary>
         /// Name of Wireless Gateway.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
         /// </summary>
         [Input("loRaWan", required: true)]
-        public Input<Inputs.WirelessGatewayLoRaWANGatewayArgs> LoRaWan { get; set; } = null!;
+        public Input<Inputs.WirelessGatewayLoRaWanGatewayArgs> LoRaWan { get; set; } = null!;
 
         /// <summary>
         /// Name of Wireless Gateway.

@@ -21,8 +21,8 @@ class PolicyArgs:
                  remediation_enabled: pulumi.Input[bool],
                  security_service_policy_data: pulumi.Input['PolicySecurityServicePolicyDataArgs'],
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
-                 exclude_map: Optional[pulumi.Input['PolicyIEMapArgs']] = None,
-                 include_map: Optional[pulumi.Input['PolicyIEMapArgs']] = None,
+                 exclude_map: Optional[pulumi.Input['PolicyIeMapArgs']] = None,
+                 include_map: Optional[pulumi.Input['PolicyIeMapArgs']] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -98,20 +98,20 @@ class PolicyArgs:
 
     @property
     @pulumi.getter(name="excludeMap")
-    def exclude_map(self) -> Optional[pulumi.Input['PolicyIEMapArgs']]:
+    def exclude_map(self) -> Optional[pulumi.Input['PolicyIeMapArgs']]:
         return pulumi.get(self, "exclude_map")
 
     @exclude_map.setter
-    def exclude_map(self, value: Optional[pulumi.Input['PolicyIEMapArgs']]):
+    def exclude_map(self, value: Optional[pulumi.Input['PolicyIeMapArgs']]):
         pulumi.set(self, "exclude_map", value)
 
     @property
     @pulumi.getter(name="includeMap")
-    def include_map(self) -> Optional[pulumi.Input['PolicyIEMapArgs']]:
+    def include_map(self) -> Optional[pulumi.Input['PolicyIeMapArgs']]:
         return pulumi.get(self, "include_map")
 
     @include_map.setter
-    def include_map(self, value: Optional[pulumi.Input['PolicyIEMapArgs']]):
+    def include_map(self, value: Optional[pulumi.Input['PolicyIeMapArgs']]):
         pulumi.set(self, "include_map", value)
 
     @property
@@ -193,9 +193,9 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
-                 exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyIEMapArgs']]] = None,
+                 exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyIeMapArgs']]] = None,
                  exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
-                 include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIEMapArgs']]] = None,
+                 include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIeMapArgs']]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -238,9 +238,9 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
-                 exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyIEMapArgs']]] = None,
+                 exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyIeMapArgs']]] = None,
                  exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
-                 include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIEMapArgs']]] = None,
+                 include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIeMapArgs']]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -332,7 +332,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludeMap")
-    def exclude_map(self) -> pulumi.Output[Optional['outputs.PolicyIEMap']]:
+    def exclude_map(self) -> pulumi.Output[Optional['outputs.PolicyIeMap']]:
         return pulumi.get(self, "exclude_map")
 
     @property
@@ -342,7 +342,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includeMap")
-    def include_map(self) -> pulumi.Output[Optional['outputs.PolicyIEMap']]:
+    def include_map(self) -> pulumi.Output[Optional['outputs.PolicyIeMap']]:
         return pulumi.get(self, "include_map")
 
     @property

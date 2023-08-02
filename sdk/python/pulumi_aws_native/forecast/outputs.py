@@ -12,7 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AttributesItemProperties',
+    'DatasetAttributesItemProperties',
     'DatasetGroupTag',
     'EncryptionConfigProperties',
     'SchemaProperties',
@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AttributesItemProperties(dict):
+class DatasetAttributesItemProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30,14 +30,14 @@ class AttributesItemProperties(dict):
             suggest = "attribute_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AttributesItemProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DatasetAttributesItemProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AttributesItemProperties.__key_warning(key)
+        DatasetAttributesItemProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AttributesItemProperties.__key_warning(key)
+        DatasetAttributesItemProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -145,13 +145,13 @@ class EncryptionConfigProperties(dict):
 @pulumi.output_type
 class SchemaProperties(dict):
     def __init__(__self__, *,
-                 attributes: Optional[Sequence['outputs.AttributesItemProperties']] = None):
+                 attributes: Optional[Sequence['outputs.DatasetAttributesItemProperties']] = None):
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Sequence['outputs.AttributesItemProperties']]:
+    def attributes(self) -> Optional[Sequence['outputs.DatasetAttributesItemProperties']]:
         return pulumi.get(self, "attributes")
 
 

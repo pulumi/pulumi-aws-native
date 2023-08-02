@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetVPCConnectionResult',
-    'AwaitableGetVPCConnectionResult',
+    'GetVpcConnectionResult',
+    'AwaitableGetVpcConnectionResult',
     'get_vpc_connection',
     'get_vpc_connection_output',
 ]
 
 @pulumi.output_type
-class GetVPCConnectionResult:
+class GetVpcConnectionResult:
     def __init__(__self__, arn=None, availability_status=None, created_time=None, dns_resolvers=None, last_updated_time=None, name=None, network_interfaces=None, role_arn=None, security_group_ids=None, status=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -65,7 +65,7 @@ class GetVPCConnectionResult:
 
     @property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> Optional['VPCConnectionAvailabilityStatus']:
+    def availability_status(self) -> Optional['VpcConnectionVpcConnectionAvailabilityStatus']:
         return pulumi.get(self, "availability_status")
 
     @property
@@ -90,7 +90,7 @@ class GetVPCConnectionResult:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[Sequence['outputs.VPCConnectionNetworkInterface']]:
+    def network_interfaces(self) -> Optional[Sequence['outputs.VpcConnectionNetworkInterface']]:
         return pulumi.get(self, "network_interfaces")
 
     @property
@@ -105,12 +105,12 @@ class GetVPCConnectionResult:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['VPCConnectionResourceStatus']:
+    def status(self) -> Optional['VpcConnectionVpcConnectionResourceStatus']:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.VPCConnectionTag']]:
+    def tags(self) -> Optional[Sequence['outputs.VpcConnectionTag']]:
         return pulumi.get(self, "tags")
 
     @property
@@ -119,12 +119,12 @@ class GetVPCConnectionResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetVPCConnectionResult(GetVPCConnectionResult):
+class AwaitableGetVpcConnectionResult(GetVpcConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVPCConnectionResult(
+        return GetVpcConnectionResult(
             arn=self.arn,
             availability_status=self.availability_status,
             created_time=self.created_time,
@@ -141,7 +141,7 @@ class AwaitableGetVPCConnectionResult(GetVPCConnectionResult):
 
 def get_vpc_connection(aws_account_id: Optional[str] = None,
                        vpc_connection_id: Optional[str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPCConnectionResult:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcConnectionResult:
     """
     Definition of the AWS::QuickSight::VPCConnection Resource Type.
     """
@@ -149,9 +149,9 @@ def get_vpc_connection(aws_account_id: Optional[str] = None,
     __args__['awsAccountId'] = aws_account_id
     __args__['vpcConnectionId'] = vpc_connection_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getVPCConnection', __args__, opts=opts, typ=GetVPCConnectionResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getVpcConnection', __args__, opts=opts, typ=GetVpcConnectionResult).value
 
-    return AwaitableGetVPCConnectionResult(
+    return AwaitableGetVpcConnectionResult(
         arn=pulumi.get(__ret__, 'arn'),
         availability_status=pulumi.get(__ret__, 'availability_status'),
         created_time=pulumi.get(__ret__, 'created_time'),
@@ -169,7 +169,7 @@ def get_vpc_connection(aws_account_id: Optional[str] = None,
 @_utilities.lift_output_func(get_vpc_connection)
 def get_vpc_connection_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                               vpc_connection_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCConnectionResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcConnectionResult]:
     """
     Definition of the AWS::QuickSight::VPCConnection Resource Type.
     """

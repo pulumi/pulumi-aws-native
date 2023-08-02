@@ -16,7 +16,7 @@ from .get_rule import *
 from .get_size_constraint_set import *
 from .get_sql_injection_match_set import *
 from .get_web_acl import *
-from .get_web_aclassociation import *
+from .get_web_acl_association import *
 from .get_xss_match_set import *
 from .ip_set import *
 from .rate_based_rule import *
@@ -25,7 +25,7 @@ from .rule import *
 from .size_constraint_set import *
 from .sql_injection_match_set import *
 from .web_acl import *
-from .web_aclassociation import *
+from .web_acl_association import *
 from .xss_match_set import *
 from ._inputs import *
 from . import outputs

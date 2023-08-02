@@ -40,7 +40,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The Amazon Web Services location of the device, if applicable.
      */
-    public readonly awsLocation!: pulumi.Output<outputs.networkmanager.DeviceAWSLocation | undefined>;
+    public readonly awsLocation!: pulumi.Output<outputs.networkmanager.DeviceAwsLocation | undefined>;
     /**
      * The date and time that the device was created.
      */
@@ -144,7 +144,7 @@ export interface DeviceArgs {
     /**
      * The Amazon Web Services location of the device, if applicable.
      */
-    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAWSLocationArgs>;
+    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocationArgs>;
     /**
      * The description of the device.
      */

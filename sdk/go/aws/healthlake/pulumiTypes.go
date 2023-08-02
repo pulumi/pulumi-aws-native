@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 // The time that a Data Store was created.
-type FHIRDatastoreCreatedAt struct {
+type FhirDatastoreCreatedAt struct {
 	// Nanoseconds.
 	Nanos int `pulumi:"nanos"`
 	// Seconds since epoch.
@@ -22,57 +22,57 @@ type FHIRDatastoreCreatedAt struct {
 }
 
 // The time that a Data Store was created.
-type FHIRDatastoreCreatedAtOutput struct{ *pulumi.OutputState }
+type FhirDatastoreCreatedAtOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastoreCreatedAtOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreCreatedAt)(nil)).Elem()
+func (FhirDatastoreCreatedAtOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreCreatedAt)(nil)).Elem()
 }
 
-func (o FHIRDatastoreCreatedAtOutput) ToFHIRDatastoreCreatedAtOutput() FHIRDatastoreCreatedAtOutput {
+func (o FhirDatastoreCreatedAtOutput) ToFhirDatastoreCreatedAtOutput() FhirDatastoreCreatedAtOutput {
 	return o
 }
 
-func (o FHIRDatastoreCreatedAtOutput) ToFHIRDatastoreCreatedAtOutputWithContext(ctx context.Context) FHIRDatastoreCreatedAtOutput {
+func (o FhirDatastoreCreatedAtOutput) ToFhirDatastoreCreatedAtOutputWithContext(ctx context.Context) FhirDatastoreCreatedAtOutput {
 	return o
 }
 
 // Nanoseconds.
-func (o FHIRDatastoreCreatedAtOutput) Nanos() pulumi.IntOutput {
-	return o.ApplyT(func(v FHIRDatastoreCreatedAt) int { return v.Nanos }).(pulumi.IntOutput)
+func (o FhirDatastoreCreatedAtOutput) Nanos() pulumi.IntOutput {
+	return o.ApplyT(func(v FhirDatastoreCreatedAt) int { return v.Nanos }).(pulumi.IntOutput)
 }
 
 // Seconds since epoch.
-func (o FHIRDatastoreCreatedAtOutput) Seconds() pulumi.StringOutput {
-	return o.ApplyT(func(v FHIRDatastoreCreatedAt) string { return v.Seconds }).(pulumi.StringOutput)
+func (o FhirDatastoreCreatedAtOutput) Seconds() pulumi.StringOutput {
+	return o.ApplyT(func(v FhirDatastoreCreatedAt) string { return v.Seconds }).(pulumi.StringOutput)
 }
 
-type FHIRDatastoreCreatedAtPtrOutput struct{ *pulumi.OutputState }
+type FhirDatastoreCreatedAtPtrOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastoreCreatedAtPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastoreCreatedAt)(nil)).Elem()
+func (FhirDatastoreCreatedAtPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastoreCreatedAt)(nil)).Elem()
 }
 
-func (o FHIRDatastoreCreatedAtPtrOutput) ToFHIRDatastoreCreatedAtPtrOutput() FHIRDatastoreCreatedAtPtrOutput {
+func (o FhirDatastoreCreatedAtPtrOutput) ToFhirDatastoreCreatedAtPtrOutput() FhirDatastoreCreatedAtPtrOutput {
 	return o
 }
 
-func (o FHIRDatastoreCreatedAtPtrOutput) ToFHIRDatastoreCreatedAtPtrOutputWithContext(ctx context.Context) FHIRDatastoreCreatedAtPtrOutput {
+func (o FhirDatastoreCreatedAtPtrOutput) ToFhirDatastoreCreatedAtPtrOutputWithContext(ctx context.Context) FhirDatastoreCreatedAtPtrOutput {
 	return o
 }
 
-func (o FHIRDatastoreCreatedAtPtrOutput) Elem() FHIRDatastoreCreatedAtOutput {
-	return o.ApplyT(func(v *FHIRDatastoreCreatedAt) FHIRDatastoreCreatedAt {
+func (o FhirDatastoreCreatedAtPtrOutput) Elem() FhirDatastoreCreatedAtOutput {
+	return o.ApplyT(func(v *FhirDatastoreCreatedAt) FhirDatastoreCreatedAt {
 		if v != nil {
 			return *v
 		}
-		var ret FHIRDatastoreCreatedAt
+		var ret FhirDatastoreCreatedAt
 		return ret
-	}).(FHIRDatastoreCreatedAtOutput)
+	}).(FhirDatastoreCreatedAtOutput)
 }
 
 // Nanoseconds.
-func (o FHIRDatastoreCreatedAtPtrOutput) Nanos() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreCreatedAt) *int {
+func (o FhirDatastoreCreatedAtPtrOutput) Nanos() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FhirDatastoreCreatedAt) *int {
 		if v == nil {
 			return nil
 		}
@@ -81,8 +81,8 @@ func (o FHIRDatastoreCreatedAtPtrOutput) Nanos() pulumi.IntPtrOutput {
 }
 
 // Seconds since epoch.
-func (o FHIRDatastoreCreatedAtPtrOutput) Seconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreCreatedAt) *string {
+func (o FhirDatastoreCreatedAtPtrOutput) Seconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirDatastoreCreatedAt) *string {
 		if v == nil {
 			return nil
 		}
@@ -91,9 +91,9 @@ func (o FHIRDatastoreCreatedAtPtrOutput) Seconds() pulumi.StringPtrOutput {
 }
 
 // The identity provider configuration for the datastore
-type FHIRDatastoreIdentityProviderConfiguration struct {
+type FhirDatastoreIdentityProviderConfiguration struct {
 	// Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
-	AuthorizationStrategy FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy `pulumi:"authorizationStrategy"`
+	AuthorizationStrategy FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy `pulumi:"authorizationStrategy"`
 	// Flag to indicate if fine-grained authorization will be enabled for the datastore
 	FineGrainedAuthorizationEnabled *bool `pulumi:"fineGrainedAuthorizationEnabled"`
 	// The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
@@ -102,21 +102,21 @@ type FHIRDatastoreIdentityProviderConfiguration struct {
 	Metadata *string `pulumi:"metadata"`
 }
 
-// FHIRDatastoreIdentityProviderConfigurationInput is an input type that accepts FHIRDatastoreIdentityProviderConfigurationArgs and FHIRDatastoreIdentityProviderConfigurationOutput values.
-// You can construct a concrete instance of `FHIRDatastoreIdentityProviderConfigurationInput` via:
+// FhirDatastoreIdentityProviderConfigurationInput is an input type that accepts FhirDatastoreIdentityProviderConfigurationArgs and FhirDatastoreIdentityProviderConfigurationOutput values.
+// You can construct a concrete instance of `FhirDatastoreIdentityProviderConfigurationInput` via:
 //
-//	FHIRDatastoreIdentityProviderConfigurationArgs{...}
-type FHIRDatastoreIdentityProviderConfigurationInput interface {
+//	FhirDatastoreIdentityProviderConfigurationArgs{...}
+type FhirDatastoreIdentityProviderConfigurationInput interface {
 	pulumi.Input
 
-	ToFHIRDatastoreIdentityProviderConfigurationOutput() FHIRDatastoreIdentityProviderConfigurationOutput
-	ToFHIRDatastoreIdentityProviderConfigurationOutputWithContext(context.Context) FHIRDatastoreIdentityProviderConfigurationOutput
+	ToFhirDatastoreIdentityProviderConfigurationOutput() FhirDatastoreIdentityProviderConfigurationOutput
+	ToFhirDatastoreIdentityProviderConfigurationOutputWithContext(context.Context) FhirDatastoreIdentityProviderConfigurationOutput
 }
 
 // The identity provider configuration for the datastore
-type FHIRDatastoreIdentityProviderConfigurationArgs struct {
+type FhirDatastoreIdentityProviderConfigurationArgs struct {
 	// Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
-	AuthorizationStrategy FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyInput `pulumi:"authorizationStrategy"`
+	AuthorizationStrategy FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyInput `pulumi:"authorizationStrategy"`
 	// Flag to indicate if fine-grained authorization will be enabled for the datastore
 	FineGrainedAuthorizationEnabled pulumi.BoolPtrInput `pulumi:"fineGrainedAuthorizationEnabled"`
 	// The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
@@ -125,143 +125,143 @@ type FHIRDatastoreIdentityProviderConfigurationArgs struct {
 	Metadata pulumi.StringPtrInput `pulumi:"metadata"`
 }
 
-func (FHIRDatastoreIdentityProviderConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreIdentityProviderConfiguration)(nil)).Elem()
+func (FhirDatastoreIdentityProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreIdentityProviderConfiguration)(nil)).Elem()
 }
 
-func (i FHIRDatastoreIdentityProviderConfigurationArgs) ToFHIRDatastoreIdentityProviderConfigurationOutput() FHIRDatastoreIdentityProviderConfigurationOutput {
-	return i.ToFHIRDatastoreIdentityProviderConfigurationOutputWithContext(context.Background())
+func (i FhirDatastoreIdentityProviderConfigurationArgs) ToFhirDatastoreIdentityProviderConfigurationOutput() FhirDatastoreIdentityProviderConfigurationOutput {
+	return i.ToFhirDatastoreIdentityProviderConfigurationOutputWithContext(context.Background())
 }
 
-func (i FHIRDatastoreIdentityProviderConfigurationArgs) ToFHIRDatastoreIdentityProviderConfigurationOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreIdentityProviderConfigurationOutput)
+func (i FhirDatastoreIdentityProviderConfigurationArgs) ToFhirDatastoreIdentityProviderConfigurationOutputWithContext(ctx context.Context) FhirDatastoreIdentityProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreIdentityProviderConfigurationOutput)
 }
 
-func (i FHIRDatastoreIdentityProviderConfigurationArgs) ToFHIRDatastoreIdentityProviderConfigurationPtrOutput() FHIRDatastoreIdentityProviderConfigurationPtrOutput {
-	return i.ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+func (i FhirDatastoreIdentityProviderConfigurationArgs) ToFhirDatastoreIdentityProviderConfigurationPtrOutput() FhirDatastoreIdentityProviderConfigurationPtrOutput {
+	return i.ToFhirDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i FHIRDatastoreIdentityProviderConfigurationArgs) ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreIdentityProviderConfigurationOutput).ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx)
+func (i FhirDatastoreIdentityProviderConfigurationArgs) ToFhirDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FhirDatastoreIdentityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreIdentityProviderConfigurationOutput).ToFhirDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx)
 }
 
-// FHIRDatastoreIdentityProviderConfigurationPtrInput is an input type that accepts FHIRDatastoreIdentityProviderConfigurationArgs, FHIRDatastoreIdentityProviderConfigurationPtr and FHIRDatastoreIdentityProviderConfigurationPtrOutput values.
-// You can construct a concrete instance of `FHIRDatastoreIdentityProviderConfigurationPtrInput` via:
+// FhirDatastoreIdentityProviderConfigurationPtrInput is an input type that accepts FhirDatastoreIdentityProviderConfigurationArgs, FhirDatastoreIdentityProviderConfigurationPtr and FhirDatastoreIdentityProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `FhirDatastoreIdentityProviderConfigurationPtrInput` via:
 //
-//	        FHIRDatastoreIdentityProviderConfigurationArgs{...}
+//	        FhirDatastoreIdentityProviderConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type FHIRDatastoreIdentityProviderConfigurationPtrInput interface {
+type FhirDatastoreIdentityProviderConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToFHIRDatastoreIdentityProviderConfigurationPtrOutput() FHIRDatastoreIdentityProviderConfigurationPtrOutput
-	ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Context) FHIRDatastoreIdentityProviderConfigurationPtrOutput
+	ToFhirDatastoreIdentityProviderConfigurationPtrOutput() FhirDatastoreIdentityProviderConfigurationPtrOutput
+	ToFhirDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Context) FhirDatastoreIdentityProviderConfigurationPtrOutput
 }
 
-type fhirdatastoreIdentityProviderConfigurationPtrType FHIRDatastoreIdentityProviderConfigurationArgs
+type fhirDatastoreIdentityProviderConfigurationPtrType FhirDatastoreIdentityProviderConfigurationArgs
 
-func FHIRDatastoreIdentityProviderConfigurationPtr(v *FHIRDatastoreIdentityProviderConfigurationArgs) FHIRDatastoreIdentityProviderConfigurationPtrInput {
-	return (*fhirdatastoreIdentityProviderConfigurationPtrType)(v)
+func FhirDatastoreIdentityProviderConfigurationPtr(v *FhirDatastoreIdentityProviderConfigurationArgs) FhirDatastoreIdentityProviderConfigurationPtrInput {
+	return (*fhirDatastoreIdentityProviderConfigurationPtrType)(v)
 }
 
-func (*fhirdatastoreIdentityProviderConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastoreIdentityProviderConfiguration)(nil)).Elem()
+func (*fhirDatastoreIdentityProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastoreIdentityProviderConfiguration)(nil)).Elem()
 }
 
-func (i *fhirdatastoreIdentityProviderConfigurationPtrType) ToFHIRDatastoreIdentityProviderConfigurationPtrOutput() FHIRDatastoreIdentityProviderConfigurationPtrOutput {
-	return i.ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+func (i *fhirDatastoreIdentityProviderConfigurationPtrType) ToFhirDatastoreIdentityProviderConfigurationPtrOutput() FhirDatastoreIdentityProviderConfigurationPtrOutput {
+	return i.ToFhirDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *fhirdatastoreIdentityProviderConfigurationPtrType) ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreIdentityProviderConfigurationPtrOutput)
+func (i *fhirDatastoreIdentityProviderConfigurationPtrType) ToFhirDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FhirDatastoreIdentityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreIdentityProviderConfigurationPtrOutput)
 }
 
 // The identity provider configuration for the datastore
-type FHIRDatastoreIdentityProviderConfigurationOutput struct{ *pulumi.OutputState }
+type FhirDatastoreIdentityProviderConfigurationOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastoreIdentityProviderConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreIdentityProviderConfiguration)(nil)).Elem()
+func (FhirDatastoreIdentityProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreIdentityProviderConfiguration)(nil)).Elem()
 }
 
-func (o FHIRDatastoreIdentityProviderConfigurationOutput) ToFHIRDatastoreIdentityProviderConfigurationOutput() FHIRDatastoreIdentityProviderConfigurationOutput {
+func (o FhirDatastoreIdentityProviderConfigurationOutput) ToFhirDatastoreIdentityProviderConfigurationOutput() FhirDatastoreIdentityProviderConfigurationOutput {
 	return o
 }
 
-func (o FHIRDatastoreIdentityProviderConfigurationOutput) ToFHIRDatastoreIdentityProviderConfigurationOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationOutput {
+func (o FhirDatastoreIdentityProviderConfigurationOutput) ToFhirDatastoreIdentityProviderConfigurationOutputWithContext(ctx context.Context) FhirDatastoreIdentityProviderConfigurationOutput {
 	return o
 }
 
-func (o FHIRDatastoreIdentityProviderConfigurationOutput) ToFHIRDatastoreIdentityProviderConfigurationPtrOutput() FHIRDatastoreIdentityProviderConfigurationPtrOutput {
-	return o.ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+func (o FhirDatastoreIdentityProviderConfigurationOutput) ToFhirDatastoreIdentityProviderConfigurationPtrOutput() FhirDatastoreIdentityProviderConfigurationPtrOutput {
+	return o.ToFhirDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o FHIRDatastoreIdentityProviderConfigurationOutput) ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FHIRDatastoreIdentityProviderConfiguration) *FHIRDatastoreIdentityProviderConfiguration {
+func (o FhirDatastoreIdentityProviderConfigurationOutput) ToFhirDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FhirDatastoreIdentityProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirDatastoreIdentityProviderConfiguration) *FhirDatastoreIdentityProviderConfiguration {
 		return &v
-	}).(FHIRDatastoreIdentityProviderConfigurationPtrOutput)
+	}).(FhirDatastoreIdentityProviderConfigurationPtrOutput)
 }
 
 // Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
-func (o FHIRDatastoreIdentityProviderConfigurationOutput) AuthorizationStrategy() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
-	return o.ApplyT(func(v FHIRDatastoreIdentityProviderConfiguration) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy {
+func (o FhirDatastoreIdentityProviderConfigurationOutput) AuthorizationStrategy() FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
+	return o.ApplyT(func(v FhirDatastoreIdentityProviderConfiguration) FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy {
 		return v.AuthorizationStrategy
-	}).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput)
+	}).(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput)
 }
 
 // Flag to indicate if fine-grained authorization will be enabled for the datastore
-func (o FHIRDatastoreIdentityProviderConfigurationOutput) FineGrainedAuthorizationEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FHIRDatastoreIdentityProviderConfiguration) *bool { return v.FineGrainedAuthorizationEnabled }).(pulumi.BoolPtrOutput)
+func (o FhirDatastoreIdentityProviderConfigurationOutput) FineGrainedAuthorizationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FhirDatastoreIdentityProviderConfiguration) *bool { return v.FineGrainedAuthorizationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
-func (o FHIRDatastoreIdentityProviderConfigurationOutput) IdpLambdaArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FHIRDatastoreIdentityProviderConfiguration) *string { return v.IdpLambdaArn }).(pulumi.StringPtrOutput)
+func (o FhirDatastoreIdentityProviderConfigurationOutput) IdpLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirDatastoreIdentityProviderConfiguration) *string { return v.IdpLambdaArn }).(pulumi.StringPtrOutput)
 }
 
 // The JSON metadata elements for identity provider configuration.
-func (o FHIRDatastoreIdentityProviderConfigurationOutput) Metadata() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FHIRDatastoreIdentityProviderConfiguration) *string { return v.Metadata }).(pulumi.StringPtrOutput)
+func (o FhirDatastoreIdentityProviderConfigurationOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirDatastoreIdentityProviderConfiguration) *string { return v.Metadata }).(pulumi.StringPtrOutput)
 }
 
-type FHIRDatastoreIdentityProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+type FhirDatastoreIdentityProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastoreIdentityProviderConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastoreIdentityProviderConfiguration)(nil)).Elem()
+func (FhirDatastoreIdentityProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastoreIdentityProviderConfiguration)(nil)).Elem()
 }
 
-func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) ToFHIRDatastoreIdentityProviderConfigurationPtrOutput() FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+func (o FhirDatastoreIdentityProviderConfigurationPtrOutput) ToFhirDatastoreIdentityProviderConfigurationPtrOutput() FhirDatastoreIdentityProviderConfigurationPtrOutput {
 	return o
 }
 
-func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+func (o FhirDatastoreIdentityProviderConfigurationPtrOutput) ToFhirDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FhirDatastoreIdentityProviderConfigurationPtrOutput {
 	return o
 }
 
-func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) Elem() FHIRDatastoreIdentityProviderConfigurationOutput {
-	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfiguration) FHIRDatastoreIdentityProviderConfiguration {
+func (o FhirDatastoreIdentityProviderConfigurationPtrOutput) Elem() FhirDatastoreIdentityProviderConfigurationOutput {
+	return o.ApplyT(func(v *FhirDatastoreIdentityProviderConfiguration) FhirDatastoreIdentityProviderConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret FHIRDatastoreIdentityProviderConfiguration
+		var ret FhirDatastoreIdentityProviderConfiguration
 		return ret
-	}).(FHIRDatastoreIdentityProviderConfigurationOutput)
+	}).(FhirDatastoreIdentityProviderConfigurationOutput)
 }
 
 // Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
-func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) AuthorizationStrategy() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfiguration) *FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy {
+func (o FhirDatastoreIdentityProviderConfigurationPtrOutput) AuthorizationStrategy() FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
+	return o.ApplyT(func(v *FhirDatastoreIdentityProviderConfiguration) *FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy {
 		if v == nil {
 			return nil
 		}
 		return &v.AuthorizationStrategy
-	}).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput)
+	}).(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput)
 }
 
 // Flag to indicate if fine-grained authorization will be enabled for the datastore
-func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) FineGrainedAuthorizationEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfiguration) *bool {
+func (o FhirDatastoreIdentityProviderConfigurationPtrOutput) FineGrainedAuthorizationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FhirDatastoreIdentityProviderConfiguration) *bool {
 		if v == nil {
 			return nil
 		}
@@ -270,8 +270,8 @@ func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) FineGrainedAuthoriz
 }
 
 // The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
-func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) IdpLambdaArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfiguration) *string {
+func (o FhirDatastoreIdentityProviderConfigurationPtrOutput) IdpLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirDatastoreIdentityProviderConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -280,8 +280,8 @@ func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) IdpLambdaArn() pulu
 }
 
 // The JSON metadata elements for identity provider configuration.
-func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) Metadata() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfiguration) *string {
+func (o FhirDatastoreIdentityProviderConfigurationPtrOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirDatastoreIdentityProviderConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -290,157 +290,157 @@ func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) Metadata() pulumi.S
 }
 
 // The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
-type FHIRDatastoreKmsEncryptionConfig struct {
+type FhirDatastoreKmsEncryptionConfig struct {
 	// The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
-	CmkType FHIRDatastoreKmsEncryptionConfigCmkType `pulumi:"cmkType"`
+	CmkType FhirDatastoreKmsEncryptionConfigCmkType `pulumi:"cmkType"`
 	// The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
-// FHIRDatastoreKmsEncryptionConfigInput is an input type that accepts FHIRDatastoreKmsEncryptionConfigArgs and FHIRDatastoreKmsEncryptionConfigOutput values.
-// You can construct a concrete instance of `FHIRDatastoreKmsEncryptionConfigInput` via:
+// FhirDatastoreKmsEncryptionConfigInput is an input type that accepts FhirDatastoreKmsEncryptionConfigArgs and FhirDatastoreKmsEncryptionConfigOutput values.
+// You can construct a concrete instance of `FhirDatastoreKmsEncryptionConfigInput` via:
 //
-//	FHIRDatastoreKmsEncryptionConfigArgs{...}
-type FHIRDatastoreKmsEncryptionConfigInput interface {
+//	FhirDatastoreKmsEncryptionConfigArgs{...}
+type FhirDatastoreKmsEncryptionConfigInput interface {
 	pulumi.Input
 
-	ToFHIRDatastoreKmsEncryptionConfigOutput() FHIRDatastoreKmsEncryptionConfigOutput
-	ToFHIRDatastoreKmsEncryptionConfigOutputWithContext(context.Context) FHIRDatastoreKmsEncryptionConfigOutput
+	ToFhirDatastoreKmsEncryptionConfigOutput() FhirDatastoreKmsEncryptionConfigOutput
+	ToFhirDatastoreKmsEncryptionConfigOutputWithContext(context.Context) FhirDatastoreKmsEncryptionConfigOutput
 }
 
 // The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
-type FHIRDatastoreKmsEncryptionConfigArgs struct {
+type FhirDatastoreKmsEncryptionConfigArgs struct {
 	// The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
-	CmkType FHIRDatastoreKmsEncryptionConfigCmkTypeInput `pulumi:"cmkType"`
+	CmkType FhirDatastoreKmsEncryptionConfigCmkTypeInput `pulumi:"cmkType"`
 	// The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
-func (FHIRDatastoreKmsEncryptionConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfig)(nil)).Elem()
+func (FhirDatastoreKmsEncryptionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreKmsEncryptionConfig)(nil)).Elem()
 }
 
-func (i FHIRDatastoreKmsEncryptionConfigArgs) ToFHIRDatastoreKmsEncryptionConfigOutput() FHIRDatastoreKmsEncryptionConfigOutput {
-	return i.ToFHIRDatastoreKmsEncryptionConfigOutputWithContext(context.Background())
+func (i FhirDatastoreKmsEncryptionConfigArgs) ToFhirDatastoreKmsEncryptionConfigOutput() FhirDatastoreKmsEncryptionConfigOutput {
+	return i.ToFhirDatastoreKmsEncryptionConfigOutputWithContext(context.Background())
 }
 
-func (i FHIRDatastoreKmsEncryptionConfigArgs) ToFHIRDatastoreKmsEncryptionConfigOutputWithContext(ctx context.Context) FHIRDatastoreKmsEncryptionConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreKmsEncryptionConfigOutput)
+func (i FhirDatastoreKmsEncryptionConfigArgs) ToFhirDatastoreKmsEncryptionConfigOutputWithContext(ctx context.Context) FhirDatastoreKmsEncryptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreKmsEncryptionConfigOutput)
 }
 
-func (i FHIRDatastoreKmsEncryptionConfigArgs) ToFHIRDatastoreKmsEncryptionConfigPtrOutput() FHIRDatastoreKmsEncryptionConfigPtrOutput {
-	return i.ToFHIRDatastoreKmsEncryptionConfigPtrOutputWithContext(context.Background())
+func (i FhirDatastoreKmsEncryptionConfigArgs) ToFhirDatastoreKmsEncryptionConfigPtrOutput() FhirDatastoreKmsEncryptionConfigPtrOutput {
+	return i.ToFhirDatastoreKmsEncryptionConfigPtrOutputWithContext(context.Background())
 }
 
-func (i FHIRDatastoreKmsEncryptionConfigArgs) ToFHIRDatastoreKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) FHIRDatastoreKmsEncryptionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreKmsEncryptionConfigOutput).ToFHIRDatastoreKmsEncryptionConfigPtrOutputWithContext(ctx)
+func (i FhirDatastoreKmsEncryptionConfigArgs) ToFhirDatastoreKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) FhirDatastoreKmsEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreKmsEncryptionConfigOutput).ToFhirDatastoreKmsEncryptionConfigPtrOutputWithContext(ctx)
 }
 
-// FHIRDatastoreKmsEncryptionConfigPtrInput is an input type that accepts FHIRDatastoreKmsEncryptionConfigArgs, FHIRDatastoreKmsEncryptionConfigPtr and FHIRDatastoreKmsEncryptionConfigPtrOutput values.
-// You can construct a concrete instance of `FHIRDatastoreKmsEncryptionConfigPtrInput` via:
+// FhirDatastoreKmsEncryptionConfigPtrInput is an input type that accepts FhirDatastoreKmsEncryptionConfigArgs, FhirDatastoreKmsEncryptionConfigPtr and FhirDatastoreKmsEncryptionConfigPtrOutput values.
+// You can construct a concrete instance of `FhirDatastoreKmsEncryptionConfigPtrInput` via:
 //
-//	        FHIRDatastoreKmsEncryptionConfigArgs{...}
+//	        FhirDatastoreKmsEncryptionConfigArgs{...}
 //
 //	or:
 //
 //	        nil
-type FHIRDatastoreKmsEncryptionConfigPtrInput interface {
+type FhirDatastoreKmsEncryptionConfigPtrInput interface {
 	pulumi.Input
 
-	ToFHIRDatastoreKmsEncryptionConfigPtrOutput() FHIRDatastoreKmsEncryptionConfigPtrOutput
-	ToFHIRDatastoreKmsEncryptionConfigPtrOutputWithContext(context.Context) FHIRDatastoreKmsEncryptionConfigPtrOutput
+	ToFhirDatastoreKmsEncryptionConfigPtrOutput() FhirDatastoreKmsEncryptionConfigPtrOutput
+	ToFhirDatastoreKmsEncryptionConfigPtrOutputWithContext(context.Context) FhirDatastoreKmsEncryptionConfigPtrOutput
 }
 
-type fhirdatastoreKmsEncryptionConfigPtrType FHIRDatastoreKmsEncryptionConfigArgs
+type fhirDatastoreKmsEncryptionConfigPtrType FhirDatastoreKmsEncryptionConfigArgs
 
-func FHIRDatastoreKmsEncryptionConfigPtr(v *FHIRDatastoreKmsEncryptionConfigArgs) FHIRDatastoreKmsEncryptionConfigPtrInput {
-	return (*fhirdatastoreKmsEncryptionConfigPtrType)(v)
+func FhirDatastoreKmsEncryptionConfigPtr(v *FhirDatastoreKmsEncryptionConfigArgs) FhirDatastoreKmsEncryptionConfigPtrInput {
+	return (*fhirDatastoreKmsEncryptionConfigPtrType)(v)
 }
 
-func (*fhirdatastoreKmsEncryptionConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastoreKmsEncryptionConfig)(nil)).Elem()
+func (*fhirDatastoreKmsEncryptionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastoreKmsEncryptionConfig)(nil)).Elem()
 }
 
-func (i *fhirdatastoreKmsEncryptionConfigPtrType) ToFHIRDatastoreKmsEncryptionConfigPtrOutput() FHIRDatastoreKmsEncryptionConfigPtrOutput {
-	return i.ToFHIRDatastoreKmsEncryptionConfigPtrOutputWithContext(context.Background())
+func (i *fhirDatastoreKmsEncryptionConfigPtrType) ToFhirDatastoreKmsEncryptionConfigPtrOutput() FhirDatastoreKmsEncryptionConfigPtrOutput {
+	return i.ToFhirDatastoreKmsEncryptionConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *fhirdatastoreKmsEncryptionConfigPtrType) ToFHIRDatastoreKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) FHIRDatastoreKmsEncryptionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreKmsEncryptionConfigPtrOutput)
+func (i *fhirDatastoreKmsEncryptionConfigPtrType) ToFhirDatastoreKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) FhirDatastoreKmsEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreKmsEncryptionConfigPtrOutput)
 }
 
 // The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
-type FHIRDatastoreKmsEncryptionConfigOutput struct{ *pulumi.OutputState }
+type FhirDatastoreKmsEncryptionConfigOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastoreKmsEncryptionConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfig)(nil)).Elem()
+func (FhirDatastoreKmsEncryptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreKmsEncryptionConfig)(nil)).Elem()
 }
 
-func (o FHIRDatastoreKmsEncryptionConfigOutput) ToFHIRDatastoreKmsEncryptionConfigOutput() FHIRDatastoreKmsEncryptionConfigOutput {
+func (o FhirDatastoreKmsEncryptionConfigOutput) ToFhirDatastoreKmsEncryptionConfigOutput() FhirDatastoreKmsEncryptionConfigOutput {
 	return o
 }
 
-func (o FHIRDatastoreKmsEncryptionConfigOutput) ToFHIRDatastoreKmsEncryptionConfigOutputWithContext(ctx context.Context) FHIRDatastoreKmsEncryptionConfigOutput {
+func (o FhirDatastoreKmsEncryptionConfigOutput) ToFhirDatastoreKmsEncryptionConfigOutputWithContext(ctx context.Context) FhirDatastoreKmsEncryptionConfigOutput {
 	return o
 }
 
-func (o FHIRDatastoreKmsEncryptionConfigOutput) ToFHIRDatastoreKmsEncryptionConfigPtrOutput() FHIRDatastoreKmsEncryptionConfigPtrOutput {
-	return o.ToFHIRDatastoreKmsEncryptionConfigPtrOutputWithContext(context.Background())
+func (o FhirDatastoreKmsEncryptionConfigOutput) ToFhirDatastoreKmsEncryptionConfigPtrOutput() FhirDatastoreKmsEncryptionConfigPtrOutput {
+	return o.ToFhirDatastoreKmsEncryptionConfigPtrOutputWithContext(context.Background())
 }
 
-func (o FHIRDatastoreKmsEncryptionConfigOutput) ToFHIRDatastoreKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) FHIRDatastoreKmsEncryptionConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FHIRDatastoreKmsEncryptionConfig) *FHIRDatastoreKmsEncryptionConfig {
+func (o FhirDatastoreKmsEncryptionConfigOutput) ToFhirDatastoreKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) FhirDatastoreKmsEncryptionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirDatastoreKmsEncryptionConfig) *FhirDatastoreKmsEncryptionConfig {
 		return &v
-	}).(FHIRDatastoreKmsEncryptionConfigPtrOutput)
+	}).(FhirDatastoreKmsEncryptionConfigPtrOutput)
 }
 
 // The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
-func (o FHIRDatastoreKmsEncryptionConfigOutput) CmkType() FHIRDatastoreKmsEncryptionConfigCmkTypeOutput {
-	return o.ApplyT(func(v FHIRDatastoreKmsEncryptionConfig) FHIRDatastoreKmsEncryptionConfigCmkType { return v.CmkType }).(FHIRDatastoreKmsEncryptionConfigCmkTypeOutput)
+func (o FhirDatastoreKmsEncryptionConfigOutput) CmkType() FhirDatastoreKmsEncryptionConfigCmkTypeOutput {
+	return o.ApplyT(func(v FhirDatastoreKmsEncryptionConfig) FhirDatastoreKmsEncryptionConfigCmkType { return v.CmkType }).(FhirDatastoreKmsEncryptionConfigCmkTypeOutput)
 }
 
 // The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
-func (o FHIRDatastoreKmsEncryptionConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FHIRDatastoreKmsEncryptionConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+func (o FhirDatastoreKmsEncryptionConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirDatastoreKmsEncryptionConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-type FHIRDatastoreKmsEncryptionConfigPtrOutput struct{ *pulumi.OutputState }
+type FhirDatastoreKmsEncryptionConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastoreKmsEncryptionConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastoreKmsEncryptionConfig)(nil)).Elem()
+func (FhirDatastoreKmsEncryptionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastoreKmsEncryptionConfig)(nil)).Elem()
 }
 
-func (o FHIRDatastoreKmsEncryptionConfigPtrOutput) ToFHIRDatastoreKmsEncryptionConfigPtrOutput() FHIRDatastoreKmsEncryptionConfigPtrOutput {
+func (o FhirDatastoreKmsEncryptionConfigPtrOutput) ToFhirDatastoreKmsEncryptionConfigPtrOutput() FhirDatastoreKmsEncryptionConfigPtrOutput {
 	return o
 }
 
-func (o FHIRDatastoreKmsEncryptionConfigPtrOutput) ToFHIRDatastoreKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) FHIRDatastoreKmsEncryptionConfigPtrOutput {
+func (o FhirDatastoreKmsEncryptionConfigPtrOutput) ToFhirDatastoreKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) FhirDatastoreKmsEncryptionConfigPtrOutput {
 	return o
 }
 
-func (o FHIRDatastoreKmsEncryptionConfigPtrOutput) Elem() FHIRDatastoreKmsEncryptionConfigOutput {
-	return o.ApplyT(func(v *FHIRDatastoreKmsEncryptionConfig) FHIRDatastoreKmsEncryptionConfig {
+func (o FhirDatastoreKmsEncryptionConfigPtrOutput) Elem() FhirDatastoreKmsEncryptionConfigOutput {
+	return o.ApplyT(func(v *FhirDatastoreKmsEncryptionConfig) FhirDatastoreKmsEncryptionConfig {
 		if v != nil {
 			return *v
 		}
-		var ret FHIRDatastoreKmsEncryptionConfig
+		var ret FhirDatastoreKmsEncryptionConfig
 		return ret
-	}).(FHIRDatastoreKmsEncryptionConfigOutput)
+	}).(FhirDatastoreKmsEncryptionConfigOutput)
 }
 
 // The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
-func (o FHIRDatastoreKmsEncryptionConfigPtrOutput) CmkType() FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreKmsEncryptionConfig) *FHIRDatastoreKmsEncryptionConfigCmkType {
+func (o FhirDatastoreKmsEncryptionConfigPtrOutput) CmkType() FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput {
+	return o.ApplyT(func(v *FhirDatastoreKmsEncryptionConfig) *FhirDatastoreKmsEncryptionConfigCmkType {
 		if v == nil {
 			return nil
 		}
 		return &v.CmkType
-	}).(FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput)
+	}).(FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput)
 }
 
 // The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
-func (o FHIRDatastoreKmsEncryptionConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreKmsEncryptionConfig) *string {
+func (o FhirDatastoreKmsEncryptionConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirDatastoreKmsEncryptionConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -449,413 +449,413 @@ func (o FHIRDatastoreKmsEncryptionConfigPtrOutput) KmsKeyId() pulumi.StringPtrOu
 }
 
 // The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
-type FHIRDatastorePreloadDataConfig struct {
+type FhirDatastorePreloadDataConfig struct {
 	// The type of preloaded data. Only Synthea preloaded data is supported.
-	PreloadDataType FHIRDatastorePreloadDataConfigPreloadDataType `pulumi:"preloadDataType"`
+	PreloadDataType FhirDatastorePreloadDataConfigPreloadDataType `pulumi:"preloadDataType"`
 }
 
-// FHIRDatastorePreloadDataConfigInput is an input type that accepts FHIRDatastorePreloadDataConfigArgs and FHIRDatastorePreloadDataConfigOutput values.
-// You can construct a concrete instance of `FHIRDatastorePreloadDataConfigInput` via:
+// FhirDatastorePreloadDataConfigInput is an input type that accepts FhirDatastorePreloadDataConfigArgs and FhirDatastorePreloadDataConfigOutput values.
+// You can construct a concrete instance of `FhirDatastorePreloadDataConfigInput` via:
 //
-//	FHIRDatastorePreloadDataConfigArgs{...}
-type FHIRDatastorePreloadDataConfigInput interface {
+//	FhirDatastorePreloadDataConfigArgs{...}
+type FhirDatastorePreloadDataConfigInput interface {
 	pulumi.Input
 
-	ToFHIRDatastorePreloadDataConfigOutput() FHIRDatastorePreloadDataConfigOutput
-	ToFHIRDatastorePreloadDataConfigOutputWithContext(context.Context) FHIRDatastorePreloadDataConfigOutput
+	ToFhirDatastorePreloadDataConfigOutput() FhirDatastorePreloadDataConfigOutput
+	ToFhirDatastorePreloadDataConfigOutputWithContext(context.Context) FhirDatastorePreloadDataConfigOutput
 }
 
 // The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
-type FHIRDatastorePreloadDataConfigArgs struct {
+type FhirDatastorePreloadDataConfigArgs struct {
 	// The type of preloaded data. Only Synthea preloaded data is supported.
-	PreloadDataType FHIRDatastorePreloadDataConfigPreloadDataTypeInput `pulumi:"preloadDataType"`
+	PreloadDataType FhirDatastorePreloadDataConfigPreloadDataTypeInput `pulumi:"preloadDataType"`
 }
 
-func (FHIRDatastorePreloadDataConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastorePreloadDataConfig)(nil)).Elem()
+func (FhirDatastorePreloadDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastorePreloadDataConfig)(nil)).Elem()
 }
 
-func (i FHIRDatastorePreloadDataConfigArgs) ToFHIRDatastorePreloadDataConfigOutput() FHIRDatastorePreloadDataConfigOutput {
-	return i.ToFHIRDatastorePreloadDataConfigOutputWithContext(context.Background())
+func (i FhirDatastorePreloadDataConfigArgs) ToFhirDatastorePreloadDataConfigOutput() FhirDatastorePreloadDataConfigOutput {
+	return i.ToFhirDatastorePreloadDataConfigOutputWithContext(context.Background())
 }
 
-func (i FHIRDatastorePreloadDataConfigArgs) ToFHIRDatastorePreloadDataConfigOutputWithContext(ctx context.Context) FHIRDatastorePreloadDataConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastorePreloadDataConfigOutput)
+func (i FhirDatastorePreloadDataConfigArgs) ToFhirDatastorePreloadDataConfigOutputWithContext(ctx context.Context) FhirDatastorePreloadDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastorePreloadDataConfigOutput)
 }
 
-func (i FHIRDatastorePreloadDataConfigArgs) ToFHIRDatastorePreloadDataConfigPtrOutput() FHIRDatastorePreloadDataConfigPtrOutput {
-	return i.ToFHIRDatastorePreloadDataConfigPtrOutputWithContext(context.Background())
+func (i FhirDatastorePreloadDataConfigArgs) ToFhirDatastorePreloadDataConfigPtrOutput() FhirDatastorePreloadDataConfigPtrOutput {
+	return i.ToFhirDatastorePreloadDataConfigPtrOutputWithContext(context.Background())
 }
 
-func (i FHIRDatastorePreloadDataConfigArgs) ToFHIRDatastorePreloadDataConfigPtrOutputWithContext(ctx context.Context) FHIRDatastorePreloadDataConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastorePreloadDataConfigOutput).ToFHIRDatastorePreloadDataConfigPtrOutputWithContext(ctx)
+func (i FhirDatastorePreloadDataConfigArgs) ToFhirDatastorePreloadDataConfigPtrOutputWithContext(ctx context.Context) FhirDatastorePreloadDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastorePreloadDataConfigOutput).ToFhirDatastorePreloadDataConfigPtrOutputWithContext(ctx)
 }
 
-// FHIRDatastorePreloadDataConfigPtrInput is an input type that accepts FHIRDatastorePreloadDataConfigArgs, FHIRDatastorePreloadDataConfigPtr and FHIRDatastorePreloadDataConfigPtrOutput values.
-// You can construct a concrete instance of `FHIRDatastorePreloadDataConfigPtrInput` via:
+// FhirDatastorePreloadDataConfigPtrInput is an input type that accepts FhirDatastorePreloadDataConfigArgs, FhirDatastorePreloadDataConfigPtr and FhirDatastorePreloadDataConfigPtrOutput values.
+// You can construct a concrete instance of `FhirDatastorePreloadDataConfigPtrInput` via:
 //
-//	        FHIRDatastorePreloadDataConfigArgs{...}
+//	        FhirDatastorePreloadDataConfigArgs{...}
 //
 //	or:
 //
 //	        nil
-type FHIRDatastorePreloadDataConfigPtrInput interface {
+type FhirDatastorePreloadDataConfigPtrInput interface {
 	pulumi.Input
 
-	ToFHIRDatastorePreloadDataConfigPtrOutput() FHIRDatastorePreloadDataConfigPtrOutput
-	ToFHIRDatastorePreloadDataConfigPtrOutputWithContext(context.Context) FHIRDatastorePreloadDataConfigPtrOutput
+	ToFhirDatastorePreloadDataConfigPtrOutput() FhirDatastorePreloadDataConfigPtrOutput
+	ToFhirDatastorePreloadDataConfigPtrOutputWithContext(context.Context) FhirDatastorePreloadDataConfigPtrOutput
 }
 
-type fhirdatastorePreloadDataConfigPtrType FHIRDatastorePreloadDataConfigArgs
+type fhirDatastorePreloadDataConfigPtrType FhirDatastorePreloadDataConfigArgs
 
-func FHIRDatastorePreloadDataConfigPtr(v *FHIRDatastorePreloadDataConfigArgs) FHIRDatastorePreloadDataConfigPtrInput {
-	return (*fhirdatastorePreloadDataConfigPtrType)(v)
+func FhirDatastorePreloadDataConfigPtr(v *FhirDatastorePreloadDataConfigArgs) FhirDatastorePreloadDataConfigPtrInput {
+	return (*fhirDatastorePreloadDataConfigPtrType)(v)
 }
 
-func (*fhirdatastorePreloadDataConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastorePreloadDataConfig)(nil)).Elem()
+func (*fhirDatastorePreloadDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastorePreloadDataConfig)(nil)).Elem()
 }
 
-func (i *fhirdatastorePreloadDataConfigPtrType) ToFHIRDatastorePreloadDataConfigPtrOutput() FHIRDatastorePreloadDataConfigPtrOutput {
-	return i.ToFHIRDatastorePreloadDataConfigPtrOutputWithContext(context.Background())
+func (i *fhirDatastorePreloadDataConfigPtrType) ToFhirDatastorePreloadDataConfigPtrOutput() FhirDatastorePreloadDataConfigPtrOutput {
+	return i.ToFhirDatastorePreloadDataConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *fhirdatastorePreloadDataConfigPtrType) ToFHIRDatastorePreloadDataConfigPtrOutputWithContext(ctx context.Context) FHIRDatastorePreloadDataConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastorePreloadDataConfigPtrOutput)
+func (i *fhirDatastorePreloadDataConfigPtrType) ToFhirDatastorePreloadDataConfigPtrOutputWithContext(ctx context.Context) FhirDatastorePreloadDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastorePreloadDataConfigPtrOutput)
 }
 
 // The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
-type FHIRDatastorePreloadDataConfigOutput struct{ *pulumi.OutputState }
+type FhirDatastorePreloadDataConfigOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastorePreloadDataConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastorePreloadDataConfig)(nil)).Elem()
+func (FhirDatastorePreloadDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastorePreloadDataConfig)(nil)).Elem()
 }
 
-func (o FHIRDatastorePreloadDataConfigOutput) ToFHIRDatastorePreloadDataConfigOutput() FHIRDatastorePreloadDataConfigOutput {
+func (o FhirDatastorePreloadDataConfigOutput) ToFhirDatastorePreloadDataConfigOutput() FhirDatastorePreloadDataConfigOutput {
 	return o
 }
 
-func (o FHIRDatastorePreloadDataConfigOutput) ToFHIRDatastorePreloadDataConfigOutputWithContext(ctx context.Context) FHIRDatastorePreloadDataConfigOutput {
+func (o FhirDatastorePreloadDataConfigOutput) ToFhirDatastorePreloadDataConfigOutputWithContext(ctx context.Context) FhirDatastorePreloadDataConfigOutput {
 	return o
 }
 
-func (o FHIRDatastorePreloadDataConfigOutput) ToFHIRDatastorePreloadDataConfigPtrOutput() FHIRDatastorePreloadDataConfigPtrOutput {
-	return o.ToFHIRDatastorePreloadDataConfigPtrOutputWithContext(context.Background())
+func (o FhirDatastorePreloadDataConfigOutput) ToFhirDatastorePreloadDataConfigPtrOutput() FhirDatastorePreloadDataConfigPtrOutput {
+	return o.ToFhirDatastorePreloadDataConfigPtrOutputWithContext(context.Background())
 }
 
-func (o FHIRDatastorePreloadDataConfigOutput) ToFHIRDatastorePreloadDataConfigPtrOutputWithContext(ctx context.Context) FHIRDatastorePreloadDataConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FHIRDatastorePreloadDataConfig) *FHIRDatastorePreloadDataConfig {
+func (o FhirDatastorePreloadDataConfigOutput) ToFhirDatastorePreloadDataConfigPtrOutputWithContext(ctx context.Context) FhirDatastorePreloadDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirDatastorePreloadDataConfig) *FhirDatastorePreloadDataConfig {
 		return &v
-	}).(FHIRDatastorePreloadDataConfigPtrOutput)
+	}).(FhirDatastorePreloadDataConfigPtrOutput)
 }
 
 // The type of preloaded data. Only Synthea preloaded data is supported.
-func (o FHIRDatastorePreloadDataConfigOutput) PreloadDataType() FHIRDatastorePreloadDataConfigPreloadDataTypeOutput {
-	return o.ApplyT(func(v FHIRDatastorePreloadDataConfig) FHIRDatastorePreloadDataConfigPreloadDataType {
+func (o FhirDatastorePreloadDataConfigOutput) PreloadDataType() FhirDatastorePreloadDataConfigPreloadDataTypeOutput {
+	return o.ApplyT(func(v FhirDatastorePreloadDataConfig) FhirDatastorePreloadDataConfigPreloadDataType {
 		return v.PreloadDataType
-	}).(FHIRDatastorePreloadDataConfigPreloadDataTypeOutput)
+	}).(FhirDatastorePreloadDataConfigPreloadDataTypeOutput)
 }
 
-type FHIRDatastorePreloadDataConfigPtrOutput struct{ *pulumi.OutputState }
+type FhirDatastorePreloadDataConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastorePreloadDataConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastorePreloadDataConfig)(nil)).Elem()
+func (FhirDatastorePreloadDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastorePreloadDataConfig)(nil)).Elem()
 }
 
-func (o FHIRDatastorePreloadDataConfigPtrOutput) ToFHIRDatastorePreloadDataConfigPtrOutput() FHIRDatastorePreloadDataConfigPtrOutput {
+func (o FhirDatastorePreloadDataConfigPtrOutput) ToFhirDatastorePreloadDataConfigPtrOutput() FhirDatastorePreloadDataConfigPtrOutput {
 	return o
 }
 
-func (o FHIRDatastorePreloadDataConfigPtrOutput) ToFHIRDatastorePreloadDataConfigPtrOutputWithContext(ctx context.Context) FHIRDatastorePreloadDataConfigPtrOutput {
+func (o FhirDatastorePreloadDataConfigPtrOutput) ToFhirDatastorePreloadDataConfigPtrOutputWithContext(ctx context.Context) FhirDatastorePreloadDataConfigPtrOutput {
 	return o
 }
 
-func (o FHIRDatastorePreloadDataConfigPtrOutput) Elem() FHIRDatastorePreloadDataConfigOutput {
-	return o.ApplyT(func(v *FHIRDatastorePreloadDataConfig) FHIRDatastorePreloadDataConfig {
+func (o FhirDatastorePreloadDataConfigPtrOutput) Elem() FhirDatastorePreloadDataConfigOutput {
+	return o.ApplyT(func(v *FhirDatastorePreloadDataConfig) FhirDatastorePreloadDataConfig {
 		if v != nil {
 			return *v
 		}
-		var ret FHIRDatastorePreloadDataConfig
+		var ret FhirDatastorePreloadDataConfig
 		return ret
-	}).(FHIRDatastorePreloadDataConfigOutput)
+	}).(FhirDatastorePreloadDataConfigOutput)
 }
 
 // The type of preloaded data. Only Synthea preloaded data is supported.
-func (o FHIRDatastorePreloadDataConfigPtrOutput) PreloadDataType() FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput {
-	return o.ApplyT(func(v *FHIRDatastorePreloadDataConfig) *FHIRDatastorePreloadDataConfigPreloadDataType {
+func (o FhirDatastorePreloadDataConfigPtrOutput) PreloadDataType() FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput {
+	return o.ApplyT(func(v *FhirDatastorePreloadDataConfig) *FhirDatastorePreloadDataConfigPreloadDataType {
 		if v == nil {
 			return nil
 		}
 		return &v.PreloadDataType
-	}).(FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput)
+	}).(FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput)
 }
 
 // The server-side encryption key configuration for a customer provided encryption key.
-type FHIRDatastoreSseConfiguration struct {
-	KmsEncryptionConfig FHIRDatastoreKmsEncryptionConfig `pulumi:"kmsEncryptionConfig"`
+type FhirDatastoreSseConfiguration struct {
+	KmsEncryptionConfig FhirDatastoreKmsEncryptionConfig `pulumi:"kmsEncryptionConfig"`
 }
 
-// FHIRDatastoreSseConfigurationInput is an input type that accepts FHIRDatastoreSseConfigurationArgs and FHIRDatastoreSseConfigurationOutput values.
-// You can construct a concrete instance of `FHIRDatastoreSseConfigurationInput` via:
+// FhirDatastoreSseConfigurationInput is an input type that accepts FhirDatastoreSseConfigurationArgs and FhirDatastoreSseConfigurationOutput values.
+// You can construct a concrete instance of `FhirDatastoreSseConfigurationInput` via:
 //
-//	FHIRDatastoreSseConfigurationArgs{...}
-type FHIRDatastoreSseConfigurationInput interface {
+//	FhirDatastoreSseConfigurationArgs{...}
+type FhirDatastoreSseConfigurationInput interface {
 	pulumi.Input
 
-	ToFHIRDatastoreSseConfigurationOutput() FHIRDatastoreSseConfigurationOutput
-	ToFHIRDatastoreSseConfigurationOutputWithContext(context.Context) FHIRDatastoreSseConfigurationOutput
+	ToFhirDatastoreSseConfigurationOutput() FhirDatastoreSseConfigurationOutput
+	ToFhirDatastoreSseConfigurationOutputWithContext(context.Context) FhirDatastoreSseConfigurationOutput
 }
 
 // The server-side encryption key configuration for a customer provided encryption key.
-type FHIRDatastoreSseConfigurationArgs struct {
-	KmsEncryptionConfig FHIRDatastoreKmsEncryptionConfigInput `pulumi:"kmsEncryptionConfig"`
+type FhirDatastoreSseConfigurationArgs struct {
+	KmsEncryptionConfig FhirDatastoreKmsEncryptionConfigInput `pulumi:"kmsEncryptionConfig"`
 }
 
-func (FHIRDatastoreSseConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreSseConfiguration)(nil)).Elem()
+func (FhirDatastoreSseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreSseConfiguration)(nil)).Elem()
 }
 
-func (i FHIRDatastoreSseConfigurationArgs) ToFHIRDatastoreSseConfigurationOutput() FHIRDatastoreSseConfigurationOutput {
-	return i.ToFHIRDatastoreSseConfigurationOutputWithContext(context.Background())
+func (i FhirDatastoreSseConfigurationArgs) ToFhirDatastoreSseConfigurationOutput() FhirDatastoreSseConfigurationOutput {
+	return i.ToFhirDatastoreSseConfigurationOutputWithContext(context.Background())
 }
 
-func (i FHIRDatastoreSseConfigurationArgs) ToFHIRDatastoreSseConfigurationOutputWithContext(ctx context.Context) FHIRDatastoreSseConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreSseConfigurationOutput)
+func (i FhirDatastoreSseConfigurationArgs) ToFhirDatastoreSseConfigurationOutputWithContext(ctx context.Context) FhirDatastoreSseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreSseConfigurationOutput)
 }
 
-func (i FHIRDatastoreSseConfigurationArgs) ToFHIRDatastoreSseConfigurationPtrOutput() FHIRDatastoreSseConfigurationPtrOutput {
-	return i.ToFHIRDatastoreSseConfigurationPtrOutputWithContext(context.Background())
+func (i FhirDatastoreSseConfigurationArgs) ToFhirDatastoreSseConfigurationPtrOutput() FhirDatastoreSseConfigurationPtrOutput {
+	return i.ToFhirDatastoreSseConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i FHIRDatastoreSseConfigurationArgs) ToFHIRDatastoreSseConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreSseConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreSseConfigurationOutput).ToFHIRDatastoreSseConfigurationPtrOutputWithContext(ctx)
+func (i FhirDatastoreSseConfigurationArgs) ToFhirDatastoreSseConfigurationPtrOutputWithContext(ctx context.Context) FhirDatastoreSseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreSseConfigurationOutput).ToFhirDatastoreSseConfigurationPtrOutputWithContext(ctx)
 }
 
-// FHIRDatastoreSseConfigurationPtrInput is an input type that accepts FHIRDatastoreSseConfigurationArgs, FHIRDatastoreSseConfigurationPtr and FHIRDatastoreSseConfigurationPtrOutput values.
-// You can construct a concrete instance of `FHIRDatastoreSseConfigurationPtrInput` via:
+// FhirDatastoreSseConfigurationPtrInput is an input type that accepts FhirDatastoreSseConfigurationArgs, FhirDatastoreSseConfigurationPtr and FhirDatastoreSseConfigurationPtrOutput values.
+// You can construct a concrete instance of `FhirDatastoreSseConfigurationPtrInput` via:
 //
-//	        FHIRDatastoreSseConfigurationArgs{...}
+//	        FhirDatastoreSseConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type FHIRDatastoreSseConfigurationPtrInput interface {
+type FhirDatastoreSseConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToFHIRDatastoreSseConfigurationPtrOutput() FHIRDatastoreSseConfigurationPtrOutput
-	ToFHIRDatastoreSseConfigurationPtrOutputWithContext(context.Context) FHIRDatastoreSseConfigurationPtrOutput
+	ToFhirDatastoreSseConfigurationPtrOutput() FhirDatastoreSseConfigurationPtrOutput
+	ToFhirDatastoreSseConfigurationPtrOutputWithContext(context.Context) FhirDatastoreSseConfigurationPtrOutput
 }
 
-type fhirdatastoreSseConfigurationPtrType FHIRDatastoreSseConfigurationArgs
+type fhirDatastoreSseConfigurationPtrType FhirDatastoreSseConfigurationArgs
 
-func FHIRDatastoreSseConfigurationPtr(v *FHIRDatastoreSseConfigurationArgs) FHIRDatastoreSseConfigurationPtrInput {
-	return (*fhirdatastoreSseConfigurationPtrType)(v)
+func FhirDatastoreSseConfigurationPtr(v *FhirDatastoreSseConfigurationArgs) FhirDatastoreSseConfigurationPtrInput {
+	return (*fhirDatastoreSseConfigurationPtrType)(v)
 }
 
-func (*fhirdatastoreSseConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastoreSseConfiguration)(nil)).Elem()
+func (*fhirDatastoreSseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastoreSseConfiguration)(nil)).Elem()
 }
 
-func (i *fhirdatastoreSseConfigurationPtrType) ToFHIRDatastoreSseConfigurationPtrOutput() FHIRDatastoreSseConfigurationPtrOutput {
-	return i.ToFHIRDatastoreSseConfigurationPtrOutputWithContext(context.Background())
+func (i *fhirDatastoreSseConfigurationPtrType) ToFhirDatastoreSseConfigurationPtrOutput() FhirDatastoreSseConfigurationPtrOutput {
+	return i.ToFhirDatastoreSseConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *fhirdatastoreSseConfigurationPtrType) ToFHIRDatastoreSseConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreSseConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreSseConfigurationPtrOutput)
+func (i *fhirDatastoreSseConfigurationPtrType) ToFhirDatastoreSseConfigurationPtrOutputWithContext(ctx context.Context) FhirDatastoreSseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreSseConfigurationPtrOutput)
 }
 
 // The server-side encryption key configuration for a customer provided encryption key.
-type FHIRDatastoreSseConfigurationOutput struct{ *pulumi.OutputState }
+type FhirDatastoreSseConfigurationOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastoreSseConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreSseConfiguration)(nil)).Elem()
+func (FhirDatastoreSseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreSseConfiguration)(nil)).Elem()
 }
 
-func (o FHIRDatastoreSseConfigurationOutput) ToFHIRDatastoreSseConfigurationOutput() FHIRDatastoreSseConfigurationOutput {
+func (o FhirDatastoreSseConfigurationOutput) ToFhirDatastoreSseConfigurationOutput() FhirDatastoreSseConfigurationOutput {
 	return o
 }
 
-func (o FHIRDatastoreSseConfigurationOutput) ToFHIRDatastoreSseConfigurationOutputWithContext(ctx context.Context) FHIRDatastoreSseConfigurationOutput {
+func (o FhirDatastoreSseConfigurationOutput) ToFhirDatastoreSseConfigurationOutputWithContext(ctx context.Context) FhirDatastoreSseConfigurationOutput {
 	return o
 }
 
-func (o FHIRDatastoreSseConfigurationOutput) ToFHIRDatastoreSseConfigurationPtrOutput() FHIRDatastoreSseConfigurationPtrOutput {
-	return o.ToFHIRDatastoreSseConfigurationPtrOutputWithContext(context.Background())
+func (o FhirDatastoreSseConfigurationOutput) ToFhirDatastoreSseConfigurationPtrOutput() FhirDatastoreSseConfigurationPtrOutput {
+	return o.ToFhirDatastoreSseConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o FHIRDatastoreSseConfigurationOutput) ToFHIRDatastoreSseConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreSseConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FHIRDatastoreSseConfiguration) *FHIRDatastoreSseConfiguration {
+func (o FhirDatastoreSseConfigurationOutput) ToFhirDatastoreSseConfigurationPtrOutputWithContext(ctx context.Context) FhirDatastoreSseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirDatastoreSseConfiguration) *FhirDatastoreSseConfiguration {
 		return &v
-	}).(FHIRDatastoreSseConfigurationPtrOutput)
+	}).(FhirDatastoreSseConfigurationPtrOutput)
 }
 
-func (o FHIRDatastoreSseConfigurationOutput) KmsEncryptionConfig() FHIRDatastoreKmsEncryptionConfigOutput {
-	return o.ApplyT(func(v FHIRDatastoreSseConfiguration) FHIRDatastoreKmsEncryptionConfig { return v.KmsEncryptionConfig }).(FHIRDatastoreKmsEncryptionConfigOutput)
+func (o FhirDatastoreSseConfigurationOutput) KmsEncryptionConfig() FhirDatastoreKmsEncryptionConfigOutput {
+	return o.ApplyT(func(v FhirDatastoreSseConfiguration) FhirDatastoreKmsEncryptionConfig { return v.KmsEncryptionConfig }).(FhirDatastoreKmsEncryptionConfigOutput)
 }
 
-type FHIRDatastoreSseConfigurationPtrOutput struct{ *pulumi.OutputState }
+type FhirDatastoreSseConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastoreSseConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastoreSseConfiguration)(nil)).Elem()
+func (FhirDatastoreSseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastoreSseConfiguration)(nil)).Elem()
 }
 
-func (o FHIRDatastoreSseConfigurationPtrOutput) ToFHIRDatastoreSseConfigurationPtrOutput() FHIRDatastoreSseConfigurationPtrOutput {
+func (o FhirDatastoreSseConfigurationPtrOutput) ToFhirDatastoreSseConfigurationPtrOutput() FhirDatastoreSseConfigurationPtrOutput {
 	return o
 }
 
-func (o FHIRDatastoreSseConfigurationPtrOutput) ToFHIRDatastoreSseConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreSseConfigurationPtrOutput {
+func (o FhirDatastoreSseConfigurationPtrOutput) ToFhirDatastoreSseConfigurationPtrOutputWithContext(ctx context.Context) FhirDatastoreSseConfigurationPtrOutput {
 	return o
 }
 
-func (o FHIRDatastoreSseConfigurationPtrOutput) Elem() FHIRDatastoreSseConfigurationOutput {
-	return o.ApplyT(func(v *FHIRDatastoreSseConfiguration) FHIRDatastoreSseConfiguration {
+func (o FhirDatastoreSseConfigurationPtrOutput) Elem() FhirDatastoreSseConfigurationOutput {
+	return o.ApplyT(func(v *FhirDatastoreSseConfiguration) FhirDatastoreSseConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret FHIRDatastoreSseConfiguration
+		var ret FhirDatastoreSseConfiguration
 		return ret
-	}).(FHIRDatastoreSseConfigurationOutput)
+	}).(FhirDatastoreSseConfigurationOutput)
 }
 
-func (o FHIRDatastoreSseConfigurationPtrOutput) KmsEncryptionConfig() FHIRDatastoreKmsEncryptionConfigPtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreSseConfiguration) *FHIRDatastoreKmsEncryptionConfig {
+func (o FhirDatastoreSseConfigurationPtrOutput) KmsEncryptionConfig() FhirDatastoreKmsEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v *FhirDatastoreSseConfiguration) *FhirDatastoreKmsEncryptionConfig {
 		if v == nil {
 			return nil
 		}
 		return &v.KmsEncryptionConfig
-	}).(FHIRDatastoreKmsEncryptionConfigPtrOutput)
+	}).(FhirDatastoreKmsEncryptionConfigPtrOutput)
 }
 
 // A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
-type FHIRDatastoreTag struct {
+type FhirDatastoreTag struct {
 	// The key of the tag.
 	Key string `pulumi:"key"`
 	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
-// FHIRDatastoreTagInput is an input type that accepts FHIRDatastoreTagArgs and FHIRDatastoreTagOutput values.
-// You can construct a concrete instance of `FHIRDatastoreTagInput` via:
+// FhirDatastoreTagInput is an input type that accepts FhirDatastoreTagArgs and FhirDatastoreTagOutput values.
+// You can construct a concrete instance of `FhirDatastoreTagInput` via:
 //
-//	FHIRDatastoreTagArgs{...}
-type FHIRDatastoreTagInput interface {
+//	FhirDatastoreTagArgs{...}
+type FhirDatastoreTagInput interface {
 	pulumi.Input
 
-	ToFHIRDatastoreTagOutput() FHIRDatastoreTagOutput
-	ToFHIRDatastoreTagOutputWithContext(context.Context) FHIRDatastoreTagOutput
+	ToFhirDatastoreTagOutput() FhirDatastoreTagOutput
+	ToFhirDatastoreTagOutputWithContext(context.Context) FhirDatastoreTagOutput
 }
 
 // A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
-type FHIRDatastoreTagArgs struct {
+type FhirDatastoreTagArgs struct {
 	// The key of the tag.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value of the tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (FHIRDatastoreTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreTag)(nil)).Elem()
+func (FhirDatastoreTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreTag)(nil)).Elem()
 }
 
-func (i FHIRDatastoreTagArgs) ToFHIRDatastoreTagOutput() FHIRDatastoreTagOutput {
-	return i.ToFHIRDatastoreTagOutputWithContext(context.Background())
+func (i FhirDatastoreTagArgs) ToFhirDatastoreTagOutput() FhirDatastoreTagOutput {
+	return i.ToFhirDatastoreTagOutputWithContext(context.Background())
 }
 
-func (i FHIRDatastoreTagArgs) ToFHIRDatastoreTagOutputWithContext(ctx context.Context) FHIRDatastoreTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreTagOutput)
+func (i FhirDatastoreTagArgs) ToFhirDatastoreTagOutputWithContext(ctx context.Context) FhirDatastoreTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreTagOutput)
 }
 
-// FHIRDatastoreTagArrayInput is an input type that accepts FHIRDatastoreTagArray and FHIRDatastoreTagArrayOutput values.
-// You can construct a concrete instance of `FHIRDatastoreTagArrayInput` via:
+// FhirDatastoreTagArrayInput is an input type that accepts FhirDatastoreTagArray and FhirDatastoreTagArrayOutput values.
+// You can construct a concrete instance of `FhirDatastoreTagArrayInput` via:
 //
-//	FHIRDatastoreTagArray{ FHIRDatastoreTagArgs{...} }
-type FHIRDatastoreTagArrayInput interface {
+//	FhirDatastoreTagArray{ FhirDatastoreTagArgs{...} }
+type FhirDatastoreTagArrayInput interface {
 	pulumi.Input
 
-	ToFHIRDatastoreTagArrayOutput() FHIRDatastoreTagArrayOutput
-	ToFHIRDatastoreTagArrayOutputWithContext(context.Context) FHIRDatastoreTagArrayOutput
+	ToFhirDatastoreTagArrayOutput() FhirDatastoreTagArrayOutput
+	ToFhirDatastoreTagArrayOutputWithContext(context.Context) FhirDatastoreTagArrayOutput
 }
 
-type FHIRDatastoreTagArray []FHIRDatastoreTagInput
+type FhirDatastoreTagArray []FhirDatastoreTagInput
 
-func (FHIRDatastoreTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FHIRDatastoreTag)(nil)).Elem()
+func (FhirDatastoreTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FhirDatastoreTag)(nil)).Elem()
 }
 
-func (i FHIRDatastoreTagArray) ToFHIRDatastoreTagArrayOutput() FHIRDatastoreTagArrayOutput {
-	return i.ToFHIRDatastoreTagArrayOutputWithContext(context.Background())
+func (i FhirDatastoreTagArray) ToFhirDatastoreTagArrayOutput() FhirDatastoreTagArrayOutput {
+	return i.ToFhirDatastoreTagArrayOutputWithContext(context.Background())
 }
 
-func (i FHIRDatastoreTagArray) ToFHIRDatastoreTagArrayOutputWithContext(ctx context.Context) FHIRDatastoreTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreTagArrayOutput)
+func (i FhirDatastoreTagArray) ToFhirDatastoreTagArrayOutputWithContext(ctx context.Context) FhirDatastoreTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreTagArrayOutput)
 }
 
 // A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
-type FHIRDatastoreTagOutput struct{ *pulumi.OutputState }
+type FhirDatastoreTagOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastoreTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreTag)(nil)).Elem()
+func (FhirDatastoreTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreTag)(nil)).Elem()
 }
 
-func (o FHIRDatastoreTagOutput) ToFHIRDatastoreTagOutput() FHIRDatastoreTagOutput {
+func (o FhirDatastoreTagOutput) ToFhirDatastoreTagOutput() FhirDatastoreTagOutput {
 	return o
 }
 
-func (o FHIRDatastoreTagOutput) ToFHIRDatastoreTagOutputWithContext(ctx context.Context) FHIRDatastoreTagOutput {
+func (o FhirDatastoreTagOutput) ToFhirDatastoreTagOutputWithContext(ctx context.Context) FhirDatastoreTagOutput {
 	return o
 }
 
 // The key of the tag.
-func (o FHIRDatastoreTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FHIRDatastoreTag) string { return v.Key }).(pulumi.StringOutput)
+func (o FhirDatastoreTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FhirDatastoreTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value of the tag.
-func (o FHIRDatastoreTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FHIRDatastoreTag) string { return v.Value }).(pulumi.StringOutput)
+func (o FhirDatastoreTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FhirDatastoreTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type FHIRDatastoreTagArrayOutput struct{ *pulumi.OutputState }
+type FhirDatastoreTagArrayOutput struct{ *pulumi.OutputState }
 
-func (FHIRDatastoreTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FHIRDatastoreTag)(nil)).Elem()
+func (FhirDatastoreTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FhirDatastoreTag)(nil)).Elem()
 }
 
-func (o FHIRDatastoreTagArrayOutput) ToFHIRDatastoreTagArrayOutput() FHIRDatastoreTagArrayOutput {
+func (o FhirDatastoreTagArrayOutput) ToFhirDatastoreTagArrayOutput() FhirDatastoreTagArrayOutput {
 	return o
 }
 
-func (o FHIRDatastoreTagArrayOutput) ToFHIRDatastoreTagArrayOutputWithContext(ctx context.Context) FHIRDatastoreTagArrayOutput {
+func (o FhirDatastoreTagArrayOutput) ToFhirDatastoreTagArrayOutputWithContext(ctx context.Context) FhirDatastoreTagArrayOutput {
 	return o
 }
 
-func (o FHIRDatastoreTagArrayOutput) Index(i pulumi.IntInput) FHIRDatastoreTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FHIRDatastoreTag {
-		return vs[0].([]FHIRDatastoreTag)[vs[1].(int)]
-	}).(FHIRDatastoreTagOutput)
+func (o FhirDatastoreTagArrayOutput) Index(i pulumi.IntInput) FhirDatastoreTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FhirDatastoreTag {
+		return vs[0].([]FhirDatastoreTag)[vs[1].(int)]
+	}).(FhirDatastoreTagOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreIdentityProviderConfigurationInput)(nil)).Elem(), FHIRDatastoreIdentityProviderConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreIdentityProviderConfigurationPtrInput)(nil)).Elem(), FHIRDatastoreIdentityProviderConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigPtrInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastorePreloadDataConfigInput)(nil)).Elem(), FHIRDatastorePreloadDataConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastorePreloadDataConfigPtrInput)(nil)).Elem(), FHIRDatastorePreloadDataConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreSseConfigurationInput)(nil)).Elem(), FHIRDatastoreSseConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreSseConfigurationPtrInput)(nil)).Elem(), FHIRDatastoreSseConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreTagInput)(nil)).Elem(), FHIRDatastoreTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreTagArrayInput)(nil)).Elem(), FHIRDatastoreTagArray{})
-	pulumi.RegisterOutputType(FHIRDatastoreCreatedAtOutput{})
-	pulumi.RegisterOutputType(FHIRDatastoreCreatedAtPtrOutput{})
-	pulumi.RegisterOutputType(FHIRDatastoreIdentityProviderConfigurationOutput{})
-	pulumi.RegisterOutputType(FHIRDatastoreIdentityProviderConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigOutput{})
-	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigPtrOutput{})
-	pulumi.RegisterOutputType(FHIRDatastorePreloadDataConfigOutput{})
-	pulumi.RegisterOutputType(FHIRDatastorePreloadDataConfigPtrOutput{})
-	pulumi.RegisterOutputType(FHIRDatastoreSseConfigurationOutput{})
-	pulumi.RegisterOutputType(FHIRDatastoreSseConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(FHIRDatastoreTagOutput{})
-	pulumi.RegisterOutputType(FHIRDatastoreTagArrayOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreIdentityProviderConfigurationInput)(nil)).Elem(), FhirDatastoreIdentityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreIdentityProviderConfigurationPtrInput)(nil)).Elem(), FhirDatastoreIdentityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreKmsEncryptionConfigInput)(nil)).Elem(), FhirDatastoreKmsEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreKmsEncryptionConfigPtrInput)(nil)).Elem(), FhirDatastoreKmsEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastorePreloadDataConfigInput)(nil)).Elem(), FhirDatastorePreloadDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastorePreloadDataConfigPtrInput)(nil)).Elem(), FhirDatastorePreloadDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreSseConfigurationInput)(nil)).Elem(), FhirDatastoreSseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreSseConfigurationPtrInput)(nil)).Elem(), FhirDatastoreSseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreTagInput)(nil)).Elem(), FhirDatastoreTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreTagArrayInput)(nil)).Elem(), FhirDatastoreTagArray{})
+	pulumi.RegisterOutputType(FhirDatastoreCreatedAtOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreCreatedAtPtrOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreIdentityProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreIdentityProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreKmsEncryptionConfigOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreKmsEncryptionConfigPtrOutput{})
+	pulumi.RegisterOutputType(FhirDatastorePreloadDataConfigOutput{})
+	pulumi.RegisterOutputType(FhirDatastorePreloadDataConfigPtrOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreSseConfigurationOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreSseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreTagOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreTagArrayOutput{})
 }

@@ -889,8 +889,8 @@ func (in *applicationLogEncodingPtr) ToApplicationLogEncodingPtrOutputWithContex
 type ApplicationSubComponentTypeConfigurationSubComponentType string
 
 const (
-	ApplicationSubComponentTypeConfigurationSubComponentTypeAWSEC2Instance = ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Instance")
-	ApplicationSubComponentTypeConfigurationSubComponentTypeAWSEC2Volume   = ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Volume")
+	ApplicationSubComponentTypeConfigurationSubComponentTypeAwsec2Instance = ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Instance")
+	ApplicationSubComponentTypeConfigurationSubComponentTypeAwsec2Volume   = ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Volume")
 )
 
 func (ApplicationSubComponentTypeConfigurationSubComponentType) ElementType() reflect.Type {

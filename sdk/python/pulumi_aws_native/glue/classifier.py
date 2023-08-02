@@ -19,7 +19,7 @@ class ClassifierArgs:
                  csv_classifier: Optional[pulumi.Input['ClassifierCsvClassifierArgs']] = None,
                  grok_classifier: Optional[pulumi.Input['ClassifierGrokClassifierArgs']] = None,
                  json_classifier: Optional[pulumi.Input['ClassifierJsonClassifierArgs']] = None,
-                 xml_classifier: Optional[pulumi.Input['ClassifierXMLClassifierArgs']] = None):
+                 xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None):
         """
         The set of arguments for constructing a Classifier resource.
         """
@@ -61,11 +61,11 @@ class ClassifierArgs:
 
     @property
     @pulumi.getter(name="xmlClassifier")
-    def xml_classifier(self) -> Optional[pulumi.Input['ClassifierXMLClassifierArgs']]:
+    def xml_classifier(self) -> Optional[pulumi.Input['ClassifierXmlClassifierArgs']]:
         return pulumi.get(self, "xml_classifier")
 
     @xml_classifier.setter
-    def xml_classifier(self, value: Optional[pulumi.Input['ClassifierXMLClassifierArgs']]):
+    def xml_classifier(self, value: Optional[pulumi.Input['ClassifierXmlClassifierArgs']]):
         pulumi.set(self, "xml_classifier", value)
 
 
@@ -82,7 +82,7 @@ class Classifier(pulumi.CustomResource):
                  csv_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierCsvClassifierArgs']]] = None,
                  grok_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierGrokClassifierArgs']]] = None,
                  json_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierJsonClassifierArgs']]] = None,
-                 xml_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierXMLClassifierArgs']]] = None,
+                 xml_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierXmlClassifierArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::Classifier
@@ -117,7 +117,7 @@ class Classifier(pulumi.CustomResource):
                  csv_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierCsvClassifierArgs']]] = None,
                  grok_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierGrokClassifierArgs']]] = None,
                  json_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierJsonClassifierArgs']]] = None,
-                 xml_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierXMLClassifierArgs']]] = None,
+                 xml_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierXmlClassifierArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Classifier is deprecated: Classifier is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -177,6 +177,6 @@ class Classifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xmlClassifier")
-    def xml_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierXMLClassifier']]:
+    def xml_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierXmlClassifier']]:
         return pulumi.get(self, "xml_classifier")
 

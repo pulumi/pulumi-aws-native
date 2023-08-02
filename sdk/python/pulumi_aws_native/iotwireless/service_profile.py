@@ -16,12 +16,12 @@ __all__ = ['ServiceProfileArgs', 'ServiceProfile']
 @pulumi.input_type
 class ServiceProfileArgs:
     def __init__(__self__, *,
-                 lo_ra_wan: Optional[pulumi.Input['ServiceProfileLoRaWANServiceProfileArgs']] = None,
+                 lo_ra_wan: Optional[pulumi.Input['ServiceProfileLoRaWanServiceProfileArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceProfile resource.
-        :param pulumi.Input['ServiceProfileLoRaWANServiceProfileArgs'] lo_ra_wan: LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
+        :param pulumi.Input['ServiceProfileLoRaWanServiceProfileArgs'] lo_ra_wan: LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         :param pulumi.Input[str] name: Name of service profile
         :param pulumi.Input[Sequence[pulumi.Input['ServiceProfileTagArgs']]] tags: A list of key-value pairs that contain metadata for the service profile.
         """
@@ -34,14 +34,14 @@ class ServiceProfileArgs:
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional[pulumi.Input['ServiceProfileLoRaWANServiceProfileArgs']]:
+    def lo_ra_wan(self) -> Optional[pulumi.Input['ServiceProfileLoRaWanServiceProfileArgs']]:
         """
         LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         """
         return pulumi.get(self, "lo_ra_wan")
 
     @lo_ra_wan.setter
-    def lo_ra_wan(self, value: Optional[pulumi.Input['ServiceProfileLoRaWANServiceProfileArgs']]):
+    def lo_ra_wan(self, value: Optional[pulumi.Input['ServiceProfileLoRaWanServiceProfileArgs']]):
         pulumi.set(self, "lo_ra_wan", value)
 
     @property
@@ -74,7 +74,7 @@ class ServiceProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['ServiceProfileLoRaWANServiceProfileArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['ServiceProfileLoRaWanServiceProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceProfileTagArgs']]]]] = None,
                  __props__=None):
@@ -83,7 +83,7 @@ class ServiceProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceProfileLoRaWANServiceProfileArgs']] lo_ra_wan: LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
+        :param pulumi.Input[pulumi.InputType['ServiceProfileLoRaWanServiceProfileArgs']] lo_ra_wan: LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         :param pulumi.Input[str] name: Name of service profile
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceProfileTagArgs']]]] tags: A list of key-value pairs that contain metadata for the service profile.
         """
@@ -111,7 +111,7 @@ class ServiceProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['ServiceProfileLoRaWANServiceProfileArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['ServiceProfileLoRaWanServiceProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceProfileTagArgs']]]]] = None,
                  __props__=None):
@@ -165,7 +165,7 @@ class ServiceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.ServiceProfileLoRaWANServiceProfile']]:
+    def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.ServiceProfileLoRaWanServiceProfile']]:
         """
         LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         """

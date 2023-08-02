@@ -8746,7 +8746,7 @@ type ResponseHeadersPolicySecurityHeadersConfig struct {
 	FrameOptions            *ResponseHeadersPolicyFrameOptions            `pulumi:"frameOptions"`
 	ReferrerPolicy          *ResponseHeadersPolicyReferrerPolicy          `pulumi:"referrerPolicy"`
 	StrictTransportSecurity *ResponseHeadersPolicyStrictTransportSecurity `pulumi:"strictTransportSecurity"`
-	XssProtection           *ResponseHeadersPolicyXSSProtection           `pulumi:"xssProtection"`
+	XssProtection           *ResponseHeadersPolicyXssProtection           `pulumi:"xssProtection"`
 }
 
 // ResponseHeadersPolicySecurityHeadersConfigInput is an input type that accepts ResponseHeadersPolicySecurityHeadersConfigArgs and ResponseHeadersPolicySecurityHeadersConfigOutput values.
@@ -8766,7 +8766,7 @@ type ResponseHeadersPolicySecurityHeadersConfigArgs struct {
 	FrameOptions            ResponseHeadersPolicyFrameOptionsPtrInput            `pulumi:"frameOptions"`
 	ReferrerPolicy          ResponseHeadersPolicyReferrerPolicyPtrInput          `pulumi:"referrerPolicy"`
 	StrictTransportSecurity ResponseHeadersPolicyStrictTransportSecurityPtrInput `pulumi:"strictTransportSecurity"`
-	XssProtection           ResponseHeadersPolicyXSSProtectionPtrInput           `pulumi:"xssProtection"`
+	XssProtection           ResponseHeadersPolicyXssProtectionPtrInput           `pulumi:"xssProtection"`
 }
 
 func (ResponseHeadersPolicySecurityHeadersConfigArgs) ElementType() reflect.Type {
@@ -8876,10 +8876,10 @@ func (o ResponseHeadersPolicySecurityHeadersConfigOutput) StrictTransportSecurit
 	}).(ResponseHeadersPolicyStrictTransportSecurityPtrOutput)
 }
 
-func (o ResponseHeadersPolicySecurityHeadersConfigOutput) XssProtection() ResponseHeadersPolicyXSSProtectionPtrOutput {
-	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyXSSProtection {
+func (o ResponseHeadersPolicySecurityHeadersConfigOutput) XssProtection() ResponseHeadersPolicyXssProtectionPtrOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyXssProtection {
 		return v.XssProtection
-	}).(ResponseHeadersPolicyXSSProtectionPtrOutput)
+	}).(ResponseHeadersPolicyXssProtectionPtrOutput)
 }
 
 type ResponseHeadersPolicySecurityHeadersConfigPtrOutput struct{ *pulumi.OutputState }
@@ -8951,13 +8951,13 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) StrictTransportSecu
 	}).(ResponseHeadersPolicyStrictTransportSecurityPtrOutput)
 }
 
-func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) XssProtection() ResponseHeadersPolicyXSSProtectionPtrOutput {
-	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyXSSProtection {
+func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) XssProtection() ResponseHeadersPolicyXssProtectionPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyXssProtection {
 		if v == nil {
 			return nil
 		}
 		return v.XssProtection
-	}).(ResponseHeadersPolicyXSSProtectionPtrOutput)
+	}).(ResponseHeadersPolicyXssProtectionPtrOutput)
 }
 
 type ResponseHeadersPolicyServerTimingHeadersConfig struct {
@@ -9286,150 +9286,150 @@ func (o ResponseHeadersPolicyStrictTransportSecurityPtrOutput) Preload() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-type ResponseHeadersPolicyXSSProtection struct {
+type ResponseHeadersPolicyXssProtection struct {
 	ModeBlock  *bool   `pulumi:"modeBlock"`
 	Override   bool    `pulumi:"override"`
 	Protection bool    `pulumi:"protection"`
 	ReportUri  *string `pulumi:"reportUri"`
 }
 
-// ResponseHeadersPolicyXSSProtectionInput is an input type that accepts ResponseHeadersPolicyXSSProtectionArgs and ResponseHeadersPolicyXSSProtectionOutput values.
-// You can construct a concrete instance of `ResponseHeadersPolicyXSSProtectionInput` via:
+// ResponseHeadersPolicyXssProtectionInput is an input type that accepts ResponseHeadersPolicyXssProtectionArgs and ResponseHeadersPolicyXssProtectionOutput values.
+// You can construct a concrete instance of `ResponseHeadersPolicyXssProtectionInput` via:
 //
-//	ResponseHeadersPolicyXSSProtectionArgs{...}
-type ResponseHeadersPolicyXSSProtectionInput interface {
+//	ResponseHeadersPolicyXssProtectionArgs{...}
+type ResponseHeadersPolicyXssProtectionInput interface {
 	pulumi.Input
 
-	ToResponseHeadersPolicyXSSProtectionOutput() ResponseHeadersPolicyXSSProtectionOutput
-	ToResponseHeadersPolicyXSSProtectionOutputWithContext(context.Context) ResponseHeadersPolicyXSSProtectionOutput
+	ToResponseHeadersPolicyXssProtectionOutput() ResponseHeadersPolicyXssProtectionOutput
+	ToResponseHeadersPolicyXssProtectionOutputWithContext(context.Context) ResponseHeadersPolicyXssProtectionOutput
 }
 
-type ResponseHeadersPolicyXSSProtectionArgs struct {
+type ResponseHeadersPolicyXssProtectionArgs struct {
 	ModeBlock  pulumi.BoolPtrInput   `pulumi:"modeBlock"`
 	Override   pulumi.BoolInput      `pulumi:"override"`
 	Protection pulumi.BoolInput      `pulumi:"protection"`
 	ReportUri  pulumi.StringPtrInput `pulumi:"reportUri"`
 }
 
-func (ResponseHeadersPolicyXSSProtectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponseHeadersPolicyXSSProtection)(nil)).Elem()
+func (ResponseHeadersPolicyXssProtectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseHeadersPolicyXssProtection)(nil)).Elem()
 }
 
-func (i ResponseHeadersPolicyXSSProtectionArgs) ToResponseHeadersPolicyXSSProtectionOutput() ResponseHeadersPolicyXSSProtectionOutput {
-	return i.ToResponseHeadersPolicyXSSProtectionOutputWithContext(context.Background())
+func (i ResponseHeadersPolicyXssProtectionArgs) ToResponseHeadersPolicyXssProtectionOutput() ResponseHeadersPolicyXssProtectionOutput {
+	return i.ToResponseHeadersPolicyXssProtectionOutputWithContext(context.Background())
 }
 
-func (i ResponseHeadersPolicyXSSProtectionArgs) ToResponseHeadersPolicyXSSProtectionOutputWithContext(ctx context.Context) ResponseHeadersPolicyXSSProtectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyXSSProtectionOutput)
+func (i ResponseHeadersPolicyXssProtectionArgs) ToResponseHeadersPolicyXssProtectionOutputWithContext(ctx context.Context) ResponseHeadersPolicyXssProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyXssProtectionOutput)
 }
 
-func (i ResponseHeadersPolicyXSSProtectionArgs) ToResponseHeadersPolicyXSSProtectionPtrOutput() ResponseHeadersPolicyXSSProtectionPtrOutput {
-	return i.ToResponseHeadersPolicyXSSProtectionPtrOutputWithContext(context.Background())
+func (i ResponseHeadersPolicyXssProtectionArgs) ToResponseHeadersPolicyXssProtectionPtrOutput() ResponseHeadersPolicyXssProtectionPtrOutput {
+	return i.ToResponseHeadersPolicyXssProtectionPtrOutputWithContext(context.Background())
 }
 
-func (i ResponseHeadersPolicyXSSProtectionArgs) ToResponseHeadersPolicyXSSProtectionPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyXSSProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyXSSProtectionOutput).ToResponseHeadersPolicyXSSProtectionPtrOutputWithContext(ctx)
+func (i ResponseHeadersPolicyXssProtectionArgs) ToResponseHeadersPolicyXssProtectionPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyXssProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyXssProtectionOutput).ToResponseHeadersPolicyXssProtectionPtrOutputWithContext(ctx)
 }
 
-// ResponseHeadersPolicyXSSProtectionPtrInput is an input type that accepts ResponseHeadersPolicyXSSProtectionArgs, ResponseHeadersPolicyXSSProtectionPtr and ResponseHeadersPolicyXSSProtectionPtrOutput values.
-// You can construct a concrete instance of `ResponseHeadersPolicyXSSProtectionPtrInput` via:
+// ResponseHeadersPolicyXssProtectionPtrInput is an input type that accepts ResponseHeadersPolicyXssProtectionArgs, ResponseHeadersPolicyXssProtectionPtr and ResponseHeadersPolicyXssProtectionPtrOutput values.
+// You can construct a concrete instance of `ResponseHeadersPolicyXssProtectionPtrInput` via:
 //
-//	        ResponseHeadersPolicyXSSProtectionArgs{...}
+//	        ResponseHeadersPolicyXssProtectionArgs{...}
 //
 //	or:
 //
 //	        nil
-type ResponseHeadersPolicyXSSProtectionPtrInput interface {
+type ResponseHeadersPolicyXssProtectionPtrInput interface {
 	pulumi.Input
 
-	ToResponseHeadersPolicyXSSProtectionPtrOutput() ResponseHeadersPolicyXSSProtectionPtrOutput
-	ToResponseHeadersPolicyXSSProtectionPtrOutputWithContext(context.Context) ResponseHeadersPolicyXSSProtectionPtrOutput
+	ToResponseHeadersPolicyXssProtectionPtrOutput() ResponseHeadersPolicyXssProtectionPtrOutput
+	ToResponseHeadersPolicyXssProtectionPtrOutputWithContext(context.Context) ResponseHeadersPolicyXssProtectionPtrOutput
 }
 
-type responseHeadersPolicyXSSProtectionPtrType ResponseHeadersPolicyXSSProtectionArgs
+type responseHeadersPolicyXssProtectionPtrType ResponseHeadersPolicyXssProtectionArgs
 
-func ResponseHeadersPolicyXSSProtectionPtr(v *ResponseHeadersPolicyXSSProtectionArgs) ResponseHeadersPolicyXSSProtectionPtrInput {
-	return (*responseHeadersPolicyXSSProtectionPtrType)(v)
+func ResponseHeadersPolicyXssProtectionPtr(v *ResponseHeadersPolicyXssProtectionArgs) ResponseHeadersPolicyXssProtectionPtrInput {
+	return (*responseHeadersPolicyXssProtectionPtrType)(v)
 }
 
-func (*responseHeadersPolicyXSSProtectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResponseHeadersPolicyXSSProtection)(nil)).Elem()
+func (*responseHeadersPolicyXssProtectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseHeadersPolicyXssProtection)(nil)).Elem()
 }
 
-func (i *responseHeadersPolicyXSSProtectionPtrType) ToResponseHeadersPolicyXSSProtectionPtrOutput() ResponseHeadersPolicyXSSProtectionPtrOutput {
-	return i.ToResponseHeadersPolicyXSSProtectionPtrOutputWithContext(context.Background())
+func (i *responseHeadersPolicyXssProtectionPtrType) ToResponseHeadersPolicyXssProtectionPtrOutput() ResponseHeadersPolicyXssProtectionPtrOutput {
+	return i.ToResponseHeadersPolicyXssProtectionPtrOutputWithContext(context.Background())
 }
 
-func (i *responseHeadersPolicyXSSProtectionPtrType) ToResponseHeadersPolicyXSSProtectionPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyXSSProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyXSSProtectionPtrOutput)
+func (i *responseHeadersPolicyXssProtectionPtrType) ToResponseHeadersPolicyXssProtectionPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyXssProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyXssProtectionPtrOutput)
 }
 
-type ResponseHeadersPolicyXSSProtectionOutput struct{ *pulumi.OutputState }
+type ResponseHeadersPolicyXssProtectionOutput struct{ *pulumi.OutputState }
 
-func (ResponseHeadersPolicyXSSProtectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponseHeadersPolicyXSSProtection)(nil)).Elem()
+func (ResponseHeadersPolicyXssProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseHeadersPolicyXssProtection)(nil)).Elem()
 }
 
-func (o ResponseHeadersPolicyXSSProtectionOutput) ToResponseHeadersPolicyXSSProtectionOutput() ResponseHeadersPolicyXSSProtectionOutput {
+func (o ResponseHeadersPolicyXssProtectionOutput) ToResponseHeadersPolicyXssProtectionOutput() ResponseHeadersPolicyXssProtectionOutput {
 	return o
 }
 
-func (o ResponseHeadersPolicyXSSProtectionOutput) ToResponseHeadersPolicyXSSProtectionOutputWithContext(ctx context.Context) ResponseHeadersPolicyXSSProtectionOutput {
+func (o ResponseHeadersPolicyXssProtectionOutput) ToResponseHeadersPolicyXssProtectionOutputWithContext(ctx context.Context) ResponseHeadersPolicyXssProtectionOutput {
 	return o
 }
 
-func (o ResponseHeadersPolicyXSSProtectionOutput) ToResponseHeadersPolicyXSSProtectionPtrOutput() ResponseHeadersPolicyXSSProtectionPtrOutput {
-	return o.ToResponseHeadersPolicyXSSProtectionPtrOutputWithContext(context.Background())
+func (o ResponseHeadersPolicyXssProtectionOutput) ToResponseHeadersPolicyXssProtectionPtrOutput() ResponseHeadersPolicyXssProtectionPtrOutput {
+	return o.ToResponseHeadersPolicyXssProtectionPtrOutputWithContext(context.Background())
 }
 
-func (o ResponseHeadersPolicyXSSProtectionOutput) ToResponseHeadersPolicyXSSProtectionPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyXSSProtectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseHeadersPolicyXSSProtection) *ResponseHeadersPolicyXSSProtection {
+func (o ResponseHeadersPolicyXssProtectionOutput) ToResponseHeadersPolicyXssProtectionPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyXssProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseHeadersPolicyXssProtection) *ResponseHeadersPolicyXssProtection {
 		return &v
-	}).(ResponseHeadersPolicyXSSProtectionPtrOutput)
+	}).(ResponseHeadersPolicyXssProtectionPtrOutput)
 }
 
-func (o ResponseHeadersPolicyXSSProtectionOutput) ModeBlock() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ResponseHeadersPolicyXSSProtection) *bool { return v.ModeBlock }).(pulumi.BoolPtrOutput)
+func (o ResponseHeadersPolicyXssProtectionOutput) ModeBlock() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicyXssProtection) *bool { return v.ModeBlock }).(pulumi.BoolPtrOutput)
 }
 
-func (o ResponseHeadersPolicyXSSProtectionOutput) Override() pulumi.BoolOutput {
-	return o.ApplyT(func(v ResponseHeadersPolicyXSSProtection) bool { return v.Override }).(pulumi.BoolOutput)
+func (o ResponseHeadersPolicyXssProtectionOutput) Override() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicyXssProtection) bool { return v.Override }).(pulumi.BoolOutput)
 }
 
-func (o ResponseHeadersPolicyXSSProtectionOutput) Protection() pulumi.BoolOutput {
-	return o.ApplyT(func(v ResponseHeadersPolicyXSSProtection) bool { return v.Protection }).(pulumi.BoolOutput)
+func (o ResponseHeadersPolicyXssProtectionOutput) Protection() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicyXssProtection) bool { return v.Protection }).(pulumi.BoolOutput)
 }
 
-func (o ResponseHeadersPolicyXSSProtectionOutput) ReportUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResponseHeadersPolicyXSSProtection) *string { return v.ReportUri }).(pulumi.StringPtrOutput)
+func (o ResponseHeadersPolicyXssProtectionOutput) ReportUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicyXssProtection) *string { return v.ReportUri }).(pulumi.StringPtrOutput)
 }
 
-type ResponseHeadersPolicyXSSProtectionPtrOutput struct{ *pulumi.OutputState }
+type ResponseHeadersPolicyXssProtectionPtrOutput struct{ *pulumi.OutputState }
 
-func (ResponseHeadersPolicyXSSProtectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResponseHeadersPolicyXSSProtection)(nil)).Elem()
+func (ResponseHeadersPolicyXssProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseHeadersPolicyXssProtection)(nil)).Elem()
 }
 
-func (o ResponseHeadersPolicyXSSProtectionPtrOutput) ToResponseHeadersPolicyXSSProtectionPtrOutput() ResponseHeadersPolicyXSSProtectionPtrOutput {
+func (o ResponseHeadersPolicyXssProtectionPtrOutput) ToResponseHeadersPolicyXssProtectionPtrOutput() ResponseHeadersPolicyXssProtectionPtrOutput {
 	return o
 }
 
-func (o ResponseHeadersPolicyXSSProtectionPtrOutput) ToResponseHeadersPolicyXSSProtectionPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyXSSProtectionPtrOutput {
+func (o ResponseHeadersPolicyXssProtectionPtrOutput) ToResponseHeadersPolicyXssProtectionPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyXssProtectionPtrOutput {
 	return o
 }
 
-func (o ResponseHeadersPolicyXSSProtectionPtrOutput) Elem() ResponseHeadersPolicyXSSProtectionOutput {
-	return o.ApplyT(func(v *ResponseHeadersPolicyXSSProtection) ResponseHeadersPolicyXSSProtection {
+func (o ResponseHeadersPolicyXssProtectionPtrOutput) Elem() ResponseHeadersPolicyXssProtectionOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyXssProtection) ResponseHeadersPolicyXssProtection {
 		if v != nil {
 			return *v
 		}
-		var ret ResponseHeadersPolicyXSSProtection
+		var ret ResponseHeadersPolicyXssProtection
 		return ret
-	}).(ResponseHeadersPolicyXSSProtectionOutput)
+	}).(ResponseHeadersPolicyXssProtectionOutput)
 }
 
-func (o ResponseHeadersPolicyXSSProtectionPtrOutput) ModeBlock() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ResponseHeadersPolicyXSSProtection) *bool {
+func (o ResponseHeadersPolicyXssProtectionPtrOutput) ModeBlock() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyXssProtection) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9437,8 +9437,8 @@ func (o ResponseHeadersPolicyXSSProtectionPtrOutput) ModeBlock() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ResponseHeadersPolicyXSSProtectionPtrOutput) Override() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ResponseHeadersPolicyXSSProtection) *bool {
+func (o ResponseHeadersPolicyXssProtectionPtrOutput) Override() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyXssProtection) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9446,8 +9446,8 @@ func (o ResponseHeadersPolicyXSSProtectionPtrOutput) Override() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ResponseHeadersPolicyXSSProtectionPtrOutput) Protection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ResponseHeadersPolicyXSSProtection) *bool {
+func (o ResponseHeadersPolicyXssProtectionPtrOutput) Protection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyXssProtection) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9455,8 +9455,8 @@ func (o ResponseHeadersPolicyXSSProtectionPtrOutput) Protection() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ResponseHeadersPolicyXSSProtectionPtrOutput) ReportUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResponseHeadersPolicyXSSProtection) *string {
+func (o ResponseHeadersPolicyXssProtectionPtrOutput) ReportUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyXssProtection) *string {
 		if v == nil {
 			return nil
 		}
@@ -10205,8 +10205,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfigPtrInput)(nil)).Elem(), ResponseHeadersPolicyServerTimingHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyStrictTransportSecurityInput)(nil)).Elem(), ResponseHeadersPolicyStrictTransportSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyStrictTransportSecurityPtrInput)(nil)).Elem(), ResponseHeadersPolicyStrictTransportSecurityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyXSSProtectionInput)(nil)).Elem(), ResponseHeadersPolicyXSSProtectionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyXSSProtectionPtrInput)(nil)).Elem(), ResponseHeadersPolicyXSSProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyXssProtectionInput)(nil)).Elem(), ResponseHeadersPolicyXssProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyXssProtectionPtrInput)(nil)).Elem(), ResponseHeadersPolicyXssProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionConfigInput)(nil)).Elem(), StreamingDistributionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionLoggingInput)(nil)).Elem(), StreamingDistributionLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionLoggingPtrInput)(nil)).Elem(), StreamingDistributionLoggingArgs{})
@@ -10344,8 +10344,8 @@ func init() {
 	pulumi.RegisterOutputType(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyStrictTransportSecurityOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyStrictTransportSecurityPtrOutput{})
-	pulumi.RegisterOutputType(ResponseHeadersPolicyXSSProtectionOutput{})
-	pulumi.RegisterOutputType(ResponseHeadersPolicyXSSProtectionPtrOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyXssProtectionOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyXssProtectionPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionConfigOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionConfigPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionLoggingOutput{})

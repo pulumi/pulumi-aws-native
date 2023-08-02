@@ -11,28 +11,28 @@ namespace Pulumi.AwsNative.HealthLake
     /// The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
     /// </summary>
     [EnumType]
-    public readonly struct FHIRDatastoreDatastoreStatus : IEquatable<FHIRDatastoreDatastoreStatus>
+    public readonly struct FhirDatastoreDatastoreStatus : IEquatable<FhirDatastoreDatastoreStatus>
     {
         private readonly string _value;
 
-        private FHIRDatastoreDatastoreStatus(string value)
+        private FhirDatastoreDatastoreStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static FHIRDatastoreDatastoreStatus Creating { get; } = new FHIRDatastoreDatastoreStatus("CREATING");
-        public static FHIRDatastoreDatastoreStatus Active { get; } = new FHIRDatastoreDatastoreStatus("ACTIVE");
-        public static FHIRDatastoreDatastoreStatus Deleting { get; } = new FHIRDatastoreDatastoreStatus("DELETING");
-        public static FHIRDatastoreDatastoreStatus Deleted { get; } = new FHIRDatastoreDatastoreStatus("DELETED");
+        public static FhirDatastoreDatastoreStatus Creating { get; } = new FhirDatastoreDatastoreStatus("CREATING");
+        public static FhirDatastoreDatastoreStatus Active { get; } = new FhirDatastoreDatastoreStatus("ACTIVE");
+        public static FhirDatastoreDatastoreStatus Deleting { get; } = new FhirDatastoreDatastoreStatus("DELETING");
+        public static FhirDatastoreDatastoreStatus Deleted { get; } = new FhirDatastoreDatastoreStatus("DELETED");
 
-        public static bool operator ==(FHIRDatastoreDatastoreStatus left, FHIRDatastoreDatastoreStatus right) => left.Equals(right);
-        public static bool operator !=(FHIRDatastoreDatastoreStatus left, FHIRDatastoreDatastoreStatus right) => !left.Equals(right);
+        public static bool operator ==(FhirDatastoreDatastoreStatus left, FhirDatastoreDatastoreStatus right) => left.Equals(right);
+        public static bool operator !=(FhirDatastoreDatastoreStatus left, FhirDatastoreDatastoreStatus right) => !left.Equals(right);
 
-        public static explicit operator string(FHIRDatastoreDatastoreStatus value) => value._value;
+        public static explicit operator string(FhirDatastoreDatastoreStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FHIRDatastoreDatastoreStatus other && Equals(other);
-        public bool Equals(FHIRDatastoreDatastoreStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is FhirDatastoreDatastoreStatus other && Equals(other);
+        public bool Equals(FhirDatastoreDatastoreStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -44,25 +44,25 @@ namespace Pulumi.AwsNative.HealthLake
     /// The FHIR version. Only R4 version data is supported.
     /// </summary>
     [EnumType]
-    public readonly struct FHIRDatastoreDatastoreTypeVersion : IEquatable<FHIRDatastoreDatastoreTypeVersion>
+    public readonly struct FhirDatastoreDatastoreTypeVersion : IEquatable<FhirDatastoreDatastoreTypeVersion>
     {
         private readonly string _value;
 
-        private FHIRDatastoreDatastoreTypeVersion(string value)
+        private FhirDatastoreDatastoreTypeVersion(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static FHIRDatastoreDatastoreTypeVersion R4 { get; } = new FHIRDatastoreDatastoreTypeVersion("R4");
+        public static FhirDatastoreDatastoreTypeVersion R4 { get; } = new FhirDatastoreDatastoreTypeVersion("R4");
 
-        public static bool operator ==(FHIRDatastoreDatastoreTypeVersion left, FHIRDatastoreDatastoreTypeVersion right) => left.Equals(right);
-        public static bool operator !=(FHIRDatastoreDatastoreTypeVersion left, FHIRDatastoreDatastoreTypeVersion right) => !left.Equals(right);
+        public static bool operator ==(FhirDatastoreDatastoreTypeVersion left, FhirDatastoreDatastoreTypeVersion right) => left.Equals(right);
+        public static bool operator !=(FhirDatastoreDatastoreTypeVersion left, FhirDatastoreDatastoreTypeVersion right) => !left.Equals(right);
 
-        public static explicit operator string(FHIRDatastoreDatastoreTypeVersion value) => value._value;
+        public static explicit operator string(FhirDatastoreDatastoreTypeVersion value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FHIRDatastoreDatastoreTypeVersion other && Equals(other);
-        public bool Equals(FHIRDatastoreDatastoreTypeVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is FhirDatastoreDatastoreTypeVersion other && Equals(other);
+        public bool Equals(FhirDatastoreDatastoreTypeVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -74,26 +74,26 @@ namespace Pulumi.AwsNative.HealthLake
     /// Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
     /// </summary>
     [EnumType]
-    public readonly struct FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy : IEquatable<FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy>
+    public readonly struct FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy : IEquatable<FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy>
     {
         private readonly string _value;
 
-        private FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy(string value)
+        private FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy SmartOnFhirV1 { get; } = new FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1");
-        public static FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy AwsAuth { get; } = new FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy("AWS_AUTH");
+        public static FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy SmartOnFhirV1 { get; } = new FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1");
+        public static FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy AwsAuth { get; } = new FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("AWS_AUTH");
 
-        public static bool operator ==(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy left, FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy right) => left.Equals(right);
-        public static bool operator !=(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy left, FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy right) => !left.Equals(right);
+        public static bool operator ==(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy left, FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy right) => left.Equals(right);
+        public static bool operator !=(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy left, FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy right) => !left.Equals(right);
 
-        public static explicit operator string(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy value) => value._value;
+        public static explicit operator string(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy other && Equals(other);
-        public bool Equals(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy other && Equals(other);
+        public bool Equals(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -105,26 +105,26 @@ namespace Pulumi.AwsNative.HealthLake
     /// The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
     /// </summary>
     [EnumType]
-    public readonly struct FHIRDatastoreKmsEncryptionConfigCmkType : IEquatable<FHIRDatastoreKmsEncryptionConfigCmkType>
+    public readonly struct FhirDatastoreKmsEncryptionConfigCmkType : IEquatable<FhirDatastoreKmsEncryptionConfigCmkType>
     {
         private readonly string _value;
 
-        private FHIRDatastoreKmsEncryptionConfigCmkType(string value)
+        private FhirDatastoreKmsEncryptionConfigCmkType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static FHIRDatastoreKmsEncryptionConfigCmkType CustomerManagedKmsKey { get; } = new FHIRDatastoreKmsEncryptionConfigCmkType("CUSTOMER_MANAGED_KMS_KEY");
-        public static FHIRDatastoreKmsEncryptionConfigCmkType AwsOwnedKmsKey { get; } = new FHIRDatastoreKmsEncryptionConfigCmkType("AWS_OWNED_KMS_KEY");
+        public static FhirDatastoreKmsEncryptionConfigCmkType CustomerManagedKmsKey { get; } = new FhirDatastoreKmsEncryptionConfigCmkType("CUSTOMER_MANAGED_KMS_KEY");
+        public static FhirDatastoreKmsEncryptionConfigCmkType AwsOwnedKmsKey { get; } = new FhirDatastoreKmsEncryptionConfigCmkType("AWS_OWNED_KMS_KEY");
 
-        public static bool operator ==(FHIRDatastoreKmsEncryptionConfigCmkType left, FHIRDatastoreKmsEncryptionConfigCmkType right) => left.Equals(right);
-        public static bool operator !=(FHIRDatastoreKmsEncryptionConfigCmkType left, FHIRDatastoreKmsEncryptionConfigCmkType right) => !left.Equals(right);
+        public static bool operator ==(FhirDatastoreKmsEncryptionConfigCmkType left, FhirDatastoreKmsEncryptionConfigCmkType right) => left.Equals(right);
+        public static bool operator !=(FhirDatastoreKmsEncryptionConfigCmkType left, FhirDatastoreKmsEncryptionConfigCmkType right) => !left.Equals(right);
 
-        public static explicit operator string(FHIRDatastoreKmsEncryptionConfigCmkType value) => value._value;
+        public static explicit operator string(FhirDatastoreKmsEncryptionConfigCmkType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FHIRDatastoreKmsEncryptionConfigCmkType other && Equals(other);
-        public bool Equals(FHIRDatastoreKmsEncryptionConfigCmkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is FhirDatastoreKmsEncryptionConfigCmkType other && Equals(other);
+        public bool Equals(FhirDatastoreKmsEncryptionConfigCmkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -136,25 +136,25 @@ namespace Pulumi.AwsNative.HealthLake
     /// The type of preloaded data. Only Synthea preloaded data is supported.
     /// </summary>
     [EnumType]
-    public readonly struct FHIRDatastorePreloadDataConfigPreloadDataType : IEquatable<FHIRDatastorePreloadDataConfigPreloadDataType>
+    public readonly struct FhirDatastorePreloadDataConfigPreloadDataType : IEquatable<FhirDatastorePreloadDataConfigPreloadDataType>
     {
         private readonly string _value;
 
-        private FHIRDatastorePreloadDataConfigPreloadDataType(string value)
+        private FhirDatastorePreloadDataConfigPreloadDataType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static FHIRDatastorePreloadDataConfigPreloadDataType Synthea { get; } = new FHIRDatastorePreloadDataConfigPreloadDataType("SYNTHEA");
+        public static FhirDatastorePreloadDataConfigPreloadDataType Synthea { get; } = new FhirDatastorePreloadDataConfigPreloadDataType("SYNTHEA");
 
-        public static bool operator ==(FHIRDatastorePreloadDataConfigPreloadDataType left, FHIRDatastorePreloadDataConfigPreloadDataType right) => left.Equals(right);
-        public static bool operator !=(FHIRDatastorePreloadDataConfigPreloadDataType left, FHIRDatastorePreloadDataConfigPreloadDataType right) => !left.Equals(right);
+        public static bool operator ==(FhirDatastorePreloadDataConfigPreloadDataType left, FhirDatastorePreloadDataConfigPreloadDataType right) => left.Equals(right);
+        public static bool operator !=(FhirDatastorePreloadDataConfigPreloadDataType left, FhirDatastorePreloadDataConfigPreloadDataType right) => !left.Equals(right);
 
-        public static explicit operator string(FHIRDatastorePreloadDataConfigPreloadDataType value) => value._value;
+        public static explicit operator string(FhirDatastorePreloadDataConfigPreloadDataType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FHIRDatastorePreloadDataConfigPreloadDataType other && Equals(other);
-        public bool Equals(FHIRDatastorePreloadDataConfigPreloadDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is FhirDatastorePreloadDataConfigPreloadDataType other && Equals(other);
+        public bool Equals(FhirDatastorePreloadDataConfigPreloadDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

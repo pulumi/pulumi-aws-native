@@ -34,9 +34,9 @@ type LookupDeploymentGroupResult struct {
 	Deployment                       *DeploymentGroupDeployment                       `pulumi:"deployment"`
 	DeploymentConfigName             *string                                          `pulumi:"deploymentConfigName"`
 	DeploymentStyle                  *DeploymentGroupDeploymentStyle                  `pulumi:"deploymentStyle"`
-	Ec2TagFilters                    []DeploymentGroupEC2TagFilter                    `pulumi:"ec2TagFilters"`
-	Ec2TagSet                        *DeploymentGroupEC2TagSet                        `pulumi:"ec2TagSet"`
-	EcsServices                      []DeploymentGroupECSService                      `pulumi:"ecsServices"`
+	Ec2TagFilters                    []DeploymentGroupEc2TagFilter                    `pulumi:"ec2TagFilters"`
+	Ec2TagSet                        *DeploymentGroupEc2TagSet                        `pulumi:"ec2TagSet"`
+	EcsServices                      []DeploymentGroupEcsService                      `pulumi:"ecsServices"`
 	Id                               *string                                          `pulumi:"id"`
 	LoadBalancerInfo                 *DeploymentGroupLoadBalancerInfo                 `pulumi:"loadBalancerInfo"`
 	OnPremisesInstanceTagFilters     []DeploymentGroupTagFilter                       `pulumi:"onPremisesInstanceTagFilters"`
@@ -114,16 +114,16 @@ func (o LookupDeploymentGroupResultOutput) DeploymentStyle() DeploymentGroupDepl
 	return o.ApplyT(func(v LookupDeploymentGroupResult) *DeploymentGroupDeploymentStyle { return v.DeploymentStyle }).(DeploymentGroupDeploymentStylePtrOutput)
 }
 
-func (o LookupDeploymentGroupResultOutput) Ec2TagFilters() DeploymentGroupEC2TagFilterArrayOutput {
-	return o.ApplyT(func(v LookupDeploymentGroupResult) []DeploymentGroupEC2TagFilter { return v.Ec2TagFilters }).(DeploymentGroupEC2TagFilterArrayOutput)
+func (o LookupDeploymentGroupResultOutput) Ec2TagFilters() DeploymentGroupEc2TagFilterArrayOutput {
+	return o.ApplyT(func(v LookupDeploymentGroupResult) []DeploymentGroupEc2TagFilter { return v.Ec2TagFilters }).(DeploymentGroupEc2TagFilterArrayOutput)
 }
 
-func (o LookupDeploymentGroupResultOutput) Ec2TagSet() DeploymentGroupEC2TagSetPtrOutput {
-	return o.ApplyT(func(v LookupDeploymentGroupResult) *DeploymentGroupEC2TagSet { return v.Ec2TagSet }).(DeploymentGroupEC2TagSetPtrOutput)
+func (o LookupDeploymentGroupResultOutput) Ec2TagSet() DeploymentGroupEc2TagSetPtrOutput {
+	return o.ApplyT(func(v LookupDeploymentGroupResult) *DeploymentGroupEc2TagSet { return v.Ec2TagSet }).(DeploymentGroupEc2TagSetPtrOutput)
 }
 
-func (o LookupDeploymentGroupResultOutput) EcsServices() DeploymentGroupECSServiceArrayOutput {
-	return o.ApplyT(func(v LookupDeploymentGroupResult) []DeploymentGroupECSService { return v.EcsServices }).(DeploymentGroupECSServiceArrayOutput)
+func (o LookupDeploymentGroupResultOutput) EcsServices() DeploymentGroupEcsServiceArrayOutput {
+	return o.ApplyT(func(v LookupDeploymentGroupResult) []DeploymentGroupEcsService { return v.EcsServices }).(DeploymentGroupEcsServiceArrayOutput)
 }
 
 func (o LookupDeploymentGroupResultOutput) Id() pulumi.StringPtrOutput {

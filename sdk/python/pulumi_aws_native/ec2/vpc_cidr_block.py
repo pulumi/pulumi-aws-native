@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VPCCidrBlockArgs', 'VPCCidrBlock']
+__all__ = ['VpcCidrBlockArgs', 'VpcCidrBlock']
 
 @pulumi.input_type
-class VPCCidrBlockArgs:
+class VpcCidrBlockArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[str],
                  amazon_provided_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
@@ -24,7 +24,7 @@ class VPCCidrBlockArgs:
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_pool: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a VPCCidrBlock resource.
+        The set of arguments for constructing a VpcCidrBlock resource.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if amazon_provided_ipv6_cidr_block is not None:
@@ -126,11 +126,11 @@ class VPCCidrBlockArgs:
         pulumi.set(self, "ipv6_pool", value)
 
 
-warnings.warn("""VPCCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""VpcCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class VPCCidrBlock(pulumi.CustomResource):
-    warnings.warn("""VPCCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class VpcCidrBlock(pulumi.CustomResource):
+    warnings.warn("""VpcCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -156,18 +156,18 @@ class VPCCidrBlock(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPCCidrBlockArgs,
+                 args: VpcCidrBlockArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCCidrBlock
 
         :param str resource_name: The name of the resource.
-        :param VPCCidrBlockArgs args: The arguments to use to populate this resource's properties.
+        :param VpcCidrBlockArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPCCidrBlockArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcCidrBlockArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -186,14 +186,14 @@ class VPCCidrBlock(pulumi.CustomResource):
                  ipv6_pool: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPCCidrBlock is deprecated: VPCCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""VpcCidrBlock is deprecated: VpcCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPCCidrBlockArgs.__new__(VPCCidrBlockArgs)
+            __props__ = VpcCidrBlockArgs.__new__(VpcCidrBlockArgs)
 
             __props__.__dict__["amazon_provided_ipv6_cidr_block"] = amazon_provided_ipv6_cidr_block
             __props__.__dict__["cidr_block"] = cidr_block
@@ -206,8 +206,8 @@ class VPCCidrBlock(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
-        super(VPCCidrBlock, __self__).__init__(
-            'aws-native:ec2:VPCCidrBlock',
+        super(VpcCidrBlock, __self__).__init__(
+            'aws-native:ec2:VpcCidrBlock',
             resource_name,
             __props__,
             opts)
@@ -215,9 +215,9 @@ class VPCCidrBlock(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPCCidrBlock':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpcCidrBlock':
         """
-        Get an existing VPCCidrBlock resource's state with the given name, id, and optional extra
+        Get an existing VpcCidrBlock resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -226,7 +226,7 @@ class VPCCidrBlock(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPCCidrBlockArgs.__new__(VPCCidrBlockArgs)
+        __props__ = VpcCidrBlockArgs.__new__(VpcCidrBlockArgs)
 
         __props__.__dict__["amazon_provided_ipv6_cidr_block"] = None
         __props__.__dict__["cidr_block"] = None
@@ -237,7 +237,7 @@ class VPCCidrBlock(pulumi.CustomResource):
         __props__.__dict__["ipv6_netmask_length"] = None
         __props__.__dict__["ipv6_pool"] = None
         __props__.__dict__["vpc_id"] = None
-        return VPCCidrBlock(resource_name, opts=opts, __props__=__props__)
+        return VpcCidrBlock(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="amazonProvidedIpv6CidrBlock")

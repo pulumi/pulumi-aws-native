@@ -7417,9 +7417,9 @@ type ModelPackageTransformInputSplitType string
 
 const (
 	ModelPackageTransformInputSplitTypeNone     = ModelPackageTransformInputSplitType("None")
-	ModelPackageTransformInputSplitTypeTFRecord = ModelPackageTransformInputSplitType("TFRecord")
+	ModelPackageTransformInputSplitTypeTfRecord = ModelPackageTransformInputSplitType("TFRecord")
 	ModelPackageTransformInputSplitTypeLine     = ModelPackageTransformInputSplitType("Line")
-	ModelPackageTransformInputSplitTypeRecordIO = ModelPackageTransformInputSplitType("RecordIO")
+	ModelPackageTransformInputSplitTypeRecordIo = ModelPackageTransformInputSplitType("RecordIO")
 )
 
 func (ModelPackageTransformInputSplitType) ElementType() reflect.Type {

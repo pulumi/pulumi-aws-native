@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetIPAMScopeResult',
-    'AwaitableGetIPAMScopeResult',
+    'GetIpamScopeResult',
+    'AwaitableGetIpamScopeResult',
     'get_ipam_scope',
     'get_ipam_scope_output',
 ]
 
 @pulumi.output_type
-class GetIPAMScopeResult:
+class GetIpamScopeResult:
     def __init__(__self__, arn=None, description=None, ipam_arn=None, ipam_scope_id=None, ipam_scope_type=None, is_default=None, pool_count=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -77,7 +77,7 @@ class GetIPAMScopeResult:
 
     @property
     @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> Optional['IPAMScopeIpamScopeType']:
+    def ipam_scope_type(self) -> Optional['IpamScopeType']:
         """
         Determines whether this scope contains publicly routable space or space for a private network
         """
@@ -101,19 +101,19 @@ class GetIPAMScopeResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.IPAMScopeTag']]:
+    def tags(self) -> Optional[Sequence['outputs.IpamScopeTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIPAMScopeResult(GetIPAMScopeResult):
+class AwaitableGetIpamScopeResult(GetIpamScopeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIPAMScopeResult(
+        return GetIpamScopeResult(
             arn=self.arn,
             description=self.description,
             ipam_arn=self.ipam_arn,
@@ -125,7 +125,7 @@ class AwaitableGetIPAMScopeResult(GetIPAMScopeResult):
 
 
 def get_ipam_scope(ipam_scope_id: Optional[str] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPAMScopeResult:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamScopeResult:
     """
     Resource Schema of AWS::EC2::IPAMScope Type
 
@@ -135,9 +135,9 @@ def get_ipam_scope(ipam_scope_id: Optional[str] = None,
     __args__ = dict()
     __args__['ipamScopeId'] = ipam_scope_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMScope', __args__, opts=opts, typ=GetIPAMScopeResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIpamScope', __args__, opts=opts, typ=GetIpamScopeResult).value
 
-    return AwaitableGetIPAMScopeResult(
+    return AwaitableGetIpamScopeResult(
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         ipam_arn=pulumi.get(__ret__, 'ipam_arn'),
@@ -150,7 +150,7 @@ def get_ipam_scope(ipam_scope_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_ipam_scope)
 def get_ipam_scope_output(ipam_scope_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPAMScopeResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamScopeResult]:
     """
     Resource Schema of AWS::EC2::IPAMScope Type
 

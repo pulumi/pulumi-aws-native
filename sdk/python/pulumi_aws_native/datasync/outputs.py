@@ -13,31 +13,31 @@ from ._enums import *
 
 __all__ = [
     'AgentTag',
-    'LocationEFSEc2Config',
-    'LocationEFSTag',
+    'LocationEfsEc2Config',
+    'LocationEfsTag',
     'LocationFSxLustreTag',
-    'LocationFSxONTAPNFS',
-    'LocationFSxONTAPNfsMountOptions',
-    'LocationFSxONTAPProtocol',
-    'LocationFSxONTAPSMB',
-    'LocationFSxONTAPSmbMountOptions',
-    'LocationFSxONTAPTag',
-    'LocationFSxOpenZFSMountOptions',
-    'LocationFSxOpenZFSNFS',
-    'LocationFSxOpenZFSProtocol',
-    'LocationFSxOpenZFSTag',
+    'LocationFSxOntapNfs',
+    'LocationFSxOntapNfsMountOptions',
+    'LocationFSxOntapProtocol',
+    'LocationFSxOntapSmb',
+    'LocationFSxOntapSmbMountOptions',
+    'LocationFSxOntapTag',
+    'LocationFSxOpenZfsMountOptions',
+    'LocationFSxOpenZfsNfs',
+    'LocationFSxOpenZfsProtocol',
+    'LocationFSxOpenZfsTag',
     'LocationFSxWindowsTag',
-    'LocationHDFSNameNode',
-    'LocationHDFSQopConfiguration',
-    'LocationHDFSTag',
-    'LocationNFSMountOptions',
-    'LocationNFSOnPremConfig',
-    'LocationNFSTag',
+    'LocationHdfsNameNode',
+    'LocationHdfsQopConfiguration',
+    'LocationHdfsTag',
+    'LocationNfsMountOptions',
+    'LocationNfsOnPremConfig',
+    'LocationNfsTag',
     'LocationObjectStorageTag',
-    'LocationS3S3Config',
     'LocationS3Tag',
-    'LocationSMBMountOptions',
-    'LocationSMBTag',
+    'LocationS3s3Config',
+    'LocationSmbMountOptions',
+    'LocationSmbTag',
     'StorageSystemServerConfiguration',
     'StorageSystemServerCredentials',
     'StorageSystemTag',
@@ -81,7 +81,7 @@ class AgentTag(dict):
 
 
 @pulumi.output_type
-class LocationEFSEc2Config(dict):
+class LocationEfsEc2Config(dict):
     """
     The subnet and security group that DataSync uses to access target EFS file system.
     """
@@ -94,14 +94,14 @@ class LocationEFSEc2Config(dict):
             suggest = "subnet_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocationEFSEc2Config. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in LocationEfsEc2Config. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        LocationEFSEc2Config.__key_warning(key)
+        LocationEfsEc2Config.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        LocationEFSEc2Config.__key_warning(key)
+        LocationEfsEc2Config.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -133,7 +133,7 @@ class LocationEFSEc2Config(dict):
 
 
 @pulumi.output_type
-class LocationEFSTag(dict):
+class LocationEfsTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -199,7 +199,7 @@ class LocationFSxLustreTag(dict):
 
 
 @pulumi.output_type
-class LocationFSxONTAPNFS(dict):
+class LocationFSxOntapNfs(dict):
     """
     NFS protocol configuration for FSx ONTAP file system.
     """
@@ -210,18 +210,18 @@ class LocationFSxONTAPNFS(dict):
             suggest = "mount_options"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocationFSxONTAPNFS. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in LocationFSxOntapNfs. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        LocationFSxONTAPNFS.__key_warning(key)
+        LocationFSxOntapNfs.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        LocationFSxONTAPNFS.__key_warning(key)
+        LocationFSxOntapNfs.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 mount_options: 'outputs.LocationFSxONTAPNfsMountOptions'):
+                 mount_options: 'outputs.LocationFSxOntapNfsMountOptions'):
         """
         NFS protocol configuration for FSx ONTAP file system.
         """
@@ -229,27 +229,27 @@ class LocationFSxONTAPNFS(dict):
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> 'outputs.LocationFSxONTAPNfsMountOptions':
+    def mount_options(self) -> 'outputs.LocationFSxOntapNfsMountOptions':
         return pulumi.get(self, "mount_options")
 
 
 @pulumi.output_type
-class LocationFSxONTAPNfsMountOptions(dict):
+class LocationFSxOntapNfsMountOptions(dict):
     """
     The NFS mount options that DataSync can use to mount your NFS share.
     """
     def __init__(__self__, *,
-                 version: Optional['LocationFSxONTAPNfsMountOptionsVersion'] = None):
+                 version: Optional['LocationFSxOntapNfsMountOptionsVersion'] = None):
         """
         The NFS mount options that DataSync can use to mount your NFS share.
-        :param 'LocationFSxONTAPNfsMountOptionsVersion' version: The specific NFS version that you want DataSync to use to mount your NFS share.
+        :param 'LocationFSxOntapNfsMountOptionsVersion' version: The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional['LocationFSxONTAPNfsMountOptionsVersion']:
+    def version(self) -> Optional['LocationFSxOntapNfsMountOptionsVersion']:
         """
         The specific NFS version that you want DataSync to use to mount your NFS share.
         """
@@ -257,13 +257,13 @@ class LocationFSxONTAPNfsMountOptions(dict):
 
 
 @pulumi.output_type
-class LocationFSxONTAPProtocol(dict):
+class LocationFSxOntapProtocol(dict):
     """
     Configuration settings for NFS or SMB protocol.
     """
     def __init__(__self__, *,
-                 nfs: Optional['outputs.LocationFSxONTAPNFS'] = None,
-                 smb: Optional['outputs.LocationFSxONTAPSMB'] = None):
+                 nfs: Optional['outputs.LocationFSxOntapNfs'] = None,
+                 smb: Optional['outputs.LocationFSxOntapSmb'] = None):
         """
         Configuration settings for NFS or SMB protocol.
         """
@@ -274,17 +274,17 @@ class LocationFSxONTAPProtocol(dict):
 
     @property
     @pulumi.getter
-    def nfs(self) -> Optional['outputs.LocationFSxONTAPNFS']:
+    def nfs(self) -> Optional['outputs.LocationFSxOntapNfs']:
         return pulumi.get(self, "nfs")
 
     @property
     @pulumi.getter
-    def smb(self) -> Optional['outputs.LocationFSxONTAPSMB']:
+    def smb(self) -> Optional['outputs.LocationFSxOntapSmb']:
         return pulumi.get(self, "smb")
 
 
 @pulumi.output_type
-class LocationFSxONTAPSMB(dict):
+class LocationFSxOntapSmb(dict):
     """
     SMB protocol configuration for FSx ONTAP file system.
     """
@@ -295,18 +295,18 @@ class LocationFSxONTAPSMB(dict):
             suggest = "mount_options"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocationFSxONTAPSMB. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in LocationFSxOntapSmb. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        LocationFSxONTAPSMB.__key_warning(key)
+        LocationFSxOntapSmb.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        LocationFSxONTAPSMB.__key_warning(key)
+        LocationFSxOntapSmb.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 mount_options: 'outputs.LocationFSxONTAPSmbMountOptions',
+                 mount_options: 'outputs.LocationFSxOntapSmbMountOptions',
                  password: str,
                  user: str,
                  domain: Optional[str] = None):
@@ -324,7 +324,7 @@ class LocationFSxONTAPSMB(dict):
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> 'outputs.LocationFSxONTAPSmbMountOptions':
+    def mount_options(self) -> 'outputs.LocationFSxOntapSmbMountOptions':
         return pulumi.get(self, "mount_options")
 
     @property
@@ -353,22 +353,22 @@ class LocationFSxONTAPSMB(dict):
 
 
 @pulumi.output_type
-class LocationFSxONTAPSmbMountOptions(dict):
+class LocationFSxOntapSmbMountOptions(dict):
     """
     The mount options used by DataSync to access the SMB server.
     """
     def __init__(__self__, *,
-                 version: Optional['LocationFSxONTAPSmbMountOptionsVersion'] = None):
+                 version: Optional['LocationFSxOntapSmbMountOptionsVersion'] = None):
         """
         The mount options used by DataSync to access the SMB server.
-        :param 'LocationFSxONTAPSmbMountOptionsVersion' version: The specific SMB version that you want DataSync to use to mount your SMB share.
+        :param 'LocationFSxOntapSmbMountOptionsVersion' version: The specific SMB version that you want DataSync to use to mount your SMB share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional['LocationFSxONTAPSmbMountOptionsVersion']:
+    def version(self) -> Optional['LocationFSxOntapSmbMountOptionsVersion']:
         """
         The specific SMB version that you want DataSync to use to mount your SMB share.
         """
@@ -376,7 +376,7 @@ class LocationFSxONTAPSmbMountOptions(dict):
 
 
 @pulumi.output_type
-class LocationFSxONTAPTag(dict):
+class LocationFSxOntapTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -409,22 +409,22 @@ class LocationFSxONTAPTag(dict):
 
 
 @pulumi.output_type
-class LocationFSxOpenZFSMountOptions(dict):
+class LocationFSxOpenZfsMountOptions(dict):
     """
     The NFS mount options that DataSync can use to mount your NFS share.
     """
     def __init__(__self__, *,
-                 version: Optional['LocationFSxOpenZFSMountOptionsVersion'] = None):
+                 version: Optional['LocationFSxOpenZfsMountOptionsVersion'] = None):
         """
         The NFS mount options that DataSync can use to mount your NFS share.
-        :param 'LocationFSxOpenZFSMountOptionsVersion' version: The specific NFS version that you want DataSync to use to mount your NFS share.
+        :param 'LocationFSxOpenZfsMountOptionsVersion' version: The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional['LocationFSxOpenZFSMountOptionsVersion']:
+    def version(self) -> Optional['LocationFSxOpenZfsMountOptionsVersion']:
         """
         The specific NFS version that you want DataSync to use to mount your NFS share.
         """
@@ -432,7 +432,7 @@ class LocationFSxOpenZFSMountOptions(dict):
 
 
 @pulumi.output_type
-class LocationFSxOpenZFSNFS(dict):
+class LocationFSxOpenZfsNfs(dict):
     """
     FSx OpenZFS file system NFS protocol information
     """
@@ -443,18 +443,18 @@ class LocationFSxOpenZFSNFS(dict):
             suggest = "mount_options"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocationFSxOpenZFSNFS. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in LocationFSxOpenZfsNfs. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        LocationFSxOpenZFSNFS.__key_warning(key)
+        LocationFSxOpenZfsNfs.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        LocationFSxOpenZFSNFS.__key_warning(key)
+        LocationFSxOpenZfsNfs.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 mount_options: 'outputs.LocationFSxOpenZFSMountOptions'):
+                 mount_options: 'outputs.LocationFSxOpenZfsMountOptions'):
         """
         FSx OpenZFS file system NFS protocol information
         """
@@ -462,17 +462,17 @@ class LocationFSxOpenZFSNFS(dict):
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> 'outputs.LocationFSxOpenZFSMountOptions':
+    def mount_options(self) -> 'outputs.LocationFSxOpenZfsMountOptions':
         return pulumi.get(self, "mount_options")
 
 
 @pulumi.output_type
-class LocationFSxOpenZFSProtocol(dict):
+class LocationFSxOpenZfsProtocol(dict):
     """
     Configuration settings for an NFS or SMB protocol, currently only support NFS
     """
     def __init__(__self__, *,
-                 nfs: Optional['outputs.LocationFSxOpenZFSNFS'] = None):
+                 nfs: Optional['outputs.LocationFSxOpenZfsNfs'] = None):
         """
         Configuration settings for an NFS or SMB protocol, currently only support NFS
         """
@@ -481,12 +481,12 @@ class LocationFSxOpenZFSProtocol(dict):
 
     @property
     @pulumi.getter
-    def nfs(self) -> Optional['outputs.LocationFSxOpenZFSNFS']:
+    def nfs(self) -> Optional['outputs.LocationFSxOpenZfsNfs']:
         return pulumi.get(self, "nfs")
 
 
 @pulumi.output_type
-class LocationFSxOpenZFSTag(dict):
+class LocationFSxOpenZfsTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -552,7 +552,7 @@ class LocationFSxWindowsTag(dict):
 
 
 @pulumi.output_type
-class LocationHDFSNameNode(dict):
+class LocationHdfsNameNode(dict):
     """
     HDFS Name Node IP and port information.
     """
@@ -585,7 +585,7 @@ class LocationHDFSNameNode(dict):
 
 
 @pulumi.output_type
-class LocationHDFSQopConfiguration(dict):
+class LocationHdfsQopConfiguration(dict):
     """
     Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.
     """
@@ -598,23 +598,23 @@ class LocationHDFSQopConfiguration(dict):
             suggest = "rpc_protection"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocationHDFSQopConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in LocationHdfsQopConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        LocationHDFSQopConfiguration.__key_warning(key)
+        LocationHdfsQopConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        LocationHDFSQopConfiguration.__key_warning(key)
+        LocationHdfsQopConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_transfer_protection: Optional['LocationHDFSQopConfigurationDataTransferProtection'] = None,
-                 rpc_protection: Optional['LocationHDFSQopConfigurationRpcProtection'] = None):
+                 data_transfer_protection: Optional['LocationHdfsQopConfigurationDataTransferProtection'] = None,
+                 rpc_protection: Optional['LocationHdfsQopConfigurationRpcProtection'] = None):
         """
         Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.
-        :param 'LocationHDFSQopConfigurationDataTransferProtection' data_transfer_protection: Configuration for Data Transfer Protection.
-        :param 'LocationHDFSQopConfigurationRpcProtection' rpc_protection: Configuration for RPC Protection.
+        :param 'LocationHdfsQopConfigurationDataTransferProtection' data_transfer_protection: Configuration for Data Transfer Protection.
+        :param 'LocationHdfsQopConfigurationRpcProtection' rpc_protection: Configuration for RPC Protection.
         """
         if data_transfer_protection is not None:
             pulumi.set(__self__, "data_transfer_protection", data_transfer_protection)
@@ -623,7 +623,7 @@ class LocationHDFSQopConfiguration(dict):
 
     @property
     @pulumi.getter(name="dataTransferProtection")
-    def data_transfer_protection(self) -> Optional['LocationHDFSQopConfigurationDataTransferProtection']:
+    def data_transfer_protection(self) -> Optional['LocationHdfsQopConfigurationDataTransferProtection']:
         """
         Configuration for Data Transfer Protection.
         """
@@ -631,7 +631,7 @@ class LocationHDFSQopConfiguration(dict):
 
     @property
     @pulumi.getter(name="rpcProtection")
-    def rpc_protection(self) -> Optional['LocationHDFSQopConfigurationRpcProtection']:
+    def rpc_protection(self) -> Optional['LocationHdfsQopConfigurationRpcProtection']:
         """
         Configuration for RPC Protection.
         """
@@ -639,7 +639,7 @@ class LocationHDFSQopConfiguration(dict):
 
 
 @pulumi.output_type
-class LocationHDFSTag(dict):
+class LocationHdfsTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -672,22 +672,22 @@ class LocationHDFSTag(dict):
 
 
 @pulumi.output_type
-class LocationNFSMountOptions(dict):
+class LocationNfsMountOptions(dict):
     """
     The NFS mount options that DataSync can use to mount your NFS share.
     """
     def __init__(__self__, *,
-                 version: Optional['LocationNFSMountOptionsVersion'] = None):
+                 version: Optional['LocationNfsMountOptionsVersion'] = None):
         """
         The NFS mount options that DataSync can use to mount your NFS share.
-        :param 'LocationNFSMountOptionsVersion' version: The specific NFS version that you want DataSync to use to mount your NFS share.
+        :param 'LocationNfsMountOptionsVersion' version: The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional['LocationNFSMountOptionsVersion']:
+    def version(self) -> Optional['LocationNfsMountOptionsVersion']:
         """
         The specific NFS version that you want DataSync to use to mount your NFS share.
         """
@@ -695,7 +695,7 @@ class LocationNFSMountOptions(dict):
 
 
 @pulumi.output_type
-class LocationNFSOnPremConfig(dict):
+class LocationNfsOnPremConfig(dict):
     """
     Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
     """
@@ -706,14 +706,14 @@ class LocationNFSOnPremConfig(dict):
             suggest = "agent_arns"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocationNFSOnPremConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in LocationNfsOnPremConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        LocationNFSOnPremConfig.__key_warning(key)
+        LocationNfsOnPremConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        LocationNFSOnPremConfig.__key_warning(key)
+        LocationNfsOnPremConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -734,7 +734,7 @@ class LocationNFSOnPremConfig(dict):
 
 
 @pulumi.output_type
-class LocationNFSTag(dict):
+class LocationNfsTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -800,45 +800,6 @@ class LocationObjectStorageTag(dict):
 
 
 @pulumi.output_type
-class LocationS3S3Config(dict):
-    """
-    The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bucketAccessRoleArn":
-            suggest = "bucket_access_role_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocationS3S3Config. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LocationS3S3Config.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LocationS3S3Config.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 bucket_access_role_arn: str):
-        """
-        The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
-        :param str bucket_access_role_arn: The ARN of the IAM role of the Amazon S3 bucket.
-        """
-        pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
-
-    @property
-    @pulumi.getter(name="bucketAccessRoleArn")
-    def bucket_access_role_arn(self) -> str:
-        """
-        The ARN of the IAM role of the Amazon S3 bucket.
-        """
-        return pulumi.get(self, "bucket_access_role_arn")
-
-
-@pulumi.output_type
 class LocationS3Tag(dict):
     """
     A key-value pair to associate with a resource.
@@ -872,22 +833,61 @@ class LocationS3Tag(dict):
 
 
 @pulumi.output_type
-class LocationSMBMountOptions(dict):
+class LocationS3s3Config(dict):
+    """
+    The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketAccessRoleArn":
+            suggest = "bucket_access_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationS3s3Config. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationS3s3Config.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationS3s3Config.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_access_role_arn: str):
+        """
+        The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
+        :param str bucket_access_role_arn: The ARN of the IAM role of the Amazon S3 bucket.
+        """
+        pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
+
+    @property
+    @pulumi.getter(name="bucketAccessRoleArn")
+    def bucket_access_role_arn(self) -> str:
+        """
+        The ARN of the IAM role of the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket_access_role_arn")
+
+
+@pulumi.output_type
+class LocationSmbMountOptions(dict):
     """
     The mount options used by DataSync to access the SMB server.
     """
     def __init__(__self__, *,
-                 version: Optional['LocationSMBMountOptionsVersion'] = None):
+                 version: Optional['LocationSmbMountOptionsVersion'] = None):
         """
         The mount options used by DataSync to access the SMB server.
-        :param 'LocationSMBMountOptionsVersion' version: The specific SMB version that you want DataSync to use to mount your SMB share.
+        :param 'LocationSmbMountOptionsVersion' version: The specific SMB version that you want DataSync to use to mount your SMB share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional['LocationSMBMountOptionsVersion']:
+    def version(self) -> Optional['LocationSmbMountOptionsVersion']:
         """
         The specific SMB version that you want DataSync to use to mount your SMB share.
         """
@@ -895,7 +895,7 @@ class LocationSMBMountOptions(dict):
 
 
 @pulumi.output_type
-class LocationSMBTag(dict):
+class LocationSmbTag(dict):
     """
     A key-value pair to associate with a resource.
     """

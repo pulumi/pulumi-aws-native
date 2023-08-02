@@ -37,8 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DevEndpoint{}
 	case "aws-native:glue:Job":
 		r = &Job{}
-	case "aws-native:glue:MLTransform":
-		r = &MLTransform{}
+	case "aws-native:glue:MlTransform":
+		r = &MlTransform{}
 	case "aws-native:glue:Partition":
 		r = &Partition{}
 	case "aws-native:glue:Registry":

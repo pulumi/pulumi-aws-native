@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const CustomDBEngineVersionStatus = {
+export const CustomDbEngineVersionStatus = {
     Available: "available",
     Inactive: "inactive",
     InactiveExceptRestore: "inactive-except-restore",
@@ -11,9 +11,9 @@ export const CustomDBEngineVersionStatus = {
 /**
  * The availability status to be assigned to the CEV.
  */
-export type CustomDBEngineVersionStatus = (typeof CustomDBEngineVersionStatus)[keyof typeof CustomDBEngineVersionStatus];
+export type CustomDbEngineVersionStatus = (typeof CustomDbEngineVersionStatus)[keyof typeof CustomDbEngineVersionStatus];
 
-export const DBInstanceProcessorFeatureName = {
+export const DbInstanceProcessorFeatureName = {
     CoreCount: "coreCount",
     ThreadsPerCore: "threadsPerCore",
 } as const;
@@ -21,18 +21,18 @@ export const DBInstanceProcessorFeatureName = {
 /**
  * The name of the processor feature. Valid names are coreCount and threadsPerCore.
  */
-export type DBInstanceProcessorFeatureName = (typeof DBInstanceProcessorFeatureName)[keyof typeof DBInstanceProcessorFeatureName];
+export type DbInstanceProcessorFeatureName = (typeof DbInstanceProcessorFeatureName)[keyof typeof DbInstanceProcessorFeatureName];
 
-export const DBProxyAuthFormatAuthScheme = {
+export const DbProxyAuthFormatAuthScheme = {
     Secrets: "SECRETS",
 } as const;
 
 /**
  * The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
  */
-export type DBProxyAuthFormatAuthScheme = (typeof DBProxyAuthFormatAuthScheme)[keyof typeof DBProxyAuthFormatAuthScheme];
+export type DbProxyAuthFormatAuthScheme = (typeof DbProxyAuthFormatAuthScheme)[keyof typeof DbProxyAuthFormatAuthScheme];
 
-export const DBProxyAuthFormatClientPasswordAuthType = {
+export const DbProxyAuthFormatClientPasswordAuthType = {
     MysqlNativePassword: "MYSQL_NATIVE_PASSWORD",
     PostgresScramSha256: "POSTGRES_SCRAM_SHA_256",
     PostgresMd5: "POSTGRES_MD5",
@@ -42,9 +42,9 @@ export const DBProxyAuthFormatClientPasswordAuthType = {
 /**
  * The type of authentication the proxy uses for connections from clients.
  */
-export type DBProxyAuthFormatClientPasswordAuthType = (typeof DBProxyAuthFormatClientPasswordAuthType)[keyof typeof DBProxyAuthFormatClientPasswordAuthType];
+export type DbProxyAuthFormatClientPasswordAuthType = (typeof DbProxyAuthFormatClientPasswordAuthType)[keyof typeof DbProxyAuthFormatClientPasswordAuthType];
 
-export const DBProxyAuthFormatIAMAuth = {
+export const DbProxyAuthFormatIamAuth = {
     Disabled: "DISABLED",
     Required: "REQUIRED",
     Enabled: "ENABLED",
@@ -53,9 +53,9 @@ export const DBProxyAuthFormatIAMAuth = {
 /**
  * Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
  */
-export type DBProxyAuthFormatIAMAuth = (typeof DBProxyAuthFormatIAMAuth)[keyof typeof DBProxyAuthFormatIAMAuth];
+export type DbProxyAuthFormatIamAuth = (typeof DbProxyAuthFormatIamAuth)[keyof typeof DbProxyAuthFormatIamAuth];
 
-export const DBProxyEndpointTargetRole = {
+export const DbProxyEndpointTargetRole = {
     ReadWrite: "READ_WRITE",
     ReadOnly: "READ_ONLY",
 } as const;
@@ -63,9 +63,9 @@ export const DBProxyEndpointTargetRole = {
 /**
  * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
  */
-export type DBProxyEndpointTargetRole = (typeof DBProxyEndpointTargetRole)[keyof typeof DBProxyEndpointTargetRole];
+export type DbProxyEndpointTargetRole = (typeof DbProxyEndpointTargetRole)[keyof typeof DbProxyEndpointTargetRole];
 
-export const DBProxyEngineFamily = {
+export const DbProxyEngineFamily = {
     Mysql: "MYSQL",
     Postgresql: "POSTGRESQL",
     Sqlserver: "SQLSERVER",
@@ -74,16 +74,16 @@ export const DBProxyEngineFamily = {
 /**
  * The kinds of databases that the proxy can connect to.
  */
-export type DBProxyEngineFamily = (typeof DBProxyEngineFamily)[keyof typeof DBProxyEngineFamily];
+export type DbProxyEngineFamily = (typeof DbProxyEngineFamily)[keyof typeof DbProxyEngineFamily];
 
-export const DBProxyTargetGroupTargetGroupName = {
+export const DbProxyTargetGroupTargetGroupName = {
     Default: "default",
 } as const;
 
 /**
  * The identifier for the DBProxyTargetGroup
  */
-export type DBProxyTargetGroupTargetGroupName = (typeof DBProxyTargetGroupTargetGroupName)[keyof typeof DBProxyTargetGroupTargetGroupName];
+export type DbProxyTargetGroupTargetGroupName = (typeof DbProxyTargetGroupTargetGroupName)[keyof typeof DbProxyTargetGroupTargetGroupName];
 
 export const GlobalClusterEngine = {
     Aurora: "aurora",

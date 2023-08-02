@@ -10,10 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
-__all__ = ['VPCEndpointArgs', 'VPCEndpoint']
+__all__ = ['VpcEndpointArgs', 'VpcEndpoint']
 
 @pulumi.input_type
-class VPCEndpointArgs:
+class VpcEndpointArgs:
     def __init__(__self__, *,
                  service_name: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
@@ -22,9 +22,9 @@ class VPCEndpointArgs:
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 vpc_endpoint_type: Optional[pulumi.Input['VPCEndpointVpcEndpointType']] = None):
+                 vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None):
         """
-        The set of arguments for constructing a VPCEndpoint resource.
+        The set of arguments for constructing a VpcEndpoint resource.
         :param pulumi.Input[str] service_name: The service name.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         :param pulumi.Input[str] policy_document: A policy to attach to the endpoint that controls access to the service.
@@ -134,15 +134,15 @@ class VPCEndpointArgs:
 
     @property
     @pulumi.getter(name="vpcEndpointType")
-    def vpc_endpoint_type(self) -> Optional[pulumi.Input['VPCEndpointVpcEndpointType']]:
+    def vpc_endpoint_type(self) -> Optional[pulumi.Input['VpcEndpointType']]:
         return pulumi.get(self, "vpc_endpoint_type")
 
     @vpc_endpoint_type.setter
-    def vpc_endpoint_type(self, value: Optional[pulumi.Input['VPCEndpointVpcEndpointType']]):
+    def vpc_endpoint_type(self, value: Optional[pulumi.Input['VpcEndpointType']]):
         pulumi.set(self, "vpc_endpoint_type", value)
 
 
-class VPCEndpoint(pulumi.CustomResource):
+class VpcEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -153,7 +153,7 @@ class VPCEndpoint(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 vpc_endpoint_type: Optional[pulumi.Input['VPCEndpointVpcEndpointType']] = None,
+                 vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -173,18 +173,18 @@ class VPCEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPCEndpointArgs,
+                 args: VpcEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCEndpoint
 
         :param str resource_name: The name of the resource.
-        :param VPCEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param VpcEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPCEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -199,7 +199,7 @@ class VPCEndpoint(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 vpc_endpoint_type: Optional[pulumi.Input['VPCEndpointVpcEndpointType']] = None,
+                 vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -208,7 +208,7 @@ class VPCEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPCEndpointArgs.__new__(VPCEndpointArgs)
+            __props__ = VpcEndpointArgs.__new__(VpcEndpointArgs)
 
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["private_dns_enabled"] = private_dns_enabled
@@ -225,8 +225,8 @@ class VPCEndpoint(pulumi.CustomResource):
             __props__.__dict__["creation_timestamp"] = None
             __props__.__dict__["dns_entries"] = None
             __props__.__dict__["network_interface_ids"] = None
-        super(VPCEndpoint, __self__).__init__(
-            'aws-native:ec2:VPCEndpoint',
+        super(VpcEndpoint, __self__).__init__(
+            'aws-native:ec2:VpcEndpoint',
             resource_name,
             __props__,
             opts)
@@ -234,9 +234,9 @@ class VPCEndpoint(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPCEndpoint':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpcEndpoint':
         """
-        Get an existing VPCEndpoint resource's state with the given name, id, and optional extra
+        Get an existing VpcEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -245,7 +245,7 @@ class VPCEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPCEndpointArgs.__new__(VPCEndpointArgs)
+        __props__ = VpcEndpointArgs.__new__(VpcEndpointArgs)
 
         __props__.__dict__["creation_timestamp"] = None
         __props__.__dict__["dns_entries"] = None
@@ -258,7 +258,7 @@ class VPCEndpoint(pulumi.CustomResource):
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["vpc_endpoint_type"] = None
         __props__.__dict__["vpc_id"] = None
-        return VPCEndpoint(resource_name, opts=opts, __props__=__props__)
+        return VpcEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="creationTimestamp")
@@ -325,7 +325,7 @@ class VPCEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcEndpointType")
-    def vpc_endpoint_type(self) -> pulumi.Output[Optional['VPCEndpointVpcEndpointType']]:
+    def vpc_endpoint_type(self) -> pulumi.Output[Optional['VpcEndpointType']]:
         return pulumi.get(self, "vpc_endpoint_type")
 
     @property

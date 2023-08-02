@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetWebACLResult',
-    'AwaitableGetWebACLResult',
+    'GetWebAclResult',
+    'AwaitableGetWebAclResult',
     'get_web_acl',
     'get_web_acl_output',
 ]
 
 @pulumi.output_type
-class GetWebACLResult:
+class GetWebAclResult:
     def __init__(__self__, arn=None, association_config=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, default_action=None, description=None, id=None, label_namespace=None, rules=None, tags=None, token_domains=None, visibility_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -71,7 +71,7 @@ class GetWebACLResult:
 
     @property
     @pulumi.getter(name="associationConfig")
-    def association_config(self) -> Optional['outputs.WebACLAssociationConfig']:
+    def association_config(self) -> Optional['outputs.WebAclAssociationConfig']:
         return pulumi.get(self, "association_config")
 
     @property
@@ -81,22 +81,22 @@ class GetWebACLResult:
 
     @property
     @pulumi.getter(name="captchaConfig")
-    def captcha_config(self) -> Optional['outputs.WebACLCaptchaConfig']:
+    def captcha_config(self) -> Optional['outputs.WebAclCaptchaConfig']:
         return pulumi.get(self, "captcha_config")
 
     @property
     @pulumi.getter(name="challengeConfig")
-    def challenge_config(self) -> Optional['outputs.WebACLChallengeConfig']:
+    def challenge_config(self) -> Optional['outputs.WebAclChallengeConfig']:
         return pulumi.get(self, "challenge_config")
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional['outputs.WebACLCustomResponseBodies']:
+    def custom_response_bodies(self) -> Optional['outputs.WebAclCustomResponseBodies']:
         return pulumi.get(self, "custom_response_bodies")
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional['outputs.WebACLDefaultAction']:
+    def default_action(self) -> Optional['outputs.WebAclDefaultAction']:
         return pulumi.get(self, "default_action")
 
     @property
@@ -116,7 +116,7 @@ class GetWebACLResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.WebACLRule']]:
+    def rules(self) -> Optional[Sequence['outputs.WebAclRule']]:
         """
         Collection of Rules.
         """
@@ -124,7 +124,7 @@ class GetWebACLResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.WebACLTag']]:
+    def tags(self) -> Optional[Sequence['outputs.WebAclTag']]:
         return pulumi.get(self, "tags")
 
     @property
@@ -134,16 +134,16 @@ class GetWebACLResult:
 
     @property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> Optional['outputs.WebACLVisibilityConfig']:
+    def visibility_config(self) -> Optional['outputs.WebAclVisibilityConfig']:
         return pulumi.get(self, "visibility_config")
 
 
-class AwaitableGetWebACLResult(GetWebACLResult):
+class AwaitableGetWebAclResult(GetWebAclResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetWebACLResult(
+        return GetWebAclResult(
             arn=self.arn,
             association_config=self.association_config,
             capacity=self.capacity,
@@ -162,8 +162,8 @@ class AwaitableGetWebACLResult(GetWebACLResult):
 
 def get_web_acl(id: Optional[str] = None,
                 name: Optional[str] = None,
-                scope: Optional['WebACLScope'] = None,
-                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebACLResult:
+                scope: Optional['WebAclScope'] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAclResult:
     """
     Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
     """
@@ -172,9 +172,9 @@ def get_web_acl(id: Optional[str] = None,
     __args__['name'] = name
     __args__['scope'] = scope
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getWebACL', __args__, opts=opts, typ=GetWebACLResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getWebAcl', __args__, opts=opts, typ=GetWebAclResult).value
 
-    return AwaitableGetWebACLResult(
+    return AwaitableGetWebAclResult(
         arn=pulumi.get(__ret__, 'arn'),
         association_config=pulumi.get(__ret__, 'association_config'),
         capacity=pulumi.get(__ret__, 'capacity'),
@@ -194,8 +194,8 @@ def get_web_acl(id: Optional[str] = None,
 @_utilities.lift_output_func(get_web_acl)
 def get_web_acl_output(id: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
-                       scope: Optional[pulumi.Input['WebACLScope']] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebACLResult]:
+                       scope: Optional[pulumi.Input['WebAclScope']] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAclResult]:
     """
     Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
     """

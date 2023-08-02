@@ -13,213 +13,213 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type EnvironmentEC2Repository struct {
+type EnvironmentEc2Repository struct {
 	PathComponent string `pulumi:"pathComponent"`
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 }
 
-// EnvironmentEC2RepositoryInput is an input type that accepts EnvironmentEC2RepositoryArgs and EnvironmentEC2RepositoryOutput values.
-// You can construct a concrete instance of `EnvironmentEC2RepositoryInput` via:
+// EnvironmentEc2RepositoryInput is an input type that accepts EnvironmentEc2RepositoryArgs and EnvironmentEc2RepositoryOutput values.
+// You can construct a concrete instance of `EnvironmentEc2RepositoryInput` via:
 //
-//	EnvironmentEC2RepositoryArgs{...}
-type EnvironmentEC2RepositoryInput interface {
+//	EnvironmentEc2RepositoryArgs{...}
+type EnvironmentEc2RepositoryInput interface {
 	pulumi.Input
 
-	ToEnvironmentEC2RepositoryOutput() EnvironmentEC2RepositoryOutput
-	ToEnvironmentEC2RepositoryOutputWithContext(context.Context) EnvironmentEC2RepositoryOutput
+	ToEnvironmentEc2RepositoryOutput() EnvironmentEc2RepositoryOutput
+	ToEnvironmentEc2RepositoryOutputWithContext(context.Context) EnvironmentEc2RepositoryOutput
 }
 
-type EnvironmentEC2RepositoryArgs struct {
+type EnvironmentEc2RepositoryArgs struct {
 	PathComponent pulumi.StringInput `pulumi:"pathComponent"`
 	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
 }
 
-func (EnvironmentEC2RepositoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentEC2Repository)(nil)).Elem()
+func (EnvironmentEc2RepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentEc2Repository)(nil)).Elem()
 }
 
-func (i EnvironmentEC2RepositoryArgs) ToEnvironmentEC2RepositoryOutput() EnvironmentEC2RepositoryOutput {
-	return i.ToEnvironmentEC2RepositoryOutputWithContext(context.Background())
+func (i EnvironmentEc2RepositoryArgs) ToEnvironmentEc2RepositoryOutput() EnvironmentEc2RepositoryOutput {
+	return i.ToEnvironmentEc2RepositoryOutputWithContext(context.Background())
 }
 
-func (i EnvironmentEC2RepositoryArgs) ToEnvironmentEC2RepositoryOutputWithContext(ctx context.Context) EnvironmentEC2RepositoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2RepositoryOutput)
+func (i EnvironmentEc2RepositoryArgs) ToEnvironmentEc2RepositoryOutputWithContext(ctx context.Context) EnvironmentEc2RepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEc2RepositoryOutput)
 }
 
-// EnvironmentEC2RepositoryArrayInput is an input type that accepts EnvironmentEC2RepositoryArray and EnvironmentEC2RepositoryArrayOutput values.
-// You can construct a concrete instance of `EnvironmentEC2RepositoryArrayInput` via:
+// EnvironmentEc2RepositoryArrayInput is an input type that accepts EnvironmentEc2RepositoryArray and EnvironmentEc2RepositoryArrayOutput values.
+// You can construct a concrete instance of `EnvironmentEc2RepositoryArrayInput` via:
 //
-//	EnvironmentEC2RepositoryArray{ EnvironmentEC2RepositoryArgs{...} }
-type EnvironmentEC2RepositoryArrayInput interface {
+//	EnvironmentEc2RepositoryArray{ EnvironmentEc2RepositoryArgs{...} }
+type EnvironmentEc2RepositoryArrayInput interface {
 	pulumi.Input
 
-	ToEnvironmentEC2RepositoryArrayOutput() EnvironmentEC2RepositoryArrayOutput
-	ToEnvironmentEC2RepositoryArrayOutputWithContext(context.Context) EnvironmentEC2RepositoryArrayOutput
+	ToEnvironmentEc2RepositoryArrayOutput() EnvironmentEc2RepositoryArrayOutput
+	ToEnvironmentEc2RepositoryArrayOutputWithContext(context.Context) EnvironmentEc2RepositoryArrayOutput
 }
 
-type EnvironmentEC2RepositoryArray []EnvironmentEC2RepositoryInput
+type EnvironmentEc2RepositoryArray []EnvironmentEc2RepositoryInput
 
-func (EnvironmentEC2RepositoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentEC2Repository)(nil)).Elem()
+func (EnvironmentEc2RepositoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentEc2Repository)(nil)).Elem()
 }
 
-func (i EnvironmentEC2RepositoryArray) ToEnvironmentEC2RepositoryArrayOutput() EnvironmentEC2RepositoryArrayOutput {
-	return i.ToEnvironmentEC2RepositoryArrayOutputWithContext(context.Background())
+func (i EnvironmentEc2RepositoryArray) ToEnvironmentEc2RepositoryArrayOutput() EnvironmentEc2RepositoryArrayOutput {
+	return i.ToEnvironmentEc2RepositoryArrayOutputWithContext(context.Background())
 }
 
-func (i EnvironmentEC2RepositoryArray) ToEnvironmentEC2RepositoryArrayOutputWithContext(ctx context.Context) EnvironmentEC2RepositoryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2RepositoryArrayOutput)
+func (i EnvironmentEc2RepositoryArray) ToEnvironmentEc2RepositoryArrayOutputWithContext(ctx context.Context) EnvironmentEc2RepositoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEc2RepositoryArrayOutput)
 }
 
-type EnvironmentEC2RepositoryOutput struct{ *pulumi.OutputState }
+type EnvironmentEc2RepositoryOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentEC2RepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentEC2Repository)(nil)).Elem()
+func (EnvironmentEc2RepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentEc2Repository)(nil)).Elem()
 }
 
-func (o EnvironmentEC2RepositoryOutput) ToEnvironmentEC2RepositoryOutput() EnvironmentEC2RepositoryOutput {
+func (o EnvironmentEc2RepositoryOutput) ToEnvironmentEc2RepositoryOutput() EnvironmentEc2RepositoryOutput {
 	return o
 }
 
-func (o EnvironmentEC2RepositoryOutput) ToEnvironmentEC2RepositoryOutputWithContext(ctx context.Context) EnvironmentEC2RepositoryOutput {
+func (o EnvironmentEc2RepositoryOutput) ToEnvironmentEc2RepositoryOutputWithContext(ctx context.Context) EnvironmentEc2RepositoryOutput {
 	return o
 }
 
-func (o EnvironmentEC2RepositoryOutput) PathComponent() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentEC2Repository) string { return v.PathComponent }).(pulumi.StringOutput)
+func (o EnvironmentEc2RepositoryOutput) PathComponent() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentEc2Repository) string { return v.PathComponent }).(pulumi.StringOutput)
 }
 
-func (o EnvironmentEC2RepositoryOutput) RepositoryUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentEC2Repository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+func (o EnvironmentEc2RepositoryOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentEc2Repository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-type EnvironmentEC2RepositoryArrayOutput struct{ *pulumi.OutputState }
+type EnvironmentEc2RepositoryArrayOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentEC2RepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentEC2Repository)(nil)).Elem()
+func (EnvironmentEc2RepositoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentEc2Repository)(nil)).Elem()
 }
 
-func (o EnvironmentEC2RepositoryArrayOutput) ToEnvironmentEC2RepositoryArrayOutput() EnvironmentEC2RepositoryArrayOutput {
+func (o EnvironmentEc2RepositoryArrayOutput) ToEnvironmentEc2RepositoryArrayOutput() EnvironmentEc2RepositoryArrayOutput {
 	return o
 }
 
-func (o EnvironmentEC2RepositoryArrayOutput) ToEnvironmentEC2RepositoryArrayOutputWithContext(ctx context.Context) EnvironmentEC2RepositoryArrayOutput {
+func (o EnvironmentEc2RepositoryArrayOutput) ToEnvironmentEc2RepositoryArrayOutputWithContext(ctx context.Context) EnvironmentEc2RepositoryArrayOutput {
 	return o
 }
 
-func (o EnvironmentEC2RepositoryArrayOutput) Index(i pulumi.IntInput) EnvironmentEC2RepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentEC2Repository {
-		return vs[0].([]EnvironmentEC2Repository)[vs[1].(int)]
-	}).(EnvironmentEC2RepositoryOutput)
+func (o EnvironmentEc2RepositoryArrayOutput) Index(i pulumi.IntInput) EnvironmentEc2RepositoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentEc2Repository {
+		return vs[0].([]EnvironmentEc2Repository)[vs[1].(int)]
+	}).(EnvironmentEc2RepositoryOutput)
 }
 
-type EnvironmentEC2Tag struct {
+type EnvironmentEc2Tag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// EnvironmentEC2TagInput is an input type that accepts EnvironmentEC2TagArgs and EnvironmentEC2TagOutput values.
-// You can construct a concrete instance of `EnvironmentEC2TagInput` via:
+// EnvironmentEc2TagInput is an input type that accepts EnvironmentEc2TagArgs and EnvironmentEc2TagOutput values.
+// You can construct a concrete instance of `EnvironmentEc2TagInput` via:
 //
-//	EnvironmentEC2TagArgs{...}
-type EnvironmentEC2TagInput interface {
+//	EnvironmentEc2TagArgs{...}
+type EnvironmentEc2TagInput interface {
 	pulumi.Input
 
-	ToEnvironmentEC2TagOutput() EnvironmentEC2TagOutput
-	ToEnvironmentEC2TagOutputWithContext(context.Context) EnvironmentEC2TagOutput
+	ToEnvironmentEc2TagOutput() EnvironmentEc2TagOutput
+	ToEnvironmentEc2TagOutputWithContext(context.Context) EnvironmentEc2TagOutput
 }
 
-type EnvironmentEC2TagArgs struct {
+type EnvironmentEc2TagArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (EnvironmentEC2TagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentEC2Tag)(nil)).Elem()
+func (EnvironmentEc2TagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentEc2Tag)(nil)).Elem()
 }
 
-func (i EnvironmentEC2TagArgs) ToEnvironmentEC2TagOutput() EnvironmentEC2TagOutput {
-	return i.ToEnvironmentEC2TagOutputWithContext(context.Background())
+func (i EnvironmentEc2TagArgs) ToEnvironmentEc2TagOutput() EnvironmentEc2TagOutput {
+	return i.ToEnvironmentEc2TagOutputWithContext(context.Background())
 }
 
-func (i EnvironmentEC2TagArgs) ToEnvironmentEC2TagOutputWithContext(ctx context.Context) EnvironmentEC2TagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2TagOutput)
+func (i EnvironmentEc2TagArgs) ToEnvironmentEc2TagOutputWithContext(ctx context.Context) EnvironmentEc2TagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEc2TagOutput)
 }
 
-// EnvironmentEC2TagArrayInput is an input type that accepts EnvironmentEC2TagArray and EnvironmentEC2TagArrayOutput values.
-// You can construct a concrete instance of `EnvironmentEC2TagArrayInput` via:
+// EnvironmentEc2TagArrayInput is an input type that accepts EnvironmentEc2TagArray and EnvironmentEc2TagArrayOutput values.
+// You can construct a concrete instance of `EnvironmentEc2TagArrayInput` via:
 //
-//	EnvironmentEC2TagArray{ EnvironmentEC2TagArgs{...} }
-type EnvironmentEC2TagArrayInput interface {
+//	EnvironmentEc2TagArray{ EnvironmentEc2TagArgs{...} }
+type EnvironmentEc2TagArrayInput interface {
 	pulumi.Input
 
-	ToEnvironmentEC2TagArrayOutput() EnvironmentEC2TagArrayOutput
-	ToEnvironmentEC2TagArrayOutputWithContext(context.Context) EnvironmentEC2TagArrayOutput
+	ToEnvironmentEc2TagArrayOutput() EnvironmentEc2TagArrayOutput
+	ToEnvironmentEc2TagArrayOutputWithContext(context.Context) EnvironmentEc2TagArrayOutput
 }
 
-type EnvironmentEC2TagArray []EnvironmentEC2TagInput
+type EnvironmentEc2TagArray []EnvironmentEc2TagInput
 
-func (EnvironmentEC2TagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentEC2Tag)(nil)).Elem()
+func (EnvironmentEc2TagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentEc2Tag)(nil)).Elem()
 }
 
-func (i EnvironmentEC2TagArray) ToEnvironmentEC2TagArrayOutput() EnvironmentEC2TagArrayOutput {
-	return i.ToEnvironmentEC2TagArrayOutputWithContext(context.Background())
+func (i EnvironmentEc2TagArray) ToEnvironmentEc2TagArrayOutput() EnvironmentEc2TagArrayOutput {
+	return i.ToEnvironmentEc2TagArrayOutputWithContext(context.Background())
 }
 
-func (i EnvironmentEC2TagArray) ToEnvironmentEC2TagArrayOutputWithContext(ctx context.Context) EnvironmentEC2TagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2TagArrayOutput)
+func (i EnvironmentEc2TagArray) ToEnvironmentEc2TagArrayOutputWithContext(ctx context.Context) EnvironmentEc2TagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEc2TagArrayOutput)
 }
 
-type EnvironmentEC2TagOutput struct{ *pulumi.OutputState }
+type EnvironmentEc2TagOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentEC2TagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentEC2Tag)(nil)).Elem()
+func (EnvironmentEc2TagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentEc2Tag)(nil)).Elem()
 }
 
-func (o EnvironmentEC2TagOutput) ToEnvironmentEC2TagOutput() EnvironmentEC2TagOutput {
+func (o EnvironmentEc2TagOutput) ToEnvironmentEc2TagOutput() EnvironmentEc2TagOutput {
 	return o
 }
 
-func (o EnvironmentEC2TagOutput) ToEnvironmentEC2TagOutputWithContext(ctx context.Context) EnvironmentEC2TagOutput {
+func (o EnvironmentEc2TagOutput) ToEnvironmentEc2TagOutputWithContext(ctx context.Context) EnvironmentEc2TagOutput {
 	return o
 }
 
-func (o EnvironmentEC2TagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentEC2Tag) string { return v.Key }).(pulumi.StringOutput)
+func (o EnvironmentEc2TagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentEc2Tag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o EnvironmentEC2TagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentEC2Tag) string { return v.Value }).(pulumi.StringOutput)
+func (o EnvironmentEc2TagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentEc2Tag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type EnvironmentEC2TagArrayOutput struct{ *pulumi.OutputState }
+type EnvironmentEc2TagArrayOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentEC2TagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentEC2Tag)(nil)).Elem()
+func (EnvironmentEc2TagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentEc2Tag)(nil)).Elem()
 }
 
-func (o EnvironmentEC2TagArrayOutput) ToEnvironmentEC2TagArrayOutput() EnvironmentEC2TagArrayOutput {
+func (o EnvironmentEc2TagArrayOutput) ToEnvironmentEc2TagArrayOutput() EnvironmentEc2TagArrayOutput {
 	return o
 }
 
-func (o EnvironmentEC2TagArrayOutput) ToEnvironmentEC2TagArrayOutputWithContext(ctx context.Context) EnvironmentEC2TagArrayOutput {
+func (o EnvironmentEc2TagArrayOutput) ToEnvironmentEc2TagArrayOutputWithContext(ctx context.Context) EnvironmentEc2TagArrayOutput {
 	return o
 }
 
-func (o EnvironmentEC2TagArrayOutput) Index(i pulumi.IntInput) EnvironmentEC2TagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentEC2Tag {
-		return vs[0].([]EnvironmentEC2Tag)[vs[1].(int)]
-	}).(EnvironmentEC2TagOutput)
+func (o EnvironmentEc2TagArrayOutput) Index(i pulumi.IntInput) EnvironmentEc2TagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentEc2Tag {
+		return vs[0].([]EnvironmentEc2Tag)[vs[1].(int)]
+	}).(EnvironmentEc2TagOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2RepositoryInput)(nil)).Elem(), EnvironmentEC2RepositoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2RepositoryArrayInput)(nil)).Elem(), EnvironmentEC2RepositoryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2TagInput)(nil)).Elem(), EnvironmentEC2TagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2TagArrayInput)(nil)).Elem(), EnvironmentEC2TagArray{})
-	pulumi.RegisterOutputType(EnvironmentEC2RepositoryOutput{})
-	pulumi.RegisterOutputType(EnvironmentEC2RepositoryArrayOutput{})
-	pulumi.RegisterOutputType(EnvironmentEC2TagOutput{})
-	pulumi.RegisterOutputType(EnvironmentEC2TagArrayOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEc2RepositoryInput)(nil)).Elem(), EnvironmentEc2RepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEc2RepositoryArrayInput)(nil)).Elem(), EnvironmentEc2RepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEc2TagInput)(nil)).Elem(), EnvironmentEc2TagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEc2TagArrayInput)(nil)).Elem(), EnvironmentEc2TagArray{})
+	pulumi.RegisterOutputType(EnvironmentEc2RepositoryOutput{})
+	pulumi.RegisterOutputType(EnvironmentEc2RepositoryArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentEc2TagOutput{})
+	pulumi.RegisterOutputType(EnvironmentEc2TagArrayOutput{})
 }

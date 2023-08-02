@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         public Output<ImmutableArray<string>> Instances { get; private set; } = null!;
 
         [Output("lbCookieStickinessPolicy")]
-        public Output<ImmutableArray<Outputs.LoadBalancerLBCookieStickinessPolicy>> LbCookieStickinessPolicy { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LoadBalancerLbCookieStickinessPolicy>> LbCookieStickinessPolicy { get; private set; } = null!;
 
         [Output("listeners")]
         public Output<ImmutableArray<Outputs.LoadBalancerListeners>> Listeners { get; private set; } = null!;
@@ -164,10 +164,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         }
 
         [Input("lbCookieStickinessPolicy")]
-        private InputList<Inputs.LoadBalancerLBCookieStickinessPolicyArgs>? _lbCookieStickinessPolicy;
-        public InputList<Inputs.LoadBalancerLBCookieStickinessPolicyArgs> LbCookieStickinessPolicy
+        private InputList<Inputs.LoadBalancerLbCookieStickinessPolicyArgs>? _lbCookieStickinessPolicy;
+        public InputList<Inputs.LoadBalancerLbCookieStickinessPolicyArgs> LbCookieStickinessPolicy
         {
-            get => _lbCookieStickinessPolicy ?? (_lbCookieStickinessPolicy = new InputList<Inputs.LoadBalancerLBCookieStickinessPolicyArgs>());
+            get => _lbCookieStickinessPolicy ?? (_lbCookieStickinessPolicy = new InputList<Inputs.LoadBalancerLbCookieStickinessPolicyArgs>());
             set => _lbCookieStickinessPolicy = value;
         }
 

@@ -9,17 +9,17 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VPCEndpointConnectionNotificationArgs', 'VPCEndpointConnectionNotification']
+__all__ = ['VpcEndpointConnectionNotificationArgs', 'VpcEndpointConnectionNotification']
 
 @pulumi.input_type
-class VPCEndpointConnectionNotificationArgs:
+class VpcEndpointConnectionNotificationArgs:
     def __init__(__self__, *,
                  connection_events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  connection_notification_arn: pulumi.Input[str],
                  service_id: Optional[pulumi.Input[str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a VPCEndpointConnectionNotification resource.
+        The set of arguments for constructing a VpcEndpointConnectionNotification resource.
         """
         pulumi.set(__self__, "connection_events", connection_events)
         pulumi.set(__self__, "connection_notification_arn", connection_notification_arn)
@@ -65,11 +65,11 @@ class VPCEndpointConnectionNotificationArgs:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
-warnings.warn("""VPCEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class VPCEndpointConnectionNotification(pulumi.CustomResource):
-    warnings.warn("""VPCEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class VpcEndpointConnectionNotification(pulumi.CustomResource):
+    warnings.warn("""VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -90,18 +90,18 @@ class VPCEndpointConnectionNotification(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPCEndpointConnectionNotificationArgs,
+                 args: VpcEndpointConnectionNotificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
 
         :param str resource_name: The name of the resource.
-        :param VPCEndpointConnectionNotificationArgs args: The arguments to use to populate this resource's properties.
+        :param VpcEndpointConnectionNotificationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPCEndpointConnectionNotificationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointConnectionNotificationArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -115,14 +115,14 @@ class VPCEndpointConnectionNotification(pulumi.CustomResource):
                  service_id: Optional[pulumi.Input[str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPCEndpointConnectionNotification is deprecated: VPCEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""VpcEndpointConnectionNotification is deprecated: VpcEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPCEndpointConnectionNotificationArgs.__new__(VPCEndpointConnectionNotificationArgs)
+            __props__ = VpcEndpointConnectionNotificationArgs.__new__(VpcEndpointConnectionNotificationArgs)
 
             if connection_events is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_events'")
@@ -132,8 +132,8 @@ class VPCEndpointConnectionNotification(pulumi.CustomResource):
             __props__.__dict__["connection_notification_arn"] = connection_notification_arn
             __props__.__dict__["service_id"] = service_id
             __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
-        super(VPCEndpointConnectionNotification, __self__).__init__(
-            'aws-native:ec2:VPCEndpointConnectionNotification',
+        super(VpcEndpointConnectionNotification, __self__).__init__(
+            'aws-native:ec2:VpcEndpointConnectionNotification',
             resource_name,
             __props__,
             opts)
@@ -141,9 +141,9 @@ class VPCEndpointConnectionNotification(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPCEndpointConnectionNotification':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpcEndpointConnectionNotification':
         """
-        Get an existing VPCEndpointConnectionNotification resource's state with the given name, id, and optional extra
+        Get an existing VpcEndpointConnectionNotification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -152,13 +152,13 @@ class VPCEndpointConnectionNotification(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPCEndpointConnectionNotificationArgs.__new__(VPCEndpointConnectionNotificationArgs)
+        __props__ = VpcEndpointConnectionNotificationArgs.__new__(VpcEndpointConnectionNotificationArgs)
 
         __props__.__dict__["connection_events"] = None
         __props__.__dict__["connection_notification_arn"] = None
         __props__.__dict__["service_id"] = None
         __props__.__dict__["vpc_endpoint_id"] = None
-        return VPCEndpointConnectionNotification(resource_name, opts=opts, __props__=__props__)
+        return VpcEndpointConnectionNotification(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="connectionEvents")

@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.Pipes.Inputs
     public sealed class PipeSourceParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("activeMqBrokerParameters")]
-        public Input<Inputs.PipeSourceActiveMQBrokerParametersArgs>? ActiveMqBrokerParameters { get; set; }
+        public Input<Inputs.PipeSourceActiveMqBrokerParametersArgs>? ActiveMqBrokerParameters { get; set; }
 
         [Input("dynamoDbStreamParameters")]
-        public Input<Inputs.PipeSourceDynamoDBStreamParametersArgs>? DynamoDbStreamParameters { get; set; }
+        public Input<Inputs.PipeSourceDynamoDbStreamParametersArgs>? DynamoDbStreamParameters { get; set; }
 
         [Input("filterCriteria")]
         public Input<Inputs.PipeFilterCriteriaArgs>? FilterCriteria { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<Inputs.PipeSourceManagedStreamingKafkaParametersArgs>? ManagedStreamingKafkaParameters { get; set; }
 
         [Input("rabbitMqBrokerParameters")]
-        public Input<Inputs.PipeSourceRabbitMQBrokerParametersArgs>? RabbitMqBrokerParameters { get; set; }
+        public Input<Inputs.PipeSourceRabbitMqBrokerParametersArgs>? RabbitMqBrokerParameters { get; set; }
 
         [Input("selfManagedKafkaParameters")]
         public Input<Inputs.PipeSourceSelfManagedKafkaParametersArgs>? SelfManagedKafkaParameters { get; set; }

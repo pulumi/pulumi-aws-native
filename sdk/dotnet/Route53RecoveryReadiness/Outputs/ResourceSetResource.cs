@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
         /// The component identifier of the resource, generated when DNS target resource is used.
         /// </summary>
         public readonly string? ComponentId;
-        public readonly Outputs.ResourceSetDNSTargetResource? DnsTargetResource;
+        public readonly Outputs.ResourceSetDnsTargetResource? DnsTargetResource;
         /// <summary>
         /// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
         private ResourceSetResource(
             string? componentId,
 
-            Outputs.ResourceSetDNSTargetResource? dnsTargetResource,
+            Outputs.ResourceSetDnsTargetResource? dnsTargetResource,
 
             ImmutableArray<string> readinessScopes,
 

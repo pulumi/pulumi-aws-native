@@ -22,7 +22,7 @@ class DomainArgs:
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
                  domain_endpoint_options: Optional[pulumi.Input['DomainEndpointOptionsArgs']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 ebs_options: Optional[pulumi.Input['DomainEBSOptionsArgs']] = None,
+                 ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
                  elasticsearch_cluster_config: Optional[pulumi.Input['DomainElasticsearchClusterConfigArgs']] = None,
                  elasticsearch_version: Optional[pulumi.Input[str]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input['DomainEncryptionAtRestOptionsArgs']] = None,
@@ -30,7 +30,7 @@ class DomainArgs:
                  node_to_node_encryption_options: Optional[pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs']] = None,
                  snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
-                 vpc_options: Optional[pulumi.Input['DomainVPCOptionsArgs']] = None):
+                 vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
         """
@@ -121,11 +121,11 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="ebsOptions")
-    def ebs_options(self) -> Optional[pulumi.Input['DomainEBSOptionsArgs']]:
+    def ebs_options(self) -> Optional[pulumi.Input['DomainEbsOptionsArgs']]:
         return pulumi.get(self, "ebs_options")
 
     @ebs_options.setter
-    def ebs_options(self, value: Optional[pulumi.Input['DomainEBSOptionsArgs']]):
+    def ebs_options(self, value: Optional[pulumi.Input['DomainEbsOptionsArgs']]):
         pulumi.set(self, "ebs_options", value)
 
     @property
@@ -193,11 +193,11 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="vpcOptions")
-    def vpc_options(self) -> Optional[pulumi.Input['DomainVPCOptionsArgs']]:
+    def vpc_options(self) -> Optional[pulumi.Input['DomainVpcOptionsArgs']]:
         return pulumi.get(self, "vpc_options")
 
     @vpc_options.setter
-    def vpc_options(self, value: Optional[pulumi.Input['DomainVPCOptionsArgs']]):
+    def vpc_options(self, value: Optional[pulumi.Input['DomainVpcOptionsArgs']]):
         pulumi.set(self, "vpc_options", value)
 
 
@@ -217,7 +217,7 @@ class Domain(pulumi.CustomResource):
                  cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainEndpointOptionsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEBSOptionsArgs']]] = None,
+                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
                  elasticsearch_cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainElasticsearchClusterConfigArgs']]] = None,
                  elasticsearch_version: Optional[pulumi.Input[str]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']]] = None,
@@ -225,7 +225,7 @@ class Domain(pulumi.CustomResource):
                  node_to_node_encryption_options: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
-                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVPCOptionsArgs']]] = None,
+                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Elasticsearch::Domain
@@ -263,7 +263,7 @@ class Domain(pulumi.CustomResource):
                  cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainEndpointOptionsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEBSOptionsArgs']]] = None,
+                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
                  elasticsearch_cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainElasticsearchClusterConfigArgs']]] = None,
                  elasticsearch_version: Optional[pulumi.Input[str]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']]] = None,
@@ -271,7 +271,7 @@ class Domain(pulumi.CustomResource):
                  node_to_node_encryption_options: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
-                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVPCOptionsArgs']]] = None,
+                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Domain is deprecated: Domain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -389,7 +389,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptions")
-    def ebs_options(self) -> pulumi.Output[Optional['outputs.DomainEBSOptions']]:
+    def ebs_options(self) -> pulumi.Output[Optional['outputs.DomainEbsOptions']]:
         return pulumi.get(self, "ebs_options")
 
     @property
@@ -429,6 +429,6 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcOptions")
-    def vpc_options(self) -> pulumi.Output[Optional['outputs.DomainVPCOptions']]:
+    def vpc_options(self) -> pulumi.Output[Optional['outputs.DomainVpcOptions']]:
         return pulumi.get(self, "vpc_options")
 

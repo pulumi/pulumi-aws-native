@@ -14,15 +14,15 @@ __all__ = [
     'ByteMatchSetByteMatchTuple',
     'ByteMatchSetFieldToMatch',
     'GeoMatchSetGeoMatchConstraint',
-    'IPSetDescriptor',
+    'IpSetIpSetDescriptor',
     'RateBasedRulePredicate',
     'RulePredicate',
     'SizeConstraintSetFieldToMatch',
     'SizeConstraintSetSizeConstraint',
     'SqlInjectionMatchSetFieldToMatch',
     'SqlInjectionMatchSetSqlInjectionMatchTuple',
-    'WebACLAction',
-    'WebACLRule',
+    'WebAclAction',
+    'WebAclRule',
     'XssMatchSetFieldToMatch',
     'XssMatchSetXssMatchTuple',
 ]
@@ -134,7 +134,7 @@ class GeoMatchSetGeoMatchConstraint(dict):
 
 
 @pulumi.output_type
-class IPSetDescriptor(dict):
+class IpSetIpSetDescriptor(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -371,7 +371,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
 
 
 @pulumi.output_type
-class WebACLAction(dict):
+class WebAclAction(dict):
     def __init__(__self__, *,
                  type: str):
         pulumi.set(__self__, "type", type)
@@ -383,7 +383,7 @@ class WebACLAction(dict):
 
 
 @pulumi.output_type
-class WebACLRule(dict):
+class WebAclRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -391,18 +391,18 @@ class WebACLRule(dict):
             suggest = "rule_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRule. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRule. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRule.__key_warning(key)
+        WebAclRule.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRule.__key_warning(key)
+        WebAclRule.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action: 'outputs.WebACLAction',
+                 action: 'outputs.WebAclAction',
                  priority: int,
                  rule_id: str):
         pulumi.set(__self__, "action", action)
@@ -411,7 +411,7 @@ class WebACLRule(dict):
 
     @property
     @pulumi.getter
-    def action(self) -> 'outputs.WebACLAction':
+    def action(self) -> 'outputs.WebAclAction':
         return pulumi.get(self, "action")
 
     @property

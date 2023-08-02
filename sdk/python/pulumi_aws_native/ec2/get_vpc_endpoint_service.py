@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetVPCEndpointServiceResult',
-    'AwaitableGetVPCEndpointServiceResult',
+    'GetVpcEndpointServiceResult',
+    'AwaitableGetVpcEndpointServiceResult',
     'get_vpc_endpoint_service',
     'get_vpc_endpoint_service_output',
 ]
 
 @pulumi.output_type
-class GetVPCEndpointServiceResult:
+class GetVpcEndpointServiceResult:
     def __init__(__self__, acceptance_required=None, gateway_load_balancer_arns=None, network_load_balancer_arns=None, payer_responsibility=None, service_id=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
@@ -61,12 +61,12 @@ class GetVPCEndpointServiceResult:
         return pulumi.get(self, "service_id")
 
 
-class AwaitableGetVPCEndpointServiceResult(GetVPCEndpointServiceResult):
+class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVPCEndpointServiceResult(
+        return GetVpcEndpointServiceResult(
             acceptance_required=self.acceptance_required,
             gateway_load_balancer_arns=self.gateway_load_balancer_arns,
             network_load_balancer_arns=self.network_load_balancer_arns,
@@ -75,16 +75,16 @@ class AwaitableGetVPCEndpointServiceResult(GetVPCEndpointServiceResult):
 
 
 def get_vpc_endpoint_service(service_id: Optional[str] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPCEndpointServiceResult:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointServiceResult:
     """
     Resource Type definition for AWS::EC2::VPCEndpointService
     """
     __args__ = dict()
     __args__['serviceId'] = service_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCEndpointService', __args__, opts=opts, typ=GetVPCEndpointServiceResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpcEndpointService', __args__, opts=opts, typ=GetVpcEndpointServiceResult).value
 
-    return AwaitableGetVPCEndpointServiceResult(
+    return AwaitableGetVpcEndpointServiceResult(
         acceptance_required=pulumi.get(__ret__, 'acceptance_required'),
         gateway_load_balancer_arns=pulumi.get(__ret__, 'gateway_load_balancer_arns'),
         network_load_balancer_arns=pulumi.get(__ret__, 'network_load_balancer_arns'),
@@ -94,7 +94,7 @@ def get_vpc_endpoint_service(service_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_vpc_endpoint_service)
 def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCEndpointServiceResult]:
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointService
     """

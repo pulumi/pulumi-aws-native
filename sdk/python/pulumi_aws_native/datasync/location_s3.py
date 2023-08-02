@@ -17,7 +17,7 @@ __all__ = ['LocationS3Args', 'LocationS3']
 @pulumi.input_type
 class LocationS3Args:
     def __init__(__self__, *,
-                 s3_config: pulumi.Input['LocationS3S3ConfigArgs'],
+                 s3_config: pulumi.Input['LocationS3s3ConfigArgs'],
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
                  s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -41,11 +41,11 @@ class LocationS3Args:
 
     @property
     @pulumi.getter(name="s3Config")
-    def s3_config(self) -> pulumi.Input['LocationS3S3ConfigArgs']:
+    def s3_config(self) -> pulumi.Input['LocationS3s3ConfigArgs']:
         return pulumi.get(self, "s3_config")
 
     @s3_config.setter
-    def s3_config(self, value: pulumi.Input['LocationS3S3ConfigArgs']):
+    def s3_config(self, value: pulumi.Input['LocationS3s3ConfigArgs']):
         pulumi.set(self, "s3_config", value)
 
     @property
@@ -103,7 +103,7 @@ class LocationS3(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
-                 s3_config: Optional[pulumi.Input[pulumi.InputType['LocationS3S3ConfigArgs']]] = None,
+                 s3_config: Optional[pulumi.Input[pulumi.InputType['LocationS3s3ConfigArgs']]] = None,
                  s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationS3TagArgs']]]]] = None,
@@ -143,7 +143,7 @@ class LocationS3(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
-                 s3_config: Optional[pulumi.Input[pulumi.InputType['LocationS3S3ConfigArgs']]] = None,
+                 s3_config: Optional[pulumi.Input[pulumi.InputType['LocationS3s3ConfigArgs']]] = None,
                  s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationS3TagArgs']]]]] = None,
@@ -222,7 +222,7 @@ class LocationS3(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Config")
-    def s3_config(self) -> pulumi.Output['outputs.LocationS3S3Config']:
+    def s3_config(self) -> pulumi.Output['outputs.LocationS3s3Config']:
         return pulumi.get(self, "s3_config")
 
     @property

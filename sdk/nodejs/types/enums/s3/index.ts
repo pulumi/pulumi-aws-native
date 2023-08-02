@@ -222,13 +222,13 @@ export const BucketRuleStatus = {
 
 export type BucketRuleStatus = (typeof BucketRuleStatus)[keyof typeof BucketRuleStatus];
 
-export const BucketServerSideEncryptionByDefaultSSEAlgorithm = {
+export const BucketServerSideEncryptionByDefaultSseAlgorithm = {
     Awskms: "aws:kms",
     Aes256: "AES256",
     Awskmsdsse: "aws:kms:dsse",
 } as const;
 
-export type BucketServerSideEncryptionByDefaultSSEAlgorithm = (typeof BucketServerSideEncryptionByDefaultSSEAlgorithm)[keyof typeof BucketServerSideEncryptionByDefaultSSEAlgorithm];
+export type BucketServerSideEncryptionByDefaultSseAlgorithm = (typeof BucketServerSideEncryptionByDefaultSseAlgorithm)[keyof typeof BucketServerSideEncryptionByDefaultSseAlgorithm];
 
 export const BucketSseKmsEncryptedObjectsStatus = {
     Disabled: "Disabled",

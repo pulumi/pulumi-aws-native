@@ -48,7 +48,7 @@ export class Domain extends pulumi.CustomResource {
     public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearchservice.DomainEndpointOptions | undefined>;
     public /*out*/ readonly domainEndpoints!: pulumi.Output<any>;
     public readonly domainName!: pulumi.Output<string | undefined>;
-    public readonly ebsOptions!: pulumi.Output<outputs.opensearchservice.DomainEBSOptions | undefined>;
+    public readonly ebsOptions!: pulumi.Output<outputs.opensearchservice.DomainEbsOptions | undefined>;
     public readonly encryptionAtRestOptions!: pulumi.Output<outputs.opensearchservice.DomainEncryptionAtRestOptions | undefined>;
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     public readonly logPublishingOptions!: pulumi.Output<any | undefined>;
@@ -61,7 +61,7 @@ export class Domain extends pulumi.CustomResource {
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
     public readonly tags!: pulumi.Output<outputs.opensearchservice.DomainTag[] | undefined>;
-    public readonly vpcOptions!: pulumi.Output<outputs.opensearchservice.DomainVPCOptions | undefined>;
+    public readonly vpcOptions!: pulumi.Output<outputs.opensearchservice.DomainVpcOptions | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -136,7 +136,7 @@ export interface DomainArgs {
     cognitoOptions?: pulumi.Input<inputs.opensearchservice.DomainCognitoOptionsArgs>;
     domainEndpointOptions?: pulumi.Input<inputs.opensearchservice.DomainEndpointOptionsArgs>;
     domainName?: pulumi.Input<string>;
-    ebsOptions?: pulumi.Input<inputs.opensearchservice.DomainEBSOptionsArgs>;
+    ebsOptions?: pulumi.Input<inputs.opensearchservice.DomainEbsOptionsArgs>;
     encryptionAtRestOptions?: pulumi.Input<inputs.opensearchservice.DomainEncryptionAtRestOptionsArgs>;
     engineVersion?: pulumi.Input<string>;
     logPublishingOptions?: any;
@@ -148,5 +148,5 @@ export interface DomainArgs {
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.opensearchservice.DomainTagArgs>[]>;
-    vpcOptions?: pulumi.Input<inputs.opensearchservice.DomainVPCOptionsArgs>;
+    vpcOptions?: pulumi.Input<inputs.opensearchservice.DomainVpcOptionsArgs>;
 }

@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HostedZoneVPC> Vpcs;
+        public readonly ImmutableArray<Outputs.HostedZoneVpc> Vpcs;
 
         [OutputConstructor]
         private GetHostedZoneResult(
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Route53
 
             Outputs.HostedZoneQueryLoggingConfig? queryLoggingConfig,
 
-            ImmutableArray<Outputs.HostedZoneVPC> vpcs)
+            ImmutableArray<Outputs.HostedZoneVpc> vpcs)
         {
             HostedZoneConfig = hostedZoneConfig;
             HostedZoneTags = hostedZoneTags;

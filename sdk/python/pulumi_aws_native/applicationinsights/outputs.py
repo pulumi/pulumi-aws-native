@@ -18,9 +18,9 @@ __all__ = [
     'ApplicationComponentMonitoringSetting',
     'ApplicationConfigurationDetails',
     'ApplicationCustomComponent',
-    'ApplicationHAClusterPrometheusExporter',
-    'ApplicationHANAPrometheusExporter',
-    'ApplicationJMXPrometheusExporter',
+    'ApplicationHaClusterPrometheusExporter',
+    'ApplicationHanaPrometheusExporter',
+    'ApplicationJmxPrometheusExporter',
     'ApplicationLog',
     'ApplicationLogPattern',
     'ApplicationLogPatternSet',
@@ -313,18 +313,18 @@ class ApplicationConfigurationDetails(dict):
     def __init__(__self__, *,
                  alarm_metrics: Optional[Sequence['outputs.ApplicationAlarmMetric']] = None,
                  alarms: Optional[Sequence['outputs.ApplicationAlarm']] = None,
-                 ha_cluster_prometheus_exporter: Optional['outputs.ApplicationHAClusterPrometheusExporter'] = None,
-                 hana_prometheus_exporter: Optional['outputs.ApplicationHANAPrometheusExporter'] = None,
-                 jmx_prometheus_exporter: Optional['outputs.ApplicationJMXPrometheusExporter'] = None,
+                 ha_cluster_prometheus_exporter: Optional['outputs.ApplicationHaClusterPrometheusExporter'] = None,
+                 hana_prometheus_exporter: Optional['outputs.ApplicationHanaPrometheusExporter'] = None,
+                 jmx_prometheus_exporter: Optional['outputs.ApplicationJmxPrometheusExporter'] = None,
                  logs: Optional[Sequence['outputs.ApplicationLog']] = None,
                  windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None):
         """
         The configuration settings.
         :param Sequence['ApplicationAlarmMetric'] alarm_metrics: A list of metrics to monitor for the component.
         :param Sequence['ApplicationAlarm'] alarms: A list of alarms to monitor for the component.
-        :param 'ApplicationHAClusterPrometheusExporter' ha_cluster_prometheus_exporter: The HA cluster Prometheus Exporter settings.
-        :param 'ApplicationHANAPrometheusExporter' hana_prometheus_exporter: The HANA DB Prometheus Exporter settings.
-        :param 'ApplicationJMXPrometheusExporter' jmx_prometheus_exporter: The JMX Prometheus Exporter settings.
+        :param 'ApplicationHaClusterPrometheusExporter' ha_cluster_prometheus_exporter: The HA cluster Prometheus Exporter settings.
+        :param 'ApplicationHanaPrometheusExporter' hana_prometheus_exporter: The HANA DB Prometheus Exporter settings.
+        :param 'ApplicationJmxPrometheusExporter' jmx_prometheus_exporter: The JMX Prometheus Exporter settings.
         :param Sequence['ApplicationLog'] logs: A list of logs to monitor for the component.
         :param Sequence['ApplicationWindowsEvent'] windows_events: A list of Windows Events to log.
         """
@@ -361,7 +361,7 @@ class ApplicationConfigurationDetails(dict):
 
     @property
     @pulumi.getter(name="haClusterPrometheusExporter")
-    def ha_cluster_prometheus_exporter(self) -> Optional['outputs.ApplicationHAClusterPrometheusExporter']:
+    def ha_cluster_prometheus_exporter(self) -> Optional['outputs.ApplicationHaClusterPrometheusExporter']:
         """
         The HA cluster Prometheus Exporter settings.
         """
@@ -369,7 +369,7 @@ class ApplicationConfigurationDetails(dict):
 
     @property
     @pulumi.getter(name="hanaPrometheusExporter")
-    def hana_prometheus_exporter(self) -> Optional['outputs.ApplicationHANAPrometheusExporter']:
+    def hana_prometheus_exporter(self) -> Optional['outputs.ApplicationHanaPrometheusExporter']:
         """
         The HANA DB Prometheus Exporter settings.
         """
@@ -377,7 +377,7 @@ class ApplicationConfigurationDetails(dict):
 
     @property
     @pulumi.getter(name="jmxPrometheusExporter")
-    def jmx_prometheus_exporter(self) -> Optional['outputs.ApplicationJMXPrometheusExporter']:
+    def jmx_prometheus_exporter(self) -> Optional['outputs.ApplicationJmxPrometheusExporter']:
         """
         The JMX Prometheus Exporter settings.
         """
@@ -453,7 +453,7 @@ class ApplicationCustomComponent(dict):
 
 
 @pulumi.output_type
-class ApplicationHAClusterPrometheusExporter(dict):
+class ApplicationHaClusterPrometheusExporter(dict):
     """
     The HA cluster Prometheus Exporter settings.
     """
@@ -464,14 +464,14 @@ class ApplicationHAClusterPrometheusExporter(dict):
             suggest = "prometheus_port"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationHAClusterPrometheusExporter. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationHaClusterPrometheusExporter. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationHAClusterPrometheusExporter.__key_warning(key)
+        ApplicationHaClusterPrometheusExporter.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationHAClusterPrometheusExporter.__key_warning(key)
+        ApplicationHaClusterPrometheusExporter.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -493,7 +493,7 @@ class ApplicationHAClusterPrometheusExporter(dict):
 
 
 @pulumi.output_type
-class ApplicationHANAPrometheusExporter(dict):
+class ApplicationHanaPrometheusExporter(dict):
     """
     The HANA DB Prometheus Exporter settings.
     """
@@ -510,14 +510,14 @@ class ApplicationHANAPrometheusExporter(dict):
             suggest = "prometheus_port"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationHANAPrometheusExporter. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationHanaPrometheusExporter. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationHANAPrometheusExporter.__key_warning(key)
+        ApplicationHanaPrometheusExporter.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationHANAPrometheusExporter.__key_warning(key)
+        ApplicationHanaPrometheusExporter.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -589,7 +589,7 @@ class ApplicationHANAPrometheusExporter(dict):
 
 
 @pulumi.output_type
-class ApplicationJMXPrometheusExporter(dict):
+class ApplicationJmxPrometheusExporter(dict):
     """
     The JMX Prometheus Exporter settings.
     """
@@ -602,14 +602,14 @@ class ApplicationJMXPrometheusExporter(dict):
             suggest = "prometheus_port"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationJMXPrometheusExporter. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationJmxPrometheusExporter. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationJMXPrometheusExporter.__key_warning(key)
+        ApplicationJmxPrometheusExporter.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationJMXPrometheusExporter.__key_warning(key)
+        ApplicationJmxPrometheusExporter.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

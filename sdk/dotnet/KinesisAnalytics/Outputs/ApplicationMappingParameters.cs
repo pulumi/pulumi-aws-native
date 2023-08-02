@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Outputs
     [OutputType]
     public sealed class ApplicationMappingParameters
     {
-        public readonly Outputs.ApplicationCSVMappingParameters? CsvMappingParameters;
-        public readonly Outputs.ApplicationJSONMappingParameters? JsonMappingParameters;
+        public readonly Outputs.ApplicationCsvMappingParameters? CsvMappingParameters;
+        public readonly Outputs.ApplicationJsonMappingParameters? JsonMappingParameters;
 
         [OutputConstructor]
         private ApplicationMappingParameters(
-            Outputs.ApplicationCSVMappingParameters? csvMappingParameters,
+            Outputs.ApplicationCsvMappingParameters? csvMappingParameters,
 
-            Outputs.ApplicationJSONMappingParameters? jsonMappingParameters)
+            Outputs.ApplicationJsonMappingParameters? jsonMappingParameters)
         {
             CsvMappingParameters = csvMappingParameters;
             JsonMappingParameters = jsonMappingParameters;

@@ -9,16 +9,16 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GraphQLSchemaArgs', 'GraphQLSchema']
+__all__ = ['GraphQlSchemaArgs', 'GraphQlSchema']
 
 @pulumi.input_type
-class GraphQLSchemaArgs:
+class GraphQlSchemaArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
                  definition: Optional[pulumi.Input[str]] = None,
                  definition_s3_location: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a GraphQLSchema resource.
+        The set of arguments for constructing a GraphQlSchema resource.
         """
         pulumi.set(__self__, "api_id", api_id)
         if definition is not None:
@@ -54,11 +54,11 @@ class GraphQLSchemaArgs:
         pulumi.set(self, "definition_s3_location", value)
 
 
-warnings.warn("""GraphQLSchema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""GraphQlSchema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class GraphQLSchema(pulumi.CustomResource):
-    warnings.warn("""GraphQLSchema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class GraphQlSchema(pulumi.CustomResource):
+    warnings.warn("""GraphQlSchema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -78,18 +78,18 @@ class GraphQLSchema(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GraphQLSchemaArgs,
+                 args: GraphQlSchemaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppSync::GraphQLSchema
 
         :param str resource_name: The name of the resource.
-        :param GraphQLSchemaArgs args: The arguments to use to populate this resource's properties.
+        :param GraphQlSchemaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GraphQLSchemaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GraphQlSchemaArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -102,22 +102,22 @@ class GraphQLSchema(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[str]] = None,
                  definition_s3_location: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GraphQLSchema is deprecated: GraphQLSchema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""GraphQlSchema is deprecated: GraphQlSchema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GraphQLSchemaArgs.__new__(GraphQLSchemaArgs)
+            __props__ = GraphQlSchemaArgs.__new__(GraphQlSchemaArgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["definition"] = definition
             __props__.__dict__["definition_s3_location"] = definition_s3_location
-        super(GraphQLSchema, __self__).__init__(
-            'aws-native:appsync:GraphQLSchema',
+        super(GraphQlSchema, __self__).__init__(
+            'aws-native:appsync:GraphQlSchema',
             resource_name,
             __props__,
             opts)
@@ -125,9 +125,9 @@ class GraphQLSchema(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'GraphQLSchema':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'GraphQlSchema':
         """
-        Get an existing GraphQLSchema resource's state with the given name, id, and optional extra
+        Get an existing GraphQlSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -136,12 +136,12 @@ class GraphQLSchema(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = GraphQLSchemaArgs.__new__(GraphQLSchemaArgs)
+        __props__ = GraphQlSchemaArgs.__new__(GraphQlSchemaArgs)
 
         __props__.__dict__["api_id"] = None
         __props__.__dict__["definition"] = None
         __props__.__dict__["definition_s3_location"] = None
-        return GraphQLSchema(resource_name, opts=opts, __props__=__props__)
+        return GraphQlSchema(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="apiId")

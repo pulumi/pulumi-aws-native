@@ -46,7 +46,7 @@ export class AnnotationStore extends pulumi.CustomResource {
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     public /*out*/ readonly storeArn!: pulumi.Output<string>;
     public readonly storeFormat!: pulumi.Output<enums.omics.AnnotationStoreStoreFormat>;
-    public readonly storeOptions!: pulumi.Output<outputs.omics.StoreOptionsProperties | undefined>;
+    public readonly storeOptions!: pulumi.Output<outputs.omics.AnnotationStoreStoreOptionsProperties | undefined>;
     public /*out*/ readonly storeSizeBytes!: pulumi.Output<number>;
     public readonly tags!: pulumi.Output<outputs.omics.AnnotationStoreTagMap | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
@@ -107,6 +107,6 @@ export interface AnnotationStoreArgs {
     reference?: pulumi.Input<inputs.omics.AnnotationStoreReferenceItemArgs>;
     sseConfig?: pulumi.Input<inputs.omics.AnnotationStoreSseConfigArgs>;
     storeFormat: pulumi.Input<enums.omics.AnnotationStoreStoreFormat>;
-    storeOptions?: pulumi.Input<inputs.omics.StoreOptionsPropertiesArgs>;
+    storeOptions?: pulumi.Input<inputs.omics.AnnotationStoreStoreOptionsPropertiesArgs>;
     tags?: pulumi.Input<inputs.omics.AnnotationStoreTagMapArgs>;
 }

@@ -22,7 +22,7 @@ __all__ = [
     'EventInvokeConfigOnSuccess',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfig',
     'EventSourceMappingDestinationConfig',
-    'EventSourceMappingDocumentDBEventSourceConfig',
+    'EventSourceMappingDocumentDbEventSourceConfig',
     'EventSourceMappingEndpoints',
     'EventSourceMappingFilter',
     'EventSourceMappingFilterCriteria',
@@ -367,7 +367,7 @@ class EventSourceMappingDestinationConfig(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingDocumentDBEventSourceConfig(dict):
+class EventSourceMappingDocumentDbEventSourceConfig(dict):
     """
     Document db event source config.
     """
@@ -382,25 +382,25 @@ class EventSourceMappingDocumentDBEventSourceConfig(dict):
             suggest = "full_document"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingDocumentDBEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingDocumentDbEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EventSourceMappingDocumentDBEventSourceConfig.__key_warning(key)
+        EventSourceMappingDocumentDbEventSourceConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EventSourceMappingDocumentDBEventSourceConfig.__key_warning(key)
+        EventSourceMappingDocumentDbEventSourceConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  collection_name: Optional[str] = None,
                  database_name: Optional[str] = None,
-                 full_document: Optional['EventSourceMappingDocumentDBEventSourceConfigFullDocument'] = None):
+                 full_document: Optional['EventSourceMappingDocumentDbEventSourceConfigFullDocument'] = None):
         """
         Document db event source config.
         :param str collection_name: The collection name to connect to.
         :param str database_name: The database name to connect to.
-        :param 'EventSourceMappingDocumentDBEventSourceConfigFullDocument' full_document: Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+        :param 'EventSourceMappingDocumentDbEventSourceConfigFullDocument' full_document: Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
         """
         if collection_name is not None:
             pulumi.set(__self__, "collection_name", collection_name)
@@ -427,7 +427,7 @@ class EventSourceMappingDocumentDBEventSourceConfig(dict):
 
     @property
     @pulumi.getter(name="fullDocument")
-    def full_document(self) -> Optional['EventSourceMappingDocumentDBEventSourceConfigFullDocument']:
+    def full_document(self) -> Optional['EventSourceMappingDocumentDbEventSourceConfigFullDocument']:
         """
         Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
         """

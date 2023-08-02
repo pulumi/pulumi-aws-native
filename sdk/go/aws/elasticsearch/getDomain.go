@@ -35,7 +35,7 @@ type LookupDomainResult struct {
 	DomainArn                   *string                             `pulumi:"domainArn"`
 	DomainEndpoint              *string                             `pulumi:"domainEndpoint"`
 	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
-	EbsOptions                  *DomainEBSOptions                   `pulumi:"ebsOptions"`
+	EbsOptions                  *DomainEbsOptions                   `pulumi:"ebsOptions"`
 	ElasticsearchClusterConfig  *DomainElasticsearchClusterConfig   `pulumi:"elasticsearchClusterConfig"`
 	ElasticsearchVersion        *string                             `pulumi:"elasticsearchVersion"`
 	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
@@ -44,7 +44,7 @@ type LookupDomainResult struct {
 	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
 	SnapshotOptions             *DomainSnapshotOptions              `pulumi:"snapshotOptions"`
 	Tags                        []DomainTag                         `pulumi:"tags"`
-	VpcOptions                  *DomainVPCOptions                   `pulumi:"vpcOptions"`
+	VpcOptions                  *DomainVpcOptions                   `pulumi:"vpcOptions"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -114,8 +114,8 @@ func (o LookupDomainResultOutput) DomainEndpointOptions() DomainEndpointOptionsP
 	return o.ApplyT(func(v LookupDomainResult) *DomainEndpointOptions { return v.DomainEndpointOptions }).(DomainEndpointOptionsPtrOutput)
 }
 
-func (o LookupDomainResultOutput) EbsOptions() DomainEBSOptionsPtrOutput {
-	return o.ApplyT(func(v LookupDomainResult) *DomainEBSOptions { return v.EbsOptions }).(DomainEBSOptionsPtrOutput)
+func (o LookupDomainResultOutput) EbsOptions() DomainEbsOptionsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainEbsOptions { return v.EbsOptions }).(DomainEbsOptionsPtrOutput)
 }
 
 func (o LookupDomainResultOutput) ElasticsearchClusterConfig() DomainElasticsearchClusterConfigPtrOutput {
@@ -150,8 +150,8 @@ func (o LookupDomainResultOutput) Tags() DomainTagArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []DomainTag { return v.Tags }).(DomainTagArrayOutput)
 }
 
-func (o LookupDomainResultOutput) VpcOptions() DomainVPCOptionsPtrOutput {
-	return o.ApplyT(func(v LookupDomainResult) *DomainVPCOptions { return v.VpcOptions }).(DomainVPCOptionsPtrOutput)
+func (o LookupDomainResultOutput) VpcOptions() DomainVpcOptionsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainVpcOptions { return v.VpcOptions }).(DomainVpcOptionsPtrOutput)
 }
 
 func init() {

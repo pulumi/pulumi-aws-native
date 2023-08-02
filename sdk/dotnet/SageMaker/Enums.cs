@@ -1709,9 +1709,9 @@ namespace Pulumi.AwsNative.SageMaker
         }
 
         public static ModelPackageTransformInputSplitType None { get; } = new ModelPackageTransformInputSplitType("None");
-        public static ModelPackageTransformInputSplitType TFRecord { get; } = new ModelPackageTransformInputSplitType("TFRecord");
+        public static ModelPackageTransformInputSplitType TfRecord { get; } = new ModelPackageTransformInputSplitType("TFRecord");
         public static ModelPackageTransformInputSplitType Line { get; } = new ModelPackageTransformInputSplitType("Line");
-        public static ModelPackageTransformInputSplitType RecordIO { get; } = new ModelPackageTransformInputSplitType("RecordIO");
+        public static ModelPackageTransformInputSplitType RecordIo { get; } = new ModelPackageTransformInputSplitType("RecordIO");
 
         public static bool operator ==(ModelPackageTransformInputSplitType left, ModelPackageTransformInputSplitType right) => left.Equals(right);
         public static bool operator !=(ModelPackageTransformInputSplitType left, ModelPackageTransformInputSplitType right) => !left.Equals(right);

@@ -31,8 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Project{}
 	case "aws-native:devicefarm:TestGridProject":
 		r = &TestGridProject{}
-	case "aws-native:devicefarm:VPCEConfiguration":
-		r = &VPCEConfiguration{}
+	case "aws-native:devicefarm:VpceConfiguration":
+		r = &VpceConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

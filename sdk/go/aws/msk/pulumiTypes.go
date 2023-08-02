@@ -940,138 +940,138 @@ func (o ClusterConnectivityInfoPtrOutput) VpcConnectivity() ClusterVpcConnectivi
 	}).(ClusterVpcConnectivityPtrOutput)
 }
 
-type ClusterEBSStorageInfo struct {
+type ClusterEbsStorageInfo struct {
 	ProvisionedThroughput *ClusterProvisionedThroughput `pulumi:"provisionedThroughput"`
 	VolumeSize            *int                          `pulumi:"volumeSize"`
 }
 
-// ClusterEBSStorageInfoInput is an input type that accepts ClusterEBSStorageInfoArgs and ClusterEBSStorageInfoOutput values.
-// You can construct a concrete instance of `ClusterEBSStorageInfoInput` via:
+// ClusterEbsStorageInfoInput is an input type that accepts ClusterEbsStorageInfoArgs and ClusterEbsStorageInfoOutput values.
+// You can construct a concrete instance of `ClusterEbsStorageInfoInput` via:
 //
-//	ClusterEBSStorageInfoArgs{...}
-type ClusterEBSStorageInfoInput interface {
+//	ClusterEbsStorageInfoArgs{...}
+type ClusterEbsStorageInfoInput interface {
 	pulumi.Input
 
-	ToClusterEBSStorageInfoOutput() ClusterEBSStorageInfoOutput
-	ToClusterEBSStorageInfoOutputWithContext(context.Context) ClusterEBSStorageInfoOutput
+	ToClusterEbsStorageInfoOutput() ClusterEbsStorageInfoOutput
+	ToClusterEbsStorageInfoOutputWithContext(context.Context) ClusterEbsStorageInfoOutput
 }
 
-type ClusterEBSStorageInfoArgs struct {
+type ClusterEbsStorageInfoArgs struct {
 	ProvisionedThroughput ClusterProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
 	VolumeSize            pulumi.IntPtrInput                   `pulumi:"volumeSize"`
 }
 
-func (ClusterEBSStorageInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterEBSStorageInfo)(nil)).Elem()
+func (ClusterEbsStorageInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEbsStorageInfo)(nil)).Elem()
 }
 
-func (i ClusterEBSStorageInfoArgs) ToClusterEBSStorageInfoOutput() ClusterEBSStorageInfoOutput {
-	return i.ToClusterEBSStorageInfoOutputWithContext(context.Background())
+func (i ClusterEbsStorageInfoArgs) ToClusterEbsStorageInfoOutput() ClusterEbsStorageInfoOutput {
+	return i.ToClusterEbsStorageInfoOutputWithContext(context.Background())
 }
 
-func (i ClusterEBSStorageInfoArgs) ToClusterEBSStorageInfoOutputWithContext(ctx context.Context) ClusterEBSStorageInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterEBSStorageInfoOutput)
+func (i ClusterEbsStorageInfoArgs) ToClusterEbsStorageInfoOutputWithContext(ctx context.Context) ClusterEbsStorageInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEbsStorageInfoOutput)
 }
 
-func (i ClusterEBSStorageInfoArgs) ToClusterEBSStorageInfoPtrOutput() ClusterEBSStorageInfoPtrOutput {
-	return i.ToClusterEBSStorageInfoPtrOutputWithContext(context.Background())
+func (i ClusterEbsStorageInfoArgs) ToClusterEbsStorageInfoPtrOutput() ClusterEbsStorageInfoPtrOutput {
+	return i.ToClusterEbsStorageInfoPtrOutputWithContext(context.Background())
 }
 
-func (i ClusterEBSStorageInfoArgs) ToClusterEBSStorageInfoPtrOutputWithContext(ctx context.Context) ClusterEBSStorageInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterEBSStorageInfoOutput).ToClusterEBSStorageInfoPtrOutputWithContext(ctx)
+func (i ClusterEbsStorageInfoArgs) ToClusterEbsStorageInfoPtrOutputWithContext(ctx context.Context) ClusterEbsStorageInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEbsStorageInfoOutput).ToClusterEbsStorageInfoPtrOutputWithContext(ctx)
 }
 
-// ClusterEBSStorageInfoPtrInput is an input type that accepts ClusterEBSStorageInfoArgs, ClusterEBSStorageInfoPtr and ClusterEBSStorageInfoPtrOutput values.
-// You can construct a concrete instance of `ClusterEBSStorageInfoPtrInput` via:
+// ClusterEbsStorageInfoPtrInput is an input type that accepts ClusterEbsStorageInfoArgs, ClusterEbsStorageInfoPtr and ClusterEbsStorageInfoPtrOutput values.
+// You can construct a concrete instance of `ClusterEbsStorageInfoPtrInput` via:
 //
-//	        ClusterEBSStorageInfoArgs{...}
+//	        ClusterEbsStorageInfoArgs{...}
 //
 //	or:
 //
 //	        nil
-type ClusterEBSStorageInfoPtrInput interface {
+type ClusterEbsStorageInfoPtrInput interface {
 	pulumi.Input
 
-	ToClusterEBSStorageInfoPtrOutput() ClusterEBSStorageInfoPtrOutput
-	ToClusterEBSStorageInfoPtrOutputWithContext(context.Context) ClusterEBSStorageInfoPtrOutput
+	ToClusterEbsStorageInfoPtrOutput() ClusterEbsStorageInfoPtrOutput
+	ToClusterEbsStorageInfoPtrOutputWithContext(context.Context) ClusterEbsStorageInfoPtrOutput
 }
 
-type clusterEBSStorageInfoPtrType ClusterEBSStorageInfoArgs
+type clusterEbsStorageInfoPtrType ClusterEbsStorageInfoArgs
 
-func ClusterEBSStorageInfoPtr(v *ClusterEBSStorageInfoArgs) ClusterEBSStorageInfoPtrInput {
-	return (*clusterEBSStorageInfoPtrType)(v)
+func ClusterEbsStorageInfoPtr(v *ClusterEbsStorageInfoArgs) ClusterEbsStorageInfoPtrInput {
+	return (*clusterEbsStorageInfoPtrType)(v)
 }
 
-func (*clusterEBSStorageInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterEBSStorageInfo)(nil)).Elem()
+func (*clusterEbsStorageInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEbsStorageInfo)(nil)).Elem()
 }
 
-func (i *clusterEBSStorageInfoPtrType) ToClusterEBSStorageInfoPtrOutput() ClusterEBSStorageInfoPtrOutput {
-	return i.ToClusterEBSStorageInfoPtrOutputWithContext(context.Background())
+func (i *clusterEbsStorageInfoPtrType) ToClusterEbsStorageInfoPtrOutput() ClusterEbsStorageInfoPtrOutput {
+	return i.ToClusterEbsStorageInfoPtrOutputWithContext(context.Background())
 }
 
-func (i *clusterEBSStorageInfoPtrType) ToClusterEBSStorageInfoPtrOutputWithContext(ctx context.Context) ClusterEBSStorageInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterEBSStorageInfoPtrOutput)
+func (i *clusterEbsStorageInfoPtrType) ToClusterEbsStorageInfoPtrOutputWithContext(ctx context.Context) ClusterEbsStorageInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEbsStorageInfoPtrOutput)
 }
 
-type ClusterEBSStorageInfoOutput struct{ *pulumi.OutputState }
+type ClusterEbsStorageInfoOutput struct{ *pulumi.OutputState }
 
-func (ClusterEBSStorageInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterEBSStorageInfo)(nil)).Elem()
+func (ClusterEbsStorageInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEbsStorageInfo)(nil)).Elem()
 }
 
-func (o ClusterEBSStorageInfoOutput) ToClusterEBSStorageInfoOutput() ClusterEBSStorageInfoOutput {
+func (o ClusterEbsStorageInfoOutput) ToClusterEbsStorageInfoOutput() ClusterEbsStorageInfoOutput {
 	return o
 }
 
-func (o ClusterEBSStorageInfoOutput) ToClusterEBSStorageInfoOutputWithContext(ctx context.Context) ClusterEBSStorageInfoOutput {
+func (o ClusterEbsStorageInfoOutput) ToClusterEbsStorageInfoOutputWithContext(ctx context.Context) ClusterEbsStorageInfoOutput {
 	return o
 }
 
-func (o ClusterEBSStorageInfoOutput) ToClusterEBSStorageInfoPtrOutput() ClusterEBSStorageInfoPtrOutput {
-	return o.ToClusterEBSStorageInfoPtrOutputWithContext(context.Background())
+func (o ClusterEbsStorageInfoOutput) ToClusterEbsStorageInfoPtrOutput() ClusterEbsStorageInfoPtrOutput {
+	return o.ToClusterEbsStorageInfoPtrOutputWithContext(context.Background())
 }
 
-func (o ClusterEBSStorageInfoOutput) ToClusterEBSStorageInfoPtrOutputWithContext(ctx context.Context) ClusterEBSStorageInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEBSStorageInfo) *ClusterEBSStorageInfo {
+func (o ClusterEbsStorageInfoOutput) ToClusterEbsStorageInfoPtrOutputWithContext(ctx context.Context) ClusterEbsStorageInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEbsStorageInfo) *ClusterEbsStorageInfo {
 		return &v
-	}).(ClusterEBSStorageInfoPtrOutput)
+	}).(ClusterEbsStorageInfoPtrOutput)
 }
 
-func (o ClusterEBSStorageInfoOutput) ProvisionedThroughput() ClusterProvisionedThroughputPtrOutput {
-	return o.ApplyT(func(v ClusterEBSStorageInfo) *ClusterProvisionedThroughput { return v.ProvisionedThroughput }).(ClusterProvisionedThroughputPtrOutput)
+func (o ClusterEbsStorageInfoOutput) ProvisionedThroughput() ClusterProvisionedThroughputPtrOutput {
+	return o.ApplyT(func(v ClusterEbsStorageInfo) *ClusterProvisionedThroughput { return v.ProvisionedThroughput }).(ClusterProvisionedThroughputPtrOutput)
 }
 
-func (o ClusterEBSStorageInfoOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterEBSStorageInfo) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+func (o ClusterEbsStorageInfoOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterEbsStorageInfo) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-type ClusterEBSStorageInfoPtrOutput struct{ *pulumi.OutputState }
+type ClusterEbsStorageInfoPtrOutput struct{ *pulumi.OutputState }
 
-func (ClusterEBSStorageInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterEBSStorageInfo)(nil)).Elem()
+func (ClusterEbsStorageInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEbsStorageInfo)(nil)).Elem()
 }
 
-func (o ClusterEBSStorageInfoPtrOutput) ToClusterEBSStorageInfoPtrOutput() ClusterEBSStorageInfoPtrOutput {
+func (o ClusterEbsStorageInfoPtrOutput) ToClusterEbsStorageInfoPtrOutput() ClusterEbsStorageInfoPtrOutput {
 	return o
 }
 
-func (o ClusterEBSStorageInfoPtrOutput) ToClusterEBSStorageInfoPtrOutputWithContext(ctx context.Context) ClusterEBSStorageInfoPtrOutput {
+func (o ClusterEbsStorageInfoPtrOutput) ToClusterEbsStorageInfoPtrOutputWithContext(ctx context.Context) ClusterEbsStorageInfoPtrOutput {
 	return o
 }
 
-func (o ClusterEBSStorageInfoPtrOutput) Elem() ClusterEBSStorageInfoOutput {
-	return o.ApplyT(func(v *ClusterEBSStorageInfo) ClusterEBSStorageInfo {
+func (o ClusterEbsStorageInfoPtrOutput) Elem() ClusterEbsStorageInfoOutput {
+	return o.ApplyT(func(v *ClusterEbsStorageInfo) ClusterEbsStorageInfo {
 		if v != nil {
 			return *v
 		}
-		var ret ClusterEBSStorageInfo
+		var ret ClusterEbsStorageInfo
 		return ret
-	}).(ClusterEBSStorageInfoOutput)
+	}).(ClusterEbsStorageInfoOutput)
 }
 
-func (o ClusterEBSStorageInfoPtrOutput) ProvisionedThroughput() ClusterProvisionedThroughputPtrOutput {
-	return o.ApplyT(func(v *ClusterEBSStorageInfo) *ClusterProvisionedThroughput {
+func (o ClusterEbsStorageInfoPtrOutput) ProvisionedThroughput() ClusterProvisionedThroughputPtrOutput {
+	return o.ApplyT(func(v *ClusterEbsStorageInfo) *ClusterProvisionedThroughput {
 		if v == nil {
 			return nil
 		}
@@ -1079,8 +1079,8 @@ func (o ClusterEBSStorageInfoPtrOutput) ProvisionedThroughput() ClusterProvision
 	}).(ClusterProvisionedThroughputPtrOutput)
 }
 
-func (o ClusterEBSStorageInfoPtrOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterEBSStorageInfo) *int {
+func (o ClusterEbsStorageInfoPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterEbsStorageInfo) *int {
 		if v == nil {
 			return nil
 		}
@@ -3204,7 +3204,7 @@ func (o ClusterScramPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type ClusterStorageInfo struct {
-	EbsStorageInfo *ClusterEBSStorageInfo `pulumi:"ebsStorageInfo"`
+	EbsStorageInfo *ClusterEbsStorageInfo `pulumi:"ebsStorageInfo"`
 }
 
 // ClusterStorageInfoInput is an input type that accepts ClusterStorageInfoArgs and ClusterStorageInfoOutput values.
@@ -3219,7 +3219,7 @@ type ClusterStorageInfoInput interface {
 }
 
 type ClusterStorageInfoArgs struct {
-	EbsStorageInfo ClusterEBSStorageInfoPtrInput `pulumi:"ebsStorageInfo"`
+	EbsStorageInfo ClusterEbsStorageInfoPtrInput `pulumi:"ebsStorageInfo"`
 }
 
 func (ClusterStorageInfoArgs) ElementType() reflect.Type {
@@ -3299,8 +3299,8 @@ func (o ClusterStorageInfoOutput) ToClusterStorageInfoPtrOutputWithContext(ctx c
 	}).(ClusterStorageInfoPtrOutput)
 }
 
-func (o ClusterStorageInfoOutput) EbsStorageInfo() ClusterEBSStorageInfoPtrOutput {
-	return o.ApplyT(func(v ClusterStorageInfo) *ClusterEBSStorageInfo { return v.EbsStorageInfo }).(ClusterEBSStorageInfoPtrOutput)
+func (o ClusterStorageInfoOutput) EbsStorageInfo() ClusterEbsStorageInfoPtrOutput {
+	return o.ApplyT(func(v ClusterStorageInfo) *ClusterEbsStorageInfo { return v.EbsStorageInfo }).(ClusterEbsStorageInfoPtrOutput)
 }
 
 type ClusterStorageInfoPtrOutput struct{ *pulumi.OutputState }
@@ -3327,13 +3327,13 @@ func (o ClusterStorageInfoPtrOutput) Elem() ClusterStorageInfoOutput {
 	}).(ClusterStorageInfoOutput)
 }
 
-func (o ClusterStorageInfoPtrOutput) EbsStorageInfo() ClusterEBSStorageInfoPtrOutput {
-	return o.ApplyT(func(v *ClusterStorageInfo) *ClusterEBSStorageInfo {
+func (o ClusterStorageInfoPtrOutput) EbsStorageInfo() ClusterEbsStorageInfoPtrOutput {
+	return o.ApplyT(func(v *ClusterStorageInfo) *ClusterEbsStorageInfo {
 		if v == nil {
 			return nil
 		}
 		return v.EbsStorageInfo
-	}).(ClusterEBSStorageInfoPtrOutput)
+	}).(ClusterEbsStorageInfoPtrOutput)
 }
 
 type ClusterTls struct {
@@ -4827,8 +4827,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationInfoPtrInput)(nil)).Elem(), ClusterConfigurationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConnectivityInfoInput)(nil)).Elem(), ClusterConnectivityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConnectivityInfoPtrInput)(nil)).Elem(), ClusterConnectivityInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEBSStorageInfoInput)(nil)).Elem(), ClusterEBSStorageInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEBSStorageInfoPtrInput)(nil)).Elem(), ClusterEBSStorageInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEbsStorageInfoInput)(nil)).Elem(), ClusterEbsStorageInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEbsStorageInfoPtrInput)(nil)).Elem(), ClusterEbsStorageInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionAtRestInput)(nil)).Elem(), ClusterEncryptionAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionAtRestPtrInput)(nil)).Elem(), ClusterEncryptionAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionInTransitInput)(nil)).Elem(), ClusterEncryptionInTransitArgs{})
@@ -4896,8 +4896,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterConfigurationInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterConnectivityInfoOutput{})
 	pulumi.RegisterOutputType(ClusterConnectivityInfoPtrOutput{})
-	pulumi.RegisterOutputType(ClusterEBSStorageInfoOutput{})
-	pulumi.RegisterOutputType(ClusterEBSStorageInfoPtrOutput{})
+	pulumi.RegisterOutputType(ClusterEbsStorageInfoOutput{})
+	pulumi.RegisterOutputType(ClusterEbsStorageInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionAtRestOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionAtRestPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitOutput{})

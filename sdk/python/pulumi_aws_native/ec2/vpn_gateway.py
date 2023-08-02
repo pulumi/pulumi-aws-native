@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VPNGatewayArgs', 'VPNGateway']
+__all__ = ['VpnGatewayArgs', 'VpnGateway']
 
 @pulumi.input_type
-class VPNGatewayArgs:
+class VpnGatewayArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  amazon_side_asn: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VPNGatewayTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayTagArgs']]]] = None):
         """
-        The set of arguments for constructing a VPNGateway resource.
+        The set of arguments for constructing a VpnGateway resource.
         :param pulumi.Input[str] type: The type of VPN connection the virtual private gateway supports.
         :param pulumi.Input[int] amazon_side_asn: The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-        :param pulumi.Input[Sequence[pulumi.Input['VPNGatewayTagArgs']]] tags: Any tags assigned to the virtual private gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayTagArgs']]] tags: Any tags assigned to the virtual private gateway.
         """
         pulumi.set(__self__, "type", type)
         if amazon_side_asn is not None:
@@ -57,24 +57,24 @@ class VPNGatewayArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VPNGatewayTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayTagArgs']]]]:
         """
         Any tags assigned to the virtual private gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VPNGatewayTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class VPNGateway(pulumi.CustomResource):
+class VpnGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_side_asn: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNGatewayTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -83,25 +83,25 @@ class VPNGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] amazon_side_asn: The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNGatewayTagArgs']]]] tags: Any tags assigned to the virtual private gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayTagArgs']]]] tags: Any tags assigned to the virtual private gateway.
         :param pulumi.Input[str] type: The type of VPN connection the virtual private gateway supports.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPNGatewayArgs,
+                 args: VpnGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for EC2 VPN Gateway
 
         :param str resource_name: The name of the resource.
-        :param VPNGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param VpnGatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPNGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpnGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -111,7 +111,7 @@ class VPNGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_side_asn: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNGatewayTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -120,7 +120,7 @@ class VPNGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPNGatewayArgs.__new__(VPNGatewayArgs)
+            __props__ = VpnGatewayArgs.__new__(VpnGatewayArgs)
 
             __props__.__dict__["amazon_side_asn"] = amazon_side_asn
             __props__.__dict__["tags"] = tags
@@ -128,8 +128,8 @@ class VPNGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["vpn_gateway_id"] = None
-        super(VPNGateway, __self__).__init__(
-            'aws-native:ec2:VPNGateway',
+        super(VpnGateway, __self__).__init__(
+            'aws-native:ec2:VpnGateway',
             resource_name,
             __props__,
             opts)
@@ -137,9 +137,9 @@ class VPNGateway(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPNGateway':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpnGateway':
         """
-        Get an existing VPNGateway resource's state with the given name, id, and optional extra
+        Get an existing VpnGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -148,13 +148,13 @@ class VPNGateway(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPNGatewayArgs.__new__(VPNGatewayArgs)
+        __props__ = VpnGatewayArgs.__new__(VpnGatewayArgs)
 
         __props__.__dict__["amazon_side_asn"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["vpn_gateway_id"] = None
-        return VPNGateway(resource_name, opts=opts, __props__=__props__)
+        return VpnGateway(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="amazonSideAsn")
@@ -166,7 +166,7 @@ class VPNGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VPNGatewayTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VpnGatewayTag']]]:
         """
         Any tags assigned to the virtual private gateway.
         """

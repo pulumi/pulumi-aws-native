@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['APNSSandboxChannelArgs', 'APNSSandboxChannel']
+__all__ = ['ApnsSandboxChannelArgs', 'ApnsSandboxChannel']
 
 @pulumi.input_type
-class APNSSandboxChannelArgs:
+class ApnsSandboxChannelArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  bundle_id: Optional[pulumi.Input[str]] = None,
@@ -24,7 +24,7 @@ class APNSSandboxChannelArgs:
                  token_key: Optional[pulumi.Input[str]] = None,
                  token_key_id: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a APNSSandboxChannel resource.
+        The set of arguments for constructing a ApnsSandboxChannel resource.
         """
         pulumi.set(__self__, "application_id", application_id)
         if bundle_id is not None:
@@ -126,11 +126,11 @@ class APNSSandboxChannelArgs:
         pulumi.set(self, "token_key_id", value)
 
 
-warnings.warn("""APNSSandboxChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ApnsSandboxChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class APNSSandboxChannel(pulumi.CustomResource):
-    warnings.warn("""APNSSandboxChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class ApnsSandboxChannel(pulumi.CustomResource):
+    warnings.warn("""ApnsSandboxChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -156,18 +156,18 @@ class APNSSandboxChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: APNSSandboxChannelArgs,
+                 args: ApnsSandboxChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Pinpoint::APNSSandboxChannel
 
         :param str resource_name: The name of the resource.
-        :param APNSSandboxChannelArgs args: The arguments to use to populate this resource's properties.
+        :param ApnsSandboxChannelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(APNSSandboxChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApnsSandboxChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -186,14 +186,14 @@ class APNSSandboxChannel(pulumi.CustomResource):
                  token_key: Optional[pulumi.Input[str]] = None,
                  token_key_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""APNSSandboxChannel is deprecated: APNSSandboxChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ApnsSandboxChannel is deprecated: ApnsSandboxChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = APNSSandboxChannelArgs.__new__(APNSSandboxChannelArgs)
+            __props__ = ApnsSandboxChannelArgs.__new__(ApnsSandboxChannelArgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
@@ -206,8 +206,8 @@ class APNSSandboxChannel(pulumi.CustomResource):
             __props__.__dict__["team_id"] = team_id
             __props__.__dict__["token_key"] = token_key
             __props__.__dict__["token_key_id"] = token_key_id
-        super(APNSSandboxChannel, __self__).__init__(
-            'aws-native:pinpoint:APNSSandboxChannel',
+        super(ApnsSandboxChannel, __self__).__init__(
+            'aws-native:pinpoint:ApnsSandboxChannel',
             resource_name,
             __props__,
             opts)
@@ -215,9 +215,9 @@ class APNSSandboxChannel(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'APNSSandboxChannel':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ApnsSandboxChannel':
         """
-        Get an existing APNSSandboxChannel resource's state with the given name, id, and optional extra
+        Get an existing ApnsSandboxChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -226,7 +226,7 @@ class APNSSandboxChannel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = APNSSandboxChannelArgs.__new__(APNSSandboxChannelArgs)
+        __props__ = ApnsSandboxChannelArgs.__new__(ApnsSandboxChannelArgs)
 
         __props__.__dict__["application_id"] = None
         __props__.__dict__["bundle_id"] = None
@@ -237,7 +237,7 @@ class APNSSandboxChannel(pulumi.CustomResource):
         __props__.__dict__["team_id"] = None
         __props__.__dict__["token_key"] = None
         __props__.__dict__["token_key_id"] = None
-        return APNSSandboxChannel(resource_name, opts=opts, __props__=__props__)
+        return ApnsSandboxChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="applicationId")

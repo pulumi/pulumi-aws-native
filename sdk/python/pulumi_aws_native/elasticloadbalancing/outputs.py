@@ -15,7 +15,7 @@ __all__ = [
     'LoadBalancerConnectionDrainingPolicy',
     'LoadBalancerConnectionSettings',
     'LoadBalancerHealthCheck',
-    'LoadBalancerLBCookieStickinessPolicy',
+    'LoadBalancerLbCookieStickinessPolicy',
     'LoadBalancerListeners',
     'LoadBalancerPolicies',
     'LoadBalancerTag',
@@ -224,7 +224,7 @@ class LoadBalancerHealthCheck(dict):
 
 
 @pulumi.output_type
-class LoadBalancerLBCookieStickinessPolicy(dict):
+class LoadBalancerLbCookieStickinessPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -234,14 +234,14 @@ class LoadBalancerLBCookieStickinessPolicy(dict):
             suggest = "policy_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerLBCookieStickinessPolicy. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerLbCookieStickinessPolicy. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        LoadBalancerLBCookieStickinessPolicy.__key_warning(key)
+        LoadBalancerLbCookieStickinessPolicy.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        LoadBalancerLBCookieStickinessPolicy.__key_warning(key)
+        LoadBalancerLbCookieStickinessPolicy.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

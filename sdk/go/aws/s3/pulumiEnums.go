@@ -3515,125 +3515,125 @@ func (in *bucketRuleStatusPtr) ToBucketRuleStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(BucketRuleStatusPtrOutput)
 }
 
-type BucketServerSideEncryptionByDefaultSSEAlgorithm string
+type BucketServerSideEncryptionByDefaultSseAlgorithm string
 
 const (
-	BucketServerSideEncryptionByDefaultSSEAlgorithmAwskms     = BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms")
-	BucketServerSideEncryptionByDefaultSSEAlgorithmAes256     = BucketServerSideEncryptionByDefaultSSEAlgorithm("AES256")
-	BucketServerSideEncryptionByDefaultSSEAlgorithmAwskmsdsse = BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms:dsse")
+	BucketServerSideEncryptionByDefaultSseAlgorithmAwskms     = BucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms")
+	BucketServerSideEncryptionByDefaultSseAlgorithmAes256     = BucketServerSideEncryptionByDefaultSseAlgorithm("AES256")
+	BucketServerSideEncryptionByDefaultSseAlgorithmAwskmsdsse = BucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms:dsse")
 )
 
-func (BucketServerSideEncryptionByDefaultSSEAlgorithm) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketServerSideEncryptionByDefaultSSEAlgorithm)(nil)).Elem()
+func (BucketServerSideEncryptionByDefaultSseAlgorithm) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketServerSideEncryptionByDefaultSseAlgorithm)(nil)).Elem()
 }
 
-func (e BucketServerSideEncryptionByDefaultSSEAlgorithm) ToBucketServerSideEncryptionByDefaultSSEAlgorithmOutput() BucketServerSideEncryptionByDefaultSSEAlgorithmOutput {
-	return pulumi.ToOutput(e).(BucketServerSideEncryptionByDefaultSSEAlgorithmOutput)
+func (e BucketServerSideEncryptionByDefaultSseAlgorithm) ToBucketServerSideEncryptionByDefaultSseAlgorithmOutput() BucketServerSideEncryptionByDefaultSseAlgorithmOutput {
+	return pulumi.ToOutput(e).(BucketServerSideEncryptionByDefaultSseAlgorithmOutput)
 }
 
-func (e BucketServerSideEncryptionByDefaultSSEAlgorithm) ToBucketServerSideEncryptionByDefaultSSEAlgorithmOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSSEAlgorithmOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(BucketServerSideEncryptionByDefaultSSEAlgorithmOutput)
+func (e BucketServerSideEncryptionByDefaultSseAlgorithm) ToBucketServerSideEncryptionByDefaultSseAlgorithmOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSseAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketServerSideEncryptionByDefaultSseAlgorithmOutput)
 }
 
-func (e BucketServerSideEncryptionByDefaultSSEAlgorithm) ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput() BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
-	return e.ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutputWithContext(context.Background())
+func (e BucketServerSideEncryptionByDefaultSseAlgorithm) ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput() BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return e.ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(context.Background())
 }
 
-func (e BucketServerSideEncryptionByDefaultSSEAlgorithm) ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
-	return BucketServerSideEncryptionByDefaultSSEAlgorithm(e).ToBucketServerSideEncryptionByDefaultSSEAlgorithmOutputWithContext(ctx).ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutputWithContext(ctx)
+func (e BucketServerSideEncryptionByDefaultSseAlgorithm) ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return BucketServerSideEncryptionByDefaultSseAlgorithm(e).ToBucketServerSideEncryptionByDefaultSseAlgorithmOutputWithContext(ctx).ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(ctx)
 }
 
-func (e BucketServerSideEncryptionByDefaultSSEAlgorithm) ToStringOutput() pulumi.StringOutput {
+func (e BucketServerSideEncryptionByDefaultSseAlgorithm) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e BucketServerSideEncryptionByDefaultSSEAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e BucketServerSideEncryptionByDefaultSseAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e BucketServerSideEncryptionByDefaultSSEAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e BucketServerSideEncryptionByDefaultSseAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e BucketServerSideEncryptionByDefaultSSEAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e BucketServerSideEncryptionByDefaultSseAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type BucketServerSideEncryptionByDefaultSSEAlgorithmOutput struct{ *pulumi.OutputState }
+type BucketServerSideEncryptionByDefaultSseAlgorithmOutput struct{ *pulumi.OutputState }
 
-func (BucketServerSideEncryptionByDefaultSSEAlgorithmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketServerSideEncryptionByDefaultSSEAlgorithm)(nil)).Elem()
+func (BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketServerSideEncryptionByDefaultSseAlgorithm)(nil)).Elem()
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmOutput) ToBucketServerSideEncryptionByDefaultSSEAlgorithmOutput() BucketServerSideEncryptionByDefaultSSEAlgorithmOutput {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToBucketServerSideEncryptionByDefaultSseAlgorithmOutput() BucketServerSideEncryptionByDefaultSseAlgorithmOutput {
 	return o
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmOutput) ToBucketServerSideEncryptionByDefaultSSEAlgorithmOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSSEAlgorithmOutput {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToBucketServerSideEncryptionByDefaultSseAlgorithmOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSseAlgorithmOutput {
 	return o
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmOutput) ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput() BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
-	return o.ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutputWithContext(context.Background())
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput() BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return o.ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(context.Background())
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmOutput) ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketServerSideEncryptionByDefaultSSEAlgorithm) *BucketServerSideEncryptionByDefaultSSEAlgorithm {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketServerSideEncryptionByDefaultSseAlgorithm) *BucketServerSideEncryptionByDefaultSseAlgorithm {
 		return &v
-	}).(BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput)
+	}).(BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput)
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketServerSideEncryptionByDefaultSSEAlgorithm) string {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketServerSideEncryptionByDefaultSseAlgorithm) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketServerSideEncryptionByDefaultSSEAlgorithm) *string {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketServerSideEncryptionByDefaultSseAlgorithm) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput struct{ *pulumi.OutputState }
+type BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketServerSideEncryptionByDefaultSSEAlgorithm)(nil)).Elem()
+func (BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketServerSideEncryptionByDefaultSseAlgorithm)(nil)).Elem()
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput) ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput() BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput() BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
 	return o
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput) ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
 	return o
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput) Elem() BucketServerSideEncryptionByDefaultSSEAlgorithmOutput {
-	return o.ApplyT(func(v *BucketServerSideEncryptionByDefaultSSEAlgorithm) BucketServerSideEncryptionByDefaultSSEAlgorithm {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) Elem() BucketServerSideEncryptionByDefaultSseAlgorithmOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionByDefaultSseAlgorithm) BucketServerSideEncryptionByDefaultSseAlgorithm {
 		if v != nil {
 			return *v
 		}
-		var ret BucketServerSideEncryptionByDefaultSSEAlgorithm
+		var ret BucketServerSideEncryptionByDefaultSseAlgorithm
 		return ret
-	}).(BucketServerSideEncryptionByDefaultSSEAlgorithmOutput)
+	}).(BucketServerSideEncryptionByDefaultSseAlgorithmOutput)
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketServerSideEncryptionByDefaultSSEAlgorithm) *string {
+func (o BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketServerSideEncryptionByDefaultSseAlgorithm) *string {
 		if e == nil {
 			return nil
 		}
@@ -3642,42 +3642,42 @@ func (o BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketServerSideEncryptionByDefaultSSEAlgorithmInput is an input type that accepts BucketServerSideEncryptionByDefaultSSEAlgorithmArgs and BucketServerSideEncryptionByDefaultSSEAlgorithmOutput values.
-// You can construct a concrete instance of `BucketServerSideEncryptionByDefaultSSEAlgorithmInput` via:
+// BucketServerSideEncryptionByDefaultSseAlgorithmInput is an input type that accepts BucketServerSideEncryptionByDefaultSseAlgorithmArgs and BucketServerSideEncryptionByDefaultSseAlgorithmOutput values.
+// You can construct a concrete instance of `BucketServerSideEncryptionByDefaultSseAlgorithmInput` via:
 //
-//	BucketServerSideEncryptionByDefaultSSEAlgorithmArgs{...}
-type BucketServerSideEncryptionByDefaultSSEAlgorithmInput interface {
+//	BucketServerSideEncryptionByDefaultSseAlgorithmArgs{...}
+type BucketServerSideEncryptionByDefaultSseAlgorithmInput interface {
 	pulumi.Input
 
-	ToBucketServerSideEncryptionByDefaultSSEAlgorithmOutput() BucketServerSideEncryptionByDefaultSSEAlgorithmOutput
-	ToBucketServerSideEncryptionByDefaultSSEAlgorithmOutputWithContext(context.Context) BucketServerSideEncryptionByDefaultSSEAlgorithmOutput
+	ToBucketServerSideEncryptionByDefaultSseAlgorithmOutput() BucketServerSideEncryptionByDefaultSseAlgorithmOutput
+	ToBucketServerSideEncryptionByDefaultSseAlgorithmOutputWithContext(context.Context) BucketServerSideEncryptionByDefaultSseAlgorithmOutput
 }
 
-var bucketServerSideEncryptionByDefaultSSEAlgorithmPtrType = reflect.TypeOf((**BucketServerSideEncryptionByDefaultSSEAlgorithm)(nil)).Elem()
+var bucketServerSideEncryptionByDefaultSseAlgorithmPtrType = reflect.TypeOf((**BucketServerSideEncryptionByDefaultSseAlgorithm)(nil)).Elem()
 
-type BucketServerSideEncryptionByDefaultSSEAlgorithmPtrInput interface {
+type BucketServerSideEncryptionByDefaultSseAlgorithmPtrInput interface {
 	pulumi.Input
 
-	ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput() BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput
-	ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutputWithContext(context.Context) BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput
+	ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput() BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput
+	ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(context.Context) BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput
 }
 
-type bucketServerSideEncryptionByDefaultSSEAlgorithmPtr string
+type bucketServerSideEncryptionByDefaultSseAlgorithmPtr string
 
-func BucketServerSideEncryptionByDefaultSSEAlgorithmPtr(v string) BucketServerSideEncryptionByDefaultSSEAlgorithmPtrInput {
-	return (*bucketServerSideEncryptionByDefaultSSEAlgorithmPtr)(&v)
+func BucketServerSideEncryptionByDefaultSseAlgorithmPtr(v string) BucketServerSideEncryptionByDefaultSseAlgorithmPtrInput {
+	return (*bucketServerSideEncryptionByDefaultSseAlgorithmPtr)(&v)
 }
 
-func (*bucketServerSideEncryptionByDefaultSSEAlgorithmPtr) ElementType() reflect.Type {
-	return bucketServerSideEncryptionByDefaultSSEAlgorithmPtrType
+func (*bucketServerSideEncryptionByDefaultSseAlgorithmPtr) ElementType() reflect.Type {
+	return bucketServerSideEncryptionByDefaultSseAlgorithmPtrType
 }
 
-func (in *bucketServerSideEncryptionByDefaultSSEAlgorithmPtr) ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput() BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
-	return pulumi.ToOutput(in).(BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput)
+func (in *bucketServerSideEncryptionByDefaultSseAlgorithmPtr) ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput() BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return pulumi.ToOutput(in).(BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput)
 }
 
-func (in *bucketServerSideEncryptionByDefaultSSEAlgorithmPtr) ToBucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput)
+func (in *bucketServerSideEncryptionByDefaultSseAlgorithmPtr) ToBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput)
 }
 
 // Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
@@ -4806,8 +4806,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationTimeStatusPtrInput)(nil)).Elem(), BucketReplicationTimeStatus("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleStatusInput)(nil)).Elem(), BucketRuleStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleStatusPtrInput)(nil)).Elem(), BucketRuleStatus("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionByDefaultSSEAlgorithmInput)(nil)).Elem(), BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms"))
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionByDefaultSSEAlgorithmPtrInput)(nil)).Elem(), BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionByDefaultSseAlgorithmInput)(nil)).Elem(), BucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionByDefaultSseAlgorithmPtrInput)(nil)).Elem(), BucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketSseKmsEncryptedObjectsStatusInput)(nil)).Elem(), BucketSseKmsEncryptedObjectsStatus("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketSseKmsEncryptedObjectsStatusPtrInput)(nil)).Elem(), BucketSseKmsEncryptedObjectsStatus("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTieringAccessTierInput)(nil)).Elem(), BucketTieringAccessTier("ARCHIVE_ACCESS"))
@@ -4864,8 +4864,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketReplicationTimeStatusPtrOutput{})
 	pulumi.RegisterOutputType(BucketRuleStatusOutput{})
 	pulumi.RegisterOutputType(BucketRuleStatusPtrOutput{})
-	pulumi.RegisterOutputType(BucketServerSideEncryptionByDefaultSSEAlgorithmOutput{})
-	pulumi.RegisterOutputType(BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput{})
+	pulumi.RegisterOutputType(BucketServerSideEncryptionByDefaultSseAlgorithmOutput{})
+	pulumi.RegisterOutputType(BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(BucketSseKmsEncryptedObjectsStatusOutput{})
 	pulumi.RegisterOutputType(BucketSseKmsEncryptedObjectsStatusPtrOutput{})
 	pulumi.RegisterOutputType(BucketTieringAccessTierOutput{})

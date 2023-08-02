@@ -13,7 +13,7 @@ export const AgentEndpointType = {
  */
 export type AgentEndpointType = (typeof AgentEndpointType)[keyof typeof AgentEndpointType];
 
-export const LocationEFSInTransitEncryption = {
+export const LocationEfsInTransitEncryption = {
     None: "NONE",
     Tls12: "TLS1_2",
 } as const;
@@ -21,9 +21,9 @@ export const LocationEFSInTransitEncryption = {
 /**
  * Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
  */
-export type LocationEFSInTransitEncryption = (typeof LocationEFSInTransitEncryption)[keyof typeof LocationEFSInTransitEncryption];
+export type LocationEfsInTransitEncryption = (typeof LocationEfsInTransitEncryption)[keyof typeof LocationEfsInTransitEncryption];
 
-export const LocationFSxONTAPNfsMountOptionsVersion = {
+export const LocationFSxOntapNfsMountOptionsVersion = {
     Automatic: "AUTOMATIC",
     Nfs3: "NFS3",
     Nfs40: "NFS4_0",
@@ -33,9 +33,9 @@ export const LocationFSxONTAPNfsMountOptionsVersion = {
 /**
  * The specific NFS version that you want DataSync to use to mount your NFS share.
  */
-export type LocationFSxONTAPNfsMountOptionsVersion = (typeof LocationFSxONTAPNfsMountOptionsVersion)[keyof typeof LocationFSxONTAPNfsMountOptionsVersion];
+export type LocationFSxOntapNfsMountOptionsVersion = (typeof LocationFSxOntapNfsMountOptionsVersion)[keyof typeof LocationFSxOntapNfsMountOptionsVersion];
 
-export const LocationFSxONTAPSmbMountOptionsVersion = {
+export const LocationFSxOntapSmbMountOptionsVersion = {
     Automatic: "AUTOMATIC",
     Smb2: "SMB2",
     Smb3: "SMB3",
@@ -44,9 +44,9 @@ export const LocationFSxONTAPSmbMountOptionsVersion = {
 /**
  * The specific SMB version that you want DataSync to use to mount your SMB share.
  */
-export type LocationFSxONTAPSmbMountOptionsVersion = (typeof LocationFSxONTAPSmbMountOptionsVersion)[keyof typeof LocationFSxONTAPSmbMountOptionsVersion];
+export type LocationFSxOntapSmbMountOptionsVersion = (typeof LocationFSxOntapSmbMountOptionsVersion)[keyof typeof LocationFSxOntapSmbMountOptionsVersion];
 
-export const LocationFSxOpenZFSMountOptionsVersion = {
+export const LocationFSxOpenZfsMountOptionsVersion = {
     Automatic: "AUTOMATIC",
     Nfs3: "NFS3",
     Nfs40: "NFS4_0",
@@ -56,9 +56,9 @@ export const LocationFSxOpenZFSMountOptionsVersion = {
 /**
  * The specific NFS version that you want DataSync to use to mount your NFS share.
  */
-export type LocationFSxOpenZFSMountOptionsVersion = (typeof LocationFSxOpenZFSMountOptionsVersion)[keyof typeof LocationFSxOpenZFSMountOptionsVersion];
+export type LocationFSxOpenZfsMountOptionsVersion = (typeof LocationFSxOpenZfsMountOptionsVersion)[keyof typeof LocationFSxOpenZfsMountOptionsVersion];
 
-export const LocationHDFSAuthenticationType = {
+export const LocationHdfsAuthenticationType = {
     Simple: "SIMPLE",
     Kerberos: "KERBEROS",
 } as const;
@@ -66,9 +66,9 @@ export const LocationHDFSAuthenticationType = {
 /**
  * The authentication mode used to determine identity of user.
  */
-export type LocationHDFSAuthenticationType = (typeof LocationHDFSAuthenticationType)[keyof typeof LocationHDFSAuthenticationType];
+export type LocationHdfsAuthenticationType = (typeof LocationHdfsAuthenticationType)[keyof typeof LocationHdfsAuthenticationType];
 
-export const LocationHDFSQopConfigurationDataTransferProtection = {
+export const LocationHdfsQopConfigurationDataTransferProtection = {
     Authentication: "AUTHENTICATION",
     Integrity: "INTEGRITY",
     Privacy: "PRIVACY",
@@ -78,9 +78,9 @@ export const LocationHDFSQopConfigurationDataTransferProtection = {
 /**
  * Configuration for Data Transfer Protection.
  */
-export type LocationHDFSQopConfigurationDataTransferProtection = (typeof LocationHDFSQopConfigurationDataTransferProtection)[keyof typeof LocationHDFSQopConfigurationDataTransferProtection];
+export type LocationHdfsQopConfigurationDataTransferProtection = (typeof LocationHdfsQopConfigurationDataTransferProtection)[keyof typeof LocationHdfsQopConfigurationDataTransferProtection];
 
-export const LocationHDFSQopConfigurationRpcProtection = {
+export const LocationHdfsQopConfigurationRpcProtection = {
     Authentication: "AUTHENTICATION",
     Integrity: "INTEGRITY",
     Privacy: "PRIVACY",
@@ -90,9 +90,9 @@ export const LocationHDFSQopConfigurationRpcProtection = {
 /**
  * Configuration for RPC Protection.
  */
-export type LocationHDFSQopConfigurationRpcProtection = (typeof LocationHDFSQopConfigurationRpcProtection)[keyof typeof LocationHDFSQopConfigurationRpcProtection];
+export type LocationHdfsQopConfigurationRpcProtection = (typeof LocationHdfsQopConfigurationRpcProtection)[keyof typeof LocationHdfsQopConfigurationRpcProtection];
 
-export const LocationNFSMountOptionsVersion = {
+export const LocationNfsMountOptionsVersion = {
     Automatic: "AUTOMATIC",
     Nfs3: "NFS3",
     Nfs40: "NFS4_0",
@@ -102,7 +102,7 @@ export const LocationNFSMountOptionsVersion = {
 /**
  * The specific NFS version that you want DataSync to use to mount your NFS share.
  */
-export type LocationNFSMountOptionsVersion = (typeof LocationNFSMountOptionsVersion)[keyof typeof LocationNFSMountOptionsVersion];
+export type LocationNfsMountOptionsVersion = (typeof LocationNfsMountOptionsVersion)[keyof typeof LocationNfsMountOptionsVersion];
 
 export const LocationObjectStorageServerProtocol = {
     Https: "HTTPS",
@@ -129,7 +129,7 @@ export const LocationS3S3StorageClass = {
  */
 export type LocationS3S3StorageClass = (typeof LocationS3S3StorageClass)[keyof typeof LocationS3S3StorageClass];
 
-export const LocationSMBMountOptionsVersion = {
+export const LocationSmbMountOptionsVersion = {
     Automatic: "AUTOMATIC",
     Smb1: "SMB1",
     Smb20: "SMB2_0",
@@ -140,7 +140,7 @@ export const LocationSMBMountOptionsVersion = {
 /**
  * The specific SMB version that you want DataSync to use to mount your SMB share.
  */
-export type LocationSMBMountOptionsVersion = (typeof LocationSMBMountOptionsVersion)[keyof typeof LocationSMBMountOptionsVersion];
+export type LocationSmbMountOptionsVersion = (typeof LocationSmbMountOptionsVersion)[keyof typeof LocationSmbMountOptionsVersion];
 
 export const StorageSystemConnectivityStatus = {
     Pass: "PASS",
@@ -154,7 +154,7 @@ export const StorageSystemConnectivityStatus = {
 export type StorageSystemConnectivityStatus = (typeof StorageSystemConnectivityStatus)[keyof typeof StorageSystemConnectivityStatus];
 
 export const StorageSystemSystemType = {
-    NetAppONTAP: "NetAppONTAP",
+    NetAppOntap: "NetAppONTAP",
 } as const;
 
 /**

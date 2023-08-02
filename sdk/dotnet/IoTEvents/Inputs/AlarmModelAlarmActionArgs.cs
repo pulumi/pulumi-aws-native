@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public Input<Inputs.AlarmModelDynamoDBv2Args>? DynamoDBv2 { get; set; }
 
         [Input("dynamoDb")]
-        public Input<Inputs.AlarmModelDynamoDBArgs>? DynamoDb { get; set; }
+        public Input<Inputs.AlarmModelDynamoDbArgs>? DynamoDb { get; set; }
 
         [Input("firehose")]
         public Input<Inputs.AlarmModelFirehoseArgs>? Firehose { get; set; }

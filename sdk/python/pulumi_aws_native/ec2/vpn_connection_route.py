@@ -9,15 +9,15 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VPNConnectionRouteArgs', 'VPNConnectionRoute']
+__all__ = ['VpnConnectionRouteArgs', 'VpnConnectionRoute']
 
 @pulumi.input_type
-class VPNConnectionRouteArgs:
+class VpnConnectionRouteArgs:
     def __init__(__self__, *,
                  destination_cidr_block: pulumi.Input[str],
                  vpn_connection_id: pulumi.Input[str]):
         """
-        The set of arguments for constructing a VPNConnectionRoute resource.
+        The set of arguments for constructing a VpnConnectionRoute resource.
         :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[str] vpn_connection_id: The ID of the VPN connection.
         """
@@ -49,7 +49,7 @@ class VPNConnectionRouteArgs:
         pulumi.set(self, "vpn_connection_id", value)
 
 
-class VPNConnectionRoute(pulumi.CustomResource):
+class VpnConnectionRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -69,18 +69,18 @@ class VPNConnectionRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPNConnectionRouteArgs,
+                 args: VpnConnectionRouteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPNConnectionRoute
 
         :param str resource_name: The name of the resource.
-        :param VPNConnectionRouteArgs args: The arguments to use to populate this resource's properties.
+        :param VpnConnectionRouteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPNConnectionRouteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpnConnectionRouteArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -98,7 +98,7 @@ class VPNConnectionRoute(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPNConnectionRouteArgs.__new__(VPNConnectionRouteArgs)
+            __props__ = VpnConnectionRouteArgs.__new__(VpnConnectionRouteArgs)
 
             if destination_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_cidr_block'")
@@ -106,8 +106,8 @@ class VPNConnectionRoute(pulumi.CustomResource):
             if vpn_connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_connection_id'")
             __props__.__dict__["vpn_connection_id"] = vpn_connection_id
-        super(VPNConnectionRoute, __self__).__init__(
-            'aws-native:ec2:VPNConnectionRoute',
+        super(VpnConnectionRoute, __self__).__init__(
+            'aws-native:ec2:VpnConnectionRoute',
             resource_name,
             __props__,
             opts)
@@ -115,9 +115,9 @@ class VPNConnectionRoute(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPNConnectionRoute':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpnConnectionRoute':
         """
-        Get an existing VPNConnectionRoute resource's state with the given name, id, and optional extra
+        Get an existing VpnConnectionRoute resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -126,11 +126,11 @@ class VPNConnectionRoute(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPNConnectionRouteArgs.__new__(VPNConnectionRouteArgs)
+        __props__ = VpnConnectionRouteArgs.__new__(VpnConnectionRouteArgs)
 
         __props__.__dict__["destination_cidr_block"] = None
         __props__.__dict__["vpn_connection_id"] = None
-        return VPNConnectionRoute(resource_name, opts=opts, __props__=__props__)
+        return VpnConnectionRoute(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")

@@ -45,30 +45,30 @@ export type CustomerGateway = import("./customerGateway").CustomerGateway;
 export const CustomerGateway: typeof import("./customerGateway").CustomerGateway = null as any;
 utilities.lazyLoad(exports, ["CustomerGateway"], () => require("./customerGateway"));
 
-export { DHCPOptionsArgs } from "./dhcpoptions";
-export type DHCPOptions = import("./dhcpoptions").DHCPOptions;
-export const DHCPOptions: typeof import("./dhcpoptions").DHCPOptions = null as any;
-utilities.lazyLoad(exports, ["DHCPOptions"], () => require("./dhcpoptions"));
+export { DhcpOptionsArgs } from "./dhcpOptions";
+export type DhcpOptions = import("./dhcpOptions").DhcpOptions;
+export const DhcpOptions: typeof import("./dhcpOptions").DhcpOptions = null as any;
+utilities.lazyLoad(exports, ["DhcpOptions"], () => require("./dhcpOptions"));
 
-export { EC2FleetArgs } from "./ec2fleet";
-export type EC2Fleet = import("./ec2fleet").EC2Fleet;
-export const EC2Fleet: typeof import("./ec2fleet").EC2Fleet = null as any;
-utilities.lazyLoad(exports, ["EC2Fleet"], () => require("./ec2fleet"));
+export { Ec2FleetArgs } from "./ec2Fleet";
+export type Ec2Fleet = import("./ec2Fleet").Ec2Fleet;
+export const Ec2Fleet: typeof import("./ec2Fleet").Ec2Fleet = null as any;
+utilities.lazyLoad(exports, ["Ec2Fleet"], () => require("./ec2Fleet"));
 
 export { EgressOnlyInternetGatewayArgs } from "./egressOnlyInternetGateway";
 export type EgressOnlyInternetGateway = import("./egressOnlyInternetGateway").EgressOnlyInternetGateway;
 export const EgressOnlyInternetGateway: typeof import("./egressOnlyInternetGateway").EgressOnlyInternetGateway = null as any;
 utilities.lazyLoad(exports, ["EgressOnlyInternetGateway"], () => require("./egressOnlyInternetGateway"));
 
-export { EIPArgs } from "./eip";
-export type EIP = import("./eip").EIP;
-export const EIP: typeof import("./eip").EIP = null as any;
-utilities.lazyLoad(exports, ["EIP"], () => require("./eip"));
+export { EipArgs } from "./eip";
+export type Eip = import("./eip").Eip;
+export const Eip: typeof import("./eip").Eip = null as any;
+utilities.lazyLoad(exports, ["Eip"], () => require("./eip"));
 
-export { EIPAssociationArgs } from "./eipassociation";
-export type EIPAssociation = import("./eipassociation").EIPAssociation;
-export const EIPAssociation: typeof import("./eipassociation").EIPAssociation = null as any;
-utilities.lazyLoad(exports, ["EIPAssociation"], () => require("./eipassociation"));
+export { EipAssociationArgs } from "./eipAssociation";
+export type EipAssociation = import("./eipAssociation").EipAssociation;
+export const EipAssociation: typeof import("./eipAssociation").EipAssociation = null as any;
+utilities.lazyLoad(exports, ["EipAssociation"], () => require("./eipAssociation"));
 
 export { EnclaveCertificateIamRoleAssociationArgs } from "./enclaveCertificateIamRoleAssociation";
 export type EnclaveCertificateIamRoleAssociation = import("./enclaveCertificateIamRoleAssociation").EnclaveCertificateIamRoleAssociation;
@@ -125,30 +125,30 @@ export const getCustomerGateway: typeof import("./getCustomerGateway").getCustom
 export const getCustomerGatewayOutput: typeof import("./getCustomerGateway").getCustomerGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomerGateway","getCustomerGatewayOutput"], () => require("./getCustomerGateway"));
 
-export { GetDHCPOptionsArgs, GetDHCPOptionsResult, GetDHCPOptionsOutputArgs } from "./getDHCPOptions";
-export const getDHCPOptions: typeof import("./getDHCPOptions").getDHCPOptions = null as any;
-export const getDHCPOptionsOutput: typeof import("./getDHCPOptions").getDHCPOptionsOutput = null as any;
-utilities.lazyLoad(exports, ["getDHCPOptions","getDHCPOptionsOutput"], () => require("./getDHCPOptions"));
+export { GetDhcpOptionsArgs, GetDhcpOptionsResult, GetDhcpOptionsOutputArgs } from "./getDhcpOptions";
+export const getDhcpOptions: typeof import("./getDhcpOptions").getDhcpOptions = null as any;
+export const getDhcpOptionsOutput: typeof import("./getDhcpOptions").getDhcpOptionsOutput = null as any;
+utilities.lazyLoad(exports, ["getDhcpOptions","getDhcpOptionsOutput"], () => require("./getDhcpOptions"));
 
-export { GetEC2FleetArgs, GetEC2FleetResult, GetEC2FleetOutputArgs } from "./getEC2Fleet";
-export const getEC2Fleet: typeof import("./getEC2Fleet").getEC2Fleet = null as any;
-export const getEC2FleetOutput: typeof import("./getEC2Fleet").getEC2FleetOutput = null as any;
-utilities.lazyLoad(exports, ["getEC2Fleet","getEC2FleetOutput"], () => require("./getEC2Fleet"));
-
-export { GetEIPArgs, GetEIPResult, GetEIPOutputArgs } from "./getEIP";
-export const getEIP: typeof import("./getEIP").getEIP = null as any;
-export const getEIPOutput: typeof import("./getEIP").getEIPOutput = null as any;
-utilities.lazyLoad(exports, ["getEIP","getEIPOutput"], () => require("./getEIP"));
-
-export { GetEIPAssociationArgs, GetEIPAssociationResult, GetEIPAssociationOutputArgs } from "./getEIPAssociation";
-export const getEIPAssociation: typeof import("./getEIPAssociation").getEIPAssociation = null as any;
-export const getEIPAssociationOutput: typeof import("./getEIPAssociation").getEIPAssociationOutput = null as any;
-utilities.lazyLoad(exports, ["getEIPAssociation","getEIPAssociationOutput"], () => require("./getEIPAssociation"));
+export { GetEc2FleetArgs, GetEc2FleetResult, GetEc2FleetOutputArgs } from "./getEc2Fleet";
+export const getEc2Fleet: typeof import("./getEc2Fleet").getEc2Fleet = null as any;
+export const getEc2FleetOutput: typeof import("./getEc2Fleet").getEc2FleetOutput = null as any;
+utilities.lazyLoad(exports, ["getEc2Fleet","getEc2FleetOutput"], () => require("./getEc2Fleet"));
 
 export { GetEgressOnlyInternetGatewayArgs, GetEgressOnlyInternetGatewayResult, GetEgressOnlyInternetGatewayOutputArgs } from "./getEgressOnlyInternetGateway";
 export const getEgressOnlyInternetGateway: typeof import("./getEgressOnlyInternetGateway").getEgressOnlyInternetGateway = null as any;
 export const getEgressOnlyInternetGatewayOutput: typeof import("./getEgressOnlyInternetGateway").getEgressOnlyInternetGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getEgressOnlyInternetGateway","getEgressOnlyInternetGatewayOutput"], () => require("./getEgressOnlyInternetGateway"));
+
+export { GetEipArgs, GetEipResult, GetEipOutputArgs } from "./getEip";
+export const getEip: typeof import("./getEip").getEip = null as any;
+export const getEipOutput: typeof import("./getEip").getEipOutput = null as any;
+utilities.lazyLoad(exports, ["getEip","getEipOutput"], () => require("./getEip"));
+
+export { GetEipAssociationArgs, GetEipAssociationResult, GetEipAssociationOutputArgs } from "./getEipAssociation";
+export const getEipAssociation: typeof import("./getEipAssociation").getEipAssociation = null as any;
+export const getEipAssociationOutput: typeof import("./getEipAssociation").getEipAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getEipAssociation","getEipAssociationOutput"], () => require("./getEipAssociation"));
 
 export { GetEnclaveCertificateIamRoleAssociationArgs, GetEnclaveCertificateIamRoleAssociationResult, GetEnclaveCertificateIamRoleAssociationOutputArgs } from "./getEnclaveCertificateIamRoleAssociation";
 export const getEnclaveCertificateIamRoleAssociation: typeof import("./getEnclaveCertificateIamRoleAssociation").getEnclaveCertificateIamRoleAssociation = null as any;
@@ -170,41 +170,6 @@ export const getHost: typeof import("./getHost").getHost = null as any;
 export const getHostOutput: typeof import("./getHost").getHostOutput = null as any;
 utilities.lazyLoad(exports, ["getHost","getHostOutput"], () => require("./getHost"));
 
-export { GetIPAMArgs, GetIPAMResult, GetIPAMOutputArgs } from "./getIPAM";
-export const getIPAM: typeof import("./getIPAM").getIPAM = null as any;
-export const getIPAMOutput: typeof import("./getIPAM").getIPAMOutput = null as any;
-utilities.lazyLoad(exports, ["getIPAM","getIPAMOutput"], () => require("./getIPAM"));
-
-export { GetIPAMAllocationArgs, GetIPAMAllocationResult, GetIPAMAllocationOutputArgs } from "./getIPAMAllocation";
-export const getIPAMAllocation: typeof import("./getIPAMAllocation").getIPAMAllocation = null as any;
-export const getIPAMAllocationOutput: typeof import("./getIPAMAllocation").getIPAMAllocationOutput = null as any;
-utilities.lazyLoad(exports, ["getIPAMAllocation","getIPAMAllocationOutput"], () => require("./getIPAMAllocation"));
-
-export { GetIPAMPoolArgs, GetIPAMPoolResult, GetIPAMPoolOutputArgs } from "./getIPAMPool";
-export const getIPAMPool: typeof import("./getIPAMPool").getIPAMPool = null as any;
-export const getIPAMPoolOutput: typeof import("./getIPAMPool").getIPAMPoolOutput = null as any;
-utilities.lazyLoad(exports, ["getIPAMPool","getIPAMPoolOutput"], () => require("./getIPAMPool"));
-
-export { GetIPAMPoolCidrArgs, GetIPAMPoolCidrResult, GetIPAMPoolCidrOutputArgs } from "./getIPAMPoolCidr";
-export const getIPAMPoolCidr: typeof import("./getIPAMPoolCidr").getIPAMPoolCidr = null as any;
-export const getIPAMPoolCidrOutput: typeof import("./getIPAMPoolCidr").getIPAMPoolCidrOutput = null as any;
-utilities.lazyLoad(exports, ["getIPAMPoolCidr","getIPAMPoolCidrOutput"], () => require("./getIPAMPoolCidr"));
-
-export { GetIPAMResourceDiscoveryArgs, GetIPAMResourceDiscoveryResult, GetIPAMResourceDiscoveryOutputArgs } from "./getIPAMResourceDiscovery";
-export const getIPAMResourceDiscovery: typeof import("./getIPAMResourceDiscovery").getIPAMResourceDiscovery = null as any;
-export const getIPAMResourceDiscoveryOutput: typeof import("./getIPAMResourceDiscovery").getIPAMResourceDiscoveryOutput = null as any;
-utilities.lazyLoad(exports, ["getIPAMResourceDiscovery","getIPAMResourceDiscoveryOutput"], () => require("./getIPAMResourceDiscovery"));
-
-export { GetIPAMResourceDiscoveryAssociationArgs, GetIPAMResourceDiscoveryAssociationResult, GetIPAMResourceDiscoveryAssociationOutputArgs } from "./getIPAMResourceDiscoveryAssociation";
-export const getIPAMResourceDiscoveryAssociation: typeof import("./getIPAMResourceDiscoveryAssociation").getIPAMResourceDiscoveryAssociation = null as any;
-export const getIPAMResourceDiscoveryAssociationOutput: typeof import("./getIPAMResourceDiscoveryAssociation").getIPAMResourceDiscoveryAssociationOutput = null as any;
-utilities.lazyLoad(exports, ["getIPAMResourceDiscoveryAssociation","getIPAMResourceDiscoveryAssociationOutput"], () => require("./getIPAMResourceDiscoveryAssociation"));
-
-export { GetIPAMScopeArgs, GetIPAMScopeResult, GetIPAMScopeOutputArgs } from "./getIPAMScope";
-export const getIPAMScope: typeof import("./getIPAMScope").getIPAMScope = null as any;
-export const getIPAMScopeOutput: typeof import("./getIPAMScope").getIPAMScopeOutput = null as any;
-utilities.lazyLoad(exports, ["getIPAMScope","getIPAMScopeOutput"], () => require("./getIPAMScope"));
-
 export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
 export const getInstance: typeof import("./getInstance").getInstance = null as any;
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
@@ -214,6 +179,41 @@ export { GetInternetGatewayArgs, GetInternetGatewayResult, GetInternetGatewayOut
 export const getInternetGateway: typeof import("./getInternetGateway").getInternetGateway = null as any;
 export const getInternetGatewayOutput: typeof import("./getInternetGateway").getInternetGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getInternetGateway","getInternetGatewayOutput"], () => require("./getInternetGateway"));
+
+export { GetIpamArgs, GetIpamResult, GetIpamOutputArgs } from "./getIpam";
+export const getIpam: typeof import("./getIpam").getIpam = null as any;
+export const getIpamOutput: typeof import("./getIpam").getIpamOutput = null as any;
+utilities.lazyLoad(exports, ["getIpam","getIpamOutput"], () => require("./getIpam"));
+
+export { GetIpamAllocationArgs, GetIpamAllocationResult, GetIpamAllocationOutputArgs } from "./getIpamAllocation";
+export const getIpamAllocation: typeof import("./getIpamAllocation").getIpamAllocation = null as any;
+export const getIpamAllocationOutput: typeof import("./getIpamAllocation").getIpamAllocationOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamAllocation","getIpamAllocationOutput"], () => require("./getIpamAllocation"));
+
+export { GetIpamPoolArgs, GetIpamPoolResult, GetIpamPoolOutputArgs } from "./getIpamPool";
+export const getIpamPool: typeof import("./getIpamPool").getIpamPool = null as any;
+export const getIpamPoolOutput: typeof import("./getIpamPool").getIpamPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamPool","getIpamPoolOutput"], () => require("./getIpamPool"));
+
+export { GetIpamPoolCidrArgs, GetIpamPoolCidrResult, GetIpamPoolCidrOutputArgs } from "./getIpamPoolCidr";
+export const getIpamPoolCidr: typeof import("./getIpamPoolCidr").getIpamPoolCidr = null as any;
+export const getIpamPoolCidrOutput: typeof import("./getIpamPoolCidr").getIpamPoolCidrOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamPoolCidr","getIpamPoolCidrOutput"], () => require("./getIpamPoolCidr"));
+
+export { GetIpamResourceDiscoveryArgs, GetIpamResourceDiscoveryResult, GetIpamResourceDiscoveryOutputArgs } from "./getIpamResourceDiscovery";
+export const getIpamResourceDiscovery: typeof import("./getIpamResourceDiscovery").getIpamResourceDiscovery = null as any;
+export const getIpamResourceDiscoveryOutput: typeof import("./getIpamResourceDiscovery").getIpamResourceDiscoveryOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamResourceDiscovery","getIpamResourceDiscoveryOutput"], () => require("./getIpamResourceDiscovery"));
+
+export { GetIpamResourceDiscoveryAssociationArgs, GetIpamResourceDiscoveryAssociationResult, GetIpamResourceDiscoveryAssociationOutputArgs } from "./getIpamResourceDiscoveryAssociation";
+export const getIpamResourceDiscoveryAssociation: typeof import("./getIpamResourceDiscoveryAssociation").getIpamResourceDiscoveryAssociation = null as any;
+export const getIpamResourceDiscoveryAssociationOutput: typeof import("./getIpamResourceDiscoveryAssociation").getIpamResourceDiscoveryAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamResourceDiscoveryAssociation","getIpamResourceDiscoveryAssociationOutput"], () => require("./getIpamResourceDiscoveryAssociation"));
+
+export { GetIpamScopeArgs, GetIpamScopeResult, GetIpamScopeOutputArgs } from "./getIpamScope";
+export const getIpamScope: typeof import("./getIpamScope").getIpamScope = null as any;
+export const getIpamScopeOutput: typeof import("./getIpamScope").getIpamScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamScope","getIpamScopeOutput"], () => require("./getIpamScope"));
 
 export { GetKeyPairArgs, GetKeyPairResult, GetKeyPairOutputArgs } from "./getKeyPair";
 export const getKeyPair: typeof import("./getKeyPair").getKeyPair = null as any;
@@ -235,15 +235,15 @@ export const getLocalGatewayRouteTable: typeof import("./getLocalGatewayRouteTab
 export const getLocalGatewayRouteTableOutput: typeof import("./getLocalGatewayRouteTable").getLocalGatewayRouteTableOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalGatewayRouteTable","getLocalGatewayRouteTableOutput"], () => require("./getLocalGatewayRouteTable"));
 
-export { GetLocalGatewayRouteTableVPCAssociationArgs, GetLocalGatewayRouteTableVPCAssociationResult, GetLocalGatewayRouteTableVPCAssociationOutputArgs } from "./getLocalGatewayRouteTableVPCAssociation";
-export const getLocalGatewayRouteTableVPCAssociation: typeof import("./getLocalGatewayRouteTableVPCAssociation").getLocalGatewayRouteTableVPCAssociation = null as any;
-export const getLocalGatewayRouteTableVPCAssociationOutput: typeof import("./getLocalGatewayRouteTableVPCAssociation").getLocalGatewayRouteTableVPCAssociationOutput = null as any;
-utilities.lazyLoad(exports, ["getLocalGatewayRouteTableVPCAssociation","getLocalGatewayRouteTableVPCAssociationOutput"], () => require("./getLocalGatewayRouteTableVPCAssociation"));
-
 export { GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs, GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult, GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutputArgs } from "./getLocalGatewayRouteTableVirtualInterfaceGroupAssociation";
 export const getLocalGatewayRouteTableVirtualInterfaceGroupAssociation: typeof import("./getLocalGatewayRouteTableVirtualInterfaceGroupAssociation").getLocalGatewayRouteTableVirtualInterfaceGroupAssociation = null as any;
 export const getLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput: typeof import("./getLocalGatewayRouteTableVirtualInterfaceGroupAssociation").getLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalGatewayRouteTableVirtualInterfaceGroupAssociation","getLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput"], () => require("./getLocalGatewayRouteTableVirtualInterfaceGroupAssociation"));
+
+export { GetLocalGatewayRouteTableVpcAssociationArgs, GetLocalGatewayRouteTableVpcAssociationResult, GetLocalGatewayRouteTableVpcAssociationOutputArgs } from "./getLocalGatewayRouteTableVpcAssociation";
+export const getLocalGatewayRouteTableVpcAssociation: typeof import("./getLocalGatewayRouteTableVpcAssociation").getLocalGatewayRouteTableVpcAssociation = null as any;
+export const getLocalGatewayRouteTableVpcAssociationOutput: typeof import("./getLocalGatewayRouteTableVpcAssociation").getLocalGatewayRouteTableVpcAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalGatewayRouteTableVpcAssociation","getLocalGatewayRouteTableVpcAssociationOutput"], () => require("./getLocalGatewayRouteTableVpcAssociation"));
 
 export { GetNatGatewayArgs, GetNatGatewayResult, GetNatGatewayOutputArgs } from "./getNatGateway";
 export const getNatGateway: typeof import("./getNatGateway").getNatGateway = null as any;
@@ -440,61 +440,6 @@ export const getTransitGatewayVpcAttachment: typeof import("./getTransitGatewayV
 export const getTransitGatewayVpcAttachmentOutput: typeof import("./getTransitGatewayVpcAttachment").getTransitGatewayVpcAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getTransitGatewayVpcAttachment","getTransitGatewayVpcAttachmentOutput"], () => require("./getTransitGatewayVpcAttachment"));
 
-export { GetVPCArgs, GetVPCResult, GetVPCOutputArgs } from "./getVPC";
-export const getVPC: typeof import("./getVPC").getVPC = null as any;
-export const getVPCOutput: typeof import("./getVPC").getVPCOutput = null as any;
-utilities.lazyLoad(exports, ["getVPC","getVPCOutput"], () => require("./getVPC"));
-
-export { GetVPCCidrBlockArgs, GetVPCCidrBlockResult, GetVPCCidrBlockOutputArgs } from "./getVPCCidrBlock";
-export const getVPCCidrBlock: typeof import("./getVPCCidrBlock").getVPCCidrBlock = null as any;
-export const getVPCCidrBlockOutput: typeof import("./getVPCCidrBlock").getVPCCidrBlockOutput = null as any;
-utilities.lazyLoad(exports, ["getVPCCidrBlock","getVPCCidrBlockOutput"], () => require("./getVPCCidrBlock"));
-
-export { GetVPCEndpointArgs, GetVPCEndpointResult, GetVPCEndpointOutputArgs } from "./getVPCEndpoint";
-export const getVPCEndpoint: typeof import("./getVPCEndpoint").getVPCEndpoint = null as any;
-export const getVPCEndpointOutput: typeof import("./getVPCEndpoint").getVPCEndpointOutput = null as any;
-utilities.lazyLoad(exports, ["getVPCEndpoint","getVPCEndpointOutput"], () => require("./getVPCEndpoint"));
-
-export { GetVPCEndpointConnectionNotificationArgs, GetVPCEndpointConnectionNotificationResult, GetVPCEndpointConnectionNotificationOutputArgs } from "./getVPCEndpointConnectionNotification";
-export const getVPCEndpointConnectionNotification: typeof import("./getVPCEndpointConnectionNotification").getVPCEndpointConnectionNotification = null as any;
-export const getVPCEndpointConnectionNotificationOutput: typeof import("./getVPCEndpointConnectionNotification").getVPCEndpointConnectionNotificationOutput = null as any;
-utilities.lazyLoad(exports, ["getVPCEndpointConnectionNotification","getVPCEndpointConnectionNotificationOutput"], () => require("./getVPCEndpointConnectionNotification"));
-
-export { GetVPCEndpointServiceArgs, GetVPCEndpointServiceResult, GetVPCEndpointServiceOutputArgs } from "./getVPCEndpointService";
-export const getVPCEndpointService: typeof import("./getVPCEndpointService").getVPCEndpointService = null as any;
-export const getVPCEndpointServiceOutput: typeof import("./getVPCEndpointService").getVPCEndpointServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getVPCEndpointService","getVPCEndpointServiceOutput"], () => require("./getVPCEndpointService"));
-
-export { GetVPCEndpointServicePermissionsArgs, GetVPCEndpointServicePermissionsResult, GetVPCEndpointServicePermissionsOutputArgs } from "./getVPCEndpointServicePermissions";
-export const getVPCEndpointServicePermissions: typeof import("./getVPCEndpointServicePermissions").getVPCEndpointServicePermissions = null as any;
-export const getVPCEndpointServicePermissionsOutput: typeof import("./getVPCEndpointServicePermissions").getVPCEndpointServicePermissionsOutput = null as any;
-utilities.lazyLoad(exports, ["getVPCEndpointServicePermissions","getVPCEndpointServicePermissionsOutput"], () => require("./getVPCEndpointServicePermissions"));
-
-export { GetVPCGatewayAttachmentArgs, GetVPCGatewayAttachmentResult, GetVPCGatewayAttachmentOutputArgs } from "./getVPCGatewayAttachment";
-export const getVPCGatewayAttachment: typeof import("./getVPCGatewayAttachment").getVPCGatewayAttachment = null as any;
-export const getVPCGatewayAttachmentOutput: typeof import("./getVPCGatewayAttachment").getVPCGatewayAttachmentOutput = null as any;
-utilities.lazyLoad(exports, ["getVPCGatewayAttachment","getVPCGatewayAttachmentOutput"], () => require("./getVPCGatewayAttachment"));
-
-export { GetVPCPeeringConnectionArgs, GetVPCPeeringConnectionResult, GetVPCPeeringConnectionOutputArgs } from "./getVPCPeeringConnection";
-export const getVPCPeeringConnection: typeof import("./getVPCPeeringConnection").getVPCPeeringConnection = null as any;
-export const getVPCPeeringConnectionOutput: typeof import("./getVPCPeeringConnection").getVPCPeeringConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getVPCPeeringConnection","getVPCPeeringConnectionOutput"], () => require("./getVPCPeeringConnection"));
-
-export { GetVPNConnectionArgs, GetVPNConnectionResult, GetVPNConnectionOutputArgs } from "./getVPNConnection";
-export const getVPNConnection: typeof import("./getVPNConnection").getVPNConnection = null as any;
-export const getVPNConnectionOutput: typeof import("./getVPNConnection").getVPNConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getVPNConnection","getVPNConnectionOutput"], () => require("./getVPNConnection"));
-
-export { GetVPNGatewayArgs, GetVPNGatewayResult, GetVPNGatewayOutputArgs } from "./getVPNGateway";
-export const getVPNGateway: typeof import("./getVPNGateway").getVPNGateway = null as any;
-export const getVPNGatewayOutput: typeof import("./getVPNGateway").getVPNGatewayOutput = null as any;
-utilities.lazyLoad(exports, ["getVPNGateway","getVPNGatewayOutput"], () => require("./getVPNGateway"));
-
-export { GetVPNGatewayRoutePropagationArgs, GetVPNGatewayRoutePropagationResult, GetVPNGatewayRoutePropagationOutputArgs } from "./getVPNGatewayRoutePropagation";
-export const getVPNGatewayRoutePropagation: typeof import("./getVPNGatewayRoutePropagation").getVPNGatewayRoutePropagation = null as any;
-export const getVPNGatewayRoutePropagationOutput: typeof import("./getVPNGatewayRoutePropagation").getVPNGatewayRoutePropagationOutput = null as any;
-utilities.lazyLoad(exports, ["getVPNGatewayRoutePropagation","getVPNGatewayRoutePropagationOutput"], () => require("./getVPNGatewayRoutePropagation"));
-
 export { GetVerifiedAccessEndpointArgs, GetVerifiedAccessEndpointResult, GetVerifiedAccessEndpointOutputArgs } from "./getVerifiedAccessEndpoint";
 export const getVerifiedAccessEndpoint: typeof import("./getVerifiedAccessEndpoint").getVerifiedAccessEndpoint = null as any;
 export const getVerifiedAccessEndpointOutput: typeof import("./getVerifiedAccessEndpoint").getVerifiedAccessEndpointOutput = null as any;
@@ -520,6 +465,61 @@ export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
 utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
 
+export { GetVpcArgs, GetVpcResult, GetVpcOutputArgs } from "./getVpc";
+export const getVpc: typeof import("./getVpc").getVpc = null as any;
+export const getVpcOutput: typeof import("./getVpc").getVpcOutput = null as any;
+utilities.lazyLoad(exports, ["getVpc","getVpcOutput"], () => require("./getVpc"));
+
+export { GetVpcCidrBlockArgs, GetVpcCidrBlockResult, GetVpcCidrBlockOutputArgs } from "./getVpcCidrBlock";
+export const getVpcCidrBlock: typeof import("./getVpcCidrBlock").getVpcCidrBlock = null as any;
+export const getVpcCidrBlockOutput: typeof import("./getVpcCidrBlock").getVpcCidrBlockOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcCidrBlock","getVpcCidrBlockOutput"], () => require("./getVpcCidrBlock"));
+
+export { GetVpcEndpointArgs, GetVpcEndpointResult, GetVpcEndpointOutputArgs } from "./getVpcEndpoint";
+export const getVpcEndpoint: typeof import("./getVpcEndpoint").getVpcEndpoint = null as any;
+export const getVpcEndpointOutput: typeof import("./getVpcEndpoint").getVpcEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcEndpoint","getVpcEndpointOutput"], () => require("./getVpcEndpoint"));
+
+export { GetVpcEndpointConnectionNotificationArgs, GetVpcEndpointConnectionNotificationResult, GetVpcEndpointConnectionNotificationOutputArgs } from "./getVpcEndpointConnectionNotification";
+export const getVpcEndpointConnectionNotification: typeof import("./getVpcEndpointConnectionNotification").getVpcEndpointConnectionNotification = null as any;
+export const getVpcEndpointConnectionNotificationOutput: typeof import("./getVpcEndpointConnectionNotification").getVpcEndpointConnectionNotificationOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcEndpointConnectionNotification","getVpcEndpointConnectionNotificationOutput"], () => require("./getVpcEndpointConnectionNotification"));
+
+export { GetVpcEndpointServiceArgs, GetVpcEndpointServiceResult, GetVpcEndpointServiceOutputArgs } from "./getVpcEndpointService";
+export const getVpcEndpointService: typeof import("./getVpcEndpointService").getVpcEndpointService = null as any;
+export const getVpcEndpointServiceOutput: typeof import("./getVpcEndpointService").getVpcEndpointServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcEndpointService","getVpcEndpointServiceOutput"], () => require("./getVpcEndpointService"));
+
+export { GetVpcEndpointServicePermissionsArgs, GetVpcEndpointServicePermissionsResult, GetVpcEndpointServicePermissionsOutputArgs } from "./getVpcEndpointServicePermissions";
+export const getVpcEndpointServicePermissions: typeof import("./getVpcEndpointServicePermissions").getVpcEndpointServicePermissions = null as any;
+export const getVpcEndpointServicePermissionsOutput: typeof import("./getVpcEndpointServicePermissions").getVpcEndpointServicePermissionsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcEndpointServicePermissions","getVpcEndpointServicePermissionsOutput"], () => require("./getVpcEndpointServicePermissions"));
+
+export { GetVpcGatewayAttachmentArgs, GetVpcGatewayAttachmentResult, GetVpcGatewayAttachmentOutputArgs } from "./getVpcGatewayAttachment";
+export const getVpcGatewayAttachment: typeof import("./getVpcGatewayAttachment").getVpcGatewayAttachment = null as any;
+export const getVpcGatewayAttachmentOutput: typeof import("./getVpcGatewayAttachment").getVpcGatewayAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcGatewayAttachment","getVpcGatewayAttachmentOutput"], () => require("./getVpcGatewayAttachment"));
+
+export { GetVpcPeeringConnectionArgs, GetVpcPeeringConnectionResult, GetVpcPeeringConnectionOutputArgs } from "./getVpcPeeringConnection";
+export const getVpcPeeringConnection: typeof import("./getVpcPeeringConnection").getVpcPeeringConnection = null as any;
+export const getVpcPeeringConnectionOutput: typeof import("./getVpcPeeringConnection").getVpcPeeringConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcPeeringConnection","getVpcPeeringConnectionOutput"], () => require("./getVpcPeeringConnection"));
+
+export { GetVpnConnectionArgs, GetVpnConnectionResult, GetVpnConnectionOutputArgs } from "./getVpnConnection";
+export const getVpnConnection: typeof import("./getVpnConnection").getVpnConnection = null as any;
+export const getVpnConnectionOutput: typeof import("./getVpnConnection").getVpnConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getVpnConnection","getVpnConnectionOutput"], () => require("./getVpnConnection"));
+
+export { GetVpnGatewayArgs, GetVpnGatewayResult, GetVpnGatewayOutputArgs } from "./getVpnGateway";
+export const getVpnGateway: typeof import("./getVpnGateway").getVpnGateway = null as any;
+export const getVpnGatewayOutput: typeof import("./getVpnGateway").getVpnGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getVpnGateway","getVpnGatewayOutput"], () => require("./getVpnGateway"));
+
+export { GetVpnGatewayRoutePropagationArgs, GetVpnGatewayRoutePropagationResult, GetVpnGatewayRoutePropagationOutputArgs } from "./getVpnGatewayRoutePropagation";
+export const getVpnGatewayRoutePropagation: typeof import("./getVpnGatewayRoutePropagation").getVpnGatewayRoutePropagation = null as any;
+export const getVpnGatewayRoutePropagationOutput: typeof import("./getVpnGatewayRoutePropagation").getVpnGatewayRoutePropagationOutput = null as any;
+utilities.lazyLoad(exports, ["getVpnGatewayRoutePropagation","getVpnGatewayRoutePropagationOutput"], () => require("./getVpnGatewayRoutePropagation"));
+
 export { HostArgs } from "./host";
 export type Host = import("./host").Host;
 export const Host: typeof import("./host").Host = null as any;
@@ -535,40 +535,40 @@ export type InternetGateway = import("./internetGateway").InternetGateway;
 export const InternetGateway: typeof import("./internetGateway").InternetGateway = null as any;
 utilities.lazyLoad(exports, ["InternetGateway"], () => require("./internetGateway"));
 
-export { IPAMArgs } from "./ipam";
-export type IPAM = import("./ipam").IPAM;
-export const IPAM: typeof import("./ipam").IPAM = null as any;
-utilities.lazyLoad(exports, ["IPAM"], () => require("./ipam"));
+export { IpamArgs } from "./ipam";
+export type Ipam = import("./ipam").Ipam;
+export const Ipam: typeof import("./ipam").Ipam = null as any;
+utilities.lazyLoad(exports, ["Ipam"], () => require("./ipam"));
 
-export { IPAMAllocationArgs } from "./ipamallocation";
-export type IPAMAllocation = import("./ipamallocation").IPAMAllocation;
-export const IPAMAllocation: typeof import("./ipamallocation").IPAMAllocation = null as any;
-utilities.lazyLoad(exports, ["IPAMAllocation"], () => require("./ipamallocation"));
+export { IpamAllocationArgs } from "./ipamAllocation";
+export type IpamAllocation = import("./ipamAllocation").IpamAllocation;
+export const IpamAllocation: typeof import("./ipamAllocation").IpamAllocation = null as any;
+utilities.lazyLoad(exports, ["IpamAllocation"], () => require("./ipamAllocation"));
 
-export { IPAMPoolArgs } from "./ipampool";
-export type IPAMPool = import("./ipampool").IPAMPool;
-export const IPAMPool: typeof import("./ipampool").IPAMPool = null as any;
-utilities.lazyLoad(exports, ["IPAMPool"], () => require("./ipampool"));
+export { IpamPoolArgs } from "./ipamPool";
+export type IpamPool = import("./ipamPool").IpamPool;
+export const IpamPool: typeof import("./ipamPool").IpamPool = null as any;
+utilities.lazyLoad(exports, ["IpamPool"], () => require("./ipamPool"));
 
-export { IPAMPoolCidrArgs } from "./ipampoolCidr";
-export type IPAMPoolCidr = import("./ipampoolCidr").IPAMPoolCidr;
-export const IPAMPoolCidr: typeof import("./ipampoolCidr").IPAMPoolCidr = null as any;
-utilities.lazyLoad(exports, ["IPAMPoolCidr"], () => require("./ipampoolCidr"));
+export { IpamPoolCidrArgs } from "./ipamPoolCidr";
+export type IpamPoolCidr = import("./ipamPoolCidr").IpamPoolCidr;
+export const IpamPoolCidr: typeof import("./ipamPoolCidr").IpamPoolCidr = null as any;
+utilities.lazyLoad(exports, ["IpamPoolCidr"], () => require("./ipamPoolCidr"));
 
-export { IPAMResourceDiscoveryArgs } from "./ipamresourceDiscovery";
-export type IPAMResourceDiscovery = import("./ipamresourceDiscovery").IPAMResourceDiscovery;
-export const IPAMResourceDiscovery: typeof import("./ipamresourceDiscovery").IPAMResourceDiscovery = null as any;
-utilities.lazyLoad(exports, ["IPAMResourceDiscovery"], () => require("./ipamresourceDiscovery"));
+export { IpamResourceDiscoveryArgs } from "./ipamResourceDiscovery";
+export type IpamResourceDiscovery = import("./ipamResourceDiscovery").IpamResourceDiscovery;
+export const IpamResourceDiscovery: typeof import("./ipamResourceDiscovery").IpamResourceDiscovery = null as any;
+utilities.lazyLoad(exports, ["IpamResourceDiscovery"], () => require("./ipamResourceDiscovery"));
 
-export { IPAMResourceDiscoveryAssociationArgs } from "./ipamresourceDiscoveryAssociation";
-export type IPAMResourceDiscoveryAssociation = import("./ipamresourceDiscoveryAssociation").IPAMResourceDiscoveryAssociation;
-export const IPAMResourceDiscoveryAssociation: typeof import("./ipamresourceDiscoveryAssociation").IPAMResourceDiscoveryAssociation = null as any;
-utilities.lazyLoad(exports, ["IPAMResourceDiscoveryAssociation"], () => require("./ipamresourceDiscoveryAssociation"));
+export { IpamResourceDiscoveryAssociationArgs } from "./ipamResourceDiscoveryAssociation";
+export type IpamResourceDiscoveryAssociation = import("./ipamResourceDiscoveryAssociation").IpamResourceDiscoveryAssociation;
+export const IpamResourceDiscoveryAssociation: typeof import("./ipamResourceDiscoveryAssociation").IpamResourceDiscoveryAssociation = null as any;
+utilities.lazyLoad(exports, ["IpamResourceDiscoveryAssociation"], () => require("./ipamResourceDiscoveryAssociation"));
 
-export { IPAMScopeArgs } from "./ipamscope";
-export type IPAMScope = import("./ipamscope").IPAMScope;
-export const IPAMScope: typeof import("./ipamscope").IPAMScope = null as any;
-utilities.lazyLoad(exports, ["IPAMScope"], () => require("./ipamscope"));
+export { IpamScopeArgs } from "./ipamScope";
+export type IpamScope = import("./ipamScope").IpamScope;
+export const IpamScope: typeof import("./ipamScope").IpamScope = null as any;
+utilities.lazyLoad(exports, ["IpamScope"], () => require("./ipamScope"));
 
 export { KeyPairArgs } from "./keyPair";
 export type KeyPair = import("./keyPair").KeyPair;
@@ -590,15 +590,15 @@ export type LocalGatewayRouteTable = import("./localGatewayRouteTable").LocalGat
 export const LocalGatewayRouteTable: typeof import("./localGatewayRouteTable").LocalGatewayRouteTable = null as any;
 utilities.lazyLoad(exports, ["LocalGatewayRouteTable"], () => require("./localGatewayRouteTable"));
 
-export { LocalGatewayRouteTableVPCAssociationArgs } from "./localGatewayRouteTableVPCAssociation";
-export type LocalGatewayRouteTableVPCAssociation = import("./localGatewayRouteTableVPCAssociation").LocalGatewayRouteTableVPCAssociation;
-export const LocalGatewayRouteTableVPCAssociation: typeof import("./localGatewayRouteTableVPCAssociation").LocalGatewayRouteTableVPCAssociation = null as any;
-utilities.lazyLoad(exports, ["LocalGatewayRouteTableVPCAssociation"], () => require("./localGatewayRouteTableVPCAssociation"));
-
 export { LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs } from "./localGatewayRouteTableVirtualInterfaceGroupAssociation";
 export type LocalGatewayRouteTableVirtualInterfaceGroupAssociation = import("./localGatewayRouteTableVirtualInterfaceGroupAssociation").LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
 export const LocalGatewayRouteTableVirtualInterfaceGroupAssociation: typeof import("./localGatewayRouteTableVirtualInterfaceGroupAssociation").LocalGatewayRouteTableVirtualInterfaceGroupAssociation = null as any;
 utilities.lazyLoad(exports, ["LocalGatewayRouteTableVirtualInterfaceGroupAssociation"], () => require("./localGatewayRouteTableVirtualInterfaceGroupAssociation"));
+
+export { LocalGatewayRouteTableVpcAssociationArgs } from "./localGatewayRouteTableVpcAssociation";
+export type LocalGatewayRouteTableVpcAssociation = import("./localGatewayRouteTableVpcAssociation").LocalGatewayRouteTableVpcAssociation;
+export const LocalGatewayRouteTableVpcAssociation: typeof import("./localGatewayRouteTableVpcAssociation").LocalGatewayRouteTableVpcAssociation = null as any;
+utilities.lazyLoad(exports, ["LocalGatewayRouteTableVpcAssociation"], () => require("./localGatewayRouteTableVpcAssociation"));
 
 export { NatGatewayArgs } from "./natGateway";
 export type NatGateway = import("./natGateway").NatGateway;
@@ -830,70 +830,70 @@ export type VolumeAttachment = import("./volumeAttachment").VolumeAttachment;
 export const VolumeAttachment: typeof import("./volumeAttachment").VolumeAttachment = null as any;
 utilities.lazyLoad(exports, ["VolumeAttachment"], () => require("./volumeAttachment"));
 
-export { VPCArgs } from "./vpc";
-export type VPC = import("./vpc").VPC;
-export const VPC: typeof import("./vpc").VPC = null as any;
-utilities.lazyLoad(exports, ["VPC"], () => require("./vpc"));
+export { VpcArgs } from "./vpc";
+export type Vpc = import("./vpc").Vpc;
+export const Vpc: typeof import("./vpc").Vpc = null as any;
+utilities.lazyLoad(exports, ["Vpc"], () => require("./vpc"));
 
-export { VPCCidrBlockArgs } from "./vpccidrBlock";
-export type VPCCidrBlock = import("./vpccidrBlock").VPCCidrBlock;
-export const VPCCidrBlock: typeof import("./vpccidrBlock").VPCCidrBlock = null as any;
-utilities.lazyLoad(exports, ["VPCCidrBlock"], () => require("./vpccidrBlock"));
+export { VpcCidrBlockArgs } from "./vpcCidrBlock";
+export type VpcCidrBlock = import("./vpcCidrBlock").VpcCidrBlock;
+export const VpcCidrBlock: typeof import("./vpcCidrBlock").VpcCidrBlock = null as any;
+utilities.lazyLoad(exports, ["VpcCidrBlock"], () => require("./vpcCidrBlock"));
 
-export { VPCDHCPOptionsAssociationArgs } from "./vpcdhcpoptionsAssociation";
-export type VPCDHCPOptionsAssociation = import("./vpcdhcpoptionsAssociation").VPCDHCPOptionsAssociation;
-export const VPCDHCPOptionsAssociation: typeof import("./vpcdhcpoptionsAssociation").VPCDHCPOptionsAssociation = null as any;
-utilities.lazyLoad(exports, ["VPCDHCPOptionsAssociation"], () => require("./vpcdhcpoptionsAssociation"));
+export { VpcEndpointArgs } from "./vpcEndpoint";
+export type VpcEndpoint = import("./vpcEndpoint").VpcEndpoint;
+export const VpcEndpoint: typeof import("./vpcEndpoint").VpcEndpoint = null as any;
+utilities.lazyLoad(exports, ["VpcEndpoint"], () => require("./vpcEndpoint"));
 
-export { VPCEndpointArgs } from "./vpcendpoint";
-export type VPCEndpoint = import("./vpcendpoint").VPCEndpoint;
-export const VPCEndpoint: typeof import("./vpcendpoint").VPCEndpoint = null as any;
-utilities.lazyLoad(exports, ["VPCEndpoint"], () => require("./vpcendpoint"));
+export { VpcEndpointConnectionNotificationArgs } from "./vpcEndpointConnectionNotification";
+export type VpcEndpointConnectionNotification = import("./vpcEndpointConnectionNotification").VpcEndpointConnectionNotification;
+export const VpcEndpointConnectionNotification: typeof import("./vpcEndpointConnectionNotification").VpcEndpointConnectionNotification = null as any;
+utilities.lazyLoad(exports, ["VpcEndpointConnectionNotification"], () => require("./vpcEndpointConnectionNotification"));
 
-export { VPCEndpointConnectionNotificationArgs } from "./vpcendpointConnectionNotification";
-export type VPCEndpointConnectionNotification = import("./vpcendpointConnectionNotification").VPCEndpointConnectionNotification;
-export const VPCEndpointConnectionNotification: typeof import("./vpcendpointConnectionNotification").VPCEndpointConnectionNotification = null as any;
-utilities.lazyLoad(exports, ["VPCEndpointConnectionNotification"], () => require("./vpcendpointConnectionNotification"));
+export { VpcEndpointServiceArgs } from "./vpcEndpointService";
+export type VpcEndpointService = import("./vpcEndpointService").VpcEndpointService;
+export const VpcEndpointService: typeof import("./vpcEndpointService").VpcEndpointService = null as any;
+utilities.lazyLoad(exports, ["VpcEndpointService"], () => require("./vpcEndpointService"));
 
-export { VPCEndpointServiceArgs } from "./vpcendpointService";
-export type VPCEndpointService = import("./vpcendpointService").VPCEndpointService;
-export const VPCEndpointService: typeof import("./vpcendpointService").VPCEndpointService = null as any;
-utilities.lazyLoad(exports, ["VPCEndpointService"], () => require("./vpcendpointService"));
+export { VpcEndpointServicePermissionsArgs } from "./vpcEndpointServicePermissions";
+export type VpcEndpointServicePermissions = import("./vpcEndpointServicePermissions").VpcEndpointServicePermissions;
+export const VpcEndpointServicePermissions: typeof import("./vpcEndpointServicePermissions").VpcEndpointServicePermissions = null as any;
+utilities.lazyLoad(exports, ["VpcEndpointServicePermissions"], () => require("./vpcEndpointServicePermissions"));
 
-export { VPCEndpointServicePermissionsArgs } from "./vpcendpointServicePermissions";
-export type VPCEndpointServicePermissions = import("./vpcendpointServicePermissions").VPCEndpointServicePermissions;
-export const VPCEndpointServicePermissions: typeof import("./vpcendpointServicePermissions").VPCEndpointServicePermissions = null as any;
-utilities.lazyLoad(exports, ["VPCEndpointServicePermissions"], () => require("./vpcendpointServicePermissions"));
+export { VpcGatewayAttachmentArgs } from "./vpcGatewayAttachment";
+export type VpcGatewayAttachment = import("./vpcGatewayAttachment").VpcGatewayAttachment;
+export const VpcGatewayAttachment: typeof import("./vpcGatewayAttachment").VpcGatewayAttachment = null as any;
+utilities.lazyLoad(exports, ["VpcGatewayAttachment"], () => require("./vpcGatewayAttachment"));
 
-export { VPCGatewayAttachmentArgs } from "./vpcgatewayAttachment";
-export type VPCGatewayAttachment = import("./vpcgatewayAttachment").VPCGatewayAttachment;
-export const VPCGatewayAttachment: typeof import("./vpcgatewayAttachment").VPCGatewayAttachment = null as any;
-utilities.lazyLoad(exports, ["VPCGatewayAttachment"], () => require("./vpcgatewayAttachment"));
+export { VpcPeeringConnectionArgs } from "./vpcPeeringConnection";
+export type VpcPeeringConnection = import("./vpcPeeringConnection").VpcPeeringConnection;
+export const VpcPeeringConnection: typeof import("./vpcPeeringConnection").VpcPeeringConnection = null as any;
+utilities.lazyLoad(exports, ["VpcPeeringConnection"], () => require("./vpcPeeringConnection"));
 
-export { VPCPeeringConnectionArgs } from "./vpcpeeringConnection";
-export type VPCPeeringConnection = import("./vpcpeeringConnection").VPCPeeringConnection;
-export const VPCPeeringConnection: typeof import("./vpcpeeringConnection").VPCPeeringConnection = null as any;
-utilities.lazyLoad(exports, ["VPCPeeringConnection"], () => require("./vpcpeeringConnection"));
+export { VpcdhcpOptionsAssociationArgs } from "./vpcdhcpOptionsAssociation";
+export type VpcdhcpOptionsAssociation = import("./vpcdhcpOptionsAssociation").VpcdhcpOptionsAssociation;
+export const VpcdhcpOptionsAssociation: typeof import("./vpcdhcpOptionsAssociation").VpcdhcpOptionsAssociation = null as any;
+utilities.lazyLoad(exports, ["VpcdhcpOptionsAssociation"], () => require("./vpcdhcpOptionsAssociation"));
 
-export { VPNConnectionArgs } from "./vpnconnection";
-export type VPNConnection = import("./vpnconnection").VPNConnection;
-export const VPNConnection: typeof import("./vpnconnection").VPNConnection = null as any;
-utilities.lazyLoad(exports, ["VPNConnection"], () => require("./vpnconnection"));
+export { VpnConnectionArgs } from "./vpnConnection";
+export type VpnConnection = import("./vpnConnection").VpnConnection;
+export const VpnConnection: typeof import("./vpnConnection").VpnConnection = null as any;
+utilities.lazyLoad(exports, ["VpnConnection"], () => require("./vpnConnection"));
 
-export { VPNConnectionRouteArgs } from "./vpnconnectionRoute";
-export type VPNConnectionRoute = import("./vpnconnectionRoute").VPNConnectionRoute;
-export const VPNConnectionRoute: typeof import("./vpnconnectionRoute").VPNConnectionRoute = null as any;
-utilities.lazyLoad(exports, ["VPNConnectionRoute"], () => require("./vpnconnectionRoute"));
+export { VpnConnectionRouteArgs } from "./vpnConnectionRoute";
+export type VpnConnectionRoute = import("./vpnConnectionRoute").VpnConnectionRoute;
+export const VpnConnectionRoute: typeof import("./vpnConnectionRoute").VpnConnectionRoute = null as any;
+utilities.lazyLoad(exports, ["VpnConnectionRoute"], () => require("./vpnConnectionRoute"));
 
-export { VPNGatewayArgs } from "./vpngateway";
-export type VPNGateway = import("./vpngateway").VPNGateway;
-export const VPNGateway: typeof import("./vpngateway").VPNGateway = null as any;
-utilities.lazyLoad(exports, ["VPNGateway"], () => require("./vpngateway"));
+export { VpnGatewayArgs } from "./vpnGateway";
+export type VpnGateway = import("./vpnGateway").VpnGateway;
+export const VpnGateway: typeof import("./vpnGateway").VpnGateway = null as any;
+utilities.lazyLoad(exports, ["VpnGateway"], () => require("./vpnGateway"));
 
-export { VPNGatewayRoutePropagationArgs } from "./vpngatewayRoutePropagation";
-export type VPNGatewayRoutePropagation = import("./vpngatewayRoutePropagation").VPNGatewayRoutePropagation;
-export const VPNGatewayRoutePropagation: typeof import("./vpngatewayRoutePropagation").VPNGatewayRoutePropagation = null as any;
-utilities.lazyLoad(exports, ["VPNGatewayRoutePropagation"], () => require("./vpngatewayRoutePropagation"));
+export { VpnGatewayRoutePropagationArgs } from "./vpnGatewayRoutePropagation";
+export type VpnGatewayRoutePropagation = import("./vpnGatewayRoutePropagation").VpnGatewayRoutePropagation;
+export const VpnGatewayRoutePropagation: typeof import("./vpnGatewayRoutePropagation").VpnGatewayRoutePropagation = null as any;
+utilities.lazyLoad(exports, ["VpnGatewayRoutePropagation"], () => require("./vpnGatewayRoutePropagation"));
 
 
 // Export enums:
@@ -919,16 +919,16 @@ const _module = {
                 return new ClientVpnTargetNetworkAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:CustomerGateway":
                 return new CustomerGateway(name, <any>undefined, { urn })
-            case "aws-native:ec2:DHCPOptions":
-                return new DHCPOptions(name, <any>undefined, { urn })
-            case "aws-native:ec2:EC2Fleet":
-                return new EC2Fleet(name, <any>undefined, { urn })
-            case "aws-native:ec2:EIP":
-                return new EIP(name, <any>undefined, { urn })
-            case "aws-native:ec2:EIPAssociation":
-                return new EIPAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:DhcpOptions":
+                return new DhcpOptions(name, <any>undefined, { urn })
+            case "aws-native:ec2:Ec2Fleet":
+                return new Ec2Fleet(name, <any>undefined, { urn })
             case "aws-native:ec2:EgressOnlyInternetGateway":
                 return new EgressOnlyInternetGateway(name, <any>undefined, { urn })
+            case "aws-native:ec2:Eip":
+                return new Eip(name, <any>undefined, { urn })
+            case "aws-native:ec2:EipAssociation":
+                return new EipAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:EnclaveCertificateIamRoleAssociation":
                 return new EnclaveCertificateIamRoleAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:FlowLog":
@@ -937,24 +937,24 @@ const _module = {
                 return new GatewayRouteTableAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:Host":
                 return new Host(name, <any>undefined, { urn })
-            case "aws-native:ec2:IPAM":
-                return new IPAM(name, <any>undefined, { urn })
-            case "aws-native:ec2:IPAMAllocation":
-                return new IPAMAllocation(name, <any>undefined, { urn })
-            case "aws-native:ec2:IPAMPool":
-                return new IPAMPool(name, <any>undefined, { urn })
-            case "aws-native:ec2:IPAMPoolCidr":
-                return new IPAMPoolCidr(name, <any>undefined, { urn })
-            case "aws-native:ec2:IPAMResourceDiscovery":
-                return new IPAMResourceDiscovery(name, <any>undefined, { urn })
-            case "aws-native:ec2:IPAMResourceDiscoveryAssociation":
-                return new IPAMResourceDiscoveryAssociation(name, <any>undefined, { urn })
-            case "aws-native:ec2:IPAMScope":
-                return new IPAMScope(name, <any>undefined, { urn })
             case "aws-native:ec2:Instance":
                 return new Instance(name, <any>undefined, { urn })
             case "aws-native:ec2:InternetGateway":
                 return new InternetGateway(name, <any>undefined, { urn })
+            case "aws-native:ec2:Ipam":
+                return new Ipam(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpamAllocation":
+                return new IpamAllocation(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpamPool":
+                return new IpamPool(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpamPoolCidr":
+                return new IpamPoolCidr(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpamResourceDiscovery":
+                return new IpamResourceDiscovery(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpamResourceDiscoveryAssociation":
+                return new IpamResourceDiscoveryAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpamScope":
+                return new IpamScope(name, <any>undefined, { urn })
             case "aws-native:ec2:KeyPair":
                 return new KeyPair(name, <any>undefined, { urn })
             case "aws-native:ec2:LaunchTemplate":
@@ -963,10 +963,10 @@ const _module = {
                 return new LocalGatewayRoute(name, <any>undefined, { urn })
             case "aws-native:ec2:LocalGatewayRouteTable":
                 return new LocalGatewayRouteTable(name, <any>undefined, { urn })
-            case "aws-native:ec2:LocalGatewayRouteTableVPCAssociation":
-                return new LocalGatewayRouteTableVPCAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation":
                 return new LocalGatewayRouteTableVirtualInterfaceGroupAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:LocalGatewayRouteTableVpcAssociation":
+                return new LocalGatewayRouteTableVpcAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:NatGateway":
                 return new NatGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:NetworkAcl":
@@ -1047,32 +1047,6 @@ const _module = {
                 return new TransitGatewayRouteTablePropagation(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayVpcAttachment":
                 return new TransitGatewayVpcAttachment(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPC":
-                return new VPC(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPCCidrBlock":
-                return new VPCCidrBlock(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPCDHCPOptionsAssociation":
-                return new VPCDHCPOptionsAssociation(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPCEndpoint":
-                return new VPCEndpoint(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPCEndpointConnectionNotification":
-                return new VPCEndpointConnectionNotification(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPCEndpointService":
-                return new VPCEndpointService(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPCEndpointServicePermissions":
-                return new VPCEndpointServicePermissions(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPCGatewayAttachment":
-                return new VPCGatewayAttachment(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPCPeeringConnection":
-                return new VPCPeeringConnection(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPNConnection":
-                return new VPNConnection(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPNConnectionRoute":
-                return new VPNConnectionRoute(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPNGateway":
-                return new VPNGateway(name, <any>undefined, { urn })
-            case "aws-native:ec2:VPNGatewayRoutePropagation":
-                return new VPNGatewayRoutePropagation(name, <any>undefined, { urn })
             case "aws-native:ec2:VerifiedAccessEndpoint":
                 return new VerifiedAccessEndpoint(name, <any>undefined, { urn })
             case "aws-native:ec2:VerifiedAccessGroup":
@@ -1085,6 +1059,32 @@ const _module = {
                 return new Volume(name, <any>undefined, { urn })
             case "aws-native:ec2:VolumeAttachment":
                 return new VolumeAttachment(name, <any>undefined, { urn })
+            case "aws-native:ec2:Vpc":
+                return new Vpc(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcCidrBlock":
+                return new VpcCidrBlock(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcEndpoint":
+                return new VpcEndpoint(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcEndpointConnectionNotification":
+                return new VpcEndpointConnectionNotification(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcEndpointService":
+                return new VpcEndpointService(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcEndpointServicePermissions":
+                return new VpcEndpointServicePermissions(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcGatewayAttachment":
+                return new VpcGatewayAttachment(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcPeeringConnection":
+                return new VpcPeeringConnection(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcdhcpOptionsAssociation":
+                return new VpcdhcpOptionsAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpnConnection":
+                return new VpnConnection(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpnConnectionRoute":
+                return new VpnConnectionRoute(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpnGateway":
+                return new VpnGateway(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpnGatewayRoutePropagation":
+                return new VpnGatewayRoutePropagation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

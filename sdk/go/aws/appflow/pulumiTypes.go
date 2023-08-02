@@ -924,7 +924,7 @@ type ConnectorProfileCredentials struct {
 	Pardot          *ConnectorProfilePardotConnectorProfileCredentials          `pulumi:"pardot"`
 	Redshift        *ConnectorProfileRedshiftConnectorProfileCredentials        `pulumi:"redshift"`
 	Salesforce      *ConnectorProfileSalesforceConnectorProfileCredentials      `pulumi:"salesforce"`
-	SapoData        *ConnectorProfileSAPODataConnectorProfileCredentials        `pulumi:"sapoData"`
+	SapoData        *ConnectorProfileSapoDataConnectorProfileCredentials        `pulumi:"sapoData"`
 	ServiceNow      *ConnectorProfileServiceNowConnectorProfileCredentials      `pulumi:"serviceNow"`
 	Singular        *ConnectorProfileSingularConnectorProfileCredentials        `pulumi:"singular"`
 	Slack           *ConnectorProfileSlackConnectorProfileCredentials           `pulumi:"slack"`
@@ -957,7 +957,7 @@ type ConnectorProfileCredentialsArgs struct {
 	Pardot          ConnectorProfilePardotConnectorProfileCredentialsPtrInput          `pulumi:"pardot"`
 	Redshift        ConnectorProfileRedshiftConnectorProfileCredentialsPtrInput        `pulumi:"redshift"`
 	Salesforce      ConnectorProfileSalesforceConnectorProfileCredentialsPtrInput      `pulumi:"salesforce"`
-	SapoData        ConnectorProfileSAPODataConnectorProfileCredentialsPtrInput        `pulumi:"sapoData"`
+	SapoData        ConnectorProfileSapoDataConnectorProfileCredentialsPtrInput        `pulumi:"sapoData"`
 	ServiceNow      ConnectorProfileServiceNowConnectorProfileCredentialsPtrInput      `pulumi:"serviceNow"`
 	Singular        ConnectorProfileSingularConnectorProfileCredentialsPtrInput        `pulumi:"singular"`
 	Slack           ConnectorProfileSlackConnectorProfileCredentialsPtrInput           `pulumi:"slack"`
@@ -1105,10 +1105,10 @@ func (o ConnectorProfileCredentialsOutput) Salesforce() ConnectorProfileSalesfor
 	}).(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileCredentialsOutput) SapoData() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSAPODataConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) SapoData() ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSapoDataConnectorProfileCredentials {
 		return v.SapoData
-	}).(ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput)
+	}).(ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput)
 }
 
 func (o ConnectorProfileCredentialsOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
@@ -1263,13 +1263,13 @@ func (o ConnectorProfileCredentialsPtrOutput) Salesforce() ConnectorProfileSales
 	}).(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileCredentialsPtrOutput) SapoData() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSAPODataConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) SapoData() ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSapoDataConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
 		return v.SapoData
-	}).(ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput)
+	}).(ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput)
 }
 
 func (o ConnectorProfileCredentialsPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
@@ -4430,7 +4430,7 @@ type ConnectorProfileProperties struct {
 	Pardot          *ConnectorProfilePardotConnectorProfileProperties     `pulumi:"pardot"`
 	Redshift        *ConnectorProfileRedshiftConnectorProfileProperties   `pulumi:"redshift"`
 	Salesforce      *ConnectorProfileSalesforceConnectorProfileProperties `pulumi:"salesforce"`
-	SapoData        *ConnectorProfileSAPODataConnectorProfileProperties   `pulumi:"sapoData"`
+	SapoData        *ConnectorProfileSapoDataConnectorProfileProperties   `pulumi:"sapoData"`
 	ServiceNow      *ConnectorProfileServiceNowConnectorProfileProperties `pulumi:"serviceNow"`
 	Slack           *ConnectorProfileSlackConnectorProfileProperties      `pulumi:"slack"`
 	Snowflake       *ConnectorProfileSnowflakeConnectorProfileProperties  `pulumi:"snowflake"`
@@ -4459,7 +4459,7 @@ type ConnectorProfilePropertiesArgs struct {
 	Pardot          ConnectorProfilePardotConnectorProfilePropertiesPtrInput     `pulumi:"pardot"`
 	Redshift        ConnectorProfileRedshiftConnectorProfilePropertiesPtrInput   `pulumi:"redshift"`
 	Salesforce      ConnectorProfileSalesforceConnectorProfilePropertiesPtrInput `pulumi:"salesforce"`
-	SapoData        ConnectorProfileSAPODataConnectorProfilePropertiesPtrInput   `pulumi:"sapoData"`
+	SapoData        ConnectorProfileSapoDataConnectorProfilePropertiesPtrInput   `pulumi:"sapoData"`
 	ServiceNow      ConnectorProfileServiceNowConnectorProfilePropertiesPtrInput `pulumi:"serviceNow"`
 	Slack           ConnectorProfileSlackConnectorProfilePropertiesPtrInput      `pulumi:"slack"`
 	Snowflake       ConnectorProfileSnowflakeConnectorProfilePropertiesPtrInput  `pulumi:"snowflake"`
@@ -4591,10 +4591,10 @@ func (o ConnectorProfilePropertiesOutput) Salesforce() ConnectorProfileSalesforc
 	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
 }
 
-func (o ConnectorProfilePropertiesOutput) SapoData() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSAPODataConnectorProfileProperties {
+func (o ConnectorProfilePropertiesOutput) SapoData() ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSapoDataConnectorProfileProperties {
 		return v.SapoData
-	}).(ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput)
+	}).(ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput)
 }
 
 func (o ConnectorProfilePropertiesOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
@@ -4719,13 +4719,13 @@ func (o ConnectorProfilePropertiesPtrOutput) Salesforce() ConnectorProfileSalesf
 	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
 }
 
-func (o ConnectorProfilePropertiesPtrOutput) SapoData() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSAPODataConnectorProfileProperties {
+func (o ConnectorProfilePropertiesPtrOutput) SapoData() ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSapoDataConnectorProfileProperties {
 		if v == nil {
 			return nil
 		}
 		return v.SapoData
-	}).(ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput)
+	}).(ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput)
 }
 
 func (o ConnectorProfilePropertiesPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
@@ -5218,586 +5218,6 @@ func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) WorkgroupNa
 	}).(pulumi.StringPtrOutput)
 }
 
-type ConnectorProfileSAPODataConnectorProfileCredentials struct {
-	BasicAuthCredentials *ConnectorProfileBasicAuthCredentials                                          `pulumi:"basicAuthCredentials"`
-	OAuthCredentials     *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties `pulumi:"oAuthCredentials"`
-}
-
-// ConnectorProfileSAPODataConnectorProfileCredentialsInput is an input type that accepts ConnectorProfileSAPODataConnectorProfileCredentialsArgs and ConnectorProfileSAPODataConnectorProfileCredentialsOutput values.
-// You can construct a concrete instance of `ConnectorProfileSAPODataConnectorProfileCredentialsInput` via:
-//
-//	ConnectorProfileSAPODataConnectorProfileCredentialsArgs{...}
-type ConnectorProfileSAPODataConnectorProfileCredentialsInput interface {
-	pulumi.Input
-
-	ToConnectorProfileSAPODataConnectorProfileCredentialsOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOutput
-	ToConnectorProfileSAPODataConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOutput
-}
-
-type ConnectorProfileSAPODataConnectorProfileCredentialsArgs struct {
-	BasicAuthCredentials ConnectorProfileBasicAuthCredentialsPtrInput                                          `pulumi:"basicAuthCredentials"`
-	OAuthCredentials     ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput `pulumi:"oAuthCredentials"`
-}
-
-func (ConnectorProfileSAPODataConnectorProfileCredentialsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfileCredentials)(nil)).Elem()
-}
-
-func (i ConnectorProfileSAPODataConnectorProfileCredentialsArgs) ToConnectorProfileSAPODataConnectorProfileCredentialsOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOutput {
-	return i.ToConnectorProfileSAPODataConnectorProfileCredentialsOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileSAPODataConnectorProfileCredentialsArgs) ToConnectorProfileSAPODataConnectorProfileCredentialsOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSAPODataConnectorProfileCredentialsOutput)
-}
-
-func (i ConnectorProfileSAPODataConnectorProfileCredentialsArgs) ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return i.ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileSAPODataConnectorProfileCredentialsArgs) ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSAPODataConnectorProfileCredentialsOutput).ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutputWithContext(ctx)
-}
-
-// ConnectorProfileSAPODataConnectorProfileCredentialsPtrInput is an input type that accepts ConnectorProfileSAPODataConnectorProfileCredentialsArgs, ConnectorProfileSAPODataConnectorProfileCredentialsPtr and ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput values.
-// You can construct a concrete instance of `ConnectorProfileSAPODataConnectorProfileCredentialsPtrInput` via:
-//
-//	        ConnectorProfileSAPODataConnectorProfileCredentialsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConnectorProfileSAPODataConnectorProfileCredentialsPtrInput interface {
-	pulumi.Input
-
-	ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput
-	ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutputWithContext(context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput
-}
-
-type connectorProfileSAPODataConnectorProfileCredentialsPtrType ConnectorProfileSAPODataConnectorProfileCredentialsArgs
-
-func ConnectorProfileSAPODataConnectorProfileCredentialsPtr(v *ConnectorProfileSAPODataConnectorProfileCredentialsArgs) ConnectorProfileSAPODataConnectorProfileCredentialsPtrInput {
-	return (*connectorProfileSAPODataConnectorProfileCredentialsPtrType)(v)
-}
-
-func (*connectorProfileSAPODataConnectorProfileCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileSAPODataConnectorProfileCredentials)(nil)).Elem()
-}
-
-func (i *connectorProfileSAPODataConnectorProfileCredentialsPtrType) ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return i.ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorProfileSAPODataConnectorProfileCredentialsPtrType) ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput)
-}
-
-type ConnectorProfileSAPODataConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileSAPODataConnectorProfileCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfileCredentials)(nil)).Elem()
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return o.ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileSAPODataConnectorProfileCredentials) *ConnectorProfileSAPODataConnectorProfileCredentials {
-		return &v
-	}).(ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOutput) BasicAuthCredentials() ConnectorProfileBasicAuthCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileCredentials) *ConnectorProfileBasicAuthCredentials {
-		return v.BasicAuthCredentials
-	}).(ConnectorProfileBasicAuthCredentialsPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOutput) OAuthCredentials() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileCredentials) *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties {
-		return v.OAuthCredentials
-	}).(ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput)
-}
-
-type ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileSAPODataConnectorProfileCredentials)(nil)).Elem()
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput) Elem() ConnectorProfileSAPODataConnectorProfileCredentialsOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileCredentials) ConnectorProfileSAPODataConnectorProfileCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorProfileSAPODataConnectorProfileCredentials
-		return ret
-	}).(ConnectorProfileSAPODataConnectorProfileCredentialsOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput) BasicAuthCredentials() ConnectorProfileBasicAuthCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileCredentials) *ConnectorProfileBasicAuthCredentials {
-		if v == nil {
-			return nil
-		}
-		return v.BasicAuthCredentials
-	}).(ConnectorProfileBasicAuthCredentialsPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput) OAuthCredentials() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileCredentials) *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties {
-		if v == nil {
-			return nil
-		}
-		return v.OAuthCredentials
-	}).(ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput)
-}
-
-type ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties struct {
-	AccessToken           *string                                `pulumi:"accessToken"`
-	ClientId              *string                                `pulumi:"clientId"`
-	ClientSecret          *string                                `pulumi:"clientSecret"`
-	ConnectorOAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"connectorOAuthRequest"`
-	RefreshToken          *string                                `pulumi:"refreshToken"`
-}
-
-// ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesInput is an input type that accepts ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs and ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput values.
-// You can construct a concrete instance of `ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesInput` via:
-//
-//	ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs{...}
-type ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesInput interface {
-	pulumi.Input
-
-	ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput
-	ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutputWithContext(context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput
-}
-
-type ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs struct {
-	AccessToken           pulumi.StringPtrInput                         `pulumi:"accessToken"`
-	ClientId              pulumi.StringPtrInput                         `pulumi:"clientId"`
-	ClientSecret          pulumi.StringPtrInput                         `pulumi:"clientSecret"`
-	ConnectorOAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"connectorOAuthRequest"`
-	RefreshToken          pulumi.StringPtrInput                         `pulumi:"refreshToken"`
-}
-
-func (ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties)(nil)).Elem()
-}
-
-func (i ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput {
-	return i.ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput)
-}
-
-func (i ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
-	return i.ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput).ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(ctx)
-}
-
-// ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput is an input type that accepts ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs, ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtr and ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput values.
-// You can construct a concrete instance of `ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput` via:
-//
-//	        ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput
-	ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput
-}
-
-type connectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrType ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs
-
-func ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtr(v *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput {
-	return (*connectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrType)(v)
-}
-
-func (*connectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties)(nil)).Elem()
-}
-
-func (i *connectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrType) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
-	return i.ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrType) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput)
-}
-
-type ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties)(nil)).Elem()
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
-	return o.ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties {
-		return &v
-	}).(ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) AccessToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
-		return v.AccessToken
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
-		return v.ClientSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *ConnectorProfileConnectorOAuthRequest {
-		return v.ConnectorOAuthRequest
-	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) RefreshToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
-		return v.RefreshToken
-	}).(pulumi.StringPtrOutput)
-}
-
-type ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties)(nil)).Elem()
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ToConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) Elem() ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties
-		return ret
-	}).(ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) AccessToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccessToken
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *ConnectorProfileConnectorOAuthRequest {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectorOAuthRequest
-	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) RefreshToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RefreshToken
-	}).(pulumi.StringPtrOutput)
-}
-
-type ConnectorProfileSAPODataConnectorProfileProperties struct {
-	ApplicationHostUrl     *string                          `pulumi:"applicationHostUrl"`
-	ApplicationServicePath *string                          `pulumi:"applicationServicePath"`
-	ClientNumber           *string                          `pulumi:"clientNumber"`
-	LogonLanguage          *string                          `pulumi:"logonLanguage"`
-	OAuthProperties        *ConnectorProfileOAuthProperties `pulumi:"oAuthProperties"`
-	PortNumber             *int                             `pulumi:"portNumber"`
-	PrivateLinkServiceName *string                          `pulumi:"privateLinkServiceName"`
-}
-
-// ConnectorProfileSAPODataConnectorProfilePropertiesInput is an input type that accepts ConnectorProfileSAPODataConnectorProfilePropertiesArgs and ConnectorProfileSAPODataConnectorProfilePropertiesOutput values.
-// You can construct a concrete instance of `ConnectorProfileSAPODataConnectorProfilePropertiesInput` via:
-//
-//	ConnectorProfileSAPODataConnectorProfilePropertiesArgs{...}
-type ConnectorProfileSAPODataConnectorProfilePropertiesInput interface {
-	pulumi.Input
-
-	ToConnectorProfileSAPODataConnectorProfilePropertiesOutput() ConnectorProfileSAPODataConnectorProfilePropertiesOutput
-	ToConnectorProfileSAPODataConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileSAPODataConnectorProfilePropertiesOutput
-}
-
-type ConnectorProfileSAPODataConnectorProfilePropertiesArgs struct {
-	ApplicationHostUrl     pulumi.StringPtrInput                   `pulumi:"applicationHostUrl"`
-	ApplicationServicePath pulumi.StringPtrInput                   `pulumi:"applicationServicePath"`
-	ClientNumber           pulumi.StringPtrInput                   `pulumi:"clientNumber"`
-	LogonLanguage          pulumi.StringPtrInput                   `pulumi:"logonLanguage"`
-	OAuthProperties        ConnectorProfileOAuthPropertiesPtrInput `pulumi:"oAuthProperties"`
-	PortNumber             pulumi.IntPtrInput                      `pulumi:"portNumber"`
-	PrivateLinkServiceName pulumi.StringPtrInput                   `pulumi:"privateLinkServiceName"`
-}
-
-func (ConnectorProfileSAPODataConnectorProfilePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfileProperties)(nil)).Elem()
-}
-
-func (i ConnectorProfileSAPODataConnectorProfilePropertiesArgs) ToConnectorProfileSAPODataConnectorProfilePropertiesOutput() ConnectorProfileSAPODataConnectorProfilePropertiesOutput {
-	return i.ToConnectorProfileSAPODataConnectorProfilePropertiesOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileSAPODataConnectorProfilePropertiesArgs) ToConnectorProfileSAPODataConnectorProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfilePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSAPODataConnectorProfilePropertiesOutput)
-}
-
-func (i ConnectorProfileSAPODataConnectorProfilePropertiesArgs) ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return i.ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileSAPODataConnectorProfilePropertiesArgs) ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSAPODataConnectorProfilePropertiesOutput).ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutputWithContext(ctx)
-}
-
-// ConnectorProfileSAPODataConnectorProfilePropertiesPtrInput is an input type that accepts ConnectorProfileSAPODataConnectorProfilePropertiesArgs, ConnectorProfileSAPODataConnectorProfilePropertiesPtr and ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput values.
-// You can construct a concrete instance of `ConnectorProfileSAPODataConnectorProfilePropertiesPtrInput` via:
-//
-//	        ConnectorProfileSAPODataConnectorProfilePropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConnectorProfileSAPODataConnectorProfilePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput
-	ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutputWithContext(context.Context) ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput
-}
-
-type connectorProfileSAPODataConnectorProfilePropertiesPtrType ConnectorProfileSAPODataConnectorProfilePropertiesArgs
-
-func ConnectorProfileSAPODataConnectorProfilePropertiesPtr(v *ConnectorProfileSAPODataConnectorProfilePropertiesArgs) ConnectorProfileSAPODataConnectorProfilePropertiesPtrInput {
-	return (*connectorProfileSAPODataConnectorProfilePropertiesPtrType)(v)
-}
-
-func (*connectorProfileSAPODataConnectorProfilePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileSAPODataConnectorProfileProperties)(nil)).Elem()
-}
-
-func (i *connectorProfileSAPODataConnectorProfilePropertiesPtrType) ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return i.ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorProfileSAPODataConnectorProfilePropertiesPtrType) ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput)
-}
-
-type ConnectorProfileSAPODataConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileSAPODataConnectorProfilePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfileProperties)(nil)).Elem()
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) ToConnectorProfileSAPODataConnectorProfilePropertiesOutput() ConnectorProfileSAPODataConnectorProfilePropertiesOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) ToConnectorProfileSAPODataConnectorProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfilePropertiesOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return o.ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileSAPODataConnectorProfileProperties) *ConnectorProfileSAPODataConnectorProfileProperties {
-		return &v
-	}).(ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) ApplicationHostUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileProperties) *string { return v.ApplicationHostUrl }).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) ApplicationServicePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileProperties) *string { return v.ApplicationServicePath }).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) ClientNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileProperties) *string { return v.ClientNumber }).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) LogonLanguage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileProperties) *string { return v.LogonLanguage }).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) OAuthProperties() ConnectorProfileOAuthPropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileProperties) *ConnectorProfileOAuthProperties {
-		return v.OAuthProperties
-	}).(ConnectorProfileOAuthPropertiesPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) PortNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileProperties) *int { return v.PortNumber }).(pulumi.IntPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesOutput) PrivateLinkServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileSAPODataConnectorProfileProperties) *string { return v.PrivateLinkServiceName }).(pulumi.StringPtrOutput)
-}
-
-type ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileSAPODataConnectorProfileProperties)(nil)).Elem()
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) ToConnectorProfileSAPODataConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) Elem() ConnectorProfileSAPODataConnectorProfilePropertiesOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileProperties) ConnectorProfileSAPODataConnectorProfileProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorProfileSAPODataConnectorProfileProperties
-		return ret
-	}).(ConnectorProfileSAPODataConnectorProfilePropertiesOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) ApplicationHostUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationHostUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) ApplicationServicePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationServicePath
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) ClientNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientNumber
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) LogonLanguage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LogonLanguage
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) OAuthProperties() ConnectorProfileOAuthPropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileProperties) *ConnectorProfileOAuthProperties {
-		if v == nil {
-			return nil
-		}
-		return v.OAuthProperties
-	}).(ConnectorProfileOAuthPropertiesPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) PortNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PortNumber
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput) PrivateLinkServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileSAPODataConnectorProfileProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateLinkServiceName
-	}).(pulumi.StringPtrOutput)
-}
-
 type ConnectorProfileSalesforceConnectorProfileCredentials struct {
 	// The credentials used to access protected resources.
 	AccessToken *string `pulumi:"accessToken"`
@@ -6209,6 +5629,586 @@ func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) UsePrivat
 		}
 		return v.UsePrivateLinkForMetadataAndAuthorization
 	}).(pulumi.BoolPtrOutput)
+}
+
+type ConnectorProfileSapoDataConnectorProfileCredentials struct {
+	BasicAuthCredentials *ConnectorProfileBasicAuthCredentials                                          `pulumi:"basicAuthCredentials"`
+	OAuthCredentials     *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties `pulumi:"oAuthCredentials"`
+}
+
+// ConnectorProfileSapoDataConnectorProfileCredentialsInput is an input type that accepts ConnectorProfileSapoDataConnectorProfileCredentialsArgs and ConnectorProfileSapoDataConnectorProfileCredentialsOutput values.
+// You can construct a concrete instance of `ConnectorProfileSapoDataConnectorProfileCredentialsInput` via:
+//
+//	ConnectorProfileSapoDataConnectorProfileCredentialsArgs{...}
+type ConnectorProfileSapoDataConnectorProfileCredentialsInput interface {
+	pulumi.Input
+
+	ToConnectorProfileSapoDataConnectorProfileCredentialsOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOutput
+	ToConnectorProfileSapoDataConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOutput
+}
+
+type ConnectorProfileSapoDataConnectorProfileCredentialsArgs struct {
+	BasicAuthCredentials ConnectorProfileBasicAuthCredentialsPtrInput                                          `pulumi:"basicAuthCredentials"`
+	OAuthCredentials     ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput `pulumi:"oAuthCredentials"`
+}
+
+func (ConnectorProfileSapoDataConnectorProfileCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfileCredentials)(nil)).Elem()
+}
+
+func (i ConnectorProfileSapoDataConnectorProfileCredentialsArgs) ToConnectorProfileSapoDataConnectorProfileCredentialsOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOutput {
+	return i.ToConnectorProfileSapoDataConnectorProfileCredentialsOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfileSapoDataConnectorProfileCredentialsArgs) ToConnectorProfileSapoDataConnectorProfileCredentialsOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSapoDataConnectorProfileCredentialsOutput)
+}
+
+func (i ConnectorProfileSapoDataConnectorProfileCredentialsArgs) ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput() ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput {
+	return i.ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfileSapoDataConnectorProfileCredentialsArgs) ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSapoDataConnectorProfileCredentialsOutput).ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutputWithContext(ctx)
+}
+
+// ConnectorProfileSapoDataConnectorProfileCredentialsPtrInput is an input type that accepts ConnectorProfileSapoDataConnectorProfileCredentialsArgs, ConnectorProfileSapoDataConnectorProfileCredentialsPtr and ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput values.
+// You can construct a concrete instance of `ConnectorProfileSapoDataConnectorProfileCredentialsPtrInput` via:
+//
+//	        ConnectorProfileSapoDataConnectorProfileCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorProfileSapoDataConnectorProfileCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput() ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput
+	ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutputWithContext(context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput
+}
+
+type connectorProfileSapoDataConnectorProfileCredentialsPtrType ConnectorProfileSapoDataConnectorProfileCredentialsArgs
+
+func ConnectorProfileSapoDataConnectorProfileCredentialsPtr(v *ConnectorProfileSapoDataConnectorProfileCredentialsArgs) ConnectorProfileSapoDataConnectorProfileCredentialsPtrInput {
+	return (*connectorProfileSapoDataConnectorProfileCredentialsPtrType)(v)
+}
+
+func (*connectorProfileSapoDataConnectorProfileCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileSapoDataConnectorProfileCredentials)(nil)).Elem()
+}
+
+func (i *connectorProfileSapoDataConnectorProfileCredentialsPtrType) ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput() ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput {
+	return i.ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorProfileSapoDataConnectorProfileCredentialsPtrType) ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput)
+}
+
+type ConnectorProfileSapoDataConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileSapoDataConnectorProfileCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfileCredentials)(nil)).Elem()
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput() ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput {
+	return o.ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileSapoDataConnectorProfileCredentials) *ConnectorProfileSapoDataConnectorProfileCredentials {
+		return &v
+	}).(ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOutput) BasicAuthCredentials() ConnectorProfileBasicAuthCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileCredentials) *ConnectorProfileBasicAuthCredentials {
+		return v.BasicAuthCredentials
+	}).(ConnectorProfileBasicAuthCredentialsPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOutput) OAuthCredentials() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileCredentials) *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties {
+		return v.OAuthCredentials
+	}).(ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput)
+}
+
+type ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileSapoDataConnectorProfileCredentials)(nil)).Elem()
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput() ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput) Elem() ConnectorProfileSapoDataConnectorProfileCredentialsOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentials) ConnectorProfileSapoDataConnectorProfileCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProfileSapoDataConnectorProfileCredentials
+		return ret
+	}).(ConnectorProfileSapoDataConnectorProfileCredentialsOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput) BasicAuthCredentials() ConnectorProfileBasicAuthCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentials) *ConnectorProfileBasicAuthCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuthCredentials
+	}).(ConnectorProfileBasicAuthCredentialsPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput) OAuthCredentials() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentials) *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthCredentials
+	}).(ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput)
+}
+
+type ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties struct {
+	AccessToken           *string                                `pulumi:"accessToken"`
+	ClientId              *string                                `pulumi:"clientId"`
+	ClientSecret          *string                                `pulumi:"clientSecret"`
+	ConnectorOAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"connectorOAuthRequest"`
+	RefreshToken          *string                                `pulumi:"refreshToken"`
+}
+
+// ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesInput is an input type that accepts ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs and ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput values.
+// You can construct a concrete instance of `ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesInput` via:
+//
+//	ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs{...}
+type ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesInput interface {
+	pulumi.Input
+
+	ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput
+	ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutputWithContext(context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput
+}
+
+type ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs struct {
+	AccessToken           pulumi.StringPtrInput                         `pulumi:"accessToken"`
+	ClientId              pulumi.StringPtrInput                         `pulumi:"clientId"`
+	ClientSecret          pulumi.StringPtrInput                         `pulumi:"clientSecret"`
+	ConnectorOAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"connectorOAuthRequest"`
+	RefreshToken          pulumi.StringPtrInput                         `pulumi:"refreshToken"`
+}
+
+func (ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties)(nil)).Elem()
+}
+
+func (i ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput {
+	return i.ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput)
+}
+
+func (i ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
+	return i.ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput).ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput is an input type that accepts ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs, ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtr and ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput` via:
+//
+//	        ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput
+	ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput
+}
+
+type connectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrType ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs
+
+func ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtr(v *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs) ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput {
+	return (*connectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrType)(v)
+}
+
+func (*connectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties)(nil)).Elem()
+}
+
+func (i *connectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrType) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
+	return i.ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrType) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput)
+}
+
+type ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties)(nil)).Elem()
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
+	return o.ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties {
+		return &v
+	}).(ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *ConnectorProfileConnectorOAuthRequest {
+		return v.ConnectorOAuthRequest
+	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties)(nil)).Elem()
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ToConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) Elem() ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties
+		return ret
+	}).(ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *ConnectorProfileConnectorOAuthRequest {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorOAuthRequest
+	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorProfileSapoDataConnectorProfileProperties struct {
+	ApplicationHostUrl     *string                          `pulumi:"applicationHostUrl"`
+	ApplicationServicePath *string                          `pulumi:"applicationServicePath"`
+	ClientNumber           *string                          `pulumi:"clientNumber"`
+	LogonLanguage          *string                          `pulumi:"logonLanguage"`
+	OAuthProperties        *ConnectorProfileOAuthProperties `pulumi:"oAuthProperties"`
+	PortNumber             *int                             `pulumi:"portNumber"`
+	PrivateLinkServiceName *string                          `pulumi:"privateLinkServiceName"`
+}
+
+// ConnectorProfileSapoDataConnectorProfilePropertiesInput is an input type that accepts ConnectorProfileSapoDataConnectorProfilePropertiesArgs and ConnectorProfileSapoDataConnectorProfilePropertiesOutput values.
+// You can construct a concrete instance of `ConnectorProfileSapoDataConnectorProfilePropertiesInput` via:
+//
+//	ConnectorProfileSapoDataConnectorProfilePropertiesArgs{...}
+type ConnectorProfileSapoDataConnectorProfilePropertiesInput interface {
+	pulumi.Input
+
+	ToConnectorProfileSapoDataConnectorProfilePropertiesOutput() ConnectorProfileSapoDataConnectorProfilePropertiesOutput
+	ToConnectorProfileSapoDataConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileSapoDataConnectorProfilePropertiesOutput
+}
+
+type ConnectorProfileSapoDataConnectorProfilePropertiesArgs struct {
+	ApplicationHostUrl     pulumi.StringPtrInput                   `pulumi:"applicationHostUrl"`
+	ApplicationServicePath pulumi.StringPtrInput                   `pulumi:"applicationServicePath"`
+	ClientNumber           pulumi.StringPtrInput                   `pulumi:"clientNumber"`
+	LogonLanguage          pulumi.StringPtrInput                   `pulumi:"logonLanguage"`
+	OAuthProperties        ConnectorProfileOAuthPropertiesPtrInput `pulumi:"oAuthProperties"`
+	PortNumber             pulumi.IntPtrInput                      `pulumi:"portNumber"`
+	PrivateLinkServiceName pulumi.StringPtrInput                   `pulumi:"privateLinkServiceName"`
+}
+
+func (ConnectorProfileSapoDataConnectorProfilePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfileProperties)(nil)).Elem()
+}
+
+func (i ConnectorProfileSapoDataConnectorProfilePropertiesArgs) ToConnectorProfileSapoDataConnectorProfilePropertiesOutput() ConnectorProfileSapoDataConnectorProfilePropertiesOutput {
+	return i.ToConnectorProfileSapoDataConnectorProfilePropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfileSapoDataConnectorProfilePropertiesArgs) ToConnectorProfileSapoDataConnectorProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfilePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSapoDataConnectorProfilePropertiesOutput)
+}
+
+func (i ConnectorProfileSapoDataConnectorProfilePropertiesArgs) ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput() ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput {
+	return i.ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfileSapoDataConnectorProfilePropertiesArgs) ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSapoDataConnectorProfilePropertiesOutput).ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectorProfileSapoDataConnectorProfilePropertiesPtrInput is an input type that accepts ConnectorProfileSapoDataConnectorProfilePropertiesArgs, ConnectorProfileSapoDataConnectorProfilePropertiesPtr and ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectorProfileSapoDataConnectorProfilePropertiesPtrInput` via:
+//
+//	        ConnectorProfileSapoDataConnectorProfilePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorProfileSapoDataConnectorProfilePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput() ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput
+	ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutputWithContext(context.Context) ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput
+}
+
+type connectorProfileSapoDataConnectorProfilePropertiesPtrType ConnectorProfileSapoDataConnectorProfilePropertiesArgs
+
+func ConnectorProfileSapoDataConnectorProfilePropertiesPtr(v *ConnectorProfileSapoDataConnectorProfilePropertiesArgs) ConnectorProfileSapoDataConnectorProfilePropertiesPtrInput {
+	return (*connectorProfileSapoDataConnectorProfilePropertiesPtrType)(v)
+}
+
+func (*connectorProfileSapoDataConnectorProfilePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileSapoDataConnectorProfileProperties)(nil)).Elem()
+}
+
+func (i *connectorProfileSapoDataConnectorProfilePropertiesPtrType) ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput() ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput {
+	return i.ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorProfileSapoDataConnectorProfilePropertiesPtrType) ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput)
+}
+
+type ConnectorProfileSapoDataConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileSapoDataConnectorProfilePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfileProperties)(nil)).Elem()
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) ToConnectorProfileSapoDataConnectorProfilePropertiesOutput() ConnectorProfileSapoDataConnectorProfilePropertiesOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) ToConnectorProfileSapoDataConnectorProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfilePropertiesOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput() ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput {
+	return o.ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileSapoDataConnectorProfileProperties) *ConnectorProfileSapoDataConnectorProfileProperties {
+		return &v
+	}).(ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) ApplicationHostUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *string { return v.ApplicationHostUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) ApplicationServicePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *string { return v.ApplicationServicePath }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) ClientNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *string { return v.ClientNumber }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) LogonLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *string { return v.LogonLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) OAuthProperties() ConnectorProfileOAuthPropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *ConnectorProfileOAuthProperties {
+		return v.OAuthProperties
+	}).(ConnectorProfileOAuthPropertiesPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) PortNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *int { return v.PortNumber }).(pulumi.IntPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) PrivateLinkServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *string { return v.PrivateLinkServiceName }).(pulumi.StringPtrOutput)
+}
+
+type ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileSapoDataConnectorProfileProperties)(nil)).Elem()
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput() ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) ToConnectorProfileSapoDataConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) Elem() ConnectorProfileSapoDataConnectorProfilePropertiesOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileProperties) ConnectorProfileSapoDataConnectorProfileProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProfileSapoDataConnectorProfileProperties
+		return ret
+	}).(ConnectorProfileSapoDataConnectorProfilePropertiesOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) ApplicationHostUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationHostUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) ApplicationServicePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationServicePath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) ClientNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) LogonLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogonLanguage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) OAuthProperties() ConnectorProfileOAuthPropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileProperties) *ConnectorProfileOAuthProperties {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthProperties
+	}).(ConnectorProfileOAuthPropertiesPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) PortNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PortNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) PrivateLinkServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkServiceName
+	}).(pulumi.StringPtrOutput)
 }
 
 type ConnectorProfileServiceNowConnectorProfileCredentials struct {
@@ -8651,7 +8651,7 @@ type FlowConnectorOperator struct {
 	Pardot          *FlowPardotConnectorOperator          `pulumi:"pardot"`
 	S3              *FlowS3ConnectorOperator              `pulumi:"s3"`
 	Salesforce      *FlowSalesforceConnectorOperator      `pulumi:"salesforce"`
-	SapoData        *FlowSAPODataConnectorOperator        `pulumi:"sapoData"`
+	SapoData        *FlowSapoDataConnectorOperator        `pulumi:"sapoData"`
 	ServiceNow      *FlowServiceNowConnectorOperator      `pulumi:"serviceNow"`
 	Singular        *FlowSingularConnectorOperator        `pulumi:"singular"`
 	Slack           *FlowSlackConnectorOperator           `pulumi:"slack"`
@@ -8683,7 +8683,7 @@ type FlowConnectorOperatorArgs struct {
 	Pardot          FlowPardotConnectorOperatorPtrInput          `pulumi:"pardot"`
 	S3              FlowS3ConnectorOperatorPtrInput              `pulumi:"s3"`
 	Salesforce      FlowSalesforceConnectorOperatorPtrInput      `pulumi:"salesforce"`
-	SapoData        FlowSAPODataConnectorOperatorPtrInput        `pulumi:"sapoData"`
+	SapoData        FlowSapoDataConnectorOperatorPtrInput        `pulumi:"sapoData"`
 	ServiceNow      FlowServiceNowConnectorOperatorPtrInput      `pulumi:"serviceNow"`
 	Singular        FlowSingularConnectorOperatorPtrInput        `pulumi:"singular"`
 	Slack           FlowSlackConnectorOperatorPtrInput           `pulumi:"slack"`
@@ -8810,8 +8810,8 @@ func (o FlowConnectorOperatorOutput) Salesforce() FlowSalesforceConnectorOperato
 	return o.ApplyT(func(v FlowConnectorOperator) *FlowSalesforceConnectorOperator { return v.Salesforce }).(FlowSalesforceConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) SapoData() FlowSAPODataConnectorOperatorPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *FlowSAPODataConnectorOperator { return v.SapoData }).(FlowSAPODataConnectorOperatorPtrOutput)
+func (o FlowConnectorOperatorOutput) SapoData() FlowSapoDataConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowSapoDataConnectorOperator { return v.SapoData }).(FlowSapoDataConnectorOperatorPtrOutput)
 }
 
 func (o FlowConnectorOperatorOutput) ServiceNow() FlowServiceNowConnectorOperatorPtrOutput {
@@ -8952,13 +8952,13 @@ func (o FlowConnectorOperatorPtrOutput) Salesforce() FlowSalesforceConnectorOper
 	}).(FlowSalesforceConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) SapoData() FlowSAPODataConnectorOperatorPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *FlowSAPODataConnectorOperator {
+func (o FlowConnectorOperatorPtrOutput) SapoData() FlowSapoDataConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowSapoDataConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.SapoData
-	}).(FlowSAPODataConnectorOperatorPtrOutput)
+	}).(FlowSapoDataConnectorOperatorPtrOutput)
 }
 
 func (o FlowConnectorOperatorPtrOutput) ServiceNow() FlowServiceNowConnectorOperatorPtrOutput {
@@ -9792,7 +9792,7 @@ type FlowDestinationConnectorProperties struct {
 	Redshift        *FlowRedshiftDestinationProperties        `pulumi:"redshift"`
 	S3              *FlowS3DestinationProperties              `pulumi:"s3"`
 	Salesforce      *FlowSalesforceDestinationProperties      `pulumi:"salesforce"`
-	SapoData        *FlowSAPODataDestinationProperties        `pulumi:"sapoData"`
+	SapoData        *FlowSapoDataDestinationProperties        `pulumi:"sapoData"`
 	Snowflake       *FlowSnowflakeDestinationProperties       `pulumi:"snowflake"`
 	Upsolver        *FlowUpsolverDestinationProperties        `pulumi:"upsolver"`
 	Zendesk         *FlowZendeskDestinationProperties         `pulumi:"zendesk"`
@@ -9818,7 +9818,7 @@ type FlowDestinationConnectorPropertiesArgs struct {
 	Redshift        FlowRedshiftDestinationPropertiesPtrInput        `pulumi:"redshift"`
 	S3              FlowS3DestinationPropertiesPtrInput              `pulumi:"s3"`
 	Salesforce      FlowSalesforceDestinationPropertiesPtrInput      `pulumi:"salesforce"`
-	SapoData        FlowSAPODataDestinationPropertiesPtrInput        `pulumi:"sapoData"`
+	SapoData        FlowSapoDataDestinationPropertiesPtrInput        `pulumi:"sapoData"`
 	Snowflake       FlowSnowflakeDestinationPropertiesPtrInput       `pulumi:"snowflake"`
 	Upsolver        FlowUpsolverDestinationPropertiesPtrInput        `pulumi:"upsolver"`
 	Zendesk         FlowZendeskDestinationPropertiesPtrInput         `pulumi:"zendesk"`
@@ -9883,8 +9883,8 @@ func (o FlowDestinationConnectorPropertiesOutput) Salesforce() FlowSalesforceDes
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSalesforceDestinationProperties { return v.Salesforce }).(FlowSalesforceDestinationPropertiesPtrOutput)
 }
 
-func (o FlowDestinationConnectorPropertiesOutput) SapoData() FlowSAPODataDestinationPropertiesPtrOutput {
-	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSAPODataDestinationProperties { return v.SapoData }).(FlowSAPODataDestinationPropertiesPtrOutput)
+func (o FlowDestinationConnectorPropertiesOutput) SapoData() FlowSapoDataDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSapoDataDestinationProperties { return v.SapoData }).(FlowSapoDataDestinationPropertiesPtrOutput)
 }
 
 func (o FlowDestinationConnectorPropertiesOutput) Snowflake() FlowSnowflakeDestinationPropertiesPtrOutput {
@@ -12717,338 +12717,6 @@ func (o FlowS3SourcePropertiesPtrOutput) S3InputFormatConfig() FlowS3InputFormat
 	}).(FlowS3InputFormatConfigPtrOutput)
 }
 
-type FlowSAPODataDestinationProperties struct {
-	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// List of fields used as ID when performing a write operation.
-	IdFieldNames                  []string                           `pulumi:"idFieldNames"`
-	ObjectPath                    string                             `pulumi:"objectPath"`
-	SuccessResponseHandlingConfig *FlowSuccessResponseHandlingConfig `pulumi:"successResponseHandlingConfig"`
-	WriteOperationType            *FlowWriteOperationType            `pulumi:"writeOperationType"`
-}
-
-// FlowSAPODataDestinationPropertiesInput is an input type that accepts FlowSAPODataDestinationPropertiesArgs and FlowSAPODataDestinationPropertiesOutput values.
-// You can construct a concrete instance of `FlowSAPODataDestinationPropertiesInput` via:
-//
-//	FlowSAPODataDestinationPropertiesArgs{...}
-type FlowSAPODataDestinationPropertiesInput interface {
-	pulumi.Input
-
-	ToFlowSAPODataDestinationPropertiesOutput() FlowSAPODataDestinationPropertiesOutput
-	ToFlowSAPODataDestinationPropertiesOutputWithContext(context.Context) FlowSAPODataDestinationPropertiesOutput
-}
-
-type FlowSAPODataDestinationPropertiesArgs struct {
-	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// List of fields used as ID when performing a write operation.
-	IdFieldNames                  pulumi.StringArrayInput                   `pulumi:"idFieldNames"`
-	ObjectPath                    pulumi.StringInput                        `pulumi:"objectPath"`
-	SuccessResponseHandlingConfig FlowSuccessResponseHandlingConfigPtrInput `pulumi:"successResponseHandlingConfig"`
-	WriteOperationType            FlowWriteOperationTypePtrInput            `pulumi:"writeOperationType"`
-}
-
-func (FlowSAPODataDestinationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowSAPODataDestinationProperties)(nil)).Elem()
-}
-
-func (i FlowSAPODataDestinationPropertiesArgs) ToFlowSAPODataDestinationPropertiesOutput() FlowSAPODataDestinationPropertiesOutput {
-	return i.ToFlowSAPODataDestinationPropertiesOutputWithContext(context.Background())
-}
-
-func (i FlowSAPODataDestinationPropertiesArgs) ToFlowSAPODataDestinationPropertiesOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowSAPODataDestinationPropertiesOutput)
-}
-
-func (i FlowSAPODataDestinationPropertiesArgs) ToFlowSAPODataDestinationPropertiesPtrOutput() FlowSAPODataDestinationPropertiesPtrOutput {
-	return i.ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i FlowSAPODataDestinationPropertiesArgs) ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowSAPODataDestinationPropertiesOutput).ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(ctx)
-}
-
-// FlowSAPODataDestinationPropertiesPtrInput is an input type that accepts FlowSAPODataDestinationPropertiesArgs, FlowSAPODataDestinationPropertiesPtr and FlowSAPODataDestinationPropertiesPtrOutput values.
-// You can construct a concrete instance of `FlowSAPODataDestinationPropertiesPtrInput` via:
-//
-//	        FlowSAPODataDestinationPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type FlowSAPODataDestinationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToFlowSAPODataDestinationPropertiesPtrOutput() FlowSAPODataDestinationPropertiesPtrOutput
-	ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(context.Context) FlowSAPODataDestinationPropertiesPtrOutput
-}
-
-type flowSAPODataDestinationPropertiesPtrType FlowSAPODataDestinationPropertiesArgs
-
-func FlowSAPODataDestinationPropertiesPtr(v *FlowSAPODataDestinationPropertiesArgs) FlowSAPODataDestinationPropertiesPtrInput {
-	return (*flowSAPODataDestinationPropertiesPtrType)(v)
-}
-
-func (*flowSAPODataDestinationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowSAPODataDestinationProperties)(nil)).Elem()
-}
-
-func (i *flowSAPODataDestinationPropertiesPtrType) ToFlowSAPODataDestinationPropertiesPtrOutput() FlowSAPODataDestinationPropertiesPtrOutput {
-	return i.ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *flowSAPODataDestinationPropertiesPtrType) ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowSAPODataDestinationPropertiesPtrOutput)
-}
-
-type FlowSAPODataDestinationPropertiesOutput struct{ *pulumi.OutputState }
-
-func (FlowSAPODataDestinationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowSAPODataDestinationProperties)(nil)).Elem()
-}
-
-func (o FlowSAPODataDestinationPropertiesOutput) ToFlowSAPODataDestinationPropertiesOutput() FlowSAPODataDestinationPropertiesOutput {
-	return o
-}
-
-func (o FlowSAPODataDestinationPropertiesOutput) ToFlowSAPODataDestinationPropertiesOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesOutput {
-	return o
-}
-
-func (o FlowSAPODataDestinationPropertiesOutput) ToFlowSAPODataDestinationPropertiesPtrOutput() FlowSAPODataDestinationPropertiesPtrOutput {
-	return o.ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o FlowSAPODataDestinationPropertiesOutput) ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSAPODataDestinationProperties) *FlowSAPODataDestinationProperties {
-		return &v
-	}).(FlowSAPODataDestinationPropertiesPtrOutput)
-}
-
-func (o FlowSAPODataDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
-	return o.ApplyT(func(v FlowSAPODataDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
-}
-
-// List of fields used as ID when performing a write operation.
-func (o FlowSAPODataDestinationPropertiesOutput) IdFieldNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FlowSAPODataDestinationProperties) []string { return v.IdFieldNames }).(pulumi.StringArrayOutput)
-}
-
-func (o FlowSAPODataDestinationPropertiesOutput) ObjectPath() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowSAPODataDestinationProperties) string { return v.ObjectPath }).(pulumi.StringOutput)
-}
-
-func (o FlowSAPODataDestinationPropertiesOutput) SuccessResponseHandlingConfig() FlowSuccessResponseHandlingConfigPtrOutput {
-	return o.ApplyT(func(v FlowSAPODataDestinationProperties) *FlowSuccessResponseHandlingConfig {
-		return v.SuccessResponseHandlingConfig
-	}).(FlowSuccessResponseHandlingConfigPtrOutput)
-}
-
-func (o FlowSAPODataDestinationPropertiesOutput) WriteOperationType() FlowWriteOperationTypePtrOutput {
-	return o.ApplyT(func(v FlowSAPODataDestinationProperties) *FlowWriteOperationType { return v.WriteOperationType }).(FlowWriteOperationTypePtrOutput)
-}
-
-type FlowSAPODataDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (FlowSAPODataDestinationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowSAPODataDestinationProperties)(nil)).Elem()
-}
-
-func (o FlowSAPODataDestinationPropertiesPtrOutput) ToFlowSAPODataDestinationPropertiesPtrOutput() FlowSAPODataDestinationPropertiesPtrOutput {
-	return o
-}
-
-func (o FlowSAPODataDestinationPropertiesPtrOutput) ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesPtrOutput {
-	return o
-}
-
-func (o FlowSAPODataDestinationPropertiesPtrOutput) Elem() FlowSAPODataDestinationPropertiesOutput {
-	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) FlowSAPODataDestinationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret FlowSAPODataDestinationProperties
-		return ret
-	}).(FlowSAPODataDestinationPropertiesOutput)
-}
-
-func (o FlowSAPODataDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
-	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) *FlowErrorHandlingConfig {
-		if v == nil {
-			return nil
-		}
-		return v.ErrorHandlingConfig
-	}).(FlowErrorHandlingConfigPtrOutput)
-}
-
-// List of fields used as ID when performing a write operation.
-func (o FlowSAPODataDestinationPropertiesPtrOutput) IdFieldNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IdFieldNames
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o FlowSAPODataDestinationPropertiesPtrOutput) ObjectPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ObjectPath
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o FlowSAPODataDestinationPropertiesPtrOutput) SuccessResponseHandlingConfig() FlowSuccessResponseHandlingConfigPtrOutput {
-	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) *FlowSuccessResponseHandlingConfig {
-		if v == nil {
-			return nil
-		}
-		return v.SuccessResponseHandlingConfig
-	}).(FlowSuccessResponseHandlingConfigPtrOutput)
-}
-
-func (o FlowSAPODataDestinationPropertiesPtrOutput) WriteOperationType() FlowWriteOperationTypePtrOutput {
-	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) *FlowWriteOperationType {
-		if v == nil {
-			return nil
-		}
-		return v.WriteOperationType
-	}).(FlowWriteOperationTypePtrOutput)
-}
-
-type FlowSAPODataSourceProperties struct {
-	ObjectPath string `pulumi:"objectPath"`
-}
-
-// FlowSAPODataSourcePropertiesInput is an input type that accepts FlowSAPODataSourcePropertiesArgs and FlowSAPODataSourcePropertiesOutput values.
-// You can construct a concrete instance of `FlowSAPODataSourcePropertiesInput` via:
-//
-//	FlowSAPODataSourcePropertiesArgs{...}
-type FlowSAPODataSourcePropertiesInput interface {
-	pulumi.Input
-
-	ToFlowSAPODataSourcePropertiesOutput() FlowSAPODataSourcePropertiesOutput
-	ToFlowSAPODataSourcePropertiesOutputWithContext(context.Context) FlowSAPODataSourcePropertiesOutput
-}
-
-type FlowSAPODataSourcePropertiesArgs struct {
-	ObjectPath pulumi.StringInput `pulumi:"objectPath"`
-}
-
-func (FlowSAPODataSourcePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowSAPODataSourceProperties)(nil)).Elem()
-}
-
-func (i FlowSAPODataSourcePropertiesArgs) ToFlowSAPODataSourcePropertiesOutput() FlowSAPODataSourcePropertiesOutput {
-	return i.ToFlowSAPODataSourcePropertiesOutputWithContext(context.Background())
-}
-
-func (i FlowSAPODataSourcePropertiesArgs) ToFlowSAPODataSourcePropertiesOutputWithContext(ctx context.Context) FlowSAPODataSourcePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowSAPODataSourcePropertiesOutput)
-}
-
-func (i FlowSAPODataSourcePropertiesArgs) ToFlowSAPODataSourcePropertiesPtrOutput() FlowSAPODataSourcePropertiesPtrOutput {
-	return i.ToFlowSAPODataSourcePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i FlowSAPODataSourcePropertiesArgs) ToFlowSAPODataSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataSourcePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowSAPODataSourcePropertiesOutput).ToFlowSAPODataSourcePropertiesPtrOutputWithContext(ctx)
-}
-
-// FlowSAPODataSourcePropertiesPtrInput is an input type that accepts FlowSAPODataSourcePropertiesArgs, FlowSAPODataSourcePropertiesPtr and FlowSAPODataSourcePropertiesPtrOutput values.
-// You can construct a concrete instance of `FlowSAPODataSourcePropertiesPtrInput` via:
-//
-//	        FlowSAPODataSourcePropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type FlowSAPODataSourcePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToFlowSAPODataSourcePropertiesPtrOutput() FlowSAPODataSourcePropertiesPtrOutput
-	ToFlowSAPODataSourcePropertiesPtrOutputWithContext(context.Context) FlowSAPODataSourcePropertiesPtrOutput
-}
-
-type flowSAPODataSourcePropertiesPtrType FlowSAPODataSourcePropertiesArgs
-
-func FlowSAPODataSourcePropertiesPtr(v *FlowSAPODataSourcePropertiesArgs) FlowSAPODataSourcePropertiesPtrInput {
-	return (*flowSAPODataSourcePropertiesPtrType)(v)
-}
-
-func (*flowSAPODataSourcePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowSAPODataSourceProperties)(nil)).Elem()
-}
-
-func (i *flowSAPODataSourcePropertiesPtrType) ToFlowSAPODataSourcePropertiesPtrOutput() FlowSAPODataSourcePropertiesPtrOutput {
-	return i.ToFlowSAPODataSourcePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *flowSAPODataSourcePropertiesPtrType) ToFlowSAPODataSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataSourcePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowSAPODataSourcePropertiesPtrOutput)
-}
-
-type FlowSAPODataSourcePropertiesOutput struct{ *pulumi.OutputState }
-
-func (FlowSAPODataSourcePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowSAPODataSourceProperties)(nil)).Elem()
-}
-
-func (o FlowSAPODataSourcePropertiesOutput) ToFlowSAPODataSourcePropertiesOutput() FlowSAPODataSourcePropertiesOutput {
-	return o
-}
-
-func (o FlowSAPODataSourcePropertiesOutput) ToFlowSAPODataSourcePropertiesOutputWithContext(ctx context.Context) FlowSAPODataSourcePropertiesOutput {
-	return o
-}
-
-func (o FlowSAPODataSourcePropertiesOutput) ToFlowSAPODataSourcePropertiesPtrOutput() FlowSAPODataSourcePropertiesPtrOutput {
-	return o.ToFlowSAPODataSourcePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o FlowSAPODataSourcePropertiesOutput) ToFlowSAPODataSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataSourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSAPODataSourceProperties) *FlowSAPODataSourceProperties {
-		return &v
-	}).(FlowSAPODataSourcePropertiesPtrOutput)
-}
-
-func (o FlowSAPODataSourcePropertiesOutput) ObjectPath() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowSAPODataSourceProperties) string { return v.ObjectPath }).(pulumi.StringOutput)
-}
-
-type FlowSAPODataSourcePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (FlowSAPODataSourcePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowSAPODataSourceProperties)(nil)).Elem()
-}
-
-func (o FlowSAPODataSourcePropertiesPtrOutput) ToFlowSAPODataSourcePropertiesPtrOutput() FlowSAPODataSourcePropertiesPtrOutput {
-	return o
-}
-
-func (o FlowSAPODataSourcePropertiesPtrOutput) ToFlowSAPODataSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataSourcePropertiesPtrOutput {
-	return o
-}
-
-func (o FlowSAPODataSourcePropertiesPtrOutput) Elem() FlowSAPODataSourcePropertiesOutput {
-	return o.ApplyT(func(v *FlowSAPODataSourceProperties) FlowSAPODataSourceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret FlowSAPODataSourceProperties
-		return ret
-	}).(FlowSAPODataSourcePropertiesOutput)
-}
-
-func (o FlowSAPODataSourcePropertiesPtrOutput) ObjectPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowSAPODataSourceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ObjectPath
-	}).(pulumi.StringPtrOutput)
-}
-
 type FlowSalesforceDestinationProperties struct {
 	DataTransferApi     *FlowDataTransferApi     `pulumi:"dataTransferApi"`
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
@@ -13421,6 +13089,338 @@ func (o FlowSalesforceSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput
 			return nil
 		}
 		return &v.Object
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowSapoDataDestinationProperties struct {
+	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
+	// List of fields used as ID when performing a write operation.
+	IdFieldNames                  []string                           `pulumi:"idFieldNames"`
+	ObjectPath                    string                             `pulumi:"objectPath"`
+	SuccessResponseHandlingConfig *FlowSuccessResponseHandlingConfig `pulumi:"successResponseHandlingConfig"`
+	WriteOperationType            *FlowWriteOperationType            `pulumi:"writeOperationType"`
+}
+
+// FlowSapoDataDestinationPropertiesInput is an input type that accepts FlowSapoDataDestinationPropertiesArgs and FlowSapoDataDestinationPropertiesOutput values.
+// You can construct a concrete instance of `FlowSapoDataDestinationPropertiesInput` via:
+//
+//	FlowSapoDataDestinationPropertiesArgs{...}
+type FlowSapoDataDestinationPropertiesInput interface {
+	pulumi.Input
+
+	ToFlowSapoDataDestinationPropertiesOutput() FlowSapoDataDestinationPropertiesOutput
+	ToFlowSapoDataDestinationPropertiesOutputWithContext(context.Context) FlowSapoDataDestinationPropertiesOutput
+}
+
+type FlowSapoDataDestinationPropertiesArgs struct {
+	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
+	// List of fields used as ID when performing a write operation.
+	IdFieldNames                  pulumi.StringArrayInput                   `pulumi:"idFieldNames"`
+	ObjectPath                    pulumi.StringInput                        `pulumi:"objectPath"`
+	SuccessResponseHandlingConfig FlowSuccessResponseHandlingConfigPtrInput `pulumi:"successResponseHandlingConfig"`
+	WriteOperationType            FlowWriteOperationTypePtrInput            `pulumi:"writeOperationType"`
+}
+
+func (FlowSapoDataDestinationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSapoDataDestinationProperties)(nil)).Elem()
+}
+
+func (i FlowSapoDataDestinationPropertiesArgs) ToFlowSapoDataDestinationPropertiesOutput() FlowSapoDataDestinationPropertiesOutput {
+	return i.ToFlowSapoDataDestinationPropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowSapoDataDestinationPropertiesArgs) ToFlowSapoDataDestinationPropertiesOutputWithContext(ctx context.Context) FlowSapoDataDestinationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataDestinationPropertiesOutput)
+}
+
+func (i FlowSapoDataDestinationPropertiesArgs) ToFlowSapoDataDestinationPropertiesPtrOutput() FlowSapoDataDestinationPropertiesPtrOutput {
+	return i.ToFlowSapoDataDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSapoDataDestinationPropertiesArgs) ToFlowSapoDataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSapoDataDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataDestinationPropertiesOutput).ToFlowSapoDataDestinationPropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowSapoDataDestinationPropertiesPtrInput is an input type that accepts FlowSapoDataDestinationPropertiesArgs, FlowSapoDataDestinationPropertiesPtr and FlowSapoDataDestinationPropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowSapoDataDestinationPropertiesPtrInput` via:
+//
+//	        FlowSapoDataDestinationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSapoDataDestinationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowSapoDataDestinationPropertiesPtrOutput() FlowSapoDataDestinationPropertiesPtrOutput
+	ToFlowSapoDataDestinationPropertiesPtrOutputWithContext(context.Context) FlowSapoDataDestinationPropertiesPtrOutput
+}
+
+type flowSapoDataDestinationPropertiesPtrType FlowSapoDataDestinationPropertiesArgs
+
+func FlowSapoDataDestinationPropertiesPtr(v *FlowSapoDataDestinationPropertiesArgs) FlowSapoDataDestinationPropertiesPtrInput {
+	return (*flowSapoDataDestinationPropertiesPtrType)(v)
+}
+
+func (*flowSapoDataDestinationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSapoDataDestinationProperties)(nil)).Elem()
+}
+
+func (i *flowSapoDataDestinationPropertiesPtrType) ToFlowSapoDataDestinationPropertiesPtrOutput() FlowSapoDataDestinationPropertiesPtrOutput {
+	return i.ToFlowSapoDataDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSapoDataDestinationPropertiesPtrType) ToFlowSapoDataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSapoDataDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataDestinationPropertiesPtrOutput)
+}
+
+type FlowSapoDataDestinationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowSapoDataDestinationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSapoDataDestinationProperties)(nil)).Elem()
+}
+
+func (o FlowSapoDataDestinationPropertiesOutput) ToFlowSapoDataDestinationPropertiesOutput() FlowSapoDataDestinationPropertiesOutput {
+	return o
+}
+
+func (o FlowSapoDataDestinationPropertiesOutput) ToFlowSapoDataDestinationPropertiesOutputWithContext(ctx context.Context) FlowSapoDataDestinationPropertiesOutput {
+	return o
+}
+
+func (o FlowSapoDataDestinationPropertiesOutput) ToFlowSapoDataDestinationPropertiesPtrOutput() FlowSapoDataDestinationPropertiesPtrOutput {
+	return o.ToFlowSapoDataDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSapoDataDestinationPropertiesOutput) ToFlowSapoDataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSapoDataDestinationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSapoDataDestinationProperties) *FlowSapoDataDestinationProperties {
+		return &v
+	}).(FlowSapoDataDestinationPropertiesPtrOutput)
+}
+
+func (o FlowSapoDataDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
+	return o.ApplyT(func(v FlowSapoDataDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
+}
+
+// List of fields used as ID when performing a write operation.
+func (o FlowSapoDataDestinationPropertiesOutput) IdFieldNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowSapoDataDestinationProperties) []string { return v.IdFieldNames }).(pulumi.StringArrayOutput)
+}
+
+func (o FlowSapoDataDestinationPropertiesOutput) ObjectPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSapoDataDestinationProperties) string { return v.ObjectPath }).(pulumi.StringOutput)
+}
+
+func (o FlowSapoDataDestinationPropertiesOutput) SuccessResponseHandlingConfig() FlowSuccessResponseHandlingConfigPtrOutput {
+	return o.ApplyT(func(v FlowSapoDataDestinationProperties) *FlowSuccessResponseHandlingConfig {
+		return v.SuccessResponseHandlingConfig
+	}).(FlowSuccessResponseHandlingConfigPtrOutput)
+}
+
+func (o FlowSapoDataDestinationPropertiesOutput) WriteOperationType() FlowWriteOperationTypePtrOutput {
+	return o.ApplyT(func(v FlowSapoDataDestinationProperties) *FlowWriteOperationType { return v.WriteOperationType }).(FlowWriteOperationTypePtrOutput)
+}
+
+type FlowSapoDataDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSapoDataDestinationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSapoDataDestinationProperties)(nil)).Elem()
+}
+
+func (o FlowSapoDataDestinationPropertiesPtrOutput) ToFlowSapoDataDestinationPropertiesPtrOutput() FlowSapoDataDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowSapoDataDestinationPropertiesPtrOutput) ToFlowSapoDataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSapoDataDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowSapoDataDestinationPropertiesPtrOutput) Elem() FlowSapoDataDestinationPropertiesOutput {
+	return o.ApplyT(func(v *FlowSapoDataDestinationProperties) FlowSapoDataDestinationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSapoDataDestinationProperties
+		return ret
+	}).(FlowSapoDataDestinationPropertiesOutput)
+}
+
+func (o FlowSapoDataDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
+	return o.ApplyT(func(v *FlowSapoDataDestinationProperties) *FlowErrorHandlingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorHandlingConfig
+	}).(FlowErrorHandlingConfigPtrOutput)
+}
+
+// List of fields used as ID when performing a write operation.
+func (o FlowSapoDataDestinationPropertiesPtrOutput) IdFieldNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowSapoDataDestinationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdFieldNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FlowSapoDataDestinationPropertiesPtrOutput) ObjectPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSapoDataDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlowSapoDataDestinationPropertiesPtrOutput) SuccessResponseHandlingConfig() FlowSuccessResponseHandlingConfigPtrOutput {
+	return o.ApplyT(func(v *FlowSapoDataDestinationProperties) *FlowSuccessResponseHandlingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessResponseHandlingConfig
+	}).(FlowSuccessResponseHandlingConfigPtrOutput)
+}
+
+func (o FlowSapoDataDestinationPropertiesPtrOutput) WriteOperationType() FlowWriteOperationTypePtrOutput {
+	return o.ApplyT(func(v *FlowSapoDataDestinationProperties) *FlowWriteOperationType {
+		if v == nil {
+			return nil
+		}
+		return v.WriteOperationType
+	}).(FlowWriteOperationTypePtrOutput)
+}
+
+type FlowSapoDataSourceProperties struct {
+	ObjectPath string `pulumi:"objectPath"`
+}
+
+// FlowSapoDataSourcePropertiesInput is an input type that accepts FlowSapoDataSourcePropertiesArgs and FlowSapoDataSourcePropertiesOutput values.
+// You can construct a concrete instance of `FlowSapoDataSourcePropertiesInput` via:
+//
+//	FlowSapoDataSourcePropertiesArgs{...}
+type FlowSapoDataSourcePropertiesInput interface {
+	pulumi.Input
+
+	ToFlowSapoDataSourcePropertiesOutput() FlowSapoDataSourcePropertiesOutput
+	ToFlowSapoDataSourcePropertiesOutputWithContext(context.Context) FlowSapoDataSourcePropertiesOutput
+}
+
+type FlowSapoDataSourcePropertiesArgs struct {
+	ObjectPath pulumi.StringInput `pulumi:"objectPath"`
+}
+
+func (FlowSapoDataSourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSapoDataSourceProperties)(nil)).Elem()
+}
+
+func (i FlowSapoDataSourcePropertiesArgs) ToFlowSapoDataSourcePropertiesOutput() FlowSapoDataSourcePropertiesOutput {
+	return i.ToFlowSapoDataSourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowSapoDataSourcePropertiesArgs) ToFlowSapoDataSourcePropertiesOutputWithContext(ctx context.Context) FlowSapoDataSourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataSourcePropertiesOutput)
+}
+
+func (i FlowSapoDataSourcePropertiesArgs) ToFlowSapoDataSourcePropertiesPtrOutput() FlowSapoDataSourcePropertiesPtrOutput {
+	return i.ToFlowSapoDataSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSapoDataSourcePropertiesArgs) ToFlowSapoDataSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowSapoDataSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataSourcePropertiesOutput).ToFlowSapoDataSourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowSapoDataSourcePropertiesPtrInput is an input type that accepts FlowSapoDataSourcePropertiesArgs, FlowSapoDataSourcePropertiesPtr and FlowSapoDataSourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowSapoDataSourcePropertiesPtrInput` via:
+//
+//	        FlowSapoDataSourcePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSapoDataSourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowSapoDataSourcePropertiesPtrOutput() FlowSapoDataSourcePropertiesPtrOutput
+	ToFlowSapoDataSourcePropertiesPtrOutputWithContext(context.Context) FlowSapoDataSourcePropertiesPtrOutput
+}
+
+type flowSapoDataSourcePropertiesPtrType FlowSapoDataSourcePropertiesArgs
+
+func FlowSapoDataSourcePropertiesPtr(v *FlowSapoDataSourcePropertiesArgs) FlowSapoDataSourcePropertiesPtrInput {
+	return (*flowSapoDataSourcePropertiesPtrType)(v)
+}
+
+func (*flowSapoDataSourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSapoDataSourceProperties)(nil)).Elem()
+}
+
+func (i *flowSapoDataSourcePropertiesPtrType) ToFlowSapoDataSourcePropertiesPtrOutput() FlowSapoDataSourcePropertiesPtrOutput {
+	return i.ToFlowSapoDataSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSapoDataSourcePropertiesPtrType) ToFlowSapoDataSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowSapoDataSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSapoDataSourcePropertiesPtrOutput)
+}
+
+type FlowSapoDataSourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowSapoDataSourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSapoDataSourceProperties)(nil)).Elem()
+}
+
+func (o FlowSapoDataSourcePropertiesOutput) ToFlowSapoDataSourcePropertiesOutput() FlowSapoDataSourcePropertiesOutput {
+	return o
+}
+
+func (o FlowSapoDataSourcePropertiesOutput) ToFlowSapoDataSourcePropertiesOutputWithContext(ctx context.Context) FlowSapoDataSourcePropertiesOutput {
+	return o
+}
+
+func (o FlowSapoDataSourcePropertiesOutput) ToFlowSapoDataSourcePropertiesPtrOutput() FlowSapoDataSourcePropertiesPtrOutput {
+	return o.ToFlowSapoDataSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSapoDataSourcePropertiesOutput) ToFlowSapoDataSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowSapoDataSourcePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSapoDataSourceProperties) *FlowSapoDataSourceProperties {
+		return &v
+	}).(FlowSapoDataSourcePropertiesPtrOutput)
+}
+
+func (o FlowSapoDataSourcePropertiesOutput) ObjectPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSapoDataSourceProperties) string { return v.ObjectPath }).(pulumi.StringOutput)
+}
+
+type FlowSapoDataSourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSapoDataSourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSapoDataSourceProperties)(nil)).Elem()
+}
+
+func (o FlowSapoDataSourcePropertiesPtrOutput) ToFlowSapoDataSourcePropertiesPtrOutput() FlowSapoDataSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o FlowSapoDataSourcePropertiesPtrOutput) ToFlowSapoDataSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowSapoDataSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o FlowSapoDataSourcePropertiesPtrOutput) Elem() FlowSapoDataSourcePropertiesOutput {
+	return o.ApplyT(func(v *FlowSapoDataSourceProperties) FlowSapoDataSourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSapoDataSourceProperties
+		return ret
+	}).(FlowSapoDataSourcePropertiesOutput)
+}
+
+func (o FlowSapoDataSourcePropertiesPtrOutput) ObjectPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSapoDataSourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14256,7 +14256,7 @@ type FlowSourceConnectorProperties struct {
 	Pardot          *FlowPardotSourceProperties          `pulumi:"pardot"`
 	S3              *FlowS3SourceProperties              `pulumi:"s3"`
 	Salesforce      *FlowSalesforceSourceProperties      `pulumi:"salesforce"`
-	SapoData        *FlowSAPODataSourceProperties        `pulumi:"sapoData"`
+	SapoData        *FlowSapoDataSourceProperties        `pulumi:"sapoData"`
 	ServiceNow      *FlowServiceNowSourceProperties      `pulumi:"serviceNow"`
 	Singular        *FlowSingularSourceProperties        `pulumi:"singular"`
 	Slack           *FlowSlackSourceProperties           `pulumi:"slack"`
@@ -14288,7 +14288,7 @@ type FlowSourceConnectorPropertiesArgs struct {
 	Pardot          FlowPardotSourcePropertiesPtrInput          `pulumi:"pardot"`
 	S3              FlowS3SourcePropertiesPtrInput              `pulumi:"s3"`
 	Salesforce      FlowSalesforceSourcePropertiesPtrInput      `pulumi:"salesforce"`
-	SapoData        FlowSAPODataSourcePropertiesPtrInput        `pulumi:"sapoData"`
+	SapoData        FlowSapoDataSourcePropertiesPtrInput        `pulumi:"sapoData"`
 	ServiceNow      FlowServiceNowSourcePropertiesPtrInput      `pulumi:"serviceNow"`
 	Singular        FlowSingularSourcePropertiesPtrInput        `pulumi:"singular"`
 	Slack           FlowSlackSourcePropertiesPtrInput           `pulumi:"slack"`
@@ -14364,8 +14364,8 @@ func (o FlowSourceConnectorPropertiesOutput) Salesforce() FlowSalesforceSourcePr
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSalesforceSourceProperties { return v.Salesforce }).(FlowSalesforceSourcePropertiesPtrOutput)
 }
 
-func (o FlowSourceConnectorPropertiesOutput) SapoData() FlowSAPODataSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSAPODataSourceProperties { return v.SapoData }).(FlowSAPODataSourcePropertiesPtrOutput)
+func (o FlowSourceConnectorPropertiesOutput) SapoData() FlowSapoDataSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSapoDataSourceProperties { return v.SapoData }).(FlowSapoDataSourcePropertiesPtrOutput)
 }
 
 func (o FlowSourceConnectorPropertiesOutput) ServiceNow() FlowServiceNowSourcePropertiesPtrOutput {
@@ -14506,13 +14506,13 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Salesforce() FlowSalesforceSourc
 	}).(FlowSalesforceSourcePropertiesPtrOutput)
 }
 
-func (o FlowSourceConnectorPropertiesPtrOutput) SapoData() FlowSAPODataSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSAPODataSourceProperties {
+func (o FlowSourceConnectorPropertiesPtrOutput) SapoData() FlowSapoDataSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSapoDataSourceProperties {
 		if v == nil {
 			return nil
 		}
 		return v.SapoData
-	}).(FlowSAPODataSourcePropertiesPtrOutput)
+	}).(FlowSapoDataSourcePropertiesPtrOutput)
 }
 
 func (o FlowSourceConnectorPropertiesPtrOutput) ServiceNow() FlowServiceNowSourcePropertiesPtrOutput {
@@ -16363,16 +16363,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileRedshiftConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfileRedshiftConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileRedshiftConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfileRedshiftConnectorProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileRedshiftConnectorProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfileRedshiftConnectorProfilePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfileSAPODataConnectorProfileCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfileSAPODataConnectorProfileCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesInput)(nil)).Elem(), ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput)(nil)).Elem(), ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfileSAPODataConnectorProfilePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSAPODataConnectorProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfileSAPODataConnectorProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSalesforceConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfileSalesforceConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSalesforceConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfileSalesforceConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSalesforceConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfileSalesforceConnectorProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSalesforceConnectorProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfileSalesforceConnectorProfilePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfileSapoDataConnectorProfileCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfileSapoDataConnectorProfileCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesInput)(nil)).Elem(), ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput)(nil)).Elem(), ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfileSapoDataConnectorProfilePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSapoDataConnectorProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfileSapoDataConnectorProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileServiceNowConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfileServiceNowConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileServiceNowConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfileServiceNowConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileServiceNowConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfileServiceNowConnectorProfilePropertiesArgs{})
@@ -16455,14 +16455,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3OutputFormatConfigPtrInput)(nil)).Elem(), FlowS3OutputFormatConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3SourcePropertiesInput)(nil)).Elem(), FlowS3SourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3SourcePropertiesPtrInput)(nil)).Elem(), FlowS3SourcePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowSAPODataDestinationPropertiesInput)(nil)).Elem(), FlowSAPODataDestinationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowSAPODataDestinationPropertiesPtrInput)(nil)).Elem(), FlowSAPODataDestinationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowSAPODataSourcePropertiesInput)(nil)).Elem(), FlowSAPODataSourcePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowSAPODataSourcePropertiesPtrInput)(nil)).Elem(), FlowSAPODataSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSalesforceDestinationPropertiesInput)(nil)).Elem(), FlowSalesforceDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSalesforceDestinationPropertiesPtrInput)(nil)).Elem(), FlowSalesforceDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSalesforceSourcePropertiesInput)(nil)).Elem(), FlowSalesforceSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSalesforceSourcePropertiesPtrInput)(nil)).Elem(), FlowSalesforceSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataDestinationPropertiesInput)(nil)).Elem(), FlowSapoDataDestinationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataDestinationPropertiesPtrInput)(nil)).Elem(), FlowSapoDataDestinationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataSourcePropertiesInput)(nil)).Elem(), FlowSapoDataSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSapoDataSourcePropertiesPtrInput)(nil)).Elem(), FlowSapoDataSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowScheduledTriggerPropertiesInput)(nil)).Elem(), FlowScheduledTriggerPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowScheduledTriggerPropertiesPtrInput)(nil)).Elem(), FlowScheduledTriggerPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowServiceNowSourcePropertiesInput)(nil)).Elem(), FlowServiceNowSourcePropertiesArgs{})
@@ -16554,16 +16554,16 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileRedshiftConnectorProfilePropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileSAPODataConnectorProfileCredentialsOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileSAPODataConnectorProfilePropertiesOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileSalesforceConnectorProfileCredentialsOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileSalesforceConnectorProfilePropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileSapoDataConnectorProfileCredentialsOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileSapoDataConnectorProfilePropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileServiceNowConnectorProfileCredentialsOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileServiceNowConnectorProfilePropertiesOutput{})
@@ -16647,14 +16647,14 @@ func init() {
 	pulumi.RegisterOutputType(FlowS3OutputFormatConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowS3SourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowS3SourcePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(FlowSAPODataDestinationPropertiesOutput{})
-	pulumi.RegisterOutputType(FlowSAPODataDestinationPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(FlowSAPODataSourcePropertiesOutput{})
-	pulumi.RegisterOutputType(FlowSAPODataSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowSalesforceDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowSalesforceDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowSalesforceSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowSalesforceSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowSapoDataDestinationPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowSapoDataDestinationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowSapoDataSourcePropertiesOutput{})
+	pulumi.RegisterOutputType(FlowSapoDataSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowScheduledTriggerPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowScheduledTriggerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowServiceNowSourcePropertiesOutput{})

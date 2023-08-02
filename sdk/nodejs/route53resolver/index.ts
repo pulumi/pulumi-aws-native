@@ -40,10 +40,10 @@ export const getResolverConfig: typeof import("./getResolverConfig").getResolver
 export const getResolverConfigOutput: typeof import("./getResolverConfig").getResolverConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getResolverConfig","getResolverConfigOutput"], () => require("./getResolverConfig"));
 
-export { GetResolverDNSSECConfigArgs, GetResolverDNSSECConfigResult, GetResolverDNSSECConfigOutputArgs } from "./getResolverDNSSECConfig";
-export const getResolverDNSSECConfig: typeof import("./getResolverDNSSECConfig").getResolverDNSSECConfig = null as any;
-export const getResolverDNSSECConfigOutput: typeof import("./getResolverDNSSECConfig").getResolverDNSSECConfigOutput = null as any;
-utilities.lazyLoad(exports, ["getResolverDNSSECConfig","getResolverDNSSECConfigOutput"], () => require("./getResolverDNSSECConfig"));
+export { GetResolverDnssecConfigArgs, GetResolverDnssecConfigResult, GetResolverDnssecConfigOutputArgs } from "./getResolverDnssecConfig";
+export const getResolverDnssecConfig: typeof import("./getResolverDnssecConfig").getResolverDnssecConfig = null as any;
+export const getResolverDnssecConfigOutput: typeof import("./getResolverDnssecConfig").getResolverDnssecConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverDnssecConfig","getResolverDnssecConfigOutput"], () => require("./getResolverDnssecConfig"));
 
 export { GetResolverEndpointArgs, GetResolverEndpointResult, GetResolverEndpointOutputArgs } from "./getResolverEndpoint";
 export const getResolverEndpoint: typeof import("./getResolverEndpoint").getResolverEndpoint = null as any;
@@ -75,10 +75,10 @@ export type ResolverConfig = import("./resolverConfig").ResolverConfig;
 export const ResolverConfig: typeof import("./resolverConfig").ResolverConfig = null as any;
 utilities.lazyLoad(exports, ["ResolverConfig"], () => require("./resolverConfig"));
 
-export { ResolverDNSSECConfigArgs } from "./resolverDNSSECConfig";
-export type ResolverDNSSECConfig = import("./resolverDNSSECConfig").ResolverDNSSECConfig;
-export const ResolverDNSSECConfig: typeof import("./resolverDNSSECConfig").ResolverDNSSECConfig = null as any;
-utilities.lazyLoad(exports, ["ResolverDNSSECConfig"], () => require("./resolverDNSSECConfig"));
+export { ResolverDnssecConfigArgs } from "./resolverDnssecConfig";
+export type ResolverDnssecConfig = import("./resolverDnssecConfig").ResolverDnssecConfig;
+export const ResolverDnssecConfig: typeof import("./resolverDnssecConfig").ResolverDnssecConfig = null as any;
+utilities.lazyLoad(exports, ["ResolverDnssecConfig"], () => require("./resolverDnssecConfig"));
 
 export { ResolverEndpointArgs } from "./resolverEndpoint";
 export type ResolverEndpoint = import("./resolverEndpoint").ResolverEndpoint;
@@ -121,8 +121,8 @@ const _module = {
                 return new FirewallRuleGroupAssociation(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverConfig":
                 return new ResolverConfig(name, <any>undefined, { urn })
-            case "aws-native:route53resolver:ResolverDNSSECConfig":
-                return new ResolverDNSSECConfig(name, <any>undefined, { urn })
+            case "aws-native:route53resolver:ResolverDnssecConfig":
+                return new ResolverDnssecConfig(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverEndpoint":
                 return new ResolverEndpoint(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverQueryLoggingConfig":

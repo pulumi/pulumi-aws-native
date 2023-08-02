@@ -13,8 +13,8 @@ __all__ = [
     'CellTagArgs',
     'ReadinessCheckTagArgs',
     'RecoveryGroupTagArgs',
-    'ResourceSetDNSTargetResourceArgs',
-    'ResourceSetNLBResourceArgs',
+    'ResourceSetDnsTargetResourceArgs',
+    'ResourceSetNlbResourceArgs',
     'ResourceSetR53ResourceRecordArgs',
     'ResourceSetResourceArgs',
     'ResourceSetTagArgs',
@@ -103,7 +103,7 @@ class RecoveryGroupTagArgs:
 
 
 @pulumi.input_type
-class ResourceSetDNSTargetResourceArgs:
+class ResourceSetDnsTargetResourceArgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  hosted_zone_arn: Optional[pulumi.Input[str]] = None,
@@ -187,7 +187,7 @@ class ResourceSetDNSTargetResourceArgs:
 
 
 @pulumi.input_type
-class ResourceSetNLBResourceArgs:
+class ResourceSetNlbResourceArgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None):
         """
@@ -254,7 +254,7 @@ class ResourceSetR53ResourceRecordArgs:
 class ResourceSetResourceArgs:
     def __init__(__self__, *,
                  component_id: Optional[pulumi.Input[str]] = None,
-                 dns_target_resource: Optional[pulumi.Input['ResourceSetDNSTargetResourceArgs']] = None,
+                 dns_target_resource: Optional[pulumi.Input['ResourceSetDnsTargetResourceArgs']] = None,
                  readiness_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -286,11 +286,11 @@ class ResourceSetResourceArgs:
 
     @property
     @pulumi.getter(name="dnsTargetResource")
-    def dns_target_resource(self) -> Optional[pulumi.Input['ResourceSetDNSTargetResourceArgs']]:
+    def dns_target_resource(self) -> Optional[pulumi.Input['ResourceSetDnsTargetResourceArgs']]:
         return pulumi.get(self, "dns_target_resource")
 
     @dns_target_resource.setter
-    def dns_target_resource(self, value: Optional[pulumi.Input['ResourceSetDNSTargetResourceArgs']]):
+    def dns_target_resource(self, value: Optional[pulumi.Input['ResourceSetDnsTargetResourceArgs']]):
         pulumi.set(self, "dns_target_resource", value)
 
     @property
@@ -348,7 +348,7 @@ class ResourceSetTagArgs:
 @pulumi.input_type
 class ResourceSetTargetResourceArgs:
     def __init__(__self__, *,
-                 nlb_resource: Optional[pulumi.Input['ResourceSetNLBResourceArgs']] = None,
+                 nlb_resource: Optional[pulumi.Input['ResourceSetNlbResourceArgs']] = None,
                  r53_resource: Optional[pulumi.Input['ResourceSetR53ResourceRecordArgs']] = None):
         """
         The target resource that the Route 53 record points to.
@@ -360,11 +360,11 @@ class ResourceSetTargetResourceArgs:
 
     @property
     @pulumi.getter(name="nlbResource")
-    def nlb_resource(self) -> Optional[pulumi.Input['ResourceSetNLBResourceArgs']]:
+    def nlb_resource(self) -> Optional[pulumi.Input['ResourceSetNlbResourceArgs']]:
         return pulumi.get(self, "nlb_resource")
 
     @nlb_resource.setter
-    def nlb_resource(self, value: Optional[pulumi.Input['ResourceSetNLBResourceArgs']]):
+    def nlb_resource(self, value: Optional[pulumi.Input['ResourceSetNlbResourceArgs']]):
         pulumi.set(self, "nlb_resource", value)
 
     @property

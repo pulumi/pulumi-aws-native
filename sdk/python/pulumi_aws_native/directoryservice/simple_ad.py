@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SimpleADArgs', 'SimpleAD']
+__all__ = ['SimpleAdArgs', 'SimpleAd']
 
 @pulumi.input_type
-class SimpleADArgs:
+class SimpleAdArgs:
     def __init__(__self__, *,
                  size: pulumi.Input[str],
-                 vpc_settings: pulumi.Input['SimpleADVpcSettingsArgs'],
+                 vpc_settings: pulumi.Input['SimpleAdVpcSettingsArgs'],
                  create_alias: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_sso: Optional[pulumi.Input[bool]] = None,
@@ -25,9 +25,9 @@ class SimpleADArgs:
                  password: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a SimpleAD resource.
+        The set of arguments for constructing a SimpleAd resource.
         :param pulumi.Input[str] size: The size of the directory.
-        :param pulumi.Input['SimpleADVpcSettingsArgs'] vpc_settings: VPC settings of the Simple AD directory server in AWS.
+        :param pulumi.Input['SimpleAdVpcSettingsArgs'] vpc_settings: VPC settings of the Simple AD directory server in AWS.
         :param pulumi.Input[bool] create_alias: The name of the configuration set.
         :param pulumi.Input[str] description: Description for the directory.
         :param pulumi.Input[bool] enable_sso: Whether to enable single sign-on for a Simple Active Directory in AWS.
@@ -64,14 +64,14 @@ class SimpleADArgs:
 
     @property
     @pulumi.getter(name="vpcSettings")
-    def vpc_settings(self) -> pulumi.Input['SimpleADVpcSettingsArgs']:
+    def vpc_settings(self) -> pulumi.Input['SimpleAdVpcSettingsArgs']:
         """
         VPC settings of the Simple AD directory server in AWS.
         """
         return pulumi.get(self, "vpc_settings")
 
     @vpc_settings.setter
-    def vpc_settings(self, value: pulumi.Input['SimpleADVpcSettingsArgs']):
+    def vpc_settings(self, value: pulumi.Input['SimpleAdVpcSettingsArgs']):
         pulumi.set(self, "vpc_settings", value)
 
     @property
@@ -147,7 +147,7 @@ class SimpleADArgs:
         pulumi.set(self, "short_name", value)
 
 
-class SimpleAD(pulumi.CustomResource):
+class SimpleAd(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -159,7 +159,7 @@ class SimpleAD(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
-                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['SimpleADVpcSettingsArgs']]] = None,
+                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['SimpleAdVpcSettingsArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectoryService::SimpleAD
@@ -173,24 +173,24 @@ class SimpleAD(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password for the default administrative user named Admin.
         :param pulumi.Input[str] short_name: The NetBIOS name for your domain.
         :param pulumi.Input[str] size: The size of the directory.
-        :param pulumi.Input[pulumi.InputType['SimpleADVpcSettingsArgs']] vpc_settings: VPC settings of the Simple AD directory server in AWS.
+        :param pulumi.Input[pulumi.InputType['SimpleAdVpcSettingsArgs']] vpc_settings: VPC settings of the Simple AD directory server in AWS.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SimpleADArgs,
+                 args: SimpleAdArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DirectoryService::SimpleAD
 
         :param str resource_name: The name of the resource.
-        :param SimpleADArgs args: The arguments to use to populate this resource's properties.
+        :param SimpleAdArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SimpleADArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SimpleAdArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -206,7 +206,7 @@ class SimpleAD(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
-                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['SimpleADVpcSettingsArgs']]] = None,
+                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['SimpleAdVpcSettingsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,7 +214,7 @@ class SimpleAD(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SimpleADArgs.__new__(SimpleADArgs)
+            __props__ = SimpleAdArgs.__new__(SimpleAdArgs)
 
             __props__.__dict__["create_alias"] = create_alias
             __props__.__dict__["description"] = description
@@ -231,8 +231,8 @@ class SimpleAD(pulumi.CustomResource):
             __props__.__dict__["alias"] = None
             __props__.__dict__["directory_id"] = None
             __props__.__dict__["dns_ip_addresses"] = None
-        super(SimpleAD, __self__).__init__(
-            'aws-native:directoryservice:SimpleAD',
+        super(SimpleAd, __self__).__init__(
+            'aws-native:directoryservice:SimpleAd',
             resource_name,
             __props__,
             opts)
@@ -240,9 +240,9 @@ class SimpleAD(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'SimpleAD':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SimpleAd':
         """
-        Get an existing SimpleAD resource's state with the given name, id, and optional extra
+        Get an existing SimpleAd resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -251,7 +251,7 @@ class SimpleAD(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SimpleADArgs.__new__(SimpleADArgs)
+        __props__ = SimpleAdArgs.__new__(SimpleAdArgs)
 
         __props__.__dict__["alias"] = None
         __props__.__dict__["create_alias"] = None
@@ -264,7 +264,7 @@ class SimpleAD(pulumi.CustomResource):
         __props__.__dict__["short_name"] = None
         __props__.__dict__["size"] = None
         __props__.__dict__["vpc_settings"] = None
-        return SimpleAD(resource_name, opts=opts, __props__=__props__)
+        return SimpleAd(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -348,7 +348,7 @@ class SimpleAD(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSettings")
-    def vpc_settings(self) -> pulumi.Output['outputs.SimpleADVpcSettings']:
+    def vpc_settings(self) -> pulumi.Output['outputs.SimpleAdVpcSettings']:
         """
         VPC settings of the Simple AD directory server in AWS.
         """

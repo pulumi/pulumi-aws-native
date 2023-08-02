@@ -155,7 +155,7 @@ class GetCanaryResult:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional['outputs.CanaryVPCConfig']:
+    def vpc_config(self) -> Optional['outputs.CanaryVpcConfig']:
         """
         Provide VPC Configuration if enabled.
         """

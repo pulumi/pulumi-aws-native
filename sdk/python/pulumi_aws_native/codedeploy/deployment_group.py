@@ -26,9 +26,9 @@ class DeploymentGroupArgs:
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
                  deployment_group_name: Optional[pulumi.Input[str]] = None,
                  deployment_style: Optional[pulumi.Input['DeploymentGroupDeploymentStyleArgs']] = None,
-                 ec2_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEC2TagFilterArgs']]]] = None,
-                 ec2_tag_set: Optional[pulumi.Input['DeploymentGroupEC2TagSetArgs']] = None,
-                 ecs_services: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupECSServiceArgs']]]] = None,
+                 ec2_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]] = None,
+                 ec2_tag_set: Optional[pulumi.Input['DeploymentGroupEc2TagSetArgs']] = None,
+                 ecs_services: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEcsServiceArgs']]]] = None,
                  load_balancer_info: Optional[pulumi.Input['DeploymentGroupLoadBalancerInfoArgs']] = None,
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]]] = None,
                  on_premises_tag_set: Optional[pulumi.Input['DeploymentGroupOnPremisesTagSetArgs']] = None,
@@ -167,29 +167,29 @@ class DeploymentGroupArgs:
 
     @property
     @pulumi.getter(name="ec2TagFilters")
-    def ec2_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEC2TagFilterArgs']]]]:
+    def ec2_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]:
         return pulumi.get(self, "ec2_tag_filters")
 
     @ec2_tag_filters.setter
-    def ec2_tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEC2TagFilterArgs']]]]):
+    def ec2_tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]):
         pulumi.set(self, "ec2_tag_filters", value)
 
     @property
     @pulumi.getter(name="ec2TagSet")
-    def ec2_tag_set(self) -> Optional[pulumi.Input['DeploymentGroupEC2TagSetArgs']]:
+    def ec2_tag_set(self) -> Optional[pulumi.Input['DeploymentGroupEc2TagSetArgs']]:
         return pulumi.get(self, "ec2_tag_set")
 
     @ec2_tag_set.setter
-    def ec2_tag_set(self, value: Optional[pulumi.Input['DeploymentGroupEC2TagSetArgs']]):
+    def ec2_tag_set(self, value: Optional[pulumi.Input['DeploymentGroupEc2TagSetArgs']]):
         pulumi.set(self, "ec2_tag_set", value)
 
     @property
     @pulumi.getter(name="ecsServices")
-    def ecs_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupECSServiceArgs']]]]:
+    def ecs_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEcsServiceArgs']]]]:
         return pulumi.get(self, "ecs_services")
 
     @ecs_services.setter
-    def ecs_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupECSServiceArgs']]]]):
+    def ecs_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEcsServiceArgs']]]]):
         pulumi.set(self, "ecs_services", value)
 
     @property
@@ -266,9 +266,9 @@ class DeploymentGroup(pulumi.CustomResource):
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
                  deployment_group_name: Optional[pulumi.Input[str]] = None,
                  deployment_style: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupDeploymentStyleArgs']]] = None,
-                 ec2_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEC2TagFilterArgs']]]]] = None,
-                 ec2_tag_set: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupEC2TagSetArgs']]] = None,
-                 ecs_services: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupECSServiceArgs']]]]] = None,
+                 ec2_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagFilterArgs']]]]] = None,
+                 ec2_tag_set: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagSetArgs']]] = None,
+                 ecs_services: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']]]]] = None,
                  load_balancer_info: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']]] = None,
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTagFilterArgs']]]]] = None,
                  on_premises_tag_set: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesTagSetArgs']]] = None,
@@ -316,9 +316,9 @@ class DeploymentGroup(pulumi.CustomResource):
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
                  deployment_group_name: Optional[pulumi.Input[str]] = None,
                  deployment_style: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupDeploymentStyleArgs']]] = None,
-                 ec2_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEC2TagFilterArgs']]]]] = None,
-                 ec2_tag_set: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupEC2TagSetArgs']]] = None,
-                 ecs_services: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupECSServiceArgs']]]]] = None,
+                 ec2_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagFilterArgs']]]]] = None,
+                 ec2_tag_set: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagSetArgs']]] = None,
+                 ecs_services: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']]]]] = None,
                  load_balancer_info: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']]] = None,
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTagFilterArgs']]]]] = None,
                  on_premises_tag_set: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesTagSetArgs']]] = None,
@@ -449,17 +449,17 @@ class DeploymentGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ec2TagFilters")
-    def ec2_tag_filters(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupEC2TagFilter']]]:
+    def ec2_tag_filters(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupEc2TagFilter']]]:
         return pulumi.get(self, "ec2_tag_filters")
 
     @property
     @pulumi.getter(name="ec2TagSet")
-    def ec2_tag_set(self) -> pulumi.Output[Optional['outputs.DeploymentGroupEC2TagSet']]:
+    def ec2_tag_set(self) -> pulumi.Output[Optional['outputs.DeploymentGroupEc2TagSet']]:
         return pulumi.get(self, "ec2_tag_set")
 
     @property
     @pulumi.getter(name="ecsServices")
-    def ecs_services(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupECSService']]]:
+    def ecs_services(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupEcsService']]]:
         return pulumi.get(self, "ecs_services")
 
     @property

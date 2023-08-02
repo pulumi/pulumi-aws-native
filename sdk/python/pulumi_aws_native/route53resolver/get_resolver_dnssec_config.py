@@ -11,14 +11,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'GetResolverDNSSECConfigResult',
-    'AwaitableGetResolverDNSSECConfigResult',
+    'GetResolverDnssecConfigResult',
+    'AwaitableGetResolverDnssecConfigResult',
     'get_resolver_dnssec_config',
     'get_resolver_dnssec_config_output',
 ]
 
 @pulumi.output_type
-class GetResolverDNSSECConfigResult:
+class GetResolverDnssecConfigResult:
     def __init__(__self__, id=None, owner_id=None, validation_status=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -48,26 +48,26 @@ class GetResolverDNSSECConfigResult:
 
     @property
     @pulumi.getter(name="validationStatus")
-    def validation_status(self) -> Optional['ResolverDNSSECConfigValidationStatus']:
+    def validation_status(self) -> Optional['ResolverDnssecConfigValidationStatus']:
         """
         ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
         """
         return pulumi.get(self, "validation_status")
 
 
-class AwaitableGetResolverDNSSECConfigResult(GetResolverDNSSECConfigResult):
+class AwaitableGetResolverDnssecConfigResult(GetResolverDnssecConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetResolverDNSSECConfigResult(
+        return GetResolverDnssecConfigResult(
             id=self.id,
             owner_id=self.owner_id,
             validation_status=self.validation_status)
 
 
 def get_resolver_dnssec_config(id: Optional[str] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverDNSSECConfigResult:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverDnssecConfigResult:
     """
     Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
 
@@ -77,9 +77,9 @@ def get_resolver_dnssec_config(id: Optional[str] = None,
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getResolverDNSSECConfig', __args__, opts=opts, typ=GetResolverDNSSECConfigResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getResolverDnssecConfig', __args__, opts=opts, typ=GetResolverDnssecConfigResult).value
 
-    return AwaitableGetResolverDNSSECConfigResult(
+    return AwaitableGetResolverDnssecConfigResult(
         id=pulumi.get(__ret__, 'id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         validation_status=pulumi.get(__ret__, 'validation_status'))
@@ -87,7 +87,7 @@ def get_resolver_dnssec_config(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_resolver_dnssec_config)
 def get_resolver_dnssec_config_output(id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverDNSSECConfigResult]:
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverDnssecConfigResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
 

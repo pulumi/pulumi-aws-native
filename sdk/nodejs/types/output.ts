@@ -472,25 +472,13 @@ export namespace amplifyuibuilder {
     export interface ComponentVariantValues {
     }
 
-    export interface FieldPosition0Properties {
-        fixed: enums.amplifyuibuilder.FormFixedPosition;
-    }
-
-    export interface FieldPosition1Properties {
-        rightOf: string;
-    }
-
-    export interface FieldPosition2Properties {
-        below: string;
-    }
-
     export interface FormButton {
         children?: string;
         excluded?: boolean;
-        position?: outputs.amplifyuibuilder.FieldPosition0Properties | outputs.amplifyuibuilder.FieldPosition1Properties | outputs.amplifyuibuilder.FieldPosition2Properties;
+        position?: outputs.amplifyuibuilder.FormFieldPosition0Properties | outputs.amplifyuibuilder.FormFieldPosition1Properties | outputs.amplifyuibuilder.FormFieldPosition2Properties;
     }
 
-    export interface FormCTA {
+    export interface FormCta {
         cancel?: outputs.amplifyuibuilder.FormButton;
         clear?: outputs.amplifyuibuilder.FormButton;
         position?: enums.amplifyuibuilder.FormButtonsPosition;
@@ -500,6 +488,18 @@ export namespace amplifyuibuilder {
     export interface FormDataTypeConfig {
         dataSourceType: enums.amplifyuibuilder.FormDataSourceType;
         dataTypeName: string;
+    }
+
+    export interface FormFieldPosition0Properties {
+        fixed: enums.amplifyuibuilder.FormFixedPosition;
+    }
+
+    export interface FormFieldPosition1Properties {
+        rightOf: string;
+    }
+
+    export interface FormFieldPosition2Properties {
+        below: string;
     }
 
     export interface FormFieldsMap {
@@ -1102,7 +1102,7 @@ export namespace apigatewayv2 {
         stageVariables?: any;
     }
 
-    export interface AuthorizerJWTConfiguration {
+    export interface AuthorizerJwtConfiguration {
         audience?: string[];
         issuer?: string;
     }
@@ -1271,7 +1271,7 @@ export namespace appflow {
         pardot?: outputs.appflow.ConnectorProfilePardotConnectorProfileCredentials;
         redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileCredentials;
         salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileCredentials;
-        sapoData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentials;
+        sapoData?: outputs.appflow.ConnectorProfileSapoDataConnectorProfileCredentials;
         serviceNow?: outputs.appflow.ConnectorProfileServiceNowConnectorProfileCredentials;
         singular?: outputs.appflow.ConnectorProfileSingularConnectorProfileCredentials;
         slack?: outputs.appflow.ConnectorProfileSlackConnectorProfileCredentials;
@@ -1484,7 +1484,7 @@ export namespace appflow {
         pardot?: outputs.appflow.ConnectorProfilePardotConnectorProfileProperties;
         redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileProperties;
         salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileProperties;
-        sapoData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileProperties;
+        sapoData?: outputs.appflow.ConnectorProfileSapoDataConnectorProfileProperties;
         serviceNow?: outputs.appflow.ConnectorProfileServiceNowConnectorProfileProperties;
         slack?: outputs.appflow.ConnectorProfileSlackConnectorProfileProperties;
         snowflake?: outputs.appflow.ConnectorProfileSnowflakeConnectorProfileProperties;
@@ -1542,29 +1542,6 @@ export namespace appflow {
         workgroupName?: string;
     }
 
-    export interface ConnectorProfileSAPODataConnectorProfileCredentials {
-        basicAuthCredentials?: outputs.appflow.ConnectorProfileBasicAuthCredentials;
-        oAuthCredentials?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties;
-    }
-
-    export interface ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties {
-        accessToken?: string;
-        clientId?: string;
-        clientSecret?: string;
-        connectorOAuthRequest?: outputs.appflow.ConnectorProfileConnectorOAuthRequest;
-        refreshToken?: string;
-    }
-
-    export interface ConnectorProfileSAPODataConnectorProfileProperties {
-        applicationHostUrl?: string;
-        applicationServicePath?: string;
-        clientNumber?: string;
-        logonLanguage?: string;
-        oAuthProperties?: outputs.appflow.ConnectorProfileOAuthProperties;
-        portNumber?: number;
-        privateLinkServiceName?: string;
-    }
-
     export interface ConnectorProfileSalesforceConnectorProfileCredentials {
         /**
          * The credentials used to access protected resources.
@@ -1605,6 +1582,29 @@ export namespace appflow {
          * Indicates whether to make Metadata And Authorization calls over Pivate Network
          */
         usePrivateLinkForMetadataAndAuthorization?: boolean;
+    }
+
+    export interface ConnectorProfileSapoDataConnectorProfileCredentials {
+        basicAuthCredentials?: outputs.appflow.ConnectorProfileBasicAuthCredentials;
+        oAuthCredentials?: outputs.appflow.ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties;
+    }
+
+    export interface ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties {
+        accessToken?: string;
+        clientId?: string;
+        clientSecret?: string;
+        connectorOAuthRequest?: outputs.appflow.ConnectorProfileConnectorOAuthRequest;
+        refreshToken?: string;
+    }
+
+    export interface ConnectorProfileSapoDataConnectorProfileProperties {
+        applicationHostUrl?: string;
+        applicationServicePath?: string;
+        clientNumber?: string;
+        logonLanguage?: string;
+        oAuthProperties?: outputs.appflow.ConnectorProfileOAuthProperties;
+        portNumber?: number;
+        privateLinkServiceName?: string;
     }
 
     export interface ConnectorProfileServiceNowConnectorProfileCredentials {
@@ -1791,7 +1791,7 @@ export namespace appflow {
         pardot?: enums.appflow.FlowPardotConnectorOperator;
         s3?: enums.appflow.FlowS3ConnectorOperator;
         salesforce?: enums.appflow.FlowSalesforceConnectorOperator;
-        sapoData?: enums.appflow.FlowSAPODataConnectorOperator;
+        sapoData?: enums.appflow.FlowSapoDataConnectorOperator;
         serviceNow?: enums.appflow.FlowServiceNowConnectorOperator;
         singular?: enums.appflow.FlowSingularConnectorOperator;
         slack?: enums.appflow.FlowSlackConnectorOperator;
@@ -1843,7 +1843,7 @@ export namespace appflow {
         redshift?: outputs.appflow.FlowRedshiftDestinationProperties;
         s3?: outputs.appflow.FlowS3DestinationProperties;
         salesforce?: outputs.appflow.FlowSalesforceDestinationProperties;
-        sapoData?: outputs.appflow.FlowSAPODataDestinationProperties;
+        sapoData?: outputs.appflow.FlowSapoDataDestinationProperties;
         snowflake?: outputs.appflow.FlowSnowflakeDestinationProperties;
         upsolver?: outputs.appflow.FlowUpsolverDestinationProperties;
         zendesk?: outputs.appflow.FlowZendeskDestinationProperties;
@@ -1982,21 +1982,6 @@ export namespace appflow {
         s3InputFormatConfig?: outputs.appflow.FlowS3InputFormatConfig;
     }
 
-    export interface FlowSAPODataDestinationProperties {
-        errorHandlingConfig?: outputs.appflow.FlowErrorHandlingConfig;
-        /**
-         * List of fields used as ID when performing a write operation.
-         */
-        idFieldNames?: string[];
-        objectPath: string;
-        successResponseHandlingConfig?: outputs.appflow.FlowSuccessResponseHandlingConfig;
-        writeOperationType?: enums.appflow.FlowWriteOperationType;
-    }
-
-    export interface FlowSAPODataSourceProperties {
-        objectPath: string;
-    }
-
     export interface FlowSalesforceDestinationProperties {
         dataTransferApi?: enums.appflow.FlowDataTransferApi;
         errorHandlingConfig?: outputs.appflow.FlowErrorHandlingConfig;
@@ -2013,6 +1998,21 @@ export namespace appflow {
         enableDynamicFieldUpdate?: boolean;
         includeDeletedRecords?: boolean;
         object: string;
+    }
+
+    export interface FlowSapoDataDestinationProperties {
+        errorHandlingConfig?: outputs.appflow.FlowErrorHandlingConfig;
+        /**
+         * List of fields used as ID when performing a write operation.
+         */
+        idFieldNames?: string[];
+        objectPath: string;
+        successResponseHandlingConfig?: outputs.appflow.FlowSuccessResponseHandlingConfig;
+        writeOperationType?: enums.appflow.FlowWriteOperationType;
+    }
+
+    export interface FlowSapoDataSourceProperties {
+        objectPath: string;
     }
 
     /**
@@ -2062,7 +2062,7 @@ export namespace appflow {
         pardot?: outputs.appflow.FlowPardotSourceProperties;
         s3?: outputs.appflow.FlowS3SourceProperties;
         salesforce?: outputs.appflow.FlowSalesforceSourceProperties;
-        sapoData?: outputs.appflow.FlowSAPODataSourceProperties;
+        sapoData?: outputs.appflow.FlowSapoDataSourceProperties;
         serviceNow?: outputs.appflow.FlowServiceNowSourceProperties;
         singular?: outputs.appflow.FlowSingularSourceProperties;
         slack?: outputs.appflow.FlowSlackSourceProperties;
@@ -2428,15 +2428,15 @@ export namespace applicationinsights {
         /**
          * The HA cluster Prometheus Exporter settings.
          */
-        haClusterPrometheusExporter?: outputs.applicationinsights.ApplicationHAClusterPrometheusExporter;
+        haClusterPrometheusExporter?: outputs.applicationinsights.ApplicationHaClusterPrometheusExporter;
         /**
          * The HANA DB Prometheus Exporter settings.
          */
-        hanaPrometheusExporter?: outputs.applicationinsights.ApplicationHANAPrometheusExporter;
+        hanaPrometheusExporter?: outputs.applicationinsights.ApplicationHanaPrometheusExporter;
         /**
          * The JMX Prometheus Exporter settings.
          */
-        jmxPrometheusExporter?: outputs.applicationinsights.ApplicationJMXPrometheusExporter;
+        jmxPrometheusExporter?: outputs.applicationinsights.ApplicationJmxPrometheusExporter;
         /**
          * A list of logs to monitor for the component.
          */
@@ -2464,7 +2464,7 @@ export namespace applicationinsights {
     /**
      * The HA cluster Prometheus Exporter settings.
      */
-    export interface ApplicationHAClusterPrometheusExporter {
+    export interface ApplicationHaClusterPrometheusExporter {
         /**
          * Prometheus exporter port.
          */
@@ -2474,7 +2474,7 @@ export namespace applicationinsights {
     /**
      * The HANA DB Prometheus Exporter settings.
      */
-    export interface ApplicationHANAPrometheusExporter {
+    export interface ApplicationHanaPrometheusExporter {
         /**
          * A flag which indicates agreeing to install SAP HANA DB client.
          */
@@ -2503,7 +2503,7 @@ export namespace applicationinsights {
     /**
      * The JMX Prometheus Exporter settings.
      */
-    export interface ApplicationJMXPrometheusExporter {
+    export interface ApplicationJmxPrometheusExporter {
         /**
          * Java agent host port
          */
@@ -3703,9 +3703,29 @@ export namespace appstream {
         timeoutInSeconds: number;
     }
 
+    export interface AppBlockTag0Properties {
+        key: string;
+        value: string;
+    }
+
+    export interface AppBlockTag1Properties {
+        tagKey: string;
+        tagValue: string;
+    }
+
     export interface ApplicationS3Location {
         s3Bucket: string;
         s3Key: string;
+    }
+
+    export interface ApplicationTag0Properties {
+        key: string;
+        value: string;
+    }
+
+    export interface ApplicationTag1Properties {
+        tagKey: string;
+        tagValue: string;
     }
 
     export interface DirectoryConfigCertificateBasedAuthProperties {
@@ -3797,16 +3817,6 @@ export namespace appstream {
         permission: string;
     }
 
-    export interface Tag0Properties {
-        key: string;
-        value: string;
-    }
-
-    export interface Tag1Properties {
-        tagKey: string;
-        tagValue: string;
-    }
-
 }
 
 export namespace appsync {
@@ -3826,7 +3836,7 @@ export namespace appsync {
         deltaSyncTableTtl: string;
     }
 
-    export interface DataSourceDynamoDBConfig {
+    export interface DataSourceDynamoDbConfig {
         awsRegion: string;
         deltaSyncConfig?: outputs.appsync.DataSourceDeltaSyncConfig;
         tableName: string;
@@ -3885,44 +3895,44 @@ export namespace appsync {
         lambdaConflictHandlerConfig?: outputs.appsync.FunctionConfigurationLambdaConflictHandlerConfig;
     }
 
-    export interface GraphQLApiAdditionalAuthenticationProvider {
+    export interface GraphQlApiAdditionalAuthenticationProvider {
         authenticationType: string;
-        lambdaAuthorizerConfig?: outputs.appsync.GraphQLApiLambdaAuthorizerConfig;
-        openIdConnectConfig?: outputs.appsync.GraphQLApiOpenIDConnectConfig;
-        userPoolConfig?: outputs.appsync.GraphQLApiCognitoUserPoolConfig;
+        lambdaAuthorizerConfig?: outputs.appsync.GraphQlApiLambdaAuthorizerConfig;
+        openIdConnectConfig?: outputs.appsync.GraphQlApiOpenIdConnectConfig;
+        userPoolConfig?: outputs.appsync.GraphQlApiCognitoUserPoolConfig;
     }
 
-    export interface GraphQLApiCognitoUserPoolConfig {
+    export interface GraphQlApiCognitoUserPoolConfig {
         appIdClientRegex?: string;
         awsRegion?: string;
         userPoolId?: string;
     }
 
-    export interface GraphQLApiLambdaAuthorizerConfig {
+    export interface GraphQlApiLambdaAuthorizerConfig {
         authorizerResultTtlInSeconds?: number;
         authorizerUri?: string;
         identityValidationExpression?: string;
     }
 
-    export interface GraphQLApiLogConfig {
+    export interface GraphQlApiLogConfig {
         cloudWatchLogsRoleArn?: string;
         excludeVerboseContent?: boolean;
         fieldLogLevel?: string;
     }
 
-    export interface GraphQLApiOpenIDConnectConfig {
+    export interface GraphQlApiOpenIdConnectConfig {
         authTtl?: number;
         clientId?: string;
         iatTtl?: number;
         issuer?: string;
     }
 
-    export interface GraphQLApiTag {
+    export interface GraphQlApiTag {
         key: string;
         value: string;
     }
 
-    export interface GraphQLApiUserPoolConfig {
+    export interface GraphQlApiUserPoolConfig {
         appIdClientRegex?: string;
         awsRegion?: string;
         defaultAction?: string;
@@ -4140,7 +4150,7 @@ export namespace auditmanager {
     /**
      * The AWS account associated with the assessment.
      */
-    export interface AssessmentAWSAccount {
+    export interface AssessmentAwsAccount {
         emailAddress?: string;
         id?: string;
         name?: string;
@@ -4149,7 +4159,7 @@ export namespace auditmanager {
     /**
      * An AWS service such as Amazon S3, AWS CloudTrail, and so on.
      */
-    export interface AssessmentAWSService {
+    export interface AssessmentAwsService {
         serviceName?: string;
     }
 
@@ -4193,11 +4203,11 @@ export namespace auditmanager {
         /**
          * The AWS accounts included in scope.
          */
-        awsAccounts?: outputs.auditmanager.AssessmentAWSAccount[];
+        awsAccounts?: outputs.auditmanager.AssessmentAwsAccount[];
         /**
          * The AWS services included in scope.
          */
-        awsServices?: outputs.auditmanager.AssessmentAWSService[];
+        awsServices?: outputs.auditmanager.AssessmentAwsService[];
     }
 
     /**
@@ -4254,7 +4264,7 @@ export namespace autoscaling {
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
         spotMaxPricePercentageOverLowestPrice?: number;
-        totalLocalStorageGb?: outputs.autoscaling.AutoScalingGroupTotalLocalStorageGBRequest;
+        totalLocalStorageGb?: outputs.autoscaling.AutoScalingGroupTotalLocalStorageGbRequest;
         vCpuCount?: outputs.autoscaling.AutoScalingGroupVCpuCountRequest;
     }
 
@@ -4336,7 +4346,7 @@ export namespace autoscaling {
         value: string;
     }
 
-    export interface AutoScalingGroupTotalLocalStorageGBRequest {
+    export interface AutoScalingGroupTotalLocalStorageGbRequest {
         max?: number;
         min?: number;
     }
@@ -5441,12 +5451,12 @@ export namespace cleanrooms {
 }
 
 export namespace cloud9 {
-    export interface EnvironmentEC2Repository {
+    export interface EnvironmentEc2Repository {
         pathComponent: string;
         repositoryUrl: string;
     }
 
-    export interface EnvironmentEC2Tag {
+    export interface EnvironmentEc2Tag {
         key: string;
         value: string;
     }
@@ -6001,7 +6011,7 @@ export namespace cloudfront {
         frameOptions?: outputs.cloudfront.ResponseHeadersPolicyFrameOptions;
         referrerPolicy?: outputs.cloudfront.ResponseHeadersPolicyReferrerPolicy;
         strictTransportSecurity?: outputs.cloudfront.ResponseHeadersPolicyStrictTransportSecurity;
-        xssProtection?: outputs.cloudfront.ResponseHeadersPolicyXSSProtection;
+        xssProtection?: outputs.cloudfront.ResponseHeadersPolicyXssProtection;
     }
 
     export interface ResponseHeadersPolicyServerTimingHeadersConfig {
@@ -6016,7 +6026,7 @@ export namespace cloudfront {
         preload?: boolean;
     }
 
-    export interface ResponseHeadersPolicyXSSProtection {
+    export interface ResponseHeadersPolicyXssProtection {
         modeBlock?: boolean;
         override: boolean;
         protection: boolean;
@@ -6672,26 +6682,26 @@ export namespace codedeploy {
         deploymentType?: string;
     }
 
-    export interface DeploymentGroupEC2TagFilter {
+    export interface DeploymentGroupEc2TagFilter {
         key?: string;
         type?: string;
         value?: string;
     }
 
-    export interface DeploymentGroupEC2TagSet {
-        ec2TagSetList?: outputs.codedeploy.DeploymentGroupEC2TagSetListObject[];
+    export interface DeploymentGroupEc2TagSet {
+        ec2TagSetList?: outputs.codedeploy.DeploymentGroupEc2TagSetListObject[];
     }
 
-    export interface DeploymentGroupEC2TagSetListObject {
-        ec2TagGroup?: outputs.codedeploy.DeploymentGroupEC2TagFilter[];
+    export interface DeploymentGroupEc2TagSetListObject {
+        ec2TagGroup?: outputs.codedeploy.DeploymentGroupEc2TagFilter[];
     }
 
-    export interface DeploymentGroupECSService {
+    export interface DeploymentGroupEcsService {
         clusterName: string;
         serviceName: string;
     }
 
-    export interface DeploymentGroupELBInfo {
+    export interface DeploymentGroupElbInfo {
         name?: string;
     }
 
@@ -6705,7 +6715,7 @@ export namespace codedeploy {
     }
 
     export interface DeploymentGroupLoadBalancerInfo {
-        elbInfoList?: outputs.codedeploy.DeploymentGroupELBInfo[];
+        elbInfoList?: outputs.codedeploy.DeploymentGroupElbInfo[];
         targetGroupInfoList?: outputs.codedeploy.DeploymentGroupTargetGroupInfo[];
         targetGroupPairInfoList?: outputs.codedeploy.DeploymentGroupTargetGroupPairInfo[];
     }
@@ -7058,7 +7068,7 @@ export namespace cognito {
         lambdaVersion?: string;
     }
 
-    export interface UserPoolCustomSMSSender {
+    export interface UserPoolCustomSmsSender {
         lambdaArn?: string;
         lambdaVersion?: string;
     }
@@ -7090,7 +7100,7 @@ export namespace cognito {
         createAuthChallenge?: string;
         customEmailSender?: outputs.cognito.UserPoolCustomEmailSender;
         customMessage?: string;
-        customSmsSender?: outputs.cognito.UserPoolCustomSMSSender;
+        customSmsSender?: outputs.cognito.UserPoolCustomSmsSender;
         defineAuthChallenge?: string;
         kmsKeyId?: string;
         postAuthentication?: string;
@@ -8239,7 +8249,7 @@ export namespace configuration {
     /**
      * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
      */
-    export interface TemplateSSMDocumentDetailsProperties {
+    export interface TemplateSsmDocumentDetailsProperties {
         documentName?: string;
         documentVersion?: string;
     }
@@ -9999,7 +10009,7 @@ export namespace datasync {
     /**
      * The subnet and security group that DataSync uses to access target EFS file system.
      */
-    export interface LocationEFSEc2Config {
+    export interface LocationEfsEc2Config {
         /**
          * The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
          */
@@ -10013,7 +10023,7 @@ export namespace datasync {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface LocationEFSTag {
+    export interface LocationEfsTag {
         /**
          * The key for an AWS resource tag.
          */
@@ -10041,37 +10051,37 @@ export namespace datasync {
     /**
      * NFS protocol configuration for FSx ONTAP file system.
      */
-    export interface LocationFSxONTAPNFS {
-        mountOptions: outputs.datasync.LocationFSxONTAPNfsMountOptions;
+    export interface LocationFSxOntapNfs {
+        mountOptions: outputs.datasync.LocationFSxOntapNfsMountOptions;
     }
 
     /**
      * The NFS mount options that DataSync can use to mount your NFS share.
      */
-    export interface LocationFSxONTAPNfsMountOptions {
+    export interface LocationFSxOntapNfsMountOptions {
         /**
          * The specific NFS version that you want DataSync to use to mount your NFS share.
          */
-        version?: enums.datasync.LocationFSxONTAPNfsMountOptionsVersion;
+        version?: enums.datasync.LocationFSxOntapNfsMountOptionsVersion;
     }
 
     /**
      * Configuration settings for NFS or SMB protocol.
      */
-    export interface LocationFSxONTAPProtocol {
-        nfs?: outputs.datasync.LocationFSxONTAPNFS;
-        smb?: outputs.datasync.LocationFSxONTAPSMB;
+    export interface LocationFSxOntapProtocol {
+        nfs?: outputs.datasync.LocationFSxOntapNfs;
+        smb?: outputs.datasync.LocationFSxOntapSmb;
     }
 
     /**
      * SMB protocol configuration for FSx ONTAP file system.
      */
-    export interface LocationFSxONTAPSMB {
+    export interface LocationFSxOntapSmb {
         /**
          * The name of the Windows domain that the SMB server belongs to.
          */
         domain?: string;
-        mountOptions: outputs.datasync.LocationFSxONTAPSmbMountOptions;
+        mountOptions: outputs.datasync.LocationFSxOntapSmbMountOptions;
         /**
          * The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
          */
@@ -10085,17 +10095,17 @@ export namespace datasync {
     /**
      * The mount options used by DataSync to access the SMB server.
      */
-    export interface LocationFSxONTAPSmbMountOptions {
+    export interface LocationFSxOntapSmbMountOptions {
         /**
          * The specific SMB version that you want DataSync to use to mount your SMB share.
          */
-        version?: enums.datasync.LocationFSxONTAPSmbMountOptionsVersion;
+        version?: enums.datasync.LocationFSxOntapSmbMountOptionsVersion;
     }
 
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface LocationFSxONTAPTag {
+    export interface LocationFSxOntapTag {
         /**
          * The key for an AWS resource tag.
          */
@@ -10109,31 +10119,31 @@ export namespace datasync {
     /**
      * The NFS mount options that DataSync can use to mount your NFS share.
      */
-    export interface LocationFSxOpenZFSMountOptions {
+    export interface LocationFSxOpenZfsMountOptions {
         /**
          * The specific NFS version that you want DataSync to use to mount your NFS share.
          */
-        version?: enums.datasync.LocationFSxOpenZFSMountOptionsVersion;
+        version?: enums.datasync.LocationFSxOpenZfsMountOptionsVersion;
     }
 
     /**
      * FSx OpenZFS file system NFS protocol information
      */
-    export interface LocationFSxOpenZFSNFS {
-        mountOptions: outputs.datasync.LocationFSxOpenZFSMountOptions;
+    export interface LocationFSxOpenZfsNfs {
+        mountOptions: outputs.datasync.LocationFSxOpenZfsMountOptions;
     }
 
     /**
      * Configuration settings for an NFS or SMB protocol, currently only support NFS
      */
-    export interface LocationFSxOpenZFSProtocol {
-        nfs?: outputs.datasync.LocationFSxOpenZFSNFS;
+    export interface LocationFSxOpenZfsProtocol {
+        nfs?: outputs.datasync.LocationFSxOpenZfsNfs;
     }
 
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface LocationFSxOpenZFSTag {
+    export interface LocationFSxOpenZfsTag {
         /**
          * The key for an AWS resource tag.
          */
@@ -10161,7 +10171,7 @@ export namespace datasync {
     /**
      * HDFS Name Node IP and port information.
      */
-    export interface LocationHDFSNameNode {
+    export interface LocationHdfsNameNode {
         /**
          * The DNS name or IP address of the Name Node in the customer's on premises HDFS cluster.
          */
@@ -10175,21 +10185,21 @@ export namespace datasync {
     /**
      * Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.
      */
-    export interface LocationHDFSQopConfiguration {
+    export interface LocationHdfsQopConfiguration {
         /**
          * Configuration for Data Transfer Protection.
          */
-        dataTransferProtection?: enums.datasync.LocationHDFSQopConfigurationDataTransferProtection;
+        dataTransferProtection?: enums.datasync.LocationHdfsQopConfigurationDataTransferProtection;
         /**
          * Configuration for RPC Protection.
          */
-        rpcProtection?: enums.datasync.LocationHDFSQopConfigurationRpcProtection;
+        rpcProtection?: enums.datasync.LocationHdfsQopConfigurationRpcProtection;
     }
 
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface LocationHDFSTag {
+    export interface LocationHdfsTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -10203,17 +10213,17 @@ export namespace datasync {
     /**
      * The NFS mount options that DataSync can use to mount your NFS share.
      */
-    export interface LocationNFSMountOptions {
+    export interface LocationNfsMountOptions {
         /**
          * The specific NFS version that you want DataSync to use to mount your NFS share.
          */
-        version?: enums.datasync.LocationNFSMountOptionsVersion;
+        version?: enums.datasync.LocationNfsMountOptionsVersion;
     }
 
     /**
      * Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
      */
-    export interface LocationNFSOnPremConfig {
+    export interface LocationNfsOnPremConfig {
         /**
          * ARN(s) of the agent(s) to use for an NFS location.
          */
@@ -10223,7 +10233,7 @@ export namespace datasync {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface LocationNFSTag {
+    export interface LocationNfsTag {
         /**
          * The key for an AWS resource tag.
          */
@@ -10249,16 +10259,6 @@ export namespace datasync {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
-     */
-    export interface LocationS3S3Config {
-        /**
-         * The ARN of the IAM role of the Amazon S3 bucket.
-         */
-        bucketAccessRoleArn: string;
-    }
-
-    /**
      * A key-value pair to associate with a resource.
      */
     export interface LocationS3Tag {
@@ -10273,19 +10273,29 @@ export namespace datasync {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
+     */
+    export interface LocationS3s3Config {
+        /**
+         * The ARN of the IAM role of the Amazon S3 bucket.
+         */
+        bucketAccessRoleArn: string;
+    }
+
+    /**
      * The mount options used by DataSync to access the SMB server.
      */
-    export interface LocationSMBMountOptions {
+    export interface LocationSmbMountOptions {
         /**
          * The specific SMB version that you want DataSync to use to mount your SMB share.
          */
-        version?: enums.datasync.LocationSMBMountOptionsVersion;
+        version?: enums.datasync.LocationSmbMountOptionsVersion;
     }
 
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface LocationSMBTag {
+    export interface LocationSmbTag {
         /**
          * The key for an AWS resource tag.
          */
@@ -10445,7 +10455,7 @@ export namespace datasync {
 }
 
 export namespace dax {
-    export interface ClusterSSESpecification {
+    export interface ClusterSseSpecification {
         sseEnabled?: boolean;
     }
 
@@ -10545,7 +10555,7 @@ export namespace devicefarm {
         vpcId: string;
     }
 
-    export interface VPCEConfigurationTag {
+    export interface VpceConfigurationTag {
         key: string;
         value: string;
     }
@@ -10611,12 +10621,12 @@ export namespace devopsguru {
 }
 
 export namespace directoryservice {
-    export interface MicrosoftADVpcSettings {
+    export interface MicrosoftAdVpcSettings {
         subnetIds: string[];
         vpcId: string;
     }
 
-    export interface SimpleADVpcSettings {
+    export interface SimpleAdVpcSettings {
         /**
          * The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
          */
@@ -10782,7 +10792,7 @@ export namespace dms {
         serviceAccessRoleArn?: string;
     }
 
-    export interface EndpointGcpMySQLSettings {
+    export interface EndpointGcpMySqlSettings {
         afterConnectScript?: string;
         cleanSourceMetadataOnMismatch?: boolean;
         databaseName?: string;
@@ -11088,22 +11098,22 @@ export namespace dms {
 }
 
 export namespace docdb {
-    export interface DBClusterParameterGroupTag {
+    export interface DbClusterParameterGroupTag {
         key: string;
         value: string;
     }
 
-    export interface DBClusterTag {
+    export interface DbClusterTag {
         key: string;
         value: string;
     }
 
-    export interface DBInstanceTag {
+    export interface DbInstanceTag {
         key: string;
         value: string;
     }
 
-    export interface DBSubnetGroupTag {
+    export interface DbSubnetGroupTag {
         key: string;
         value: string;
     }
@@ -11177,10 +11187,6 @@ export namespace dynamodb {
         readProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableReadProvisionedThroughputSettings;
     }
 
-    export interface GlobalTableReplicaSSESpecification {
-        kmsMasterKeyId: string;
-    }
-
     export interface GlobalTableReplicaSpecification {
         contributorInsightsSpecification?: outputs.dynamodb.GlobalTableContributorInsightsSpecification;
         deletionProtectionEnabled?: boolean;
@@ -11189,12 +11195,16 @@ export namespace dynamodb {
         pointInTimeRecoverySpecification?: outputs.dynamodb.GlobalTablePointInTimeRecoverySpecification;
         readProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableReadProvisionedThroughputSettings;
         region: string;
-        sseSpecification?: outputs.dynamodb.GlobalTableReplicaSSESpecification;
+        sseSpecification?: outputs.dynamodb.GlobalTableReplicaSseSpecification;
         tableClass?: string;
         tags?: outputs.dynamodb.GlobalTableTag[];
     }
 
-    export interface GlobalTableSSESpecification {
+    export interface GlobalTableReplicaSseSpecification {
+        kmsMasterKeyId: string;
+    }
+
+    export interface GlobalTableSseSpecification {
         sseEnabled: boolean;
         sseType?: string;
     }
@@ -11292,7 +11302,7 @@ export namespace dynamodb {
         s3KeyPrefix?: string;
     }
 
-    export interface TableSSESpecification {
+    export interface TableSseSpecification {
         kmsMasterKeyId?: string;
         sseEnabled: boolean;
         sseType?: string;
@@ -11401,123 +11411,123 @@ export namespace ec2 {
         value: string;
     }
 
-    export interface DHCPOptionsTag {
-        key: string;
-        value: string;
-    }
-
     export interface DestinationOptionsProperties {
         fileFormat: enums.ec2.FlowLogDestinationOptionsPropertiesFileFormat;
         hiveCompatiblePartitions: boolean;
         perHourPartition: boolean;
     }
 
-    export interface EC2FleetAcceleratorCountRequest {
+    export interface DhcpOptionsTag {
+        key: string;
+        value: string;
+    }
+
+    export interface Ec2FleetAcceleratorCountRequest {
         max?: number;
         min?: number;
     }
 
-    export interface EC2FleetAcceleratorTotalMemoryMiBRequest {
+    export interface Ec2FleetAcceleratorTotalMemoryMiBRequest {
         max?: number;
         min?: number;
     }
 
-    export interface EC2FleetBaselineEbsBandwidthMbpsRequest {
+    export interface Ec2FleetBaselineEbsBandwidthMbpsRequest {
         max?: number;
         min?: number;
     }
 
-    export interface EC2FleetCapacityRebalance {
-        replacementStrategy?: enums.ec2.EC2FleetCapacityRebalanceReplacementStrategy;
+    export interface Ec2FleetCapacityRebalance {
+        replacementStrategy?: enums.ec2.Ec2FleetCapacityRebalanceReplacementStrategy;
         terminationDelay?: number;
     }
 
-    export interface EC2FleetCapacityReservationOptionsRequest {
-        usageStrategy?: enums.ec2.EC2FleetCapacityReservationOptionsRequestUsageStrategy;
+    export interface Ec2FleetCapacityReservationOptionsRequest {
+        usageStrategy?: enums.ec2.Ec2FleetCapacityReservationOptionsRequestUsageStrategy;
     }
 
-    export interface EC2FleetFleetLaunchTemplateConfigRequest {
-        launchTemplateSpecification?: outputs.ec2.EC2FleetFleetLaunchTemplateSpecificationRequest;
-        overrides?: outputs.ec2.EC2FleetFleetLaunchTemplateOverridesRequest[];
+    export interface Ec2FleetFleetLaunchTemplateConfigRequest {
+        launchTemplateSpecification?: outputs.ec2.Ec2FleetFleetLaunchTemplateSpecificationRequest;
+        overrides?: outputs.ec2.Ec2FleetFleetLaunchTemplateOverridesRequest[];
     }
 
-    export interface EC2FleetFleetLaunchTemplateOverridesRequest {
+    export interface Ec2FleetFleetLaunchTemplateOverridesRequest {
         availabilityZone?: string;
-        instanceRequirements?: outputs.ec2.EC2FleetInstanceRequirementsRequest;
+        instanceRequirements?: outputs.ec2.Ec2FleetInstanceRequirementsRequest;
         instanceType?: string;
         maxPrice?: string;
-        placement?: outputs.ec2.EC2FleetPlacement;
+        placement?: outputs.ec2.Ec2FleetPlacement;
         priority?: number;
         subnetId?: string;
         weightedCapacity?: number;
     }
 
-    export interface EC2FleetFleetLaunchTemplateSpecificationRequest {
+    export interface Ec2FleetFleetLaunchTemplateSpecificationRequest {
         launchTemplateId?: string;
         launchTemplateName?: string;
         version: string;
     }
 
-    export interface EC2FleetInstanceRequirementsRequest {
-        acceleratorCount?: outputs.ec2.EC2FleetAcceleratorCountRequest;
-        acceleratorManufacturers?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem[];
-        acceleratorNames?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorNamesItem[];
-        acceleratorTotalMemoryMiB?: outputs.ec2.EC2FleetAcceleratorTotalMemoryMiBRequest;
-        acceleratorTypes?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorTypesItem[];
+    export interface Ec2FleetInstanceRequirementsRequest {
+        acceleratorCount?: outputs.ec2.Ec2FleetAcceleratorCountRequest;
+        acceleratorManufacturers?: enums.ec2.Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem[];
+        acceleratorNames?: enums.ec2.Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem[];
+        acceleratorTotalMemoryMiB?: outputs.ec2.Ec2FleetAcceleratorTotalMemoryMiBRequest;
+        acceleratorTypes?: enums.ec2.Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem[];
         allowedInstanceTypes?: string[];
-        bareMetal?: enums.ec2.EC2FleetInstanceRequirementsRequestBareMetal;
-        baselineEbsBandwidthMbps?: outputs.ec2.EC2FleetBaselineEbsBandwidthMbpsRequest;
-        burstablePerformance?: enums.ec2.EC2FleetInstanceRequirementsRequestBurstablePerformance;
-        cpuManufacturers?: enums.ec2.EC2FleetInstanceRequirementsRequestCpuManufacturersItem[];
+        bareMetal?: enums.ec2.Ec2FleetInstanceRequirementsRequestBareMetal;
+        baselineEbsBandwidthMbps?: outputs.ec2.Ec2FleetBaselineEbsBandwidthMbpsRequest;
+        burstablePerformance?: enums.ec2.Ec2FleetInstanceRequirementsRequestBurstablePerformance;
+        cpuManufacturers?: enums.ec2.Ec2FleetInstanceRequirementsRequestCpuManufacturersItem[];
         excludedInstanceTypes?: string[];
-        instanceGenerations?: enums.ec2.EC2FleetInstanceRequirementsRequestInstanceGenerationsItem[];
-        localStorage?: enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorage;
-        localStorageTypes?: enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorageTypesItem[];
-        memoryGiBPerVCpu?: outputs.ec2.EC2FleetMemoryGiBPerVCpuRequest;
-        memoryMiB?: outputs.ec2.EC2FleetMemoryMiBRequest;
-        networkBandwidthGbps?: outputs.ec2.EC2FleetNetworkBandwidthGbpsRequest;
-        networkInterfaceCount?: outputs.ec2.EC2FleetNetworkInterfaceCountRequest;
+        instanceGenerations?: enums.ec2.Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem[];
+        localStorage?: enums.ec2.Ec2FleetInstanceRequirementsRequestLocalStorage;
+        localStorageTypes?: enums.ec2.Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem[];
+        memoryGiBPerVCpu?: outputs.ec2.Ec2FleetMemoryGiBPerVCpuRequest;
+        memoryMiB?: outputs.ec2.Ec2FleetMemoryMiBRequest;
+        networkBandwidthGbps?: outputs.ec2.Ec2FleetNetworkBandwidthGbpsRequest;
+        networkInterfaceCount?: outputs.ec2.Ec2FleetNetworkInterfaceCountRequest;
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
         spotMaxPricePercentageOverLowestPrice?: number;
-        totalLocalStorageGb?: outputs.ec2.EC2FleetTotalLocalStorageGBRequest;
-        vCpuCount?: outputs.ec2.EC2FleetVCpuCountRangeRequest;
+        totalLocalStorageGb?: outputs.ec2.Ec2FleetTotalLocalStorageGbRequest;
+        vCpuCount?: outputs.ec2.Ec2FleetVCpuCountRangeRequest;
     }
 
-    export interface EC2FleetMaintenanceStrategies {
-        capacityRebalance?: outputs.ec2.EC2FleetCapacityRebalance;
+    export interface Ec2FleetMaintenanceStrategies {
+        capacityRebalance?: outputs.ec2.Ec2FleetCapacityRebalance;
     }
 
-    export interface EC2FleetMemoryGiBPerVCpuRequest {
+    export interface Ec2FleetMemoryGiBPerVCpuRequest {
         max?: number;
         min?: number;
     }
 
-    export interface EC2FleetMemoryMiBRequest {
+    export interface Ec2FleetMemoryMiBRequest {
         max?: number;
         min?: number;
     }
 
-    export interface EC2FleetNetworkBandwidthGbpsRequest {
+    export interface Ec2FleetNetworkBandwidthGbpsRequest {
         max?: number;
         min?: number;
     }
 
-    export interface EC2FleetNetworkInterfaceCountRequest {
+    export interface Ec2FleetNetworkInterfaceCountRequest {
         max?: number;
         min?: number;
     }
 
-    export interface EC2FleetOnDemandOptionsRequest {
+    export interface Ec2FleetOnDemandOptionsRequest {
         allocationStrategy?: string;
-        capacityReservationOptions?: outputs.ec2.EC2FleetCapacityReservationOptionsRequest;
+        capacityReservationOptions?: outputs.ec2.Ec2FleetCapacityReservationOptionsRequest;
         maxTotalPrice?: string;
         minTargetCapacity?: number;
         singleAvailabilityZone?: boolean;
         singleInstanceType?: boolean;
     }
 
-    export interface EC2FleetPlacement {
+    export interface Ec2FleetPlacement {
         affinity?: string;
         availabilityZone?: string;
         groupName?: string;
@@ -11528,149 +11538,52 @@ export namespace ec2 {
         tenancy?: string;
     }
 
-    export interface EC2FleetSpotOptionsRequest {
-        allocationStrategy?: enums.ec2.EC2FleetSpotOptionsRequestAllocationStrategy;
-        instanceInterruptionBehavior?: enums.ec2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior;
+    export interface Ec2FleetSpotOptionsRequest {
+        allocationStrategy?: enums.ec2.Ec2FleetSpotOptionsRequestAllocationStrategy;
+        instanceInterruptionBehavior?: enums.ec2.Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior;
         instancePoolsToUseCount?: number;
-        maintenanceStrategies?: outputs.ec2.EC2FleetMaintenanceStrategies;
+        maintenanceStrategies?: outputs.ec2.Ec2FleetMaintenanceStrategies;
         maxTotalPrice?: string;
         minTargetCapacity?: number;
         singleAvailabilityZone?: boolean;
         singleInstanceType?: boolean;
     }
 
-    export interface EC2FleetTag {
+    export interface Ec2FleetTag {
         key: string;
         value: string;
     }
 
-    export interface EC2FleetTagSpecification {
-        resourceType?: enums.ec2.EC2FleetTagSpecificationResourceType;
-        tags?: outputs.ec2.EC2FleetTag[];
+    export interface Ec2FleetTagSpecification {
+        resourceType?: enums.ec2.Ec2FleetTagSpecificationResourceType;
+        tags?: outputs.ec2.Ec2FleetTag[];
     }
 
-    export interface EC2FleetTargetCapacitySpecificationRequest {
-        defaultTargetCapacityType?: enums.ec2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType;
+    export interface Ec2FleetTargetCapacitySpecificationRequest {
+        defaultTargetCapacityType?: enums.ec2.Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType;
         onDemandTargetCapacity?: number;
         spotTargetCapacity?: number;
-        targetCapacityUnitType?: enums.ec2.EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType;
+        targetCapacityUnitType?: enums.ec2.Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType;
         totalTargetCapacity: number;
     }
 
-    export interface EC2FleetTotalLocalStorageGBRequest {
+    export interface Ec2FleetTotalLocalStorageGbRequest {
         max?: number;
         min?: number;
     }
 
-    export interface EC2FleetVCpuCountRangeRequest {
+    export interface Ec2FleetVCpuCountRangeRequest {
         max?: number;
         min?: number;
     }
 
-    export interface EIPTag {
+    export interface EipTag {
         key: string;
         value: string;
     }
 
     export interface FlowLogTag {
         key: string;
-        value: string;
-    }
-
-    /**
-     * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-     */
-    export interface IPAMIpamOperatingRegion {
-        /**
-         * The name of the region.
-         */
-        regionName: string;
-    }
-
-    /**
-     * An address space to be inserted into this pool. All allocations must be made from this address space.
-     */
-    export interface IPAMPoolProvisionedCidr {
-        cidr: string;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IPAMPoolTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IPAMResourceDiscoveryAssociationTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
-    }
-
-    /**
-     * The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
-     */
-    export interface IPAMResourceDiscoveryIpamOperatingRegion {
-        /**
-         * The name of the region.
-         */
-        regionName: string;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IPAMResourceDiscoveryTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IPAMScopeTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IPAMTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
         value: string;
     }
 
@@ -11783,6 +11696,103 @@ export namespace ec2 {
 
     export interface InternetGatewayTag {
         key: string;
+        value: string;
+    }
+
+    /**
+     * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+     */
+    export interface IpamOperatingRegion {
+        /**
+         * The name of the region.
+         */
+        regionName: string;
+    }
+
+    /**
+     * An address space to be inserted into this pool. All allocations must be made from this address space.
+     */
+    export interface IpamPoolProvisionedCidr {
+        cidr: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IpamPoolTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IpamResourceDiscoveryAssociationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+     */
+    export interface IpamResourceDiscoveryIpamOperatingRegion {
+        /**
+         * The name of the region.
+         */
+        regionName: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IpamResourceDiscoveryTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IpamScopeTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IpamTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
@@ -12170,7 +12180,7 @@ export namespace ec2 {
          * The price protection threshold for Spot Instances.
          */
         spotMaxPricePercentageOverLowestPrice?: number;
-        totalLocalStorageGb?: outputs.ec2.LaunchTemplateTotalLocalStorageGB;
+        totalLocalStorageGb?: outputs.ec2.LaunchTemplateTotalLocalStorageGb;
         vCpuCount?: outputs.ec2.LaunchTemplateVCpuCount;
     }
 
@@ -12511,7 +12521,7 @@ export namespace ec2 {
     /**
      * The minimum and maximum amount of total local storage, in GB.
      */
-    export interface LaunchTemplateTotalLocalStorageGB {
+    export interface LaunchTemplateTotalLocalStorageGb {
         max?: number;
         min?: number;
     }
@@ -12535,12 +12545,12 @@ export namespace ec2 {
         value?: string;
     }
 
-    export interface LocalGatewayRouteTableVPCAssociationTag {
+    export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag {
         key?: string;
         value?: string;
     }
 
-    export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag {
+    export interface LocalGatewayRouteTableVpcAssociationTag {
         key?: string;
         value?: string;
     }
@@ -12974,7 +12984,7 @@ export namespace ec2 {
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
         spotMaxPricePercentageOverLowestPrice?: number;
-        totalLocalStorageGb?: outputs.ec2.SpotFleetTotalLocalStorageGBRequest;
+        totalLocalStorageGb?: outputs.ec2.SpotFleetTotalLocalStorageGbRequest;
         vCpuCount?: outputs.ec2.SpotFleetVCpuCountRangeRequest;
     }
 
@@ -13107,7 +13117,7 @@ export namespace ec2 {
         targetGroups: outputs.ec2.SpotFleetTargetGroup[];
     }
 
-    export interface SpotFleetTotalLocalStorageGBRequest {
+    export interface SpotFleetTotalLocalStorageGbRequest {
         max?: number;
         min?: number;
     }
@@ -13223,40 +13233,6 @@ export namespace ec2 {
     }
 
     export interface TransitGatewayVpcAttachmentTag {
-        key: string;
-        value: string;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface VPCPeeringConnectionTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
-    }
-
-    export interface VPCTag {
-        key: string;
-        value: string;
-    }
-
-    export interface VPNConnectionTag {
-        key: string;
-        value: string;
-    }
-
-    export interface VPNConnectionVpnTunnelOptionsSpecification {
-        preSharedKey?: string;
-        tunnelInsideCidr?: string;
-    }
-
-    export interface VPNGatewayTag {
         key: string;
         value: string;
     }
@@ -13511,6 +13487,40 @@ export namespace ec2 {
         /**
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VpcPeeringConnectionTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    export interface VpcTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VpnConnectionTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VpnConnectionVpnTunnelOptionsSpecification {
+        preSharedKey?: string;
+        tunnelInsideCidr?: string;
+    }
+
+    export interface VpnGatewayTag {
+        key: string;
         value: string;
     }
 
@@ -13815,7 +13825,7 @@ export namespace ecs {
 
     export interface TaskDefinitionAuthorizationConfig {
         accessPointId?: string;
-        iam?: enums.ecs.TaskDefinitionAuthorizationConfigIAM;
+        iam?: enums.ecs.TaskDefinitionAuthorizationConfigIam;
     }
 
     /**
@@ -13900,11 +13910,11 @@ export namespace ecs {
         scope?: string;
     }
 
-    export interface TaskDefinitionEFSVolumeConfiguration {
+    export interface TaskDefinitionEfsVolumeConfiguration {
         authorizationConfig?: outputs.ecs.TaskDefinitionAuthorizationConfig;
         filesystemId: string;
         rootDirectory?: string;
-        transitEncryption?: enums.ecs.TaskDefinitionEFSVolumeConfigurationTransitEncryption;
+        transitEncryption?: enums.ecs.TaskDefinitionEfsVolumeConfigurationTransitEncryption;
         transitEncryptionPort?: number;
     }
 
@@ -14057,7 +14067,7 @@ export namespace ecs {
 
     export interface TaskDefinitionVolume {
         dockerVolumeConfiguration?: outputs.ecs.TaskDefinitionDockerVolumeConfiguration;
-        efsVolumeConfiguration?: outputs.ecs.TaskDefinitionEFSVolumeConfiguration;
+        efsVolumeConfiguration?: outputs.ecs.TaskDefinitionEfsVolumeConfiguration;
         host?: outputs.ecs.TaskDefinitionHostVolumeProperties;
         name?: string;
     }
@@ -14827,7 +14837,7 @@ export namespace elasticloadbalancing {
         unhealthyThreshold: string;
     }
 
-    export interface LoadBalancerLBCookieStickinessPolicy {
+    export interface LoadBalancerLbCookieStickinessPolicy {
         cookieExpirationPeriod?: string;
         policyName?: string;
     }
@@ -15126,7 +15136,7 @@ export namespace elasticsearch {
         enabled?: boolean;
     }
 
-    export interface DomainEBSOptions {
+    export interface DomainEbsOptions {
         ebsEnabled?: boolean;
         iops?: number;
         volumeSize?: number;
@@ -15179,7 +15189,7 @@ export namespace elasticsearch {
         value: string;
     }
 
-    export interface DomainVPCOptions {
+    export interface DomainVpcOptions {
         securityGroupIds?: string[];
         subnetIds?: string[];
     }
@@ -16256,7 +16266,7 @@ export namespace fms {
     /**
      * An FMS includeMap or excludeMap.
      */
-    export interface PolicyIEMap {
+    export interface PolicyIeMap {
         account?: string[];
         orgunit?: string[];
     }
@@ -16319,7 +16329,7 @@ export namespace fms {
 }
 
 export namespace forecast {
-    export interface AttributesItemProperties {
+    export interface DatasetAttributesItemProperties {
         /**
          * Name of the dataset field
          */
@@ -16350,7 +16360,7 @@ export namespace forecast {
     }
 
     export interface SchemaProperties {
-        attributes?: outputs.forecast.AttributesItemProperties[];
+        attributes?: outputs.forecast.DatasetAttributesItemProperties[];
     }
 
     /**
@@ -16721,7 +16731,7 @@ export namespace fsx {
         weeklyMaintenanceStartTime?: string;
     }
 
-    export interface FileSystemOpenZFSConfiguration {
+    export interface FileSystemOpenZfsConfiguration {
         automaticBackupRetentionDays?: number;
         copyTagsToBackups?: boolean;
         copyTagsToVolumes?: boolean;
@@ -16828,7 +16838,7 @@ export namespace fsx {
         tieringPolicy?: outputs.fsx.VolumeTieringPolicy;
     }
 
-    export interface VolumeOpenZFSConfiguration {
+    export interface VolumeOpenZfsConfiguration {
         copyTagsToSnapshots?: boolean;
         dataCompressionType?: string;
         nfsExports?: outputs.fsx.VolumeNfsExports[];
@@ -17228,7 +17238,7 @@ export namespace glue {
         name?: string;
     }
 
-    export interface ClassifierXMLClassifier {
+    export interface ClassifierXmlClassifier {
         classification: string;
         name?: string;
         rowTag: string;
@@ -17264,7 +17274,7 @@ export namespace glue {
         writeManifest?: boolean;
     }
 
-    export interface CrawlerDynamoDBTarget {
+    export interface CrawlerDynamoDbTarget {
         path?: string;
     }
 
@@ -17274,7 +17284,7 @@ export namespace glue {
         path?: string;
     }
 
-    export interface CrawlerMongoDBTarget {
+    export interface CrawlerMongoDbTarget {
         connectionName?: string;
         path?: string;
     }
@@ -17304,9 +17314,9 @@ export namespace glue {
     export interface CrawlerTargets {
         catalogTargets?: outputs.glue.CrawlerCatalogTarget[];
         deltaTargets?: outputs.glue.CrawlerDeltaTarget[];
-        dynamoDbTargets?: outputs.glue.CrawlerDynamoDBTarget[];
+        dynamoDbTargets?: outputs.glue.CrawlerDynamoDbTarget[];
         jdbcTargets?: outputs.glue.CrawlerJdbcTarget[];
-        mongoDbTargets?: outputs.glue.CrawlerMongoDBTarget[];
+        mongoDbTargets?: outputs.glue.CrawlerMongoDbTarget[];
         s3Targets?: outputs.glue.CrawlerS3Target[];
     }
 
@@ -17378,36 +17388,36 @@ export namespace glue {
         notifyDelayAfter?: number;
     }
 
-    export interface MLTransformFindMatchesParameters {
+    export interface MlTransformFindMatchesParameters {
         accuracyCostTradeoff?: number;
         enforceProvidedLabels?: boolean;
         precisionRecallTradeoff?: number;
         primaryKeyColumnName: string;
     }
 
-    export interface MLTransformGlueTables {
+    export interface MlTransformGlueTables {
         catalogId?: string;
         connectionName?: string;
         databaseName: string;
         tableName: string;
     }
 
-    export interface MLTransformInputRecordTables {
-        glueTables?: outputs.glue.MLTransformGlueTables[];
+    export interface MlTransformInputRecordTables {
+        glueTables?: outputs.glue.MlTransformGlueTables[];
     }
 
-    export interface MLTransformMLUserDataEncryption {
+    export interface MlTransformMlUserDataEncryption {
         kmsKeyId?: string;
         mlUserDataEncryptionMode: string;
     }
 
-    export interface MLTransformTransformEncryption {
-        mlUserDataEncryption?: outputs.glue.MLTransformMLUserDataEncryption;
+    export interface MlTransformTransformEncryption {
+        mlUserDataEncryption?: outputs.glue.MlTransformMlUserDataEncryption;
         taskRunSecurityConfigurationName?: string;
     }
 
-    export interface MLTransformTransformParameters {
-        findMatchesParameters?: outputs.glue.MLTransformFindMatchesParameters;
+    export interface MlTransformTransformParameters {
+        findMatchesParameters?: outputs.glue.MlTransformFindMatchesParameters;
         transformType: string;
     }
 
@@ -18369,30 +18379,30 @@ export namespace groundstation {
 }
 
 export namespace guardduty {
-    export interface DetectorCFNDataSourceConfigurations {
-        kubernetes?: outputs.guardduty.DetectorCFNKubernetesConfiguration;
-        malwareProtection?: outputs.guardduty.DetectorCFNMalwareProtectionConfiguration;
-        s3Logs?: outputs.guardduty.DetectorCFNS3LogsConfiguration;
+    export interface DetectorCfnDataSourceConfigurations {
+        kubernetes?: outputs.guardduty.DetectorCfnKubernetesConfiguration;
+        malwareProtection?: outputs.guardduty.DetectorCfnMalwareProtectionConfiguration;
+        s3Logs?: outputs.guardduty.DetectorCfns3LogsConfiguration;
     }
 
-    export interface DetectorCFNKubernetesAuditLogsConfiguration {
+    export interface DetectorCfnKubernetesAuditLogsConfiguration {
         enable?: boolean;
     }
 
-    export interface DetectorCFNKubernetesConfiguration {
-        auditLogs?: outputs.guardduty.DetectorCFNKubernetesAuditLogsConfiguration;
+    export interface DetectorCfnKubernetesConfiguration {
+        auditLogs?: outputs.guardduty.DetectorCfnKubernetesAuditLogsConfiguration;
     }
 
-    export interface DetectorCFNMalwareProtectionConfiguration {
-        scanEc2InstanceWithFindings?: outputs.guardduty.DetectorCFNScanEc2InstanceWithFindingsConfiguration;
+    export interface DetectorCfnMalwareProtectionConfiguration {
+        scanEc2InstanceWithFindings?: outputs.guardduty.DetectorCfnScanEc2InstanceWithFindingsConfiguration;
     }
 
-    export interface DetectorCFNS3LogsConfiguration {
-        enable?: boolean;
-    }
-
-    export interface DetectorCFNScanEc2InstanceWithFindingsConfiguration {
+    export interface DetectorCfnScanEc2InstanceWithFindingsConfiguration {
         ebsVolumes?: boolean;
+    }
+
+    export interface DetectorCfns3LogsConfiguration {
+        enable?: boolean;
     }
 
     export interface DetectorFeatureAdditionalConfiguration {
@@ -18436,7 +18446,7 @@ export namespace guardduty {
         value: string;
     }
 
-    export interface IPSetTag {
+    export interface IpSetTag {
         key: string;
         value: string;
     }
@@ -18452,7 +18462,7 @@ export namespace healthlake {
     /**
      * The time that a Data Store was created.
      */
-    export interface FHIRDatastoreCreatedAt {
+    export interface FhirDatastoreCreatedAt {
         /**
          * Nanoseconds.
          */
@@ -18466,11 +18476,11 @@ export namespace healthlake {
     /**
      * The identity provider configuration for the datastore
      */
-    export interface FHIRDatastoreIdentityProviderConfiguration {
+    export interface FhirDatastoreIdentityProviderConfiguration {
         /**
          * Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
          */
-        authorizationStrategy: enums.healthlake.FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy;
+        authorizationStrategy: enums.healthlake.FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy;
         /**
          * Flag to indicate if fine-grained authorization will be enabled for the datastore
          */
@@ -18488,11 +18498,11 @@ export namespace healthlake {
     /**
      * The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
      */
-    export interface FHIRDatastoreKmsEncryptionConfig {
+    export interface FhirDatastoreKmsEncryptionConfig {
         /**
          * The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
          */
-        cmkType: enums.healthlake.FHIRDatastoreKmsEncryptionConfigCmkType;
+        cmkType: enums.healthlake.FhirDatastoreKmsEncryptionConfigCmkType;
         /**
          * The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
          */
@@ -18502,24 +18512,24 @@ export namespace healthlake {
     /**
      * The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
      */
-    export interface FHIRDatastorePreloadDataConfig {
+    export interface FhirDatastorePreloadDataConfig {
         /**
          * The type of preloaded data. Only Synthea preloaded data is supported.
          */
-        preloadDataType: enums.healthlake.FHIRDatastorePreloadDataConfigPreloadDataType;
+        preloadDataType: enums.healthlake.FhirDatastorePreloadDataConfigPreloadDataType;
     }
 
     /**
      * The server-side encryption key configuration for a customer provided encryption key.
      */
-    export interface FHIRDatastoreSseConfiguration {
-        kmsEncryptionConfig: outputs.healthlake.FHIRDatastoreKmsEncryptionConfig;
+    export interface FhirDatastoreSseConfiguration {
+        kmsEncryptionConfig: outputs.healthlake.FhirDatastoreKmsEncryptionConfig;
     }
 
     /**
      * A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
      */
-    export interface FHIRDatastoreTag {
+    export interface FhirDatastoreTag {
         /**
          * The key of the tag.
          */
@@ -18541,7 +18551,7 @@ export namespace iam {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface OIDCProviderTag {
+    export interface OidcProviderTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -18583,7 +18593,7 @@ export namespace iam {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface SAMLProviderTag {
+    export interface SamlProviderTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -18626,7 +18636,7 @@ export namespace iam {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface VirtualMFADeviceTag {
+    export interface VirtualMfaDeviceTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -19389,7 +19399,7 @@ export namespace iot {
         value: string;
     }
 
-    export interface CACertificateRegistrationConfig {
+    export interface CaCertificateRegistrationConfig {
         roleArn?: string;
         templateBody?: string;
         templateName?: string;
@@ -19398,7 +19408,7 @@ export namespace iot {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface CACertificateTag {
+    export interface CaCertificateTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -19586,7 +19596,7 @@ export namespace iot {
         enableIoTLoggingParams?: outputs.iot.MitigationActionEnableIoTLoggingParams;
         publishFindingToSnsParams?: outputs.iot.MitigationActionPublishFindingToSnsParams;
         replaceDefaultPolicyVersionParams?: outputs.iot.MitigationActionReplaceDefaultPolicyVersionParams;
-        updateCaCertificateParams?: outputs.iot.MitigationActionUpdateCACertificateParams;
+        updateCaCertificateParams?: outputs.iot.MitigationActionUpdateCaCertificateParams;
         updateDeviceCertificateParams?: outputs.iot.MitigationActionUpdateDeviceCertificateParams;
     }
 
@@ -19652,8 +19662,8 @@ export namespace iot {
     /**
      * Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
      */
-    export interface MitigationActionUpdateCACertificateParams {
-        action: enums.iot.MitigationActionUpdateCACertificateParamsAction;
+    export interface MitigationActionUpdateCaCertificateParams {
+        action: enums.iot.MitigationActionUpdateCaCertificateParamsAction;
     }
 
     /**
@@ -19901,7 +19911,7 @@ export namespace iot {
         cloudwatchLogs?: outputs.iot.TopicRuleCloudwatchLogsAction;
         cloudwatchMetric?: outputs.iot.TopicRuleCloudwatchMetricAction;
         dynamoDBv2?: outputs.iot.TopicRuleDynamoDBv2Action;
-        dynamoDb?: outputs.iot.TopicRuleDynamoDBAction;
+        dynamoDb?: outputs.iot.TopicRuleDynamoDbAction;
         elasticsearch?: outputs.iot.TopicRuleElasticsearchAction;
         firehose?: outputs.iot.TopicRuleFirehoseAction;
         http?: outputs.iot.TopicRuleHttpAction;
@@ -19972,7 +19982,12 @@ export namespace iot {
         vpcId?: string;
     }
 
-    export interface TopicRuleDynamoDBAction {
+    export interface TopicRuleDynamoDBv2Action {
+        putItem?: outputs.iot.TopicRulePutItemInput;
+        roleArn?: string;
+    }
+
+    export interface TopicRuleDynamoDbAction {
         hashKeyField: string;
         hashKeyType?: string;
         hashKeyValue: string;
@@ -19982,11 +19997,6 @@ export namespace iot {
         rangeKeyValue?: string;
         roleArn: string;
         tableName: string;
-    }
-
-    export interface TopicRuleDynamoDBv2Action {
-        putItem?: outputs.iot.TopicRulePutItemInput;
-        roleArn?: string;
     }
 
     export interface TopicRuleElasticsearchAction {
@@ -20529,7 +20539,7 @@ export namespace iotevents {
      */
     export interface AlarmModelAlarmAction {
         dynamoDBv2?: outputs.iotevents.AlarmModelDynamoDBv2;
-        dynamoDb?: outputs.iotevents.AlarmModelDynamoDB;
+        dynamoDb?: outputs.iotevents.AlarmModelDynamoDb;
         firehose?: outputs.iotevents.AlarmModelFirehose;
         iotEvents?: outputs.iotevents.AlarmModelIotEvents;
         iotSiteWise?: outputs.iotevents.AlarmModelIotSiteWise;
@@ -20610,9 +20620,22 @@ export namespace iotevents {
     }
 
     /**
+     * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+     *
+     * You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+     */
+    export interface AlarmModelDynamoDBv2 {
+        payload?: outputs.iotevents.AlarmModelPayload;
+        /**
+         * The name of the DynamoDB table.
+         */
+        tableName: string;
+    }
+
+    /**
      * Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
      */
-    export interface AlarmModelDynamoDB {
+    export interface AlarmModelDynamoDb {
         /**
          * The name of the hash key (also called the partition key).
          */
@@ -20668,19 +20691,6 @@ export namespace iotevents {
          * The value of the range key (also called the sort key).
          */
         rangeKeyValue?: string;
-        /**
-         * The name of the DynamoDB table.
-         */
-        tableName: string;
-    }
-
-    /**
-     * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-     *
-     * You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
-     */
-    export interface AlarmModelDynamoDBv2 {
-        payload?: outputs.iotevents.AlarmModelPayload;
         /**
          * The name of the DynamoDB table.
          */
@@ -20842,7 +20852,7 @@ export namespace iotevents {
     export interface DetectorModelAction {
         clearTimer?: outputs.iotevents.DetectorModelClearTimer;
         dynamoDBv2?: outputs.iotevents.DetectorModelDynamoDBv2;
-        dynamoDb?: outputs.iotevents.DetectorModelDynamoDB;
+        dynamoDb?: outputs.iotevents.DetectorModelDynamoDb;
         firehose?: outputs.iotevents.DetectorModelFirehose;
         iotEvents?: outputs.iotevents.DetectorModelIotEvents;
         iotSiteWise?: outputs.iotevents.DetectorModelIotSiteWise;
@@ -20925,9 +20935,22 @@ export namespace iotevents {
     }
 
     /**
+     * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+     *
+     * You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+     */
+    export interface DetectorModelDynamoDBv2 {
+        payload?: outputs.iotevents.DetectorModelPayload;
+        /**
+         * The name of the DynamoDB table.
+         */
+        tableName: string;
+    }
+
+    /**
      * Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
      */
-    export interface DetectorModelDynamoDB {
+    export interface DetectorModelDynamoDb {
         /**
          * The name of the hash key (also called the partition key).
          */
@@ -20983,19 +21006,6 @@ export namespace iotevents {
          * The value of the range key (also called the sort key).
          */
         rangeKeyValue?: string;
-        /**
-         * The name of the DynamoDB table.
-         */
-        tableName: string;
-    }
-
-    /**
-     * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-     *
-     * You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
-     */
-    export interface DetectorModelDynamoDBv2 {
-        payload?: outputs.iotevents.DetectorModelPayload;
         /**
          * The name of the DynamoDB table.
          */
@@ -21308,11 +21318,27 @@ export namespace iotfleethub {
 }
 
 export namespace iotfleetwise {
+    export interface CampaignCollectionScheme0Properties {
+        timeBasedCollectionScheme: outputs.iotfleetwise.CampaignTimeBasedCollectionScheme;
+    }
+
+    export interface CampaignCollectionScheme1Properties {
+        conditionBasedCollectionScheme: outputs.iotfleetwise.CampaignConditionBasedCollectionScheme;
+    }
+
     export interface CampaignConditionBasedCollectionScheme {
         conditionLanguageVersion?: number;
         expression: string;
         minimumTriggerIntervalMs?: number;
         triggerMode?: enums.iotfleetwise.CampaignTriggerMode;
+    }
+
+    export interface CampaignDataDestinationConfig0Properties {
+        s3Config: outputs.iotfleetwise.CampaignS3Config;
+    }
+
+    export interface CampaignDataDestinationConfig1Properties {
+        timestreamConfig: outputs.iotfleetwise.CampaignTimestreamConfig;
     }
 
     export interface CampaignS3Config {
@@ -21340,22 +21366,6 @@ export namespace iotfleetwise {
     export interface CampaignTimestreamConfig {
         executionRoleArn: string;
         timestreamTableArn: string;
-    }
-
-    export interface CollectionScheme0Properties {
-        timeBasedCollectionScheme: outputs.iotfleetwise.CampaignTimeBasedCollectionScheme;
-    }
-
-    export interface CollectionScheme1Properties {
-        conditionBasedCollectionScheme: outputs.iotfleetwise.CampaignConditionBasedCollectionScheme;
-    }
-
-    export interface DataDestinationConfig0Properties {
-        s3Config: outputs.iotfleetwise.CampaignS3Config;
-    }
-
-    export interface DataDestinationConfig1Properties {
-        timestreamConfig: outputs.iotfleetwise.CampaignTimestreamConfig;
     }
 
     export interface DecoderManifestCanInterface {
@@ -21438,22 +21448,6 @@ export namespace iotfleetwise {
         value: string;
     }
 
-    export interface Node0Properties {
-        branch?: outputs.iotfleetwise.SignalCatalogBranch;
-    }
-
-    export interface Node1Properties {
-        sensor?: outputs.iotfleetwise.SignalCatalogSensor;
-    }
-
-    export interface Node2Properties {
-        actuator?: outputs.iotfleetwise.SignalCatalogActuator;
-    }
-
-    export interface Node3Properties {
-        attribute?: outputs.iotfleetwise.SignalCatalogAttribute;
-    }
-
     export interface SignalCatalogActuator {
         allowedValues?: string[];
         assignedValue?: string;
@@ -21480,6 +21474,22 @@ export namespace iotfleetwise {
     export interface SignalCatalogBranch {
         description?: string;
         fullyQualifiedName: string;
+    }
+
+    export interface SignalCatalogNode0Properties {
+        branch?: outputs.iotfleetwise.SignalCatalogBranch;
+    }
+
+    export interface SignalCatalogNode1Properties {
+        sensor?: outputs.iotfleetwise.SignalCatalogSensor;
+    }
+
+    export interface SignalCatalogNode2Properties {
+        actuator?: outputs.iotfleetwise.SignalCatalogActuator;
+    }
+
+    export interface SignalCatalogNode3Properties {
+        attribute?: outputs.iotfleetwise.SignalCatalogAttribute;
     }
 
     export interface SignalCatalogNodeCounts {
@@ -21903,7 +21913,7 @@ export namespace iotwireless {
         value?: string;
     }
 
-    export interface DeviceProfileLoRaWANDeviceProfile {
+    export interface DeviceProfileLoRaWanDeviceProfile {
         classBTimeout?: number;
         classCTimeout?: number;
         factoryPresetFreqsList?: number[];
@@ -21930,7 +21940,7 @@ export namespace iotwireless {
         value?: string;
     }
 
-    export interface FuotaTaskLoRaWAN {
+    export interface FuotaTaskLoRaWan {
         /**
          * FUOTA task LoRaWAN RF region
          */
@@ -21946,7 +21956,7 @@ export namespace iotwireless {
         value?: string;
     }
 
-    export interface MulticastGroupLoRaWAN {
+    export interface MulticastGroupLoRaWan {
         /**
          * Multicast group LoRaWAN DL Class
          */
@@ -22003,7 +22013,7 @@ export namespace iotwireless {
         value?: string;
     }
 
-    export interface ServiceProfileLoRaWANServiceProfile {
+    export interface ServiceProfileLoRaWanServiceProfile {
         addGwMetadata?: boolean;
         channelMask?: string;
         devStatusReqFreq?: number;
@@ -22040,22 +22050,22 @@ export namespace iotwireless {
         sidewalkManufacturingSn?: string;
     }
 
-    export interface TaskDefinitionLoRaWANGatewayVersion {
+    export interface TaskDefinitionLoRaWanGatewayVersion {
         model?: string;
         packageVersion?: string;
         station?: string;
     }
 
-    export interface TaskDefinitionLoRaWANUpdateGatewayTaskCreate {
-        currentVersion?: outputs.iotwireless.TaskDefinitionLoRaWANGatewayVersion;
+    export interface TaskDefinitionLoRaWanUpdateGatewayTaskCreate {
+        currentVersion?: outputs.iotwireless.TaskDefinitionLoRaWanGatewayVersion;
         sigKeyCrc?: number;
         updateSignature?: string;
-        updateVersion?: outputs.iotwireless.TaskDefinitionLoRaWANGatewayVersion;
+        updateVersion?: outputs.iotwireless.TaskDefinitionLoRaWanGatewayVersion;
     }
 
-    export interface TaskDefinitionLoRaWANUpdateGatewayTaskEntry {
-        currentVersion?: outputs.iotwireless.TaskDefinitionLoRaWANGatewayVersion;
-        updateVersion?: outputs.iotwireless.TaskDefinitionLoRaWANGatewayVersion;
+    export interface TaskDefinitionLoRaWanUpdateGatewayTaskEntry {
+        currentVersion?: outputs.iotwireless.TaskDefinitionLoRaWanGatewayVersion;
+        updateVersion?: outputs.iotwireless.TaskDefinitionLoRaWanGatewayVersion;
     }
 
     export interface TaskDefinitionTag {
@@ -22064,7 +22074,7 @@ export namespace iotwireless {
     }
 
     export interface TaskDefinitionUpdateWirelessGatewayTaskCreate {
-        loRaWan?: outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskCreate;
+        loRaWan?: outputs.iotwireless.TaskDefinitionLoRaWanUpdateGatewayTaskCreate;
         updateDataRole?: string;
         updateDataSource?: string;
     }
@@ -22101,7 +22111,7 @@ export namespace iotwireless {
         value: string;
     }
 
-    export interface WirelessDeviceLoRaWANDevice {
+    export interface WirelessDeviceLoRaWanDevice {
         abpV10x?: outputs.iotwireless.WirelessDeviceAbpV10x;
         abpV11?: outputs.iotwireless.WirelessDeviceAbpV11;
         devEui?: string;
@@ -22139,7 +22149,7 @@ export namespace iotwireless {
         value?: string;
     }
 
-    export interface WirelessGatewayLoRaWANGateway {
+    export interface WirelessGatewayLoRaWanGateway {
         gatewayEui: string;
         rfRegion: string;
     }
@@ -23013,7 +23023,7 @@ export namespace kinesis {
 }
 
 export namespace kinesisanalytics {
-    export interface ApplicationCSVMappingParameters {
+    export interface ApplicationCsvMappingParameters {
         recordColumnDelimiter: string;
         recordRowDelimiter: string;
     }
@@ -23046,7 +23056,7 @@ export namespace kinesisanalytics {
         recordFormat: outputs.kinesisanalytics.ApplicationRecordFormat;
     }
 
-    export interface ApplicationJSONMappingParameters {
+    export interface ApplicationJsonMappingParameters {
         recordRowPath: string;
     }
 
@@ -23061,8 +23071,8 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationMappingParameters {
-        csvMappingParameters?: outputs.kinesisanalytics.ApplicationCSVMappingParameters;
-        jsonMappingParameters?: outputs.kinesisanalytics.ApplicationJSONMappingParameters;
+        csvMappingParameters?: outputs.kinesisanalytics.ApplicationCsvMappingParameters;
+        jsonMappingParameters?: outputs.kinesisanalytics.ApplicationJsonMappingParameters;
     }
 
     export interface ApplicationOutputResourceDestinationSchema {
@@ -23103,18 +23113,18 @@ export namespace kinesisanalytics {
         recordFormatType: string;
     }
 
-    export interface ApplicationReferenceDataSourceCSVMappingParameters {
+    export interface ApplicationReferenceDataSourceCsvMappingParameters {
         recordColumnDelimiter: string;
         recordRowDelimiter: string;
     }
 
-    export interface ApplicationReferenceDataSourceJSONMappingParameters {
+    export interface ApplicationReferenceDataSourceJsonMappingParameters {
         recordRowPath: string;
     }
 
     export interface ApplicationReferenceDataSourceMappingParameters {
-        csvMappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceCSVMappingParameters;
-        jsonMappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceJSONMappingParameters;
+        csvMappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceCsvMappingParameters;
+        jsonMappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceJsonMappingParameters;
     }
 
     export interface ApplicationReferenceDataSourceRecordColumn {
@@ -23149,22 +23159,6 @@ export namespace kinesisanalytics {
 }
 
 export namespace kinesisanalyticsv2 {
-    /**
-     * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
-     * `"name1", "address1"`
-     * `"name2", "address2"`
-     */
-    export interface ApplicationCSVMappingParameters {
-        /**
-         * The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-         */
-        recordColumnDelimiter: string;
-        /**
-         * The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
-         */
-        recordRowDelimiter: string;
-    }
-
     /**
      * The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
      */
@@ -23265,6 +23259,22 @@ export namespace kinesisanalyticsv2 {
          * The configuration parameters for a Kinesis Data Analytics Studio notebook.
          */
         zeppelinApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationZeppelinApplicationConfiguration;
+    }
+
+    /**
+     * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
+     * `"name1", "address1"`
+     * `"name2", "address2"`
+     */
+    export interface ApplicationCsvMappingParameters {
+        /**
+         * The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+         */
+        recordColumnDelimiter: string;
+        /**
+         * The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
+         */
+        recordRowDelimiter: string;
     }
 
     /**
@@ -23424,7 +23434,7 @@ export namespace kinesisanalyticsv2 {
     /**
      * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
      */
-    export interface ApplicationJSONMappingParameters {
+    export interface ApplicationJsonMappingParameters {
         /**
          * The path to the top-level parent that contains the records.
          */
@@ -23468,11 +23478,11 @@ export namespace kinesisanalyticsv2 {
         /**
          * Provides additional mapping information when the record format uses delimiters (for example, CSV).
          */
-        csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationCSVMappingParameters;
+        csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationCsvMappingParameters;
         /**
          * Provides additional mapping information when JSON is the record format on the streaming source.
          */
-        jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationJSONMappingParameters;
+        jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationJsonMappingParameters;
     }
 
     /**
@@ -23604,18 +23614,18 @@ export namespace kinesisanalyticsv2 {
         recordFormatType: enums.kinesisanalyticsv2.ApplicationRecordFormatRecordFormatType;
     }
 
-    export interface ApplicationReferenceDataSourceCSVMappingParameters {
+    export interface ApplicationReferenceDataSourceCsvMappingParameters {
         recordColumnDelimiter: string;
         recordRowDelimiter: string;
     }
 
-    export interface ApplicationReferenceDataSourceJSONMappingParameters {
+    export interface ApplicationReferenceDataSourceJsonMappingParameters {
         recordRowPath: string;
     }
 
     export interface ApplicationReferenceDataSourceMappingParameters {
-        csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceCSVMappingParameters;
-        jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceJSONMappingParameters;
+        csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceCsvMappingParameters;
+        jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceJsonMappingParameters;
     }
 
     export interface ApplicationReferenceDataSourceRecordColumn {
@@ -23902,7 +23912,7 @@ export namespace kinesisfirehose {
     }
 
     export interface DeliveryStreamEncryptionConfiguration {
-        kmsEncryptionConfig?: outputs.kinesisfirehose.DeliveryStreamKMSEncryptionConfig;
+        kmsEncryptionConfig?: outputs.kinesisfirehose.DeliveryStreamKmsEncryptionConfig;
         noEncryptionConfig?: enums.kinesisfirehose.DeliveryStreamEncryptionConfigurationNoEncryptionConfig;
     }
 
@@ -23963,13 +23973,13 @@ export namespace kinesisfirehose {
         deserializer?: outputs.kinesisfirehose.DeliveryStreamDeserializer;
     }
 
-    export interface DeliveryStreamKMSEncryptionConfig {
-        awskmsKeyArn: string;
-    }
-
     export interface DeliveryStreamKinesisStreamSourceConfiguration {
         kinesisStreamArn: string;
         roleArn: string;
+    }
+
+    export interface DeliveryStreamKmsEncryptionConfig {
+        awskmsKeyArn: string;
     }
 
     export interface DeliveryStreamOpenXJsonSerDe {
@@ -24070,7 +24080,7 @@ export namespace kinesisfirehose {
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         hecAcknowledgmentTimeoutInSeconds?: number;
         hecEndpoint: string;
-        hecEndpointType: enums.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType;
+        hecEndpointType: enums.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationHecEndpointType;
         hecToken: string;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamSplunkRetryOptions;
@@ -24265,20 +24275,20 @@ export namespace lakeformation {
         name: string;
     }
 
-    export interface PrincipalPermissionsLFTag {
+    export interface PrincipalPermissionsLfTag {
         tagKey?: string;
         tagValues?: string[];
     }
 
-    export interface PrincipalPermissionsLFTagKeyResource {
+    export interface PrincipalPermissionsLfTagKeyResource {
         catalogId: string;
         tagKey: string;
         tagValues: string[];
     }
 
-    export interface PrincipalPermissionsLFTagPolicyResource {
+    export interface PrincipalPermissionsLfTagPolicyResource {
         catalogId: string;
-        expression: outputs.lakeformation.PrincipalPermissionsLFTag[];
+        expression: outputs.lakeformation.PrincipalPermissionsLfTag[];
         resourceType: enums.lakeformation.PrincipalPermissionsResourceType;
     }
 
@@ -24287,8 +24297,8 @@ export namespace lakeformation {
         dataCellsFilter?: outputs.lakeformation.PrincipalPermissionsDataCellsFilterResource;
         dataLocation?: outputs.lakeformation.PrincipalPermissionsDataLocationResource;
         database?: outputs.lakeformation.PrincipalPermissionsDatabaseResource;
-        lfTag?: outputs.lakeformation.PrincipalPermissionsLFTagKeyResource;
-        lfTagPolicy?: outputs.lakeformation.PrincipalPermissionsLFTagPolicyResource;
+        lfTag?: outputs.lakeformation.PrincipalPermissionsLfTagKeyResource;
+        lfTagPolicy?: outputs.lakeformation.PrincipalPermissionsLfTagPolicyResource;
         table?: outputs.lakeformation.PrincipalPermissionsTableResource;
         tableWithColumns?: outputs.lakeformation.PrincipalPermissionsTableWithColumnsResource;
     }
@@ -24319,7 +24329,7 @@ export namespace lakeformation {
         name: string;
     }
 
-    export interface TagAssociationLFTagPair {
+    export interface TagAssociationLfTagPair {
         catalogId: string;
         tagKey: string;
         tagValues: string[];
@@ -24421,7 +24431,7 @@ export namespace lambda {
     /**
      * Document db event source config.
      */
-    export interface EventSourceMappingDocumentDBEventSourceConfig {
+    export interface EventSourceMappingDocumentDbEventSourceConfig {
         /**
          * The collection name to connect to.
          */
@@ -24433,7 +24443,7 @@ export namespace lambda {
         /**
          * Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
          */
-        fullDocument?: enums.lambda.EventSourceMappingDocumentDBEventSourceConfigFullDocument;
+        fullDocument?: enums.lambda.EventSourceMappingDocumentDbEventSourceConfigFullDocument;
     }
 
     /**
@@ -25384,7 +25394,7 @@ export namespace lex {
         customPayload?: outputs.lex.BotCustomPayload;
         imageResponseCard?: outputs.lex.BotImageResponseCard;
         plainTextMessage?: outputs.lex.BotPlainTextMessage;
-        ssmlMessage?: outputs.lex.BotSSMLMessage;
+        ssmlMessage?: outputs.lex.BotSsmlMessage;
     }
 
     /**
@@ -25580,16 +25590,6 @@ export namespace lex {
          * For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
          */
         s3ObjectVersion?: string;
-    }
-
-    /**
-     * A message in Speech Synthesis Markup Language (SSML).
-     */
-    export interface BotSSMLMessage {
-        /**
-         * The SSML text that defines the prompt.
-         */
-        value: string;
     }
 
     /**
@@ -25801,6 +25801,16 @@ export namespace lex {
         advancedRecognitionSetting?: outputs.lex.BotAdvancedRecognitionSetting;
         regexFilter?: outputs.lex.BotSlotValueRegexFilter;
         resolutionStrategy: enums.lex.BotSlotValueResolutionStrategy;
+    }
+
+    /**
+     * A message in Speech Synthesis Markup Language (SSML).
+     */
+    export interface BotSsmlMessage {
+        /**
+         * The SSML text that defines the prompt.
+         */
+        value: string;
     }
 
     /**
@@ -26731,7 +26741,7 @@ export namespace lookoutequipment {
 export namespace lookoutmetrics {
     export interface AlertAction {
         lambdaConfiguration?: outputs.lookoutmetrics.AlertLambdaConfiguration;
-        snsConfiguration?: outputs.lookoutmetrics.AlertSNSConfiguration;
+        snsConfiguration?: outputs.lookoutmetrics.AlertSnsConfiguration;
     }
 
     /**
@@ -26751,7 +26761,7 @@ export namespace lookoutmetrics {
     /**
      * Configuration options for an SNS alert action.
      */
-    export interface AlertSNSConfiguration {
+    export interface AlertSnsConfiguration {
         /**
          * ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
          */
@@ -26839,12 +26849,12 @@ export namespace lookoutmetrics {
     export interface AnomalyDetectorMetricSource {
         appFlowConfig?: outputs.lookoutmetrics.AnomalyDetectorAppFlowConfig;
         cloudwatchConfig?: outputs.lookoutmetrics.AnomalyDetectorCloudwatchConfig;
-        rdsSourceConfig?: outputs.lookoutmetrics.AnomalyDetectorRDSSourceConfig;
+        rdsSourceConfig?: outputs.lookoutmetrics.AnomalyDetectorRdsSourceConfig;
         redshiftSourceConfig?: outputs.lookoutmetrics.AnomalyDetectorRedshiftSourceConfig;
         s3SourceConfig?: outputs.lookoutmetrics.AnomalyDetectorS3SourceConfig;
     }
 
-    export interface AnomalyDetectorRDSSourceConfig {
+    export interface AnomalyDetectorRdsSourceConfig {
         databaseHost: string;
         databaseName: string;
         databasePort: number;
@@ -26889,15 +26899,15 @@ export namespace lookoutmetrics {
 }
 
 export namespace m2 {
-    export interface ApplicationTagMap {
-    }
-
-    export interface Definition0Properties {
+    export interface ApplicationDefinition0Properties {
         s3Location: string;
     }
 
-    export interface Definition1Properties {
+    export interface ApplicationDefinition1Properties {
         content: string;
+    }
+
+    export interface ApplicationTagMap {
     }
 
     /**
@@ -28470,7 +28480,7 @@ export namespace medialive {
         serverValidation?: string;
     }
 
-    export interface ChannelNielsenCBET {
+    export interface ChannelNielsenCbet {
         cbetCheckDigitString?: string;
         cbetStepaside?: string;
         csid?: string;
@@ -28488,7 +28498,7 @@ export namespace medialive {
     }
 
     export interface ChannelNielsenWatermarksSettings {
-        nielsenCbetSettings?: outputs.medialive.ChannelNielsenCBET;
+        nielsenCbetSettings?: outputs.medialive.ChannelNielsenCbet;
         nielsenDistributionType?: string;
         nielsenNaesIiNwSettings?: outputs.medialive.ChannelNielsenNaesIiNw;
     }
@@ -29534,7 +29544,7 @@ export namespace memorydb {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface ACLTag {
+    export interface AclTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -29662,7 +29672,7 @@ export namespace msk {
         vpcConnectivity?: outputs.msk.ClusterVpcConnectivity;
     }
 
-    export interface ClusterEBSStorageInfo {
+    export interface ClusterEbsStorageInfo {
         provisionedThroughput?: outputs.msk.ClusterProvisionedThroughput;
         volumeSize?: number;
     }
@@ -29736,7 +29746,7 @@ export namespace msk {
     }
 
     export interface ClusterStorageInfo {
-        ebsStorageInfo?: outputs.msk.ClusterEBSStorageInfo;
+        ebsStorageInfo?: outputs.msk.ClusterEbsStorageInfo;
     }
 
     export interface ClusterTls {
@@ -29837,15 +29847,10 @@ export namespace mwaa {
 }
 
 export namespace neptune {
-    export interface DBClusterParameterGroupTag {
-        key: string;
-        value: string;
-    }
-
     /**
      * Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
      */
-    export interface DBClusterRole {
+    export interface DbClusterDbClusterRole {
         /**
          * The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
          */
@@ -29856,10 +29861,15 @@ export namespace neptune {
         roleArn: string;
     }
 
+    export interface DbClusterParameterGroupTag {
+        key: string;
+        value: string;
+    }
+
     /**
      * Contains the scaling configuration of an Neptune Serverless DB cluster.
      */
-    export interface DBClusterServerlessScalingConfiguration {
+    export interface DbClusterServerlessScalingConfiguration {
         /**
          * The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
          */
@@ -29873,7 +29883,7 @@ export namespace neptune {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface DBClusterTag {
+    export interface DbClusterTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
@@ -29884,17 +29894,17 @@ export namespace neptune {
         value?: string;
     }
 
-    export interface DBInstanceTag {
+    export interface DbInstanceTag {
         key: string;
         value: string;
     }
 
-    export interface DBParameterGroupTag {
+    export interface DbParameterGroupTag {
         key: string;
         value: string;
     }
 
-    export interface DBSubnetGroupTag {
+    export interface DbSubnetGroupTag {
         key: string;
         value: string;
     }
@@ -30030,7 +30040,7 @@ export namespace networkfirewall {
         protocols?: number[];
         sourcePorts?: outputs.networkfirewall.RuleGroupPortRange[];
         sources?: outputs.networkfirewall.RuleGroupAddress[];
-        tcpFlags?: outputs.networkfirewall.RuleGroupTCPFlagField[];
+        tcpFlags?: outputs.networkfirewall.RuleGroupTcpFlagField[];
     }
 
     export interface RuleGroupPortRange {
@@ -30094,14 +30104,14 @@ export namespace networkfirewall {
         statelessRules: outputs.networkfirewall.RuleGroupStatelessRule[];
     }
 
-    export interface RuleGroupTCPFlagField {
-        flags: enums.networkfirewall.RuleGroupTCPFlag[];
-        masks?: enums.networkfirewall.RuleGroupTCPFlag[];
-    }
-
     export interface RuleGroupTag {
         key: string;
         value: string;
+    }
+
+    export interface RuleGroupTcpFlagField {
+        flags: enums.networkfirewall.RuleGroupTcpFlag[];
+        masks?: enums.networkfirewall.RuleGroupTcpFlag[];
     }
 
 }
@@ -30247,7 +30257,7 @@ export namespace networkmanager {
     /**
      * The Amazon Web Services location of the device, if applicable.
      */
-    export interface DeviceAWSLocation {
+    export interface DeviceAwsLocation {
         /**
          * The Amazon Resource Name (ARN) of the subnet that the device is located in.
          */
@@ -30794,6 +30804,10 @@ export namespace omics {
         type: enums.omics.AnnotationStoreEncryptionType;
     }
 
+    export interface AnnotationStoreStoreOptionsProperties {
+        tsvStoreOptions: outputs.omics.AnnotationStoreTsvStoreOptions;
+    }
+
     export interface AnnotationStoreTagMap {
     }
 
@@ -30835,10 +30849,6 @@ export namespace omics {
     }
 
     export interface SequenceStoreTagMap {
-    }
-
-    export interface StoreOptionsProperties {
-        tsvStoreOptions: outputs.omics.AnnotationStoreTsvStoreOptions;
     }
 
     export interface VariantStoreReferenceItem {
@@ -30910,7 +30920,7 @@ export namespace opensearchservice {
         enabled?: boolean;
         internalUserDatabaseEnabled?: boolean;
         masterUserOptions?: outputs.opensearchservice.DomainMasterUserOptions;
-        samlOptions?: outputs.opensearchservice.DomainSAMLOptions;
+        samlOptions?: outputs.opensearchservice.DomainSamlOptions;
     }
 
     export interface DomainClusterConfig {
@@ -30934,7 +30944,7 @@ export namespace opensearchservice {
         userPoolId?: string;
     }
 
-    export interface DomainEBSOptions {
+    export interface DomainEbsOptions {
         ebsEnabled?: boolean;
         iops?: number;
         throughput?: number;
@@ -30979,7 +30989,7 @@ export namespace opensearchservice {
         offPeakWindow?: outputs.opensearchservice.DomainOffPeakWindow;
     }
 
-    export interface DomainSAMLOptions {
+    export interface DomainSamlOptions {
         enabled?: boolean;
         idp?: outputs.opensearchservice.DomainIdp;
         masterBackendRole?: string;
@@ -31019,7 +31029,7 @@ export namespace opensearchservice {
         value: string;
     }
 
-    export interface DomainVPCOptions {
+    export interface DomainVpcOptions {
         securityGroupIds?: string[];
         subnetIds?: string[];
     }
@@ -31408,7 +31418,7 @@ export namespace personalize {
         /**
          * The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
          */
-        autoMlConfig?: outputs.personalize.SolutionConfigAutoMLConfigProperties;
+        autoMlConfig?: outputs.personalize.SolutionConfigAutoMlConfigProperties;
         /**
          * Only events with a value greater than or equal to this threshold are used for training a model.
          */
@@ -31426,7 +31436,7 @@ export namespace personalize {
     /**
      * The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
      */
-    export interface SolutionConfigAutoMLConfigProperties {
+    export interface SolutionConfigAutoMlConfigProperties {
         /**
          * The metric to optimize.
          */
@@ -31778,21 +31788,21 @@ export namespace pinpoint {
         link?: string;
     }
 
-    export interface PushTemplateAPNSPushNotificationTemplate {
-        action?: string;
-        body?: string;
-        mediaUrl?: string;
-        sound?: string;
-        title?: string;
-        url?: string;
-    }
-
     export interface PushTemplateAndroidPushNotificationTemplate {
         action?: string;
         body?: string;
         imageIconUrl?: string;
         imageUrl?: string;
         smallImageIconUrl?: string;
+        sound?: string;
+        title?: string;
+        url?: string;
+    }
+
+    export interface PushTemplateApnsPushNotificationTemplate {
+        action?: string;
+        body?: string;
+        mediaUrl?: string;
         sound?: string;
         title?: string;
         url?: string;
@@ -31833,7 +31843,7 @@ export namespace pinpoint {
         userAttributes?: any;
     }
 
-    export interface SegmentGPSPoint {
+    export interface SegmentGpsPoint {
         coordinates: outputs.pinpoint.SegmentCoordinates;
         rangeInKilometers: number;
     }
@@ -31845,7 +31855,7 @@ export namespace pinpoint {
 
     export interface SegmentLocation {
         country?: outputs.pinpoint.SegmentSetDimension;
-        gpsPoint?: outputs.pinpoint.SegmentGPSPoint;
+        gpsPoint?: outputs.pinpoint.SegmentGpsPoint;
     }
 
     export interface SegmentRecency {
@@ -31937,27 +31947,6 @@ export namespace pinpointemail {
 }
 
 export namespace pipes {
-    export interface MQBrokerAccessCredentialsProperties {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         */
-        basicAuth: string;
-    }
-
-    export interface MSKAccessCredentials0Properties {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         */
-        saslScram512Auth: string;
-    }
-
-    export interface MSKAccessCredentials1Properties {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         */
-        clientCertificateTlsAuth: string;
-    }
-
     export interface PipeAwsVpcConfiguration {
         assignPublicIp?: enums.pipes.PipeAssignPublicIp;
         securityGroups?: string[];
@@ -32074,6 +32063,27 @@ export namespace pipes {
     export interface PipeHeaderParametersMap {
     }
 
+    export interface PipeMqBrokerAccessCredentialsProperties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        basicAuth: string;
+    }
+
+    export interface PipeMskAccessCredentials0Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        saslScram512Auth: string;
+    }
+
+    export interface PipeMskAccessCredentials1Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        clientCertificateTlsAuth: string;
+    }
+
     export interface PipeNetworkConfiguration {
         awsvpcConfiguration?: outputs.pipes.PipeAwsVpcConfiguration;
     }
@@ -32096,6 +32106,34 @@ export namespace pipes {
         value: string;
     }
 
+    export interface PipeSelfManagedKafkaAccessConfigurationCredentials0Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        basicAuth: string;
+    }
+
+    export interface PipeSelfManagedKafkaAccessConfigurationCredentials1Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        saslScram512Auth: string;
+    }
+
+    export interface PipeSelfManagedKafkaAccessConfigurationCredentials2Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        saslScram256Auth: string;
+    }
+
+    export interface PipeSelfManagedKafkaAccessConfigurationCredentials3Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        clientCertificateTlsAuth: string;
+    }
+
     export interface PipeSelfManagedKafkaAccessConfigurationVpc {
         /**
          * List of SecurityGroupId.
@@ -32107,14 +32145,14 @@ export namespace pipes {
         subnets?: string[];
     }
 
-    export interface PipeSourceActiveMQBrokerParameters {
+    export interface PipeSourceActiveMqBrokerParameters {
         batchSize?: number;
-        credentials: outputs.pipes.MQBrokerAccessCredentialsProperties;
+        credentials: outputs.pipes.PipeMqBrokerAccessCredentialsProperties;
         maximumBatchingWindowInSeconds?: number;
         queueName: string;
     }
 
-    export interface PipeSourceDynamoDBStreamParameters {
+    export interface PipeSourceDynamoDbStreamParameters {
         batchSize?: number;
         deadLetterConfig?: outputs.pipes.PipeDeadLetterConfig;
         maximumBatchingWindowInSeconds?: number;
@@ -32122,7 +32160,7 @@ export namespace pipes {
         maximumRetryAttempts?: number;
         onPartialBatchItemFailure?: enums.pipes.PipeOnPartialBatchItemFailureStreams;
         parallelizationFactor?: number;
-        startingPosition: enums.pipes.PipeDynamoDBStreamStartPosition;
+        startingPosition: enums.pipes.PipeDynamoDbStreamStartPosition;
     }
 
     export interface PipeSourceKinesisStreamParameters {
@@ -32140,26 +32178,26 @@ export namespace pipes {
     export interface PipeSourceManagedStreamingKafkaParameters {
         batchSize?: number;
         consumerGroupId?: string;
-        credentials?: outputs.pipes.MSKAccessCredentials0Properties | outputs.pipes.MSKAccessCredentials1Properties;
+        credentials?: outputs.pipes.PipeMskAccessCredentials0Properties | outputs.pipes.PipeMskAccessCredentials1Properties;
         maximumBatchingWindowInSeconds?: number;
-        startingPosition?: enums.pipes.PipeMSKStartPosition;
+        startingPosition?: enums.pipes.PipeMskStartPosition;
         topicName: string;
     }
 
     export interface PipeSourceParameters {
-        activeMqBrokerParameters?: outputs.pipes.PipeSourceActiveMQBrokerParameters;
-        dynamoDbStreamParameters?: outputs.pipes.PipeSourceDynamoDBStreamParameters;
+        activeMqBrokerParameters?: outputs.pipes.PipeSourceActiveMqBrokerParameters;
+        dynamoDbStreamParameters?: outputs.pipes.PipeSourceDynamoDbStreamParameters;
         filterCriteria?: outputs.pipes.PipeFilterCriteria;
         kinesisStreamParameters?: outputs.pipes.PipeSourceKinesisStreamParameters;
         managedStreamingKafkaParameters?: outputs.pipes.PipeSourceManagedStreamingKafkaParameters;
-        rabbitMqBrokerParameters?: outputs.pipes.PipeSourceRabbitMQBrokerParameters;
+        rabbitMqBrokerParameters?: outputs.pipes.PipeSourceRabbitMqBrokerParameters;
         selfManagedKafkaParameters?: outputs.pipes.PipeSourceSelfManagedKafkaParameters;
         sqsQueueParameters?: outputs.pipes.PipeSourceSqsQueueParameters;
     }
 
-    export interface PipeSourceRabbitMQBrokerParameters {
+    export interface PipeSourceRabbitMqBrokerParameters {
         batchSize?: number;
-        credentials: outputs.pipes.MQBrokerAccessCredentialsProperties;
+        credentials: outputs.pipes.PipeMqBrokerAccessCredentialsProperties;
         maximumBatchingWindowInSeconds?: number;
         queueName: string;
         virtualHost?: string;
@@ -32169,7 +32207,7 @@ export namespace pipes {
         additionalBootstrapServers?: string[];
         batchSize?: number;
         consumerGroupId?: string;
-        credentials?: outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials0Properties | outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials1Properties | outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials2Properties | outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials3Properties;
+        credentials?: outputs.pipes.PipeSelfManagedKafkaAccessConfigurationCredentials0Properties | outputs.pipes.PipeSelfManagedKafkaAccessConfigurationCredentials1Properties | outputs.pipes.PipeSelfManagedKafkaAccessConfigurationCredentials2Properties | outputs.pipes.PipeSelfManagedKafkaAccessConfigurationCredentials3Properties;
         maximumBatchingWindowInSeconds?: number;
         /**
          * Optional SecretManager ARN which stores the database credentials
@@ -32298,34 +32336,6 @@ export namespace pipes {
 
     export interface PipeTargetStateMachineParameters {
         invocationType?: enums.pipes.PipeTargetInvocationType;
-    }
-
-    export interface SelfManagedKafkaAccessConfigurationCredentials0Properties {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         */
-        basicAuth: string;
-    }
-
-    export interface SelfManagedKafkaAccessConfigurationCredentials1Properties {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         */
-        saslScram512Auth: string;
-    }
-
-    export interface SelfManagedKafkaAccessConfigurationCredentials2Properties {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         */
-        saslScram256Auth: string;
-    }
-
-    export interface SelfManagedKafkaAccessConfigurationCredentials3Properties {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         */
-        clientCertificateTlsAuth: string;
     }
 
 }
@@ -32859,8 +32869,8 @@ export namespace quicksight {
         parameterValueConfigurations: outputs.quicksight.AnalysisSetParameterValueConfiguration[];
     }
 
-    export interface AnalysisCustomActionURLOperation {
-        urlTarget: enums.quicksight.AnalysisURLTargetConfiguration;
+    export interface AnalysisCustomActionUrlOperation {
+        urlTarget: enums.quicksight.AnalysisUrlTargetConfiguration;
         urlTemplate: string;
     }
 
@@ -33798,28 +33808,28 @@ export namespace quicksight {
         otherCategories?: enums.quicksight.AnalysisOtherCategories;
     }
 
-    export interface AnalysisKPIConditionalFormatting {
-        conditionalFormattingOptions?: outputs.quicksight.AnalysisKPIConditionalFormattingOption[];
+    export interface AnalysisKpiConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.AnalysisKpiConditionalFormattingOption[];
     }
 
-    export interface AnalysisKPIConditionalFormattingOption {
-        primaryValue?: outputs.quicksight.AnalysisKPIPrimaryValueConditionalFormatting;
-        progressBar?: outputs.quicksight.AnalysisKPIProgressBarConditionalFormatting;
+    export interface AnalysisKpiConditionalFormattingOption {
+        primaryValue?: outputs.quicksight.AnalysisKpiPrimaryValueConditionalFormatting;
+        progressBar?: outputs.quicksight.AnalysisKpiProgressBarConditionalFormatting;
     }
 
-    export interface AnalysisKPIConfiguration {
-        fieldWells?: outputs.quicksight.AnalysisKPIFieldWells;
-        kpiOptions?: outputs.quicksight.AnalysisKPIOptions;
-        sortConfiguration?: outputs.quicksight.AnalysisKPISortConfiguration;
+    export interface AnalysisKpiConfiguration {
+        fieldWells?: outputs.quicksight.AnalysisKpiFieldWells;
+        kpiOptions?: outputs.quicksight.AnalysisKpiOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisKpiSortConfiguration;
     }
 
-    export interface AnalysisKPIFieldWells {
+    export interface AnalysisKpiFieldWells {
         targetValues?: outputs.quicksight.AnalysisMeasureField[];
         trendGroups?: outputs.quicksight.AnalysisDimensionField[];
         values?: outputs.quicksight.AnalysisMeasureField[];
     }
 
-    export interface AnalysisKPIOptions {
+    export interface AnalysisKpiOptions {
         comparison?: outputs.quicksight.AnalysisComparisonConfiguration;
         primaryValueDisplayType?: enums.quicksight.AnalysisPrimaryValueDisplayType;
         primaryValueFontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
@@ -33829,24 +33839,24 @@ export namespace quicksight {
         trendArrows?: outputs.quicksight.AnalysisTrendArrowOptions;
     }
 
-    export interface AnalysisKPIPrimaryValueConditionalFormatting {
+    export interface AnalysisKpiPrimaryValueConditionalFormatting {
         icon?: outputs.quicksight.AnalysisConditionalFormattingIcon;
         textColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
     }
 
-    export interface AnalysisKPIProgressBarConditionalFormatting {
+    export interface AnalysisKpiProgressBarConditionalFormatting {
         foregroundColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
     }
 
-    export interface AnalysisKPISortConfiguration {
+    export interface AnalysisKpiSortConfiguration {
         trendGroupSort?: outputs.quicksight.AnalysisFieldSortOptions[];
     }
 
-    export interface AnalysisKPIVisual {
+    export interface AnalysisKpiVisual {
         actions?: outputs.quicksight.AnalysisVisualCustomAction[];
-        chartConfiguration?: outputs.quicksight.AnalysisKPIConfiguration;
+        chartConfiguration?: outputs.quicksight.AnalysisKpiConfiguration;
         columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
-        conditionalFormatting?: outputs.quicksight.AnalysisKPIConditionalFormatting;
+        conditionalFormatting?: outputs.quicksight.AnalysisKpiConditionalFormatting;
         subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
         title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
         visualId: string;
@@ -34922,7 +34932,7 @@ export namespace quicksight {
 
     export interface AnalysisTableFieldLinkConfiguration {
         content: outputs.quicksight.AnalysisTableFieldLinkContentConfiguration;
-        target: enums.quicksight.AnalysisURLTargetConfiguration;
+        target: enums.quicksight.AnalysisUrlTargetConfiguration;
     }
 
     export interface AnalysisTableFieldLinkContentConfiguration {
@@ -34933,7 +34943,7 @@ export namespace quicksight {
     export interface AnalysisTableFieldOption {
         customLabel?: string;
         fieldId: string;
-        urlStyling?: outputs.quicksight.AnalysisTableFieldURLConfiguration;
+        urlStyling?: outputs.quicksight.AnalysisTableFieldUrlConfiguration;
         visibility?: enums.quicksight.AnalysisVisibility;
         /**
          * String based length that is composed of value and unit in px
@@ -34946,7 +34956,7 @@ export namespace quicksight {
         selectedFieldOptions?: outputs.quicksight.AnalysisTableFieldOption[];
     }
 
-    export interface AnalysisTableFieldURLConfiguration {
+    export interface AnalysisTableFieldUrlConfiguration {
         imageConfiguration?: outputs.quicksight.AnalysisTableFieldImageConfiguration;
         linkConfiguration?: outputs.quicksight.AnalysisTableFieldLinkConfiguration;
     }
@@ -35199,7 +35209,7 @@ export namespace quicksight {
         heatMapVisual?: outputs.quicksight.AnalysisHeatMapVisual;
         histogramVisual?: outputs.quicksight.AnalysisHistogramVisual;
         insightVisual?: outputs.quicksight.AnalysisInsightVisual;
-        kpiVisual?: outputs.quicksight.AnalysisKPIVisual;
+        kpiVisual?: outputs.quicksight.AnalysisKpiVisual;
         lineChartVisual?: outputs.quicksight.AnalysisLineChartVisual;
         pieChartVisual?: outputs.quicksight.AnalysisPieChartVisual;
         pivotTableVisual?: outputs.quicksight.AnalysisPivotTableVisual;
@@ -35224,7 +35234,7 @@ export namespace quicksight {
         filterOperation?: outputs.quicksight.AnalysisCustomActionFilterOperation;
         navigationOperation?: outputs.quicksight.AnalysisCustomActionNavigationOperation;
         setParametersOperation?: outputs.quicksight.AnalysisCustomActionSetParametersOperation;
-        urlOperation?: outputs.quicksight.AnalysisCustomActionURLOperation;
+        urlOperation?: outputs.quicksight.AnalysisCustomActionUrlOperation;
     }
 
     export interface AnalysisVisualPalette {
@@ -35797,8 +35807,8 @@ export namespace quicksight {
         parameterValueConfigurations: outputs.quicksight.DashboardSetParameterValueConfiguration[];
     }
 
-    export interface DashboardCustomActionURLOperation {
-        urlTarget: enums.quicksight.DashboardURLTargetConfiguration;
+    export interface DashboardCustomActionUrlOperation {
+        urlTarget: enums.quicksight.DashboardUrlTargetConfiguration;
         urlTemplate: string;
     }
 
@@ -36122,7 +36132,7 @@ export namespace quicksight {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
-    export interface DashboardExportToCSVOption {
+    export interface DashboardExportToCsvOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
@@ -36746,28 +36756,28 @@ export namespace quicksight {
         otherCategories?: enums.quicksight.DashboardOtherCategories;
     }
 
-    export interface DashboardKPIConditionalFormatting {
-        conditionalFormattingOptions?: outputs.quicksight.DashboardKPIConditionalFormattingOption[];
+    export interface DashboardKpiConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.DashboardKpiConditionalFormattingOption[];
     }
 
-    export interface DashboardKPIConditionalFormattingOption {
-        primaryValue?: outputs.quicksight.DashboardKPIPrimaryValueConditionalFormatting;
-        progressBar?: outputs.quicksight.DashboardKPIProgressBarConditionalFormatting;
+    export interface DashboardKpiConditionalFormattingOption {
+        primaryValue?: outputs.quicksight.DashboardKpiPrimaryValueConditionalFormatting;
+        progressBar?: outputs.quicksight.DashboardKpiProgressBarConditionalFormatting;
     }
 
-    export interface DashboardKPIConfiguration {
-        fieldWells?: outputs.quicksight.DashboardKPIFieldWells;
-        kpiOptions?: outputs.quicksight.DashboardKPIOptions;
-        sortConfiguration?: outputs.quicksight.DashboardKPISortConfiguration;
+    export interface DashboardKpiConfiguration {
+        fieldWells?: outputs.quicksight.DashboardKpiFieldWells;
+        kpiOptions?: outputs.quicksight.DashboardKpiOptions;
+        sortConfiguration?: outputs.quicksight.DashboardKpiSortConfiguration;
     }
 
-    export interface DashboardKPIFieldWells {
+    export interface DashboardKpiFieldWells {
         targetValues?: outputs.quicksight.DashboardMeasureField[];
         trendGroups?: outputs.quicksight.DashboardDimensionField[];
         values?: outputs.quicksight.DashboardMeasureField[];
     }
 
-    export interface DashboardKPIOptions {
+    export interface DashboardKpiOptions {
         comparison?: outputs.quicksight.DashboardComparisonConfiguration;
         primaryValueDisplayType?: enums.quicksight.DashboardPrimaryValueDisplayType;
         primaryValueFontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
@@ -36777,24 +36787,24 @@ export namespace quicksight {
         trendArrows?: outputs.quicksight.DashboardTrendArrowOptions;
     }
 
-    export interface DashboardKPIPrimaryValueConditionalFormatting {
+    export interface DashboardKpiPrimaryValueConditionalFormatting {
         icon?: outputs.quicksight.DashboardConditionalFormattingIcon;
         textColor?: outputs.quicksight.DashboardConditionalFormattingColor;
     }
 
-    export interface DashboardKPIProgressBarConditionalFormatting {
+    export interface DashboardKpiProgressBarConditionalFormatting {
         foregroundColor?: outputs.quicksight.DashboardConditionalFormattingColor;
     }
 
-    export interface DashboardKPISortConfiguration {
+    export interface DashboardKpiSortConfiguration {
         trendGroupSort?: outputs.quicksight.DashboardFieldSortOptions[];
     }
 
-    export interface DashboardKPIVisual {
+    export interface DashboardKpiVisual {
         actions?: outputs.quicksight.DashboardVisualCustomAction[];
-        chartConfiguration?: outputs.quicksight.DashboardKPIConfiguration;
+        chartConfiguration?: outputs.quicksight.DashboardKpiConfiguration;
         columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
-        conditionalFormatting?: outputs.quicksight.DashboardKPIConditionalFormatting;
+        conditionalFormatting?: outputs.quicksight.DashboardKpiConditionalFormatting;
         subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
         title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
         visualId: string;
@@ -37401,7 +37411,7 @@ export namespace quicksight {
         dataPointDrillUpDownOption?: outputs.quicksight.DashboardDataPointDrillUpDownOption;
         dataPointMenuLabelOption?: outputs.quicksight.DashboardDataPointMenuLabelOption;
         dataPointTooltipOption?: outputs.quicksight.DashboardDataPointTooltipOption;
-        exportToCsvOption?: outputs.quicksight.DashboardExportToCSVOption;
+        exportToCsvOption?: outputs.quicksight.DashboardExportToCsvOption;
         exportWithHiddenFieldsOption?: outputs.quicksight.DashboardExportWithHiddenFieldsOption;
         sheetControlsOption?: outputs.quicksight.DashboardSheetControlsOption;
         sheetLayoutElementMaximizationOption?: outputs.quicksight.DashboardSheetLayoutElementMaximizationOption;
@@ -37701,7 +37711,7 @@ export namespace quicksight {
     }
 
     export interface DashboardSheetControlsOption {
-        visibilityState?: enums.quicksight.DashboardUIState;
+        visibilityState?: enums.quicksight.DashboardUiState;
     }
 
     export interface DashboardSheetDefinition {
@@ -37892,7 +37902,7 @@ export namespace quicksight {
 
     export interface DashboardTableFieldLinkConfiguration {
         content: outputs.quicksight.DashboardTableFieldLinkContentConfiguration;
-        target: enums.quicksight.DashboardURLTargetConfiguration;
+        target: enums.quicksight.DashboardUrlTargetConfiguration;
     }
 
     export interface DashboardTableFieldLinkContentConfiguration {
@@ -37903,7 +37913,7 @@ export namespace quicksight {
     export interface DashboardTableFieldOption {
         customLabel?: string;
         fieldId: string;
-        urlStyling?: outputs.quicksight.DashboardTableFieldURLConfiguration;
+        urlStyling?: outputs.quicksight.DashboardTableFieldUrlConfiguration;
         visibility?: enums.quicksight.DashboardVisibility;
         /**
          * String based length that is composed of value and unit in px
@@ -37916,7 +37926,7 @@ export namespace quicksight {
         selectedFieldOptions?: outputs.quicksight.DashboardTableFieldOption[];
     }
 
-    export interface DashboardTableFieldURLConfiguration {
+    export interface DashboardTableFieldUrlConfiguration {
         imageConfiguration?: outputs.quicksight.DashboardTableFieldImageConfiguration;
         linkConfiguration?: outputs.quicksight.DashboardTableFieldLinkConfiguration;
     }
@@ -38192,7 +38202,7 @@ export namespace quicksight {
         heatMapVisual?: outputs.quicksight.DashboardHeatMapVisual;
         histogramVisual?: outputs.quicksight.DashboardHistogramVisual;
         insightVisual?: outputs.quicksight.DashboardInsightVisual;
-        kpiVisual?: outputs.quicksight.DashboardKPIVisual;
+        kpiVisual?: outputs.quicksight.DashboardKpiVisual;
         lineChartVisual?: outputs.quicksight.DashboardLineChartVisual;
         pieChartVisual?: outputs.quicksight.DashboardPieChartVisual;
         pivotTableVisual?: outputs.quicksight.DashboardPivotTableVisual;
@@ -38221,7 +38231,7 @@ export namespace quicksight {
         filterOperation?: outputs.quicksight.DashboardCustomActionFilterOperation;
         navigationOperation?: outputs.quicksight.DashboardCustomActionNavigationOperation;
         setParametersOperation?: outputs.quicksight.DashboardCustomActionSetParametersOperation;
-        urlOperation?: outputs.quicksight.DashboardCustomActionURLOperation;
+        urlOperation?: outputs.quicksight.DashboardCustomActionUrlOperation;
     }
 
     export interface DashboardVisualMenuOption {
@@ -39601,8 +39611,8 @@ export namespace quicksight {
         parameterValueConfigurations: outputs.quicksight.TemplateSetParameterValueConfiguration[];
     }
 
-    export interface TemplateCustomActionURLOperation {
-        urlTarget: enums.quicksight.TemplateURLTargetConfiguration;
+    export interface TemplateCustomActionUrlOperation {
+        urlTarget: enums.quicksight.TemplateUrlTargetConfiguration;
         urlTemplate: string;
     }
 
@@ -40516,28 +40526,28 @@ export namespace quicksight {
         otherCategories?: enums.quicksight.TemplateOtherCategories;
     }
 
-    export interface TemplateKPIConditionalFormatting {
-        conditionalFormattingOptions?: outputs.quicksight.TemplateKPIConditionalFormattingOption[];
+    export interface TemplateKpiConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.TemplateKpiConditionalFormattingOption[];
     }
 
-    export interface TemplateKPIConditionalFormattingOption {
-        primaryValue?: outputs.quicksight.TemplateKPIPrimaryValueConditionalFormatting;
-        progressBar?: outputs.quicksight.TemplateKPIProgressBarConditionalFormatting;
+    export interface TemplateKpiConditionalFormattingOption {
+        primaryValue?: outputs.quicksight.TemplateKpiPrimaryValueConditionalFormatting;
+        progressBar?: outputs.quicksight.TemplateKpiProgressBarConditionalFormatting;
     }
 
-    export interface TemplateKPIConfiguration {
-        fieldWells?: outputs.quicksight.TemplateKPIFieldWells;
-        kpiOptions?: outputs.quicksight.TemplateKPIOptions;
-        sortConfiguration?: outputs.quicksight.TemplateKPISortConfiguration;
+    export interface TemplateKpiConfiguration {
+        fieldWells?: outputs.quicksight.TemplateKpiFieldWells;
+        kpiOptions?: outputs.quicksight.TemplateKpiOptions;
+        sortConfiguration?: outputs.quicksight.TemplateKpiSortConfiguration;
     }
 
-    export interface TemplateKPIFieldWells {
+    export interface TemplateKpiFieldWells {
         targetValues?: outputs.quicksight.TemplateMeasureField[];
         trendGroups?: outputs.quicksight.TemplateDimensionField[];
         values?: outputs.quicksight.TemplateMeasureField[];
     }
 
-    export interface TemplateKPIOptions {
+    export interface TemplateKpiOptions {
         comparison?: outputs.quicksight.TemplateComparisonConfiguration;
         primaryValueDisplayType?: enums.quicksight.TemplatePrimaryValueDisplayType;
         primaryValueFontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
@@ -40547,24 +40557,24 @@ export namespace quicksight {
         trendArrows?: outputs.quicksight.TemplateTrendArrowOptions;
     }
 
-    export interface TemplateKPIPrimaryValueConditionalFormatting {
+    export interface TemplateKpiPrimaryValueConditionalFormatting {
         icon?: outputs.quicksight.TemplateConditionalFormattingIcon;
         textColor?: outputs.quicksight.TemplateConditionalFormattingColor;
     }
 
-    export interface TemplateKPIProgressBarConditionalFormatting {
+    export interface TemplateKpiProgressBarConditionalFormatting {
         foregroundColor?: outputs.quicksight.TemplateConditionalFormattingColor;
     }
 
-    export interface TemplateKPISortConfiguration {
+    export interface TemplateKpiSortConfiguration {
         trendGroupSort?: outputs.quicksight.TemplateFieldSortOptions[];
     }
 
-    export interface TemplateKPIVisual {
+    export interface TemplateKpiVisual {
         actions?: outputs.quicksight.TemplateVisualCustomAction[];
-        chartConfiguration?: outputs.quicksight.TemplateKPIConfiguration;
+        chartConfiguration?: outputs.quicksight.TemplateKpiConfiguration;
         columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
-        conditionalFormatting?: outputs.quicksight.TemplateKPIConditionalFormatting;
+        conditionalFormatting?: outputs.quicksight.TemplateKpiConditionalFormatting;
         subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
         title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
         visualId: string;
@@ -41633,7 +41643,7 @@ export namespace quicksight {
 
     export interface TemplateTableFieldLinkConfiguration {
         content: outputs.quicksight.TemplateTableFieldLinkContentConfiguration;
-        target: enums.quicksight.TemplateURLTargetConfiguration;
+        target: enums.quicksight.TemplateUrlTargetConfiguration;
     }
 
     export interface TemplateTableFieldLinkContentConfiguration {
@@ -41644,7 +41654,7 @@ export namespace quicksight {
     export interface TemplateTableFieldOption {
         customLabel?: string;
         fieldId: string;
-        urlStyling?: outputs.quicksight.TemplateTableFieldURLConfiguration;
+        urlStyling?: outputs.quicksight.TemplateTableFieldUrlConfiguration;
         visibility?: enums.quicksight.TemplateVisibility;
         /**
          * String based length that is composed of value and unit in px
@@ -41657,7 +41667,7 @@ export namespace quicksight {
         selectedFieldOptions?: outputs.quicksight.TemplateTableFieldOption[];
     }
 
-    export interface TemplateTableFieldURLConfiguration {
+    export interface TemplateTableFieldUrlConfiguration {
         imageConfiguration?: outputs.quicksight.TemplateTableFieldImageConfiguration;
         linkConfiguration?: outputs.quicksight.TemplateTableFieldLinkConfiguration;
     }
@@ -41932,7 +41942,7 @@ export namespace quicksight {
         heatMapVisual?: outputs.quicksight.TemplateHeatMapVisual;
         histogramVisual?: outputs.quicksight.TemplateHistogramVisual;
         insightVisual?: outputs.quicksight.TemplateInsightVisual;
-        kpiVisual?: outputs.quicksight.TemplateKPIVisual;
+        kpiVisual?: outputs.quicksight.TemplateKpiVisual;
         lineChartVisual?: outputs.quicksight.TemplateLineChartVisual;
         pieChartVisual?: outputs.quicksight.TemplatePieChartVisual;
         pivotTableVisual?: outputs.quicksight.TemplatePivotTableVisual;
@@ -41957,7 +41967,7 @@ export namespace quicksight {
         filterOperation?: outputs.quicksight.TemplateCustomActionFilterOperation;
         navigationOperation?: outputs.quicksight.TemplateCustomActionNavigationOperation;
         setParametersOperation?: outputs.quicksight.TemplateCustomActionSetParametersOperation;
-        urlOperation?: outputs.quicksight.TemplateCustomActionURLOperation;
+        urlOperation?: outputs.quicksight.TemplateCustomActionUrlOperation;
     }
 
     export interface TemplateVisualPalette {
@@ -42074,7 +42084,7 @@ export namespace quicksight {
         dataColorPalette?: outputs.quicksight.ThemeDataColorPalette;
         sheet?: outputs.quicksight.ThemeSheetStyle;
         typography?: outputs.quicksight.ThemeTypography;
-        uiColorPalette?: outputs.quicksight.ThemeUIColorPalette;
+        uiColorPalette?: outputs.quicksight.ThemeUiColorPalette;
     }
 
     export interface ThemeDataColorPalette {
@@ -42129,7 +42139,7 @@ export namespace quicksight {
         fontFamilies?: outputs.quicksight.ThemeFont[];
     }
 
-    export interface ThemeUIColorPalette {
+    export interface ThemeUiColorPalette {
         accent?: string;
         accentForeground?: string;
         danger?: string;
@@ -42358,15 +42368,15 @@ export namespace quicksight {
     export interface TopicTypeParameters {
     }
 
-    export interface VPCConnectionNetworkInterface {
+    export interface VpcConnectionNetworkInterface {
         availabilityZone?: string;
         errorMessage?: string;
         networkInterfaceId?: string;
-        status?: enums.quicksight.VPCConnectionNetworkInterfaceStatus;
+        status?: enums.quicksight.VpcConnectionNetworkInterfaceStatus;
         subnetId?: string;
     }
 
-    export interface VPCConnectionTag {
+    export interface VpcConnectionTag {
         key: string;
         value: string;
     }
@@ -42396,7 +42406,7 @@ export namespace rds {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface CustomDBEngineVersionTag {
+    export interface CustomDbEngineVersionTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -42407,7 +42417,21 @@ export namespace rds {
         value?: string;
     }
 
-    export interface DBClusterEndpoint {
+    /**
+     * Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+     */
+    export interface DbClusterDbClusterRole {
+        /**
+         * The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+         */
+        featureName?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+         */
+        roleArn: string;
+    }
+
+    export interface DbClusterEndpoint {
         /**
          * The connection endpoint for the DB cluster.
          */
@@ -42418,7 +42442,7 @@ export namespace rds {
         port?: string;
     }
 
-    export interface DBClusterMasterUserSecret {
+    export interface DbClusterMasterUserSecret {
         /**
          * The AWS KMS key identifier that is used to encrypt the secret.
          */
@@ -42432,7 +42456,7 @@ export namespace rds {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface DBClusterParameterGroupTag {
+    export interface DbClusterParameterGroupTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -42443,7 +42467,7 @@ export namespace rds {
         value?: string;
     }
 
-    export interface DBClusterReadEndpoint {
+    export interface DbClusterReadEndpoint {
         /**
          * The reader endpoint for the DB cluster.
          */
@@ -42451,23 +42475,9 @@ export namespace rds {
     }
 
     /**
-     * Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
-     */
-    export interface DBClusterRole {
-        /**
-         * The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
-         */
-        featureName?: string;
-        /**
-         * The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-         */
-        roleArn: string;
-    }
-
-    /**
      * The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
      */
-    export interface DBClusterScalingConfiguration {
+    export interface DbClusterScalingConfiguration {
         /**
          * A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
          */
@@ -42508,7 +42518,7 @@ export namespace rds {
     /**
      * Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
      */
-    export interface DBClusterServerlessV2ScalingConfiguration {
+    export interface DbClusterServerlessV2ScalingConfiguration {
         /**
          * The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
          */
@@ -42522,7 +42532,7 @@ export namespace rds {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface DBClusterTag {
+    export interface DbClusterTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
@@ -42533,7 +42543,7 @@ export namespace rds {
         value?: string;
     }
 
-    export interface DBInstanceCertificateDetails {
+    export interface DbInstanceCertificateDetails {
         /**
          * The CA identifier of the CA certificate used for the DB instance's server certificate.
          */
@@ -42544,7 +42554,18 @@ export namespace rds {
         validTill?: string;
     }
 
-    export interface DBInstanceEndpoint {
+    export interface DbInstanceDbInstanceRole {
+        /**
+         * The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+         */
+        featureName: string;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+         */
+        roleArn: string;
+    }
+
+    export interface DbInstanceEndpoint {
         /**
          * Specifies the DNS address of the DB instance.
          */
@@ -42559,7 +42580,7 @@ export namespace rds {
         port?: string;
     }
 
-    export interface DBInstanceMasterUserSecret {
+    export interface DbInstanceMasterUserSecret {
         /**
          * The AWS KMS key identifier that is used to encrypt the secret.
          */
@@ -42570,32 +42591,21 @@ export namespace rds {
         secretArn?: string;
     }
 
-    export interface DBInstanceProcessorFeature {
+    export interface DbInstanceProcessorFeature {
         /**
          * The name of the processor feature. Valid names are coreCount and threadsPerCore.
          */
-        name?: enums.rds.DBInstanceProcessorFeatureName;
+        name?: enums.rds.DbInstanceProcessorFeatureName;
         /**
          * The value of a processor feature name.
          */
         value?: string;
     }
 
-    export interface DBInstanceRole {
-        /**
-         * The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
-         */
-        featureName: string;
-        /**
-         * The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-         */
-        roleArn: string;
-    }
-
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface DBInstanceTag {
+    export interface DbInstanceTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
@@ -42609,7 +42619,7 @@ export namespace rds {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface DBParameterGroupTag {
+    export interface DbParameterGroupTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -42620,15 +42630,15 @@ export namespace rds {
         value?: string;
     }
 
-    export interface DBProxyAuthFormat {
+    export interface DbProxyAuthFormat {
         /**
          * The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
          */
-        authScheme?: enums.rds.DBProxyAuthFormatAuthScheme;
+        authScheme?: enums.rds.DbProxyAuthFormatAuthScheme;
         /**
          * The type of authentication the proxy uses for connections from clients.
          */
-        clientPasswordAuthType?: enums.rds.DBProxyAuthFormatClientPasswordAuthType;
+        clientPasswordAuthType?: enums.rds.DbProxyAuthFormatClientPasswordAuthType;
         /**
          * A user-specified description about the authentication used by a proxy to log in as a specific database user. 
          */
@@ -42636,24 +42646,24 @@ export namespace rds {
         /**
          * Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
          */
-        iamAuth?: enums.rds.DBProxyAuthFormatIAMAuth;
+        iamAuth?: enums.rds.DbProxyAuthFormatIamAuth;
         /**
          * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
          */
         secretArn?: string;
     }
 
-    export interface DBProxyEndpointTagFormat {
+    export interface DbProxyEndpointTagFormat {
         key?: string;
         value?: string;
     }
 
-    export interface DBProxyTagFormat {
+    export interface DbProxyTagFormat {
         key?: string;
         value?: string;
     }
 
-    export interface DBProxyTargetGroupConnectionPoolConfigurationInfoFormat {
+    export interface DbProxyTargetGroupConnectionPoolConfigurationInfoFormat {
         /**
          * The number of seconds for a proxy to wait for a connection to become available in the connection pool.
          */
@@ -42676,14 +42686,14 @@ export namespace rds {
         sessionPinningFilters?: string[];
     }
 
-    export interface DBSecurityGroupIngress {
+    export interface DbSecurityGroupIngress {
         cidrip?: string;
         ec2SecurityGroupId?: string;
         ec2SecurityGroupName?: string;
         ec2SecurityGroupOwnerId?: string;
     }
 
-    export interface DBSecurityGroupTag {
+    export interface DbSecurityGroupTag {
         key: string;
         value: string;
     }
@@ -42691,7 +42701,7 @@ export namespace rds {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface DBSubnetGroupTag {
+    export interface DbSubnetGroupTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
@@ -43403,7 +43413,7 @@ export namespace robomaker {
 }
 
 export namespace rolesanywhere {
-    export interface CRLTag {
+    export interface CrlTag {
         key: string;
         value: string;
     }
@@ -43413,17 +43423,17 @@ export namespace rolesanywhere {
         value: string;
     }
 
-    export interface SourceData0Properties {
+    export interface TrustAnchorSource {
+        sourceData?: outputs.rolesanywhere.TrustAnchorSourceData0Properties | outputs.rolesanywhere.TrustAnchorSourceData1Properties;
+        sourceType?: enums.rolesanywhere.TrustAnchorType;
+    }
+
+    export interface TrustAnchorSourceData0Properties {
         x509CertificateData: string;
     }
 
-    export interface SourceData1Properties {
+    export interface TrustAnchorSourceData1Properties {
         acmPcaArn: string;
-    }
-
-    export interface TrustAnchorSource {
-        sourceData?: outputs.rolesanywhere.SourceData0Properties | outputs.rolesanywhere.SourceData1Properties;
-        sourceType?: enums.rolesanywhere.TrustAnchorType;
     }
 
     export interface TrustAnchorTag {
@@ -43535,7 +43545,7 @@ export namespace route53 {
     /**
      * A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
      */
-    export interface HostedZoneVPC {
+    export interface HostedZoneVpc {
         /**
          * The ID of an Amazon VPC.
          */
@@ -43690,7 +43700,7 @@ export namespace route53recoveryreadiness {
     /**
      * A component for DNS/routing control readiness checks.
      */
-    export interface ResourceSetDNSTargetResource {
+    export interface ResourceSetDnsTargetResource {
         /**
          * The domain name that acts as an ingress point to a portion of the customer application.
          */
@@ -43713,7 +43723,7 @@ export namespace route53recoveryreadiness {
     /**
      * The Network Load Balancer resource that a DNS target resource points to.
      */
-    export interface ResourceSetNLBResource {
+    export interface ResourceSetNlbResource {
         /**
          * A Network Load Balancer resource Amazon Resource Name (ARN).
          */
@@ -43742,7 +43752,7 @@ export namespace route53recoveryreadiness {
          * The component identifier of the resource, generated when DNS target resource is used.
          */
         componentId?: string;
-        dnsTargetResource?: outputs.route53recoveryreadiness.ResourceSetDNSTargetResource;
+        dnsTargetResource?: outputs.route53recoveryreadiness.ResourceSetDnsTargetResource;
         /**
          * A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
          */
@@ -43762,7 +43772,7 @@ export namespace route53recoveryreadiness {
      * The target resource that the Route 53 record points to.
      */
     export interface ResourceSetTargetResource {
-        nlbResource?: outputs.route53recoveryreadiness.ResourceSetNLBResource;
+        nlbResource?: outputs.route53recoveryreadiness.ResourceSetNlbResource;
         r53Resource?: outputs.route53recoveryreadiness.ResourceSetR53ResourceRecord;
     }
 
@@ -44654,7 +44664,7 @@ export namespace s3 {
          * "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
          */
         kmsMasterKeyId?: string;
-        sseAlgorithm: enums.s3.BucketServerSideEncryptionByDefaultSSEAlgorithm;
+        sseAlgorithm: enums.s3.BucketServerSideEncryptionByDefaultSseAlgorithm;
     }
 
     /**
@@ -45096,6 +45106,17 @@ export namespace s3outposts {
         daysAfterInitiation: number;
     }
 
+    export interface BucketFilterAndOperatorProperties {
+        /**
+         * Prefix identifies one or more objects to which the rule applies.
+         */
+        prefix?: string;
+        /**
+         * All of these tags must exist in the object's tag set in order for the rule to apply.
+         */
+        tags: outputs.s3outposts.BucketFilterTag[];
+    }
+
     /**
      * Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
      */
@@ -45145,7 +45166,7 @@ export namespace s3outposts {
         /**
          * The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
          */
-        andOperator?: outputs.s3outposts.FilterAndOperatorProperties;
+        andOperator?: outputs.s3outposts.BucketFilterAndOperatorProperties;
         /**
          * Object key prefix that identifies one or more objects to which this rule applies.
          */
@@ -45177,17 +45198,6 @@ export namespace s3outposts {
      */
     export interface EndpointNetworkInterface {
         networkInterfaceId: string;
-    }
-
-    export interface FilterAndOperatorProperties {
-        /**
-         * Prefix identifies one or more objects to which the rule applies.
-         */
-        prefix?: string;
-        /**
-         * All of these tags must exist in the object's tag set in order for the rule to apply.
-         */
-        tags: outputs.s3outposts.BucketFilterTag[];
     }
 
 }
@@ -49075,14 +49085,14 @@ export namespace servicediscovery {
     }
 
     export interface PrivateDnsNamespacePrivateDnsPropertiesMutable {
-        soa?: outputs.servicediscovery.PrivateDnsNamespaceSOA;
+        soa?: outputs.servicediscovery.PrivateDnsNamespaceSoa;
     }
 
     export interface PrivateDnsNamespaceProperties {
         dnsProperties?: outputs.servicediscovery.PrivateDnsNamespacePrivateDnsPropertiesMutable;
     }
 
-    export interface PrivateDnsNamespaceSOA {
+    export interface PrivateDnsNamespaceSoa {
         ttl?: number;
     }
 
@@ -49096,10 +49106,10 @@ export namespace servicediscovery {
     }
 
     export interface PublicDnsNamespacePublicDnsPropertiesMutable {
-        soa?: outputs.servicediscovery.PublicDnsNamespaceSOA;
+        soa?: outputs.servicediscovery.PublicDnsNamespaceSoa;
     }
 
-    export interface PublicDnsNamespaceSOA {
+    export interface PublicDnsNamespaceSoa {
         ttl?: number;
     }
 
@@ -49390,7 +49400,7 @@ export namespace ses {
         bounceAction?: outputs.ses.ReceiptRuleBounceAction;
         lambdaAction?: outputs.ses.ReceiptRuleLambdaAction;
         s3Action?: outputs.ses.ReceiptRuleS3Action;
-        snsAction?: outputs.ses.ReceiptRuleSNSAction;
+        snsAction?: outputs.ses.ReceiptRuleSnsAction;
         stopAction?: outputs.ses.ReceiptRuleStopAction;
         workmailAction?: outputs.ses.ReceiptRuleWorkmailAction;
     }
@@ -49430,7 +49440,7 @@ export namespace ses {
         topicArn?: string;
     }
 
-    export interface ReceiptRuleSNSAction {
+    export interface ReceiptRuleSnsAction {
         encoding?: string;
         topicArn?: string;
     }
@@ -50360,12 +50370,6 @@ export namespace synthetics {
         value: string;
     }
 
-    export interface CanaryVPCConfig {
-        securityGroupIds: string[];
-        subnetIds: string[];
-        vpcId?: string;
-    }
-
     export interface CanaryVisualReference {
         /**
          * Canary run id to be used as base reference for visual testing
@@ -50375,6 +50379,12 @@ export namespace synthetics {
          * List of screenshots used as base reference for visual testing
          */
         baseScreenshots?: outputs.synthetics.CanaryBaseScreenshot[];
+    }
+
+    export interface CanaryVpcConfig {
+        securityGroupIds: string[];
+        subnetIds: string[];
+        vpcId?: string;
     }
 
     /**
@@ -51198,7 +51208,7 @@ export namespace waf {
         type: string;
     }
 
-    export interface IPSetDescriptor {
+    export interface IpSetIpSetDescriptor {
         type: string;
         value: string;
     }
@@ -51231,13 +51241,13 @@ export namespace waf {
         textTransformation: string;
     }
 
-    export interface WebACLActivatedRule {
-        action?: outputs.waf.WebACLWafAction;
+    export interface WebAclActivatedRule {
+        action?: outputs.waf.WebAclWafAction;
         priority: number;
         ruleId: string;
     }
 
-    export interface WebACLWafAction {
+    export interface WebAclWafAction {
         type: string;
     }
 
@@ -51272,7 +51282,7 @@ export namespace wafregional {
         value: string;
     }
 
-    export interface IPSetDescriptor {
+    export interface IpSetIpSetDescriptor {
         type: string;
         value: string;
     }
@@ -51311,12 +51321,12 @@ export namespace wafregional {
         textTransformation: string;
     }
 
-    export interface WebACLAction {
+    export interface WebAclAction {
         type: string;
     }
 
-    export interface WebACLRule {
-        action: outputs.wafregional.WebACLAction;
+    export interface WebAclRule {
+        action: outputs.wafregional.WebAclAction;
         priority: number;
         ruleId: string;
     }
@@ -51334,7 +51344,7 @@ export namespace wafregional {
 }
 
 export namespace wafv2 {
-    export interface IPSetTag {
+    export interface IpSetTag {
         key?: string;
         value?: string;
     }
@@ -51561,7 +51571,7 @@ export namespace wafv2 {
     /**
      * HTTP header.
      */
-    export interface RuleGroupCustomHTTPHeader {
+    export interface RuleGroupCustomHttpHeader {
         name: string;
         value: string;
     }
@@ -51573,7 +51583,7 @@ export namespace wafv2 {
         /**
          * Collection of HTTP headers.
          */
-        insertHeaders: outputs.wafv2.RuleGroupCustomHTTPHeader[];
+        insertHeaders: outputs.wafv2.RuleGroupCustomHttpHeader[];
     }
 
     /**
@@ -51588,7 +51598,7 @@ export namespace wafv2 {
         /**
          * Collection of HTTP headers.
          */
-        responseHeaders?: outputs.wafv2.RuleGroupCustomHTTPHeader[];
+        responseHeaders?: outputs.wafv2.RuleGroupCustomHttpHeader[];
     }
 
     /**
@@ -51639,14 +51649,14 @@ export namespace wafv2 {
         name: string;
     }
 
-    export interface RuleGroupForwardedIPConfiguration {
-        fallbackBehavior: enums.wafv2.RuleGroupForwardedIPConfigurationFallbackBehavior;
+    export interface RuleGroupForwardedIpConfiguration {
+        fallbackBehavior: enums.wafv2.RuleGroupForwardedIpConfigurationFallbackBehavior;
         headerName: string;
     }
 
     export interface RuleGroupGeoMatchStatement {
         countryCodes?: string[];
-        forwardedIpConfig?: outputs.wafv2.RuleGroupForwardedIPConfiguration;
+        forwardedIpConfig?: outputs.wafv2.RuleGroupForwardedIpConfiguration;
     }
 
     /**
@@ -51670,19 +51680,19 @@ export namespace wafv2 {
         oversizeHandling: enums.wafv2.RuleGroupOversizeHandling;
     }
 
-    export interface RuleGroupIPSetForwardedIPConfiguration {
-        fallbackBehavior: enums.wafv2.RuleGroupIPSetForwardedIPConfigurationFallbackBehavior;
-        headerName: string;
-        position: enums.wafv2.RuleGroupIPSetForwardedIPConfigurationPosition;
-    }
-
-    export interface RuleGroupIPSetReferenceStatement {
-        arn: string;
-        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupIPSetForwardedIPConfiguration;
-    }
-
     export interface RuleGroupImmunityTimeProperty {
         immunityTime: number;
+    }
+
+    export interface RuleGroupIpSetForwardedIpConfiguration {
+        fallbackBehavior: enums.wafv2.RuleGroupIpSetForwardedIpConfigurationFallbackBehavior;
+        headerName: string;
+        position: enums.wafv2.RuleGroupIpSetForwardedIpConfigurationPosition;
+    }
+
+    export interface RuleGroupIpSetReferenceStatement {
+        arn: string;
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupIpSetForwardedIpConfiguration;
     }
 
     /**
@@ -51733,7 +51743,7 @@ export namespace wafv2 {
          * Specifies the aggregate keys to use in a rate-base rule.
          */
         customKeys?: outputs.wafv2.RuleGroupRateBasedStatementCustomKey[];
-        forwardedIpConfig?: outputs.wafv2.RuleGroupForwardedIPConfiguration;
+        forwardedIpConfig?: outputs.wafv2.RuleGroupForwardedIpConfiguration;
         limit: number;
         scopeDownStatement?: outputs.wafv2.RuleGroupStatement;
     }
@@ -51743,10 +51753,10 @@ export namespace wafv2 {
      */
     export interface RuleGroupRateBasedStatementCustomKey {
         cookie?: outputs.wafv2.RuleGroupRateLimitCookie;
-        forwardedIp?: outputs.wafv2.RuleGroupRateLimitForwardedIP;
+        forwardedIp?: outputs.wafv2.RuleGroupRateLimitForwardedIp;
         header?: outputs.wafv2.RuleGroupRateLimitHeader;
-        httpMethod?: outputs.wafv2.RuleGroupRateLimitHTTPMethod;
-        ip?: outputs.wafv2.RuleGroupRateLimitIP;
+        httpMethod?: outputs.wafv2.RuleGroupRateLimitHttpMethod;
+        ip?: outputs.wafv2.RuleGroupRateLimitIp;
         labelNamespace?: outputs.wafv2.RuleGroupRateLimitLabelNamespace;
         queryArgument?: outputs.wafv2.RuleGroupRateLimitQueryArgument;
         queryString?: outputs.wafv2.RuleGroupRateLimitQueryString;
@@ -51767,13 +51777,7 @@ export namespace wafv2 {
     /**
      * Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
      */
-    export interface RuleGroupRateLimitForwardedIP {
-    }
-
-    /**
-     * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
-     */
-    export interface RuleGroupRateLimitHTTPMethod {
+    export interface RuleGroupRateLimitForwardedIp {
     }
 
     /**
@@ -51788,9 +51792,15 @@ export namespace wafv2 {
     }
 
     /**
+     * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitHttpMethod {
+    }
+
+    /**
      * Specifies the IP address in the web request as an aggregate key for a rate-based rule.
      */
-    export interface RuleGroupRateLimitIP {
+    export interface RuleGroupRateLimitIp {
     }
 
     /**
@@ -51894,7 +51904,7 @@ export namespace wafv2 {
         andStatement?: outputs.wafv2.RuleGroupAndStatement;
         byteMatchStatement?: outputs.wafv2.RuleGroupByteMatchStatement;
         geoMatchStatement?: outputs.wafv2.RuleGroupGeoMatchStatement;
-        ipSetReferenceStatement?: outputs.wafv2.RuleGroupIPSetReferenceStatement;
+        ipSetReferenceStatement?: outputs.wafv2.RuleGroupIpSetReferenceStatement;
         labelMatchStatement?: outputs.wafv2.RuleGroupLabelMatchStatement;
         notStatement?: outputs.wafv2.RuleGroupNotStatement;
         orStatement?: outputs.wafv2.RuleGroupOrStatement;
@@ -51937,102 +51947,102 @@ export namespace wafv2 {
     }
 
     /**
-     * Configures how to use the Account creation fraud prevention managed rule group in the web ACL
-     */
-    export interface WebACLAWSManagedRulesACFPRuleSet {
-        creationPath: string;
-        enableRegexInPath?: boolean;
-        registrationPagePath: string;
-        requestInspection: outputs.wafv2.WebACLRequestInspectionACFP;
-        responseInspection?: outputs.wafv2.WebACLResponseInspection;
-    }
-
-    /**
-     * Configures how to use the Account Takeover Prevention managed rule group in the web ACL
-     */
-    export interface WebACLAWSManagedRulesATPRuleSet {
-        enableRegexInPath?: boolean;
-        loginPath: string;
-        requestInspection?: outputs.wafv2.WebACLRequestInspection;
-        responseInspection?: outputs.wafv2.WebACLResponseInspection;
-    }
-
-    /**
-     * Configures how to use the Bot Control managed rule group in the web ACL
-     */
-    export interface WebACLAWSManagedRulesBotControlRuleSet {
-        inspectionLevel: enums.wafv2.WebACLAWSManagedRulesBotControlRuleSetInspectionLevel;
-    }
-
-    /**
      * Allow traffic towards application.
      */
-    export interface WebACLAllowAction {
-        customRequestHandling?: outputs.wafv2.WebACLCustomRequestHandling;
+    export interface WebAclAllowAction {
+        customRequestHandling?: outputs.wafv2.WebAclCustomRequestHandling;
     }
 
-    export interface WebACLAndStatement {
-        statements: outputs.wafv2.WebACLStatement[];
+    export interface WebAclAndStatement {
+        statements: outputs.wafv2.WebAclStatement[];
     }
 
     /**
      * AssociationConfig for body inspection
      */
-    export interface WebACLAssociationConfig {
-        requestBody?: outputs.wafv2.WebACLRequestBody;
+    export interface WebAclAssociationConfig {
+        requestBody?: outputs.wafv2.WebAclRequestBody;
+    }
+
+    /**
+     * Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+     */
+    export interface WebAclAwsManagedRulesAcfpRuleSet {
+        creationPath: string;
+        enableRegexInPath?: boolean;
+        registrationPagePath: string;
+        requestInspection: outputs.wafv2.WebAclRequestInspectionAcfp;
+        responseInspection?: outputs.wafv2.WebAclResponseInspection;
+    }
+
+    /**
+     * Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+     */
+    export interface WebAclAwsManagedRulesAtpRuleSet {
+        enableRegexInPath?: boolean;
+        loginPath: string;
+        requestInspection?: outputs.wafv2.WebAclRequestInspection;
+        responseInspection?: outputs.wafv2.WebAclResponseInspection;
+    }
+
+    /**
+     * Configures how to use the Bot Control managed rule group in the web ACL
+     */
+    export interface WebAclAwsManagedRulesBotControlRuleSet {
+        inspectionLevel: enums.wafv2.WebAclAwsManagedRulesBotControlRuleSetInspectionLevel;
     }
 
     /**
      * Block traffic towards application.
      */
-    export interface WebACLBlockAction {
-        customResponse?: outputs.wafv2.WebACLCustomResponse;
+    export interface WebAclBlockAction {
+        customResponse?: outputs.wafv2.WebAclCustomResponse;
     }
 
     /**
      * The body of a web request. This immediately follows the request headers.
      */
-    export interface WebACLBody {
-        oversizeHandling?: enums.wafv2.WebACLOversizeHandling;
+    export interface WebAclBody {
+        oversizeHandling?: enums.wafv2.WebAclOversizeHandling;
     }
 
     /**
      * Byte Match statement.
      */
-    export interface WebACLByteMatchStatement {
-        fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
-        positionalConstraint: enums.wafv2.WebACLPositionalConstraint;
+    export interface WebAclByteMatchStatement {
+        fieldToMatch: outputs.wafv2.WebAclFieldToMatch;
+        positionalConstraint: enums.wafv2.WebAclPositionalConstraint;
         searchString?: string;
         searchStringBase64?: string;
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
     }
 
     /**
      * Checks valid token exists with request.
      */
-    export interface WebACLCaptchaAction {
-        customRequestHandling?: outputs.wafv2.WebACLCustomRequestHandling;
+    export interface WebAclCaptchaAction {
+        customRequestHandling?: outputs.wafv2.WebAclCustomRequestHandling;
     }
 
-    export interface WebACLCaptchaConfig {
-        immunityTimeProperty?: outputs.wafv2.WebACLImmunityTimeProperty;
+    export interface WebAclCaptchaConfig {
+        immunityTimeProperty?: outputs.wafv2.WebAclImmunityTimeProperty;
     }
 
     /**
      * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
      */
-    export interface WebACLChallengeAction {
-        customRequestHandling?: outputs.wafv2.WebACLCustomRequestHandling;
+    export interface WebAclChallengeAction {
+        customRequestHandling?: outputs.wafv2.WebAclCustomRequestHandling;
     }
 
-    export interface WebACLChallengeConfig {
-        immunityTimeProperty?: outputs.wafv2.WebACLImmunityTimeProperty;
+    export interface WebAclChallengeConfig {
+        immunityTimeProperty?: outputs.wafv2.WebAclImmunityTimeProperty;
     }
 
     /**
      * The pattern to look for in the request cookies.
      */
-    export interface WebACLCookieMatchPattern {
+    export interface WebAclCookieMatchPattern {
         /**
          * Inspect all parts of the web request cookies.
          */
@@ -52044,23 +52054,23 @@ export namespace wafv2 {
     /**
      * Includes headers of a web request.
      */
-    export interface WebACLCookies {
-        matchPattern: outputs.wafv2.WebACLCookieMatchPattern;
-        matchScope: enums.wafv2.WebACLMapMatchScope;
-        oversizeHandling: enums.wafv2.WebACLOversizeHandling;
+    export interface WebAclCookies {
+        matchPattern: outputs.wafv2.WebAclCookieMatchPattern;
+        matchScope: enums.wafv2.WebAclMapMatchScope;
+        oversizeHandling: enums.wafv2.WebAclOversizeHandling;
     }
 
     /**
      * Allow traffic towards application.
      */
-    export interface WebACLCountAction {
-        customRequestHandling?: outputs.wafv2.WebACLCustomRequestHandling;
+    export interface WebAclCountAction {
+        customRequestHandling?: outputs.wafv2.WebAclCustomRequestHandling;
     }
 
     /**
      * HTTP header.
      */
-    export interface WebACLCustomHTTPHeader {
+    export interface WebAclCustomHttpHeader {
         name: string;
         value: string;
     }
@@ -52068,17 +52078,17 @@ export namespace wafv2 {
     /**
      * Custom request handling.
      */
-    export interface WebACLCustomRequestHandling {
+    export interface WebAclCustomRequestHandling {
         /**
          * Collection of HTTP headers.
          */
-        insertHeaders: outputs.wafv2.WebACLCustomHTTPHeader[];
+        insertHeaders: outputs.wafv2.WebAclCustomHttpHeader[];
     }
 
     /**
      * Custom response.
      */
-    export interface WebACLCustomResponse {
+    export interface WebAclCustomResponse {
         /**
          * Custom response body key.
          */
@@ -52087,46 +52097,46 @@ export namespace wafv2 {
         /**
          * Collection of HTTP headers.
          */
-        responseHeaders?: outputs.wafv2.WebACLCustomHTTPHeader[];
+        responseHeaders?: outputs.wafv2.WebAclCustomHttpHeader[];
     }
 
     /**
      * Custom response key and body map.
      */
-    export interface WebACLCustomResponseBodies {
+    export interface WebAclCustomResponseBodies {
     }
 
     /**
      * Default Action WebACL will take against ingress traffic when there is no matching Rule.
      */
-    export interface WebACLDefaultAction {
-        allow?: outputs.wafv2.WebACLAllowAction;
-        block?: outputs.wafv2.WebACLBlockAction;
+    export interface WebAclDefaultAction {
+        allow?: outputs.wafv2.WebAclAllowAction;
+        block?: outputs.wafv2.WebAclBlockAction;
     }
 
     /**
      * Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
      */
-    export interface WebACLExcludedRule {
+    export interface WebAclExcludedRule {
         name: string;
     }
 
-    export interface WebACLFieldIdentifier {
+    export interface WebAclFieldIdentifier {
         identifier: string;
     }
 
     /**
      * Field of the request to match.
      */
-    export interface WebACLFieldToMatch {
+    export interface WebAclFieldToMatch {
         /**
          * All query arguments of a web request.
          */
         allQueryArguments?: any;
-        body?: outputs.wafv2.WebACLBody;
-        cookies?: outputs.wafv2.WebACLCookies;
-        headers?: outputs.wafv2.WebACLHeaders;
-        jsonBody?: outputs.wafv2.WebACLJsonBody;
+        body?: outputs.wafv2.WebAclBody;
+        cookies?: outputs.wafv2.WebAclCookies;
+        headers?: outputs.wafv2.WebAclHeaders;
+        jsonBody?: outputs.wafv2.WebAclJsonBody;
         /**
          * The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
          */
@@ -52135,42 +52145,42 @@ export namespace wafv2 {
          * The query string of a web request. This is the part of a URL that appears after a ? character, if any.
          */
         queryString?: any;
-        singleHeader?: outputs.wafv2.WebACLFieldToMatchSingleHeaderProperties;
+        singleHeader?: outputs.wafv2.WebAclFieldToMatchSingleHeaderProperties;
         /**
          * One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
          */
-        singleQueryArgument?: outputs.wafv2.WebACLFieldToMatchSingleQueryArgumentProperties;
+        singleQueryArgument?: outputs.wafv2.WebAclFieldToMatchSingleQueryArgumentProperties;
         /**
          * The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
          */
         uriPath?: any;
     }
 
-    export interface WebACLFieldToMatchSingleHeaderProperties {
+    export interface WebAclFieldToMatchSingleHeaderProperties {
         name: string;
     }
 
     /**
      * One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
      */
-    export interface WebACLFieldToMatchSingleQueryArgumentProperties {
+    export interface WebAclFieldToMatchSingleQueryArgumentProperties {
         name: string;
     }
 
-    export interface WebACLForwardedIPConfiguration {
-        fallbackBehavior: enums.wafv2.WebACLForwardedIPConfigurationFallbackBehavior;
+    export interface WebAclForwardedIpConfiguration {
+        fallbackBehavior: enums.wafv2.WebAclForwardedIpConfigurationFallbackBehavior;
         headerName: string;
     }
 
-    export interface WebACLGeoMatchStatement {
+    export interface WebAclGeoMatchStatement {
         countryCodes?: string[];
-        forwardedIpConfig?: outputs.wafv2.WebACLForwardedIPConfiguration;
+        forwardedIpConfig?: outputs.wafv2.WebAclForwardedIpConfiguration;
     }
 
     /**
      * The pattern to look for in the request headers.
      */
-    export interface WebACLHeaderMatchPattern {
+    export interface WebAclHeaderMatchPattern {
         /**
          * Inspect all parts of the web request headers.
          */
@@ -52182,41 +52192,41 @@ export namespace wafv2 {
     /**
      * Includes headers of a web request.
      */
-    export interface WebACLHeaders {
-        matchPattern: outputs.wafv2.WebACLHeaderMatchPattern;
-        matchScope: enums.wafv2.WebACLMapMatchScope;
-        oversizeHandling: enums.wafv2.WebACLOversizeHandling;
+    export interface WebAclHeaders {
+        matchPattern: outputs.wafv2.WebAclHeaderMatchPattern;
+        matchScope: enums.wafv2.WebAclMapMatchScope;
+        oversizeHandling: enums.wafv2.WebAclOversizeHandling;
     }
 
-    export interface WebACLIPSetForwardedIPConfiguration {
-        fallbackBehavior: enums.wafv2.WebACLIPSetForwardedIPConfigurationFallbackBehavior;
-        headerName: string;
-        position: enums.wafv2.WebACLIPSetForwardedIPConfigurationPosition;
-    }
-
-    export interface WebACLIPSetReferenceStatement {
-        arn: string;
-        ipSetForwardedIpConfig?: outputs.wafv2.WebACLIPSetForwardedIPConfiguration;
-    }
-
-    export interface WebACLImmunityTimeProperty {
+    export interface WebAclImmunityTimeProperty {
         immunityTime: number;
+    }
+
+    export interface WebAclIpSetForwardedIpConfiguration {
+        fallbackBehavior: enums.wafv2.WebAclIpSetForwardedIpConfigurationFallbackBehavior;
+        headerName: string;
+        position: enums.wafv2.WebAclIpSetForwardedIpConfigurationPosition;
+    }
+
+    export interface WebAclIpSetReferenceStatement {
+        arn: string;
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclIpSetForwardedIpConfiguration;
     }
 
     /**
      * Inspect the request body as JSON. The request body immediately follows the request headers.
      */
-    export interface WebACLJsonBody {
-        invalidFallbackBehavior?: enums.wafv2.WebACLBodyParsingFallbackBehavior;
-        matchPattern: outputs.wafv2.WebACLJsonMatchPattern;
-        matchScope: enums.wafv2.WebACLJsonMatchScope;
-        oversizeHandling?: enums.wafv2.WebACLOversizeHandling;
+    export interface WebAclJsonBody {
+        invalidFallbackBehavior?: enums.wafv2.WebAclBodyParsingFallbackBehavior;
+        matchPattern: outputs.wafv2.WebAclJsonMatchPattern;
+        matchScope: enums.wafv2.WebAclJsonMatchScope;
+        oversizeHandling?: enums.wafv2.WebAclOversizeHandling;
     }
 
     /**
      * The pattern to look for in the JSON body.
      */
-    export interface WebACLJsonMatchPattern {
+    export interface WebAclJsonMatchPattern {
         /**
          * Inspect all parts of the web request's JSON body.
          */
@@ -52224,56 +52234,56 @@ export namespace wafv2 {
         includedPaths?: string[];
     }
 
-    export interface WebACLLabel {
+    export interface WebAclLabel {
         name: string;
     }
 
-    export interface WebACLLabelMatchStatement {
+    export interface WebAclLabelMatchStatement {
         key: string;
-        scope: enums.wafv2.WebACLLabelMatchScope;
+        scope: enums.wafv2.WebAclLabelMatchScope;
     }
 
     /**
      * ManagedRuleGroupConfig.
      */
-    export interface WebACLManagedRuleGroupConfig {
-        awsManagedRulesAcfpRuleSet?: outputs.wafv2.WebACLAWSManagedRulesACFPRuleSet;
-        awsManagedRulesAtpRuleSet?: outputs.wafv2.WebACLAWSManagedRulesATPRuleSet;
-        awsManagedRulesBotControlRuleSet?: outputs.wafv2.WebACLAWSManagedRulesBotControlRuleSet;
+    export interface WebAclManagedRuleGroupConfig {
+        awsManagedRulesAcfpRuleSet?: outputs.wafv2.WebAclAwsManagedRulesAcfpRuleSet;
+        awsManagedRulesAtpRuleSet?: outputs.wafv2.WebAclAwsManagedRulesAtpRuleSet;
+        awsManagedRulesBotControlRuleSet?: outputs.wafv2.WebAclAwsManagedRulesBotControlRuleSet;
         loginPath?: string;
-        passwordField?: outputs.wafv2.WebACLFieldIdentifier;
-        payloadType?: enums.wafv2.WebACLManagedRuleGroupConfigPayloadType;
-        usernameField?: outputs.wafv2.WebACLFieldIdentifier;
+        passwordField?: outputs.wafv2.WebAclFieldIdentifier;
+        payloadType?: enums.wafv2.WebAclManagedRuleGroupConfigPayloadType;
+        usernameField?: outputs.wafv2.WebAclFieldIdentifier;
     }
 
-    export interface WebACLManagedRuleGroupStatement {
-        excludedRules?: outputs.wafv2.WebACLExcludedRule[];
+    export interface WebAclManagedRuleGroupStatement {
+        excludedRules?: outputs.wafv2.WebAclExcludedRule[];
         /**
          * Collection of ManagedRuleGroupConfig.
          */
-        managedRuleGroupConfigs?: outputs.wafv2.WebACLManagedRuleGroupConfig[];
+        managedRuleGroupConfigs?: outputs.wafv2.WebAclManagedRuleGroupConfig[];
         name: string;
         /**
          * Action overrides for rules in the rule group.
          */
-        ruleActionOverrides?: outputs.wafv2.WebACLRuleActionOverride[];
-        scopeDownStatement?: outputs.wafv2.WebACLStatement;
+        ruleActionOverrides?: outputs.wafv2.WebAclRuleActionOverride[];
+        scopeDownStatement?: outputs.wafv2.WebAclStatement;
         vendorName: string;
         version?: string;
     }
 
-    export interface WebACLNotStatement {
-        statement: outputs.wafv2.WebACLStatement;
+    export interface WebAclNotStatement {
+        statement: outputs.wafv2.WebAclStatement;
     }
 
-    export interface WebACLOrStatement {
-        statements: outputs.wafv2.WebACLStatement[];
+    export interface WebAclOrStatement {
+        statements: outputs.wafv2.WebAclStatement[];
     }
 
     /**
      * Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
      */
-    export interface WebACLOverrideAction {
+    export interface WebAclOverrideAction {
         /**
          * Count traffic towards application.
          */
@@ -52284,76 +52294,76 @@ export namespace wafv2 {
         none?: any;
     }
 
-    export interface WebACLRateBasedStatement {
-        aggregateKeyType: enums.wafv2.WebACLRateBasedStatementAggregateKeyType;
+    export interface WebAclRateBasedStatement {
+        aggregateKeyType: enums.wafv2.WebAclRateBasedStatementAggregateKeyType;
         /**
          * Specifies the aggregate keys to use in a rate-base rule.
          */
-        customKeys?: outputs.wafv2.WebACLRateBasedStatementCustomKey[];
-        forwardedIpConfig?: outputs.wafv2.WebACLForwardedIPConfiguration;
+        customKeys?: outputs.wafv2.WebAclRateBasedStatementCustomKey[];
+        forwardedIpConfig?: outputs.wafv2.WebAclForwardedIpConfiguration;
         limit: number;
-        scopeDownStatement?: outputs.wafv2.WebACLStatement;
+        scopeDownStatement?: outputs.wafv2.WebAclStatement;
     }
 
     /**
      * Specifies a single custom aggregate key for a rate-base rule.
      */
-    export interface WebACLRateBasedStatementCustomKey {
-        cookie?: outputs.wafv2.WebACLRateLimitCookie;
-        forwardedIp?: outputs.wafv2.WebACLRateLimitForwardedIP;
-        header?: outputs.wafv2.WebACLRateLimitHeader;
-        httpMethod?: outputs.wafv2.WebACLRateLimitHTTPMethod;
-        ip?: outputs.wafv2.WebACLRateLimitIP;
-        labelNamespace?: outputs.wafv2.WebACLRateLimitLabelNamespace;
-        queryArgument?: outputs.wafv2.WebACLRateLimitQueryArgument;
-        queryString?: outputs.wafv2.WebACLRateLimitQueryString;
-        uriPath?: outputs.wafv2.WebACLRateLimitUriPath;
+    export interface WebAclRateBasedStatementCustomKey {
+        cookie?: outputs.wafv2.WebAclRateLimitCookie;
+        forwardedIp?: outputs.wafv2.WebAclRateLimitForwardedIp;
+        header?: outputs.wafv2.WebAclRateLimitHeader;
+        httpMethod?: outputs.wafv2.WebAclRateLimitHttpMethod;
+        ip?: outputs.wafv2.WebAclRateLimitIp;
+        labelNamespace?: outputs.wafv2.WebAclRateLimitLabelNamespace;
+        queryArgument?: outputs.wafv2.WebAclRateLimitQueryArgument;
+        queryString?: outputs.wafv2.WebAclRateLimitQueryString;
+        uriPath?: outputs.wafv2.WebAclRateLimitUriPath;
     }
 
     /**
      * Specifies a cookie as an aggregate key for a rate-based rule.
      */
-    export interface WebACLRateLimitCookie {
+    export interface WebAclRateLimitCookie {
         /**
          * The name of the cookie to use.
          */
         name: string;
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
     }
 
     /**
      * Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
      */
-    export interface WebACLRateLimitForwardedIP {
-    }
-
-    /**
-     * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
-     */
-    export interface WebACLRateLimitHTTPMethod {
+    export interface WebAclRateLimitForwardedIp {
     }
 
     /**
      * Specifies a header as an aggregate key for a rate-based rule.
      */
-    export interface WebACLRateLimitHeader {
+    export interface WebAclRateLimitHeader {
         /**
          * The name of the header to use.
          */
         name: string;
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
+    }
+
+    /**
+     * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+     */
+    export interface WebAclRateLimitHttpMethod {
     }
 
     /**
      * Specifies the IP address in the web request as an aggregate key for a rate-based rule.
      */
-    export interface WebACLRateLimitIP {
+    export interface WebAclRateLimitIp {
     }
 
     /**
      * Specifies a label namespace to use as an aggregate key for a rate-based rule.
      */
-    export interface WebACLRateLimitLabelNamespace {
+    export interface WebAclRateLimitLabelNamespace {
         /**
          * The namespace to use for aggregation.
          */
@@ -52363,81 +52373,81 @@ export namespace wafv2 {
     /**
      * Specifies a query argument in the request as an aggregate key for a rate-based rule.
      */
-    export interface WebACLRateLimitQueryArgument {
+    export interface WebAclRateLimitQueryArgument {
         /**
          * The name of the query argument to use.
          */
         name: string;
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
     }
 
     /**
      * Specifies the request's query string as an aggregate key for a rate-based rule.
      */
-    export interface WebACLRateLimitQueryString {
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    export interface WebAclRateLimitQueryString {
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
     }
 
     /**
      * Specifies the request's URI Path as an aggregate key for a rate-based rule.
      */
-    export interface WebACLRateLimitUriPath {
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    export interface WebAclRateLimitUriPath {
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
     }
 
-    export interface WebACLRegexMatchStatement {
-        fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
+    export interface WebAclRegexMatchStatement {
+        fieldToMatch: outputs.wafv2.WebAclFieldToMatch;
         regexString: string;
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
     }
 
-    export interface WebACLRegexPatternSetReferenceStatement {
+    export interface WebAclRegexPatternSetReferenceStatement {
         arn: string;
-        fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+        fieldToMatch: outputs.wafv2.WebAclFieldToMatch;
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
     }
 
     /**
      * Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
      */
-    export interface WebACLRequestBody {
+    export interface WebAclRequestBody {
     }
 
     /**
      * Configures the inspection of login requests
      */
-    export interface WebACLRequestInspection {
-        passwordField: outputs.wafv2.WebACLFieldIdentifier;
-        payloadType: enums.wafv2.WebACLRequestInspectionPayloadType;
-        usernameField: outputs.wafv2.WebACLFieldIdentifier;
+    export interface WebAclRequestInspection {
+        passwordField: outputs.wafv2.WebAclFieldIdentifier;
+        payloadType: enums.wafv2.WebAclRequestInspectionPayloadType;
+        usernameField: outputs.wafv2.WebAclFieldIdentifier;
     }
 
     /**
      * Configures the inspection of sign-up requests
      */
-    export interface WebACLRequestInspectionACFP {
-        addressFields?: outputs.wafv2.WebACLFieldIdentifier[];
-        emailField?: outputs.wafv2.WebACLFieldIdentifier;
-        passwordField?: outputs.wafv2.WebACLFieldIdentifier;
-        payloadType: enums.wafv2.WebACLRequestInspectionACFPPayloadType;
-        phoneNumberFields?: outputs.wafv2.WebACLFieldIdentifier[];
-        usernameField?: outputs.wafv2.WebACLFieldIdentifier;
+    export interface WebAclRequestInspectionAcfp {
+        addressFields?: outputs.wafv2.WebAclFieldIdentifier[];
+        emailField?: outputs.wafv2.WebAclFieldIdentifier;
+        passwordField?: outputs.wafv2.WebAclFieldIdentifier;
+        payloadType: enums.wafv2.WebAclRequestInspectionAcfpPayloadType;
+        phoneNumberFields?: outputs.wafv2.WebAclFieldIdentifier[];
+        usernameField?: outputs.wafv2.WebAclFieldIdentifier;
     }
 
     /**
      * Configures the inspection of login responses
      */
-    export interface WebACLResponseInspection {
-        bodyContains?: outputs.wafv2.WebACLResponseInspectionBodyContains;
-        header?: outputs.wafv2.WebACLResponseInspectionHeader;
-        json?: outputs.wafv2.WebACLResponseInspectionJson;
-        statusCode?: outputs.wafv2.WebACLResponseInspectionStatusCode;
+    export interface WebAclResponseInspection {
+        bodyContains?: outputs.wafv2.WebAclResponseInspectionBodyContains;
+        header?: outputs.wafv2.WebAclResponseInspectionHeader;
+        json?: outputs.wafv2.WebAclResponseInspectionJson;
+        statusCode?: outputs.wafv2.WebAclResponseInspectionStatusCode;
     }
 
     /**
      * Response body contents that indicate success or failure of a login request
      */
-    export interface WebACLResponseInspectionBodyContains {
+    export interface WebAclResponseInspectionBodyContains {
         failureStrings: string[];
         successStrings: string[];
     }
@@ -52445,7 +52455,7 @@ export namespace wafv2 {
     /**
      * Response headers that indicate success or failure of a login request
      */
-    export interface WebACLResponseInspectionHeader {
+    export interface WebAclResponseInspectionHeader {
         failureValues: string[];
         name: string;
         successValues: string[];
@@ -52454,7 +52464,7 @@ export namespace wafv2 {
     /**
      * Response JSON that indicate success or failure of a login request
      */
-    export interface WebACLResponseInspectionJson {
+    export interface WebAclResponseInspectionJson {
         failureValues: string[];
         identifier: string;
         successValues: string[];
@@ -52463,7 +52473,7 @@ export namespace wafv2 {
     /**
      * Response status codes that indicate success or failure of a login request
      */
-    export interface WebACLResponseInspectionStatusCode {
+    export interface WebAclResponseInspectionStatusCode {
         failureCodes: number[];
         successCodes: number[];
     }
@@ -52471,90 +52481,90 @@ export namespace wafv2 {
     /**
      * Rule of WebACL that contains condition and action.
      */
-    export interface WebACLRule {
-        action?: outputs.wafv2.WebACLRuleAction;
-        captchaConfig?: outputs.wafv2.WebACLCaptchaConfig;
-        challengeConfig?: outputs.wafv2.WebACLChallengeConfig;
+    export interface WebAclRule {
+        action?: outputs.wafv2.WebAclRuleAction;
+        captchaConfig?: outputs.wafv2.WebAclCaptchaConfig;
+        challengeConfig?: outputs.wafv2.WebAclChallengeConfig;
         name: string;
-        overrideAction?: outputs.wafv2.WebACLOverrideAction;
+        overrideAction?: outputs.wafv2.WebAclOverrideAction;
         priority: number;
         /**
          * Collection of Rule Labels.
          */
-        ruleLabels?: outputs.wafv2.WebACLLabel[];
-        statement: outputs.wafv2.WebACLStatement;
-        visibilityConfig: outputs.wafv2.WebACLVisibilityConfig;
+        ruleLabels?: outputs.wafv2.WebAclLabel[];
+        statement: outputs.wafv2.WebAclStatement;
+        visibilityConfig: outputs.wafv2.WebAclVisibilityConfig;
     }
 
     /**
      * Action taken when Rule matches its condition.
      */
-    export interface WebACLRuleAction {
-        allow?: outputs.wafv2.WebACLAllowAction;
-        block?: outputs.wafv2.WebACLBlockAction;
-        captcha?: outputs.wafv2.WebACLCaptchaAction;
-        challenge?: outputs.wafv2.WebACLChallengeAction;
-        count?: outputs.wafv2.WebACLCountAction;
+    export interface WebAclRuleAction {
+        allow?: outputs.wafv2.WebAclAllowAction;
+        block?: outputs.wafv2.WebAclBlockAction;
+        captcha?: outputs.wafv2.WebAclCaptchaAction;
+        challenge?: outputs.wafv2.WebAclChallengeAction;
+        count?: outputs.wafv2.WebAclCountAction;
     }
 
     /**
      * Action override for rules in the rule group.
      */
-    export interface WebACLRuleActionOverride {
-        actionToUse: outputs.wafv2.WebACLRuleAction;
+    export interface WebAclRuleActionOverride {
+        actionToUse: outputs.wafv2.WebAclRuleAction;
         name: string;
     }
 
-    export interface WebACLRuleGroupReferenceStatement {
+    export interface WebAclRuleGroupReferenceStatement {
         arn: string;
-        excludedRules?: outputs.wafv2.WebACLExcludedRule[];
+        excludedRules?: outputs.wafv2.WebAclExcludedRule[];
         /**
          * Action overrides for rules in the rule group.
          */
-        ruleActionOverrides?: outputs.wafv2.WebACLRuleActionOverride[];
+        ruleActionOverrides?: outputs.wafv2.WebAclRuleActionOverride[];
     }
 
     /**
      * Size Constraint statement.
      */
-    export interface WebACLSizeConstraintStatement {
-        comparisonOperator: enums.wafv2.WebACLSizeConstraintStatementComparisonOperator;
-        fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
+    export interface WebAclSizeConstraintStatement {
+        comparisonOperator: enums.wafv2.WebAclSizeConstraintStatementComparisonOperator;
+        fieldToMatch: outputs.wafv2.WebAclFieldToMatch;
         size: number;
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
     }
 
     /**
      * Sqli Match Statement.
      */
-    export interface WebACLSqliMatchStatement {
-        fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
-        sensitivityLevel?: enums.wafv2.WebACLSensitivityLevel;
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    export interface WebAclSqliMatchStatement {
+        fieldToMatch: outputs.wafv2.WebAclFieldToMatch;
+        sensitivityLevel?: enums.wafv2.WebAclSensitivityLevel;
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
     }
 
     /**
      * First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
      */
-    export interface WebACLStatement {
-        andStatement?: outputs.wafv2.WebACLAndStatement;
-        byteMatchStatement?: outputs.wafv2.WebACLByteMatchStatement;
-        geoMatchStatement?: outputs.wafv2.WebACLGeoMatchStatement;
-        ipSetReferenceStatement?: outputs.wafv2.WebACLIPSetReferenceStatement;
-        labelMatchStatement?: outputs.wafv2.WebACLLabelMatchStatement;
-        managedRuleGroupStatement?: outputs.wafv2.WebACLManagedRuleGroupStatement;
-        notStatement?: outputs.wafv2.WebACLNotStatement;
-        orStatement?: outputs.wafv2.WebACLOrStatement;
-        rateBasedStatement?: outputs.wafv2.WebACLRateBasedStatement;
-        regexMatchStatement?: outputs.wafv2.WebACLRegexMatchStatement;
-        regexPatternSetReferenceStatement?: outputs.wafv2.WebACLRegexPatternSetReferenceStatement;
-        ruleGroupReferenceStatement?: outputs.wafv2.WebACLRuleGroupReferenceStatement;
-        sizeConstraintStatement?: outputs.wafv2.WebACLSizeConstraintStatement;
-        sqliMatchStatement?: outputs.wafv2.WebACLSqliMatchStatement;
-        xssMatchStatement?: outputs.wafv2.WebACLXssMatchStatement;
+    export interface WebAclStatement {
+        andStatement?: outputs.wafv2.WebAclAndStatement;
+        byteMatchStatement?: outputs.wafv2.WebAclByteMatchStatement;
+        geoMatchStatement?: outputs.wafv2.WebAclGeoMatchStatement;
+        ipSetReferenceStatement?: outputs.wafv2.WebAclIpSetReferenceStatement;
+        labelMatchStatement?: outputs.wafv2.WebAclLabelMatchStatement;
+        managedRuleGroupStatement?: outputs.wafv2.WebAclManagedRuleGroupStatement;
+        notStatement?: outputs.wafv2.WebAclNotStatement;
+        orStatement?: outputs.wafv2.WebAclOrStatement;
+        rateBasedStatement?: outputs.wafv2.WebAclRateBasedStatement;
+        regexMatchStatement?: outputs.wafv2.WebAclRegexMatchStatement;
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRegexPatternSetReferenceStatement;
+        ruleGroupReferenceStatement?: outputs.wafv2.WebAclRuleGroupReferenceStatement;
+        sizeConstraintStatement?: outputs.wafv2.WebAclSizeConstraintStatement;
+        sqliMatchStatement?: outputs.wafv2.WebAclSqliMatchStatement;
+        xssMatchStatement?: outputs.wafv2.WebAclXssMatchStatement;
     }
 
-    export interface WebACLTag {
+    export interface WebAclTag {
         key?: string;
         value?: string;
     }
@@ -52562,15 +52572,15 @@ export namespace wafv2 {
     /**
      * Text Transformation on the Search String before match.
      */
-    export interface WebACLTextTransformation {
+    export interface WebAclTextTransformation {
         priority: number;
-        type: enums.wafv2.WebACLTextTransformationType;
+        type: enums.wafv2.WebAclTextTransformationType;
     }
 
     /**
      * Visibility Metric of the WebACL.
      */
-    export interface WebACLVisibilityConfig {
+    export interface WebAclVisibilityConfig {
         cloudWatchMetricsEnabled: boolean;
         metricName: string;
         sampledRequestsEnabled: boolean;
@@ -52579,9 +52589,9 @@ export namespace wafv2 {
     /**
      * Xss Match Statement.
      */
-    export interface WebACLXssMatchStatement {
-        fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
-        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    export interface WebAclXssMatchStatement {
+        fieldToMatch: outputs.wafv2.WebAclFieldToMatch;
+        textTransformations: outputs.wafv2.WebAclTextTransformation[];
     }
 
 }

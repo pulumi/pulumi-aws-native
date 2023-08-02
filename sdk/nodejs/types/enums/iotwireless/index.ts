@@ -61,7 +61,7 @@ export type WirelessDeviceImportTaskStatus = (typeof WirelessDeviceImportTaskSta
 
 export const WirelessDeviceType = {
     Sidewalk: "Sidewalk",
-    LoRaWAN: "LoRaWAN",
+    LoRaWan: "LoRaWAN",
 } as const;
 
 /**

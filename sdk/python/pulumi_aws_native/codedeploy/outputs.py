@@ -24,11 +24,11 @@ __all__ = [
     'DeploymentGroupDeployment',
     'DeploymentGroupDeploymentReadyOption',
     'DeploymentGroupDeploymentStyle',
-    'DeploymentGroupEC2TagFilter',
-    'DeploymentGroupEC2TagSet',
-    'DeploymentGroupEC2TagSetListObject',
-    'DeploymentGroupECSService',
-    'DeploymentGroupELBInfo',
+    'DeploymentGroupEc2TagFilter',
+    'DeploymentGroupEc2TagSet',
+    'DeploymentGroupEc2TagSetListObject',
+    'DeploymentGroupEcsService',
+    'DeploymentGroupElbInfo',
     'DeploymentGroupGitHubLocation',
     'DeploymentGroupGreenFleetProvisioningOption',
     'DeploymentGroupLoadBalancerInfo',
@@ -499,7 +499,7 @@ class DeploymentGroupDeploymentStyle(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupEC2TagFilter(dict):
+class DeploymentGroupEc2TagFilter(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  type: Optional[str] = None,
@@ -528,7 +528,7 @@ class DeploymentGroupEC2TagFilter(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupEC2TagSet(dict):
+class DeploymentGroupEc2TagSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -536,29 +536,29 @@ class DeploymentGroupEC2TagSet(dict):
             suggest = "ec2_tag_set_list"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupEC2TagSet. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupEc2TagSet. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DeploymentGroupEC2TagSet.__key_warning(key)
+        DeploymentGroupEc2TagSet.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DeploymentGroupEC2TagSet.__key_warning(key)
+        DeploymentGroupEc2TagSet.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ec2_tag_set_list: Optional[Sequence['outputs.DeploymentGroupEC2TagSetListObject']] = None):
+                 ec2_tag_set_list: Optional[Sequence['outputs.DeploymentGroupEc2TagSetListObject']] = None):
         if ec2_tag_set_list is not None:
             pulumi.set(__self__, "ec2_tag_set_list", ec2_tag_set_list)
 
     @property
     @pulumi.getter(name="ec2TagSetList")
-    def ec2_tag_set_list(self) -> Optional[Sequence['outputs.DeploymentGroupEC2TagSetListObject']]:
+    def ec2_tag_set_list(self) -> Optional[Sequence['outputs.DeploymentGroupEc2TagSetListObject']]:
         return pulumi.get(self, "ec2_tag_set_list")
 
 
 @pulumi.output_type
-class DeploymentGroupEC2TagSetListObject(dict):
+class DeploymentGroupEc2TagSetListObject(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -566,29 +566,29 @@ class DeploymentGroupEC2TagSetListObject(dict):
             suggest = "ec2_tag_group"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupEC2TagSetListObject. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupEc2TagSetListObject. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DeploymentGroupEC2TagSetListObject.__key_warning(key)
+        DeploymentGroupEc2TagSetListObject.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DeploymentGroupEC2TagSetListObject.__key_warning(key)
+        DeploymentGroupEc2TagSetListObject.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ec2_tag_group: Optional[Sequence['outputs.DeploymentGroupEC2TagFilter']] = None):
+                 ec2_tag_group: Optional[Sequence['outputs.DeploymentGroupEc2TagFilter']] = None):
         if ec2_tag_group is not None:
             pulumi.set(__self__, "ec2_tag_group", ec2_tag_group)
 
     @property
     @pulumi.getter(name="ec2TagGroup")
-    def ec2_tag_group(self) -> Optional[Sequence['outputs.DeploymentGroupEC2TagFilter']]:
+    def ec2_tag_group(self) -> Optional[Sequence['outputs.DeploymentGroupEc2TagFilter']]:
         return pulumi.get(self, "ec2_tag_group")
 
 
 @pulumi.output_type
-class DeploymentGroupECSService(dict):
+class DeploymentGroupEcsService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -598,14 +598,14 @@ class DeploymentGroupECSService(dict):
             suggest = "service_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupECSService. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupEcsService. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DeploymentGroupECSService.__key_warning(key)
+        DeploymentGroupEcsService.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DeploymentGroupECSService.__key_warning(key)
+        DeploymentGroupEcsService.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -626,7 +626,7 @@ class DeploymentGroupECSService(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupELBInfo(dict):
+class DeploymentGroupElbInfo(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
         if name is not None:
@@ -711,7 +711,7 @@ class DeploymentGroupLoadBalancerInfo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 elb_info_list: Optional[Sequence['outputs.DeploymentGroupELBInfo']] = None,
+                 elb_info_list: Optional[Sequence['outputs.DeploymentGroupElbInfo']] = None,
                  target_group_info_list: Optional[Sequence['outputs.DeploymentGroupTargetGroupInfo']] = None,
                  target_group_pair_info_list: Optional[Sequence['outputs.DeploymentGroupTargetGroupPairInfo']] = None):
         if elb_info_list is not None:
@@ -723,7 +723,7 @@ class DeploymentGroupLoadBalancerInfo(dict):
 
     @property
     @pulumi.getter(name="elbInfoList")
-    def elb_info_list(self) -> Optional[Sequence['outputs.DeploymentGroupELBInfo']]:
+    def elb_info_list(self) -> Optional[Sequence['outputs.DeploymentGroupElbInfo']]:
         return pulumi.get(self, "elb_info_list")
 
     @property

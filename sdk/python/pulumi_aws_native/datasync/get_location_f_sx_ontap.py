@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetLocationFSxONTAPResult',
-    'AwaitableGetLocationFSxONTAPResult',
+    'GetLocationFSxOntapResult',
+    'AwaitableGetLocationFSxOntapResult',
     'get_location_f_sx_ontap',
     'get_location_f_sx_ontap_output',
 ]
 
 @pulumi.output_type
-class GetLocationFSxONTAPResult:
+class GetLocationFSxOntapResult:
     def __init__(__self__, fsx_filesystem_arn=None, location_arn=None, location_uri=None, tags=None):
         if fsx_filesystem_arn and not isinstance(fsx_filesystem_arn, str):
             raise TypeError("Expected argument 'fsx_filesystem_arn' to be a str")
@@ -59,19 +59,19 @@ class GetLocationFSxONTAPResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.LocationFSxONTAPTag']]:
+    def tags(self) -> Optional[Sequence['outputs.LocationFSxOntapTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLocationFSxONTAPResult(GetLocationFSxONTAPResult):
+class AwaitableGetLocationFSxOntapResult(GetLocationFSxOntapResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetLocationFSxONTAPResult(
+        return GetLocationFSxOntapResult(
             fsx_filesystem_arn=self.fsx_filesystem_arn,
             location_arn=self.location_arn,
             location_uri=self.location_uri,
@@ -79,7 +79,7 @@ class AwaitableGetLocationFSxONTAPResult(GetLocationFSxONTAPResult):
 
 
 def get_location_f_sx_ontap(location_arn: Optional[str] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationFSxONTAPResult:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationFSxOntapResult:
     """
     Resource schema for AWS::DataSync::LocationFSxONTAP.
 
@@ -89,9 +89,9 @@ def get_location_f_sx_ontap(location_arn: Optional[str] = None,
     __args__ = dict()
     __args__['locationArn'] = location_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationFSxONTAP', __args__, opts=opts, typ=GetLocationFSxONTAPResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationFSxOntap', __args__, opts=opts, typ=GetLocationFSxOntapResult).value
 
-    return AwaitableGetLocationFSxONTAPResult(
+    return AwaitableGetLocationFSxOntapResult(
         fsx_filesystem_arn=pulumi.get(__ret__, 'fsx_filesystem_arn'),
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
@@ -100,7 +100,7 @@ def get_location_f_sx_ontap(location_arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_location_f_sx_ontap)
 def get_location_f_sx_ontap_output(location_arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationFSxONTAPResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationFSxOntapResult]:
     """
     Resource schema for AWS::DataSync::LocationFSxONTAP.
 

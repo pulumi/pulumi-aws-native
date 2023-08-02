@@ -41,11 +41,11 @@ __all__ = [
     'ConnectorProfileProperties',
     'ConnectorProfileRedshiftConnectorProfileCredentials',
     'ConnectorProfileRedshiftConnectorProfileProperties',
-    'ConnectorProfileSAPODataConnectorProfileCredentials',
-    'ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties',
-    'ConnectorProfileSAPODataConnectorProfileProperties',
     'ConnectorProfileSalesforceConnectorProfileCredentials',
     'ConnectorProfileSalesforceConnectorProfileProperties',
+    'ConnectorProfileSapoDataConnectorProfileCredentials',
+    'ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties',
+    'ConnectorProfileSapoDataConnectorProfileProperties',
     'ConnectorProfileServiceNowConnectorProfileCredentials',
     'ConnectorProfileServiceNowConnectorProfileProperties',
     'ConnectorProfileSingularConnectorProfileCredentials',
@@ -88,10 +88,10 @@ __all__ = [
     'FlowS3InputFormatConfig',
     'FlowS3OutputFormatConfig',
     'FlowS3SourceProperties',
-    'FlowSAPODataDestinationProperties',
-    'FlowSAPODataSourceProperties',
     'FlowSalesforceDestinationProperties',
     'FlowSalesforceSourceProperties',
+    'FlowSapoDataDestinationProperties',
+    'FlowSapoDataSourceProperties',
     'FlowScheduledTriggerProperties',
     'FlowServiceNowSourceProperties',
     'FlowSingularSourceProperties',
@@ -392,7 +392,7 @@ class ConnectorProfileCredentials(dict):
                  pardot: Optional['outputs.ConnectorProfilePardotConnectorProfileCredentials'] = None,
                  redshift: Optional['outputs.ConnectorProfileRedshiftConnectorProfileCredentials'] = None,
                  salesforce: Optional['outputs.ConnectorProfileSalesforceConnectorProfileCredentials'] = None,
-                 sapo_data: Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentials'] = None,
+                 sapo_data: Optional['outputs.ConnectorProfileSapoDataConnectorProfileCredentials'] = None,
                  service_now: Optional['outputs.ConnectorProfileServiceNowConnectorProfileCredentials'] = None,
                  singular: Optional['outputs.ConnectorProfileSingularConnectorProfileCredentials'] = None,
                  slack: Optional['outputs.ConnectorProfileSlackConnectorProfileCredentials'] = None,
@@ -492,7 +492,7 @@ class ConnectorProfileCredentials(dict):
 
     @property
     @pulumi.getter(name="sapoData")
-    def sapo_data(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentials']:
+    def sapo_data(self) -> Optional['outputs.ConnectorProfileSapoDataConnectorProfileCredentials']:
         return pulumi.get(self, "sapo_data")
 
     @property
@@ -1506,7 +1506,7 @@ class ConnectorProfileProperties(dict):
                  pardot: Optional['outputs.ConnectorProfilePardotConnectorProfileProperties'] = None,
                  redshift: Optional['outputs.ConnectorProfileRedshiftConnectorProfileProperties'] = None,
                  salesforce: Optional['outputs.ConnectorProfileSalesforceConnectorProfileProperties'] = None,
-                 sapo_data: Optional['outputs.ConnectorProfileSAPODataConnectorProfileProperties'] = None,
+                 sapo_data: Optional['outputs.ConnectorProfileSapoDataConnectorProfileProperties'] = None,
                  service_now: Optional['outputs.ConnectorProfileServiceNowConnectorProfileProperties'] = None,
                  slack: Optional['outputs.ConnectorProfileSlackConnectorProfileProperties'] = None,
                  snowflake: Optional['outputs.ConnectorProfileSnowflakeConnectorProfileProperties'] = None,
@@ -1586,7 +1586,7 @@ class ConnectorProfileProperties(dict):
 
     @property
     @pulumi.getter(name="sapoData")
-    def sapo_data(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileProperties']:
+    def sapo_data(self) -> Optional['outputs.ConnectorProfileSapoDataConnectorProfileProperties']:
         return pulumi.get(self, "sapo_data")
 
     @property
@@ -1793,206 +1793,6 @@ class ConnectorProfileRedshiftConnectorProfileProperties(dict):
 
 
 @pulumi.output_type
-class ConnectorProfileSAPODataConnectorProfileCredentials(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "basicAuthCredentials":
-            suggest = "basic_auth_credentials"
-        elif key == "oAuthCredentials":
-            suggest = "o_auth_credentials"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSAPODataConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConnectorProfileSAPODataConnectorProfileCredentials.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConnectorProfileSAPODataConnectorProfileCredentials.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 basic_auth_credentials: Optional['outputs.ConnectorProfileBasicAuthCredentials'] = None,
-                 o_auth_credentials: Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties'] = None):
-        if basic_auth_credentials is not None:
-            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
-        if o_auth_credentials is not None:
-            pulumi.set(__self__, "o_auth_credentials", o_auth_credentials)
-
-    @property
-    @pulumi.getter(name="basicAuthCredentials")
-    def basic_auth_credentials(self) -> Optional['outputs.ConnectorProfileBasicAuthCredentials']:
-        return pulumi.get(self, "basic_auth_credentials")
-
-    @property
-    @pulumi.getter(name="oAuthCredentials")
-    def o_auth_credentials(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties']:
-        return pulumi.get(self, "o_auth_credentials")
-
-
-@pulumi.output_type
-class ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accessToken":
-            suggest = "access_token"
-        elif key == "clientId":
-            suggest = "client_id"
-        elif key == "clientSecret":
-            suggest = "client_secret"
-        elif key == "connectorOAuthRequest":
-            suggest = "connector_o_auth_request"
-        elif key == "refreshToken":
-            suggest = "refresh_token"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 access_token: Optional[str] = None,
-                 client_id: Optional[str] = None,
-                 client_secret: Optional[str] = None,
-                 connector_o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
-                 refresh_token: Optional[str] = None):
-        if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
-        if connector_o_auth_request is not None:
-            pulumi.set(__self__, "connector_o_auth_request", connector_o_auth_request)
-        if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
-
-    @property
-    @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[str]:
-        return pulumi.get(self, "access_token")
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[str]:
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[str]:
-        return pulumi.get(self, "client_secret")
-
-    @property
-    @pulumi.getter(name="connectorOAuthRequest")
-    def connector_o_auth_request(self) -> Optional['outputs.ConnectorProfileConnectorOAuthRequest']:
-        return pulumi.get(self, "connector_o_auth_request")
-
-    @property
-    @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> Optional[str]:
-        return pulumi.get(self, "refresh_token")
-
-
-@pulumi.output_type
-class ConnectorProfileSAPODataConnectorProfileProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "applicationHostUrl":
-            suggest = "application_host_url"
-        elif key == "applicationServicePath":
-            suggest = "application_service_path"
-        elif key == "clientNumber":
-            suggest = "client_number"
-        elif key == "logonLanguage":
-            suggest = "logon_language"
-        elif key == "oAuthProperties":
-            suggest = "o_auth_properties"
-        elif key == "portNumber":
-            suggest = "port_number"
-        elif key == "privateLinkServiceName":
-            suggest = "private_link_service_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSAPODataConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConnectorProfileSAPODataConnectorProfileProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConnectorProfileSAPODataConnectorProfileProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 application_host_url: Optional[str] = None,
-                 application_service_path: Optional[str] = None,
-                 client_number: Optional[str] = None,
-                 logon_language: Optional[str] = None,
-                 o_auth_properties: Optional['outputs.ConnectorProfileOAuthProperties'] = None,
-                 port_number: Optional[int] = None,
-                 private_link_service_name: Optional[str] = None):
-        if application_host_url is not None:
-            pulumi.set(__self__, "application_host_url", application_host_url)
-        if application_service_path is not None:
-            pulumi.set(__self__, "application_service_path", application_service_path)
-        if client_number is not None:
-            pulumi.set(__self__, "client_number", client_number)
-        if logon_language is not None:
-            pulumi.set(__self__, "logon_language", logon_language)
-        if o_auth_properties is not None:
-            pulumi.set(__self__, "o_auth_properties", o_auth_properties)
-        if port_number is not None:
-            pulumi.set(__self__, "port_number", port_number)
-        if private_link_service_name is not None:
-            pulumi.set(__self__, "private_link_service_name", private_link_service_name)
-
-    @property
-    @pulumi.getter(name="applicationHostUrl")
-    def application_host_url(self) -> Optional[str]:
-        return pulumi.get(self, "application_host_url")
-
-    @property
-    @pulumi.getter(name="applicationServicePath")
-    def application_service_path(self) -> Optional[str]:
-        return pulumi.get(self, "application_service_path")
-
-    @property
-    @pulumi.getter(name="clientNumber")
-    def client_number(self) -> Optional[str]:
-        return pulumi.get(self, "client_number")
-
-    @property
-    @pulumi.getter(name="logonLanguage")
-    def logon_language(self) -> Optional[str]:
-        return pulumi.get(self, "logon_language")
-
-    @property
-    @pulumi.getter(name="oAuthProperties")
-    def o_auth_properties(self) -> Optional['outputs.ConnectorProfileOAuthProperties']:
-        return pulumi.get(self, "o_auth_properties")
-
-    @property
-    @pulumi.getter(name="portNumber")
-    def port_number(self) -> Optional[int]:
-        return pulumi.get(self, "port_number")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceName")
-    def private_link_service_name(self) -> Optional[str]:
-        return pulumi.get(self, "private_link_service_name")
-
-
-@pulumi.output_type
 class ConnectorProfileSalesforceConnectorProfileCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2160,6 +1960,206 @@ class ConnectorProfileSalesforceConnectorProfileProperties(dict):
         Indicates whether to make Metadata And Authorization calls over Pivate Network
         """
         return pulumi.get(self, "use_private_link_for_metadata_and_authorization")
+
+
+@pulumi.output_type
+class ConnectorProfileSapoDataConnectorProfileCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basicAuthCredentials":
+            suggest = "basic_auth_credentials"
+        elif key == "oAuthCredentials":
+            suggest = "o_auth_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSapoDataConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSapoDataConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSapoDataConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 basic_auth_credentials: Optional['outputs.ConnectorProfileBasicAuthCredentials'] = None,
+                 o_auth_credentials: Optional['outputs.ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties'] = None):
+        if basic_auth_credentials is not None:
+            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
+        if o_auth_credentials is not None:
+            pulumi.set(__self__, "o_auth_credentials", o_auth_credentials)
+
+    @property
+    @pulumi.getter(name="basicAuthCredentials")
+    def basic_auth_credentials(self) -> Optional['outputs.ConnectorProfileBasicAuthCredentials']:
+        return pulumi.get(self, "basic_auth_credentials")
+
+    @property
+    @pulumi.getter(name="oAuthCredentials")
+    def o_auth_credentials(self) -> Optional['outputs.ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties']:
+        return pulumi.get(self, "o_auth_credentials")
+
+
+@pulumi.output_type
+class ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectorOAuthRequest":
+            suggest = "connector_o_auth_request"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 connector_o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
+                 refresh_token: Optional[str] = None):
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if connector_o_auth_request is not None:
+            pulumi.set(__self__, "connector_o_auth_request", connector_o_auth_request)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="connectorOAuthRequest")
+    def connector_o_auth_request(self) -> Optional['outputs.ConnectorProfileConnectorOAuthRequest']:
+        return pulumi.get(self, "connector_o_auth_request")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[str]:
+        return pulumi.get(self, "refresh_token")
+
+
+@pulumi.output_type
+class ConnectorProfileSapoDataConnectorProfileProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationHostUrl":
+            suggest = "application_host_url"
+        elif key == "applicationServicePath":
+            suggest = "application_service_path"
+        elif key == "clientNumber":
+            suggest = "client_number"
+        elif key == "logonLanguage":
+            suggest = "logon_language"
+        elif key == "oAuthProperties":
+            suggest = "o_auth_properties"
+        elif key == "portNumber":
+            suggest = "port_number"
+        elif key == "privateLinkServiceName":
+            suggest = "private_link_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSapoDataConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSapoDataConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSapoDataConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_host_url: Optional[str] = None,
+                 application_service_path: Optional[str] = None,
+                 client_number: Optional[str] = None,
+                 logon_language: Optional[str] = None,
+                 o_auth_properties: Optional['outputs.ConnectorProfileOAuthProperties'] = None,
+                 port_number: Optional[int] = None,
+                 private_link_service_name: Optional[str] = None):
+        if application_host_url is not None:
+            pulumi.set(__self__, "application_host_url", application_host_url)
+        if application_service_path is not None:
+            pulumi.set(__self__, "application_service_path", application_service_path)
+        if client_number is not None:
+            pulumi.set(__self__, "client_number", client_number)
+        if logon_language is not None:
+            pulumi.set(__self__, "logon_language", logon_language)
+        if o_auth_properties is not None:
+            pulumi.set(__self__, "o_auth_properties", o_auth_properties)
+        if port_number is not None:
+            pulumi.set(__self__, "port_number", port_number)
+        if private_link_service_name is not None:
+            pulumi.set(__self__, "private_link_service_name", private_link_service_name)
+
+    @property
+    @pulumi.getter(name="applicationHostUrl")
+    def application_host_url(self) -> Optional[str]:
+        return pulumi.get(self, "application_host_url")
+
+    @property
+    @pulumi.getter(name="applicationServicePath")
+    def application_service_path(self) -> Optional[str]:
+        return pulumi.get(self, "application_service_path")
+
+    @property
+    @pulumi.getter(name="clientNumber")
+    def client_number(self) -> Optional[str]:
+        return pulumi.get(self, "client_number")
+
+    @property
+    @pulumi.getter(name="logonLanguage")
+    def logon_language(self) -> Optional[str]:
+        return pulumi.get(self, "logon_language")
+
+    @property
+    @pulumi.getter(name="oAuthProperties")
+    def o_auth_properties(self) -> Optional['outputs.ConnectorProfileOAuthProperties']:
+        return pulumi.get(self, "o_auth_properties")
+
+    @property
+    @pulumi.getter(name="portNumber")
+    def port_number(self) -> Optional[int]:
+        return pulumi.get(self, "port_number")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceName")
+    def private_link_service_name(self) -> Optional[str]:
+        return pulumi.get(self, "private_link_service_name")
 
 
 @pulumi.output_type
@@ -2869,7 +2869,7 @@ class FlowConnectorOperator(dict):
                  pardot: Optional['FlowPardotConnectorOperator'] = None,
                  s3: Optional['FlowS3ConnectorOperator'] = None,
                  salesforce: Optional['FlowSalesforceConnectorOperator'] = None,
-                 sapo_data: Optional['FlowSAPODataConnectorOperator'] = None,
+                 sapo_data: Optional['FlowSapoDataConnectorOperator'] = None,
                  service_now: Optional['FlowServiceNowConnectorOperator'] = None,
                  singular: Optional['FlowSingularConnectorOperator'] = None,
                  slack: Optional['FlowSlackConnectorOperator'] = None,
@@ -2966,7 +2966,7 @@ class FlowConnectorOperator(dict):
 
     @property
     @pulumi.getter(name="sapoData")
-    def sapo_data(self) -> Optional['FlowSAPODataConnectorOperator']:
+    def sapo_data(self) -> Optional['FlowSapoDataConnectorOperator']:
         return pulumi.get(self, "sapo_data")
 
     @property
@@ -3203,7 +3203,7 @@ class FlowDestinationConnectorProperties(dict):
                  redshift: Optional['outputs.FlowRedshiftDestinationProperties'] = None,
                  s3: Optional['outputs.FlowS3DestinationProperties'] = None,
                  salesforce: Optional['outputs.FlowSalesforceDestinationProperties'] = None,
-                 sapo_data: Optional['outputs.FlowSAPODataDestinationProperties'] = None,
+                 sapo_data: Optional['outputs.FlowSapoDataDestinationProperties'] = None,
                  snowflake: Optional['outputs.FlowSnowflakeDestinationProperties'] = None,
                  upsolver: Optional['outputs.FlowUpsolverDestinationProperties'] = None,
                  zendesk: Optional['outputs.FlowZendeskDestinationProperties'] = None):
@@ -3270,7 +3270,7 @@ class FlowDestinationConnectorProperties(dict):
 
     @property
     @pulumi.getter(name="sapoData")
-    def sapo_data(self) -> Optional['outputs.FlowSAPODataDestinationProperties']:
+    def sapo_data(self) -> Optional['outputs.FlowSapoDataDestinationProperties']:
         return pulumi.get(self, "sapo_data")
 
     @property
@@ -4001,110 +4001,6 @@ class FlowS3SourceProperties(dict):
 
 
 @pulumi.output_type
-class FlowSAPODataDestinationProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectPath":
-            suggest = "object_path"
-        elif key == "errorHandlingConfig":
-            suggest = "error_handling_config"
-        elif key == "idFieldNames":
-            suggest = "id_field_names"
-        elif key == "successResponseHandlingConfig":
-            suggest = "success_response_handling_config"
-        elif key == "writeOperationType":
-            suggest = "write_operation_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FlowSAPODataDestinationProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FlowSAPODataDestinationProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FlowSAPODataDestinationProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 object_path: str,
-                 error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
-                 id_field_names: Optional[Sequence[str]] = None,
-                 success_response_handling_config: Optional['outputs.FlowSuccessResponseHandlingConfig'] = None,
-                 write_operation_type: Optional['FlowWriteOperationType'] = None):
-        """
-        :param Sequence[str] id_field_names: List of fields used as ID when performing a write operation.
-        """
-        pulumi.set(__self__, "object_path", object_path)
-        if error_handling_config is not None:
-            pulumi.set(__self__, "error_handling_config", error_handling_config)
-        if id_field_names is not None:
-            pulumi.set(__self__, "id_field_names", id_field_names)
-        if success_response_handling_config is not None:
-            pulumi.set(__self__, "success_response_handling_config", success_response_handling_config)
-        if write_operation_type is not None:
-            pulumi.set(__self__, "write_operation_type", write_operation_type)
-
-    @property
-    @pulumi.getter(name="objectPath")
-    def object_path(self) -> str:
-        return pulumi.get(self, "object_path")
-
-    @property
-    @pulumi.getter(name="errorHandlingConfig")
-    def error_handling_config(self) -> Optional['outputs.FlowErrorHandlingConfig']:
-        return pulumi.get(self, "error_handling_config")
-
-    @property
-    @pulumi.getter(name="idFieldNames")
-    def id_field_names(self) -> Optional[Sequence[str]]:
-        """
-        List of fields used as ID when performing a write operation.
-        """
-        return pulumi.get(self, "id_field_names")
-
-    @property
-    @pulumi.getter(name="successResponseHandlingConfig")
-    def success_response_handling_config(self) -> Optional['outputs.FlowSuccessResponseHandlingConfig']:
-        return pulumi.get(self, "success_response_handling_config")
-
-    @property
-    @pulumi.getter(name="writeOperationType")
-    def write_operation_type(self) -> Optional['FlowWriteOperationType']:
-        return pulumi.get(self, "write_operation_type")
-
-
-@pulumi.output_type
-class FlowSAPODataSourceProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectPath":
-            suggest = "object_path"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FlowSAPODataSourceProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FlowSAPODataSourceProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FlowSAPODataSourceProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 object_path: str):
-        pulumi.set(__self__, "object_path", object_path)
-
-    @property
-    @pulumi.getter(name="objectPath")
-    def object_path(self) -> str:
-        return pulumi.get(self, "object_path")
-
-
-@pulumi.output_type
 class FlowSalesforceDestinationProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4232,6 +4128,110 @@ class FlowSalesforceSourceProperties(dict):
     @pulumi.getter(name="includeDeletedRecords")
     def include_deleted_records(self) -> Optional[bool]:
         return pulumi.get(self, "include_deleted_records")
+
+
+@pulumi.output_type
+class FlowSapoDataDestinationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectPath":
+            suggest = "object_path"
+        elif key == "errorHandlingConfig":
+            suggest = "error_handling_config"
+        elif key == "idFieldNames":
+            suggest = "id_field_names"
+        elif key == "successResponseHandlingConfig":
+            suggest = "success_response_handling_config"
+        elif key == "writeOperationType":
+            suggest = "write_operation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSapoDataDestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSapoDataDestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSapoDataDestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_path: str,
+                 error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
+                 id_field_names: Optional[Sequence[str]] = None,
+                 success_response_handling_config: Optional['outputs.FlowSuccessResponseHandlingConfig'] = None,
+                 write_operation_type: Optional['FlowWriteOperationType'] = None):
+        """
+        :param Sequence[str] id_field_names: List of fields used as ID when performing a write operation.
+        """
+        pulumi.set(__self__, "object_path", object_path)
+        if error_handling_config is not None:
+            pulumi.set(__self__, "error_handling_config", error_handling_config)
+        if id_field_names is not None:
+            pulumi.set(__self__, "id_field_names", id_field_names)
+        if success_response_handling_config is not None:
+            pulumi.set(__self__, "success_response_handling_config", success_response_handling_config)
+        if write_operation_type is not None:
+            pulumi.set(__self__, "write_operation_type", write_operation_type)
+
+    @property
+    @pulumi.getter(name="objectPath")
+    def object_path(self) -> str:
+        return pulumi.get(self, "object_path")
+
+    @property
+    @pulumi.getter(name="errorHandlingConfig")
+    def error_handling_config(self) -> Optional['outputs.FlowErrorHandlingConfig']:
+        return pulumi.get(self, "error_handling_config")
+
+    @property
+    @pulumi.getter(name="idFieldNames")
+    def id_field_names(self) -> Optional[Sequence[str]]:
+        """
+        List of fields used as ID when performing a write operation.
+        """
+        return pulumi.get(self, "id_field_names")
+
+    @property
+    @pulumi.getter(name="successResponseHandlingConfig")
+    def success_response_handling_config(self) -> Optional['outputs.FlowSuccessResponseHandlingConfig']:
+        return pulumi.get(self, "success_response_handling_config")
+
+    @property
+    @pulumi.getter(name="writeOperationType")
+    def write_operation_type(self) -> Optional['FlowWriteOperationType']:
+        return pulumi.get(self, "write_operation_type")
+
+
+@pulumi.output_type
+class FlowSapoDataSourceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectPath":
+            suggest = "object_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSapoDataSourceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSapoDataSourceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSapoDataSourceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_path: str):
+        pulumi.set(__self__, "object_path", object_path)
+
+    @property
+    @pulumi.getter(name="objectPath")
+    def object_path(self) -> str:
+        return pulumi.get(self, "object_path")
 
 
 @pulumi.output_type
@@ -4472,7 +4472,7 @@ class FlowSourceConnectorProperties(dict):
                  pardot: Optional['outputs.FlowPardotSourceProperties'] = None,
                  s3: Optional['outputs.FlowS3SourceProperties'] = None,
                  salesforce: Optional['outputs.FlowSalesforceSourceProperties'] = None,
-                 sapo_data: Optional['outputs.FlowSAPODataSourceProperties'] = None,
+                 sapo_data: Optional['outputs.FlowSapoDataSourceProperties'] = None,
                  service_now: Optional['outputs.FlowServiceNowSourceProperties'] = None,
                  singular: Optional['outputs.FlowSingularSourceProperties'] = None,
                  slack: Optional['outputs.FlowSlackSourceProperties'] = None,
@@ -4569,7 +4569,7 @@ class FlowSourceConnectorProperties(dict):
 
     @property
     @pulumi.getter(name="sapoData")
-    def sapo_data(self) -> Optional['outputs.FlowSAPODataSourceProperties']:
+    def sapo_data(self) -> Optional['outputs.FlowSapoDataSourceProperties']:
         return pulumi.get(self, "sapo_data")
 
     @property

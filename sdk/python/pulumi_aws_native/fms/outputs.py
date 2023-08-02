@@ -12,7 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'PolicyIEMap',
+    'PolicyIeMap',
     'PolicyNetworkFirewallPolicy',
     'PolicyOption',
     'PolicyResourceTag',
@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class PolicyIEMap(dict):
+class PolicyIeMap(dict):
     """
     An FMS includeMap or excludeMap.
     """

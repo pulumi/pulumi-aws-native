@@ -1286,144 +1286,144 @@ func (o BillingGroupTagArrayOutput) Index(i pulumi.IntInput) BillingGroupTagOutp
 	}).(BillingGroupTagOutput)
 }
 
-type CACertificateRegistrationConfig struct {
+type CaCertificateRegistrationConfig struct {
 	RoleArn      *string `pulumi:"roleArn"`
 	TemplateBody *string `pulumi:"templateBody"`
 	TemplateName *string `pulumi:"templateName"`
 }
 
-// CACertificateRegistrationConfigInput is an input type that accepts CACertificateRegistrationConfigArgs and CACertificateRegistrationConfigOutput values.
-// You can construct a concrete instance of `CACertificateRegistrationConfigInput` via:
+// CaCertificateRegistrationConfigInput is an input type that accepts CaCertificateRegistrationConfigArgs and CaCertificateRegistrationConfigOutput values.
+// You can construct a concrete instance of `CaCertificateRegistrationConfigInput` via:
 //
-//	CACertificateRegistrationConfigArgs{...}
-type CACertificateRegistrationConfigInput interface {
+//	CaCertificateRegistrationConfigArgs{...}
+type CaCertificateRegistrationConfigInput interface {
 	pulumi.Input
 
-	ToCACertificateRegistrationConfigOutput() CACertificateRegistrationConfigOutput
-	ToCACertificateRegistrationConfigOutputWithContext(context.Context) CACertificateRegistrationConfigOutput
+	ToCaCertificateRegistrationConfigOutput() CaCertificateRegistrationConfigOutput
+	ToCaCertificateRegistrationConfigOutputWithContext(context.Context) CaCertificateRegistrationConfigOutput
 }
 
-type CACertificateRegistrationConfigArgs struct {
+type CaCertificateRegistrationConfigArgs struct {
 	RoleArn      pulumi.StringPtrInput `pulumi:"roleArn"`
 	TemplateBody pulumi.StringPtrInput `pulumi:"templateBody"`
 	TemplateName pulumi.StringPtrInput `pulumi:"templateName"`
 }
 
-func (CACertificateRegistrationConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CACertificateRegistrationConfig)(nil)).Elem()
+func (CaCertificateRegistrationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateRegistrationConfig)(nil)).Elem()
 }
 
-func (i CACertificateRegistrationConfigArgs) ToCACertificateRegistrationConfigOutput() CACertificateRegistrationConfigOutput {
-	return i.ToCACertificateRegistrationConfigOutputWithContext(context.Background())
+func (i CaCertificateRegistrationConfigArgs) ToCaCertificateRegistrationConfigOutput() CaCertificateRegistrationConfigOutput {
+	return i.ToCaCertificateRegistrationConfigOutputWithContext(context.Background())
 }
 
-func (i CACertificateRegistrationConfigArgs) ToCACertificateRegistrationConfigOutputWithContext(ctx context.Context) CACertificateRegistrationConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CACertificateRegistrationConfigOutput)
+func (i CaCertificateRegistrationConfigArgs) ToCaCertificateRegistrationConfigOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaCertificateRegistrationConfigOutput)
 }
 
-func (i CACertificateRegistrationConfigArgs) ToCACertificateRegistrationConfigPtrOutput() CACertificateRegistrationConfigPtrOutput {
-	return i.ToCACertificateRegistrationConfigPtrOutputWithContext(context.Background())
+func (i CaCertificateRegistrationConfigArgs) ToCaCertificateRegistrationConfigPtrOutput() CaCertificateRegistrationConfigPtrOutput {
+	return i.ToCaCertificateRegistrationConfigPtrOutputWithContext(context.Background())
 }
 
-func (i CACertificateRegistrationConfigArgs) ToCACertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CACertificateRegistrationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CACertificateRegistrationConfigOutput).ToCACertificateRegistrationConfigPtrOutputWithContext(ctx)
+func (i CaCertificateRegistrationConfigArgs) ToCaCertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaCertificateRegistrationConfigOutput).ToCaCertificateRegistrationConfigPtrOutputWithContext(ctx)
 }
 
-// CACertificateRegistrationConfigPtrInput is an input type that accepts CACertificateRegistrationConfigArgs, CACertificateRegistrationConfigPtr and CACertificateRegistrationConfigPtrOutput values.
-// You can construct a concrete instance of `CACertificateRegistrationConfigPtrInput` via:
+// CaCertificateRegistrationConfigPtrInput is an input type that accepts CaCertificateRegistrationConfigArgs, CaCertificateRegistrationConfigPtr and CaCertificateRegistrationConfigPtrOutput values.
+// You can construct a concrete instance of `CaCertificateRegistrationConfigPtrInput` via:
 //
-//	        CACertificateRegistrationConfigArgs{...}
+//	        CaCertificateRegistrationConfigArgs{...}
 //
 //	or:
 //
 //	        nil
-type CACertificateRegistrationConfigPtrInput interface {
+type CaCertificateRegistrationConfigPtrInput interface {
 	pulumi.Input
 
-	ToCACertificateRegistrationConfigPtrOutput() CACertificateRegistrationConfigPtrOutput
-	ToCACertificateRegistrationConfigPtrOutputWithContext(context.Context) CACertificateRegistrationConfigPtrOutput
+	ToCaCertificateRegistrationConfigPtrOutput() CaCertificateRegistrationConfigPtrOutput
+	ToCaCertificateRegistrationConfigPtrOutputWithContext(context.Context) CaCertificateRegistrationConfigPtrOutput
 }
 
-type cacertificateRegistrationConfigPtrType CACertificateRegistrationConfigArgs
+type caCertificateRegistrationConfigPtrType CaCertificateRegistrationConfigArgs
 
-func CACertificateRegistrationConfigPtr(v *CACertificateRegistrationConfigArgs) CACertificateRegistrationConfigPtrInput {
-	return (*cacertificateRegistrationConfigPtrType)(v)
+func CaCertificateRegistrationConfigPtr(v *CaCertificateRegistrationConfigArgs) CaCertificateRegistrationConfigPtrInput {
+	return (*caCertificateRegistrationConfigPtrType)(v)
 }
 
-func (*cacertificateRegistrationConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CACertificateRegistrationConfig)(nil)).Elem()
+func (*caCertificateRegistrationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaCertificateRegistrationConfig)(nil)).Elem()
 }
 
-func (i *cacertificateRegistrationConfigPtrType) ToCACertificateRegistrationConfigPtrOutput() CACertificateRegistrationConfigPtrOutput {
-	return i.ToCACertificateRegistrationConfigPtrOutputWithContext(context.Background())
+func (i *caCertificateRegistrationConfigPtrType) ToCaCertificateRegistrationConfigPtrOutput() CaCertificateRegistrationConfigPtrOutput {
+	return i.ToCaCertificateRegistrationConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *cacertificateRegistrationConfigPtrType) ToCACertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CACertificateRegistrationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CACertificateRegistrationConfigPtrOutput)
+func (i *caCertificateRegistrationConfigPtrType) ToCaCertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaCertificateRegistrationConfigPtrOutput)
 }
 
-type CACertificateRegistrationConfigOutput struct{ *pulumi.OutputState }
+type CaCertificateRegistrationConfigOutput struct{ *pulumi.OutputState }
 
-func (CACertificateRegistrationConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CACertificateRegistrationConfig)(nil)).Elem()
+func (CaCertificateRegistrationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateRegistrationConfig)(nil)).Elem()
 }
 
-func (o CACertificateRegistrationConfigOutput) ToCACertificateRegistrationConfigOutput() CACertificateRegistrationConfigOutput {
+func (o CaCertificateRegistrationConfigOutput) ToCaCertificateRegistrationConfigOutput() CaCertificateRegistrationConfigOutput {
 	return o
 }
 
-func (o CACertificateRegistrationConfigOutput) ToCACertificateRegistrationConfigOutputWithContext(ctx context.Context) CACertificateRegistrationConfigOutput {
+func (o CaCertificateRegistrationConfigOutput) ToCaCertificateRegistrationConfigOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigOutput {
 	return o
 }
 
-func (o CACertificateRegistrationConfigOutput) ToCACertificateRegistrationConfigPtrOutput() CACertificateRegistrationConfigPtrOutput {
-	return o.ToCACertificateRegistrationConfigPtrOutputWithContext(context.Background())
+func (o CaCertificateRegistrationConfigOutput) ToCaCertificateRegistrationConfigPtrOutput() CaCertificateRegistrationConfigPtrOutput {
+	return o.ToCaCertificateRegistrationConfigPtrOutputWithContext(context.Background())
 }
 
-func (o CACertificateRegistrationConfigOutput) ToCACertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CACertificateRegistrationConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CACertificateRegistrationConfig) *CACertificateRegistrationConfig {
+func (o CaCertificateRegistrationConfigOutput) ToCaCertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaCertificateRegistrationConfig) *CaCertificateRegistrationConfig {
 		return &v
-	}).(CACertificateRegistrationConfigPtrOutput)
+	}).(CaCertificateRegistrationConfigPtrOutput)
 }
 
-func (o CACertificateRegistrationConfigOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CACertificateRegistrationConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+func (o CaCertificateRegistrationConfigOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaCertificateRegistrationConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o CACertificateRegistrationConfigOutput) TemplateBody() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CACertificateRegistrationConfig) *string { return v.TemplateBody }).(pulumi.StringPtrOutput)
+func (o CaCertificateRegistrationConfigOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaCertificateRegistrationConfig) *string { return v.TemplateBody }).(pulumi.StringPtrOutput)
 }
 
-func (o CACertificateRegistrationConfigOutput) TemplateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CACertificateRegistrationConfig) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
+func (o CaCertificateRegistrationConfigOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaCertificateRegistrationConfig) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
 }
 
-type CACertificateRegistrationConfigPtrOutput struct{ *pulumi.OutputState }
+type CaCertificateRegistrationConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (CACertificateRegistrationConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CACertificateRegistrationConfig)(nil)).Elem()
+func (CaCertificateRegistrationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaCertificateRegistrationConfig)(nil)).Elem()
 }
 
-func (o CACertificateRegistrationConfigPtrOutput) ToCACertificateRegistrationConfigPtrOutput() CACertificateRegistrationConfigPtrOutput {
+func (o CaCertificateRegistrationConfigPtrOutput) ToCaCertificateRegistrationConfigPtrOutput() CaCertificateRegistrationConfigPtrOutput {
 	return o
 }
 
-func (o CACertificateRegistrationConfigPtrOutput) ToCACertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CACertificateRegistrationConfigPtrOutput {
+func (o CaCertificateRegistrationConfigPtrOutput) ToCaCertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigPtrOutput {
 	return o
 }
 
-func (o CACertificateRegistrationConfigPtrOutput) Elem() CACertificateRegistrationConfigOutput {
-	return o.ApplyT(func(v *CACertificateRegistrationConfig) CACertificateRegistrationConfig {
+func (o CaCertificateRegistrationConfigPtrOutput) Elem() CaCertificateRegistrationConfigOutput {
+	return o.ApplyT(func(v *CaCertificateRegistrationConfig) CaCertificateRegistrationConfig {
 		if v != nil {
 			return *v
 		}
-		var ret CACertificateRegistrationConfig
+		var ret CaCertificateRegistrationConfig
 		return ret
-	}).(CACertificateRegistrationConfigOutput)
+	}).(CaCertificateRegistrationConfigOutput)
 }
 
-func (o CACertificateRegistrationConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CACertificateRegistrationConfig) *string {
+func (o CaCertificateRegistrationConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -1431,8 +1431,8 @@ func (o CACertificateRegistrationConfigPtrOutput) RoleArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CACertificateRegistrationConfigPtrOutput) TemplateBody() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CACertificateRegistrationConfig) *string {
+func (o CaCertificateRegistrationConfigPtrOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -1440,8 +1440,8 @@ func (o CACertificateRegistrationConfigPtrOutput) TemplateBody() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CACertificateRegistrationConfigPtrOutput) TemplateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CACertificateRegistrationConfig) *string {
+func (o CaCertificateRegistrationConfigPtrOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -1450,112 +1450,112 @@ func (o CACertificateRegistrationConfigPtrOutput) TemplateName() pulumi.StringPt
 }
 
 // A key-value pair to associate with a resource.
-type CACertificateTag struct {
+type CaCertificateTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
-// CACertificateTagInput is an input type that accepts CACertificateTagArgs and CACertificateTagOutput values.
-// You can construct a concrete instance of `CACertificateTagInput` via:
+// CaCertificateTagInput is an input type that accepts CaCertificateTagArgs and CaCertificateTagOutput values.
+// You can construct a concrete instance of `CaCertificateTagInput` via:
 //
-//	CACertificateTagArgs{...}
-type CACertificateTagInput interface {
+//	CaCertificateTagArgs{...}
+type CaCertificateTagInput interface {
 	pulumi.Input
 
-	ToCACertificateTagOutput() CACertificateTagOutput
-	ToCACertificateTagOutputWithContext(context.Context) CACertificateTagOutput
+	ToCaCertificateTagOutput() CaCertificateTagOutput
+	ToCaCertificateTagOutputWithContext(context.Context) CaCertificateTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type CACertificateTagArgs struct {
+type CaCertificateTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (CACertificateTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CACertificateTag)(nil)).Elem()
+func (CaCertificateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateTag)(nil)).Elem()
 }
 
-func (i CACertificateTagArgs) ToCACertificateTagOutput() CACertificateTagOutput {
-	return i.ToCACertificateTagOutputWithContext(context.Background())
+func (i CaCertificateTagArgs) ToCaCertificateTagOutput() CaCertificateTagOutput {
+	return i.ToCaCertificateTagOutputWithContext(context.Background())
 }
 
-func (i CACertificateTagArgs) ToCACertificateTagOutputWithContext(ctx context.Context) CACertificateTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CACertificateTagOutput)
+func (i CaCertificateTagArgs) ToCaCertificateTagOutputWithContext(ctx context.Context) CaCertificateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaCertificateTagOutput)
 }
 
-// CACertificateTagArrayInput is an input type that accepts CACertificateTagArray and CACertificateTagArrayOutput values.
-// You can construct a concrete instance of `CACertificateTagArrayInput` via:
+// CaCertificateTagArrayInput is an input type that accepts CaCertificateTagArray and CaCertificateTagArrayOutput values.
+// You can construct a concrete instance of `CaCertificateTagArrayInput` via:
 //
-//	CACertificateTagArray{ CACertificateTagArgs{...} }
-type CACertificateTagArrayInput interface {
+//	CaCertificateTagArray{ CaCertificateTagArgs{...} }
+type CaCertificateTagArrayInput interface {
 	pulumi.Input
 
-	ToCACertificateTagArrayOutput() CACertificateTagArrayOutput
-	ToCACertificateTagArrayOutputWithContext(context.Context) CACertificateTagArrayOutput
+	ToCaCertificateTagArrayOutput() CaCertificateTagArrayOutput
+	ToCaCertificateTagArrayOutputWithContext(context.Context) CaCertificateTagArrayOutput
 }
 
-type CACertificateTagArray []CACertificateTagInput
+type CaCertificateTagArray []CaCertificateTagInput
 
-func (CACertificateTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CACertificateTag)(nil)).Elem()
+func (CaCertificateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CaCertificateTag)(nil)).Elem()
 }
 
-func (i CACertificateTagArray) ToCACertificateTagArrayOutput() CACertificateTagArrayOutput {
-	return i.ToCACertificateTagArrayOutputWithContext(context.Background())
+func (i CaCertificateTagArray) ToCaCertificateTagArrayOutput() CaCertificateTagArrayOutput {
+	return i.ToCaCertificateTagArrayOutputWithContext(context.Background())
 }
 
-func (i CACertificateTagArray) ToCACertificateTagArrayOutputWithContext(ctx context.Context) CACertificateTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CACertificateTagArrayOutput)
+func (i CaCertificateTagArray) ToCaCertificateTagArrayOutputWithContext(ctx context.Context) CaCertificateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaCertificateTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type CACertificateTagOutput struct{ *pulumi.OutputState }
+type CaCertificateTagOutput struct{ *pulumi.OutputState }
 
-func (CACertificateTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CACertificateTag)(nil)).Elem()
+func (CaCertificateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateTag)(nil)).Elem()
 }
 
-func (o CACertificateTagOutput) ToCACertificateTagOutput() CACertificateTagOutput {
+func (o CaCertificateTagOutput) ToCaCertificateTagOutput() CaCertificateTagOutput {
 	return o
 }
 
-func (o CACertificateTagOutput) ToCACertificateTagOutputWithContext(ctx context.Context) CACertificateTagOutput {
+func (o CaCertificateTagOutput) ToCaCertificateTagOutputWithContext(ctx context.Context) CaCertificateTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CACertificateTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CACertificateTag) string { return v.Key }).(pulumi.StringOutput)
+func (o CaCertificateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CaCertificateTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CACertificateTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CACertificateTag) string { return v.Value }).(pulumi.StringOutput)
+func (o CaCertificateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CaCertificateTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type CACertificateTagArrayOutput struct{ *pulumi.OutputState }
+type CaCertificateTagArrayOutput struct{ *pulumi.OutputState }
 
-func (CACertificateTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CACertificateTag)(nil)).Elem()
+func (CaCertificateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CaCertificateTag)(nil)).Elem()
 }
 
-func (o CACertificateTagArrayOutput) ToCACertificateTagArrayOutput() CACertificateTagArrayOutput {
+func (o CaCertificateTagArrayOutput) ToCaCertificateTagArrayOutput() CaCertificateTagArrayOutput {
 	return o
 }
 
-func (o CACertificateTagArrayOutput) ToCACertificateTagArrayOutputWithContext(ctx context.Context) CACertificateTagArrayOutput {
+func (o CaCertificateTagArrayOutput) ToCaCertificateTagArrayOutputWithContext(ctx context.Context) CaCertificateTagArrayOutput {
 	return o
 }
 
-func (o CACertificateTagArrayOutput) Index(i pulumi.IntInput) CACertificateTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CACertificateTag {
-		return vs[0].([]CACertificateTag)[vs[1].(int)]
-	}).(CACertificateTagOutput)
+func (o CaCertificateTagArrayOutput) Index(i pulumi.IntInput) CaCertificateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CaCertificateTag {
+		return vs[0].([]CaCertificateTag)[vs[1].(int)]
+	}).(CaCertificateTagOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -3549,7 +3549,7 @@ type MitigationActionActionParams struct {
 	EnableIoTLoggingParams            *MitigationActionEnableIoTLoggingParams            `pulumi:"enableIoTLoggingParams"`
 	PublishFindingToSnsParams         *MitigationActionPublishFindingToSnsParams         `pulumi:"publishFindingToSnsParams"`
 	ReplaceDefaultPolicyVersionParams *MitigationActionReplaceDefaultPolicyVersionParams `pulumi:"replaceDefaultPolicyVersionParams"`
-	UpdateCaCertificateParams         *MitigationActionUpdateCACertificateParams         `pulumi:"updateCaCertificateParams"`
+	UpdateCaCertificateParams         *MitigationActionUpdateCaCertificateParams         `pulumi:"updateCaCertificateParams"`
 	UpdateDeviceCertificateParams     *MitigationActionUpdateDeviceCertificateParams     `pulumi:"updateDeviceCertificateParams"`
 }
 
@@ -3570,7 +3570,7 @@ type MitigationActionActionParamsArgs struct {
 	EnableIoTLoggingParams            MitigationActionEnableIoTLoggingParamsPtrInput            `pulumi:"enableIoTLoggingParams"`
 	PublishFindingToSnsParams         MitigationActionPublishFindingToSnsParamsPtrInput         `pulumi:"publishFindingToSnsParams"`
 	ReplaceDefaultPolicyVersionParams MitigationActionReplaceDefaultPolicyVersionParamsPtrInput `pulumi:"replaceDefaultPolicyVersionParams"`
-	UpdateCaCertificateParams         MitigationActionUpdateCACertificateParamsPtrInput         `pulumi:"updateCaCertificateParams"`
+	UpdateCaCertificateParams         MitigationActionUpdateCaCertificateParamsPtrInput         `pulumi:"updateCaCertificateParams"`
 	UpdateDeviceCertificateParams     MitigationActionUpdateDeviceCertificateParamsPtrInput     `pulumi:"updateDeviceCertificateParams"`
 }
 
@@ -3625,10 +3625,10 @@ func (o MitigationActionActionParamsOutput) ReplaceDefaultPolicyVersionParams() 
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-func (o MitigationActionActionParamsOutput) UpdateCaCertificateParams() MitigationActionUpdateCACertificateParamsPtrOutput {
-	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateCACertificateParams {
+func (o MitigationActionActionParamsOutput) UpdateCaCertificateParams() MitigationActionUpdateCaCertificateParamsPtrOutput {
+	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateCaCertificateParams {
 		return v.UpdateCaCertificateParams
-	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
+	}).(MitigationActionUpdateCaCertificateParamsPtrOutput)
 }
 
 func (o MitigationActionActionParamsOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
@@ -3697,13 +3697,13 @@ func (o MitigationActionActionParamsPtrOutput) ReplaceDefaultPolicyVersionParams
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-func (o MitigationActionActionParamsPtrOutput) UpdateCaCertificateParams() MitigationActionUpdateCACertificateParamsPtrOutput {
-	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateCACertificateParams {
+func (o MitigationActionActionParamsPtrOutput) UpdateCaCertificateParams() MitigationActionUpdateCaCertificateParamsPtrOutput {
+	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateCaCertificateParams {
 		if v == nil {
 			return nil
 		}
 		return v.UpdateCaCertificateParams
-	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
+	}).(MitigationActionUpdateCaCertificateParamsPtrOutput)
 }
 
 func (o MitigationActionActionParamsPtrOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
@@ -4423,141 +4423,141 @@ func (o MitigationActionTagArrayOutput) Index(i pulumi.IntInput) MitigationActio
 }
 
 // Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
-type MitigationActionUpdateCACertificateParams struct {
-	Action MitigationActionUpdateCACertificateParamsAction `pulumi:"action"`
+type MitigationActionUpdateCaCertificateParams struct {
+	Action MitigationActionUpdateCaCertificateParamsAction `pulumi:"action"`
 }
 
-// MitigationActionUpdateCACertificateParamsInput is an input type that accepts MitigationActionUpdateCACertificateParamsArgs and MitigationActionUpdateCACertificateParamsOutput values.
-// You can construct a concrete instance of `MitigationActionUpdateCACertificateParamsInput` via:
+// MitigationActionUpdateCaCertificateParamsInput is an input type that accepts MitigationActionUpdateCaCertificateParamsArgs and MitigationActionUpdateCaCertificateParamsOutput values.
+// You can construct a concrete instance of `MitigationActionUpdateCaCertificateParamsInput` via:
 //
-//	MitigationActionUpdateCACertificateParamsArgs{...}
-type MitigationActionUpdateCACertificateParamsInput interface {
+//	MitigationActionUpdateCaCertificateParamsArgs{...}
+type MitigationActionUpdateCaCertificateParamsInput interface {
 	pulumi.Input
 
-	ToMitigationActionUpdateCACertificateParamsOutput() MitigationActionUpdateCACertificateParamsOutput
-	ToMitigationActionUpdateCACertificateParamsOutputWithContext(context.Context) MitigationActionUpdateCACertificateParamsOutput
+	ToMitigationActionUpdateCaCertificateParamsOutput() MitigationActionUpdateCaCertificateParamsOutput
+	ToMitigationActionUpdateCaCertificateParamsOutputWithContext(context.Context) MitigationActionUpdateCaCertificateParamsOutput
 }
 
 // Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
-type MitigationActionUpdateCACertificateParamsArgs struct {
-	Action MitigationActionUpdateCACertificateParamsActionInput `pulumi:"action"`
+type MitigationActionUpdateCaCertificateParamsArgs struct {
+	Action MitigationActionUpdateCaCertificateParamsActionInput `pulumi:"action"`
 }
 
-func (MitigationActionUpdateCACertificateParamsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MitigationActionUpdateCACertificateParams)(nil)).Elem()
+func (MitigationActionUpdateCaCertificateParamsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MitigationActionUpdateCaCertificateParams)(nil)).Elem()
 }
 
-func (i MitigationActionUpdateCACertificateParamsArgs) ToMitigationActionUpdateCACertificateParamsOutput() MitigationActionUpdateCACertificateParamsOutput {
-	return i.ToMitigationActionUpdateCACertificateParamsOutputWithContext(context.Background())
+func (i MitigationActionUpdateCaCertificateParamsArgs) ToMitigationActionUpdateCaCertificateParamsOutput() MitigationActionUpdateCaCertificateParamsOutput {
+	return i.ToMitigationActionUpdateCaCertificateParamsOutputWithContext(context.Background())
 }
 
-func (i MitigationActionUpdateCACertificateParamsArgs) ToMitigationActionUpdateCACertificateParamsOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionUpdateCACertificateParamsOutput)
+func (i MitigationActionUpdateCaCertificateParamsArgs) ToMitigationActionUpdateCaCertificateParamsOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionUpdateCaCertificateParamsOutput)
 }
 
-func (i MitigationActionUpdateCACertificateParamsArgs) ToMitigationActionUpdateCACertificateParamsPtrOutput() MitigationActionUpdateCACertificateParamsPtrOutput {
-	return i.ToMitigationActionUpdateCACertificateParamsPtrOutputWithContext(context.Background())
+func (i MitigationActionUpdateCaCertificateParamsArgs) ToMitigationActionUpdateCaCertificateParamsPtrOutput() MitigationActionUpdateCaCertificateParamsPtrOutput {
+	return i.ToMitigationActionUpdateCaCertificateParamsPtrOutputWithContext(context.Background())
 }
 
-func (i MitigationActionUpdateCACertificateParamsArgs) ToMitigationActionUpdateCACertificateParamsPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionUpdateCACertificateParamsOutput).ToMitigationActionUpdateCACertificateParamsPtrOutputWithContext(ctx)
+func (i MitigationActionUpdateCaCertificateParamsArgs) ToMitigationActionUpdateCaCertificateParamsPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionUpdateCaCertificateParamsOutput).ToMitigationActionUpdateCaCertificateParamsPtrOutputWithContext(ctx)
 }
 
-// MitigationActionUpdateCACertificateParamsPtrInput is an input type that accepts MitigationActionUpdateCACertificateParamsArgs, MitigationActionUpdateCACertificateParamsPtr and MitigationActionUpdateCACertificateParamsPtrOutput values.
-// You can construct a concrete instance of `MitigationActionUpdateCACertificateParamsPtrInput` via:
+// MitigationActionUpdateCaCertificateParamsPtrInput is an input type that accepts MitigationActionUpdateCaCertificateParamsArgs, MitigationActionUpdateCaCertificateParamsPtr and MitigationActionUpdateCaCertificateParamsPtrOutput values.
+// You can construct a concrete instance of `MitigationActionUpdateCaCertificateParamsPtrInput` via:
 //
-//	        MitigationActionUpdateCACertificateParamsArgs{...}
+//	        MitigationActionUpdateCaCertificateParamsArgs{...}
 //
 //	or:
 //
 //	        nil
-type MitigationActionUpdateCACertificateParamsPtrInput interface {
+type MitigationActionUpdateCaCertificateParamsPtrInput interface {
 	pulumi.Input
 
-	ToMitigationActionUpdateCACertificateParamsPtrOutput() MitigationActionUpdateCACertificateParamsPtrOutput
-	ToMitigationActionUpdateCACertificateParamsPtrOutputWithContext(context.Context) MitigationActionUpdateCACertificateParamsPtrOutput
+	ToMitigationActionUpdateCaCertificateParamsPtrOutput() MitigationActionUpdateCaCertificateParamsPtrOutput
+	ToMitigationActionUpdateCaCertificateParamsPtrOutputWithContext(context.Context) MitigationActionUpdateCaCertificateParamsPtrOutput
 }
 
-type mitigationActionUpdateCACertificateParamsPtrType MitigationActionUpdateCACertificateParamsArgs
+type mitigationActionUpdateCaCertificateParamsPtrType MitigationActionUpdateCaCertificateParamsArgs
 
-func MitigationActionUpdateCACertificateParamsPtr(v *MitigationActionUpdateCACertificateParamsArgs) MitigationActionUpdateCACertificateParamsPtrInput {
-	return (*mitigationActionUpdateCACertificateParamsPtrType)(v)
+func MitigationActionUpdateCaCertificateParamsPtr(v *MitigationActionUpdateCaCertificateParamsArgs) MitigationActionUpdateCaCertificateParamsPtrInput {
+	return (*mitigationActionUpdateCaCertificateParamsPtrType)(v)
 }
 
-func (*mitigationActionUpdateCACertificateParamsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MitigationActionUpdateCACertificateParams)(nil)).Elem()
+func (*mitigationActionUpdateCaCertificateParamsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MitigationActionUpdateCaCertificateParams)(nil)).Elem()
 }
 
-func (i *mitigationActionUpdateCACertificateParamsPtrType) ToMitigationActionUpdateCACertificateParamsPtrOutput() MitigationActionUpdateCACertificateParamsPtrOutput {
-	return i.ToMitigationActionUpdateCACertificateParamsPtrOutputWithContext(context.Background())
+func (i *mitigationActionUpdateCaCertificateParamsPtrType) ToMitigationActionUpdateCaCertificateParamsPtrOutput() MitigationActionUpdateCaCertificateParamsPtrOutput {
+	return i.ToMitigationActionUpdateCaCertificateParamsPtrOutputWithContext(context.Background())
 }
 
-func (i *mitigationActionUpdateCACertificateParamsPtrType) ToMitigationActionUpdateCACertificateParamsPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionUpdateCACertificateParamsPtrOutput)
+func (i *mitigationActionUpdateCaCertificateParamsPtrType) ToMitigationActionUpdateCaCertificateParamsPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionUpdateCaCertificateParamsPtrOutput)
 }
 
 // Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
-type MitigationActionUpdateCACertificateParamsOutput struct{ *pulumi.OutputState }
+type MitigationActionUpdateCaCertificateParamsOutput struct{ *pulumi.OutputState }
 
-func (MitigationActionUpdateCACertificateParamsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MitigationActionUpdateCACertificateParams)(nil)).Elem()
+func (MitigationActionUpdateCaCertificateParamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MitigationActionUpdateCaCertificateParams)(nil)).Elem()
 }
 
-func (o MitigationActionUpdateCACertificateParamsOutput) ToMitigationActionUpdateCACertificateParamsOutput() MitigationActionUpdateCACertificateParamsOutput {
+func (o MitigationActionUpdateCaCertificateParamsOutput) ToMitigationActionUpdateCaCertificateParamsOutput() MitigationActionUpdateCaCertificateParamsOutput {
 	return o
 }
 
-func (o MitigationActionUpdateCACertificateParamsOutput) ToMitigationActionUpdateCACertificateParamsOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsOutput {
+func (o MitigationActionUpdateCaCertificateParamsOutput) ToMitigationActionUpdateCaCertificateParamsOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsOutput {
 	return o
 }
 
-func (o MitigationActionUpdateCACertificateParamsOutput) ToMitigationActionUpdateCACertificateParamsPtrOutput() MitigationActionUpdateCACertificateParamsPtrOutput {
-	return o.ToMitigationActionUpdateCACertificateParamsPtrOutputWithContext(context.Background())
+func (o MitigationActionUpdateCaCertificateParamsOutput) ToMitigationActionUpdateCaCertificateParamsPtrOutput() MitigationActionUpdateCaCertificateParamsPtrOutput {
+	return o.ToMitigationActionUpdateCaCertificateParamsPtrOutputWithContext(context.Background())
 }
 
-func (o MitigationActionUpdateCACertificateParamsOutput) ToMitigationActionUpdateCACertificateParamsPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MitigationActionUpdateCACertificateParams) *MitigationActionUpdateCACertificateParams {
+func (o MitigationActionUpdateCaCertificateParamsOutput) ToMitigationActionUpdateCaCertificateParamsPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MitigationActionUpdateCaCertificateParams) *MitigationActionUpdateCaCertificateParams {
 		return &v
-	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
+	}).(MitigationActionUpdateCaCertificateParamsPtrOutput)
 }
 
-func (o MitigationActionUpdateCACertificateParamsOutput) Action() MitigationActionUpdateCACertificateParamsActionOutput {
-	return o.ApplyT(func(v MitigationActionUpdateCACertificateParams) MitigationActionUpdateCACertificateParamsAction {
+func (o MitigationActionUpdateCaCertificateParamsOutput) Action() MitigationActionUpdateCaCertificateParamsActionOutput {
+	return o.ApplyT(func(v MitigationActionUpdateCaCertificateParams) MitigationActionUpdateCaCertificateParamsAction {
 		return v.Action
-	}).(MitigationActionUpdateCACertificateParamsActionOutput)
+	}).(MitigationActionUpdateCaCertificateParamsActionOutput)
 }
 
-type MitigationActionUpdateCACertificateParamsPtrOutput struct{ *pulumi.OutputState }
+type MitigationActionUpdateCaCertificateParamsPtrOutput struct{ *pulumi.OutputState }
 
-func (MitigationActionUpdateCACertificateParamsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MitigationActionUpdateCACertificateParams)(nil)).Elem()
+func (MitigationActionUpdateCaCertificateParamsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MitigationActionUpdateCaCertificateParams)(nil)).Elem()
 }
 
-func (o MitigationActionUpdateCACertificateParamsPtrOutput) ToMitigationActionUpdateCACertificateParamsPtrOutput() MitigationActionUpdateCACertificateParamsPtrOutput {
+func (o MitigationActionUpdateCaCertificateParamsPtrOutput) ToMitigationActionUpdateCaCertificateParamsPtrOutput() MitigationActionUpdateCaCertificateParamsPtrOutput {
 	return o
 }
 
-func (o MitigationActionUpdateCACertificateParamsPtrOutput) ToMitigationActionUpdateCACertificateParamsPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsPtrOutput {
+func (o MitigationActionUpdateCaCertificateParamsPtrOutput) ToMitigationActionUpdateCaCertificateParamsPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsPtrOutput {
 	return o
 }
 
-func (o MitigationActionUpdateCACertificateParamsPtrOutput) Elem() MitigationActionUpdateCACertificateParamsOutput {
-	return o.ApplyT(func(v *MitigationActionUpdateCACertificateParams) MitigationActionUpdateCACertificateParams {
+func (o MitigationActionUpdateCaCertificateParamsPtrOutput) Elem() MitigationActionUpdateCaCertificateParamsOutput {
+	return o.ApplyT(func(v *MitigationActionUpdateCaCertificateParams) MitigationActionUpdateCaCertificateParams {
 		if v != nil {
 			return *v
 		}
-		var ret MitigationActionUpdateCACertificateParams
+		var ret MitigationActionUpdateCaCertificateParams
 		return ret
-	}).(MitigationActionUpdateCACertificateParamsOutput)
+	}).(MitigationActionUpdateCaCertificateParamsOutput)
 }
 
-func (o MitigationActionUpdateCACertificateParamsPtrOutput) Action() MitigationActionUpdateCACertificateParamsActionPtrOutput {
-	return o.ApplyT(func(v *MitigationActionUpdateCACertificateParams) *MitigationActionUpdateCACertificateParamsAction {
+func (o MitigationActionUpdateCaCertificateParamsPtrOutput) Action() MitigationActionUpdateCaCertificateParamsActionPtrOutput {
+	return o.ApplyT(func(v *MitigationActionUpdateCaCertificateParams) *MitigationActionUpdateCaCertificateParamsAction {
 		if v == nil {
 			return nil
 		}
 		return &v.Action
-	}).(MitigationActionUpdateCACertificateParamsActionPtrOutput)
+	}).(MitigationActionUpdateCaCertificateParamsActionPtrOutput)
 }
 
 // Parameters to define a mitigation action that changes the state of the device certificate to inactive.
@@ -7507,7 +7507,7 @@ type TopicRuleAction struct {
 	CloudwatchLogs   *TopicRuleCloudwatchLogsAction   `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric *TopicRuleCloudwatchMetricAction `pulumi:"cloudwatchMetric"`
 	DynamoDBv2       *TopicRuleDynamoDBv2Action       `pulumi:"dynamoDBv2"`
-	DynamoDb         *TopicRuleDynamoDBAction         `pulumi:"dynamoDb"`
+	DynamoDb         *TopicRuleDynamoDbAction         `pulumi:"dynamoDb"`
 	Elasticsearch    *TopicRuleElasticsearchAction    `pulumi:"elasticsearch"`
 	Firehose         *TopicRuleFirehoseAction         `pulumi:"firehose"`
 	Http             *TopicRuleHttpAction             `pulumi:"http"`
@@ -7543,7 +7543,7 @@ type TopicRuleActionArgs struct {
 	CloudwatchLogs   TopicRuleCloudwatchLogsActionPtrInput   `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric TopicRuleCloudwatchMetricActionPtrInput `pulumi:"cloudwatchMetric"`
 	DynamoDBv2       TopicRuleDynamoDBv2ActionPtrInput       `pulumi:"dynamoDBv2"`
-	DynamoDb         TopicRuleDynamoDBActionPtrInput         `pulumi:"dynamoDb"`
+	DynamoDb         TopicRuleDynamoDbActionPtrInput         `pulumi:"dynamoDb"`
 	Elasticsearch    TopicRuleElasticsearchActionPtrInput    `pulumi:"elasticsearch"`
 	Firehose         TopicRuleFirehoseActionPtrInput         `pulumi:"firehose"`
 	Http             TopicRuleHttpActionPtrInput             `pulumi:"http"`
@@ -7681,8 +7681,8 @@ func (o TopicRuleActionOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDBv2Action { return v.DynamoDBv2 }).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
-func (o TopicRuleActionOutput) DynamoDb() TopicRuleDynamoDBActionPtrOutput {
-	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDBAction { return v.DynamoDb }).(TopicRuleDynamoDBActionPtrOutput)
+func (o TopicRuleActionOutput) DynamoDb() TopicRuleDynamoDbActionPtrOutput {
+	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDbAction { return v.DynamoDb }).(TopicRuleDynamoDbActionPtrOutput)
 }
 
 func (o TopicRuleActionOutput) Elasticsearch() TopicRuleElasticsearchActionPtrOutput {
@@ -7813,13 +7813,13 @@ func (o TopicRuleActionPtrOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutpu
 	}).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
-func (o TopicRuleActionPtrOutput) DynamoDb() TopicRuleDynamoDBActionPtrOutput {
-	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDBAction {
+func (o TopicRuleActionPtrOutput) DynamoDb() TopicRuleDynamoDbActionPtrOutput {
+	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDbAction {
 		if v == nil {
 			return nil
 		}
 		return v.DynamoDb
-	}).(TopicRuleDynamoDBActionPtrOutput)
+	}).(TopicRuleDynamoDbActionPtrOutput)
 }
 
 func (o TopicRuleActionPtrOutput) Elasticsearch() TopicRuleElasticsearchActionPtrOutput {
@@ -9083,259 +9083,6 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) VpcId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-type TopicRuleDynamoDBAction struct {
-	HashKeyField  string  `pulumi:"hashKeyField"`
-	HashKeyType   *string `pulumi:"hashKeyType"`
-	HashKeyValue  string  `pulumi:"hashKeyValue"`
-	PayloadField  *string `pulumi:"payloadField"`
-	RangeKeyField *string `pulumi:"rangeKeyField"`
-	RangeKeyType  *string `pulumi:"rangeKeyType"`
-	RangeKeyValue *string `pulumi:"rangeKeyValue"`
-	RoleArn       string  `pulumi:"roleArn"`
-	TableName     string  `pulumi:"tableName"`
-}
-
-// TopicRuleDynamoDBActionInput is an input type that accepts TopicRuleDynamoDBActionArgs and TopicRuleDynamoDBActionOutput values.
-// You can construct a concrete instance of `TopicRuleDynamoDBActionInput` via:
-//
-//	TopicRuleDynamoDBActionArgs{...}
-type TopicRuleDynamoDBActionInput interface {
-	pulumi.Input
-
-	ToTopicRuleDynamoDBActionOutput() TopicRuleDynamoDBActionOutput
-	ToTopicRuleDynamoDBActionOutputWithContext(context.Context) TopicRuleDynamoDBActionOutput
-}
-
-type TopicRuleDynamoDBActionArgs struct {
-	HashKeyField  pulumi.StringInput    `pulumi:"hashKeyField"`
-	HashKeyType   pulumi.StringPtrInput `pulumi:"hashKeyType"`
-	HashKeyValue  pulumi.StringInput    `pulumi:"hashKeyValue"`
-	PayloadField  pulumi.StringPtrInput `pulumi:"payloadField"`
-	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
-	RangeKeyType  pulumi.StringPtrInput `pulumi:"rangeKeyType"`
-	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
-	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
-	TableName     pulumi.StringInput    `pulumi:"tableName"`
-}
-
-func (TopicRuleDynamoDBActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleDynamoDBAction)(nil)).Elem()
-}
-
-func (i TopicRuleDynamoDBActionArgs) ToTopicRuleDynamoDBActionOutput() TopicRuleDynamoDBActionOutput {
-	return i.ToTopicRuleDynamoDBActionOutputWithContext(context.Background())
-}
-
-func (i TopicRuleDynamoDBActionArgs) ToTopicRuleDynamoDBActionOutputWithContext(ctx context.Context) TopicRuleDynamoDBActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamoDBActionOutput)
-}
-
-func (i TopicRuleDynamoDBActionArgs) ToTopicRuleDynamoDBActionPtrOutput() TopicRuleDynamoDBActionPtrOutput {
-	return i.ToTopicRuleDynamoDBActionPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleDynamoDBActionArgs) ToTopicRuleDynamoDBActionPtrOutputWithContext(ctx context.Context) TopicRuleDynamoDBActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamoDBActionOutput).ToTopicRuleDynamoDBActionPtrOutputWithContext(ctx)
-}
-
-// TopicRuleDynamoDBActionPtrInput is an input type that accepts TopicRuleDynamoDBActionArgs, TopicRuleDynamoDBActionPtr and TopicRuleDynamoDBActionPtrOutput values.
-// You can construct a concrete instance of `TopicRuleDynamoDBActionPtrInput` via:
-//
-//	        TopicRuleDynamoDBActionArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleDynamoDBActionPtrInput interface {
-	pulumi.Input
-
-	ToTopicRuleDynamoDBActionPtrOutput() TopicRuleDynamoDBActionPtrOutput
-	ToTopicRuleDynamoDBActionPtrOutputWithContext(context.Context) TopicRuleDynamoDBActionPtrOutput
-}
-
-type topicRuleDynamoDBActionPtrType TopicRuleDynamoDBActionArgs
-
-func TopicRuleDynamoDBActionPtr(v *TopicRuleDynamoDBActionArgs) TopicRuleDynamoDBActionPtrInput {
-	return (*topicRuleDynamoDBActionPtrType)(v)
-}
-
-func (*topicRuleDynamoDBActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleDynamoDBAction)(nil)).Elem()
-}
-
-func (i *topicRuleDynamoDBActionPtrType) ToTopicRuleDynamoDBActionPtrOutput() TopicRuleDynamoDBActionPtrOutput {
-	return i.ToTopicRuleDynamoDBActionPtrOutputWithContext(context.Background())
-}
-
-func (i *topicRuleDynamoDBActionPtrType) ToTopicRuleDynamoDBActionPtrOutputWithContext(ctx context.Context) TopicRuleDynamoDBActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamoDBActionPtrOutput)
-}
-
-type TopicRuleDynamoDBActionOutput struct{ *pulumi.OutputState }
-
-func (TopicRuleDynamoDBActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleDynamoDBAction)(nil)).Elem()
-}
-
-func (o TopicRuleDynamoDBActionOutput) ToTopicRuleDynamoDBActionOutput() TopicRuleDynamoDBActionOutput {
-	return o
-}
-
-func (o TopicRuleDynamoDBActionOutput) ToTopicRuleDynamoDBActionOutputWithContext(ctx context.Context) TopicRuleDynamoDBActionOutput {
-	return o
-}
-
-func (o TopicRuleDynamoDBActionOutput) ToTopicRuleDynamoDBActionPtrOutput() TopicRuleDynamoDBActionPtrOutput {
-	return o.ToTopicRuleDynamoDBActionPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleDynamoDBActionOutput) ToTopicRuleDynamoDBActionPtrOutputWithContext(ctx context.Context) TopicRuleDynamoDBActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleDynamoDBAction) *TopicRuleDynamoDBAction {
-		return &v
-	}).(TopicRuleDynamoDBActionPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionOutput) HashKeyField() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleDynamoDBAction) string { return v.HashKeyField }).(pulumi.StringOutput)
-}
-
-func (o TopicRuleDynamoDBActionOutput) HashKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamoDBAction) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionOutput) HashKeyValue() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleDynamoDBAction) string { return v.HashKeyValue }).(pulumi.StringOutput)
-}
-
-func (o TopicRuleDynamoDBActionOutput) PayloadField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamoDBAction) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionOutput) RangeKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamoDBAction) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionOutput) RangeKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamoDBAction) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionOutput) RangeKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamoDBAction) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleDynamoDBAction) string { return v.RoleArn }).(pulumi.StringOutput)
-}
-
-func (o TopicRuleDynamoDBActionOutput) TableName() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleDynamoDBAction) string { return v.TableName }).(pulumi.StringOutput)
-}
-
-type TopicRuleDynamoDBActionPtrOutput struct{ *pulumi.OutputState }
-
-func (TopicRuleDynamoDBActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleDynamoDBAction)(nil)).Elem()
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) ToTopicRuleDynamoDBActionPtrOutput() TopicRuleDynamoDBActionPtrOutput {
-	return o
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) ToTopicRuleDynamoDBActionPtrOutputWithContext(ctx context.Context) TopicRuleDynamoDBActionPtrOutput {
-	return o
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) Elem() TopicRuleDynamoDBActionOutput {
-	return o.ApplyT(func(v *TopicRuleDynamoDBAction) TopicRuleDynamoDBAction {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleDynamoDBAction
-		return ret
-	}).(TopicRuleDynamoDBActionOutput)
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) HashKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HashKeyField
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) HashKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HashKeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HashKeyValue
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) PayloadField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PayloadField
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyField
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyValue
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleDynamoDBActionPtrOutput) TableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TableName
-	}).(pulumi.StringPtrOutput)
-}
-
 type TopicRuleDynamoDBv2Action struct {
 	PutItem *TopicRulePutItemInput `pulumi:"putItem"`
 	RoleArn *string                `pulumi:"roleArn"`
@@ -9481,6 +9228,259 @@ func (o TopicRuleDynamoDBv2ActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleDynamoDbAction struct {
+	HashKeyField  string  `pulumi:"hashKeyField"`
+	HashKeyType   *string `pulumi:"hashKeyType"`
+	HashKeyValue  string  `pulumi:"hashKeyValue"`
+	PayloadField  *string `pulumi:"payloadField"`
+	RangeKeyField *string `pulumi:"rangeKeyField"`
+	RangeKeyType  *string `pulumi:"rangeKeyType"`
+	RangeKeyValue *string `pulumi:"rangeKeyValue"`
+	RoleArn       string  `pulumi:"roleArn"`
+	TableName     string  `pulumi:"tableName"`
+}
+
+// TopicRuleDynamoDbActionInput is an input type that accepts TopicRuleDynamoDbActionArgs and TopicRuleDynamoDbActionOutput values.
+// You can construct a concrete instance of `TopicRuleDynamoDbActionInput` via:
+//
+//	TopicRuleDynamoDbActionArgs{...}
+type TopicRuleDynamoDbActionInput interface {
+	pulumi.Input
+
+	ToTopicRuleDynamoDbActionOutput() TopicRuleDynamoDbActionOutput
+	ToTopicRuleDynamoDbActionOutputWithContext(context.Context) TopicRuleDynamoDbActionOutput
+}
+
+type TopicRuleDynamoDbActionArgs struct {
+	HashKeyField  pulumi.StringInput    `pulumi:"hashKeyField"`
+	HashKeyType   pulumi.StringPtrInput `pulumi:"hashKeyType"`
+	HashKeyValue  pulumi.StringInput    `pulumi:"hashKeyValue"`
+	PayloadField  pulumi.StringPtrInput `pulumi:"payloadField"`
+	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
+	RangeKeyType  pulumi.StringPtrInput `pulumi:"rangeKeyType"`
+	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
+	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
+	TableName     pulumi.StringInput    `pulumi:"tableName"`
+}
+
+func (TopicRuleDynamoDbActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDynamoDbAction)(nil)).Elem()
+}
+
+func (i TopicRuleDynamoDbActionArgs) ToTopicRuleDynamoDbActionOutput() TopicRuleDynamoDbActionOutput {
+	return i.ToTopicRuleDynamoDbActionOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDynamoDbActionArgs) ToTopicRuleDynamoDbActionOutputWithContext(ctx context.Context) TopicRuleDynamoDbActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamoDbActionOutput)
+}
+
+func (i TopicRuleDynamoDbActionArgs) ToTopicRuleDynamoDbActionPtrOutput() TopicRuleDynamoDbActionPtrOutput {
+	return i.ToTopicRuleDynamoDbActionPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDynamoDbActionArgs) ToTopicRuleDynamoDbActionPtrOutputWithContext(ctx context.Context) TopicRuleDynamoDbActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamoDbActionOutput).ToTopicRuleDynamoDbActionPtrOutputWithContext(ctx)
+}
+
+// TopicRuleDynamoDbActionPtrInput is an input type that accepts TopicRuleDynamoDbActionArgs, TopicRuleDynamoDbActionPtr and TopicRuleDynamoDbActionPtrOutput values.
+// You can construct a concrete instance of `TopicRuleDynamoDbActionPtrInput` via:
+//
+//	        TopicRuleDynamoDbActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicRuleDynamoDbActionPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleDynamoDbActionPtrOutput() TopicRuleDynamoDbActionPtrOutput
+	ToTopicRuleDynamoDbActionPtrOutputWithContext(context.Context) TopicRuleDynamoDbActionPtrOutput
+}
+
+type topicRuleDynamoDbActionPtrType TopicRuleDynamoDbActionArgs
+
+func TopicRuleDynamoDbActionPtr(v *TopicRuleDynamoDbActionArgs) TopicRuleDynamoDbActionPtrInput {
+	return (*topicRuleDynamoDbActionPtrType)(v)
+}
+
+func (*topicRuleDynamoDbActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDynamoDbAction)(nil)).Elem()
+}
+
+func (i *topicRuleDynamoDbActionPtrType) ToTopicRuleDynamoDbActionPtrOutput() TopicRuleDynamoDbActionPtrOutput {
+	return i.ToTopicRuleDynamoDbActionPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleDynamoDbActionPtrType) ToTopicRuleDynamoDbActionPtrOutputWithContext(ctx context.Context) TopicRuleDynamoDbActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamoDbActionPtrOutput)
+}
+
+type TopicRuleDynamoDbActionOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDynamoDbActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDynamoDbAction)(nil)).Elem()
+}
+
+func (o TopicRuleDynamoDbActionOutput) ToTopicRuleDynamoDbActionOutput() TopicRuleDynamoDbActionOutput {
+	return o
+}
+
+func (o TopicRuleDynamoDbActionOutput) ToTopicRuleDynamoDbActionOutputWithContext(ctx context.Context) TopicRuleDynamoDbActionOutput {
+	return o
+}
+
+func (o TopicRuleDynamoDbActionOutput) ToTopicRuleDynamoDbActionPtrOutput() TopicRuleDynamoDbActionPtrOutput {
+	return o.ToTopicRuleDynamoDbActionPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleDynamoDbActionOutput) ToTopicRuleDynamoDbActionPtrOutputWithContext(ctx context.Context) TopicRuleDynamoDbActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleDynamoDbAction) *TopicRuleDynamoDbAction {
+		return &v
+	}).(TopicRuleDynamoDbActionPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionOutput) HashKeyField() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDynamoDbAction) string { return v.HashKeyField }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleDynamoDbActionOutput) HashKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDynamoDbAction) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionOutput) HashKeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDynamoDbAction) string { return v.HashKeyValue }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleDynamoDbActionOutput) PayloadField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDynamoDbAction) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionOutput) RangeKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDynamoDbAction) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionOutput) RangeKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDynamoDbAction) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionOutput) RangeKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDynamoDbAction) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDynamoDbAction) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleDynamoDbActionOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDynamoDbAction) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type TopicRuleDynamoDbActionPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDynamoDbActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDynamoDbAction)(nil)).Elem()
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) ToTopicRuleDynamoDbActionPtrOutput() TopicRuleDynamoDbActionPtrOutput {
+	return o
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) ToTopicRuleDynamoDbActionPtrOutputWithContext(ctx context.Context) TopicRuleDynamoDbActionPtrOutput {
+	return o
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) Elem() TopicRuleDynamoDbActionOutput {
+	return o.ApplyT(func(v *TopicRuleDynamoDbAction) TopicRuleDynamoDbAction {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleDynamoDbAction
+		return ret
+	}).(TopicRuleDynamoDbActionOutput)
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) HashKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HashKeyField
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) HashKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HashKeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HashKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) PayloadField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadField
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyField
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDynamoDbActionPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14076,10 +14076,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupPropertiesPropertiesPtrInput)(nil)).Elem(), BillingGroupPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupTagInput)(nil)).Elem(), BillingGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupTagArrayInput)(nil)).Elem(), BillingGroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateRegistrationConfigInput)(nil)).Elem(), CACertificateRegistrationConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateRegistrationConfigPtrInput)(nil)).Elem(), CACertificateRegistrationConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateTagInput)(nil)).Elem(), CACertificateTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateTagArrayInput)(nil)).Elem(), CACertificateTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateRegistrationConfigInput)(nil)).Elem(), CaCertificateRegistrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateRegistrationConfigPtrInput)(nil)).Elem(), CaCertificateRegistrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateTagInput)(nil)).Elem(), CaCertificateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateTagArrayInput)(nil)).Elem(), CaCertificateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricTagInput)(nil)).Elem(), CustomMetricTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricTagArrayInput)(nil)).Elem(), CustomMetricTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionTagInput)(nil)).Elem(), DimensionTagArgs{})
@@ -14121,8 +14121,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionReplaceDefaultPolicyVersionParamsPtrInput)(nil)).Elem(), MitigationActionReplaceDefaultPolicyVersionParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionTagInput)(nil)).Elem(), MitigationActionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionTagArrayInput)(nil)).Elem(), MitigationActionTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCACertificateParamsInput)(nil)).Elem(), MitigationActionUpdateCACertificateParamsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCACertificateParamsPtrInput)(nil)).Elem(), MitigationActionUpdateCACertificateParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCaCertificateParamsInput)(nil)).Elem(), MitigationActionUpdateCaCertificateParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCaCertificateParamsPtrInput)(nil)).Elem(), MitigationActionUpdateCaCertificateParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateDeviceCertificateParamsInput)(nil)).Elem(), MitigationActionUpdateDeviceCertificateParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateDeviceCertificateParamsPtrInput)(nil)).Elem(), MitigationActionUpdateDeviceCertificateParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PresignedUrlConfigPropertiesInput)(nil)).Elem(), PresignedUrlConfigPropertiesArgs{})
@@ -14182,10 +14182,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationHttpUrlDestinationSummaryPtrInput)(nil)).Elem(), TopicRuleDestinationHttpUrlDestinationSummaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationVpcDestinationPropertiesInput)(nil)).Elem(), TopicRuleDestinationVpcDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationVpcDestinationPropertiesPtrInput)(nil)).Elem(), TopicRuleDestinationVpcDestinationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamoDBActionInput)(nil)).Elem(), TopicRuleDynamoDBActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamoDBActionPtrInput)(nil)).Elem(), TopicRuleDynamoDBActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamoDBv2ActionInput)(nil)).Elem(), TopicRuleDynamoDBv2ActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamoDBv2ActionPtrInput)(nil)).Elem(), TopicRuleDynamoDBv2ActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamoDbActionInput)(nil)).Elem(), TopicRuleDynamoDbActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamoDbActionPtrInput)(nil)).Elem(), TopicRuleDynamoDbActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleElasticsearchActionInput)(nil)).Elem(), TopicRuleElasticsearchActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleElasticsearchActionPtrInput)(nil)).Elem(), TopicRuleElasticsearchActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleFirehoseActionInput)(nil)).Elem(), TopicRuleFirehoseActionArgs{})
@@ -14259,10 +14259,10 @@ func init() {
 	pulumi.RegisterOutputType(BillingGroupPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BillingGroupTagOutput{})
 	pulumi.RegisterOutputType(BillingGroupTagArrayOutput{})
-	pulumi.RegisterOutputType(CACertificateRegistrationConfigOutput{})
-	pulumi.RegisterOutputType(CACertificateRegistrationConfigPtrOutput{})
-	pulumi.RegisterOutputType(CACertificateTagOutput{})
-	pulumi.RegisterOutputType(CACertificateTagArrayOutput{})
+	pulumi.RegisterOutputType(CaCertificateRegistrationConfigOutput{})
+	pulumi.RegisterOutputType(CaCertificateRegistrationConfigPtrOutput{})
+	pulumi.RegisterOutputType(CaCertificateTagOutput{})
+	pulumi.RegisterOutputType(CaCertificateTagArrayOutput{})
 	pulumi.RegisterOutputType(CustomMetricTagOutput{})
 	pulumi.RegisterOutputType(CustomMetricTagArrayOutput{})
 	pulumi.RegisterOutputType(DimensionTagOutput{})
@@ -14307,8 +14307,8 @@ func init() {
 	pulumi.RegisterOutputType(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionTagOutput{})
 	pulumi.RegisterOutputType(MitigationActionTagArrayOutput{})
-	pulumi.RegisterOutputType(MitigationActionUpdateCACertificateParamsOutput{})
-	pulumi.RegisterOutputType(MitigationActionUpdateCACertificateParamsPtrOutput{})
+	pulumi.RegisterOutputType(MitigationActionUpdateCaCertificateParamsOutput{})
+	pulumi.RegisterOutputType(MitigationActionUpdateCaCertificateParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsPtrOutput{})
 	pulumi.RegisterOutputType(PresignedUrlConfigPropertiesOutput{})
@@ -14368,10 +14368,10 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDestinationVpcDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(TopicRuleDestinationVpcDestinationPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(TopicRuleDynamoDBActionOutput{})
-	pulumi.RegisterOutputType(TopicRuleDynamoDBActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamoDBv2ActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamoDBv2ActionPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleDynamoDbActionOutput{})
+	pulumi.RegisterOutputType(TopicRuleDynamoDbActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleElasticsearchActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleElasticsearchActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleFirehoseActionOutput{})

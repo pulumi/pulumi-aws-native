@@ -36,8 +36,8 @@ __all__ = [
     'DeliveryStreamHttpEndpointDestinationConfigurationArgs',
     'DeliveryStreamHttpEndpointRequestConfigurationArgs',
     'DeliveryStreamInputFormatConfigurationArgs',
-    'DeliveryStreamKMSEncryptionConfigArgs',
     'DeliveryStreamKinesisStreamSourceConfigurationArgs',
+    'DeliveryStreamKmsEncryptionConfigArgs',
     'DeliveryStreamOpenXJsonSerDeArgs',
     'DeliveryStreamOrcSerDeArgs',
     'DeliveryStreamOutputFormatConfigurationArgs',
@@ -925,7 +925,7 @@ class DeliveryStreamEncryptionConfigurationInputArgs:
 @pulumi.input_type
 class DeliveryStreamEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 kms_encryption_config: Optional[pulumi.Input['DeliveryStreamKMSEncryptionConfigArgs']] = None,
+                 kms_encryption_config: Optional[pulumi.Input['DeliveryStreamKmsEncryptionConfigArgs']] = None,
                  no_encryption_config: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationNoEncryptionConfig']] = None):
         if kms_encryption_config is not None:
             pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)
@@ -934,11 +934,11 @@ class DeliveryStreamEncryptionConfigurationArgs:
 
     @property
     @pulumi.getter(name="kmsEncryptionConfig")
-    def kms_encryption_config(self) -> Optional[pulumi.Input['DeliveryStreamKMSEncryptionConfigArgs']]:
+    def kms_encryption_config(self) -> Optional[pulumi.Input['DeliveryStreamKmsEncryptionConfigArgs']]:
         return pulumi.get(self, "kms_encryption_config")
 
     @kms_encryption_config.setter
-    def kms_encryption_config(self, value: Optional[pulumi.Input['DeliveryStreamKMSEncryptionConfigArgs']]):
+    def kms_encryption_config(self, value: Optional[pulumi.Input['DeliveryStreamKmsEncryptionConfigArgs']]):
         pulumi.set(self, "kms_encryption_config", value)
 
     @property
@@ -1352,22 +1352,6 @@ class DeliveryStreamInputFormatConfigurationArgs:
 
 
 @pulumi.input_type
-class DeliveryStreamKMSEncryptionConfigArgs:
-    def __init__(__self__, *,
-                 awskms_key_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "awskms_key_arn", awskms_key_arn)
-
-    @property
-    @pulumi.getter(name="awskmsKeyArn")
-    def awskms_key_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "awskms_key_arn")
-
-    @awskms_key_arn.setter
-    def awskms_key_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "awskms_key_arn", value)
-
-
-@pulumi.input_type
 class DeliveryStreamKinesisStreamSourceConfigurationArgs:
     def __init__(__self__, *,
                  kinesis_stream_arn: pulumi.Input[str],
@@ -1392,6 +1376,22 @@ class DeliveryStreamKinesisStreamSourceConfigurationArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class DeliveryStreamKmsEncryptionConfigArgs:
+    def __init__(__self__, *,
+                 awskms_key_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "awskms_key_arn", awskms_key_arn)
+
+    @property
+    @pulumi.getter(name="awskmsKeyArn")
+    def awskms_key_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "awskms_key_arn")
+
+    @awskms_key_arn.setter
+    def awskms_key_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "awskms_key_arn", value)
 
 
 @pulumi.input_type
@@ -2112,7 +2112,7 @@ class DeliveryStreamSerializerArgs:
 class DeliveryStreamSplunkDestinationConfigurationArgs:
     def __init__(__self__, *,
                  hec_endpoint: pulumi.Input[str],
-                 hec_endpoint_type: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType'],
+                 hec_endpoint_type: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHecEndpointType'],
                  hec_token: pulumi.Input[str],
                  s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
@@ -2146,11 +2146,11 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
 
     @property
     @pulumi.getter(name="hecEndpointType")
-    def hec_endpoint_type(self) -> pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType']:
+    def hec_endpoint_type(self) -> pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHecEndpointType']:
         return pulumi.get(self, "hec_endpoint_type")
 
     @hec_endpoint_type.setter
-    def hec_endpoint_type(self, value: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType']):
+    def hec_endpoint_type(self, value: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHecEndpointType']):
         pulumi.set(self, "hec_endpoint_type", value)
 
     @property

@@ -166,7 +166,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="gcpMySqlSettings")
-    def gcp_my_sql_settings(self) -> Optional['outputs.EndpointGcpMySQLSettings']:
+    def gcp_my_sql_settings(self) -> Optional['outputs.EndpointGcpMySqlSettings']:
         return pulumi.get(self, "gcp_my_sql_settings")
 
     @property

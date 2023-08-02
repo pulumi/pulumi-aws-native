@@ -17,8 +17,8 @@ namespace Pulumi.AwsNative.LakeFormation.Outputs
         public readonly Outputs.PrincipalPermissionsDataCellsFilterResource? DataCellsFilter;
         public readonly Outputs.PrincipalPermissionsDataLocationResource? DataLocation;
         public readonly Outputs.PrincipalPermissionsDatabaseResource? Database;
-        public readonly Outputs.PrincipalPermissionsLFTagKeyResource? LfTag;
-        public readonly Outputs.PrincipalPermissionsLFTagPolicyResource? LfTagPolicy;
+        public readonly Outputs.PrincipalPermissionsLfTagKeyResource? LfTag;
+        public readonly Outputs.PrincipalPermissionsLfTagPolicyResource? LfTagPolicy;
         public readonly Outputs.PrincipalPermissionsTableResource? Table;
         public readonly Outputs.PrincipalPermissionsTableWithColumnsResource? TableWithColumns;
 
@@ -32,9 +32,9 @@ namespace Pulumi.AwsNative.LakeFormation.Outputs
 
             Outputs.PrincipalPermissionsDatabaseResource? database,
 
-            Outputs.PrincipalPermissionsLFTagKeyResource? lfTag,
+            Outputs.PrincipalPermissionsLfTagKeyResource? lfTag,
 
-            Outputs.PrincipalPermissionsLFTagPolicyResource? lfTagPolicy,
+            Outputs.PrincipalPermissionsLfTagPolicyResource? lfTagPolicy,
 
             Outputs.PrincipalPermissionsTableResource? table,
 

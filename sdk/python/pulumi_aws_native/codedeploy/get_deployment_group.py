@@ -112,17 +112,17 @@ class GetDeploymentGroupResult:
 
     @property
     @pulumi.getter(name="ec2TagFilters")
-    def ec2_tag_filters(self) -> Optional[Sequence['outputs.DeploymentGroupEC2TagFilter']]:
+    def ec2_tag_filters(self) -> Optional[Sequence['outputs.DeploymentGroupEc2TagFilter']]:
         return pulumi.get(self, "ec2_tag_filters")
 
     @property
     @pulumi.getter(name="ec2TagSet")
-    def ec2_tag_set(self) -> Optional['outputs.DeploymentGroupEC2TagSet']:
+    def ec2_tag_set(self) -> Optional['outputs.DeploymentGroupEc2TagSet']:
         return pulumi.get(self, "ec2_tag_set")
 
     @property
     @pulumi.getter(name="ecsServices")
-    def ecs_services(self) -> Optional[Sequence['outputs.DeploymentGroupECSService']]:
+    def ecs_services(self) -> Optional[Sequence['outputs.DeploymentGroupEcsService']]:
         return pulumi.get(self, "ecs_services")
 
     @property

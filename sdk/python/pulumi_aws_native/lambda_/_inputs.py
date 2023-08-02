@@ -21,7 +21,7 @@ __all__ = [
     'EventInvokeConfigOnSuccessArgs',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs',
     'EventSourceMappingDestinationConfigArgs',
-    'EventSourceMappingDocumentDBEventSourceConfigArgs',
+    'EventSourceMappingDocumentDbEventSourceConfigArgs',
     'EventSourceMappingEndpointsArgs',
     'EventSourceMappingFilterCriteriaArgs',
     'EventSourceMappingFilterArgs',
@@ -261,16 +261,16 @@ class EventSourceMappingDestinationConfigArgs:
 
 
 @pulumi.input_type
-class EventSourceMappingDocumentDBEventSourceConfigArgs:
+class EventSourceMappingDocumentDbEventSourceConfigArgs:
     def __init__(__self__, *,
                  collection_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 full_document: Optional[pulumi.Input['EventSourceMappingDocumentDBEventSourceConfigFullDocument']] = None):
+                 full_document: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']] = None):
         """
         Document db event source config.
         :param pulumi.Input[str] collection_name: The collection name to connect to.
         :param pulumi.Input[str] database_name: The database name to connect to.
-        :param pulumi.Input['EventSourceMappingDocumentDBEventSourceConfigFullDocument'] full_document: Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+        :param pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument'] full_document: Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
         """
         if collection_name is not None:
             pulumi.set(__self__, "collection_name", collection_name)
@@ -305,14 +305,14 @@ class EventSourceMappingDocumentDBEventSourceConfigArgs:
 
     @property
     @pulumi.getter(name="fullDocument")
-    def full_document(self) -> Optional[pulumi.Input['EventSourceMappingDocumentDBEventSourceConfigFullDocument']]:
+    def full_document(self) -> Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]:
         """
         Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
         """
         return pulumi.get(self, "full_document")
 
     @full_document.setter
-    def full_document(self, value: Optional[pulumi.Input['EventSourceMappingDocumentDBEventSourceConfigFullDocument']]):
+    def full_document(self, value: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]):
         pulumi.set(self, "full_document", value)
 
 

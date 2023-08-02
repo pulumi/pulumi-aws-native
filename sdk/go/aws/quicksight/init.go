@@ -37,8 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Theme{}
 	case "aws-native:quicksight:Topic":
 		r = &Topic{}
-	case "aws-native:quicksight:VPCConnection":
-		r = &VPCConnection{}
+	case "aws-native:quicksight:VpcConnection":
+		r = &VpcConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -21,8 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:rolesanywhere:CRL":
-		r = &CRL{}
+	case "aws-native:rolesanywhere:Crl":
+		r = &Crl{}
 	case "aws-native:rolesanywhere:Profile":
 		r = &Profile{}
 	case "aws-native:rolesanywhere:TrustAnchor":

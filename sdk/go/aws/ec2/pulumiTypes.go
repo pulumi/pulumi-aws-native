@@ -1885,106 +1885,6 @@ func (o CustomerGatewayTagArrayOutput) Index(i pulumi.IntInput) CustomerGatewayT
 	}).(CustomerGatewayTagOutput)
 }
 
-type DHCPOptionsTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
-}
-
-// DHCPOptionsTagInput is an input type that accepts DHCPOptionsTagArgs and DHCPOptionsTagOutput values.
-// You can construct a concrete instance of `DHCPOptionsTagInput` via:
-//
-//	DHCPOptionsTagArgs{...}
-type DHCPOptionsTagInput interface {
-	pulumi.Input
-
-	ToDHCPOptionsTagOutput() DHCPOptionsTagOutput
-	ToDHCPOptionsTagOutputWithContext(context.Context) DHCPOptionsTagOutput
-}
-
-type DHCPOptionsTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DHCPOptionsTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DHCPOptionsTag)(nil)).Elem()
-}
-
-func (i DHCPOptionsTagArgs) ToDHCPOptionsTagOutput() DHCPOptionsTagOutput {
-	return i.ToDHCPOptionsTagOutputWithContext(context.Background())
-}
-
-func (i DHCPOptionsTagArgs) ToDHCPOptionsTagOutputWithContext(ctx context.Context) DHCPOptionsTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DHCPOptionsTagOutput)
-}
-
-// DHCPOptionsTagArrayInput is an input type that accepts DHCPOptionsTagArray and DHCPOptionsTagArrayOutput values.
-// You can construct a concrete instance of `DHCPOptionsTagArrayInput` via:
-//
-//	DHCPOptionsTagArray{ DHCPOptionsTagArgs{...} }
-type DHCPOptionsTagArrayInput interface {
-	pulumi.Input
-
-	ToDHCPOptionsTagArrayOutput() DHCPOptionsTagArrayOutput
-	ToDHCPOptionsTagArrayOutputWithContext(context.Context) DHCPOptionsTagArrayOutput
-}
-
-type DHCPOptionsTagArray []DHCPOptionsTagInput
-
-func (DHCPOptionsTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DHCPOptionsTag)(nil)).Elem()
-}
-
-func (i DHCPOptionsTagArray) ToDHCPOptionsTagArrayOutput() DHCPOptionsTagArrayOutput {
-	return i.ToDHCPOptionsTagArrayOutputWithContext(context.Background())
-}
-
-func (i DHCPOptionsTagArray) ToDHCPOptionsTagArrayOutputWithContext(ctx context.Context) DHCPOptionsTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DHCPOptionsTagArrayOutput)
-}
-
-type DHCPOptionsTagOutput struct{ *pulumi.OutputState }
-
-func (DHCPOptionsTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DHCPOptionsTag)(nil)).Elem()
-}
-
-func (o DHCPOptionsTagOutput) ToDHCPOptionsTagOutput() DHCPOptionsTagOutput {
-	return o
-}
-
-func (o DHCPOptionsTagOutput) ToDHCPOptionsTagOutputWithContext(ctx context.Context) DHCPOptionsTagOutput {
-	return o
-}
-
-func (o DHCPOptionsTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DHCPOptionsTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DHCPOptionsTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DHCPOptionsTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DHCPOptionsTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DHCPOptionsTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DHCPOptionsTag)(nil)).Elem()
-}
-
-func (o DHCPOptionsTagArrayOutput) ToDHCPOptionsTagArrayOutput() DHCPOptionsTagArrayOutput {
-	return o
-}
-
-func (o DHCPOptionsTagArrayOutput) ToDHCPOptionsTagArrayOutputWithContext(ctx context.Context) DHCPOptionsTagArrayOutput {
-	return o
-}
-
-func (o DHCPOptionsTagArrayOutput) Index(i pulumi.IntInput) DHCPOptionsTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DHCPOptionsTag {
-		return vs[0].([]DHCPOptionsTag)[vs[1].(int)]
-	}).(DHCPOptionsTagOutput)
-}
-
 type DestinationOptionsProperties struct {
 	FileFormat               FlowLogDestinationOptionsPropertiesFileFormat `pulumi:"fileFormat"`
 	HiveCompatiblePartitions bool                                          `pulumi:"hiveCompatiblePartitions"`
@@ -2150,138 +2050,238 @@ func (o DestinationOptionsPropertiesPtrOutput) PerHourPartition() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-type EC2FleetAcceleratorCountRequest struct {
+type DhcpOptionsTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DhcpOptionsTagInput is an input type that accepts DhcpOptionsTagArgs and DhcpOptionsTagOutput values.
+// You can construct a concrete instance of `DhcpOptionsTagInput` via:
+//
+//	DhcpOptionsTagArgs{...}
+type DhcpOptionsTagInput interface {
+	pulumi.Input
+
+	ToDhcpOptionsTagOutput() DhcpOptionsTagOutput
+	ToDhcpOptionsTagOutputWithContext(context.Context) DhcpOptionsTagOutput
+}
+
+type DhcpOptionsTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DhcpOptionsTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DhcpOptionsTag)(nil)).Elem()
+}
+
+func (i DhcpOptionsTagArgs) ToDhcpOptionsTagOutput() DhcpOptionsTagOutput {
+	return i.ToDhcpOptionsTagOutputWithContext(context.Background())
+}
+
+func (i DhcpOptionsTagArgs) ToDhcpOptionsTagOutputWithContext(ctx context.Context) DhcpOptionsTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DhcpOptionsTagOutput)
+}
+
+// DhcpOptionsTagArrayInput is an input type that accepts DhcpOptionsTagArray and DhcpOptionsTagArrayOutput values.
+// You can construct a concrete instance of `DhcpOptionsTagArrayInput` via:
+//
+//	DhcpOptionsTagArray{ DhcpOptionsTagArgs{...} }
+type DhcpOptionsTagArrayInput interface {
+	pulumi.Input
+
+	ToDhcpOptionsTagArrayOutput() DhcpOptionsTagArrayOutput
+	ToDhcpOptionsTagArrayOutputWithContext(context.Context) DhcpOptionsTagArrayOutput
+}
+
+type DhcpOptionsTagArray []DhcpOptionsTagInput
+
+func (DhcpOptionsTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DhcpOptionsTag)(nil)).Elem()
+}
+
+func (i DhcpOptionsTagArray) ToDhcpOptionsTagArrayOutput() DhcpOptionsTagArrayOutput {
+	return i.ToDhcpOptionsTagArrayOutputWithContext(context.Background())
+}
+
+func (i DhcpOptionsTagArray) ToDhcpOptionsTagArrayOutputWithContext(ctx context.Context) DhcpOptionsTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DhcpOptionsTagArrayOutput)
+}
+
+type DhcpOptionsTagOutput struct{ *pulumi.OutputState }
+
+func (DhcpOptionsTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DhcpOptionsTag)(nil)).Elem()
+}
+
+func (o DhcpOptionsTagOutput) ToDhcpOptionsTagOutput() DhcpOptionsTagOutput {
+	return o
+}
+
+func (o DhcpOptionsTagOutput) ToDhcpOptionsTagOutputWithContext(ctx context.Context) DhcpOptionsTagOutput {
+	return o
+}
+
+func (o DhcpOptionsTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DhcpOptionsTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DhcpOptionsTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DhcpOptionsTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DhcpOptionsTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DhcpOptionsTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DhcpOptionsTag)(nil)).Elem()
+}
+
+func (o DhcpOptionsTagArrayOutput) ToDhcpOptionsTagArrayOutput() DhcpOptionsTagArrayOutput {
+	return o
+}
+
+func (o DhcpOptionsTagArrayOutput) ToDhcpOptionsTagArrayOutputWithContext(ctx context.Context) DhcpOptionsTagArrayOutput {
+	return o
+}
+
+func (o DhcpOptionsTagArrayOutput) Index(i pulumi.IntInput) DhcpOptionsTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DhcpOptionsTag {
+		return vs[0].([]DhcpOptionsTag)[vs[1].(int)]
+	}).(DhcpOptionsTagOutput)
+}
+
+type Ec2FleetAcceleratorCountRequest struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
 }
 
-// EC2FleetAcceleratorCountRequestInput is an input type that accepts EC2FleetAcceleratorCountRequestArgs and EC2FleetAcceleratorCountRequestOutput values.
-// You can construct a concrete instance of `EC2FleetAcceleratorCountRequestInput` via:
+// Ec2FleetAcceleratorCountRequestInput is an input type that accepts Ec2FleetAcceleratorCountRequestArgs and Ec2FleetAcceleratorCountRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetAcceleratorCountRequestInput` via:
 //
-//	EC2FleetAcceleratorCountRequestArgs{...}
-type EC2FleetAcceleratorCountRequestInput interface {
+//	Ec2FleetAcceleratorCountRequestArgs{...}
+type Ec2FleetAcceleratorCountRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetAcceleratorCountRequestOutput() EC2FleetAcceleratorCountRequestOutput
-	ToEC2FleetAcceleratorCountRequestOutputWithContext(context.Context) EC2FleetAcceleratorCountRequestOutput
+	ToEc2FleetAcceleratorCountRequestOutput() Ec2FleetAcceleratorCountRequestOutput
+	ToEc2FleetAcceleratorCountRequestOutputWithContext(context.Context) Ec2FleetAcceleratorCountRequestOutput
 }
 
-type EC2FleetAcceleratorCountRequestArgs struct {
+type Ec2FleetAcceleratorCountRequestArgs struct {
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
-func (EC2FleetAcceleratorCountRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetAcceleratorCountRequest)(nil)).Elem()
+func (Ec2FleetAcceleratorCountRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetAcceleratorCountRequest)(nil)).Elem()
 }
 
-func (i EC2FleetAcceleratorCountRequestArgs) ToEC2FleetAcceleratorCountRequestOutput() EC2FleetAcceleratorCountRequestOutput {
-	return i.ToEC2FleetAcceleratorCountRequestOutputWithContext(context.Background())
+func (i Ec2FleetAcceleratorCountRequestArgs) ToEc2FleetAcceleratorCountRequestOutput() Ec2FleetAcceleratorCountRequestOutput {
+	return i.ToEc2FleetAcceleratorCountRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetAcceleratorCountRequestArgs) ToEC2FleetAcceleratorCountRequestOutputWithContext(ctx context.Context) EC2FleetAcceleratorCountRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetAcceleratorCountRequestOutput)
+func (i Ec2FleetAcceleratorCountRequestArgs) ToEc2FleetAcceleratorCountRequestOutputWithContext(ctx context.Context) Ec2FleetAcceleratorCountRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetAcceleratorCountRequestOutput)
 }
 
-func (i EC2FleetAcceleratorCountRequestArgs) ToEC2FleetAcceleratorCountRequestPtrOutput() EC2FleetAcceleratorCountRequestPtrOutput {
-	return i.ToEC2FleetAcceleratorCountRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetAcceleratorCountRequestArgs) ToEc2FleetAcceleratorCountRequestPtrOutput() Ec2FleetAcceleratorCountRequestPtrOutput {
+	return i.ToEc2FleetAcceleratorCountRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetAcceleratorCountRequestArgs) ToEC2FleetAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) EC2FleetAcceleratorCountRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetAcceleratorCountRequestOutput).ToEC2FleetAcceleratorCountRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetAcceleratorCountRequestArgs) ToEc2FleetAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) Ec2FleetAcceleratorCountRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetAcceleratorCountRequestOutput).ToEc2FleetAcceleratorCountRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetAcceleratorCountRequestPtrInput is an input type that accepts EC2FleetAcceleratorCountRequestArgs, EC2FleetAcceleratorCountRequestPtr and EC2FleetAcceleratorCountRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetAcceleratorCountRequestPtrInput` via:
+// Ec2FleetAcceleratorCountRequestPtrInput is an input type that accepts Ec2FleetAcceleratorCountRequestArgs, Ec2FleetAcceleratorCountRequestPtr and Ec2FleetAcceleratorCountRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetAcceleratorCountRequestPtrInput` via:
 //
-//	        EC2FleetAcceleratorCountRequestArgs{...}
+//	        Ec2FleetAcceleratorCountRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetAcceleratorCountRequestPtrInput interface {
+type Ec2FleetAcceleratorCountRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetAcceleratorCountRequestPtrOutput() EC2FleetAcceleratorCountRequestPtrOutput
-	ToEC2FleetAcceleratorCountRequestPtrOutputWithContext(context.Context) EC2FleetAcceleratorCountRequestPtrOutput
+	ToEc2FleetAcceleratorCountRequestPtrOutput() Ec2FleetAcceleratorCountRequestPtrOutput
+	ToEc2FleetAcceleratorCountRequestPtrOutputWithContext(context.Context) Ec2FleetAcceleratorCountRequestPtrOutput
 }
 
-type ec2fleetAcceleratorCountRequestPtrType EC2FleetAcceleratorCountRequestArgs
+type ec2FleetAcceleratorCountRequestPtrType Ec2FleetAcceleratorCountRequestArgs
 
-func EC2FleetAcceleratorCountRequestPtr(v *EC2FleetAcceleratorCountRequestArgs) EC2FleetAcceleratorCountRequestPtrInput {
-	return (*ec2fleetAcceleratorCountRequestPtrType)(v)
+func Ec2FleetAcceleratorCountRequestPtr(v *Ec2FleetAcceleratorCountRequestArgs) Ec2FleetAcceleratorCountRequestPtrInput {
+	return (*ec2FleetAcceleratorCountRequestPtrType)(v)
 }
 
-func (*ec2fleetAcceleratorCountRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetAcceleratorCountRequest)(nil)).Elem()
+func (*ec2FleetAcceleratorCountRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetAcceleratorCountRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetAcceleratorCountRequestPtrType) ToEC2FleetAcceleratorCountRequestPtrOutput() EC2FleetAcceleratorCountRequestPtrOutput {
-	return i.ToEC2FleetAcceleratorCountRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetAcceleratorCountRequestPtrType) ToEc2FleetAcceleratorCountRequestPtrOutput() Ec2FleetAcceleratorCountRequestPtrOutput {
+	return i.ToEc2FleetAcceleratorCountRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetAcceleratorCountRequestPtrType) ToEC2FleetAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) EC2FleetAcceleratorCountRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetAcceleratorCountRequestPtrOutput)
+func (i *ec2FleetAcceleratorCountRequestPtrType) ToEc2FleetAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) Ec2FleetAcceleratorCountRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetAcceleratorCountRequestPtrOutput)
 }
 
-type EC2FleetAcceleratorCountRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetAcceleratorCountRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetAcceleratorCountRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetAcceleratorCountRequest)(nil)).Elem()
+func (Ec2FleetAcceleratorCountRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetAcceleratorCountRequest)(nil)).Elem()
 }
 
-func (o EC2FleetAcceleratorCountRequestOutput) ToEC2FleetAcceleratorCountRequestOutput() EC2FleetAcceleratorCountRequestOutput {
+func (o Ec2FleetAcceleratorCountRequestOutput) ToEc2FleetAcceleratorCountRequestOutput() Ec2FleetAcceleratorCountRequestOutput {
 	return o
 }
 
-func (o EC2FleetAcceleratorCountRequestOutput) ToEC2FleetAcceleratorCountRequestOutputWithContext(ctx context.Context) EC2FleetAcceleratorCountRequestOutput {
+func (o Ec2FleetAcceleratorCountRequestOutput) ToEc2FleetAcceleratorCountRequestOutputWithContext(ctx context.Context) Ec2FleetAcceleratorCountRequestOutput {
 	return o
 }
 
-func (o EC2FleetAcceleratorCountRequestOutput) ToEC2FleetAcceleratorCountRequestPtrOutput() EC2FleetAcceleratorCountRequestPtrOutput {
-	return o.ToEC2FleetAcceleratorCountRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetAcceleratorCountRequestOutput) ToEc2FleetAcceleratorCountRequestPtrOutput() Ec2FleetAcceleratorCountRequestPtrOutput {
+	return o.ToEc2FleetAcceleratorCountRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetAcceleratorCountRequestOutput) ToEC2FleetAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) EC2FleetAcceleratorCountRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetAcceleratorCountRequest) *EC2FleetAcceleratorCountRequest {
+func (o Ec2FleetAcceleratorCountRequestOutput) ToEc2FleetAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) Ec2FleetAcceleratorCountRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetAcceleratorCountRequest) *Ec2FleetAcceleratorCountRequest {
 		return &v
-	}).(EC2FleetAcceleratorCountRequestPtrOutput)
+	}).(Ec2FleetAcceleratorCountRequestPtrOutput)
 }
 
-func (o EC2FleetAcceleratorCountRequestOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetAcceleratorCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+func (o Ec2FleetAcceleratorCountRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetAcceleratorCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetAcceleratorCountRequestOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetAcceleratorCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+func (o Ec2FleetAcceleratorCountRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetAcceleratorCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetAcceleratorCountRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetAcceleratorCountRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetAcceleratorCountRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetAcceleratorCountRequest)(nil)).Elem()
+func (Ec2FleetAcceleratorCountRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetAcceleratorCountRequest)(nil)).Elem()
 }
 
-func (o EC2FleetAcceleratorCountRequestPtrOutput) ToEC2FleetAcceleratorCountRequestPtrOutput() EC2FleetAcceleratorCountRequestPtrOutput {
+func (o Ec2FleetAcceleratorCountRequestPtrOutput) ToEc2FleetAcceleratorCountRequestPtrOutput() Ec2FleetAcceleratorCountRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetAcceleratorCountRequestPtrOutput) ToEC2FleetAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) EC2FleetAcceleratorCountRequestPtrOutput {
+func (o Ec2FleetAcceleratorCountRequestPtrOutput) ToEc2FleetAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) Ec2FleetAcceleratorCountRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetAcceleratorCountRequestPtrOutput) Elem() EC2FleetAcceleratorCountRequestOutput {
-	return o.ApplyT(func(v *EC2FleetAcceleratorCountRequest) EC2FleetAcceleratorCountRequest {
+func (o Ec2FleetAcceleratorCountRequestPtrOutput) Elem() Ec2FleetAcceleratorCountRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetAcceleratorCountRequest) Ec2FleetAcceleratorCountRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetAcceleratorCountRequest
+		var ret Ec2FleetAcceleratorCountRequest
 		return ret
-	}).(EC2FleetAcceleratorCountRequestOutput)
+	}).(Ec2FleetAcceleratorCountRequestOutput)
 }
 
-func (o EC2FleetAcceleratorCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetAcceleratorCountRequest) *int {
+func (o Ec2FleetAcceleratorCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetAcceleratorCountRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -2289,8 +2289,8 @@ func (o EC2FleetAcceleratorCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetAcceleratorCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetAcceleratorCountRequest) *int {
+func (o Ec2FleetAcceleratorCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetAcceleratorCountRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -2298,138 +2298,138 @@ func (o EC2FleetAcceleratorCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetAcceleratorTotalMemoryMiBRequest struct {
+type Ec2FleetAcceleratorTotalMemoryMiBRequest struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
 }
 
-// EC2FleetAcceleratorTotalMemoryMiBRequestInput is an input type that accepts EC2FleetAcceleratorTotalMemoryMiBRequestArgs and EC2FleetAcceleratorTotalMemoryMiBRequestOutput values.
-// You can construct a concrete instance of `EC2FleetAcceleratorTotalMemoryMiBRequestInput` via:
+// Ec2FleetAcceleratorTotalMemoryMiBRequestInput is an input type that accepts Ec2FleetAcceleratorTotalMemoryMiBRequestArgs and Ec2FleetAcceleratorTotalMemoryMiBRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetAcceleratorTotalMemoryMiBRequestInput` via:
 //
-//	EC2FleetAcceleratorTotalMemoryMiBRequestArgs{...}
-type EC2FleetAcceleratorTotalMemoryMiBRequestInput interface {
+//	Ec2FleetAcceleratorTotalMemoryMiBRequestArgs{...}
+type Ec2FleetAcceleratorTotalMemoryMiBRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetAcceleratorTotalMemoryMiBRequestOutput() EC2FleetAcceleratorTotalMemoryMiBRequestOutput
-	ToEC2FleetAcceleratorTotalMemoryMiBRequestOutputWithContext(context.Context) EC2FleetAcceleratorTotalMemoryMiBRequestOutput
+	ToEc2FleetAcceleratorTotalMemoryMiBRequestOutput() Ec2FleetAcceleratorTotalMemoryMiBRequestOutput
+	ToEc2FleetAcceleratorTotalMemoryMiBRequestOutputWithContext(context.Context) Ec2FleetAcceleratorTotalMemoryMiBRequestOutput
 }
 
-type EC2FleetAcceleratorTotalMemoryMiBRequestArgs struct {
+type Ec2FleetAcceleratorTotalMemoryMiBRequestArgs struct {
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
-func (EC2FleetAcceleratorTotalMemoryMiBRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
+func (Ec2FleetAcceleratorTotalMemoryMiBRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
 }
 
-func (i EC2FleetAcceleratorTotalMemoryMiBRequestArgs) ToEC2FleetAcceleratorTotalMemoryMiBRequestOutput() EC2FleetAcceleratorTotalMemoryMiBRequestOutput {
-	return i.ToEC2FleetAcceleratorTotalMemoryMiBRequestOutputWithContext(context.Background())
+func (i Ec2FleetAcceleratorTotalMemoryMiBRequestArgs) ToEc2FleetAcceleratorTotalMemoryMiBRequestOutput() Ec2FleetAcceleratorTotalMemoryMiBRequestOutput {
+	return i.ToEc2FleetAcceleratorTotalMemoryMiBRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetAcceleratorTotalMemoryMiBRequestArgs) ToEC2FleetAcceleratorTotalMemoryMiBRequestOutputWithContext(ctx context.Context) EC2FleetAcceleratorTotalMemoryMiBRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetAcceleratorTotalMemoryMiBRequestOutput)
+func (i Ec2FleetAcceleratorTotalMemoryMiBRequestArgs) ToEc2FleetAcceleratorTotalMemoryMiBRequestOutputWithContext(ctx context.Context) Ec2FleetAcceleratorTotalMemoryMiBRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetAcceleratorTotalMemoryMiBRequestOutput)
 }
 
-func (i EC2FleetAcceleratorTotalMemoryMiBRequestArgs) ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput() EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
-	return i.ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetAcceleratorTotalMemoryMiBRequestArgs) ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutput() Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return i.ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetAcceleratorTotalMemoryMiBRequestArgs) ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetAcceleratorTotalMemoryMiBRequestOutput).ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetAcceleratorTotalMemoryMiBRequestArgs) ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetAcceleratorTotalMemoryMiBRequestOutput).ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetAcceleratorTotalMemoryMiBRequestPtrInput is an input type that accepts EC2FleetAcceleratorTotalMemoryMiBRequestArgs, EC2FleetAcceleratorTotalMemoryMiBRequestPtr and EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetAcceleratorTotalMemoryMiBRequestPtrInput` via:
+// Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput is an input type that accepts Ec2FleetAcceleratorTotalMemoryMiBRequestArgs, Ec2FleetAcceleratorTotalMemoryMiBRequestPtr and Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput` via:
 //
-//	        EC2FleetAcceleratorTotalMemoryMiBRequestArgs{...}
+//	        Ec2FleetAcceleratorTotalMemoryMiBRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetAcceleratorTotalMemoryMiBRequestPtrInput interface {
+type Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput() EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput
-	ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Context) EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput
+	ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutput() Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput
+	ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Context) Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput
 }
 
-type ec2fleetAcceleratorTotalMemoryMiBRequestPtrType EC2FleetAcceleratorTotalMemoryMiBRequestArgs
+type ec2FleetAcceleratorTotalMemoryMiBRequestPtrType Ec2FleetAcceleratorTotalMemoryMiBRequestArgs
 
-func EC2FleetAcceleratorTotalMemoryMiBRequestPtr(v *EC2FleetAcceleratorTotalMemoryMiBRequestArgs) EC2FleetAcceleratorTotalMemoryMiBRequestPtrInput {
-	return (*ec2fleetAcceleratorTotalMemoryMiBRequestPtrType)(v)
+func Ec2FleetAcceleratorTotalMemoryMiBRequestPtr(v *Ec2FleetAcceleratorTotalMemoryMiBRequestArgs) Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput {
+	return (*ec2FleetAcceleratorTotalMemoryMiBRequestPtrType)(v)
 }
 
-func (*ec2fleetAcceleratorTotalMemoryMiBRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
+func (*ec2FleetAcceleratorTotalMemoryMiBRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetAcceleratorTotalMemoryMiBRequestPtrType) ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput() EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
-	return i.ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetAcceleratorTotalMemoryMiBRequestPtrType) ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutput() Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return i.ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetAcceleratorTotalMemoryMiBRequestPtrType) ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
+func (i *ec2FleetAcceleratorTotalMemoryMiBRequestPtrType) ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
-type EC2FleetAcceleratorTotalMemoryMiBRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetAcceleratorTotalMemoryMiBRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetAcceleratorTotalMemoryMiBRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
+func (Ec2FleetAcceleratorTotalMemoryMiBRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestOutput) ToEC2FleetAcceleratorTotalMemoryMiBRequestOutput() EC2FleetAcceleratorTotalMemoryMiBRequestOutput {
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestOutput) ToEc2FleetAcceleratorTotalMemoryMiBRequestOutput() Ec2FleetAcceleratorTotalMemoryMiBRequestOutput {
 	return o
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestOutput) ToEC2FleetAcceleratorTotalMemoryMiBRequestOutputWithContext(ctx context.Context) EC2FleetAcceleratorTotalMemoryMiBRequestOutput {
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestOutput) ToEc2FleetAcceleratorTotalMemoryMiBRequestOutputWithContext(ctx context.Context) Ec2FleetAcceleratorTotalMemoryMiBRequestOutput {
 	return o
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestOutput) ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput() EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
-	return o.ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestOutput) ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutput() Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return o.ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestOutput) ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetAcceleratorTotalMemoryMiBRequest) *EC2FleetAcceleratorTotalMemoryMiBRequest {
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestOutput) ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetAcceleratorTotalMemoryMiBRequest) *Ec2FleetAcceleratorTotalMemoryMiBRequest {
 		return &v
-	}).(EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
+	}).(Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetAcceleratorTotalMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetAcceleratorTotalMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetAcceleratorTotalMemoryMiBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetAcceleratorTotalMemoryMiBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
+func (Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput() EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutput() Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) ToEC2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) ToEc2FleetAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Elem() EC2FleetAcceleratorTotalMemoryMiBRequestOutput {
-	return o.ApplyT(func(v *EC2FleetAcceleratorTotalMemoryMiBRequest) EC2FleetAcceleratorTotalMemoryMiBRequest {
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Elem() Ec2FleetAcceleratorTotalMemoryMiBRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetAcceleratorTotalMemoryMiBRequest) Ec2FleetAcceleratorTotalMemoryMiBRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetAcceleratorTotalMemoryMiBRequest
+		var ret Ec2FleetAcceleratorTotalMemoryMiBRequest
 		return ret
-	}).(EC2FleetAcceleratorTotalMemoryMiBRequestOutput)
+	}).(Ec2FleetAcceleratorTotalMemoryMiBRequestOutput)
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetAcceleratorTotalMemoryMiBRequest) *int {
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetAcceleratorTotalMemoryMiBRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -2437,8 +2437,8 @@ func (o EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetAcceleratorTotalMemoryMiBRequest) *int {
+func (o Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetAcceleratorTotalMemoryMiBRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -2446,138 +2446,138 @@ func (o EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetBaselineEbsBandwidthMbpsRequest struct {
+type Ec2FleetBaselineEbsBandwidthMbpsRequest struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
 }
 
-// EC2FleetBaselineEbsBandwidthMbpsRequestInput is an input type that accepts EC2FleetBaselineEbsBandwidthMbpsRequestArgs and EC2FleetBaselineEbsBandwidthMbpsRequestOutput values.
-// You can construct a concrete instance of `EC2FleetBaselineEbsBandwidthMbpsRequestInput` via:
+// Ec2FleetBaselineEbsBandwidthMbpsRequestInput is an input type that accepts Ec2FleetBaselineEbsBandwidthMbpsRequestArgs and Ec2FleetBaselineEbsBandwidthMbpsRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetBaselineEbsBandwidthMbpsRequestInput` via:
 //
-//	EC2FleetBaselineEbsBandwidthMbpsRequestArgs{...}
-type EC2FleetBaselineEbsBandwidthMbpsRequestInput interface {
+//	Ec2FleetBaselineEbsBandwidthMbpsRequestArgs{...}
+type Ec2FleetBaselineEbsBandwidthMbpsRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetBaselineEbsBandwidthMbpsRequestOutput() EC2FleetBaselineEbsBandwidthMbpsRequestOutput
-	ToEC2FleetBaselineEbsBandwidthMbpsRequestOutputWithContext(context.Context) EC2FleetBaselineEbsBandwidthMbpsRequestOutput
+	ToEc2FleetBaselineEbsBandwidthMbpsRequestOutput() Ec2FleetBaselineEbsBandwidthMbpsRequestOutput
+	ToEc2FleetBaselineEbsBandwidthMbpsRequestOutputWithContext(context.Context) Ec2FleetBaselineEbsBandwidthMbpsRequestOutput
 }
 
-type EC2FleetBaselineEbsBandwidthMbpsRequestArgs struct {
+type Ec2FleetBaselineEbsBandwidthMbpsRequestArgs struct {
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
-func (EC2FleetBaselineEbsBandwidthMbpsRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
+func (Ec2FleetBaselineEbsBandwidthMbpsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
 }
 
-func (i EC2FleetBaselineEbsBandwidthMbpsRequestArgs) ToEC2FleetBaselineEbsBandwidthMbpsRequestOutput() EC2FleetBaselineEbsBandwidthMbpsRequestOutput {
-	return i.ToEC2FleetBaselineEbsBandwidthMbpsRequestOutputWithContext(context.Background())
+func (i Ec2FleetBaselineEbsBandwidthMbpsRequestArgs) ToEc2FleetBaselineEbsBandwidthMbpsRequestOutput() Ec2FleetBaselineEbsBandwidthMbpsRequestOutput {
+	return i.ToEc2FleetBaselineEbsBandwidthMbpsRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetBaselineEbsBandwidthMbpsRequestArgs) ToEC2FleetBaselineEbsBandwidthMbpsRequestOutputWithContext(ctx context.Context) EC2FleetBaselineEbsBandwidthMbpsRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetBaselineEbsBandwidthMbpsRequestOutput)
+func (i Ec2FleetBaselineEbsBandwidthMbpsRequestArgs) ToEc2FleetBaselineEbsBandwidthMbpsRequestOutputWithContext(ctx context.Context) Ec2FleetBaselineEbsBandwidthMbpsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetBaselineEbsBandwidthMbpsRequestOutput)
 }
 
-func (i EC2FleetBaselineEbsBandwidthMbpsRequestArgs) ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput() EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
-	return i.ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetBaselineEbsBandwidthMbpsRequestArgs) ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutput() Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return i.ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetBaselineEbsBandwidthMbpsRequestArgs) ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetBaselineEbsBandwidthMbpsRequestOutput).ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetBaselineEbsBandwidthMbpsRequestArgs) ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetBaselineEbsBandwidthMbpsRequestOutput).ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetBaselineEbsBandwidthMbpsRequestPtrInput is an input type that accepts EC2FleetBaselineEbsBandwidthMbpsRequestArgs, EC2FleetBaselineEbsBandwidthMbpsRequestPtr and EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetBaselineEbsBandwidthMbpsRequestPtrInput` via:
+// Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput is an input type that accepts Ec2FleetBaselineEbsBandwidthMbpsRequestArgs, Ec2FleetBaselineEbsBandwidthMbpsRequestPtr and Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput` via:
 //
-//	        EC2FleetBaselineEbsBandwidthMbpsRequestArgs{...}
+//	        Ec2FleetBaselineEbsBandwidthMbpsRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetBaselineEbsBandwidthMbpsRequestPtrInput interface {
+type Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput() EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput
-	ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Context) EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput
+	ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutput() Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput
+	ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Context) Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput
 }
 
-type ec2fleetBaselineEbsBandwidthMbpsRequestPtrType EC2FleetBaselineEbsBandwidthMbpsRequestArgs
+type ec2FleetBaselineEbsBandwidthMbpsRequestPtrType Ec2FleetBaselineEbsBandwidthMbpsRequestArgs
 
-func EC2FleetBaselineEbsBandwidthMbpsRequestPtr(v *EC2FleetBaselineEbsBandwidthMbpsRequestArgs) EC2FleetBaselineEbsBandwidthMbpsRequestPtrInput {
-	return (*ec2fleetBaselineEbsBandwidthMbpsRequestPtrType)(v)
+func Ec2FleetBaselineEbsBandwidthMbpsRequestPtr(v *Ec2FleetBaselineEbsBandwidthMbpsRequestArgs) Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput {
+	return (*ec2FleetBaselineEbsBandwidthMbpsRequestPtrType)(v)
 }
 
-func (*ec2fleetBaselineEbsBandwidthMbpsRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
+func (*ec2FleetBaselineEbsBandwidthMbpsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetBaselineEbsBandwidthMbpsRequestPtrType) ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput() EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
-	return i.ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetBaselineEbsBandwidthMbpsRequestPtrType) ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutput() Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return i.ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetBaselineEbsBandwidthMbpsRequestPtrType) ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
+func (i *ec2FleetBaselineEbsBandwidthMbpsRequestPtrType) ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
-type EC2FleetBaselineEbsBandwidthMbpsRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetBaselineEbsBandwidthMbpsRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetBaselineEbsBandwidthMbpsRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
+func (Ec2FleetBaselineEbsBandwidthMbpsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestOutput) ToEC2FleetBaselineEbsBandwidthMbpsRequestOutput() EC2FleetBaselineEbsBandwidthMbpsRequestOutput {
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestOutput) ToEc2FleetBaselineEbsBandwidthMbpsRequestOutput() Ec2FleetBaselineEbsBandwidthMbpsRequestOutput {
 	return o
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestOutput) ToEC2FleetBaselineEbsBandwidthMbpsRequestOutputWithContext(ctx context.Context) EC2FleetBaselineEbsBandwidthMbpsRequestOutput {
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestOutput) ToEc2FleetBaselineEbsBandwidthMbpsRequestOutputWithContext(ctx context.Context) Ec2FleetBaselineEbsBandwidthMbpsRequestOutput {
 	return o
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestOutput) ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput() EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
-	return o.ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestOutput) ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutput() Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return o.ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestOutput) ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetBaselineEbsBandwidthMbpsRequest) *EC2FleetBaselineEbsBandwidthMbpsRequest {
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestOutput) ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetBaselineEbsBandwidthMbpsRequest) *Ec2FleetBaselineEbsBandwidthMbpsRequest {
 		return &v
-	}).(EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
+	}).(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetBaselineEbsBandwidthMbpsRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetBaselineEbsBandwidthMbpsRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetBaselineEbsBandwidthMbpsRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetBaselineEbsBandwidthMbpsRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
+func (Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput() EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutput() Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) ToEC2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) ToEc2FleetBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Elem() EC2FleetBaselineEbsBandwidthMbpsRequestOutput {
-	return o.ApplyT(func(v *EC2FleetBaselineEbsBandwidthMbpsRequest) EC2FleetBaselineEbsBandwidthMbpsRequest {
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Elem() Ec2FleetBaselineEbsBandwidthMbpsRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetBaselineEbsBandwidthMbpsRequest) Ec2FleetBaselineEbsBandwidthMbpsRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetBaselineEbsBandwidthMbpsRequest
+		var ret Ec2FleetBaselineEbsBandwidthMbpsRequest
 		return ret
-	}).(EC2FleetBaselineEbsBandwidthMbpsRequestOutput)
+	}).(Ec2FleetBaselineEbsBandwidthMbpsRequestOutput)
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetBaselineEbsBandwidthMbpsRequest) *int {
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetBaselineEbsBandwidthMbpsRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -2585,8 +2585,8 @@ func (o EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Max() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetBaselineEbsBandwidthMbpsRequest) *int {
+func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetBaselineEbsBandwidthMbpsRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -2594,149 +2594,149 @@ func (o EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetCapacityRebalance struct {
-	ReplacementStrategy *EC2FleetCapacityRebalanceReplacementStrategy `pulumi:"replacementStrategy"`
+type Ec2FleetCapacityRebalance struct {
+	ReplacementStrategy *Ec2FleetCapacityRebalanceReplacementStrategy `pulumi:"replacementStrategy"`
 	TerminationDelay    *int                                          `pulumi:"terminationDelay"`
 }
 
-// EC2FleetCapacityRebalanceInput is an input type that accepts EC2FleetCapacityRebalanceArgs and EC2FleetCapacityRebalanceOutput values.
-// You can construct a concrete instance of `EC2FleetCapacityRebalanceInput` via:
+// Ec2FleetCapacityRebalanceInput is an input type that accepts Ec2FleetCapacityRebalanceArgs and Ec2FleetCapacityRebalanceOutput values.
+// You can construct a concrete instance of `Ec2FleetCapacityRebalanceInput` via:
 //
-//	EC2FleetCapacityRebalanceArgs{...}
-type EC2FleetCapacityRebalanceInput interface {
+//	Ec2FleetCapacityRebalanceArgs{...}
+type Ec2FleetCapacityRebalanceInput interface {
 	pulumi.Input
 
-	ToEC2FleetCapacityRebalanceOutput() EC2FleetCapacityRebalanceOutput
-	ToEC2FleetCapacityRebalanceOutputWithContext(context.Context) EC2FleetCapacityRebalanceOutput
+	ToEc2FleetCapacityRebalanceOutput() Ec2FleetCapacityRebalanceOutput
+	ToEc2FleetCapacityRebalanceOutputWithContext(context.Context) Ec2FleetCapacityRebalanceOutput
 }
 
-type EC2FleetCapacityRebalanceArgs struct {
-	ReplacementStrategy EC2FleetCapacityRebalanceReplacementStrategyPtrInput `pulumi:"replacementStrategy"`
+type Ec2FleetCapacityRebalanceArgs struct {
+	ReplacementStrategy Ec2FleetCapacityRebalanceReplacementStrategyPtrInput `pulumi:"replacementStrategy"`
 	TerminationDelay    pulumi.IntPtrInput                                   `pulumi:"terminationDelay"`
 }
 
-func (EC2FleetCapacityRebalanceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetCapacityRebalance)(nil)).Elem()
+func (Ec2FleetCapacityRebalanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetCapacityRebalance)(nil)).Elem()
 }
 
-func (i EC2FleetCapacityRebalanceArgs) ToEC2FleetCapacityRebalanceOutput() EC2FleetCapacityRebalanceOutput {
-	return i.ToEC2FleetCapacityRebalanceOutputWithContext(context.Background())
+func (i Ec2FleetCapacityRebalanceArgs) ToEc2FleetCapacityRebalanceOutput() Ec2FleetCapacityRebalanceOutput {
+	return i.ToEc2FleetCapacityRebalanceOutputWithContext(context.Background())
 }
 
-func (i EC2FleetCapacityRebalanceArgs) ToEC2FleetCapacityRebalanceOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetCapacityRebalanceOutput)
+func (i Ec2FleetCapacityRebalanceArgs) ToEc2FleetCapacityRebalanceOutputWithContext(ctx context.Context) Ec2FleetCapacityRebalanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetCapacityRebalanceOutput)
 }
 
-func (i EC2FleetCapacityRebalanceArgs) ToEC2FleetCapacityRebalancePtrOutput() EC2FleetCapacityRebalancePtrOutput {
-	return i.ToEC2FleetCapacityRebalancePtrOutputWithContext(context.Background())
+func (i Ec2FleetCapacityRebalanceArgs) ToEc2FleetCapacityRebalancePtrOutput() Ec2FleetCapacityRebalancePtrOutput {
+	return i.ToEc2FleetCapacityRebalancePtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetCapacityRebalanceArgs) ToEC2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetCapacityRebalanceOutput).ToEC2FleetCapacityRebalancePtrOutputWithContext(ctx)
+func (i Ec2FleetCapacityRebalanceArgs) ToEc2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) Ec2FleetCapacityRebalancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetCapacityRebalanceOutput).ToEc2FleetCapacityRebalancePtrOutputWithContext(ctx)
 }
 
-// EC2FleetCapacityRebalancePtrInput is an input type that accepts EC2FleetCapacityRebalanceArgs, EC2FleetCapacityRebalancePtr and EC2FleetCapacityRebalancePtrOutput values.
-// You can construct a concrete instance of `EC2FleetCapacityRebalancePtrInput` via:
+// Ec2FleetCapacityRebalancePtrInput is an input type that accepts Ec2FleetCapacityRebalanceArgs, Ec2FleetCapacityRebalancePtr and Ec2FleetCapacityRebalancePtrOutput values.
+// You can construct a concrete instance of `Ec2FleetCapacityRebalancePtrInput` via:
 //
-//	        EC2FleetCapacityRebalanceArgs{...}
+//	        Ec2FleetCapacityRebalanceArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetCapacityRebalancePtrInput interface {
+type Ec2FleetCapacityRebalancePtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetCapacityRebalancePtrOutput() EC2FleetCapacityRebalancePtrOutput
-	ToEC2FleetCapacityRebalancePtrOutputWithContext(context.Context) EC2FleetCapacityRebalancePtrOutput
+	ToEc2FleetCapacityRebalancePtrOutput() Ec2FleetCapacityRebalancePtrOutput
+	ToEc2FleetCapacityRebalancePtrOutputWithContext(context.Context) Ec2FleetCapacityRebalancePtrOutput
 }
 
-type ec2fleetCapacityRebalancePtrType EC2FleetCapacityRebalanceArgs
+type ec2FleetCapacityRebalancePtrType Ec2FleetCapacityRebalanceArgs
 
-func EC2FleetCapacityRebalancePtr(v *EC2FleetCapacityRebalanceArgs) EC2FleetCapacityRebalancePtrInput {
-	return (*ec2fleetCapacityRebalancePtrType)(v)
+func Ec2FleetCapacityRebalancePtr(v *Ec2FleetCapacityRebalanceArgs) Ec2FleetCapacityRebalancePtrInput {
+	return (*ec2FleetCapacityRebalancePtrType)(v)
 }
 
-func (*ec2fleetCapacityRebalancePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetCapacityRebalance)(nil)).Elem()
+func (*ec2FleetCapacityRebalancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetCapacityRebalance)(nil)).Elem()
 }
 
-func (i *ec2fleetCapacityRebalancePtrType) ToEC2FleetCapacityRebalancePtrOutput() EC2FleetCapacityRebalancePtrOutput {
-	return i.ToEC2FleetCapacityRebalancePtrOutputWithContext(context.Background())
+func (i *ec2FleetCapacityRebalancePtrType) ToEc2FleetCapacityRebalancePtrOutput() Ec2FleetCapacityRebalancePtrOutput {
+	return i.ToEc2FleetCapacityRebalancePtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetCapacityRebalancePtrType) ToEC2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetCapacityRebalancePtrOutput)
+func (i *ec2FleetCapacityRebalancePtrType) ToEc2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) Ec2FleetCapacityRebalancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetCapacityRebalancePtrOutput)
 }
 
-type EC2FleetCapacityRebalanceOutput struct{ *pulumi.OutputState }
+type Ec2FleetCapacityRebalanceOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetCapacityRebalanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetCapacityRebalance)(nil)).Elem()
+func (Ec2FleetCapacityRebalanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetCapacityRebalance)(nil)).Elem()
 }
 
-func (o EC2FleetCapacityRebalanceOutput) ToEC2FleetCapacityRebalanceOutput() EC2FleetCapacityRebalanceOutput {
+func (o Ec2FleetCapacityRebalanceOutput) ToEc2FleetCapacityRebalanceOutput() Ec2FleetCapacityRebalanceOutput {
 	return o
 }
 
-func (o EC2FleetCapacityRebalanceOutput) ToEC2FleetCapacityRebalanceOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceOutput {
+func (o Ec2FleetCapacityRebalanceOutput) ToEc2FleetCapacityRebalanceOutputWithContext(ctx context.Context) Ec2FleetCapacityRebalanceOutput {
 	return o
 }
 
-func (o EC2FleetCapacityRebalanceOutput) ToEC2FleetCapacityRebalancePtrOutput() EC2FleetCapacityRebalancePtrOutput {
-	return o.ToEC2FleetCapacityRebalancePtrOutputWithContext(context.Background())
+func (o Ec2FleetCapacityRebalanceOutput) ToEc2FleetCapacityRebalancePtrOutput() Ec2FleetCapacityRebalancePtrOutput {
+	return o.ToEc2FleetCapacityRebalancePtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetCapacityRebalanceOutput) ToEC2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalancePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetCapacityRebalance) *EC2FleetCapacityRebalance {
+func (o Ec2FleetCapacityRebalanceOutput) ToEc2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) Ec2FleetCapacityRebalancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetCapacityRebalance) *Ec2FleetCapacityRebalance {
 		return &v
-	}).(EC2FleetCapacityRebalancePtrOutput)
+	}).(Ec2FleetCapacityRebalancePtrOutput)
 }
 
-func (o EC2FleetCapacityRebalanceOutput) ReplacementStrategy() EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
-	return o.ApplyT(func(v EC2FleetCapacityRebalance) *EC2FleetCapacityRebalanceReplacementStrategy {
+func (o Ec2FleetCapacityRebalanceOutput) ReplacementStrategy() Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return o.ApplyT(func(v Ec2FleetCapacityRebalance) *Ec2FleetCapacityRebalanceReplacementStrategy {
 		return v.ReplacementStrategy
-	}).(EC2FleetCapacityRebalanceReplacementStrategyPtrOutput)
+	}).(Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
-func (o EC2FleetCapacityRebalanceOutput) TerminationDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetCapacityRebalance) *int { return v.TerminationDelay }).(pulumi.IntPtrOutput)
+func (o Ec2FleetCapacityRebalanceOutput) TerminationDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetCapacityRebalance) *int { return v.TerminationDelay }).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetCapacityRebalancePtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetCapacityRebalancePtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetCapacityRebalancePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetCapacityRebalance)(nil)).Elem()
+func (Ec2FleetCapacityRebalancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetCapacityRebalance)(nil)).Elem()
 }
 
-func (o EC2FleetCapacityRebalancePtrOutput) ToEC2FleetCapacityRebalancePtrOutput() EC2FleetCapacityRebalancePtrOutput {
+func (o Ec2FleetCapacityRebalancePtrOutput) ToEc2FleetCapacityRebalancePtrOutput() Ec2FleetCapacityRebalancePtrOutput {
 	return o
 }
 
-func (o EC2FleetCapacityRebalancePtrOutput) ToEC2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalancePtrOutput {
+func (o Ec2FleetCapacityRebalancePtrOutput) ToEc2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) Ec2FleetCapacityRebalancePtrOutput {
 	return o
 }
 
-func (o EC2FleetCapacityRebalancePtrOutput) Elem() EC2FleetCapacityRebalanceOutput {
-	return o.ApplyT(func(v *EC2FleetCapacityRebalance) EC2FleetCapacityRebalance {
+func (o Ec2FleetCapacityRebalancePtrOutput) Elem() Ec2FleetCapacityRebalanceOutput {
+	return o.ApplyT(func(v *Ec2FleetCapacityRebalance) Ec2FleetCapacityRebalance {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetCapacityRebalance
+		var ret Ec2FleetCapacityRebalance
 		return ret
-	}).(EC2FleetCapacityRebalanceOutput)
+	}).(Ec2FleetCapacityRebalanceOutput)
 }
 
-func (o EC2FleetCapacityRebalancePtrOutput) ReplacementStrategy() EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
-	return o.ApplyT(func(v *EC2FleetCapacityRebalance) *EC2FleetCapacityRebalanceReplacementStrategy {
+func (o Ec2FleetCapacityRebalancePtrOutput) ReplacementStrategy() Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetCapacityRebalance) *Ec2FleetCapacityRebalanceReplacementStrategy {
 		if v == nil {
 			return nil
 		}
 		return v.ReplacementStrategy
-	}).(EC2FleetCapacityRebalanceReplacementStrategyPtrOutput)
+	}).(Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
-func (o EC2FleetCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetCapacityRebalance) *int {
+func (o Ec2FleetCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetCapacityRebalance) *int {
 		if v == nil {
 			return nil
 		}
@@ -2744,521 +2744,521 @@ func (o EC2FleetCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetCapacityReservationOptionsRequest struct {
-	UsageStrategy *EC2FleetCapacityReservationOptionsRequestUsageStrategy `pulumi:"usageStrategy"`
+type Ec2FleetCapacityReservationOptionsRequest struct {
+	UsageStrategy *Ec2FleetCapacityReservationOptionsRequestUsageStrategy `pulumi:"usageStrategy"`
 }
 
-// EC2FleetCapacityReservationOptionsRequestInput is an input type that accepts EC2FleetCapacityReservationOptionsRequestArgs and EC2FleetCapacityReservationOptionsRequestOutput values.
-// You can construct a concrete instance of `EC2FleetCapacityReservationOptionsRequestInput` via:
+// Ec2FleetCapacityReservationOptionsRequestInput is an input type that accepts Ec2FleetCapacityReservationOptionsRequestArgs and Ec2FleetCapacityReservationOptionsRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetCapacityReservationOptionsRequestInput` via:
 //
-//	EC2FleetCapacityReservationOptionsRequestArgs{...}
-type EC2FleetCapacityReservationOptionsRequestInput interface {
+//	Ec2FleetCapacityReservationOptionsRequestArgs{...}
+type Ec2FleetCapacityReservationOptionsRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetCapacityReservationOptionsRequestOutput() EC2FleetCapacityReservationOptionsRequestOutput
-	ToEC2FleetCapacityReservationOptionsRequestOutputWithContext(context.Context) EC2FleetCapacityReservationOptionsRequestOutput
+	ToEc2FleetCapacityReservationOptionsRequestOutput() Ec2FleetCapacityReservationOptionsRequestOutput
+	ToEc2FleetCapacityReservationOptionsRequestOutputWithContext(context.Context) Ec2FleetCapacityReservationOptionsRequestOutput
 }
 
-type EC2FleetCapacityReservationOptionsRequestArgs struct {
-	UsageStrategy EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrInput `pulumi:"usageStrategy"`
+type Ec2FleetCapacityReservationOptionsRequestArgs struct {
+	UsageStrategy Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrInput `pulumi:"usageStrategy"`
 }
 
-func (EC2FleetCapacityReservationOptionsRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetCapacityReservationOptionsRequest)(nil)).Elem()
+func (Ec2FleetCapacityReservationOptionsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequest)(nil)).Elem()
 }
 
-func (i EC2FleetCapacityReservationOptionsRequestArgs) ToEC2FleetCapacityReservationOptionsRequestOutput() EC2FleetCapacityReservationOptionsRequestOutput {
-	return i.ToEC2FleetCapacityReservationOptionsRequestOutputWithContext(context.Background())
+func (i Ec2FleetCapacityReservationOptionsRequestArgs) ToEc2FleetCapacityReservationOptionsRequestOutput() Ec2FleetCapacityReservationOptionsRequestOutput {
+	return i.ToEc2FleetCapacityReservationOptionsRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetCapacityReservationOptionsRequestArgs) ToEC2FleetCapacityReservationOptionsRequestOutputWithContext(ctx context.Context) EC2FleetCapacityReservationOptionsRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetCapacityReservationOptionsRequestOutput)
+func (i Ec2FleetCapacityReservationOptionsRequestArgs) ToEc2FleetCapacityReservationOptionsRequestOutputWithContext(ctx context.Context) Ec2FleetCapacityReservationOptionsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetCapacityReservationOptionsRequestOutput)
 }
 
-func (i EC2FleetCapacityReservationOptionsRequestArgs) ToEC2FleetCapacityReservationOptionsRequestPtrOutput() EC2FleetCapacityReservationOptionsRequestPtrOutput {
-	return i.ToEC2FleetCapacityReservationOptionsRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetCapacityReservationOptionsRequestArgs) ToEc2FleetCapacityReservationOptionsRequestPtrOutput() Ec2FleetCapacityReservationOptionsRequestPtrOutput {
+	return i.ToEc2FleetCapacityReservationOptionsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetCapacityReservationOptionsRequestArgs) ToEC2FleetCapacityReservationOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetCapacityReservationOptionsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetCapacityReservationOptionsRequestOutput).ToEC2FleetCapacityReservationOptionsRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetCapacityReservationOptionsRequestArgs) ToEc2FleetCapacityReservationOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetCapacityReservationOptionsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetCapacityReservationOptionsRequestOutput).ToEc2FleetCapacityReservationOptionsRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetCapacityReservationOptionsRequestPtrInput is an input type that accepts EC2FleetCapacityReservationOptionsRequestArgs, EC2FleetCapacityReservationOptionsRequestPtr and EC2FleetCapacityReservationOptionsRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetCapacityReservationOptionsRequestPtrInput` via:
+// Ec2FleetCapacityReservationOptionsRequestPtrInput is an input type that accepts Ec2FleetCapacityReservationOptionsRequestArgs, Ec2FleetCapacityReservationOptionsRequestPtr and Ec2FleetCapacityReservationOptionsRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetCapacityReservationOptionsRequestPtrInput` via:
 //
-//	        EC2FleetCapacityReservationOptionsRequestArgs{...}
+//	        Ec2FleetCapacityReservationOptionsRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetCapacityReservationOptionsRequestPtrInput interface {
+type Ec2FleetCapacityReservationOptionsRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetCapacityReservationOptionsRequestPtrOutput() EC2FleetCapacityReservationOptionsRequestPtrOutput
-	ToEC2FleetCapacityReservationOptionsRequestPtrOutputWithContext(context.Context) EC2FleetCapacityReservationOptionsRequestPtrOutput
+	ToEc2FleetCapacityReservationOptionsRequestPtrOutput() Ec2FleetCapacityReservationOptionsRequestPtrOutput
+	ToEc2FleetCapacityReservationOptionsRequestPtrOutputWithContext(context.Context) Ec2FleetCapacityReservationOptionsRequestPtrOutput
 }
 
-type ec2fleetCapacityReservationOptionsRequestPtrType EC2FleetCapacityReservationOptionsRequestArgs
+type ec2FleetCapacityReservationOptionsRequestPtrType Ec2FleetCapacityReservationOptionsRequestArgs
 
-func EC2FleetCapacityReservationOptionsRequestPtr(v *EC2FleetCapacityReservationOptionsRequestArgs) EC2FleetCapacityReservationOptionsRequestPtrInput {
-	return (*ec2fleetCapacityReservationOptionsRequestPtrType)(v)
+func Ec2FleetCapacityReservationOptionsRequestPtr(v *Ec2FleetCapacityReservationOptionsRequestArgs) Ec2FleetCapacityReservationOptionsRequestPtrInput {
+	return (*ec2FleetCapacityReservationOptionsRequestPtrType)(v)
 }
 
-func (*ec2fleetCapacityReservationOptionsRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetCapacityReservationOptionsRequest)(nil)).Elem()
+func (*ec2FleetCapacityReservationOptionsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetCapacityReservationOptionsRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetCapacityReservationOptionsRequestPtrType) ToEC2FleetCapacityReservationOptionsRequestPtrOutput() EC2FleetCapacityReservationOptionsRequestPtrOutput {
-	return i.ToEC2FleetCapacityReservationOptionsRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetCapacityReservationOptionsRequestPtrType) ToEc2FleetCapacityReservationOptionsRequestPtrOutput() Ec2FleetCapacityReservationOptionsRequestPtrOutput {
+	return i.ToEc2FleetCapacityReservationOptionsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetCapacityReservationOptionsRequestPtrType) ToEC2FleetCapacityReservationOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetCapacityReservationOptionsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetCapacityReservationOptionsRequestPtrOutput)
+func (i *ec2FleetCapacityReservationOptionsRequestPtrType) ToEc2FleetCapacityReservationOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetCapacityReservationOptionsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetCapacityReservationOptionsRequestPtrOutput)
 }
 
-type EC2FleetCapacityReservationOptionsRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetCapacityReservationOptionsRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetCapacityReservationOptionsRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetCapacityReservationOptionsRequest)(nil)).Elem()
+func (Ec2FleetCapacityReservationOptionsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestOutput) ToEC2FleetCapacityReservationOptionsRequestOutput() EC2FleetCapacityReservationOptionsRequestOutput {
+func (o Ec2FleetCapacityReservationOptionsRequestOutput) ToEc2FleetCapacityReservationOptionsRequestOutput() Ec2FleetCapacityReservationOptionsRequestOutput {
 	return o
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestOutput) ToEC2FleetCapacityReservationOptionsRequestOutputWithContext(ctx context.Context) EC2FleetCapacityReservationOptionsRequestOutput {
+func (o Ec2FleetCapacityReservationOptionsRequestOutput) ToEc2FleetCapacityReservationOptionsRequestOutputWithContext(ctx context.Context) Ec2FleetCapacityReservationOptionsRequestOutput {
 	return o
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestOutput) ToEC2FleetCapacityReservationOptionsRequestPtrOutput() EC2FleetCapacityReservationOptionsRequestPtrOutput {
-	return o.ToEC2FleetCapacityReservationOptionsRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetCapacityReservationOptionsRequestOutput) ToEc2FleetCapacityReservationOptionsRequestPtrOutput() Ec2FleetCapacityReservationOptionsRequestPtrOutput {
+	return o.ToEc2FleetCapacityReservationOptionsRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestOutput) ToEC2FleetCapacityReservationOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetCapacityReservationOptionsRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetCapacityReservationOptionsRequest) *EC2FleetCapacityReservationOptionsRequest {
+func (o Ec2FleetCapacityReservationOptionsRequestOutput) ToEc2FleetCapacityReservationOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetCapacityReservationOptionsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetCapacityReservationOptionsRequest) *Ec2FleetCapacityReservationOptionsRequest {
 		return &v
-	}).(EC2FleetCapacityReservationOptionsRequestPtrOutput)
+	}).(Ec2FleetCapacityReservationOptionsRequestPtrOutput)
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestOutput) UsageStrategy() EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput {
-	return o.ApplyT(func(v EC2FleetCapacityReservationOptionsRequest) *EC2FleetCapacityReservationOptionsRequestUsageStrategy {
+func (o Ec2FleetCapacityReservationOptionsRequestOutput) UsageStrategy() Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput {
+	return o.ApplyT(func(v Ec2FleetCapacityReservationOptionsRequest) *Ec2FleetCapacityReservationOptionsRequestUsageStrategy {
 		return v.UsageStrategy
-	}).(EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
+	}).(Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
 }
 
-type EC2FleetCapacityReservationOptionsRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetCapacityReservationOptionsRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetCapacityReservationOptionsRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetCapacityReservationOptionsRequest)(nil)).Elem()
+func (Ec2FleetCapacityReservationOptionsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetCapacityReservationOptionsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestPtrOutput) ToEC2FleetCapacityReservationOptionsRequestPtrOutput() EC2FleetCapacityReservationOptionsRequestPtrOutput {
+func (o Ec2FleetCapacityReservationOptionsRequestPtrOutput) ToEc2FleetCapacityReservationOptionsRequestPtrOutput() Ec2FleetCapacityReservationOptionsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestPtrOutput) ToEC2FleetCapacityReservationOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetCapacityReservationOptionsRequestPtrOutput {
+func (o Ec2FleetCapacityReservationOptionsRequestPtrOutput) ToEc2FleetCapacityReservationOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetCapacityReservationOptionsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestPtrOutput) Elem() EC2FleetCapacityReservationOptionsRequestOutput {
-	return o.ApplyT(func(v *EC2FleetCapacityReservationOptionsRequest) EC2FleetCapacityReservationOptionsRequest {
+func (o Ec2FleetCapacityReservationOptionsRequestPtrOutput) Elem() Ec2FleetCapacityReservationOptionsRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetCapacityReservationOptionsRequest) Ec2FleetCapacityReservationOptionsRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetCapacityReservationOptionsRequest
+		var ret Ec2FleetCapacityReservationOptionsRequest
 		return ret
-	}).(EC2FleetCapacityReservationOptionsRequestOutput)
+	}).(Ec2FleetCapacityReservationOptionsRequestOutput)
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestPtrOutput) UsageStrategy() EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput {
-	return o.ApplyT(func(v *EC2FleetCapacityReservationOptionsRequest) *EC2FleetCapacityReservationOptionsRequestUsageStrategy {
+func (o Ec2FleetCapacityReservationOptionsRequestPtrOutput) UsageStrategy() Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetCapacityReservationOptionsRequest) *Ec2FleetCapacityReservationOptionsRequestUsageStrategy {
 		if v == nil {
 			return nil
 		}
 		return v.UsageStrategy
-	}).(EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
+	}).(Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
 }
 
-type EC2FleetFleetLaunchTemplateConfigRequest struct {
-	LaunchTemplateSpecification *EC2FleetFleetLaunchTemplateSpecificationRequest `pulumi:"launchTemplateSpecification"`
-	Overrides                   []EC2FleetFleetLaunchTemplateOverridesRequest    `pulumi:"overrides"`
+type Ec2FleetFleetLaunchTemplateConfigRequest struct {
+	LaunchTemplateSpecification *Ec2FleetFleetLaunchTemplateSpecificationRequest `pulumi:"launchTemplateSpecification"`
+	Overrides                   []Ec2FleetFleetLaunchTemplateOverridesRequest    `pulumi:"overrides"`
 }
 
-// EC2FleetFleetLaunchTemplateConfigRequestInput is an input type that accepts EC2FleetFleetLaunchTemplateConfigRequestArgs and EC2FleetFleetLaunchTemplateConfigRequestOutput values.
-// You can construct a concrete instance of `EC2FleetFleetLaunchTemplateConfigRequestInput` via:
+// Ec2FleetFleetLaunchTemplateConfigRequestInput is an input type that accepts Ec2FleetFleetLaunchTemplateConfigRequestArgs and Ec2FleetFleetLaunchTemplateConfigRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetFleetLaunchTemplateConfigRequestInput` via:
 //
-//	EC2FleetFleetLaunchTemplateConfigRequestArgs{...}
-type EC2FleetFleetLaunchTemplateConfigRequestInput interface {
+//	Ec2FleetFleetLaunchTemplateConfigRequestArgs{...}
+type Ec2FleetFleetLaunchTemplateConfigRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetFleetLaunchTemplateConfigRequestOutput() EC2FleetFleetLaunchTemplateConfigRequestOutput
-	ToEC2FleetFleetLaunchTemplateConfigRequestOutputWithContext(context.Context) EC2FleetFleetLaunchTemplateConfigRequestOutput
+	ToEc2FleetFleetLaunchTemplateConfigRequestOutput() Ec2FleetFleetLaunchTemplateConfigRequestOutput
+	ToEc2FleetFleetLaunchTemplateConfigRequestOutputWithContext(context.Context) Ec2FleetFleetLaunchTemplateConfigRequestOutput
 }
 
-type EC2FleetFleetLaunchTemplateConfigRequestArgs struct {
-	LaunchTemplateSpecification EC2FleetFleetLaunchTemplateSpecificationRequestPtrInput `pulumi:"launchTemplateSpecification"`
-	Overrides                   EC2FleetFleetLaunchTemplateOverridesRequestArrayInput   `pulumi:"overrides"`
+type Ec2FleetFleetLaunchTemplateConfigRequestArgs struct {
+	LaunchTemplateSpecification Ec2FleetFleetLaunchTemplateSpecificationRequestPtrInput `pulumi:"launchTemplateSpecification"`
+	Overrides                   Ec2FleetFleetLaunchTemplateOverridesRequestArrayInput   `pulumi:"overrides"`
 }
 
-func (EC2FleetFleetLaunchTemplateConfigRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetFleetLaunchTemplateConfigRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateConfigRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetFleetLaunchTemplateConfigRequest)(nil)).Elem()
 }
 
-func (i EC2FleetFleetLaunchTemplateConfigRequestArgs) ToEC2FleetFleetLaunchTemplateConfigRequestOutput() EC2FleetFleetLaunchTemplateConfigRequestOutput {
-	return i.ToEC2FleetFleetLaunchTemplateConfigRequestOutputWithContext(context.Background())
+func (i Ec2FleetFleetLaunchTemplateConfigRequestArgs) ToEc2FleetFleetLaunchTemplateConfigRequestOutput() Ec2FleetFleetLaunchTemplateConfigRequestOutput {
+	return i.ToEc2FleetFleetLaunchTemplateConfigRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetFleetLaunchTemplateConfigRequestArgs) ToEC2FleetFleetLaunchTemplateConfigRequestOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateConfigRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetFleetLaunchTemplateConfigRequestOutput)
+func (i Ec2FleetFleetLaunchTemplateConfigRequestArgs) ToEc2FleetFleetLaunchTemplateConfigRequestOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateConfigRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetFleetLaunchTemplateConfigRequestOutput)
 }
 
-// EC2FleetFleetLaunchTemplateConfigRequestArrayInput is an input type that accepts EC2FleetFleetLaunchTemplateConfigRequestArray and EC2FleetFleetLaunchTemplateConfigRequestArrayOutput values.
-// You can construct a concrete instance of `EC2FleetFleetLaunchTemplateConfigRequestArrayInput` via:
+// Ec2FleetFleetLaunchTemplateConfigRequestArrayInput is an input type that accepts Ec2FleetFleetLaunchTemplateConfigRequestArray and Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetFleetLaunchTemplateConfigRequestArrayInput` via:
 //
-//	EC2FleetFleetLaunchTemplateConfigRequestArray{ EC2FleetFleetLaunchTemplateConfigRequestArgs{...} }
-type EC2FleetFleetLaunchTemplateConfigRequestArrayInput interface {
+//	Ec2FleetFleetLaunchTemplateConfigRequestArray{ Ec2FleetFleetLaunchTemplateConfigRequestArgs{...} }
+type Ec2FleetFleetLaunchTemplateConfigRequestArrayInput interface {
 	pulumi.Input
 
-	ToEC2FleetFleetLaunchTemplateConfigRequestArrayOutput() EC2FleetFleetLaunchTemplateConfigRequestArrayOutput
-	ToEC2FleetFleetLaunchTemplateConfigRequestArrayOutputWithContext(context.Context) EC2FleetFleetLaunchTemplateConfigRequestArrayOutput
+	ToEc2FleetFleetLaunchTemplateConfigRequestArrayOutput() Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput
+	ToEc2FleetFleetLaunchTemplateConfigRequestArrayOutputWithContext(context.Context) Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput
 }
 
-type EC2FleetFleetLaunchTemplateConfigRequestArray []EC2FleetFleetLaunchTemplateConfigRequestInput
+type Ec2FleetFleetLaunchTemplateConfigRequestArray []Ec2FleetFleetLaunchTemplateConfigRequestInput
 
-func (EC2FleetFleetLaunchTemplateConfigRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EC2FleetFleetLaunchTemplateConfigRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateConfigRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetFleetLaunchTemplateConfigRequest)(nil)).Elem()
 }
 
-func (i EC2FleetFleetLaunchTemplateConfigRequestArray) ToEC2FleetFleetLaunchTemplateConfigRequestArrayOutput() EC2FleetFleetLaunchTemplateConfigRequestArrayOutput {
-	return i.ToEC2FleetFleetLaunchTemplateConfigRequestArrayOutputWithContext(context.Background())
+func (i Ec2FleetFleetLaunchTemplateConfigRequestArray) ToEc2FleetFleetLaunchTemplateConfigRequestArrayOutput() Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput {
+	return i.ToEc2FleetFleetLaunchTemplateConfigRequestArrayOutputWithContext(context.Background())
 }
 
-func (i EC2FleetFleetLaunchTemplateConfigRequestArray) ToEC2FleetFleetLaunchTemplateConfigRequestArrayOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateConfigRequestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetFleetLaunchTemplateConfigRequestArrayOutput)
+func (i Ec2FleetFleetLaunchTemplateConfigRequestArray) ToEc2FleetFleetLaunchTemplateConfigRequestArrayOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput)
 }
 
-type EC2FleetFleetLaunchTemplateConfigRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetFleetLaunchTemplateConfigRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetFleetLaunchTemplateConfigRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetFleetLaunchTemplateConfigRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateConfigRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetFleetLaunchTemplateConfigRequest)(nil)).Elem()
 }
 
-func (o EC2FleetFleetLaunchTemplateConfigRequestOutput) ToEC2FleetFleetLaunchTemplateConfigRequestOutput() EC2FleetFleetLaunchTemplateConfigRequestOutput {
+func (o Ec2FleetFleetLaunchTemplateConfigRequestOutput) ToEc2FleetFleetLaunchTemplateConfigRequestOutput() Ec2FleetFleetLaunchTemplateConfigRequestOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateConfigRequestOutput) ToEC2FleetFleetLaunchTemplateConfigRequestOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateConfigRequestOutput {
+func (o Ec2FleetFleetLaunchTemplateConfigRequestOutput) ToEc2FleetFleetLaunchTemplateConfigRequestOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateConfigRequestOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateConfigRequestOutput) LaunchTemplateSpecification() EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateConfigRequest) *EC2FleetFleetLaunchTemplateSpecificationRequest {
+func (o Ec2FleetFleetLaunchTemplateConfigRequestOutput) LaunchTemplateSpecification() Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateConfigRequest) *Ec2FleetFleetLaunchTemplateSpecificationRequest {
 		return v.LaunchTemplateSpecification
-	}).(EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput)
+	}).(Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateConfigRequestOutput) Overrides() EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateConfigRequest) []EC2FleetFleetLaunchTemplateOverridesRequest {
+func (o Ec2FleetFleetLaunchTemplateConfigRequestOutput) Overrides() Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateConfigRequest) []Ec2FleetFleetLaunchTemplateOverridesRequest {
 		return v.Overrides
-	}).(EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput)
+	}).(Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput)
 }
 
-type EC2FleetFleetLaunchTemplateConfigRequestArrayOutput struct{ *pulumi.OutputState }
+type Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetFleetLaunchTemplateConfigRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EC2FleetFleetLaunchTemplateConfigRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetFleetLaunchTemplateConfigRequest)(nil)).Elem()
 }
 
-func (o EC2FleetFleetLaunchTemplateConfigRequestArrayOutput) ToEC2FleetFleetLaunchTemplateConfigRequestArrayOutput() EC2FleetFleetLaunchTemplateConfigRequestArrayOutput {
+func (o Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput) ToEc2FleetFleetLaunchTemplateConfigRequestArrayOutput() Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateConfigRequestArrayOutput) ToEC2FleetFleetLaunchTemplateConfigRequestArrayOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateConfigRequestArrayOutput {
+func (o Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput) ToEc2FleetFleetLaunchTemplateConfigRequestArrayOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateConfigRequestArrayOutput) Index(i pulumi.IntInput) EC2FleetFleetLaunchTemplateConfigRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EC2FleetFleetLaunchTemplateConfigRequest {
-		return vs[0].([]EC2FleetFleetLaunchTemplateConfigRequest)[vs[1].(int)]
-	}).(EC2FleetFleetLaunchTemplateConfigRequestOutput)
+func (o Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput) Index(i pulumi.IntInput) Ec2FleetFleetLaunchTemplateConfigRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetFleetLaunchTemplateConfigRequest {
+		return vs[0].([]Ec2FleetFleetLaunchTemplateConfigRequest)[vs[1].(int)]
+	}).(Ec2FleetFleetLaunchTemplateConfigRequestOutput)
 }
 
-type EC2FleetFleetLaunchTemplateOverridesRequest struct {
+type Ec2FleetFleetLaunchTemplateOverridesRequest struct {
 	AvailabilityZone     *string                              `pulumi:"availabilityZone"`
-	InstanceRequirements *EC2FleetInstanceRequirementsRequest `pulumi:"instanceRequirements"`
+	InstanceRequirements *Ec2FleetInstanceRequirementsRequest `pulumi:"instanceRequirements"`
 	InstanceType         *string                              `pulumi:"instanceType"`
 	MaxPrice             *string                              `pulumi:"maxPrice"`
-	Placement            *EC2FleetPlacement                   `pulumi:"placement"`
+	Placement            *Ec2FleetPlacement                   `pulumi:"placement"`
 	Priority             *float64                             `pulumi:"priority"`
 	SubnetId             *string                              `pulumi:"subnetId"`
 	WeightedCapacity     *float64                             `pulumi:"weightedCapacity"`
 }
 
-// EC2FleetFleetLaunchTemplateOverridesRequestInput is an input type that accepts EC2FleetFleetLaunchTemplateOverridesRequestArgs and EC2FleetFleetLaunchTemplateOverridesRequestOutput values.
-// You can construct a concrete instance of `EC2FleetFleetLaunchTemplateOverridesRequestInput` via:
+// Ec2FleetFleetLaunchTemplateOverridesRequestInput is an input type that accepts Ec2FleetFleetLaunchTemplateOverridesRequestArgs and Ec2FleetFleetLaunchTemplateOverridesRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetFleetLaunchTemplateOverridesRequestInput` via:
 //
-//	EC2FleetFleetLaunchTemplateOverridesRequestArgs{...}
-type EC2FleetFleetLaunchTemplateOverridesRequestInput interface {
+//	Ec2FleetFleetLaunchTemplateOverridesRequestArgs{...}
+type Ec2FleetFleetLaunchTemplateOverridesRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetFleetLaunchTemplateOverridesRequestOutput() EC2FleetFleetLaunchTemplateOverridesRequestOutput
-	ToEC2FleetFleetLaunchTemplateOverridesRequestOutputWithContext(context.Context) EC2FleetFleetLaunchTemplateOverridesRequestOutput
+	ToEc2FleetFleetLaunchTemplateOverridesRequestOutput() Ec2FleetFleetLaunchTemplateOverridesRequestOutput
+	ToEc2FleetFleetLaunchTemplateOverridesRequestOutputWithContext(context.Context) Ec2FleetFleetLaunchTemplateOverridesRequestOutput
 }
 
-type EC2FleetFleetLaunchTemplateOverridesRequestArgs struct {
+type Ec2FleetFleetLaunchTemplateOverridesRequestArgs struct {
 	AvailabilityZone     pulumi.StringPtrInput                       `pulumi:"availabilityZone"`
-	InstanceRequirements EC2FleetInstanceRequirementsRequestPtrInput `pulumi:"instanceRequirements"`
+	InstanceRequirements Ec2FleetInstanceRequirementsRequestPtrInput `pulumi:"instanceRequirements"`
 	InstanceType         pulumi.StringPtrInput                       `pulumi:"instanceType"`
 	MaxPrice             pulumi.StringPtrInput                       `pulumi:"maxPrice"`
-	Placement            EC2FleetPlacementPtrInput                   `pulumi:"placement"`
+	Placement            Ec2FleetPlacementPtrInput                   `pulumi:"placement"`
 	Priority             pulumi.Float64PtrInput                      `pulumi:"priority"`
 	SubnetId             pulumi.StringPtrInput                       `pulumi:"subnetId"`
 	WeightedCapacity     pulumi.Float64PtrInput                      `pulumi:"weightedCapacity"`
 }
 
-func (EC2FleetFleetLaunchTemplateOverridesRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetFleetLaunchTemplateOverridesRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateOverridesRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetFleetLaunchTemplateOverridesRequest)(nil)).Elem()
 }
 
-func (i EC2FleetFleetLaunchTemplateOverridesRequestArgs) ToEC2FleetFleetLaunchTemplateOverridesRequestOutput() EC2FleetFleetLaunchTemplateOverridesRequestOutput {
-	return i.ToEC2FleetFleetLaunchTemplateOverridesRequestOutputWithContext(context.Background())
+func (i Ec2FleetFleetLaunchTemplateOverridesRequestArgs) ToEc2FleetFleetLaunchTemplateOverridesRequestOutput() Ec2FleetFleetLaunchTemplateOverridesRequestOutput {
+	return i.ToEc2FleetFleetLaunchTemplateOverridesRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetFleetLaunchTemplateOverridesRequestArgs) ToEC2FleetFleetLaunchTemplateOverridesRequestOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateOverridesRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetFleetLaunchTemplateOverridesRequestOutput)
+func (i Ec2FleetFleetLaunchTemplateOverridesRequestArgs) ToEc2FleetFleetLaunchTemplateOverridesRequestOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateOverridesRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetFleetLaunchTemplateOverridesRequestOutput)
 }
 
-// EC2FleetFleetLaunchTemplateOverridesRequestArrayInput is an input type that accepts EC2FleetFleetLaunchTemplateOverridesRequestArray and EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput values.
-// You can construct a concrete instance of `EC2FleetFleetLaunchTemplateOverridesRequestArrayInput` via:
+// Ec2FleetFleetLaunchTemplateOverridesRequestArrayInput is an input type that accepts Ec2FleetFleetLaunchTemplateOverridesRequestArray and Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetFleetLaunchTemplateOverridesRequestArrayInput` via:
 //
-//	EC2FleetFleetLaunchTemplateOverridesRequestArray{ EC2FleetFleetLaunchTemplateOverridesRequestArgs{...} }
-type EC2FleetFleetLaunchTemplateOverridesRequestArrayInput interface {
+//	Ec2FleetFleetLaunchTemplateOverridesRequestArray{ Ec2FleetFleetLaunchTemplateOverridesRequestArgs{...} }
+type Ec2FleetFleetLaunchTemplateOverridesRequestArrayInput interface {
 	pulumi.Input
 
-	ToEC2FleetFleetLaunchTemplateOverridesRequestArrayOutput() EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput
-	ToEC2FleetFleetLaunchTemplateOverridesRequestArrayOutputWithContext(context.Context) EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput
+	ToEc2FleetFleetLaunchTemplateOverridesRequestArrayOutput() Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput
+	ToEc2FleetFleetLaunchTemplateOverridesRequestArrayOutputWithContext(context.Context) Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput
 }
 
-type EC2FleetFleetLaunchTemplateOverridesRequestArray []EC2FleetFleetLaunchTemplateOverridesRequestInput
+type Ec2FleetFleetLaunchTemplateOverridesRequestArray []Ec2FleetFleetLaunchTemplateOverridesRequestInput
 
-func (EC2FleetFleetLaunchTemplateOverridesRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EC2FleetFleetLaunchTemplateOverridesRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateOverridesRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetFleetLaunchTemplateOverridesRequest)(nil)).Elem()
 }
 
-func (i EC2FleetFleetLaunchTemplateOverridesRequestArray) ToEC2FleetFleetLaunchTemplateOverridesRequestArrayOutput() EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
-	return i.ToEC2FleetFleetLaunchTemplateOverridesRequestArrayOutputWithContext(context.Background())
+func (i Ec2FleetFleetLaunchTemplateOverridesRequestArray) ToEc2FleetFleetLaunchTemplateOverridesRequestArrayOutput() Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
+	return i.ToEc2FleetFleetLaunchTemplateOverridesRequestArrayOutputWithContext(context.Background())
 }
 
-func (i EC2FleetFleetLaunchTemplateOverridesRequestArray) ToEC2FleetFleetLaunchTemplateOverridesRequestArrayOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput)
+func (i Ec2FleetFleetLaunchTemplateOverridesRequestArray) ToEc2FleetFleetLaunchTemplateOverridesRequestArrayOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput)
 }
 
-type EC2FleetFleetLaunchTemplateOverridesRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetFleetLaunchTemplateOverridesRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetFleetLaunchTemplateOverridesRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetFleetLaunchTemplateOverridesRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateOverridesRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetFleetLaunchTemplateOverridesRequest)(nil)).Elem()
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestOutput) ToEC2FleetFleetLaunchTemplateOverridesRequestOutput() EC2FleetFleetLaunchTemplateOverridesRequestOutput {
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) ToEc2FleetFleetLaunchTemplateOverridesRequestOutput() Ec2FleetFleetLaunchTemplateOverridesRequestOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestOutput) ToEC2FleetFleetLaunchTemplateOverridesRequestOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateOverridesRequestOutput {
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) ToEc2FleetFleetLaunchTemplateOverridesRequestOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateOverridesRequestOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateOverridesRequest) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestOutput) InstanceRequirements() EC2FleetInstanceRequirementsRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateOverridesRequest) *EC2FleetInstanceRequirementsRequest {
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) InstanceRequirements() Ec2FleetInstanceRequirementsRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *Ec2FleetInstanceRequirementsRequest {
 		return v.InstanceRequirements
-	}).(EC2FleetInstanceRequirementsRequestPtrOutput)
+	}).(Ec2FleetInstanceRequirementsRequestPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateOverridesRequest) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestOutput) MaxPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateOverridesRequest) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestOutput) Placement() EC2FleetPlacementPtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateOverridesRequest) *EC2FleetPlacement { return v.Placement }).(EC2FleetPlacementPtrOutput)
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) Placement() Ec2FleetPlacementPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *Ec2FleetPlacement { return v.Placement }).(Ec2FleetPlacementPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestOutput) Priority() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateOverridesRequest) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateOverridesRequest) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestOutput) WeightedCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateOverridesRequest) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) WeightedCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
 }
 
-type EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput struct{ *pulumi.OutputState }
+type Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EC2FleetFleetLaunchTemplateOverridesRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetFleetLaunchTemplateOverridesRequest)(nil)).Elem()
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput) ToEC2FleetFleetLaunchTemplateOverridesRequestArrayOutput() EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput) ToEc2FleetFleetLaunchTemplateOverridesRequestArrayOutput() Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput) ToEC2FleetFleetLaunchTemplateOverridesRequestArrayOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput) ToEc2FleetFleetLaunchTemplateOverridesRequestArrayOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput) Index(i pulumi.IntInput) EC2FleetFleetLaunchTemplateOverridesRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EC2FleetFleetLaunchTemplateOverridesRequest {
-		return vs[0].([]EC2FleetFleetLaunchTemplateOverridesRequest)[vs[1].(int)]
-	}).(EC2FleetFleetLaunchTemplateOverridesRequestOutput)
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput) Index(i pulumi.IntInput) Ec2FleetFleetLaunchTemplateOverridesRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetFleetLaunchTemplateOverridesRequest {
+		return vs[0].([]Ec2FleetFleetLaunchTemplateOverridesRequest)[vs[1].(int)]
+	}).(Ec2FleetFleetLaunchTemplateOverridesRequestOutput)
 }
 
-type EC2FleetFleetLaunchTemplateSpecificationRequest struct {
+type Ec2FleetFleetLaunchTemplateSpecificationRequest struct {
 	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
 	Version            string  `pulumi:"version"`
 }
 
-// EC2FleetFleetLaunchTemplateSpecificationRequestInput is an input type that accepts EC2FleetFleetLaunchTemplateSpecificationRequestArgs and EC2FleetFleetLaunchTemplateSpecificationRequestOutput values.
-// You can construct a concrete instance of `EC2FleetFleetLaunchTemplateSpecificationRequestInput` via:
+// Ec2FleetFleetLaunchTemplateSpecificationRequestInput is an input type that accepts Ec2FleetFleetLaunchTemplateSpecificationRequestArgs and Ec2FleetFleetLaunchTemplateSpecificationRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetFleetLaunchTemplateSpecificationRequestInput` via:
 //
-//	EC2FleetFleetLaunchTemplateSpecificationRequestArgs{...}
-type EC2FleetFleetLaunchTemplateSpecificationRequestInput interface {
+//	Ec2FleetFleetLaunchTemplateSpecificationRequestArgs{...}
+type Ec2FleetFleetLaunchTemplateSpecificationRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetFleetLaunchTemplateSpecificationRequestOutput() EC2FleetFleetLaunchTemplateSpecificationRequestOutput
-	ToEC2FleetFleetLaunchTemplateSpecificationRequestOutputWithContext(context.Context) EC2FleetFleetLaunchTemplateSpecificationRequestOutput
+	ToEc2FleetFleetLaunchTemplateSpecificationRequestOutput() Ec2FleetFleetLaunchTemplateSpecificationRequestOutput
+	ToEc2FleetFleetLaunchTemplateSpecificationRequestOutputWithContext(context.Context) Ec2FleetFleetLaunchTemplateSpecificationRequestOutput
 }
 
-type EC2FleetFleetLaunchTemplateSpecificationRequestArgs struct {
+type Ec2FleetFleetLaunchTemplateSpecificationRequestArgs struct {
 	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
 	Version            pulumi.StringInput    `pulumi:"version"`
 }
 
-func (EC2FleetFleetLaunchTemplateSpecificationRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetFleetLaunchTemplateSpecificationRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateSpecificationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetFleetLaunchTemplateSpecificationRequest)(nil)).Elem()
 }
 
-func (i EC2FleetFleetLaunchTemplateSpecificationRequestArgs) ToEC2FleetFleetLaunchTemplateSpecificationRequestOutput() EC2FleetFleetLaunchTemplateSpecificationRequestOutput {
-	return i.ToEC2FleetFleetLaunchTemplateSpecificationRequestOutputWithContext(context.Background())
+func (i Ec2FleetFleetLaunchTemplateSpecificationRequestArgs) ToEc2FleetFleetLaunchTemplateSpecificationRequestOutput() Ec2FleetFleetLaunchTemplateSpecificationRequestOutput {
+	return i.ToEc2FleetFleetLaunchTemplateSpecificationRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetFleetLaunchTemplateSpecificationRequestArgs) ToEC2FleetFleetLaunchTemplateSpecificationRequestOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateSpecificationRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetFleetLaunchTemplateSpecificationRequestOutput)
+func (i Ec2FleetFleetLaunchTemplateSpecificationRequestArgs) ToEc2FleetFleetLaunchTemplateSpecificationRequestOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateSpecificationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetFleetLaunchTemplateSpecificationRequestOutput)
 }
 
-func (i EC2FleetFleetLaunchTemplateSpecificationRequestArgs) ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput() EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
-	return i.ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetFleetLaunchTemplateSpecificationRequestArgs) ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutput() Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
+	return i.ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetFleetLaunchTemplateSpecificationRequestArgs) ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetFleetLaunchTemplateSpecificationRequestOutput).ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetFleetLaunchTemplateSpecificationRequestArgs) ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetFleetLaunchTemplateSpecificationRequestOutput).ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetFleetLaunchTemplateSpecificationRequestPtrInput is an input type that accepts EC2FleetFleetLaunchTemplateSpecificationRequestArgs, EC2FleetFleetLaunchTemplateSpecificationRequestPtr and EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetFleetLaunchTemplateSpecificationRequestPtrInput` via:
+// Ec2FleetFleetLaunchTemplateSpecificationRequestPtrInput is an input type that accepts Ec2FleetFleetLaunchTemplateSpecificationRequestArgs, Ec2FleetFleetLaunchTemplateSpecificationRequestPtr and Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetFleetLaunchTemplateSpecificationRequestPtrInput` via:
 //
-//	        EC2FleetFleetLaunchTemplateSpecificationRequestArgs{...}
+//	        Ec2FleetFleetLaunchTemplateSpecificationRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetFleetLaunchTemplateSpecificationRequestPtrInput interface {
+type Ec2FleetFleetLaunchTemplateSpecificationRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput() EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput
-	ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(context.Context) EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput
+	ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutput() Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput
+	ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(context.Context) Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput
 }
 
-type ec2fleetFleetLaunchTemplateSpecificationRequestPtrType EC2FleetFleetLaunchTemplateSpecificationRequestArgs
+type ec2FleetFleetLaunchTemplateSpecificationRequestPtrType Ec2FleetFleetLaunchTemplateSpecificationRequestArgs
 
-func EC2FleetFleetLaunchTemplateSpecificationRequestPtr(v *EC2FleetFleetLaunchTemplateSpecificationRequestArgs) EC2FleetFleetLaunchTemplateSpecificationRequestPtrInput {
-	return (*ec2fleetFleetLaunchTemplateSpecificationRequestPtrType)(v)
+func Ec2FleetFleetLaunchTemplateSpecificationRequestPtr(v *Ec2FleetFleetLaunchTemplateSpecificationRequestArgs) Ec2FleetFleetLaunchTemplateSpecificationRequestPtrInput {
+	return (*ec2FleetFleetLaunchTemplateSpecificationRequestPtrType)(v)
 }
 
-func (*ec2fleetFleetLaunchTemplateSpecificationRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetFleetLaunchTemplateSpecificationRequest)(nil)).Elem()
+func (*ec2FleetFleetLaunchTemplateSpecificationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetFleetLaunchTemplateSpecificationRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetFleetLaunchTemplateSpecificationRequestPtrType) ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput() EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
-	return i.ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetFleetLaunchTemplateSpecificationRequestPtrType) ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutput() Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
+	return i.ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetFleetLaunchTemplateSpecificationRequestPtrType) ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput)
+func (i *ec2FleetFleetLaunchTemplateSpecificationRequestPtrType) ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput)
 }
 
-type EC2FleetFleetLaunchTemplateSpecificationRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetFleetLaunchTemplateSpecificationRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetFleetLaunchTemplateSpecificationRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetFleetLaunchTemplateSpecificationRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetFleetLaunchTemplateSpecificationRequest)(nil)).Elem()
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestOutput) ToEC2FleetFleetLaunchTemplateSpecificationRequestOutput() EC2FleetFleetLaunchTemplateSpecificationRequestOutput {
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) ToEc2FleetFleetLaunchTemplateSpecificationRequestOutput() Ec2FleetFleetLaunchTemplateSpecificationRequestOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestOutput) ToEC2FleetFleetLaunchTemplateSpecificationRequestOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateSpecificationRequestOutput {
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) ToEc2FleetFleetLaunchTemplateSpecificationRequestOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateSpecificationRequestOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestOutput) ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput() EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
-	return o.ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutput() Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
+	return o.ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestOutput) ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetFleetLaunchTemplateSpecificationRequest) *EC2FleetFleetLaunchTemplateSpecificationRequest {
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetFleetLaunchTemplateSpecificationRequest) *Ec2FleetFleetLaunchTemplateSpecificationRequest {
 		return &v
-	}).(EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput)
+	}).(Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestOutput) LaunchTemplateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateSpecificationRequest) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateSpecificationRequest) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestOutput) LaunchTemplateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateSpecificationRequest) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateSpecificationRequest) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateSpecificationRequest) string { return v.Version }).(pulumi.StringOutput)
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateSpecificationRequest) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetFleetLaunchTemplateSpecificationRequest)(nil)).Elem()
+func (Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetFleetLaunchTemplateSpecificationRequest)(nil)).Elem()
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput() EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutput() Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) ToEC2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(ctx context.Context) EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) ToEc2FleetFleetLaunchTemplateSpecificationRequestPtrOutputWithContext(ctx context.Context) Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Elem() EC2FleetFleetLaunchTemplateSpecificationRequestOutput {
-	return o.ApplyT(func(v *EC2FleetFleetLaunchTemplateSpecificationRequest) EC2FleetFleetLaunchTemplateSpecificationRequest {
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Elem() Ec2FleetFleetLaunchTemplateSpecificationRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetFleetLaunchTemplateSpecificationRequest) Ec2FleetFleetLaunchTemplateSpecificationRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetFleetLaunchTemplateSpecificationRequest
+		var ret Ec2FleetFleetLaunchTemplateSpecificationRequest
 		return ret
-	}).(EC2FleetFleetLaunchTemplateSpecificationRequestOutput)
+	}).(Ec2FleetFleetLaunchTemplateSpecificationRequestOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetFleetLaunchTemplateSpecificationRequest) *string {
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetFleetLaunchTemplateSpecificationRequest) *string {
 		if v == nil {
 			return nil
 		}
@@ -3266,8 +3266,8 @@ func (o EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetFleetLaunchTemplateSpecificationRequest) *string {
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetFleetLaunchTemplateSpecificationRequest) *string {
 		if v == nil {
 			return nil
 		}
@@ -3275,8 +3275,8 @@ func (o EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetFleetLaunchTemplateSpecificationRequest) *string {
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetFleetLaunchTemplateSpecificationRequest) *string {
 		if v == nil {
 			return nil
 		}
@@ -3284,341 +3284,341 @@ func (o EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Version() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-type EC2FleetInstanceRequirementsRequest struct {
-	AcceleratorCount                          *EC2FleetAcceleratorCountRequest                                  `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  []EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          []EC2FleetInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                 *EC2FleetAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                          []EC2FleetInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
+type Ec2FleetInstanceRequirementsRequest struct {
+	AcceleratorCount                          *Ec2FleetAcceleratorCountRequest                                  `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                  []Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                          []Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                 *Ec2FleetAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                          []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
 	AllowedInstanceTypes                      []string                                                          `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 *EC2FleetInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  *EC2FleetBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      *EC2FleetInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
-	CpuManufacturers                          []EC2FleetInstanceRequirementsRequestCpuManufacturersItem         `pulumi:"cpuManufacturers"`
+	BareMetal                                 *Ec2FleetInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                  *Ec2FleetBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                      *Ec2FleetInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
+	CpuManufacturers                          []Ec2FleetInstanceRequirementsRequestCpuManufacturersItem         `pulumi:"cpuManufacturers"`
 	ExcludedInstanceTypes                     []string                                                          `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       []EC2FleetInstanceRequirementsRequestInstanceGenerationsItem      `pulumi:"instanceGenerations"`
-	LocalStorage                              *EC2FleetInstanceRequirementsRequestLocalStorage                  `pulumi:"localStorage"`
-	LocalStorageTypes                         []EC2FleetInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu                          *EC2FleetMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 *EC2FleetMemoryMiBRequest                                         `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                      *EC2FleetNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     *EC2FleetNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
+	InstanceGenerations                       []Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem      `pulumi:"instanceGenerations"`
+	LocalStorage                              *Ec2FleetInstanceRequirementsRequestLocalStorage                  `pulumi:"localStorage"`
+	LocalStorageTypes                         []Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
+	MemoryGiBPerVCpu                          *Ec2FleetMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                 *Ec2FleetMemoryMiBRequest                                         `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                      *Ec2FleetNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                     *Ec2FleetNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
 	OnDemandMaxPricePercentageOverLowestPrice *int                                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   *bool                                                             `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     *int                                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       *EC2FleetTotalLocalStorageGBRequest                               `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                 *EC2FleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
+	TotalLocalStorageGb                       *Ec2FleetTotalLocalStorageGbRequest                               `pulumi:"totalLocalStorageGb"`
+	VCpuCount                                 *Ec2FleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
 }
 
-// EC2FleetInstanceRequirementsRequestInput is an input type that accepts EC2FleetInstanceRequirementsRequestArgs and EC2FleetInstanceRequirementsRequestOutput values.
-// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestInput` via:
+// Ec2FleetInstanceRequirementsRequestInput is an input type that accepts Ec2FleetInstanceRequirementsRequestArgs and Ec2FleetInstanceRequirementsRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestInput` via:
 //
-//	EC2FleetInstanceRequirementsRequestArgs{...}
-type EC2FleetInstanceRequirementsRequestInput interface {
+//	Ec2FleetInstanceRequirementsRequestArgs{...}
+type Ec2FleetInstanceRequirementsRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetInstanceRequirementsRequestOutput() EC2FleetInstanceRequirementsRequestOutput
-	ToEC2FleetInstanceRequirementsRequestOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestOutput
+	ToEc2FleetInstanceRequirementsRequestOutput() Ec2FleetInstanceRequirementsRequestOutput
+	ToEc2FleetInstanceRequirementsRequestOutputWithContext(context.Context) Ec2FleetInstanceRequirementsRequestOutput
 }
 
-type EC2FleetInstanceRequirementsRequestArgs struct {
-	AcceleratorCount                          EC2FleetAcceleratorCountRequestPtrInput                                   `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                 EC2FleetAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                          EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
+type Ec2FleetInstanceRequirementsRequestArgs struct {
+	AcceleratorCount                          Ec2FleetAcceleratorCountRequestPtrInput                                   `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                  Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                          Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                 Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                          Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
 	AllowedInstanceTypes                      pulumi.StringArrayInput                                                   `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 EC2FleetInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  EC2FleetBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      EC2FleetInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
-	CpuManufacturers                          EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput         `pulumi:"cpuManufacturers"`
+	BareMetal                                 Ec2FleetInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                  Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                      Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
+	CpuManufacturers                          Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput         `pulumi:"cpuManufacturers"`
 	ExcludedInstanceTypes                     pulumi.StringArrayInput                                                   `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput      `pulumi:"instanceGenerations"`
-	LocalStorage                              EC2FleetInstanceRequirementsRequestLocalStoragePtrInput                   `pulumi:"localStorage"`
-	LocalStorageTypes                         EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu                          EC2FleetMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 EC2FleetMemoryMiBRequestPtrInput                                          `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                      EC2FleetNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     EC2FleetNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
+	InstanceGenerations                       Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput      `pulumi:"instanceGenerations"`
+	LocalStorage                              Ec2FleetInstanceRequirementsRequestLocalStoragePtrInput                   `pulumi:"localStorage"`
+	LocalStorageTypes                         Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
+	MemoryGiBPerVCpu                          Ec2FleetMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                 Ec2FleetMemoryMiBRequestPtrInput                                          `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                      Ec2FleetNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                     Ec2FleetNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                                        `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolPtrInput                                                       `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                                        `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       EC2FleetTotalLocalStorageGBRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                 EC2FleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
+	TotalLocalStorageGb                       Ec2FleetTotalLocalStorageGbRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
+	VCpuCount                                 Ec2FleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
 }
 
-func (EC2FleetInstanceRequirementsRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequest)(nil)).Elem()
+func (Ec2FleetInstanceRequirementsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetInstanceRequirementsRequest)(nil)).Elem()
 }
 
-func (i EC2FleetInstanceRequirementsRequestArgs) ToEC2FleetInstanceRequirementsRequestOutput() EC2FleetInstanceRequirementsRequestOutput {
-	return i.ToEC2FleetInstanceRequirementsRequestOutputWithContext(context.Background())
+func (i Ec2FleetInstanceRequirementsRequestArgs) ToEc2FleetInstanceRequirementsRequestOutput() Ec2FleetInstanceRequirementsRequestOutput {
+	return i.ToEc2FleetInstanceRequirementsRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetInstanceRequirementsRequestArgs) ToEC2FleetInstanceRequirementsRequestOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestOutput)
+func (i Ec2FleetInstanceRequirementsRequestArgs) ToEc2FleetInstanceRequirementsRequestOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceRequirementsRequestOutput)
 }
 
-func (i EC2FleetInstanceRequirementsRequestArgs) ToEC2FleetInstanceRequirementsRequestPtrOutput() EC2FleetInstanceRequirementsRequestPtrOutput {
-	return i.ToEC2FleetInstanceRequirementsRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetInstanceRequirementsRequestArgs) ToEc2FleetInstanceRequirementsRequestPtrOutput() Ec2FleetInstanceRequirementsRequestPtrOutput {
+	return i.ToEc2FleetInstanceRequirementsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetInstanceRequirementsRequestArgs) ToEC2FleetInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestOutput).ToEC2FleetInstanceRequirementsRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetInstanceRequirementsRequestArgs) ToEc2FleetInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceRequirementsRequestOutput).ToEc2FleetInstanceRequirementsRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetInstanceRequirementsRequestPtrInput is an input type that accepts EC2FleetInstanceRequirementsRequestArgs, EC2FleetInstanceRequirementsRequestPtr and EC2FleetInstanceRequirementsRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestPtrInput` via:
+// Ec2FleetInstanceRequirementsRequestPtrInput is an input type that accepts Ec2FleetInstanceRequirementsRequestArgs, Ec2FleetInstanceRequirementsRequestPtr and Ec2FleetInstanceRequirementsRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestPtrInput` via:
 //
-//	        EC2FleetInstanceRequirementsRequestArgs{...}
+//	        Ec2FleetInstanceRequirementsRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetInstanceRequirementsRequestPtrInput interface {
+type Ec2FleetInstanceRequirementsRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetInstanceRequirementsRequestPtrOutput() EC2FleetInstanceRequirementsRequestPtrOutput
-	ToEC2FleetInstanceRequirementsRequestPtrOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestPtrOutput
+	ToEc2FleetInstanceRequirementsRequestPtrOutput() Ec2FleetInstanceRequirementsRequestPtrOutput
+	ToEc2FleetInstanceRequirementsRequestPtrOutputWithContext(context.Context) Ec2FleetInstanceRequirementsRequestPtrOutput
 }
 
-type ec2fleetInstanceRequirementsRequestPtrType EC2FleetInstanceRequirementsRequestArgs
+type ec2FleetInstanceRequirementsRequestPtrType Ec2FleetInstanceRequirementsRequestArgs
 
-func EC2FleetInstanceRequirementsRequestPtr(v *EC2FleetInstanceRequirementsRequestArgs) EC2FleetInstanceRequirementsRequestPtrInput {
-	return (*ec2fleetInstanceRequirementsRequestPtrType)(v)
+func Ec2FleetInstanceRequirementsRequestPtr(v *Ec2FleetInstanceRequirementsRequestArgs) Ec2FleetInstanceRequirementsRequestPtrInput {
+	return (*ec2FleetInstanceRequirementsRequestPtrType)(v)
 }
 
-func (*ec2fleetInstanceRequirementsRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequest)(nil)).Elem()
+func (*ec2FleetInstanceRequirementsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetInstanceRequirementsRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetInstanceRequirementsRequestPtrType) ToEC2FleetInstanceRequirementsRequestPtrOutput() EC2FleetInstanceRequirementsRequestPtrOutput {
-	return i.ToEC2FleetInstanceRequirementsRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetInstanceRequirementsRequestPtrType) ToEc2FleetInstanceRequirementsRequestPtrOutput() Ec2FleetInstanceRequirementsRequestPtrOutput {
+	return i.ToEc2FleetInstanceRequirementsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetInstanceRequirementsRequestPtrType) ToEC2FleetInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestPtrOutput)
+func (i *ec2FleetInstanceRequirementsRequestPtrType) ToEc2FleetInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceRequirementsRequestPtrOutput)
 }
 
-type EC2FleetInstanceRequirementsRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetInstanceRequirementsRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetInstanceRequirementsRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequest)(nil)).Elem()
+func (Ec2FleetInstanceRequirementsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetInstanceRequirementsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) ToEC2FleetInstanceRequirementsRequestOutput() EC2FleetInstanceRequirementsRequestOutput {
+func (o Ec2FleetInstanceRequirementsRequestOutput) ToEc2FleetInstanceRequirementsRequestOutput() Ec2FleetInstanceRequirementsRequestOutput {
 	return o
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) ToEC2FleetInstanceRequirementsRequestOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestOutput {
+func (o Ec2FleetInstanceRequirementsRequestOutput) ToEc2FleetInstanceRequirementsRequestOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestOutput {
 	return o
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) ToEC2FleetInstanceRequirementsRequestPtrOutput() EC2FleetInstanceRequirementsRequestPtrOutput {
-	return o.ToEC2FleetInstanceRequirementsRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetInstanceRequirementsRequestOutput) ToEc2FleetInstanceRequirementsRequestPtrOutput() Ec2FleetInstanceRequirementsRequestPtrOutput {
+	return o.ToEc2FleetInstanceRequirementsRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) ToEC2FleetInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetInstanceRequirementsRequest) *EC2FleetInstanceRequirementsRequest {
+func (o Ec2FleetInstanceRequirementsRequestOutput) ToEc2FleetInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequest {
 		return &v
-	}).(EC2FleetInstanceRequirementsRequestPtrOutput)
+	}).(Ec2FleetInstanceRequirementsRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) AcceleratorCount() EC2FleetAcceleratorCountRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetAcceleratorCountRequest {
+func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorCount() Ec2FleetAcceleratorCountRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetAcceleratorCountRequest {
 		return v.AcceleratorCount
-	}).(EC2FleetAcceleratorCountRequestPtrOutput)
+	}).(Ec2FleetAcceleratorCountRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) AcceleratorManufacturers() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem {
+func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorManufacturers() Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem {
 		return v.AcceleratorManufacturers
-	}).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) AcceleratorNames() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestAcceleratorNamesItem {
+func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorNames() Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem {
 		return v.AcceleratorNames
-	}).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetAcceleratorTotalMemoryMiBRequest {
+func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetAcceleratorTotalMemoryMiBRequest {
 		return v.AcceleratorTotalMemoryMiB
-	}).(EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
+	}).(Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) AcceleratorTypes() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestAcceleratorTypesItem {
+func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem {
 		return v.AcceleratorTypes
-	}).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
+func (o Ec2FleetInstanceRequirementsRequestOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) BareMetal() EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetInstanceRequirementsRequestBareMetal {
+func (o Ec2FleetInstanceRequirementsRequestOutput) BareMetal() Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestBareMetal {
 		return v.BareMetal
-	}).(EC2FleetInstanceRequirementsRequestBareMetalPtrOutput)
+	}).(Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) BaselineEbsBandwidthMbps() EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetBaselineEbsBandwidthMbpsRequest {
+func (o Ec2FleetInstanceRequirementsRequestOutput) BaselineEbsBandwidthMbps() Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetBaselineEbsBandwidthMbpsRequest {
 		return v.BaselineEbsBandwidthMbps
-	}).(EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
+	}).(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) BurstablePerformance() EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetInstanceRequirementsRequestBurstablePerformance {
+func (o Ec2FleetInstanceRequirementsRequestOutput) BurstablePerformance() Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestBurstablePerformance {
 		return v.BurstablePerformance
-	}).(EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
+	}).(Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) CpuManufacturers() EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestCpuManufacturersItem {
+func (o Ec2FleetInstanceRequirementsRequestOutput) CpuManufacturers() Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestCpuManufacturersItem {
 		return v.CpuManufacturers
-	}).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
+func (o Ec2FleetInstanceRequirementsRequestOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) InstanceGenerations() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestInstanceGenerationsItem {
+func (o Ec2FleetInstanceRequirementsRequestOutput) InstanceGenerations() Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem {
 		return v.InstanceGenerations
-	}).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) LocalStorage() EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetInstanceRequirementsRequestLocalStorage {
+func (o Ec2FleetInstanceRequirementsRequestOutput) LocalStorage() Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestLocalStorage {
 		return v.LocalStorage
-	}).(EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
+	}).(Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) LocalStorageTypes() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestLocalStorageTypesItem {
+func (o Ec2FleetInstanceRequirementsRequestOutput) LocalStorageTypes() Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem {
 		return v.LocalStorageTypes
-	}).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) MemoryGiBPerVCpu() EC2FleetMemoryGiBPerVCpuRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetMemoryGiBPerVCpuRequest {
+func (o Ec2FleetInstanceRequirementsRequestOutput) MemoryGiBPerVCpu() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetMemoryGiBPerVCpuRequest {
 		return v.MemoryGiBPerVCpu
-	}).(EC2FleetMemoryGiBPerVCpuRequestPtrOutput)
+	}).(Ec2FleetMemoryGiBPerVCpuRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) MemoryMiB() EC2FleetMemoryMiBRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetMemoryMiBRequest { return v.MemoryMiB }).(EC2FleetMemoryMiBRequestPtrOutput)
+func (o Ec2FleetInstanceRequirementsRequestOutput) MemoryMiB() Ec2FleetMemoryMiBRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetMemoryMiBRequest { return v.MemoryMiB }).(Ec2FleetMemoryMiBRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) NetworkBandwidthGbps() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetNetworkBandwidthGbpsRequest {
+func (o Ec2FleetInstanceRequirementsRequestOutput) NetworkBandwidthGbps() Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetNetworkBandwidthGbpsRequest {
 		return v.NetworkBandwidthGbps
-	}).(EC2FleetNetworkBandwidthGbpsRequestPtrOutput)
+	}).(Ec2FleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) NetworkInterfaceCount() EC2FleetNetworkInterfaceCountRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetNetworkInterfaceCountRequest {
+func (o Ec2FleetInstanceRequirementsRequestOutput) NetworkInterfaceCount() Ec2FleetNetworkInterfaceCountRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetNetworkInterfaceCountRequest {
 		return v.NetworkInterfaceCount
-	}).(EC2FleetNetworkInterfaceCountRequestPtrOutput)
+	}).(Ec2FleetNetworkInterfaceCountRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
+func (o Ec2FleetInstanceRequirementsRequestOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
+func (o Ec2FleetInstanceRequirementsRequestOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
+func (o Ec2FleetInstanceRequirementsRequestOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) TotalLocalStorageGb() EC2FleetTotalLocalStorageGBRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetTotalLocalStorageGBRequest {
+func (o Ec2FleetInstanceRequirementsRequestOutput) TotalLocalStorageGb() Ec2FleetTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetTotalLocalStorageGbRequest {
 		return v.TotalLocalStorageGb
-	}).(EC2FleetTotalLocalStorageGBRequestPtrOutput)
+	}).(Ec2FleetTotalLocalStorageGbRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) VCpuCount() EC2FleetVCpuCountRangeRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetVCpuCountRangeRequest { return v.VCpuCount }).(EC2FleetVCpuCountRangeRequestPtrOutput)
+func (o Ec2FleetInstanceRequirementsRequestOutput) VCpuCount() Ec2FleetVCpuCountRangeRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetVCpuCountRangeRequest { return v.VCpuCount }).(Ec2FleetVCpuCountRangeRequestPtrOutput)
 }
 
-type EC2FleetInstanceRequirementsRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetInstanceRequirementsRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetInstanceRequirementsRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequest)(nil)).Elem()
+func (Ec2FleetInstanceRequirementsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetInstanceRequirementsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) ToEC2FleetInstanceRequirementsRequestPtrOutput() EC2FleetInstanceRequirementsRequestPtrOutput {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) ToEc2FleetInstanceRequirementsRequestPtrOutput() Ec2FleetInstanceRequirementsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) ToEC2FleetInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestPtrOutput {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) ToEc2FleetInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) Elem() EC2FleetInstanceRequirementsRequestOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) EC2FleetInstanceRequirementsRequest {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) Elem() Ec2FleetInstanceRequirementsRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) Ec2FleetInstanceRequirementsRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetInstanceRequirementsRequest
+		var ret Ec2FleetInstanceRequirementsRequest
 		return ret
-	}).(EC2FleetInstanceRequirementsRequestOutput)
+	}).(Ec2FleetInstanceRequirementsRequestOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) AcceleratorCount() EC2FleetAcceleratorCountRequestPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetAcceleratorCountRequest {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorCount() Ec2FleetAcceleratorCountRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetAcceleratorCountRequest {
 		if v == nil {
 			return nil
 		}
 		return v.AcceleratorCount
-	}).(EC2FleetAcceleratorCountRequestPtrOutput)
+	}).(Ec2FleetAcceleratorCountRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) AcceleratorManufacturers() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorManufacturers() Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem {
 		if v == nil {
 			return nil
 		}
 		return v.AcceleratorManufacturers
-	}).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) AcceleratorNames() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestAcceleratorNamesItem {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorNames() Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem {
 		if v == nil {
 			return nil
 		}
 		return v.AcceleratorNames
-	}).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB() EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetAcceleratorTotalMemoryMiBRequest {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB() Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetAcceleratorTotalMemoryMiBRequest {
 		if v == nil {
 			return nil
 		}
 		return v.AcceleratorTotalMemoryMiB
-	}).(EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
+	}).(Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestAcceleratorTypesItem {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem {
 		if v == nil {
 			return nil
 		}
 		return v.AcceleratorTypes
-	}).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) []string {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []string {
 		if v == nil {
 			return nil
 		}
@@ -3626,44 +3626,44 @@ func (o EC2FleetInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pul
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) BareMetal() EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetInstanceRequirementsRequestBareMetal {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BareMetal() Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestBareMetal {
 		if v == nil {
 			return nil
 		}
 		return v.BareMetal
-	}).(EC2FleetInstanceRequirementsRequestBareMetalPtrOutput)
+	}).(Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) BaselineEbsBandwidthMbps() EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetBaselineEbsBandwidthMbpsRequest {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BaselineEbsBandwidthMbps() Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetBaselineEbsBandwidthMbpsRequest {
 		if v == nil {
 			return nil
 		}
 		return v.BaselineEbsBandwidthMbps
-	}).(EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
+	}).(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) BurstablePerformance() EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetInstanceRequirementsRequestBurstablePerformance {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BurstablePerformance() Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestBurstablePerformance {
 		if v == nil {
 			return nil
 		}
 		return v.BurstablePerformance
-	}).(EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
+	}).(Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) CpuManufacturers() EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestCpuManufacturersItem {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) CpuManufacturers() Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestCpuManufacturersItem {
 		if v == nil {
 			return nil
 		}
 		return v.CpuManufacturers
-	}).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) []string {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []string {
 		if v == nil {
 			return nil
 		}
@@ -3671,71 +3671,71 @@ func (o EC2FleetInstanceRequirementsRequestPtrOutput) ExcludedInstanceTypes() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) InstanceGenerations() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestInstanceGenerationsItem {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) InstanceGenerations() Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem {
 		if v == nil {
 			return nil
 		}
 		return v.InstanceGenerations
-	}).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) LocalStorage() EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetInstanceRequirementsRequestLocalStorage {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) LocalStorage() Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestLocalStorage {
 		if v == nil {
 			return nil
 		}
 		return v.LocalStorage
-	}).(EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
+	}).(Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) LocalStorageTypes() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) []EC2FleetInstanceRequirementsRequestLocalStorageTypesItem {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) LocalStorageTypes() Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem {
 		if v == nil {
 			return nil
 		}
 		return v.LocalStorageTypes
-	}).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
+	}).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu() EC2FleetMemoryGiBPerVCpuRequestPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetMemoryGiBPerVCpuRequest {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetMemoryGiBPerVCpuRequest {
 		if v == nil {
 			return nil
 		}
 		return v.MemoryGiBPerVCpu
-	}).(EC2FleetMemoryGiBPerVCpuRequestPtrOutput)
+	}).(Ec2FleetMemoryGiBPerVCpuRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) MemoryMiB() EC2FleetMemoryMiBRequestPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetMemoryMiBRequest {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) MemoryMiB() Ec2FleetMemoryMiBRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetMemoryMiBRequest {
 		if v == nil {
 			return nil
 		}
 		return v.MemoryMiB
-	}).(EC2FleetMemoryMiBRequestPtrOutput)
+	}).(Ec2FleetMemoryMiBRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) NetworkBandwidthGbps() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetNetworkBandwidthGbpsRequest {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) NetworkBandwidthGbps() Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetNetworkBandwidthGbpsRequest {
 		if v == nil {
 			return nil
 		}
 		return v.NetworkBandwidthGbps
-	}).(EC2FleetNetworkBandwidthGbpsRequestPtrOutput)
+	}).(Ec2FleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) NetworkInterfaceCount() EC2FleetNetworkInterfaceCountRequestPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetNetworkInterfaceCountRequest {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) NetworkInterfaceCount() Ec2FleetNetworkInterfaceCountRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetNetworkInterfaceCountRequest {
 		if v == nil {
 			return nil
 		}
 		return v.NetworkInterfaceCount
-	}).(EC2FleetNetworkInterfaceCountRequestPtrOutput)
+	}).(Ec2FleetNetworkInterfaceCountRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *int {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -3743,8 +3743,8 @@ func (o EC2FleetInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentage
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *bool {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3752,8 +3752,8 @@ func (o EC2FleetInstanceRequirementsRequestPtrOutput) RequireHibernateSupport() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *int {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -3761,289 +3761,289 @@ func (o EC2FleetInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOver
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() EC2FleetTotalLocalStorageGBRequestPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetTotalLocalStorageGBRequest {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() Ec2FleetTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetTotalLocalStorageGbRequest {
 		if v == nil {
 			return nil
 		}
 		return v.TotalLocalStorageGb
-	}).(EC2FleetTotalLocalStorageGBRequestPtrOutput)
+	}).(Ec2FleetTotalLocalStorageGbRequestPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) VCpuCount() EC2FleetVCpuCountRangeRequestPtrOutput {
-	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetVCpuCountRangeRequest {
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) VCpuCount() Ec2FleetVCpuCountRangeRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetVCpuCountRangeRequest {
 		if v == nil {
 			return nil
 		}
 		return v.VCpuCount
-	}).(EC2FleetVCpuCountRangeRequestPtrOutput)
+	}).(Ec2FleetVCpuCountRangeRequestPtrOutput)
 }
 
-type EC2FleetMaintenanceStrategies struct {
-	CapacityRebalance *EC2FleetCapacityRebalance `pulumi:"capacityRebalance"`
+type Ec2FleetMaintenanceStrategies struct {
+	CapacityRebalance *Ec2FleetCapacityRebalance `pulumi:"capacityRebalance"`
 }
 
-// EC2FleetMaintenanceStrategiesInput is an input type that accepts EC2FleetMaintenanceStrategiesArgs and EC2FleetMaintenanceStrategiesOutput values.
-// You can construct a concrete instance of `EC2FleetMaintenanceStrategiesInput` via:
+// Ec2FleetMaintenanceStrategiesInput is an input type that accepts Ec2FleetMaintenanceStrategiesArgs and Ec2FleetMaintenanceStrategiesOutput values.
+// You can construct a concrete instance of `Ec2FleetMaintenanceStrategiesInput` via:
 //
-//	EC2FleetMaintenanceStrategiesArgs{...}
-type EC2FleetMaintenanceStrategiesInput interface {
+//	Ec2FleetMaintenanceStrategiesArgs{...}
+type Ec2FleetMaintenanceStrategiesInput interface {
 	pulumi.Input
 
-	ToEC2FleetMaintenanceStrategiesOutput() EC2FleetMaintenanceStrategiesOutput
-	ToEC2FleetMaintenanceStrategiesOutputWithContext(context.Context) EC2FleetMaintenanceStrategiesOutput
+	ToEc2FleetMaintenanceStrategiesOutput() Ec2FleetMaintenanceStrategiesOutput
+	ToEc2FleetMaintenanceStrategiesOutputWithContext(context.Context) Ec2FleetMaintenanceStrategiesOutput
 }
 
-type EC2FleetMaintenanceStrategiesArgs struct {
-	CapacityRebalance EC2FleetCapacityRebalancePtrInput `pulumi:"capacityRebalance"`
+type Ec2FleetMaintenanceStrategiesArgs struct {
+	CapacityRebalance Ec2FleetCapacityRebalancePtrInput `pulumi:"capacityRebalance"`
 }
 
-func (EC2FleetMaintenanceStrategiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetMaintenanceStrategies)(nil)).Elem()
+func (Ec2FleetMaintenanceStrategiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetMaintenanceStrategies)(nil)).Elem()
 }
 
-func (i EC2FleetMaintenanceStrategiesArgs) ToEC2FleetMaintenanceStrategiesOutput() EC2FleetMaintenanceStrategiesOutput {
-	return i.ToEC2FleetMaintenanceStrategiesOutputWithContext(context.Background())
+func (i Ec2FleetMaintenanceStrategiesArgs) ToEc2FleetMaintenanceStrategiesOutput() Ec2FleetMaintenanceStrategiesOutput {
+	return i.ToEc2FleetMaintenanceStrategiesOutputWithContext(context.Background())
 }
 
-func (i EC2FleetMaintenanceStrategiesArgs) ToEC2FleetMaintenanceStrategiesOutputWithContext(ctx context.Context) EC2FleetMaintenanceStrategiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetMaintenanceStrategiesOutput)
+func (i Ec2FleetMaintenanceStrategiesArgs) ToEc2FleetMaintenanceStrategiesOutputWithContext(ctx context.Context) Ec2FleetMaintenanceStrategiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMaintenanceStrategiesOutput)
 }
 
-func (i EC2FleetMaintenanceStrategiesArgs) ToEC2FleetMaintenanceStrategiesPtrOutput() EC2FleetMaintenanceStrategiesPtrOutput {
-	return i.ToEC2FleetMaintenanceStrategiesPtrOutputWithContext(context.Background())
+func (i Ec2FleetMaintenanceStrategiesArgs) ToEc2FleetMaintenanceStrategiesPtrOutput() Ec2FleetMaintenanceStrategiesPtrOutput {
+	return i.ToEc2FleetMaintenanceStrategiesPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetMaintenanceStrategiesArgs) ToEC2FleetMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) EC2FleetMaintenanceStrategiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetMaintenanceStrategiesOutput).ToEC2FleetMaintenanceStrategiesPtrOutputWithContext(ctx)
+func (i Ec2FleetMaintenanceStrategiesArgs) ToEc2FleetMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) Ec2FleetMaintenanceStrategiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMaintenanceStrategiesOutput).ToEc2FleetMaintenanceStrategiesPtrOutputWithContext(ctx)
 }
 
-// EC2FleetMaintenanceStrategiesPtrInput is an input type that accepts EC2FleetMaintenanceStrategiesArgs, EC2FleetMaintenanceStrategiesPtr and EC2FleetMaintenanceStrategiesPtrOutput values.
-// You can construct a concrete instance of `EC2FleetMaintenanceStrategiesPtrInput` via:
+// Ec2FleetMaintenanceStrategiesPtrInput is an input type that accepts Ec2FleetMaintenanceStrategiesArgs, Ec2FleetMaintenanceStrategiesPtr and Ec2FleetMaintenanceStrategiesPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetMaintenanceStrategiesPtrInput` via:
 //
-//	        EC2FleetMaintenanceStrategiesArgs{...}
+//	        Ec2FleetMaintenanceStrategiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetMaintenanceStrategiesPtrInput interface {
+type Ec2FleetMaintenanceStrategiesPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetMaintenanceStrategiesPtrOutput() EC2FleetMaintenanceStrategiesPtrOutput
-	ToEC2FleetMaintenanceStrategiesPtrOutputWithContext(context.Context) EC2FleetMaintenanceStrategiesPtrOutput
+	ToEc2FleetMaintenanceStrategiesPtrOutput() Ec2FleetMaintenanceStrategiesPtrOutput
+	ToEc2FleetMaintenanceStrategiesPtrOutputWithContext(context.Context) Ec2FleetMaintenanceStrategiesPtrOutput
 }
 
-type ec2fleetMaintenanceStrategiesPtrType EC2FleetMaintenanceStrategiesArgs
+type ec2FleetMaintenanceStrategiesPtrType Ec2FleetMaintenanceStrategiesArgs
 
-func EC2FleetMaintenanceStrategiesPtr(v *EC2FleetMaintenanceStrategiesArgs) EC2FleetMaintenanceStrategiesPtrInput {
-	return (*ec2fleetMaintenanceStrategiesPtrType)(v)
+func Ec2FleetMaintenanceStrategiesPtr(v *Ec2FleetMaintenanceStrategiesArgs) Ec2FleetMaintenanceStrategiesPtrInput {
+	return (*ec2FleetMaintenanceStrategiesPtrType)(v)
 }
 
-func (*ec2fleetMaintenanceStrategiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetMaintenanceStrategies)(nil)).Elem()
+func (*ec2FleetMaintenanceStrategiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetMaintenanceStrategies)(nil)).Elem()
 }
 
-func (i *ec2fleetMaintenanceStrategiesPtrType) ToEC2FleetMaintenanceStrategiesPtrOutput() EC2FleetMaintenanceStrategiesPtrOutput {
-	return i.ToEC2FleetMaintenanceStrategiesPtrOutputWithContext(context.Background())
+func (i *ec2FleetMaintenanceStrategiesPtrType) ToEc2FleetMaintenanceStrategiesPtrOutput() Ec2FleetMaintenanceStrategiesPtrOutput {
+	return i.ToEc2FleetMaintenanceStrategiesPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetMaintenanceStrategiesPtrType) ToEC2FleetMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) EC2FleetMaintenanceStrategiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetMaintenanceStrategiesPtrOutput)
+func (i *ec2FleetMaintenanceStrategiesPtrType) ToEc2FleetMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) Ec2FleetMaintenanceStrategiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMaintenanceStrategiesPtrOutput)
 }
 
-type EC2FleetMaintenanceStrategiesOutput struct{ *pulumi.OutputState }
+type Ec2FleetMaintenanceStrategiesOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetMaintenanceStrategiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetMaintenanceStrategies)(nil)).Elem()
+func (Ec2FleetMaintenanceStrategiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetMaintenanceStrategies)(nil)).Elem()
 }
 
-func (o EC2FleetMaintenanceStrategiesOutput) ToEC2FleetMaintenanceStrategiesOutput() EC2FleetMaintenanceStrategiesOutput {
+func (o Ec2FleetMaintenanceStrategiesOutput) ToEc2FleetMaintenanceStrategiesOutput() Ec2FleetMaintenanceStrategiesOutput {
 	return o
 }
 
-func (o EC2FleetMaintenanceStrategiesOutput) ToEC2FleetMaintenanceStrategiesOutputWithContext(ctx context.Context) EC2FleetMaintenanceStrategiesOutput {
+func (o Ec2FleetMaintenanceStrategiesOutput) ToEc2FleetMaintenanceStrategiesOutputWithContext(ctx context.Context) Ec2FleetMaintenanceStrategiesOutput {
 	return o
 }
 
-func (o EC2FleetMaintenanceStrategiesOutput) ToEC2FleetMaintenanceStrategiesPtrOutput() EC2FleetMaintenanceStrategiesPtrOutput {
-	return o.ToEC2FleetMaintenanceStrategiesPtrOutputWithContext(context.Background())
+func (o Ec2FleetMaintenanceStrategiesOutput) ToEc2FleetMaintenanceStrategiesPtrOutput() Ec2FleetMaintenanceStrategiesPtrOutput {
+	return o.ToEc2FleetMaintenanceStrategiesPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetMaintenanceStrategiesOutput) ToEC2FleetMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) EC2FleetMaintenanceStrategiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetMaintenanceStrategies) *EC2FleetMaintenanceStrategies {
+func (o Ec2FleetMaintenanceStrategiesOutput) ToEc2FleetMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) Ec2FleetMaintenanceStrategiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetMaintenanceStrategies) *Ec2FleetMaintenanceStrategies {
 		return &v
-	}).(EC2FleetMaintenanceStrategiesPtrOutput)
+	}).(Ec2FleetMaintenanceStrategiesPtrOutput)
 }
 
-func (o EC2FleetMaintenanceStrategiesOutput) CapacityRebalance() EC2FleetCapacityRebalancePtrOutput {
-	return o.ApplyT(func(v EC2FleetMaintenanceStrategies) *EC2FleetCapacityRebalance { return v.CapacityRebalance }).(EC2FleetCapacityRebalancePtrOutput)
+func (o Ec2FleetMaintenanceStrategiesOutput) CapacityRebalance() Ec2FleetCapacityRebalancePtrOutput {
+	return o.ApplyT(func(v Ec2FleetMaintenanceStrategies) *Ec2FleetCapacityRebalance { return v.CapacityRebalance }).(Ec2FleetCapacityRebalancePtrOutput)
 }
 
-type EC2FleetMaintenanceStrategiesPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetMaintenanceStrategiesPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetMaintenanceStrategiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetMaintenanceStrategies)(nil)).Elem()
+func (Ec2FleetMaintenanceStrategiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetMaintenanceStrategies)(nil)).Elem()
 }
 
-func (o EC2FleetMaintenanceStrategiesPtrOutput) ToEC2FleetMaintenanceStrategiesPtrOutput() EC2FleetMaintenanceStrategiesPtrOutput {
+func (o Ec2FleetMaintenanceStrategiesPtrOutput) ToEc2FleetMaintenanceStrategiesPtrOutput() Ec2FleetMaintenanceStrategiesPtrOutput {
 	return o
 }
 
-func (o EC2FleetMaintenanceStrategiesPtrOutput) ToEC2FleetMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) EC2FleetMaintenanceStrategiesPtrOutput {
+func (o Ec2FleetMaintenanceStrategiesPtrOutput) ToEc2FleetMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) Ec2FleetMaintenanceStrategiesPtrOutput {
 	return o
 }
 
-func (o EC2FleetMaintenanceStrategiesPtrOutput) Elem() EC2FleetMaintenanceStrategiesOutput {
-	return o.ApplyT(func(v *EC2FleetMaintenanceStrategies) EC2FleetMaintenanceStrategies {
+func (o Ec2FleetMaintenanceStrategiesPtrOutput) Elem() Ec2FleetMaintenanceStrategiesOutput {
+	return o.ApplyT(func(v *Ec2FleetMaintenanceStrategies) Ec2FleetMaintenanceStrategies {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetMaintenanceStrategies
+		var ret Ec2FleetMaintenanceStrategies
 		return ret
-	}).(EC2FleetMaintenanceStrategiesOutput)
+	}).(Ec2FleetMaintenanceStrategiesOutput)
 }
 
-func (o EC2FleetMaintenanceStrategiesPtrOutput) CapacityRebalance() EC2FleetCapacityRebalancePtrOutput {
-	return o.ApplyT(func(v *EC2FleetMaintenanceStrategies) *EC2FleetCapacityRebalance {
+func (o Ec2FleetMaintenanceStrategiesPtrOutput) CapacityRebalance() Ec2FleetCapacityRebalancePtrOutput {
+	return o.ApplyT(func(v *Ec2FleetMaintenanceStrategies) *Ec2FleetCapacityRebalance {
 		if v == nil {
 			return nil
 		}
 		return v.CapacityRebalance
-	}).(EC2FleetCapacityRebalancePtrOutput)
+	}).(Ec2FleetCapacityRebalancePtrOutput)
 }
 
-type EC2FleetMemoryGiBPerVCpuRequest struct {
+type Ec2FleetMemoryGiBPerVCpuRequest struct {
 	Max *float64 `pulumi:"max"`
 	Min *float64 `pulumi:"min"`
 }
 
-// EC2FleetMemoryGiBPerVCpuRequestInput is an input type that accepts EC2FleetMemoryGiBPerVCpuRequestArgs and EC2FleetMemoryGiBPerVCpuRequestOutput values.
-// You can construct a concrete instance of `EC2FleetMemoryGiBPerVCpuRequestInput` via:
+// Ec2FleetMemoryGiBPerVCpuRequestInput is an input type that accepts Ec2FleetMemoryGiBPerVCpuRequestArgs and Ec2FleetMemoryGiBPerVCpuRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetMemoryGiBPerVCpuRequestInput` via:
 //
-//	EC2FleetMemoryGiBPerVCpuRequestArgs{...}
-type EC2FleetMemoryGiBPerVCpuRequestInput interface {
+//	Ec2FleetMemoryGiBPerVCpuRequestArgs{...}
+type Ec2FleetMemoryGiBPerVCpuRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetMemoryGiBPerVCpuRequestOutput() EC2FleetMemoryGiBPerVCpuRequestOutput
-	ToEC2FleetMemoryGiBPerVCpuRequestOutputWithContext(context.Context) EC2FleetMemoryGiBPerVCpuRequestOutput
+	ToEc2FleetMemoryGiBPerVCpuRequestOutput() Ec2FleetMemoryGiBPerVCpuRequestOutput
+	ToEc2FleetMemoryGiBPerVCpuRequestOutputWithContext(context.Context) Ec2FleetMemoryGiBPerVCpuRequestOutput
 }
 
-type EC2FleetMemoryGiBPerVCpuRequestArgs struct {
+type Ec2FleetMemoryGiBPerVCpuRequestArgs struct {
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
-func (EC2FleetMemoryGiBPerVCpuRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetMemoryGiBPerVCpuRequest)(nil)).Elem()
+func (Ec2FleetMemoryGiBPerVCpuRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetMemoryGiBPerVCpuRequest)(nil)).Elem()
 }
 
-func (i EC2FleetMemoryGiBPerVCpuRequestArgs) ToEC2FleetMemoryGiBPerVCpuRequestOutput() EC2FleetMemoryGiBPerVCpuRequestOutput {
-	return i.ToEC2FleetMemoryGiBPerVCpuRequestOutputWithContext(context.Background())
+func (i Ec2FleetMemoryGiBPerVCpuRequestArgs) ToEc2FleetMemoryGiBPerVCpuRequestOutput() Ec2FleetMemoryGiBPerVCpuRequestOutput {
+	return i.ToEc2FleetMemoryGiBPerVCpuRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetMemoryGiBPerVCpuRequestArgs) ToEC2FleetMemoryGiBPerVCpuRequestOutputWithContext(ctx context.Context) EC2FleetMemoryGiBPerVCpuRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetMemoryGiBPerVCpuRequestOutput)
+func (i Ec2FleetMemoryGiBPerVCpuRequestArgs) ToEc2FleetMemoryGiBPerVCpuRequestOutputWithContext(ctx context.Context) Ec2FleetMemoryGiBPerVCpuRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMemoryGiBPerVCpuRequestOutput)
 }
 
-func (i EC2FleetMemoryGiBPerVCpuRequestArgs) ToEC2FleetMemoryGiBPerVCpuRequestPtrOutput() EC2FleetMemoryGiBPerVCpuRequestPtrOutput {
-	return i.ToEC2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetMemoryGiBPerVCpuRequestArgs) ToEc2FleetMemoryGiBPerVCpuRequestPtrOutput() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
+	return i.ToEc2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetMemoryGiBPerVCpuRequestArgs) ToEC2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) EC2FleetMemoryGiBPerVCpuRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetMemoryGiBPerVCpuRequestOutput).ToEC2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetMemoryGiBPerVCpuRequestArgs) ToEc2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMemoryGiBPerVCpuRequestOutput).ToEc2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetMemoryGiBPerVCpuRequestPtrInput is an input type that accepts EC2FleetMemoryGiBPerVCpuRequestArgs, EC2FleetMemoryGiBPerVCpuRequestPtr and EC2FleetMemoryGiBPerVCpuRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetMemoryGiBPerVCpuRequestPtrInput` via:
+// Ec2FleetMemoryGiBPerVCpuRequestPtrInput is an input type that accepts Ec2FleetMemoryGiBPerVCpuRequestArgs, Ec2FleetMemoryGiBPerVCpuRequestPtr and Ec2FleetMemoryGiBPerVCpuRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetMemoryGiBPerVCpuRequestPtrInput` via:
 //
-//	        EC2FleetMemoryGiBPerVCpuRequestArgs{...}
+//	        Ec2FleetMemoryGiBPerVCpuRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetMemoryGiBPerVCpuRequestPtrInput interface {
+type Ec2FleetMemoryGiBPerVCpuRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetMemoryGiBPerVCpuRequestPtrOutput() EC2FleetMemoryGiBPerVCpuRequestPtrOutput
-	ToEC2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Context) EC2FleetMemoryGiBPerVCpuRequestPtrOutput
+	ToEc2FleetMemoryGiBPerVCpuRequestPtrOutput() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput
+	ToEc2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Context) Ec2FleetMemoryGiBPerVCpuRequestPtrOutput
 }
 
-type ec2fleetMemoryGiBPerVCpuRequestPtrType EC2FleetMemoryGiBPerVCpuRequestArgs
+type ec2FleetMemoryGiBPerVCpuRequestPtrType Ec2FleetMemoryGiBPerVCpuRequestArgs
 
-func EC2FleetMemoryGiBPerVCpuRequestPtr(v *EC2FleetMemoryGiBPerVCpuRequestArgs) EC2FleetMemoryGiBPerVCpuRequestPtrInput {
-	return (*ec2fleetMemoryGiBPerVCpuRequestPtrType)(v)
+func Ec2FleetMemoryGiBPerVCpuRequestPtr(v *Ec2FleetMemoryGiBPerVCpuRequestArgs) Ec2FleetMemoryGiBPerVCpuRequestPtrInput {
+	return (*ec2FleetMemoryGiBPerVCpuRequestPtrType)(v)
 }
 
-func (*ec2fleetMemoryGiBPerVCpuRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetMemoryGiBPerVCpuRequest)(nil)).Elem()
+func (*ec2FleetMemoryGiBPerVCpuRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetMemoryGiBPerVCpuRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetMemoryGiBPerVCpuRequestPtrType) ToEC2FleetMemoryGiBPerVCpuRequestPtrOutput() EC2FleetMemoryGiBPerVCpuRequestPtrOutput {
-	return i.ToEC2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetMemoryGiBPerVCpuRequestPtrType) ToEc2FleetMemoryGiBPerVCpuRequestPtrOutput() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
+	return i.ToEc2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetMemoryGiBPerVCpuRequestPtrType) ToEC2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) EC2FleetMemoryGiBPerVCpuRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetMemoryGiBPerVCpuRequestPtrOutput)
+func (i *ec2FleetMemoryGiBPerVCpuRequestPtrType) ToEc2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMemoryGiBPerVCpuRequestPtrOutput)
 }
 
-type EC2FleetMemoryGiBPerVCpuRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetMemoryGiBPerVCpuRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetMemoryGiBPerVCpuRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetMemoryGiBPerVCpuRequest)(nil)).Elem()
+func (Ec2FleetMemoryGiBPerVCpuRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetMemoryGiBPerVCpuRequest)(nil)).Elem()
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestOutput) ToEC2FleetMemoryGiBPerVCpuRequestOutput() EC2FleetMemoryGiBPerVCpuRequestOutput {
+func (o Ec2FleetMemoryGiBPerVCpuRequestOutput) ToEc2FleetMemoryGiBPerVCpuRequestOutput() Ec2FleetMemoryGiBPerVCpuRequestOutput {
 	return o
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestOutput) ToEC2FleetMemoryGiBPerVCpuRequestOutputWithContext(ctx context.Context) EC2FleetMemoryGiBPerVCpuRequestOutput {
+func (o Ec2FleetMemoryGiBPerVCpuRequestOutput) ToEc2FleetMemoryGiBPerVCpuRequestOutputWithContext(ctx context.Context) Ec2FleetMemoryGiBPerVCpuRequestOutput {
 	return o
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestOutput) ToEC2FleetMemoryGiBPerVCpuRequestPtrOutput() EC2FleetMemoryGiBPerVCpuRequestPtrOutput {
-	return o.ToEC2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetMemoryGiBPerVCpuRequestOutput) ToEc2FleetMemoryGiBPerVCpuRequestPtrOutput() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
+	return o.ToEc2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestOutput) ToEC2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) EC2FleetMemoryGiBPerVCpuRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetMemoryGiBPerVCpuRequest) *EC2FleetMemoryGiBPerVCpuRequest {
+func (o Ec2FleetMemoryGiBPerVCpuRequestOutput) ToEc2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetMemoryGiBPerVCpuRequest) *Ec2FleetMemoryGiBPerVCpuRequest {
 		return &v
-	}).(EC2FleetMemoryGiBPerVCpuRequestPtrOutput)
+	}).(Ec2FleetMemoryGiBPerVCpuRequestPtrOutput)
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestOutput) Max() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v EC2FleetMemoryGiBPerVCpuRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+func (o Ec2FleetMemoryGiBPerVCpuRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Ec2FleetMemoryGiBPerVCpuRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestOutput) Min() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v EC2FleetMemoryGiBPerVCpuRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+func (o Ec2FleetMemoryGiBPerVCpuRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Ec2FleetMemoryGiBPerVCpuRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
 
-type EC2FleetMemoryGiBPerVCpuRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetMemoryGiBPerVCpuRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetMemoryGiBPerVCpuRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetMemoryGiBPerVCpuRequest)(nil)).Elem()
+func (Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetMemoryGiBPerVCpuRequest)(nil)).Elem()
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestPtrOutput) ToEC2FleetMemoryGiBPerVCpuRequestPtrOutput() EC2FleetMemoryGiBPerVCpuRequestPtrOutput {
+func (o Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) ToEc2FleetMemoryGiBPerVCpuRequestPtrOutput() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestPtrOutput) ToEC2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) EC2FleetMemoryGiBPerVCpuRequestPtrOutput {
+func (o Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) ToEc2FleetMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestPtrOutput) Elem() EC2FleetMemoryGiBPerVCpuRequestOutput {
-	return o.ApplyT(func(v *EC2FleetMemoryGiBPerVCpuRequest) EC2FleetMemoryGiBPerVCpuRequest {
+func (o Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) Elem() Ec2FleetMemoryGiBPerVCpuRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetMemoryGiBPerVCpuRequest) Ec2FleetMemoryGiBPerVCpuRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetMemoryGiBPerVCpuRequest
+		var ret Ec2FleetMemoryGiBPerVCpuRequest
 		return ret
-	}).(EC2FleetMemoryGiBPerVCpuRequestOutput)
+	}).(Ec2FleetMemoryGiBPerVCpuRequestOutput)
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *EC2FleetMemoryGiBPerVCpuRequest) *float64 {
+func (o Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Ec2FleetMemoryGiBPerVCpuRequest) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -4051,8 +4051,8 @@ func (o EC2FleetMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o EC2FleetMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *EC2FleetMemoryGiBPerVCpuRequest) *float64 {
+func (o Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Ec2FleetMemoryGiBPerVCpuRequest) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -4060,138 +4060,138 @@ func (o EC2FleetMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-type EC2FleetMemoryMiBRequest struct {
+type Ec2FleetMemoryMiBRequest struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
 }
 
-// EC2FleetMemoryMiBRequestInput is an input type that accepts EC2FleetMemoryMiBRequestArgs and EC2FleetMemoryMiBRequestOutput values.
-// You can construct a concrete instance of `EC2FleetMemoryMiBRequestInput` via:
+// Ec2FleetMemoryMiBRequestInput is an input type that accepts Ec2FleetMemoryMiBRequestArgs and Ec2FleetMemoryMiBRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetMemoryMiBRequestInput` via:
 //
-//	EC2FleetMemoryMiBRequestArgs{...}
-type EC2FleetMemoryMiBRequestInput interface {
+//	Ec2FleetMemoryMiBRequestArgs{...}
+type Ec2FleetMemoryMiBRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetMemoryMiBRequestOutput() EC2FleetMemoryMiBRequestOutput
-	ToEC2FleetMemoryMiBRequestOutputWithContext(context.Context) EC2FleetMemoryMiBRequestOutput
+	ToEc2FleetMemoryMiBRequestOutput() Ec2FleetMemoryMiBRequestOutput
+	ToEc2FleetMemoryMiBRequestOutputWithContext(context.Context) Ec2FleetMemoryMiBRequestOutput
 }
 
-type EC2FleetMemoryMiBRequestArgs struct {
+type Ec2FleetMemoryMiBRequestArgs struct {
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
-func (EC2FleetMemoryMiBRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetMemoryMiBRequest)(nil)).Elem()
+func (Ec2FleetMemoryMiBRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetMemoryMiBRequest)(nil)).Elem()
 }
 
-func (i EC2FleetMemoryMiBRequestArgs) ToEC2FleetMemoryMiBRequestOutput() EC2FleetMemoryMiBRequestOutput {
-	return i.ToEC2FleetMemoryMiBRequestOutputWithContext(context.Background())
+func (i Ec2FleetMemoryMiBRequestArgs) ToEc2FleetMemoryMiBRequestOutput() Ec2FleetMemoryMiBRequestOutput {
+	return i.ToEc2FleetMemoryMiBRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetMemoryMiBRequestArgs) ToEC2FleetMemoryMiBRequestOutputWithContext(ctx context.Context) EC2FleetMemoryMiBRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetMemoryMiBRequestOutput)
+func (i Ec2FleetMemoryMiBRequestArgs) ToEc2FleetMemoryMiBRequestOutputWithContext(ctx context.Context) Ec2FleetMemoryMiBRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMemoryMiBRequestOutput)
 }
 
-func (i EC2FleetMemoryMiBRequestArgs) ToEC2FleetMemoryMiBRequestPtrOutput() EC2FleetMemoryMiBRequestPtrOutput {
-	return i.ToEC2FleetMemoryMiBRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetMemoryMiBRequestArgs) ToEc2FleetMemoryMiBRequestPtrOutput() Ec2FleetMemoryMiBRequestPtrOutput {
+	return i.ToEc2FleetMemoryMiBRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetMemoryMiBRequestArgs) ToEC2FleetMemoryMiBRequestPtrOutputWithContext(ctx context.Context) EC2FleetMemoryMiBRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetMemoryMiBRequestOutput).ToEC2FleetMemoryMiBRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetMemoryMiBRequestArgs) ToEc2FleetMemoryMiBRequestPtrOutputWithContext(ctx context.Context) Ec2FleetMemoryMiBRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMemoryMiBRequestOutput).ToEc2FleetMemoryMiBRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetMemoryMiBRequestPtrInput is an input type that accepts EC2FleetMemoryMiBRequestArgs, EC2FleetMemoryMiBRequestPtr and EC2FleetMemoryMiBRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetMemoryMiBRequestPtrInput` via:
+// Ec2FleetMemoryMiBRequestPtrInput is an input type that accepts Ec2FleetMemoryMiBRequestArgs, Ec2FleetMemoryMiBRequestPtr and Ec2FleetMemoryMiBRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetMemoryMiBRequestPtrInput` via:
 //
-//	        EC2FleetMemoryMiBRequestArgs{...}
+//	        Ec2FleetMemoryMiBRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetMemoryMiBRequestPtrInput interface {
+type Ec2FleetMemoryMiBRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetMemoryMiBRequestPtrOutput() EC2FleetMemoryMiBRequestPtrOutput
-	ToEC2FleetMemoryMiBRequestPtrOutputWithContext(context.Context) EC2FleetMemoryMiBRequestPtrOutput
+	ToEc2FleetMemoryMiBRequestPtrOutput() Ec2FleetMemoryMiBRequestPtrOutput
+	ToEc2FleetMemoryMiBRequestPtrOutputWithContext(context.Context) Ec2FleetMemoryMiBRequestPtrOutput
 }
 
-type ec2fleetMemoryMiBRequestPtrType EC2FleetMemoryMiBRequestArgs
+type ec2FleetMemoryMiBRequestPtrType Ec2FleetMemoryMiBRequestArgs
 
-func EC2FleetMemoryMiBRequestPtr(v *EC2FleetMemoryMiBRequestArgs) EC2FleetMemoryMiBRequestPtrInput {
-	return (*ec2fleetMemoryMiBRequestPtrType)(v)
+func Ec2FleetMemoryMiBRequestPtr(v *Ec2FleetMemoryMiBRequestArgs) Ec2FleetMemoryMiBRequestPtrInput {
+	return (*ec2FleetMemoryMiBRequestPtrType)(v)
 }
 
-func (*ec2fleetMemoryMiBRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetMemoryMiBRequest)(nil)).Elem()
+func (*ec2FleetMemoryMiBRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetMemoryMiBRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetMemoryMiBRequestPtrType) ToEC2FleetMemoryMiBRequestPtrOutput() EC2FleetMemoryMiBRequestPtrOutput {
-	return i.ToEC2FleetMemoryMiBRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetMemoryMiBRequestPtrType) ToEc2FleetMemoryMiBRequestPtrOutput() Ec2FleetMemoryMiBRequestPtrOutput {
+	return i.ToEc2FleetMemoryMiBRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetMemoryMiBRequestPtrType) ToEC2FleetMemoryMiBRequestPtrOutputWithContext(ctx context.Context) EC2FleetMemoryMiBRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetMemoryMiBRequestPtrOutput)
+func (i *ec2FleetMemoryMiBRequestPtrType) ToEc2FleetMemoryMiBRequestPtrOutputWithContext(ctx context.Context) Ec2FleetMemoryMiBRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMemoryMiBRequestPtrOutput)
 }
 
-type EC2FleetMemoryMiBRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetMemoryMiBRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetMemoryMiBRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetMemoryMiBRequest)(nil)).Elem()
+func (Ec2FleetMemoryMiBRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetMemoryMiBRequest)(nil)).Elem()
 }
 
-func (o EC2FleetMemoryMiBRequestOutput) ToEC2FleetMemoryMiBRequestOutput() EC2FleetMemoryMiBRequestOutput {
+func (o Ec2FleetMemoryMiBRequestOutput) ToEc2FleetMemoryMiBRequestOutput() Ec2FleetMemoryMiBRequestOutput {
 	return o
 }
 
-func (o EC2FleetMemoryMiBRequestOutput) ToEC2FleetMemoryMiBRequestOutputWithContext(ctx context.Context) EC2FleetMemoryMiBRequestOutput {
+func (o Ec2FleetMemoryMiBRequestOutput) ToEc2FleetMemoryMiBRequestOutputWithContext(ctx context.Context) Ec2FleetMemoryMiBRequestOutput {
 	return o
 }
 
-func (o EC2FleetMemoryMiBRequestOutput) ToEC2FleetMemoryMiBRequestPtrOutput() EC2FleetMemoryMiBRequestPtrOutput {
-	return o.ToEC2FleetMemoryMiBRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetMemoryMiBRequestOutput) ToEc2FleetMemoryMiBRequestPtrOutput() Ec2FleetMemoryMiBRequestPtrOutput {
+	return o.ToEc2FleetMemoryMiBRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetMemoryMiBRequestOutput) ToEC2FleetMemoryMiBRequestPtrOutputWithContext(ctx context.Context) EC2FleetMemoryMiBRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetMemoryMiBRequest) *EC2FleetMemoryMiBRequest {
+func (o Ec2FleetMemoryMiBRequestOutput) ToEc2FleetMemoryMiBRequestPtrOutputWithContext(ctx context.Context) Ec2FleetMemoryMiBRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetMemoryMiBRequest) *Ec2FleetMemoryMiBRequest {
 		return &v
-	}).(EC2FleetMemoryMiBRequestPtrOutput)
+	}).(Ec2FleetMemoryMiBRequestPtrOutput)
 }
 
-func (o EC2FleetMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+func (o Ec2FleetMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetMemoryMiBRequestOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetMemoryMiBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+func (o Ec2FleetMemoryMiBRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetMemoryMiBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetMemoryMiBRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetMemoryMiBRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetMemoryMiBRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetMemoryMiBRequest)(nil)).Elem()
+func (Ec2FleetMemoryMiBRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetMemoryMiBRequest)(nil)).Elem()
 }
 
-func (o EC2FleetMemoryMiBRequestPtrOutput) ToEC2FleetMemoryMiBRequestPtrOutput() EC2FleetMemoryMiBRequestPtrOutput {
+func (o Ec2FleetMemoryMiBRequestPtrOutput) ToEc2FleetMemoryMiBRequestPtrOutput() Ec2FleetMemoryMiBRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetMemoryMiBRequestPtrOutput) ToEC2FleetMemoryMiBRequestPtrOutputWithContext(ctx context.Context) EC2FleetMemoryMiBRequestPtrOutput {
+func (o Ec2FleetMemoryMiBRequestPtrOutput) ToEc2FleetMemoryMiBRequestPtrOutputWithContext(ctx context.Context) Ec2FleetMemoryMiBRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetMemoryMiBRequestPtrOutput) Elem() EC2FleetMemoryMiBRequestOutput {
-	return o.ApplyT(func(v *EC2FleetMemoryMiBRequest) EC2FleetMemoryMiBRequest {
+func (o Ec2FleetMemoryMiBRequestPtrOutput) Elem() Ec2FleetMemoryMiBRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetMemoryMiBRequest) Ec2FleetMemoryMiBRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetMemoryMiBRequest
+		var ret Ec2FleetMemoryMiBRequest
 		return ret
-	}).(EC2FleetMemoryMiBRequestOutput)
+	}).(Ec2FleetMemoryMiBRequestOutput)
 }
 
-func (o EC2FleetMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetMemoryMiBRequest) *int {
+func (o Ec2FleetMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetMemoryMiBRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -4199,8 +4199,8 @@ func (o EC2FleetMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetMemoryMiBRequest) *int {
+func (o Ec2FleetMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetMemoryMiBRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -4208,138 +4208,138 @@ func (o EC2FleetMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetNetworkBandwidthGbpsRequest struct {
+type Ec2FleetNetworkBandwidthGbpsRequest struct {
 	Max *float64 `pulumi:"max"`
 	Min *float64 `pulumi:"min"`
 }
 
-// EC2FleetNetworkBandwidthGbpsRequestInput is an input type that accepts EC2FleetNetworkBandwidthGbpsRequestArgs and EC2FleetNetworkBandwidthGbpsRequestOutput values.
-// You can construct a concrete instance of `EC2FleetNetworkBandwidthGbpsRequestInput` via:
+// Ec2FleetNetworkBandwidthGbpsRequestInput is an input type that accepts Ec2FleetNetworkBandwidthGbpsRequestArgs and Ec2FleetNetworkBandwidthGbpsRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetNetworkBandwidthGbpsRequestInput` via:
 //
-//	EC2FleetNetworkBandwidthGbpsRequestArgs{...}
-type EC2FleetNetworkBandwidthGbpsRequestInput interface {
+//	Ec2FleetNetworkBandwidthGbpsRequestArgs{...}
+type Ec2FleetNetworkBandwidthGbpsRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetNetworkBandwidthGbpsRequestOutput() EC2FleetNetworkBandwidthGbpsRequestOutput
-	ToEC2FleetNetworkBandwidthGbpsRequestOutputWithContext(context.Context) EC2FleetNetworkBandwidthGbpsRequestOutput
+	ToEc2FleetNetworkBandwidthGbpsRequestOutput() Ec2FleetNetworkBandwidthGbpsRequestOutput
+	ToEc2FleetNetworkBandwidthGbpsRequestOutputWithContext(context.Context) Ec2FleetNetworkBandwidthGbpsRequestOutput
 }
 
-type EC2FleetNetworkBandwidthGbpsRequestArgs struct {
+type Ec2FleetNetworkBandwidthGbpsRequestArgs struct {
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
-func (EC2FleetNetworkBandwidthGbpsRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+func (Ec2FleetNetworkBandwidthGbpsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
 }
 
-func (i EC2FleetNetworkBandwidthGbpsRequestArgs) ToEC2FleetNetworkBandwidthGbpsRequestOutput() EC2FleetNetworkBandwidthGbpsRequestOutput {
-	return i.ToEC2FleetNetworkBandwidthGbpsRequestOutputWithContext(context.Background())
+func (i Ec2FleetNetworkBandwidthGbpsRequestArgs) ToEc2FleetNetworkBandwidthGbpsRequestOutput() Ec2FleetNetworkBandwidthGbpsRequestOutput {
+	return i.ToEc2FleetNetworkBandwidthGbpsRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetNetworkBandwidthGbpsRequestArgs) ToEC2FleetNetworkBandwidthGbpsRequestOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetNetworkBandwidthGbpsRequestOutput)
+func (i Ec2FleetNetworkBandwidthGbpsRequestArgs) ToEc2FleetNetworkBandwidthGbpsRequestOutputWithContext(ctx context.Context) Ec2FleetNetworkBandwidthGbpsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetNetworkBandwidthGbpsRequestOutput)
 }
 
-func (i EC2FleetNetworkBandwidthGbpsRequestArgs) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutput() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
-	return i.ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetNetworkBandwidthGbpsRequestArgs) ToEc2FleetNetworkBandwidthGbpsRequestPtrOutput() Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return i.ToEc2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetNetworkBandwidthGbpsRequestArgs) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetNetworkBandwidthGbpsRequestOutput).ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetNetworkBandwidthGbpsRequestArgs) ToEc2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetNetworkBandwidthGbpsRequestOutput).ToEc2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetNetworkBandwidthGbpsRequestPtrInput is an input type that accepts EC2FleetNetworkBandwidthGbpsRequestArgs, EC2FleetNetworkBandwidthGbpsRequestPtr and EC2FleetNetworkBandwidthGbpsRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetNetworkBandwidthGbpsRequestPtrInput` via:
+// Ec2FleetNetworkBandwidthGbpsRequestPtrInput is an input type that accepts Ec2FleetNetworkBandwidthGbpsRequestArgs, Ec2FleetNetworkBandwidthGbpsRequestPtr and Ec2FleetNetworkBandwidthGbpsRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetNetworkBandwidthGbpsRequestPtrInput` via:
 //
-//	        EC2FleetNetworkBandwidthGbpsRequestArgs{...}
+//	        Ec2FleetNetworkBandwidthGbpsRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetNetworkBandwidthGbpsRequestPtrInput interface {
+type Ec2FleetNetworkBandwidthGbpsRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetNetworkBandwidthGbpsRequestPtrOutput() EC2FleetNetworkBandwidthGbpsRequestPtrOutput
-	ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Context) EC2FleetNetworkBandwidthGbpsRequestPtrOutput
+	ToEc2FleetNetworkBandwidthGbpsRequestPtrOutput() Ec2FleetNetworkBandwidthGbpsRequestPtrOutput
+	ToEc2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Context) Ec2FleetNetworkBandwidthGbpsRequestPtrOutput
 }
 
-type ec2fleetNetworkBandwidthGbpsRequestPtrType EC2FleetNetworkBandwidthGbpsRequestArgs
+type ec2FleetNetworkBandwidthGbpsRequestPtrType Ec2FleetNetworkBandwidthGbpsRequestArgs
 
-func EC2FleetNetworkBandwidthGbpsRequestPtr(v *EC2FleetNetworkBandwidthGbpsRequestArgs) EC2FleetNetworkBandwidthGbpsRequestPtrInput {
-	return (*ec2fleetNetworkBandwidthGbpsRequestPtrType)(v)
+func Ec2FleetNetworkBandwidthGbpsRequestPtr(v *Ec2FleetNetworkBandwidthGbpsRequestArgs) Ec2FleetNetworkBandwidthGbpsRequestPtrInput {
+	return (*ec2FleetNetworkBandwidthGbpsRequestPtrType)(v)
 }
 
-func (*ec2fleetNetworkBandwidthGbpsRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+func (*ec2FleetNetworkBandwidthGbpsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetNetworkBandwidthGbpsRequestPtrType) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutput() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
-	return i.ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetNetworkBandwidthGbpsRequestPtrType) ToEc2FleetNetworkBandwidthGbpsRequestPtrOutput() Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return i.ToEc2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetNetworkBandwidthGbpsRequestPtrType) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetNetworkBandwidthGbpsRequestPtrOutput)
+func (i *ec2FleetNetworkBandwidthGbpsRequestPtrType) ToEc2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
-type EC2FleetNetworkBandwidthGbpsRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetNetworkBandwidthGbpsRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetNetworkBandwidthGbpsRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+func (Ec2FleetNetworkBandwidthGbpsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestOutput) ToEC2FleetNetworkBandwidthGbpsRequestOutput() EC2FleetNetworkBandwidthGbpsRequestOutput {
+func (o Ec2FleetNetworkBandwidthGbpsRequestOutput) ToEc2FleetNetworkBandwidthGbpsRequestOutput() Ec2FleetNetworkBandwidthGbpsRequestOutput {
 	return o
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestOutput) ToEC2FleetNetworkBandwidthGbpsRequestOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestOutput {
+func (o Ec2FleetNetworkBandwidthGbpsRequestOutput) ToEc2FleetNetworkBandwidthGbpsRequestOutputWithContext(ctx context.Context) Ec2FleetNetworkBandwidthGbpsRequestOutput {
 	return o
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestOutput) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutput() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
-	return o.ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetNetworkBandwidthGbpsRequestOutput) ToEc2FleetNetworkBandwidthGbpsRequestPtrOutput() Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ToEc2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestOutput) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetNetworkBandwidthGbpsRequest) *EC2FleetNetworkBandwidthGbpsRequest {
+func (o Ec2FleetNetworkBandwidthGbpsRequestOutput) ToEc2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetNetworkBandwidthGbpsRequest) *Ec2FleetNetworkBandwidthGbpsRequest {
 		return &v
-	}).(EC2FleetNetworkBandwidthGbpsRequestPtrOutput)
+	}).(Ec2FleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestOutput) Max() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v EC2FleetNetworkBandwidthGbpsRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+func (o Ec2FleetNetworkBandwidthGbpsRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkBandwidthGbpsRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestOutput) Min() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v EC2FleetNetworkBandwidthGbpsRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+func (o Ec2FleetNetworkBandwidthGbpsRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkBandwidthGbpsRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
 
-type EC2FleetNetworkBandwidthGbpsRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetNetworkBandwidthGbpsRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetNetworkBandwidthGbpsRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+func (Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutput() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+func (o Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) ToEc2FleetNetworkBandwidthGbpsRequestPtrOutput() Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+func (o Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) ToEc2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) Elem() EC2FleetNetworkBandwidthGbpsRequestOutput {
-	return o.ApplyT(func(v *EC2FleetNetworkBandwidthGbpsRequest) EC2FleetNetworkBandwidthGbpsRequest {
+func (o Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) Elem() Ec2FleetNetworkBandwidthGbpsRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetNetworkBandwidthGbpsRequest) Ec2FleetNetworkBandwidthGbpsRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetNetworkBandwidthGbpsRequest
+		var ret Ec2FleetNetworkBandwidthGbpsRequest
 		return ret
-	}).(EC2FleetNetworkBandwidthGbpsRequestOutput)
+	}).(Ec2FleetNetworkBandwidthGbpsRequestOutput)
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *EC2FleetNetworkBandwidthGbpsRequest) *float64 {
+func (o Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Ec2FleetNetworkBandwidthGbpsRequest) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -4347,8 +4347,8 @@ func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *EC2FleetNetworkBandwidthGbpsRequest) *float64 {
+func (o Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Ec2FleetNetworkBandwidthGbpsRequest) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -4356,138 +4356,138 @@ func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-type EC2FleetNetworkInterfaceCountRequest struct {
+type Ec2FleetNetworkInterfaceCountRequest struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
 }
 
-// EC2FleetNetworkInterfaceCountRequestInput is an input type that accepts EC2FleetNetworkInterfaceCountRequestArgs and EC2FleetNetworkInterfaceCountRequestOutput values.
-// You can construct a concrete instance of `EC2FleetNetworkInterfaceCountRequestInput` via:
+// Ec2FleetNetworkInterfaceCountRequestInput is an input type that accepts Ec2FleetNetworkInterfaceCountRequestArgs and Ec2FleetNetworkInterfaceCountRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetNetworkInterfaceCountRequestInput` via:
 //
-//	EC2FleetNetworkInterfaceCountRequestArgs{...}
-type EC2FleetNetworkInterfaceCountRequestInput interface {
+//	Ec2FleetNetworkInterfaceCountRequestArgs{...}
+type Ec2FleetNetworkInterfaceCountRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetNetworkInterfaceCountRequestOutput() EC2FleetNetworkInterfaceCountRequestOutput
-	ToEC2FleetNetworkInterfaceCountRequestOutputWithContext(context.Context) EC2FleetNetworkInterfaceCountRequestOutput
+	ToEc2FleetNetworkInterfaceCountRequestOutput() Ec2FleetNetworkInterfaceCountRequestOutput
+	ToEc2FleetNetworkInterfaceCountRequestOutputWithContext(context.Context) Ec2FleetNetworkInterfaceCountRequestOutput
 }
 
-type EC2FleetNetworkInterfaceCountRequestArgs struct {
+type Ec2FleetNetworkInterfaceCountRequestArgs struct {
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
-func (EC2FleetNetworkInterfaceCountRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetNetworkInterfaceCountRequest)(nil)).Elem()
+func (Ec2FleetNetworkInterfaceCountRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetNetworkInterfaceCountRequest)(nil)).Elem()
 }
 
-func (i EC2FleetNetworkInterfaceCountRequestArgs) ToEC2FleetNetworkInterfaceCountRequestOutput() EC2FleetNetworkInterfaceCountRequestOutput {
-	return i.ToEC2FleetNetworkInterfaceCountRequestOutputWithContext(context.Background())
+func (i Ec2FleetNetworkInterfaceCountRequestArgs) ToEc2FleetNetworkInterfaceCountRequestOutput() Ec2FleetNetworkInterfaceCountRequestOutput {
+	return i.ToEc2FleetNetworkInterfaceCountRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetNetworkInterfaceCountRequestArgs) ToEC2FleetNetworkInterfaceCountRequestOutputWithContext(ctx context.Context) EC2FleetNetworkInterfaceCountRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetNetworkInterfaceCountRequestOutput)
+func (i Ec2FleetNetworkInterfaceCountRequestArgs) ToEc2FleetNetworkInterfaceCountRequestOutputWithContext(ctx context.Context) Ec2FleetNetworkInterfaceCountRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetNetworkInterfaceCountRequestOutput)
 }
 
-func (i EC2FleetNetworkInterfaceCountRequestArgs) ToEC2FleetNetworkInterfaceCountRequestPtrOutput() EC2FleetNetworkInterfaceCountRequestPtrOutput {
-	return i.ToEC2FleetNetworkInterfaceCountRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetNetworkInterfaceCountRequestArgs) ToEc2FleetNetworkInterfaceCountRequestPtrOutput() Ec2FleetNetworkInterfaceCountRequestPtrOutput {
+	return i.ToEc2FleetNetworkInterfaceCountRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetNetworkInterfaceCountRequestArgs) ToEC2FleetNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkInterfaceCountRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetNetworkInterfaceCountRequestOutput).ToEC2FleetNetworkInterfaceCountRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetNetworkInterfaceCountRequestArgs) ToEc2FleetNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) Ec2FleetNetworkInterfaceCountRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetNetworkInterfaceCountRequestOutput).ToEc2FleetNetworkInterfaceCountRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetNetworkInterfaceCountRequestPtrInput is an input type that accepts EC2FleetNetworkInterfaceCountRequestArgs, EC2FleetNetworkInterfaceCountRequestPtr and EC2FleetNetworkInterfaceCountRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetNetworkInterfaceCountRequestPtrInput` via:
+// Ec2FleetNetworkInterfaceCountRequestPtrInput is an input type that accepts Ec2FleetNetworkInterfaceCountRequestArgs, Ec2FleetNetworkInterfaceCountRequestPtr and Ec2FleetNetworkInterfaceCountRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetNetworkInterfaceCountRequestPtrInput` via:
 //
-//	        EC2FleetNetworkInterfaceCountRequestArgs{...}
+//	        Ec2FleetNetworkInterfaceCountRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetNetworkInterfaceCountRequestPtrInput interface {
+type Ec2FleetNetworkInterfaceCountRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetNetworkInterfaceCountRequestPtrOutput() EC2FleetNetworkInterfaceCountRequestPtrOutput
-	ToEC2FleetNetworkInterfaceCountRequestPtrOutputWithContext(context.Context) EC2FleetNetworkInterfaceCountRequestPtrOutput
+	ToEc2FleetNetworkInterfaceCountRequestPtrOutput() Ec2FleetNetworkInterfaceCountRequestPtrOutput
+	ToEc2FleetNetworkInterfaceCountRequestPtrOutputWithContext(context.Context) Ec2FleetNetworkInterfaceCountRequestPtrOutput
 }
 
-type ec2fleetNetworkInterfaceCountRequestPtrType EC2FleetNetworkInterfaceCountRequestArgs
+type ec2FleetNetworkInterfaceCountRequestPtrType Ec2FleetNetworkInterfaceCountRequestArgs
 
-func EC2FleetNetworkInterfaceCountRequestPtr(v *EC2FleetNetworkInterfaceCountRequestArgs) EC2FleetNetworkInterfaceCountRequestPtrInput {
-	return (*ec2fleetNetworkInterfaceCountRequestPtrType)(v)
+func Ec2FleetNetworkInterfaceCountRequestPtr(v *Ec2FleetNetworkInterfaceCountRequestArgs) Ec2FleetNetworkInterfaceCountRequestPtrInput {
+	return (*ec2FleetNetworkInterfaceCountRequestPtrType)(v)
 }
 
-func (*ec2fleetNetworkInterfaceCountRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetNetworkInterfaceCountRequest)(nil)).Elem()
+func (*ec2FleetNetworkInterfaceCountRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetNetworkInterfaceCountRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetNetworkInterfaceCountRequestPtrType) ToEC2FleetNetworkInterfaceCountRequestPtrOutput() EC2FleetNetworkInterfaceCountRequestPtrOutput {
-	return i.ToEC2FleetNetworkInterfaceCountRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetNetworkInterfaceCountRequestPtrType) ToEc2FleetNetworkInterfaceCountRequestPtrOutput() Ec2FleetNetworkInterfaceCountRequestPtrOutput {
+	return i.ToEc2FleetNetworkInterfaceCountRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetNetworkInterfaceCountRequestPtrType) ToEC2FleetNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkInterfaceCountRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetNetworkInterfaceCountRequestPtrOutput)
+func (i *ec2FleetNetworkInterfaceCountRequestPtrType) ToEc2FleetNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) Ec2FleetNetworkInterfaceCountRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetNetworkInterfaceCountRequestPtrOutput)
 }
 
-type EC2FleetNetworkInterfaceCountRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetNetworkInterfaceCountRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetNetworkInterfaceCountRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetNetworkInterfaceCountRequest)(nil)).Elem()
+func (Ec2FleetNetworkInterfaceCountRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetNetworkInterfaceCountRequest)(nil)).Elem()
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestOutput) ToEC2FleetNetworkInterfaceCountRequestOutput() EC2FleetNetworkInterfaceCountRequestOutput {
+func (o Ec2FleetNetworkInterfaceCountRequestOutput) ToEc2FleetNetworkInterfaceCountRequestOutput() Ec2FleetNetworkInterfaceCountRequestOutput {
 	return o
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestOutput) ToEC2FleetNetworkInterfaceCountRequestOutputWithContext(ctx context.Context) EC2FleetNetworkInterfaceCountRequestOutput {
+func (o Ec2FleetNetworkInterfaceCountRequestOutput) ToEc2FleetNetworkInterfaceCountRequestOutputWithContext(ctx context.Context) Ec2FleetNetworkInterfaceCountRequestOutput {
 	return o
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestOutput) ToEC2FleetNetworkInterfaceCountRequestPtrOutput() EC2FleetNetworkInterfaceCountRequestPtrOutput {
-	return o.ToEC2FleetNetworkInterfaceCountRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetNetworkInterfaceCountRequestOutput) ToEc2FleetNetworkInterfaceCountRequestPtrOutput() Ec2FleetNetworkInterfaceCountRequestPtrOutput {
+	return o.ToEc2FleetNetworkInterfaceCountRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestOutput) ToEC2FleetNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkInterfaceCountRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetNetworkInterfaceCountRequest) *EC2FleetNetworkInterfaceCountRequest {
+func (o Ec2FleetNetworkInterfaceCountRequestOutput) ToEc2FleetNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) Ec2FleetNetworkInterfaceCountRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetNetworkInterfaceCountRequest) *Ec2FleetNetworkInterfaceCountRequest {
 		return &v
-	}).(EC2FleetNetworkInterfaceCountRequestPtrOutput)
+	}).(Ec2FleetNetworkInterfaceCountRequestPtrOutput)
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetNetworkInterfaceCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+func (o Ec2FleetNetworkInterfaceCountRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetNetworkInterfaceCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+func (o Ec2FleetNetworkInterfaceCountRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetNetworkInterfaceCountRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetNetworkInterfaceCountRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetNetworkInterfaceCountRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetNetworkInterfaceCountRequest)(nil)).Elem()
+func (Ec2FleetNetworkInterfaceCountRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetNetworkInterfaceCountRequest)(nil)).Elem()
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestPtrOutput) ToEC2FleetNetworkInterfaceCountRequestPtrOutput() EC2FleetNetworkInterfaceCountRequestPtrOutput {
+func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) ToEc2FleetNetworkInterfaceCountRequestPtrOutput() Ec2FleetNetworkInterfaceCountRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestPtrOutput) ToEC2FleetNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkInterfaceCountRequestPtrOutput {
+func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) ToEc2FleetNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) Ec2FleetNetworkInterfaceCountRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestPtrOutput) Elem() EC2FleetNetworkInterfaceCountRequestOutput {
-	return o.ApplyT(func(v *EC2FleetNetworkInterfaceCountRequest) EC2FleetNetworkInterfaceCountRequest {
+func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) Elem() Ec2FleetNetworkInterfaceCountRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetNetworkInterfaceCountRequest) Ec2FleetNetworkInterfaceCountRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetNetworkInterfaceCountRequest
+		var ret Ec2FleetNetworkInterfaceCountRequest
 		return ret
-	}).(EC2FleetNetworkInterfaceCountRequestOutput)
+	}).(Ec2FleetNetworkInterfaceCountRequestOutput)
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetNetworkInterfaceCountRequest) *int {
+func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetNetworkInterfaceCountRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -4495,8 +4495,8 @@ func (o EC2FleetNetworkInterfaceCountRequestPtrOutput) Max() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetNetworkInterfaceCountRequest) *int {
+func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetNetworkInterfaceCountRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -4504,164 +4504,164 @@ func (o EC2FleetNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetOnDemandOptionsRequest struct {
+type Ec2FleetOnDemandOptionsRequest struct {
 	AllocationStrategy         *string                                    `pulumi:"allocationStrategy"`
-	CapacityReservationOptions *EC2FleetCapacityReservationOptionsRequest `pulumi:"capacityReservationOptions"`
+	CapacityReservationOptions *Ec2FleetCapacityReservationOptionsRequest `pulumi:"capacityReservationOptions"`
 	MaxTotalPrice              *string                                    `pulumi:"maxTotalPrice"`
 	MinTargetCapacity          *int                                       `pulumi:"minTargetCapacity"`
 	SingleAvailabilityZone     *bool                                      `pulumi:"singleAvailabilityZone"`
 	SingleInstanceType         *bool                                      `pulumi:"singleInstanceType"`
 }
 
-// EC2FleetOnDemandOptionsRequestInput is an input type that accepts EC2FleetOnDemandOptionsRequestArgs and EC2FleetOnDemandOptionsRequestOutput values.
-// You can construct a concrete instance of `EC2FleetOnDemandOptionsRequestInput` via:
+// Ec2FleetOnDemandOptionsRequestInput is an input type that accepts Ec2FleetOnDemandOptionsRequestArgs and Ec2FleetOnDemandOptionsRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetOnDemandOptionsRequestInput` via:
 //
-//	EC2FleetOnDemandOptionsRequestArgs{...}
-type EC2FleetOnDemandOptionsRequestInput interface {
+//	Ec2FleetOnDemandOptionsRequestArgs{...}
+type Ec2FleetOnDemandOptionsRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetOnDemandOptionsRequestOutput() EC2FleetOnDemandOptionsRequestOutput
-	ToEC2FleetOnDemandOptionsRequestOutputWithContext(context.Context) EC2FleetOnDemandOptionsRequestOutput
+	ToEc2FleetOnDemandOptionsRequestOutput() Ec2FleetOnDemandOptionsRequestOutput
+	ToEc2FleetOnDemandOptionsRequestOutputWithContext(context.Context) Ec2FleetOnDemandOptionsRequestOutput
 }
 
-type EC2FleetOnDemandOptionsRequestArgs struct {
+type Ec2FleetOnDemandOptionsRequestArgs struct {
 	AllocationStrategy         pulumi.StringPtrInput                             `pulumi:"allocationStrategy"`
-	CapacityReservationOptions EC2FleetCapacityReservationOptionsRequestPtrInput `pulumi:"capacityReservationOptions"`
+	CapacityReservationOptions Ec2FleetCapacityReservationOptionsRequestPtrInput `pulumi:"capacityReservationOptions"`
 	MaxTotalPrice              pulumi.StringPtrInput                             `pulumi:"maxTotalPrice"`
 	MinTargetCapacity          pulumi.IntPtrInput                                `pulumi:"minTargetCapacity"`
 	SingleAvailabilityZone     pulumi.BoolPtrInput                               `pulumi:"singleAvailabilityZone"`
 	SingleInstanceType         pulumi.BoolPtrInput                               `pulumi:"singleInstanceType"`
 }
 
-func (EC2FleetOnDemandOptionsRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetOnDemandOptionsRequest)(nil)).Elem()
+func (Ec2FleetOnDemandOptionsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetOnDemandOptionsRequest)(nil)).Elem()
 }
 
-func (i EC2FleetOnDemandOptionsRequestArgs) ToEC2FleetOnDemandOptionsRequestOutput() EC2FleetOnDemandOptionsRequestOutput {
-	return i.ToEC2FleetOnDemandOptionsRequestOutputWithContext(context.Background())
+func (i Ec2FleetOnDemandOptionsRequestArgs) ToEc2FleetOnDemandOptionsRequestOutput() Ec2FleetOnDemandOptionsRequestOutput {
+	return i.ToEc2FleetOnDemandOptionsRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetOnDemandOptionsRequestArgs) ToEC2FleetOnDemandOptionsRequestOutputWithContext(ctx context.Context) EC2FleetOnDemandOptionsRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetOnDemandOptionsRequestOutput)
+func (i Ec2FleetOnDemandOptionsRequestArgs) ToEc2FleetOnDemandOptionsRequestOutputWithContext(ctx context.Context) Ec2FleetOnDemandOptionsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetOnDemandOptionsRequestOutput)
 }
 
-func (i EC2FleetOnDemandOptionsRequestArgs) ToEC2FleetOnDemandOptionsRequestPtrOutput() EC2FleetOnDemandOptionsRequestPtrOutput {
-	return i.ToEC2FleetOnDemandOptionsRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetOnDemandOptionsRequestArgs) ToEc2FleetOnDemandOptionsRequestPtrOutput() Ec2FleetOnDemandOptionsRequestPtrOutput {
+	return i.ToEc2FleetOnDemandOptionsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetOnDemandOptionsRequestArgs) ToEC2FleetOnDemandOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetOnDemandOptionsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetOnDemandOptionsRequestOutput).ToEC2FleetOnDemandOptionsRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetOnDemandOptionsRequestArgs) ToEc2FleetOnDemandOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetOnDemandOptionsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetOnDemandOptionsRequestOutput).ToEc2FleetOnDemandOptionsRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetOnDemandOptionsRequestPtrInput is an input type that accepts EC2FleetOnDemandOptionsRequestArgs, EC2FleetOnDemandOptionsRequestPtr and EC2FleetOnDemandOptionsRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetOnDemandOptionsRequestPtrInput` via:
+// Ec2FleetOnDemandOptionsRequestPtrInput is an input type that accepts Ec2FleetOnDemandOptionsRequestArgs, Ec2FleetOnDemandOptionsRequestPtr and Ec2FleetOnDemandOptionsRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetOnDemandOptionsRequestPtrInput` via:
 //
-//	        EC2FleetOnDemandOptionsRequestArgs{...}
+//	        Ec2FleetOnDemandOptionsRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetOnDemandOptionsRequestPtrInput interface {
+type Ec2FleetOnDemandOptionsRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetOnDemandOptionsRequestPtrOutput() EC2FleetOnDemandOptionsRequestPtrOutput
-	ToEC2FleetOnDemandOptionsRequestPtrOutputWithContext(context.Context) EC2FleetOnDemandOptionsRequestPtrOutput
+	ToEc2FleetOnDemandOptionsRequestPtrOutput() Ec2FleetOnDemandOptionsRequestPtrOutput
+	ToEc2FleetOnDemandOptionsRequestPtrOutputWithContext(context.Context) Ec2FleetOnDemandOptionsRequestPtrOutput
 }
 
-type ec2fleetOnDemandOptionsRequestPtrType EC2FleetOnDemandOptionsRequestArgs
+type ec2FleetOnDemandOptionsRequestPtrType Ec2FleetOnDemandOptionsRequestArgs
 
-func EC2FleetOnDemandOptionsRequestPtr(v *EC2FleetOnDemandOptionsRequestArgs) EC2FleetOnDemandOptionsRequestPtrInput {
-	return (*ec2fleetOnDemandOptionsRequestPtrType)(v)
+func Ec2FleetOnDemandOptionsRequestPtr(v *Ec2FleetOnDemandOptionsRequestArgs) Ec2FleetOnDemandOptionsRequestPtrInput {
+	return (*ec2FleetOnDemandOptionsRequestPtrType)(v)
 }
 
-func (*ec2fleetOnDemandOptionsRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetOnDemandOptionsRequest)(nil)).Elem()
+func (*ec2FleetOnDemandOptionsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetOnDemandOptionsRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetOnDemandOptionsRequestPtrType) ToEC2FleetOnDemandOptionsRequestPtrOutput() EC2FleetOnDemandOptionsRequestPtrOutput {
-	return i.ToEC2FleetOnDemandOptionsRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetOnDemandOptionsRequestPtrType) ToEc2FleetOnDemandOptionsRequestPtrOutput() Ec2FleetOnDemandOptionsRequestPtrOutput {
+	return i.ToEc2FleetOnDemandOptionsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetOnDemandOptionsRequestPtrType) ToEC2FleetOnDemandOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetOnDemandOptionsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetOnDemandOptionsRequestPtrOutput)
+func (i *ec2FleetOnDemandOptionsRequestPtrType) ToEc2FleetOnDemandOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetOnDemandOptionsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetOnDemandOptionsRequestPtrOutput)
 }
 
-type EC2FleetOnDemandOptionsRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetOnDemandOptionsRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetOnDemandOptionsRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetOnDemandOptionsRequest)(nil)).Elem()
+func (Ec2FleetOnDemandOptionsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetOnDemandOptionsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetOnDemandOptionsRequestOutput) ToEC2FleetOnDemandOptionsRequestOutput() EC2FleetOnDemandOptionsRequestOutput {
+func (o Ec2FleetOnDemandOptionsRequestOutput) ToEc2FleetOnDemandOptionsRequestOutput() Ec2FleetOnDemandOptionsRequestOutput {
 	return o
 }
 
-func (o EC2FleetOnDemandOptionsRequestOutput) ToEC2FleetOnDemandOptionsRequestOutputWithContext(ctx context.Context) EC2FleetOnDemandOptionsRequestOutput {
+func (o Ec2FleetOnDemandOptionsRequestOutput) ToEc2FleetOnDemandOptionsRequestOutputWithContext(ctx context.Context) Ec2FleetOnDemandOptionsRequestOutput {
 	return o
 }
 
-func (o EC2FleetOnDemandOptionsRequestOutput) ToEC2FleetOnDemandOptionsRequestPtrOutput() EC2FleetOnDemandOptionsRequestPtrOutput {
-	return o.ToEC2FleetOnDemandOptionsRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetOnDemandOptionsRequestOutput) ToEc2FleetOnDemandOptionsRequestPtrOutput() Ec2FleetOnDemandOptionsRequestPtrOutput {
+	return o.ToEc2FleetOnDemandOptionsRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetOnDemandOptionsRequestOutput) ToEC2FleetOnDemandOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetOnDemandOptionsRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetOnDemandOptionsRequest) *EC2FleetOnDemandOptionsRequest {
+func (o Ec2FleetOnDemandOptionsRequestOutput) ToEc2FleetOnDemandOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetOnDemandOptionsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetOnDemandOptionsRequest) *Ec2FleetOnDemandOptionsRequest {
 		return &v
-	}).(EC2FleetOnDemandOptionsRequestPtrOutput)
+	}).(Ec2FleetOnDemandOptionsRequestPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestOutput) AllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetOnDemandOptionsRequest) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+func (o Ec2FleetOnDemandOptionsRequestOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestOutput) CapacityReservationOptions() EC2FleetCapacityReservationOptionsRequestPtrOutput {
-	return o.ApplyT(func(v EC2FleetOnDemandOptionsRequest) *EC2FleetCapacityReservationOptionsRequest {
+func (o Ec2FleetOnDemandOptionsRequestOutput) CapacityReservationOptions() Ec2FleetCapacityReservationOptionsRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *Ec2FleetCapacityReservationOptionsRequest {
 		return v.CapacityReservationOptions
-	}).(EC2FleetCapacityReservationOptionsRequestPtrOutput)
+	}).(Ec2FleetCapacityReservationOptionsRequestPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestOutput) MaxTotalPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetOnDemandOptionsRequest) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
+func (o Ec2FleetOnDemandOptionsRequestOutput) MaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestOutput) MinTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetOnDemandOptionsRequest) *int { return v.MinTargetCapacity }).(pulumi.IntPtrOutput)
+func (o Ec2FleetOnDemandOptionsRequestOutput) MinTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *int { return v.MinTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EC2FleetOnDemandOptionsRequest) *bool { return v.SingleAvailabilityZone }).(pulumi.BoolPtrOutput)
+func (o Ec2FleetOnDemandOptionsRequestOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *bool { return v.SingleAvailabilityZone }).(pulumi.BoolPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestOutput) SingleInstanceType() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EC2FleetOnDemandOptionsRequest) *bool { return v.SingleInstanceType }).(pulumi.BoolPtrOutput)
+func (o Ec2FleetOnDemandOptionsRequestOutput) SingleInstanceType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *bool { return v.SingleInstanceType }).(pulumi.BoolPtrOutput)
 }
 
-type EC2FleetOnDemandOptionsRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetOnDemandOptionsRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetOnDemandOptionsRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetOnDemandOptionsRequest)(nil)).Elem()
+func (Ec2FleetOnDemandOptionsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetOnDemandOptionsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetOnDemandOptionsRequestPtrOutput) ToEC2FleetOnDemandOptionsRequestPtrOutput() EC2FleetOnDemandOptionsRequestPtrOutput {
+func (o Ec2FleetOnDemandOptionsRequestPtrOutput) ToEc2FleetOnDemandOptionsRequestPtrOutput() Ec2FleetOnDemandOptionsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetOnDemandOptionsRequestPtrOutput) ToEC2FleetOnDemandOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetOnDemandOptionsRequestPtrOutput {
+func (o Ec2FleetOnDemandOptionsRequestPtrOutput) ToEc2FleetOnDemandOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetOnDemandOptionsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetOnDemandOptionsRequestPtrOutput) Elem() EC2FleetOnDemandOptionsRequestOutput {
-	return o.ApplyT(func(v *EC2FleetOnDemandOptionsRequest) EC2FleetOnDemandOptionsRequest {
+func (o Ec2FleetOnDemandOptionsRequestPtrOutput) Elem() Ec2FleetOnDemandOptionsRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) Ec2FleetOnDemandOptionsRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetOnDemandOptionsRequest
+		var ret Ec2FleetOnDemandOptionsRequest
 		return ret
-	}).(EC2FleetOnDemandOptionsRequestOutput)
+	}).(Ec2FleetOnDemandOptionsRequestOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetOnDemandOptionsRequest) *string {
+func (o Ec2FleetOnDemandOptionsRequestPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *string {
 		if v == nil {
 			return nil
 		}
@@ -4669,17 +4669,17 @@ func (o EC2FleetOnDemandOptionsRequestPtrOutput) AllocationStrategy() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestPtrOutput) CapacityReservationOptions() EC2FleetCapacityReservationOptionsRequestPtrOutput {
-	return o.ApplyT(func(v *EC2FleetOnDemandOptionsRequest) *EC2FleetCapacityReservationOptionsRequest {
+func (o Ec2FleetOnDemandOptionsRequestPtrOutput) CapacityReservationOptions() Ec2FleetCapacityReservationOptionsRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *Ec2FleetCapacityReservationOptionsRequest {
 		if v == nil {
 			return nil
 		}
 		return v.CapacityReservationOptions
-	}).(EC2FleetCapacityReservationOptionsRequestPtrOutput)
+	}).(Ec2FleetCapacityReservationOptionsRequestPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetOnDemandOptionsRequest) *string {
+func (o Ec2FleetOnDemandOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *string {
 		if v == nil {
 			return nil
 		}
@@ -4687,8 +4687,8 @@ func (o EC2FleetOnDemandOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetOnDemandOptionsRequest) *int {
+func (o Ec2FleetOnDemandOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -4696,8 +4696,8 @@ func (o EC2FleetOnDemandOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestPtrOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EC2FleetOnDemandOptionsRequest) *bool {
+func (o Ec2FleetOnDemandOptionsRequestPtrOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *bool {
 		if v == nil {
 			return nil
 		}
@@ -4705,8 +4705,8 @@ func (o EC2FleetOnDemandOptionsRequestPtrOutput) SingleAvailabilityZone() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o EC2FleetOnDemandOptionsRequestPtrOutput) SingleInstanceType() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EC2FleetOnDemandOptionsRequest) *bool {
+func (o Ec2FleetOnDemandOptionsRequestPtrOutput) SingleInstanceType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *bool {
 		if v == nil {
 			return nil
 		}
@@ -4714,7 +4714,7 @@ func (o EC2FleetOnDemandOptionsRequestPtrOutput) SingleInstanceType() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-type EC2FleetPlacement struct {
+type Ec2FleetPlacement struct {
 	Affinity             *string `pulumi:"affinity"`
 	AvailabilityZone     *string `pulumi:"availabilityZone"`
 	GroupName            *string `pulumi:"groupName"`
@@ -4725,18 +4725,18 @@ type EC2FleetPlacement struct {
 	Tenancy              *string `pulumi:"tenancy"`
 }
 
-// EC2FleetPlacementInput is an input type that accepts EC2FleetPlacementArgs and EC2FleetPlacementOutput values.
-// You can construct a concrete instance of `EC2FleetPlacementInput` via:
+// Ec2FleetPlacementInput is an input type that accepts Ec2FleetPlacementArgs and Ec2FleetPlacementOutput values.
+// You can construct a concrete instance of `Ec2FleetPlacementInput` via:
 //
-//	EC2FleetPlacementArgs{...}
-type EC2FleetPlacementInput interface {
+//	Ec2FleetPlacementArgs{...}
+type Ec2FleetPlacementInput interface {
 	pulumi.Input
 
-	ToEC2FleetPlacementOutput() EC2FleetPlacementOutput
-	ToEC2FleetPlacementOutputWithContext(context.Context) EC2FleetPlacementOutput
+	ToEc2FleetPlacementOutput() Ec2FleetPlacementOutput
+	ToEc2FleetPlacementOutputWithContext(context.Context) Ec2FleetPlacementOutput
 }
 
-type EC2FleetPlacementArgs struct {
+type Ec2FleetPlacementArgs struct {
 	Affinity             pulumi.StringPtrInput `pulumi:"affinity"`
 	AvailabilityZone     pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	GroupName            pulumi.StringPtrInput `pulumi:"groupName"`
@@ -4747,141 +4747,141 @@ type EC2FleetPlacementArgs struct {
 	Tenancy              pulumi.StringPtrInput `pulumi:"tenancy"`
 }
 
-func (EC2FleetPlacementArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetPlacement)(nil)).Elem()
+func (Ec2FleetPlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetPlacement)(nil)).Elem()
 }
 
-func (i EC2FleetPlacementArgs) ToEC2FleetPlacementOutput() EC2FleetPlacementOutput {
-	return i.ToEC2FleetPlacementOutputWithContext(context.Background())
+func (i Ec2FleetPlacementArgs) ToEc2FleetPlacementOutput() Ec2FleetPlacementOutput {
+	return i.ToEc2FleetPlacementOutputWithContext(context.Background())
 }
 
-func (i EC2FleetPlacementArgs) ToEC2FleetPlacementOutputWithContext(ctx context.Context) EC2FleetPlacementOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetPlacementOutput)
+func (i Ec2FleetPlacementArgs) ToEc2FleetPlacementOutputWithContext(ctx context.Context) Ec2FleetPlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetPlacementOutput)
 }
 
-func (i EC2FleetPlacementArgs) ToEC2FleetPlacementPtrOutput() EC2FleetPlacementPtrOutput {
-	return i.ToEC2FleetPlacementPtrOutputWithContext(context.Background())
+func (i Ec2FleetPlacementArgs) ToEc2FleetPlacementPtrOutput() Ec2FleetPlacementPtrOutput {
+	return i.ToEc2FleetPlacementPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetPlacementArgs) ToEC2FleetPlacementPtrOutputWithContext(ctx context.Context) EC2FleetPlacementPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetPlacementOutput).ToEC2FleetPlacementPtrOutputWithContext(ctx)
+func (i Ec2FleetPlacementArgs) ToEc2FleetPlacementPtrOutputWithContext(ctx context.Context) Ec2FleetPlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetPlacementOutput).ToEc2FleetPlacementPtrOutputWithContext(ctx)
 }
 
-// EC2FleetPlacementPtrInput is an input type that accepts EC2FleetPlacementArgs, EC2FleetPlacementPtr and EC2FleetPlacementPtrOutput values.
-// You can construct a concrete instance of `EC2FleetPlacementPtrInput` via:
+// Ec2FleetPlacementPtrInput is an input type that accepts Ec2FleetPlacementArgs, Ec2FleetPlacementPtr and Ec2FleetPlacementPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetPlacementPtrInput` via:
 //
-//	        EC2FleetPlacementArgs{...}
+//	        Ec2FleetPlacementArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetPlacementPtrInput interface {
+type Ec2FleetPlacementPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetPlacementPtrOutput() EC2FleetPlacementPtrOutput
-	ToEC2FleetPlacementPtrOutputWithContext(context.Context) EC2FleetPlacementPtrOutput
+	ToEc2FleetPlacementPtrOutput() Ec2FleetPlacementPtrOutput
+	ToEc2FleetPlacementPtrOutputWithContext(context.Context) Ec2FleetPlacementPtrOutput
 }
 
-type ec2fleetPlacementPtrType EC2FleetPlacementArgs
+type ec2FleetPlacementPtrType Ec2FleetPlacementArgs
 
-func EC2FleetPlacementPtr(v *EC2FleetPlacementArgs) EC2FleetPlacementPtrInput {
-	return (*ec2fleetPlacementPtrType)(v)
+func Ec2FleetPlacementPtr(v *Ec2FleetPlacementArgs) Ec2FleetPlacementPtrInput {
+	return (*ec2FleetPlacementPtrType)(v)
 }
 
-func (*ec2fleetPlacementPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetPlacement)(nil)).Elem()
+func (*ec2FleetPlacementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetPlacement)(nil)).Elem()
 }
 
-func (i *ec2fleetPlacementPtrType) ToEC2FleetPlacementPtrOutput() EC2FleetPlacementPtrOutput {
-	return i.ToEC2FleetPlacementPtrOutputWithContext(context.Background())
+func (i *ec2FleetPlacementPtrType) ToEc2FleetPlacementPtrOutput() Ec2FleetPlacementPtrOutput {
+	return i.ToEc2FleetPlacementPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetPlacementPtrType) ToEC2FleetPlacementPtrOutputWithContext(ctx context.Context) EC2FleetPlacementPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetPlacementPtrOutput)
+func (i *ec2FleetPlacementPtrType) ToEc2FleetPlacementPtrOutputWithContext(ctx context.Context) Ec2FleetPlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetPlacementPtrOutput)
 }
 
-type EC2FleetPlacementOutput struct{ *pulumi.OutputState }
+type Ec2FleetPlacementOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetPlacementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetPlacement)(nil)).Elem()
+func (Ec2FleetPlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetPlacement)(nil)).Elem()
 }
 
-func (o EC2FleetPlacementOutput) ToEC2FleetPlacementOutput() EC2FleetPlacementOutput {
+func (o Ec2FleetPlacementOutput) ToEc2FleetPlacementOutput() Ec2FleetPlacementOutput {
 	return o
 }
 
-func (o EC2FleetPlacementOutput) ToEC2FleetPlacementOutputWithContext(ctx context.Context) EC2FleetPlacementOutput {
+func (o Ec2FleetPlacementOutput) ToEc2FleetPlacementOutputWithContext(ctx context.Context) Ec2FleetPlacementOutput {
 	return o
 }
 
-func (o EC2FleetPlacementOutput) ToEC2FleetPlacementPtrOutput() EC2FleetPlacementPtrOutput {
-	return o.ToEC2FleetPlacementPtrOutputWithContext(context.Background())
+func (o Ec2FleetPlacementOutput) ToEc2FleetPlacementPtrOutput() Ec2FleetPlacementPtrOutput {
+	return o.ToEc2FleetPlacementPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetPlacementOutput) ToEC2FleetPlacementPtrOutputWithContext(ctx context.Context) EC2FleetPlacementPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetPlacement) *EC2FleetPlacement {
+func (o Ec2FleetPlacementOutput) ToEc2FleetPlacementPtrOutputWithContext(ctx context.Context) Ec2FleetPlacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetPlacement) *Ec2FleetPlacement {
 		return &v
-	}).(EC2FleetPlacementPtrOutput)
+	}).(Ec2FleetPlacementPtrOutput)
 }
 
-func (o EC2FleetPlacementOutput) Affinity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetPlacement) *string { return v.Affinity }).(pulumi.StringPtrOutput)
+func (o Ec2FleetPlacementOutput) Affinity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.Affinity }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetPlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+func (o Ec2FleetPlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementOutput) GroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetPlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+func (o Ec2FleetPlacementOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementOutput) HostId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetPlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
+func (o Ec2FleetPlacementOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetPlacement) *string { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
+func (o Ec2FleetPlacementOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetPlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
+func (o Ec2FleetPlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetPlacementOutput) SpreadDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetPlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
+func (o Ec2FleetPlacementOutput) SpreadDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementOutput) Tenancy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetPlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
+func (o Ec2FleetPlacementOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
 
-type EC2FleetPlacementPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetPlacementPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetPlacementPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetPlacement)(nil)).Elem()
+func (Ec2FleetPlacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetPlacement)(nil)).Elem()
 }
 
-func (o EC2FleetPlacementPtrOutput) ToEC2FleetPlacementPtrOutput() EC2FleetPlacementPtrOutput {
+func (o Ec2FleetPlacementPtrOutput) ToEc2FleetPlacementPtrOutput() Ec2FleetPlacementPtrOutput {
 	return o
 }
 
-func (o EC2FleetPlacementPtrOutput) ToEC2FleetPlacementPtrOutputWithContext(ctx context.Context) EC2FleetPlacementPtrOutput {
+func (o Ec2FleetPlacementPtrOutput) ToEc2FleetPlacementPtrOutputWithContext(ctx context.Context) Ec2FleetPlacementPtrOutput {
 	return o
 }
 
-func (o EC2FleetPlacementPtrOutput) Elem() EC2FleetPlacementOutput {
-	return o.ApplyT(func(v *EC2FleetPlacement) EC2FleetPlacement {
+func (o Ec2FleetPlacementPtrOutput) Elem() Ec2FleetPlacementOutput {
+	return o.ApplyT(func(v *Ec2FleetPlacement) Ec2FleetPlacement {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetPlacement
+		var ret Ec2FleetPlacement
 		return ret
-	}).(EC2FleetPlacementOutput)
+	}).(Ec2FleetPlacementOutput)
 }
 
-func (o EC2FleetPlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetPlacement) *string {
+func (o Ec2FleetPlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
 			return nil
 		}
@@ -4889,8 +4889,8 @@ func (o EC2FleetPlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetPlacement) *string {
+func (o Ec2FleetPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
 			return nil
 		}
@@ -4898,8 +4898,8 @@ func (o EC2FleetPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetPlacement) *string {
+func (o Ec2FleetPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
 			return nil
 		}
@@ -4907,8 +4907,8 @@ func (o EC2FleetPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementPtrOutput) HostId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetPlacement) *string {
+func (o Ec2FleetPlacementPtrOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
 			return nil
 		}
@@ -4916,8 +4916,8 @@ func (o EC2FleetPlacementPtrOutput) HostId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetPlacement) *string {
+func (o Ec2FleetPlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
 			return nil
 		}
@@ -4925,8 +4925,8 @@ func (o EC2FleetPlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetPlacement) *int {
+func (o Ec2FleetPlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetPlacement) *int {
 		if v == nil {
 			return nil
 		}
@@ -4934,8 +4934,8 @@ func (o EC2FleetPlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetPlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetPlacement) *string {
+func (o Ec2FleetPlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
 			return nil
 		}
@@ -4943,8 +4943,8 @@ func (o EC2FleetPlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetPlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetPlacement) *string {
+func (o Ec2FleetPlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
 			return nil
 		}
@@ -4952,196 +4952,196 @@ func (o EC2FleetPlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type EC2FleetSpotOptionsRequest struct {
-	AllocationStrategy           *EC2FleetSpotOptionsRequestAllocationStrategy           `pulumi:"allocationStrategy"`
-	InstanceInterruptionBehavior *EC2FleetSpotOptionsRequestInstanceInterruptionBehavior `pulumi:"instanceInterruptionBehavior"`
+type Ec2FleetSpotOptionsRequest struct {
+	AllocationStrategy           *Ec2FleetSpotOptionsRequestAllocationStrategy           `pulumi:"allocationStrategy"`
+	InstanceInterruptionBehavior *Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior `pulumi:"instanceInterruptionBehavior"`
 	InstancePoolsToUseCount      *int                                                    `pulumi:"instancePoolsToUseCount"`
-	MaintenanceStrategies        *EC2FleetMaintenanceStrategies                          `pulumi:"maintenanceStrategies"`
+	MaintenanceStrategies        *Ec2FleetMaintenanceStrategies                          `pulumi:"maintenanceStrategies"`
 	MaxTotalPrice                *string                                                 `pulumi:"maxTotalPrice"`
 	MinTargetCapacity            *int                                                    `pulumi:"minTargetCapacity"`
 	SingleAvailabilityZone       *bool                                                   `pulumi:"singleAvailabilityZone"`
 	SingleInstanceType           *bool                                                   `pulumi:"singleInstanceType"`
 }
 
-// EC2FleetSpotOptionsRequestInput is an input type that accepts EC2FleetSpotOptionsRequestArgs and EC2FleetSpotOptionsRequestOutput values.
-// You can construct a concrete instance of `EC2FleetSpotOptionsRequestInput` via:
+// Ec2FleetSpotOptionsRequestInput is an input type that accepts Ec2FleetSpotOptionsRequestArgs and Ec2FleetSpotOptionsRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetSpotOptionsRequestInput` via:
 //
-//	EC2FleetSpotOptionsRequestArgs{...}
-type EC2FleetSpotOptionsRequestInput interface {
+//	Ec2FleetSpotOptionsRequestArgs{...}
+type Ec2FleetSpotOptionsRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetSpotOptionsRequestOutput() EC2FleetSpotOptionsRequestOutput
-	ToEC2FleetSpotOptionsRequestOutputWithContext(context.Context) EC2FleetSpotOptionsRequestOutput
+	ToEc2FleetSpotOptionsRequestOutput() Ec2FleetSpotOptionsRequestOutput
+	ToEc2FleetSpotOptionsRequestOutputWithContext(context.Context) Ec2FleetSpotOptionsRequestOutput
 }
 
-type EC2FleetSpotOptionsRequestArgs struct {
-	AllocationStrategy           EC2FleetSpotOptionsRequestAllocationStrategyPtrInput           `pulumi:"allocationStrategy"`
-	InstanceInterruptionBehavior EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrInput `pulumi:"instanceInterruptionBehavior"`
+type Ec2FleetSpotOptionsRequestArgs struct {
+	AllocationStrategy           Ec2FleetSpotOptionsRequestAllocationStrategyPtrInput           `pulumi:"allocationStrategy"`
+	InstanceInterruptionBehavior Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrInput `pulumi:"instanceInterruptionBehavior"`
 	InstancePoolsToUseCount      pulumi.IntPtrInput                                             `pulumi:"instancePoolsToUseCount"`
-	MaintenanceStrategies        EC2FleetMaintenanceStrategiesPtrInput                          `pulumi:"maintenanceStrategies"`
+	MaintenanceStrategies        Ec2FleetMaintenanceStrategiesPtrInput                          `pulumi:"maintenanceStrategies"`
 	MaxTotalPrice                pulumi.StringPtrInput                                          `pulumi:"maxTotalPrice"`
 	MinTargetCapacity            pulumi.IntPtrInput                                             `pulumi:"minTargetCapacity"`
 	SingleAvailabilityZone       pulumi.BoolPtrInput                                            `pulumi:"singleAvailabilityZone"`
 	SingleInstanceType           pulumi.BoolPtrInput                                            `pulumi:"singleInstanceType"`
 }
 
-func (EC2FleetSpotOptionsRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetSpotOptionsRequest)(nil)).Elem()
+func (Ec2FleetSpotOptionsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetSpotOptionsRequest)(nil)).Elem()
 }
 
-func (i EC2FleetSpotOptionsRequestArgs) ToEC2FleetSpotOptionsRequestOutput() EC2FleetSpotOptionsRequestOutput {
-	return i.ToEC2FleetSpotOptionsRequestOutputWithContext(context.Background())
+func (i Ec2FleetSpotOptionsRequestArgs) ToEc2FleetSpotOptionsRequestOutput() Ec2FleetSpotOptionsRequestOutput {
+	return i.ToEc2FleetSpotOptionsRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetSpotOptionsRequestArgs) ToEC2FleetSpotOptionsRequestOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetSpotOptionsRequestOutput)
+func (i Ec2FleetSpotOptionsRequestArgs) ToEc2FleetSpotOptionsRequestOutputWithContext(ctx context.Context) Ec2FleetSpotOptionsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetSpotOptionsRequestOutput)
 }
 
-func (i EC2FleetSpotOptionsRequestArgs) ToEC2FleetSpotOptionsRequestPtrOutput() EC2FleetSpotOptionsRequestPtrOutput {
-	return i.ToEC2FleetSpotOptionsRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetSpotOptionsRequestArgs) ToEc2FleetSpotOptionsRequestPtrOutput() Ec2FleetSpotOptionsRequestPtrOutput {
+	return i.ToEc2FleetSpotOptionsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetSpotOptionsRequestArgs) ToEC2FleetSpotOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetSpotOptionsRequestOutput).ToEC2FleetSpotOptionsRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetSpotOptionsRequestArgs) ToEc2FleetSpotOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetSpotOptionsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetSpotOptionsRequestOutput).ToEc2FleetSpotOptionsRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetSpotOptionsRequestPtrInput is an input type that accepts EC2FleetSpotOptionsRequestArgs, EC2FleetSpotOptionsRequestPtr and EC2FleetSpotOptionsRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetSpotOptionsRequestPtrInput` via:
+// Ec2FleetSpotOptionsRequestPtrInput is an input type that accepts Ec2FleetSpotOptionsRequestArgs, Ec2FleetSpotOptionsRequestPtr and Ec2FleetSpotOptionsRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetSpotOptionsRequestPtrInput` via:
 //
-//	        EC2FleetSpotOptionsRequestArgs{...}
+//	        Ec2FleetSpotOptionsRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetSpotOptionsRequestPtrInput interface {
+type Ec2FleetSpotOptionsRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetSpotOptionsRequestPtrOutput() EC2FleetSpotOptionsRequestPtrOutput
-	ToEC2FleetSpotOptionsRequestPtrOutputWithContext(context.Context) EC2FleetSpotOptionsRequestPtrOutput
+	ToEc2FleetSpotOptionsRequestPtrOutput() Ec2FleetSpotOptionsRequestPtrOutput
+	ToEc2FleetSpotOptionsRequestPtrOutputWithContext(context.Context) Ec2FleetSpotOptionsRequestPtrOutput
 }
 
-type ec2fleetSpotOptionsRequestPtrType EC2FleetSpotOptionsRequestArgs
+type ec2FleetSpotOptionsRequestPtrType Ec2FleetSpotOptionsRequestArgs
 
-func EC2FleetSpotOptionsRequestPtr(v *EC2FleetSpotOptionsRequestArgs) EC2FleetSpotOptionsRequestPtrInput {
-	return (*ec2fleetSpotOptionsRequestPtrType)(v)
+func Ec2FleetSpotOptionsRequestPtr(v *Ec2FleetSpotOptionsRequestArgs) Ec2FleetSpotOptionsRequestPtrInput {
+	return (*ec2FleetSpotOptionsRequestPtrType)(v)
 }
 
-func (*ec2fleetSpotOptionsRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetSpotOptionsRequest)(nil)).Elem()
+func (*ec2FleetSpotOptionsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetSpotOptionsRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetSpotOptionsRequestPtrType) ToEC2FleetSpotOptionsRequestPtrOutput() EC2FleetSpotOptionsRequestPtrOutput {
-	return i.ToEC2FleetSpotOptionsRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetSpotOptionsRequestPtrType) ToEc2FleetSpotOptionsRequestPtrOutput() Ec2FleetSpotOptionsRequestPtrOutput {
+	return i.ToEc2FleetSpotOptionsRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetSpotOptionsRequestPtrType) ToEC2FleetSpotOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetSpotOptionsRequestPtrOutput)
+func (i *ec2FleetSpotOptionsRequestPtrType) ToEc2FleetSpotOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetSpotOptionsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetSpotOptionsRequestPtrOutput)
 }
 
-type EC2FleetSpotOptionsRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetSpotOptionsRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetSpotOptionsRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetSpotOptionsRequest)(nil)).Elem()
+func (Ec2FleetSpotOptionsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetSpotOptionsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) ToEC2FleetSpotOptionsRequestOutput() EC2FleetSpotOptionsRequestOutput {
+func (o Ec2FleetSpotOptionsRequestOutput) ToEc2FleetSpotOptionsRequestOutput() Ec2FleetSpotOptionsRequestOutput {
 	return o
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) ToEC2FleetSpotOptionsRequestOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestOutput {
+func (o Ec2FleetSpotOptionsRequestOutput) ToEc2FleetSpotOptionsRequestOutputWithContext(ctx context.Context) Ec2FleetSpotOptionsRequestOutput {
 	return o
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) ToEC2FleetSpotOptionsRequestPtrOutput() EC2FleetSpotOptionsRequestPtrOutput {
-	return o.ToEC2FleetSpotOptionsRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetSpotOptionsRequestOutput) ToEc2FleetSpotOptionsRequestPtrOutput() Ec2FleetSpotOptionsRequestPtrOutput {
+	return o.ToEc2FleetSpotOptionsRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) ToEC2FleetSpotOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequest {
+func (o Ec2FleetSpotOptionsRequestOutput) ToEc2FleetSpotOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetSpotOptionsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetSpotOptionsRequest) *Ec2FleetSpotOptionsRequest {
 		return &v
-	}).(EC2FleetSpotOptionsRequestPtrOutput)
+	}).(Ec2FleetSpotOptionsRequestPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) AllocationStrategy() EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput {
-	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequestAllocationStrategy {
+func (o Ec2FleetSpotOptionsRequestOutput) AllocationStrategy() Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput {
+	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *Ec2FleetSpotOptionsRequestAllocationStrategy {
 		return v.AllocationStrategy
-	}).(EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
+	}).(Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) InstanceInterruptionBehavior() EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput {
-	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequestInstanceInterruptionBehavior {
+func (o Ec2FleetSpotOptionsRequestOutput) InstanceInterruptionBehavior() Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior {
 		return v.InstanceInterruptionBehavior
-	}).(EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
+	}).(Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *int { return v.InstancePoolsToUseCount }).(pulumi.IntPtrOutput)
+func (o Ec2FleetSpotOptionsRequestOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *int { return v.InstancePoolsToUseCount }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) MaintenanceStrategies() EC2FleetMaintenanceStrategiesPtrOutput {
-	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *EC2FleetMaintenanceStrategies { return v.MaintenanceStrategies }).(EC2FleetMaintenanceStrategiesPtrOutput)
+func (o Ec2FleetSpotOptionsRequestOutput) MaintenanceStrategies() Ec2FleetMaintenanceStrategiesPtrOutput {
+	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *Ec2FleetMaintenanceStrategies { return v.MaintenanceStrategies }).(Ec2FleetMaintenanceStrategiesPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) MaxTotalPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
+func (o Ec2FleetSpotOptionsRequestOutput) MaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) MinTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *int { return v.MinTargetCapacity }).(pulumi.IntPtrOutput)
+func (o Ec2FleetSpotOptionsRequestOutput) MinTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *int { return v.MinTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *bool { return v.SingleAvailabilityZone }).(pulumi.BoolPtrOutput)
+func (o Ec2FleetSpotOptionsRequestOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *bool { return v.SingleAvailabilityZone }).(pulumi.BoolPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) SingleInstanceType() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *bool { return v.SingleInstanceType }).(pulumi.BoolPtrOutput)
+func (o Ec2FleetSpotOptionsRequestOutput) SingleInstanceType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *bool { return v.SingleInstanceType }).(pulumi.BoolPtrOutput)
 }
 
-type EC2FleetSpotOptionsRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetSpotOptionsRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetSpotOptionsRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetSpotOptionsRequest)(nil)).Elem()
+func (Ec2FleetSpotOptionsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetSpotOptionsRequest)(nil)).Elem()
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) ToEC2FleetSpotOptionsRequestPtrOutput() EC2FleetSpotOptionsRequestPtrOutput {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) ToEc2FleetSpotOptionsRequestPtrOutput() Ec2FleetSpotOptionsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) ToEC2FleetSpotOptionsRequestPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestPtrOutput {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) ToEc2FleetSpotOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetSpotOptionsRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) Elem() EC2FleetSpotOptionsRequestOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) EC2FleetSpotOptionsRequest {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) Elem() Ec2FleetSpotOptionsRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) Ec2FleetSpotOptionsRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetSpotOptionsRequest
+		var ret Ec2FleetSpotOptionsRequest
 		return ret
-	}).(EC2FleetSpotOptionsRequestOutput)
+	}).(Ec2FleetSpotOptionsRequestOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) AllocationStrategy() EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequestAllocationStrategy {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) AllocationStrategy() Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *Ec2FleetSpotOptionsRequestAllocationStrategy {
 		if v == nil {
 			return nil
 		}
 		return v.AllocationStrategy
-	}).(EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
+	}).(Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) InstanceInterruptionBehavior() EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequestInstanceInterruptionBehavior {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) InstanceInterruptionBehavior() Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.InstanceInterruptionBehavior
-	}).(EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
+	}).(Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *int {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -5149,17 +5149,17 @@ func (o EC2FleetSpotOptionsRequestPtrOutput) InstancePoolsToUseCount() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) MaintenanceStrategies() EC2FleetMaintenanceStrategiesPtrOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *EC2FleetMaintenanceStrategies {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) MaintenanceStrategies() Ec2FleetMaintenanceStrategiesPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *Ec2FleetMaintenanceStrategies {
 		if v == nil {
 			return nil
 		}
 		return v.MaintenanceStrategies
-	}).(EC2FleetMaintenanceStrategiesPtrOutput)
+	}).(Ec2FleetMaintenanceStrategiesPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *string {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *string {
 		if v == nil {
 			return nil
 		}
@@ -5167,8 +5167,8 @@ func (o EC2FleetSpotOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *int {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -5176,8 +5176,8 @@ func (o EC2FleetSpotOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *bool {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5185,8 +5185,8 @@ func (o EC2FleetSpotOptionsRequestPtrOutput) SingleAvailabilityZone() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) SingleInstanceType() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *bool {
+func (o Ec2FleetSpotOptionsRequestPtrOutput) SingleInstanceType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5194,318 +5194,318 @@ func (o EC2FleetSpotOptionsRequestPtrOutput) SingleInstanceType() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-type EC2FleetTag struct {
+type Ec2FleetTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// EC2FleetTagInput is an input type that accepts EC2FleetTagArgs and EC2FleetTagOutput values.
-// You can construct a concrete instance of `EC2FleetTagInput` via:
+// Ec2FleetTagInput is an input type that accepts Ec2FleetTagArgs and Ec2FleetTagOutput values.
+// You can construct a concrete instance of `Ec2FleetTagInput` via:
 //
-//	EC2FleetTagArgs{...}
-type EC2FleetTagInput interface {
+//	Ec2FleetTagArgs{...}
+type Ec2FleetTagInput interface {
 	pulumi.Input
 
-	ToEC2FleetTagOutput() EC2FleetTagOutput
-	ToEC2FleetTagOutputWithContext(context.Context) EC2FleetTagOutput
+	ToEc2FleetTagOutput() Ec2FleetTagOutput
+	ToEc2FleetTagOutputWithContext(context.Context) Ec2FleetTagOutput
 }
 
-type EC2FleetTagArgs struct {
+type Ec2FleetTagArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (EC2FleetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetTag)(nil)).Elem()
+func (Ec2FleetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetTag)(nil)).Elem()
 }
 
-func (i EC2FleetTagArgs) ToEC2FleetTagOutput() EC2FleetTagOutput {
-	return i.ToEC2FleetTagOutputWithContext(context.Background())
+func (i Ec2FleetTagArgs) ToEc2FleetTagOutput() Ec2FleetTagOutput {
+	return i.ToEc2FleetTagOutputWithContext(context.Background())
 }
 
-func (i EC2FleetTagArgs) ToEC2FleetTagOutputWithContext(ctx context.Context) EC2FleetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTagOutput)
+func (i Ec2FleetTagArgs) ToEc2FleetTagOutputWithContext(ctx context.Context) Ec2FleetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetTagOutput)
 }
 
-// EC2FleetTagArrayInput is an input type that accepts EC2FleetTagArray and EC2FleetTagArrayOutput values.
-// You can construct a concrete instance of `EC2FleetTagArrayInput` via:
+// Ec2FleetTagArrayInput is an input type that accepts Ec2FleetTagArray and Ec2FleetTagArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetTagArrayInput` via:
 //
-//	EC2FleetTagArray{ EC2FleetTagArgs{...} }
-type EC2FleetTagArrayInput interface {
+//	Ec2FleetTagArray{ Ec2FleetTagArgs{...} }
+type Ec2FleetTagArrayInput interface {
 	pulumi.Input
 
-	ToEC2FleetTagArrayOutput() EC2FleetTagArrayOutput
-	ToEC2FleetTagArrayOutputWithContext(context.Context) EC2FleetTagArrayOutput
+	ToEc2FleetTagArrayOutput() Ec2FleetTagArrayOutput
+	ToEc2FleetTagArrayOutputWithContext(context.Context) Ec2FleetTagArrayOutput
 }
 
-type EC2FleetTagArray []EC2FleetTagInput
+type Ec2FleetTagArray []Ec2FleetTagInput
 
-func (EC2FleetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EC2FleetTag)(nil)).Elem()
+func (Ec2FleetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetTag)(nil)).Elem()
 }
 
-func (i EC2FleetTagArray) ToEC2FleetTagArrayOutput() EC2FleetTagArrayOutput {
-	return i.ToEC2FleetTagArrayOutputWithContext(context.Background())
+func (i Ec2FleetTagArray) ToEc2FleetTagArrayOutput() Ec2FleetTagArrayOutput {
+	return i.ToEc2FleetTagArrayOutputWithContext(context.Background())
 }
 
-func (i EC2FleetTagArray) ToEC2FleetTagArrayOutputWithContext(ctx context.Context) EC2FleetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTagArrayOutput)
+func (i Ec2FleetTagArray) ToEc2FleetTagArrayOutputWithContext(ctx context.Context) Ec2FleetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetTagArrayOutput)
 }
 
-type EC2FleetTagOutput struct{ *pulumi.OutputState }
+type Ec2FleetTagOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetTag)(nil)).Elem()
+func (Ec2FleetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetTag)(nil)).Elem()
 }
 
-func (o EC2FleetTagOutput) ToEC2FleetTagOutput() EC2FleetTagOutput {
+func (o Ec2FleetTagOutput) ToEc2FleetTagOutput() Ec2FleetTagOutput {
 	return o
 }
 
-func (o EC2FleetTagOutput) ToEC2FleetTagOutputWithContext(ctx context.Context) EC2FleetTagOutput {
+func (o Ec2FleetTagOutput) ToEc2FleetTagOutputWithContext(ctx context.Context) Ec2FleetTagOutput {
 	return o
 }
 
-func (o EC2FleetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v EC2FleetTag) string { return v.Key }).(pulumi.StringOutput)
+func (o Ec2FleetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v Ec2FleetTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o EC2FleetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EC2FleetTag) string { return v.Value }).(pulumi.StringOutput)
+func (o Ec2FleetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v Ec2FleetTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type EC2FleetTagArrayOutput struct{ *pulumi.OutputState }
+type Ec2FleetTagArrayOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EC2FleetTag)(nil)).Elem()
+func (Ec2FleetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetTag)(nil)).Elem()
 }
 
-func (o EC2FleetTagArrayOutput) ToEC2FleetTagArrayOutput() EC2FleetTagArrayOutput {
+func (o Ec2FleetTagArrayOutput) ToEc2FleetTagArrayOutput() Ec2FleetTagArrayOutput {
 	return o
 }
 
-func (o EC2FleetTagArrayOutput) ToEC2FleetTagArrayOutputWithContext(ctx context.Context) EC2FleetTagArrayOutput {
+func (o Ec2FleetTagArrayOutput) ToEc2FleetTagArrayOutputWithContext(ctx context.Context) Ec2FleetTagArrayOutput {
 	return o
 }
 
-func (o EC2FleetTagArrayOutput) Index(i pulumi.IntInput) EC2FleetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EC2FleetTag {
-		return vs[0].([]EC2FleetTag)[vs[1].(int)]
-	}).(EC2FleetTagOutput)
+func (o Ec2FleetTagArrayOutput) Index(i pulumi.IntInput) Ec2FleetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetTag {
+		return vs[0].([]Ec2FleetTag)[vs[1].(int)]
+	}).(Ec2FleetTagOutput)
 }
 
-type EC2FleetTagSpecification struct {
-	ResourceType *EC2FleetTagSpecificationResourceType `pulumi:"resourceType"`
-	Tags         []EC2FleetTag                         `pulumi:"tags"`
+type Ec2FleetTagSpecification struct {
+	ResourceType *Ec2FleetTagSpecificationResourceType `pulumi:"resourceType"`
+	Tags         []Ec2FleetTag                         `pulumi:"tags"`
 }
 
-// EC2FleetTagSpecificationInput is an input type that accepts EC2FleetTagSpecificationArgs and EC2FleetTagSpecificationOutput values.
-// You can construct a concrete instance of `EC2FleetTagSpecificationInput` via:
+// Ec2FleetTagSpecificationInput is an input type that accepts Ec2FleetTagSpecificationArgs and Ec2FleetTagSpecificationOutput values.
+// You can construct a concrete instance of `Ec2FleetTagSpecificationInput` via:
 //
-//	EC2FleetTagSpecificationArgs{...}
-type EC2FleetTagSpecificationInput interface {
+//	Ec2FleetTagSpecificationArgs{...}
+type Ec2FleetTagSpecificationInput interface {
 	pulumi.Input
 
-	ToEC2FleetTagSpecificationOutput() EC2FleetTagSpecificationOutput
-	ToEC2FleetTagSpecificationOutputWithContext(context.Context) EC2FleetTagSpecificationOutput
+	ToEc2FleetTagSpecificationOutput() Ec2FleetTagSpecificationOutput
+	ToEc2FleetTagSpecificationOutputWithContext(context.Context) Ec2FleetTagSpecificationOutput
 }
 
-type EC2FleetTagSpecificationArgs struct {
-	ResourceType EC2FleetTagSpecificationResourceTypePtrInput `pulumi:"resourceType"`
-	Tags         EC2FleetTagArrayInput                        `pulumi:"tags"`
+type Ec2FleetTagSpecificationArgs struct {
+	ResourceType Ec2FleetTagSpecificationResourceTypePtrInput `pulumi:"resourceType"`
+	Tags         Ec2FleetTagArrayInput                        `pulumi:"tags"`
 }
 
-func (EC2FleetTagSpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetTagSpecification)(nil)).Elem()
+func (Ec2FleetTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetTagSpecification)(nil)).Elem()
 }
 
-func (i EC2FleetTagSpecificationArgs) ToEC2FleetTagSpecificationOutput() EC2FleetTagSpecificationOutput {
-	return i.ToEC2FleetTagSpecificationOutputWithContext(context.Background())
+func (i Ec2FleetTagSpecificationArgs) ToEc2FleetTagSpecificationOutput() Ec2FleetTagSpecificationOutput {
+	return i.ToEc2FleetTagSpecificationOutputWithContext(context.Background())
 }
 
-func (i EC2FleetTagSpecificationArgs) ToEC2FleetTagSpecificationOutputWithContext(ctx context.Context) EC2FleetTagSpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTagSpecificationOutput)
+func (i Ec2FleetTagSpecificationArgs) ToEc2FleetTagSpecificationOutputWithContext(ctx context.Context) Ec2FleetTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetTagSpecificationOutput)
 }
 
-// EC2FleetTagSpecificationArrayInput is an input type that accepts EC2FleetTagSpecificationArray and EC2FleetTagSpecificationArrayOutput values.
-// You can construct a concrete instance of `EC2FleetTagSpecificationArrayInput` via:
+// Ec2FleetTagSpecificationArrayInput is an input type that accepts Ec2FleetTagSpecificationArray and Ec2FleetTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetTagSpecificationArrayInput` via:
 //
-//	EC2FleetTagSpecificationArray{ EC2FleetTagSpecificationArgs{...} }
-type EC2FleetTagSpecificationArrayInput interface {
+//	Ec2FleetTagSpecificationArray{ Ec2FleetTagSpecificationArgs{...} }
+type Ec2FleetTagSpecificationArrayInput interface {
 	pulumi.Input
 
-	ToEC2FleetTagSpecificationArrayOutput() EC2FleetTagSpecificationArrayOutput
-	ToEC2FleetTagSpecificationArrayOutputWithContext(context.Context) EC2FleetTagSpecificationArrayOutput
+	ToEc2FleetTagSpecificationArrayOutput() Ec2FleetTagSpecificationArrayOutput
+	ToEc2FleetTagSpecificationArrayOutputWithContext(context.Context) Ec2FleetTagSpecificationArrayOutput
 }
 
-type EC2FleetTagSpecificationArray []EC2FleetTagSpecificationInput
+type Ec2FleetTagSpecificationArray []Ec2FleetTagSpecificationInput
 
-func (EC2FleetTagSpecificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EC2FleetTagSpecification)(nil)).Elem()
+func (Ec2FleetTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetTagSpecification)(nil)).Elem()
 }
 
-func (i EC2FleetTagSpecificationArray) ToEC2FleetTagSpecificationArrayOutput() EC2FleetTagSpecificationArrayOutput {
-	return i.ToEC2FleetTagSpecificationArrayOutputWithContext(context.Background())
+func (i Ec2FleetTagSpecificationArray) ToEc2FleetTagSpecificationArrayOutput() Ec2FleetTagSpecificationArrayOutput {
+	return i.ToEc2FleetTagSpecificationArrayOutputWithContext(context.Background())
 }
 
-func (i EC2FleetTagSpecificationArray) ToEC2FleetTagSpecificationArrayOutputWithContext(ctx context.Context) EC2FleetTagSpecificationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTagSpecificationArrayOutput)
+func (i Ec2FleetTagSpecificationArray) ToEc2FleetTagSpecificationArrayOutputWithContext(ctx context.Context) Ec2FleetTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetTagSpecificationArrayOutput)
 }
 
-type EC2FleetTagSpecificationOutput struct{ *pulumi.OutputState }
+type Ec2FleetTagSpecificationOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetTagSpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetTagSpecification)(nil)).Elem()
+func (Ec2FleetTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetTagSpecification)(nil)).Elem()
 }
 
-func (o EC2FleetTagSpecificationOutput) ToEC2FleetTagSpecificationOutput() EC2FleetTagSpecificationOutput {
+func (o Ec2FleetTagSpecificationOutput) ToEc2FleetTagSpecificationOutput() Ec2FleetTagSpecificationOutput {
 	return o
 }
 
-func (o EC2FleetTagSpecificationOutput) ToEC2FleetTagSpecificationOutputWithContext(ctx context.Context) EC2FleetTagSpecificationOutput {
+func (o Ec2FleetTagSpecificationOutput) ToEc2FleetTagSpecificationOutputWithContext(ctx context.Context) Ec2FleetTagSpecificationOutput {
 	return o
 }
 
-func (o EC2FleetTagSpecificationOutput) ResourceType() EC2FleetTagSpecificationResourceTypePtrOutput {
-	return o.ApplyT(func(v EC2FleetTagSpecification) *EC2FleetTagSpecificationResourceType { return v.ResourceType }).(EC2FleetTagSpecificationResourceTypePtrOutput)
+func (o Ec2FleetTagSpecificationOutput) ResourceType() Ec2FleetTagSpecificationResourceTypePtrOutput {
+	return o.ApplyT(func(v Ec2FleetTagSpecification) *Ec2FleetTagSpecificationResourceType { return v.ResourceType }).(Ec2FleetTagSpecificationResourceTypePtrOutput)
 }
 
-func (o EC2FleetTagSpecificationOutput) Tags() EC2FleetTagArrayOutput {
-	return o.ApplyT(func(v EC2FleetTagSpecification) []EC2FleetTag { return v.Tags }).(EC2FleetTagArrayOutput)
+func (o Ec2FleetTagSpecificationOutput) Tags() Ec2FleetTagArrayOutput {
+	return o.ApplyT(func(v Ec2FleetTagSpecification) []Ec2FleetTag { return v.Tags }).(Ec2FleetTagArrayOutput)
 }
 
-type EC2FleetTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+type Ec2FleetTagSpecificationArrayOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetTagSpecificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EC2FleetTagSpecification)(nil)).Elem()
+func (Ec2FleetTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetTagSpecification)(nil)).Elem()
 }
 
-func (o EC2FleetTagSpecificationArrayOutput) ToEC2FleetTagSpecificationArrayOutput() EC2FleetTagSpecificationArrayOutput {
+func (o Ec2FleetTagSpecificationArrayOutput) ToEc2FleetTagSpecificationArrayOutput() Ec2FleetTagSpecificationArrayOutput {
 	return o
 }
 
-func (o EC2FleetTagSpecificationArrayOutput) ToEC2FleetTagSpecificationArrayOutputWithContext(ctx context.Context) EC2FleetTagSpecificationArrayOutput {
+func (o Ec2FleetTagSpecificationArrayOutput) ToEc2FleetTagSpecificationArrayOutputWithContext(ctx context.Context) Ec2FleetTagSpecificationArrayOutput {
 	return o
 }
 
-func (o EC2FleetTagSpecificationArrayOutput) Index(i pulumi.IntInput) EC2FleetTagSpecificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EC2FleetTagSpecification {
-		return vs[0].([]EC2FleetTagSpecification)[vs[1].(int)]
-	}).(EC2FleetTagSpecificationOutput)
+func (o Ec2FleetTagSpecificationArrayOutput) Index(i pulumi.IntInput) Ec2FleetTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetTagSpecification {
+		return vs[0].([]Ec2FleetTagSpecification)[vs[1].(int)]
+	}).(Ec2FleetTagSpecificationOutput)
 }
 
-type EC2FleetTargetCapacitySpecificationRequest struct {
-	DefaultTargetCapacityType *EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType `pulumi:"defaultTargetCapacityType"`
+type Ec2FleetTargetCapacitySpecificationRequest struct {
+	DefaultTargetCapacityType *Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType `pulumi:"defaultTargetCapacityType"`
 	OnDemandTargetCapacity    *int                                                                 `pulumi:"onDemandTargetCapacity"`
 	SpotTargetCapacity        *int                                                                 `pulumi:"spotTargetCapacity"`
-	TargetCapacityUnitType    *EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType    `pulumi:"targetCapacityUnitType"`
+	TargetCapacityUnitType    *Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType    `pulumi:"targetCapacityUnitType"`
 	TotalTargetCapacity       int                                                                  `pulumi:"totalTargetCapacity"`
 }
 
-// EC2FleetTargetCapacitySpecificationRequestInput is an input type that accepts EC2FleetTargetCapacitySpecificationRequestArgs and EC2FleetTargetCapacitySpecificationRequestOutput values.
-// You can construct a concrete instance of `EC2FleetTargetCapacitySpecificationRequestInput` via:
+// Ec2FleetTargetCapacitySpecificationRequestInput is an input type that accepts Ec2FleetTargetCapacitySpecificationRequestArgs and Ec2FleetTargetCapacitySpecificationRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetTargetCapacitySpecificationRequestInput` via:
 //
-//	EC2FleetTargetCapacitySpecificationRequestArgs{...}
-type EC2FleetTargetCapacitySpecificationRequestInput interface {
+//	Ec2FleetTargetCapacitySpecificationRequestArgs{...}
+type Ec2FleetTargetCapacitySpecificationRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetTargetCapacitySpecificationRequestOutput() EC2FleetTargetCapacitySpecificationRequestOutput
-	ToEC2FleetTargetCapacitySpecificationRequestOutputWithContext(context.Context) EC2FleetTargetCapacitySpecificationRequestOutput
+	ToEc2FleetTargetCapacitySpecificationRequestOutput() Ec2FleetTargetCapacitySpecificationRequestOutput
+	ToEc2FleetTargetCapacitySpecificationRequestOutputWithContext(context.Context) Ec2FleetTargetCapacitySpecificationRequestOutput
 }
 
-type EC2FleetTargetCapacitySpecificationRequestArgs struct {
-	DefaultTargetCapacityType EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrInput `pulumi:"defaultTargetCapacityType"`
+type Ec2FleetTargetCapacitySpecificationRequestArgs struct {
+	DefaultTargetCapacityType Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrInput `pulumi:"defaultTargetCapacityType"`
 	OnDemandTargetCapacity    pulumi.IntPtrInput                                                          `pulumi:"onDemandTargetCapacity"`
 	SpotTargetCapacity        pulumi.IntPtrInput                                                          `pulumi:"spotTargetCapacity"`
-	TargetCapacityUnitType    EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrInput    `pulumi:"targetCapacityUnitType"`
+	TargetCapacityUnitType    Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrInput    `pulumi:"targetCapacityUnitType"`
 	TotalTargetCapacity       pulumi.IntInput                                                             `pulumi:"totalTargetCapacity"`
 }
 
-func (EC2FleetTargetCapacitySpecificationRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetTargetCapacitySpecificationRequest)(nil)).Elem()
+func (Ec2FleetTargetCapacitySpecificationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetTargetCapacitySpecificationRequest)(nil)).Elem()
 }
 
-func (i EC2FleetTargetCapacitySpecificationRequestArgs) ToEC2FleetTargetCapacitySpecificationRequestOutput() EC2FleetTargetCapacitySpecificationRequestOutput {
-	return i.ToEC2FleetTargetCapacitySpecificationRequestOutputWithContext(context.Background())
+func (i Ec2FleetTargetCapacitySpecificationRequestArgs) ToEc2FleetTargetCapacitySpecificationRequestOutput() Ec2FleetTargetCapacitySpecificationRequestOutput {
+	return i.ToEc2FleetTargetCapacitySpecificationRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetTargetCapacitySpecificationRequestArgs) ToEC2FleetTargetCapacitySpecificationRequestOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTargetCapacitySpecificationRequestOutput)
+func (i Ec2FleetTargetCapacitySpecificationRequestArgs) ToEc2FleetTargetCapacitySpecificationRequestOutputWithContext(ctx context.Context) Ec2FleetTargetCapacitySpecificationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetTargetCapacitySpecificationRequestOutput)
 }
 
-type EC2FleetTargetCapacitySpecificationRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetTargetCapacitySpecificationRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetTargetCapacitySpecificationRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetTargetCapacitySpecificationRequest)(nil)).Elem()
+func (Ec2FleetTargetCapacitySpecificationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetTargetCapacitySpecificationRequest)(nil)).Elem()
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestOutput) ToEC2FleetTargetCapacitySpecificationRequestOutput() EC2FleetTargetCapacitySpecificationRequestOutput {
+func (o Ec2FleetTargetCapacitySpecificationRequestOutput) ToEc2FleetTargetCapacitySpecificationRequestOutput() Ec2FleetTargetCapacitySpecificationRequestOutput {
 	return o
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestOutput) ToEC2FleetTargetCapacitySpecificationRequestOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestOutput {
+func (o Ec2FleetTargetCapacitySpecificationRequestOutput) ToEc2FleetTargetCapacitySpecificationRequestOutputWithContext(ctx context.Context) Ec2FleetTargetCapacitySpecificationRequestOutput {
 	return o
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestOutput) DefaultTargetCapacityType() EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
-	return o.ApplyT(func(v EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
+func (o Ec2FleetTargetCapacitySpecificationRequestOutput) DefaultTargetCapacityType() Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
+	return o.ApplyT(func(v Ec2FleetTargetCapacitySpecificationRequest) *Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
 		return v.DefaultTargetCapacityType
-	}).(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
+	}).(Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetTargetCapacitySpecificationRequest) *int { return v.OnDemandTargetCapacity }).(pulumi.IntPtrOutput)
+func (o Ec2FleetTargetCapacitySpecificationRequestOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetTargetCapacitySpecificationRequest) *int { return v.OnDemandTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestOutput) SpotTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetTargetCapacitySpecificationRequest) *int { return v.SpotTargetCapacity }).(pulumi.IntPtrOutput)
+func (o Ec2FleetTargetCapacitySpecificationRequestOutput) SpotTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetTargetCapacitySpecificationRequest) *int { return v.SpotTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestOutput) TargetCapacityUnitType() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
-	return o.ApplyT(func(v EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
+func (o Ec2FleetTargetCapacitySpecificationRequestOutput) TargetCapacityUnitType() Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return o.ApplyT(func(v Ec2FleetTargetCapacitySpecificationRequest) *Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
 		return v.TargetCapacityUnitType
-	}).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
+	}).(Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestOutput) TotalTargetCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v EC2FleetTargetCapacitySpecificationRequest) int { return v.TotalTargetCapacity }).(pulumi.IntOutput)
+func (o Ec2FleetTargetCapacitySpecificationRequestOutput) TotalTargetCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v Ec2FleetTargetCapacitySpecificationRequest) int { return v.TotalTargetCapacity }).(pulumi.IntOutput)
 }
 
-type EC2FleetTargetCapacitySpecificationRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetTargetCapacitySpecificationRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetTargetCapacitySpecificationRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetTargetCapacitySpecificationRequest)(nil)).Elem()
+func (Ec2FleetTargetCapacitySpecificationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetTargetCapacitySpecificationRequest)(nil)).Elem()
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) ToEC2FleetTargetCapacitySpecificationRequestPtrOutput() EC2FleetTargetCapacitySpecificationRequestPtrOutput {
+func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) ToEc2FleetTargetCapacitySpecificationRequestPtrOutput() Ec2FleetTargetCapacitySpecificationRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestPtrOutput {
+func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) ToEc2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(ctx context.Context) Ec2FleetTargetCapacitySpecificationRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) Elem() EC2FleetTargetCapacitySpecificationRequestOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) EC2FleetTargetCapacitySpecificationRequest {
+func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) Elem() Ec2FleetTargetCapacitySpecificationRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) Ec2FleetTargetCapacitySpecificationRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetTargetCapacitySpecificationRequest
+		var ret Ec2FleetTargetCapacitySpecificationRequest
 		return ret
-	}).(EC2FleetTargetCapacitySpecificationRequestOutput)
+	}).(Ec2FleetTargetCapacitySpecificationRequestOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) DefaultTargetCapacityType() EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
+func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) DefaultTargetCapacityType() Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
+	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) *Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
 		if v == nil {
 			return nil
 		}
 		return v.DefaultTargetCapacityType
-	}).(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
+	}).(Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *int {
+func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -5513,8 +5513,8 @@ func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) OnDemandTargetCapac
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) SpotTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *int {
+func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) SpotTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -5522,17 +5522,17 @@ func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) SpotTargetCapacity(
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) TargetCapacityUnitType() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
+func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) TargetCapacityUnitType() Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) *Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
 		if v == nil {
 			return nil
 		}
 		return v.TargetCapacityUnitType
-	}).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
+	}).(Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) TotalTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *int {
+func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) TotalTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -5540,138 +5540,138 @@ func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) TotalTargetCapacity
 	}).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetTotalLocalStorageGBRequest struct {
+type Ec2FleetTotalLocalStorageGbRequest struct {
 	Max *float64 `pulumi:"max"`
 	Min *float64 `pulumi:"min"`
 }
 
-// EC2FleetTotalLocalStorageGBRequestInput is an input type that accepts EC2FleetTotalLocalStorageGBRequestArgs and EC2FleetTotalLocalStorageGBRequestOutput values.
-// You can construct a concrete instance of `EC2FleetTotalLocalStorageGBRequestInput` via:
+// Ec2FleetTotalLocalStorageGbRequestInput is an input type that accepts Ec2FleetTotalLocalStorageGbRequestArgs and Ec2FleetTotalLocalStorageGbRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetTotalLocalStorageGbRequestInput` via:
 //
-//	EC2FleetTotalLocalStorageGBRequestArgs{...}
-type EC2FleetTotalLocalStorageGBRequestInput interface {
+//	Ec2FleetTotalLocalStorageGbRequestArgs{...}
+type Ec2FleetTotalLocalStorageGbRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetTotalLocalStorageGBRequestOutput() EC2FleetTotalLocalStorageGBRequestOutput
-	ToEC2FleetTotalLocalStorageGBRequestOutputWithContext(context.Context) EC2FleetTotalLocalStorageGBRequestOutput
+	ToEc2FleetTotalLocalStorageGbRequestOutput() Ec2FleetTotalLocalStorageGbRequestOutput
+	ToEc2FleetTotalLocalStorageGbRequestOutputWithContext(context.Context) Ec2FleetTotalLocalStorageGbRequestOutput
 }
 
-type EC2FleetTotalLocalStorageGBRequestArgs struct {
+type Ec2FleetTotalLocalStorageGbRequestArgs struct {
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
-func (EC2FleetTotalLocalStorageGBRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetTotalLocalStorageGBRequest)(nil)).Elem()
+func (Ec2FleetTotalLocalStorageGbRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (i EC2FleetTotalLocalStorageGBRequestArgs) ToEC2FleetTotalLocalStorageGBRequestOutput() EC2FleetTotalLocalStorageGBRequestOutput {
-	return i.ToEC2FleetTotalLocalStorageGBRequestOutputWithContext(context.Background())
+func (i Ec2FleetTotalLocalStorageGbRequestArgs) ToEc2FleetTotalLocalStorageGbRequestOutput() Ec2FleetTotalLocalStorageGbRequestOutput {
+	return i.ToEc2FleetTotalLocalStorageGbRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetTotalLocalStorageGBRequestArgs) ToEC2FleetTotalLocalStorageGBRequestOutputWithContext(ctx context.Context) EC2FleetTotalLocalStorageGBRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTotalLocalStorageGBRequestOutput)
+func (i Ec2FleetTotalLocalStorageGbRequestArgs) ToEc2FleetTotalLocalStorageGbRequestOutputWithContext(ctx context.Context) Ec2FleetTotalLocalStorageGbRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetTotalLocalStorageGbRequestOutput)
 }
 
-func (i EC2FleetTotalLocalStorageGBRequestArgs) ToEC2FleetTotalLocalStorageGBRequestPtrOutput() EC2FleetTotalLocalStorageGBRequestPtrOutput {
-	return i.ToEC2FleetTotalLocalStorageGBRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetTotalLocalStorageGbRequestArgs) ToEc2FleetTotalLocalStorageGbRequestPtrOutput() Ec2FleetTotalLocalStorageGbRequestPtrOutput {
+	return i.ToEc2FleetTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetTotalLocalStorageGBRequestArgs) ToEC2FleetTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) EC2FleetTotalLocalStorageGBRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTotalLocalStorageGBRequestOutput).ToEC2FleetTotalLocalStorageGBRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetTotalLocalStorageGbRequestArgs) ToEc2FleetTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) Ec2FleetTotalLocalStorageGbRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetTotalLocalStorageGbRequestOutput).ToEc2FleetTotalLocalStorageGbRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetTotalLocalStorageGBRequestPtrInput is an input type that accepts EC2FleetTotalLocalStorageGBRequestArgs, EC2FleetTotalLocalStorageGBRequestPtr and EC2FleetTotalLocalStorageGBRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetTotalLocalStorageGBRequestPtrInput` via:
+// Ec2FleetTotalLocalStorageGbRequestPtrInput is an input type that accepts Ec2FleetTotalLocalStorageGbRequestArgs, Ec2FleetTotalLocalStorageGbRequestPtr and Ec2FleetTotalLocalStorageGbRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetTotalLocalStorageGbRequestPtrInput` via:
 //
-//	        EC2FleetTotalLocalStorageGBRequestArgs{...}
+//	        Ec2FleetTotalLocalStorageGbRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetTotalLocalStorageGBRequestPtrInput interface {
+type Ec2FleetTotalLocalStorageGbRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetTotalLocalStorageGBRequestPtrOutput() EC2FleetTotalLocalStorageGBRequestPtrOutput
-	ToEC2FleetTotalLocalStorageGBRequestPtrOutputWithContext(context.Context) EC2FleetTotalLocalStorageGBRequestPtrOutput
+	ToEc2FleetTotalLocalStorageGbRequestPtrOutput() Ec2FleetTotalLocalStorageGbRequestPtrOutput
+	ToEc2FleetTotalLocalStorageGbRequestPtrOutputWithContext(context.Context) Ec2FleetTotalLocalStorageGbRequestPtrOutput
 }
 
-type ec2fleetTotalLocalStorageGBRequestPtrType EC2FleetTotalLocalStorageGBRequestArgs
+type ec2FleetTotalLocalStorageGbRequestPtrType Ec2FleetTotalLocalStorageGbRequestArgs
 
-func EC2FleetTotalLocalStorageGBRequestPtr(v *EC2FleetTotalLocalStorageGBRequestArgs) EC2FleetTotalLocalStorageGBRequestPtrInput {
-	return (*ec2fleetTotalLocalStorageGBRequestPtrType)(v)
+func Ec2FleetTotalLocalStorageGbRequestPtr(v *Ec2FleetTotalLocalStorageGbRequestArgs) Ec2FleetTotalLocalStorageGbRequestPtrInput {
+	return (*ec2FleetTotalLocalStorageGbRequestPtrType)(v)
 }
 
-func (*ec2fleetTotalLocalStorageGBRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetTotalLocalStorageGBRequest)(nil)).Elem()
+func (*ec2FleetTotalLocalStorageGbRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetTotalLocalStorageGBRequestPtrType) ToEC2FleetTotalLocalStorageGBRequestPtrOutput() EC2FleetTotalLocalStorageGBRequestPtrOutput {
-	return i.ToEC2FleetTotalLocalStorageGBRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetTotalLocalStorageGbRequestPtrType) ToEc2FleetTotalLocalStorageGbRequestPtrOutput() Ec2FleetTotalLocalStorageGbRequestPtrOutput {
+	return i.ToEc2FleetTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetTotalLocalStorageGBRequestPtrType) ToEC2FleetTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) EC2FleetTotalLocalStorageGBRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTotalLocalStorageGBRequestPtrOutput)
+func (i *ec2FleetTotalLocalStorageGbRequestPtrType) ToEc2FleetTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) Ec2FleetTotalLocalStorageGbRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetTotalLocalStorageGbRequestPtrOutput)
 }
 
-type EC2FleetTotalLocalStorageGBRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetTotalLocalStorageGbRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetTotalLocalStorageGBRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetTotalLocalStorageGBRequest)(nil)).Elem()
+func (Ec2FleetTotalLocalStorageGbRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestOutput) ToEC2FleetTotalLocalStorageGBRequestOutput() EC2FleetTotalLocalStorageGBRequestOutput {
+func (o Ec2FleetTotalLocalStorageGbRequestOutput) ToEc2FleetTotalLocalStorageGbRequestOutput() Ec2FleetTotalLocalStorageGbRequestOutput {
 	return o
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestOutput) ToEC2FleetTotalLocalStorageGBRequestOutputWithContext(ctx context.Context) EC2FleetTotalLocalStorageGBRequestOutput {
+func (o Ec2FleetTotalLocalStorageGbRequestOutput) ToEc2FleetTotalLocalStorageGbRequestOutputWithContext(ctx context.Context) Ec2FleetTotalLocalStorageGbRequestOutput {
 	return o
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestOutput) ToEC2FleetTotalLocalStorageGBRequestPtrOutput() EC2FleetTotalLocalStorageGBRequestPtrOutput {
-	return o.ToEC2FleetTotalLocalStorageGBRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetTotalLocalStorageGbRequestOutput) ToEc2FleetTotalLocalStorageGbRequestPtrOutput() Ec2FleetTotalLocalStorageGbRequestPtrOutput {
+	return o.ToEc2FleetTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestOutput) ToEC2FleetTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) EC2FleetTotalLocalStorageGBRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetTotalLocalStorageGBRequest) *EC2FleetTotalLocalStorageGBRequest {
+func (o Ec2FleetTotalLocalStorageGbRequestOutput) ToEc2FleetTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) Ec2FleetTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetTotalLocalStorageGbRequest) *Ec2FleetTotalLocalStorageGbRequest {
 		return &v
-	}).(EC2FleetTotalLocalStorageGBRequestPtrOutput)
+	}).(Ec2FleetTotalLocalStorageGbRequestPtrOutput)
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestOutput) Max() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v EC2FleetTotalLocalStorageGBRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+func (o Ec2FleetTotalLocalStorageGbRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Ec2FleetTotalLocalStorageGbRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestOutput) Min() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v EC2FleetTotalLocalStorageGBRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+func (o Ec2FleetTotalLocalStorageGbRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Ec2FleetTotalLocalStorageGbRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
 
-type EC2FleetTotalLocalStorageGBRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetTotalLocalStorageGbRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetTotalLocalStorageGBRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetTotalLocalStorageGBRequest)(nil)).Elem()
+func (Ec2FleetTotalLocalStorageGbRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestPtrOutput) ToEC2FleetTotalLocalStorageGBRequestPtrOutput() EC2FleetTotalLocalStorageGBRequestPtrOutput {
+func (o Ec2FleetTotalLocalStorageGbRequestPtrOutput) ToEc2FleetTotalLocalStorageGbRequestPtrOutput() Ec2FleetTotalLocalStorageGbRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestPtrOutput) ToEC2FleetTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) EC2FleetTotalLocalStorageGBRequestPtrOutput {
+func (o Ec2FleetTotalLocalStorageGbRequestPtrOutput) ToEc2FleetTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) Ec2FleetTotalLocalStorageGbRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestPtrOutput) Elem() EC2FleetTotalLocalStorageGBRequestOutput {
-	return o.ApplyT(func(v *EC2FleetTotalLocalStorageGBRequest) EC2FleetTotalLocalStorageGBRequest {
+func (o Ec2FleetTotalLocalStorageGbRequestPtrOutput) Elem() Ec2FleetTotalLocalStorageGbRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetTotalLocalStorageGbRequest) Ec2FleetTotalLocalStorageGbRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetTotalLocalStorageGBRequest
+		var ret Ec2FleetTotalLocalStorageGbRequest
 		return ret
-	}).(EC2FleetTotalLocalStorageGBRequestOutput)
+	}).(Ec2FleetTotalLocalStorageGbRequestOutput)
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestPtrOutput) Max() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *EC2FleetTotalLocalStorageGBRequest) *float64 {
+func (o Ec2FleetTotalLocalStorageGbRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Ec2FleetTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -5679,8 +5679,8 @@ func (o EC2FleetTotalLocalStorageGBRequestPtrOutput) Max() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o EC2FleetTotalLocalStorageGBRequestPtrOutput) Min() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *EC2FleetTotalLocalStorageGBRequest) *float64 {
+func (o Ec2FleetTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Ec2FleetTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -5688,138 +5688,138 @@ func (o EC2FleetTotalLocalStorageGBRequestPtrOutput) Min() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
-type EC2FleetVCpuCountRangeRequest struct {
+type Ec2FleetVCpuCountRangeRequest struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
 }
 
-// EC2FleetVCpuCountRangeRequestInput is an input type that accepts EC2FleetVCpuCountRangeRequestArgs and EC2FleetVCpuCountRangeRequestOutput values.
-// You can construct a concrete instance of `EC2FleetVCpuCountRangeRequestInput` via:
+// Ec2FleetVCpuCountRangeRequestInput is an input type that accepts Ec2FleetVCpuCountRangeRequestArgs and Ec2FleetVCpuCountRangeRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetVCpuCountRangeRequestInput` via:
 //
-//	EC2FleetVCpuCountRangeRequestArgs{...}
-type EC2FleetVCpuCountRangeRequestInput interface {
+//	Ec2FleetVCpuCountRangeRequestArgs{...}
+type Ec2FleetVCpuCountRangeRequestInput interface {
 	pulumi.Input
 
-	ToEC2FleetVCpuCountRangeRequestOutput() EC2FleetVCpuCountRangeRequestOutput
-	ToEC2FleetVCpuCountRangeRequestOutputWithContext(context.Context) EC2FleetVCpuCountRangeRequestOutput
+	ToEc2FleetVCpuCountRangeRequestOutput() Ec2FleetVCpuCountRangeRequestOutput
+	ToEc2FleetVCpuCountRangeRequestOutputWithContext(context.Context) Ec2FleetVCpuCountRangeRequestOutput
 }
 
-type EC2FleetVCpuCountRangeRequestArgs struct {
+type Ec2FleetVCpuCountRangeRequestArgs struct {
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
-func (EC2FleetVCpuCountRangeRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetVCpuCountRangeRequest)(nil)).Elem()
+func (Ec2FleetVCpuCountRangeRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetVCpuCountRangeRequest)(nil)).Elem()
 }
 
-func (i EC2FleetVCpuCountRangeRequestArgs) ToEC2FleetVCpuCountRangeRequestOutput() EC2FleetVCpuCountRangeRequestOutput {
-	return i.ToEC2FleetVCpuCountRangeRequestOutputWithContext(context.Background())
+func (i Ec2FleetVCpuCountRangeRequestArgs) ToEc2FleetVCpuCountRangeRequestOutput() Ec2FleetVCpuCountRangeRequestOutput {
+	return i.ToEc2FleetVCpuCountRangeRequestOutputWithContext(context.Background())
 }
 
-func (i EC2FleetVCpuCountRangeRequestArgs) ToEC2FleetVCpuCountRangeRequestOutputWithContext(ctx context.Context) EC2FleetVCpuCountRangeRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetVCpuCountRangeRequestOutput)
+func (i Ec2FleetVCpuCountRangeRequestArgs) ToEc2FleetVCpuCountRangeRequestOutputWithContext(ctx context.Context) Ec2FleetVCpuCountRangeRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetVCpuCountRangeRequestOutput)
 }
 
-func (i EC2FleetVCpuCountRangeRequestArgs) ToEC2FleetVCpuCountRangeRequestPtrOutput() EC2FleetVCpuCountRangeRequestPtrOutput {
-	return i.ToEC2FleetVCpuCountRangeRequestPtrOutputWithContext(context.Background())
+func (i Ec2FleetVCpuCountRangeRequestArgs) ToEc2FleetVCpuCountRangeRequestPtrOutput() Ec2FleetVCpuCountRangeRequestPtrOutput {
+	return i.ToEc2FleetVCpuCountRangeRequestPtrOutputWithContext(context.Background())
 }
 
-func (i EC2FleetVCpuCountRangeRequestArgs) ToEC2FleetVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) EC2FleetVCpuCountRangeRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetVCpuCountRangeRequestOutput).ToEC2FleetVCpuCountRangeRequestPtrOutputWithContext(ctx)
+func (i Ec2FleetVCpuCountRangeRequestArgs) ToEc2FleetVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) Ec2FleetVCpuCountRangeRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetVCpuCountRangeRequestOutput).ToEc2FleetVCpuCountRangeRequestPtrOutputWithContext(ctx)
 }
 
-// EC2FleetVCpuCountRangeRequestPtrInput is an input type that accepts EC2FleetVCpuCountRangeRequestArgs, EC2FleetVCpuCountRangeRequestPtr and EC2FleetVCpuCountRangeRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetVCpuCountRangeRequestPtrInput` via:
+// Ec2FleetVCpuCountRangeRequestPtrInput is an input type that accepts Ec2FleetVCpuCountRangeRequestArgs, Ec2FleetVCpuCountRangeRequestPtr and Ec2FleetVCpuCountRangeRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetVCpuCountRangeRequestPtrInput` via:
 //
-//	        EC2FleetVCpuCountRangeRequestArgs{...}
+//	        Ec2FleetVCpuCountRangeRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type EC2FleetVCpuCountRangeRequestPtrInput interface {
+type Ec2FleetVCpuCountRangeRequestPtrInput interface {
 	pulumi.Input
 
-	ToEC2FleetVCpuCountRangeRequestPtrOutput() EC2FleetVCpuCountRangeRequestPtrOutput
-	ToEC2FleetVCpuCountRangeRequestPtrOutputWithContext(context.Context) EC2FleetVCpuCountRangeRequestPtrOutput
+	ToEc2FleetVCpuCountRangeRequestPtrOutput() Ec2FleetVCpuCountRangeRequestPtrOutput
+	ToEc2FleetVCpuCountRangeRequestPtrOutputWithContext(context.Context) Ec2FleetVCpuCountRangeRequestPtrOutput
 }
 
-type ec2fleetVCpuCountRangeRequestPtrType EC2FleetVCpuCountRangeRequestArgs
+type ec2FleetVCpuCountRangeRequestPtrType Ec2FleetVCpuCountRangeRequestArgs
 
-func EC2FleetVCpuCountRangeRequestPtr(v *EC2FleetVCpuCountRangeRequestArgs) EC2FleetVCpuCountRangeRequestPtrInput {
-	return (*ec2fleetVCpuCountRangeRequestPtrType)(v)
+func Ec2FleetVCpuCountRangeRequestPtr(v *Ec2FleetVCpuCountRangeRequestArgs) Ec2FleetVCpuCountRangeRequestPtrInput {
+	return (*ec2FleetVCpuCountRangeRequestPtrType)(v)
 }
 
-func (*ec2fleetVCpuCountRangeRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetVCpuCountRangeRequest)(nil)).Elem()
+func (*ec2FleetVCpuCountRangeRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetVCpuCountRangeRequest)(nil)).Elem()
 }
 
-func (i *ec2fleetVCpuCountRangeRequestPtrType) ToEC2FleetVCpuCountRangeRequestPtrOutput() EC2FleetVCpuCountRangeRequestPtrOutput {
-	return i.ToEC2FleetVCpuCountRangeRequestPtrOutputWithContext(context.Background())
+func (i *ec2FleetVCpuCountRangeRequestPtrType) ToEc2FleetVCpuCountRangeRequestPtrOutput() Ec2FleetVCpuCountRangeRequestPtrOutput {
+	return i.ToEc2FleetVCpuCountRangeRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *ec2fleetVCpuCountRangeRequestPtrType) ToEC2FleetVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) EC2FleetVCpuCountRangeRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetVCpuCountRangeRequestPtrOutput)
+func (i *ec2FleetVCpuCountRangeRequestPtrType) ToEc2FleetVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) Ec2FleetVCpuCountRangeRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetVCpuCountRangeRequestPtrOutput)
 }
 
-type EC2FleetVCpuCountRangeRequestOutput struct{ *pulumi.OutputState }
+type Ec2FleetVCpuCountRangeRequestOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetVCpuCountRangeRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2FleetVCpuCountRangeRequest)(nil)).Elem()
+func (Ec2FleetVCpuCountRangeRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetVCpuCountRangeRequest)(nil)).Elem()
 }
 
-func (o EC2FleetVCpuCountRangeRequestOutput) ToEC2FleetVCpuCountRangeRequestOutput() EC2FleetVCpuCountRangeRequestOutput {
+func (o Ec2FleetVCpuCountRangeRequestOutput) ToEc2FleetVCpuCountRangeRequestOutput() Ec2FleetVCpuCountRangeRequestOutput {
 	return o
 }
 
-func (o EC2FleetVCpuCountRangeRequestOutput) ToEC2FleetVCpuCountRangeRequestOutputWithContext(ctx context.Context) EC2FleetVCpuCountRangeRequestOutput {
+func (o Ec2FleetVCpuCountRangeRequestOutput) ToEc2FleetVCpuCountRangeRequestOutputWithContext(ctx context.Context) Ec2FleetVCpuCountRangeRequestOutput {
 	return o
 }
 
-func (o EC2FleetVCpuCountRangeRequestOutput) ToEC2FleetVCpuCountRangeRequestPtrOutput() EC2FleetVCpuCountRangeRequestPtrOutput {
-	return o.ToEC2FleetVCpuCountRangeRequestPtrOutputWithContext(context.Background())
+func (o Ec2FleetVCpuCountRangeRequestOutput) ToEc2FleetVCpuCountRangeRequestPtrOutput() Ec2FleetVCpuCountRangeRequestPtrOutput {
+	return o.ToEc2FleetVCpuCountRangeRequestPtrOutputWithContext(context.Background())
 }
 
-func (o EC2FleetVCpuCountRangeRequestOutput) ToEC2FleetVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) EC2FleetVCpuCountRangeRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetVCpuCountRangeRequest) *EC2FleetVCpuCountRangeRequest {
+func (o Ec2FleetVCpuCountRangeRequestOutput) ToEc2FleetVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) Ec2FleetVCpuCountRangeRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetVCpuCountRangeRequest) *Ec2FleetVCpuCountRangeRequest {
 		return &v
-	}).(EC2FleetVCpuCountRangeRequestPtrOutput)
+	}).(Ec2FleetVCpuCountRangeRequestPtrOutput)
 }
 
-func (o EC2FleetVCpuCountRangeRequestOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetVCpuCountRangeRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+func (o Ec2FleetVCpuCountRangeRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetVCpuCountRangeRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetVCpuCountRangeRequestOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EC2FleetVCpuCountRangeRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+func (o Ec2FleetVCpuCountRangeRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetVCpuCountRangeRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
 
-type EC2FleetVCpuCountRangeRequestPtrOutput struct{ *pulumi.OutputState }
+type Ec2FleetVCpuCountRangeRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (EC2FleetVCpuCountRangeRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetVCpuCountRangeRequest)(nil)).Elem()
+func (Ec2FleetVCpuCountRangeRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetVCpuCountRangeRequest)(nil)).Elem()
 }
 
-func (o EC2FleetVCpuCountRangeRequestPtrOutput) ToEC2FleetVCpuCountRangeRequestPtrOutput() EC2FleetVCpuCountRangeRequestPtrOutput {
+func (o Ec2FleetVCpuCountRangeRequestPtrOutput) ToEc2FleetVCpuCountRangeRequestPtrOutput() Ec2FleetVCpuCountRangeRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetVCpuCountRangeRequestPtrOutput) ToEC2FleetVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) EC2FleetVCpuCountRangeRequestPtrOutput {
+func (o Ec2FleetVCpuCountRangeRequestPtrOutput) ToEc2FleetVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) Ec2FleetVCpuCountRangeRequestPtrOutput {
 	return o
 }
 
-func (o EC2FleetVCpuCountRangeRequestPtrOutput) Elem() EC2FleetVCpuCountRangeRequestOutput {
-	return o.ApplyT(func(v *EC2FleetVCpuCountRangeRequest) EC2FleetVCpuCountRangeRequest {
+func (o Ec2FleetVCpuCountRangeRequestPtrOutput) Elem() Ec2FleetVCpuCountRangeRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetVCpuCountRangeRequest) Ec2FleetVCpuCountRangeRequest {
 		if v != nil {
 			return *v
 		}
-		var ret EC2FleetVCpuCountRangeRequest
+		var ret Ec2FleetVCpuCountRangeRequest
 		return ret
-	}).(EC2FleetVCpuCountRangeRequestOutput)
+	}).(Ec2FleetVCpuCountRangeRequestOutput)
 }
 
-func (o EC2FleetVCpuCountRangeRequestPtrOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetVCpuCountRangeRequest) *int {
+func (o Ec2FleetVCpuCountRangeRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetVCpuCountRangeRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -5827,8 +5827,8 @@ func (o EC2FleetVCpuCountRangeRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetVCpuCountRangeRequest) *int {
+func (o Ec2FleetVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetVCpuCountRangeRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -5836,104 +5836,104 @@ func (o EC2FleetVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-type EIPTag struct {
+type EipTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// EIPTagInput is an input type that accepts EIPTagArgs and EIPTagOutput values.
-// You can construct a concrete instance of `EIPTagInput` via:
+// EipTagInput is an input type that accepts EipTagArgs and EipTagOutput values.
+// You can construct a concrete instance of `EipTagInput` via:
 //
-//	EIPTagArgs{...}
-type EIPTagInput interface {
+//	EipTagArgs{...}
+type EipTagInput interface {
 	pulumi.Input
 
-	ToEIPTagOutput() EIPTagOutput
-	ToEIPTagOutputWithContext(context.Context) EIPTagOutput
+	ToEipTagOutput() EipTagOutput
+	ToEipTagOutputWithContext(context.Context) EipTagOutput
 }
 
-type EIPTagArgs struct {
+type EipTagArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (EIPTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EIPTag)(nil)).Elem()
+func (EipTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EipTag)(nil)).Elem()
 }
 
-func (i EIPTagArgs) ToEIPTagOutput() EIPTagOutput {
-	return i.ToEIPTagOutputWithContext(context.Background())
+func (i EipTagArgs) ToEipTagOutput() EipTagOutput {
+	return i.ToEipTagOutputWithContext(context.Background())
 }
 
-func (i EIPTagArgs) ToEIPTagOutputWithContext(ctx context.Context) EIPTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EIPTagOutput)
+func (i EipTagArgs) ToEipTagOutputWithContext(ctx context.Context) EipTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipTagOutput)
 }
 
-// EIPTagArrayInput is an input type that accepts EIPTagArray and EIPTagArrayOutput values.
-// You can construct a concrete instance of `EIPTagArrayInput` via:
+// EipTagArrayInput is an input type that accepts EipTagArray and EipTagArrayOutput values.
+// You can construct a concrete instance of `EipTagArrayInput` via:
 //
-//	EIPTagArray{ EIPTagArgs{...} }
-type EIPTagArrayInput interface {
+//	EipTagArray{ EipTagArgs{...} }
+type EipTagArrayInput interface {
 	pulumi.Input
 
-	ToEIPTagArrayOutput() EIPTagArrayOutput
-	ToEIPTagArrayOutputWithContext(context.Context) EIPTagArrayOutput
+	ToEipTagArrayOutput() EipTagArrayOutput
+	ToEipTagArrayOutputWithContext(context.Context) EipTagArrayOutput
 }
 
-type EIPTagArray []EIPTagInput
+type EipTagArray []EipTagInput
 
-func (EIPTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EIPTag)(nil)).Elem()
+func (EipTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EipTag)(nil)).Elem()
 }
 
-func (i EIPTagArray) ToEIPTagArrayOutput() EIPTagArrayOutput {
-	return i.ToEIPTagArrayOutputWithContext(context.Background())
+func (i EipTagArray) ToEipTagArrayOutput() EipTagArrayOutput {
+	return i.ToEipTagArrayOutputWithContext(context.Background())
 }
 
-func (i EIPTagArray) ToEIPTagArrayOutputWithContext(ctx context.Context) EIPTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EIPTagArrayOutput)
+func (i EipTagArray) ToEipTagArrayOutputWithContext(ctx context.Context) EipTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipTagArrayOutput)
 }
 
-type EIPTagOutput struct{ *pulumi.OutputState }
+type EipTagOutput struct{ *pulumi.OutputState }
 
-func (EIPTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EIPTag)(nil)).Elem()
+func (EipTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EipTag)(nil)).Elem()
 }
 
-func (o EIPTagOutput) ToEIPTagOutput() EIPTagOutput {
+func (o EipTagOutput) ToEipTagOutput() EipTagOutput {
 	return o
 }
 
-func (o EIPTagOutput) ToEIPTagOutputWithContext(ctx context.Context) EIPTagOutput {
+func (o EipTagOutput) ToEipTagOutputWithContext(ctx context.Context) EipTagOutput {
 	return o
 }
 
-func (o EIPTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v EIPTag) string { return v.Key }).(pulumi.StringOutput)
+func (o EipTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EipTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o EIPTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EIPTag) string { return v.Value }).(pulumi.StringOutput)
+func (o EipTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EipTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type EIPTagArrayOutput struct{ *pulumi.OutputState }
+type EipTagArrayOutput struct{ *pulumi.OutputState }
 
-func (EIPTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EIPTag)(nil)).Elem()
+func (EipTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EipTag)(nil)).Elem()
 }
 
-func (o EIPTagArrayOutput) ToEIPTagArrayOutput() EIPTagArrayOutput {
+func (o EipTagArrayOutput) ToEipTagArrayOutput() EipTagArrayOutput {
 	return o
 }
 
-func (o EIPTagArrayOutput) ToEIPTagArrayOutputWithContext(ctx context.Context) EIPTagArrayOutput {
+func (o EipTagArrayOutput) ToEipTagArrayOutputWithContext(ctx context.Context) EipTagArrayOutput {
 	return o
 }
 
-func (o EIPTagArrayOutput) Index(i pulumi.IntInput) EIPTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EIPTag {
-		return vs[0].([]EIPTag)[vs[1].(int)]
-	}).(EIPTagOutput)
+func (o EipTagArrayOutput) Index(i pulumi.IntInput) EipTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EipTag {
+		return vs[0].([]EipTag)[vs[1].(int)]
+	}).(EipTagOutput)
 }
 
 type FlowLogTag struct {
@@ -6034,848 +6034,6 @@ func (o FlowLogTagArrayOutput) Index(i pulumi.IntInput) FlowLogTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowLogTag {
 		return vs[0].([]FlowLogTag)[vs[1].(int)]
 	}).(FlowLogTagOutput)
-}
-
-// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-type IPAMIpamOperatingRegion struct {
-	// The name of the region.
-	RegionName string `pulumi:"regionName"`
-}
-
-// IPAMIpamOperatingRegionInput is an input type that accepts IPAMIpamOperatingRegionArgs and IPAMIpamOperatingRegionOutput values.
-// You can construct a concrete instance of `IPAMIpamOperatingRegionInput` via:
-//
-//	IPAMIpamOperatingRegionArgs{...}
-type IPAMIpamOperatingRegionInput interface {
-	pulumi.Input
-
-	ToIPAMIpamOperatingRegionOutput() IPAMIpamOperatingRegionOutput
-	ToIPAMIpamOperatingRegionOutputWithContext(context.Context) IPAMIpamOperatingRegionOutput
-}
-
-// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-type IPAMIpamOperatingRegionArgs struct {
-	// The name of the region.
-	RegionName pulumi.StringInput `pulumi:"regionName"`
-}
-
-func (IPAMIpamOperatingRegionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMIpamOperatingRegion)(nil)).Elem()
-}
-
-func (i IPAMIpamOperatingRegionArgs) ToIPAMIpamOperatingRegionOutput() IPAMIpamOperatingRegionOutput {
-	return i.ToIPAMIpamOperatingRegionOutputWithContext(context.Background())
-}
-
-func (i IPAMIpamOperatingRegionArgs) ToIPAMIpamOperatingRegionOutputWithContext(ctx context.Context) IPAMIpamOperatingRegionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMIpamOperatingRegionOutput)
-}
-
-// IPAMIpamOperatingRegionArrayInput is an input type that accepts IPAMIpamOperatingRegionArray and IPAMIpamOperatingRegionArrayOutput values.
-// You can construct a concrete instance of `IPAMIpamOperatingRegionArrayInput` via:
-//
-//	IPAMIpamOperatingRegionArray{ IPAMIpamOperatingRegionArgs{...} }
-type IPAMIpamOperatingRegionArrayInput interface {
-	pulumi.Input
-
-	ToIPAMIpamOperatingRegionArrayOutput() IPAMIpamOperatingRegionArrayOutput
-	ToIPAMIpamOperatingRegionArrayOutputWithContext(context.Context) IPAMIpamOperatingRegionArrayOutput
-}
-
-type IPAMIpamOperatingRegionArray []IPAMIpamOperatingRegionInput
-
-func (IPAMIpamOperatingRegionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMIpamOperatingRegion)(nil)).Elem()
-}
-
-func (i IPAMIpamOperatingRegionArray) ToIPAMIpamOperatingRegionArrayOutput() IPAMIpamOperatingRegionArrayOutput {
-	return i.ToIPAMIpamOperatingRegionArrayOutputWithContext(context.Background())
-}
-
-func (i IPAMIpamOperatingRegionArray) ToIPAMIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IPAMIpamOperatingRegionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMIpamOperatingRegionArrayOutput)
-}
-
-// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-type IPAMIpamOperatingRegionOutput struct{ *pulumi.OutputState }
-
-func (IPAMIpamOperatingRegionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMIpamOperatingRegion)(nil)).Elem()
-}
-
-func (o IPAMIpamOperatingRegionOutput) ToIPAMIpamOperatingRegionOutput() IPAMIpamOperatingRegionOutput {
-	return o
-}
-
-func (o IPAMIpamOperatingRegionOutput) ToIPAMIpamOperatingRegionOutputWithContext(ctx context.Context) IPAMIpamOperatingRegionOutput {
-	return o
-}
-
-// The name of the region.
-func (o IPAMIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
-}
-
-type IPAMIpamOperatingRegionArrayOutput struct{ *pulumi.OutputState }
-
-func (IPAMIpamOperatingRegionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMIpamOperatingRegion)(nil)).Elem()
-}
-
-func (o IPAMIpamOperatingRegionArrayOutput) ToIPAMIpamOperatingRegionArrayOutput() IPAMIpamOperatingRegionArrayOutput {
-	return o
-}
-
-func (o IPAMIpamOperatingRegionArrayOutput) ToIPAMIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IPAMIpamOperatingRegionArrayOutput {
-	return o
-}
-
-func (o IPAMIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) IPAMIpamOperatingRegionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMIpamOperatingRegion {
-		return vs[0].([]IPAMIpamOperatingRegion)[vs[1].(int)]
-	}).(IPAMIpamOperatingRegionOutput)
-}
-
-// An address space to be inserted into this pool. All allocations must be made from this address space.
-type IPAMPoolProvisionedCidr struct {
-	Cidr string `pulumi:"cidr"`
-}
-
-// IPAMPoolProvisionedCidrInput is an input type that accepts IPAMPoolProvisionedCidrArgs and IPAMPoolProvisionedCidrOutput values.
-// You can construct a concrete instance of `IPAMPoolProvisionedCidrInput` via:
-//
-//	IPAMPoolProvisionedCidrArgs{...}
-type IPAMPoolProvisionedCidrInput interface {
-	pulumi.Input
-
-	ToIPAMPoolProvisionedCidrOutput() IPAMPoolProvisionedCidrOutput
-	ToIPAMPoolProvisionedCidrOutputWithContext(context.Context) IPAMPoolProvisionedCidrOutput
-}
-
-// An address space to be inserted into this pool. All allocations must be made from this address space.
-type IPAMPoolProvisionedCidrArgs struct {
-	Cidr pulumi.StringInput `pulumi:"cidr"`
-}
-
-func (IPAMPoolProvisionedCidrArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMPoolProvisionedCidr)(nil)).Elem()
-}
-
-func (i IPAMPoolProvisionedCidrArgs) ToIPAMPoolProvisionedCidrOutput() IPAMPoolProvisionedCidrOutput {
-	return i.ToIPAMPoolProvisionedCidrOutputWithContext(context.Background())
-}
-
-func (i IPAMPoolProvisionedCidrArgs) ToIPAMPoolProvisionedCidrOutputWithContext(ctx context.Context) IPAMPoolProvisionedCidrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMPoolProvisionedCidrOutput)
-}
-
-// IPAMPoolProvisionedCidrArrayInput is an input type that accepts IPAMPoolProvisionedCidrArray and IPAMPoolProvisionedCidrArrayOutput values.
-// You can construct a concrete instance of `IPAMPoolProvisionedCidrArrayInput` via:
-//
-//	IPAMPoolProvisionedCidrArray{ IPAMPoolProvisionedCidrArgs{...} }
-type IPAMPoolProvisionedCidrArrayInput interface {
-	pulumi.Input
-
-	ToIPAMPoolProvisionedCidrArrayOutput() IPAMPoolProvisionedCidrArrayOutput
-	ToIPAMPoolProvisionedCidrArrayOutputWithContext(context.Context) IPAMPoolProvisionedCidrArrayOutput
-}
-
-type IPAMPoolProvisionedCidrArray []IPAMPoolProvisionedCidrInput
-
-func (IPAMPoolProvisionedCidrArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMPoolProvisionedCidr)(nil)).Elem()
-}
-
-func (i IPAMPoolProvisionedCidrArray) ToIPAMPoolProvisionedCidrArrayOutput() IPAMPoolProvisionedCidrArrayOutput {
-	return i.ToIPAMPoolProvisionedCidrArrayOutputWithContext(context.Background())
-}
-
-func (i IPAMPoolProvisionedCidrArray) ToIPAMPoolProvisionedCidrArrayOutputWithContext(ctx context.Context) IPAMPoolProvisionedCidrArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMPoolProvisionedCidrArrayOutput)
-}
-
-// An address space to be inserted into this pool. All allocations must be made from this address space.
-type IPAMPoolProvisionedCidrOutput struct{ *pulumi.OutputState }
-
-func (IPAMPoolProvisionedCidrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMPoolProvisionedCidr)(nil)).Elem()
-}
-
-func (o IPAMPoolProvisionedCidrOutput) ToIPAMPoolProvisionedCidrOutput() IPAMPoolProvisionedCidrOutput {
-	return o
-}
-
-func (o IPAMPoolProvisionedCidrOutput) ToIPAMPoolProvisionedCidrOutputWithContext(ctx context.Context) IPAMPoolProvisionedCidrOutput {
-	return o
-}
-
-func (o IPAMPoolProvisionedCidrOutput) Cidr() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMPoolProvisionedCidr) string { return v.Cidr }).(pulumi.StringOutput)
-}
-
-type IPAMPoolProvisionedCidrArrayOutput struct{ *pulumi.OutputState }
-
-func (IPAMPoolProvisionedCidrArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMPoolProvisionedCidr)(nil)).Elem()
-}
-
-func (o IPAMPoolProvisionedCidrArrayOutput) ToIPAMPoolProvisionedCidrArrayOutput() IPAMPoolProvisionedCidrArrayOutput {
-	return o
-}
-
-func (o IPAMPoolProvisionedCidrArrayOutput) ToIPAMPoolProvisionedCidrArrayOutputWithContext(ctx context.Context) IPAMPoolProvisionedCidrArrayOutput {
-	return o
-}
-
-func (o IPAMPoolProvisionedCidrArrayOutput) Index(i pulumi.IntInput) IPAMPoolProvisionedCidrOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMPoolProvisionedCidr {
-		return vs[0].([]IPAMPoolProvisionedCidr)[vs[1].(int)]
-	}).(IPAMPoolProvisionedCidrOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IPAMPoolTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
-}
-
-// IPAMPoolTagInput is an input type that accepts IPAMPoolTagArgs and IPAMPoolTagOutput values.
-// You can construct a concrete instance of `IPAMPoolTagInput` via:
-//
-//	IPAMPoolTagArgs{...}
-type IPAMPoolTagInput interface {
-	pulumi.Input
-
-	ToIPAMPoolTagOutput() IPAMPoolTagOutput
-	ToIPAMPoolTagOutputWithContext(context.Context) IPAMPoolTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type IPAMPoolTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (IPAMPoolTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMPoolTag)(nil)).Elem()
-}
-
-func (i IPAMPoolTagArgs) ToIPAMPoolTagOutput() IPAMPoolTagOutput {
-	return i.ToIPAMPoolTagOutputWithContext(context.Background())
-}
-
-func (i IPAMPoolTagArgs) ToIPAMPoolTagOutputWithContext(ctx context.Context) IPAMPoolTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMPoolTagOutput)
-}
-
-// IPAMPoolTagArrayInput is an input type that accepts IPAMPoolTagArray and IPAMPoolTagArrayOutput values.
-// You can construct a concrete instance of `IPAMPoolTagArrayInput` via:
-//
-//	IPAMPoolTagArray{ IPAMPoolTagArgs{...} }
-type IPAMPoolTagArrayInput interface {
-	pulumi.Input
-
-	ToIPAMPoolTagArrayOutput() IPAMPoolTagArrayOutput
-	ToIPAMPoolTagArrayOutputWithContext(context.Context) IPAMPoolTagArrayOutput
-}
-
-type IPAMPoolTagArray []IPAMPoolTagInput
-
-func (IPAMPoolTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMPoolTag)(nil)).Elem()
-}
-
-func (i IPAMPoolTagArray) ToIPAMPoolTagArrayOutput() IPAMPoolTagArrayOutput {
-	return i.ToIPAMPoolTagArrayOutputWithContext(context.Background())
-}
-
-func (i IPAMPoolTagArray) ToIPAMPoolTagArrayOutputWithContext(ctx context.Context) IPAMPoolTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMPoolTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IPAMPoolTagOutput struct{ *pulumi.OutputState }
-
-func (IPAMPoolTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMPoolTag)(nil)).Elem()
-}
-
-func (o IPAMPoolTagOutput) ToIPAMPoolTagOutput() IPAMPoolTagOutput {
-	return o
-}
-
-func (o IPAMPoolTagOutput) ToIPAMPoolTagOutputWithContext(ctx context.Context) IPAMPoolTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IPAMPoolTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMPoolTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IPAMPoolTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMPoolTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type IPAMPoolTagArrayOutput struct{ *pulumi.OutputState }
-
-func (IPAMPoolTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMPoolTag)(nil)).Elem()
-}
-
-func (o IPAMPoolTagArrayOutput) ToIPAMPoolTagArrayOutput() IPAMPoolTagArrayOutput {
-	return o
-}
-
-func (o IPAMPoolTagArrayOutput) ToIPAMPoolTagArrayOutputWithContext(ctx context.Context) IPAMPoolTagArrayOutput {
-	return o
-}
-
-func (o IPAMPoolTagArrayOutput) Index(i pulumi.IntInput) IPAMPoolTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMPoolTag {
-		return vs[0].([]IPAMPoolTag)[vs[1].(int)]
-	}).(IPAMPoolTagOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IPAMResourceDiscoveryAssociationTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
-}
-
-// IPAMResourceDiscoveryAssociationTagInput is an input type that accepts IPAMResourceDiscoveryAssociationTagArgs and IPAMResourceDiscoveryAssociationTagOutput values.
-// You can construct a concrete instance of `IPAMResourceDiscoveryAssociationTagInput` via:
-//
-//	IPAMResourceDiscoveryAssociationTagArgs{...}
-type IPAMResourceDiscoveryAssociationTagInput interface {
-	pulumi.Input
-
-	ToIPAMResourceDiscoveryAssociationTagOutput() IPAMResourceDiscoveryAssociationTagOutput
-	ToIPAMResourceDiscoveryAssociationTagOutputWithContext(context.Context) IPAMResourceDiscoveryAssociationTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type IPAMResourceDiscoveryAssociationTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (IPAMResourceDiscoveryAssociationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMResourceDiscoveryAssociationTag)(nil)).Elem()
-}
-
-func (i IPAMResourceDiscoveryAssociationTagArgs) ToIPAMResourceDiscoveryAssociationTagOutput() IPAMResourceDiscoveryAssociationTagOutput {
-	return i.ToIPAMResourceDiscoveryAssociationTagOutputWithContext(context.Background())
-}
-
-func (i IPAMResourceDiscoveryAssociationTagArgs) ToIPAMResourceDiscoveryAssociationTagOutputWithContext(ctx context.Context) IPAMResourceDiscoveryAssociationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryAssociationTagOutput)
-}
-
-// IPAMResourceDiscoveryAssociationTagArrayInput is an input type that accepts IPAMResourceDiscoveryAssociationTagArray and IPAMResourceDiscoveryAssociationTagArrayOutput values.
-// You can construct a concrete instance of `IPAMResourceDiscoveryAssociationTagArrayInput` via:
-//
-//	IPAMResourceDiscoveryAssociationTagArray{ IPAMResourceDiscoveryAssociationTagArgs{...} }
-type IPAMResourceDiscoveryAssociationTagArrayInput interface {
-	pulumi.Input
-
-	ToIPAMResourceDiscoveryAssociationTagArrayOutput() IPAMResourceDiscoveryAssociationTagArrayOutput
-	ToIPAMResourceDiscoveryAssociationTagArrayOutputWithContext(context.Context) IPAMResourceDiscoveryAssociationTagArrayOutput
-}
-
-type IPAMResourceDiscoveryAssociationTagArray []IPAMResourceDiscoveryAssociationTagInput
-
-func (IPAMResourceDiscoveryAssociationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMResourceDiscoveryAssociationTag)(nil)).Elem()
-}
-
-func (i IPAMResourceDiscoveryAssociationTagArray) ToIPAMResourceDiscoveryAssociationTagArrayOutput() IPAMResourceDiscoveryAssociationTagArrayOutput {
-	return i.ToIPAMResourceDiscoveryAssociationTagArrayOutputWithContext(context.Background())
-}
-
-func (i IPAMResourceDiscoveryAssociationTagArray) ToIPAMResourceDiscoveryAssociationTagArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryAssociationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryAssociationTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IPAMResourceDiscoveryAssociationTagOutput struct{ *pulumi.OutputState }
-
-func (IPAMResourceDiscoveryAssociationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMResourceDiscoveryAssociationTag)(nil)).Elem()
-}
-
-func (o IPAMResourceDiscoveryAssociationTagOutput) ToIPAMResourceDiscoveryAssociationTagOutput() IPAMResourceDiscoveryAssociationTagOutput {
-	return o
-}
-
-func (o IPAMResourceDiscoveryAssociationTagOutput) ToIPAMResourceDiscoveryAssociationTagOutputWithContext(ctx context.Context) IPAMResourceDiscoveryAssociationTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IPAMResourceDiscoveryAssociationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMResourceDiscoveryAssociationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IPAMResourceDiscoveryAssociationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMResourceDiscoveryAssociationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type IPAMResourceDiscoveryAssociationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (IPAMResourceDiscoveryAssociationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMResourceDiscoveryAssociationTag)(nil)).Elem()
-}
-
-func (o IPAMResourceDiscoveryAssociationTagArrayOutput) ToIPAMResourceDiscoveryAssociationTagArrayOutput() IPAMResourceDiscoveryAssociationTagArrayOutput {
-	return o
-}
-
-func (o IPAMResourceDiscoveryAssociationTagArrayOutput) ToIPAMResourceDiscoveryAssociationTagArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryAssociationTagArrayOutput {
-	return o
-}
-
-func (o IPAMResourceDiscoveryAssociationTagArrayOutput) Index(i pulumi.IntInput) IPAMResourceDiscoveryAssociationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMResourceDiscoveryAssociationTag {
-		return vs[0].([]IPAMResourceDiscoveryAssociationTag)[vs[1].(int)]
-	}).(IPAMResourceDiscoveryAssociationTagOutput)
-}
-
-// The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
-type IPAMResourceDiscoveryIpamOperatingRegion struct {
-	// The name of the region.
-	RegionName string `pulumi:"regionName"`
-}
-
-// IPAMResourceDiscoveryIpamOperatingRegionInput is an input type that accepts IPAMResourceDiscoveryIpamOperatingRegionArgs and IPAMResourceDiscoveryIpamOperatingRegionOutput values.
-// You can construct a concrete instance of `IPAMResourceDiscoveryIpamOperatingRegionInput` via:
-//
-//	IPAMResourceDiscoveryIpamOperatingRegionArgs{...}
-type IPAMResourceDiscoveryIpamOperatingRegionInput interface {
-	pulumi.Input
-
-	ToIPAMResourceDiscoveryIpamOperatingRegionOutput() IPAMResourceDiscoveryIpamOperatingRegionOutput
-	ToIPAMResourceDiscoveryIpamOperatingRegionOutputWithContext(context.Context) IPAMResourceDiscoveryIpamOperatingRegionOutput
-}
-
-// The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
-type IPAMResourceDiscoveryIpamOperatingRegionArgs struct {
-	// The name of the region.
-	RegionName pulumi.StringInput `pulumi:"regionName"`
-}
-
-func (IPAMResourceDiscoveryIpamOperatingRegionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
-}
-
-func (i IPAMResourceDiscoveryIpamOperatingRegionArgs) ToIPAMResourceDiscoveryIpamOperatingRegionOutput() IPAMResourceDiscoveryIpamOperatingRegionOutput {
-	return i.ToIPAMResourceDiscoveryIpamOperatingRegionOutputWithContext(context.Background())
-}
-
-func (i IPAMResourceDiscoveryIpamOperatingRegionArgs) ToIPAMResourceDiscoveryIpamOperatingRegionOutputWithContext(ctx context.Context) IPAMResourceDiscoveryIpamOperatingRegionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryIpamOperatingRegionOutput)
-}
-
-// IPAMResourceDiscoveryIpamOperatingRegionArrayInput is an input type that accepts IPAMResourceDiscoveryIpamOperatingRegionArray and IPAMResourceDiscoveryIpamOperatingRegionArrayOutput values.
-// You can construct a concrete instance of `IPAMResourceDiscoveryIpamOperatingRegionArrayInput` via:
-//
-//	IPAMResourceDiscoveryIpamOperatingRegionArray{ IPAMResourceDiscoveryIpamOperatingRegionArgs{...} }
-type IPAMResourceDiscoveryIpamOperatingRegionArrayInput interface {
-	pulumi.Input
-
-	ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutput() IPAMResourceDiscoveryIpamOperatingRegionArrayOutput
-	ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(context.Context) IPAMResourceDiscoveryIpamOperatingRegionArrayOutput
-}
-
-type IPAMResourceDiscoveryIpamOperatingRegionArray []IPAMResourceDiscoveryIpamOperatingRegionInput
-
-func (IPAMResourceDiscoveryIpamOperatingRegionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
-}
-
-func (i IPAMResourceDiscoveryIpamOperatingRegionArray) ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutput() IPAMResourceDiscoveryIpamOperatingRegionArrayOutput {
-	return i.ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(context.Background())
-}
-
-func (i IPAMResourceDiscoveryIpamOperatingRegionArray) ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryIpamOperatingRegionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryIpamOperatingRegionArrayOutput)
-}
-
-// The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
-type IPAMResourceDiscoveryIpamOperatingRegionOutput struct{ *pulumi.OutputState }
-
-func (IPAMResourceDiscoveryIpamOperatingRegionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
-}
-
-func (o IPAMResourceDiscoveryIpamOperatingRegionOutput) ToIPAMResourceDiscoveryIpamOperatingRegionOutput() IPAMResourceDiscoveryIpamOperatingRegionOutput {
-	return o
-}
-
-func (o IPAMResourceDiscoveryIpamOperatingRegionOutput) ToIPAMResourceDiscoveryIpamOperatingRegionOutputWithContext(ctx context.Context) IPAMResourceDiscoveryIpamOperatingRegionOutput {
-	return o
-}
-
-// The name of the region.
-func (o IPAMResourceDiscoveryIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMResourceDiscoveryIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
-}
-
-type IPAMResourceDiscoveryIpamOperatingRegionArrayOutput struct{ *pulumi.OutputState }
-
-func (IPAMResourceDiscoveryIpamOperatingRegionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
-}
-
-func (o IPAMResourceDiscoveryIpamOperatingRegionArrayOutput) ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutput() IPAMResourceDiscoveryIpamOperatingRegionArrayOutput {
-	return o
-}
-
-func (o IPAMResourceDiscoveryIpamOperatingRegionArrayOutput) ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryIpamOperatingRegionArrayOutput {
-	return o
-}
-
-func (o IPAMResourceDiscoveryIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) IPAMResourceDiscoveryIpamOperatingRegionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMResourceDiscoveryIpamOperatingRegion {
-		return vs[0].([]IPAMResourceDiscoveryIpamOperatingRegion)[vs[1].(int)]
-	}).(IPAMResourceDiscoveryIpamOperatingRegionOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IPAMResourceDiscoveryTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
-}
-
-// IPAMResourceDiscoveryTagInput is an input type that accepts IPAMResourceDiscoveryTagArgs and IPAMResourceDiscoveryTagOutput values.
-// You can construct a concrete instance of `IPAMResourceDiscoveryTagInput` via:
-//
-//	IPAMResourceDiscoveryTagArgs{...}
-type IPAMResourceDiscoveryTagInput interface {
-	pulumi.Input
-
-	ToIPAMResourceDiscoveryTagOutput() IPAMResourceDiscoveryTagOutput
-	ToIPAMResourceDiscoveryTagOutputWithContext(context.Context) IPAMResourceDiscoveryTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type IPAMResourceDiscoveryTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (IPAMResourceDiscoveryTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMResourceDiscoveryTag)(nil)).Elem()
-}
-
-func (i IPAMResourceDiscoveryTagArgs) ToIPAMResourceDiscoveryTagOutput() IPAMResourceDiscoveryTagOutput {
-	return i.ToIPAMResourceDiscoveryTagOutputWithContext(context.Background())
-}
-
-func (i IPAMResourceDiscoveryTagArgs) ToIPAMResourceDiscoveryTagOutputWithContext(ctx context.Context) IPAMResourceDiscoveryTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryTagOutput)
-}
-
-// IPAMResourceDiscoveryTagArrayInput is an input type that accepts IPAMResourceDiscoveryTagArray and IPAMResourceDiscoveryTagArrayOutput values.
-// You can construct a concrete instance of `IPAMResourceDiscoveryTagArrayInput` via:
-//
-//	IPAMResourceDiscoveryTagArray{ IPAMResourceDiscoveryTagArgs{...} }
-type IPAMResourceDiscoveryTagArrayInput interface {
-	pulumi.Input
-
-	ToIPAMResourceDiscoveryTagArrayOutput() IPAMResourceDiscoveryTagArrayOutput
-	ToIPAMResourceDiscoveryTagArrayOutputWithContext(context.Context) IPAMResourceDiscoveryTagArrayOutput
-}
-
-type IPAMResourceDiscoveryTagArray []IPAMResourceDiscoveryTagInput
-
-func (IPAMResourceDiscoveryTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMResourceDiscoveryTag)(nil)).Elem()
-}
-
-func (i IPAMResourceDiscoveryTagArray) ToIPAMResourceDiscoveryTagArrayOutput() IPAMResourceDiscoveryTagArrayOutput {
-	return i.ToIPAMResourceDiscoveryTagArrayOutputWithContext(context.Background())
-}
-
-func (i IPAMResourceDiscoveryTagArray) ToIPAMResourceDiscoveryTagArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IPAMResourceDiscoveryTagOutput struct{ *pulumi.OutputState }
-
-func (IPAMResourceDiscoveryTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMResourceDiscoveryTag)(nil)).Elem()
-}
-
-func (o IPAMResourceDiscoveryTagOutput) ToIPAMResourceDiscoveryTagOutput() IPAMResourceDiscoveryTagOutput {
-	return o
-}
-
-func (o IPAMResourceDiscoveryTagOutput) ToIPAMResourceDiscoveryTagOutputWithContext(ctx context.Context) IPAMResourceDiscoveryTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IPAMResourceDiscoveryTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMResourceDiscoveryTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IPAMResourceDiscoveryTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMResourceDiscoveryTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type IPAMResourceDiscoveryTagArrayOutput struct{ *pulumi.OutputState }
-
-func (IPAMResourceDiscoveryTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMResourceDiscoveryTag)(nil)).Elem()
-}
-
-func (o IPAMResourceDiscoveryTagArrayOutput) ToIPAMResourceDiscoveryTagArrayOutput() IPAMResourceDiscoveryTagArrayOutput {
-	return o
-}
-
-func (o IPAMResourceDiscoveryTagArrayOutput) ToIPAMResourceDiscoveryTagArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryTagArrayOutput {
-	return o
-}
-
-func (o IPAMResourceDiscoveryTagArrayOutput) Index(i pulumi.IntInput) IPAMResourceDiscoveryTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMResourceDiscoveryTag {
-		return vs[0].([]IPAMResourceDiscoveryTag)[vs[1].(int)]
-	}).(IPAMResourceDiscoveryTagOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IPAMScopeTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
-}
-
-// IPAMScopeTagInput is an input type that accepts IPAMScopeTagArgs and IPAMScopeTagOutput values.
-// You can construct a concrete instance of `IPAMScopeTagInput` via:
-//
-//	IPAMScopeTagArgs{...}
-type IPAMScopeTagInput interface {
-	pulumi.Input
-
-	ToIPAMScopeTagOutput() IPAMScopeTagOutput
-	ToIPAMScopeTagOutputWithContext(context.Context) IPAMScopeTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type IPAMScopeTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (IPAMScopeTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMScopeTag)(nil)).Elem()
-}
-
-func (i IPAMScopeTagArgs) ToIPAMScopeTagOutput() IPAMScopeTagOutput {
-	return i.ToIPAMScopeTagOutputWithContext(context.Background())
-}
-
-func (i IPAMScopeTagArgs) ToIPAMScopeTagOutputWithContext(ctx context.Context) IPAMScopeTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMScopeTagOutput)
-}
-
-// IPAMScopeTagArrayInput is an input type that accepts IPAMScopeTagArray and IPAMScopeTagArrayOutput values.
-// You can construct a concrete instance of `IPAMScopeTagArrayInput` via:
-//
-//	IPAMScopeTagArray{ IPAMScopeTagArgs{...} }
-type IPAMScopeTagArrayInput interface {
-	pulumi.Input
-
-	ToIPAMScopeTagArrayOutput() IPAMScopeTagArrayOutput
-	ToIPAMScopeTagArrayOutputWithContext(context.Context) IPAMScopeTagArrayOutput
-}
-
-type IPAMScopeTagArray []IPAMScopeTagInput
-
-func (IPAMScopeTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMScopeTag)(nil)).Elem()
-}
-
-func (i IPAMScopeTagArray) ToIPAMScopeTagArrayOutput() IPAMScopeTagArrayOutput {
-	return i.ToIPAMScopeTagArrayOutputWithContext(context.Background())
-}
-
-func (i IPAMScopeTagArray) ToIPAMScopeTagArrayOutputWithContext(ctx context.Context) IPAMScopeTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMScopeTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IPAMScopeTagOutput struct{ *pulumi.OutputState }
-
-func (IPAMScopeTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMScopeTag)(nil)).Elem()
-}
-
-func (o IPAMScopeTagOutput) ToIPAMScopeTagOutput() IPAMScopeTagOutput {
-	return o
-}
-
-func (o IPAMScopeTagOutput) ToIPAMScopeTagOutputWithContext(ctx context.Context) IPAMScopeTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IPAMScopeTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMScopeTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IPAMScopeTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMScopeTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type IPAMScopeTagArrayOutput struct{ *pulumi.OutputState }
-
-func (IPAMScopeTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMScopeTag)(nil)).Elem()
-}
-
-func (o IPAMScopeTagArrayOutput) ToIPAMScopeTagArrayOutput() IPAMScopeTagArrayOutput {
-	return o
-}
-
-func (o IPAMScopeTagArrayOutput) ToIPAMScopeTagArrayOutputWithContext(ctx context.Context) IPAMScopeTagArrayOutput {
-	return o
-}
-
-func (o IPAMScopeTagArrayOutput) Index(i pulumi.IntInput) IPAMScopeTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMScopeTag {
-		return vs[0].([]IPAMScopeTag)[vs[1].(int)]
-	}).(IPAMScopeTagOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IPAMTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
-}
-
-// IPAMTagInput is an input type that accepts IPAMTagArgs and IPAMTagOutput values.
-// You can construct a concrete instance of `IPAMTagInput` via:
-//
-//	IPAMTagArgs{...}
-type IPAMTagInput interface {
-	pulumi.Input
-
-	ToIPAMTagOutput() IPAMTagOutput
-	ToIPAMTagOutputWithContext(context.Context) IPAMTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type IPAMTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (IPAMTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMTag)(nil)).Elem()
-}
-
-func (i IPAMTagArgs) ToIPAMTagOutput() IPAMTagOutput {
-	return i.ToIPAMTagOutputWithContext(context.Background())
-}
-
-func (i IPAMTagArgs) ToIPAMTagOutputWithContext(ctx context.Context) IPAMTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMTagOutput)
-}
-
-// IPAMTagArrayInput is an input type that accepts IPAMTagArray and IPAMTagArrayOutput values.
-// You can construct a concrete instance of `IPAMTagArrayInput` via:
-//
-//	IPAMTagArray{ IPAMTagArgs{...} }
-type IPAMTagArrayInput interface {
-	pulumi.Input
-
-	ToIPAMTagArrayOutput() IPAMTagArrayOutput
-	ToIPAMTagArrayOutputWithContext(context.Context) IPAMTagArrayOutput
-}
-
-type IPAMTagArray []IPAMTagInput
-
-func (IPAMTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMTag)(nil)).Elem()
-}
-
-func (i IPAMTagArray) ToIPAMTagArrayOutput() IPAMTagArrayOutput {
-	return i.ToIPAMTagArrayOutputWithContext(context.Background())
-}
-
-func (i IPAMTagArray) ToIPAMTagArrayOutputWithContext(ctx context.Context) IPAMTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IPAMTagOutput struct{ *pulumi.OutputState }
-
-func (IPAMTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMTag)(nil)).Elem()
-}
-
-func (o IPAMTagOutput) ToIPAMTagOutput() IPAMTagOutput {
-	return o
-}
-
-func (o IPAMTagOutput) ToIPAMTagOutputWithContext(ctx context.Context) IPAMTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IPAMTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IPAMTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IPAMTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type IPAMTagArrayOutput struct{ *pulumi.OutputState }
-
-func (IPAMTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPAMTag)(nil)).Elem()
-}
-
-func (o IPAMTagArrayOutput) ToIPAMTagArrayOutput() IPAMTagArrayOutput {
-	return o
-}
-
-func (o IPAMTagArrayOutput) ToIPAMTagArrayOutputWithContext(ctx context.Context) IPAMTagArrayOutput {
-	return o
-}
-
-func (o IPAMTagArrayOutput) Index(i pulumi.IntInput) IPAMTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMTag {
-		return vs[0].([]IPAMTag)[vs[1].(int)]
-	}).(IPAMTagOutput)
 }
 
 type InstanceAssociationParameter struct {
@@ -9350,6 +8508,848 @@ func (o InternetGatewayTagArrayOutput) Index(i pulumi.IntInput) InternetGatewayT
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InternetGatewayTag {
 		return vs[0].([]InternetGatewayTag)[vs[1].(int)]
 	}).(InternetGatewayTagOutput)
+}
+
+// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+type IpamOperatingRegion struct {
+	// The name of the region.
+	RegionName string `pulumi:"regionName"`
+}
+
+// IpamOperatingRegionInput is an input type that accepts IpamOperatingRegionArgs and IpamOperatingRegionOutput values.
+// You can construct a concrete instance of `IpamOperatingRegionInput` via:
+//
+//	IpamOperatingRegionArgs{...}
+type IpamOperatingRegionInput interface {
+	pulumi.Input
+
+	ToIpamOperatingRegionOutput() IpamOperatingRegionOutput
+	ToIpamOperatingRegionOutputWithContext(context.Context) IpamOperatingRegionOutput
+}
+
+// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+type IpamOperatingRegionArgs struct {
+	// The name of the region.
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (IpamOperatingRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamOperatingRegion)(nil)).Elem()
+}
+
+func (i IpamOperatingRegionArgs) ToIpamOperatingRegionOutput() IpamOperatingRegionOutput {
+	return i.ToIpamOperatingRegionOutputWithContext(context.Background())
+}
+
+func (i IpamOperatingRegionArgs) ToIpamOperatingRegionOutputWithContext(ctx context.Context) IpamOperatingRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamOperatingRegionOutput)
+}
+
+// IpamOperatingRegionArrayInput is an input type that accepts IpamOperatingRegionArray and IpamOperatingRegionArrayOutput values.
+// You can construct a concrete instance of `IpamOperatingRegionArrayInput` via:
+//
+//	IpamOperatingRegionArray{ IpamOperatingRegionArgs{...} }
+type IpamOperatingRegionArrayInput interface {
+	pulumi.Input
+
+	ToIpamOperatingRegionArrayOutput() IpamOperatingRegionArrayOutput
+	ToIpamOperatingRegionArrayOutputWithContext(context.Context) IpamOperatingRegionArrayOutput
+}
+
+type IpamOperatingRegionArray []IpamOperatingRegionInput
+
+func (IpamOperatingRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamOperatingRegion)(nil)).Elem()
+}
+
+func (i IpamOperatingRegionArray) ToIpamOperatingRegionArrayOutput() IpamOperatingRegionArrayOutput {
+	return i.ToIpamOperatingRegionArrayOutputWithContext(context.Background())
+}
+
+func (i IpamOperatingRegionArray) ToIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IpamOperatingRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamOperatingRegionArrayOutput)
+}
+
+// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+type IpamOperatingRegionOutput struct{ *pulumi.OutputState }
+
+func (IpamOperatingRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamOperatingRegion)(nil)).Elem()
+}
+
+func (o IpamOperatingRegionOutput) ToIpamOperatingRegionOutput() IpamOperatingRegionOutput {
+	return o
+}
+
+func (o IpamOperatingRegionOutput) ToIpamOperatingRegionOutputWithContext(ctx context.Context) IpamOperatingRegionOutput {
+	return o
+}
+
+// The name of the region.
+func (o IpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type IpamOperatingRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamOperatingRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamOperatingRegion)(nil)).Elem()
+}
+
+func (o IpamOperatingRegionArrayOutput) ToIpamOperatingRegionArrayOutput() IpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o IpamOperatingRegionArrayOutput) ToIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o IpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) IpamOperatingRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamOperatingRegion {
+		return vs[0].([]IpamOperatingRegion)[vs[1].(int)]
+	}).(IpamOperatingRegionOutput)
+}
+
+// An address space to be inserted into this pool. All allocations must be made from this address space.
+type IpamPoolProvisionedCidr struct {
+	Cidr string `pulumi:"cidr"`
+}
+
+// IpamPoolProvisionedCidrInput is an input type that accepts IpamPoolProvisionedCidrArgs and IpamPoolProvisionedCidrOutput values.
+// You can construct a concrete instance of `IpamPoolProvisionedCidrInput` via:
+//
+//	IpamPoolProvisionedCidrArgs{...}
+type IpamPoolProvisionedCidrInput interface {
+	pulumi.Input
+
+	ToIpamPoolProvisionedCidrOutput() IpamPoolProvisionedCidrOutput
+	ToIpamPoolProvisionedCidrOutputWithContext(context.Context) IpamPoolProvisionedCidrOutput
+}
+
+// An address space to be inserted into this pool. All allocations must be made from this address space.
+type IpamPoolProvisionedCidrArgs struct {
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+}
+
+func (IpamPoolProvisionedCidrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPoolProvisionedCidr)(nil)).Elem()
+}
+
+func (i IpamPoolProvisionedCidrArgs) ToIpamPoolProvisionedCidrOutput() IpamPoolProvisionedCidrOutput {
+	return i.ToIpamPoolProvisionedCidrOutputWithContext(context.Background())
+}
+
+func (i IpamPoolProvisionedCidrArgs) ToIpamPoolProvisionedCidrOutputWithContext(ctx context.Context) IpamPoolProvisionedCidrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPoolProvisionedCidrOutput)
+}
+
+// IpamPoolProvisionedCidrArrayInput is an input type that accepts IpamPoolProvisionedCidrArray and IpamPoolProvisionedCidrArrayOutput values.
+// You can construct a concrete instance of `IpamPoolProvisionedCidrArrayInput` via:
+//
+//	IpamPoolProvisionedCidrArray{ IpamPoolProvisionedCidrArgs{...} }
+type IpamPoolProvisionedCidrArrayInput interface {
+	pulumi.Input
+
+	ToIpamPoolProvisionedCidrArrayOutput() IpamPoolProvisionedCidrArrayOutput
+	ToIpamPoolProvisionedCidrArrayOutputWithContext(context.Context) IpamPoolProvisionedCidrArrayOutput
+}
+
+type IpamPoolProvisionedCidrArray []IpamPoolProvisionedCidrInput
+
+func (IpamPoolProvisionedCidrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamPoolProvisionedCidr)(nil)).Elem()
+}
+
+func (i IpamPoolProvisionedCidrArray) ToIpamPoolProvisionedCidrArrayOutput() IpamPoolProvisionedCidrArrayOutput {
+	return i.ToIpamPoolProvisionedCidrArrayOutputWithContext(context.Background())
+}
+
+func (i IpamPoolProvisionedCidrArray) ToIpamPoolProvisionedCidrArrayOutputWithContext(ctx context.Context) IpamPoolProvisionedCidrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPoolProvisionedCidrArrayOutput)
+}
+
+// An address space to be inserted into this pool. All allocations must be made from this address space.
+type IpamPoolProvisionedCidrOutput struct{ *pulumi.OutputState }
+
+func (IpamPoolProvisionedCidrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPoolProvisionedCidr)(nil)).Elem()
+}
+
+func (o IpamPoolProvisionedCidrOutput) ToIpamPoolProvisionedCidrOutput() IpamPoolProvisionedCidrOutput {
+	return o
+}
+
+func (o IpamPoolProvisionedCidrOutput) ToIpamPoolProvisionedCidrOutputWithContext(ctx context.Context) IpamPoolProvisionedCidrOutput {
+	return o
+}
+
+func (o IpamPoolProvisionedCidrOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamPoolProvisionedCidr) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+type IpamPoolProvisionedCidrArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamPoolProvisionedCidrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamPoolProvisionedCidr)(nil)).Elem()
+}
+
+func (o IpamPoolProvisionedCidrArrayOutput) ToIpamPoolProvisionedCidrArrayOutput() IpamPoolProvisionedCidrArrayOutput {
+	return o
+}
+
+func (o IpamPoolProvisionedCidrArrayOutput) ToIpamPoolProvisionedCidrArrayOutputWithContext(ctx context.Context) IpamPoolProvisionedCidrArrayOutput {
+	return o
+}
+
+func (o IpamPoolProvisionedCidrArrayOutput) Index(i pulumi.IntInput) IpamPoolProvisionedCidrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamPoolProvisionedCidr {
+		return vs[0].([]IpamPoolProvisionedCidr)[vs[1].(int)]
+	}).(IpamPoolProvisionedCidrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamPoolTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IpamPoolTagInput is an input type that accepts IpamPoolTagArgs and IpamPoolTagOutput values.
+// You can construct a concrete instance of `IpamPoolTagInput` via:
+//
+//	IpamPoolTagArgs{...}
+type IpamPoolTagInput interface {
+	pulumi.Input
+
+	ToIpamPoolTagOutput() IpamPoolTagOutput
+	ToIpamPoolTagOutputWithContext(context.Context) IpamPoolTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IpamPoolTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IpamPoolTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPoolTag)(nil)).Elem()
+}
+
+func (i IpamPoolTagArgs) ToIpamPoolTagOutput() IpamPoolTagOutput {
+	return i.ToIpamPoolTagOutputWithContext(context.Background())
+}
+
+func (i IpamPoolTagArgs) ToIpamPoolTagOutputWithContext(ctx context.Context) IpamPoolTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPoolTagOutput)
+}
+
+// IpamPoolTagArrayInput is an input type that accepts IpamPoolTagArray and IpamPoolTagArrayOutput values.
+// You can construct a concrete instance of `IpamPoolTagArrayInput` via:
+//
+//	IpamPoolTagArray{ IpamPoolTagArgs{...} }
+type IpamPoolTagArrayInput interface {
+	pulumi.Input
+
+	ToIpamPoolTagArrayOutput() IpamPoolTagArrayOutput
+	ToIpamPoolTagArrayOutputWithContext(context.Context) IpamPoolTagArrayOutput
+}
+
+type IpamPoolTagArray []IpamPoolTagInput
+
+func (IpamPoolTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamPoolTag)(nil)).Elem()
+}
+
+func (i IpamPoolTagArray) ToIpamPoolTagArrayOutput() IpamPoolTagArrayOutput {
+	return i.ToIpamPoolTagArrayOutputWithContext(context.Background())
+}
+
+func (i IpamPoolTagArray) ToIpamPoolTagArrayOutputWithContext(ctx context.Context) IpamPoolTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPoolTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamPoolTagOutput struct{ *pulumi.OutputState }
+
+func (IpamPoolTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPoolTag)(nil)).Elem()
+}
+
+func (o IpamPoolTagOutput) ToIpamPoolTagOutput() IpamPoolTagOutput {
+	return o
+}
+
+func (o IpamPoolTagOutput) ToIpamPoolTagOutputWithContext(ctx context.Context) IpamPoolTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamPoolTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamPoolTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamPoolTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamPoolTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IpamPoolTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamPoolTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamPoolTag)(nil)).Elem()
+}
+
+func (o IpamPoolTagArrayOutput) ToIpamPoolTagArrayOutput() IpamPoolTagArrayOutput {
+	return o
+}
+
+func (o IpamPoolTagArrayOutput) ToIpamPoolTagArrayOutputWithContext(ctx context.Context) IpamPoolTagArrayOutput {
+	return o
+}
+
+func (o IpamPoolTagArrayOutput) Index(i pulumi.IntInput) IpamPoolTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamPoolTag {
+		return vs[0].([]IpamPoolTag)[vs[1].(int)]
+	}).(IpamPoolTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamResourceDiscoveryAssociationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IpamResourceDiscoveryAssociationTagInput is an input type that accepts IpamResourceDiscoveryAssociationTagArgs and IpamResourceDiscoveryAssociationTagOutput values.
+// You can construct a concrete instance of `IpamResourceDiscoveryAssociationTagInput` via:
+//
+//	IpamResourceDiscoveryAssociationTagArgs{...}
+type IpamResourceDiscoveryAssociationTagInput interface {
+	pulumi.Input
+
+	ToIpamResourceDiscoveryAssociationTagOutput() IpamResourceDiscoveryAssociationTagOutput
+	ToIpamResourceDiscoveryAssociationTagOutputWithContext(context.Context) IpamResourceDiscoveryAssociationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IpamResourceDiscoveryAssociationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IpamResourceDiscoveryAssociationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamResourceDiscoveryAssociationTag)(nil)).Elem()
+}
+
+func (i IpamResourceDiscoveryAssociationTagArgs) ToIpamResourceDiscoveryAssociationTagOutput() IpamResourceDiscoveryAssociationTagOutput {
+	return i.ToIpamResourceDiscoveryAssociationTagOutputWithContext(context.Background())
+}
+
+func (i IpamResourceDiscoveryAssociationTagArgs) ToIpamResourceDiscoveryAssociationTagOutputWithContext(ctx context.Context) IpamResourceDiscoveryAssociationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamResourceDiscoveryAssociationTagOutput)
+}
+
+// IpamResourceDiscoveryAssociationTagArrayInput is an input type that accepts IpamResourceDiscoveryAssociationTagArray and IpamResourceDiscoveryAssociationTagArrayOutput values.
+// You can construct a concrete instance of `IpamResourceDiscoveryAssociationTagArrayInput` via:
+//
+//	IpamResourceDiscoveryAssociationTagArray{ IpamResourceDiscoveryAssociationTagArgs{...} }
+type IpamResourceDiscoveryAssociationTagArrayInput interface {
+	pulumi.Input
+
+	ToIpamResourceDiscoveryAssociationTagArrayOutput() IpamResourceDiscoveryAssociationTagArrayOutput
+	ToIpamResourceDiscoveryAssociationTagArrayOutputWithContext(context.Context) IpamResourceDiscoveryAssociationTagArrayOutput
+}
+
+type IpamResourceDiscoveryAssociationTagArray []IpamResourceDiscoveryAssociationTagInput
+
+func (IpamResourceDiscoveryAssociationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamResourceDiscoveryAssociationTag)(nil)).Elem()
+}
+
+func (i IpamResourceDiscoveryAssociationTagArray) ToIpamResourceDiscoveryAssociationTagArrayOutput() IpamResourceDiscoveryAssociationTagArrayOutput {
+	return i.ToIpamResourceDiscoveryAssociationTagArrayOutputWithContext(context.Background())
+}
+
+func (i IpamResourceDiscoveryAssociationTagArray) ToIpamResourceDiscoveryAssociationTagArrayOutputWithContext(ctx context.Context) IpamResourceDiscoveryAssociationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamResourceDiscoveryAssociationTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamResourceDiscoveryAssociationTagOutput struct{ *pulumi.OutputState }
+
+func (IpamResourceDiscoveryAssociationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamResourceDiscoveryAssociationTag)(nil)).Elem()
+}
+
+func (o IpamResourceDiscoveryAssociationTagOutput) ToIpamResourceDiscoveryAssociationTagOutput() IpamResourceDiscoveryAssociationTagOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryAssociationTagOutput) ToIpamResourceDiscoveryAssociationTagOutputWithContext(ctx context.Context) IpamResourceDiscoveryAssociationTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamResourceDiscoveryAssociationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamResourceDiscoveryAssociationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamResourceDiscoveryAssociationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamResourceDiscoveryAssociationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IpamResourceDiscoveryAssociationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamResourceDiscoveryAssociationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamResourceDiscoveryAssociationTag)(nil)).Elem()
+}
+
+func (o IpamResourceDiscoveryAssociationTagArrayOutput) ToIpamResourceDiscoveryAssociationTagArrayOutput() IpamResourceDiscoveryAssociationTagArrayOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryAssociationTagArrayOutput) ToIpamResourceDiscoveryAssociationTagArrayOutputWithContext(ctx context.Context) IpamResourceDiscoveryAssociationTagArrayOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryAssociationTagArrayOutput) Index(i pulumi.IntInput) IpamResourceDiscoveryAssociationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamResourceDiscoveryAssociationTag {
+		return vs[0].([]IpamResourceDiscoveryAssociationTag)[vs[1].(int)]
+	}).(IpamResourceDiscoveryAssociationTagOutput)
+}
+
+// The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+type IpamResourceDiscoveryIpamOperatingRegion struct {
+	// The name of the region.
+	RegionName string `pulumi:"regionName"`
+}
+
+// IpamResourceDiscoveryIpamOperatingRegionInput is an input type that accepts IpamResourceDiscoveryIpamOperatingRegionArgs and IpamResourceDiscoveryIpamOperatingRegionOutput values.
+// You can construct a concrete instance of `IpamResourceDiscoveryIpamOperatingRegionInput` via:
+//
+//	IpamResourceDiscoveryIpamOperatingRegionArgs{...}
+type IpamResourceDiscoveryIpamOperatingRegionInput interface {
+	pulumi.Input
+
+	ToIpamResourceDiscoveryIpamOperatingRegionOutput() IpamResourceDiscoveryIpamOperatingRegionOutput
+	ToIpamResourceDiscoveryIpamOperatingRegionOutputWithContext(context.Context) IpamResourceDiscoveryIpamOperatingRegionOutput
+}
+
+// The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+type IpamResourceDiscoveryIpamOperatingRegionArgs struct {
+	// The name of the region.
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (IpamResourceDiscoveryIpamOperatingRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i IpamResourceDiscoveryIpamOperatingRegionArgs) ToIpamResourceDiscoveryIpamOperatingRegionOutput() IpamResourceDiscoveryIpamOperatingRegionOutput {
+	return i.ToIpamResourceDiscoveryIpamOperatingRegionOutputWithContext(context.Background())
+}
+
+func (i IpamResourceDiscoveryIpamOperatingRegionArgs) ToIpamResourceDiscoveryIpamOperatingRegionOutputWithContext(ctx context.Context) IpamResourceDiscoveryIpamOperatingRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamResourceDiscoveryIpamOperatingRegionOutput)
+}
+
+// IpamResourceDiscoveryIpamOperatingRegionArrayInput is an input type that accepts IpamResourceDiscoveryIpamOperatingRegionArray and IpamResourceDiscoveryIpamOperatingRegionArrayOutput values.
+// You can construct a concrete instance of `IpamResourceDiscoveryIpamOperatingRegionArrayInput` via:
+//
+//	IpamResourceDiscoveryIpamOperatingRegionArray{ IpamResourceDiscoveryIpamOperatingRegionArgs{...} }
+type IpamResourceDiscoveryIpamOperatingRegionArrayInput interface {
+	pulumi.Input
+
+	ToIpamResourceDiscoveryIpamOperatingRegionArrayOutput() IpamResourceDiscoveryIpamOperatingRegionArrayOutput
+	ToIpamResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(context.Context) IpamResourceDiscoveryIpamOperatingRegionArrayOutput
+}
+
+type IpamResourceDiscoveryIpamOperatingRegionArray []IpamResourceDiscoveryIpamOperatingRegionInput
+
+func (IpamResourceDiscoveryIpamOperatingRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i IpamResourceDiscoveryIpamOperatingRegionArray) ToIpamResourceDiscoveryIpamOperatingRegionArrayOutput() IpamResourceDiscoveryIpamOperatingRegionArrayOutput {
+	return i.ToIpamResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(context.Background())
+}
+
+func (i IpamResourceDiscoveryIpamOperatingRegionArray) ToIpamResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IpamResourceDiscoveryIpamOperatingRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamResourceDiscoveryIpamOperatingRegionArrayOutput)
+}
+
+// The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+type IpamResourceDiscoveryIpamOperatingRegionOutput struct{ *pulumi.OutputState }
+
+func (IpamResourceDiscoveryIpamOperatingRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o IpamResourceDiscoveryIpamOperatingRegionOutput) ToIpamResourceDiscoveryIpamOperatingRegionOutput() IpamResourceDiscoveryIpamOperatingRegionOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryIpamOperatingRegionOutput) ToIpamResourceDiscoveryIpamOperatingRegionOutputWithContext(ctx context.Context) IpamResourceDiscoveryIpamOperatingRegionOutput {
+	return o
+}
+
+// The name of the region.
+func (o IpamResourceDiscoveryIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamResourceDiscoveryIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type IpamResourceDiscoveryIpamOperatingRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamResourceDiscoveryIpamOperatingRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o IpamResourceDiscoveryIpamOperatingRegionArrayOutput) ToIpamResourceDiscoveryIpamOperatingRegionArrayOutput() IpamResourceDiscoveryIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryIpamOperatingRegionArrayOutput) ToIpamResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IpamResourceDiscoveryIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) IpamResourceDiscoveryIpamOperatingRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamResourceDiscoveryIpamOperatingRegion {
+		return vs[0].([]IpamResourceDiscoveryIpamOperatingRegion)[vs[1].(int)]
+	}).(IpamResourceDiscoveryIpamOperatingRegionOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamResourceDiscoveryTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IpamResourceDiscoveryTagInput is an input type that accepts IpamResourceDiscoveryTagArgs and IpamResourceDiscoveryTagOutput values.
+// You can construct a concrete instance of `IpamResourceDiscoveryTagInput` via:
+//
+//	IpamResourceDiscoveryTagArgs{...}
+type IpamResourceDiscoveryTagInput interface {
+	pulumi.Input
+
+	ToIpamResourceDiscoveryTagOutput() IpamResourceDiscoveryTagOutput
+	ToIpamResourceDiscoveryTagOutputWithContext(context.Context) IpamResourceDiscoveryTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IpamResourceDiscoveryTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IpamResourceDiscoveryTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamResourceDiscoveryTag)(nil)).Elem()
+}
+
+func (i IpamResourceDiscoveryTagArgs) ToIpamResourceDiscoveryTagOutput() IpamResourceDiscoveryTagOutput {
+	return i.ToIpamResourceDiscoveryTagOutputWithContext(context.Background())
+}
+
+func (i IpamResourceDiscoveryTagArgs) ToIpamResourceDiscoveryTagOutputWithContext(ctx context.Context) IpamResourceDiscoveryTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamResourceDiscoveryTagOutput)
+}
+
+// IpamResourceDiscoveryTagArrayInput is an input type that accepts IpamResourceDiscoveryTagArray and IpamResourceDiscoveryTagArrayOutput values.
+// You can construct a concrete instance of `IpamResourceDiscoveryTagArrayInput` via:
+//
+//	IpamResourceDiscoveryTagArray{ IpamResourceDiscoveryTagArgs{...} }
+type IpamResourceDiscoveryTagArrayInput interface {
+	pulumi.Input
+
+	ToIpamResourceDiscoveryTagArrayOutput() IpamResourceDiscoveryTagArrayOutput
+	ToIpamResourceDiscoveryTagArrayOutputWithContext(context.Context) IpamResourceDiscoveryTagArrayOutput
+}
+
+type IpamResourceDiscoveryTagArray []IpamResourceDiscoveryTagInput
+
+func (IpamResourceDiscoveryTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamResourceDiscoveryTag)(nil)).Elem()
+}
+
+func (i IpamResourceDiscoveryTagArray) ToIpamResourceDiscoveryTagArrayOutput() IpamResourceDiscoveryTagArrayOutput {
+	return i.ToIpamResourceDiscoveryTagArrayOutputWithContext(context.Background())
+}
+
+func (i IpamResourceDiscoveryTagArray) ToIpamResourceDiscoveryTagArrayOutputWithContext(ctx context.Context) IpamResourceDiscoveryTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamResourceDiscoveryTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamResourceDiscoveryTagOutput struct{ *pulumi.OutputState }
+
+func (IpamResourceDiscoveryTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamResourceDiscoveryTag)(nil)).Elem()
+}
+
+func (o IpamResourceDiscoveryTagOutput) ToIpamResourceDiscoveryTagOutput() IpamResourceDiscoveryTagOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryTagOutput) ToIpamResourceDiscoveryTagOutputWithContext(ctx context.Context) IpamResourceDiscoveryTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamResourceDiscoveryTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamResourceDiscoveryTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamResourceDiscoveryTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamResourceDiscoveryTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IpamResourceDiscoveryTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamResourceDiscoveryTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamResourceDiscoveryTag)(nil)).Elem()
+}
+
+func (o IpamResourceDiscoveryTagArrayOutput) ToIpamResourceDiscoveryTagArrayOutput() IpamResourceDiscoveryTagArrayOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryTagArrayOutput) ToIpamResourceDiscoveryTagArrayOutputWithContext(ctx context.Context) IpamResourceDiscoveryTagArrayOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryTagArrayOutput) Index(i pulumi.IntInput) IpamResourceDiscoveryTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamResourceDiscoveryTag {
+		return vs[0].([]IpamResourceDiscoveryTag)[vs[1].(int)]
+	}).(IpamResourceDiscoveryTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamScopeTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IpamScopeTagInput is an input type that accepts IpamScopeTagArgs and IpamScopeTagOutput values.
+// You can construct a concrete instance of `IpamScopeTagInput` via:
+//
+//	IpamScopeTagArgs{...}
+type IpamScopeTagInput interface {
+	pulumi.Input
+
+	ToIpamScopeTagOutput() IpamScopeTagOutput
+	ToIpamScopeTagOutputWithContext(context.Context) IpamScopeTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IpamScopeTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IpamScopeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamScopeTag)(nil)).Elem()
+}
+
+func (i IpamScopeTagArgs) ToIpamScopeTagOutput() IpamScopeTagOutput {
+	return i.ToIpamScopeTagOutputWithContext(context.Background())
+}
+
+func (i IpamScopeTagArgs) ToIpamScopeTagOutputWithContext(ctx context.Context) IpamScopeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamScopeTagOutput)
+}
+
+// IpamScopeTagArrayInput is an input type that accepts IpamScopeTagArray and IpamScopeTagArrayOutput values.
+// You can construct a concrete instance of `IpamScopeTagArrayInput` via:
+//
+//	IpamScopeTagArray{ IpamScopeTagArgs{...} }
+type IpamScopeTagArrayInput interface {
+	pulumi.Input
+
+	ToIpamScopeTagArrayOutput() IpamScopeTagArrayOutput
+	ToIpamScopeTagArrayOutputWithContext(context.Context) IpamScopeTagArrayOutput
+}
+
+type IpamScopeTagArray []IpamScopeTagInput
+
+func (IpamScopeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamScopeTag)(nil)).Elem()
+}
+
+func (i IpamScopeTagArray) ToIpamScopeTagArrayOutput() IpamScopeTagArrayOutput {
+	return i.ToIpamScopeTagArrayOutputWithContext(context.Background())
+}
+
+func (i IpamScopeTagArray) ToIpamScopeTagArrayOutputWithContext(ctx context.Context) IpamScopeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamScopeTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamScopeTagOutput struct{ *pulumi.OutputState }
+
+func (IpamScopeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamScopeTag)(nil)).Elem()
+}
+
+func (o IpamScopeTagOutput) ToIpamScopeTagOutput() IpamScopeTagOutput {
+	return o
+}
+
+func (o IpamScopeTagOutput) ToIpamScopeTagOutputWithContext(ctx context.Context) IpamScopeTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamScopeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamScopeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamScopeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamScopeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IpamScopeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamScopeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamScopeTag)(nil)).Elem()
+}
+
+func (o IpamScopeTagArrayOutput) ToIpamScopeTagArrayOutput() IpamScopeTagArrayOutput {
+	return o
+}
+
+func (o IpamScopeTagArrayOutput) ToIpamScopeTagArrayOutputWithContext(ctx context.Context) IpamScopeTagArrayOutput {
+	return o
+}
+
+func (o IpamScopeTagArrayOutput) Index(i pulumi.IntInput) IpamScopeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamScopeTag {
+		return vs[0].([]IpamScopeTag)[vs[1].(int)]
+	}).(IpamScopeTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IpamTagInput is an input type that accepts IpamTagArgs and IpamTagOutput values.
+// You can construct a concrete instance of `IpamTagInput` via:
+//
+//	IpamTagArgs{...}
+type IpamTagInput interface {
+	pulumi.Input
+
+	ToIpamTagOutput() IpamTagOutput
+	ToIpamTagOutputWithContext(context.Context) IpamTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IpamTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IpamTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamTag)(nil)).Elem()
+}
+
+func (i IpamTagArgs) ToIpamTagOutput() IpamTagOutput {
+	return i.ToIpamTagOutputWithContext(context.Background())
+}
+
+func (i IpamTagArgs) ToIpamTagOutputWithContext(ctx context.Context) IpamTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamTagOutput)
+}
+
+// IpamTagArrayInput is an input type that accepts IpamTagArray and IpamTagArrayOutput values.
+// You can construct a concrete instance of `IpamTagArrayInput` via:
+//
+//	IpamTagArray{ IpamTagArgs{...} }
+type IpamTagArrayInput interface {
+	pulumi.Input
+
+	ToIpamTagArrayOutput() IpamTagArrayOutput
+	ToIpamTagArrayOutputWithContext(context.Context) IpamTagArrayOutput
+}
+
+type IpamTagArray []IpamTagInput
+
+func (IpamTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamTag)(nil)).Elem()
+}
+
+func (i IpamTagArray) ToIpamTagArrayOutput() IpamTagArrayOutput {
+	return i.ToIpamTagArrayOutputWithContext(context.Background())
+}
+
+func (i IpamTagArray) ToIpamTagArrayOutputWithContext(ctx context.Context) IpamTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamTagOutput struct{ *pulumi.OutputState }
+
+func (IpamTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamTag)(nil)).Elem()
+}
+
+func (o IpamTagOutput) ToIpamTagOutput() IpamTagOutput {
+	return o
+}
+
+func (o IpamTagOutput) ToIpamTagOutputWithContext(ctx context.Context) IpamTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IpamTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamTag)(nil)).Elem()
+}
+
+func (o IpamTagArrayOutput) ToIpamTagArrayOutput() IpamTagArrayOutput {
+	return o
+}
+
+func (o IpamTagArrayOutput) ToIpamTagArrayOutputWithContext(ctx context.Context) IpamTagArrayOutput {
+	return o
+}
+
+func (o IpamTagArrayOutput) Index(i pulumi.IntInput) IpamTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamTag {
+		return vs[0].([]IpamTag)[vs[1].(int)]
+	}).(IpamTagOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -12092,7 +12092,7 @@ type LaunchTemplateInstanceRequirements struct {
 	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
 	// The price protection threshold for Spot Instances.
 	SpotMaxPricePercentageOverLowestPrice *int                               `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                   *LaunchTemplateTotalLocalStorageGB `pulumi:"totalLocalStorageGb"`
+	TotalLocalStorageGb                   *LaunchTemplateTotalLocalStorageGb `pulumi:"totalLocalStorageGb"`
 	VCpuCount                             *LaunchTemplateVCpuCount           `pulumi:"vCpuCount"`
 }
 
@@ -12143,7 +12143,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
 	// The price protection threshold for Spot Instances.
 	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                        `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                   LaunchTemplateTotalLocalStorageGBPtrInput `pulumi:"totalLocalStorageGb"`
+	TotalLocalStorageGb                   LaunchTemplateTotalLocalStorageGbPtrInput `pulumi:"totalLocalStorageGb"`
 	VCpuCount                             LaunchTemplateVCpuCountPtrInput           `pulumi:"vCpuCount"`
 }
 
@@ -12330,10 +12330,10 @@ func (o LaunchTemplateInstanceRequirementsOutput) SpotMaxPricePercentageOverLowe
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
-func (o LaunchTemplateInstanceRequirementsOutput) TotalLocalStorageGb() LaunchTemplateTotalLocalStorageGBPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateTotalLocalStorageGB {
+func (o LaunchTemplateInstanceRequirementsOutput) TotalLocalStorageGb() LaunchTemplateTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateTotalLocalStorageGb {
 		return v.TotalLocalStorageGb
-	}).(LaunchTemplateTotalLocalStorageGBPtrOutput)
+	}).(LaunchTemplateTotalLocalStorageGbPtrOutput)
 }
 
 func (o LaunchTemplateInstanceRequirementsOutput) VCpuCount() LaunchTemplateVCpuCountPtrOutput {
@@ -12566,13 +12566,13 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverL
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o LaunchTemplateInstanceRequirementsPtrOutput) TotalLocalStorageGb() LaunchTemplateTotalLocalStorageGBPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateTotalLocalStorageGB {
+func (o LaunchTemplateInstanceRequirementsPtrOutput) TotalLocalStorageGb() LaunchTemplateTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateTotalLocalStorageGb {
 		if v == nil {
 			return nil
 		}
 		return v.TotalLocalStorageGb
-	}).(LaunchTemplateTotalLocalStorageGBPtrOutput)
+	}).(LaunchTemplateTotalLocalStorageGbPtrOutput)
 }
 
 func (o LaunchTemplateInstanceRequirementsPtrOutput) VCpuCount() LaunchTemplateVCpuCountPtrOutput {
@@ -15372,140 +15372,140 @@ func (o LaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) Laun
 }
 
 // The minimum and maximum amount of total local storage, in GB.
-type LaunchTemplateTotalLocalStorageGB struct {
+type LaunchTemplateTotalLocalStorageGb struct {
 	Max *float64 `pulumi:"max"`
 	Min *float64 `pulumi:"min"`
 }
 
-// LaunchTemplateTotalLocalStorageGBInput is an input type that accepts LaunchTemplateTotalLocalStorageGBArgs and LaunchTemplateTotalLocalStorageGBOutput values.
-// You can construct a concrete instance of `LaunchTemplateTotalLocalStorageGBInput` via:
+// LaunchTemplateTotalLocalStorageGbInput is an input type that accepts LaunchTemplateTotalLocalStorageGbArgs and LaunchTemplateTotalLocalStorageGbOutput values.
+// You can construct a concrete instance of `LaunchTemplateTotalLocalStorageGbInput` via:
 //
-//	LaunchTemplateTotalLocalStorageGBArgs{...}
-type LaunchTemplateTotalLocalStorageGBInput interface {
+//	LaunchTemplateTotalLocalStorageGbArgs{...}
+type LaunchTemplateTotalLocalStorageGbInput interface {
 	pulumi.Input
 
-	ToLaunchTemplateTotalLocalStorageGBOutput() LaunchTemplateTotalLocalStorageGBOutput
-	ToLaunchTemplateTotalLocalStorageGBOutputWithContext(context.Context) LaunchTemplateTotalLocalStorageGBOutput
+	ToLaunchTemplateTotalLocalStorageGbOutput() LaunchTemplateTotalLocalStorageGbOutput
+	ToLaunchTemplateTotalLocalStorageGbOutputWithContext(context.Context) LaunchTemplateTotalLocalStorageGbOutput
 }
 
 // The minimum and maximum amount of total local storage, in GB.
-type LaunchTemplateTotalLocalStorageGBArgs struct {
+type LaunchTemplateTotalLocalStorageGbArgs struct {
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
-func (LaunchTemplateTotalLocalStorageGBArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateTotalLocalStorageGB)(nil)).Elem()
+func (LaunchTemplateTotalLocalStorageGbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateTotalLocalStorageGb)(nil)).Elem()
 }
 
-func (i LaunchTemplateTotalLocalStorageGBArgs) ToLaunchTemplateTotalLocalStorageGBOutput() LaunchTemplateTotalLocalStorageGBOutput {
-	return i.ToLaunchTemplateTotalLocalStorageGBOutputWithContext(context.Background())
+func (i LaunchTemplateTotalLocalStorageGbArgs) ToLaunchTemplateTotalLocalStorageGbOutput() LaunchTemplateTotalLocalStorageGbOutput {
+	return i.ToLaunchTemplateTotalLocalStorageGbOutputWithContext(context.Background())
 }
 
-func (i LaunchTemplateTotalLocalStorageGBArgs) ToLaunchTemplateTotalLocalStorageGBOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTotalLocalStorageGBOutput)
+func (i LaunchTemplateTotalLocalStorageGbArgs) ToLaunchTemplateTotalLocalStorageGbOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTotalLocalStorageGbOutput)
 }
 
-func (i LaunchTemplateTotalLocalStorageGBArgs) ToLaunchTemplateTotalLocalStorageGBPtrOutput() LaunchTemplateTotalLocalStorageGBPtrOutput {
-	return i.ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(context.Background())
+func (i LaunchTemplateTotalLocalStorageGbArgs) ToLaunchTemplateTotalLocalStorageGbPtrOutput() LaunchTemplateTotalLocalStorageGbPtrOutput {
+	return i.ToLaunchTemplateTotalLocalStorageGbPtrOutputWithContext(context.Background())
 }
 
-func (i LaunchTemplateTotalLocalStorageGBArgs) ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTotalLocalStorageGBOutput).ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(ctx)
+func (i LaunchTemplateTotalLocalStorageGbArgs) ToLaunchTemplateTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTotalLocalStorageGbOutput).ToLaunchTemplateTotalLocalStorageGbPtrOutputWithContext(ctx)
 }
 
-// LaunchTemplateTotalLocalStorageGBPtrInput is an input type that accepts LaunchTemplateTotalLocalStorageGBArgs, LaunchTemplateTotalLocalStorageGBPtr and LaunchTemplateTotalLocalStorageGBPtrOutput values.
-// You can construct a concrete instance of `LaunchTemplateTotalLocalStorageGBPtrInput` via:
+// LaunchTemplateTotalLocalStorageGbPtrInput is an input type that accepts LaunchTemplateTotalLocalStorageGbArgs, LaunchTemplateTotalLocalStorageGbPtr and LaunchTemplateTotalLocalStorageGbPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateTotalLocalStorageGbPtrInput` via:
 //
-//	        LaunchTemplateTotalLocalStorageGBArgs{...}
+//	        LaunchTemplateTotalLocalStorageGbArgs{...}
 //
 //	or:
 //
 //	        nil
-type LaunchTemplateTotalLocalStorageGBPtrInput interface {
+type LaunchTemplateTotalLocalStorageGbPtrInput interface {
 	pulumi.Input
 
-	ToLaunchTemplateTotalLocalStorageGBPtrOutput() LaunchTemplateTotalLocalStorageGBPtrOutput
-	ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(context.Context) LaunchTemplateTotalLocalStorageGBPtrOutput
+	ToLaunchTemplateTotalLocalStorageGbPtrOutput() LaunchTemplateTotalLocalStorageGbPtrOutput
+	ToLaunchTemplateTotalLocalStorageGbPtrOutputWithContext(context.Context) LaunchTemplateTotalLocalStorageGbPtrOutput
 }
 
-type launchTemplateTotalLocalStorageGBPtrType LaunchTemplateTotalLocalStorageGBArgs
+type launchTemplateTotalLocalStorageGbPtrType LaunchTemplateTotalLocalStorageGbArgs
 
-func LaunchTemplateTotalLocalStorageGBPtr(v *LaunchTemplateTotalLocalStorageGBArgs) LaunchTemplateTotalLocalStorageGBPtrInput {
-	return (*launchTemplateTotalLocalStorageGBPtrType)(v)
+func LaunchTemplateTotalLocalStorageGbPtr(v *LaunchTemplateTotalLocalStorageGbArgs) LaunchTemplateTotalLocalStorageGbPtrInput {
+	return (*launchTemplateTotalLocalStorageGbPtrType)(v)
 }
 
-func (*launchTemplateTotalLocalStorageGBPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LaunchTemplateTotalLocalStorageGB)(nil)).Elem()
+func (*launchTemplateTotalLocalStorageGbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateTotalLocalStorageGb)(nil)).Elem()
 }
 
-func (i *launchTemplateTotalLocalStorageGBPtrType) ToLaunchTemplateTotalLocalStorageGBPtrOutput() LaunchTemplateTotalLocalStorageGBPtrOutput {
-	return i.ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(context.Background())
+func (i *launchTemplateTotalLocalStorageGbPtrType) ToLaunchTemplateTotalLocalStorageGbPtrOutput() LaunchTemplateTotalLocalStorageGbPtrOutput {
+	return i.ToLaunchTemplateTotalLocalStorageGbPtrOutputWithContext(context.Background())
 }
 
-func (i *launchTemplateTotalLocalStorageGBPtrType) ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTotalLocalStorageGBPtrOutput)
+func (i *launchTemplateTotalLocalStorageGbPtrType) ToLaunchTemplateTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTotalLocalStorageGbPtrOutput)
 }
 
 // The minimum and maximum amount of total local storage, in GB.
-type LaunchTemplateTotalLocalStorageGBOutput struct{ *pulumi.OutputState }
+type LaunchTemplateTotalLocalStorageGbOutput struct{ *pulumi.OutputState }
 
-func (LaunchTemplateTotalLocalStorageGBOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateTotalLocalStorageGB)(nil)).Elem()
+func (LaunchTemplateTotalLocalStorageGbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateTotalLocalStorageGb)(nil)).Elem()
 }
 
-func (o LaunchTemplateTotalLocalStorageGBOutput) ToLaunchTemplateTotalLocalStorageGBOutput() LaunchTemplateTotalLocalStorageGBOutput {
+func (o LaunchTemplateTotalLocalStorageGbOutput) ToLaunchTemplateTotalLocalStorageGbOutput() LaunchTemplateTotalLocalStorageGbOutput {
 	return o
 }
 
-func (o LaunchTemplateTotalLocalStorageGBOutput) ToLaunchTemplateTotalLocalStorageGBOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBOutput {
+func (o LaunchTemplateTotalLocalStorageGbOutput) ToLaunchTemplateTotalLocalStorageGbOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGbOutput {
 	return o
 }
 
-func (o LaunchTemplateTotalLocalStorageGBOutput) ToLaunchTemplateTotalLocalStorageGBPtrOutput() LaunchTemplateTotalLocalStorageGBPtrOutput {
-	return o.ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(context.Background())
+func (o LaunchTemplateTotalLocalStorageGbOutput) ToLaunchTemplateTotalLocalStorageGbPtrOutput() LaunchTemplateTotalLocalStorageGbPtrOutput {
+	return o.ToLaunchTemplateTotalLocalStorageGbPtrOutputWithContext(context.Background())
 }
 
-func (o LaunchTemplateTotalLocalStorageGBOutput) ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateTotalLocalStorageGB) *LaunchTemplateTotalLocalStorageGB {
+func (o LaunchTemplateTotalLocalStorageGbOutput) ToLaunchTemplateTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateTotalLocalStorageGb) *LaunchTemplateTotalLocalStorageGb {
 		return &v
-	}).(LaunchTemplateTotalLocalStorageGBPtrOutput)
+	}).(LaunchTemplateTotalLocalStorageGbPtrOutput)
 }
 
-func (o LaunchTemplateTotalLocalStorageGBOutput) Max() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LaunchTemplateTotalLocalStorageGB) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+func (o LaunchTemplateTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateTotalLocalStorageGb) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-func (o LaunchTemplateTotalLocalStorageGBOutput) Min() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LaunchTemplateTotalLocalStorageGB) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+func (o LaunchTemplateTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateTotalLocalStorageGb) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
 
-type LaunchTemplateTotalLocalStorageGBPtrOutput struct{ *pulumi.OutputState }
+type LaunchTemplateTotalLocalStorageGbPtrOutput struct{ *pulumi.OutputState }
 
-func (LaunchTemplateTotalLocalStorageGBPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LaunchTemplateTotalLocalStorageGB)(nil)).Elem()
+func (LaunchTemplateTotalLocalStorageGbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateTotalLocalStorageGb)(nil)).Elem()
 }
 
-func (o LaunchTemplateTotalLocalStorageGBPtrOutput) ToLaunchTemplateTotalLocalStorageGBPtrOutput() LaunchTemplateTotalLocalStorageGBPtrOutput {
+func (o LaunchTemplateTotalLocalStorageGbPtrOutput) ToLaunchTemplateTotalLocalStorageGbPtrOutput() LaunchTemplateTotalLocalStorageGbPtrOutput {
 	return o
 }
 
-func (o LaunchTemplateTotalLocalStorageGBPtrOutput) ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBPtrOutput {
+func (o LaunchTemplateTotalLocalStorageGbPtrOutput) ToLaunchTemplateTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGbPtrOutput {
 	return o
 }
 
-func (o LaunchTemplateTotalLocalStorageGBPtrOutput) Elem() LaunchTemplateTotalLocalStorageGBOutput {
-	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGB) LaunchTemplateTotalLocalStorageGB {
+func (o LaunchTemplateTotalLocalStorageGbPtrOutput) Elem() LaunchTemplateTotalLocalStorageGbOutput {
+	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGb) LaunchTemplateTotalLocalStorageGb {
 		if v != nil {
 			return *v
 		}
-		var ret LaunchTemplateTotalLocalStorageGB
+		var ret LaunchTemplateTotalLocalStorageGb
 		return ret
-	}).(LaunchTemplateTotalLocalStorageGBOutput)
+	}).(LaunchTemplateTotalLocalStorageGbOutput)
 }
 
-func (o LaunchTemplateTotalLocalStorageGBPtrOutput) Max() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGB) *float64 {
+func (o LaunchTemplateTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGb) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -15513,8 +15513,8 @@ func (o LaunchTemplateTotalLocalStorageGBPtrOutput) Max() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o LaunchTemplateTotalLocalStorageGBPtrOutput) Min() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGB) *float64 {
+func (o LaunchTemplateTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGb) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -15781,106 +15781,6 @@ func (o LocalGatewayRouteTableTagArrayOutput) Index(i pulumi.IntInput) LocalGate
 	}).(LocalGatewayRouteTableTagOutput)
 }
 
-type LocalGatewayRouteTableVPCAssociationTag struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
-}
-
-// LocalGatewayRouteTableVPCAssociationTagInput is an input type that accepts LocalGatewayRouteTableVPCAssociationTagArgs and LocalGatewayRouteTableVPCAssociationTagOutput values.
-// You can construct a concrete instance of `LocalGatewayRouteTableVPCAssociationTagInput` via:
-//
-//	LocalGatewayRouteTableVPCAssociationTagArgs{...}
-type LocalGatewayRouteTableVPCAssociationTagInput interface {
-	pulumi.Input
-
-	ToLocalGatewayRouteTableVPCAssociationTagOutput() LocalGatewayRouteTableVPCAssociationTagOutput
-	ToLocalGatewayRouteTableVPCAssociationTagOutputWithContext(context.Context) LocalGatewayRouteTableVPCAssociationTagOutput
-}
-
-type LocalGatewayRouteTableVPCAssociationTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (LocalGatewayRouteTableVPCAssociationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationTag)(nil)).Elem()
-}
-
-func (i LocalGatewayRouteTableVPCAssociationTagArgs) ToLocalGatewayRouteTableVPCAssociationTagOutput() LocalGatewayRouteTableVPCAssociationTagOutput {
-	return i.ToLocalGatewayRouteTableVPCAssociationTagOutputWithContext(context.Background())
-}
-
-func (i LocalGatewayRouteTableVPCAssociationTagArgs) ToLocalGatewayRouteTableVPCAssociationTagOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVPCAssociationTagOutput)
-}
-
-// LocalGatewayRouteTableVPCAssociationTagArrayInput is an input type that accepts LocalGatewayRouteTableVPCAssociationTagArray and LocalGatewayRouteTableVPCAssociationTagArrayOutput values.
-// You can construct a concrete instance of `LocalGatewayRouteTableVPCAssociationTagArrayInput` via:
-//
-//	LocalGatewayRouteTableVPCAssociationTagArray{ LocalGatewayRouteTableVPCAssociationTagArgs{...} }
-type LocalGatewayRouteTableVPCAssociationTagArrayInput interface {
-	pulumi.Input
-
-	ToLocalGatewayRouteTableVPCAssociationTagArrayOutput() LocalGatewayRouteTableVPCAssociationTagArrayOutput
-	ToLocalGatewayRouteTableVPCAssociationTagArrayOutputWithContext(context.Context) LocalGatewayRouteTableVPCAssociationTagArrayOutput
-}
-
-type LocalGatewayRouteTableVPCAssociationTagArray []LocalGatewayRouteTableVPCAssociationTagInput
-
-func (LocalGatewayRouteTableVPCAssociationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalGatewayRouteTableVPCAssociationTag)(nil)).Elem()
-}
-
-func (i LocalGatewayRouteTableVPCAssociationTagArray) ToLocalGatewayRouteTableVPCAssociationTagArrayOutput() LocalGatewayRouteTableVPCAssociationTagArrayOutput {
-	return i.ToLocalGatewayRouteTableVPCAssociationTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocalGatewayRouteTableVPCAssociationTagArray) ToLocalGatewayRouteTableVPCAssociationTagArrayOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVPCAssociationTagArrayOutput)
-}
-
-type LocalGatewayRouteTableVPCAssociationTagOutput struct{ *pulumi.OutputState }
-
-func (LocalGatewayRouteTableVPCAssociationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationTag)(nil)).Elem()
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagOutput) ToLocalGatewayRouteTableVPCAssociationTagOutput() LocalGatewayRouteTableVPCAssociationTagOutput {
-	return o
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagOutput) ToLocalGatewayRouteTableVPCAssociationTagOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationTagOutput {
-	return o
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocalGatewayRouteTableVPCAssociationTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocalGatewayRouteTableVPCAssociationTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type LocalGatewayRouteTableVPCAssociationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocalGatewayRouteTableVPCAssociationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalGatewayRouteTableVPCAssociationTag)(nil)).Elem()
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagArrayOutput) ToLocalGatewayRouteTableVPCAssociationTagArrayOutput() LocalGatewayRouteTableVPCAssociationTagArrayOutput {
-	return o
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagArrayOutput) ToLocalGatewayRouteTableVPCAssociationTagArrayOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationTagArrayOutput {
-	return o
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagArrayOutput) Index(i pulumi.IntInput) LocalGatewayRouteTableVPCAssociationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGatewayRouteTableVPCAssociationTag {
-		return vs[0].([]LocalGatewayRouteTableVPCAssociationTag)[vs[1].(int)]
-	}).(LocalGatewayRouteTableVPCAssociationTagOutput)
-}
-
 type LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
@@ -15979,6 +15879,106 @@ func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput) In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag {
 		return vs[0].([]LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag)[vs[1].(int)]
 	}).(LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput)
+}
+
+type LocalGatewayRouteTableVpcAssociationTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// LocalGatewayRouteTableVpcAssociationTagInput is an input type that accepts LocalGatewayRouteTableVpcAssociationTagArgs and LocalGatewayRouteTableVpcAssociationTagOutput values.
+// You can construct a concrete instance of `LocalGatewayRouteTableVpcAssociationTagInput` via:
+//
+//	LocalGatewayRouteTableVpcAssociationTagArgs{...}
+type LocalGatewayRouteTableVpcAssociationTagInput interface {
+	pulumi.Input
+
+	ToLocalGatewayRouteTableVpcAssociationTagOutput() LocalGatewayRouteTableVpcAssociationTagOutput
+	ToLocalGatewayRouteTableVpcAssociationTagOutputWithContext(context.Context) LocalGatewayRouteTableVpcAssociationTagOutput
+}
+
+type LocalGatewayRouteTableVpcAssociationTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LocalGatewayRouteTableVpcAssociationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalGatewayRouteTableVpcAssociationTag)(nil)).Elem()
+}
+
+func (i LocalGatewayRouteTableVpcAssociationTagArgs) ToLocalGatewayRouteTableVpcAssociationTagOutput() LocalGatewayRouteTableVpcAssociationTagOutput {
+	return i.ToLocalGatewayRouteTableVpcAssociationTagOutputWithContext(context.Background())
+}
+
+func (i LocalGatewayRouteTableVpcAssociationTagArgs) ToLocalGatewayRouteTableVpcAssociationTagOutputWithContext(ctx context.Context) LocalGatewayRouteTableVpcAssociationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVpcAssociationTagOutput)
+}
+
+// LocalGatewayRouteTableVpcAssociationTagArrayInput is an input type that accepts LocalGatewayRouteTableVpcAssociationTagArray and LocalGatewayRouteTableVpcAssociationTagArrayOutput values.
+// You can construct a concrete instance of `LocalGatewayRouteTableVpcAssociationTagArrayInput` via:
+//
+//	LocalGatewayRouteTableVpcAssociationTagArray{ LocalGatewayRouteTableVpcAssociationTagArgs{...} }
+type LocalGatewayRouteTableVpcAssociationTagArrayInput interface {
+	pulumi.Input
+
+	ToLocalGatewayRouteTableVpcAssociationTagArrayOutput() LocalGatewayRouteTableVpcAssociationTagArrayOutput
+	ToLocalGatewayRouteTableVpcAssociationTagArrayOutputWithContext(context.Context) LocalGatewayRouteTableVpcAssociationTagArrayOutput
+}
+
+type LocalGatewayRouteTableVpcAssociationTagArray []LocalGatewayRouteTableVpcAssociationTagInput
+
+func (LocalGatewayRouteTableVpcAssociationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalGatewayRouteTableVpcAssociationTag)(nil)).Elem()
+}
+
+func (i LocalGatewayRouteTableVpcAssociationTagArray) ToLocalGatewayRouteTableVpcAssociationTagArrayOutput() LocalGatewayRouteTableVpcAssociationTagArrayOutput {
+	return i.ToLocalGatewayRouteTableVpcAssociationTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocalGatewayRouteTableVpcAssociationTagArray) ToLocalGatewayRouteTableVpcAssociationTagArrayOutputWithContext(ctx context.Context) LocalGatewayRouteTableVpcAssociationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVpcAssociationTagArrayOutput)
+}
+
+type LocalGatewayRouteTableVpcAssociationTagOutput struct{ *pulumi.OutputState }
+
+func (LocalGatewayRouteTableVpcAssociationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalGatewayRouteTableVpcAssociationTag)(nil)).Elem()
+}
+
+func (o LocalGatewayRouteTableVpcAssociationTagOutput) ToLocalGatewayRouteTableVpcAssociationTagOutput() LocalGatewayRouteTableVpcAssociationTagOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableVpcAssociationTagOutput) ToLocalGatewayRouteTableVpcAssociationTagOutputWithContext(ctx context.Context) LocalGatewayRouteTableVpcAssociationTagOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableVpcAssociationTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalGatewayRouteTableVpcAssociationTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LocalGatewayRouteTableVpcAssociationTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalGatewayRouteTableVpcAssociationTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LocalGatewayRouteTableVpcAssociationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocalGatewayRouteTableVpcAssociationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalGatewayRouteTableVpcAssociationTag)(nil)).Elem()
+}
+
+func (o LocalGatewayRouteTableVpcAssociationTagArrayOutput) ToLocalGatewayRouteTableVpcAssociationTagArrayOutput() LocalGatewayRouteTableVpcAssociationTagArrayOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableVpcAssociationTagArrayOutput) ToLocalGatewayRouteTableVpcAssociationTagArrayOutputWithContext(ctx context.Context) LocalGatewayRouteTableVpcAssociationTagArrayOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableVpcAssociationTagArrayOutput) Index(i pulumi.IntInput) LocalGatewayRouteTableVpcAssociationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGatewayRouteTableVpcAssociationTag {
+		return vs[0].([]LocalGatewayRouteTableVpcAssociationTag)[vs[1].(int)]
+	}).(LocalGatewayRouteTableVpcAssociationTagOutput)
 }
 
 type NatGatewayTag struct {
@@ -22680,7 +22680,7 @@ type SpotFleetInstanceRequirementsRequest struct {
 	OnDemandMaxPricePercentageOverLowestPrice *int                                                               `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   *bool                                                              `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     *int                                                               `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       *SpotFleetTotalLocalStorageGBRequest                               `pulumi:"totalLocalStorageGb"`
+	TotalLocalStorageGb                       *SpotFleetTotalLocalStorageGbRequest                               `pulumi:"totalLocalStorageGb"`
 	VCpuCount                                 *SpotFleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
 }
 
@@ -22717,7 +22717,7 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                                         `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolPtrInput                                                        `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                                         `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       SpotFleetTotalLocalStorageGBRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
+	TotalLocalStorageGb                       SpotFleetTotalLocalStorageGbRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
 	VCpuCount                                 SpotFleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
 }
 
@@ -22912,10 +22912,10 @@ func (o SpotFleetInstanceRequirementsRequestOutput) SpotMaxPricePercentageOverLo
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
-func (o SpotFleetInstanceRequirementsRequestOutput) TotalLocalStorageGb() SpotFleetTotalLocalStorageGBRequestPtrOutput {
-	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetTotalLocalStorageGBRequest {
+func (o SpotFleetInstanceRequirementsRequestOutput) TotalLocalStorageGb() SpotFleetTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetTotalLocalStorageGbRequest {
 		return v.TotalLocalStorageGb
-	}).(SpotFleetTotalLocalStorageGBRequestPtrOutput)
+	}).(SpotFleetTotalLocalStorageGbRequestPtrOutput)
 }
 
 func (o SpotFleetInstanceRequirementsRequestOutput) VCpuCount() SpotFleetVCpuCountRangeRequestPtrOutput {
@@ -23135,13 +23135,13 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOve
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o SpotFleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() SpotFleetTotalLocalStorageGBRequestPtrOutput {
-	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetTotalLocalStorageGBRequest {
+func (o SpotFleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() SpotFleetTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetTotalLocalStorageGbRequest {
 		if v == nil {
 			return nil
 		}
 		return v.TotalLocalStorageGb
-	}).(SpotFleetTotalLocalStorageGBRequestPtrOutput)
+	}).(SpotFleetTotalLocalStorageGbRequestPtrOutput)
 }
 
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) VCpuCount() SpotFleetVCpuCountRangeRequestPtrOutput {
@@ -25859,138 +25859,138 @@ func (o SpotFleetTargetGroupsConfigPtrOutput) TargetGroups() SpotFleetTargetGrou
 	}).(SpotFleetTargetGroupArrayOutput)
 }
 
-type SpotFleetTotalLocalStorageGBRequest struct {
+type SpotFleetTotalLocalStorageGbRequest struct {
 	Max *float64 `pulumi:"max"`
 	Min *float64 `pulumi:"min"`
 }
 
-// SpotFleetTotalLocalStorageGBRequestInput is an input type that accepts SpotFleetTotalLocalStorageGBRequestArgs and SpotFleetTotalLocalStorageGBRequestOutput values.
-// You can construct a concrete instance of `SpotFleetTotalLocalStorageGBRequestInput` via:
+// SpotFleetTotalLocalStorageGbRequestInput is an input type that accepts SpotFleetTotalLocalStorageGbRequestArgs and SpotFleetTotalLocalStorageGbRequestOutput values.
+// You can construct a concrete instance of `SpotFleetTotalLocalStorageGbRequestInput` via:
 //
-//	SpotFleetTotalLocalStorageGBRequestArgs{...}
-type SpotFleetTotalLocalStorageGBRequestInput interface {
+//	SpotFleetTotalLocalStorageGbRequestArgs{...}
+type SpotFleetTotalLocalStorageGbRequestInput interface {
 	pulumi.Input
 
-	ToSpotFleetTotalLocalStorageGBRequestOutput() SpotFleetTotalLocalStorageGBRequestOutput
-	ToSpotFleetTotalLocalStorageGBRequestOutputWithContext(context.Context) SpotFleetTotalLocalStorageGBRequestOutput
+	ToSpotFleetTotalLocalStorageGbRequestOutput() SpotFleetTotalLocalStorageGbRequestOutput
+	ToSpotFleetTotalLocalStorageGbRequestOutputWithContext(context.Context) SpotFleetTotalLocalStorageGbRequestOutput
 }
 
-type SpotFleetTotalLocalStorageGBRequestArgs struct {
+type SpotFleetTotalLocalStorageGbRequestArgs struct {
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
-func (SpotFleetTotalLocalStorageGBRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetTotalLocalStorageGBRequest)(nil)).Elem()
+func (SpotFleetTotalLocalStorageGbRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (i SpotFleetTotalLocalStorageGBRequestArgs) ToSpotFleetTotalLocalStorageGBRequestOutput() SpotFleetTotalLocalStorageGBRequestOutput {
-	return i.ToSpotFleetTotalLocalStorageGBRequestOutputWithContext(context.Background())
+func (i SpotFleetTotalLocalStorageGbRequestArgs) ToSpotFleetTotalLocalStorageGbRequestOutput() SpotFleetTotalLocalStorageGbRequestOutput {
+	return i.ToSpotFleetTotalLocalStorageGbRequestOutputWithContext(context.Background())
 }
 
-func (i SpotFleetTotalLocalStorageGBRequestArgs) ToSpotFleetTotalLocalStorageGBRequestOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGBRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetTotalLocalStorageGBRequestOutput)
+func (i SpotFleetTotalLocalStorageGbRequestArgs) ToSpotFleetTotalLocalStorageGbRequestOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGbRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetTotalLocalStorageGbRequestOutput)
 }
 
-func (i SpotFleetTotalLocalStorageGBRequestArgs) ToSpotFleetTotalLocalStorageGBRequestPtrOutput() SpotFleetTotalLocalStorageGBRequestPtrOutput {
-	return i.ToSpotFleetTotalLocalStorageGBRequestPtrOutputWithContext(context.Background())
+func (i SpotFleetTotalLocalStorageGbRequestArgs) ToSpotFleetTotalLocalStorageGbRequestPtrOutput() SpotFleetTotalLocalStorageGbRequestPtrOutput {
+	return i.ToSpotFleetTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
 }
 
-func (i SpotFleetTotalLocalStorageGBRequestArgs) ToSpotFleetTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGBRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetTotalLocalStorageGBRequestOutput).ToSpotFleetTotalLocalStorageGBRequestPtrOutputWithContext(ctx)
+func (i SpotFleetTotalLocalStorageGbRequestArgs) ToSpotFleetTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGbRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetTotalLocalStorageGbRequestOutput).ToSpotFleetTotalLocalStorageGbRequestPtrOutputWithContext(ctx)
 }
 
-// SpotFleetTotalLocalStorageGBRequestPtrInput is an input type that accepts SpotFleetTotalLocalStorageGBRequestArgs, SpotFleetTotalLocalStorageGBRequestPtr and SpotFleetTotalLocalStorageGBRequestPtrOutput values.
-// You can construct a concrete instance of `SpotFleetTotalLocalStorageGBRequestPtrInput` via:
+// SpotFleetTotalLocalStorageGbRequestPtrInput is an input type that accepts SpotFleetTotalLocalStorageGbRequestArgs, SpotFleetTotalLocalStorageGbRequestPtr and SpotFleetTotalLocalStorageGbRequestPtrOutput values.
+// You can construct a concrete instance of `SpotFleetTotalLocalStorageGbRequestPtrInput` via:
 //
-//	        SpotFleetTotalLocalStorageGBRequestArgs{...}
+//	        SpotFleetTotalLocalStorageGbRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type SpotFleetTotalLocalStorageGBRequestPtrInput interface {
+type SpotFleetTotalLocalStorageGbRequestPtrInput interface {
 	pulumi.Input
 
-	ToSpotFleetTotalLocalStorageGBRequestPtrOutput() SpotFleetTotalLocalStorageGBRequestPtrOutput
-	ToSpotFleetTotalLocalStorageGBRequestPtrOutputWithContext(context.Context) SpotFleetTotalLocalStorageGBRequestPtrOutput
+	ToSpotFleetTotalLocalStorageGbRequestPtrOutput() SpotFleetTotalLocalStorageGbRequestPtrOutput
+	ToSpotFleetTotalLocalStorageGbRequestPtrOutputWithContext(context.Context) SpotFleetTotalLocalStorageGbRequestPtrOutput
 }
 
-type spotFleetTotalLocalStorageGBRequestPtrType SpotFleetTotalLocalStorageGBRequestArgs
+type spotFleetTotalLocalStorageGbRequestPtrType SpotFleetTotalLocalStorageGbRequestArgs
 
-func SpotFleetTotalLocalStorageGBRequestPtr(v *SpotFleetTotalLocalStorageGBRequestArgs) SpotFleetTotalLocalStorageGBRequestPtrInput {
-	return (*spotFleetTotalLocalStorageGBRequestPtrType)(v)
+func SpotFleetTotalLocalStorageGbRequestPtr(v *SpotFleetTotalLocalStorageGbRequestArgs) SpotFleetTotalLocalStorageGbRequestPtrInput {
+	return (*spotFleetTotalLocalStorageGbRequestPtrType)(v)
 }
 
-func (*spotFleetTotalLocalStorageGBRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetTotalLocalStorageGBRequest)(nil)).Elem()
+func (*spotFleetTotalLocalStorageGbRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (i *spotFleetTotalLocalStorageGBRequestPtrType) ToSpotFleetTotalLocalStorageGBRequestPtrOutput() SpotFleetTotalLocalStorageGBRequestPtrOutput {
-	return i.ToSpotFleetTotalLocalStorageGBRequestPtrOutputWithContext(context.Background())
+func (i *spotFleetTotalLocalStorageGbRequestPtrType) ToSpotFleetTotalLocalStorageGbRequestPtrOutput() SpotFleetTotalLocalStorageGbRequestPtrOutput {
+	return i.ToSpotFleetTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *spotFleetTotalLocalStorageGBRequestPtrType) ToSpotFleetTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGBRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetTotalLocalStorageGBRequestPtrOutput)
+func (i *spotFleetTotalLocalStorageGbRequestPtrType) ToSpotFleetTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGbRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetTotalLocalStorageGbRequestPtrOutput)
 }
 
-type SpotFleetTotalLocalStorageGBRequestOutput struct{ *pulumi.OutputState }
+type SpotFleetTotalLocalStorageGbRequestOutput struct{ *pulumi.OutputState }
 
-func (SpotFleetTotalLocalStorageGBRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetTotalLocalStorageGBRequest)(nil)).Elem()
+func (SpotFleetTotalLocalStorageGbRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestOutput) ToSpotFleetTotalLocalStorageGBRequestOutput() SpotFleetTotalLocalStorageGBRequestOutput {
+func (o SpotFleetTotalLocalStorageGbRequestOutput) ToSpotFleetTotalLocalStorageGbRequestOutput() SpotFleetTotalLocalStorageGbRequestOutput {
 	return o
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestOutput) ToSpotFleetTotalLocalStorageGBRequestOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGBRequestOutput {
+func (o SpotFleetTotalLocalStorageGbRequestOutput) ToSpotFleetTotalLocalStorageGbRequestOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGbRequestOutput {
 	return o
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestOutput) ToSpotFleetTotalLocalStorageGBRequestPtrOutput() SpotFleetTotalLocalStorageGBRequestPtrOutput {
-	return o.ToSpotFleetTotalLocalStorageGBRequestPtrOutputWithContext(context.Background())
+func (o SpotFleetTotalLocalStorageGbRequestOutput) ToSpotFleetTotalLocalStorageGbRequestPtrOutput() SpotFleetTotalLocalStorageGbRequestPtrOutput {
+	return o.ToSpotFleetTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestOutput) ToSpotFleetTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGBRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetTotalLocalStorageGBRequest) *SpotFleetTotalLocalStorageGBRequest {
+func (o SpotFleetTotalLocalStorageGbRequestOutput) ToSpotFleetTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetTotalLocalStorageGbRequest) *SpotFleetTotalLocalStorageGbRequest {
 		return &v
-	}).(SpotFleetTotalLocalStorageGBRequestPtrOutput)
+	}).(SpotFleetTotalLocalStorageGbRequestPtrOutput)
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestOutput) Max() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v SpotFleetTotalLocalStorageGBRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+func (o SpotFleetTotalLocalStorageGbRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetTotalLocalStorageGbRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestOutput) Min() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v SpotFleetTotalLocalStorageGBRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+func (o SpotFleetTotalLocalStorageGbRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetTotalLocalStorageGbRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
 
-type SpotFleetTotalLocalStorageGBRequestPtrOutput struct{ *pulumi.OutputState }
+type SpotFleetTotalLocalStorageGbRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (SpotFleetTotalLocalStorageGBRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetTotalLocalStorageGBRequest)(nil)).Elem()
+func (SpotFleetTotalLocalStorageGbRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestPtrOutput) ToSpotFleetTotalLocalStorageGBRequestPtrOutput() SpotFleetTotalLocalStorageGBRequestPtrOutput {
+func (o SpotFleetTotalLocalStorageGbRequestPtrOutput) ToSpotFleetTotalLocalStorageGbRequestPtrOutput() SpotFleetTotalLocalStorageGbRequestPtrOutput {
 	return o
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestPtrOutput) ToSpotFleetTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGBRequestPtrOutput {
+func (o SpotFleetTotalLocalStorageGbRequestPtrOutput) ToSpotFleetTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) SpotFleetTotalLocalStorageGbRequestPtrOutput {
 	return o
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestPtrOutput) Elem() SpotFleetTotalLocalStorageGBRequestOutput {
-	return o.ApplyT(func(v *SpotFleetTotalLocalStorageGBRequest) SpotFleetTotalLocalStorageGBRequest {
+func (o SpotFleetTotalLocalStorageGbRequestPtrOutput) Elem() SpotFleetTotalLocalStorageGbRequestOutput {
+	return o.ApplyT(func(v *SpotFleetTotalLocalStorageGbRequest) SpotFleetTotalLocalStorageGbRequest {
 		if v != nil {
 			return *v
 		}
-		var ret SpotFleetTotalLocalStorageGBRequest
+		var ret SpotFleetTotalLocalStorageGbRequest
 		return ret
-	}).(SpotFleetTotalLocalStorageGBRequestOutput)
+	}).(SpotFleetTotalLocalStorageGbRequestOutput)
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestPtrOutput) Max() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *SpotFleetTotalLocalStorageGBRequest) *float64 {
+func (o SpotFleetTotalLocalStorageGbRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpotFleetTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -25998,8 +25998,8 @@ func (o SpotFleetTotalLocalStorageGBRequestPtrOutput) Max() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o SpotFleetTotalLocalStorageGBRequestPtrOutput) Min() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *SpotFleetTotalLocalStorageGBRequest) *float64 {
+func (o SpotFleetTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpotFleetTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -27655,515 +27655,6 @@ func (o TransitGatewayVpcAttachmentTagArrayOutput) Index(i pulumi.IntInput) Tran
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayVpcAttachmentTag {
 		return vs[0].([]TransitGatewayVpcAttachmentTag)[vs[1].(int)]
 	}).(TransitGatewayVpcAttachmentTagOutput)
-}
-
-// A key-value pair to associate with a resource.
-type VPCPeeringConnectionTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
-}
-
-// VPCPeeringConnectionTagInput is an input type that accepts VPCPeeringConnectionTagArgs and VPCPeeringConnectionTagOutput values.
-// You can construct a concrete instance of `VPCPeeringConnectionTagInput` via:
-//
-//	VPCPeeringConnectionTagArgs{...}
-type VPCPeeringConnectionTagInput interface {
-	pulumi.Input
-
-	ToVPCPeeringConnectionTagOutput() VPCPeeringConnectionTagOutput
-	ToVPCPeeringConnectionTagOutputWithContext(context.Context) VPCPeeringConnectionTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type VPCPeeringConnectionTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VPCPeeringConnectionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCPeeringConnectionTag)(nil)).Elem()
-}
-
-func (i VPCPeeringConnectionTagArgs) ToVPCPeeringConnectionTagOutput() VPCPeeringConnectionTagOutput {
-	return i.ToVPCPeeringConnectionTagOutputWithContext(context.Background())
-}
-
-func (i VPCPeeringConnectionTagArgs) ToVPCPeeringConnectionTagOutputWithContext(ctx context.Context) VPCPeeringConnectionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPCPeeringConnectionTagOutput)
-}
-
-// VPCPeeringConnectionTagArrayInput is an input type that accepts VPCPeeringConnectionTagArray and VPCPeeringConnectionTagArrayOutput values.
-// You can construct a concrete instance of `VPCPeeringConnectionTagArrayInput` via:
-//
-//	VPCPeeringConnectionTagArray{ VPCPeeringConnectionTagArgs{...} }
-type VPCPeeringConnectionTagArrayInput interface {
-	pulumi.Input
-
-	ToVPCPeeringConnectionTagArrayOutput() VPCPeeringConnectionTagArrayOutput
-	ToVPCPeeringConnectionTagArrayOutputWithContext(context.Context) VPCPeeringConnectionTagArrayOutput
-}
-
-type VPCPeeringConnectionTagArray []VPCPeeringConnectionTagInput
-
-func (VPCPeeringConnectionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPCPeeringConnectionTag)(nil)).Elem()
-}
-
-func (i VPCPeeringConnectionTagArray) ToVPCPeeringConnectionTagArrayOutput() VPCPeeringConnectionTagArrayOutput {
-	return i.ToVPCPeeringConnectionTagArrayOutputWithContext(context.Background())
-}
-
-func (i VPCPeeringConnectionTagArray) ToVPCPeeringConnectionTagArrayOutputWithContext(ctx context.Context) VPCPeeringConnectionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPCPeeringConnectionTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type VPCPeeringConnectionTagOutput struct{ *pulumi.OutputState }
-
-func (VPCPeeringConnectionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCPeeringConnectionTag)(nil)).Elem()
-}
-
-func (o VPCPeeringConnectionTagOutput) ToVPCPeeringConnectionTagOutput() VPCPeeringConnectionTagOutput {
-	return o
-}
-
-func (o VPCPeeringConnectionTagOutput) ToVPCPeeringConnectionTagOutputWithContext(ctx context.Context) VPCPeeringConnectionTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o VPCPeeringConnectionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VPCPeeringConnectionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o VPCPeeringConnectionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VPCPeeringConnectionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VPCPeeringConnectionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VPCPeeringConnectionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPCPeeringConnectionTag)(nil)).Elem()
-}
-
-func (o VPCPeeringConnectionTagArrayOutput) ToVPCPeeringConnectionTagArrayOutput() VPCPeeringConnectionTagArrayOutput {
-	return o
-}
-
-func (o VPCPeeringConnectionTagArrayOutput) ToVPCPeeringConnectionTagArrayOutputWithContext(ctx context.Context) VPCPeeringConnectionTagArrayOutput {
-	return o
-}
-
-func (o VPCPeeringConnectionTagArrayOutput) Index(i pulumi.IntInput) VPCPeeringConnectionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPCPeeringConnectionTag {
-		return vs[0].([]VPCPeeringConnectionTag)[vs[1].(int)]
-	}).(VPCPeeringConnectionTagOutput)
-}
-
-type VPCTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
-}
-
-// VPCTagInput is an input type that accepts VPCTagArgs and VPCTagOutput values.
-// You can construct a concrete instance of `VPCTagInput` via:
-//
-//	VPCTagArgs{...}
-type VPCTagInput interface {
-	pulumi.Input
-
-	ToVPCTagOutput() VPCTagOutput
-	ToVPCTagOutputWithContext(context.Context) VPCTagOutput
-}
-
-type VPCTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VPCTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCTag)(nil)).Elem()
-}
-
-func (i VPCTagArgs) ToVPCTagOutput() VPCTagOutput {
-	return i.ToVPCTagOutputWithContext(context.Background())
-}
-
-func (i VPCTagArgs) ToVPCTagOutputWithContext(ctx context.Context) VPCTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPCTagOutput)
-}
-
-// VPCTagArrayInput is an input type that accepts VPCTagArray and VPCTagArrayOutput values.
-// You can construct a concrete instance of `VPCTagArrayInput` via:
-//
-//	VPCTagArray{ VPCTagArgs{...} }
-type VPCTagArrayInput interface {
-	pulumi.Input
-
-	ToVPCTagArrayOutput() VPCTagArrayOutput
-	ToVPCTagArrayOutputWithContext(context.Context) VPCTagArrayOutput
-}
-
-type VPCTagArray []VPCTagInput
-
-func (VPCTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPCTag)(nil)).Elem()
-}
-
-func (i VPCTagArray) ToVPCTagArrayOutput() VPCTagArrayOutput {
-	return i.ToVPCTagArrayOutputWithContext(context.Background())
-}
-
-func (i VPCTagArray) ToVPCTagArrayOutputWithContext(ctx context.Context) VPCTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPCTagArrayOutput)
-}
-
-type VPCTagOutput struct{ *pulumi.OutputState }
-
-func (VPCTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCTag)(nil)).Elem()
-}
-
-func (o VPCTagOutput) ToVPCTagOutput() VPCTagOutput {
-	return o
-}
-
-func (o VPCTagOutput) ToVPCTagOutputWithContext(ctx context.Context) VPCTagOutput {
-	return o
-}
-
-func (o VPCTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VPCTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VPCTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VPCTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VPCTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VPCTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPCTag)(nil)).Elem()
-}
-
-func (o VPCTagArrayOutput) ToVPCTagArrayOutput() VPCTagArrayOutput {
-	return o
-}
-
-func (o VPCTagArrayOutput) ToVPCTagArrayOutputWithContext(ctx context.Context) VPCTagArrayOutput {
-	return o
-}
-
-func (o VPCTagArrayOutput) Index(i pulumi.IntInput) VPCTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPCTag {
-		return vs[0].([]VPCTag)[vs[1].(int)]
-	}).(VPCTagOutput)
-}
-
-type VPNConnectionTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
-}
-
-// VPNConnectionTagInput is an input type that accepts VPNConnectionTagArgs and VPNConnectionTagOutput values.
-// You can construct a concrete instance of `VPNConnectionTagInput` via:
-//
-//	VPNConnectionTagArgs{...}
-type VPNConnectionTagInput interface {
-	pulumi.Input
-
-	ToVPNConnectionTagOutput() VPNConnectionTagOutput
-	ToVPNConnectionTagOutputWithContext(context.Context) VPNConnectionTagOutput
-}
-
-type VPNConnectionTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VPNConnectionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPNConnectionTag)(nil)).Elem()
-}
-
-func (i VPNConnectionTagArgs) ToVPNConnectionTagOutput() VPNConnectionTagOutput {
-	return i.ToVPNConnectionTagOutputWithContext(context.Background())
-}
-
-func (i VPNConnectionTagArgs) ToVPNConnectionTagOutputWithContext(ctx context.Context) VPNConnectionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionTagOutput)
-}
-
-// VPNConnectionTagArrayInput is an input type that accepts VPNConnectionTagArray and VPNConnectionTagArrayOutput values.
-// You can construct a concrete instance of `VPNConnectionTagArrayInput` via:
-//
-//	VPNConnectionTagArray{ VPNConnectionTagArgs{...} }
-type VPNConnectionTagArrayInput interface {
-	pulumi.Input
-
-	ToVPNConnectionTagArrayOutput() VPNConnectionTagArrayOutput
-	ToVPNConnectionTagArrayOutputWithContext(context.Context) VPNConnectionTagArrayOutput
-}
-
-type VPNConnectionTagArray []VPNConnectionTagInput
-
-func (VPNConnectionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPNConnectionTag)(nil)).Elem()
-}
-
-func (i VPNConnectionTagArray) ToVPNConnectionTagArrayOutput() VPNConnectionTagArrayOutput {
-	return i.ToVPNConnectionTagArrayOutputWithContext(context.Background())
-}
-
-func (i VPNConnectionTagArray) ToVPNConnectionTagArrayOutputWithContext(ctx context.Context) VPNConnectionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionTagArrayOutput)
-}
-
-type VPNConnectionTagOutput struct{ *pulumi.OutputState }
-
-func (VPNConnectionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPNConnectionTag)(nil)).Elem()
-}
-
-func (o VPNConnectionTagOutput) ToVPNConnectionTagOutput() VPNConnectionTagOutput {
-	return o
-}
-
-func (o VPNConnectionTagOutput) ToVPNConnectionTagOutputWithContext(ctx context.Context) VPNConnectionTagOutput {
-	return o
-}
-
-func (o VPNConnectionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VPNConnectionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VPNConnectionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VPNConnectionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VPNConnectionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VPNConnectionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPNConnectionTag)(nil)).Elem()
-}
-
-func (o VPNConnectionTagArrayOutput) ToVPNConnectionTagArrayOutput() VPNConnectionTagArrayOutput {
-	return o
-}
-
-func (o VPNConnectionTagArrayOutput) ToVPNConnectionTagArrayOutputWithContext(ctx context.Context) VPNConnectionTagArrayOutput {
-	return o
-}
-
-func (o VPNConnectionTagArrayOutput) Index(i pulumi.IntInput) VPNConnectionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPNConnectionTag {
-		return vs[0].([]VPNConnectionTag)[vs[1].(int)]
-	}).(VPNConnectionTagOutput)
-}
-
-type VPNConnectionVpnTunnelOptionsSpecification struct {
-	PreSharedKey     *string `pulumi:"preSharedKey"`
-	TunnelInsideCidr *string `pulumi:"tunnelInsideCidr"`
-}
-
-// VPNConnectionVpnTunnelOptionsSpecificationInput is an input type that accepts VPNConnectionVpnTunnelOptionsSpecificationArgs and VPNConnectionVpnTunnelOptionsSpecificationOutput values.
-// You can construct a concrete instance of `VPNConnectionVpnTunnelOptionsSpecificationInput` via:
-//
-//	VPNConnectionVpnTunnelOptionsSpecificationArgs{...}
-type VPNConnectionVpnTunnelOptionsSpecificationInput interface {
-	pulumi.Input
-
-	ToVPNConnectionVpnTunnelOptionsSpecificationOutput() VPNConnectionVpnTunnelOptionsSpecificationOutput
-	ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(context.Context) VPNConnectionVpnTunnelOptionsSpecificationOutput
-}
-
-type VPNConnectionVpnTunnelOptionsSpecificationArgs struct {
-	PreSharedKey     pulumi.StringPtrInput `pulumi:"preSharedKey"`
-	TunnelInsideCidr pulumi.StringPtrInput `pulumi:"tunnelInsideCidr"`
-}
-
-func (VPNConnectionVpnTunnelOptionsSpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
-}
-
-func (i VPNConnectionVpnTunnelOptionsSpecificationArgs) ToVPNConnectionVpnTunnelOptionsSpecificationOutput() VPNConnectionVpnTunnelOptionsSpecificationOutput {
-	return i.ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(context.Background())
-}
-
-func (i VPNConnectionVpnTunnelOptionsSpecificationArgs) ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionVpnTunnelOptionsSpecificationOutput)
-}
-
-// VPNConnectionVpnTunnelOptionsSpecificationArrayInput is an input type that accepts VPNConnectionVpnTunnelOptionsSpecificationArray and VPNConnectionVpnTunnelOptionsSpecificationArrayOutput values.
-// You can construct a concrete instance of `VPNConnectionVpnTunnelOptionsSpecificationArrayInput` via:
-//
-//	VPNConnectionVpnTunnelOptionsSpecificationArray{ VPNConnectionVpnTunnelOptionsSpecificationArgs{...} }
-type VPNConnectionVpnTunnelOptionsSpecificationArrayInput interface {
-	pulumi.Input
-
-	ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutput() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput
-	ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(context.Context) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput
-}
-
-type VPNConnectionVpnTunnelOptionsSpecificationArray []VPNConnectionVpnTunnelOptionsSpecificationInput
-
-func (VPNConnectionVpnTunnelOptionsSpecificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
-}
-
-func (i VPNConnectionVpnTunnelOptionsSpecificationArray) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutput() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
-	return i.ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(context.Background())
-}
-
-func (i VPNConnectionVpnTunnelOptionsSpecificationArray) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionVpnTunnelOptionsSpecificationArrayOutput)
-}
-
-type VPNConnectionVpnTunnelOptionsSpecificationOutput struct{ *pulumi.OutputState }
-
-func (VPNConnectionVpnTunnelOptionsSpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
-}
-
-func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) ToVPNConnectionVpnTunnelOptionsSpecificationOutput() VPNConnectionVpnTunnelOptionsSpecificationOutput {
-	return o
-}
-
-func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationOutput {
-	return o
-}
-
-func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) PreSharedKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VPNConnectionVpnTunnelOptionsSpecification) *string { return v.PreSharedKey }).(pulumi.StringPtrOutput)
-}
-
-func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) TunnelInsideCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VPNConnectionVpnTunnelOptionsSpecification) *string { return v.TunnelInsideCidr }).(pulumi.StringPtrOutput)
-}
-
-type VPNConnectionVpnTunnelOptionsSpecificationArrayOutput struct{ *pulumi.OutputState }
-
-func (VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
-}
-
-func (o VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutput() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
-	return o
-}
-
-func (o VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
-	return o
-}
-
-func (o VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) Index(i pulumi.IntInput) VPNConnectionVpnTunnelOptionsSpecificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPNConnectionVpnTunnelOptionsSpecification {
-		return vs[0].([]VPNConnectionVpnTunnelOptionsSpecification)[vs[1].(int)]
-	}).(VPNConnectionVpnTunnelOptionsSpecificationOutput)
-}
-
-type VPNGatewayTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
-}
-
-// VPNGatewayTagInput is an input type that accepts VPNGatewayTagArgs and VPNGatewayTagOutput values.
-// You can construct a concrete instance of `VPNGatewayTagInput` via:
-//
-//	VPNGatewayTagArgs{...}
-type VPNGatewayTagInput interface {
-	pulumi.Input
-
-	ToVPNGatewayTagOutput() VPNGatewayTagOutput
-	ToVPNGatewayTagOutputWithContext(context.Context) VPNGatewayTagOutput
-}
-
-type VPNGatewayTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VPNGatewayTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPNGatewayTag)(nil)).Elem()
-}
-
-func (i VPNGatewayTagArgs) ToVPNGatewayTagOutput() VPNGatewayTagOutput {
-	return i.ToVPNGatewayTagOutputWithContext(context.Background())
-}
-
-func (i VPNGatewayTagArgs) ToVPNGatewayTagOutputWithContext(ctx context.Context) VPNGatewayTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPNGatewayTagOutput)
-}
-
-// VPNGatewayTagArrayInput is an input type that accepts VPNGatewayTagArray and VPNGatewayTagArrayOutput values.
-// You can construct a concrete instance of `VPNGatewayTagArrayInput` via:
-//
-//	VPNGatewayTagArray{ VPNGatewayTagArgs{...} }
-type VPNGatewayTagArrayInput interface {
-	pulumi.Input
-
-	ToVPNGatewayTagArrayOutput() VPNGatewayTagArrayOutput
-	ToVPNGatewayTagArrayOutputWithContext(context.Context) VPNGatewayTagArrayOutput
-}
-
-type VPNGatewayTagArray []VPNGatewayTagInput
-
-func (VPNGatewayTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPNGatewayTag)(nil)).Elem()
-}
-
-func (i VPNGatewayTagArray) ToVPNGatewayTagArrayOutput() VPNGatewayTagArrayOutput {
-	return i.ToVPNGatewayTagArrayOutputWithContext(context.Background())
-}
-
-func (i VPNGatewayTagArray) ToVPNGatewayTagArrayOutputWithContext(ctx context.Context) VPNGatewayTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VPNGatewayTagArrayOutput)
-}
-
-type VPNGatewayTagOutput struct{ *pulumi.OutputState }
-
-func (VPNGatewayTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPNGatewayTag)(nil)).Elem()
-}
-
-func (o VPNGatewayTagOutput) ToVPNGatewayTagOutput() VPNGatewayTagOutput {
-	return o
-}
-
-func (o VPNGatewayTagOutput) ToVPNGatewayTagOutputWithContext(ctx context.Context) VPNGatewayTagOutput {
-	return o
-}
-
-func (o VPNGatewayTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VPNGatewayTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VPNGatewayTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VPNGatewayTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VPNGatewayTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VPNGatewayTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VPNGatewayTag)(nil)).Elem()
-}
-
-func (o VPNGatewayTagArrayOutput) ToVPNGatewayTagArrayOutput() VPNGatewayTagArrayOutput {
-	return o
-}
-
-func (o VPNGatewayTagArrayOutput) ToVPNGatewayTagArrayOutputWithContext(ctx context.Context) VPNGatewayTagArrayOutput {
-	return o
-}
-
-func (o VPNGatewayTagArrayOutput) Index(i pulumi.IntInput) VPNGatewayTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPNGatewayTag {
-		return vs[0].([]VPNGatewayTag)[vs[1].(int)]
-	}).(VPNGatewayTagOutput)
 }
 
 // The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
@@ -30354,6 +29845,515 @@ func (o VolumeTagArrayOutput) Index(i pulumi.IntInput) VolumeTagOutput {
 	}).(VolumeTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type VpcPeeringConnectionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// VpcPeeringConnectionTagInput is an input type that accepts VpcPeeringConnectionTagArgs and VpcPeeringConnectionTagOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionTagInput` via:
+//
+//	VpcPeeringConnectionTagArgs{...}
+type VpcPeeringConnectionTagInput interface {
+	pulumi.Input
+
+	ToVpcPeeringConnectionTagOutput() VpcPeeringConnectionTagOutput
+	ToVpcPeeringConnectionTagOutputWithContext(context.Context) VpcPeeringConnectionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type VpcPeeringConnectionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VpcPeeringConnectionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionTag)(nil)).Elem()
+}
+
+func (i VpcPeeringConnectionTagArgs) ToVpcPeeringConnectionTagOutput() VpcPeeringConnectionTagOutput {
+	return i.ToVpcPeeringConnectionTagOutputWithContext(context.Background())
+}
+
+func (i VpcPeeringConnectionTagArgs) ToVpcPeeringConnectionTagOutputWithContext(ctx context.Context) VpcPeeringConnectionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionTagOutput)
+}
+
+// VpcPeeringConnectionTagArrayInput is an input type that accepts VpcPeeringConnectionTagArray and VpcPeeringConnectionTagArrayOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionTagArrayInput` via:
+//
+//	VpcPeeringConnectionTagArray{ VpcPeeringConnectionTagArgs{...} }
+type VpcPeeringConnectionTagArrayInput interface {
+	pulumi.Input
+
+	ToVpcPeeringConnectionTagArrayOutput() VpcPeeringConnectionTagArrayOutput
+	ToVpcPeeringConnectionTagArrayOutputWithContext(context.Context) VpcPeeringConnectionTagArrayOutput
+}
+
+type VpcPeeringConnectionTagArray []VpcPeeringConnectionTagInput
+
+func (VpcPeeringConnectionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcPeeringConnectionTag)(nil)).Elem()
+}
+
+func (i VpcPeeringConnectionTagArray) ToVpcPeeringConnectionTagArrayOutput() VpcPeeringConnectionTagArrayOutput {
+	return i.ToVpcPeeringConnectionTagArrayOutputWithContext(context.Background())
+}
+
+func (i VpcPeeringConnectionTagArray) ToVpcPeeringConnectionTagArrayOutputWithContext(ctx context.Context) VpcPeeringConnectionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VpcPeeringConnectionTagOutput struct{ *pulumi.OutputState }
+
+func (VpcPeeringConnectionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionTag)(nil)).Elem()
+}
+
+func (o VpcPeeringConnectionTagOutput) ToVpcPeeringConnectionTagOutput() VpcPeeringConnectionTagOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionTagOutput) ToVpcPeeringConnectionTagOutputWithContext(ctx context.Context) VpcPeeringConnectionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VpcPeeringConnectionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcPeeringConnectionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VpcPeeringConnectionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcPeeringConnectionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VpcPeeringConnectionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcPeeringConnectionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcPeeringConnectionTag)(nil)).Elem()
+}
+
+func (o VpcPeeringConnectionTagArrayOutput) ToVpcPeeringConnectionTagArrayOutput() VpcPeeringConnectionTagArrayOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionTagArrayOutput) ToVpcPeeringConnectionTagArrayOutputWithContext(ctx context.Context) VpcPeeringConnectionTagArrayOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionTagArrayOutput) Index(i pulumi.IntInput) VpcPeeringConnectionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcPeeringConnectionTag {
+		return vs[0].([]VpcPeeringConnectionTag)[vs[1].(int)]
+	}).(VpcPeeringConnectionTagOutput)
+}
+
+type VpcTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VpcTagInput is an input type that accepts VpcTagArgs and VpcTagOutput values.
+// You can construct a concrete instance of `VpcTagInput` via:
+//
+//	VpcTagArgs{...}
+type VpcTagInput interface {
+	pulumi.Input
+
+	ToVpcTagOutput() VpcTagOutput
+	ToVpcTagOutputWithContext(context.Context) VpcTagOutput
+}
+
+type VpcTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VpcTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcTag)(nil)).Elem()
+}
+
+func (i VpcTagArgs) ToVpcTagOutput() VpcTagOutput {
+	return i.ToVpcTagOutputWithContext(context.Background())
+}
+
+func (i VpcTagArgs) ToVpcTagOutputWithContext(ctx context.Context) VpcTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcTagOutput)
+}
+
+// VpcTagArrayInput is an input type that accepts VpcTagArray and VpcTagArrayOutput values.
+// You can construct a concrete instance of `VpcTagArrayInput` via:
+//
+//	VpcTagArray{ VpcTagArgs{...} }
+type VpcTagArrayInput interface {
+	pulumi.Input
+
+	ToVpcTagArrayOutput() VpcTagArrayOutput
+	ToVpcTagArrayOutputWithContext(context.Context) VpcTagArrayOutput
+}
+
+type VpcTagArray []VpcTagInput
+
+func (VpcTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcTag)(nil)).Elem()
+}
+
+func (i VpcTagArray) ToVpcTagArrayOutput() VpcTagArrayOutput {
+	return i.ToVpcTagArrayOutputWithContext(context.Background())
+}
+
+func (i VpcTagArray) ToVpcTagArrayOutputWithContext(ctx context.Context) VpcTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcTagArrayOutput)
+}
+
+type VpcTagOutput struct{ *pulumi.OutputState }
+
+func (VpcTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcTag)(nil)).Elem()
+}
+
+func (o VpcTagOutput) ToVpcTagOutput() VpcTagOutput {
+	return o
+}
+
+func (o VpcTagOutput) ToVpcTagOutputWithContext(ctx context.Context) VpcTagOutput {
+	return o
+}
+
+func (o VpcTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VpcTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VpcTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcTag)(nil)).Elem()
+}
+
+func (o VpcTagArrayOutput) ToVpcTagArrayOutput() VpcTagArrayOutput {
+	return o
+}
+
+func (o VpcTagArrayOutput) ToVpcTagArrayOutputWithContext(ctx context.Context) VpcTagArrayOutput {
+	return o
+}
+
+func (o VpcTagArrayOutput) Index(i pulumi.IntInput) VpcTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcTag {
+		return vs[0].([]VpcTag)[vs[1].(int)]
+	}).(VpcTagOutput)
+}
+
+type VpnConnectionTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VpnConnectionTagInput is an input type that accepts VpnConnectionTagArgs and VpnConnectionTagOutput values.
+// You can construct a concrete instance of `VpnConnectionTagInput` via:
+//
+//	VpnConnectionTagArgs{...}
+type VpnConnectionTagInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTagOutput() VpnConnectionTagOutput
+	ToVpnConnectionTagOutputWithContext(context.Context) VpnConnectionTagOutput
+}
+
+type VpnConnectionTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VpnConnectionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTag)(nil)).Elem()
+}
+
+func (i VpnConnectionTagArgs) ToVpnConnectionTagOutput() VpnConnectionTagOutput {
+	return i.ToVpnConnectionTagOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTagArgs) ToVpnConnectionTagOutputWithContext(ctx context.Context) VpnConnectionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTagOutput)
+}
+
+// VpnConnectionTagArrayInput is an input type that accepts VpnConnectionTagArray and VpnConnectionTagArrayOutput values.
+// You can construct a concrete instance of `VpnConnectionTagArrayInput` via:
+//
+//	VpnConnectionTagArray{ VpnConnectionTagArgs{...} }
+type VpnConnectionTagArrayInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTagArrayOutput() VpnConnectionTagArrayOutput
+	ToVpnConnectionTagArrayOutputWithContext(context.Context) VpnConnectionTagArrayOutput
+}
+
+type VpnConnectionTagArray []VpnConnectionTagInput
+
+func (VpnConnectionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnConnectionTag)(nil)).Elem()
+}
+
+func (i VpnConnectionTagArray) ToVpnConnectionTagArrayOutput() VpnConnectionTagArrayOutput {
+	return i.ToVpnConnectionTagArrayOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTagArray) ToVpnConnectionTagArrayOutputWithContext(ctx context.Context) VpnConnectionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTagArrayOutput)
+}
+
+type VpnConnectionTagOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTag)(nil)).Elem()
+}
+
+func (o VpnConnectionTagOutput) ToVpnConnectionTagOutput() VpnConnectionTagOutput {
+	return o
+}
+
+func (o VpnConnectionTagOutput) ToVpnConnectionTagOutputWithContext(ctx context.Context) VpnConnectionTagOutput {
+	return o
+}
+
+func (o VpnConnectionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnConnectionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnConnectionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VpnConnectionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnConnectionTag)(nil)).Elem()
+}
+
+func (o VpnConnectionTagArrayOutput) ToVpnConnectionTagArrayOutput() VpnConnectionTagArrayOutput {
+	return o
+}
+
+func (o VpnConnectionTagArrayOutput) ToVpnConnectionTagArrayOutputWithContext(ctx context.Context) VpnConnectionTagArrayOutput {
+	return o
+}
+
+func (o VpnConnectionTagArrayOutput) Index(i pulumi.IntInput) VpnConnectionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnConnectionTag {
+		return vs[0].([]VpnConnectionTag)[vs[1].(int)]
+	}).(VpnConnectionTagOutput)
+}
+
+type VpnConnectionVpnTunnelOptionsSpecification struct {
+	PreSharedKey     *string `pulumi:"preSharedKey"`
+	TunnelInsideCidr *string `pulumi:"tunnelInsideCidr"`
+}
+
+// VpnConnectionVpnTunnelOptionsSpecificationInput is an input type that accepts VpnConnectionVpnTunnelOptionsSpecificationArgs and VpnConnectionVpnTunnelOptionsSpecificationOutput values.
+// You can construct a concrete instance of `VpnConnectionVpnTunnelOptionsSpecificationInput` via:
+//
+//	VpnConnectionVpnTunnelOptionsSpecificationArgs{...}
+type VpnConnectionVpnTunnelOptionsSpecificationInput interface {
+	pulumi.Input
+
+	ToVpnConnectionVpnTunnelOptionsSpecificationOutput() VpnConnectionVpnTunnelOptionsSpecificationOutput
+	ToVpnConnectionVpnTunnelOptionsSpecificationOutputWithContext(context.Context) VpnConnectionVpnTunnelOptionsSpecificationOutput
+}
+
+type VpnConnectionVpnTunnelOptionsSpecificationArgs struct {
+	PreSharedKey     pulumi.StringPtrInput `pulumi:"preSharedKey"`
+	TunnelInsideCidr pulumi.StringPtrInput `pulumi:"tunnelInsideCidr"`
+}
+
+func (VpnConnectionVpnTunnelOptionsSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (i VpnConnectionVpnTunnelOptionsSpecificationArgs) ToVpnConnectionVpnTunnelOptionsSpecificationOutput() VpnConnectionVpnTunnelOptionsSpecificationOutput {
+	return i.ToVpnConnectionVpnTunnelOptionsSpecificationOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionVpnTunnelOptionsSpecificationArgs) ToVpnConnectionVpnTunnelOptionsSpecificationOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionVpnTunnelOptionsSpecificationOutput)
+}
+
+// VpnConnectionVpnTunnelOptionsSpecificationArrayInput is an input type that accepts VpnConnectionVpnTunnelOptionsSpecificationArray and VpnConnectionVpnTunnelOptionsSpecificationArrayOutput values.
+// You can construct a concrete instance of `VpnConnectionVpnTunnelOptionsSpecificationArrayInput` via:
+//
+//	VpnConnectionVpnTunnelOptionsSpecificationArray{ VpnConnectionVpnTunnelOptionsSpecificationArgs{...} }
+type VpnConnectionVpnTunnelOptionsSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToVpnConnectionVpnTunnelOptionsSpecificationArrayOutput() VpnConnectionVpnTunnelOptionsSpecificationArrayOutput
+	ToVpnConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(context.Context) VpnConnectionVpnTunnelOptionsSpecificationArrayOutput
+}
+
+type VpnConnectionVpnTunnelOptionsSpecificationArray []VpnConnectionVpnTunnelOptionsSpecificationInput
+
+func (VpnConnectionVpnTunnelOptionsSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (i VpnConnectionVpnTunnelOptionsSpecificationArray) ToVpnConnectionVpnTunnelOptionsSpecificationArrayOutput() VpnConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return i.ToVpnConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionVpnTunnelOptionsSpecificationArray) ToVpnConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionVpnTunnelOptionsSpecificationArrayOutput)
+}
+
+type VpnConnectionVpnTunnelOptionsSpecificationOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionVpnTunnelOptionsSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) ToVpnConnectionVpnTunnelOptionsSpecificationOutput() VpnConnectionVpnTunnelOptionsSpecificationOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) ToVpnConnectionVpnTunnelOptionsSpecificationOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) PreSharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *string { return v.PreSharedKey }).(pulumi.StringPtrOutput)
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) TunnelInsideCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *string { return v.TunnelInsideCidr }).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionVpnTunnelOptionsSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionVpnTunnelOptionsSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationArrayOutput) ToVpnConnectionVpnTunnelOptionsSpecificationArrayOutput() VpnConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationArrayOutput) ToVpnConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationArrayOutput) Index(i pulumi.IntInput) VpnConnectionVpnTunnelOptionsSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnConnectionVpnTunnelOptionsSpecification {
+		return vs[0].([]VpnConnectionVpnTunnelOptionsSpecification)[vs[1].(int)]
+	}).(VpnConnectionVpnTunnelOptionsSpecificationOutput)
+}
+
+type VpnGatewayTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VpnGatewayTagInput is an input type that accepts VpnGatewayTagArgs and VpnGatewayTagOutput values.
+// You can construct a concrete instance of `VpnGatewayTagInput` via:
+//
+//	VpnGatewayTagArgs{...}
+type VpnGatewayTagInput interface {
+	pulumi.Input
+
+	ToVpnGatewayTagOutput() VpnGatewayTagOutput
+	ToVpnGatewayTagOutputWithContext(context.Context) VpnGatewayTagOutput
+}
+
+type VpnGatewayTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VpnGatewayTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayTag)(nil)).Elem()
+}
+
+func (i VpnGatewayTagArgs) ToVpnGatewayTagOutput() VpnGatewayTagOutput {
+	return i.ToVpnGatewayTagOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayTagArgs) ToVpnGatewayTagOutputWithContext(ctx context.Context) VpnGatewayTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayTagOutput)
+}
+
+// VpnGatewayTagArrayInput is an input type that accepts VpnGatewayTagArray and VpnGatewayTagArrayOutput values.
+// You can construct a concrete instance of `VpnGatewayTagArrayInput` via:
+//
+//	VpnGatewayTagArray{ VpnGatewayTagArgs{...} }
+type VpnGatewayTagArrayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayTagArrayOutput() VpnGatewayTagArrayOutput
+	ToVpnGatewayTagArrayOutputWithContext(context.Context) VpnGatewayTagArrayOutput
+}
+
+type VpnGatewayTagArray []VpnGatewayTagInput
+
+func (VpnGatewayTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayTag)(nil)).Elem()
+}
+
+func (i VpnGatewayTagArray) ToVpnGatewayTagArrayOutput() VpnGatewayTagArrayOutput {
+	return i.ToVpnGatewayTagArrayOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayTagArray) ToVpnGatewayTagArrayOutputWithContext(ctx context.Context) VpnGatewayTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayTagArrayOutput)
+}
+
+type VpnGatewayTagOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayTag)(nil)).Elem()
+}
+
+func (o VpnGatewayTagOutput) ToVpnGatewayTagOutput() VpnGatewayTagOutput {
+	return o
+}
+
+func (o VpnGatewayTagOutput) ToVpnGatewayTagOutputWithContext(ctx context.Context) VpnGatewayTagOutput {
+	return o
+}
+
+func (o VpnGatewayTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VpnGatewayTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VpnGatewayTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayTag)(nil)).Elem()
+}
+
+func (o VpnGatewayTagArrayOutput) ToVpnGatewayTagArrayOutput() VpnGatewayTagArrayOutput {
+	return o
+}
+
+func (o VpnGatewayTagArrayOutput) ToVpnGatewayTagArrayOutputWithContext(ctx context.Context) VpnGatewayTagArrayOutput {
+	return o
+}
+
+func (o VpnGatewayTagArrayOutput) Index(i pulumi.IntInput) VpnGatewayTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayTag {
+		return vs[0].([]VpnGatewayTag)[vs[1].(int)]
+	}).(VpnGatewayTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetInstanceTypeSpecificationInput)(nil)).Elem(), CapacityReservationFleetInstanceTypeSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetInstanceTypeSpecificationArrayInput)(nil)).Elem(), CapacityReservationFleetInstanceTypeSpecificationArray{})
@@ -30386,73 +30386,57 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointTagSpecificationArrayInput)(nil)).Elem(), ClientVpnEndpointTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayTagInput)(nil)).Elem(), CustomerGatewayTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayTagArrayInput)(nil)).Elem(), CustomerGatewayTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DHCPOptionsTagInput)(nil)).Elem(), DHCPOptionsTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DHCPOptionsTagArrayInput)(nil)).Elem(), DHCPOptionsTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DestinationOptionsPropertiesInput)(nil)).Elem(), DestinationOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DestinationOptionsPropertiesPtrInput)(nil)).Elem(), DestinationOptionsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetAcceleratorCountRequestInput)(nil)).Elem(), EC2FleetAcceleratorCountRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetAcceleratorCountRequestPtrInput)(nil)).Elem(), EC2FleetAcceleratorCountRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetAcceleratorTotalMemoryMiBRequestInput)(nil)).Elem(), EC2FleetAcceleratorTotalMemoryMiBRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetAcceleratorTotalMemoryMiBRequestPtrInput)(nil)).Elem(), EC2FleetAcceleratorTotalMemoryMiBRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetBaselineEbsBandwidthMbpsRequestInput)(nil)).Elem(), EC2FleetBaselineEbsBandwidthMbpsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), EC2FleetBaselineEbsBandwidthMbpsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetCapacityRebalanceInput)(nil)).Elem(), EC2FleetCapacityRebalanceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetCapacityRebalancePtrInput)(nil)).Elem(), EC2FleetCapacityRebalanceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetCapacityReservationOptionsRequestInput)(nil)).Elem(), EC2FleetCapacityReservationOptionsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetCapacityReservationOptionsRequestPtrInput)(nil)).Elem(), EC2FleetCapacityReservationOptionsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetFleetLaunchTemplateConfigRequestInput)(nil)).Elem(), EC2FleetFleetLaunchTemplateConfigRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetFleetLaunchTemplateConfigRequestArrayInput)(nil)).Elem(), EC2FleetFleetLaunchTemplateConfigRequestArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetFleetLaunchTemplateOverridesRequestInput)(nil)).Elem(), EC2FleetFleetLaunchTemplateOverridesRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetFleetLaunchTemplateOverridesRequestArrayInput)(nil)).Elem(), EC2FleetFleetLaunchTemplateOverridesRequestArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetFleetLaunchTemplateSpecificationRequestInput)(nil)).Elem(), EC2FleetFleetLaunchTemplateSpecificationRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetFleetLaunchTemplateSpecificationRequestPtrInput)(nil)).Elem(), EC2FleetFleetLaunchTemplateSpecificationRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetInstanceRequirementsRequestInput)(nil)).Elem(), EC2FleetInstanceRequirementsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetInstanceRequirementsRequestPtrInput)(nil)).Elem(), EC2FleetInstanceRequirementsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetMaintenanceStrategiesInput)(nil)).Elem(), EC2FleetMaintenanceStrategiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetMaintenanceStrategiesPtrInput)(nil)).Elem(), EC2FleetMaintenanceStrategiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetMemoryGiBPerVCpuRequestInput)(nil)).Elem(), EC2FleetMemoryGiBPerVCpuRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetMemoryGiBPerVCpuRequestPtrInput)(nil)).Elem(), EC2FleetMemoryGiBPerVCpuRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetMemoryMiBRequestInput)(nil)).Elem(), EC2FleetMemoryMiBRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetMemoryMiBRequestPtrInput)(nil)).Elem(), EC2FleetMemoryMiBRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetNetworkBandwidthGbpsRequestInput)(nil)).Elem(), EC2FleetNetworkBandwidthGbpsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetNetworkBandwidthGbpsRequestPtrInput)(nil)).Elem(), EC2FleetNetworkBandwidthGbpsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetNetworkInterfaceCountRequestInput)(nil)).Elem(), EC2FleetNetworkInterfaceCountRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetNetworkInterfaceCountRequestPtrInput)(nil)).Elem(), EC2FleetNetworkInterfaceCountRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetOnDemandOptionsRequestInput)(nil)).Elem(), EC2FleetOnDemandOptionsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetOnDemandOptionsRequestPtrInput)(nil)).Elem(), EC2FleetOnDemandOptionsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetPlacementInput)(nil)).Elem(), EC2FleetPlacementArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetPlacementPtrInput)(nil)).Elem(), EC2FleetPlacementArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetSpotOptionsRequestInput)(nil)).Elem(), EC2FleetSpotOptionsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetSpotOptionsRequestPtrInput)(nil)).Elem(), EC2FleetSpotOptionsRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTagInput)(nil)).Elem(), EC2FleetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTagArrayInput)(nil)).Elem(), EC2FleetTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTagSpecificationInput)(nil)).Elem(), EC2FleetTagSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTagSpecificationArrayInput)(nil)).Elem(), EC2FleetTagSpecificationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTargetCapacitySpecificationRequestInput)(nil)).Elem(), EC2FleetTargetCapacitySpecificationRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTotalLocalStorageGBRequestInput)(nil)).Elem(), EC2FleetTotalLocalStorageGBRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTotalLocalStorageGBRequestPtrInput)(nil)).Elem(), EC2FleetTotalLocalStorageGBRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetVCpuCountRangeRequestInput)(nil)).Elem(), EC2FleetVCpuCountRangeRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetVCpuCountRangeRequestPtrInput)(nil)).Elem(), EC2FleetVCpuCountRangeRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EIPTagInput)(nil)).Elem(), EIPTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EIPTagArrayInput)(nil)).Elem(), EIPTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DhcpOptionsTagInput)(nil)).Elem(), DhcpOptionsTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DhcpOptionsTagArrayInput)(nil)).Elem(), DhcpOptionsTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetAcceleratorCountRequestInput)(nil)).Elem(), Ec2FleetAcceleratorCountRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetAcceleratorCountRequestPtrInput)(nil)).Elem(), Ec2FleetAcceleratorCountRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetAcceleratorTotalMemoryMiBRequestInput)(nil)).Elem(), Ec2FleetAcceleratorTotalMemoryMiBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput)(nil)).Elem(), Ec2FleetAcceleratorTotalMemoryMiBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBaselineEbsBandwidthMbpsRequestInput)(nil)).Elem(), Ec2FleetBaselineEbsBandwidthMbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), Ec2FleetBaselineEbsBandwidthMbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityRebalanceInput)(nil)).Elem(), Ec2FleetCapacityRebalanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityRebalancePtrInput)(nil)).Elem(), Ec2FleetCapacityRebalanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequestInput)(nil)).Elem(), Ec2FleetCapacityReservationOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetCapacityReservationOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateConfigRequestInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateConfigRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateConfigRequestArrayInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateConfigRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateOverridesRequestInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateOverridesRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateOverridesRequestArrayInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateOverridesRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateSpecificationRequestInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateSpecificationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateSpecificationRequestPtrInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateSpecificationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestPtrInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMaintenanceStrategiesInput)(nil)).Elem(), Ec2FleetMaintenanceStrategiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMaintenanceStrategiesPtrInput)(nil)).Elem(), Ec2FleetMaintenanceStrategiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMemoryGiBPerVCpuRequestInput)(nil)).Elem(), Ec2FleetMemoryGiBPerVCpuRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMemoryGiBPerVCpuRequestPtrInput)(nil)).Elem(), Ec2FleetMemoryGiBPerVCpuRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMemoryMiBRequestInput)(nil)).Elem(), Ec2FleetMemoryMiBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMemoryMiBRequestPtrInput)(nil)).Elem(), Ec2FleetMemoryMiBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkBandwidthGbpsRequestInput)(nil)).Elem(), Ec2FleetNetworkBandwidthGbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkBandwidthGbpsRequestPtrInput)(nil)).Elem(), Ec2FleetNetworkBandwidthGbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkInterfaceCountRequestInput)(nil)).Elem(), Ec2FleetNetworkInterfaceCountRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkInterfaceCountRequestPtrInput)(nil)).Elem(), Ec2FleetNetworkInterfaceCountRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetOnDemandOptionsRequestInput)(nil)).Elem(), Ec2FleetOnDemandOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetOnDemandOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetOnDemandOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPlacementInput)(nil)).Elem(), Ec2FleetPlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPlacementPtrInput)(nil)).Elem(), Ec2FleetPlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTagInput)(nil)).Elem(), Ec2FleetTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTagArrayInput)(nil)).Elem(), Ec2FleetTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTagSpecificationInput)(nil)).Elem(), Ec2FleetTagSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTagSpecificationArrayInput)(nil)).Elem(), Ec2FleetTagSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTargetCapacitySpecificationRequestInput)(nil)).Elem(), Ec2FleetTargetCapacitySpecificationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTotalLocalStorageGbRequestInput)(nil)).Elem(), Ec2FleetTotalLocalStorageGbRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTotalLocalStorageGbRequestPtrInput)(nil)).Elem(), Ec2FleetTotalLocalStorageGbRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetVCpuCountRangeRequestInput)(nil)).Elem(), Ec2FleetVCpuCountRangeRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetVCpuCountRangeRequestPtrInput)(nil)).Elem(), Ec2FleetVCpuCountRangeRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipTagInput)(nil)).Elem(), EipTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipTagArrayInput)(nil)).Elem(), EipTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTagInput)(nil)).Elem(), FlowLogTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTagArrayInput)(nil)).Elem(), FlowLogTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMIpamOperatingRegionInput)(nil)).Elem(), IPAMIpamOperatingRegionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMIpamOperatingRegionArrayInput)(nil)).Elem(), IPAMIpamOperatingRegionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolProvisionedCidrInput)(nil)).Elem(), IPAMPoolProvisionedCidrArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolProvisionedCidrArrayInput)(nil)).Elem(), IPAMPoolProvisionedCidrArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolTagInput)(nil)).Elem(), IPAMPoolTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolTagArrayInput)(nil)).Elem(), IPAMPoolTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryAssociationTagInput)(nil)).Elem(), IPAMResourceDiscoveryAssociationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryAssociationTagArrayInput)(nil)).Elem(), IPAMResourceDiscoveryAssociationTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryIpamOperatingRegionInput)(nil)).Elem(), IPAMResourceDiscoveryIpamOperatingRegionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryIpamOperatingRegionArrayInput)(nil)).Elem(), IPAMResourceDiscoveryIpamOperatingRegionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryTagInput)(nil)).Elem(), IPAMResourceDiscoveryTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryTagArrayInput)(nil)).Elem(), IPAMResourceDiscoveryTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeTagInput)(nil)).Elem(), IPAMScopeTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeTagArrayInput)(nil)).Elem(), IPAMScopeTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMTagInput)(nil)).Elem(), IPAMTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMTagArrayInput)(nil)).Elem(), IPAMTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAssociationParameterInput)(nil)).Elem(), InstanceAssociationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAssociationParameterArrayInput)(nil)).Elem(), InstanceAssociationParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlockDeviceMappingInput)(nil)).Elem(), InstanceBlockDeviceMappingArgs{})
@@ -30493,6 +30477,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceVolumeArrayInput)(nil)).Elem(), InstanceVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayTagInput)(nil)).Elem(), InternetGatewayTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayTagArrayInput)(nil)).Elem(), InternetGatewayTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamOperatingRegionInput)(nil)).Elem(), IpamOperatingRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamOperatingRegionArrayInput)(nil)).Elem(), IpamOperatingRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolProvisionedCidrInput)(nil)).Elem(), IpamPoolProvisionedCidrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolProvisionedCidrArrayInput)(nil)).Elem(), IpamPoolProvisionedCidrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolTagInput)(nil)).Elem(), IpamPoolTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolTagArrayInput)(nil)).Elem(), IpamPoolTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryAssociationTagInput)(nil)).Elem(), IpamResourceDiscoveryAssociationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryAssociationTagArrayInput)(nil)).Elem(), IpamResourceDiscoveryAssociationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegionInput)(nil)).Elem(), IpamResourceDiscoveryIpamOperatingRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegionArrayInput)(nil)).Elem(), IpamResourceDiscoveryIpamOperatingRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryTagInput)(nil)).Elem(), IpamResourceDiscoveryTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryTagArrayInput)(nil)).Elem(), IpamResourceDiscoveryTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamScopeTagInput)(nil)).Elem(), IpamScopeTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamScopeTagArrayInput)(nil)).Elem(), IpamScopeTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamTagInput)(nil)).Elem(), IpamTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamTagArrayInput)(nil)).Elem(), IpamTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairTagInput)(nil)).Elem(), KeyPairTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairTagArrayInput)(nil)).Elem(), KeyPairTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
@@ -30564,16 +30564,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagArrayInput)(nil)).Elem(), LaunchTemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagSpecificationInput)(nil)).Elem(), LaunchTemplateTagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagSpecificationArrayInput)(nil)).Elem(), LaunchTemplateTagSpecificationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTotalLocalStorageGBInput)(nil)).Elem(), LaunchTemplateTotalLocalStorageGBArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTotalLocalStorageGBPtrInput)(nil)).Elem(), LaunchTemplateTotalLocalStorageGBArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTotalLocalStorageGbInput)(nil)).Elem(), LaunchTemplateTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTotalLocalStorageGbPtrInput)(nil)).Elem(), LaunchTemplateTotalLocalStorageGbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateVCpuCountInput)(nil)).Elem(), LaunchTemplateVCpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateVCpuCountPtrInput)(nil)).Elem(), LaunchTemplateVCpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableTagInput)(nil)).Elem(), LocalGatewayRouteTableTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableTagArrayInput)(nil)).Elem(), LocalGatewayRouteTableTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationTagInput)(nil)).Elem(), LocalGatewayRouteTableVPCAssociationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationTagArrayInput)(nil)).Elem(), LocalGatewayRouteTableVPCAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagInput)(nil)).Elem(), LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayInput)(nil)).Elem(), LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVpcAssociationTagInput)(nil)).Elem(), LocalGatewayRouteTableVpcAssociationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVpcAssociationTagArrayInput)(nil)).Elem(), LocalGatewayRouteTableVpcAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayTagInput)(nil)).Elem(), NatGatewayTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayTagArrayInput)(nil)).Elem(), NatGatewayTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEntryIcmpInput)(nil)).Elem(), NetworkAclEntryIcmpArgs{})
@@ -30689,8 +30689,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTargetGroupArrayInput)(nil)).Elem(), SpotFleetTargetGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTargetGroupsConfigInput)(nil)).Elem(), SpotFleetTargetGroupsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTargetGroupsConfigPtrInput)(nil)).Elem(), SpotFleetTargetGroupsConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTotalLocalStorageGBRequestInput)(nil)).Elem(), SpotFleetTotalLocalStorageGBRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTotalLocalStorageGBRequestPtrInput)(nil)).Elem(), SpotFleetTotalLocalStorageGBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTotalLocalStorageGbRequestInput)(nil)).Elem(), SpotFleetTotalLocalStorageGbRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTotalLocalStorageGbRequestPtrInput)(nil)).Elem(), SpotFleetTotalLocalStorageGbRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetVCpuCountRangeRequestInput)(nil)).Elem(), SpotFleetVCpuCountRangeRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetVCpuCountRangeRequestPtrInput)(nil)).Elem(), SpotFleetVCpuCountRangeRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetTagInput)(nil)).Elem(), SubnetTagArgs{})
@@ -30720,16 +30720,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayTagArrayInput)(nil)).Elem(), TransitGatewayTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayVpcAttachmentTagInput)(nil)).Elem(), TransitGatewayVpcAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayVpcAttachmentTagArrayInput)(nil)).Elem(), TransitGatewayVpcAttachmentTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPCPeeringConnectionTagInput)(nil)).Elem(), VPCPeeringConnectionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPCPeeringConnectionTagArrayInput)(nil)).Elem(), VPCPeeringConnectionTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPCTagInput)(nil)).Elem(), VPCTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPCTagArrayInput)(nil)).Elem(), VPCTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPNConnectionTagInput)(nil)).Elem(), VPNConnectionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPNConnectionTagArrayInput)(nil)).Elem(), VPNConnectionTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPNConnectionVpnTunnelOptionsSpecificationInput)(nil)).Elem(), VPNConnectionVpnTunnelOptionsSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPNConnectionVpnTunnelOptionsSpecificationArrayInput)(nil)).Elem(), VPNConnectionVpnTunnelOptionsSpecificationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPNGatewayTagInput)(nil)).Elem(), VPNGatewayTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VPNGatewayTagArrayInput)(nil)).Elem(), VPNGatewayTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointNetworkInterfaceOptionsInput)(nil)).Elem(), VerifiedAccessEndpointNetworkInterfaceOptionsArgs{})
@@ -30758,6 +30748,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderTagArrayInput)(nil)).Elem(), VerifiedAccessTrustProviderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagInput)(nil)).Elem(), VolumeTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagArrayInput)(nil)).Elem(), VolumeTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionTagInput)(nil)).Elem(), VpcPeeringConnectionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionTagArrayInput)(nil)).Elem(), VpcPeeringConnectionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcTagInput)(nil)).Elem(), VpcTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcTagArrayInput)(nil)).Elem(), VpcTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTagInput)(nil)).Elem(), VpnConnectionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTagArrayInput)(nil)).Elem(), VpnConnectionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationArrayInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayTagInput)(nil)).Elem(), VpnGatewayTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayTagArrayInput)(nil)).Elem(), VpnGatewayTagArray{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceTypeSpecificationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceTypeSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetTagOutput{})
@@ -30790,74 +30790,58 @@ func init() {
 	pulumi.RegisterOutputType(ClientVpnEndpointTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(CustomerGatewayTagOutput{})
 	pulumi.RegisterOutputType(CustomerGatewayTagArrayOutput{})
-	pulumi.RegisterOutputType(DHCPOptionsTagOutput{})
-	pulumi.RegisterOutputType(DHCPOptionsTagArrayOutput{})
 	pulumi.RegisterOutputType(DestinationOptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(DestinationOptionsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetAcceleratorCountRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetAcceleratorCountRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetAcceleratorTotalMemoryMiBRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetBaselineEbsBandwidthMbpsRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetCapacityRebalanceOutput{})
-	pulumi.RegisterOutputType(EC2FleetCapacityRebalancePtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetFleetLaunchTemplateConfigRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetFleetLaunchTemplateConfigRequestArrayOutput{})
-	pulumi.RegisterOutputType(EC2FleetFleetLaunchTemplateOverridesRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput{})
-	pulumi.RegisterOutputType(EC2FleetFleetLaunchTemplateSpecificationRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetMaintenanceStrategiesOutput{})
-	pulumi.RegisterOutputType(EC2FleetMaintenanceStrategiesPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetMemoryGiBPerVCpuRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetMemoryGiBPerVCpuRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetMemoryMiBRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetMemoryMiBRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetNetworkBandwidthGbpsRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetNetworkBandwidthGbpsRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetNetworkInterfaceCountRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetNetworkInterfaceCountRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetOnDemandOptionsRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetOnDemandOptionsRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetPlacementOutput{})
-	pulumi.RegisterOutputType(EC2FleetPlacementPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetSpotOptionsRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetSpotOptionsRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetTagOutput{})
-	pulumi.RegisterOutputType(EC2FleetTagArrayOutput{})
-	pulumi.RegisterOutputType(EC2FleetTagSpecificationOutput{})
-	pulumi.RegisterOutputType(EC2FleetTagSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetTotalLocalStorageGBRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetTotalLocalStorageGBRequestPtrOutput{})
-	pulumi.RegisterOutputType(EC2FleetVCpuCountRangeRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetVCpuCountRangeRequestPtrOutput{})
-	pulumi.RegisterOutputType(EIPTagOutput{})
-	pulumi.RegisterOutputType(EIPTagArrayOutput{})
+	pulumi.RegisterOutputType(DhcpOptionsTagOutput{})
+	pulumi.RegisterOutputType(DhcpOptionsTagArrayOutput{})
+	pulumi.RegisterOutputType(Ec2FleetAcceleratorCountRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetAcceleratorCountRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetAcceleratorTotalMemoryMiBRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetBaselineEbsBandwidthMbpsRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetCapacityRebalanceOutput{})
+	pulumi.RegisterOutputType(Ec2FleetCapacityRebalancePtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetCapacityReservationOptionsRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetCapacityReservationOptionsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateConfigRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput{})
+	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateOverridesRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput{})
+	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateSpecificationRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetMaintenanceStrategiesOutput{})
+	pulumi.RegisterOutputType(Ec2FleetMaintenanceStrategiesPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetMemoryGiBPerVCpuRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetMemoryGiBPerVCpuRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetMemoryMiBRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetMemoryMiBRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetNetworkBandwidthGbpsRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetNetworkBandwidthGbpsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetNetworkInterfaceCountRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetNetworkInterfaceCountRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetOnDemandOptionsRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetOnDemandOptionsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetPlacementOutput{})
+	pulumi.RegisterOutputType(Ec2FleetPlacementPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetSpotOptionsRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetSpotOptionsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetTagOutput{})
+	pulumi.RegisterOutputType(Ec2FleetTagArrayOutput{})
+	pulumi.RegisterOutputType(Ec2FleetTagSpecificationOutput{})
+	pulumi.RegisterOutputType(Ec2FleetTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(Ec2FleetTargetCapacitySpecificationRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetTargetCapacitySpecificationRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetTotalLocalStorageGbRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetTotalLocalStorageGbRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetVCpuCountRangeRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetVCpuCountRangeRequestPtrOutput{})
+	pulumi.RegisterOutputType(EipTagOutput{})
+	pulumi.RegisterOutputType(EipTagArrayOutput{})
 	pulumi.RegisterOutputType(FlowLogTagOutput{})
 	pulumi.RegisterOutputType(FlowLogTagArrayOutput{})
-	pulumi.RegisterOutputType(IPAMIpamOperatingRegionOutput{})
-	pulumi.RegisterOutputType(IPAMIpamOperatingRegionArrayOutput{})
-	pulumi.RegisterOutputType(IPAMPoolProvisionedCidrOutput{})
-	pulumi.RegisterOutputType(IPAMPoolProvisionedCidrArrayOutput{})
-	pulumi.RegisterOutputType(IPAMPoolTagOutput{})
-	pulumi.RegisterOutputType(IPAMPoolTagArrayOutput{})
-	pulumi.RegisterOutputType(IPAMResourceDiscoveryAssociationTagOutput{})
-	pulumi.RegisterOutputType(IPAMResourceDiscoveryAssociationTagArrayOutput{})
-	pulumi.RegisterOutputType(IPAMResourceDiscoveryIpamOperatingRegionOutput{})
-	pulumi.RegisterOutputType(IPAMResourceDiscoveryIpamOperatingRegionArrayOutput{})
-	pulumi.RegisterOutputType(IPAMResourceDiscoveryTagOutput{})
-	pulumi.RegisterOutputType(IPAMResourceDiscoveryTagArrayOutput{})
-	pulumi.RegisterOutputType(IPAMScopeTagOutput{})
-	pulumi.RegisterOutputType(IPAMScopeTagArrayOutput{})
-	pulumi.RegisterOutputType(IPAMTagOutput{})
-	pulumi.RegisterOutputType(IPAMTagArrayOutput{})
 	pulumi.RegisterOutputType(InstanceAssociationParameterOutput{})
 	pulumi.RegisterOutputType(InstanceAssociationParameterArrayOutput{})
 	pulumi.RegisterOutputType(InstanceBlockDeviceMappingOutput{})
@@ -30898,6 +30882,22 @@ func init() {
 	pulumi.RegisterOutputType(InstanceVolumeArrayOutput{})
 	pulumi.RegisterOutputType(InternetGatewayTagOutput{})
 	pulumi.RegisterOutputType(InternetGatewayTagArrayOutput{})
+	pulumi.RegisterOutputType(IpamOperatingRegionOutput{})
+	pulumi.RegisterOutputType(IpamOperatingRegionArrayOutput{})
+	pulumi.RegisterOutputType(IpamPoolProvisionedCidrOutput{})
+	pulumi.RegisterOutputType(IpamPoolProvisionedCidrArrayOutput{})
+	pulumi.RegisterOutputType(IpamPoolTagOutput{})
+	pulumi.RegisterOutputType(IpamPoolTagArrayOutput{})
+	pulumi.RegisterOutputType(IpamResourceDiscoveryAssociationTagOutput{})
+	pulumi.RegisterOutputType(IpamResourceDiscoveryAssociationTagArrayOutput{})
+	pulumi.RegisterOutputType(IpamResourceDiscoveryIpamOperatingRegionOutput{})
+	pulumi.RegisterOutputType(IpamResourceDiscoveryIpamOperatingRegionArrayOutput{})
+	pulumi.RegisterOutputType(IpamResourceDiscoveryTagOutput{})
+	pulumi.RegisterOutputType(IpamResourceDiscoveryTagArrayOutput{})
+	pulumi.RegisterOutputType(IpamScopeTagOutput{})
+	pulumi.RegisterOutputType(IpamScopeTagArrayOutput{})
+	pulumi.RegisterOutputType(IpamTagOutput{})
+	pulumi.RegisterOutputType(IpamTagArrayOutput{})
 	pulumi.RegisterOutputType(KeyPairTagOutput{})
 	pulumi.RegisterOutputType(KeyPairTagArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountOutput{})
@@ -30969,16 +30969,16 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateTotalLocalStorageGBOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateTotalLocalStorageGBPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateTotalLocalStorageGbOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateTotalLocalStorageGbPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateVCpuCountOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateVCpuCountPtrOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableTagOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableTagArrayOutput{})
-	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationTagOutput{})
-	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput{})
+	pulumi.RegisterOutputType(LocalGatewayRouteTableVpcAssociationTagOutput{})
+	pulumi.RegisterOutputType(LocalGatewayRouteTableVpcAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(NatGatewayTagOutput{})
 	pulumi.RegisterOutputType(NatGatewayTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclEntryIcmpOutput{})
@@ -31123,8 +31123,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupsConfigOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupsConfigPtrOutput{})
-	pulumi.RegisterOutputType(SpotFleetTotalLocalStorageGBRequestOutput{})
-	pulumi.RegisterOutputType(SpotFleetTotalLocalStorageGBRequestPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetTotalLocalStorageGbRequestOutput{})
+	pulumi.RegisterOutputType(SpotFleetTotalLocalStorageGbRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetVCpuCountRangeRequestOutput{})
 	pulumi.RegisterOutputType(SpotFleetVCpuCountRangeRequestPtrOutput{})
 	pulumi.RegisterOutputType(SubnetTagOutput{})
@@ -31156,16 +31156,6 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayVpcAttachmentTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayVpcAttachmentTagArrayOutput{})
-	pulumi.RegisterOutputType(VPCPeeringConnectionTagOutput{})
-	pulumi.RegisterOutputType(VPCPeeringConnectionTagArrayOutput{})
-	pulumi.RegisterOutputType(VPCTagOutput{})
-	pulumi.RegisterOutputType(VPCTagArrayOutput{})
-	pulumi.RegisterOutputType(VPNConnectionTagOutput{})
-	pulumi.RegisterOutputType(VPNConnectionTagArrayOutput{})
-	pulumi.RegisterOutputType(VPNConnectionVpnTunnelOptionsSpecificationOutput{})
-	pulumi.RegisterOutputType(VPNConnectionVpnTunnelOptionsSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(VPNGatewayTagOutput{})
-	pulumi.RegisterOutputType(VPNGatewayTagArrayOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointLoadBalancerOptionsOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointLoadBalancerOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointNetworkInterfaceOptionsOutput{})
@@ -31194,4 +31184,14 @@ func init() {
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(VolumeTagOutput{})
 	pulumi.RegisterOutputType(VolumeTagArrayOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionTagOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionTagArrayOutput{})
+	pulumi.RegisterOutputType(VpcTagOutput{})
+	pulumi.RegisterOutputType(VpcTagArrayOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTagOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTagArrayOutput{})
+	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationOutput{})
+	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(VpnGatewayTagOutput{})
+	pulumi.RegisterOutputType(VpnGatewayTagArrayOutput{})
 }

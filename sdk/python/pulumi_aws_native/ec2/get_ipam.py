@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetIPAMResult',
-    'AwaitableGetIPAMResult',
+    'GetIpamResult',
+    'AwaitableGetIpamResult',
     'get_ipam',
     'get_ipam_output',
 ]
 
 @pulumi.output_type
-class GetIPAMResult:
+class GetIpamResult:
     def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, ipam_id=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -93,7 +93,7 @@ class GetIPAMResult:
 
     @property
     @pulumi.getter(name="operatingRegions")
-    def operating_regions(self) -> Optional[Sequence['outputs.IPAMIpamOperatingRegion']]:
+    def operating_regions(self) -> Optional[Sequence['outputs.IpamOperatingRegion']]:
         """
         The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         """
@@ -133,19 +133,19 @@ class GetIPAMResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.IPAMTag']]:
+    def tags(self) -> Optional[Sequence['outputs.IpamTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIPAMResult(GetIPAMResult):
+class AwaitableGetIpamResult(GetIpamResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIPAMResult(
+        return GetIpamResult(
             arn=self.arn,
             default_resource_discovery_association_id=self.default_resource_discovery_association_id,
             default_resource_discovery_id=self.default_resource_discovery_id,
@@ -160,7 +160,7 @@ class AwaitableGetIPAMResult(GetIPAMResult):
 
 
 def get_ipam(ipam_id: Optional[str] = None,
-             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPAMResult:
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamResult:
     """
     Resource Schema of AWS::EC2::IPAM Type
 
@@ -170,9 +170,9 @@ def get_ipam(ipam_id: Optional[str] = None,
     __args__ = dict()
     __args__['ipamId'] = ipam_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAM', __args__, opts=opts, typ=GetIPAMResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIpam', __args__, opts=opts, typ=GetIpamResult).value
 
-    return AwaitableGetIPAMResult(
+    return AwaitableGetIpamResult(
         arn=pulumi.get(__ret__, 'arn'),
         default_resource_discovery_association_id=pulumi.get(__ret__, 'default_resource_discovery_association_id'),
         default_resource_discovery_id=pulumi.get(__ret__, 'default_resource_discovery_id'),
@@ -188,7 +188,7 @@ def get_ipam(ipam_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_ipam)
 def get_ipam_output(ipam_id: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPAMResult]:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamResult]:
     """
     Resource Schema of AWS::EC2::IPAM Type
 

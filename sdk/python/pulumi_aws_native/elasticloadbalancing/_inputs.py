@@ -15,7 +15,7 @@ __all__ = [
     'LoadBalancerConnectionDrainingPolicyArgs',
     'LoadBalancerConnectionSettingsArgs',
     'LoadBalancerHealthCheckArgs',
-    'LoadBalancerLBCookieStickinessPolicyArgs',
+    'LoadBalancerLbCookieStickinessPolicyArgs',
     'LoadBalancerListenersArgs',
     'LoadBalancerPoliciesArgs',
     'LoadBalancerTagArgs',
@@ -204,7 +204,7 @@ class LoadBalancerHealthCheckArgs:
 
 
 @pulumi.input_type
-class LoadBalancerLBCookieStickinessPolicyArgs:
+class LoadBalancerLbCookieStickinessPolicyArgs:
     def __init__(__self__, *,
                  cookie_expiration_period: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None):

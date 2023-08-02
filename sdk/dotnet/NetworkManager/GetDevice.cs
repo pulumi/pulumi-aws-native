@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The Amazon Web Services location of the device, if applicable.
         /// </summary>
-        public readonly Outputs.DeviceAWSLocation? AwsLocation;
+        public readonly Outputs.DeviceAwsLocation? AwsLocation;
         /// <summary>
         /// The date and time that the device was created.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
         [OutputConstructor]
         private GetDeviceResult(
-            Outputs.DeviceAWSLocation? awsLocation,
+            Outputs.DeviceAwsLocation? awsLocation,
 
             string? createdAt,
 

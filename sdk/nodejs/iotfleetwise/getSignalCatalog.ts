@@ -28,7 +28,7 @@ export interface GetSignalCatalogResult {
     readonly description?: string;
     readonly lastModificationTime?: string;
     readonly nodeCounts?: outputs.iotfleetwise.SignalCatalogNodeCounts;
-    readonly nodes?: (outputs.iotfleetwise.Node0Properties | outputs.iotfleetwise.Node1Properties | outputs.iotfleetwise.Node2Properties | outputs.iotfleetwise.Node3Properties)[];
+    readonly nodes?: (outputs.iotfleetwise.SignalCatalogNode0Properties | outputs.iotfleetwise.SignalCatalogNode1Properties | outputs.iotfleetwise.SignalCatalogNode2Properties | outputs.iotfleetwise.SignalCatalogNode3Properties)[];
     readonly tags?: outputs.iotfleetwise.SignalCatalogTag[];
 }
 /**

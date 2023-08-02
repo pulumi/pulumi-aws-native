@@ -15,7 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 type AlertAction struct {
 	LambdaConfiguration *AlertLambdaConfiguration `pulumi:"lambdaConfiguration"`
-	SnsConfiguration    *AlertSNSConfiguration    `pulumi:"snsConfiguration"`
+	SnsConfiguration    *AlertSnsConfiguration    `pulumi:"snsConfiguration"`
 }
 
 // AlertActionInput is an input type that accepts AlertActionArgs and AlertActionOutput values.
@@ -31,7 +31,7 @@ type AlertActionInput interface {
 
 type AlertActionArgs struct {
 	LambdaConfiguration AlertLambdaConfigurationPtrInput `pulumi:"lambdaConfiguration"`
-	SnsConfiguration    AlertSNSConfigurationPtrInput    `pulumi:"snsConfiguration"`
+	SnsConfiguration    AlertSnsConfigurationPtrInput    `pulumi:"snsConfiguration"`
 }
 
 func (AlertActionArgs) ElementType() reflect.Type {
@@ -64,8 +64,8 @@ func (o AlertActionOutput) LambdaConfiguration() AlertLambdaConfigurationPtrOutp
 	return o.ApplyT(func(v AlertAction) *AlertLambdaConfiguration { return v.LambdaConfiguration }).(AlertLambdaConfigurationPtrOutput)
 }
 
-func (o AlertActionOutput) SnsConfiguration() AlertSNSConfigurationPtrOutput {
-	return o.ApplyT(func(v AlertAction) *AlertSNSConfiguration { return v.SnsConfiguration }).(AlertSNSConfigurationPtrOutput)
+func (o AlertActionOutput) SnsConfiguration() AlertSnsConfigurationPtrOutput {
+	return o.ApplyT(func(v AlertAction) *AlertSnsConfiguration { return v.SnsConfiguration }).(AlertSnsConfigurationPtrOutput)
 }
 
 // Configuration options for a Lambda alert action.
@@ -228,147 +228,147 @@ func (o AlertLambdaConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // Configuration options for an SNS alert action.
-type AlertSNSConfiguration struct {
+type AlertSnsConfiguration struct {
 	// ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
 	RoleArn string `pulumi:"roleArn"`
 	// ARN of an SNS topic to send alert notifications to.
 	SnsTopicArn string `pulumi:"snsTopicArn"`
 }
 
-// AlertSNSConfigurationInput is an input type that accepts AlertSNSConfigurationArgs and AlertSNSConfigurationOutput values.
-// You can construct a concrete instance of `AlertSNSConfigurationInput` via:
+// AlertSnsConfigurationInput is an input type that accepts AlertSnsConfigurationArgs and AlertSnsConfigurationOutput values.
+// You can construct a concrete instance of `AlertSnsConfigurationInput` via:
 //
-//	AlertSNSConfigurationArgs{...}
-type AlertSNSConfigurationInput interface {
+//	AlertSnsConfigurationArgs{...}
+type AlertSnsConfigurationInput interface {
 	pulumi.Input
 
-	ToAlertSNSConfigurationOutput() AlertSNSConfigurationOutput
-	ToAlertSNSConfigurationOutputWithContext(context.Context) AlertSNSConfigurationOutput
+	ToAlertSnsConfigurationOutput() AlertSnsConfigurationOutput
+	ToAlertSnsConfigurationOutputWithContext(context.Context) AlertSnsConfigurationOutput
 }
 
 // Configuration options for an SNS alert action.
-type AlertSNSConfigurationArgs struct {
+type AlertSnsConfigurationArgs struct {
 	// ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// ARN of an SNS topic to send alert notifications to.
 	SnsTopicArn pulumi.StringInput `pulumi:"snsTopicArn"`
 }
 
-func (AlertSNSConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertSNSConfiguration)(nil)).Elem()
+func (AlertSnsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertSnsConfiguration)(nil)).Elem()
 }
 
-func (i AlertSNSConfigurationArgs) ToAlertSNSConfigurationOutput() AlertSNSConfigurationOutput {
-	return i.ToAlertSNSConfigurationOutputWithContext(context.Background())
+func (i AlertSnsConfigurationArgs) ToAlertSnsConfigurationOutput() AlertSnsConfigurationOutput {
+	return i.ToAlertSnsConfigurationOutputWithContext(context.Background())
 }
 
-func (i AlertSNSConfigurationArgs) ToAlertSNSConfigurationOutputWithContext(ctx context.Context) AlertSNSConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertSNSConfigurationOutput)
+func (i AlertSnsConfigurationArgs) ToAlertSnsConfigurationOutputWithContext(ctx context.Context) AlertSnsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertSnsConfigurationOutput)
 }
 
-func (i AlertSNSConfigurationArgs) ToAlertSNSConfigurationPtrOutput() AlertSNSConfigurationPtrOutput {
-	return i.ToAlertSNSConfigurationPtrOutputWithContext(context.Background())
+func (i AlertSnsConfigurationArgs) ToAlertSnsConfigurationPtrOutput() AlertSnsConfigurationPtrOutput {
+	return i.ToAlertSnsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i AlertSNSConfigurationArgs) ToAlertSNSConfigurationPtrOutputWithContext(ctx context.Context) AlertSNSConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertSNSConfigurationOutput).ToAlertSNSConfigurationPtrOutputWithContext(ctx)
+func (i AlertSnsConfigurationArgs) ToAlertSnsConfigurationPtrOutputWithContext(ctx context.Context) AlertSnsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertSnsConfigurationOutput).ToAlertSnsConfigurationPtrOutputWithContext(ctx)
 }
 
-// AlertSNSConfigurationPtrInput is an input type that accepts AlertSNSConfigurationArgs, AlertSNSConfigurationPtr and AlertSNSConfigurationPtrOutput values.
-// You can construct a concrete instance of `AlertSNSConfigurationPtrInput` via:
+// AlertSnsConfigurationPtrInput is an input type that accepts AlertSnsConfigurationArgs, AlertSnsConfigurationPtr and AlertSnsConfigurationPtrOutput values.
+// You can construct a concrete instance of `AlertSnsConfigurationPtrInput` via:
 //
-//	        AlertSNSConfigurationArgs{...}
+//	        AlertSnsConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type AlertSNSConfigurationPtrInput interface {
+type AlertSnsConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToAlertSNSConfigurationPtrOutput() AlertSNSConfigurationPtrOutput
-	ToAlertSNSConfigurationPtrOutputWithContext(context.Context) AlertSNSConfigurationPtrOutput
+	ToAlertSnsConfigurationPtrOutput() AlertSnsConfigurationPtrOutput
+	ToAlertSnsConfigurationPtrOutputWithContext(context.Context) AlertSnsConfigurationPtrOutput
 }
 
-type alertSNSConfigurationPtrType AlertSNSConfigurationArgs
+type alertSnsConfigurationPtrType AlertSnsConfigurationArgs
 
-func AlertSNSConfigurationPtr(v *AlertSNSConfigurationArgs) AlertSNSConfigurationPtrInput {
-	return (*alertSNSConfigurationPtrType)(v)
+func AlertSnsConfigurationPtr(v *AlertSnsConfigurationArgs) AlertSnsConfigurationPtrInput {
+	return (*alertSnsConfigurationPtrType)(v)
 }
 
-func (*alertSNSConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertSNSConfiguration)(nil)).Elem()
+func (*alertSnsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertSnsConfiguration)(nil)).Elem()
 }
 
-func (i *alertSNSConfigurationPtrType) ToAlertSNSConfigurationPtrOutput() AlertSNSConfigurationPtrOutput {
-	return i.ToAlertSNSConfigurationPtrOutputWithContext(context.Background())
+func (i *alertSnsConfigurationPtrType) ToAlertSnsConfigurationPtrOutput() AlertSnsConfigurationPtrOutput {
+	return i.ToAlertSnsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *alertSNSConfigurationPtrType) ToAlertSNSConfigurationPtrOutputWithContext(ctx context.Context) AlertSNSConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertSNSConfigurationPtrOutput)
+func (i *alertSnsConfigurationPtrType) ToAlertSnsConfigurationPtrOutputWithContext(ctx context.Context) AlertSnsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertSnsConfigurationPtrOutput)
 }
 
 // Configuration options for an SNS alert action.
-type AlertSNSConfigurationOutput struct{ *pulumi.OutputState }
+type AlertSnsConfigurationOutput struct{ *pulumi.OutputState }
 
-func (AlertSNSConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertSNSConfiguration)(nil)).Elem()
+func (AlertSnsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertSnsConfiguration)(nil)).Elem()
 }
 
-func (o AlertSNSConfigurationOutput) ToAlertSNSConfigurationOutput() AlertSNSConfigurationOutput {
+func (o AlertSnsConfigurationOutput) ToAlertSnsConfigurationOutput() AlertSnsConfigurationOutput {
 	return o
 }
 
-func (o AlertSNSConfigurationOutput) ToAlertSNSConfigurationOutputWithContext(ctx context.Context) AlertSNSConfigurationOutput {
+func (o AlertSnsConfigurationOutput) ToAlertSnsConfigurationOutputWithContext(ctx context.Context) AlertSnsConfigurationOutput {
 	return o
 }
 
-func (o AlertSNSConfigurationOutput) ToAlertSNSConfigurationPtrOutput() AlertSNSConfigurationPtrOutput {
-	return o.ToAlertSNSConfigurationPtrOutputWithContext(context.Background())
+func (o AlertSnsConfigurationOutput) ToAlertSnsConfigurationPtrOutput() AlertSnsConfigurationPtrOutput {
+	return o.ToAlertSnsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o AlertSNSConfigurationOutput) ToAlertSNSConfigurationPtrOutputWithContext(ctx context.Context) AlertSNSConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertSNSConfiguration) *AlertSNSConfiguration {
+func (o AlertSnsConfigurationOutput) ToAlertSnsConfigurationPtrOutputWithContext(ctx context.Context) AlertSnsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertSnsConfiguration) *AlertSnsConfiguration {
 		return &v
-	}).(AlertSNSConfigurationPtrOutput)
+	}).(AlertSnsConfigurationPtrOutput)
 }
 
 // ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
-func (o AlertSNSConfigurationOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertSNSConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o AlertSnsConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertSnsConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // ARN of an SNS topic to send alert notifications to.
-func (o AlertSNSConfigurationOutput) SnsTopicArn() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertSNSConfiguration) string { return v.SnsTopicArn }).(pulumi.StringOutput)
+func (o AlertSnsConfigurationOutput) SnsTopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertSnsConfiguration) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
-type AlertSNSConfigurationPtrOutput struct{ *pulumi.OutputState }
+type AlertSnsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (AlertSNSConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertSNSConfiguration)(nil)).Elem()
+func (AlertSnsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertSnsConfiguration)(nil)).Elem()
 }
 
-func (o AlertSNSConfigurationPtrOutput) ToAlertSNSConfigurationPtrOutput() AlertSNSConfigurationPtrOutput {
+func (o AlertSnsConfigurationPtrOutput) ToAlertSnsConfigurationPtrOutput() AlertSnsConfigurationPtrOutput {
 	return o
 }
 
-func (o AlertSNSConfigurationPtrOutput) ToAlertSNSConfigurationPtrOutputWithContext(ctx context.Context) AlertSNSConfigurationPtrOutput {
+func (o AlertSnsConfigurationPtrOutput) ToAlertSnsConfigurationPtrOutputWithContext(ctx context.Context) AlertSnsConfigurationPtrOutput {
 	return o
 }
 
-func (o AlertSNSConfigurationPtrOutput) Elem() AlertSNSConfigurationOutput {
-	return o.ApplyT(func(v *AlertSNSConfiguration) AlertSNSConfiguration {
+func (o AlertSnsConfigurationPtrOutput) Elem() AlertSnsConfigurationOutput {
+	return o.ApplyT(func(v *AlertSnsConfiguration) AlertSnsConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret AlertSNSConfiguration
+		var ret AlertSnsConfiguration
 		return ret
-	}).(AlertSNSConfigurationOutput)
+	}).(AlertSnsConfigurationOutput)
 }
 
 // ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
-func (o AlertSNSConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlertSNSConfiguration) *string {
+func (o AlertSnsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertSnsConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -377,8 +377,8 @@ func (o AlertSNSConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // ARN of an SNS topic to send alert notifications to.
-func (o AlertSNSConfigurationPtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlertSNSConfiguration) *string {
+func (o AlertSnsConfigurationPtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertSnsConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1539,7 +1539,7 @@ func (o AnomalyDetectorMetricSetArrayOutput) Index(i pulumi.IntInput) AnomalyDet
 type AnomalyDetectorMetricSource struct {
 	AppFlowConfig        *AnomalyDetectorAppFlowConfig        `pulumi:"appFlowConfig"`
 	CloudwatchConfig     *AnomalyDetectorCloudwatchConfig     `pulumi:"cloudwatchConfig"`
-	RdsSourceConfig      *AnomalyDetectorRDSSourceConfig      `pulumi:"rdsSourceConfig"`
+	RdsSourceConfig      *AnomalyDetectorRdsSourceConfig      `pulumi:"rdsSourceConfig"`
 	RedshiftSourceConfig *AnomalyDetectorRedshiftSourceConfig `pulumi:"redshiftSourceConfig"`
 	S3SourceConfig       *AnomalyDetectorS3SourceConfig       `pulumi:"s3SourceConfig"`
 }
@@ -1558,7 +1558,7 @@ type AnomalyDetectorMetricSourceInput interface {
 type AnomalyDetectorMetricSourceArgs struct {
 	AppFlowConfig        AnomalyDetectorAppFlowConfigPtrInput        `pulumi:"appFlowConfig"`
 	CloudwatchConfig     AnomalyDetectorCloudwatchConfigPtrInput     `pulumi:"cloudwatchConfig"`
-	RdsSourceConfig      AnomalyDetectorRDSSourceConfigPtrInput      `pulumi:"rdsSourceConfig"`
+	RdsSourceConfig      AnomalyDetectorRdsSourceConfigPtrInput      `pulumi:"rdsSourceConfig"`
 	RedshiftSourceConfig AnomalyDetectorRedshiftSourceConfigPtrInput `pulumi:"redshiftSourceConfig"`
 	S3SourceConfig       AnomalyDetectorS3SourceConfigPtrInput       `pulumi:"s3SourceConfig"`
 }
@@ -1597,8 +1597,8 @@ func (o AnomalyDetectorMetricSourceOutput) CloudwatchConfig() AnomalyDetectorClo
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorCloudwatchConfig { return v.CloudwatchConfig }).(AnomalyDetectorCloudwatchConfigPtrOutput)
 }
 
-func (o AnomalyDetectorMetricSourceOutput) RdsSourceConfig() AnomalyDetectorRDSSourceConfigPtrOutput {
-	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorRDSSourceConfig { return v.RdsSourceConfig }).(AnomalyDetectorRDSSourceConfigPtrOutput)
+func (o AnomalyDetectorMetricSourceOutput) RdsSourceConfig() AnomalyDetectorRdsSourceConfigPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorRdsSourceConfig { return v.RdsSourceConfig }).(AnomalyDetectorRdsSourceConfigPtrOutput)
 }
 
 func (o AnomalyDetectorMetricSourceOutput) RedshiftSourceConfig() AnomalyDetectorRedshiftSourceConfigPtrOutput {
@@ -1611,7 +1611,7 @@ func (o AnomalyDetectorMetricSourceOutput) S3SourceConfig() AnomalyDetectorS3Sou
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorS3SourceConfig { return v.S3SourceConfig }).(AnomalyDetectorS3SourceConfigPtrOutput)
 }
 
-type AnomalyDetectorRDSSourceConfig struct {
+type AnomalyDetectorRdsSourceConfig struct {
 	DatabaseHost         string                          `pulumi:"databaseHost"`
 	DatabaseName         string                          `pulumi:"databaseName"`
 	DatabasePort         int                             `pulumi:"databasePort"`
@@ -1622,18 +1622,18 @@ type AnomalyDetectorRDSSourceConfig struct {
 	VpcConfiguration     AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
-// AnomalyDetectorRDSSourceConfigInput is an input type that accepts AnomalyDetectorRDSSourceConfigArgs and AnomalyDetectorRDSSourceConfigOutput values.
-// You can construct a concrete instance of `AnomalyDetectorRDSSourceConfigInput` via:
+// AnomalyDetectorRdsSourceConfigInput is an input type that accepts AnomalyDetectorRdsSourceConfigArgs and AnomalyDetectorRdsSourceConfigOutput values.
+// You can construct a concrete instance of `AnomalyDetectorRdsSourceConfigInput` via:
 //
-//	AnomalyDetectorRDSSourceConfigArgs{...}
-type AnomalyDetectorRDSSourceConfigInput interface {
+//	AnomalyDetectorRdsSourceConfigArgs{...}
+type AnomalyDetectorRdsSourceConfigInput interface {
 	pulumi.Input
 
-	ToAnomalyDetectorRDSSourceConfigOutput() AnomalyDetectorRDSSourceConfigOutput
-	ToAnomalyDetectorRDSSourceConfigOutputWithContext(context.Context) AnomalyDetectorRDSSourceConfigOutput
+	ToAnomalyDetectorRdsSourceConfigOutput() AnomalyDetectorRdsSourceConfigOutput
+	ToAnomalyDetectorRdsSourceConfigOutputWithContext(context.Context) AnomalyDetectorRdsSourceConfigOutput
 }
 
-type AnomalyDetectorRDSSourceConfigArgs struct {
+type AnomalyDetectorRdsSourceConfigArgs struct {
 	DatabaseHost         pulumi.StringInput                   `pulumi:"databaseHost"`
 	DatabaseName         pulumi.StringInput                   `pulumi:"databaseName"`
 	DatabasePort         pulumi.IntInput                      `pulumi:"databasePort"`
@@ -1644,141 +1644,141 @@ type AnomalyDetectorRDSSourceConfigArgs struct {
 	VpcConfiguration     AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
 }
 
-func (AnomalyDetectorRDSSourceConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnomalyDetectorRDSSourceConfig)(nil)).Elem()
+func (AnomalyDetectorRdsSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorRdsSourceConfig)(nil)).Elem()
 }
 
-func (i AnomalyDetectorRDSSourceConfigArgs) ToAnomalyDetectorRDSSourceConfigOutput() AnomalyDetectorRDSSourceConfigOutput {
-	return i.ToAnomalyDetectorRDSSourceConfigOutputWithContext(context.Background())
+func (i AnomalyDetectorRdsSourceConfigArgs) ToAnomalyDetectorRdsSourceConfigOutput() AnomalyDetectorRdsSourceConfigOutput {
+	return i.ToAnomalyDetectorRdsSourceConfigOutputWithContext(context.Background())
 }
 
-func (i AnomalyDetectorRDSSourceConfigArgs) ToAnomalyDetectorRDSSourceConfigOutputWithContext(ctx context.Context) AnomalyDetectorRDSSourceConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRDSSourceConfigOutput)
+func (i AnomalyDetectorRdsSourceConfigArgs) ToAnomalyDetectorRdsSourceConfigOutputWithContext(ctx context.Context) AnomalyDetectorRdsSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRdsSourceConfigOutput)
 }
 
-func (i AnomalyDetectorRDSSourceConfigArgs) ToAnomalyDetectorRDSSourceConfigPtrOutput() AnomalyDetectorRDSSourceConfigPtrOutput {
-	return i.ToAnomalyDetectorRDSSourceConfigPtrOutputWithContext(context.Background())
+func (i AnomalyDetectorRdsSourceConfigArgs) ToAnomalyDetectorRdsSourceConfigPtrOutput() AnomalyDetectorRdsSourceConfigPtrOutput {
+	return i.ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(context.Background())
 }
 
-func (i AnomalyDetectorRDSSourceConfigArgs) ToAnomalyDetectorRDSSourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorRDSSourceConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRDSSourceConfigOutput).ToAnomalyDetectorRDSSourceConfigPtrOutputWithContext(ctx)
+func (i AnomalyDetectorRdsSourceConfigArgs) ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorRdsSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRdsSourceConfigOutput).ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(ctx)
 }
 
-// AnomalyDetectorRDSSourceConfigPtrInput is an input type that accepts AnomalyDetectorRDSSourceConfigArgs, AnomalyDetectorRDSSourceConfigPtr and AnomalyDetectorRDSSourceConfigPtrOutput values.
-// You can construct a concrete instance of `AnomalyDetectorRDSSourceConfigPtrInput` via:
+// AnomalyDetectorRdsSourceConfigPtrInput is an input type that accepts AnomalyDetectorRdsSourceConfigArgs, AnomalyDetectorRdsSourceConfigPtr and AnomalyDetectorRdsSourceConfigPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorRdsSourceConfigPtrInput` via:
 //
-//	        AnomalyDetectorRDSSourceConfigArgs{...}
+//	        AnomalyDetectorRdsSourceConfigArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnomalyDetectorRDSSourceConfigPtrInput interface {
+type AnomalyDetectorRdsSourceConfigPtrInput interface {
 	pulumi.Input
 
-	ToAnomalyDetectorRDSSourceConfigPtrOutput() AnomalyDetectorRDSSourceConfigPtrOutput
-	ToAnomalyDetectorRDSSourceConfigPtrOutputWithContext(context.Context) AnomalyDetectorRDSSourceConfigPtrOutput
+	ToAnomalyDetectorRdsSourceConfigPtrOutput() AnomalyDetectorRdsSourceConfigPtrOutput
+	ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(context.Context) AnomalyDetectorRdsSourceConfigPtrOutput
 }
 
-type anomalyDetectorRDSSourceConfigPtrType AnomalyDetectorRDSSourceConfigArgs
+type anomalyDetectorRdsSourceConfigPtrType AnomalyDetectorRdsSourceConfigArgs
 
-func AnomalyDetectorRDSSourceConfigPtr(v *AnomalyDetectorRDSSourceConfigArgs) AnomalyDetectorRDSSourceConfigPtrInput {
-	return (*anomalyDetectorRDSSourceConfigPtrType)(v)
+func AnomalyDetectorRdsSourceConfigPtr(v *AnomalyDetectorRdsSourceConfigArgs) AnomalyDetectorRdsSourceConfigPtrInput {
+	return (*anomalyDetectorRdsSourceConfigPtrType)(v)
 }
 
-func (*anomalyDetectorRDSSourceConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnomalyDetectorRDSSourceConfig)(nil)).Elem()
+func (*anomalyDetectorRdsSourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorRdsSourceConfig)(nil)).Elem()
 }
 
-func (i *anomalyDetectorRDSSourceConfigPtrType) ToAnomalyDetectorRDSSourceConfigPtrOutput() AnomalyDetectorRDSSourceConfigPtrOutput {
-	return i.ToAnomalyDetectorRDSSourceConfigPtrOutputWithContext(context.Background())
+func (i *anomalyDetectorRdsSourceConfigPtrType) ToAnomalyDetectorRdsSourceConfigPtrOutput() AnomalyDetectorRdsSourceConfigPtrOutput {
+	return i.ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *anomalyDetectorRDSSourceConfigPtrType) ToAnomalyDetectorRDSSourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorRDSSourceConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRDSSourceConfigPtrOutput)
+func (i *anomalyDetectorRdsSourceConfigPtrType) ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorRdsSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRdsSourceConfigPtrOutput)
 }
 
-type AnomalyDetectorRDSSourceConfigOutput struct{ *pulumi.OutputState }
+type AnomalyDetectorRdsSourceConfigOutput struct{ *pulumi.OutputState }
 
-func (AnomalyDetectorRDSSourceConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnomalyDetectorRDSSourceConfig)(nil)).Elem()
+func (AnomalyDetectorRdsSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorRdsSourceConfig)(nil)).Elem()
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) ToAnomalyDetectorRDSSourceConfigOutput() AnomalyDetectorRDSSourceConfigOutput {
+func (o AnomalyDetectorRdsSourceConfigOutput) ToAnomalyDetectorRdsSourceConfigOutput() AnomalyDetectorRdsSourceConfigOutput {
 	return o
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) ToAnomalyDetectorRDSSourceConfigOutputWithContext(ctx context.Context) AnomalyDetectorRDSSourceConfigOutput {
+func (o AnomalyDetectorRdsSourceConfigOutput) ToAnomalyDetectorRdsSourceConfigOutputWithContext(ctx context.Context) AnomalyDetectorRdsSourceConfigOutput {
 	return o
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) ToAnomalyDetectorRDSSourceConfigPtrOutput() AnomalyDetectorRDSSourceConfigPtrOutput {
-	return o.ToAnomalyDetectorRDSSourceConfigPtrOutputWithContext(context.Background())
+func (o AnomalyDetectorRdsSourceConfigOutput) ToAnomalyDetectorRdsSourceConfigPtrOutput() AnomalyDetectorRdsSourceConfigPtrOutput {
+	return o.ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(context.Background())
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) ToAnomalyDetectorRDSSourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorRDSSourceConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorRDSSourceConfig) *AnomalyDetectorRDSSourceConfig {
+func (o AnomalyDetectorRdsSourceConfigOutput) ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorRdsSourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorRdsSourceConfig) *AnomalyDetectorRdsSourceConfig {
 		return &v
-	}).(AnomalyDetectorRDSSourceConfigPtrOutput)
+	}).(AnomalyDetectorRdsSourceConfigPtrOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) DatabaseHost() pulumi.StringOutput {
-	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.DatabaseHost }).(pulumi.StringOutput)
+func (o AnomalyDetectorRdsSourceConfigOutput) DatabaseHost() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.DatabaseHost }).(pulumi.StringOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.DatabaseName }).(pulumi.StringOutput)
+func (o AnomalyDetectorRdsSourceConfigOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) DatabasePort() pulumi.IntOutput {
-	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) int { return v.DatabasePort }).(pulumi.IntOutput)
+func (o AnomalyDetectorRdsSourceConfigOutput) DatabasePort() pulumi.IntOutput {
+	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) int { return v.DatabasePort }).(pulumi.IntOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) DbInstanceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.DbInstanceIdentifier }).(pulumi.StringOutput)
+func (o AnomalyDetectorRdsSourceConfigOutput) DbInstanceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.DbInstanceIdentifier }).(pulumi.StringOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o AnomalyDetectorRdsSourceConfigOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) SecretManagerArn() pulumi.StringOutput {
-	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.SecretManagerArn }).(pulumi.StringOutput)
+func (o AnomalyDetectorRdsSourceConfigOutput) SecretManagerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.SecretManagerArn }).(pulumi.StringOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) TableName() pulumi.StringOutput {
-	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.TableName }).(pulumi.StringOutput)
+func (o AnomalyDetectorRdsSourceConfigOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationOutput {
-	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) AnomalyDetectorVpcConfiguration { return v.VpcConfiguration }).(AnomalyDetectorVpcConfigurationOutput)
+func (o AnomalyDetectorRdsSourceConfigOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationOutput {
+	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) AnomalyDetectorVpcConfiguration { return v.VpcConfiguration }).(AnomalyDetectorVpcConfigurationOutput)
 }
 
-type AnomalyDetectorRDSSourceConfigPtrOutput struct{ *pulumi.OutputState }
+type AnomalyDetectorRdsSourceConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (AnomalyDetectorRDSSourceConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnomalyDetectorRDSSourceConfig)(nil)).Elem()
+func (AnomalyDetectorRdsSourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorRdsSourceConfig)(nil)).Elem()
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) ToAnomalyDetectorRDSSourceConfigPtrOutput() AnomalyDetectorRDSSourceConfigPtrOutput {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) ToAnomalyDetectorRdsSourceConfigPtrOutput() AnomalyDetectorRdsSourceConfigPtrOutput {
 	return o
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) ToAnomalyDetectorRDSSourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorRDSSourceConfigPtrOutput {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) ToAnomalyDetectorRdsSourceConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorRdsSourceConfigPtrOutput {
 	return o
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) Elem() AnomalyDetectorRDSSourceConfigOutput {
-	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) AnomalyDetectorRDSSourceConfig {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) Elem() AnomalyDetectorRdsSourceConfigOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) AnomalyDetectorRdsSourceConfig {
 		if v != nil {
 			return *v
 		}
-		var ret AnomalyDetectorRDSSourceConfig
+		var ret AnomalyDetectorRdsSourceConfig
 		return ret
-	}).(AnomalyDetectorRDSSourceConfigOutput)
+	}).(AnomalyDetectorRdsSourceConfigOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabaseHost() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) DatabaseHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -1786,8 +1786,8 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabaseHost() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -1795,8 +1795,8 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabaseName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabasePort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *int {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) DatabasePort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *int {
 		if v == nil {
 			return nil
 		}
@@ -1804,8 +1804,8 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabasePort() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) DbInstanceIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) DbInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -1813,8 +1813,8 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) DbInstanceIdentifier() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -1822,8 +1822,8 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) SecretManagerArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) SecretManagerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -1831,8 +1831,8 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) SecretManagerArn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) TableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -1840,8 +1840,8 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) TableName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *AnomalyDetectorVpcConfiguration {
+func (o AnomalyDetectorRdsSourceConfigPtrOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *AnomalyDetectorVpcConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -2571,8 +2571,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertActionInput)(nil)).Elem(), AlertActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertLambdaConfigurationInput)(nil)).Elem(), AlertLambdaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertLambdaConfigurationPtrInput)(nil)).Elem(), AlertLambdaConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertSNSConfigurationInput)(nil)).Elem(), AlertSNSConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertSNSConfigurationPtrInput)(nil)).Elem(), AlertSNSConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertSnsConfigurationInput)(nil)).Elem(), AlertSnsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertSnsConfigurationPtrInput)(nil)).Elem(), AlertSnsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorAppFlowConfigInput)(nil)).Elem(), AnomalyDetectorAppFlowConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorAppFlowConfigPtrInput)(nil)).Elem(), AnomalyDetectorAppFlowConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorCloudwatchConfigInput)(nil)).Elem(), AnomalyDetectorCloudwatchConfigArgs{})
@@ -2589,8 +2589,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricSetInput)(nil)).Elem(), AnomalyDetectorMetricSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricSetArrayInput)(nil)).Elem(), AnomalyDetectorMetricSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricSourceInput)(nil)).Elem(), AnomalyDetectorMetricSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorRDSSourceConfigInput)(nil)).Elem(), AnomalyDetectorRDSSourceConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorRDSSourceConfigPtrInput)(nil)).Elem(), AnomalyDetectorRDSSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorRdsSourceConfigInput)(nil)).Elem(), AnomalyDetectorRdsSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorRdsSourceConfigPtrInput)(nil)).Elem(), AnomalyDetectorRdsSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorRedshiftSourceConfigInput)(nil)).Elem(), AnomalyDetectorRedshiftSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorRedshiftSourceConfigPtrInput)(nil)).Elem(), AnomalyDetectorRedshiftSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorS3SourceConfigInput)(nil)).Elem(), AnomalyDetectorS3SourceConfigArgs{})
@@ -2602,8 +2602,8 @@ func init() {
 	pulumi.RegisterOutputType(AlertActionOutput{})
 	pulumi.RegisterOutputType(AlertLambdaConfigurationOutput{})
 	pulumi.RegisterOutputType(AlertLambdaConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AlertSNSConfigurationOutput{})
-	pulumi.RegisterOutputType(AlertSNSConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AlertSnsConfigurationOutput{})
+	pulumi.RegisterOutputType(AlertSnsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorAppFlowConfigOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorAppFlowConfigPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorCloudwatchConfigOutput{})
@@ -2621,8 +2621,8 @@ func init() {
 	pulumi.RegisterOutputType(AnomalyDetectorMetricSetOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorMetricSetArrayOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorMetricSourceOutput{})
-	pulumi.RegisterOutputType(AnomalyDetectorRDSSourceConfigOutput{})
-	pulumi.RegisterOutputType(AnomalyDetectorRDSSourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorRdsSourceConfigOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorRdsSourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorRedshiftSourceConfigOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorRedshiftSourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorS3SourceConfigOutput{})

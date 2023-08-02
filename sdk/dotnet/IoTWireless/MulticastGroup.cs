@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Multicast group LoRaWAN
         /// </summary>
         [Output("loRaWan")]
-        public Output<Outputs.MulticastGroupLoRaWAN> LoRaWan { get; private set; } = null!;
+        public Output<Outputs.MulticastGroupLoRaWan> LoRaWan { get; private set; } = null!;
 
         /// <summary>
         /// Name of Multicast group
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Multicast group LoRaWAN
         /// </summary>
         [Input("loRaWan", required: true)]
-        public Input<Inputs.MulticastGroupLoRaWANArgs> LoRaWan { get; set; } = null!;
+        public Input<Inputs.MulticastGroupLoRaWanArgs> LoRaWan { get; set; } = null!;
 
         /// <summary>
         /// Name of Multicast group
