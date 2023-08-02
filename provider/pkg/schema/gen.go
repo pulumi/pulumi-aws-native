@@ -832,7 +832,7 @@ func (ctx *context) createAutoNamingSpec(inputProperties map[string]pschema.Prop
 }
 
 func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
-	typeSpec, err := ctx.propertyTypeSpec(propName, spec)
+	typeSpec, err := ctx.propertyTypeSpec(lowerAcronyms(propName), spec)
 	if err != nil {
 		return nil, err
 	}
@@ -874,6 +874,8 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 			}
 		}
 
+		typName = lowerAcronyms(typName)
+
 		tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
 
 		typeSchema, ok := ctx.resourceSpec.Definitions[schemaName]
@@ -912,7 +914,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 			referencedTypeName := fmt.Sprintf("#/types/%s", tok)
 			return &pschema.TypeSpec{Ref: referencedTypeName}, nil
 		} else {
-			return ctx.propertyTypeSpec(schemaName, typeSchema)
+			return ctx.propertyTypeSpec(typName, typeSchema)
 		}
 	}
 
@@ -1040,7 +1042,7 @@ func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema
 		value := typeSchema.Properties[name]
 		sdkName := ToSdkName(name)
 
-		typeSpec, err := ctx.propertyTypeSpec(parentName+name, value)
+		typeSpec, err := ctx.propertyTypeSpec(parentName+lowerAcronyms(name), value)
 		if err != nil {
 			return nil, nil, nil, errors.Wrapf(err, "property %s", name)
 		}
@@ -1079,7 +1081,7 @@ func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*
 	if propSchema.Type[0] != jsschema.StringType {
 		return nil, nil
 	}
-	typName := enumName
+	typName := lowerAcronyms(enumName)
 	if !strings.HasPrefix(enumName, ctx.resourceName) {
 		typName = ctx.resourceName + enumName
 	}
@@ -1099,7 +1101,7 @@ func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*
 
 	values := codegen.NewStringSet()
 	for _, val := range propSchema.Enum {
-		str := ToUpperCamel(val.(string))
+		str := lowerAcronyms(ToUpperCamel(val.(string)))
 		if values.Has(str) {
 			continue
 		}
@@ -1164,7 +1166,7 @@ func moduleName(resourceType string) string {
 		module = "Configuration"
 	}
 
-	return module
+	return lowerAcronyms(module)
 }
 
 func typeToken(typ string) (string, string) {
@@ -1194,7 +1196,7 @@ func typeName(typ string) string {
 		}
 		name = trimmed + "OutputResource"
 	}
-	return name
+	return lowerAcronyms(name)
 }
 
 func primitiveTypeSpec(primitiveType string) pschema.TypeSpec {
