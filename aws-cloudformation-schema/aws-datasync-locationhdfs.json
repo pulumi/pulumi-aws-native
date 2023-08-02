@@ -182,7 +182,7 @@
   "writeOnlyProperties" : [ "/properties/Subdirectory", "/properties/KerberosKeytab", "/properties/KerberosKrb5Conf" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateLocationHdfs", "datasync:DescribeLocationHdfs", "datasync:ListTagsForResource" ]
+      "permissions" : [ "datasync:CreateLocationHdfs", "datasync:DescribeLocationHdfs", "datasync:TagResource", "datasync:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeLocationHdfs", "datasync:ListTagsForResource" ]

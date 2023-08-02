@@ -65,13 +65,13 @@
   "readOnlyProperties" : [ "/properties/AuthorizerId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:POST" ]
+      "permissions" : [ "apigateway:POST", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:GET", "apigateway:PATCH" ]
+      "permissions" : [ "apigateway:GET", "apigateway:PATCH", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "apigateway:DELETE" ]
