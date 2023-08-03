@@ -1,10 +1,615 @@
 ## HEAD (Unreleased)
 
 This release includes a large number of breaking changes as we now UPPERCASE initialisms
-to TitleCase in property names. 
+to TitleCase in all property/type/module/resource names. 
 
 
-### Breaking Changes
+## Breaking Changes
+
+Resource "aws-native:wafv2:WebACLAssociation" missing
+Resource "aws-native:ec2:IPAMResourceDiscovery" missing
+Resource "aws-native:ec2:IPAMScope" missing
+Resource "aws-native:ec2:VPNConnection" missing
+Resource "aws-native:directoryservice:SimpleAD" missing
+Resource "aws-native:dynamodb:GlobalTable" input "sseSpecification" type changed from "#/types/aws-native:dynamodb:GlobalTableSSESpecification" to "#/types/aws-native:dynamodb:GlobalTableSseSpecification"
+Resource "aws-native:dynamodb:GlobalTable" output "sseSpecification" type changed from "#/types/aws-native:dynamodb:GlobalTableSSESpecification" to "#/types/aws-native:dynamodb:GlobalTableSseSpecification"
+Resource "aws-native:iam:OIDCProvider" missing
+Resource "aws-native:datasync:LocationNFS" missing
+Resource "aws-native🛡️DRTAccess" missing
+Resource "aws-native:datasync:LocationS3" input "s3Config" type changed from "#/types/aws-native:datasync:LocationS3S3Config" to "#/types/aws-native:datasync:LocationS3s3Config"
+Resource "aws-native:datasync:LocationS3" output "s3Config" type changed from "#/types/aws-native:datasync:LocationS3S3Config" to "#/types/aws-native:datasync:LocationS3s3Config"
+Resource "aws-native:synthetics:Canary" input "vpcConfig" type changed from "#/types/aws-native:synthetics:CanaryVPCConfig" to "#/types/aws-native:synthetics:CanaryVpcConfig"
+Resource "aws-native:synthetics:Canary" output "vpcConfig" type changed from "#/types/aws-native:synthetics:CanaryVPCConfig" to "#/types/aws-native:synthetics:CanaryVpcConfig"
+Resource "aws-native:datasync:LocationEFS" missing
+Resource "aws-native:ec2:VPNGateway" missing
+Resource "aws-native:ec2:EC2Fleet" missing
+Resource "aws-native:rds:DBSubnetGroup" missing
+Resource "aws-native:route53resolver:ResolverDNSSECConfig" missing
+Resource "aws-native:ec2:VPC" missing
+Resource "aws-native:rds:DBProxyEndpoint" missing
+Resource "aws-native:ec2:VPCPeeringConnection" missing
+Resource "aws-native:iotwireless:WirelessDevice" input "loRaWan" type changed from "#/types/aws-native:iotwireless:WirelessDeviceLoRaWANDevice" to "#/types/aws-native:iotwireless:WirelessDeviceLoRaWanDevice"
+Resource "aws-native:iotwireless:WirelessDevice" output "loRaWan" type changed from "#/types/aws-native:iotwireless:WirelessDeviceLoRaWANDevice" to "#/types/aws-native:iotwireless:WirelessDeviceLoRaWanDevice"
+Resource "aws-native:configuration:ConformancePack" input "templateSsmDocumentDetails" type changed from "#/types/aws-native:configuration:TemplateSSMDocumentDetailsProperties" to "#/types/aws-native:configuration:TemplateSsmDocumentDetailsProperties"
+Resource "aws-native:configuration:ConformancePack" output "templateSsmDocumentDetails" type changed from "#/types/aws-native:configuration:TemplateSSMDocumentDetailsProperties" to "#/types/aws-native:configuration:TemplateSsmDocumentDetailsProperties"
+Resource "aws-native:ec2:EIPAssociation" missing
+Resource "aws-native:apigatewayv2:Authorizer" input "jwtConfiguration" type changed from "#/types/aws-native:apigatewayv2:AuthorizerJWTConfiguration" to "#/types/aws-native:apigatewayv2:AuthorizerJwtConfiguration"
+Resource "aws-native:apigatewayv2:Authorizer" output "jwtConfiguration" type changed from "#/types/aws-native:apigatewayv2:AuthorizerJWTConfiguration" to "#/types/aws-native:apigatewayv2:AuthorizerJwtConfiguration"
+Resource "aws-native:datasync:LocationFSxOpenZFS" missing
+Resource "aws-native:rolesanywhere:CRL" missing
+Resource "aws-native:iotwireless:MulticastGroup" input "loRaWan" type changed from "#/types/aws-native:iotwireless:MulticastGroupLoRaWAN" to "#/types/aws-native:iotwireless:MulticastGroupLoRaWan"
+Resource "aws-native:iotwireless:MulticastGroup" output "loRaWan" type changed from "#/types/aws-native:iotwireless:MulticastGroupLoRaWAN" to "#/types/aws-native:iotwireless:MulticastGroupLoRaWan"
+Resource "aws-native:rds:DBProxy" missing
+Resource "aws-native:datasync:LocationFSxONTAP" missing
+Resource "aws-native:omics:AnnotationStore" input "storeOptions" type changed from "#/types/aws-native:omics:StoreOptionsProperties" to "#/types/aws-native:omics:AnnotationStoreStoreOptionsProperties"
+Resource "aws-native:omics:AnnotationStore" output "storeOptions" type changed from "#/types/aws-native:omics:StoreOptionsProperties" to "#/types/aws-native:omics:AnnotationStoreStoreOptionsProperties"
+Resource "aws-native:lambda:EventSourceMapping" input "documentDbEventSourceConfig" type changed from "#/types/aws-native:lambda:EventSourceMappingDocumentDBEventSourceConfig" to "#/types/aws-native:lambda:EventSourceMappingDocumentDbEventSourceConfig"
+Resource "aws-native:lambda:EventSourceMapping" output "documentDbEventSourceConfig" type changed from "#/types/aws-native:lambda:EventSourceMappingDocumentDBEventSourceConfig" to "#/types/aws-native:lambda:EventSourceMappingDocumentDbEventSourceConfig"
+Resource "aws-native:datasync:LocationHDFS" missing
+Resource "aws-native:ec2:EIP" missing
+Resource "aws-native:datasync:LocationSMB" missing
+Resource "aws-native:rds:DBCluster" missing
+Resource "aws-native:route53:HostedZone" input "vpcs" items type changed from "#/types/aws-native:route53:HostedZoneVPC" to "#/types/aws-native:route53:HostedZoneVpc"
+Resource "aws-native:route53:HostedZone" output "vpcs" items type changed from "#/types/aws-native:route53:HostedZoneVPC" to "#/types/aws-native:route53:HostedZoneVpc"
+Resource "aws-native:rds:DBProxyTargetGroup" missing
+Resource "aws-native:route53:DNSSEC" missing
+Resource "aws-native:ec2:DHCPOptions" missing
+Resource "aws-native:ec2:IPAM" missing
+Resource "aws-native:quicksight:VPCConnection" missing
+Resource "aws-native:networkmanager:Device" input "awsLocation" type changed from "#/types/aws-native:networkmanager:DeviceAWSLocation" to "#/types/aws-native:networkmanager:DeviceAwsLocation"
+Resource "aws-native:networkmanager:Device" output "awsLocation" type changed from "#/types/aws-native:networkmanager:DeviceAWSLocation" to "#/types/aws-native:networkmanager:DeviceAwsLocation"
+Resource "aws-native:neptune:DBCluster" missing
+Resource "aws-native:ec2:LocalGatewayRouteTableVPCAssociation" missing
+Resource "aws-native:lakeformation:TagAssociation" input "lfTags" items type changed from "#/types/aws-native:lakeformation:TagAssociationLFTagPair" to "#/types/aws-native:lakeformation:TagAssociationLfTagPair"
+Resource "aws-native:lakeformation:TagAssociation" output "lfTags" items type changed from "#/types/aws-native:lakeformation:TagAssociationLFTagPair" to "#/types/aws-native:lakeformation:TagAssociationLfTagPair"
+Resource "aws-native:auditmanager:Assessment" input "awsAccount" type changed from "#/types/aws-native:auditmanager:AssessmentAWSAccount" to "#/types/aws-native:auditmanager:AssessmentAwsAccount"
+Resource "aws-native:auditmanager:Assessment" output "awsAccount" type changed from "#/types/aws-native:auditmanager:AssessmentAWSAccount" to "#/types/aws-native:auditmanager:AssessmentAwsAccount"
+Resource "aws-native:fms:Policy" input "includeMap" type changed from "#/types/aws-native:fms:PolicyIEMap" to "#/types/aws-native:fms:PolicyIeMap"
+Resource "aws-native:fms:Policy" input "excludeMap" type changed from "#/types/aws-native:fms:PolicyIEMap" to "#/types/aws-native:fms:PolicyIeMap"
+Resource "aws-native:fms:Policy" output "includeMap" type changed from "#/types/aws-native:fms:PolicyIEMap" to "#/types/aws-native:fms:PolicyIeMap"
+Resource "aws-native:fms:Policy" output "excludeMap" type changed from "#/types/aws-native:fms:PolicyIEMap" to "#/types/aws-native:fms:PolicyIeMap"
+Resource "aws-native:dynamodb:Table" input "sseSpecification" type changed from "#/types/aws-native:dynamodb:TableSSESpecification" to "#/types/aws-native:dynamodb:TableSseSpecification"
+Resource "aws-native:dynamodb:Table" output "sseSpecification" type changed from "#/types/aws-native:dynamodb:TableSSESpecification" to "#/types/aws-native:dynamodb:TableSseSpecification"
+Resource "aws-native:ec2:VPNConnectionRoute" missing
+Resource "aws-native:iotwireless:WirelessGateway" input "loRaWan" type changed from "#/types/aws-native:iotwireless:WirelessGatewayLoRaWANGateway" to "#/types/aws-native:iotwireless:WirelessGatewayLoRaWanGateway"
+Resource "aws-native:iotwireless:WirelessGateway" output "loRaWan" type changed from "#/types/aws-native:iotwireless:WirelessGatewayLoRaWANGateway" to "#/types/aws-native:iotwireless:WirelessGatewayLoRaWanGateway"
+Resource "aws-native:devicefarm:VPCEConfiguration" missing
+Resource "aws-native:iam:VirtualMFADevice" missing
+Resource "aws-native:iotwireless:FuotaTask" input "loRaWan" type changed from "#/types/aws-native:iotwireless:FuotaTaskLoRaWAN" to "#/types/aws-native:iotwireless:FuotaTaskLoRaWan"
+Resource "aws-native:iotwireless:FuotaTask" output "loRaWan" type changed from "#/types/aws-native:iotwireless:FuotaTaskLoRaWAN" to "#/types/aws-native:iotwireless:FuotaTaskLoRaWan"
+Resource "aws-native:ec2:VPCEndpointServicePermissions" missing
+Resource "aws-native:rds:CustomDBEngineVersion" missing
+Resource "aws-native:ec2:VPCDHCPOptionsAssociation" missing
+Resource "aws-native:rds:DBClusterParameterGroup" missing
+Resource "aws-native:memorydb:ACL" missing
+Resource "aws-native:rds:DBInstance" missing
+Resource "aws-native:healthlake:FHIRDatastore" missing
+Resource "aws-native:iam:SAMLProvider" missing
+Resource "aws-native:opensearchservice:Domain" input "ebsOptions" type changed from "#/types/aws-native:opensearchservice:DomainEBSOptions" to "#/types/aws-native:opensearchservice:DomainEbsOptions"
+Resource "aws-native:opensearchservice:Domain" input "vpcOptions" type changed from "#/types/aws-native:opensearchservice:DomainVPCOptions" to "#/types/aws-native:opensearchservice:DomainVpcOptions"
+Resource "aws-native:opensearchservice:Domain" output "ebsOptions" type changed from "#/types/aws-native:opensearchservice:DomainEBSOptions" to "#/types/aws-native:opensearchservice:DomainEbsOptions"
+Resource "aws-native:opensearchservice:Domain" output "vpcOptions" type changed from "#/types/aws-native:opensearchservice:DomainVPCOptions" to "#/types/aws-native:opensearchservice:DomainVpcOptions"
+Resource "aws-native:iot:CACertificate" missing
+Resource "aws-native:ec2:IPAMAllocation" missing
+Resource "aws-native:ec2:VPCEndpoint" missing
+Resource "aws-native:iotwireless:TaskDefinition" input "loRaWanUpdateGatewayTaskEntry" type changed from "#/types/aws-native:iotwireless:TaskDefinitionLoRaWANUpdateGatewayTaskEntry" to "#/types/aws-native:iotwireless:TaskDefinitionLoRaWanUpdateGatewayTaskEntry"
+Resource "aws-native:iotwireless:TaskDefinition" output "loRaWanUpdateGatewayTaskEntry" type changed from "#/types/aws-native:iotwireless:TaskDefinitionLoRaWANUpdateGatewayTaskEntry" to "#/types/aws-native:iotwireless:TaskDefinitionLoRaWanUpdateGatewayTaskEntry"
+Resource "aws-native:rds:DBParameterGroup" missing
+Resource "aws-native:ec2:IPAMResourceDiscoveryAssociation" missing
+Resource "aws-native:iotwireless:ServiceProfile" input "loRaWan" type changed from "#/types/aws-native:iotwireless:ServiceProfileLoRaWANServiceProfile" to "#/types/aws-native:iotwireless:ServiceProfileLoRaWanServiceProfile"
+Resource "aws-native:iotwireless:ServiceProfile" output "loRaWan" type changed from "#/types/aws-native:iotwireless:ServiceProfileLoRaWANServiceProfile" to "#/types/aws-native:iotwireless:ServiceProfileLoRaWanServiceProfile"
+Resource "aws-native:amplifyuibuilder:Form" input "cta" type changed from "#/types/aws-native:amplifyuibuilder:FormCTA" to "#/types/aws-native:amplifyuibuilder:FormCta"
+Resource "aws-native:amplifyuibuilder:Form" output "cta" type changed from "#/types/aws-native:amplifyuibuilder:FormCTA" to "#/types/aws-native:amplifyuibuilder:FormCta"
+Resource "aws-native:ec2:IPAMPool" missing
+Resource "aws-native:ec2:IPAMPoolCidr" missing
+Resource "aws-native:iotwireless:DeviceProfile" input "loRaWan" type changed from "#/types/aws-native:iotwireless:DeviceProfileLoRaWANDeviceProfile" to "#/types/aws-native:iotwireless:DeviceProfileLoRaWanDeviceProfile"
+Resource "aws-native:iotwireless:DeviceProfile" output "loRaWan" type changed from "#/types/aws-native:iotwireless:DeviceProfileLoRaWANDeviceProfile" to "#/types/aws-native:iotwireless:DeviceProfileLoRaWanDeviceProfile"
+Resource "aws-native:wafv2:WebACL" missing
+Resource "aws-native:wafv2:IPSet" missing
+Resource "aws-native:ec2:VPCEndpointService" missing
+Function "aws-native:rds:getDBProxyEndpoint" missing
+Function "aws-native:ec2:getIPAMResourceDiscovery" missing
+Function "aws-native:iam:getOIDCProvider" missing
+Function "aws-native:rds:getCustomDBEngineVersion" missing
+Function "aws-native:networkmanager:getDevice" output "awsLocation" type changed from "#/types/aws-native:networkmanager:DeviceAWSLocation" to "#/types/aws-native:networkmanager:DeviceAwsLocation"
+Function "aws-native:amplifyuibuilder:getForm" output "cta" type changed from "#/types/aws-native:amplifyuibuilder:FormCTA" to "#/types/aws-native:amplifyuibuilder:FormCta"
+Function "aws-native:ec2:getDHCPOptions" missing
+Function "aws-native:ec2:getEC2Fleet" missing
+Function "aws-native:rds:getDBClusterParameterGroup" missing
+Function "aws-native:iotwireless:getServiceProfile" output "loRaWan" type changed from "#/types/aws-native:iotwireless:ServiceProfileLoRaWANServiceProfile" to "#/types/aws-native:iotwireless:ServiceProfileLoRaWanServiceProfile"
+Function "aws-native:rds:getDBParameterGroup" missing
+Function "aws-native:ec2:getIPAMPool" missing
+Function "aws-native:rolesanywhere:getCRL" missing
+Function "aws-native:route53:getHostedZone" output "vpcs" items type changed from "#/types/aws-native:route53:HostedZoneVPC" to "#/types/aws-native:route53:HostedZoneVpc"
+Function "aws-native:iotwireless:getTaskDefinition" output "loRaWanUpdateGatewayTaskEntry" type changed from "#/types/aws-native:iotwireless:TaskDefinitionLoRaWANUpdateGatewayTaskEntry" to "#/types/aws-native:iotwireless:TaskDefinitionLoRaWanUpdateGatewayTaskEntry"
+Function "aws-native:dynamodb:getTable" output "sseSpecification" type changed from "#/types/aws-native:dynamodb:TableSSESpecification" to "#/types/aws-native:dynamodb:TableSseSpecification"
+Function "aws-native:iam:getVirtualMFADevice" missing
+Function "aws-native:ec2:getVPCEndpoint" missing
+Function "aws-native:ec2:getIPAMResourceDiscoveryAssociation" missing
+Function "aws-native:ec2:getVPCEndpointServicePermissions" missing
+Function "aws-native:opensearchservice:getDomain" output "ebsOptions" type changed from "#/types/aws-native:opensearchservice:DomainEBSOptions" to "#/types/aws-native:opensearchservice:DomainEbsOptions"
+Function "aws-native:opensearchservice:getDomain" output "vpcOptions" type changed from "#/types/aws-native:opensearchservice:DomainVPCOptions" to "#/types/aws-native:opensearchservice:DomainVpcOptions"
+Function "aws-native:healthlake:getFHIRDatastore" missing
+Function "aws-native:rds:getDBProxy" missing
+Function "aws-native:ec2:getEIP" missing
+Function "aws-native:datasync:getLocationFSxONTAP" missing
+Function "aws-native:iotwireless:getWirelessGateway" output "loRaWan" type changed from "#/types/aws-native:iotwireless:WirelessGatewayLoRaWANGateway" to "#/types/aws-native:iotwireless:WirelessGatewayLoRaWanGateway"
+Function "aws-native:ec2:getIPAMAllocation" missing
+Function "aws-native:ec2:getVPCPeeringConnection" missing
+Function "aws-native:route53resolver:getResolverDNSSECConfig" missing
+Function "aws-native:apigatewayv2:getAuthorizer" output "jwtConfiguration" type changed from "#/types/aws-native:apigatewayv2:AuthorizerJWTConfiguration" to "#/types/aws-native:apigatewayv2:AuthorizerJwtConfiguration"
+Function "aws-native:ec2:getIPAMPoolCidr" missing
+Function "aws-native:datasync:getLocationSMB" missing
+Function "aws-native🛡️getDRTAccess" missing
+Function "aws-native:iotwireless:getMulticastGroup" output "loRaWan" type changed from "#/types/aws-native:iotwireless:MulticastGroupLoRaWAN" to "#/types/aws-native:iotwireless:MulticastGroupLoRaWan"
+Function "aws-native:ec2:getVPCEndpointService" missing
+Function "aws-native:iam:getSAMLProvider" missing
+Function "aws-native:rds:getDBInstance" missing
+Function "aws-native:synthetics:getCanary" output "vpcConfig" type changed from "#/types/aws-native:synthetics:CanaryVPCConfig" to "#/types/aws-native:synthetics:CanaryVpcConfig"
+Function "aws-native:rds:getDBCluster" missing
+Function "aws-native:iotwireless:getFuotaTask" output "loRaWan" type changed from "#/types/aws-native:iotwireless:FuotaTaskLoRaWAN" to "#/types/aws-native:iotwireless:FuotaTaskLoRaWan"
+Function "aws-native:ec2:getVPC" missing
+Function "aws-native:neptune:getDBCluster" missing
+Function "aws-native:devicefarm:getVPCEConfiguration" missing
+Function "aws-native:dynamodb:getGlobalTable" output "sseSpecification" type changed from "#/types/aws-native:dynamodb:GlobalTableSSESpecification" to "#/types/aws-native:dynamodb:GlobalTableSseSpecification"
+Function "aws-native:iotwireless:getWirelessDevice" output "loRaWan" type changed from "#/types/aws-native:iotwireless:WirelessDeviceLoRaWANDevice" to "#/types/aws-native:iotwireless:WirelessDeviceLoRaWanDevice"
+Function "aws-native:ec2:getEIPAssociation" missing
+Function "aws-native:iotwireless:getDeviceProfile" output "loRaWan" type changed from "#/types/aws-native:iotwireless:DeviceProfileLoRaWANDeviceProfile" to "#/types/aws-native:iotwireless:DeviceProfileLoRaWanDeviceProfile"
+Function "aws-native:iot:getCACertificate" missing
+Function "aws-native:wafv2:getWebACL" missing
+Function "aws-native:datasync:getLocationHDFS" missing
+Function "aws-native:ec2:getIPAM" missing
+Function "aws-native:rds:getDBProxyTargetGroup" missing
+Function "aws-native:datasync:getLocationFSxOpenZFS" missing
+Function "aws-native:ec2:getVPNConnection" missing
+Function "aws-native:memorydb:getACL" missing
+Function "aws-native:datasync:getLocationNFS" missing
+Function "aws-native:directoryservice:getSimpleAD" missing
+Function "aws-native:wafv2:getIPSet" missing
+Function "aws-native:rds:getDBSubnetGroup" missing
+Function "aws-native:fms:getPolicy" output "excludeMap" type changed from "#/types/aws-native:fms:PolicyIEMap" to "#/types/aws-native:fms:PolicyIeMap"
+Function "aws-native:fms:getPolicy" output "includeMap" type changed from "#/types/aws-native:fms:PolicyIEMap" to "#/types/aws-native:fms:PolicyIeMap"
+Function "aws-native:ec2:getLocalGatewayRouteTableVPCAssociation" missing
+Function "aws-native:ec2:getIPAMScope" missing
+Function "aws-native:ec2:getVPNGateway" missing
+Function "aws-native:lambda:getEventSourceMapping" output "documentDbEventSourceConfig" type changed from "#/types/aws-native:lambda:EventSourceMappingDocumentDBEventSourceConfig" to "#/types/aws-native:lambda:EventSourceMappingDocumentDbEventSourceConfig"
+Function "aws-native:quicksight:getVPCConnection" missing
+Function "aws-native:datasync:getLocationEFS" missing
+Type "aws-native:quicksight:ThemeUIColorPalette" missing
+Type "aws-native:ec2:EC2FleetAcceleratorCountRequest" missing
+Type "aws-native:rds:DBClusterEndpoint" missing
+Type "aws-native:wafv2:WebACLCustomRequestHandling" missing
+Type "aws-native:wafv2:WebACLRuleGroupReferenceStatement" missing
+Type "aws-native:appflow:FlowDestinationConnectorProperties" input "sapoData" type changed from "#/types/aws-native:appflow:FlowSAPODataDestinationProperties" to "#/types/aws-native:appflow:FlowSapoDataDestinationProperties"
+Type "aws-native:pipes:SelfManagedKafkaAccessConfigurationCredentials2Properties" missing
+Type "aws-native:lex:BotSSMLMessage" missing
+Type "aws-native:wafv2:WebACLRateLimitLabelNamespace" missing
+Type "aws-native:m2:Definition0Properties" missing
+Type "aws-native:ec2:IPAMPoolTag" missing
+Type "aws-native:lakeformation:PrincipalPermissionsResource" input "lfTag" type changed from "#/types/aws-native:lakeformation:PrincipalPermissionsLFTagKeyResource" to "#/types/aws-native:lakeformation:PrincipalPermissionsLfTagKeyResource"
+Type "aws-native:lakeformation:PrincipalPermissionsResource" input "lfTagPolicy" type changed from "#/types/aws-native:lakeformation:PrincipalPermissionsLFTagPolicyResource" to "#/types/aws-native:lakeformation:PrincipalPermissionsLfTagPolicyResource"
+Type "aws-native:datasync:LocationHDFSTag" missing
+Type "aws-native:datasync:LocationEFSInTransitEncryption" missing
+Type "aws-native:wafv2:WebACLHeaderMatchPattern" missing
+Type "aws-native:quicksight:DashboardKPIPrimaryValueConditionalFormatting" missing
+Type "aws-native:quicksight:DashboardTableFieldURLConfiguration" missing
+Type "aws-native:wafv2:WebACLTag" missing
+Type "aws-native:rds:DBProxyTargetGroupTargetGroupName" missing
+Type "aws-native:wafv2:WebACLResponseInspectionStatusCode" missing
+Type "aws-native:wafv2:WebACLRegexPatternSetReferenceStatement" missing
+Type "aws-native:rds:DBProxyTagFormat" missing
+Type "aws-native:wafv2:WebACLImmunityTimeProperty" missing
+Type "aws-native:ec2:IPAMScopeTag" missing
+Type "aws-native:iotwireless:FuotaTaskLoRaWAN" missing
+Type "aws-native:wafv2:WebACLRateLimitIP" missing
+Type "aws-native:wafv2:WebACLRateBasedStatementAggregateKeyType" missing
+Type "aws-native:amplifyuibuilder:FieldPosition0Properties" missing
+Type "aws-native:datasync:LocationFSxOpenZFSMountOptionsVersion" missing
+Type "aws-native:wafv2:WebACLAWSManagedRulesBotControlRuleSet" missing
+Type "aws-native:wafv2:WebACLAndStatement" missing
+Type "aws-native:pipes:MSKAccessCredentials1Properties" missing
+Type "aws-native:kinesisfirehose:DeliveryStreamSplunkDestinationConfiguration" input "hecEndpointType" type changed from "#/types/aws-native:kinesisfirehose:DeliveryStreamSplunkDestinationConfigurationHECEndpointType" to "#/types/aws-native:kinesisfirehose:DeliveryStreamSplunkDestinationConfigurationHecEndpointType"
+Type "aws-native:wafv2:WebACLDefaultAction" missing
+Type "aws-native:wafv2:WebACLExcludedRule" missing
+Type "aws-native:cloudfront:ResponseHeadersPolicyXSSProtection" missing
+Type "aws-native:lookoutmetrics:AlertSNSConfiguration" missing
+Type "aws-native:rds:DBInstanceRole" missing
+Type "aws-native:ecs:TaskDefinitionAuthorizationConfigIAM" missing
+Type "aws-native:quicksight:TemplateURLTargetConfiguration" missing
+Type "aws-native:ecs:TaskDefinitionEFSVolumeConfiguration" missing
+Type "aws-native:opensearchservice:DomainAdvancedSecurityOptionsInput" input "samlOptions" type changed from "#/types/aws-native:opensearchservice:DomainSAMLOptions" to "#/types/aws-native:opensearchservice:DomainSamlOptions"
+Type "aws-native:wafv2:IPSetScope" missing
+Type "aws-native:healthlake:FHIRDatastoreIdentityProviderConfiguration" missing
+Type "aws-native:pipes:SelfManagedKafkaAccessConfigurationCredentials3Properties" missing
+Type "aws-native:datasync:LocationNFSOnPremConfig" missing
+Type "aws-native:msk:ClusterEBSStorageInfo" missing
+Type "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties" missing
+Type "aws-native:s3:BucketServerSideEncryptionByDefault" input "sseAlgorithm" type changed from "#/types/aws-native:s3:BucketServerSideEncryptionByDefaultSSEAlgorithm" to "#/types/aws-native:s3:BucketServerSideEncryptionByDefaultSseAlgorithm"
+Type "aws-native:quicksight:AnalysisURLTargetConfiguration" missing
+Type "aws-native:quicksight:TemplateKPIConditionalFormatting" missing
+Type "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentials" missing
+Type "aws-native:dynamodb:GlobalTableSSESpecification" missing
+Type "aws-native:ec2:EC2FleetTagSpecificationResourceType" missing
+Type "aws-native:appflow:FlowSourceConnectorProperties" input "sapoData" type changed from "#/types/aws-native:appflow:FlowSAPODataSourceProperties" to "#/types/aws-native:appflow:FlowSapoDataSourceProperties"
+Type "aws-native:wafv2:WebACLMapMatchScope" missing
+Type "aws-native:quicksight:TemplateKPIOptions" missing
+Type "aws-native:rds:DBInstanceProcessorFeature" missing
+Type "aws-native:iotwireless:TaskDefinitionLoRaWANGatewayVersion" missing
+Type "aws-native:ec2:EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem" missing
+Type "aws-native:ec2:EC2FleetInstanceRequirementsRequest" missing
+Type "aws-native:wafv2:WebACLFieldIdentifier" missing
+Type "aws-native:quicksight:TemplateKPIConfiguration" missing
+Type "aws-native:quicksight:AnalysisKPIVisual" missing
+Type "aws-native:iotwireless:TaskDefinitionLoRaWANUpdateGatewayTaskCreate" missing
+Type "aws-native:iotwireless:WirelessGatewayLoRaWANGateway" missing
+Type "aws-native:ec2:EC2FleetFleetLaunchTemplateOverridesRequest" missing
+Type "aws-native:ec2:VPNGatewayTag" missing
+Type "aws-native:rds:DBProxyEngineFamily" missing
+Type "aws-native:iot:CACertificateAutoRegistrationStatus" missing
+Type "aws-native:ecs:TaskDefinitionVolume" input "efsVolumeConfiguration" type changed from "#/types/aws-native:ecs:TaskDefinitionEFSVolumeConfiguration" to "#/types/aws-native:ecs:TaskDefinitionEfsVolumeConfiguration"
+Type "aws-native:wafv2:WebACLRequestInspectionACFPPayloadType" missing
+Type "aws-native:wafv2:WebACLHeaders" missing
+Type "aws-native:quicksight:AnalysisKPISortConfiguration" missing
+Type "aws-native:wafv2:WebACLAllowAction" missing
+Type "aws-native:wafv2:WebACLNotStatement" missing
+Type "aws-native:devicefarm:VPCEConfigurationTag" missing
+Type "aws-native:datasync:LocationHDFSQopConfiguration" missing
+Type "aws-native:wafv2:RuleGroupRateLimitIP" missing
+Type "aws-native:rds:DBClusterServerlessV2ScalingConfiguration" missing
+Type "aws-native:datasync:LocationFSxONTAPNfsMountOptionsVersion" missing
+Type "aws-native:wafv2:WebACLRegexMatchStatement" missing
+Type "aws-native:quicksight:AnalysisKPIConditionalFormatting" missing
+Type "aws-native:wafv2:WebACLChallengeConfig" missing
+Type "aws-native:wafv2:WebACLJsonMatchPattern" missing
+Type "aws-native:ec2:LaunchTemplateTotalLocalStorageGB" missing
+Type "aws-native:ec2:VPCEndpointVpcEndpointType" missing
+Type "aws-native:rds:DBProxyTargetGroupConnectionPoolConfigurationInfoFormat" missing
+Type "aws-native:wafv2:WebACLCaptchaConfig" missing
+Type "aws-native:wafv2:RuleGroupRateLimitForwardedIP" missing
+Type "aws-native:lambda:EventSourceMappingDocumentDBEventSourceConfigFullDocument" missing
+Type "aws-native:quicksight:AnalysisTableFieldOption" input "urlStyling" type changed from "#/types/aws-native:quicksight:AnalysisTableFieldURLConfiguration" to "#/types/aws-native:quicksight:AnalysisTableFieldUrlConfiguration"
+Type "aws-native:rds:DBProxyAuthFormatClientPasswordAuthType" missing
+Type "aws-native:ec2:LaunchTemplateInstanceRequirements" input "totalLocalStorageGb" type changed from "#/types/aws-native:ec2:LaunchTemplateTotalLocalStorageGB" to "#/types/aws-native:ec2:LaunchTemplateTotalLocalStorageGb"
+Type "aws-native:lakeformation:PrincipalPermissionsLFTagPolicyResource" missing
+Type "aws-native:iotevents:DetectorModelAction" input "dynamoDb" type changed from "#/types/aws-native:iotevents:DetectorModelDynamoDB" to "#/types/aws-native:iotevents:DetectorModelDynamoDb"
+Type "aws-native:appstream:Tag0Properties" missing
+Type "aws-native:memorydb:ACLTag" missing
+Type "aws-native:iot:MitigationActionUpdateCACertificateParams" missing
+Type "aws-native:pipes:SelfManagedKafkaAccessConfigurationCredentials0Properties" missing
+Type "aws-native:datasync:LocationSMBTag" missing
+Type "aws-native:datasync:LocationFSxOpenZFSNFS" missing
+Type "aws-native:ec2:IPAMScopeIpamScopeType" missing
+Type "aws-native:wafv2:WebACLTextTransformation" missing
+Type "aws-native:ec2:EC2FleetMemoryMiBRequest" missing
+Type "aws-native:rds:DBProxyEndpointTargetRole" missing
+Type "aws-native:wafv2:WebACLResponseInspection" missing
+Type "aws-native:quicksight:DashboardTableFieldLinkConfiguration" input "target" type changed from "#/types/aws-native:quicksight:DashboardURLTargetConfiguration" to "#/types/aws-native:quicksight:DashboardUrlTargetConfiguration"
+Type "aws-native:wafv2:WebACLOrStatement" missing
+Type "aws-native:route53recoveryreadiness:ResourceSetTargetResource" input "nlbResource" type changed from "#/types/aws-native:route53recoveryreadiness:ResourceSetNLBResource" to "#/types/aws-native:route53recoveryreadiness:ResourceSetNlbResource"
+Type "aws-native:applicationinsights:ApplicationConfigurationDetails" input "haClusterPrometheusExporter" type changed from "#/types/aws-native:applicationinsights:ApplicationHAClusterPrometheusExporter" to "#/types/aws-native:applicationinsights:ApplicationHaClusterPrometheusExporter"
+Type "aws-native:applicationinsights:ApplicationConfigurationDetails" input "hanaPrometheusExporter" type changed from "#/types/aws-native:applicationinsights:ApplicationHANAPrometheusExporter" to "#/types/aws-native:applicationinsights:ApplicationHanaPrometheusExporter"
+Type "aws-native:applicationinsights:ApplicationConfigurationDetails" input "jmxPrometheusExporter" type changed from "#/types/aws-native:applicationinsights:ApplicationJMXPrometheusExporter" to "#/types/aws-native:applicationinsights:ApplicationJmxPrometheusExporter"
+Type "aws-native:datasync:LocationFSxOpenZFSMountOptions" missing
+Type "aws-native:networkfirewall:RuleGroupMatchAttributes" input "tcpFlags" items type changed from "#/types/aws-native:networkfirewall:RuleGroupTCPFlagField" to "#/types/aws-native:networkfirewall:RuleGroupTcpFlagField"
+Type "aws-native:ec2:EC2FleetSpotOptionsRequestAllocationStrategy" missing
+Type "aws-native:iotevents:DetectorModelDynamoDB" missing
+Type "aws-native:pipes:PipeSourceRabbitMQBrokerParameters" missing
+Type "aws-native:quicksight:TemplateKPISortConfiguration" missing
+Type "aws-native:wafv2:WebACLByteMatchStatement" missing
+Type "aws-native:wafv2:RuleGroupRateBasedStatementCustomKey" input "forwardedIp" type changed from "#/types/aws-native:wafv2:RuleGroupRateLimitForwardedIP" to "#/types/aws-native:wafv2:RuleGroupRateLimitForwardedIp"
+Type "aws-native:wafv2:RuleGroupRateBasedStatementCustomKey" input "httpMethod" type changed from "#/types/aws-native:wafv2:RuleGroupRateLimitHTTPMethod" to "#/types/aws-native:wafv2:RuleGroupRateLimitHttpMethod"
+Type "aws-native:wafv2:RuleGroupRateBasedStatementCustomKey" input "ip" type changed from "#/types/aws-native:wafv2:RuleGroupRateLimitIP" to "#/types/aws-native:wafv2:RuleGroupRateLimitIp"
+Type "aws-native:wafv2:WebACLSizeConstraintStatement" missing
+Type "aws-native:ec2:EC2FleetInstanceRequirementsRequestInstanceGenerationsItem" missing
+Type "aws-native:healthlake:FHIRDatastoreKmsEncryptionConfig" missing
+Type "aws-native:quicksight:VPCConnectionTag" missing
+Type "aws-native:ec2:EC2FleetTotalLocalStorageGBRequest" missing
+Type "aws-native:wafv2:WebACLLabelMatchStatement" missing
+Type "aws-native:wafv2:WebACLIPSetForwardedIPConfigurationFallbackBehavior" missing
+Type "aws-native:neptune:DBClusterServerlessScalingConfiguration" missing
+Type "aws-native:pipes:MQBrokerAccessCredentialsProperties" missing
+Type "aws-native:lookoutmetrics:AnomalyDetectorRDSSourceConfig" missing
+Type "aws-native:quicksight:AnalysisTableFieldLinkConfiguration" input "target" type changed from "#/types/aws-native:quicksight:AnalysisURLTargetConfiguration" to "#/types/aws-native:quicksight:AnalysisUrlTargetConfiguration"
+Type "aws-native:rds:DBProxyAuthFormat" missing
+Type "aws-native:wafv2:WebACLLabelMatchScope" missing
+Type "aws-native:wafv2:WebACLRequestInspectionACFP" missing
+Type "aws-native:wafv2:WebACLRuleAction" missing
+Type "aws-native:configuration:TemplateSSMDocumentDetailsProperties" missing
+Type "aws-native:wafv2:WebACLIPSetForwardedIPConfigurationPosition" missing
+Type "aws-native:quicksight:AnalysisKPIOptions" missing
+Type "aws-native:wafv2:RuleGroupIPSetForwardedIPConfigurationFallbackBehavior" missing
+Type "aws-native:iotwireless:TaskDefinitionLoRaWANUpdateGatewayTaskEntry" missing
+Type "aws-native:datasync:LocationSMBMountOptionsVersion" missing
+Type "aws-native:quicksight:DashboardKPIFieldWells" missing
+Type "aws-native:pipes:PipeSourceActiveMQBrokerParameters" missing
+Type "aws-native:ec2:EC2FleetNetworkInterfaceCountRequest" missing
+Type "aws-native:wafv2:WebACLCustomResponse" missing
+Type "aws-native:ec2:EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType" missing
+Type "aws-native:ec2:EC2FleetSpotOptionsRequest" missing
+Type "aws-native:quicksight:AnalysisKPIPrimaryValueConditionalFormatting" missing
+Type "aws-native:wafv2:WebACLManagedRuleGroupStatement" missing
+Type "aws-native:s3outposts:FilterAndOperator0Properties" missing
+Type "aws-native:ec2:EC2FleetInstanceRequirementsRequestBurstablePerformance" missing
+Type "aws-native:wafv2:WebACLSqliMatchStatement" missing
+Type "aws-native:wafv2:WebACLFieldToMatchSingleHeaderProperties" missing
+Type "aws-native:ec2:IPAMTag" missing
+Type "aws-native:datasync:LocationFSxOpenZFSProtocol" missing
+Type "aws-native:wafv2:RuleGroupCustomRequestHandling" input "insertHeaders" items type changed from "#/types/aws-native:wafv2:RuleGroupCustomHTTPHeader" to "#/types/aws-native:wafv2:RuleGroupCustomHttpHeader"
+Type "aws-native:wafv2:WebACLOverrideAction" missing
+Type "aws-native:amplifyuibuilder:FormCTA" missing
+Type "aws-native:wafv2:WebACLIPSetForwardedIPConfiguration" missing
+Type "aws-native:wafv2:WebACLCustomHTTPHeader" missing
+Type "aws-native:datasync:LocationFSxOpenZFSTag" missing
+Type "aws-native:datasync:LocationEFSEc2Config" missing
+Type "aws-native:pipes:PipeSourceDynamoDBStreamParameters" missing
+Type "aws-native:wafv2:WebACLAWSManagedRulesACFPRuleSet" missing
+Type "aws-native:iotevents:AlarmModelDynamoDB" missing
+Type "aws-native:dynamodb:GlobalTableReplicaSSESpecification" missing
+Type "aws-native:quicksight:AnalysisTableFieldURLConfiguration" missing
+Type "aws-native:datasync:LocationFSxONTAPSmbMountOptions" missing
+Type "aws-native:quicksight:TemplateKPIVisual" missing
+Type "aws-native:wafv2:WebACLAssociationConfig" missing
+Type "aws-native:datasync:LocationHDFSQopConfigurationRpcProtection" missing
+Type "aws-native:quicksight:TemplateKPIFieldWells" missing
+Type "aws-native:lambda:EventSourceMappingDocumentDBEventSourceConfig" missing
+Type "aws-native:quicksight:DashboardUIState" missing
+Type "aws-native:kinesisfirehose:DeliveryStreamKMSEncryptionConfig" missing
+Type "aws-native:wafv2:WebACLAWSManagedRulesATPRuleSet" missing
+Type "aws-native:lex:BotMessage" input "ssmlMessage" type changed from "#/types/aws-native:lex:BotSSMLMessage" to "#/types/aws-native:lex:BotSsmlMessage"
+Type "aws-native:opensearchservice:DomainEBSOptions" missing
+Type "aws-native:wafv2:WebACLAWSManagedRulesBotControlRuleSetInspectionLevel" missing
+Type "aws-native:amplifyuibuilder:FieldPosition2Properties" missing
+Type "aws-native:quicksight:DashboardCustomActionURLOperation" missing
+Type "aws-native:quicksight:DashboardVisualCustomActionOperation" input "urlOperation" type changed from "#/types/aws-native:quicksight:DashboardCustomActionURLOperation" to "#/types/aws-native:quicksight:DashboardCustomActionUrlOperation"
+Type "aws-native:iot:TopicRuleDynamoDBAction" missing
+Type "aws-native:rolesanywhere:SourceData1Properties" missing
+Type "aws-native:ec2:EC2FleetOnDemandOptionsRequest" missing
+Type "aws-native:wafv2:WebACLBodyParsingFallbackBehavior" missing
+Type "aws-native:wafv2:WebACLRuleActionOverride" missing
+Type "aws-native:quicksight:DashboardKPIConditionalFormatting" missing
+Type "aws-native:iam:VirtualMFADeviceTag" missing
+Type "aws-native:lakeformation:TagAssociationLFTagPair" missing
+Type "aws-native:ec2:EC2FleetNetworkBandwidthGbpsRequest" missing
+Type "aws-native:rds:DBInstanceTag" missing
+Type "aws-native:ec2:EC2FleetCapacityReservationOptionsRequestUsageStrategy" missing
+Type "aws-native:networkfirewall:RuleGroupTCPFlag" missing
+Type "aws-native:quicksight:AnalysisKPIConditionalFormattingOption" missing
+Type "aws-native:auditmanager:AssessmentScope" input "awsAccounts" items type changed from "#/types/aws-native:auditmanager:AssessmentAWSAccount" to "#/types/aws-native:auditmanager:AssessmentAwsAccount"
+Type "aws-native:auditmanager:AssessmentScope" input "awsServices" items type changed from "#/types/aws-native:auditmanager:AssessmentAWSService" to "#/types/aws-native:auditmanager:AssessmentAwsService"
+Type "aws-native:route53resolver:ResolverDNSSECConfigValidationStatus" missing
+Type "aws-native:quicksight:TemplateTableFieldOption" input "urlStyling" type changed from "#/types/aws-native:quicksight:TemplateTableFieldURLConfiguration" to "#/types/aws-native:quicksight:TemplateTableFieldUrlConfiguration"
+Type "aws-native:appflow:FlowSAPODataSourceProperties" missing
+Type "aws-native:rds:DBInstanceProcessorFeatureName" missing
+Type "aws-native:wafv2:WebACLJsonMatchScope" missing
+Type "aws-native:forecast:AttributesItemProperties" missing
+Type "aws-native:appflow:FlowSAPODataDestinationProperties" missing
+Type "aws-native:appflow:FlowConnectorOperator" input "sapoData" type changed from "#/types/aws-native:appflow:FlowSAPODataConnectorOperator" to "#/types/aws-native:appflow:FlowSapoDataConnectorOperator"
+Type "aws-native:ec2:EC2FleetInstanceRequirementsRequestLocalStorageTypesItem" missing
+Type "aws-native:appflow:FlowSAPODataConnectorOperator" missing
+Type "aws-native:wafv2:WebACLCookieMatchPattern" missing
+Type "aws-native:rds:DBSubnetGroupTag" missing
+Type "aws-native:wafv2:WebACLForwardedIPConfigurationFallbackBehavior" missing
+Type "aws-native:quicksight:DashboardKPIVisual" missing
+Type "aws-native:ec2:EC2FleetExcessCapacityTerminationPolicy" missing
+Type "aws-native:rds:DBClusterReadEndpoint" missing
+Type "aws-native:ec2:EC2FleetFleetLaunchTemplateSpecificationRequest" missing
+Type "aws-native:ec2:IPAMResourceDiscoveryAssociationTag" missing
+Type "aws-native:wafv2:RuleGroupRateLimitHTTPMethod" missing
+Type "aws-native:quicksight:VPCConnectionResourceStatus" missing
+Type "aws-native:wafv2:WebACLLabel" missing
+Type "aws-native:iot:CACertificateTag" missing
+Type "aws-native:iam:OIDCProviderTag" missing
+Type "aws-native:route53recoveryreadiness:ResourceSetResource" input "dnsTargetResource" type changed from "#/types/aws-native:route53recoveryreadiness:ResourceSetDNSTargetResource" to "#/types/aws-native:route53recoveryreadiness:ResourceSetDnsTargetResource"
+Type "aws-native:ec2:IPAMPoolProvisionedCidr" missing
+Type "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileProperties" missing
+Type "aws-native:quicksight:TemplateTableFieldURLConfiguration" missing
+Type "aws-native:ec2:EC2FleetInstanceRequirementsRequestBareMetal" missing
+Type "aws-native:rds:DBClusterScalingConfiguration" missing
+Type "aws-native:wafv2:RuleGroupStatement" input "ipSetReferenceStatement" type changed from "#/types/aws-native:wafv2:RuleGroupIPSetReferenceStatement" to "#/types/aws-native:wafv2:RuleGroupIpSetReferenceStatement"
+Type "aws-native:iotevents:AlarmModelAlarmAction" input "dynamoDb" type changed from "#/types/aws-native:iotevents:AlarmModelDynamoDB" to "#/types/aws-native:iotevents:AlarmModelDynamoDb"
+Type "aws-native:wafv2:RuleGroupCustomResponse" input "responseHeaders" items type changed from "#/types/aws-native:wafv2:RuleGroupCustomHTTPHeader" to "#/types/aws-native:wafv2:RuleGroupCustomHttpHeader"
+Type "aws-native:wafv2:WebACLJsonBody" missing
+Type "aws-native:healthlake:FHIRDatastoreKmsEncryptionConfigCmkType" missing
+Type "aws-native:quicksight:TemplateTableFieldLinkConfiguration" input "target" type changed from "#/types/aws-native:quicksight:TemplateURLTargetConfiguration" to "#/types/aws-native:quicksight:TemplateUrlTargetConfiguration"
+Type "aws-native:wafv2:WebACLSensitivityLevel" missing
+Type "aws-native:ec2:EIPTag" missing
+Type "aws-native:quicksight:TemplateVisual" input "kpiVisual" type changed from "#/types/aws-native:quicksight:TemplateKPIVisual" to "#/types/aws-native:quicksight:TemplateKpiVisual"
+Type "aws-native:ecs:TaskDefinitionEFSVolumeConfigurationTransitEncryption" missing
+Type "aws-native:quicksight:TemplateVisualCustomActionOperation" input "urlOperation" type changed from "#/types/aws-native:quicksight:TemplateCustomActionURLOperation" to "#/types/aws-native:quicksight:TemplateCustomActionUrlOperation"
+Type "aws-native:wafv2:RuleGroupForwardedIPConfigurationFallbackBehavior" missing
+Type "aws-native:wafv2:RuleGroupForwardedIPConfiguration" missing
+Type "aws-native:quicksight:ThemeConfiguration" input "uiColorPalette" type changed from "#/types/aws-native:quicksight:ThemeUIColorPalette" to "#/types/aws-native:quicksight:ThemeUiColorPalette"
+Type "aws-native:apigatewayv2:AuthorizerJWTConfiguration" missing
+Type "aws-native:route53recoveryreadiness:ResourceSetDNSTargetResource" missing
+Type "aws-native:ec2:VPCTag" missing
+Type "aws-native:wafv2:WebACLRateLimitQueryArgument" missing
+Type "aws-native:forecast:SchemaProperties" input "attributes" items type changed from "#/types/aws-native:forecast:AttributesItemProperties" to "#/types/aws-native:forecast:DatasetAttributesItemProperties"
+Type "aws-native:wafv2:WebACLPositionalConstraint" missing
+Type "aws-native:iot:MitigationActionActionParams" input "updateCaCertificateParams" type changed from "#/types/aws-native:iot:MitigationActionUpdateCACertificateParams" to "#/types/aws-native:iot:MitigationActionUpdateCaCertificateParams"
+Type "aws-native:ec2:EC2FleetInstanceRequirementsRequestCpuManufacturersItem" missing
+Type "aws-native:applicationinsights:ApplicationJMXPrometheusExporter" missing
+Type "aws-native:wafv2:WebACLChallengeAction" missing
+Type "aws-native:quicksight:AnalysisKPIProgressBarConditionalFormatting" missing
+Type "aws-native:opensearchservice:DomainSAMLOptions" missing
+Type "aws-native:wafv2:WebACLRateLimitHTTPMethod" missing
+Type "aws-native:ec2:LocalGatewayRouteTableVPCAssociationTag" missing
+Type "aws-native:networkmanager:DeviceAWSLocation" missing
+Type "aws-native:datasync:LocationFSxONTAPTag" missing
+Type "aws-native:wafv2:IPSetTag" missing
+Type "aws-native:quicksight:TemplateKPIProgressBarConditionalFormatting" missing
+Type "aws-native:omics:StoreOptions0Properties" missing
+Type "aws-native:rds:CustomDBEngineVersionStatus" missing
+Type "aws-native:wafv2:WebACLIPSetReferenceStatement" missing
+Type "aws-native:wafv2:WebACLForwardedIPConfiguration" missing
+Type "aws-native:healthlake:FHIRDatastoreDatastoreTypeVersion" missing
+Type "aws-native:ec2:SpotFleetInstanceRequirementsRequest" input "totalLocalStorageGb" type changed from "#/types/aws-native:ec2:SpotFleetTotalLocalStorageGBRequest" to "#/types/aws-native:ec2:SpotFleetTotalLocalStorageGbRequest"
+Type "aws-native:kinesisfirehose:DeliveryStreamEncryptionConfiguration" input "kmsEncryptionConfig" type changed from "#/types/aws-native:kinesisfirehose:DeliveryStreamKMSEncryptionConfig" to "#/types/aws-native:kinesisfirehose:DeliveryStreamKmsEncryptionConfig"
+Type "aws-native:ec2:EC2FleetMemoryGiBPerVCpuRequest" missing
+Type "aws-native:wafv2:WebACLGeoMatchStatement" missing
+Type "aws-native:ec2:EC2FleetType" missing
+Type "aws-native:wafv2:WebACLRequestInspection" missing
+Type "aws-native:rds:DBProxyAuthFormatIAMAuth" missing
+Type "aws-native:msk:ClusterStorageInfo" input "ebsStorageInfo" type changed from "#/types/aws-native:msk:ClusterEBSStorageInfo" to "#/types/aws-native:msk:ClusterEbsStorageInfo"
+Type "aws-native:wafv2:RuleGroupCustomHTTPHeader" missing
+Type "aws-native:quicksight:VPCConnectionAvailabilityStatus" missing
+Type "aws-native:wafv2:WebACLRateLimitHeader" missing
+Type "aws-native:wafv2:RuleGroupGeoMatchStatement" input "forwardedIpConfig" type changed from "#/types/aws-native:wafv2:RuleGroupForwardedIPConfiguration" to "#/types/aws-native:wafv2:RuleGroupForwardedIpConfiguration"
+Type "aws-native:quicksight:VPCConnectionNetworkInterfaceStatus" missing
+Type "aws-native:ec2:EC2FleetVCpuCountRangeRequest" missing
+Type "aws-native:iotwireless:DeviceProfileLoRaWANDeviceProfile" missing
+Type "aws-native:kinesisanalyticsv2:ApplicationJSONMappingParameters" missing
+Type "aws-native:datasync:LocationEFSTag" missing
+Type "aws-native:ec2:IPAMResourceDiscoveryIpamOperatingRegion" missing
+Type "aws-native:ec2:EC2FleetSpotOptionsRequestInstanceInterruptionBehavior" missing
+Type "aws-native:wafv2:WebACLSizeConstraintStatementComparisonOperator" missing
+Type "aws-native:quicksight:DashboardKPIProgressBarConditionalFormatting" missing
+Type "aws-native:lookoutmetrics:AnomalyDetectorMetricSource" input "rdsSourceConfig" type changed from "#/types/aws-native:lookoutmetrics:AnomalyDetectorRDSSourceConfig" to "#/types/aws-native:lookoutmetrics:AnomalyDetectorRdsSourceConfig"
+Type "aws-native:synthetics:CanaryVPCConfig" missing
+Type "aws-native:dynamodb:TableSSESpecification" missing
+Type "aws-native:rolesanywhere:SourceData0Properties" missing
+Type "aws-native:wafv2:WebACLBody" missing
+Type "aws-native:rds:DBProxyEndpointTagFormat" missing
+Type "aws-native:s3:BucketServerSideEncryptionByDefaultSSEAlgorithm" missing
+Type "aws-native:route53:HostedZoneVPC" missing
+Type "aws-native:wafv2:WebACLRequestBody" missing
+Type "aws-native:quicksight:TemplateKPIPrimaryValueConditionalFormatting" missing
+Type "aws-native:ec2:DHCPOptionsTag" missing
+Type "aws-native:wafv2:WebACLScope" missing
+Type "aws-native:datasync:LocationNFSMountOptions" missing
+Type "aws-native:wafv2:WebACLRateLimitQueryString" missing
+Type "aws-native:lookoutmetrics:AlertAction" input "snsConfiguration" type changed from "#/types/aws-native:lookoutmetrics:AlertSNSConfiguration" to "#/types/aws-native:lookoutmetrics:AlertSnsConfiguration"
+Type "aws-native:datasync:LocationNFSTag" missing
+Type "aws-native:fms:PolicyIEMap" missing
+Type "aws-native:dynamodb:GlobalTableReplicaSpecification" input "sseSpecification" type changed from "#/types/aws-native:dynamodb:GlobalTableReplicaSSESpecification" to "#/types/aws-native:dynamodb:GlobalTableReplicaSseSpecification"
+Type "aws-native:datasync:LocationNFSMountOptionsVersion" missing
+Type "aws-native:quicksight:DashboardPublishOptions" input "exportToCsvOption" type changed from "#/types/aws-native:quicksight:DashboardExportToCSVOption" to "#/types/aws-native:quicksight:DashboardExportToCsvOption"
+Type "aws-native:quicksight:DashboardVisual" input "kpiVisual" type changed from "#/types/aws-native:quicksight:DashboardKPIVisual" to "#/types/aws-native:quicksight:DashboardKpiVisual"
+Type "aws-native:auditmanager:AssessmentAWSService" missing
+Type "aws-native:lakeformation:PrincipalPermissionsLFTagKeyResource" missing
+Type "aws-native:quicksight:AnalysisKPIConfiguration" missing
+Type "aws-native:quicksight:TemplateCustomActionURLOperation" missing
+Type "aws-native:ec2:IPAMPoolIpamScopeType" missing
+Type "aws-native:wafv2:WebACLStatement" missing
+Type "aws-native:ec2:EC2FleetTargetCapacitySpecificationRequest" missing
+Type "aws-native:iam:SAMLProviderTag" missing
+Type "aws-native:pipes:PipeDynamoDBStreamStartPosition" missing
+Type "aws-native:personalize:SolutionConfigAutoMLConfigProperties" missing
+Type "aws-native:wafv2:WebACLOversizeHandling" missing
+Type "aws-native:appflow:ConnectorProfileCredentials" input "sapoData" type changed from "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentials" to "#/types/aws-native:appflow:ConnectorProfileSapoDataConnectorProfileCredentials"
+Type "aws-native:ec2:IPAMPoolState" missing
+Type "aws-native:wafv2:WebACLRateBasedStatement" missing
+Type "aws-native:applicationinsights:ApplicationHANAPrometheusExporter" missing
+Type "aws-native:networkfirewall:RuleGroupTCPFlagField" missing
+Type "aws-native:wafv2:WebACLFieldToMatch" missing
+Type "aws-native:ec2:EC2FleetCapacityReservationOptionsRequest" missing
+Type "aws-native:ec2:EC2FleetInstanceRequirementsRequestLocalStorage" missing
+Type "aws-native:ec2:EC2FleetMaintenanceStrategies" missing
+Type "aws-native:wafv2:WebACLRateLimitCookie" missing
+
+New resources:
+datasync.LocationEfs
+datasync.LocationFSxOntap
+datasync.LocationFSxOpenZfs
+datasync.LocationHdfs
+datasync.LocationNfs
+datasync.LocationSmb
+devicefarm.VpceConfiguration
+directoryservice.SimpleAd
+ec2.DhcpOptions
+ec2.Ec2Fleet
+ec2.Eip
+ec2.EipAssociation
+ec2.Ipam
+ec2.IpamAllocation
+ec2.IpamPool
+ec2.IpamPoolCidr
+ec2.IpamResourceDiscovery
+ec2.IpamResourceDiscoveryAssociation
+ec2.IpamScope
+ec2.LocalGatewayRouteTableVpcAssociation
+ec2.Vpc
+ec2.VpcEndpoint
+ec2.VpcEndpointService
+ec2.VpcEndpointServicePermissions
+ec2.VpcPeeringConnection
+ec2.VpcdhcpOptionsAssociation
+ec2.VpnConnection
+ec2.VpnConnectionRoute
+ec2.VpnGateway
+healthlake.FhirDatastore
+iam.OidcProvider
+iam.SamlProvider
+iam.VirtualMfaDevice
+iot.CaCertificate
+memorydb.Acl
+neptune.DbCluster
+quicksight.VpcConnection
+rds.CustomDbEngineVersion
+rds.DbCluster
+rds.DbClusterParameterGroup
+rds.DbInstance
+rds.DbParameterGroup
+rds.DbProxy
+rds.DbProxyEndpoint
+rds.DbProxyTargetGroup
+rds.DbSubnetGroup
+rolesanywhere.Crl
+route53.Dnssec
+route53resolver.ResolverDnssecConfig
+shield.DrtAccess
+wafv2.IpSet
+wafv2.WebAcl
+wafv2.WebAclAssociation
+New functions:
+datasync.getLocationEfs
+datasync.getLocationFSxOntap
+datasync.getLocationFSxOpenZfs
+datasync.getLocationHdfs
+datasync.getLocationNfs
+datasync.getLocationSmb
+devicefarm.getVpceConfiguration
+directoryservice.getSimpleAd
+ec2.getDhcpOptions
+ec2.getEc2Fleet
+ec2.getEip
+ec2.getEipAssociation
+ec2.getIpam
+ec2.getIpamAllocation
+ec2.getIpamPool
+ec2.getIpamPoolCidr
+ec2.getIpamResourceDiscovery
+ec2.getIpamResourceDiscoveryAssociation
+ec2.getIpamScope
+ec2.getLocalGatewayRouteTableVpcAssociation
+ec2.getVpc
+ec2.getVpcEndpoint
+ec2.getVpcEndpointService
+ec2.getVpcEndpointServicePermissions
+ec2.getVpcPeeringConnection
+ec2.getVpnConnection
+ec2.getVpnGateway
+healthlake.getFhirDatastore
+iam.getOidcProvider
+iam.getSamlProvider
+iam.getVirtualMfaDevice
+iot.getCaCertificate
+memorydb.getAcl
+neptune.getDbCluster
+quicksight.getVpcConnection
+rds.getCustomDbEngineVersion
+rds.getDbCluster
+rds.getDbClusterParameterGroup
+rds.getDbInstance
+rds.getDbParameterGroup
+rds.getDbProxy
+rds.getDbProxyEndpoint
+rds.getDbProxyTargetGroup
+rds.getDbSubnetGroup
+rolesanywhere.getCrl
+route53resolver.getResolverDnssecConfig
+shield.getDrtAccess
+wafv2.getIpSet
+wafv2.getWebAcl
 
 #### Resources
 - "aws-native:amplify:App":
