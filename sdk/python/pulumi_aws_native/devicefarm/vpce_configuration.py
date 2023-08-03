@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VPCEConfigurationArgs', 'VPCEConfiguration']
+__all__ = ['VpceConfigurationArgs', 'VpceConfiguration']
 
 @pulumi.input_type
-class VPCEConfigurationArgs:
+class VpceConfigurationArgs:
     def __init__(__self__, *,
                  service_dns_name: pulumi.Input[str],
                  vpce_service_name: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VPCEConfigurationTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpceConfigurationTagArgs']]]] = None,
                  vpce_configuration_description: Optional[pulumi.Input[str]] = None,
                  vpce_configuration_name: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a VPCEConfiguration resource.
+        The set of arguments for constructing a VpceConfiguration resource.
         """
         pulumi.set(__self__, "service_dns_name", service_dns_name)
         pulumi.set(__self__, "vpce_service_name", vpce_service_name)
@@ -53,11 +53,11 @@ class VPCEConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VPCEConfigurationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpceConfigurationTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VPCEConfigurationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpceConfigurationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -79,13 +79,13 @@ class VPCEConfigurationArgs:
         pulumi.set(self, "vpce_configuration_name", value)
 
 
-class VPCEConfiguration(pulumi.CustomResource):
+class VpceConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  service_dns_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCEConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpceConfigurationTagArgs']]]]] = None,
                  vpce_configuration_description: Optional[pulumi.Input[str]] = None,
                  vpce_configuration_name: Optional[pulumi.Input[str]] = None,
                  vpce_service_name: Optional[pulumi.Input[str]] = None,
@@ -100,18 +100,18 @@ class VPCEConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPCEConfigurationArgs,
+                 args: VpceConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
 
         :param str resource_name: The name of the resource.
-        :param VPCEConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param VpceConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPCEConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpceConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -121,7 +121,7 @@ class VPCEConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  service_dns_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCEConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpceConfigurationTagArgs']]]]] = None,
                  vpce_configuration_description: Optional[pulumi.Input[str]] = None,
                  vpce_configuration_name: Optional[pulumi.Input[str]] = None,
                  vpce_service_name: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class VPCEConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPCEConfigurationArgs.__new__(VPCEConfigurationArgs)
+            __props__ = VpceConfigurationArgs.__new__(VpceConfigurationArgs)
 
             if service_dns_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_dns_name'")
@@ -144,8 +144,8 @@ class VPCEConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpce_service_name'")
             __props__.__dict__["vpce_service_name"] = vpce_service_name
             __props__.__dict__["arn"] = None
-        super(VPCEConfiguration, __self__).__init__(
-            'aws-native:devicefarm:VPCEConfiguration',
+        super(VpceConfiguration, __self__).__init__(
+            'aws-native:devicefarm:VpceConfiguration',
             resource_name,
             __props__,
             opts)
@@ -153,9 +153,9 @@ class VPCEConfiguration(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPCEConfiguration':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpceConfiguration':
         """
-        Get an existing VPCEConfiguration resource's state with the given name, id, and optional extra
+        Get an existing VpceConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -164,7 +164,7 @@ class VPCEConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPCEConfigurationArgs.__new__(VPCEConfigurationArgs)
+        __props__ = VpceConfigurationArgs.__new__(VpceConfigurationArgs)
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["service_dns_name"] = None
@@ -172,7 +172,7 @@ class VPCEConfiguration(pulumi.CustomResource):
         __props__.__dict__["vpce_configuration_description"] = None
         __props__.__dict__["vpce_configuration_name"] = None
         __props__.__dict__["vpce_service_name"] = None
-        return VPCEConfiguration(resource_name, opts=opts, __props__=__props__)
+        return VpceConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -186,7 +186,7 @@ class VPCEConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VPCEConfigurationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VpceConfigurationTag']]]:
         return pulumi.get(self, "tags")
 
     @property

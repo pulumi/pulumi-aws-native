@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelNielsenWatermarksSettings
     {
-        public readonly Outputs.ChannelNielsenCBET? NielsenCbetSettings;
+        public readonly Outputs.ChannelNielsenCbet? NielsenCbetSettings;
         public readonly string? NielsenDistributionType;
         public readonly Outputs.ChannelNielsenNaesIiNw? NielsenNaesIiNwSettings;
 
         [OutputConstructor]
         private ChannelNielsenWatermarksSettings(
-            Outputs.ChannelNielsenCBET? nielsenCbetSettings,
+            Outputs.ChannelNielsenCbet? nielsenCbetSettings,
 
             string? nielsenDistributionType,
 

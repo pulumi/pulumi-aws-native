@@ -13,11 +13,11 @@ __all__ = [
     'HttpNamespaceTagArgs',
     'PrivateDnsNamespacePrivateDnsPropertiesMutableArgs',
     'PrivateDnsNamespacePropertiesArgs',
-    'PrivateDnsNamespaceSOAArgs',
+    'PrivateDnsNamespaceSoaArgs',
     'PrivateDnsNamespaceTagArgs',
     'PublicDnsNamespacePropertiesArgs',
     'PublicDnsNamespacePublicDnsPropertiesMutableArgs',
-    'PublicDnsNamespaceSOAArgs',
+    'PublicDnsNamespaceSoaArgs',
     'PublicDnsNamespaceTagArgs',
     'ServiceDnsConfigArgs',
     'ServiceDnsRecordArgs',
@@ -56,17 +56,17 @@ class HttpNamespaceTagArgs:
 @pulumi.input_type
 class PrivateDnsNamespacePrivateDnsPropertiesMutableArgs:
     def __init__(__self__, *,
-                 soa: Optional[pulumi.Input['PrivateDnsNamespaceSOAArgs']] = None):
+                 soa: Optional[pulumi.Input['PrivateDnsNamespaceSoaArgs']] = None):
         if soa is not None:
             pulumi.set(__self__, "soa", soa)
 
     @property
     @pulumi.getter
-    def soa(self) -> Optional[pulumi.Input['PrivateDnsNamespaceSOAArgs']]:
+    def soa(self) -> Optional[pulumi.Input['PrivateDnsNamespaceSoaArgs']]:
         return pulumi.get(self, "soa")
 
     @soa.setter
-    def soa(self, value: Optional[pulumi.Input['PrivateDnsNamespaceSOAArgs']]):
+    def soa(self, value: Optional[pulumi.Input['PrivateDnsNamespaceSoaArgs']]):
         pulumi.set(self, "soa", value)
 
 
@@ -88,7 +88,7 @@ class PrivateDnsNamespacePropertiesArgs:
 
 
 @pulumi.input_type
-class PrivateDnsNamespaceSOAArgs:
+class PrivateDnsNamespaceSoaArgs:
     def __init__(__self__, *,
                  ttl: Optional[pulumi.Input[float]] = None):
         if ttl is not None:
@@ -151,22 +151,22 @@ class PublicDnsNamespacePropertiesArgs:
 @pulumi.input_type
 class PublicDnsNamespacePublicDnsPropertiesMutableArgs:
     def __init__(__self__, *,
-                 soa: Optional[pulumi.Input['PublicDnsNamespaceSOAArgs']] = None):
+                 soa: Optional[pulumi.Input['PublicDnsNamespaceSoaArgs']] = None):
         if soa is not None:
             pulumi.set(__self__, "soa", soa)
 
     @property
     @pulumi.getter
-    def soa(self) -> Optional[pulumi.Input['PublicDnsNamespaceSOAArgs']]:
+    def soa(self) -> Optional[pulumi.Input['PublicDnsNamespaceSoaArgs']]:
         return pulumi.get(self, "soa")
 
     @soa.setter
-    def soa(self, value: Optional[pulumi.Input['PublicDnsNamespaceSOAArgs']]):
+    def soa(self, value: Optional[pulumi.Input['PublicDnsNamespaceSoaArgs']]):
         pulumi.set(self, "soa", value)
 
 
 @pulumi.input_type
-class PublicDnsNamespaceSOAArgs:
+class PublicDnsNamespaceSoaArgs:
     def __init__(__self__, *,
                  ttl: Optional[pulumi.Input[float]] = None):
         if ttl is not None:

@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetIPSetResult',
-    'AwaitableGetIPSetResult',
+    'GetIpSetResult',
+    'AwaitableGetIpSetResult',
     'get_ip_set',
     'get_ip_set_output',
 ]
 
 @pulumi.output_type
-class GetIPSetResult:
+class GetIpSetResult:
     def __init__(__self__, addresses=None, arn=None, description=None, id=None, ip_address_version=None, tags=None):
         if addresses and not isinstance(addresses, list):
             raise TypeError("Expected argument 'addresses' to be a list")
@@ -65,21 +65,21 @@ class GetIPSetResult:
 
     @property
     @pulumi.getter(name="ipAddressVersion")
-    def ip_address_version(self) -> Optional['IPSetIPAddressVersion']:
+    def ip_address_version(self) -> Optional['IpSetIpAddressVersion']:
         return pulumi.get(self, "ip_address_version")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.IPSetTag']]:
+    def tags(self) -> Optional[Sequence['outputs.IpSetTag']]:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIPSetResult(GetIPSetResult):
+class AwaitableGetIpSetResult(GetIpSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIPSetResult(
+        return GetIpSetResult(
             addresses=self.addresses,
             arn=self.arn,
             description=self.description,
@@ -90,8 +90,8 @@ class AwaitableGetIPSetResult(GetIPSetResult):
 
 def get_ip_set(id: Optional[str] = None,
                name: Optional[str] = None,
-               scope: Optional['IPSetScope'] = None,
-               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPSetResult:
+               scope: Optional['IpSetScope'] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpSetResult:
     """
     Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
     """
@@ -100,9 +100,9 @@ def get_ip_set(id: Optional[str] = None,
     __args__['name'] = name
     __args__['scope'] = scope
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getIPSet', __args__, opts=opts, typ=GetIPSetResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getIpSet', __args__, opts=opts, typ=GetIpSetResult).value
 
-    return AwaitableGetIPSetResult(
+    return AwaitableGetIpSetResult(
         addresses=pulumi.get(__ret__, 'addresses'),
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
@@ -114,8 +114,8 @@ def get_ip_set(id: Optional[str] = None,
 @_utilities.lift_output_func(get_ip_set)
 def get_ip_set_output(id: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
-                      scope: Optional[pulumi.Input['IPSetScope']] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPSetResult]:
+                      scope: Optional[pulumi.Input['IpSetScope']] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpSetResult]:
     """
     Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
     """

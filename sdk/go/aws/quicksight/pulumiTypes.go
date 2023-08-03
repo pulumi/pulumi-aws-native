@@ -11689,147 +11689,147 @@ func (o AnalysisCustomActionSetParametersOperationPtrOutput) ParameterValueConfi
 	}).(AnalysisSetParameterValueConfigurationArrayOutput)
 }
 
-type AnalysisCustomActionURLOperation struct {
-	UrlTarget   AnalysisURLTargetConfiguration `pulumi:"urlTarget"`
+type AnalysisCustomActionUrlOperation struct {
+	UrlTarget   AnalysisUrlTargetConfiguration `pulumi:"urlTarget"`
 	UrlTemplate string                         `pulumi:"urlTemplate"`
 }
 
-// AnalysisCustomActionURLOperationInput is an input type that accepts AnalysisCustomActionURLOperationArgs and AnalysisCustomActionURLOperationOutput values.
-// You can construct a concrete instance of `AnalysisCustomActionURLOperationInput` via:
+// AnalysisCustomActionUrlOperationInput is an input type that accepts AnalysisCustomActionUrlOperationArgs and AnalysisCustomActionUrlOperationOutput values.
+// You can construct a concrete instance of `AnalysisCustomActionUrlOperationInput` via:
 //
-//	AnalysisCustomActionURLOperationArgs{...}
-type AnalysisCustomActionURLOperationInput interface {
+//	AnalysisCustomActionUrlOperationArgs{...}
+type AnalysisCustomActionUrlOperationInput interface {
 	pulumi.Input
 
-	ToAnalysisCustomActionURLOperationOutput() AnalysisCustomActionURLOperationOutput
-	ToAnalysisCustomActionURLOperationOutputWithContext(context.Context) AnalysisCustomActionURLOperationOutput
+	ToAnalysisCustomActionUrlOperationOutput() AnalysisCustomActionUrlOperationOutput
+	ToAnalysisCustomActionUrlOperationOutputWithContext(context.Context) AnalysisCustomActionUrlOperationOutput
 }
 
-type AnalysisCustomActionURLOperationArgs struct {
-	UrlTarget   AnalysisURLTargetConfigurationInput `pulumi:"urlTarget"`
+type AnalysisCustomActionUrlOperationArgs struct {
+	UrlTarget   AnalysisUrlTargetConfigurationInput `pulumi:"urlTarget"`
 	UrlTemplate pulumi.StringInput                  `pulumi:"urlTemplate"`
 }
 
-func (AnalysisCustomActionURLOperationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisCustomActionURLOperation)(nil)).Elem()
+func (AnalysisCustomActionUrlOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisCustomActionUrlOperation)(nil)).Elem()
 }
 
-func (i AnalysisCustomActionURLOperationArgs) ToAnalysisCustomActionURLOperationOutput() AnalysisCustomActionURLOperationOutput {
-	return i.ToAnalysisCustomActionURLOperationOutputWithContext(context.Background())
+func (i AnalysisCustomActionUrlOperationArgs) ToAnalysisCustomActionUrlOperationOutput() AnalysisCustomActionUrlOperationOutput {
+	return i.ToAnalysisCustomActionUrlOperationOutputWithContext(context.Background())
 }
 
-func (i AnalysisCustomActionURLOperationArgs) ToAnalysisCustomActionURLOperationOutputWithContext(ctx context.Context) AnalysisCustomActionURLOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisCustomActionURLOperationOutput)
+func (i AnalysisCustomActionUrlOperationArgs) ToAnalysisCustomActionUrlOperationOutputWithContext(ctx context.Context) AnalysisCustomActionUrlOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisCustomActionUrlOperationOutput)
 }
 
-func (i AnalysisCustomActionURLOperationArgs) ToAnalysisCustomActionURLOperationPtrOutput() AnalysisCustomActionURLOperationPtrOutput {
-	return i.ToAnalysisCustomActionURLOperationPtrOutputWithContext(context.Background())
+func (i AnalysisCustomActionUrlOperationArgs) ToAnalysisCustomActionUrlOperationPtrOutput() AnalysisCustomActionUrlOperationPtrOutput {
+	return i.ToAnalysisCustomActionUrlOperationPtrOutputWithContext(context.Background())
 }
 
-func (i AnalysisCustomActionURLOperationArgs) ToAnalysisCustomActionURLOperationPtrOutputWithContext(ctx context.Context) AnalysisCustomActionURLOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisCustomActionURLOperationOutput).ToAnalysisCustomActionURLOperationPtrOutputWithContext(ctx)
+func (i AnalysisCustomActionUrlOperationArgs) ToAnalysisCustomActionUrlOperationPtrOutputWithContext(ctx context.Context) AnalysisCustomActionUrlOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisCustomActionUrlOperationOutput).ToAnalysisCustomActionUrlOperationPtrOutputWithContext(ctx)
 }
 
-// AnalysisCustomActionURLOperationPtrInput is an input type that accepts AnalysisCustomActionURLOperationArgs, AnalysisCustomActionURLOperationPtr and AnalysisCustomActionURLOperationPtrOutput values.
-// You can construct a concrete instance of `AnalysisCustomActionURLOperationPtrInput` via:
+// AnalysisCustomActionUrlOperationPtrInput is an input type that accepts AnalysisCustomActionUrlOperationArgs, AnalysisCustomActionUrlOperationPtr and AnalysisCustomActionUrlOperationPtrOutput values.
+// You can construct a concrete instance of `AnalysisCustomActionUrlOperationPtrInput` via:
 //
-//	        AnalysisCustomActionURLOperationArgs{...}
+//	        AnalysisCustomActionUrlOperationArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnalysisCustomActionURLOperationPtrInput interface {
+type AnalysisCustomActionUrlOperationPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisCustomActionURLOperationPtrOutput() AnalysisCustomActionURLOperationPtrOutput
-	ToAnalysisCustomActionURLOperationPtrOutputWithContext(context.Context) AnalysisCustomActionURLOperationPtrOutput
+	ToAnalysisCustomActionUrlOperationPtrOutput() AnalysisCustomActionUrlOperationPtrOutput
+	ToAnalysisCustomActionUrlOperationPtrOutputWithContext(context.Context) AnalysisCustomActionUrlOperationPtrOutput
 }
 
-type analysisCustomActionURLOperationPtrType AnalysisCustomActionURLOperationArgs
+type analysisCustomActionUrlOperationPtrType AnalysisCustomActionUrlOperationArgs
 
-func AnalysisCustomActionURLOperationPtr(v *AnalysisCustomActionURLOperationArgs) AnalysisCustomActionURLOperationPtrInput {
-	return (*analysisCustomActionURLOperationPtrType)(v)
+func AnalysisCustomActionUrlOperationPtr(v *AnalysisCustomActionUrlOperationArgs) AnalysisCustomActionUrlOperationPtrInput {
+	return (*analysisCustomActionUrlOperationPtrType)(v)
 }
 
-func (*analysisCustomActionURLOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisCustomActionURLOperation)(nil)).Elem()
+func (*analysisCustomActionUrlOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisCustomActionUrlOperation)(nil)).Elem()
 }
 
-func (i *analysisCustomActionURLOperationPtrType) ToAnalysisCustomActionURLOperationPtrOutput() AnalysisCustomActionURLOperationPtrOutput {
-	return i.ToAnalysisCustomActionURLOperationPtrOutputWithContext(context.Background())
+func (i *analysisCustomActionUrlOperationPtrType) ToAnalysisCustomActionUrlOperationPtrOutput() AnalysisCustomActionUrlOperationPtrOutput {
+	return i.ToAnalysisCustomActionUrlOperationPtrOutputWithContext(context.Background())
 }
 
-func (i *analysisCustomActionURLOperationPtrType) ToAnalysisCustomActionURLOperationPtrOutputWithContext(ctx context.Context) AnalysisCustomActionURLOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisCustomActionURLOperationPtrOutput)
+func (i *analysisCustomActionUrlOperationPtrType) ToAnalysisCustomActionUrlOperationPtrOutputWithContext(ctx context.Context) AnalysisCustomActionUrlOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisCustomActionUrlOperationPtrOutput)
 }
 
-type AnalysisCustomActionURLOperationOutput struct{ *pulumi.OutputState }
+type AnalysisCustomActionUrlOperationOutput struct{ *pulumi.OutputState }
 
-func (AnalysisCustomActionURLOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisCustomActionURLOperation)(nil)).Elem()
+func (AnalysisCustomActionUrlOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisCustomActionUrlOperation)(nil)).Elem()
 }
 
-func (o AnalysisCustomActionURLOperationOutput) ToAnalysisCustomActionURLOperationOutput() AnalysisCustomActionURLOperationOutput {
+func (o AnalysisCustomActionUrlOperationOutput) ToAnalysisCustomActionUrlOperationOutput() AnalysisCustomActionUrlOperationOutput {
 	return o
 }
 
-func (o AnalysisCustomActionURLOperationOutput) ToAnalysisCustomActionURLOperationOutputWithContext(ctx context.Context) AnalysisCustomActionURLOperationOutput {
+func (o AnalysisCustomActionUrlOperationOutput) ToAnalysisCustomActionUrlOperationOutputWithContext(ctx context.Context) AnalysisCustomActionUrlOperationOutput {
 	return o
 }
 
-func (o AnalysisCustomActionURLOperationOutput) ToAnalysisCustomActionURLOperationPtrOutput() AnalysisCustomActionURLOperationPtrOutput {
-	return o.ToAnalysisCustomActionURLOperationPtrOutputWithContext(context.Background())
+func (o AnalysisCustomActionUrlOperationOutput) ToAnalysisCustomActionUrlOperationPtrOutput() AnalysisCustomActionUrlOperationPtrOutput {
+	return o.ToAnalysisCustomActionUrlOperationPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisCustomActionURLOperationOutput) ToAnalysisCustomActionURLOperationPtrOutputWithContext(ctx context.Context) AnalysisCustomActionURLOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisCustomActionURLOperation) *AnalysisCustomActionURLOperation {
+func (o AnalysisCustomActionUrlOperationOutput) ToAnalysisCustomActionUrlOperationPtrOutputWithContext(ctx context.Context) AnalysisCustomActionUrlOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisCustomActionUrlOperation) *AnalysisCustomActionUrlOperation {
 		return &v
-	}).(AnalysisCustomActionURLOperationPtrOutput)
+	}).(AnalysisCustomActionUrlOperationPtrOutput)
 }
 
-func (o AnalysisCustomActionURLOperationOutput) UrlTarget() AnalysisURLTargetConfigurationOutput {
-	return o.ApplyT(func(v AnalysisCustomActionURLOperation) AnalysisURLTargetConfiguration { return v.UrlTarget }).(AnalysisURLTargetConfigurationOutput)
+func (o AnalysisCustomActionUrlOperationOutput) UrlTarget() AnalysisUrlTargetConfigurationOutput {
+	return o.ApplyT(func(v AnalysisCustomActionUrlOperation) AnalysisUrlTargetConfiguration { return v.UrlTarget }).(AnalysisUrlTargetConfigurationOutput)
 }
 
-func (o AnalysisCustomActionURLOperationOutput) UrlTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisCustomActionURLOperation) string { return v.UrlTemplate }).(pulumi.StringOutput)
+func (o AnalysisCustomActionUrlOperationOutput) UrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisCustomActionUrlOperation) string { return v.UrlTemplate }).(pulumi.StringOutput)
 }
 
-type AnalysisCustomActionURLOperationPtrOutput struct{ *pulumi.OutputState }
+type AnalysisCustomActionUrlOperationPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisCustomActionURLOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisCustomActionURLOperation)(nil)).Elem()
+func (AnalysisCustomActionUrlOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisCustomActionUrlOperation)(nil)).Elem()
 }
 
-func (o AnalysisCustomActionURLOperationPtrOutput) ToAnalysisCustomActionURLOperationPtrOutput() AnalysisCustomActionURLOperationPtrOutput {
+func (o AnalysisCustomActionUrlOperationPtrOutput) ToAnalysisCustomActionUrlOperationPtrOutput() AnalysisCustomActionUrlOperationPtrOutput {
 	return o
 }
 
-func (o AnalysisCustomActionURLOperationPtrOutput) ToAnalysisCustomActionURLOperationPtrOutputWithContext(ctx context.Context) AnalysisCustomActionURLOperationPtrOutput {
+func (o AnalysisCustomActionUrlOperationPtrOutput) ToAnalysisCustomActionUrlOperationPtrOutputWithContext(ctx context.Context) AnalysisCustomActionUrlOperationPtrOutput {
 	return o
 }
 
-func (o AnalysisCustomActionURLOperationPtrOutput) Elem() AnalysisCustomActionURLOperationOutput {
-	return o.ApplyT(func(v *AnalysisCustomActionURLOperation) AnalysisCustomActionURLOperation {
+func (o AnalysisCustomActionUrlOperationPtrOutput) Elem() AnalysisCustomActionUrlOperationOutput {
+	return o.ApplyT(func(v *AnalysisCustomActionUrlOperation) AnalysisCustomActionUrlOperation {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisCustomActionURLOperation
+		var ret AnalysisCustomActionUrlOperation
 		return ret
-	}).(AnalysisCustomActionURLOperationOutput)
+	}).(AnalysisCustomActionUrlOperationOutput)
 }
 
-func (o AnalysisCustomActionURLOperationPtrOutput) UrlTarget() AnalysisURLTargetConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisCustomActionURLOperation) *AnalysisURLTargetConfiguration {
+func (o AnalysisCustomActionUrlOperationPtrOutput) UrlTarget() AnalysisUrlTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisCustomActionUrlOperation) *AnalysisUrlTargetConfiguration {
 		if v == nil {
 			return nil
 		}
 		return &v.UrlTarget
-	}).(AnalysisURLTargetConfigurationPtrOutput)
+	}).(AnalysisUrlTargetConfigurationPtrOutput)
 }
 
-func (o AnalysisCustomActionURLOperationPtrOutput) UrlTemplate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalysisCustomActionURLOperation) *string {
+func (o AnalysisCustomActionUrlOperationPtrOutput) UrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisCustomActionUrlOperation) *string {
 		if v == nil {
 			return nil
 		}
@@ -34793,546 +34793,546 @@ func (o AnalysisItemsLimitConfigurationPtrOutput) OtherCategories() AnalysisOthe
 	}).(AnalysisOtherCategoriesPtrOutput)
 }
 
-type AnalysisKPIConditionalFormatting struct {
-	ConditionalFormattingOptions []AnalysisKPIConditionalFormattingOption `pulumi:"conditionalFormattingOptions"`
+type AnalysisKpiConditionalFormatting struct {
+	ConditionalFormattingOptions []AnalysisKpiConditionalFormattingOption `pulumi:"conditionalFormattingOptions"`
 }
 
-// AnalysisKPIConditionalFormattingInput is an input type that accepts AnalysisKPIConditionalFormattingArgs and AnalysisKPIConditionalFormattingOutput values.
-// You can construct a concrete instance of `AnalysisKPIConditionalFormattingInput` via:
+// AnalysisKpiConditionalFormattingInput is an input type that accepts AnalysisKpiConditionalFormattingArgs and AnalysisKpiConditionalFormattingOutput values.
+// You can construct a concrete instance of `AnalysisKpiConditionalFormattingInput` via:
 //
-//	AnalysisKPIConditionalFormattingArgs{...}
-type AnalysisKPIConditionalFormattingInput interface {
+//	AnalysisKpiConditionalFormattingArgs{...}
+type AnalysisKpiConditionalFormattingInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIConditionalFormattingOutput() AnalysisKPIConditionalFormattingOutput
-	ToAnalysisKPIConditionalFormattingOutputWithContext(context.Context) AnalysisKPIConditionalFormattingOutput
+	ToAnalysisKpiConditionalFormattingOutput() AnalysisKpiConditionalFormattingOutput
+	ToAnalysisKpiConditionalFormattingOutputWithContext(context.Context) AnalysisKpiConditionalFormattingOutput
 }
 
-type AnalysisKPIConditionalFormattingArgs struct {
-	ConditionalFormattingOptions AnalysisKPIConditionalFormattingOptionArrayInput `pulumi:"conditionalFormattingOptions"`
+type AnalysisKpiConditionalFormattingArgs struct {
+	ConditionalFormattingOptions AnalysisKpiConditionalFormattingOptionArrayInput `pulumi:"conditionalFormattingOptions"`
 }
 
-func (AnalysisKPIConditionalFormattingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIConditionalFormatting)(nil)).Elem()
+func (AnalysisKpiConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiConditionalFormatting)(nil)).Elem()
 }
 
-func (i AnalysisKPIConditionalFormattingArgs) ToAnalysisKPIConditionalFormattingOutput() AnalysisKPIConditionalFormattingOutput {
-	return i.ToAnalysisKPIConditionalFormattingOutputWithContext(context.Background())
+func (i AnalysisKpiConditionalFormattingArgs) ToAnalysisKpiConditionalFormattingOutput() AnalysisKpiConditionalFormattingOutput {
+	return i.ToAnalysisKpiConditionalFormattingOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIConditionalFormattingArgs) ToAnalysisKPIConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKPIConditionalFormattingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIConditionalFormattingOutput)
+func (i AnalysisKpiConditionalFormattingArgs) ToAnalysisKpiConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKpiConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiConditionalFormattingOutput)
 }
 
-func (i AnalysisKPIConditionalFormattingArgs) ToAnalysisKPIConditionalFormattingPtrOutput() AnalysisKPIConditionalFormattingPtrOutput {
-	return i.ToAnalysisKPIConditionalFormattingPtrOutputWithContext(context.Background())
+func (i AnalysisKpiConditionalFormattingArgs) ToAnalysisKpiConditionalFormattingPtrOutput() AnalysisKpiConditionalFormattingPtrOutput {
+	return i.ToAnalysisKpiConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIConditionalFormattingArgs) ToAnalysisKPIConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIConditionalFormattingOutput).ToAnalysisKPIConditionalFormattingPtrOutputWithContext(ctx)
+func (i AnalysisKpiConditionalFormattingArgs) ToAnalysisKpiConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiConditionalFormattingOutput).ToAnalysisKpiConditionalFormattingPtrOutputWithContext(ctx)
 }
 
-// AnalysisKPIConditionalFormattingPtrInput is an input type that accepts AnalysisKPIConditionalFormattingArgs, AnalysisKPIConditionalFormattingPtr and AnalysisKPIConditionalFormattingPtrOutput values.
-// You can construct a concrete instance of `AnalysisKPIConditionalFormattingPtrInput` via:
+// AnalysisKpiConditionalFormattingPtrInput is an input type that accepts AnalysisKpiConditionalFormattingArgs, AnalysisKpiConditionalFormattingPtr and AnalysisKpiConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `AnalysisKpiConditionalFormattingPtrInput` via:
 //
-//	        AnalysisKPIConditionalFormattingArgs{...}
+//	        AnalysisKpiConditionalFormattingArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnalysisKPIConditionalFormattingPtrInput interface {
+type AnalysisKpiConditionalFormattingPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIConditionalFormattingPtrOutput() AnalysisKPIConditionalFormattingPtrOutput
-	ToAnalysisKPIConditionalFormattingPtrOutputWithContext(context.Context) AnalysisKPIConditionalFormattingPtrOutput
+	ToAnalysisKpiConditionalFormattingPtrOutput() AnalysisKpiConditionalFormattingPtrOutput
+	ToAnalysisKpiConditionalFormattingPtrOutputWithContext(context.Context) AnalysisKpiConditionalFormattingPtrOutput
 }
 
-type analysisKPIConditionalFormattingPtrType AnalysisKPIConditionalFormattingArgs
+type analysisKpiConditionalFormattingPtrType AnalysisKpiConditionalFormattingArgs
 
-func AnalysisKPIConditionalFormattingPtr(v *AnalysisKPIConditionalFormattingArgs) AnalysisKPIConditionalFormattingPtrInput {
-	return (*analysisKPIConditionalFormattingPtrType)(v)
+func AnalysisKpiConditionalFormattingPtr(v *AnalysisKpiConditionalFormattingArgs) AnalysisKpiConditionalFormattingPtrInput {
+	return (*analysisKpiConditionalFormattingPtrType)(v)
 }
 
-func (*analysisKPIConditionalFormattingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIConditionalFormatting)(nil)).Elem()
+func (*analysisKpiConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiConditionalFormatting)(nil)).Elem()
 }
 
-func (i *analysisKPIConditionalFormattingPtrType) ToAnalysisKPIConditionalFormattingPtrOutput() AnalysisKPIConditionalFormattingPtrOutput {
-	return i.ToAnalysisKPIConditionalFormattingPtrOutputWithContext(context.Background())
+func (i *analysisKpiConditionalFormattingPtrType) ToAnalysisKpiConditionalFormattingPtrOutput() AnalysisKpiConditionalFormattingPtrOutput {
+	return i.ToAnalysisKpiConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i *analysisKPIConditionalFormattingPtrType) ToAnalysisKPIConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIConditionalFormattingPtrOutput)
+func (i *analysisKpiConditionalFormattingPtrType) ToAnalysisKpiConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiConditionalFormattingPtrOutput)
 }
 
-type AnalysisKPIConditionalFormattingOutput struct{ *pulumi.OutputState }
+type AnalysisKpiConditionalFormattingOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIConditionalFormattingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIConditionalFormatting)(nil)).Elem()
+func (AnalysisKpiConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiConditionalFormatting)(nil)).Elem()
 }
 
-func (o AnalysisKPIConditionalFormattingOutput) ToAnalysisKPIConditionalFormattingOutput() AnalysisKPIConditionalFormattingOutput {
+func (o AnalysisKpiConditionalFormattingOutput) ToAnalysisKpiConditionalFormattingOutput() AnalysisKpiConditionalFormattingOutput {
 	return o
 }
 
-func (o AnalysisKPIConditionalFormattingOutput) ToAnalysisKPIConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKPIConditionalFormattingOutput {
+func (o AnalysisKpiConditionalFormattingOutput) ToAnalysisKpiConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKpiConditionalFormattingOutput {
 	return o
 }
 
-func (o AnalysisKPIConditionalFormattingOutput) ToAnalysisKPIConditionalFormattingPtrOutput() AnalysisKPIConditionalFormattingPtrOutput {
-	return o.ToAnalysisKPIConditionalFormattingPtrOutputWithContext(context.Background())
+func (o AnalysisKpiConditionalFormattingOutput) ToAnalysisKpiConditionalFormattingPtrOutput() AnalysisKpiConditionalFormattingPtrOutput {
+	return o.ToAnalysisKpiConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisKPIConditionalFormattingOutput) ToAnalysisKPIConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIConditionalFormattingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKPIConditionalFormatting) *AnalysisKPIConditionalFormatting {
+func (o AnalysisKpiConditionalFormattingOutput) ToAnalysisKpiConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKpiConditionalFormatting) *AnalysisKpiConditionalFormatting {
 		return &v
-	}).(AnalysisKPIConditionalFormattingPtrOutput)
+	}).(AnalysisKpiConditionalFormattingPtrOutput)
 }
 
-func (o AnalysisKPIConditionalFormattingOutput) ConditionalFormattingOptions() AnalysisKPIConditionalFormattingOptionArrayOutput {
-	return o.ApplyT(func(v AnalysisKPIConditionalFormatting) []AnalysisKPIConditionalFormattingOption {
+func (o AnalysisKpiConditionalFormattingOutput) ConditionalFormattingOptions() AnalysisKpiConditionalFormattingOptionArrayOutput {
+	return o.ApplyT(func(v AnalysisKpiConditionalFormatting) []AnalysisKpiConditionalFormattingOption {
 		return v.ConditionalFormattingOptions
-	}).(AnalysisKPIConditionalFormattingOptionArrayOutput)
+	}).(AnalysisKpiConditionalFormattingOptionArrayOutput)
 }
 
-type AnalysisKPIConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+type AnalysisKpiConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIConditionalFormattingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIConditionalFormatting)(nil)).Elem()
+func (AnalysisKpiConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiConditionalFormatting)(nil)).Elem()
 }
 
-func (o AnalysisKPIConditionalFormattingPtrOutput) ToAnalysisKPIConditionalFormattingPtrOutput() AnalysisKPIConditionalFormattingPtrOutput {
+func (o AnalysisKpiConditionalFormattingPtrOutput) ToAnalysisKpiConditionalFormattingPtrOutput() AnalysisKpiConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIConditionalFormattingPtrOutput) ToAnalysisKPIConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIConditionalFormattingPtrOutput {
+func (o AnalysisKpiConditionalFormattingPtrOutput) ToAnalysisKpiConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIConditionalFormattingPtrOutput) Elem() AnalysisKPIConditionalFormattingOutput {
-	return o.ApplyT(func(v *AnalysisKPIConditionalFormatting) AnalysisKPIConditionalFormatting {
+func (o AnalysisKpiConditionalFormattingPtrOutput) Elem() AnalysisKpiConditionalFormattingOutput {
+	return o.ApplyT(func(v *AnalysisKpiConditionalFormatting) AnalysisKpiConditionalFormatting {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisKPIConditionalFormatting
+		var ret AnalysisKpiConditionalFormatting
 		return ret
-	}).(AnalysisKPIConditionalFormattingOutput)
+	}).(AnalysisKpiConditionalFormattingOutput)
 }
 
-func (o AnalysisKPIConditionalFormattingPtrOutput) ConditionalFormattingOptions() AnalysisKPIConditionalFormattingOptionArrayOutput {
-	return o.ApplyT(func(v *AnalysisKPIConditionalFormatting) []AnalysisKPIConditionalFormattingOption {
+func (o AnalysisKpiConditionalFormattingPtrOutput) ConditionalFormattingOptions() AnalysisKpiConditionalFormattingOptionArrayOutput {
+	return o.ApplyT(func(v *AnalysisKpiConditionalFormatting) []AnalysisKpiConditionalFormattingOption {
 		if v == nil {
 			return nil
 		}
 		return v.ConditionalFormattingOptions
-	}).(AnalysisKPIConditionalFormattingOptionArrayOutput)
+	}).(AnalysisKpiConditionalFormattingOptionArrayOutput)
 }
 
-type AnalysisKPIConditionalFormattingOption struct {
-	PrimaryValue *AnalysisKPIPrimaryValueConditionalFormatting `pulumi:"primaryValue"`
-	ProgressBar  *AnalysisKPIProgressBarConditionalFormatting  `pulumi:"progressBar"`
+type AnalysisKpiConditionalFormattingOption struct {
+	PrimaryValue *AnalysisKpiPrimaryValueConditionalFormatting `pulumi:"primaryValue"`
+	ProgressBar  *AnalysisKpiProgressBarConditionalFormatting  `pulumi:"progressBar"`
 }
 
-// AnalysisKPIConditionalFormattingOptionInput is an input type that accepts AnalysisKPIConditionalFormattingOptionArgs and AnalysisKPIConditionalFormattingOptionOutput values.
-// You can construct a concrete instance of `AnalysisKPIConditionalFormattingOptionInput` via:
+// AnalysisKpiConditionalFormattingOptionInput is an input type that accepts AnalysisKpiConditionalFormattingOptionArgs and AnalysisKpiConditionalFormattingOptionOutput values.
+// You can construct a concrete instance of `AnalysisKpiConditionalFormattingOptionInput` via:
 //
-//	AnalysisKPIConditionalFormattingOptionArgs{...}
-type AnalysisKPIConditionalFormattingOptionInput interface {
+//	AnalysisKpiConditionalFormattingOptionArgs{...}
+type AnalysisKpiConditionalFormattingOptionInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIConditionalFormattingOptionOutput() AnalysisKPIConditionalFormattingOptionOutput
-	ToAnalysisKPIConditionalFormattingOptionOutputWithContext(context.Context) AnalysisKPIConditionalFormattingOptionOutput
+	ToAnalysisKpiConditionalFormattingOptionOutput() AnalysisKpiConditionalFormattingOptionOutput
+	ToAnalysisKpiConditionalFormattingOptionOutputWithContext(context.Context) AnalysisKpiConditionalFormattingOptionOutput
 }
 
-type AnalysisKPIConditionalFormattingOptionArgs struct {
-	PrimaryValue AnalysisKPIPrimaryValueConditionalFormattingPtrInput `pulumi:"primaryValue"`
-	ProgressBar  AnalysisKPIProgressBarConditionalFormattingPtrInput  `pulumi:"progressBar"`
+type AnalysisKpiConditionalFormattingOptionArgs struct {
+	PrimaryValue AnalysisKpiPrimaryValueConditionalFormattingPtrInput `pulumi:"primaryValue"`
+	ProgressBar  AnalysisKpiProgressBarConditionalFormattingPtrInput  `pulumi:"progressBar"`
 }
 
-func (AnalysisKPIConditionalFormattingOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIConditionalFormattingOption)(nil)).Elem()
+func (AnalysisKpiConditionalFormattingOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiConditionalFormattingOption)(nil)).Elem()
 }
 
-func (i AnalysisKPIConditionalFormattingOptionArgs) ToAnalysisKPIConditionalFormattingOptionOutput() AnalysisKPIConditionalFormattingOptionOutput {
-	return i.ToAnalysisKPIConditionalFormattingOptionOutputWithContext(context.Background())
+func (i AnalysisKpiConditionalFormattingOptionArgs) ToAnalysisKpiConditionalFormattingOptionOutput() AnalysisKpiConditionalFormattingOptionOutput {
+	return i.ToAnalysisKpiConditionalFormattingOptionOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIConditionalFormattingOptionArgs) ToAnalysisKPIConditionalFormattingOptionOutputWithContext(ctx context.Context) AnalysisKPIConditionalFormattingOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIConditionalFormattingOptionOutput)
+func (i AnalysisKpiConditionalFormattingOptionArgs) ToAnalysisKpiConditionalFormattingOptionOutputWithContext(ctx context.Context) AnalysisKpiConditionalFormattingOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiConditionalFormattingOptionOutput)
 }
 
-// AnalysisKPIConditionalFormattingOptionArrayInput is an input type that accepts AnalysisKPIConditionalFormattingOptionArray and AnalysisKPIConditionalFormattingOptionArrayOutput values.
-// You can construct a concrete instance of `AnalysisKPIConditionalFormattingOptionArrayInput` via:
+// AnalysisKpiConditionalFormattingOptionArrayInput is an input type that accepts AnalysisKpiConditionalFormattingOptionArray and AnalysisKpiConditionalFormattingOptionArrayOutput values.
+// You can construct a concrete instance of `AnalysisKpiConditionalFormattingOptionArrayInput` via:
 //
-//	AnalysisKPIConditionalFormattingOptionArray{ AnalysisKPIConditionalFormattingOptionArgs{...} }
-type AnalysisKPIConditionalFormattingOptionArrayInput interface {
+//	AnalysisKpiConditionalFormattingOptionArray{ AnalysisKpiConditionalFormattingOptionArgs{...} }
+type AnalysisKpiConditionalFormattingOptionArrayInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIConditionalFormattingOptionArrayOutput() AnalysisKPIConditionalFormattingOptionArrayOutput
-	ToAnalysisKPIConditionalFormattingOptionArrayOutputWithContext(context.Context) AnalysisKPIConditionalFormattingOptionArrayOutput
+	ToAnalysisKpiConditionalFormattingOptionArrayOutput() AnalysisKpiConditionalFormattingOptionArrayOutput
+	ToAnalysisKpiConditionalFormattingOptionArrayOutputWithContext(context.Context) AnalysisKpiConditionalFormattingOptionArrayOutput
 }
 
-type AnalysisKPIConditionalFormattingOptionArray []AnalysisKPIConditionalFormattingOptionInput
+type AnalysisKpiConditionalFormattingOptionArray []AnalysisKpiConditionalFormattingOptionInput
 
-func (AnalysisKPIConditionalFormattingOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisKPIConditionalFormattingOption)(nil)).Elem()
+func (AnalysisKpiConditionalFormattingOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisKpiConditionalFormattingOption)(nil)).Elem()
 }
 
-func (i AnalysisKPIConditionalFormattingOptionArray) ToAnalysisKPIConditionalFormattingOptionArrayOutput() AnalysisKPIConditionalFormattingOptionArrayOutput {
-	return i.ToAnalysisKPIConditionalFormattingOptionArrayOutputWithContext(context.Background())
+func (i AnalysisKpiConditionalFormattingOptionArray) ToAnalysisKpiConditionalFormattingOptionArrayOutput() AnalysisKpiConditionalFormattingOptionArrayOutput {
+	return i.ToAnalysisKpiConditionalFormattingOptionArrayOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIConditionalFormattingOptionArray) ToAnalysisKPIConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) AnalysisKPIConditionalFormattingOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIConditionalFormattingOptionArrayOutput)
+func (i AnalysisKpiConditionalFormattingOptionArray) ToAnalysisKpiConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) AnalysisKpiConditionalFormattingOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiConditionalFormattingOptionArrayOutput)
 }
 
-type AnalysisKPIConditionalFormattingOptionOutput struct{ *pulumi.OutputState }
+type AnalysisKpiConditionalFormattingOptionOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIConditionalFormattingOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIConditionalFormattingOption)(nil)).Elem()
+func (AnalysisKpiConditionalFormattingOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiConditionalFormattingOption)(nil)).Elem()
 }
 
-func (o AnalysisKPIConditionalFormattingOptionOutput) ToAnalysisKPIConditionalFormattingOptionOutput() AnalysisKPIConditionalFormattingOptionOutput {
+func (o AnalysisKpiConditionalFormattingOptionOutput) ToAnalysisKpiConditionalFormattingOptionOutput() AnalysisKpiConditionalFormattingOptionOutput {
 	return o
 }
 
-func (o AnalysisKPIConditionalFormattingOptionOutput) ToAnalysisKPIConditionalFormattingOptionOutputWithContext(ctx context.Context) AnalysisKPIConditionalFormattingOptionOutput {
+func (o AnalysisKpiConditionalFormattingOptionOutput) ToAnalysisKpiConditionalFormattingOptionOutputWithContext(ctx context.Context) AnalysisKpiConditionalFormattingOptionOutput {
 	return o
 }
 
-func (o AnalysisKPIConditionalFormattingOptionOutput) PrimaryValue() AnalysisKPIPrimaryValueConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIConditionalFormattingOption) *AnalysisKPIPrimaryValueConditionalFormatting {
+func (o AnalysisKpiConditionalFormattingOptionOutput) PrimaryValue() AnalysisKpiPrimaryValueConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiConditionalFormattingOption) *AnalysisKpiPrimaryValueConditionalFormatting {
 		return v.PrimaryValue
-	}).(AnalysisKPIPrimaryValueConditionalFormattingPtrOutput)
+	}).(AnalysisKpiPrimaryValueConditionalFormattingPtrOutput)
 }
 
-func (o AnalysisKPIConditionalFormattingOptionOutput) ProgressBar() AnalysisKPIProgressBarConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIConditionalFormattingOption) *AnalysisKPIProgressBarConditionalFormatting {
+func (o AnalysisKpiConditionalFormattingOptionOutput) ProgressBar() AnalysisKpiProgressBarConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiConditionalFormattingOption) *AnalysisKpiProgressBarConditionalFormatting {
 		return v.ProgressBar
-	}).(AnalysisKPIProgressBarConditionalFormattingPtrOutput)
+	}).(AnalysisKpiProgressBarConditionalFormattingPtrOutput)
 }
 
-type AnalysisKPIConditionalFormattingOptionArrayOutput struct{ *pulumi.OutputState }
+type AnalysisKpiConditionalFormattingOptionArrayOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIConditionalFormattingOptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisKPIConditionalFormattingOption)(nil)).Elem()
+func (AnalysisKpiConditionalFormattingOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisKpiConditionalFormattingOption)(nil)).Elem()
 }
 
-func (o AnalysisKPIConditionalFormattingOptionArrayOutput) ToAnalysisKPIConditionalFormattingOptionArrayOutput() AnalysisKPIConditionalFormattingOptionArrayOutput {
+func (o AnalysisKpiConditionalFormattingOptionArrayOutput) ToAnalysisKpiConditionalFormattingOptionArrayOutput() AnalysisKpiConditionalFormattingOptionArrayOutput {
 	return o
 }
 
-func (o AnalysisKPIConditionalFormattingOptionArrayOutput) ToAnalysisKPIConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) AnalysisKPIConditionalFormattingOptionArrayOutput {
+func (o AnalysisKpiConditionalFormattingOptionArrayOutput) ToAnalysisKpiConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) AnalysisKpiConditionalFormattingOptionArrayOutput {
 	return o
 }
 
-func (o AnalysisKPIConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInput) AnalysisKPIConditionalFormattingOptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisKPIConditionalFormattingOption {
-		return vs[0].([]AnalysisKPIConditionalFormattingOption)[vs[1].(int)]
-	}).(AnalysisKPIConditionalFormattingOptionOutput)
+func (o AnalysisKpiConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInput) AnalysisKpiConditionalFormattingOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisKpiConditionalFormattingOption {
+		return vs[0].([]AnalysisKpiConditionalFormattingOption)[vs[1].(int)]
+	}).(AnalysisKpiConditionalFormattingOptionOutput)
 }
 
-type AnalysisKPIConfiguration struct {
-	FieldWells        *AnalysisKPIFieldWells        `pulumi:"fieldWells"`
-	KpiOptions        *AnalysisKPIOptions           `pulumi:"kpiOptions"`
-	SortConfiguration *AnalysisKPISortConfiguration `pulumi:"sortConfiguration"`
+type AnalysisKpiConfiguration struct {
+	FieldWells        *AnalysisKpiFieldWells        `pulumi:"fieldWells"`
+	KpiOptions        *AnalysisKpiOptions           `pulumi:"kpiOptions"`
+	SortConfiguration *AnalysisKpiSortConfiguration `pulumi:"sortConfiguration"`
 }
 
-// AnalysisKPIConfigurationInput is an input type that accepts AnalysisKPIConfigurationArgs and AnalysisKPIConfigurationOutput values.
-// You can construct a concrete instance of `AnalysisKPIConfigurationInput` via:
+// AnalysisKpiConfigurationInput is an input type that accepts AnalysisKpiConfigurationArgs and AnalysisKpiConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisKpiConfigurationInput` via:
 //
-//	AnalysisKPIConfigurationArgs{...}
-type AnalysisKPIConfigurationInput interface {
+//	AnalysisKpiConfigurationArgs{...}
+type AnalysisKpiConfigurationInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIConfigurationOutput() AnalysisKPIConfigurationOutput
-	ToAnalysisKPIConfigurationOutputWithContext(context.Context) AnalysisKPIConfigurationOutput
+	ToAnalysisKpiConfigurationOutput() AnalysisKpiConfigurationOutput
+	ToAnalysisKpiConfigurationOutputWithContext(context.Context) AnalysisKpiConfigurationOutput
 }
 
-type AnalysisKPIConfigurationArgs struct {
-	FieldWells        AnalysisKPIFieldWellsPtrInput        `pulumi:"fieldWells"`
-	KpiOptions        AnalysisKPIOptionsPtrInput           `pulumi:"kpiOptions"`
-	SortConfiguration AnalysisKPISortConfigurationPtrInput `pulumi:"sortConfiguration"`
+type AnalysisKpiConfigurationArgs struct {
+	FieldWells        AnalysisKpiFieldWellsPtrInput        `pulumi:"fieldWells"`
+	KpiOptions        AnalysisKpiOptionsPtrInput           `pulumi:"kpiOptions"`
+	SortConfiguration AnalysisKpiSortConfigurationPtrInput `pulumi:"sortConfiguration"`
 }
 
-func (AnalysisKPIConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIConfiguration)(nil)).Elem()
+func (AnalysisKpiConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiConfiguration)(nil)).Elem()
 }
 
-func (i AnalysisKPIConfigurationArgs) ToAnalysisKPIConfigurationOutput() AnalysisKPIConfigurationOutput {
-	return i.ToAnalysisKPIConfigurationOutputWithContext(context.Background())
+func (i AnalysisKpiConfigurationArgs) ToAnalysisKpiConfigurationOutput() AnalysisKpiConfigurationOutput {
+	return i.ToAnalysisKpiConfigurationOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIConfigurationArgs) ToAnalysisKPIConfigurationOutputWithContext(ctx context.Context) AnalysisKPIConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIConfigurationOutput)
+func (i AnalysisKpiConfigurationArgs) ToAnalysisKpiConfigurationOutputWithContext(ctx context.Context) AnalysisKpiConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiConfigurationOutput)
 }
 
-func (i AnalysisKPIConfigurationArgs) ToAnalysisKPIConfigurationPtrOutput() AnalysisKPIConfigurationPtrOutput {
-	return i.ToAnalysisKPIConfigurationPtrOutputWithContext(context.Background())
+func (i AnalysisKpiConfigurationArgs) ToAnalysisKpiConfigurationPtrOutput() AnalysisKpiConfigurationPtrOutput {
+	return i.ToAnalysisKpiConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIConfigurationArgs) ToAnalysisKPIConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKPIConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIConfigurationOutput).ToAnalysisKPIConfigurationPtrOutputWithContext(ctx)
+func (i AnalysisKpiConfigurationArgs) ToAnalysisKpiConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKpiConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiConfigurationOutput).ToAnalysisKpiConfigurationPtrOutputWithContext(ctx)
 }
 
-// AnalysisKPIConfigurationPtrInput is an input type that accepts AnalysisKPIConfigurationArgs, AnalysisKPIConfigurationPtr and AnalysisKPIConfigurationPtrOutput values.
-// You can construct a concrete instance of `AnalysisKPIConfigurationPtrInput` via:
+// AnalysisKpiConfigurationPtrInput is an input type that accepts AnalysisKpiConfigurationArgs, AnalysisKpiConfigurationPtr and AnalysisKpiConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisKpiConfigurationPtrInput` via:
 //
-//	        AnalysisKPIConfigurationArgs{...}
+//	        AnalysisKpiConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnalysisKPIConfigurationPtrInput interface {
+type AnalysisKpiConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIConfigurationPtrOutput() AnalysisKPIConfigurationPtrOutput
-	ToAnalysisKPIConfigurationPtrOutputWithContext(context.Context) AnalysisKPIConfigurationPtrOutput
+	ToAnalysisKpiConfigurationPtrOutput() AnalysisKpiConfigurationPtrOutput
+	ToAnalysisKpiConfigurationPtrOutputWithContext(context.Context) AnalysisKpiConfigurationPtrOutput
 }
 
-type analysisKPIConfigurationPtrType AnalysisKPIConfigurationArgs
+type analysisKpiConfigurationPtrType AnalysisKpiConfigurationArgs
 
-func AnalysisKPIConfigurationPtr(v *AnalysisKPIConfigurationArgs) AnalysisKPIConfigurationPtrInput {
-	return (*analysisKPIConfigurationPtrType)(v)
+func AnalysisKpiConfigurationPtr(v *AnalysisKpiConfigurationArgs) AnalysisKpiConfigurationPtrInput {
+	return (*analysisKpiConfigurationPtrType)(v)
 }
 
-func (*analysisKPIConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIConfiguration)(nil)).Elem()
+func (*analysisKpiConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiConfiguration)(nil)).Elem()
 }
 
-func (i *analysisKPIConfigurationPtrType) ToAnalysisKPIConfigurationPtrOutput() AnalysisKPIConfigurationPtrOutput {
-	return i.ToAnalysisKPIConfigurationPtrOutputWithContext(context.Background())
+func (i *analysisKpiConfigurationPtrType) ToAnalysisKpiConfigurationPtrOutput() AnalysisKpiConfigurationPtrOutput {
+	return i.ToAnalysisKpiConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *analysisKPIConfigurationPtrType) ToAnalysisKPIConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKPIConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIConfigurationPtrOutput)
+func (i *analysisKpiConfigurationPtrType) ToAnalysisKpiConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKpiConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiConfigurationPtrOutput)
 }
 
-type AnalysisKPIConfigurationOutput struct{ *pulumi.OutputState }
+type AnalysisKpiConfigurationOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIConfiguration)(nil)).Elem()
+func (AnalysisKpiConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiConfiguration)(nil)).Elem()
 }
 
-func (o AnalysisKPIConfigurationOutput) ToAnalysisKPIConfigurationOutput() AnalysisKPIConfigurationOutput {
+func (o AnalysisKpiConfigurationOutput) ToAnalysisKpiConfigurationOutput() AnalysisKpiConfigurationOutput {
 	return o
 }
 
-func (o AnalysisKPIConfigurationOutput) ToAnalysisKPIConfigurationOutputWithContext(ctx context.Context) AnalysisKPIConfigurationOutput {
+func (o AnalysisKpiConfigurationOutput) ToAnalysisKpiConfigurationOutputWithContext(ctx context.Context) AnalysisKpiConfigurationOutput {
 	return o
 }
 
-func (o AnalysisKPIConfigurationOutput) ToAnalysisKPIConfigurationPtrOutput() AnalysisKPIConfigurationPtrOutput {
-	return o.ToAnalysisKPIConfigurationPtrOutputWithContext(context.Background())
+func (o AnalysisKpiConfigurationOutput) ToAnalysisKpiConfigurationPtrOutput() AnalysisKpiConfigurationPtrOutput {
+	return o.ToAnalysisKpiConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisKPIConfigurationOutput) ToAnalysisKPIConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKPIConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKPIConfiguration) *AnalysisKPIConfiguration {
+func (o AnalysisKpiConfigurationOutput) ToAnalysisKpiConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKpiConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKpiConfiguration) *AnalysisKpiConfiguration {
 		return &v
-	}).(AnalysisKPIConfigurationPtrOutput)
+	}).(AnalysisKpiConfigurationPtrOutput)
 }
 
-func (o AnalysisKPIConfigurationOutput) FieldWells() AnalysisKPIFieldWellsPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIConfiguration) *AnalysisKPIFieldWells { return v.FieldWells }).(AnalysisKPIFieldWellsPtrOutput)
+func (o AnalysisKpiConfigurationOutput) FieldWells() AnalysisKpiFieldWellsPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiConfiguration) *AnalysisKpiFieldWells { return v.FieldWells }).(AnalysisKpiFieldWellsPtrOutput)
 }
 
-func (o AnalysisKPIConfigurationOutput) KpiOptions() AnalysisKPIOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIConfiguration) *AnalysisKPIOptions { return v.KpiOptions }).(AnalysisKPIOptionsPtrOutput)
+func (o AnalysisKpiConfigurationOutput) KpiOptions() AnalysisKpiOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiConfiguration) *AnalysisKpiOptions { return v.KpiOptions }).(AnalysisKpiOptionsPtrOutput)
 }
 
-func (o AnalysisKPIConfigurationOutput) SortConfiguration() AnalysisKPISortConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIConfiguration) *AnalysisKPISortConfiguration { return v.SortConfiguration }).(AnalysisKPISortConfigurationPtrOutput)
+func (o AnalysisKpiConfigurationOutput) SortConfiguration() AnalysisKpiSortConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiConfiguration) *AnalysisKpiSortConfiguration { return v.SortConfiguration }).(AnalysisKpiSortConfigurationPtrOutput)
 }
 
-type AnalysisKPIConfigurationPtrOutput struct{ *pulumi.OutputState }
+type AnalysisKpiConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIConfiguration)(nil)).Elem()
+func (AnalysisKpiConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiConfiguration)(nil)).Elem()
 }
 
-func (o AnalysisKPIConfigurationPtrOutput) ToAnalysisKPIConfigurationPtrOutput() AnalysisKPIConfigurationPtrOutput {
+func (o AnalysisKpiConfigurationPtrOutput) ToAnalysisKpiConfigurationPtrOutput() AnalysisKpiConfigurationPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIConfigurationPtrOutput) ToAnalysisKPIConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKPIConfigurationPtrOutput {
+func (o AnalysisKpiConfigurationPtrOutput) ToAnalysisKpiConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKpiConfigurationPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIConfigurationPtrOutput) Elem() AnalysisKPIConfigurationOutput {
-	return o.ApplyT(func(v *AnalysisKPIConfiguration) AnalysisKPIConfiguration {
+func (o AnalysisKpiConfigurationPtrOutput) Elem() AnalysisKpiConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisKpiConfiguration) AnalysisKpiConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisKPIConfiguration
+		var ret AnalysisKpiConfiguration
 		return ret
-	}).(AnalysisKPIConfigurationOutput)
+	}).(AnalysisKpiConfigurationOutput)
 }
 
-func (o AnalysisKPIConfigurationPtrOutput) FieldWells() AnalysisKPIFieldWellsPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIConfiguration) *AnalysisKPIFieldWells {
+func (o AnalysisKpiConfigurationPtrOutput) FieldWells() AnalysisKpiFieldWellsPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiConfiguration) *AnalysisKpiFieldWells {
 		if v == nil {
 			return nil
 		}
 		return v.FieldWells
-	}).(AnalysisKPIFieldWellsPtrOutput)
+	}).(AnalysisKpiFieldWellsPtrOutput)
 }
 
-func (o AnalysisKPIConfigurationPtrOutput) KpiOptions() AnalysisKPIOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIConfiguration) *AnalysisKPIOptions {
+func (o AnalysisKpiConfigurationPtrOutput) KpiOptions() AnalysisKpiOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiConfiguration) *AnalysisKpiOptions {
 		if v == nil {
 			return nil
 		}
 		return v.KpiOptions
-	}).(AnalysisKPIOptionsPtrOutput)
+	}).(AnalysisKpiOptionsPtrOutput)
 }
 
-func (o AnalysisKPIConfigurationPtrOutput) SortConfiguration() AnalysisKPISortConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIConfiguration) *AnalysisKPISortConfiguration {
+func (o AnalysisKpiConfigurationPtrOutput) SortConfiguration() AnalysisKpiSortConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiConfiguration) *AnalysisKpiSortConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.SortConfiguration
-	}).(AnalysisKPISortConfigurationPtrOutput)
+	}).(AnalysisKpiSortConfigurationPtrOutput)
 }
 
-type AnalysisKPIFieldWells struct {
+type AnalysisKpiFieldWells struct {
 	TargetValues []AnalysisMeasureField   `pulumi:"targetValues"`
 	TrendGroups  []AnalysisDimensionField `pulumi:"trendGroups"`
 	Values       []AnalysisMeasureField   `pulumi:"values"`
 }
 
-// AnalysisKPIFieldWellsInput is an input type that accepts AnalysisKPIFieldWellsArgs and AnalysisKPIFieldWellsOutput values.
-// You can construct a concrete instance of `AnalysisKPIFieldWellsInput` via:
+// AnalysisKpiFieldWellsInput is an input type that accepts AnalysisKpiFieldWellsArgs and AnalysisKpiFieldWellsOutput values.
+// You can construct a concrete instance of `AnalysisKpiFieldWellsInput` via:
 //
-//	AnalysisKPIFieldWellsArgs{...}
-type AnalysisKPIFieldWellsInput interface {
+//	AnalysisKpiFieldWellsArgs{...}
+type AnalysisKpiFieldWellsInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIFieldWellsOutput() AnalysisKPIFieldWellsOutput
-	ToAnalysisKPIFieldWellsOutputWithContext(context.Context) AnalysisKPIFieldWellsOutput
+	ToAnalysisKpiFieldWellsOutput() AnalysisKpiFieldWellsOutput
+	ToAnalysisKpiFieldWellsOutputWithContext(context.Context) AnalysisKpiFieldWellsOutput
 }
 
-type AnalysisKPIFieldWellsArgs struct {
+type AnalysisKpiFieldWellsArgs struct {
 	TargetValues AnalysisMeasureFieldArrayInput   `pulumi:"targetValues"`
 	TrendGroups  AnalysisDimensionFieldArrayInput `pulumi:"trendGroups"`
 	Values       AnalysisMeasureFieldArrayInput   `pulumi:"values"`
 }
 
-func (AnalysisKPIFieldWellsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIFieldWells)(nil)).Elem()
+func (AnalysisKpiFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiFieldWells)(nil)).Elem()
 }
 
-func (i AnalysisKPIFieldWellsArgs) ToAnalysisKPIFieldWellsOutput() AnalysisKPIFieldWellsOutput {
-	return i.ToAnalysisKPIFieldWellsOutputWithContext(context.Background())
+func (i AnalysisKpiFieldWellsArgs) ToAnalysisKpiFieldWellsOutput() AnalysisKpiFieldWellsOutput {
+	return i.ToAnalysisKpiFieldWellsOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIFieldWellsArgs) ToAnalysisKPIFieldWellsOutputWithContext(ctx context.Context) AnalysisKPIFieldWellsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIFieldWellsOutput)
+func (i AnalysisKpiFieldWellsArgs) ToAnalysisKpiFieldWellsOutputWithContext(ctx context.Context) AnalysisKpiFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiFieldWellsOutput)
 }
 
-func (i AnalysisKPIFieldWellsArgs) ToAnalysisKPIFieldWellsPtrOutput() AnalysisKPIFieldWellsPtrOutput {
-	return i.ToAnalysisKPIFieldWellsPtrOutputWithContext(context.Background())
+func (i AnalysisKpiFieldWellsArgs) ToAnalysisKpiFieldWellsPtrOutput() AnalysisKpiFieldWellsPtrOutput {
+	return i.ToAnalysisKpiFieldWellsPtrOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIFieldWellsArgs) ToAnalysisKPIFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisKPIFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIFieldWellsOutput).ToAnalysisKPIFieldWellsPtrOutputWithContext(ctx)
+func (i AnalysisKpiFieldWellsArgs) ToAnalysisKpiFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisKpiFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiFieldWellsOutput).ToAnalysisKpiFieldWellsPtrOutputWithContext(ctx)
 }
 
-// AnalysisKPIFieldWellsPtrInput is an input type that accepts AnalysisKPIFieldWellsArgs, AnalysisKPIFieldWellsPtr and AnalysisKPIFieldWellsPtrOutput values.
-// You can construct a concrete instance of `AnalysisKPIFieldWellsPtrInput` via:
+// AnalysisKpiFieldWellsPtrInput is an input type that accepts AnalysisKpiFieldWellsArgs, AnalysisKpiFieldWellsPtr and AnalysisKpiFieldWellsPtrOutput values.
+// You can construct a concrete instance of `AnalysisKpiFieldWellsPtrInput` via:
 //
-//	        AnalysisKPIFieldWellsArgs{...}
+//	        AnalysisKpiFieldWellsArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnalysisKPIFieldWellsPtrInput interface {
+type AnalysisKpiFieldWellsPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIFieldWellsPtrOutput() AnalysisKPIFieldWellsPtrOutput
-	ToAnalysisKPIFieldWellsPtrOutputWithContext(context.Context) AnalysisKPIFieldWellsPtrOutput
+	ToAnalysisKpiFieldWellsPtrOutput() AnalysisKpiFieldWellsPtrOutput
+	ToAnalysisKpiFieldWellsPtrOutputWithContext(context.Context) AnalysisKpiFieldWellsPtrOutput
 }
 
-type analysisKPIFieldWellsPtrType AnalysisKPIFieldWellsArgs
+type analysisKpiFieldWellsPtrType AnalysisKpiFieldWellsArgs
 
-func AnalysisKPIFieldWellsPtr(v *AnalysisKPIFieldWellsArgs) AnalysisKPIFieldWellsPtrInput {
-	return (*analysisKPIFieldWellsPtrType)(v)
+func AnalysisKpiFieldWellsPtr(v *AnalysisKpiFieldWellsArgs) AnalysisKpiFieldWellsPtrInput {
+	return (*analysisKpiFieldWellsPtrType)(v)
 }
 
-func (*analysisKPIFieldWellsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIFieldWells)(nil)).Elem()
+func (*analysisKpiFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiFieldWells)(nil)).Elem()
 }
 
-func (i *analysisKPIFieldWellsPtrType) ToAnalysisKPIFieldWellsPtrOutput() AnalysisKPIFieldWellsPtrOutput {
-	return i.ToAnalysisKPIFieldWellsPtrOutputWithContext(context.Background())
+func (i *analysisKpiFieldWellsPtrType) ToAnalysisKpiFieldWellsPtrOutput() AnalysisKpiFieldWellsPtrOutput {
+	return i.ToAnalysisKpiFieldWellsPtrOutputWithContext(context.Background())
 }
 
-func (i *analysisKPIFieldWellsPtrType) ToAnalysisKPIFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisKPIFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIFieldWellsPtrOutput)
+func (i *analysisKpiFieldWellsPtrType) ToAnalysisKpiFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisKpiFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiFieldWellsPtrOutput)
 }
 
-type AnalysisKPIFieldWellsOutput struct{ *pulumi.OutputState }
+type AnalysisKpiFieldWellsOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIFieldWellsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIFieldWells)(nil)).Elem()
+func (AnalysisKpiFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiFieldWells)(nil)).Elem()
 }
 
-func (o AnalysisKPIFieldWellsOutput) ToAnalysisKPIFieldWellsOutput() AnalysisKPIFieldWellsOutput {
+func (o AnalysisKpiFieldWellsOutput) ToAnalysisKpiFieldWellsOutput() AnalysisKpiFieldWellsOutput {
 	return o
 }
 
-func (o AnalysisKPIFieldWellsOutput) ToAnalysisKPIFieldWellsOutputWithContext(ctx context.Context) AnalysisKPIFieldWellsOutput {
+func (o AnalysisKpiFieldWellsOutput) ToAnalysisKpiFieldWellsOutputWithContext(ctx context.Context) AnalysisKpiFieldWellsOutput {
 	return o
 }
 
-func (o AnalysisKPIFieldWellsOutput) ToAnalysisKPIFieldWellsPtrOutput() AnalysisKPIFieldWellsPtrOutput {
-	return o.ToAnalysisKPIFieldWellsPtrOutputWithContext(context.Background())
+func (o AnalysisKpiFieldWellsOutput) ToAnalysisKpiFieldWellsPtrOutput() AnalysisKpiFieldWellsPtrOutput {
+	return o.ToAnalysisKpiFieldWellsPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisKPIFieldWellsOutput) ToAnalysisKPIFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisKPIFieldWellsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKPIFieldWells) *AnalysisKPIFieldWells {
+func (o AnalysisKpiFieldWellsOutput) ToAnalysisKpiFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisKpiFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKpiFieldWells) *AnalysisKpiFieldWells {
 		return &v
-	}).(AnalysisKPIFieldWellsPtrOutput)
+	}).(AnalysisKpiFieldWellsPtrOutput)
 }
 
-func (o AnalysisKPIFieldWellsOutput) TargetValues() AnalysisMeasureFieldArrayOutput {
-	return o.ApplyT(func(v AnalysisKPIFieldWells) []AnalysisMeasureField { return v.TargetValues }).(AnalysisMeasureFieldArrayOutput)
+func (o AnalysisKpiFieldWellsOutput) TargetValues() AnalysisMeasureFieldArrayOutput {
+	return o.ApplyT(func(v AnalysisKpiFieldWells) []AnalysisMeasureField { return v.TargetValues }).(AnalysisMeasureFieldArrayOutput)
 }
 
-func (o AnalysisKPIFieldWellsOutput) TrendGroups() AnalysisDimensionFieldArrayOutput {
-	return o.ApplyT(func(v AnalysisKPIFieldWells) []AnalysisDimensionField { return v.TrendGroups }).(AnalysisDimensionFieldArrayOutput)
+func (o AnalysisKpiFieldWellsOutput) TrendGroups() AnalysisDimensionFieldArrayOutput {
+	return o.ApplyT(func(v AnalysisKpiFieldWells) []AnalysisDimensionField { return v.TrendGroups }).(AnalysisDimensionFieldArrayOutput)
 }
 
-func (o AnalysisKPIFieldWellsOutput) Values() AnalysisMeasureFieldArrayOutput {
-	return o.ApplyT(func(v AnalysisKPIFieldWells) []AnalysisMeasureField { return v.Values }).(AnalysisMeasureFieldArrayOutput)
+func (o AnalysisKpiFieldWellsOutput) Values() AnalysisMeasureFieldArrayOutput {
+	return o.ApplyT(func(v AnalysisKpiFieldWells) []AnalysisMeasureField { return v.Values }).(AnalysisMeasureFieldArrayOutput)
 }
 
-type AnalysisKPIFieldWellsPtrOutput struct{ *pulumi.OutputState }
+type AnalysisKpiFieldWellsPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIFieldWellsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIFieldWells)(nil)).Elem()
+func (AnalysisKpiFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiFieldWells)(nil)).Elem()
 }
 
-func (o AnalysisKPIFieldWellsPtrOutput) ToAnalysisKPIFieldWellsPtrOutput() AnalysisKPIFieldWellsPtrOutput {
+func (o AnalysisKpiFieldWellsPtrOutput) ToAnalysisKpiFieldWellsPtrOutput() AnalysisKpiFieldWellsPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIFieldWellsPtrOutput) ToAnalysisKPIFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisKPIFieldWellsPtrOutput {
+func (o AnalysisKpiFieldWellsPtrOutput) ToAnalysisKpiFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisKpiFieldWellsPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIFieldWellsPtrOutput) Elem() AnalysisKPIFieldWellsOutput {
-	return o.ApplyT(func(v *AnalysisKPIFieldWells) AnalysisKPIFieldWells {
+func (o AnalysisKpiFieldWellsPtrOutput) Elem() AnalysisKpiFieldWellsOutput {
+	return o.ApplyT(func(v *AnalysisKpiFieldWells) AnalysisKpiFieldWells {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisKPIFieldWells
+		var ret AnalysisKpiFieldWells
 		return ret
-	}).(AnalysisKPIFieldWellsOutput)
+	}).(AnalysisKpiFieldWellsOutput)
 }
 
-func (o AnalysisKPIFieldWellsPtrOutput) TargetValues() AnalysisMeasureFieldArrayOutput {
-	return o.ApplyT(func(v *AnalysisKPIFieldWells) []AnalysisMeasureField {
+func (o AnalysisKpiFieldWellsPtrOutput) TargetValues() AnalysisMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *AnalysisKpiFieldWells) []AnalysisMeasureField {
 		if v == nil {
 			return nil
 		}
@@ -35340,8 +35340,8 @@ func (o AnalysisKPIFieldWellsPtrOutput) TargetValues() AnalysisMeasureFieldArray
 	}).(AnalysisMeasureFieldArrayOutput)
 }
 
-func (o AnalysisKPIFieldWellsPtrOutput) TrendGroups() AnalysisDimensionFieldArrayOutput {
-	return o.ApplyT(func(v *AnalysisKPIFieldWells) []AnalysisDimensionField {
+func (o AnalysisKpiFieldWellsPtrOutput) TrendGroups() AnalysisDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *AnalysisKpiFieldWells) []AnalysisDimensionField {
 		if v == nil {
 			return nil
 		}
@@ -35349,8 +35349,8 @@ func (o AnalysisKPIFieldWellsPtrOutput) TrendGroups() AnalysisDimensionFieldArra
 	}).(AnalysisDimensionFieldArrayOutput)
 }
 
-func (o AnalysisKPIFieldWellsPtrOutput) Values() AnalysisMeasureFieldArrayOutput {
-	return o.ApplyT(func(v *AnalysisKPIFieldWells) []AnalysisMeasureField {
+func (o AnalysisKpiFieldWellsPtrOutput) Values() AnalysisMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *AnalysisKpiFieldWells) []AnalysisMeasureField {
 		if v == nil {
 			return nil
 		}
@@ -35358,7 +35358,7 @@ func (o AnalysisKPIFieldWellsPtrOutput) Values() AnalysisMeasureFieldArrayOutput
 	}).(AnalysisMeasureFieldArrayOutput)
 }
 
-type AnalysisKPIOptions struct {
+type AnalysisKpiOptions struct {
 	Comparison                      *AnalysisComparisonConfiguration `pulumi:"comparison"`
 	PrimaryValueDisplayType         *AnalysisPrimaryValueDisplayType `pulumi:"primaryValueDisplayType"`
 	PrimaryValueFontConfiguration   *AnalysisFontConfiguration       `pulumi:"primaryValueFontConfiguration"`
@@ -35368,18 +35368,18 @@ type AnalysisKPIOptions struct {
 	TrendArrows                     *AnalysisTrendArrowOptions       `pulumi:"trendArrows"`
 }
 
-// AnalysisKPIOptionsInput is an input type that accepts AnalysisKPIOptionsArgs and AnalysisKPIOptionsOutput values.
-// You can construct a concrete instance of `AnalysisKPIOptionsInput` via:
+// AnalysisKpiOptionsInput is an input type that accepts AnalysisKpiOptionsArgs and AnalysisKpiOptionsOutput values.
+// You can construct a concrete instance of `AnalysisKpiOptionsInput` via:
 //
-//	AnalysisKPIOptionsArgs{...}
-type AnalysisKPIOptionsInput interface {
+//	AnalysisKpiOptionsArgs{...}
+type AnalysisKpiOptionsInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIOptionsOutput() AnalysisKPIOptionsOutput
-	ToAnalysisKPIOptionsOutputWithContext(context.Context) AnalysisKPIOptionsOutput
+	ToAnalysisKpiOptionsOutput() AnalysisKpiOptionsOutput
+	ToAnalysisKpiOptionsOutputWithContext(context.Context) AnalysisKpiOptionsOutput
 }
 
-type AnalysisKPIOptionsArgs struct {
+type AnalysisKpiOptionsArgs struct {
 	Comparison                      AnalysisComparisonConfigurationPtrInput `pulumi:"comparison"`
 	PrimaryValueDisplayType         AnalysisPrimaryValueDisplayTypePtrInput `pulumi:"primaryValueDisplayType"`
 	PrimaryValueFontConfiguration   AnalysisFontConfigurationPtrInput       `pulumi:"primaryValueFontConfiguration"`
@@ -35389,137 +35389,137 @@ type AnalysisKPIOptionsArgs struct {
 	TrendArrows                     AnalysisTrendArrowOptionsPtrInput       `pulumi:"trendArrows"`
 }
 
-func (AnalysisKPIOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIOptions)(nil)).Elem()
+func (AnalysisKpiOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiOptions)(nil)).Elem()
 }
 
-func (i AnalysisKPIOptionsArgs) ToAnalysisKPIOptionsOutput() AnalysisKPIOptionsOutput {
-	return i.ToAnalysisKPIOptionsOutputWithContext(context.Background())
+func (i AnalysisKpiOptionsArgs) ToAnalysisKpiOptionsOutput() AnalysisKpiOptionsOutput {
+	return i.ToAnalysisKpiOptionsOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIOptionsArgs) ToAnalysisKPIOptionsOutputWithContext(ctx context.Context) AnalysisKPIOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIOptionsOutput)
+func (i AnalysisKpiOptionsArgs) ToAnalysisKpiOptionsOutputWithContext(ctx context.Context) AnalysisKpiOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiOptionsOutput)
 }
 
-func (i AnalysisKPIOptionsArgs) ToAnalysisKPIOptionsPtrOutput() AnalysisKPIOptionsPtrOutput {
-	return i.ToAnalysisKPIOptionsPtrOutputWithContext(context.Background())
+func (i AnalysisKpiOptionsArgs) ToAnalysisKpiOptionsPtrOutput() AnalysisKpiOptionsPtrOutput {
+	return i.ToAnalysisKpiOptionsPtrOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIOptionsArgs) ToAnalysisKPIOptionsPtrOutputWithContext(ctx context.Context) AnalysisKPIOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIOptionsOutput).ToAnalysisKPIOptionsPtrOutputWithContext(ctx)
+func (i AnalysisKpiOptionsArgs) ToAnalysisKpiOptionsPtrOutputWithContext(ctx context.Context) AnalysisKpiOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiOptionsOutput).ToAnalysisKpiOptionsPtrOutputWithContext(ctx)
 }
 
-// AnalysisKPIOptionsPtrInput is an input type that accepts AnalysisKPIOptionsArgs, AnalysisKPIOptionsPtr and AnalysisKPIOptionsPtrOutput values.
-// You can construct a concrete instance of `AnalysisKPIOptionsPtrInput` via:
+// AnalysisKpiOptionsPtrInput is an input type that accepts AnalysisKpiOptionsArgs, AnalysisKpiOptionsPtr and AnalysisKpiOptionsPtrOutput values.
+// You can construct a concrete instance of `AnalysisKpiOptionsPtrInput` via:
 //
-//	        AnalysisKPIOptionsArgs{...}
+//	        AnalysisKpiOptionsArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnalysisKPIOptionsPtrInput interface {
+type AnalysisKpiOptionsPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIOptionsPtrOutput() AnalysisKPIOptionsPtrOutput
-	ToAnalysisKPIOptionsPtrOutputWithContext(context.Context) AnalysisKPIOptionsPtrOutput
+	ToAnalysisKpiOptionsPtrOutput() AnalysisKpiOptionsPtrOutput
+	ToAnalysisKpiOptionsPtrOutputWithContext(context.Context) AnalysisKpiOptionsPtrOutput
 }
 
-type analysisKPIOptionsPtrType AnalysisKPIOptionsArgs
+type analysisKpiOptionsPtrType AnalysisKpiOptionsArgs
 
-func AnalysisKPIOptionsPtr(v *AnalysisKPIOptionsArgs) AnalysisKPIOptionsPtrInput {
-	return (*analysisKPIOptionsPtrType)(v)
+func AnalysisKpiOptionsPtr(v *AnalysisKpiOptionsArgs) AnalysisKpiOptionsPtrInput {
+	return (*analysisKpiOptionsPtrType)(v)
 }
 
-func (*analysisKPIOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIOptions)(nil)).Elem()
+func (*analysisKpiOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiOptions)(nil)).Elem()
 }
 
-func (i *analysisKPIOptionsPtrType) ToAnalysisKPIOptionsPtrOutput() AnalysisKPIOptionsPtrOutput {
-	return i.ToAnalysisKPIOptionsPtrOutputWithContext(context.Background())
+func (i *analysisKpiOptionsPtrType) ToAnalysisKpiOptionsPtrOutput() AnalysisKpiOptionsPtrOutput {
+	return i.ToAnalysisKpiOptionsPtrOutputWithContext(context.Background())
 }
 
-func (i *analysisKPIOptionsPtrType) ToAnalysisKPIOptionsPtrOutputWithContext(ctx context.Context) AnalysisKPIOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIOptionsPtrOutput)
+func (i *analysisKpiOptionsPtrType) ToAnalysisKpiOptionsPtrOutputWithContext(ctx context.Context) AnalysisKpiOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiOptionsPtrOutput)
 }
 
-type AnalysisKPIOptionsOutput struct{ *pulumi.OutputState }
+type AnalysisKpiOptionsOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIOptions)(nil)).Elem()
+func (AnalysisKpiOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiOptions)(nil)).Elem()
 }
 
-func (o AnalysisKPIOptionsOutput) ToAnalysisKPIOptionsOutput() AnalysisKPIOptionsOutput {
+func (o AnalysisKpiOptionsOutput) ToAnalysisKpiOptionsOutput() AnalysisKpiOptionsOutput {
 	return o
 }
 
-func (o AnalysisKPIOptionsOutput) ToAnalysisKPIOptionsOutputWithContext(ctx context.Context) AnalysisKPIOptionsOutput {
+func (o AnalysisKpiOptionsOutput) ToAnalysisKpiOptionsOutputWithContext(ctx context.Context) AnalysisKpiOptionsOutput {
 	return o
 }
 
-func (o AnalysisKPIOptionsOutput) ToAnalysisKPIOptionsPtrOutput() AnalysisKPIOptionsPtrOutput {
-	return o.ToAnalysisKPIOptionsPtrOutputWithContext(context.Background())
+func (o AnalysisKpiOptionsOutput) ToAnalysisKpiOptionsPtrOutput() AnalysisKpiOptionsPtrOutput {
+	return o.ToAnalysisKpiOptionsPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisKPIOptionsOutput) ToAnalysisKPIOptionsPtrOutputWithContext(ctx context.Context) AnalysisKPIOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKPIOptions) *AnalysisKPIOptions {
+func (o AnalysisKpiOptionsOutput) ToAnalysisKpiOptionsPtrOutputWithContext(ctx context.Context) AnalysisKpiOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKpiOptions) *AnalysisKpiOptions {
 		return &v
-	}).(AnalysisKPIOptionsPtrOutput)
+	}).(AnalysisKpiOptionsPtrOutput)
 }
 
-func (o AnalysisKPIOptionsOutput) Comparison() AnalysisComparisonConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIOptions) *AnalysisComparisonConfiguration { return v.Comparison }).(AnalysisComparisonConfigurationPtrOutput)
+func (o AnalysisKpiOptionsOutput) Comparison() AnalysisComparisonConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiOptions) *AnalysisComparisonConfiguration { return v.Comparison }).(AnalysisComparisonConfigurationPtrOutput)
 }
 
-func (o AnalysisKPIOptionsOutput) PrimaryValueDisplayType() AnalysisPrimaryValueDisplayTypePtrOutput {
-	return o.ApplyT(func(v AnalysisKPIOptions) *AnalysisPrimaryValueDisplayType { return v.PrimaryValueDisplayType }).(AnalysisPrimaryValueDisplayTypePtrOutput)
+func (o AnalysisKpiOptionsOutput) PrimaryValueDisplayType() AnalysisPrimaryValueDisplayTypePtrOutput {
+	return o.ApplyT(func(v AnalysisKpiOptions) *AnalysisPrimaryValueDisplayType { return v.PrimaryValueDisplayType }).(AnalysisPrimaryValueDisplayTypePtrOutput)
 }
 
-func (o AnalysisKPIOptionsOutput) PrimaryValueFontConfiguration() AnalysisFontConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIOptions) *AnalysisFontConfiguration { return v.PrimaryValueFontConfiguration }).(AnalysisFontConfigurationPtrOutput)
+func (o AnalysisKpiOptionsOutput) PrimaryValueFontConfiguration() AnalysisFontConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiOptions) *AnalysisFontConfiguration { return v.PrimaryValueFontConfiguration }).(AnalysisFontConfigurationPtrOutput)
 }
 
-func (o AnalysisKPIOptionsOutput) ProgressBar() AnalysisProgressBarOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIOptions) *AnalysisProgressBarOptions { return v.ProgressBar }).(AnalysisProgressBarOptionsPtrOutput)
+func (o AnalysisKpiOptionsOutput) ProgressBar() AnalysisProgressBarOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiOptions) *AnalysisProgressBarOptions { return v.ProgressBar }).(AnalysisProgressBarOptionsPtrOutput)
 }
 
-func (o AnalysisKPIOptionsOutput) SecondaryValue() AnalysisSecondaryValueOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIOptions) *AnalysisSecondaryValueOptions { return v.SecondaryValue }).(AnalysisSecondaryValueOptionsPtrOutput)
+func (o AnalysisKpiOptionsOutput) SecondaryValue() AnalysisSecondaryValueOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiOptions) *AnalysisSecondaryValueOptions { return v.SecondaryValue }).(AnalysisSecondaryValueOptionsPtrOutput)
 }
 
-func (o AnalysisKPIOptionsOutput) SecondaryValueFontConfiguration() AnalysisFontConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIOptions) *AnalysisFontConfiguration { return v.SecondaryValueFontConfiguration }).(AnalysisFontConfigurationPtrOutput)
+func (o AnalysisKpiOptionsOutput) SecondaryValueFontConfiguration() AnalysisFontConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiOptions) *AnalysisFontConfiguration { return v.SecondaryValueFontConfiguration }).(AnalysisFontConfigurationPtrOutput)
 }
 
-func (o AnalysisKPIOptionsOutput) TrendArrows() AnalysisTrendArrowOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIOptions) *AnalysisTrendArrowOptions { return v.TrendArrows }).(AnalysisTrendArrowOptionsPtrOutput)
+func (o AnalysisKpiOptionsOutput) TrendArrows() AnalysisTrendArrowOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiOptions) *AnalysisTrendArrowOptions { return v.TrendArrows }).(AnalysisTrendArrowOptionsPtrOutput)
 }
 
-type AnalysisKPIOptionsPtrOutput struct{ *pulumi.OutputState }
+type AnalysisKpiOptionsPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIOptions)(nil)).Elem()
+func (AnalysisKpiOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiOptions)(nil)).Elem()
 }
 
-func (o AnalysisKPIOptionsPtrOutput) ToAnalysisKPIOptionsPtrOutput() AnalysisKPIOptionsPtrOutput {
+func (o AnalysisKpiOptionsPtrOutput) ToAnalysisKpiOptionsPtrOutput() AnalysisKpiOptionsPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIOptionsPtrOutput) ToAnalysisKPIOptionsPtrOutputWithContext(ctx context.Context) AnalysisKPIOptionsPtrOutput {
+func (o AnalysisKpiOptionsPtrOutput) ToAnalysisKpiOptionsPtrOutputWithContext(ctx context.Context) AnalysisKpiOptionsPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIOptionsPtrOutput) Elem() AnalysisKPIOptionsOutput {
-	return o.ApplyT(func(v *AnalysisKPIOptions) AnalysisKPIOptions {
+func (o AnalysisKpiOptionsPtrOutput) Elem() AnalysisKpiOptionsOutput {
+	return o.ApplyT(func(v *AnalysisKpiOptions) AnalysisKpiOptions {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisKPIOptions
+		var ret AnalysisKpiOptions
 		return ret
-	}).(AnalysisKPIOptionsOutput)
+	}).(AnalysisKpiOptionsOutput)
 }
 
-func (o AnalysisKPIOptionsPtrOutput) Comparison() AnalysisComparisonConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIOptions) *AnalysisComparisonConfiguration {
+func (o AnalysisKpiOptionsPtrOutput) Comparison() AnalysisComparisonConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiOptions) *AnalysisComparisonConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -35527,8 +35527,8 @@ func (o AnalysisKPIOptionsPtrOutput) Comparison() AnalysisComparisonConfiguratio
 	}).(AnalysisComparisonConfigurationPtrOutput)
 }
 
-func (o AnalysisKPIOptionsPtrOutput) PrimaryValueDisplayType() AnalysisPrimaryValueDisplayTypePtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIOptions) *AnalysisPrimaryValueDisplayType {
+func (o AnalysisKpiOptionsPtrOutput) PrimaryValueDisplayType() AnalysisPrimaryValueDisplayTypePtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiOptions) *AnalysisPrimaryValueDisplayType {
 		if v == nil {
 			return nil
 		}
@@ -35536,8 +35536,8 @@ func (o AnalysisKPIOptionsPtrOutput) PrimaryValueDisplayType() AnalysisPrimaryVa
 	}).(AnalysisPrimaryValueDisplayTypePtrOutput)
 }
 
-func (o AnalysisKPIOptionsPtrOutput) PrimaryValueFontConfiguration() AnalysisFontConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIOptions) *AnalysisFontConfiguration {
+func (o AnalysisKpiOptionsPtrOutput) PrimaryValueFontConfiguration() AnalysisFontConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiOptions) *AnalysisFontConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -35545,8 +35545,8 @@ func (o AnalysisKPIOptionsPtrOutput) PrimaryValueFontConfiguration() AnalysisFon
 	}).(AnalysisFontConfigurationPtrOutput)
 }
 
-func (o AnalysisKPIOptionsPtrOutput) ProgressBar() AnalysisProgressBarOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIOptions) *AnalysisProgressBarOptions {
+func (o AnalysisKpiOptionsPtrOutput) ProgressBar() AnalysisProgressBarOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiOptions) *AnalysisProgressBarOptions {
 		if v == nil {
 			return nil
 		}
@@ -35554,8 +35554,8 @@ func (o AnalysisKPIOptionsPtrOutput) ProgressBar() AnalysisProgressBarOptionsPtr
 	}).(AnalysisProgressBarOptionsPtrOutput)
 }
 
-func (o AnalysisKPIOptionsPtrOutput) SecondaryValue() AnalysisSecondaryValueOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIOptions) *AnalysisSecondaryValueOptions {
+func (o AnalysisKpiOptionsPtrOutput) SecondaryValue() AnalysisSecondaryValueOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiOptions) *AnalysisSecondaryValueOptions {
 		if v == nil {
 			return nil
 		}
@@ -35563,8 +35563,8 @@ func (o AnalysisKPIOptionsPtrOutput) SecondaryValue() AnalysisSecondaryValueOpti
 	}).(AnalysisSecondaryValueOptionsPtrOutput)
 }
 
-func (o AnalysisKPIOptionsPtrOutput) SecondaryValueFontConfiguration() AnalysisFontConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIOptions) *AnalysisFontConfiguration {
+func (o AnalysisKpiOptionsPtrOutput) SecondaryValueFontConfiguration() AnalysisFontConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiOptions) *AnalysisFontConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -35572,8 +35572,8 @@ func (o AnalysisKPIOptionsPtrOutput) SecondaryValueFontConfiguration() AnalysisF
 	}).(AnalysisFontConfigurationPtrOutput)
 }
 
-func (o AnalysisKPIOptionsPtrOutput) TrendArrows() AnalysisTrendArrowOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIOptions) *AnalysisTrendArrowOptions {
+func (o AnalysisKpiOptionsPtrOutput) TrendArrows() AnalysisTrendArrowOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiOptions) *AnalysisTrendArrowOptions {
 		if v == nil {
 			return nil
 		}
@@ -35581,140 +35581,140 @@ func (o AnalysisKPIOptionsPtrOutput) TrendArrows() AnalysisTrendArrowOptionsPtrO
 	}).(AnalysisTrendArrowOptionsPtrOutput)
 }
 
-type AnalysisKPIPrimaryValueConditionalFormatting struct {
+type AnalysisKpiPrimaryValueConditionalFormatting struct {
 	Icon      *AnalysisConditionalFormattingIcon  `pulumi:"icon"`
 	TextColor *AnalysisConditionalFormattingColor `pulumi:"textColor"`
 }
 
-// AnalysisKPIPrimaryValueConditionalFormattingInput is an input type that accepts AnalysisKPIPrimaryValueConditionalFormattingArgs and AnalysisKPIPrimaryValueConditionalFormattingOutput values.
-// You can construct a concrete instance of `AnalysisKPIPrimaryValueConditionalFormattingInput` via:
+// AnalysisKpiPrimaryValueConditionalFormattingInput is an input type that accepts AnalysisKpiPrimaryValueConditionalFormattingArgs and AnalysisKpiPrimaryValueConditionalFormattingOutput values.
+// You can construct a concrete instance of `AnalysisKpiPrimaryValueConditionalFormattingInput` via:
 //
-//	AnalysisKPIPrimaryValueConditionalFormattingArgs{...}
-type AnalysisKPIPrimaryValueConditionalFormattingInput interface {
+//	AnalysisKpiPrimaryValueConditionalFormattingArgs{...}
+type AnalysisKpiPrimaryValueConditionalFormattingInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIPrimaryValueConditionalFormattingOutput() AnalysisKPIPrimaryValueConditionalFormattingOutput
-	ToAnalysisKPIPrimaryValueConditionalFormattingOutputWithContext(context.Context) AnalysisKPIPrimaryValueConditionalFormattingOutput
+	ToAnalysisKpiPrimaryValueConditionalFormattingOutput() AnalysisKpiPrimaryValueConditionalFormattingOutput
+	ToAnalysisKpiPrimaryValueConditionalFormattingOutputWithContext(context.Context) AnalysisKpiPrimaryValueConditionalFormattingOutput
 }
 
-type AnalysisKPIPrimaryValueConditionalFormattingArgs struct {
+type AnalysisKpiPrimaryValueConditionalFormattingArgs struct {
 	Icon      AnalysisConditionalFormattingIconPtrInput  `pulumi:"icon"`
 	TextColor AnalysisConditionalFormattingColorPtrInput `pulumi:"textColor"`
 }
 
-func (AnalysisKPIPrimaryValueConditionalFormattingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIPrimaryValueConditionalFormatting)(nil)).Elem()
+func (AnalysisKpiPrimaryValueConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiPrimaryValueConditionalFormatting)(nil)).Elem()
 }
 
-func (i AnalysisKPIPrimaryValueConditionalFormattingArgs) ToAnalysisKPIPrimaryValueConditionalFormattingOutput() AnalysisKPIPrimaryValueConditionalFormattingOutput {
-	return i.ToAnalysisKPIPrimaryValueConditionalFormattingOutputWithContext(context.Background())
+func (i AnalysisKpiPrimaryValueConditionalFormattingArgs) ToAnalysisKpiPrimaryValueConditionalFormattingOutput() AnalysisKpiPrimaryValueConditionalFormattingOutput {
+	return i.ToAnalysisKpiPrimaryValueConditionalFormattingOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIPrimaryValueConditionalFormattingArgs) ToAnalysisKPIPrimaryValueConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKPIPrimaryValueConditionalFormattingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIPrimaryValueConditionalFormattingOutput)
+func (i AnalysisKpiPrimaryValueConditionalFormattingArgs) ToAnalysisKpiPrimaryValueConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKpiPrimaryValueConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiPrimaryValueConditionalFormattingOutput)
 }
 
-func (i AnalysisKPIPrimaryValueConditionalFormattingArgs) ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutput() AnalysisKPIPrimaryValueConditionalFormattingPtrOutput {
-	return i.ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
+func (i AnalysisKpiPrimaryValueConditionalFormattingArgs) ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutput() AnalysisKpiPrimaryValueConditionalFormattingPtrOutput {
+	return i.ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIPrimaryValueConditionalFormattingArgs) ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIPrimaryValueConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIPrimaryValueConditionalFormattingOutput).ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutputWithContext(ctx)
+func (i AnalysisKpiPrimaryValueConditionalFormattingArgs) ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiPrimaryValueConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiPrimaryValueConditionalFormattingOutput).ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutputWithContext(ctx)
 }
 
-// AnalysisKPIPrimaryValueConditionalFormattingPtrInput is an input type that accepts AnalysisKPIPrimaryValueConditionalFormattingArgs, AnalysisKPIPrimaryValueConditionalFormattingPtr and AnalysisKPIPrimaryValueConditionalFormattingPtrOutput values.
-// You can construct a concrete instance of `AnalysisKPIPrimaryValueConditionalFormattingPtrInput` via:
+// AnalysisKpiPrimaryValueConditionalFormattingPtrInput is an input type that accepts AnalysisKpiPrimaryValueConditionalFormattingArgs, AnalysisKpiPrimaryValueConditionalFormattingPtr and AnalysisKpiPrimaryValueConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `AnalysisKpiPrimaryValueConditionalFormattingPtrInput` via:
 //
-//	        AnalysisKPIPrimaryValueConditionalFormattingArgs{...}
+//	        AnalysisKpiPrimaryValueConditionalFormattingArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnalysisKPIPrimaryValueConditionalFormattingPtrInput interface {
+type AnalysisKpiPrimaryValueConditionalFormattingPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutput() AnalysisKPIPrimaryValueConditionalFormattingPtrOutput
-	ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutputWithContext(context.Context) AnalysisKPIPrimaryValueConditionalFormattingPtrOutput
+	ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutput() AnalysisKpiPrimaryValueConditionalFormattingPtrOutput
+	ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutputWithContext(context.Context) AnalysisKpiPrimaryValueConditionalFormattingPtrOutput
 }
 
-type analysisKPIPrimaryValueConditionalFormattingPtrType AnalysisKPIPrimaryValueConditionalFormattingArgs
+type analysisKpiPrimaryValueConditionalFormattingPtrType AnalysisKpiPrimaryValueConditionalFormattingArgs
 
-func AnalysisKPIPrimaryValueConditionalFormattingPtr(v *AnalysisKPIPrimaryValueConditionalFormattingArgs) AnalysisKPIPrimaryValueConditionalFormattingPtrInput {
-	return (*analysisKPIPrimaryValueConditionalFormattingPtrType)(v)
+func AnalysisKpiPrimaryValueConditionalFormattingPtr(v *AnalysisKpiPrimaryValueConditionalFormattingArgs) AnalysisKpiPrimaryValueConditionalFormattingPtrInput {
+	return (*analysisKpiPrimaryValueConditionalFormattingPtrType)(v)
 }
 
-func (*analysisKPIPrimaryValueConditionalFormattingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIPrimaryValueConditionalFormatting)(nil)).Elem()
+func (*analysisKpiPrimaryValueConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiPrimaryValueConditionalFormatting)(nil)).Elem()
 }
 
-func (i *analysisKPIPrimaryValueConditionalFormattingPtrType) ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutput() AnalysisKPIPrimaryValueConditionalFormattingPtrOutput {
-	return i.ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
+func (i *analysisKpiPrimaryValueConditionalFormattingPtrType) ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutput() AnalysisKpiPrimaryValueConditionalFormattingPtrOutput {
+	return i.ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i *analysisKPIPrimaryValueConditionalFormattingPtrType) ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIPrimaryValueConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIPrimaryValueConditionalFormattingPtrOutput)
+func (i *analysisKpiPrimaryValueConditionalFormattingPtrType) ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiPrimaryValueConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiPrimaryValueConditionalFormattingPtrOutput)
 }
 
-type AnalysisKPIPrimaryValueConditionalFormattingOutput struct{ *pulumi.OutputState }
+type AnalysisKpiPrimaryValueConditionalFormattingOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIPrimaryValueConditionalFormattingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIPrimaryValueConditionalFormatting)(nil)).Elem()
+func (AnalysisKpiPrimaryValueConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiPrimaryValueConditionalFormatting)(nil)).Elem()
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingOutput) ToAnalysisKPIPrimaryValueConditionalFormattingOutput() AnalysisKPIPrimaryValueConditionalFormattingOutput {
+func (o AnalysisKpiPrimaryValueConditionalFormattingOutput) ToAnalysisKpiPrimaryValueConditionalFormattingOutput() AnalysisKpiPrimaryValueConditionalFormattingOutput {
 	return o
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingOutput) ToAnalysisKPIPrimaryValueConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKPIPrimaryValueConditionalFormattingOutput {
+func (o AnalysisKpiPrimaryValueConditionalFormattingOutput) ToAnalysisKpiPrimaryValueConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKpiPrimaryValueConditionalFormattingOutput {
 	return o
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingOutput) ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutput() AnalysisKPIPrimaryValueConditionalFormattingPtrOutput {
-	return o.ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
+func (o AnalysisKpiPrimaryValueConditionalFormattingOutput) ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutput() AnalysisKpiPrimaryValueConditionalFormattingPtrOutput {
+	return o.ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingOutput) ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIPrimaryValueConditionalFormattingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKPIPrimaryValueConditionalFormatting) *AnalysisKPIPrimaryValueConditionalFormatting {
+func (o AnalysisKpiPrimaryValueConditionalFormattingOutput) ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiPrimaryValueConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKpiPrimaryValueConditionalFormatting) *AnalysisKpiPrimaryValueConditionalFormatting {
 		return &v
-	}).(AnalysisKPIPrimaryValueConditionalFormattingPtrOutput)
+	}).(AnalysisKpiPrimaryValueConditionalFormattingPtrOutput)
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingOutput) Icon() AnalysisConditionalFormattingIconPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIPrimaryValueConditionalFormatting) *AnalysisConditionalFormattingIcon { return v.Icon }).(AnalysisConditionalFormattingIconPtrOutput)
+func (o AnalysisKpiPrimaryValueConditionalFormattingOutput) Icon() AnalysisConditionalFormattingIconPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiPrimaryValueConditionalFormatting) *AnalysisConditionalFormattingIcon { return v.Icon }).(AnalysisConditionalFormattingIconPtrOutput)
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingOutput) TextColor() AnalysisConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIPrimaryValueConditionalFormatting) *AnalysisConditionalFormattingColor {
+func (o AnalysisKpiPrimaryValueConditionalFormattingOutput) TextColor() AnalysisConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiPrimaryValueConditionalFormatting) *AnalysisConditionalFormattingColor {
 		return v.TextColor
 	}).(AnalysisConditionalFormattingColorPtrOutput)
 }
 
-type AnalysisKPIPrimaryValueConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+type AnalysisKpiPrimaryValueConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIPrimaryValueConditionalFormattingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIPrimaryValueConditionalFormatting)(nil)).Elem()
+func (AnalysisKpiPrimaryValueConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiPrimaryValueConditionalFormatting)(nil)).Elem()
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingPtrOutput) ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutput() AnalysisKPIPrimaryValueConditionalFormattingPtrOutput {
+func (o AnalysisKpiPrimaryValueConditionalFormattingPtrOutput) ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutput() AnalysisKpiPrimaryValueConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingPtrOutput) ToAnalysisKPIPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIPrimaryValueConditionalFormattingPtrOutput {
+func (o AnalysisKpiPrimaryValueConditionalFormattingPtrOutput) ToAnalysisKpiPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiPrimaryValueConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingPtrOutput) Elem() AnalysisKPIPrimaryValueConditionalFormattingOutput {
-	return o.ApplyT(func(v *AnalysisKPIPrimaryValueConditionalFormatting) AnalysisKPIPrimaryValueConditionalFormatting {
+func (o AnalysisKpiPrimaryValueConditionalFormattingPtrOutput) Elem() AnalysisKpiPrimaryValueConditionalFormattingOutput {
+	return o.ApplyT(func(v *AnalysisKpiPrimaryValueConditionalFormatting) AnalysisKpiPrimaryValueConditionalFormatting {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisKPIPrimaryValueConditionalFormatting
+		var ret AnalysisKpiPrimaryValueConditionalFormatting
 		return ret
-	}).(AnalysisKPIPrimaryValueConditionalFormattingOutput)
+	}).(AnalysisKpiPrimaryValueConditionalFormattingOutput)
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingPtrOutput) Icon() AnalysisConditionalFormattingIconPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIPrimaryValueConditionalFormatting) *AnalysisConditionalFormattingIcon {
+func (o AnalysisKpiPrimaryValueConditionalFormattingPtrOutput) Icon() AnalysisConditionalFormattingIconPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiPrimaryValueConditionalFormatting) *AnalysisConditionalFormattingIcon {
 		if v == nil {
 			return nil
 		}
@@ -35722,8 +35722,8 @@ func (o AnalysisKPIPrimaryValueConditionalFormattingPtrOutput) Icon() AnalysisCo
 	}).(AnalysisConditionalFormattingIconPtrOutput)
 }
 
-func (o AnalysisKPIPrimaryValueConditionalFormattingPtrOutput) TextColor() AnalysisConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIPrimaryValueConditionalFormatting) *AnalysisConditionalFormattingColor {
+func (o AnalysisKpiPrimaryValueConditionalFormattingPtrOutput) TextColor() AnalysisConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiPrimaryValueConditionalFormatting) *AnalysisConditionalFormattingColor {
 		if v == nil {
 			return nil
 		}
@@ -35731,134 +35731,134 @@ func (o AnalysisKPIPrimaryValueConditionalFormattingPtrOutput) TextColor() Analy
 	}).(AnalysisConditionalFormattingColorPtrOutput)
 }
 
-type AnalysisKPIProgressBarConditionalFormatting struct {
+type AnalysisKpiProgressBarConditionalFormatting struct {
 	ForegroundColor *AnalysisConditionalFormattingColor `pulumi:"foregroundColor"`
 }
 
-// AnalysisKPIProgressBarConditionalFormattingInput is an input type that accepts AnalysisKPIProgressBarConditionalFormattingArgs and AnalysisKPIProgressBarConditionalFormattingOutput values.
-// You can construct a concrete instance of `AnalysisKPIProgressBarConditionalFormattingInput` via:
+// AnalysisKpiProgressBarConditionalFormattingInput is an input type that accepts AnalysisKpiProgressBarConditionalFormattingArgs and AnalysisKpiProgressBarConditionalFormattingOutput values.
+// You can construct a concrete instance of `AnalysisKpiProgressBarConditionalFormattingInput` via:
 //
-//	AnalysisKPIProgressBarConditionalFormattingArgs{...}
-type AnalysisKPIProgressBarConditionalFormattingInput interface {
+//	AnalysisKpiProgressBarConditionalFormattingArgs{...}
+type AnalysisKpiProgressBarConditionalFormattingInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIProgressBarConditionalFormattingOutput() AnalysisKPIProgressBarConditionalFormattingOutput
-	ToAnalysisKPIProgressBarConditionalFormattingOutputWithContext(context.Context) AnalysisKPIProgressBarConditionalFormattingOutput
+	ToAnalysisKpiProgressBarConditionalFormattingOutput() AnalysisKpiProgressBarConditionalFormattingOutput
+	ToAnalysisKpiProgressBarConditionalFormattingOutputWithContext(context.Context) AnalysisKpiProgressBarConditionalFormattingOutput
 }
 
-type AnalysisKPIProgressBarConditionalFormattingArgs struct {
+type AnalysisKpiProgressBarConditionalFormattingArgs struct {
 	ForegroundColor AnalysisConditionalFormattingColorPtrInput `pulumi:"foregroundColor"`
 }
 
-func (AnalysisKPIProgressBarConditionalFormattingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIProgressBarConditionalFormatting)(nil)).Elem()
+func (AnalysisKpiProgressBarConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiProgressBarConditionalFormatting)(nil)).Elem()
 }
 
-func (i AnalysisKPIProgressBarConditionalFormattingArgs) ToAnalysisKPIProgressBarConditionalFormattingOutput() AnalysisKPIProgressBarConditionalFormattingOutput {
-	return i.ToAnalysisKPIProgressBarConditionalFormattingOutputWithContext(context.Background())
+func (i AnalysisKpiProgressBarConditionalFormattingArgs) ToAnalysisKpiProgressBarConditionalFormattingOutput() AnalysisKpiProgressBarConditionalFormattingOutput {
+	return i.ToAnalysisKpiProgressBarConditionalFormattingOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIProgressBarConditionalFormattingArgs) ToAnalysisKPIProgressBarConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKPIProgressBarConditionalFormattingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIProgressBarConditionalFormattingOutput)
+func (i AnalysisKpiProgressBarConditionalFormattingArgs) ToAnalysisKpiProgressBarConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKpiProgressBarConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiProgressBarConditionalFormattingOutput)
 }
 
-func (i AnalysisKPIProgressBarConditionalFormattingArgs) ToAnalysisKPIProgressBarConditionalFormattingPtrOutput() AnalysisKPIProgressBarConditionalFormattingPtrOutput {
-	return i.ToAnalysisKPIProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
+func (i AnalysisKpiProgressBarConditionalFormattingArgs) ToAnalysisKpiProgressBarConditionalFormattingPtrOutput() AnalysisKpiProgressBarConditionalFormattingPtrOutput {
+	return i.ToAnalysisKpiProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIProgressBarConditionalFormattingArgs) ToAnalysisKPIProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIProgressBarConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIProgressBarConditionalFormattingOutput).ToAnalysisKPIProgressBarConditionalFormattingPtrOutputWithContext(ctx)
+func (i AnalysisKpiProgressBarConditionalFormattingArgs) ToAnalysisKpiProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiProgressBarConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiProgressBarConditionalFormattingOutput).ToAnalysisKpiProgressBarConditionalFormattingPtrOutputWithContext(ctx)
 }
 
-// AnalysisKPIProgressBarConditionalFormattingPtrInput is an input type that accepts AnalysisKPIProgressBarConditionalFormattingArgs, AnalysisKPIProgressBarConditionalFormattingPtr and AnalysisKPIProgressBarConditionalFormattingPtrOutput values.
-// You can construct a concrete instance of `AnalysisKPIProgressBarConditionalFormattingPtrInput` via:
+// AnalysisKpiProgressBarConditionalFormattingPtrInput is an input type that accepts AnalysisKpiProgressBarConditionalFormattingArgs, AnalysisKpiProgressBarConditionalFormattingPtr and AnalysisKpiProgressBarConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `AnalysisKpiProgressBarConditionalFormattingPtrInput` via:
 //
-//	        AnalysisKPIProgressBarConditionalFormattingArgs{...}
+//	        AnalysisKpiProgressBarConditionalFormattingArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnalysisKPIProgressBarConditionalFormattingPtrInput interface {
+type AnalysisKpiProgressBarConditionalFormattingPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIProgressBarConditionalFormattingPtrOutput() AnalysisKPIProgressBarConditionalFormattingPtrOutput
-	ToAnalysisKPIProgressBarConditionalFormattingPtrOutputWithContext(context.Context) AnalysisKPIProgressBarConditionalFormattingPtrOutput
+	ToAnalysisKpiProgressBarConditionalFormattingPtrOutput() AnalysisKpiProgressBarConditionalFormattingPtrOutput
+	ToAnalysisKpiProgressBarConditionalFormattingPtrOutputWithContext(context.Context) AnalysisKpiProgressBarConditionalFormattingPtrOutput
 }
 
-type analysisKPIProgressBarConditionalFormattingPtrType AnalysisKPIProgressBarConditionalFormattingArgs
+type analysisKpiProgressBarConditionalFormattingPtrType AnalysisKpiProgressBarConditionalFormattingArgs
 
-func AnalysisKPIProgressBarConditionalFormattingPtr(v *AnalysisKPIProgressBarConditionalFormattingArgs) AnalysisKPIProgressBarConditionalFormattingPtrInput {
-	return (*analysisKPIProgressBarConditionalFormattingPtrType)(v)
+func AnalysisKpiProgressBarConditionalFormattingPtr(v *AnalysisKpiProgressBarConditionalFormattingArgs) AnalysisKpiProgressBarConditionalFormattingPtrInput {
+	return (*analysisKpiProgressBarConditionalFormattingPtrType)(v)
 }
 
-func (*analysisKPIProgressBarConditionalFormattingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIProgressBarConditionalFormatting)(nil)).Elem()
+func (*analysisKpiProgressBarConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiProgressBarConditionalFormatting)(nil)).Elem()
 }
 
-func (i *analysisKPIProgressBarConditionalFormattingPtrType) ToAnalysisKPIProgressBarConditionalFormattingPtrOutput() AnalysisKPIProgressBarConditionalFormattingPtrOutput {
-	return i.ToAnalysisKPIProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
+func (i *analysisKpiProgressBarConditionalFormattingPtrType) ToAnalysisKpiProgressBarConditionalFormattingPtrOutput() AnalysisKpiProgressBarConditionalFormattingPtrOutput {
+	return i.ToAnalysisKpiProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i *analysisKPIProgressBarConditionalFormattingPtrType) ToAnalysisKPIProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIProgressBarConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIProgressBarConditionalFormattingPtrOutput)
+func (i *analysisKpiProgressBarConditionalFormattingPtrType) ToAnalysisKpiProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiProgressBarConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiProgressBarConditionalFormattingPtrOutput)
 }
 
-type AnalysisKPIProgressBarConditionalFormattingOutput struct{ *pulumi.OutputState }
+type AnalysisKpiProgressBarConditionalFormattingOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIProgressBarConditionalFormattingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIProgressBarConditionalFormatting)(nil)).Elem()
+func (AnalysisKpiProgressBarConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiProgressBarConditionalFormatting)(nil)).Elem()
 }
 
-func (o AnalysisKPIProgressBarConditionalFormattingOutput) ToAnalysisKPIProgressBarConditionalFormattingOutput() AnalysisKPIProgressBarConditionalFormattingOutput {
+func (o AnalysisKpiProgressBarConditionalFormattingOutput) ToAnalysisKpiProgressBarConditionalFormattingOutput() AnalysisKpiProgressBarConditionalFormattingOutput {
 	return o
 }
 
-func (o AnalysisKPIProgressBarConditionalFormattingOutput) ToAnalysisKPIProgressBarConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKPIProgressBarConditionalFormattingOutput {
+func (o AnalysisKpiProgressBarConditionalFormattingOutput) ToAnalysisKpiProgressBarConditionalFormattingOutputWithContext(ctx context.Context) AnalysisKpiProgressBarConditionalFormattingOutput {
 	return o
 }
 
-func (o AnalysisKPIProgressBarConditionalFormattingOutput) ToAnalysisKPIProgressBarConditionalFormattingPtrOutput() AnalysisKPIProgressBarConditionalFormattingPtrOutput {
-	return o.ToAnalysisKPIProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
+func (o AnalysisKpiProgressBarConditionalFormattingOutput) ToAnalysisKpiProgressBarConditionalFormattingPtrOutput() AnalysisKpiProgressBarConditionalFormattingPtrOutput {
+	return o.ToAnalysisKpiProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisKPIProgressBarConditionalFormattingOutput) ToAnalysisKPIProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIProgressBarConditionalFormattingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKPIProgressBarConditionalFormatting) *AnalysisKPIProgressBarConditionalFormatting {
+func (o AnalysisKpiProgressBarConditionalFormattingOutput) ToAnalysisKpiProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiProgressBarConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKpiProgressBarConditionalFormatting) *AnalysisKpiProgressBarConditionalFormatting {
 		return &v
-	}).(AnalysisKPIProgressBarConditionalFormattingPtrOutput)
+	}).(AnalysisKpiProgressBarConditionalFormattingPtrOutput)
 }
 
-func (o AnalysisKPIProgressBarConditionalFormattingOutput) ForegroundColor() AnalysisConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIProgressBarConditionalFormatting) *AnalysisConditionalFormattingColor {
+func (o AnalysisKpiProgressBarConditionalFormattingOutput) ForegroundColor() AnalysisConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiProgressBarConditionalFormatting) *AnalysisConditionalFormattingColor {
 		return v.ForegroundColor
 	}).(AnalysisConditionalFormattingColorPtrOutput)
 }
 
-type AnalysisKPIProgressBarConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+type AnalysisKpiProgressBarConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIProgressBarConditionalFormattingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIProgressBarConditionalFormatting)(nil)).Elem()
+func (AnalysisKpiProgressBarConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiProgressBarConditionalFormatting)(nil)).Elem()
 }
 
-func (o AnalysisKPIProgressBarConditionalFormattingPtrOutput) ToAnalysisKPIProgressBarConditionalFormattingPtrOutput() AnalysisKPIProgressBarConditionalFormattingPtrOutput {
+func (o AnalysisKpiProgressBarConditionalFormattingPtrOutput) ToAnalysisKpiProgressBarConditionalFormattingPtrOutput() AnalysisKpiProgressBarConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIProgressBarConditionalFormattingPtrOutput) ToAnalysisKPIProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKPIProgressBarConditionalFormattingPtrOutput {
+func (o AnalysisKpiProgressBarConditionalFormattingPtrOutput) ToAnalysisKpiProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisKpiProgressBarConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIProgressBarConditionalFormattingPtrOutput) Elem() AnalysisKPIProgressBarConditionalFormattingOutput {
-	return o.ApplyT(func(v *AnalysisKPIProgressBarConditionalFormatting) AnalysisKPIProgressBarConditionalFormatting {
+func (o AnalysisKpiProgressBarConditionalFormattingPtrOutput) Elem() AnalysisKpiProgressBarConditionalFormattingOutput {
+	return o.ApplyT(func(v *AnalysisKpiProgressBarConditionalFormatting) AnalysisKpiProgressBarConditionalFormatting {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisKPIProgressBarConditionalFormatting
+		var ret AnalysisKpiProgressBarConditionalFormatting
 		return ret
-	}).(AnalysisKPIProgressBarConditionalFormattingOutput)
+	}).(AnalysisKpiProgressBarConditionalFormattingOutput)
 }
 
-func (o AnalysisKPIProgressBarConditionalFormattingPtrOutput) ForegroundColor() AnalysisConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIProgressBarConditionalFormatting) *AnalysisConditionalFormattingColor {
+func (o AnalysisKpiProgressBarConditionalFormattingPtrOutput) ForegroundColor() AnalysisConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiProgressBarConditionalFormatting) *AnalysisConditionalFormattingColor {
 		if v == nil {
 			return nil
 		}
@@ -35866,132 +35866,132 @@ func (o AnalysisKPIProgressBarConditionalFormattingPtrOutput) ForegroundColor() 
 	}).(AnalysisConditionalFormattingColorPtrOutput)
 }
 
-type AnalysisKPISortConfiguration struct {
+type AnalysisKpiSortConfiguration struct {
 	TrendGroupSort []AnalysisFieldSortOptions `pulumi:"trendGroupSort"`
 }
 
-// AnalysisKPISortConfigurationInput is an input type that accepts AnalysisKPISortConfigurationArgs and AnalysisKPISortConfigurationOutput values.
-// You can construct a concrete instance of `AnalysisKPISortConfigurationInput` via:
+// AnalysisKpiSortConfigurationInput is an input type that accepts AnalysisKpiSortConfigurationArgs and AnalysisKpiSortConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisKpiSortConfigurationInput` via:
 //
-//	AnalysisKPISortConfigurationArgs{...}
-type AnalysisKPISortConfigurationInput interface {
+//	AnalysisKpiSortConfigurationArgs{...}
+type AnalysisKpiSortConfigurationInput interface {
 	pulumi.Input
 
-	ToAnalysisKPISortConfigurationOutput() AnalysisKPISortConfigurationOutput
-	ToAnalysisKPISortConfigurationOutputWithContext(context.Context) AnalysisKPISortConfigurationOutput
+	ToAnalysisKpiSortConfigurationOutput() AnalysisKpiSortConfigurationOutput
+	ToAnalysisKpiSortConfigurationOutputWithContext(context.Context) AnalysisKpiSortConfigurationOutput
 }
 
-type AnalysisKPISortConfigurationArgs struct {
+type AnalysisKpiSortConfigurationArgs struct {
 	TrendGroupSort AnalysisFieldSortOptionsArrayInput `pulumi:"trendGroupSort"`
 }
 
-func (AnalysisKPISortConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPISortConfiguration)(nil)).Elem()
+func (AnalysisKpiSortConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiSortConfiguration)(nil)).Elem()
 }
 
-func (i AnalysisKPISortConfigurationArgs) ToAnalysisKPISortConfigurationOutput() AnalysisKPISortConfigurationOutput {
-	return i.ToAnalysisKPISortConfigurationOutputWithContext(context.Background())
+func (i AnalysisKpiSortConfigurationArgs) ToAnalysisKpiSortConfigurationOutput() AnalysisKpiSortConfigurationOutput {
+	return i.ToAnalysisKpiSortConfigurationOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPISortConfigurationArgs) ToAnalysisKPISortConfigurationOutputWithContext(ctx context.Context) AnalysisKPISortConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPISortConfigurationOutput)
+func (i AnalysisKpiSortConfigurationArgs) ToAnalysisKpiSortConfigurationOutputWithContext(ctx context.Context) AnalysisKpiSortConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiSortConfigurationOutput)
 }
 
-func (i AnalysisKPISortConfigurationArgs) ToAnalysisKPISortConfigurationPtrOutput() AnalysisKPISortConfigurationPtrOutput {
-	return i.ToAnalysisKPISortConfigurationPtrOutputWithContext(context.Background())
+func (i AnalysisKpiSortConfigurationArgs) ToAnalysisKpiSortConfigurationPtrOutput() AnalysisKpiSortConfigurationPtrOutput {
+	return i.ToAnalysisKpiSortConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPISortConfigurationArgs) ToAnalysisKPISortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKPISortConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPISortConfigurationOutput).ToAnalysisKPISortConfigurationPtrOutputWithContext(ctx)
+func (i AnalysisKpiSortConfigurationArgs) ToAnalysisKpiSortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKpiSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiSortConfigurationOutput).ToAnalysisKpiSortConfigurationPtrOutputWithContext(ctx)
 }
 
-// AnalysisKPISortConfigurationPtrInput is an input type that accepts AnalysisKPISortConfigurationArgs, AnalysisKPISortConfigurationPtr and AnalysisKPISortConfigurationPtrOutput values.
-// You can construct a concrete instance of `AnalysisKPISortConfigurationPtrInput` via:
+// AnalysisKpiSortConfigurationPtrInput is an input type that accepts AnalysisKpiSortConfigurationArgs, AnalysisKpiSortConfigurationPtr and AnalysisKpiSortConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisKpiSortConfigurationPtrInput` via:
 //
-//	        AnalysisKPISortConfigurationArgs{...}
+//	        AnalysisKpiSortConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnalysisKPISortConfigurationPtrInput interface {
+type AnalysisKpiSortConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisKPISortConfigurationPtrOutput() AnalysisKPISortConfigurationPtrOutput
-	ToAnalysisKPISortConfigurationPtrOutputWithContext(context.Context) AnalysisKPISortConfigurationPtrOutput
+	ToAnalysisKpiSortConfigurationPtrOutput() AnalysisKpiSortConfigurationPtrOutput
+	ToAnalysisKpiSortConfigurationPtrOutputWithContext(context.Context) AnalysisKpiSortConfigurationPtrOutput
 }
 
-type analysisKPISortConfigurationPtrType AnalysisKPISortConfigurationArgs
+type analysisKpiSortConfigurationPtrType AnalysisKpiSortConfigurationArgs
 
-func AnalysisKPISortConfigurationPtr(v *AnalysisKPISortConfigurationArgs) AnalysisKPISortConfigurationPtrInput {
-	return (*analysisKPISortConfigurationPtrType)(v)
+func AnalysisKpiSortConfigurationPtr(v *AnalysisKpiSortConfigurationArgs) AnalysisKpiSortConfigurationPtrInput {
+	return (*analysisKpiSortConfigurationPtrType)(v)
 }
 
-func (*analysisKPISortConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPISortConfiguration)(nil)).Elem()
+func (*analysisKpiSortConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiSortConfiguration)(nil)).Elem()
 }
 
-func (i *analysisKPISortConfigurationPtrType) ToAnalysisKPISortConfigurationPtrOutput() AnalysisKPISortConfigurationPtrOutput {
-	return i.ToAnalysisKPISortConfigurationPtrOutputWithContext(context.Background())
+func (i *analysisKpiSortConfigurationPtrType) ToAnalysisKpiSortConfigurationPtrOutput() AnalysisKpiSortConfigurationPtrOutput {
+	return i.ToAnalysisKpiSortConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *analysisKPISortConfigurationPtrType) ToAnalysisKPISortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKPISortConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPISortConfigurationPtrOutput)
+func (i *analysisKpiSortConfigurationPtrType) ToAnalysisKpiSortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKpiSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiSortConfigurationPtrOutput)
 }
 
-type AnalysisKPISortConfigurationOutput struct{ *pulumi.OutputState }
+type AnalysisKpiSortConfigurationOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPISortConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPISortConfiguration)(nil)).Elem()
+func (AnalysisKpiSortConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiSortConfiguration)(nil)).Elem()
 }
 
-func (o AnalysisKPISortConfigurationOutput) ToAnalysisKPISortConfigurationOutput() AnalysisKPISortConfigurationOutput {
+func (o AnalysisKpiSortConfigurationOutput) ToAnalysisKpiSortConfigurationOutput() AnalysisKpiSortConfigurationOutput {
 	return o
 }
 
-func (o AnalysisKPISortConfigurationOutput) ToAnalysisKPISortConfigurationOutputWithContext(ctx context.Context) AnalysisKPISortConfigurationOutput {
+func (o AnalysisKpiSortConfigurationOutput) ToAnalysisKpiSortConfigurationOutputWithContext(ctx context.Context) AnalysisKpiSortConfigurationOutput {
 	return o
 }
 
-func (o AnalysisKPISortConfigurationOutput) ToAnalysisKPISortConfigurationPtrOutput() AnalysisKPISortConfigurationPtrOutput {
-	return o.ToAnalysisKPISortConfigurationPtrOutputWithContext(context.Background())
+func (o AnalysisKpiSortConfigurationOutput) ToAnalysisKpiSortConfigurationPtrOutput() AnalysisKpiSortConfigurationPtrOutput {
+	return o.ToAnalysisKpiSortConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisKPISortConfigurationOutput) ToAnalysisKPISortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKPISortConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKPISortConfiguration) *AnalysisKPISortConfiguration {
+func (o AnalysisKpiSortConfigurationOutput) ToAnalysisKpiSortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKpiSortConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKpiSortConfiguration) *AnalysisKpiSortConfiguration {
 		return &v
-	}).(AnalysisKPISortConfigurationPtrOutput)
+	}).(AnalysisKpiSortConfigurationPtrOutput)
 }
 
-func (o AnalysisKPISortConfigurationOutput) TrendGroupSort() AnalysisFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v AnalysisKPISortConfiguration) []AnalysisFieldSortOptions { return v.TrendGroupSort }).(AnalysisFieldSortOptionsArrayOutput)
+func (o AnalysisKpiSortConfigurationOutput) TrendGroupSort() AnalysisFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v AnalysisKpiSortConfiguration) []AnalysisFieldSortOptions { return v.TrendGroupSort }).(AnalysisFieldSortOptionsArrayOutput)
 }
 
-type AnalysisKPISortConfigurationPtrOutput struct{ *pulumi.OutputState }
+type AnalysisKpiSortConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPISortConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPISortConfiguration)(nil)).Elem()
+func (AnalysisKpiSortConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiSortConfiguration)(nil)).Elem()
 }
 
-func (o AnalysisKPISortConfigurationPtrOutput) ToAnalysisKPISortConfigurationPtrOutput() AnalysisKPISortConfigurationPtrOutput {
+func (o AnalysisKpiSortConfigurationPtrOutput) ToAnalysisKpiSortConfigurationPtrOutput() AnalysisKpiSortConfigurationPtrOutput {
 	return o
 }
 
-func (o AnalysisKPISortConfigurationPtrOutput) ToAnalysisKPISortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKPISortConfigurationPtrOutput {
+func (o AnalysisKpiSortConfigurationPtrOutput) ToAnalysisKpiSortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisKpiSortConfigurationPtrOutput {
 	return o
 }
 
-func (o AnalysisKPISortConfigurationPtrOutput) Elem() AnalysisKPISortConfigurationOutput {
-	return o.ApplyT(func(v *AnalysisKPISortConfiguration) AnalysisKPISortConfiguration {
+func (o AnalysisKpiSortConfigurationPtrOutput) Elem() AnalysisKpiSortConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisKpiSortConfiguration) AnalysisKpiSortConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisKPISortConfiguration
+		var ret AnalysisKpiSortConfiguration
 		return ret
-	}).(AnalysisKPISortConfigurationOutput)
+	}).(AnalysisKpiSortConfigurationOutput)
 }
 
-func (o AnalysisKPISortConfigurationPtrOutput) TrendGroupSort() AnalysisFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v *AnalysisKPISortConfiguration) []AnalysisFieldSortOptions {
+func (o AnalysisKpiSortConfigurationPtrOutput) TrendGroupSort() AnalysisFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v *AnalysisKpiSortConfiguration) []AnalysisFieldSortOptions {
 		if v == nil {
 			return nil
 		}
@@ -35999,168 +35999,168 @@ func (o AnalysisKPISortConfigurationPtrOutput) TrendGroupSort() AnalysisFieldSor
 	}).(AnalysisFieldSortOptionsArrayOutput)
 }
 
-type AnalysisKPIVisual struct {
+type AnalysisKpiVisual struct {
 	Actions               []AnalysisVisualCustomAction        `pulumi:"actions"`
-	ChartConfiguration    *AnalysisKPIConfiguration           `pulumi:"chartConfiguration"`
+	ChartConfiguration    *AnalysisKpiConfiguration           `pulumi:"chartConfiguration"`
 	ColumnHierarchies     []AnalysisColumnHierarchy           `pulumi:"columnHierarchies"`
-	ConditionalFormatting *AnalysisKPIConditionalFormatting   `pulumi:"conditionalFormatting"`
+	ConditionalFormatting *AnalysisKpiConditionalFormatting   `pulumi:"conditionalFormatting"`
 	Subtitle              *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	Title                 *AnalysisVisualTitleLabelOptions    `pulumi:"title"`
 	VisualId              string                              `pulumi:"visualId"`
 }
 
-// AnalysisKPIVisualInput is an input type that accepts AnalysisKPIVisualArgs and AnalysisKPIVisualOutput values.
-// You can construct a concrete instance of `AnalysisKPIVisualInput` via:
+// AnalysisKpiVisualInput is an input type that accepts AnalysisKpiVisualArgs and AnalysisKpiVisualOutput values.
+// You can construct a concrete instance of `AnalysisKpiVisualInput` via:
 //
-//	AnalysisKPIVisualArgs{...}
-type AnalysisKPIVisualInput interface {
+//	AnalysisKpiVisualArgs{...}
+type AnalysisKpiVisualInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIVisualOutput() AnalysisKPIVisualOutput
-	ToAnalysisKPIVisualOutputWithContext(context.Context) AnalysisKPIVisualOutput
+	ToAnalysisKpiVisualOutput() AnalysisKpiVisualOutput
+	ToAnalysisKpiVisualOutputWithContext(context.Context) AnalysisKpiVisualOutput
 }
 
-type AnalysisKPIVisualArgs struct {
+type AnalysisKpiVisualArgs struct {
 	Actions               AnalysisVisualCustomActionArrayInput       `pulumi:"actions"`
-	ChartConfiguration    AnalysisKPIConfigurationPtrInput           `pulumi:"chartConfiguration"`
+	ChartConfiguration    AnalysisKpiConfigurationPtrInput           `pulumi:"chartConfiguration"`
 	ColumnHierarchies     AnalysisColumnHierarchyArrayInput          `pulumi:"columnHierarchies"`
-	ConditionalFormatting AnalysisKPIConditionalFormattingPtrInput   `pulumi:"conditionalFormatting"`
+	ConditionalFormatting AnalysisKpiConditionalFormattingPtrInput   `pulumi:"conditionalFormatting"`
 	Subtitle              AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	Title                 AnalysisVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
 	VisualId              pulumi.StringInput                         `pulumi:"visualId"`
 }
 
-func (AnalysisKPIVisualArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIVisual)(nil)).Elem()
+func (AnalysisKpiVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiVisual)(nil)).Elem()
 }
 
-func (i AnalysisKPIVisualArgs) ToAnalysisKPIVisualOutput() AnalysisKPIVisualOutput {
-	return i.ToAnalysisKPIVisualOutputWithContext(context.Background())
+func (i AnalysisKpiVisualArgs) ToAnalysisKpiVisualOutput() AnalysisKpiVisualOutput {
+	return i.ToAnalysisKpiVisualOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIVisualArgs) ToAnalysisKPIVisualOutputWithContext(ctx context.Context) AnalysisKPIVisualOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIVisualOutput)
+func (i AnalysisKpiVisualArgs) ToAnalysisKpiVisualOutputWithContext(ctx context.Context) AnalysisKpiVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiVisualOutput)
 }
 
-func (i AnalysisKPIVisualArgs) ToAnalysisKPIVisualPtrOutput() AnalysisKPIVisualPtrOutput {
-	return i.ToAnalysisKPIVisualPtrOutputWithContext(context.Background())
+func (i AnalysisKpiVisualArgs) ToAnalysisKpiVisualPtrOutput() AnalysisKpiVisualPtrOutput {
+	return i.ToAnalysisKpiVisualPtrOutputWithContext(context.Background())
 }
 
-func (i AnalysisKPIVisualArgs) ToAnalysisKPIVisualPtrOutputWithContext(ctx context.Context) AnalysisKPIVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIVisualOutput).ToAnalysisKPIVisualPtrOutputWithContext(ctx)
+func (i AnalysisKpiVisualArgs) ToAnalysisKpiVisualPtrOutputWithContext(ctx context.Context) AnalysisKpiVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiVisualOutput).ToAnalysisKpiVisualPtrOutputWithContext(ctx)
 }
 
-// AnalysisKPIVisualPtrInput is an input type that accepts AnalysisKPIVisualArgs, AnalysisKPIVisualPtr and AnalysisKPIVisualPtrOutput values.
-// You can construct a concrete instance of `AnalysisKPIVisualPtrInput` via:
+// AnalysisKpiVisualPtrInput is an input type that accepts AnalysisKpiVisualArgs, AnalysisKpiVisualPtr and AnalysisKpiVisualPtrOutput values.
+// You can construct a concrete instance of `AnalysisKpiVisualPtrInput` via:
 //
-//	        AnalysisKPIVisualArgs{...}
+//	        AnalysisKpiVisualArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnalysisKPIVisualPtrInput interface {
+type AnalysisKpiVisualPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisKPIVisualPtrOutput() AnalysisKPIVisualPtrOutput
-	ToAnalysisKPIVisualPtrOutputWithContext(context.Context) AnalysisKPIVisualPtrOutput
+	ToAnalysisKpiVisualPtrOutput() AnalysisKpiVisualPtrOutput
+	ToAnalysisKpiVisualPtrOutputWithContext(context.Context) AnalysisKpiVisualPtrOutput
 }
 
-type analysisKPIVisualPtrType AnalysisKPIVisualArgs
+type analysisKpiVisualPtrType AnalysisKpiVisualArgs
 
-func AnalysisKPIVisualPtr(v *AnalysisKPIVisualArgs) AnalysisKPIVisualPtrInput {
-	return (*analysisKPIVisualPtrType)(v)
+func AnalysisKpiVisualPtr(v *AnalysisKpiVisualArgs) AnalysisKpiVisualPtrInput {
+	return (*analysisKpiVisualPtrType)(v)
 }
 
-func (*analysisKPIVisualPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIVisual)(nil)).Elem()
+func (*analysisKpiVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiVisual)(nil)).Elem()
 }
 
-func (i *analysisKPIVisualPtrType) ToAnalysisKPIVisualPtrOutput() AnalysisKPIVisualPtrOutput {
-	return i.ToAnalysisKPIVisualPtrOutputWithContext(context.Background())
+func (i *analysisKpiVisualPtrType) ToAnalysisKpiVisualPtrOutput() AnalysisKpiVisualPtrOutput {
+	return i.ToAnalysisKpiVisualPtrOutputWithContext(context.Background())
 }
 
-func (i *analysisKPIVisualPtrType) ToAnalysisKPIVisualPtrOutputWithContext(ctx context.Context) AnalysisKPIVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKPIVisualPtrOutput)
+func (i *analysisKpiVisualPtrType) ToAnalysisKpiVisualPtrOutputWithContext(ctx context.Context) AnalysisKpiVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisKpiVisualPtrOutput)
 }
 
-type AnalysisKPIVisualOutput struct{ *pulumi.OutputState }
+type AnalysisKpiVisualOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIVisualOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisKPIVisual)(nil)).Elem()
+func (AnalysisKpiVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisKpiVisual)(nil)).Elem()
 }
 
-func (o AnalysisKPIVisualOutput) ToAnalysisKPIVisualOutput() AnalysisKPIVisualOutput {
+func (o AnalysisKpiVisualOutput) ToAnalysisKpiVisualOutput() AnalysisKpiVisualOutput {
 	return o
 }
 
-func (o AnalysisKPIVisualOutput) ToAnalysisKPIVisualOutputWithContext(ctx context.Context) AnalysisKPIVisualOutput {
+func (o AnalysisKpiVisualOutput) ToAnalysisKpiVisualOutputWithContext(ctx context.Context) AnalysisKpiVisualOutput {
 	return o
 }
 
-func (o AnalysisKPIVisualOutput) ToAnalysisKPIVisualPtrOutput() AnalysisKPIVisualPtrOutput {
-	return o.ToAnalysisKPIVisualPtrOutputWithContext(context.Background())
+func (o AnalysisKpiVisualOutput) ToAnalysisKpiVisualPtrOutput() AnalysisKpiVisualPtrOutput {
+	return o.ToAnalysisKpiVisualPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisKPIVisualOutput) ToAnalysisKPIVisualPtrOutputWithContext(ctx context.Context) AnalysisKPIVisualPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKPIVisual) *AnalysisKPIVisual {
+func (o AnalysisKpiVisualOutput) ToAnalysisKpiVisualPtrOutputWithContext(ctx context.Context) AnalysisKpiVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisKpiVisual) *AnalysisKpiVisual {
 		return &v
-	}).(AnalysisKPIVisualPtrOutput)
+	}).(AnalysisKpiVisualPtrOutput)
 }
 
-func (o AnalysisKPIVisualOutput) Actions() AnalysisVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v AnalysisKPIVisual) []AnalysisVisualCustomAction { return v.Actions }).(AnalysisVisualCustomActionArrayOutput)
+func (o AnalysisKpiVisualOutput) Actions() AnalysisVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v AnalysisKpiVisual) []AnalysisVisualCustomAction { return v.Actions }).(AnalysisVisualCustomActionArrayOutput)
 }
 
-func (o AnalysisKPIVisualOutput) ChartConfiguration() AnalysisKPIConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIVisual) *AnalysisKPIConfiguration { return v.ChartConfiguration }).(AnalysisKPIConfigurationPtrOutput)
+func (o AnalysisKpiVisualOutput) ChartConfiguration() AnalysisKpiConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiVisual) *AnalysisKpiConfiguration { return v.ChartConfiguration }).(AnalysisKpiConfigurationPtrOutput)
 }
 
-func (o AnalysisKPIVisualOutput) ColumnHierarchies() AnalysisColumnHierarchyArrayOutput {
-	return o.ApplyT(func(v AnalysisKPIVisual) []AnalysisColumnHierarchy { return v.ColumnHierarchies }).(AnalysisColumnHierarchyArrayOutput)
+func (o AnalysisKpiVisualOutput) ColumnHierarchies() AnalysisColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v AnalysisKpiVisual) []AnalysisColumnHierarchy { return v.ColumnHierarchies }).(AnalysisColumnHierarchyArrayOutput)
 }
 
-func (o AnalysisKPIVisualOutput) ConditionalFormatting() AnalysisKPIConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIVisual) *AnalysisKPIConditionalFormatting { return v.ConditionalFormatting }).(AnalysisKPIConditionalFormattingPtrOutput)
+func (o AnalysisKpiVisualOutput) ConditionalFormatting() AnalysisKpiConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiVisual) *AnalysisKpiConditionalFormatting { return v.ConditionalFormatting }).(AnalysisKpiConditionalFormattingPtrOutput)
 }
 
-func (o AnalysisKPIVisualOutput) Subtitle() AnalysisVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIVisual) *AnalysisVisualSubtitleLabelOptions { return v.Subtitle }).(AnalysisVisualSubtitleLabelOptionsPtrOutput)
+func (o AnalysisKpiVisualOutput) Subtitle() AnalysisVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiVisual) *AnalysisVisualSubtitleLabelOptions { return v.Subtitle }).(AnalysisVisualSubtitleLabelOptionsPtrOutput)
 }
 
-func (o AnalysisKPIVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
+func (o AnalysisKpiVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
-func (o AnalysisKPIVisualOutput) VisualId() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisKPIVisual) string { return v.VisualId }).(pulumi.StringOutput)
+func (o AnalysisKpiVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisKpiVisual) string { return v.VisualId }).(pulumi.StringOutput)
 }
 
-type AnalysisKPIVisualPtrOutput struct{ *pulumi.OutputState }
+type AnalysisKpiVisualPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisKPIVisualPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisKPIVisual)(nil)).Elem()
+func (AnalysisKpiVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisKpiVisual)(nil)).Elem()
 }
 
-func (o AnalysisKPIVisualPtrOutput) ToAnalysisKPIVisualPtrOutput() AnalysisKPIVisualPtrOutput {
+func (o AnalysisKpiVisualPtrOutput) ToAnalysisKpiVisualPtrOutput() AnalysisKpiVisualPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIVisualPtrOutput) ToAnalysisKPIVisualPtrOutputWithContext(ctx context.Context) AnalysisKPIVisualPtrOutput {
+func (o AnalysisKpiVisualPtrOutput) ToAnalysisKpiVisualPtrOutputWithContext(ctx context.Context) AnalysisKpiVisualPtrOutput {
 	return o
 }
 
-func (o AnalysisKPIVisualPtrOutput) Elem() AnalysisKPIVisualOutput {
-	return o.ApplyT(func(v *AnalysisKPIVisual) AnalysisKPIVisual {
+func (o AnalysisKpiVisualPtrOutput) Elem() AnalysisKpiVisualOutput {
+	return o.ApplyT(func(v *AnalysisKpiVisual) AnalysisKpiVisual {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisKPIVisual
+		var ret AnalysisKpiVisual
 		return ret
-	}).(AnalysisKPIVisualOutput)
+	}).(AnalysisKpiVisualOutput)
 }
 
-func (o AnalysisKPIVisualPtrOutput) Actions() AnalysisVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v *AnalysisKPIVisual) []AnalysisVisualCustomAction {
+func (o AnalysisKpiVisualPtrOutput) Actions() AnalysisVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *AnalysisKpiVisual) []AnalysisVisualCustomAction {
 		if v == nil {
 			return nil
 		}
@@ -36168,17 +36168,17 @@ func (o AnalysisKPIVisualPtrOutput) Actions() AnalysisVisualCustomActionArrayOut
 	}).(AnalysisVisualCustomActionArrayOutput)
 }
 
-func (o AnalysisKPIVisualPtrOutput) ChartConfiguration() AnalysisKPIConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIVisual) *AnalysisKPIConfiguration {
+func (o AnalysisKpiVisualPtrOutput) ChartConfiguration() AnalysisKpiConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiVisual) *AnalysisKpiConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.ChartConfiguration
-	}).(AnalysisKPIConfigurationPtrOutput)
+	}).(AnalysisKpiConfigurationPtrOutput)
 }
 
-func (o AnalysisKPIVisualPtrOutput) ColumnHierarchies() AnalysisColumnHierarchyArrayOutput {
-	return o.ApplyT(func(v *AnalysisKPIVisual) []AnalysisColumnHierarchy {
+func (o AnalysisKpiVisualPtrOutput) ColumnHierarchies() AnalysisColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v *AnalysisKpiVisual) []AnalysisColumnHierarchy {
 		if v == nil {
 			return nil
 		}
@@ -36186,17 +36186,17 @@ func (o AnalysisKPIVisualPtrOutput) ColumnHierarchies() AnalysisColumnHierarchyA
 	}).(AnalysisColumnHierarchyArrayOutput)
 }
 
-func (o AnalysisKPIVisualPtrOutput) ConditionalFormatting() AnalysisKPIConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIVisual) *AnalysisKPIConditionalFormatting {
+func (o AnalysisKpiVisualPtrOutput) ConditionalFormatting() AnalysisKpiConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiVisual) *AnalysisKpiConditionalFormatting {
 		if v == nil {
 			return nil
 		}
 		return v.ConditionalFormatting
-	}).(AnalysisKPIConditionalFormattingPtrOutput)
+	}).(AnalysisKpiConditionalFormattingPtrOutput)
 }
 
-func (o AnalysisKPIVisualPtrOutput) Subtitle() AnalysisVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIVisual) *AnalysisVisualSubtitleLabelOptions {
+func (o AnalysisKpiVisualPtrOutput) Subtitle() AnalysisVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiVisual) *AnalysisVisualSubtitleLabelOptions {
 		if v == nil {
 			return nil
 		}
@@ -36204,8 +36204,8 @@ func (o AnalysisKPIVisualPtrOutput) Subtitle() AnalysisVisualSubtitleLabelOption
 	}).(AnalysisVisualSubtitleLabelOptionsPtrOutput)
 }
 
-func (o AnalysisKPIVisualPtrOutput) Title() AnalysisVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIVisual) *AnalysisVisualTitleLabelOptions {
+func (o AnalysisKpiVisualPtrOutput) Title() AnalysisVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiVisual) *AnalysisVisualTitleLabelOptions {
 		if v == nil {
 			return nil
 		}
@@ -36213,8 +36213,8 @@ func (o AnalysisKPIVisualPtrOutput) Title() AnalysisVisualTitleLabelOptionsPtrOu
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
-func (o AnalysisKPIVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalysisKPIVisual) *string {
+func (o AnalysisKpiVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiVisual) *string {
 		if v == nil {
 			return nil
 		}
@@ -62178,7 +62178,7 @@ func (o AnalysisTableFieldImageConfigurationPtrOutput) SizingOptions() AnalysisT
 
 type AnalysisTableFieldLinkConfiguration struct {
 	Content AnalysisTableFieldLinkContentConfiguration `pulumi:"content"`
-	Target  AnalysisURLTargetConfiguration             `pulumi:"target"`
+	Target  AnalysisUrlTargetConfiguration             `pulumi:"target"`
 }
 
 // AnalysisTableFieldLinkConfigurationInput is an input type that accepts AnalysisTableFieldLinkConfigurationArgs and AnalysisTableFieldLinkConfigurationOutput values.
@@ -62194,7 +62194,7 @@ type AnalysisTableFieldLinkConfigurationInput interface {
 
 type AnalysisTableFieldLinkConfigurationArgs struct {
 	Content AnalysisTableFieldLinkContentConfigurationInput `pulumi:"content"`
-	Target  AnalysisURLTargetConfigurationInput             `pulumi:"target"`
+	Target  AnalysisUrlTargetConfigurationInput             `pulumi:"target"`
 }
 
 func (AnalysisTableFieldLinkConfigurationArgs) ElementType() reflect.Type {
@@ -62280,8 +62280,8 @@ func (o AnalysisTableFieldLinkConfigurationOutput) Content() AnalysisTableFieldL
 	}).(AnalysisTableFieldLinkContentConfigurationOutput)
 }
 
-func (o AnalysisTableFieldLinkConfigurationOutput) Target() AnalysisURLTargetConfigurationOutput {
-	return o.ApplyT(func(v AnalysisTableFieldLinkConfiguration) AnalysisURLTargetConfiguration { return v.Target }).(AnalysisURLTargetConfigurationOutput)
+func (o AnalysisTableFieldLinkConfigurationOutput) Target() AnalysisUrlTargetConfigurationOutput {
+	return o.ApplyT(func(v AnalysisTableFieldLinkConfiguration) AnalysisUrlTargetConfiguration { return v.Target }).(AnalysisUrlTargetConfigurationOutput)
 }
 
 type AnalysisTableFieldLinkConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -62317,13 +62317,13 @@ func (o AnalysisTableFieldLinkConfigurationPtrOutput) Content() AnalysisTableFie
 	}).(AnalysisTableFieldLinkContentConfigurationPtrOutput)
 }
 
-func (o AnalysisTableFieldLinkConfigurationPtrOutput) Target() AnalysisURLTargetConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableFieldLinkConfiguration) *AnalysisURLTargetConfiguration {
+func (o AnalysisTableFieldLinkConfigurationPtrOutput) Target() AnalysisUrlTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisTableFieldLinkConfiguration) *AnalysisUrlTargetConfiguration {
 		if v == nil {
 			return nil
 		}
 		return &v.Target
-	}).(AnalysisURLTargetConfigurationPtrOutput)
+	}).(AnalysisUrlTargetConfigurationPtrOutput)
 }
 
 type AnalysisTableFieldLinkContentConfiguration struct {
@@ -62481,7 +62481,7 @@ func (o AnalysisTableFieldLinkContentConfigurationPtrOutput) CustomTextContent()
 type AnalysisTableFieldOption struct {
 	CustomLabel *string                             `pulumi:"customLabel"`
 	FieldId     string                              `pulumi:"fieldId"`
-	UrlStyling  *AnalysisTableFieldURLConfiguration `pulumi:"urlStyling"`
+	UrlStyling  *AnalysisTableFieldUrlConfiguration `pulumi:"urlStyling"`
 	Visibility  *AnalysisVisibility                 `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width *string `pulumi:"width"`
@@ -62501,7 +62501,7 @@ type AnalysisTableFieldOptionInput interface {
 type AnalysisTableFieldOptionArgs struct {
 	CustomLabel pulumi.StringPtrInput                      `pulumi:"customLabel"`
 	FieldId     pulumi.StringInput                         `pulumi:"fieldId"`
-	UrlStyling  AnalysisTableFieldURLConfigurationPtrInput `pulumi:"urlStyling"`
+	UrlStyling  AnalysisTableFieldUrlConfigurationPtrInput `pulumi:"urlStyling"`
 	Visibility  AnalysisVisibilityPtrInput                 `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width pulumi.StringPtrInput `pulumi:"width"`
@@ -62566,8 +62566,8 @@ func (o AnalysisTableFieldOptionOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisTableFieldOption) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-func (o AnalysisTableFieldOptionOutput) UrlStyling() AnalysisTableFieldURLConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisTableFieldOption) *AnalysisTableFieldURLConfiguration { return v.UrlStyling }).(AnalysisTableFieldURLConfigurationPtrOutput)
+func (o AnalysisTableFieldOptionOutput) UrlStyling() AnalysisTableFieldUrlConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisTableFieldOption) *AnalysisTableFieldUrlConfiguration { return v.UrlStyling }).(AnalysisTableFieldUrlConfigurationPtrOutput)
 }
 
 func (o AnalysisTableFieldOptionOutput) Visibility() AnalysisVisibilityPtrOutput {
@@ -62747,142 +62747,142 @@ func (o AnalysisTableFieldOptionsPtrOutput) SelectedFieldOptions() AnalysisTable
 	}).(AnalysisTableFieldOptionArrayOutput)
 }
 
-type AnalysisTableFieldURLConfiguration struct {
+type AnalysisTableFieldUrlConfiguration struct {
 	ImageConfiguration *AnalysisTableFieldImageConfiguration `pulumi:"imageConfiguration"`
 	LinkConfiguration  *AnalysisTableFieldLinkConfiguration  `pulumi:"linkConfiguration"`
 }
 
-// AnalysisTableFieldURLConfigurationInput is an input type that accepts AnalysisTableFieldURLConfigurationArgs and AnalysisTableFieldURLConfigurationOutput values.
-// You can construct a concrete instance of `AnalysisTableFieldURLConfigurationInput` via:
+// AnalysisTableFieldUrlConfigurationInput is an input type that accepts AnalysisTableFieldUrlConfigurationArgs and AnalysisTableFieldUrlConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisTableFieldUrlConfigurationInput` via:
 //
-//	AnalysisTableFieldURLConfigurationArgs{...}
-type AnalysisTableFieldURLConfigurationInput interface {
+//	AnalysisTableFieldUrlConfigurationArgs{...}
+type AnalysisTableFieldUrlConfigurationInput interface {
 	pulumi.Input
 
-	ToAnalysisTableFieldURLConfigurationOutput() AnalysisTableFieldURLConfigurationOutput
-	ToAnalysisTableFieldURLConfigurationOutputWithContext(context.Context) AnalysisTableFieldURLConfigurationOutput
+	ToAnalysisTableFieldUrlConfigurationOutput() AnalysisTableFieldUrlConfigurationOutput
+	ToAnalysisTableFieldUrlConfigurationOutputWithContext(context.Context) AnalysisTableFieldUrlConfigurationOutput
 }
 
-type AnalysisTableFieldURLConfigurationArgs struct {
+type AnalysisTableFieldUrlConfigurationArgs struct {
 	ImageConfiguration AnalysisTableFieldImageConfigurationPtrInput `pulumi:"imageConfiguration"`
 	LinkConfiguration  AnalysisTableFieldLinkConfigurationPtrInput  `pulumi:"linkConfiguration"`
 }
 
-func (AnalysisTableFieldURLConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableFieldURLConfiguration)(nil)).Elem()
+func (AnalysisTableFieldUrlConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTableFieldUrlConfiguration)(nil)).Elem()
 }
 
-func (i AnalysisTableFieldURLConfigurationArgs) ToAnalysisTableFieldURLConfigurationOutput() AnalysisTableFieldURLConfigurationOutput {
-	return i.ToAnalysisTableFieldURLConfigurationOutputWithContext(context.Background())
+func (i AnalysisTableFieldUrlConfigurationArgs) ToAnalysisTableFieldUrlConfigurationOutput() AnalysisTableFieldUrlConfigurationOutput {
+	return i.ToAnalysisTableFieldUrlConfigurationOutputWithContext(context.Background())
 }
 
-func (i AnalysisTableFieldURLConfigurationArgs) ToAnalysisTableFieldURLConfigurationOutputWithContext(ctx context.Context) AnalysisTableFieldURLConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableFieldURLConfigurationOutput)
+func (i AnalysisTableFieldUrlConfigurationArgs) ToAnalysisTableFieldUrlConfigurationOutputWithContext(ctx context.Context) AnalysisTableFieldUrlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableFieldUrlConfigurationOutput)
 }
 
-func (i AnalysisTableFieldURLConfigurationArgs) ToAnalysisTableFieldURLConfigurationPtrOutput() AnalysisTableFieldURLConfigurationPtrOutput {
-	return i.ToAnalysisTableFieldURLConfigurationPtrOutputWithContext(context.Background())
+func (i AnalysisTableFieldUrlConfigurationArgs) ToAnalysisTableFieldUrlConfigurationPtrOutput() AnalysisTableFieldUrlConfigurationPtrOutput {
+	return i.ToAnalysisTableFieldUrlConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i AnalysisTableFieldURLConfigurationArgs) ToAnalysisTableFieldURLConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableFieldURLConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableFieldURLConfigurationOutput).ToAnalysisTableFieldURLConfigurationPtrOutputWithContext(ctx)
+func (i AnalysisTableFieldUrlConfigurationArgs) ToAnalysisTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableFieldUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableFieldUrlConfigurationOutput).ToAnalysisTableFieldUrlConfigurationPtrOutputWithContext(ctx)
 }
 
-// AnalysisTableFieldURLConfigurationPtrInput is an input type that accepts AnalysisTableFieldURLConfigurationArgs, AnalysisTableFieldURLConfigurationPtr and AnalysisTableFieldURLConfigurationPtrOutput values.
-// You can construct a concrete instance of `AnalysisTableFieldURLConfigurationPtrInput` via:
+// AnalysisTableFieldUrlConfigurationPtrInput is an input type that accepts AnalysisTableFieldUrlConfigurationArgs, AnalysisTableFieldUrlConfigurationPtr and AnalysisTableFieldUrlConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisTableFieldUrlConfigurationPtrInput` via:
 //
-//	        AnalysisTableFieldURLConfigurationArgs{...}
+//	        AnalysisTableFieldUrlConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type AnalysisTableFieldURLConfigurationPtrInput interface {
+type AnalysisTableFieldUrlConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisTableFieldURLConfigurationPtrOutput() AnalysisTableFieldURLConfigurationPtrOutput
-	ToAnalysisTableFieldURLConfigurationPtrOutputWithContext(context.Context) AnalysisTableFieldURLConfigurationPtrOutput
+	ToAnalysisTableFieldUrlConfigurationPtrOutput() AnalysisTableFieldUrlConfigurationPtrOutput
+	ToAnalysisTableFieldUrlConfigurationPtrOutputWithContext(context.Context) AnalysisTableFieldUrlConfigurationPtrOutput
 }
 
-type analysisTableFieldURLConfigurationPtrType AnalysisTableFieldURLConfigurationArgs
+type analysisTableFieldUrlConfigurationPtrType AnalysisTableFieldUrlConfigurationArgs
 
-func AnalysisTableFieldURLConfigurationPtr(v *AnalysisTableFieldURLConfigurationArgs) AnalysisTableFieldURLConfigurationPtrInput {
-	return (*analysisTableFieldURLConfigurationPtrType)(v)
+func AnalysisTableFieldUrlConfigurationPtr(v *AnalysisTableFieldUrlConfigurationArgs) AnalysisTableFieldUrlConfigurationPtrInput {
+	return (*analysisTableFieldUrlConfigurationPtrType)(v)
 }
 
-func (*analysisTableFieldURLConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableFieldURLConfiguration)(nil)).Elem()
+func (*analysisTableFieldUrlConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTableFieldUrlConfiguration)(nil)).Elem()
 }
 
-func (i *analysisTableFieldURLConfigurationPtrType) ToAnalysisTableFieldURLConfigurationPtrOutput() AnalysisTableFieldURLConfigurationPtrOutput {
-	return i.ToAnalysisTableFieldURLConfigurationPtrOutputWithContext(context.Background())
+func (i *analysisTableFieldUrlConfigurationPtrType) ToAnalysisTableFieldUrlConfigurationPtrOutput() AnalysisTableFieldUrlConfigurationPtrOutput {
+	return i.ToAnalysisTableFieldUrlConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *analysisTableFieldURLConfigurationPtrType) ToAnalysisTableFieldURLConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableFieldURLConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableFieldURLConfigurationPtrOutput)
+func (i *analysisTableFieldUrlConfigurationPtrType) ToAnalysisTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableFieldUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableFieldUrlConfigurationPtrOutput)
 }
 
-type AnalysisTableFieldURLConfigurationOutput struct{ *pulumi.OutputState }
+type AnalysisTableFieldUrlConfigurationOutput struct{ *pulumi.OutputState }
 
-func (AnalysisTableFieldURLConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableFieldURLConfiguration)(nil)).Elem()
+func (AnalysisTableFieldUrlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTableFieldUrlConfiguration)(nil)).Elem()
 }
 
-func (o AnalysisTableFieldURLConfigurationOutput) ToAnalysisTableFieldURLConfigurationOutput() AnalysisTableFieldURLConfigurationOutput {
+func (o AnalysisTableFieldUrlConfigurationOutput) ToAnalysisTableFieldUrlConfigurationOutput() AnalysisTableFieldUrlConfigurationOutput {
 	return o
 }
 
-func (o AnalysisTableFieldURLConfigurationOutput) ToAnalysisTableFieldURLConfigurationOutputWithContext(ctx context.Context) AnalysisTableFieldURLConfigurationOutput {
+func (o AnalysisTableFieldUrlConfigurationOutput) ToAnalysisTableFieldUrlConfigurationOutputWithContext(ctx context.Context) AnalysisTableFieldUrlConfigurationOutput {
 	return o
 }
 
-func (o AnalysisTableFieldURLConfigurationOutput) ToAnalysisTableFieldURLConfigurationPtrOutput() AnalysisTableFieldURLConfigurationPtrOutput {
-	return o.ToAnalysisTableFieldURLConfigurationPtrOutputWithContext(context.Background())
+func (o AnalysisTableFieldUrlConfigurationOutput) ToAnalysisTableFieldUrlConfigurationPtrOutput() AnalysisTableFieldUrlConfigurationPtrOutput {
+	return o.ToAnalysisTableFieldUrlConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisTableFieldURLConfigurationOutput) ToAnalysisTableFieldURLConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableFieldURLConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableFieldURLConfiguration) *AnalysisTableFieldURLConfiguration {
+func (o AnalysisTableFieldUrlConfigurationOutput) ToAnalysisTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableFieldUrlConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableFieldUrlConfiguration) *AnalysisTableFieldUrlConfiguration {
 		return &v
-	}).(AnalysisTableFieldURLConfigurationPtrOutput)
+	}).(AnalysisTableFieldUrlConfigurationPtrOutput)
 }
 
-func (o AnalysisTableFieldURLConfigurationOutput) ImageConfiguration() AnalysisTableFieldImageConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisTableFieldURLConfiguration) *AnalysisTableFieldImageConfiguration {
+func (o AnalysisTableFieldUrlConfigurationOutput) ImageConfiguration() AnalysisTableFieldImageConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisTableFieldUrlConfiguration) *AnalysisTableFieldImageConfiguration {
 		return v.ImageConfiguration
 	}).(AnalysisTableFieldImageConfigurationPtrOutput)
 }
 
-func (o AnalysisTableFieldURLConfigurationOutput) LinkConfiguration() AnalysisTableFieldLinkConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisTableFieldURLConfiguration) *AnalysisTableFieldLinkConfiguration {
+func (o AnalysisTableFieldUrlConfigurationOutput) LinkConfiguration() AnalysisTableFieldLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisTableFieldUrlConfiguration) *AnalysisTableFieldLinkConfiguration {
 		return v.LinkConfiguration
 	}).(AnalysisTableFieldLinkConfigurationPtrOutput)
 }
 
-type AnalysisTableFieldURLConfigurationPtrOutput struct{ *pulumi.OutputState }
+type AnalysisTableFieldUrlConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisTableFieldURLConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableFieldURLConfiguration)(nil)).Elem()
+func (AnalysisTableFieldUrlConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTableFieldUrlConfiguration)(nil)).Elem()
 }
 
-func (o AnalysisTableFieldURLConfigurationPtrOutput) ToAnalysisTableFieldURLConfigurationPtrOutput() AnalysisTableFieldURLConfigurationPtrOutput {
+func (o AnalysisTableFieldUrlConfigurationPtrOutput) ToAnalysisTableFieldUrlConfigurationPtrOutput() AnalysisTableFieldUrlConfigurationPtrOutput {
 	return o
 }
 
-func (o AnalysisTableFieldURLConfigurationPtrOutput) ToAnalysisTableFieldURLConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableFieldURLConfigurationPtrOutput {
+func (o AnalysisTableFieldUrlConfigurationPtrOutput) ToAnalysisTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableFieldUrlConfigurationPtrOutput {
 	return o
 }
 
-func (o AnalysisTableFieldURLConfigurationPtrOutput) Elem() AnalysisTableFieldURLConfigurationOutput {
-	return o.ApplyT(func(v *AnalysisTableFieldURLConfiguration) AnalysisTableFieldURLConfiguration {
+func (o AnalysisTableFieldUrlConfigurationPtrOutput) Elem() AnalysisTableFieldUrlConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisTableFieldUrlConfiguration) AnalysisTableFieldUrlConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisTableFieldURLConfiguration
+		var ret AnalysisTableFieldUrlConfiguration
 		return ret
-	}).(AnalysisTableFieldURLConfigurationOutput)
+	}).(AnalysisTableFieldUrlConfigurationOutput)
 }
 
-func (o AnalysisTableFieldURLConfigurationPtrOutput) ImageConfiguration() AnalysisTableFieldImageConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableFieldURLConfiguration) *AnalysisTableFieldImageConfiguration {
+func (o AnalysisTableFieldUrlConfigurationPtrOutput) ImageConfiguration() AnalysisTableFieldImageConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisTableFieldUrlConfiguration) *AnalysisTableFieldImageConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -62890,8 +62890,8 @@ func (o AnalysisTableFieldURLConfigurationPtrOutput) ImageConfiguration() Analys
 	}).(AnalysisTableFieldImageConfigurationPtrOutput)
 }
 
-func (o AnalysisTableFieldURLConfigurationPtrOutput) LinkConfiguration() AnalysisTableFieldLinkConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableFieldURLConfiguration) *AnalysisTableFieldLinkConfiguration {
+func (o AnalysisTableFieldUrlConfigurationPtrOutput) LinkConfiguration() AnalysisTableFieldLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisTableFieldUrlConfiguration) *AnalysisTableFieldLinkConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -68893,7 +68893,7 @@ type AnalysisVisual struct {
 	HeatMapVisual       *AnalysisHeatMapVisual       `pulumi:"heatMapVisual"`
 	HistogramVisual     *AnalysisHistogramVisual     `pulumi:"histogramVisual"`
 	InsightVisual       *AnalysisInsightVisual       `pulumi:"insightVisual"`
-	KpiVisual           *AnalysisKPIVisual           `pulumi:"kpiVisual"`
+	KpiVisual           *AnalysisKpiVisual           `pulumi:"kpiVisual"`
 	LineChartVisual     *AnalysisLineChartVisual     `pulumi:"lineChartVisual"`
 	PieChartVisual      *AnalysisPieChartVisual      `pulumi:"pieChartVisual"`
 	PivotTableVisual    *AnalysisPivotTableVisual    `pulumi:"pivotTableVisual"`
@@ -68930,7 +68930,7 @@ type AnalysisVisualArgs struct {
 	HeatMapVisual       AnalysisHeatMapVisualPtrInput       `pulumi:"heatMapVisual"`
 	HistogramVisual     AnalysisHistogramVisualPtrInput     `pulumi:"histogramVisual"`
 	InsightVisual       AnalysisInsightVisualPtrInput       `pulumi:"insightVisual"`
-	KpiVisual           AnalysisKPIVisualPtrInput           `pulumi:"kpiVisual"`
+	KpiVisual           AnalysisKpiVisualPtrInput           `pulumi:"kpiVisual"`
 	LineChartVisual     AnalysisLineChartVisualPtrInput     `pulumi:"lineChartVisual"`
 	PieChartVisual      AnalysisPieChartVisualPtrInput      `pulumi:"pieChartVisual"`
 	PivotTableVisual    AnalysisPivotTableVisualPtrInput    `pulumi:"pivotTableVisual"`
@@ -69042,8 +69042,8 @@ func (o AnalysisVisualOutput) InsightVisual() AnalysisInsightVisualPtrOutput {
 	return o.ApplyT(func(v AnalysisVisual) *AnalysisInsightVisual { return v.InsightVisual }).(AnalysisInsightVisualPtrOutput)
 }
 
-func (o AnalysisVisualOutput) KpiVisual() AnalysisKPIVisualPtrOutput {
-	return o.ApplyT(func(v AnalysisVisual) *AnalysisKPIVisual { return v.KpiVisual }).(AnalysisKPIVisualPtrOutput)
+func (o AnalysisVisualOutput) KpiVisual() AnalysisKpiVisualPtrOutput {
+	return o.ApplyT(func(v AnalysisVisual) *AnalysisKpiVisual { return v.KpiVisual }).(AnalysisKpiVisualPtrOutput)
 }
 
 func (o AnalysisVisualOutput) LineChartVisual() AnalysisLineChartVisualPtrOutput {
@@ -69228,7 +69228,7 @@ type AnalysisVisualCustomActionOperation struct {
 	FilterOperation        *AnalysisCustomActionFilterOperation        `pulumi:"filterOperation"`
 	NavigationOperation    *AnalysisCustomActionNavigationOperation    `pulumi:"navigationOperation"`
 	SetParametersOperation *AnalysisCustomActionSetParametersOperation `pulumi:"setParametersOperation"`
-	UrlOperation           *AnalysisCustomActionURLOperation           `pulumi:"urlOperation"`
+	UrlOperation           *AnalysisCustomActionUrlOperation           `pulumi:"urlOperation"`
 }
 
 // AnalysisVisualCustomActionOperationInput is an input type that accepts AnalysisVisualCustomActionOperationArgs and AnalysisVisualCustomActionOperationOutput values.
@@ -69246,7 +69246,7 @@ type AnalysisVisualCustomActionOperationArgs struct {
 	FilterOperation        AnalysisCustomActionFilterOperationPtrInput        `pulumi:"filterOperation"`
 	NavigationOperation    AnalysisCustomActionNavigationOperationPtrInput    `pulumi:"navigationOperation"`
 	SetParametersOperation AnalysisCustomActionSetParametersOperationPtrInput `pulumi:"setParametersOperation"`
-	UrlOperation           AnalysisCustomActionURLOperationPtrInput           `pulumi:"urlOperation"`
+	UrlOperation           AnalysisCustomActionUrlOperationPtrInput           `pulumi:"urlOperation"`
 }
 
 func (AnalysisVisualCustomActionOperationArgs) ElementType() reflect.Type {
@@ -69318,8 +69318,8 @@ func (o AnalysisVisualCustomActionOperationOutput) SetParametersOperation() Anal
 	}).(AnalysisCustomActionSetParametersOperationPtrOutput)
 }
 
-func (o AnalysisVisualCustomActionOperationOutput) UrlOperation() AnalysisCustomActionURLOperationPtrOutput {
-	return o.ApplyT(func(v AnalysisVisualCustomActionOperation) *AnalysisCustomActionURLOperation { return v.UrlOperation }).(AnalysisCustomActionURLOperationPtrOutput)
+func (o AnalysisVisualCustomActionOperationOutput) UrlOperation() AnalysisCustomActionUrlOperationPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualCustomActionOperation) *AnalysisCustomActionUrlOperation { return v.UrlOperation }).(AnalysisCustomActionUrlOperationPtrOutput)
 }
 
 type AnalysisVisualCustomActionOperationArrayOutput struct{ *pulumi.OutputState }
@@ -78985,8 +78985,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionNavigationOperationPtrInput)(nil)).Elem(), AnalysisCustomActionNavigationOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionSetParametersOperationInput)(nil)).Elem(), AnalysisCustomActionSetParametersOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionSetParametersOperationPtrInput)(nil)).Elem(), AnalysisCustomActionSetParametersOperationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionURLOperationInput)(nil)).Elem(), AnalysisCustomActionURLOperationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionURLOperationPtrInput)(nil)).Elem(), AnalysisCustomActionURLOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionUrlOperationInput)(nil)).Elem(), AnalysisCustomActionUrlOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionUrlOperationPtrInput)(nil)).Elem(), AnalysisCustomActionUrlOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomColorInput)(nil)).Elem(), AnalysisCustomColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomColorArrayInput)(nil)).Elem(), AnalysisCustomColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomContentConfigurationInput)(nil)).Elem(), AnalysisCustomContentConfigurationArgs{})
@@ -79278,24 +79278,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisIntegerValueWhenUnsetConfigurationPtrInput)(nil)).Elem(), AnalysisIntegerValueWhenUnsetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisItemsLimitConfigurationInput)(nil)).Elem(), AnalysisItemsLimitConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisItemsLimitConfigurationPtrInput)(nil)).Elem(), AnalysisItemsLimitConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIConditionalFormattingInput)(nil)).Elem(), AnalysisKPIConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIConditionalFormattingPtrInput)(nil)).Elem(), AnalysisKPIConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIConditionalFormattingOptionInput)(nil)).Elem(), AnalysisKPIConditionalFormattingOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIConditionalFormattingOptionArrayInput)(nil)).Elem(), AnalysisKPIConditionalFormattingOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIConfigurationInput)(nil)).Elem(), AnalysisKPIConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIConfigurationPtrInput)(nil)).Elem(), AnalysisKPIConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIFieldWellsInput)(nil)).Elem(), AnalysisKPIFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIFieldWellsPtrInput)(nil)).Elem(), AnalysisKPIFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIOptionsInput)(nil)).Elem(), AnalysisKPIOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIOptionsPtrInput)(nil)).Elem(), AnalysisKPIOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIPrimaryValueConditionalFormattingInput)(nil)).Elem(), AnalysisKPIPrimaryValueConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIPrimaryValueConditionalFormattingPtrInput)(nil)).Elem(), AnalysisKPIPrimaryValueConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIProgressBarConditionalFormattingInput)(nil)).Elem(), AnalysisKPIProgressBarConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIProgressBarConditionalFormattingPtrInput)(nil)).Elem(), AnalysisKPIProgressBarConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPISortConfigurationInput)(nil)).Elem(), AnalysisKPISortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPISortConfigurationPtrInput)(nil)).Elem(), AnalysisKPISortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIVisualInput)(nil)).Elem(), AnalysisKPIVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKPIVisualPtrInput)(nil)).Elem(), AnalysisKPIVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiConditionalFormattingInput)(nil)).Elem(), AnalysisKpiConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiConditionalFormattingPtrInput)(nil)).Elem(), AnalysisKpiConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiConditionalFormattingOptionInput)(nil)).Elem(), AnalysisKpiConditionalFormattingOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiConditionalFormattingOptionArrayInput)(nil)).Elem(), AnalysisKpiConditionalFormattingOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiConfigurationInput)(nil)).Elem(), AnalysisKpiConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiConfigurationPtrInput)(nil)).Elem(), AnalysisKpiConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiFieldWellsInput)(nil)).Elem(), AnalysisKpiFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiFieldWellsPtrInput)(nil)).Elem(), AnalysisKpiFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiOptionsInput)(nil)).Elem(), AnalysisKpiOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiOptionsPtrInput)(nil)).Elem(), AnalysisKpiOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiPrimaryValueConditionalFormattingInput)(nil)).Elem(), AnalysisKpiPrimaryValueConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiPrimaryValueConditionalFormattingPtrInput)(nil)).Elem(), AnalysisKpiPrimaryValueConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiProgressBarConditionalFormattingInput)(nil)).Elem(), AnalysisKpiProgressBarConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiProgressBarConditionalFormattingPtrInput)(nil)).Elem(), AnalysisKpiProgressBarConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiSortConfigurationInput)(nil)).Elem(), AnalysisKpiSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiSortConfigurationPtrInput)(nil)).Elem(), AnalysisKpiSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiVisualInput)(nil)).Elem(), AnalysisKpiVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiVisualPtrInput)(nil)).Elem(), AnalysisKpiVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLabelOptionsInput)(nil)).Elem(), AnalysisLabelOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLabelOptionsPtrInput)(nil)).Elem(), AnalysisLabelOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLayoutInput)(nil)).Elem(), AnalysisLayoutArgs{})
@@ -79626,8 +79626,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableFieldOptionArrayInput)(nil)).Elem(), AnalysisTableFieldOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableFieldOptionsInput)(nil)).Elem(), AnalysisTableFieldOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableFieldOptionsPtrInput)(nil)).Elem(), AnalysisTableFieldOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableFieldURLConfigurationInput)(nil)).Elem(), AnalysisTableFieldURLConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableFieldURLConfigurationPtrInput)(nil)).Elem(), AnalysisTableFieldURLConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableFieldUrlConfigurationInput)(nil)).Elem(), AnalysisTableFieldUrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableFieldUrlConfigurationPtrInput)(nil)).Elem(), AnalysisTableFieldUrlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableFieldWellsInput)(nil)).Elem(), AnalysisTableFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableFieldWellsPtrInput)(nil)).Elem(), AnalysisTableFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableInlineVisualizationInput)(nil)).Elem(), AnalysisTableInlineVisualizationArgs{})
@@ -79973,8 +79973,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisCustomActionNavigationOperationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomActionSetParametersOperationOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomActionSetParametersOperationPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisCustomActionURLOperationOutput{})
-	pulumi.RegisterOutputType(AnalysisCustomActionURLOperationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisCustomActionUrlOperationOutput{})
+	pulumi.RegisterOutputType(AnalysisCustomActionUrlOperationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomColorOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomColorArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomContentConfigurationOutput{})
@@ -80270,24 +80270,24 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisIntegerValueWhenUnsetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisItemsLimitConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisItemsLimitConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIConditionalFormattingOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIConditionalFormattingPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIConditionalFormattingOptionOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIConditionalFormattingOptionArrayOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIConfigurationOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIFieldWellsOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIFieldWellsPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIOptionsOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIOptionsPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIPrimaryValueConditionalFormattingOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIPrimaryValueConditionalFormattingPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIProgressBarConditionalFormattingOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIProgressBarConditionalFormattingPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisKPISortConfigurationOutput{})
-	pulumi.RegisterOutputType(AnalysisKPISortConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIVisualOutput{})
-	pulumi.RegisterOutputType(AnalysisKPIVisualPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiConditionalFormattingOptionOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiConditionalFormattingOptionArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiFieldWellsOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiOptionsOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiOptionsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiPrimaryValueConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiPrimaryValueConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiProgressBarConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiProgressBarConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiSortConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiSortConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiVisualOutput{})
+	pulumi.RegisterOutputType(AnalysisKpiVisualPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisLabelOptionsOutput{})
 	pulumi.RegisterOutputType(AnalysisLabelOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisLayoutOutput{})
@@ -80620,8 +80620,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTableFieldOptionArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisTableFieldOptionsOutput{})
 	pulumi.RegisterOutputType(AnalysisTableFieldOptionsPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTableFieldURLConfigurationOutput{})
-	pulumi.RegisterOutputType(AnalysisTableFieldURLConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTableFieldUrlConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisTableFieldUrlConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableFieldWellsOutput{})
 	pulumi.RegisterOutputType(AnalysisTableFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableInlineVisualizationOutput{})

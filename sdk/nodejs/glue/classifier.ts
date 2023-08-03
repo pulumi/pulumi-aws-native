@@ -43,7 +43,7 @@ export class Classifier extends pulumi.CustomResource {
     public readonly csvClassifier!: pulumi.Output<outputs.glue.ClassifierCsvClassifier | undefined>;
     public readonly grokClassifier!: pulumi.Output<outputs.glue.ClassifierGrokClassifier | undefined>;
     public readonly jsonClassifier!: pulumi.Output<outputs.glue.ClassifierJsonClassifier | undefined>;
-    public readonly xmlClassifier!: pulumi.Output<outputs.glue.ClassifierXMLClassifier | undefined>;
+    public readonly xmlClassifier!: pulumi.Output<outputs.glue.ClassifierXmlClassifier | undefined>;
 
     /**
      * Create a Classifier resource with the given unique name, arguments, and options.
@@ -80,5 +80,5 @@ export interface ClassifierArgs {
     csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifierArgs>;
     grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifierArgs>;
     jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifierArgs>;
-    xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXMLClassifierArgs>;
+    xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifierArgs>;
 }

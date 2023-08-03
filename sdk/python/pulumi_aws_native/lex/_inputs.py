@@ -69,7 +69,6 @@ __all__ = [
     'BotResponseSpecificationArgs',
     'BotS3BucketLogDestinationArgs',
     'BotS3LocationArgs',
-    'BotSSMLMessageArgs',
     'BotSampleUtteranceArgs',
     'BotSampleValueArgs',
     'BotSessionAttributeArgs',
@@ -86,6 +85,7 @@ __all__ = [
     'BotSlotValueSelectionSettingArgs',
     'BotSlotValueArgs',
     'BotSlotArgs',
+    'BotSsmlMessageArgs',
     'BotStillWaitingResponseSpecificationArgs',
     'BotTagArgs',
     'BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs',
@@ -2372,7 +2372,7 @@ class BotMessageArgs:
                  custom_payload: Optional[pulumi.Input['BotCustomPayloadArgs']] = None,
                  image_response_card: Optional[pulumi.Input['BotImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['BotPlainTextMessageArgs']] = None,
-                 ssml_message: Optional[pulumi.Input['BotSSMLMessageArgs']] = None):
+                 ssml_message: Optional[pulumi.Input['BotSsmlMessageArgs']] = None):
         """
         The primary message that Amazon Lex should send to the user.
         """
@@ -2414,11 +2414,11 @@ class BotMessageArgs:
 
     @property
     @pulumi.getter(name="ssmlMessage")
-    def ssml_message(self) -> Optional[pulumi.Input['BotSSMLMessageArgs']]:
+    def ssml_message(self) -> Optional[pulumi.Input['BotSsmlMessageArgs']]:
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
-    def ssml_message(self, value: Optional[pulumi.Input['BotSSMLMessageArgs']]):
+    def ssml_message(self, value: Optional[pulumi.Input['BotSsmlMessageArgs']]):
         pulumi.set(self, "ssml_message", value)
 
 
@@ -3048,29 +3048,6 @@ class BotS3LocationArgs:
     @s3_object_version.setter
     def s3_object_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_object_version", value)
-
-
-@pulumi.input_type
-class BotSSMLMessageArgs:
-    def __init__(__self__, *,
-                 value: pulumi.Input[str]):
-        """
-        A message in Speech Synthesis Markup Language (SSML).
-        :param pulumi.Input[str] value: The SSML text that defines the prompt.
-        """
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The SSML text that defines the prompt.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -3828,6 +3805,29 @@ class BotSlotArgs:
     @obfuscation_setting.setter
     def obfuscation_setting(self, value: Optional[pulumi.Input['BotObfuscationSettingArgs']]):
         pulumi.set(self, "obfuscation_setting", value)
+
+
+@pulumi.input_type
+class BotSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        """
+        A message in Speech Synthesis Markup Language (SSML).
+        :param pulumi.Input[str] value: The SSML text that defines the prompt.
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The SSML text that defines the prompt.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

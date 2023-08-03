@@ -5,20 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ACLArgs } from "./acl";
-export type ACL = import("./acl").ACL;
-export const ACL: typeof import("./acl").ACL = null as any;
-utilities.lazyLoad(exports, ["ACL"], () => require("./acl"));
+export { AclArgs } from "./acl";
+export type Acl = import("./acl").Acl;
+export const Acl: typeof import("./acl").Acl = null as any;
+utilities.lazyLoad(exports, ["Acl"], () => require("./acl"));
 
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
-export { GetACLArgs, GetACLResult, GetACLOutputArgs } from "./getACL";
-export const getACL: typeof import("./getACL").getACL = null as any;
-export const getACLOutput: typeof import("./getACL").getACLOutput = null as any;
-utilities.lazyLoad(exports, ["getACL","getACLOutput"], () => require("./getACL"));
+export { GetAclArgs, GetAclResult, GetAclOutputArgs } from "./getAcl";
+export const getAcl: typeof import("./getAcl").getAcl = null as any;
+export const getAclOutput: typeof import("./getAcl").getAclOutput = null as any;
+utilities.lazyLoad(exports, ["getAcl","getAclOutput"], () => require("./getAcl"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
@@ -63,8 +63,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:memorydb:ACL":
-                return new ACL(name, <any>undefined, { urn })
+            case "aws-native:memorydb:Acl":
+                return new Acl(name, <any>undefined, { urn })
             case "aws-native:memorydb:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws-native:memorydb:ParameterGroup":

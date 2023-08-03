@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardTableFieldLinkContentConfigurationArgs> Content { get; set; } = null!;
 
         [Input("target", required: true)]
-        public Input<Pulumi.AwsNative.QuickSight.DashboardURLTargetConfiguration> Target { get; set; } = null!;
+        public Input<Pulumi.AwsNative.QuickSight.DashboardUrlTargetConfiguration> Target { get; set; } = null!;
 
         public DashboardTableFieldLinkConfigurationArgs()
         {

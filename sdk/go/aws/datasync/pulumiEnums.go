@@ -103,124 +103,124 @@ func (o AgentEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 }
 
 // Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
-type LocationEFSInTransitEncryption string
+type LocationEfsInTransitEncryption string
 
 const (
-	LocationEFSInTransitEncryptionNone  = LocationEFSInTransitEncryption("NONE")
-	LocationEFSInTransitEncryptionTls12 = LocationEFSInTransitEncryption("TLS1_2")
+	LocationEfsInTransitEncryptionNone  = LocationEfsInTransitEncryption("NONE")
+	LocationEfsInTransitEncryptionTls12 = LocationEfsInTransitEncryption("TLS1_2")
 )
 
-func (LocationEFSInTransitEncryption) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationEFSInTransitEncryption)(nil)).Elem()
+func (LocationEfsInTransitEncryption) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationEfsInTransitEncryption)(nil)).Elem()
 }
 
-func (e LocationEFSInTransitEncryption) ToLocationEFSInTransitEncryptionOutput() LocationEFSInTransitEncryptionOutput {
-	return pulumi.ToOutput(e).(LocationEFSInTransitEncryptionOutput)
+func (e LocationEfsInTransitEncryption) ToLocationEfsInTransitEncryptionOutput() LocationEfsInTransitEncryptionOutput {
+	return pulumi.ToOutput(e).(LocationEfsInTransitEncryptionOutput)
 }
 
-func (e LocationEFSInTransitEncryption) ToLocationEFSInTransitEncryptionOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LocationEFSInTransitEncryptionOutput)
+func (e LocationEfsInTransitEncryption) ToLocationEfsInTransitEncryptionOutputWithContext(ctx context.Context) LocationEfsInTransitEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationEfsInTransitEncryptionOutput)
 }
 
-func (e LocationEFSInTransitEncryption) ToLocationEFSInTransitEncryptionPtrOutput() LocationEFSInTransitEncryptionPtrOutput {
-	return e.ToLocationEFSInTransitEncryptionPtrOutputWithContext(context.Background())
+func (e LocationEfsInTransitEncryption) ToLocationEfsInTransitEncryptionPtrOutput() LocationEfsInTransitEncryptionPtrOutput {
+	return e.ToLocationEfsInTransitEncryptionPtrOutputWithContext(context.Background())
 }
 
-func (e LocationEFSInTransitEncryption) ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionPtrOutput {
-	return LocationEFSInTransitEncryption(e).ToLocationEFSInTransitEncryptionOutputWithContext(ctx).ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx)
+func (e LocationEfsInTransitEncryption) ToLocationEfsInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEfsInTransitEncryptionPtrOutput {
+	return LocationEfsInTransitEncryption(e).ToLocationEfsInTransitEncryptionOutputWithContext(ctx).ToLocationEfsInTransitEncryptionPtrOutputWithContext(ctx)
 }
 
-func (e LocationEFSInTransitEncryption) ToStringOutput() pulumi.StringOutput {
+func (e LocationEfsInTransitEncryption) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationEFSInTransitEncryption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e LocationEfsInTransitEncryption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationEFSInTransitEncryption) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e LocationEfsInTransitEncryption) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e LocationEFSInTransitEncryption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e LocationEfsInTransitEncryption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LocationEFSInTransitEncryptionOutput struct{ *pulumi.OutputState }
+type LocationEfsInTransitEncryptionOutput struct{ *pulumi.OutputState }
 
-func (LocationEFSInTransitEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationEFSInTransitEncryption)(nil)).Elem()
+func (LocationEfsInTransitEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationEfsInTransitEncryption)(nil)).Elem()
 }
 
-func (o LocationEFSInTransitEncryptionOutput) ToLocationEFSInTransitEncryptionOutput() LocationEFSInTransitEncryptionOutput {
+func (o LocationEfsInTransitEncryptionOutput) ToLocationEfsInTransitEncryptionOutput() LocationEfsInTransitEncryptionOutput {
 	return o
 }
 
-func (o LocationEFSInTransitEncryptionOutput) ToLocationEFSInTransitEncryptionOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionOutput {
+func (o LocationEfsInTransitEncryptionOutput) ToLocationEfsInTransitEncryptionOutputWithContext(ctx context.Context) LocationEfsInTransitEncryptionOutput {
 	return o
 }
 
-func (o LocationEFSInTransitEncryptionOutput) ToLocationEFSInTransitEncryptionPtrOutput() LocationEFSInTransitEncryptionPtrOutput {
-	return o.ToLocationEFSInTransitEncryptionPtrOutputWithContext(context.Background())
+func (o LocationEfsInTransitEncryptionOutput) ToLocationEfsInTransitEncryptionPtrOutput() LocationEfsInTransitEncryptionPtrOutput {
+	return o.ToLocationEfsInTransitEncryptionPtrOutputWithContext(context.Background())
 }
 
-func (o LocationEFSInTransitEncryptionOutput) ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationEFSInTransitEncryption) *LocationEFSInTransitEncryption {
+func (o LocationEfsInTransitEncryptionOutput) ToLocationEfsInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEfsInTransitEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationEfsInTransitEncryption) *LocationEfsInTransitEncryption {
 		return &v
-	}).(LocationEFSInTransitEncryptionPtrOutput)
+	}).(LocationEfsInTransitEncryptionPtrOutput)
 }
 
-func (o LocationEFSInTransitEncryptionOutput) ToStringOutput() pulumi.StringOutput {
+func (o LocationEfsInTransitEncryptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o LocationEFSInTransitEncryptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationEFSInTransitEncryption) string {
+func (o LocationEfsInTransitEncryptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationEfsInTransitEncryption) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o LocationEFSInTransitEncryptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationEfsInTransitEncryptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationEFSInTransitEncryptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationEFSInTransitEncryption) *string {
+func (o LocationEfsInTransitEncryptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationEfsInTransitEncryption) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type LocationEFSInTransitEncryptionPtrOutput struct{ *pulumi.OutputState }
+type LocationEfsInTransitEncryptionPtrOutput struct{ *pulumi.OutputState }
 
-func (LocationEFSInTransitEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationEFSInTransitEncryption)(nil)).Elem()
+func (LocationEfsInTransitEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationEfsInTransitEncryption)(nil)).Elem()
 }
 
-func (o LocationEFSInTransitEncryptionPtrOutput) ToLocationEFSInTransitEncryptionPtrOutput() LocationEFSInTransitEncryptionPtrOutput {
+func (o LocationEfsInTransitEncryptionPtrOutput) ToLocationEfsInTransitEncryptionPtrOutput() LocationEfsInTransitEncryptionPtrOutput {
 	return o
 }
 
-func (o LocationEFSInTransitEncryptionPtrOutput) ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionPtrOutput {
+func (o LocationEfsInTransitEncryptionPtrOutput) ToLocationEfsInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEfsInTransitEncryptionPtrOutput {
 	return o
 }
 
-func (o LocationEFSInTransitEncryptionPtrOutput) Elem() LocationEFSInTransitEncryptionOutput {
-	return o.ApplyT(func(v *LocationEFSInTransitEncryption) LocationEFSInTransitEncryption {
+func (o LocationEfsInTransitEncryptionPtrOutput) Elem() LocationEfsInTransitEncryptionOutput {
+	return o.ApplyT(func(v *LocationEfsInTransitEncryption) LocationEfsInTransitEncryption {
 		if v != nil {
 			return *v
 		}
-		var ret LocationEFSInTransitEncryption
+		var ret LocationEfsInTransitEncryption
 		return ret
-	}).(LocationEFSInTransitEncryptionOutput)
+	}).(LocationEfsInTransitEncryptionOutput)
 }
 
-func (o LocationEFSInTransitEncryptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationEfsInTransitEncryptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationEFSInTransitEncryptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationEFSInTransitEncryption) *string {
+func (o LocationEfsInTransitEncryptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationEfsInTransitEncryption) *string {
 		if e == nil {
 			return nil
 		}
@@ -229,165 +229,165 @@ func (o LocationEFSInTransitEncryptionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationEFSInTransitEncryptionInput is an input type that accepts LocationEFSInTransitEncryptionArgs and LocationEFSInTransitEncryptionOutput values.
-// You can construct a concrete instance of `LocationEFSInTransitEncryptionInput` via:
+// LocationEfsInTransitEncryptionInput is an input type that accepts LocationEfsInTransitEncryptionArgs and LocationEfsInTransitEncryptionOutput values.
+// You can construct a concrete instance of `LocationEfsInTransitEncryptionInput` via:
 //
-//	LocationEFSInTransitEncryptionArgs{...}
-type LocationEFSInTransitEncryptionInput interface {
+//	LocationEfsInTransitEncryptionArgs{...}
+type LocationEfsInTransitEncryptionInput interface {
 	pulumi.Input
 
-	ToLocationEFSInTransitEncryptionOutput() LocationEFSInTransitEncryptionOutput
-	ToLocationEFSInTransitEncryptionOutputWithContext(context.Context) LocationEFSInTransitEncryptionOutput
+	ToLocationEfsInTransitEncryptionOutput() LocationEfsInTransitEncryptionOutput
+	ToLocationEfsInTransitEncryptionOutputWithContext(context.Context) LocationEfsInTransitEncryptionOutput
 }
 
-var locationEFSInTransitEncryptionPtrType = reflect.TypeOf((**LocationEFSInTransitEncryption)(nil)).Elem()
+var locationEfsInTransitEncryptionPtrType = reflect.TypeOf((**LocationEfsInTransitEncryption)(nil)).Elem()
 
-type LocationEFSInTransitEncryptionPtrInput interface {
+type LocationEfsInTransitEncryptionPtrInput interface {
 	pulumi.Input
 
-	ToLocationEFSInTransitEncryptionPtrOutput() LocationEFSInTransitEncryptionPtrOutput
-	ToLocationEFSInTransitEncryptionPtrOutputWithContext(context.Context) LocationEFSInTransitEncryptionPtrOutput
+	ToLocationEfsInTransitEncryptionPtrOutput() LocationEfsInTransitEncryptionPtrOutput
+	ToLocationEfsInTransitEncryptionPtrOutputWithContext(context.Context) LocationEfsInTransitEncryptionPtrOutput
 }
 
-type locationEFSInTransitEncryptionPtr string
+type locationEfsInTransitEncryptionPtr string
 
-func LocationEFSInTransitEncryptionPtr(v string) LocationEFSInTransitEncryptionPtrInput {
-	return (*locationEFSInTransitEncryptionPtr)(&v)
+func LocationEfsInTransitEncryptionPtr(v string) LocationEfsInTransitEncryptionPtrInput {
+	return (*locationEfsInTransitEncryptionPtr)(&v)
 }
 
-func (*locationEFSInTransitEncryptionPtr) ElementType() reflect.Type {
-	return locationEFSInTransitEncryptionPtrType
+func (*locationEfsInTransitEncryptionPtr) ElementType() reflect.Type {
+	return locationEfsInTransitEncryptionPtrType
 }
 
-func (in *locationEFSInTransitEncryptionPtr) ToLocationEFSInTransitEncryptionPtrOutput() LocationEFSInTransitEncryptionPtrOutput {
-	return pulumi.ToOutput(in).(LocationEFSInTransitEncryptionPtrOutput)
+func (in *locationEfsInTransitEncryptionPtr) ToLocationEfsInTransitEncryptionPtrOutput() LocationEfsInTransitEncryptionPtrOutput {
+	return pulumi.ToOutput(in).(LocationEfsInTransitEncryptionPtrOutput)
 }
 
-func (in *locationEFSInTransitEncryptionPtr) ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LocationEFSInTransitEncryptionPtrOutput)
+func (in *locationEfsInTransitEncryptionPtr) ToLocationEfsInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEfsInTransitEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationEfsInTransitEncryptionPtrOutput)
 }
 
 // The specific NFS version that you want DataSync to use to mount your NFS share.
-type LocationFSxONTAPNfsMountOptionsVersion string
+type LocationFSxOntapNfsMountOptionsVersion string
 
 const (
-	LocationFSxONTAPNfsMountOptionsVersionAutomatic = LocationFSxONTAPNfsMountOptionsVersion("AUTOMATIC")
-	LocationFSxONTAPNfsMountOptionsVersionNfs3      = LocationFSxONTAPNfsMountOptionsVersion("NFS3")
-	LocationFSxONTAPNfsMountOptionsVersionNfs40     = LocationFSxONTAPNfsMountOptionsVersion("NFS4_0")
-	LocationFSxONTAPNfsMountOptionsVersionNfs41     = LocationFSxONTAPNfsMountOptionsVersion("NFS4_1")
+	LocationFSxOntapNfsMountOptionsVersionAutomatic = LocationFSxOntapNfsMountOptionsVersion("AUTOMATIC")
+	LocationFSxOntapNfsMountOptionsVersionNfs3      = LocationFSxOntapNfsMountOptionsVersion("NFS3")
+	LocationFSxOntapNfsMountOptionsVersionNfs40     = LocationFSxOntapNfsMountOptionsVersion("NFS4_0")
+	LocationFSxOntapNfsMountOptionsVersionNfs41     = LocationFSxOntapNfsMountOptionsVersion("NFS4_1")
 )
 
-func (LocationFSxONTAPNfsMountOptionsVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxONTAPNfsMountOptionsVersion)(nil)).Elem()
+func (LocationFSxOntapNfsMountOptionsVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOntapNfsMountOptionsVersion)(nil)).Elem()
 }
 
-func (e LocationFSxONTAPNfsMountOptionsVersion) ToLocationFSxONTAPNfsMountOptionsVersionOutput() LocationFSxONTAPNfsMountOptionsVersionOutput {
-	return pulumi.ToOutput(e).(LocationFSxONTAPNfsMountOptionsVersionOutput)
+func (e LocationFSxOntapNfsMountOptionsVersion) ToLocationFSxOntapNfsMountOptionsVersionOutput() LocationFSxOntapNfsMountOptionsVersionOutput {
+	return pulumi.ToOutput(e).(LocationFSxOntapNfsMountOptionsVersionOutput)
 }
 
-func (e LocationFSxONTAPNfsMountOptionsVersion) ToLocationFSxONTAPNfsMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LocationFSxONTAPNfsMountOptionsVersionOutput)
+func (e LocationFSxOntapNfsMountOptionsVersion) ToLocationFSxOntapNfsMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxOntapNfsMountOptionsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationFSxOntapNfsMountOptionsVersionOutput)
 }
 
-func (e LocationFSxONTAPNfsMountOptionsVersion) ToLocationFSxONTAPNfsMountOptionsVersionPtrOutput() LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
-	return e.ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(context.Background())
+func (e LocationFSxOntapNfsMountOptionsVersion) ToLocationFSxOntapNfsMountOptionsVersionPtrOutput() LocationFSxOntapNfsMountOptionsVersionPtrOutput {
+	return e.ToLocationFSxOntapNfsMountOptionsVersionPtrOutputWithContext(context.Background())
 }
 
-func (e LocationFSxONTAPNfsMountOptionsVersion) ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
-	return LocationFSxONTAPNfsMountOptionsVersion(e).ToLocationFSxONTAPNfsMountOptionsVersionOutputWithContext(ctx).ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(ctx)
+func (e LocationFSxOntapNfsMountOptionsVersion) ToLocationFSxOntapNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOntapNfsMountOptionsVersionPtrOutput {
+	return LocationFSxOntapNfsMountOptionsVersion(e).ToLocationFSxOntapNfsMountOptionsVersionOutputWithContext(ctx).ToLocationFSxOntapNfsMountOptionsVersionPtrOutputWithContext(ctx)
 }
 
-func (e LocationFSxONTAPNfsMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
+func (e LocationFSxOntapNfsMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationFSxONTAPNfsMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e LocationFSxOntapNfsMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationFSxONTAPNfsMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e LocationFSxOntapNfsMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e LocationFSxONTAPNfsMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e LocationFSxOntapNfsMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LocationFSxONTAPNfsMountOptionsVersionOutput struct{ *pulumi.OutputState }
+type LocationFSxOntapNfsMountOptionsVersionOutput struct{ *pulumi.OutputState }
 
-func (LocationFSxONTAPNfsMountOptionsVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxONTAPNfsMountOptionsVersion)(nil)).Elem()
+func (LocationFSxOntapNfsMountOptionsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOntapNfsMountOptionsVersion)(nil)).Elem()
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToLocationFSxONTAPNfsMountOptionsVersionOutput() LocationFSxONTAPNfsMountOptionsVersionOutput {
+func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToLocationFSxOntapNfsMountOptionsVersionOutput() LocationFSxOntapNfsMountOptionsVersionOutput {
 	return o
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToLocationFSxONTAPNfsMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsVersionOutput {
+func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToLocationFSxOntapNfsMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxOntapNfsMountOptionsVersionOutput {
 	return o
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToLocationFSxONTAPNfsMountOptionsVersionPtrOutput() LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
-	return o.ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(context.Background())
+func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToLocationFSxOntapNfsMountOptionsVersionPtrOutput() LocationFSxOntapNfsMountOptionsVersionPtrOutput {
+	return o.ToLocationFSxOntapNfsMountOptionsVersionPtrOutputWithContext(context.Background())
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxONTAPNfsMountOptionsVersion) *LocationFSxONTAPNfsMountOptionsVersion {
+func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToLocationFSxOntapNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOntapNfsMountOptionsVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxOntapNfsMountOptionsVersion) *LocationFSxOntapNfsMountOptionsVersion {
 		return &v
-	}).(LocationFSxONTAPNfsMountOptionsVersionPtrOutput)
+	}).(LocationFSxOntapNfsMountOptionsVersionPtrOutput)
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
+func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxONTAPNfsMountOptionsVersion) string {
+func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxOntapNfsMountOptionsVersion) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxONTAPNfsMountOptionsVersion) *string {
+func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxOntapNfsMountOptionsVersion) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type LocationFSxONTAPNfsMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
+type LocationFSxOntapNfsMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
 
-func (LocationFSxONTAPNfsMountOptionsVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationFSxONTAPNfsMountOptionsVersion)(nil)).Elem()
+func (LocationFSxOntapNfsMountOptionsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxOntapNfsMountOptionsVersion)(nil)).Elem()
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionPtrOutput) ToLocationFSxONTAPNfsMountOptionsVersionPtrOutput() LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
+func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) ToLocationFSxOntapNfsMountOptionsVersionPtrOutput() LocationFSxOntapNfsMountOptionsVersionPtrOutput {
 	return o
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionPtrOutput) ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
+func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) ToLocationFSxOntapNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOntapNfsMountOptionsVersionPtrOutput {
 	return o
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionPtrOutput) Elem() LocationFSxONTAPNfsMountOptionsVersionOutput {
-	return o.ApplyT(func(v *LocationFSxONTAPNfsMountOptionsVersion) LocationFSxONTAPNfsMountOptionsVersion {
+func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) Elem() LocationFSxOntapNfsMountOptionsVersionOutput {
+	return o.ApplyT(func(v *LocationFSxOntapNfsMountOptionsVersion) LocationFSxOntapNfsMountOptionsVersion {
 		if v != nil {
 			return *v
 		}
-		var ret LocationFSxONTAPNfsMountOptionsVersion
+		var ret LocationFSxOntapNfsMountOptionsVersion
 		return ret
-	}).(LocationFSxONTAPNfsMountOptionsVersionOutput)
+	}).(LocationFSxOntapNfsMountOptionsVersionOutput)
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationFSxONTAPNfsMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationFSxONTAPNfsMountOptionsVersion) *string {
+func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationFSxOntapNfsMountOptionsVersion) *string {
 		if e == nil {
 			return nil
 		}
@@ -396,164 +396,164 @@ func (o LocationFSxONTAPNfsMountOptionsVersionPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationFSxONTAPNfsMountOptionsVersionInput is an input type that accepts LocationFSxONTAPNfsMountOptionsVersionArgs and LocationFSxONTAPNfsMountOptionsVersionOutput values.
-// You can construct a concrete instance of `LocationFSxONTAPNfsMountOptionsVersionInput` via:
+// LocationFSxOntapNfsMountOptionsVersionInput is an input type that accepts LocationFSxOntapNfsMountOptionsVersionArgs and LocationFSxOntapNfsMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationFSxOntapNfsMountOptionsVersionInput` via:
 //
-//	LocationFSxONTAPNfsMountOptionsVersionArgs{...}
-type LocationFSxONTAPNfsMountOptionsVersionInput interface {
+//	LocationFSxOntapNfsMountOptionsVersionArgs{...}
+type LocationFSxOntapNfsMountOptionsVersionInput interface {
 	pulumi.Input
 
-	ToLocationFSxONTAPNfsMountOptionsVersionOutput() LocationFSxONTAPNfsMountOptionsVersionOutput
-	ToLocationFSxONTAPNfsMountOptionsVersionOutputWithContext(context.Context) LocationFSxONTAPNfsMountOptionsVersionOutput
+	ToLocationFSxOntapNfsMountOptionsVersionOutput() LocationFSxOntapNfsMountOptionsVersionOutput
+	ToLocationFSxOntapNfsMountOptionsVersionOutputWithContext(context.Context) LocationFSxOntapNfsMountOptionsVersionOutput
 }
 
-var locationFSxONTAPNfsMountOptionsVersionPtrType = reflect.TypeOf((**LocationFSxONTAPNfsMountOptionsVersion)(nil)).Elem()
+var locationFSxOntapNfsMountOptionsVersionPtrType = reflect.TypeOf((**LocationFSxOntapNfsMountOptionsVersion)(nil)).Elem()
 
-type LocationFSxONTAPNfsMountOptionsVersionPtrInput interface {
+type LocationFSxOntapNfsMountOptionsVersionPtrInput interface {
 	pulumi.Input
 
-	ToLocationFSxONTAPNfsMountOptionsVersionPtrOutput() LocationFSxONTAPNfsMountOptionsVersionPtrOutput
-	ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(context.Context) LocationFSxONTAPNfsMountOptionsVersionPtrOutput
+	ToLocationFSxOntapNfsMountOptionsVersionPtrOutput() LocationFSxOntapNfsMountOptionsVersionPtrOutput
+	ToLocationFSxOntapNfsMountOptionsVersionPtrOutputWithContext(context.Context) LocationFSxOntapNfsMountOptionsVersionPtrOutput
 }
 
-type locationFSxONTAPNfsMountOptionsVersionPtr string
+type locationFSxOntapNfsMountOptionsVersionPtr string
 
-func LocationFSxONTAPNfsMountOptionsVersionPtr(v string) LocationFSxONTAPNfsMountOptionsVersionPtrInput {
-	return (*locationFSxONTAPNfsMountOptionsVersionPtr)(&v)
+func LocationFSxOntapNfsMountOptionsVersionPtr(v string) LocationFSxOntapNfsMountOptionsVersionPtrInput {
+	return (*locationFSxOntapNfsMountOptionsVersionPtr)(&v)
 }
 
-func (*locationFSxONTAPNfsMountOptionsVersionPtr) ElementType() reflect.Type {
-	return locationFSxONTAPNfsMountOptionsVersionPtrType
+func (*locationFSxOntapNfsMountOptionsVersionPtr) ElementType() reflect.Type {
+	return locationFSxOntapNfsMountOptionsVersionPtrType
 }
 
-func (in *locationFSxONTAPNfsMountOptionsVersionPtr) ToLocationFSxONTAPNfsMountOptionsVersionPtrOutput() LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
-	return pulumi.ToOutput(in).(LocationFSxONTAPNfsMountOptionsVersionPtrOutput)
+func (in *locationFSxOntapNfsMountOptionsVersionPtr) ToLocationFSxOntapNfsMountOptionsVersionPtrOutput() LocationFSxOntapNfsMountOptionsVersionPtrOutput {
+	return pulumi.ToOutput(in).(LocationFSxOntapNfsMountOptionsVersionPtrOutput)
 }
 
-func (in *locationFSxONTAPNfsMountOptionsVersionPtr) ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LocationFSxONTAPNfsMountOptionsVersionPtrOutput)
+func (in *locationFSxOntapNfsMountOptionsVersionPtr) ToLocationFSxOntapNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOntapNfsMountOptionsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationFSxOntapNfsMountOptionsVersionPtrOutput)
 }
 
 // The specific SMB version that you want DataSync to use to mount your SMB share.
-type LocationFSxONTAPSmbMountOptionsVersion string
+type LocationFSxOntapSmbMountOptionsVersion string
 
 const (
-	LocationFSxONTAPSmbMountOptionsVersionAutomatic = LocationFSxONTAPSmbMountOptionsVersion("AUTOMATIC")
-	LocationFSxONTAPSmbMountOptionsVersionSmb2      = LocationFSxONTAPSmbMountOptionsVersion("SMB2")
-	LocationFSxONTAPSmbMountOptionsVersionSmb3      = LocationFSxONTAPSmbMountOptionsVersion("SMB3")
+	LocationFSxOntapSmbMountOptionsVersionAutomatic = LocationFSxOntapSmbMountOptionsVersion("AUTOMATIC")
+	LocationFSxOntapSmbMountOptionsVersionSmb2      = LocationFSxOntapSmbMountOptionsVersion("SMB2")
+	LocationFSxOntapSmbMountOptionsVersionSmb3      = LocationFSxOntapSmbMountOptionsVersion("SMB3")
 )
 
-func (LocationFSxONTAPSmbMountOptionsVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxONTAPSmbMountOptionsVersion)(nil)).Elem()
+func (LocationFSxOntapSmbMountOptionsVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOntapSmbMountOptionsVersion)(nil)).Elem()
 }
 
-func (e LocationFSxONTAPSmbMountOptionsVersion) ToLocationFSxONTAPSmbMountOptionsVersionOutput() LocationFSxONTAPSmbMountOptionsVersionOutput {
-	return pulumi.ToOutput(e).(LocationFSxONTAPSmbMountOptionsVersionOutput)
+func (e LocationFSxOntapSmbMountOptionsVersion) ToLocationFSxOntapSmbMountOptionsVersionOutput() LocationFSxOntapSmbMountOptionsVersionOutput {
+	return pulumi.ToOutput(e).(LocationFSxOntapSmbMountOptionsVersionOutput)
 }
 
-func (e LocationFSxONTAPSmbMountOptionsVersion) ToLocationFSxONTAPSmbMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LocationFSxONTAPSmbMountOptionsVersionOutput)
+func (e LocationFSxOntapSmbMountOptionsVersion) ToLocationFSxOntapSmbMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxOntapSmbMountOptionsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationFSxOntapSmbMountOptionsVersionOutput)
 }
 
-func (e LocationFSxONTAPSmbMountOptionsVersion) ToLocationFSxONTAPSmbMountOptionsVersionPtrOutput() LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
-	return e.ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(context.Background())
+func (e LocationFSxOntapSmbMountOptionsVersion) ToLocationFSxOntapSmbMountOptionsVersionPtrOutput() LocationFSxOntapSmbMountOptionsVersionPtrOutput {
+	return e.ToLocationFSxOntapSmbMountOptionsVersionPtrOutputWithContext(context.Background())
 }
 
-func (e LocationFSxONTAPSmbMountOptionsVersion) ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
-	return LocationFSxONTAPSmbMountOptionsVersion(e).ToLocationFSxONTAPSmbMountOptionsVersionOutputWithContext(ctx).ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(ctx)
+func (e LocationFSxOntapSmbMountOptionsVersion) ToLocationFSxOntapSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOntapSmbMountOptionsVersionPtrOutput {
+	return LocationFSxOntapSmbMountOptionsVersion(e).ToLocationFSxOntapSmbMountOptionsVersionOutputWithContext(ctx).ToLocationFSxOntapSmbMountOptionsVersionPtrOutputWithContext(ctx)
 }
 
-func (e LocationFSxONTAPSmbMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
+func (e LocationFSxOntapSmbMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationFSxONTAPSmbMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e LocationFSxOntapSmbMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationFSxONTAPSmbMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e LocationFSxOntapSmbMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e LocationFSxONTAPSmbMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e LocationFSxOntapSmbMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LocationFSxONTAPSmbMountOptionsVersionOutput struct{ *pulumi.OutputState }
+type LocationFSxOntapSmbMountOptionsVersionOutput struct{ *pulumi.OutputState }
 
-func (LocationFSxONTAPSmbMountOptionsVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxONTAPSmbMountOptionsVersion)(nil)).Elem()
+func (LocationFSxOntapSmbMountOptionsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOntapSmbMountOptionsVersion)(nil)).Elem()
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToLocationFSxONTAPSmbMountOptionsVersionOutput() LocationFSxONTAPSmbMountOptionsVersionOutput {
+func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToLocationFSxOntapSmbMountOptionsVersionOutput() LocationFSxOntapSmbMountOptionsVersionOutput {
 	return o
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToLocationFSxONTAPSmbMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsVersionOutput {
+func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToLocationFSxOntapSmbMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxOntapSmbMountOptionsVersionOutput {
 	return o
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToLocationFSxONTAPSmbMountOptionsVersionPtrOutput() LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
-	return o.ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(context.Background())
+func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToLocationFSxOntapSmbMountOptionsVersionPtrOutput() LocationFSxOntapSmbMountOptionsVersionPtrOutput {
+	return o.ToLocationFSxOntapSmbMountOptionsVersionPtrOutputWithContext(context.Background())
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxONTAPSmbMountOptionsVersion) *LocationFSxONTAPSmbMountOptionsVersion {
+func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToLocationFSxOntapSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOntapSmbMountOptionsVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxOntapSmbMountOptionsVersion) *LocationFSxOntapSmbMountOptionsVersion {
 		return &v
-	}).(LocationFSxONTAPSmbMountOptionsVersionPtrOutput)
+	}).(LocationFSxOntapSmbMountOptionsVersionPtrOutput)
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
+func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxONTAPSmbMountOptionsVersion) string {
+func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxOntapSmbMountOptionsVersion) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxONTAPSmbMountOptionsVersion) *string {
+func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxOntapSmbMountOptionsVersion) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type LocationFSxONTAPSmbMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
+type LocationFSxOntapSmbMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
 
-func (LocationFSxONTAPSmbMountOptionsVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationFSxONTAPSmbMountOptionsVersion)(nil)).Elem()
+func (LocationFSxOntapSmbMountOptionsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxOntapSmbMountOptionsVersion)(nil)).Elem()
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionPtrOutput) ToLocationFSxONTAPSmbMountOptionsVersionPtrOutput() LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
+func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) ToLocationFSxOntapSmbMountOptionsVersionPtrOutput() LocationFSxOntapSmbMountOptionsVersionPtrOutput {
 	return o
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionPtrOutput) ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
+func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) ToLocationFSxOntapSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOntapSmbMountOptionsVersionPtrOutput {
 	return o
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionPtrOutput) Elem() LocationFSxONTAPSmbMountOptionsVersionOutput {
-	return o.ApplyT(func(v *LocationFSxONTAPSmbMountOptionsVersion) LocationFSxONTAPSmbMountOptionsVersion {
+func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) Elem() LocationFSxOntapSmbMountOptionsVersionOutput {
+	return o.ApplyT(func(v *LocationFSxOntapSmbMountOptionsVersion) LocationFSxOntapSmbMountOptionsVersion {
 		if v != nil {
 			return *v
 		}
-		var ret LocationFSxONTAPSmbMountOptionsVersion
+		var ret LocationFSxOntapSmbMountOptionsVersion
 		return ret
-	}).(LocationFSxONTAPSmbMountOptionsVersionOutput)
+	}).(LocationFSxOntapSmbMountOptionsVersionOutput)
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationFSxONTAPSmbMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationFSxONTAPSmbMountOptionsVersion) *string {
+func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationFSxOntapSmbMountOptionsVersion) *string {
 		if e == nil {
 			return nil
 		}
@@ -562,165 +562,165 @@ func (o LocationFSxONTAPSmbMountOptionsVersionPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationFSxONTAPSmbMountOptionsVersionInput is an input type that accepts LocationFSxONTAPSmbMountOptionsVersionArgs and LocationFSxONTAPSmbMountOptionsVersionOutput values.
-// You can construct a concrete instance of `LocationFSxONTAPSmbMountOptionsVersionInput` via:
+// LocationFSxOntapSmbMountOptionsVersionInput is an input type that accepts LocationFSxOntapSmbMountOptionsVersionArgs and LocationFSxOntapSmbMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationFSxOntapSmbMountOptionsVersionInput` via:
 //
-//	LocationFSxONTAPSmbMountOptionsVersionArgs{...}
-type LocationFSxONTAPSmbMountOptionsVersionInput interface {
+//	LocationFSxOntapSmbMountOptionsVersionArgs{...}
+type LocationFSxOntapSmbMountOptionsVersionInput interface {
 	pulumi.Input
 
-	ToLocationFSxONTAPSmbMountOptionsVersionOutput() LocationFSxONTAPSmbMountOptionsVersionOutput
-	ToLocationFSxONTAPSmbMountOptionsVersionOutputWithContext(context.Context) LocationFSxONTAPSmbMountOptionsVersionOutput
+	ToLocationFSxOntapSmbMountOptionsVersionOutput() LocationFSxOntapSmbMountOptionsVersionOutput
+	ToLocationFSxOntapSmbMountOptionsVersionOutputWithContext(context.Context) LocationFSxOntapSmbMountOptionsVersionOutput
 }
 
-var locationFSxONTAPSmbMountOptionsVersionPtrType = reflect.TypeOf((**LocationFSxONTAPSmbMountOptionsVersion)(nil)).Elem()
+var locationFSxOntapSmbMountOptionsVersionPtrType = reflect.TypeOf((**LocationFSxOntapSmbMountOptionsVersion)(nil)).Elem()
 
-type LocationFSxONTAPSmbMountOptionsVersionPtrInput interface {
+type LocationFSxOntapSmbMountOptionsVersionPtrInput interface {
 	pulumi.Input
 
-	ToLocationFSxONTAPSmbMountOptionsVersionPtrOutput() LocationFSxONTAPSmbMountOptionsVersionPtrOutput
-	ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(context.Context) LocationFSxONTAPSmbMountOptionsVersionPtrOutput
+	ToLocationFSxOntapSmbMountOptionsVersionPtrOutput() LocationFSxOntapSmbMountOptionsVersionPtrOutput
+	ToLocationFSxOntapSmbMountOptionsVersionPtrOutputWithContext(context.Context) LocationFSxOntapSmbMountOptionsVersionPtrOutput
 }
 
-type locationFSxONTAPSmbMountOptionsVersionPtr string
+type locationFSxOntapSmbMountOptionsVersionPtr string
 
-func LocationFSxONTAPSmbMountOptionsVersionPtr(v string) LocationFSxONTAPSmbMountOptionsVersionPtrInput {
-	return (*locationFSxONTAPSmbMountOptionsVersionPtr)(&v)
+func LocationFSxOntapSmbMountOptionsVersionPtr(v string) LocationFSxOntapSmbMountOptionsVersionPtrInput {
+	return (*locationFSxOntapSmbMountOptionsVersionPtr)(&v)
 }
 
-func (*locationFSxONTAPSmbMountOptionsVersionPtr) ElementType() reflect.Type {
-	return locationFSxONTAPSmbMountOptionsVersionPtrType
+func (*locationFSxOntapSmbMountOptionsVersionPtr) ElementType() reflect.Type {
+	return locationFSxOntapSmbMountOptionsVersionPtrType
 }
 
-func (in *locationFSxONTAPSmbMountOptionsVersionPtr) ToLocationFSxONTAPSmbMountOptionsVersionPtrOutput() LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
-	return pulumi.ToOutput(in).(LocationFSxONTAPSmbMountOptionsVersionPtrOutput)
+func (in *locationFSxOntapSmbMountOptionsVersionPtr) ToLocationFSxOntapSmbMountOptionsVersionPtrOutput() LocationFSxOntapSmbMountOptionsVersionPtrOutput {
+	return pulumi.ToOutput(in).(LocationFSxOntapSmbMountOptionsVersionPtrOutput)
 }
 
-func (in *locationFSxONTAPSmbMountOptionsVersionPtr) ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LocationFSxONTAPSmbMountOptionsVersionPtrOutput)
+func (in *locationFSxOntapSmbMountOptionsVersionPtr) ToLocationFSxOntapSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOntapSmbMountOptionsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationFSxOntapSmbMountOptionsVersionPtrOutput)
 }
 
 // The specific NFS version that you want DataSync to use to mount your NFS share.
-type LocationFSxOpenZFSMountOptionsVersion string
+type LocationFSxOpenZfsMountOptionsVersion string
 
 const (
-	LocationFSxOpenZFSMountOptionsVersionAutomatic = LocationFSxOpenZFSMountOptionsVersion("AUTOMATIC")
-	LocationFSxOpenZFSMountOptionsVersionNfs3      = LocationFSxOpenZFSMountOptionsVersion("NFS3")
-	LocationFSxOpenZFSMountOptionsVersionNfs40     = LocationFSxOpenZFSMountOptionsVersion("NFS4_0")
-	LocationFSxOpenZFSMountOptionsVersionNfs41     = LocationFSxOpenZFSMountOptionsVersion("NFS4_1")
+	LocationFSxOpenZfsMountOptionsVersionAutomatic = LocationFSxOpenZfsMountOptionsVersion("AUTOMATIC")
+	LocationFSxOpenZfsMountOptionsVersionNfs3      = LocationFSxOpenZfsMountOptionsVersion("NFS3")
+	LocationFSxOpenZfsMountOptionsVersionNfs40     = LocationFSxOpenZfsMountOptionsVersion("NFS4_0")
+	LocationFSxOpenZfsMountOptionsVersionNfs41     = LocationFSxOpenZfsMountOptionsVersion("NFS4_1")
 )
 
-func (LocationFSxOpenZFSMountOptionsVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxOpenZFSMountOptionsVersion)(nil)).Elem()
+func (LocationFSxOpenZfsMountOptionsVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZfsMountOptionsVersion)(nil)).Elem()
 }
 
-func (e LocationFSxOpenZFSMountOptionsVersion) ToLocationFSxOpenZFSMountOptionsVersionOutput() LocationFSxOpenZFSMountOptionsVersionOutput {
-	return pulumi.ToOutput(e).(LocationFSxOpenZFSMountOptionsVersionOutput)
+func (e LocationFSxOpenZfsMountOptionsVersion) ToLocationFSxOpenZfsMountOptionsVersionOutput() LocationFSxOpenZfsMountOptionsVersionOutput {
+	return pulumi.ToOutput(e).(LocationFSxOpenZfsMountOptionsVersionOutput)
 }
 
-func (e LocationFSxOpenZFSMountOptionsVersion) ToLocationFSxOpenZFSMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LocationFSxOpenZFSMountOptionsVersionOutput)
+func (e LocationFSxOpenZfsMountOptionsVersion) ToLocationFSxOpenZfsMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxOpenZfsMountOptionsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationFSxOpenZfsMountOptionsVersionOutput)
 }
 
-func (e LocationFSxOpenZFSMountOptionsVersion) ToLocationFSxOpenZFSMountOptionsVersionPtrOutput() LocationFSxOpenZFSMountOptionsVersionPtrOutput {
-	return e.ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(context.Background())
+func (e LocationFSxOpenZfsMountOptionsVersion) ToLocationFSxOpenZfsMountOptionsVersionPtrOutput() LocationFSxOpenZfsMountOptionsVersionPtrOutput {
+	return e.ToLocationFSxOpenZfsMountOptionsVersionPtrOutputWithContext(context.Background())
 }
 
-func (e LocationFSxOpenZFSMountOptionsVersion) ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput {
-	return LocationFSxOpenZFSMountOptionsVersion(e).ToLocationFSxOpenZFSMountOptionsVersionOutputWithContext(ctx).ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx)
+func (e LocationFSxOpenZfsMountOptionsVersion) ToLocationFSxOpenZfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZfsMountOptionsVersionPtrOutput {
+	return LocationFSxOpenZfsMountOptionsVersion(e).ToLocationFSxOpenZfsMountOptionsVersionOutputWithContext(ctx).ToLocationFSxOpenZfsMountOptionsVersionPtrOutputWithContext(ctx)
 }
 
-func (e LocationFSxOpenZFSMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
+func (e LocationFSxOpenZfsMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationFSxOpenZFSMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e LocationFSxOpenZfsMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationFSxOpenZFSMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e LocationFSxOpenZfsMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e LocationFSxOpenZFSMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e LocationFSxOpenZfsMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LocationFSxOpenZFSMountOptionsVersionOutput struct{ *pulumi.OutputState }
+type LocationFSxOpenZfsMountOptionsVersionOutput struct{ *pulumi.OutputState }
 
-func (LocationFSxOpenZFSMountOptionsVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxOpenZFSMountOptionsVersion)(nil)).Elem()
+func (LocationFSxOpenZfsMountOptionsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZfsMountOptionsVersion)(nil)).Elem()
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToLocationFSxOpenZFSMountOptionsVersionOutput() LocationFSxOpenZFSMountOptionsVersionOutput {
+func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToLocationFSxOpenZfsMountOptionsVersionOutput() LocationFSxOpenZfsMountOptionsVersionOutput {
 	return o
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToLocationFSxOpenZFSMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionOutput {
+func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToLocationFSxOpenZfsMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxOpenZfsMountOptionsVersionOutput {
 	return o
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToLocationFSxOpenZFSMountOptionsVersionPtrOutput() LocationFSxOpenZFSMountOptionsVersionPtrOutput {
-	return o.ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(context.Background())
+func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToLocationFSxOpenZfsMountOptionsVersionPtrOutput() LocationFSxOpenZfsMountOptionsVersionPtrOutput {
+	return o.ToLocationFSxOpenZfsMountOptionsVersionPtrOutputWithContext(context.Background())
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxOpenZFSMountOptionsVersion) *LocationFSxOpenZFSMountOptionsVersion {
+func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToLocationFSxOpenZfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZfsMountOptionsVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxOpenZfsMountOptionsVersion) *LocationFSxOpenZfsMountOptionsVersion {
 		return &v
-	}).(LocationFSxOpenZFSMountOptionsVersionPtrOutput)
+	}).(LocationFSxOpenZfsMountOptionsVersionPtrOutput)
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
+func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxOpenZFSMountOptionsVersion) string {
+func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxOpenZfsMountOptionsVersion) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxOpenZFSMountOptionsVersion) *string {
+func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxOpenZfsMountOptionsVersion) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type LocationFSxOpenZFSMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
+type LocationFSxOpenZfsMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
 
-func (LocationFSxOpenZFSMountOptionsVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationFSxOpenZFSMountOptionsVersion)(nil)).Elem()
+func (LocationFSxOpenZfsMountOptionsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxOpenZfsMountOptionsVersion)(nil)).Elem()
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToLocationFSxOpenZFSMountOptionsVersionPtrOutput() LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToLocationFSxOpenZfsMountOptionsVersionPtrOutput() LocationFSxOpenZfsMountOptionsVersionPtrOutput {
 	return o
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToLocationFSxOpenZfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZfsMountOptionsVersionPtrOutput {
 	return o
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) Elem() LocationFSxOpenZFSMountOptionsVersionOutput {
-	return o.ApplyT(func(v *LocationFSxOpenZFSMountOptionsVersion) LocationFSxOpenZFSMountOptionsVersion {
+func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) Elem() LocationFSxOpenZfsMountOptionsVersionOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZfsMountOptionsVersion) LocationFSxOpenZfsMountOptionsVersion {
 		if v != nil {
 			return *v
 		}
-		var ret LocationFSxOpenZFSMountOptionsVersion
+		var ret LocationFSxOpenZfsMountOptionsVersion
 		return ret
-	}).(LocationFSxOpenZFSMountOptionsVersionOutput)
+	}).(LocationFSxOpenZfsMountOptionsVersionOutput)
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationFSxOpenZFSMountOptionsVersion) *string {
+func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationFSxOpenZfsMountOptionsVersion) *string {
 		if e == nil {
 			return nil
 		}
@@ -729,163 +729,163 @@ func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationFSxOpenZFSMountOptionsVersionInput is an input type that accepts LocationFSxOpenZFSMountOptionsVersionArgs and LocationFSxOpenZFSMountOptionsVersionOutput values.
-// You can construct a concrete instance of `LocationFSxOpenZFSMountOptionsVersionInput` via:
+// LocationFSxOpenZfsMountOptionsVersionInput is an input type that accepts LocationFSxOpenZfsMountOptionsVersionArgs and LocationFSxOpenZfsMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationFSxOpenZfsMountOptionsVersionInput` via:
 //
-//	LocationFSxOpenZFSMountOptionsVersionArgs{...}
-type LocationFSxOpenZFSMountOptionsVersionInput interface {
+//	LocationFSxOpenZfsMountOptionsVersionArgs{...}
+type LocationFSxOpenZfsMountOptionsVersionInput interface {
 	pulumi.Input
 
-	ToLocationFSxOpenZFSMountOptionsVersionOutput() LocationFSxOpenZFSMountOptionsVersionOutput
-	ToLocationFSxOpenZFSMountOptionsVersionOutputWithContext(context.Context) LocationFSxOpenZFSMountOptionsVersionOutput
+	ToLocationFSxOpenZfsMountOptionsVersionOutput() LocationFSxOpenZfsMountOptionsVersionOutput
+	ToLocationFSxOpenZfsMountOptionsVersionOutputWithContext(context.Context) LocationFSxOpenZfsMountOptionsVersionOutput
 }
 
-var locationFSxOpenZFSMountOptionsVersionPtrType = reflect.TypeOf((**LocationFSxOpenZFSMountOptionsVersion)(nil)).Elem()
+var locationFSxOpenZfsMountOptionsVersionPtrType = reflect.TypeOf((**LocationFSxOpenZfsMountOptionsVersion)(nil)).Elem()
 
-type LocationFSxOpenZFSMountOptionsVersionPtrInput interface {
+type LocationFSxOpenZfsMountOptionsVersionPtrInput interface {
 	pulumi.Input
 
-	ToLocationFSxOpenZFSMountOptionsVersionPtrOutput() LocationFSxOpenZFSMountOptionsVersionPtrOutput
-	ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput
+	ToLocationFSxOpenZfsMountOptionsVersionPtrOutput() LocationFSxOpenZfsMountOptionsVersionPtrOutput
+	ToLocationFSxOpenZfsMountOptionsVersionPtrOutputWithContext(context.Context) LocationFSxOpenZfsMountOptionsVersionPtrOutput
 }
 
-type locationFSxOpenZFSMountOptionsVersionPtr string
+type locationFSxOpenZfsMountOptionsVersionPtr string
 
-func LocationFSxOpenZFSMountOptionsVersionPtr(v string) LocationFSxOpenZFSMountOptionsVersionPtrInput {
-	return (*locationFSxOpenZFSMountOptionsVersionPtr)(&v)
+func LocationFSxOpenZfsMountOptionsVersionPtr(v string) LocationFSxOpenZfsMountOptionsVersionPtrInput {
+	return (*locationFSxOpenZfsMountOptionsVersionPtr)(&v)
 }
 
-func (*locationFSxOpenZFSMountOptionsVersionPtr) ElementType() reflect.Type {
-	return locationFSxOpenZFSMountOptionsVersionPtrType
+func (*locationFSxOpenZfsMountOptionsVersionPtr) ElementType() reflect.Type {
+	return locationFSxOpenZfsMountOptionsVersionPtrType
 }
 
-func (in *locationFSxOpenZFSMountOptionsVersionPtr) ToLocationFSxOpenZFSMountOptionsVersionPtrOutput() LocationFSxOpenZFSMountOptionsVersionPtrOutput {
-	return pulumi.ToOutput(in).(LocationFSxOpenZFSMountOptionsVersionPtrOutput)
+func (in *locationFSxOpenZfsMountOptionsVersionPtr) ToLocationFSxOpenZfsMountOptionsVersionPtrOutput() LocationFSxOpenZfsMountOptionsVersionPtrOutput {
+	return pulumi.ToOutput(in).(LocationFSxOpenZfsMountOptionsVersionPtrOutput)
 }
 
-func (in *locationFSxOpenZFSMountOptionsVersionPtr) ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LocationFSxOpenZFSMountOptionsVersionPtrOutput)
+func (in *locationFSxOpenZfsMountOptionsVersionPtr) ToLocationFSxOpenZfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZfsMountOptionsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationFSxOpenZfsMountOptionsVersionPtrOutput)
 }
 
 // The authentication mode used to determine identity of user.
-type LocationHDFSAuthenticationType string
+type LocationHdfsAuthenticationType string
 
 const (
-	LocationHDFSAuthenticationTypeSimple   = LocationHDFSAuthenticationType("SIMPLE")
-	LocationHDFSAuthenticationTypeKerberos = LocationHDFSAuthenticationType("KERBEROS")
+	LocationHdfsAuthenticationTypeSimple   = LocationHdfsAuthenticationType("SIMPLE")
+	LocationHdfsAuthenticationTypeKerberos = LocationHdfsAuthenticationType("KERBEROS")
 )
 
-func (LocationHDFSAuthenticationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHDFSAuthenticationType)(nil)).Elem()
+func (LocationHdfsAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHdfsAuthenticationType)(nil)).Elem()
 }
 
-func (e LocationHDFSAuthenticationType) ToLocationHDFSAuthenticationTypeOutput() LocationHDFSAuthenticationTypeOutput {
-	return pulumi.ToOutput(e).(LocationHDFSAuthenticationTypeOutput)
+func (e LocationHdfsAuthenticationType) ToLocationHdfsAuthenticationTypeOutput() LocationHdfsAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(LocationHdfsAuthenticationTypeOutput)
 }
 
-func (e LocationHDFSAuthenticationType) ToLocationHDFSAuthenticationTypeOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LocationHDFSAuthenticationTypeOutput)
+func (e LocationHdfsAuthenticationType) ToLocationHdfsAuthenticationTypeOutputWithContext(ctx context.Context) LocationHdfsAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationHdfsAuthenticationTypeOutput)
 }
 
-func (e LocationHDFSAuthenticationType) ToLocationHDFSAuthenticationTypePtrOutput() LocationHDFSAuthenticationTypePtrOutput {
-	return e.ToLocationHDFSAuthenticationTypePtrOutputWithContext(context.Background())
+func (e LocationHdfsAuthenticationType) ToLocationHdfsAuthenticationTypePtrOutput() LocationHdfsAuthenticationTypePtrOutput {
+	return e.ToLocationHdfsAuthenticationTypePtrOutputWithContext(context.Background())
 }
 
-func (e LocationHDFSAuthenticationType) ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypePtrOutput {
-	return LocationHDFSAuthenticationType(e).ToLocationHDFSAuthenticationTypeOutputWithContext(ctx).ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx)
+func (e LocationHdfsAuthenticationType) ToLocationHdfsAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHdfsAuthenticationTypePtrOutput {
+	return LocationHdfsAuthenticationType(e).ToLocationHdfsAuthenticationTypeOutputWithContext(ctx).ToLocationHdfsAuthenticationTypePtrOutputWithContext(ctx)
 }
 
-func (e LocationHDFSAuthenticationType) ToStringOutput() pulumi.StringOutput {
+func (e LocationHdfsAuthenticationType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationHDFSAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e LocationHdfsAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationHDFSAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e LocationHdfsAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e LocationHDFSAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e LocationHdfsAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LocationHDFSAuthenticationTypeOutput struct{ *pulumi.OutputState }
+type LocationHdfsAuthenticationTypeOutput struct{ *pulumi.OutputState }
 
-func (LocationHDFSAuthenticationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHDFSAuthenticationType)(nil)).Elem()
+func (LocationHdfsAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHdfsAuthenticationType)(nil)).Elem()
 }
 
-func (o LocationHDFSAuthenticationTypeOutput) ToLocationHDFSAuthenticationTypeOutput() LocationHDFSAuthenticationTypeOutput {
+func (o LocationHdfsAuthenticationTypeOutput) ToLocationHdfsAuthenticationTypeOutput() LocationHdfsAuthenticationTypeOutput {
 	return o
 }
 
-func (o LocationHDFSAuthenticationTypeOutput) ToLocationHDFSAuthenticationTypeOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypeOutput {
+func (o LocationHdfsAuthenticationTypeOutput) ToLocationHdfsAuthenticationTypeOutputWithContext(ctx context.Context) LocationHdfsAuthenticationTypeOutput {
 	return o
 }
 
-func (o LocationHDFSAuthenticationTypeOutput) ToLocationHDFSAuthenticationTypePtrOutput() LocationHDFSAuthenticationTypePtrOutput {
-	return o.ToLocationHDFSAuthenticationTypePtrOutputWithContext(context.Background())
+func (o LocationHdfsAuthenticationTypeOutput) ToLocationHdfsAuthenticationTypePtrOutput() LocationHdfsAuthenticationTypePtrOutput {
+	return o.ToLocationHdfsAuthenticationTypePtrOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSAuthenticationTypeOutput) ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHDFSAuthenticationType) *LocationHDFSAuthenticationType {
+func (o LocationHdfsAuthenticationTypeOutput) ToLocationHdfsAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHdfsAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHdfsAuthenticationType) *LocationHdfsAuthenticationType {
 		return &v
-	}).(LocationHDFSAuthenticationTypePtrOutput)
+	}).(LocationHdfsAuthenticationTypePtrOutput)
 }
 
-func (o LocationHDFSAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o LocationHdfsAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSAuthenticationType) string {
+func (o LocationHdfsAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHdfsAuthenticationType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o LocationHDFSAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationHdfsAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSAuthenticationType) *string {
+func (o LocationHdfsAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHdfsAuthenticationType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type LocationHDFSAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+type LocationHdfsAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
 
-func (LocationHDFSAuthenticationTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationHDFSAuthenticationType)(nil)).Elem()
+func (LocationHdfsAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationHdfsAuthenticationType)(nil)).Elem()
 }
 
-func (o LocationHDFSAuthenticationTypePtrOutput) ToLocationHDFSAuthenticationTypePtrOutput() LocationHDFSAuthenticationTypePtrOutput {
+func (o LocationHdfsAuthenticationTypePtrOutput) ToLocationHdfsAuthenticationTypePtrOutput() LocationHdfsAuthenticationTypePtrOutput {
 	return o
 }
 
-func (o LocationHDFSAuthenticationTypePtrOutput) ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypePtrOutput {
+func (o LocationHdfsAuthenticationTypePtrOutput) ToLocationHdfsAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHdfsAuthenticationTypePtrOutput {
 	return o
 }
 
-func (o LocationHDFSAuthenticationTypePtrOutput) Elem() LocationHDFSAuthenticationTypeOutput {
-	return o.ApplyT(func(v *LocationHDFSAuthenticationType) LocationHDFSAuthenticationType {
+func (o LocationHdfsAuthenticationTypePtrOutput) Elem() LocationHdfsAuthenticationTypeOutput {
+	return o.ApplyT(func(v *LocationHdfsAuthenticationType) LocationHdfsAuthenticationType {
 		if v != nil {
 			return *v
 		}
-		var ret LocationHDFSAuthenticationType
+		var ret LocationHdfsAuthenticationType
 		return ret
-	}).(LocationHDFSAuthenticationTypeOutput)
+	}).(LocationHdfsAuthenticationTypeOutput)
 }
 
-func (o LocationHDFSAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationHdfsAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationHDFSAuthenticationType) *string {
+func (o LocationHdfsAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationHdfsAuthenticationType) *string {
 		if e == nil {
 			return nil
 		}
@@ -894,165 +894,165 @@ func (o LocationHDFSAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationHDFSAuthenticationTypeInput is an input type that accepts LocationHDFSAuthenticationTypeArgs and LocationHDFSAuthenticationTypeOutput values.
-// You can construct a concrete instance of `LocationHDFSAuthenticationTypeInput` via:
+// LocationHdfsAuthenticationTypeInput is an input type that accepts LocationHdfsAuthenticationTypeArgs and LocationHdfsAuthenticationTypeOutput values.
+// You can construct a concrete instance of `LocationHdfsAuthenticationTypeInput` via:
 //
-//	LocationHDFSAuthenticationTypeArgs{...}
-type LocationHDFSAuthenticationTypeInput interface {
+//	LocationHdfsAuthenticationTypeArgs{...}
+type LocationHdfsAuthenticationTypeInput interface {
 	pulumi.Input
 
-	ToLocationHDFSAuthenticationTypeOutput() LocationHDFSAuthenticationTypeOutput
-	ToLocationHDFSAuthenticationTypeOutputWithContext(context.Context) LocationHDFSAuthenticationTypeOutput
+	ToLocationHdfsAuthenticationTypeOutput() LocationHdfsAuthenticationTypeOutput
+	ToLocationHdfsAuthenticationTypeOutputWithContext(context.Context) LocationHdfsAuthenticationTypeOutput
 }
 
-var locationHDFSAuthenticationTypePtrType = reflect.TypeOf((**LocationHDFSAuthenticationType)(nil)).Elem()
+var locationHdfsAuthenticationTypePtrType = reflect.TypeOf((**LocationHdfsAuthenticationType)(nil)).Elem()
 
-type LocationHDFSAuthenticationTypePtrInput interface {
+type LocationHdfsAuthenticationTypePtrInput interface {
 	pulumi.Input
 
-	ToLocationHDFSAuthenticationTypePtrOutput() LocationHDFSAuthenticationTypePtrOutput
-	ToLocationHDFSAuthenticationTypePtrOutputWithContext(context.Context) LocationHDFSAuthenticationTypePtrOutput
+	ToLocationHdfsAuthenticationTypePtrOutput() LocationHdfsAuthenticationTypePtrOutput
+	ToLocationHdfsAuthenticationTypePtrOutputWithContext(context.Context) LocationHdfsAuthenticationTypePtrOutput
 }
 
-type locationHDFSAuthenticationTypePtr string
+type locationHdfsAuthenticationTypePtr string
 
-func LocationHDFSAuthenticationTypePtr(v string) LocationHDFSAuthenticationTypePtrInput {
-	return (*locationHDFSAuthenticationTypePtr)(&v)
+func LocationHdfsAuthenticationTypePtr(v string) LocationHdfsAuthenticationTypePtrInput {
+	return (*locationHdfsAuthenticationTypePtr)(&v)
 }
 
-func (*locationHDFSAuthenticationTypePtr) ElementType() reflect.Type {
-	return locationHDFSAuthenticationTypePtrType
+func (*locationHdfsAuthenticationTypePtr) ElementType() reflect.Type {
+	return locationHdfsAuthenticationTypePtrType
 }
 
-func (in *locationHDFSAuthenticationTypePtr) ToLocationHDFSAuthenticationTypePtrOutput() LocationHDFSAuthenticationTypePtrOutput {
-	return pulumi.ToOutput(in).(LocationHDFSAuthenticationTypePtrOutput)
+func (in *locationHdfsAuthenticationTypePtr) ToLocationHdfsAuthenticationTypePtrOutput() LocationHdfsAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(LocationHdfsAuthenticationTypePtrOutput)
 }
 
-func (in *locationHDFSAuthenticationTypePtr) ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LocationHDFSAuthenticationTypePtrOutput)
+func (in *locationHdfsAuthenticationTypePtr) ToLocationHdfsAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHdfsAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationHdfsAuthenticationTypePtrOutput)
 }
 
 // Configuration for Data Transfer Protection.
-type LocationHDFSQopConfigurationDataTransferProtection string
+type LocationHdfsQopConfigurationDataTransferProtection string
 
 const (
-	LocationHDFSQopConfigurationDataTransferProtectionAuthentication = LocationHDFSQopConfigurationDataTransferProtection("AUTHENTICATION")
-	LocationHDFSQopConfigurationDataTransferProtectionIntegrity      = LocationHDFSQopConfigurationDataTransferProtection("INTEGRITY")
-	LocationHDFSQopConfigurationDataTransferProtectionPrivacy        = LocationHDFSQopConfigurationDataTransferProtection("PRIVACY")
-	LocationHDFSQopConfigurationDataTransferProtectionDisabled       = LocationHDFSQopConfigurationDataTransferProtection("DISABLED")
+	LocationHdfsQopConfigurationDataTransferProtectionAuthentication = LocationHdfsQopConfigurationDataTransferProtection("AUTHENTICATION")
+	LocationHdfsQopConfigurationDataTransferProtectionIntegrity      = LocationHdfsQopConfigurationDataTransferProtection("INTEGRITY")
+	LocationHdfsQopConfigurationDataTransferProtectionPrivacy        = LocationHdfsQopConfigurationDataTransferProtection("PRIVACY")
+	LocationHdfsQopConfigurationDataTransferProtectionDisabled       = LocationHdfsQopConfigurationDataTransferProtection("DISABLED")
 )
 
-func (LocationHDFSQopConfigurationDataTransferProtection) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHDFSQopConfigurationDataTransferProtection)(nil)).Elem()
+func (LocationHdfsQopConfigurationDataTransferProtection) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHdfsQopConfigurationDataTransferProtection)(nil)).Elem()
 }
 
-func (e LocationHDFSQopConfigurationDataTransferProtection) ToLocationHDFSQopConfigurationDataTransferProtectionOutput() LocationHDFSQopConfigurationDataTransferProtectionOutput {
-	return pulumi.ToOutput(e).(LocationHDFSQopConfigurationDataTransferProtectionOutput)
+func (e LocationHdfsQopConfigurationDataTransferProtection) ToLocationHdfsQopConfigurationDataTransferProtectionOutput() LocationHdfsQopConfigurationDataTransferProtectionOutput {
+	return pulumi.ToOutput(e).(LocationHdfsQopConfigurationDataTransferProtectionOutput)
 }
 
-func (e LocationHDFSQopConfigurationDataTransferProtection) ToLocationHDFSQopConfigurationDataTransferProtectionOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LocationHDFSQopConfigurationDataTransferProtectionOutput)
+func (e LocationHdfsQopConfigurationDataTransferProtection) ToLocationHdfsQopConfigurationDataTransferProtectionOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationDataTransferProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationHdfsQopConfigurationDataTransferProtectionOutput)
 }
 
-func (e LocationHDFSQopConfigurationDataTransferProtection) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutput() LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
-	return e.ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(context.Background())
+func (e LocationHdfsQopConfigurationDataTransferProtection) ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutput() LocationHdfsQopConfigurationDataTransferProtectionPtrOutput {
+	return e.ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutputWithContext(context.Background())
 }
 
-func (e LocationHDFSQopConfigurationDataTransferProtection) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
-	return LocationHDFSQopConfigurationDataTransferProtection(e).ToLocationHDFSQopConfigurationDataTransferProtectionOutputWithContext(ctx).ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx)
+func (e LocationHdfsQopConfigurationDataTransferProtection) ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationDataTransferProtectionPtrOutput {
+	return LocationHdfsQopConfigurationDataTransferProtection(e).ToLocationHdfsQopConfigurationDataTransferProtectionOutputWithContext(ctx).ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx)
 }
 
-func (e LocationHDFSQopConfigurationDataTransferProtection) ToStringOutput() pulumi.StringOutput {
+func (e LocationHdfsQopConfigurationDataTransferProtection) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationHDFSQopConfigurationDataTransferProtection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e LocationHdfsQopConfigurationDataTransferProtection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationHDFSQopConfigurationDataTransferProtection) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e LocationHdfsQopConfigurationDataTransferProtection) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e LocationHDFSQopConfigurationDataTransferProtection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e LocationHdfsQopConfigurationDataTransferProtection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LocationHDFSQopConfigurationDataTransferProtectionOutput struct{ *pulumi.OutputState }
+type LocationHdfsQopConfigurationDataTransferProtectionOutput struct{ *pulumi.OutputState }
 
-func (LocationHDFSQopConfigurationDataTransferProtectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHDFSQopConfigurationDataTransferProtection)(nil)).Elem()
+func (LocationHdfsQopConfigurationDataTransferProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHdfsQopConfigurationDataTransferProtection)(nil)).Elem()
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToLocationHDFSQopConfigurationDataTransferProtectionOutput() LocationHDFSQopConfigurationDataTransferProtectionOutput {
+func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToLocationHdfsQopConfigurationDataTransferProtectionOutput() LocationHdfsQopConfigurationDataTransferProtectionOutput {
 	return o
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToLocationHDFSQopConfigurationDataTransferProtectionOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionOutput {
+func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToLocationHdfsQopConfigurationDataTransferProtectionOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationDataTransferProtectionOutput {
 	return o
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutput() LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
-	return o.ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(context.Background())
+func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutput() LocationHdfsQopConfigurationDataTransferProtectionPtrOutput {
+	return o.ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHDFSQopConfigurationDataTransferProtection) *LocationHDFSQopConfigurationDataTransferProtection {
+func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationDataTransferProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHdfsQopConfigurationDataTransferProtection) *LocationHdfsQopConfigurationDataTransferProtection {
 		return &v
-	}).(LocationHDFSQopConfigurationDataTransferProtectionPtrOutput)
+	}).(LocationHdfsQopConfigurationDataTransferProtectionPtrOutput)
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToStringOutput() pulumi.StringOutput {
+func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSQopConfigurationDataTransferProtection) string {
+func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHdfsQopConfigurationDataTransferProtection) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSQopConfigurationDataTransferProtection) *string {
+func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHdfsQopConfigurationDataTransferProtection) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type LocationHDFSQopConfigurationDataTransferProtectionPtrOutput struct{ *pulumi.OutputState }
+type LocationHdfsQopConfigurationDataTransferProtectionPtrOutput struct{ *pulumi.OutputState }
 
-func (LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationHDFSQopConfigurationDataTransferProtection)(nil)).Elem()
+func (LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationHdfsQopConfigurationDataTransferProtection)(nil)).Elem()
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutput() LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
+func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutput() LocationHdfsQopConfigurationDataTransferProtectionPtrOutput {
 	return o
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
+func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationDataTransferProtectionPtrOutput {
 	return o
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) Elem() LocationHDFSQopConfigurationDataTransferProtectionOutput {
-	return o.ApplyT(func(v *LocationHDFSQopConfigurationDataTransferProtection) LocationHDFSQopConfigurationDataTransferProtection {
+func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) Elem() LocationHdfsQopConfigurationDataTransferProtectionOutput {
+	return o.ApplyT(func(v *LocationHdfsQopConfigurationDataTransferProtection) LocationHdfsQopConfigurationDataTransferProtection {
 		if v != nil {
 			return *v
 		}
-		var ret LocationHDFSQopConfigurationDataTransferProtection
+		var ret LocationHdfsQopConfigurationDataTransferProtection
 		return ret
-	}).(LocationHDFSQopConfigurationDataTransferProtectionOutput)
+	}).(LocationHdfsQopConfigurationDataTransferProtectionOutput)
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationHDFSQopConfigurationDataTransferProtection) *string {
+func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationHdfsQopConfigurationDataTransferProtection) *string {
 		if e == nil {
 			return nil
 		}
@@ -1061,165 +1061,165 @@ func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationHDFSQopConfigurationDataTransferProtectionInput is an input type that accepts LocationHDFSQopConfigurationDataTransferProtectionArgs and LocationHDFSQopConfigurationDataTransferProtectionOutput values.
-// You can construct a concrete instance of `LocationHDFSQopConfigurationDataTransferProtectionInput` via:
+// LocationHdfsQopConfigurationDataTransferProtectionInput is an input type that accepts LocationHdfsQopConfigurationDataTransferProtectionArgs and LocationHdfsQopConfigurationDataTransferProtectionOutput values.
+// You can construct a concrete instance of `LocationHdfsQopConfigurationDataTransferProtectionInput` via:
 //
-//	LocationHDFSQopConfigurationDataTransferProtectionArgs{...}
-type LocationHDFSQopConfigurationDataTransferProtectionInput interface {
+//	LocationHdfsQopConfigurationDataTransferProtectionArgs{...}
+type LocationHdfsQopConfigurationDataTransferProtectionInput interface {
 	pulumi.Input
 
-	ToLocationHDFSQopConfigurationDataTransferProtectionOutput() LocationHDFSQopConfigurationDataTransferProtectionOutput
-	ToLocationHDFSQopConfigurationDataTransferProtectionOutputWithContext(context.Context) LocationHDFSQopConfigurationDataTransferProtectionOutput
+	ToLocationHdfsQopConfigurationDataTransferProtectionOutput() LocationHdfsQopConfigurationDataTransferProtectionOutput
+	ToLocationHdfsQopConfigurationDataTransferProtectionOutputWithContext(context.Context) LocationHdfsQopConfigurationDataTransferProtectionOutput
 }
 
-var locationHDFSQopConfigurationDataTransferProtectionPtrType = reflect.TypeOf((**LocationHDFSQopConfigurationDataTransferProtection)(nil)).Elem()
+var locationHdfsQopConfigurationDataTransferProtectionPtrType = reflect.TypeOf((**LocationHdfsQopConfigurationDataTransferProtection)(nil)).Elem()
 
-type LocationHDFSQopConfigurationDataTransferProtectionPtrInput interface {
+type LocationHdfsQopConfigurationDataTransferProtectionPtrInput interface {
 	pulumi.Input
 
-	ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutput() LocationHDFSQopConfigurationDataTransferProtectionPtrOutput
-	ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput
+	ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutput() LocationHdfsQopConfigurationDataTransferProtectionPtrOutput
+	ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutputWithContext(context.Context) LocationHdfsQopConfigurationDataTransferProtectionPtrOutput
 }
 
-type locationHDFSQopConfigurationDataTransferProtectionPtr string
+type locationHdfsQopConfigurationDataTransferProtectionPtr string
 
-func LocationHDFSQopConfigurationDataTransferProtectionPtr(v string) LocationHDFSQopConfigurationDataTransferProtectionPtrInput {
-	return (*locationHDFSQopConfigurationDataTransferProtectionPtr)(&v)
+func LocationHdfsQopConfigurationDataTransferProtectionPtr(v string) LocationHdfsQopConfigurationDataTransferProtectionPtrInput {
+	return (*locationHdfsQopConfigurationDataTransferProtectionPtr)(&v)
 }
 
-func (*locationHDFSQopConfigurationDataTransferProtectionPtr) ElementType() reflect.Type {
-	return locationHDFSQopConfigurationDataTransferProtectionPtrType
+func (*locationHdfsQopConfigurationDataTransferProtectionPtr) ElementType() reflect.Type {
+	return locationHdfsQopConfigurationDataTransferProtectionPtrType
 }
 
-func (in *locationHDFSQopConfigurationDataTransferProtectionPtr) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutput() LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
-	return pulumi.ToOutput(in).(LocationHDFSQopConfigurationDataTransferProtectionPtrOutput)
+func (in *locationHdfsQopConfigurationDataTransferProtectionPtr) ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutput() LocationHdfsQopConfigurationDataTransferProtectionPtrOutput {
+	return pulumi.ToOutput(in).(LocationHdfsQopConfigurationDataTransferProtectionPtrOutput)
 }
 
-func (in *locationHDFSQopConfigurationDataTransferProtectionPtr) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LocationHDFSQopConfigurationDataTransferProtectionPtrOutput)
+func (in *locationHdfsQopConfigurationDataTransferProtectionPtr) ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationDataTransferProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationHdfsQopConfigurationDataTransferProtectionPtrOutput)
 }
 
 // Configuration for RPC Protection.
-type LocationHDFSQopConfigurationRpcProtection string
+type LocationHdfsQopConfigurationRpcProtection string
 
 const (
-	LocationHDFSQopConfigurationRpcProtectionAuthentication = LocationHDFSQopConfigurationRpcProtection("AUTHENTICATION")
-	LocationHDFSQopConfigurationRpcProtectionIntegrity      = LocationHDFSQopConfigurationRpcProtection("INTEGRITY")
-	LocationHDFSQopConfigurationRpcProtectionPrivacy        = LocationHDFSQopConfigurationRpcProtection("PRIVACY")
-	LocationHDFSQopConfigurationRpcProtectionDisabled       = LocationHDFSQopConfigurationRpcProtection("DISABLED")
+	LocationHdfsQopConfigurationRpcProtectionAuthentication = LocationHdfsQopConfigurationRpcProtection("AUTHENTICATION")
+	LocationHdfsQopConfigurationRpcProtectionIntegrity      = LocationHdfsQopConfigurationRpcProtection("INTEGRITY")
+	LocationHdfsQopConfigurationRpcProtectionPrivacy        = LocationHdfsQopConfigurationRpcProtection("PRIVACY")
+	LocationHdfsQopConfigurationRpcProtectionDisabled       = LocationHdfsQopConfigurationRpcProtection("DISABLED")
 )
 
-func (LocationHDFSQopConfigurationRpcProtection) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHDFSQopConfigurationRpcProtection)(nil)).Elem()
+func (LocationHdfsQopConfigurationRpcProtection) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHdfsQopConfigurationRpcProtection)(nil)).Elem()
 }
 
-func (e LocationHDFSQopConfigurationRpcProtection) ToLocationHDFSQopConfigurationRpcProtectionOutput() LocationHDFSQopConfigurationRpcProtectionOutput {
-	return pulumi.ToOutput(e).(LocationHDFSQopConfigurationRpcProtectionOutput)
+func (e LocationHdfsQopConfigurationRpcProtection) ToLocationHdfsQopConfigurationRpcProtectionOutput() LocationHdfsQopConfigurationRpcProtectionOutput {
+	return pulumi.ToOutput(e).(LocationHdfsQopConfigurationRpcProtectionOutput)
 }
 
-func (e LocationHDFSQopConfigurationRpcProtection) ToLocationHDFSQopConfigurationRpcProtectionOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LocationHDFSQopConfigurationRpcProtectionOutput)
+func (e LocationHdfsQopConfigurationRpcProtection) ToLocationHdfsQopConfigurationRpcProtectionOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationRpcProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationHdfsQopConfigurationRpcProtectionOutput)
 }
 
-func (e LocationHDFSQopConfigurationRpcProtection) ToLocationHDFSQopConfigurationRpcProtectionPtrOutput() LocationHDFSQopConfigurationRpcProtectionPtrOutput {
-	return e.ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(context.Background())
+func (e LocationHdfsQopConfigurationRpcProtection) ToLocationHdfsQopConfigurationRpcProtectionPtrOutput() LocationHdfsQopConfigurationRpcProtectionPtrOutput {
+	return e.ToLocationHdfsQopConfigurationRpcProtectionPtrOutputWithContext(context.Background())
 }
 
-func (e LocationHDFSQopConfigurationRpcProtection) ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput {
-	return LocationHDFSQopConfigurationRpcProtection(e).ToLocationHDFSQopConfigurationRpcProtectionOutputWithContext(ctx).ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx)
+func (e LocationHdfsQopConfigurationRpcProtection) ToLocationHdfsQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationRpcProtectionPtrOutput {
+	return LocationHdfsQopConfigurationRpcProtection(e).ToLocationHdfsQopConfigurationRpcProtectionOutputWithContext(ctx).ToLocationHdfsQopConfigurationRpcProtectionPtrOutputWithContext(ctx)
 }
 
-func (e LocationHDFSQopConfigurationRpcProtection) ToStringOutput() pulumi.StringOutput {
+func (e LocationHdfsQopConfigurationRpcProtection) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationHDFSQopConfigurationRpcProtection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e LocationHdfsQopConfigurationRpcProtection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationHDFSQopConfigurationRpcProtection) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e LocationHdfsQopConfigurationRpcProtection) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e LocationHDFSQopConfigurationRpcProtection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e LocationHdfsQopConfigurationRpcProtection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LocationHDFSQopConfigurationRpcProtectionOutput struct{ *pulumi.OutputState }
+type LocationHdfsQopConfigurationRpcProtectionOutput struct{ *pulumi.OutputState }
 
-func (LocationHDFSQopConfigurationRpcProtectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHDFSQopConfigurationRpcProtection)(nil)).Elem()
+func (LocationHdfsQopConfigurationRpcProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHdfsQopConfigurationRpcProtection)(nil)).Elem()
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToLocationHDFSQopConfigurationRpcProtectionOutput() LocationHDFSQopConfigurationRpcProtectionOutput {
+func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToLocationHdfsQopConfigurationRpcProtectionOutput() LocationHdfsQopConfigurationRpcProtectionOutput {
 	return o
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToLocationHDFSQopConfigurationRpcProtectionOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionOutput {
+func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToLocationHdfsQopConfigurationRpcProtectionOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationRpcProtectionOutput {
 	return o
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToLocationHDFSQopConfigurationRpcProtectionPtrOutput() LocationHDFSQopConfigurationRpcProtectionPtrOutput {
-	return o.ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(context.Background())
+func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToLocationHdfsQopConfigurationRpcProtectionPtrOutput() LocationHdfsQopConfigurationRpcProtectionPtrOutput {
+	return o.ToLocationHdfsQopConfigurationRpcProtectionPtrOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHDFSQopConfigurationRpcProtection) *LocationHDFSQopConfigurationRpcProtection {
+func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToLocationHdfsQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationRpcProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHdfsQopConfigurationRpcProtection) *LocationHdfsQopConfigurationRpcProtection {
 		return &v
-	}).(LocationHDFSQopConfigurationRpcProtectionPtrOutput)
+	}).(LocationHdfsQopConfigurationRpcProtectionPtrOutput)
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToStringOutput() pulumi.StringOutput {
+func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSQopConfigurationRpcProtection) string {
+func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHdfsQopConfigurationRpcProtection) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSQopConfigurationRpcProtection) *string {
+func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHdfsQopConfigurationRpcProtection) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type LocationHDFSQopConfigurationRpcProtectionPtrOutput struct{ *pulumi.OutputState }
+type LocationHdfsQopConfigurationRpcProtectionPtrOutput struct{ *pulumi.OutputState }
 
-func (LocationHDFSQopConfigurationRpcProtectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationHDFSQopConfigurationRpcProtection)(nil)).Elem()
+func (LocationHdfsQopConfigurationRpcProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationHdfsQopConfigurationRpcProtection)(nil)).Elem()
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToLocationHDFSQopConfigurationRpcProtectionPtrOutput() LocationHDFSQopConfigurationRpcProtectionPtrOutput {
+func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) ToLocationHdfsQopConfigurationRpcProtectionPtrOutput() LocationHdfsQopConfigurationRpcProtectionPtrOutput {
 	return o
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput {
+func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) ToLocationHdfsQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationRpcProtectionPtrOutput {
 	return o
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) Elem() LocationHDFSQopConfigurationRpcProtectionOutput {
-	return o.ApplyT(func(v *LocationHDFSQopConfigurationRpcProtection) LocationHDFSQopConfigurationRpcProtection {
+func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) Elem() LocationHdfsQopConfigurationRpcProtectionOutput {
+	return o.ApplyT(func(v *LocationHdfsQopConfigurationRpcProtection) LocationHdfsQopConfigurationRpcProtection {
 		if v != nil {
 			return *v
 		}
-		var ret LocationHDFSQopConfigurationRpcProtection
+		var ret LocationHdfsQopConfigurationRpcProtection
 		return ret
-	}).(LocationHDFSQopConfigurationRpcProtectionOutput)
+	}).(LocationHdfsQopConfigurationRpcProtectionOutput)
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationHDFSQopConfigurationRpcProtection) *string {
+func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationHdfsQopConfigurationRpcProtection) *string {
 		if e == nil {
 			return nil
 		}
@@ -1228,165 +1228,165 @@ func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationHDFSQopConfigurationRpcProtectionInput is an input type that accepts LocationHDFSQopConfigurationRpcProtectionArgs and LocationHDFSQopConfigurationRpcProtectionOutput values.
-// You can construct a concrete instance of `LocationHDFSQopConfigurationRpcProtectionInput` via:
+// LocationHdfsQopConfigurationRpcProtectionInput is an input type that accepts LocationHdfsQopConfigurationRpcProtectionArgs and LocationHdfsQopConfigurationRpcProtectionOutput values.
+// You can construct a concrete instance of `LocationHdfsQopConfigurationRpcProtectionInput` via:
 //
-//	LocationHDFSQopConfigurationRpcProtectionArgs{...}
-type LocationHDFSQopConfigurationRpcProtectionInput interface {
+//	LocationHdfsQopConfigurationRpcProtectionArgs{...}
+type LocationHdfsQopConfigurationRpcProtectionInput interface {
 	pulumi.Input
 
-	ToLocationHDFSQopConfigurationRpcProtectionOutput() LocationHDFSQopConfigurationRpcProtectionOutput
-	ToLocationHDFSQopConfigurationRpcProtectionOutputWithContext(context.Context) LocationHDFSQopConfigurationRpcProtectionOutput
+	ToLocationHdfsQopConfigurationRpcProtectionOutput() LocationHdfsQopConfigurationRpcProtectionOutput
+	ToLocationHdfsQopConfigurationRpcProtectionOutputWithContext(context.Context) LocationHdfsQopConfigurationRpcProtectionOutput
 }
 
-var locationHDFSQopConfigurationRpcProtectionPtrType = reflect.TypeOf((**LocationHDFSQopConfigurationRpcProtection)(nil)).Elem()
+var locationHdfsQopConfigurationRpcProtectionPtrType = reflect.TypeOf((**LocationHdfsQopConfigurationRpcProtection)(nil)).Elem()
 
-type LocationHDFSQopConfigurationRpcProtectionPtrInput interface {
+type LocationHdfsQopConfigurationRpcProtectionPtrInput interface {
 	pulumi.Input
 
-	ToLocationHDFSQopConfigurationRpcProtectionPtrOutput() LocationHDFSQopConfigurationRpcProtectionPtrOutput
-	ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput
+	ToLocationHdfsQopConfigurationRpcProtectionPtrOutput() LocationHdfsQopConfigurationRpcProtectionPtrOutput
+	ToLocationHdfsQopConfigurationRpcProtectionPtrOutputWithContext(context.Context) LocationHdfsQopConfigurationRpcProtectionPtrOutput
 }
 
-type locationHDFSQopConfigurationRpcProtectionPtr string
+type locationHdfsQopConfigurationRpcProtectionPtr string
 
-func LocationHDFSQopConfigurationRpcProtectionPtr(v string) LocationHDFSQopConfigurationRpcProtectionPtrInput {
-	return (*locationHDFSQopConfigurationRpcProtectionPtr)(&v)
+func LocationHdfsQopConfigurationRpcProtectionPtr(v string) LocationHdfsQopConfigurationRpcProtectionPtrInput {
+	return (*locationHdfsQopConfigurationRpcProtectionPtr)(&v)
 }
 
-func (*locationHDFSQopConfigurationRpcProtectionPtr) ElementType() reflect.Type {
-	return locationHDFSQopConfigurationRpcProtectionPtrType
+func (*locationHdfsQopConfigurationRpcProtectionPtr) ElementType() reflect.Type {
+	return locationHdfsQopConfigurationRpcProtectionPtrType
 }
 
-func (in *locationHDFSQopConfigurationRpcProtectionPtr) ToLocationHDFSQopConfigurationRpcProtectionPtrOutput() LocationHDFSQopConfigurationRpcProtectionPtrOutput {
-	return pulumi.ToOutput(in).(LocationHDFSQopConfigurationRpcProtectionPtrOutput)
+func (in *locationHdfsQopConfigurationRpcProtectionPtr) ToLocationHdfsQopConfigurationRpcProtectionPtrOutput() LocationHdfsQopConfigurationRpcProtectionPtrOutput {
+	return pulumi.ToOutput(in).(LocationHdfsQopConfigurationRpcProtectionPtrOutput)
 }
 
-func (in *locationHDFSQopConfigurationRpcProtectionPtr) ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LocationHDFSQopConfigurationRpcProtectionPtrOutput)
+func (in *locationHdfsQopConfigurationRpcProtectionPtr) ToLocationHdfsQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationRpcProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationHdfsQopConfigurationRpcProtectionPtrOutput)
 }
 
 // The specific NFS version that you want DataSync to use to mount your NFS share.
-type LocationNFSMountOptionsVersion string
+type LocationNfsMountOptionsVersion string
 
 const (
-	LocationNFSMountOptionsVersionAutomatic = LocationNFSMountOptionsVersion("AUTOMATIC")
-	LocationNFSMountOptionsVersionNfs3      = LocationNFSMountOptionsVersion("NFS3")
-	LocationNFSMountOptionsVersionNfs40     = LocationNFSMountOptionsVersion("NFS4_0")
-	LocationNFSMountOptionsVersionNfs41     = LocationNFSMountOptionsVersion("NFS4_1")
+	LocationNfsMountOptionsVersionAutomatic = LocationNfsMountOptionsVersion("AUTOMATIC")
+	LocationNfsMountOptionsVersionNfs3      = LocationNfsMountOptionsVersion("NFS3")
+	LocationNfsMountOptionsVersionNfs40     = LocationNfsMountOptionsVersion("NFS4_0")
+	LocationNfsMountOptionsVersionNfs41     = LocationNfsMountOptionsVersion("NFS4_1")
 )
 
-func (LocationNFSMountOptionsVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationNFSMountOptionsVersion)(nil)).Elem()
+func (LocationNfsMountOptionsVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationNfsMountOptionsVersion)(nil)).Elem()
 }
 
-func (e LocationNFSMountOptionsVersion) ToLocationNFSMountOptionsVersionOutput() LocationNFSMountOptionsVersionOutput {
-	return pulumi.ToOutput(e).(LocationNFSMountOptionsVersionOutput)
+func (e LocationNfsMountOptionsVersion) ToLocationNfsMountOptionsVersionOutput() LocationNfsMountOptionsVersionOutput {
+	return pulumi.ToOutput(e).(LocationNfsMountOptionsVersionOutput)
 }
 
-func (e LocationNFSMountOptionsVersion) ToLocationNFSMountOptionsVersionOutputWithContext(ctx context.Context) LocationNFSMountOptionsVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LocationNFSMountOptionsVersionOutput)
+func (e LocationNfsMountOptionsVersion) ToLocationNfsMountOptionsVersionOutputWithContext(ctx context.Context) LocationNfsMountOptionsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationNfsMountOptionsVersionOutput)
 }
 
-func (e LocationNFSMountOptionsVersion) ToLocationNFSMountOptionsVersionPtrOutput() LocationNFSMountOptionsVersionPtrOutput {
-	return e.ToLocationNFSMountOptionsVersionPtrOutputWithContext(context.Background())
+func (e LocationNfsMountOptionsVersion) ToLocationNfsMountOptionsVersionPtrOutput() LocationNfsMountOptionsVersionPtrOutput {
+	return e.ToLocationNfsMountOptionsVersionPtrOutputWithContext(context.Background())
 }
 
-func (e LocationNFSMountOptionsVersion) ToLocationNFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNFSMountOptionsVersionPtrOutput {
-	return LocationNFSMountOptionsVersion(e).ToLocationNFSMountOptionsVersionOutputWithContext(ctx).ToLocationNFSMountOptionsVersionPtrOutputWithContext(ctx)
+func (e LocationNfsMountOptionsVersion) ToLocationNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNfsMountOptionsVersionPtrOutput {
+	return LocationNfsMountOptionsVersion(e).ToLocationNfsMountOptionsVersionOutputWithContext(ctx).ToLocationNfsMountOptionsVersionPtrOutputWithContext(ctx)
 }
 
-func (e LocationNFSMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
+func (e LocationNfsMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationNFSMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e LocationNfsMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationNFSMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e LocationNfsMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e LocationNFSMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e LocationNfsMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LocationNFSMountOptionsVersionOutput struct{ *pulumi.OutputState }
+type LocationNfsMountOptionsVersionOutput struct{ *pulumi.OutputState }
 
-func (LocationNFSMountOptionsVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationNFSMountOptionsVersion)(nil)).Elem()
+func (LocationNfsMountOptionsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationNfsMountOptionsVersion)(nil)).Elem()
 }
 
-func (o LocationNFSMountOptionsVersionOutput) ToLocationNFSMountOptionsVersionOutput() LocationNFSMountOptionsVersionOutput {
+func (o LocationNfsMountOptionsVersionOutput) ToLocationNfsMountOptionsVersionOutput() LocationNfsMountOptionsVersionOutput {
 	return o
 }
 
-func (o LocationNFSMountOptionsVersionOutput) ToLocationNFSMountOptionsVersionOutputWithContext(ctx context.Context) LocationNFSMountOptionsVersionOutput {
+func (o LocationNfsMountOptionsVersionOutput) ToLocationNfsMountOptionsVersionOutputWithContext(ctx context.Context) LocationNfsMountOptionsVersionOutput {
 	return o
 }
 
-func (o LocationNFSMountOptionsVersionOutput) ToLocationNFSMountOptionsVersionPtrOutput() LocationNFSMountOptionsVersionPtrOutput {
-	return o.ToLocationNFSMountOptionsVersionPtrOutputWithContext(context.Background())
+func (o LocationNfsMountOptionsVersionOutput) ToLocationNfsMountOptionsVersionPtrOutput() LocationNfsMountOptionsVersionPtrOutput {
+	return o.ToLocationNfsMountOptionsVersionPtrOutputWithContext(context.Background())
 }
 
-func (o LocationNFSMountOptionsVersionOutput) ToLocationNFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNFSMountOptionsVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationNFSMountOptionsVersion) *LocationNFSMountOptionsVersion {
+func (o LocationNfsMountOptionsVersionOutput) ToLocationNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNfsMountOptionsVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationNfsMountOptionsVersion) *LocationNfsMountOptionsVersion {
 		return &v
-	}).(LocationNFSMountOptionsVersionPtrOutput)
+	}).(LocationNfsMountOptionsVersionPtrOutput)
 }
 
-func (o LocationNFSMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
+func (o LocationNfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o LocationNFSMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationNFSMountOptionsVersion) string {
+func (o LocationNfsMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationNfsMountOptionsVersion) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o LocationNFSMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationNfsMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationNFSMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationNFSMountOptionsVersion) *string {
+func (o LocationNfsMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationNfsMountOptionsVersion) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type LocationNFSMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
+type LocationNfsMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
 
-func (LocationNFSMountOptionsVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationNFSMountOptionsVersion)(nil)).Elem()
+func (LocationNfsMountOptionsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationNfsMountOptionsVersion)(nil)).Elem()
 }
 
-func (o LocationNFSMountOptionsVersionPtrOutput) ToLocationNFSMountOptionsVersionPtrOutput() LocationNFSMountOptionsVersionPtrOutput {
+func (o LocationNfsMountOptionsVersionPtrOutput) ToLocationNfsMountOptionsVersionPtrOutput() LocationNfsMountOptionsVersionPtrOutput {
 	return o
 }
 
-func (o LocationNFSMountOptionsVersionPtrOutput) ToLocationNFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNFSMountOptionsVersionPtrOutput {
+func (o LocationNfsMountOptionsVersionPtrOutput) ToLocationNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNfsMountOptionsVersionPtrOutput {
 	return o
 }
 
-func (o LocationNFSMountOptionsVersionPtrOutput) Elem() LocationNFSMountOptionsVersionOutput {
-	return o.ApplyT(func(v *LocationNFSMountOptionsVersion) LocationNFSMountOptionsVersion {
+func (o LocationNfsMountOptionsVersionPtrOutput) Elem() LocationNfsMountOptionsVersionOutput {
+	return o.ApplyT(func(v *LocationNfsMountOptionsVersion) LocationNfsMountOptionsVersion {
 		if v != nil {
 			return *v
 		}
-		var ret LocationNFSMountOptionsVersion
+		var ret LocationNfsMountOptionsVersion
 		return ret
-	}).(LocationNFSMountOptionsVersionOutput)
+	}).(LocationNfsMountOptionsVersionOutput)
 }
 
-func (o LocationNFSMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationNfsMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationNFSMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationNFSMountOptionsVersion) *string {
+func (o LocationNfsMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationNfsMountOptionsVersion) *string {
 		if e == nil {
 			return nil
 		}
@@ -1395,42 +1395,42 @@ func (o LocationNFSMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationNFSMountOptionsVersionInput is an input type that accepts LocationNFSMountOptionsVersionArgs and LocationNFSMountOptionsVersionOutput values.
-// You can construct a concrete instance of `LocationNFSMountOptionsVersionInput` via:
+// LocationNfsMountOptionsVersionInput is an input type that accepts LocationNfsMountOptionsVersionArgs and LocationNfsMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationNfsMountOptionsVersionInput` via:
 //
-//	LocationNFSMountOptionsVersionArgs{...}
-type LocationNFSMountOptionsVersionInput interface {
+//	LocationNfsMountOptionsVersionArgs{...}
+type LocationNfsMountOptionsVersionInput interface {
 	pulumi.Input
 
-	ToLocationNFSMountOptionsVersionOutput() LocationNFSMountOptionsVersionOutput
-	ToLocationNFSMountOptionsVersionOutputWithContext(context.Context) LocationNFSMountOptionsVersionOutput
+	ToLocationNfsMountOptionsVersionOutput() LocationNfsMountOptionsVersionOutput
+	ToLocationNfsMountOptionsVersionOutputWithContext(context.Context) LocationNfsMountOptionsVersionOutput
 }
 
-var locationNFSMountOptionsVersionPtrType = reflect.TypeOf((**LocationNFSMountOptionsVersion)(nil)).Elem()
+var locationNfsMountOptionsVersionPtrType = reflect.TypeOf((**LocationNfsMountOptionsVersion)(nil)).Elem()
 
-type LocationNFSMountOptionsVersionPtrInput interface {
+type LocationNfsMountOptionsVersionPtrInput interface {
 	pulumi.Input
 
-	ToLocationNFSMountOptionsVersionPtrOutput() LocationNFSMountOptionsVersionPtrOutput
-	ToLocationNFSMountOptionsVersionPtrOutputWithContext(context.Context) LocationNFSMountOptionsVersionPtrOutput
+	ToLocationNfsMountOptionsVersionPtrOutput() LocationNfsMountOptionsVersionPtrOutput
+	ToLocationNfsMountOptionsVersionPtrOutputWithContext(context.Context) LocationNfsMountOptionsVersionPtrOutput
 }
 
-type locationNFSMountOptionsVersionPtr string
+type locationNfsMountOptionsVersionPtr string
 
-func LocationNFSMountOptionsVersionPtr(v string) LocationNFSMountOptionsVersionPtrInput {
-	return (*locationNFSMountOptionsVersionPtr)(&v)
+func LocationNfsMountOptionsVersionPtr(v string) LocationNfsMountOptionsVersionPtrInput {
+	return (*locationNfsMountOptionsVersionPtr)(&v)
 }
 
-func (*locationNFSMountOptionsVersionPtr) ElementType() reflect.Type {
-	return locationNFSMountOptionsVersionPtrType
+func (*locationNfsMountOptionsVersionPtr) ElementType() reflect.Type {
+	return locationNfsMountOptionsVersionPtrType
 }
 
-func (in *locationNFSMountOptionsVersionPtr) ToLocationNFSMountOptionsVersionPtrOutput() LocationNFSMountOptionsVersionPtrOutput {
-	return pulumi.ToOutput(in).(LocationNFSMountOptionsVersionPtrOutput)
+func (in *locationNfsMountOptionsVersionPtr) ToLocationNfsMountOptionsVersionPtrOutput() LocationNfsMountOptionsVersionPtrOutput {
+	return pulumi.ToOutput(in).(LocationNfsMountOptionsVersionPtrOutput)
 }
 
-func (in *locationNFSMountOptionsVersionPtr) ToLocationNFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNFSMountOptionsVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LocationNFSMountOptionsVersionPtrOutput)
+func (in *locationNfsMountOptionsVersionPtr) ToLocationNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNfsMountOptionsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationNfsMountOptionsVersionPtrOutput)
 }
 
 // The protocol that the object storage server uses to communicate.
@@ -1769,127 +1769,127 @@ func (in *locationS3S3StorageClassPtr) ToLocationS3S3StorageClassPtrOutputWithCo
 }
 
 // The specific SMB version that you want DataSync to use to mount your SMB share.
-type LocationSMBMountOptionsVersion string
+type LocationSmbMountOptionsVersion string
 
 const (
-	LocationSMBMountOptionsVersionAutomatic = LocationSMBMountOptionsVersion("AUTOMATIC")
-	LocationSMBMountOptionsVersionSmb1      = LocationSMBMountOptionsVersion("SMB1")
-	LocationSMBMountOptionsVersionSmb20     = LocationSMBMountOptionsVersion("SMB2_0")
-	LocationSMBMountOptionsVersionSmb2      = LocationSMBMountOptionsVersion("SMB2")
-	LocationSMBMountOptionsVersionSmb3      = LocationSMBMountOptionsVersion("SMB3")
+	LocationSmbMountOptionsVersionAutomatic = LocationSmbMountOptionsVersion("AUTOMATIC")
+	LocationSmbMountOptionsVersionSmb1      = LocationSmbMountOptionsVersion("SMB1")
+	LocationSmbMountOptionsVersionSmb20     = LocationSmbMountOptionsVersion("SMB2_0")
+	LocationSmbMountOptionsVersionSmb2      = LocationSmbMountOptionsVersion("SMB2")
+	LocationSmbMountOptionsVersionSmb3      = LocationSmbMountOptionsVersion("SMB3")
 )
 
-func (LocationSMBMountOptionsVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationSMBMountOptionsVersion)(nil)).Elem()
+func (LocationSmbMountOptionsVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbMountOptionsVersion)(nil)).Elem()
 }
 
-func (e LocationSMBMountOptionsVersion) ToLocationSMBMountOptionsVersionOutput() LocationSMBMountOptionsVersionOutput {
-	return pulumi.ToOutput(e).(LocationSMBMountOptionsVersionOutput)
+func (e LocationSmbMountOptionsVersion) ToLocationSmbMountOptionsVersionOutput() LocationSmbMountOptionsVersionOutput {
+	return pulumi.ToOutput(e).(LocationSmbMountOptionsVersionOutput)
 }
 
-func (e LocationSMBMountOptionsVersion) ToLocationSMBMountOptionsVersionOutputWithContext(ctx context.Context) LocationSMBMountOptionsVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LocationSMBMountOptionsVersionOutput)
+func (e LocationSmbMountOptionsVersion) ToLocationSmbMountOptionsVersionOutputWithContext(ctx context.Context) LocationSmbMountOptionsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationSmbMountOptionsVersionOutput)
 }
 
-func (e LocationSMBMountOptionsVersion) ToLocationSMBMountOptionsVersionPtrOutput() LocationSMBMountOptionsVersionPtrOutput {
-	return e.ToLocationSMBMountOptionsVersionPtrOutputWithContext(context.Background())
+func (e LocationSmbMountOptionsVersion) ToLocationSmbMountOptionsVersionPtrOutput() LocationSmbMountOptionsVersionPtrOutput {
+	return e.ToLocationSmbMountOptionsVersionPtrOutputWithContext(context.Background())
 }
 
-func (e LocationSMBMountOptionsVersion) ToLocationSMBMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationSMBMountOptionsVersionPtrOutput {
-	return LocationSMBMountOptionsVersion(e).ToLocationSMBMountOptionsVersionOutputWithContext(ctx).ToLocationSMBMountOptionsVersionPtrOutputWithContext(ctx)
+func (e LocationSmbMountOptionsVersion) ToLocationSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsVersionPtrOutput {
+	return LocationSmbMountOptionsVersion(e).ToLocationSmbMountOptionsVersionOutputWithContext(ctx).ToLocationSmbMountOptionsVersionPtrOutputWithContext(ctx)
 }
 
-func (e LocationSMBMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
+func (e LocationSmbMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationSMBMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e LocationSmbMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e LocationSMBMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e LocationSmbMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e LocationSMBMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e LocationSmbMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LocationSMBMountOptionsVersionOutput struct{ *pulumi.OutputState }
+type LocationSmbMountOptionsVersionOutput struct{ *pulumi.OutputState }
 
-func (LocationSMBMountOptionsVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationSMBMountOptionsVersion)(nil)).Elem()
+func (LocationSmbMountOptionsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbMountOptionsVersion)(nil)).Elem()
 }
 
-func (o LocationSMBMountOptionsVersionOutput) ToLocationSMBMountOptionsVersionOutput() LocationSMBMountOptionsVersionOutput {
+func (o LocationSmbMountOptionsVersionOutput) ToLocationSmbMountOptionsVersionOutput() LocationSmbMountOptionsVersionOutput {
 	return o
 }
 
-func (o LocationSMBMountOptionsVersionOutput) ToLocationSMBMountOptionsVersionOutputWithContext(ctx context.Context) LocationSMBMountOptionsVersionOutput {
+func (o LocationSmbMountOptionsVersionOutput) ToLocationSmbMountOptionsVersionOutputWithContext(ctx context.Context) LocationSmbMountOptionsVersionOutput {
 	return o
 }
 
-func (o LocationSMBMountOptionsVersionOutput) ToLocationSMBMountOptionsVersionPtrOutput() LocationSMBMountOptionsVersionPtrOutput {
-	return o.ToLocationSMBMountOptionsVersionPtrOutputWithContext(context.Background())
+func (o LocationSmbMountOptionsVersionOutput) ToLocationSmbMountOptionsVersionPtrOutput() LocationSmbMountOptionsVersionPtrOutput {
+	return o.ToLocationSmbMountOptionsVersionPtrOutputWithContext(context.Background())
 }
 
-func (o LocationSMBMountOptionsVersionOutput) ToLocationSMBMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationSMBMountOptionsVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationSMBMountOptionsVersion) *LocationSMBMountOptionsVersion {
+func (o LocationSmbMountOptionsVersionOutput) ToLocationSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationSmbMountOptionsVersion) *LocationSmbMountOptionsVersion {
 		return &v
-	}).(LocationSMBMountOptionsVersionPtrOutput)
+	}).(LocationSmbMountOptionsVersionPtrOutput)
 }
 
-func (o LocationSMBMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
+func (o LocationSmbMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o LocationSMBMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationSMBMountOptionsVersion) string {
+func (o LocationSmbMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationSmbMountOptionsVersion) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o LocationSMBMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationSmbMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationSMBMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationSMBMountOptionsVersion) *string {
+func (o LocationSmbMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationSmbMountOptionsVersion) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type LocationSMBMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
+type LocationSmbMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
 
-func (LocationSMBMountOptionsVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationSMBMountOptionsVersion)(nil)).Elem()
+func (LocationSmbMountOptionsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationSmbMountOptionsVersion)(nil)).Elem()
 }
 
-func (o LocationSMBMountOptionsVersionPtrOutput) ToLocationSMBMountOptionsVersionPtrOutput() LocationSMBMountOptionsVersionPtrOutput {
+func (o LocationSmbMountOptionsVersionPtrOutput) ToLocationSmbMountOptionsVersionPtrOutput() LocationSmbMountOptionsVersionPtrOutput {
 	return o
 }
 
-func (o LocationSMBMountOptionsVersionPtrOutput) ToLocationSMBMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationSMBMountOptionsVersionPtrOutput {
+func (o LocationSmbMountOptionsVersionPtrOutput) ToLocationSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsVersionPtrOutput {
 	return o
 }
 
-func (o LocationSMBMountOptionsVersionPtrOutput) Elem() LocationSMBMountOptionsVersionOutput {
-	return o.ApplyT(func(v *LocationSMBMountOptionsVersion) LocationSMBMountOptionsVersion {
+func (o LocationSmbMountOptionsVersionPtrOutput) Elem() LocationSmbMountOptionsVersionOutput {
+	return o.ApplyT(func(v *LocationSmbMountOptionsVersion) LocationSmbMountOptionsVersion {
 		if v != nil {
 			return *v
 		}
-		var ret LocationSMBMountOptionsVersion
+		var ret LocationSmbMountOptionsVersion
 		return ret
-	}).(LocationSMBMountOptionsVersionOutput)
+	}).(LocationSmbMountOptionsVersionOutput)
 }
 
-func (o LocationSMBMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o LocationSmbMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o LocationSMBMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationSMBMountOptionsVersion) *string {
+func (o LocationSmbMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationSmbMountOptionsVersion) *string {
 		if e == nil {
 			return nil
 		}
@@ -1898,42 +1898,42 @@ func (o LocationSMBMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationSMBMountOptionsVersionInput is an input type that accepts LocationSMBMountOptionsVersionArgs and LocationSMBMountOptionsVersionOutput values.
-// You can construct a concrete instance of `LocationSMBMountOptionsVersionInput` via:
+// LocationSmbMountOptionsVersionInput is an input type that accepts LocationSmbMountOptionsVersionArgs and LocationSmbMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationSmbMountOptionsVersionInput` via:
 //
-//	LocationSMBMountOptionsVersionArgs{...}
-type LocationSMBMountOptionsVersionInput interface {
+//	LocationSmbMountOptionsVersionArgs{...}
+type LocationSmbMountOptionsVersionInput interface {
 	pulumi.Input
 
-	ToLocationSMBMountOptionsVersionOutput() LocationSMBMountOptionsVersionOutput
-	ToLocationSMBMountOptionsVersionOutputWithContext(context.Context) LocationSMBMountOptionsVersionOutput
+	ToLocationSmbMountOptionsVersionOutput() LocationSmbMountOptionsVersionOutput
+	ToLocationSmbMountOptionsVersionOutputWithContext(context.Context) LocationSmbMountOptionsVersionOutput
 }
 
-var locationSMBMountOptionsVersionPtrType = reflect.TypeOf((**LocationSMBMountOptionsVersion)(nil)).Elem()
+var locationSmbMountOptionsVersionPtrType = reflect.TypeOf((**LocationSmbMountOptionsVersion)(nil)).Elem()
 
-type LocationSMBMountOptionsVersionPtrInput interface {
+type LocationSmbMountOptionsVersionPtrInput interface {
 	pulumi.Input
 
-	ToLocationSMBMountOptionsVersionPtrOutput() LocationSMBMountOptionsVersionPtrOutput
-	ToLocationSMBMountOptionsVersionPtrOutputWithContext(context.Context) LocationSMBMountOptionsVersionPtrOutput
+	ToLocationSmbMountOptionsVersionPtrOutput() LocationSmbMountOptionsVersionPtrOutput
+	ToLocationSmbMountOptionsVersionPtrOutputWithContext(context.Context) LocationSmbMountOptionsVersionPtrOutput
 }
 
-type locationSMBMountOptionsVersionPtr string
+type locationSmbMountOptionsVersionPtr string
 
-func LocationSMBMountOptionsVersionPtr(v string) LocationSMBMountOptionsVersionPtrInput {
-	return (*locationSMBMountOptionsVersionPtr)(&v)
+func LocationSmbMountOptionsVersionPtr(v string) LocationSmbMountOptionsVersionPtrInput {
+	return (*locationSmbMountOptionsVersionPtr)(&v)
 }
 
-func (*locationSMBMountOptionsVersionPtr) ElementType() reflect.Type {
-	return locationSMBMountOptionsVersionPtrType
+func (*locationSmbMountOptionsVersionPtr) ElementType() reflect.Type {
+	return locationSmbMountOptionsVersionPtrType
 }
 
-func (in *locationSMBMountOptionsVersionPtr) ToLocationSMBMountOptionsVersionPtrOutput() LocationSMBMountOptionsVersionPtrOutput {
-	return pulumi.ToOutput(in).(LocationSMBMountOptionsVersionPtrOutput)
+func (in *locationSmbMountOptionsVersionPtr) ToLocationSmbMountOptionsVersionPtrOutput() LocationSmbMountOptionsVersionPtrOutput {
+	return pulumi.ToOutput(in).(LocationSmbMountOptionsVersionPtrOutput)
 }
 
-func (in *locationSMBMountOptionsVersionPtr) ToLocationSMBMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationSMBMountOptionsVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LocationSMBMountOptionsVersionPtrOutput)
+func (in *locationSmbMountOptionsVersionPtr) ToLocationSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationSmbMountOptionsVersionPtrOutput)
 }
 
 // Indicates whether the DataSync agent can access the on-premises storage system.
@@ -2032,7 +2032,7 @@ func (o StorageSystemConnectivityStatusPtrOutput) ToStringPtrOutputWithContext(c
 type StorageSystemSystemType string
 
 const (
-	StorageSystemSystemTypeNetAppONTAP = StorageSystemSystemType("NetAppONTAP")
+	StorageSystemSystemTypeNetAppOntap = StorageSystemSystemType("NetAppONTAP")
 )
 
 func (StorageSystemSystemType) ElementType() reflect.Type {
@@ -4768,28 +4768,28 @@ func (o TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSInTransitEncryptionInput)(nil)).Elem(), LocationEFSInTransitEncryption("NONE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSInTransitEncryptionPtrInput)(nil)).Elem(), LocationEFSInTransitEncryption("NONE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPNfsMountOptionsVersionInput)(nil)).Elem(), LocationFSxONTAPNfsMountOptionsVersion("AUTOMATIC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPNfsMountOptionsVersionPtrInput)(nil)).Elem(), LocationFSxONTAPNfsMountOptionsVersion("AUTOMATIC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPSmbMountOptionsVersionInput)(nil)).Elem(), LocationFSxONTAPSmbMountOptionsVersion("AUTOMATIC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPSmbMountOptionsVersionPtrInput)(nil)).Elem(), LocationFSxONTAPSmbMountOptionsVersion("AUTOMATIC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSMountOptionsVersionInput)(nil)).Elem(), LocationFSxOpenZFSMountOptionsVersion("AUTOMATIC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSMountOptionsVersionPtrInput)(nil)).Elem(), LocationFSxOpenZFSMountOptionsVersion("AUTOMATIC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSAuthenticationTypeInput)(nil)).Elem(), LocationHDFSAuthenticationType("SIMPLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSAuthenticationTypePtrInput)(nil)).Elem(), LocationHDFSAuthenticationType("SIMPLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSQopConfigurationDataTransferProtectionInput)(nil)).Elem(), LocationHDFSQopConfigurationDataTransferProtection("AUTHENTICATION"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSQopConfigurationDataTransferProtectionPtrInput)(nil)).Elem(), LocationHDFSQopConfigurationDataTransferProtection("AUTHENTICATION"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSQopConfigurationRpcProtectionInput)(nil)).Elem(), LocationHDFSQopConfigurationRpcProtection("AUTHENTICATION"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSQopConfigurationRpcProtectionPtrInput)(nil)).Elem(), LocationHDFSQopConfigurationRpcProtection("AUTHENTICATION"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSMountOptionsVersionInput)(nil)).Elem(), LocationNFSMountOptionsVersion("AUTOMATIC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSMountOptionsVersionPtrInput)(nil)).Elem(), LocationNFSMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationEfsInTransitEncryptionInput)(nil)).Elem(), LocationEfsInTransitEncryption("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationEfsInTransitEncryptionPtrInput)(nil)).Elem(), LocationEfsInTransitEncryption("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapNfsMountOptionsVersionInput)(nil)).Elem(), LocationFSxOntapNfsMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapNfsMountOptionsVersionPtrInput)(nil)).Elem(), LocationFSxOntapNfsMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapSmbMountOptionsVersionInput)(nil)).Elem(), LocationFSxOntapSmbMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapSmbMountOptionsVersionPtrInput)(nil)).Elem(), LocationFSxOntapSmbMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZfsMountOptionsVersionInput)(nil)).Elem(), LocationFSxOpenZfsMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZfsMountOptionsVersionPtrInput)(nil)).Elem(), LocationFSxOpenZfsMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsAuthenticationTypeInput)(nil)).Elem(), LocationHdfsAuthenticationType("SIMPLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsAuthenticationTypePtrInput)(nil)).Elem(), LocationHdfsAuthenticationType("SIMPLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsQopConfigurationDataTransferProtectionInput)(nil)).Elem(), LocationHdfsQopConfigurationDataTransferProtection("AUTHENTICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsQopConfigurationDataTransferProtectionPtrInput)(nil)).Elem(), LocationHdfsQopConfigurationDataTransferProtection("AUTHENTICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsQopConfigurationRpcProtectionInput)(nil)).Elem(), LocationHdfsQopConfigurationRpcProtection("AUTHENTICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsQopConfigurationRpcProtectionPtrInput)(nil)).Elem(), LocationHdfsQopConfigurationRpcProtection("AUTHENTICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationNfsMountOptionsVersionInput)(nil)).Elem(), LocationNfsMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationNfsMountOptionsVersionPtrInput)(nil)).Elem(), LocationNfsMountOptionsVersion("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageServerProtocolInput)(nil)).Elem(), LocationObjectStorageServerProtocol("HTTPS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageServerProtocolPtrInput)(nil)).Elem(), LocationObjectStorageServerProtocol("HTTPS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3S3StorageClassInput)(nil)).Elem(), LocationS3S3StorageClass("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3S3StorageClassPtrInput)(nil)).Elem(), LocationS3S3StorageClass("STANDARD"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationSMBMountOptionsVersionInput)(nil)).Elem(), LocationSMBMountOptionsVersion("AUTOMATIC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationSMBMountOptionsVersionPtrInput)(nil)).Elem(), LocationSMBMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsVersionInput)(nil)).Elem(), LocationSmbMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsVersionPtrInput)(nil)).Elem(), LocationSmbMountOptionsVersion("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemSystemTypeInput)(nil)).Elem(), StorageSystemSystemType("NetAppONTAP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemSystemTypePtrInput)(nil)).Elem(), StorageSystemSystemType("NetAppONTAP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleFilterTypeInput)(nil)).Elem(), TaskFilterRuleFilterType("SIMPLE_PATTERN"))
@@ -4824,28 +4824,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsVerifyModePtrInput)(nil)).Elem(), TaskOptionsVerifyMode("POINT_IN_TIME_CONSISTENT"))
 	pulumi.RegisterOutputType(AgentEndpointTypeOutput{})
 	pulumi.RegisterOutputType(AgentEndpointTypePtrOutput{})
-	pulumi.RegisterOutputType(LocationEFSInTransitEncryptionOutput{})
-	pulumi.RegisterOutputType(LocationEFSInTransitEncryptionPtrOutput{})
-	pulumi.RegisterOutputType(LocationFSxONTAPNfsMountOptionsVersionOutput{})
-	pulumi.RegisterOutputType(LocationFSxONTAPNfsMountOptionsVersionPtrOutput{})
-	pulumi.RegisterOutputType(LocationFSxONTAPSmbMountOptionsVersionOutput{})
-	pulumi.RegisterOutputType(LocationFSxONTAPSmbMountOptionsVersionPtrOutput{})
-	pulumi.RegisterOutputType(LocationFSxOpenZFSMountOptionsVersionOutput{})
-	pulumi.RegisterOutputType(LocationFSxOpenZFSMountOptionsVersionPtrOutput{})
-	pulumi.RegisterOutputType(LocationHDFSAuthenticationTypeOutput{})
-	pulumi.RegisterOutputType(LocationHDFSAuthenticationTypePtrOutput{})
-	pulumi.RegisterOutputType(LocationHDFSQopConfigurationDataTransferProtectionOutput{})
-	pulumi.RegisterOutputType(LocationHDFSQopConfigurationDataTransferProtectionPtrOutput{})
-	pulumi.RegisterOutputType(LocationHDFSQopConfigurationRpcProtectionOutput{})
-	pulumi.RegisterOutputType(LocationHDFSQopConfigurationRpcProtectionPtrOutput{})
-	pulumi.RegisterOutputType(LocationNFSMountOptionsVersionOutput{})
-	pulumi.RegisterOutputType(LocationNFSMountOptionsVersionPtrOutput{})
+	pulumi.RegisterOutputType(LocationEfsInTransitEncryptionOutput{})
+	pulumi.RegisterOutputType(LocationEfsInTransitEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(LocationFSxOntapNfsMountOptionsVersionOutput{})
+	pulumi.RegisterOutputType(LocationFSxOntapNfsMountOptionsVersionPtrOutput{})
+	pulumi.RegisterOutputType(LocationFSxOntapSmbMountOptionsVersionOutput{})
+	pulumi.RegisterOutputType(LocationFSxOntapSmbMountOptionsVersionPtrOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZfsMountOptionsVersionOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZfsMountOptionsVersionPtrOutput{})
+	pulumi.RegisterOutputType(LocationHdfsAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(LocationHdfsAuthenticationTypePtrOutput{})
+	pulumi.RegisterOutputType(LocationHdfsQopConfigurationDataTransferProtectionOutput{})
+	pulumi.RegisterOutputType(LocationHdfsQopConfigurationDataTransferProtectionPtrOutput{})
+	pulumi.RegisterOutputType(LocationHdfsQopConfigurationRpcProtectionOutput{})
+	pulumi.RegisterOutputType(LocationHdfsQopConfigurationRpcProtectionPtrOutput{})
+	pulumi.RegisterOutputType(LocationNfsMountOptionsVersionOutput{})
+	pulumi.RegisterOutputType(LocationNfsMountOptionsVersionPtrOutput{})
 	pulumi.RegisterOutputType(LocationObjectStorageServerProtocolOutput{})
 	pulumi.RegisterOutputType(LocationObjectStorageServerProtocolPtrOutput{})
 	pulumi.RegisterOutputType(LocationS3S3StorageClassOutput{})
 	pulumi.RegisterOutputType(LocationS3S3StorageClassPtrOutput{})
-	pulumi.RegisterOutputType(LocationSMBMountOptionsVersionOutput{})
-	pulumi.RegisterOutputType(LocationSMBMountOptionsVersionPtrOutput{})
+	pulumi.RegisterOutputType(LocationSmbMountOptionsVersionOutput{})
+	pulumi.RegisterOutputType(LocationSmbMountOptionsVersionPtrOutput{})
 	pulumi.RegisterOutputType(StorageSystemConnectivityStatusOutput{})
 	pulumi.RegisterOutputType(StorageSystemConnectivityStatusPtrOutput{})
 	pulumi.RegisterOutputType(StorageSystemSystemTypeOutput{})

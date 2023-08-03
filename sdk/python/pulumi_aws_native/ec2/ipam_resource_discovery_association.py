@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['IPAMResourceDiscoveryAssociationArgs', 'IPAMResourceDiscoveryAssociation']
+__all__ = ['IpamResourceDiscoveryAssociationArgs', 'IpamResourceDiscoveryAssociation']
 
 @pulumi.input_type
-class IPAMResourceDiscoveryAssociationArgs:
+class IpamResourceDiscoveryAssociationArgs:
     def __init__(__self__, *,
                  ipam_id: pulumi.Input[str],
                  ipam_resource_discovery_id: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMResourceDiscoveryAssociationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryAssociationTagArgs']]]] = None):
         """
-        The set of arguments for constructing a IPAMResourceDiscoveryAssociation resource.
+        The set of arguments for constructing a IpamResourceDiscoveryAssociation resource.
         :param pulumi.Input[str] ipam_id: The Id of the IPAM this Resource Discovery is associated to.
         :param pulumi.Input[str] ipam_resource_discovery_id: The Amazon Resource Name (ARN) of the IPAM Resource Discovery Association.
-        :param pulumi.Input[Sequence[pulumi.Input['IPAMResourceDiscoveryAssociationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryAssociationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "ipam_id", ipam_id)
         pulumi.set(__self__, "ipam_resource_discovery_id", ipam_resource_discovery_id)
@@ -56,25 +56,25 @@ class IPAMResourceDiscoveryAssociationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPAMResourceDiscoveryAssociationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryAssociationTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMResourceDiscoveryAssociationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryAssociationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class IPAMResourceDiscoveryAssociation(pulumi.CustomResource):
+class IpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ipam_id: Optional[pulumi.Input[str]] = None,
                  ipam_resource_discovery_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMResourceDiscoveryAssociationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamResourceDiscoveryAssociationTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
@@ -83,24 +83,24 @@ class IPAMResourceDiscoveryAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ipam_id: The Id of the IPAM this Resource Discovery is associated to.
         :param pulumi.Input[str] ipam_resource_discovery_id: The Amazon Resource Name (ARN) of the IPAM Resource Discovery Association.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMResourceDiscoveryAssociationTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamResourceDiscoveryAssociationTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IPAMResourceDiscoveryAssociationArgs,
+                 args: IpamResourceDiscoveryAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
 
         :param str resource_name: The name of the resource.
-        :param IPAMResourceDiscoveryAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param IpamResourceDiscoveryAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IPAMResourceDiscoveryAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IpamResourceDiscoveryAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -111,7 +111,7 @@ class IPAMResourceDiscoveryAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ipam_id: Optional[pulumi.Input[str]] = None,
                  ipam_resource_discovery_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMResourceDiscoveryAssociationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamResourceDiscoveryAssociationTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -119,7 +119,7 @@ class IPAMResourceDiscoveryAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IPAMResourceDiscoveryAssociationArgs.__new__(IPAMResourceDiscoveryAssociationArgs)
+            __props__ = IpamResourceDiscoveryAssociationArgs.__new__(IpamResourceDiscoveryAssociationArgs)
 
             if ipam_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ipam_id'")
@@ -136,8 +136,8 @@ class IPAMResourceDiscoveryAssociation(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["resource_discovery_status"] = None
             __props__.__dict__["state"] = None
-        super(IPAMResourceDiscoveryAssociation, __self__).__init__(
-            'aws-native:ec2:IPAMResourceDiscoveryAssociation',
+        super(IpamResourceDiscoveryAssociation, __self__).__init__(
+            'aws-native:ec2:IpamResourceDiscoveryAssociation',
             resource_name,
             __props__,
             opts)
@@ -145,9 +145,9 @@ class IPAMResourceDiscoveryAssociation(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'IPAMResourceDiscoveryAssociation':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IpamResourceDiscoveryAssociation':
         """
-        Get an existing IPAMResourceDiscoveryAssociation resource's state with the given name, id, and optional extra
+        Get an existing IpamResourceDiscoveryAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -156,7 +156,7 @@ class IPAMResourceDiscoveryAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = IPAMResourceDiscoveryAssociationArgs.__new__(IPAMResourceDiscoveryAssociationArgs)
+        __props__ = IpamResourceDiscoveryAssociationArgs.__new__(IpamResourceDiscoveryAssociationArgs)
 
         __props__.__dict__["ipam_arn"] = None
         __props__.__dict__["ipam_id"] = None
@@ -169,7 +169,7 @@ class IPAMResourceDiscoveryAssociation(pulumi.CustomResource):
         __props__.__dict__["resource_discovery_status"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
-        return IPAMResourceDiscoveryAssociation(resource_name, opts=opts, __props__=__props__)
+        return IpamResourceDiscoveryAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="ipamArn")
@@ -253,7 +253,7 @@ class IPAMResourceDiscoveryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IPAMResourceDiscoveryAssociationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IpamResourceDiscoveryAssociationTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

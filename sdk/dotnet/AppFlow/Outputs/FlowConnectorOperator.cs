@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Pulumi.AwsNative.AppFlow.FlowPardotConnectorOperator? Pardot;
         public readonly Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator? S3;
         public readonly Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator? Salesforce;
-        public readonly Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator? SapoData;
+        public readonly Pulumi.AwsNative.AppFlow.FlowSapoDataConnectorOperator? SapoData;
         public readonly Pulumi.AwsNative.AppFlow.FlowServiceNowConnectorOperator? ServiceNow;
         public readonly Pulumi.AwsNative.AppFlow.FlowSingularConnectorOperator? Singular;
         public readonly Pulumi.AwsNative.AppFlow.FlowSlackConnectorOperator? Slack;
@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator? salesforce,
 
-            Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator? sapoData,
+            Pulumi.AwsNative.AppFlow.FlowSapoDataConnectorOperator? sapoData,
 
             Pulumi.AwsNative.AppFlow.FlowServiceNowConnectorOperator? serviceNow,
 

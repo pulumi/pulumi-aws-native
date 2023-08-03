@@ -17,7 +17,7 @@ __all__ = ['DetectorArgs', 'Detector']
 class DetectorArgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool],
-                 data_sources: Optional[pulumi.Input['DetectorCFNDataSourceConfigurationsArgs']] = None,
+                 data_sources: Optional[pulumi.Input['DetectorCfnDataSourceConfigurationsArgs']] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureConfigurationsArgs']]]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
@@ -45,11 +45,11 @@ class DetectorArgs:
 
     @property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[pulumi.Input['DetectorCFNDataSourceConfigurationsArgs']]:
+    def data_sources(self) -> Optional[pulumi.Input['DetectorCfnDataSourceConfigurationsArgs']]:
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
-    def data_sources(self, value: Optional[pulumi.Input['DetectorCFNDataSourceConfigurationsArgs']]):
+    def data_sources(self, value: Optional[pulumi.Input['DetectorCfnDataSourceConfigurationsArgs']]):
         pulumi.set(self, "data_sources", value)
 
     @property
@@ -90,7 +90,7 @@ class Detector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_sources: Optional[pulumi.Input[pulumi.InputType['DetectorCFNDataSourceConfigurationsArgs']]] = None,
+                 data_sources: Optional[pulumi.Input[pulumi.InputType['DetectorCfnDataSourceConfigurationsArgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureConfigurationsArgs']]]]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class Detector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_sources: Optional[pulumi.Input[pulumi.InputType['DetectorCFNDataSourceConfigurationsArgs']]] = None,
+                 data_sources: Optional[pulumi.Input[pulumi.InputType['DetectorCfnDataSourceConfigurationsArgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureConfigurationsArgs']]]]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
@@ -179,7 +179,7 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> pulumi.Output[Optional['outputs.DetectorCFNDataSourceConfigurations']]:
+    def data_sources(self) -> pulumi.Output[Optional['outputs.DetectorCfnDataSourceConfigurations']]:
         return pulumi.get(self, "data_sources")
 
     @property

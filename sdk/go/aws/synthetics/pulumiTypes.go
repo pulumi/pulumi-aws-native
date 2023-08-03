@@ -969,169 +969,6 @@ func (o CanaryTagArrayOutput) Index(i pulumi.IntInput) CanaryTagOutput {
 	}).(CanaryTagOutput)
 }
 
-type CanaryVPCConfig struct {
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
-	VpcId            *string  `pulumi:"vpcId"`
-}
-
-// CanaryVPCConfigInput is an input type that accepts CanaryVPCConfigArgs and CanaryVPCConfigOutput values.
-// You can construct a concrete instance of `CanaryVPCConfigInput` via:
-//
-//	CanaryVPCConfigArgs{...}
-type CanaryVPCConfigInput interface {
-	pulumi.Input
-
-	ToCanaryVPCConfigOutput() CanaryVPCConfigOutput
-	ToCanaryVPCConfigOutputWithContext(context.Context) CanaryVPCConfigOutput
-}
-
-type CanaryVPCConfigArgs struct {
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId            pulumi.StringPtrInput   `pulumi:"vpcId"`
-}
-
-func (CanaryVPCConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CanaryVPCConfig)(nil)).Elem()
-}
-
-func (i CanaryVPCConfigArgs) ToCanaryVPCConfigOutput() CanaryVPCConfigOutput {
-	return i.ToCanaryVPCConfigOutputWithContext(context.Background())
-}
-
-func (i CanaryVPCConfigArgs) ToCanaryVPCConfigOutputWithContext(ctx context.Context) CanaryVPCConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryVPCConfigOutput)
-}
-
-func (i CanaryVPCConfigArgs) ToCanaryVPCConfigPtrOutput() CanaryVPCConfigPtrOutput {
-	return i.ToCanaryVPCConfigPtrOutputWithContext(context.Background())
-}
-
-func (i CanaryVPCConfigArgs) ToCanaryVPCConfigPtrOutputWithContext(ctx context.Context) CanaryVPCConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryVPCConfigOutput).ToCanaryVPCConfigPtrOutputWithContext(ctx)
-}
-
-// CanaryVPCConfigPtrInput is an input type that accepts CanaryVPCConfigArgs, CanaryVPCConfigPtr and CanaryVPCConfigPtrOutput values.
-// You can construct a concrete instance of `CanaryVPCConfigPtrInput` via:
-//
-//	        CanaryVPCConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type CanaryVPCConfigPtrInput interface {
-	pulumi.Input
-
-	ToCanaryVPCConfigPtrOutput() CanaryVPCConfigPtrOutput
-	ToCanaryVPCConfigPtrOutputWithContext(context.Context) CanaryVPCConfigPtrOutput
-}
-
-type canaryVPCConfigPtrType CanaryVPCConfigArgs
-
-func CanaryVPCConfigPtr(v *CanaryVPCConfigArgs) CanaryVPCConfigPtrInput {
-	return (*canaryVPCConfigPtrType)(v)
-}
-
-func (*canaryVPCConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CanaryVPCConfig)(nil)).Elem()
-}
-
-func (i *canaryVPCConfigPtrType) ToCanaryVPCConfigPtrOutput() CanaryVPCConfigPtrOutput {
-	return i.ToCanaryVPCConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *canaryVPCConfigPtrType) ToCanaryVPCConfigPtrOutputWithContext(ctx context.Context) CanaryVPCConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryVPCConfigPtrOutput)
-}
-
-type CanaryVPCConfigOutput struct{ *pulumi.OutputState }
-
-func (CanaryVPCConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CanaryVPCConfig)(nil)).Elem()
-}
-
-func (o CanaryVPCConfigOutput) ToCanaryVPCConfigOutput() CanaryVPCConfigOutput {
-	return o
-}
-
-func (o CanaryVPCConfigOutput) ToCanaryVPCConfigOutputWithContext(ctx context.Context) CanaryVPCConfigOutput {
-	return o
-}
-
-func (o CanaryVPCConfigOutput) ToCanaryVPCConfigPtrOutput() CanaryVPCConfigPtrOutput {
-	return o.ToCanaryVPCConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CanaryVPCConfigOutput) ToCanaryVPCConfigPtrOutputWithContext(ctx context.Context) CanaryVPCConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryVPCConfig) *CanaryVPCConfig {
-		return &v
-	}).(CanaryVPCConfigPtrOutput)
-}
-
-func (o CanaryVPCConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CanaryVPCConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
-}
-
-func (o CanaryVPCConfigOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CanaryVPCConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
-}
-
-func (o CanaryVPCConfigOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CanaryVPCConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
-}
-
-type CanaryVPCConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CanaryVPCConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CanaryVPCConfig)(nil)).Elem()
-}
-
-func (o CanaryVPCConfigPtrOutput) ToCanaryVPCConfigPtrOutput() CanaryVPCConfigPtrOutput {
-	return o
-}
-
-func (o CanaryVPCConfigPtrOutput) ToCanaryVPCConfigPtrOutputWithContext(ctx context.Context) CanaryVPCConfigPtrOutput {
-	return o
-}
-
-func (o CanaryVPCConfigPtrOutput) Elem() CanaryVPCConfigOutput {
-	return o.ApplyT(func(v *CanaryVPCConfig) CanaryVPCConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CanaryVPCConfig
-		return ret
-	}).(CanaryVPCConfigOutput)
-}
-
-func (o CanaryVPCConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CanaryVPCConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o CanaryVPCConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CanaryVPCConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o CanaryVPCConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CanaryVPCConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VpcId
-	}).(pulumi.StringPtrOutput)
-}
-
 type CanaryVisualReference struct {
 	// Canary run id to be used as base reference for visual testing
 	BaseCanaryRunId string `pulumi:"baseCanaryRunId"`
@@ -1288,6 +1125,169 @@ func (o CanaryVisualReferencePtrOutput) BaseScreenshots() CanaryBaseScreenshotAr
 	}).(CanaryBaseScreenshotArrayOutput)
 }
 
+type CanaryVpcConfig struct {
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
+	VpcId            *string  `pulumi:"vpcId"`
+}
+
+// CanaryVpcConfigInput is an input type that accepts CanaryVpcConfigArgs and CanaryVpcConfigOutput values.
+// You can construct a concrete instance of `CanaryVpcConfigInput` via:
+//
+//	CanaryVpcConfigArgs{...}
+type CanaryVpcConfigInput interface {
+	pulumi.Input
+
+	ToCanaryVpcConfigOutput() CanaryVpcConfigOutput
+	ToCanaryVpcConfigOutputWithContext(context.Context) CanaryVpcConfigOutput
+}
+
+type CanaryVpcConfigArgs struct {
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId            pulumi.StringPtrInput   `pulumi:"vpcId"`
+}
+
+func (CanaryVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryVpcConfig)(nil)).Elem()
+}
+
+func (i CanaryVpcConfigArgs) ToCanaryVpcConfigOutput() CanaryVpcConfigOutput {
+	return i.ToCanaryVpcConfigOutputWithContext(context.Background())
+}
+
+func (i CanaryVpcConfigArgs) ToCanaryVpcConfigOutputWithContext(ctx context.Context) CanaryVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryVpcConfigOutput)
+}
+
+func (i CanaryVpcConfigArgs) ToCanaryVpcConfigPtrOutput() CanaryVpcConfigPtrOutput {
+	return i.ToCanaryVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CanaryVpcConfigArgs) ToCanaryVpcConfigPtrOutputWithContext(ctx context.Context) CanaryVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryVpcConfigOutput).ToCanaryVpcConfigPtrOutputWithContext(ctx)
+}
+
+// CanaryVpcConfigPtrInput is an input type that accepts CanaryVpcConfigArgs, CanaryVpcConfigPtr and CanaryVpcConfigPtrOutput values.
+// You can construct a concrete instance of `CanaryVpcConfigPtrInput` via:
+//
+//	        CanaryVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CanaryVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToCanaryVpcConfigPtrOutput() CanaryVpcConfigPtrOutput
+	ToCanaryVpcConfigPtrOutputWithContext(context.Context) CanaryVpcConfigPtrOutput
+}
+
+type canaryVpcConfigPtrType CanaryVpcConfigArgs
+
+func CanaryVpcConfigPtr(v *CanaryVpcConfigArgs) CanaryVpcConfigPtrInput {
+	return (*canaryVpcConfigPtrType)(v)
+}
+
+func (*canaryVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryVpcConfig)(nil)).Elem()
+}
+
+func (i *canaryVpcConfigPtrType) ToCanaryVpcConfigPtrOutput() CanaryVpcConfigPtrOutput {
+	return i.ToCanaryVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *canaryVpcConfigPtrType) ToCanaryVpcConfigPtrOutputWithContext(ctx context.Context) CanaryVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryVpcConfigPtrOutput)
+}
+
+type CanaryVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (CanaryVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryVpcConfig)(nil)).Elem()
+}
+
+func (o CanaryVpcConfigOutput) ToCanaryVpcConfigOutput() CanaryVpcConfigOutput {
+	return o
+}
+
+func (o CanaryVpcConfigOutput) ToCanaryVpcConfigOutputWithContext(ctx context.Context) CanaryVpcConfigOutput {
+	return o
+}
+
+func (o CanaryVpcConfigOutput) ToCanaryVpcConfigPtrOutput() CanaryVpcConfigPtrOutput {
+	return o.ToCanaryVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryVpcConfigOutput) ToCanaryVpcConfigPtrOutputWithContext(ctx context.Context) CanaryVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryVpcConfig) *CanaryVpcConfig {
+		return &v
+	}).(CanaryVpcConfigPtrOutput)
+}
+
+func (o CanaryVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CanaryVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o CanaryVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CanaryVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o CanaryVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanaryVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type CanaryVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CanaryVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryVpcConfig)(nil)).Elem()
+}
+
+func (o CanaryVpcConfigPtrOutput) ToCanaryVpcConfigPtrOutput() CanaryVpcConfigPtrOutput {
+	return o
+}
+
+func (o CanaryVpcConfigPtrOutput) ToCanaryVpcConfigPtrOutputWithContext(ctx context.Context) CanaryVpcConfigPtrOutput {
+	return o
+}
+
+func (o CanaryVpcConfigPtrOutput) Elem() CanaryVpcConfigOutput {
+	return o.ApplyT(func(v *CanaryVpcConfig) CanaryVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryVpcConfig
+		return ret
+	}).(CanaryVpcConfigOutput)
+}
+
+func (o CanaryVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CanaryVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o CanaryVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CanaryVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o CanaryVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type GroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1410,10 +1410,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryScheduleInput)(nil)).Elem(), CanaryScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTagInput)(nil)).Elem(), CanaryTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTagArrayInput)(nil)).Elem(), CanaryTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVPCConfigInput)(nil)).Elem(), CanaryVPCConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVPCConfigPtrInput)(nil)).Elem(), CanaryVPCConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVisualReferenceInput)(nil)).Elem(), CanaryVisualReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVisualReferencePtrInput)(nil)).Elem(), CanaryVisualReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigInput)(nil)).Elem(), CanaryVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigPtrInput)(nil)).Elem(), CanaryVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagInput)(nil)).Elem(), GroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagArrayInput)(nil)).Elem(), GroupTagArray{})
 	pulumi.RegisterOutputType(CanaryArtifactConfigOutput{})
@@ -1430,10 +1430,10 @@ func init() {
 	pulumi.RegisterOutputType(CanarySchedulePtrOutput{})
 	pulumi.RegisterOutputType(CanaryTagOutput{})
 	pulumi.RegisterOutputType(CanaryTagArrayOutput{})
-	pulumi.RegisterOutputType(CanaryVPCConfigOutput{})
-	pulumi.RegisterOutputType(CanaryVPCConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryVisualReferenceOutput{})
 	pulumi.RegisterOutputType(CanaryVisualReferencePtrOutput{})
+	pulumi.RegisterOutputType(CanaryVpcConfigOutput{})
+	pulumi.RegisterOutputType(CanaryVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(GroupTagOutput{})
 	pulumi.RegisterOutputType(GroupTagArrayOutput{})
 }

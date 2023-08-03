@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.Forecast.Outputs
     [OutputType]
     public sealed class SchemaProperties
     {
-        public readonly ImmutableArray<Outputs.AttributesItemProperties> Attributes;
+        public readonly ImmutableArray<Outputs.DatasetAttributesItemProperties> Attributes;
 
         [OutputConstructor]
-        private SchemaProperties(ImmutableArray<Outputs.AttributesItemProperties> attributes)
+        private SchemaProperties(ImmutableArray<Outputs.DatasetAttributesItemProperties> attributes)
         {
             Attributes = attributes;
         }

@@ -24,10 +24,10 @@ export interface GetPolicyArgs {
 
 export interface GetPolicyResult {
     readonly arn?: string;
-    readonly excludeMap?: outputs.fms.PolicyIEMap;
+    readonly excludeMap?: outputs.fms.PolicyIeMap;
     readonly excludeResourceTags?: boolean;
     readonly id?: string;
-    readonly includeMap?: outputs.fms.PolicyIEMap;
+    readonly includeMap?: outputs.fms.PolicyIeMap;
     readonly policyDescription?: string;
     readonly policyName?: string;
     readonly remediationEnabled?: boolean;

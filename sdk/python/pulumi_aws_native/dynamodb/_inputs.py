@@ -21,9 +21,9 @@ __all__ = [
     'GlobalTableProjectionArgs',
     'GlobalTableReadProvisionedThroughputSettingsArgs',
     'GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs',
-    'GlobalTableReplicaSSESpecificationArgs',
     'GlobalTableReplicaSpecificationArgs',
-    'GlobalTableSSESpecificationArgs',
+    'GlobalTableReplicaSseSpecificationArgs',
+    'GlobalTableSseSpecificationArgs',
     'GlobalTableStreamSpecificationArgs',
     'GlobalTableTagArgs',
     'GlobalTableTargetTrackingScalingPolicyConfigurationArgs',
@@ -42,7 +42,7 @@ __all__ = [
     'TableProjectionArgs',
     'TableProvisionedThroughputArgs',
     'TableS3BucketSourceArgs',
-    'TableSSESpecificationArgs',
+    'TableSseSpecificationArgs',
     'TableStreamSpecificationArgs',
     'TableTagArgs',
     'TableTimeToLiveSpecificationArgs',
@@ -388,22 +388,6 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
 
 
 @pulumi.input_type
-class GlobalTableReplicaSSESpecificationArgs:
-    def __init__(__self__, *,
-                 kms_master_key_id: pulumi.Input[str]):
-        pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
-
-    @property
-    @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "kms_master_key_id")
-
-    @kms_master_key_id.setter
-    def kms_master_key_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kms_master_key_id", value)
-
-
-@pulumi.input_type
 class GlobalTableReplicaSpecificationArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[str],
@@ -413,7 +397,7 @@ class GlobalTableReplicaSpecificationArgs:
                  kinesis_stream_specification: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
                  read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
-                 sse_specification: Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']] = None,
+                 sse_specification: Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None):
         pulumi.set(__self__, "region", region)
@@ -501,11 +485,11 @@ class GlobalTableReplicaSpecificationArgs:
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']]:
+    def sse_specification(self) -> Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']]:
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']]):
+    def sse_specification(self, value: Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @property
@@ -528,7 +512,23 @@ class GlobalTableReplicaSpecificationArgs:
 
 
 @pulumi.input_type
-class GlobalTableSSESpecificationArgs:
+class GlobalTableReplicaSseSpecificationArgs:
+    def __init__(__self__, *,
+                 kms_master_key_id: pulumi.Input[str]):
+        pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+
+    @property
+    @pulumi.getter(name="kmsMasterKeyId")
+    def kms_master_key_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "kms_master_key_id")
+
+    @kms_master_key_id.setter
+    def kms_master_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kms_master_key_id", value)
+
+
+@pulumi.input_type
+class GlobalTableSseSpecificationArgs:
     def __init__(__self__, *,
                  sse_enabled: pulumi.Input[bool],
                  sse_type: Optional[pulumi.Input[str]] = None):
@@ -1092,7 +1092,7 @@ class TableS3BucketSourceArgs:
 
 
 @pulumi.input_type
-class TableSSESpecificationArgs:
+class TableSseSpecificationArgs:
     def __init__(__self__, *,
                  sse_enabled: pulumi.Input[bool],
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,

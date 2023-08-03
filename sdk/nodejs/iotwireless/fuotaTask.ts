@@ -76,7 +76,7 @@ export class FuotaTask extends pulumi.CustomResource {
     /**
      * FUOTA task LoRaWAN
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.FuotaTaskLoRaWAN>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.FuotaTaskLoRaWan>;
     /**
      * Name of FUOTA task
      */
@@ -172,7 +172,7 @@ export interface FuotaTaskArgs {
     /**
      * FUOTA task LoRaWAN
      */
-    loRaWan: pulumi.Input<inputs.iotwireless.FuotaTaskLoRaWANArgs>;
+    loRaWan: pulumi.Input<inputs.iotwireless.FuotaTaskLoRaWanArgs>;
     /**
      * Name of FUOTA task
      */

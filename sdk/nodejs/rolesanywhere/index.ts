@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { CRLArgs } from "./crl";
-export type CRL = import("./crl").CRL;
-export const CRL: typeof import("./crl").CRL = null as any;
-utilities.lazyLoad(exports, ["CRL"], () => require("./crl"));
+export { CrlArgs } from "./crl";
+export type Crl = import("./crl").Crl;
+export const Crl: typeof import("./crl").Crl = null as any;
+utilities.lazyLoad(exports, ["Crl"], () => require("./crl"));
 
-export { GetCRLArgs, GetCRLResult, GetCRLOutputArgs } from "./getCRL";
-export const getCRL: typeof import("./getCRL").getCRL = null as any;
-export const getCRLOutput: typeof import("./getCRL").getCRLOutput = null as any;
-utilities.lazyLoad(exports, ["getCRL","getCRLOutput"], () => require("./getCRL"));
+export { GetCrlArgs, GetCrlResult, GetCrlOutputArgs } from "./getCrl";
+export const getCrl: typeof import("./getCrl").getCrl = null as any;
+export const getCrlOutput: typeof import("./getCrl").getCrlOutput = null as any;
+utilities.lazyLoad(exports, ["getCrl","getCrlOutput"], () => require("./getCrl"));
 
 export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
 export const getProfile: typeof import("./getProfile").getProfile = null as any;
@@ -43,8 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:rolesanywhere:CRL":
-                return new CRL(name, <any>undefined, { urn })
+            case "aws-native:rolesanywhere:Crl":
+                return new Crl(name, <any>undefined, { urn })
             case "aws-native:rolesanywhere:Profile":
                 return new Profile(name, <any>undefined, { urn })
             case "aws-native:rolesanywhere:TrustAnchor":

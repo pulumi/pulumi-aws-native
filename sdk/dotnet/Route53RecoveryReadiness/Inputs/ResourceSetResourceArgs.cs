@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public Input<string>? ComponentId { get; set; }
 
         [Input("dnsTargetResource")]
-        public Input<Inputs.ResourceSetDNSTargetResourceArgs>? DnsTargetResource { get; set; }
+        public Input<Inputs.ResourceSetDnsTargetResourceArgs>? DnsTargetResource { get; set; }
 
         [Input("readinessScopes")]
         private InputList<string>? _readinessScopes;

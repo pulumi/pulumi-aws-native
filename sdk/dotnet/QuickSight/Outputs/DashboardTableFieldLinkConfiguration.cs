@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardTableFieldLinkConfiguration
     {
         public readonly Outputs.DashboardTableFieldLinkContentConfiguration Content;
-        public readonly Pulumi.AwsNative.QuickSight.DashboardURLTargetConfiguration Target;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardUrlTargetConfiguration Target;
 
         [OutputConstructor]
         private DashboardTableFieldLinkConfiguration(
             Outputs.DashboardTableFieldLinkContentConfiguration content,
 
-            Pulumi.AwsNative.QuickSight.DashboardURLTargetConfiguration target)
+            Pulumi.AwsNative.QuickSight.DashboardUrlTargetConfiguration target)
         {
             Content = content;
             Target = target;

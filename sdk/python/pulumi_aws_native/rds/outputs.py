@@ -12,29 +12,29 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'CustomDBEngineVersionTag',
-    'DBClusterEndpoint',
-    'DBClusterMasterUserSecret',
-    'DBClusterParameterGroupTag',
-    'DBClusterReadEndpoint',
-    'DBClusterRole',
-    'DBClusterScalingConfiguration',
-    'DBClusterServerlessV2ScalingConfiguration',
-    'DBClusterTag',
-    'DBInstanceCertificateDetails',
-    'DBInstanceEndpoint',
-    'DBInstanceMasterUserSecret',
-    'DBInstanceProcessorFeature',
-    'DBInstanceRole',
-    'DBInstanceTag',
-    'DBParameterGroupTag',
-    'DBProxyAuthFormat',
-    'DBProxyEndpointTagFormat',
-    'DBProxyTagFormat',
-    'DBProxyTargetGroupConnectionPoolConfigurationInfoFormat',
-    'DBSecurityGroupIngress',
-    'DBSecurityGroupTag',
-    'DBSubnetGroupTag',
+    'CustomDbEngineVersionTag',
+    'DbClusterDbClusterRole',
+    'DbClusterEndpoint',
+    'DbClusterMasterUserSecret',
+    'DbClusterParameterGroupTag',
+    'DbClusterReadEndpoint',
+    'DbClusterScalingConfiguration',
+    'DbClusterServerlessV2ScalingConfiguration',
+    'DbClusterTag',
+    'DbInstanceCertificateDetails',
+    'DbInstanceDbInstanceRole',
+    'DbInstanceEndpoint',
+    'DbInstanceMasterUserSecret',
+    'DbInstanceProcessorFeature',
+    'DbInstanceTag',
+    'DbParameterGroupTag',
+    'DbProxyAuthFormat',
+    'DbProxyEndpointTagFormat',
+    'DbProxyTagFormat',
+    'DbProxyTargetGroupConnectionPoolConfigurationInfoFormat',
+    'DbSecurityGroupIngress',
+    'DbSecurityGroupTag',
+    'DbSubnetGroupTag',
     'EventSubscriptionTag',
     'OptionGroupOptionConfiguration',
     'OptionGroupOptionSetting',
@@ -42,7 +42,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CustomDBEngineVersionTag(dict):
+class CustomDbEngineVersionTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -76,141 +76,7 @@ class CustomDBEngineVersionTag(dict):
 
 
 @pulumi.output_type
-class DBClusterEndpoint(dict):
-    def __init__(__self__, *,
-                 address: Optional[str] = None,
-                 port: Optional[str] = None):
-        """
-        :param str address: The connection endpoint for the DB cluster.
-        :param str port: The port number that will accept connections on this DB cluster.
-        """
-        if address is not None:
-            pulumi.set(__self__, "address", address)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def address(self) -> Optional[str]:
-        """
-        The connection endpoint for the DB cluster.
-        """
-        return pulumi.get(self, "address")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[str]:
-        """
-        The port number that will accept connections on this DB cluster.
-        """
-        return pulumi.get(self, "port")
-
-
-@pulumi.output_type
-class DBClusterMasterUserSecret(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "kmsKeyId":
-            suggest = "kms_key_id"
-        elif key == "secretArn":
-            suggest = "secret_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBClusterMasterUserSecret. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DBClusterMasterUserSecret.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DBClusterMasterUserSecret.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 kms_key_id: Optional[str] = None,
-                 secret_arn: Optional[str] = None):
-        """
-        :param str kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
-        :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
-        """
-        if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
-        if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
-
-    @property
-    @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[str]:
-        """
-        The AWS KMS key identifier that is used to encrypt the secret.
-        """
-        return pulumi.get(self, "kms_key_id")
-
-    @property
-    @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the secret.
-        """
-        return pulumi.get(self, "secret_arn")
-
-
-@pulumi.output_type
-class DBClusterParameterGroupTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class DBClusterReadEndpoint(dict):
-    def __init__(__self__, *,
-                 address: Optional[str] = None):
-        """
-        :param str address: The reader endpoint for the DB cluster.
-        """
-        if address is not None:
-            pulumi.set(__self__, "address", address)
-
-    @property
-    @pulumi.getter
-    def address(self) -> Optional[str]:
-        """
-        The reader endpoint for the DB cluster.
-        """
-        return pulumi.get(self, "address")
-
-
-@pulumi.output_type
-class DBClusterRole(dict):
+class DbClusterDbClusterRole(dict):
     """
     Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
     """
@@ -223,14 +89,14 @@ class DBClusterRole(dict):
             suggest = "feature_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBClusterRole. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbClusterDbClusterRole. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBClusterRole.__key_warning(key)
+        DbClusterDbClusterRole.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBClusterRole.__key_warning(key)
+        DbClusterDbClusterRole.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -263,7 +129,141 @@ class DBClusterRole(dict):
 
 
 @pulumi.output_type
-class DBClusterScalingConfiguration(dict):
+class DbClusterEndpoint(dict):
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 port: Optional[str] = None):
+        """
+        :param str address: The connection endpoint for the DB cluster.
+        :param str port: The port number that will accept connections on this DB cluster.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        The connection endpoint for the DB cluster.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[str]:
+        """
+        The port number that will accept connections on this DB cluster.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class DbClusterMasterUserSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DbClusterMasterUserSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DbClusterMasterUserSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DbClusterMasterUserSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[str] = None,
+                 secret_arn: Optional[str] = None):
+        """
+        :param str kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
+        :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The AWS KMS key identifier that is used to encrypt the secret.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class DbClusterParameterGroupTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DbClusterReadEndpoint(dict):
+    def __init__(__self__, *,
+                 address: Optional[str] = None):
+        """
+        :param str address: The reader endpoint for the DB cluster.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        The reader endpoint for the DB cluster.
+        """
+        return pulumi.get(self, "address")
+
+
+@pulumi.output_type
+class DbClusterScalingConfiguration(dict):
     """
     The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
     """
@@ -284,14 +284,14 @@ class DBClusterScalingConfiguration(dict):
             suggest = "timeout_action"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBClusterScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbClusterScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBClusterScalingConfiguration.__key_warning(key)
+        DbClusterScalingConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBClusterScalingConfiguration.__key_warning(key)
+        DbClusterScalingConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -395,7 +395,7 @@ class DBClusterScalingConfiguration(dict):
 
 
 @pulumi.output_type
-class DBClusterServerlessV2ScalingConfiguration(dict):
+class DbClusterServerlessV2ScalingConfiguration(dict):
     """
     Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
     """
@@ -408,14 +408,14 @@ class DBClusterServerlessV2ScalingConfiguration(dict):
             suggest = "min_capacity"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBClusterServerlessV2ScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbClusterServerlessV2ScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBClusterServerlessV2ScalingConfiguration.__key_warning(key)
+        DbClusterServerlessV2ScalingConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBClusterServerlessV2ScalingConfiguration.__key_warning(key)
+        DbClusterServerlessV2ScalingConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -449,7 +449,7 @@ class DBClusterServerlessV2ScalingConfiguration(dict):
 
 
 @pulumi.output_type
-class DBClusterTag(dict):
+class DbClusterTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -483,7 +483,7 @@ class DBClusterTag(dict):
 
 
 @pulumi.output_type
-class DBInstanceCertificateDetails(dict):
+class DbInstanceCertificateDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -493,14 +493,14 @@ class DBInstanceCertificateDetails(dict):
             suggest = "valid_till"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBInstanceCertificateDetails. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbInstanceCertificateDetails. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBInstanceCertificateDetails.__key_warning(key)
+        DbInstanceCertificateDetails.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBInstanceCertificateDetails.__key_warning(key)
+        DbInstanceCertificateDetails.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -533,7 +533,55 @@ class DBInstanceCertificateDetails(dict):
 
 
 @pulumi.output_type
-class DBInstanceEndpoint(dict):
+class DbInstanceDbInstanceRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "featureName":
+            suggest = "feature_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DbInstanceDbInstanceRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DbInstanceDbInstanceRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DbInstanceDbInstanceRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 feature_name: str,
+                 role_arn: str):
+        """
+        :param str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        :param str role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+        """
+        pulumi.set(__self__, "feature_name", feature_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> str:
+        """
+        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        """
+        return pulumi.get(self, "feature_name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class DbInstanceEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -541,14 +589,14 @@ class DBInstanceEndpoint(dict):
             suggest = "hosted_zone_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBInstanceEndpoint. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbInstanceEndpoint. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBInstanceEndpoint.__key_warning(key)
+        DbInstanceEndpoint.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBInstanceEndpoint.__key_warning(key)
+        DbInstanceEndpoint.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -593,7 +641,7 @@ class DBInstanceEndpoint(dict):
 
 
 @pulumi.output_type
-class DBInstanceMasterUserSecret(dict):
+class DbInstanceMasterUserSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -603,14 +651,14 @@ class DBInstanceMasterUserSecret(dict):
             suggest = "secret_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBInstanceMasterUserSecret. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbInstanceMasterUserSecret. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBInstanceMasterUserSecret.__key_warning(key)
+        DbInstanceMasterUserSecret.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBInstanceMasterUserSecret.__key_warning(key)
+        DbInstanceMasterUserSecret.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -643,12 +691,12 @@ class DBInstanceMasterUserSecret(dict):
 
 
 @pulumi.output_type
-class DBInstanceProcessorFeature(dict):
+class DbInstanceProcessorFeature(dict):
     def __init__(__self__, *,
-                 name: Optional['DBInstanceProcessorFeatureName'] = None,
+                 name: Optional['DbInstanceProcessorFeatureName'] = None,
                  value: Optional[str] = None):
         """
-        :param 'DBInstanceProcessorFeatureName' name: The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        :param 'DbInstanceProcessorFeatureName' name: The name of the processor feature. Valid names are coreCount and threadsPerCore.
         :param str value: The value of a processor feature name.
         """
         if name is not None:
@@ -658,7 +706,7 @@ class DBInstanceProcessorFeature(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional['DBInstanceProcessorFeatureName']:
+    def name(self) -> Optional['DbInstanceProcessorFeatureName']:
         """
         The name of the processor feature. Valid names are coreCount and threadsPerCore.
         """
@@ -674,55 +722,7 @@ class DBInstanceProcessorFeature(dict):
 
 
 @pulumi.output_type
-class DBInstanceRole(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "featureName":
-            suggest = "feature_name"
-        elif key == "roleArn":
-            suggest = "role_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBInstanceRole. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DBInstanceRole.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DBInstanceRole.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 feature_name: str,
-                 role_arn: str):
-        """
-        :param str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
-        :param str role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-        """
-        pulumi.set(__self__, "feature_name", feature_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-
-    @property
-    @pulumi.getter(name="featureName")
-    def feature_name(self) -> str:
-        """
-        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
-        """
-        return pulumi.get(self, "feature_name")
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
-        """
-        The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-        """
-        return pulumi.get(self, "role_arn")
-
-
-@pulumi.output_type
-class DBInstanceTag(dict):
+class DbInstanceTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -756,7 +756,7 @@ class DBInstanceTag(dict):
 
 
 @pulumi.output_type
-class DBParameterGroupTag(dict):
+class DbParameterGroupTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -790,7 +790,7 @@ class DBParameterGroupTag(dict):
 
 
 @pulumi.output_type
-class DBProxyAuthFormat(dict):
+class DbProxyAuthFormat(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -804,27 +804,27 @@ class DBProxyAuthFormat(dict):
             suggest = "secret_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBProxyAuthFormat. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbProxyAuthFormat. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBProxyAuthFormat.__key_warning(key)
+        DbProxyAuthFormat.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBProxyAuthFormat.__key_warning(key)
+        DbProxyAuthFormat.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 auth_scheme: Optional['DBProxyAuthFormatAuthScheme'] = None,
-                 client_password_auth_type: Optional['DBProxyAuthFormatClientPasswordAuthType'] = None,
+                 auth_scheme: Optional['DbProxyAuthFormatAuthScheme'] = None,
+                 client_password_auth_type: Optional['DbProxyAuthFormatClientPasswordAuthType'] = None,
                  description: Optional[str] = None,
-                 iam_auth: Optional['DBProxyAuthFormatIAMAuth'] = None,
+                 iam_auth: Optional['DbProxyAuthFormatIamAuth'] = None,
                  secret_arn: Optional[str] = None):
         """
-        :param 'DBProxyAuthFormatAuthScheme' auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
-        :param 'DBProxyAuthFormatClientPasswordAuthType' client_password_auth_type: The type of authentication the proxy uses for connections from clients.
+        :param 'DbProxyAuthFormatAuthScheme' auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+        :param 'DbProxyAuthFormatClientPasswordAuthType' client_password_auth_type: The type of authentication the proxy uses for connections from clients.
         :param str description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
-        :param 'DBProxyAuthFormatIAMAuth' iam_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
+        :param 'DbProxyAuthFormatIamAuth' iam_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         :param str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         """
         if auth_scheme is not None:
@@ -840,7 +840,7 @@ class DBProxyAuthFormat(dict):
 
     @property
     @pulumi.getter(name="authScheme")
-    def auth_scheme(self) -> Optional['DBProxyAuthFormatAuthScheme']:
+    def auth_scheme(self) -> Optional['DbProxyAuthFormatAuthScheme']:
         """
         The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         """
@@ -848,7 +848,7 @@ class DBProxyAuthFormat(dict):
 
     @property
     @pulumi.getter(name="clientPasswordAuthType")
-    def client_password_auth_type(self) -> Optional['DBProxyAuthFormatClientPasswordAuthType']:
+    def client_password_auth_type(self) -> Optional['DbProxyAuthFormatClientPasswordAuthType']:
         """
         The type of authentication the proxy uses for connections from clients.
         """
@@ -864,7 +864,7 @@ class DBProxyAuthFormat(dict):
 
     @property
     @pulumi.getter(name="iamAuth")
-    def iam_auth(self) -> Optional['DBProxyAuthFormatIAMAuth']:
+    def iam_auth(self) -> Optional['DbProxyAuthFormatIamAuth']:
         """
         Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         """
@@ -880,7 +880,7 @@ class DBProxyAuthFormat(dict):
 
 
 @pulumi.output_type
-class DBProxyEndpointTagFormat(dict):
+class DbProxyEndpointTagFormat(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
@@ -901,7 +901,7 @@ class DBProxyEndpointTagFormat(dict):
 
 
 @pulumi.output_type
-class DBProxyTagFormat(dict):
+class DbProxyTagFormat(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
@@ -922,7 +922,7 @@ class DBProxyTagFormat(dict):
 
 
 @pulumi.output_type
-class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
+class DbProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -938,14 +938,14 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
             suggest = "session_pinning_filters"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBProxyTargetGroupConnectionPoolConfigurationInfoFormat. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbProxyTargetGroupConnectionPoolConfigurationInfoFormat. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBProxyTargetGroupConnectionPoolConfigurationInfoFormat.__key_warning(key)
+        DbProxyTargetGroupConnectionPoolConfigurationInfoFormat.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBProxyTargetGroupConnectionPoolConfigurationInfoFormat.__key_warning(key)
+        DbProxyTargetGroupConnectionPoolConfigurationInfoFormat.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1014,7 +1014,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
 
 
 @pulumi.output_type
-class DBSecurityGroupIngress(dict):
+class DbSecurityGroupIngress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1026,14 +1026,14 @@ class DBSecurityGroupIngress(dict):
             suggest = "ec2_security_group_owner_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBSecurityGroupIngress. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbSecurityGroupIngress. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBSecurityGroupIngress.__key_warning(key)
+        DbSecurityGroupIngress.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBSecurityGroupIngress.__key_warning(key)
+        DbSecurityGroupIngress.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1072,7 +1072,7 @@ class DBSecurityGroupIngress(dict):
 
 
 @pulumi.output_type
-class DBSecurityGroupTag(dict):
+class DbSecurityGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -1091,7 +1091,7 @@ class DBSecurityGroupTag(dict):
 
 
 @pulumi.output_type
-class DBSubnetGroupTag(dict):
+class DbSubnetGroupTag(dict):
     """
     A key-value pair to associate with a resource.
     """

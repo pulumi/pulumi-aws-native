@@ -43,26 +43,26 @@ namespace Pulumi.AwsNative.DataSync
     /// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
     /// </summary>
     [EnumType]
-    public readonly struct LocationEFSInTransitEncryption : IEquatable<LocationEFSInTransitEncryption>
+    public readonly struct LocationEfsInTransitEncryption : IEquatable<LocationEfsInTransitEncryption>
     {
         private readonly string _value;
 
-        private LocationEFSInTransitEncryption(string value)
+        private LocationEfsInTransitEncryption(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LocationEFSInTransitEncryption None { get; } = new LocationEFSInTransitEncryption("NONE");
-        public static LocationEFSInTransitEncryption Tls12 { get; } = new LocationEFSInTransitEncryption("TLS1_2");
+        public static LocationEfsInTransitEncryption None { get; } = new LocationEfsInTransitEncryption("NONE");
+        public static LocationEfsInTransitEncryption Tls12 { get; } = new LocationEfsInTransitEncryption("TLS1_2");
 
-        public static bool operator ==(LocationEFSInTransitEncryption left, LocationEFSInTransitEncryption right) => left.Equals(right);
-        public static bool operator !=(LocationEFSInTransitEncryption left, LocationEFSInTransitEncryption right) => !left.Equals(right);
+        public static bool operator ==(LocationEfsInTransitEncryption left, LocationEfsInTransitEncryption right) => left.Equals(right);
+        public static bool operator !=(LocationEfsInTransitEncryption left, LocationEfsInTransitEncryption right) => !left.Equals(right);
 
-        public static explicit operator string(LocationEFSInTransitEncryption value) => value._value;
+        public static explicit operator string(LocationEfsInTransitEncryption value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocationEFSInTransitEncryption other && Equals(other);
-        public bool Equals(LocationEFSInTransitEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LocationEfsInTransitEncryption other && Equals(other);
+        public bool Equals(LocationEfsInTransitEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -74,28 +74,28 @@ namespace Pulumi.AwsNative.DataSync
     /// The specific NFS version that you want DataSync to use to mount your NFS share.
     /// </summary>
     [EnumType]
-    public readonly struct LocationFSxONTAPNfsMountOptionsVersion : IEquatable<LocationFSxONTAPNfsMountOptionsVersion>
+    public readonly struct LocationFSxOntapNfsMountOptionsVersion : IEquatable<LocationFSxOntapNfsMountOptionsVersion>
     {
         private readonly string _value;
 
-        private LocationFSxONTAPNfsMountOptionsVersion(string value)
+        private LocationFSxOntapNfsMountOptionsVersion(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LocationFSxONTAPNfsMountOptionsVersion Automatic { get; } = new LocationFSxONTAPNfsMountOptionsVersion("AUTOMATIC");
-        public static LocationFSxONTAPNfsMountOptionsVersion Nfs3 { get; } = new LocationFSxONTAPNfsMountOptionsVersion("NFS3");
-        public static LocationFSxONTAPNfsMountOptionsVersion Nfs40 { get; } = new LocationFSxONTAPNfsMountOptionsVersion("NFS4_0");
-        public static LocationFSxONTAPNfsMountOptionsVersion Nfs41 { get; } = new LocationFSxONTAPNfsMountOptionsVersion("NFS4_1");
+        public static LocationFSxOntapNfsMountOptionsVersion Automatic { get; } = new LocationFSxOntapNfsMountOptionsVersion("AUTOMATIC");
+        public static LocationFSxOntapNfsMountOptionsVersion Nfs3 { get; } = new LocationFSxOntapNfsMountOptionsVersion("NFS3");
+        public static LocationFSxOntapNfsMountOptionsVersion Nfs40 { get; } = new LocationFSxOntapNfsMountOptionsVersion("NFS4_0");
+        public static LocationFSxOntapNfsMountOptionsVersion Nfs41 { get; } = new LocationFSxOntapNfsMountOptionsVersion("NFS4_1");
 
-        public static bool operator ==(LocationFSxONTAPNfsMountOptionsVersion left, LocationFSxONTAPNfsMountOptionsVersion right) => left.Equals(right);
-        public static bool operator !=(LocationFSxONTAPNfsMountOptionsVersion left, LocationFSxONTAPNfsMountOptionsVersion right) => !left.Equals(right);
+        public static bool operator ==(LocationFSxOntapNfsMountOptionsVersion left, LocationFSxOntapNfsMountOptionsVersion right) => left.Equals(right);
+        public static bool operator !=(LocationFSxOntapNfsMountOptionsVersion left, LocationFSxOntapNfsMountOptionsVersion right) => !left.Equals(right);
 
-        public static explicit operator string(LocationFSxONTAPNfsMountOptionsVersion value) => value._value;
+        public static explicit operator string(LocationFSxOntapNfsMountOptionsVersion value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocationFSxONTAPNfsMountOptionsVersion other && Equals(other);
-        public bool Equals(LocationFSxONTAPNfsMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LocationFSxOntapNfsMountOptionsVersion other && Equals(other);
+        public bool Equals(LocationFSxOntapNfsMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -107,27 +107,27 @@ namespace Pulumi.AwsNative.DataSync
     /// The specific SMB version that you want DataSync to use to mount your SMB share.
     /// </summary>
     [EnumType]
-    public readonly struct LocationFSxONTAPSmbMountOptionsVersion : IEquatable<LocationFSxONTAPSmbMountOptionsVersion>
+    public readonly struct LocationFSxOntapSmbMountOptionsVersion : IEquatable<LocationFSxOntapSmbMountOptionsVersion>
     {
         private readonly string _value;
 
-        private LocationFSxONTAPSmbMountOptionsVersion(string value)
+        private LocationFSxOntapSmbMountOptionsVersion(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LocationFSxONTAPSmbMountOptionsVersion Automatic { get; } = new LocationFSxONTAPSmbMountOptionsVersion("AUTOMATIC");
-        public static LocationFSxONTAPSmbMountOptionsVersion Smb2 { get; } = new LocationFSxONTAPSmbMountOptionsVersion("SMB2");
-        public static LocationFSxONTAPSmbMountOptionsVersion Smb3 { get; } = new LocationFSxONTAPSmbMountOptionsVersion("SMB3");
+        public static LocationFSxOntapSmbMountOptionsVersion Automatic { get; } = new LocationFSxOntapSmbMountOptionsVersion("AUTOMATIC");
+        public static LocationFSxOntapSmbMountOptionsVersion Smb2 { get; } = new LocationFSxOntapSmbMountOptionsVersion("SMB2");
+        public static LocationFSxOntapSmbMountOptionsVersion Smb3 { get; } = new LocationFSxOntapSmbMountOptionsVersion("SMB3");
 
-        public static bool operator ==(LocationFSxONTAPSmbMountOptionsVersion left, LocationFSxONTAPSmbMountOptionsVersion right) => left.Equals(right);
-        public static bool operator !=(LocationFSxONTAPSmbMountOptionsVersion left, LocationFSxONTAPSmbMountOptionsVersion right) => !left.Equals(right);
+        public static bool operator ==(LocationFSxOntapSmbMountOptionsVersion left, LocationFSxOntapSmbMountOptionsVersion right) => left.Equals(right);
+        public static bool operator !=(LocationFSxOntapSmbMountOptionsVersion left, LocationFSxOntapSmbMountOptionsVersion right) => !left.Equals(right);
 
-        public static explicit operator string(LocationFSxONTAPSmbMountOptionsVersion value) => value._value;
+        public static explicit operator string(LocationFSxOntapSmbMountOptionsVersion value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocationFSxONTAPSmbMountOptionsVersion other && Equals(other);
-        public bool Equals(LocationFSxONTAPSmbMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LocationFSxOntapSmbMountOptionsVersion other && Equals(other);
+        public bool Equals(LocationFSxOntapSmbMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -139,28 +139,28 @@ namespace Pulumi.AwsNative.DataSync
     /// The specific NFS version that you want DataSync to use to mount your NFS share.
     /// </summary>
     [EnumType]
-    public readonly struct LocationFSxOpenZFSMountOptionsVersion : IEquatable<LocationFSxOpenZFSMountOptionsVersion>
+    public readonly struct LocationFSxOpenZfsMountOptionsVersion : IEquatable<LocationFSxOpenZfsMountOptionsVersion>
     {
         private readonly string _value;
 
-        private LocationFSxOpenZFSMountOptionsVersion(string value)
+        private LocationFSxOpenZfsMountOptionsVersion(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LocationFSxOpenZFSMountOptionsVersion Automatic { get; } = new LocationFSxOpenZFSMountOptionsVersion("AUTOMATIC");
-        public static LocationFSxOpenZFSMountOptionsVersion Nfs3 { get; } = new LocationFSxOpenZFSMountOptionsVersion("NFS3");
-        public static LocationFSxOpenZFSMountOptionsVersion Nfs40 { get; } = new LocationFSxOpenZFSMountOptionsVersion("NFS4_0");
-        public static LocationFSxOpenZFSMountOptionsVersion Nfs41 { get; } = new LocationFSxOpenZFSMountOptionsVersion("NFS4_1");
+        public static LocationFSxOpenZfsMountOptionsVersion Automatic { get; } = new LocationFSxOpenZfsMountOptionsVersion("AUTOMATIC");
+        public static LocationFSxOpenZfsMountOptionsVersion Nfs3 { get; } = new LocationFSxOpenZfsMountOptionsVersion("NFS3");
+        public static LocationFSxOpenZfsMountOptionsVersion Nfs40 { get; } = new LocationFSxOpenZfsMountOptionsVersion("NFS4_0");
+        public static LocationFSxOpenZfsMountOptionsVersion Nfs41 { get; } = new LocationFSxOpenZfsMountOptionsVersion("NFS4_1");
 
-        public static bool operator ==(LocationFSxOpenZFSMountOptionsVersion left, LocationFSxOpenZFSMountOptionsVersion right) => left.Equals(right);
-        public static bool operator !=(LocationFSxOpenZFSMountOptionsVersion left, LocationFSxOpenZFSMountOptionsVersion right) => !left.Equals(right);
+        public static bool operator ==(LocationFSxOpenZfsMountOptionsVersion left, LocationFSxOpenZfsMountOptionsVersion right) => left.Equals(right);
+        public static bool operator !=(LocationFSxOpenZfsMountOptionsVersion left, LocationFSxOpenZfsMountOptionsVersion right) => !left.Equals(right);
 
-        public static explicit operator string(LocationFSxOpenZFSMountOptionsVersion value) => value._value;
+        public static explicit operator string(LocationFSxOpenZfsMountOptionsVersion value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocationFSxOpenZFSMountOptionsVersion other && Equals(other);
-        public bool Equals(LocationFSxOpenZFSMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LocationFSxOpenZfsMountOptionsVersion other && Equals(other);
+        public bool Equals(LocationFSxOpenZfsMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -172,26 +172,26 @@ namespace Pulumi.AwsNative.DataSync
     /// The authentication mode used to determine identity of user.
     /// </summary>
     [EnumType]
-    public readonly struct LocationHDFSAuthenticationType : IEquatable<LocationHDFSAuthenticationType>
+    public readonly struct LocationHdfsAuthenticationType : IEquatable<LocationHdfsAuthenticationType>
     {
         private readonly string _value;
 
-        private LocationHDFSAuthenticationType(string value)
+        private LocationHdfsAuthenticationType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LocationHDFSAuthenticationType Simple { get; } = new LocationHDFSAuthenticationType("SIMPLE");
-        public static LocationHDFSAuthenticationType Kerberos { get; } = new LocationHDFSAuthenticationType("KERBEROS");
+        public static LocationHdfsAuthenticationType Simple { get; } = new LocationHdfsAuthenticationType("SIMPLE");
+        public static LocationHdfsAuthenticationType Kerberos { get; } = new LocationHdfsAuthenticationType("KERBEROS");
 
-        public static bool operator ==(LocationHDFSAuthenticationType left, LocationHDFSAuthenticationType right) => left.Equals(right);
-        public static bool operator !=(LocationHDFSAuthenticationType left, LocationHDFSAuthenticationType right) => !left.Equals(right);
+        public static bool operator ==(LocationHdfsAuthenticationType left, LocationHdfsAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(LocationHdfsAuthenticationType left, LocationHdfsAuthenticationType right) => !left.Equals(right);
 
-        public static explicit operator string(LocationHDFSAuthenticationType value) => value._value;
+        public static explicit operator string(LocationHdfsAuthenticationType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocationHDFSAuthenticationType other && Equals(other);
-        public bool Equals(LocationHDFSAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LocationHdfsAuthenticationType other && Equals(other);
+        public bool Equals(LocationHdfsAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -203,28 +203,28 @@ namespace Pulumi.AwsNative.DataSync
     /// Configuration for Data Transfer Protection.
     /// </summary>
     [EnumType]
-    public readonly struct LocationHDFSQopConfigurationDataTransferProtection : IEquatable<LocationHDFSQopConfigurationDataTransferProtection>
+    public readonly struct LocationHdfsQopConfigurationDataTransferProtection : IEquatable<LocationHdfsQopConfigurationDataTransferProtection>
     {
         private readonly string _value;
 
-        private LocationHDFSQopConfigurationDataTransferProtection(string value)
+        private LocationHdfsQopConfigurationDataTransferProtection(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LocationHDFSQopConfigurationDataTransferProtection Authentication { get; } = new LocationHDFSQopConfigurationDataTransferProtection("AUTHENTICATION");
-        public static LocationHDFSQopConfigurationDataTransferProtection Integrity { get; } = new LocationHDFSQopConfigurationDataTransferProtection("INTEGRITY");
-        public static LocationHDFSQopConfigurationDataTransferProtection Privacy { get; } = new LocationHDFSQopConfigurationDataTransferProtection("PRIVACY");
-        public static LocationHDFSQopConfigurationDataTransferProtection Disabled { get; } = new LocationHDFSQopConfigurationDataTransferProtection("DISABLED");
+        public static LocationHdfsQopConfigurationDataTransferProtection Authentication { get; } = new LocationHdfsQopConfigurationDataTransferProtection("AUTHENTICATION");
+        public static LocationHdfsQopConfigurationDataTransferProtection Integrity { get; } = new LocationHdfsQopConfigurationDataTransferProtection("INTEGRITY");
+        public static LocationHdfsQopConfigurationDataTransferProtection Privacy { get; } = new LocationHdfsQopConfigurationDataTransferProtection("PRIVACY");
+        public static LocationHdfsQopConfigurationDataTransferProtection Disabled { get; } = new LocationHdfsQopConfigurationDataTransferProtection("DISABLED");
 
-        public static bool operator ==(LocationHDFSQopConfigurationDataTransferProtection left, LocationHDFSQopConfigurationDataTransferProtection right) => left.Equals(right);
-        public static bool operator !=(LocationHDFSQopConfigurationDataTransferProtection left, LocationHDFSQopConfigurationDataTransferProtection right) => !left.Equals(right);
+        public static bool operator ==(LocationHdfsQopConfigurationDataTransferProtection left, LocationHdfsQopConfigurationDataTransferProtection right) => left.Equals(right);
+        public static bool operator !=(LocationHdfsQopConfigurationDataTransferProtection left, LocationHdfsQopConfigurationDataTransferProtection right) => !left.Equals(right);
 
-        public static explicit operator string(LocationHDFSQopConfigurationDataTransferProtection value) => value._value;
+        public static explicit operator string(LocationHdfsQopConfigurationDataTransferProtection value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocationHDFSQopConfigurationDataTransferProtection other && Equals(other);
-        public bool Equals(LocationHDFSQopConfigurationDataTransferProtection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LocationHdfsQopConfigurationDataTransferProtection other && Equals(other);
+        public bool Equals(LocationHdfsQopConfigurationDataTransferProtection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -236,28 +236,28 @@ namespace Pulumi.AwsNative.DataSync
     /// Configuration for RPC Protection.
     /// </summary>
     [EnumType]
-    public readonly struct LocationHDFSQopConfigurationRpcProtection : IEquatable<LocationHDFSQopConfigurationRpcProtection>
+    public readonly struct LocationHdfsQopConfigurationRpcProtection : IEquatable<LocationHdfsQopConfigurationRpcProtection>
     {
         private readonly string _value;
 
-        private LocationHDFSQopConfigurationRpcProtection(string value)
+        private LocationHdfsQopConfigurationRpcProtection(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LocationHDFSQopConfigurationRpcProtection Authentication { get; } = new LocationHDFSQopConfigurationRpcProtection("AUTHENTICATION");
-        public static LocationHDFSQopConfigurationRpcProtection Integrity { get; } = new LocationHDFSQopConfigurationRpcProtection("INTEGRITY");
-        public static LocationHDFSQopConfigurationRpcProtection Privacy { get; } = new LocationHDFSQopConfigurationRpcProtection("PRIVACY");
-        public static LocationHDFSQopConfigurationRpcProtection Disabled { get; } = new LocationHDFSQopConfigurationRpcProtection("DISABLED");
+        public static LocationHdfsQopConfigurationRpcProtection Authentication { get; } = new LocationHdfsQopConfigurationRpcProtection("AUTHENTICATION");
+        public static LocationHdfsQopConfigurationRpcProtection Integrity { get; } = new LocationHdfsQopConfigurationRpcProtection("INTEGRITY");
+        public static LocationHdfsQopConfigurationRpcProtection Privacy { get; } = new LocationHdfsQopConfigurationRpcProtection("PRIVACY");
+        public static LocationHdfsQopConfigurationRpcProtection Disabled { get; } = new LocationHdfsQopConfigurationRpcProtection("DISABLED");
 
-        public static bool operator ==(LocationHDFSQopConfigurationRpcProtection left, LocationHDFSQopConfigurationRpcProtection right) => left.Equals(right);
-        public static bool operator !=(LocationHDFSQopConfigurationRpcProtection left, LocationHDFSQopConfigurationRpcProtection right) => !left.Equals(right);
+        public static bool operator ==(LocationHdfsQopConfigurationRpcProtection left, LocationHdfsQopConfigurationRpcProtection right) => left.Equals(right);
+        public static bool operator !=(LocationHdfsQopConfigurationRpcProtection left, LocationHdfsQopConfigurationRpcProtection right) => !left.Equals(right);
 
-        public static explicit operator string(LocationHDFSQopConfigurationRpcProtection value) => value._value;
+        public static explicit operator string(LocationHdfsQopConfigurationRpcProtection value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocationHDFSQopConfigurationRpcProtection other && Equals(other);
-        public bool Equals(LocationHDFSQopConfigurationRpcProtection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LocationHdfsQopConfigurationRpcProtection other && Equals(other);
+        public bool Equals(LocationHdfsQopConfigurationRpcProtection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -269,28 +269,28 @@ namespace Pulumi.AwsNative.DataSync
     /// The specific NFS version that you want DataSync to use to mount your NFS share.
     /// </summary>
     [EnumType]
-    public readonly struct LocationNFSMountOptionsVersion : IEquatable<LocationNFSMountOptionsVersion>
+    public readonly struct LocationNfsMountOptionsVersion : IEquatable<LocationNfsMountOptionsVersion>
     {
         private readonly string _value;
 
-        private LocationNFSMountOptionsVersion(string value)
+        private LocationNfsMountOptionsVersion(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LocationNFSMountOptionsVersion Automatic { get; } = new LocationNFSMountOptionsVersion("AUTOMATIC");
-        public static LocationNFSMountOptionsVersion Nfs3 { get; } = new LocationNFSMountOptionsVersion("NFS3");
-        public static LocationNFSMountOptionsVersion Nfs40 { get; } = new LocationNFSMountOptionsVersion("NFS4_0");
-        public static LocationNFSMountOptionsVersion Nfs41 { get; } = new LocationNFSMountOptionsVersion("NFS4_1");
+        public static LocationNfsMountOptionsVersion Automatic { get; } = new LocationNfsMountOptionsVersion("AUTOMATIC");
+        public static LocationNfsMountOptionsVersion Nfs3 { get; } = new LocationNfsMountOptionsVersion("NFS3");
+        public static LocationNfsMountOptionsVersion Nfs40 { get; } = new LocationNfsMountOptionsVersion("NFS4_0");
+        public static LocationNfsMountOptionsVersion Nfs41 { get; } = new LocationNfsMountOptionsVersion("NFS4_1");
 
-        public static bool operator ==(LocationNFSMountOptionsVersion left, LocationNFSMountOptionsVersion right) => left.Equals(right);
-        public static bool operator !=(LocationNFSMountOptionsVersion left, LocationNFSMountOptionsVersion right) => !left.Equals(right);
+        public static bool operator ==(LocationNfsMountOptionsVersion left, LocationNfsMountOptionsVersion right) => left.Equals(right);
+        public static bool operator !=(LocationNfsMountOptionsVersion left, LocationNfsMountOptionsVersion right) => !left.Equals(right);
 
-        public static explicit operator string(LocationNFSMountOptionsVersion value) => value._value;
+        public static explicit operator string(LocationNfsMountOptionsVersion value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocationNFSMountOptionsVersion other && Equals(other);
-        public bool Equals(LocationNFSMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LocationNfsMountOptionsVersion other && Equals(other);
+        public bool Equals(LocationNfsMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -369,29 +369,29 @@ namespace Pulumi.AwsNative.DataSync
     /// The specific SMB version that you want DataSync to use to mount your SMB share.
     /// </summary>
     [EnumType]
-    public readonly struct LocationSMBMountOptionsVersion : IEquatable<LocationSMBMountOptionsVersion>
+    public readonly struct LocationSmbMountOptionsVersion : IEquatable<LocationSmbMountOptionsVersion>
     {
         private readonly string _value;
 
-        private LocationSMBMountOptionsVersion(string value)
+        private LocationSmbMountOptionsVersion(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LocationSMBMountOptionsVersion Automatic { get; } = new LocationSMBMountOptionsVersion("AUTOMATIC");
-        public static LocationSMBMountOptionsVersion Smb1 { get; } = new LocationSMBMountOptionsVersion("SMB1");
-        public static LocationSMBMountOptionsVersion Smb20 { get; } = new LocationSMBMountOptionsVersion("SMB2_0");
-        public static LocationSMBMountOptionsVersion Smb2 { get; } = new LocationSMBMountOptionsVersion("SMB2");
-        public static LocationSMBMountOptionsVersion Smb3 { get; } = new LocationSMBMountOptionsVersion("SMB3");
+        public static LocationSmbMountOptionsVersion Automatic { get; } = new LocationSmbMountOptionsVersion("AUTOMATIC");
+        public static LocationSmbMountOptionsVersion Smb1 { get; } = new LocationSmbMountOptionsVersion("SMB1");
+        public static LocationSmbMountOptionsVersion Smb20 { get; } = new LocationSmbMountOptionsVersion("SMB2_0");
+        public static LocationSmbMountOptionsVersion Smb2 { get; } = new LocationSmbMountOptionsVersion("SMB2");
+        public static LocationSmbMountOptionsVersion Smb3 { get; } = new LocationSmbMountOptionsVersion("SMB3");
 
-        public static bool operator ==(LocationSMBMountOptionsVersion left, LocationSMBMountOptionsVersion right) => left.Equals(right);
-        public static bool operator !=(LocationSMBMountOptionsVersion left, LocationSMBMountOptionsVersion right) => !left.Equals(right);
+        public static bool operator ==(LocationSmbMountOptionsVersion left, LocationSmbMountOptionsVersion right) => left.Equals(right);
+        public static bool operator !=(LocationSmbMountOptionsVersion left, LocationSmbMountOptionsVersion right) => !left.Equals(right);
 
-        public static explicit operator string(LocationSMBMountOptionsVersion value) => value._value;
+        public static explicit operator string(LocationSmbMountOptionsVersion value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocationSMBMountOptionsVersion other && Equals(other);
-        public bool Equals(LocationSMBMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LocationSmbMountOptionsVersion other && Equals(other);
+        public bool Equals(LocationSmbMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -444,7 +444,7 @@ namespace Pulumi.AwsNative.DataSync
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static StorageSystemSystemType NetAppONTAP { get; } = new StorageSystemSystemType("NetAppONTAP");
+        public static StorageSystemSystemType NetAppOntap { get; } = new StorageSystemSystemType("NetAppONTAP");
 
         public static bool operator ==(StorageSystemSystemType left, StorageSystemSystemType right) => left.Equals(right);
         public static bool operator !=(StorageSystemSystemType left, StorageSystemSystemType right) => !left.Equals(right);

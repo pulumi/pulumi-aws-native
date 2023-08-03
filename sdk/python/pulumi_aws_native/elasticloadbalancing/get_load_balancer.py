@@ -143,7 +143,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="lbCookieStickinessPolicy")
-    def lb_cookie_stickiness_policy(self) -> Optional[Sequence['outputs.LoadBalancerLBCookieStickinessPolicy']]:
+    def lb_cookie_stickiness_policy(self) -> Optional[Sequence['outputs.LoadBalancerLbCookieStickinessPolicy']]:
         return pulumi.get(self, "lb_cookie_stickiness_policy")
 
     @property

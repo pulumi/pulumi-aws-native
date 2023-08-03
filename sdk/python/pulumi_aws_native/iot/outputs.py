@@ -20,8 +20,8 @@ __all__ = [
     'AuthorizerTag',
     'BillingGroupPropertiesProperties',
     'BillingGroupTag',
-    'CACertificateRegistrationConfig',
-    'CACertificateTag',
+    'CaCertificateRegistrationConfig',
+    'CaCertificateTag',
     'CustomMetricTag',
     'DimensionTag',
     'DomainConfigurationAuthorizerConfig',
@@ -44,7 +44,7 @@ __all__ = [
     'MitigationActionPublishFindingToSnsParams',
     'MitigationActionReplaceDefaultPolicyVersionParams',
     'MitigationActionTag',
-    'MitigationActionUpdateCACertificateParams',
+    'MitigationActionUpdateCaCertificateParams',
     'MitigationActionUpdateDeviceCertificateParams',
     'PresignedUrlConfigProperties',
     'ProvisioningTemplateProvisioningHook',
@@ -75,8 +75,8 @@ __all__ = [
     'TopicRuleCloudwatchMetricAction',
     'TopicRuleDestinationHttpUrlDestinationSummary',
     'TopicRuleDestinationVpcDestinationProperties',
-    'TopicRuleDynamoDBAction',
     'TopicRuleDynamoDBv2Action',
+    'TopicRuleDynamoDbAction',
     'TopicRuleElasticsearchAction',
     'TopicRuleFirehoseAction',
     'TopicRuleHttpAction',
@@ -516,7 +516,7 @@ class BillingGroupTag(dict):
 
 
 @pulumi.output_type
-class CACertificateRegistrationConfig(dict):
+class CaCertificateRegistrationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -528,14 +528,14 @@ class CACertificateRegistrationConfig(dict):
             suggest = "template_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CACertificateRegistrationConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CaCertificateRegistrationConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CACertificateRegistrationConfig.__key_warning(key)
+        CaCertificateRegistrationConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CACertificateRegistrationConfig.__key_warning(key)
+        CaCertificateRegistrationConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -566,7 +566,7 @@ class CACertificateRegistrationConfig(dict):
 
 
 @pulumi.output_type
-class CACertificateTag(dict):
+class CaCertificateTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -1296,7 +1296,7 @@ class MitigationActionActionParams(dict):
                  enable_io_t_logging_params: Optional['outputs.MitigationActionEnableIoTLoggingParams'] = None,
                  publish_finding_to_sns_params: Optional['outputs.MitigationActionPublishFindingToSnsParams'] = None,
                  replace_default_policy_version_params: Optional['outputs.MitigationActionReplaceDefaultPolicyVersionParams'] = None,
-                 update_ca_certificate_params: Optional['outputs.MitigationActionUpdateCACertificateParams'] = None,
+                 update_ca_certificate_params: Optional['outputs.MitigationActionUpdateCaCertificateParams'] = None,
                  update_device_certificate_params: Optional['outputs.MitigationActionUpdateDeviceCertificateParams'] = None):
         """
         The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
@@ -1336,7 +1336,7 @@ class MitigationActionActionParams(dict):
 
     @property
     @pulumi.getter(name="updateCaCertificateParams")
-    def update_ca_certificate_params(self) -> Optional['outputs.MitigationActionUpdateCACertificateParams']:
+    def update_ca_certificate_params(self) -> Optional['outputs.MitigationActionUpdateCaCertificateParams']:
         return pulumi.get(self, "update_ca_certificate_params")
 
     @property
@@ -1558,12 +1558,12 @@ class MitigationActionTag(dict):
 
 
 @pulumi.output_type
-class MitigationActionUpdateCACertificateParams(dict):
+class MitigationActionUpdateCaCertificateParams(dict):
     """
     Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
     """
     def __init__(__self__, *,
-                 action: 'MitigationActionUpdateCACertificateParamsAction'):
+                 action: 'MitigationActionUpdateCaCertificateParamsAction'):
         """
         Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
         """
@@ -1571,7 +1571,7 @@ class MitigationActionUpdateCACertificateParams(dict):
 
     @property
     @pulumi.getter
-    def action(self) -> 'MitigationActionUpdateCACertificateParamsAction':
+    def action(self) -> 'MitigationActionUpdateCaCertificateParamsAction':
         return pulumi.get(self, "action")
 
 
@@ -2482,7 +2482,7 @@ class TopicRuleAction(dict):
                  cloudwatch_logs: Optional['outputs.TopicRuleCloudwatchLogsAction'] = None,
                  cloudwatch_metric: Optional['outputs.TopicRuleCloudwatchMetricAction'] = None,
                  dynamo_d_bv2: Optional['outputs.TopicRuleDynamoDBv2Action'] = None,
-                 dynamo_db: Optional['outputs.TopicRuleDynamoDBAction'] = None,
+                 dynamo_db: Optional['outputs.TopicRuleDynamoDbAction'] = None,
                  elasticsearch: Optional['outputs.TopicRuleElasticsearchAction'] = None,
                  firehose: Optional['outputs.TopicRuleFirehoseAction'] = None,
                  http: Optional['outputs.TopicRuleHttpAction'] = None,
@@ -2567,7 +2567,7 @@ class TopicRuleAction(dict):
 
     @property
     @pulumi.getter(name="dynamoDb")
-    def dynamo_db(self) -> Optional['outputs.TopicRuleDynamoDBAction']:
+    def dynamo_db(self) -> Optional['outputs.TopicRuleDynamoDbAction']:
         return pulumi.get(self, "dynamo_db")
 
     @property
@@ -3052,7 +3052,47 @@ class TopicRuleDestinationVpcDestinationProperties(dict):
 
 
 @pulumi.output_type
-class TopicRuleDynamoDBAction(dict):
+class TopicRuleDynamoDBv2Action(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "putItem":
+            suggest = "put_item"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDynamoDBv2Action. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleDynamoDBv2Action.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleDynamoDBv2Action.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 put_item: Optional['outputs.TopicRulePutItemInput'] = None,
+                 role_arn: Optional[str] = None):
+        if put_item is not None:
+            pulumi.set(__self__, "put_item", put_item)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="putItem")
+    def put_item(self) -> Optional['outputs.TopicRulePutItemInput']:
+        return pulumi.get(self, "put_item")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class TopicRuleDynamoDbAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3076,14 +3116,14 @@ class TopicRuleDynamoDBAction(dict):
             suggest = "range_key_value"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDynamoDBAction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDynamoDbAction. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TopicRuleDynamoDBAction.__key_warning(key)
+        TopicRuleDynamoDbAction.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TopicRuleDynamoDBAction.__key_warning(key)
+        TopicRuleDynamoDbAction.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3155,46 +3195,6 @@ class TopicRuleDynamoDBAction(dict):
     @pulumi.getter(name="rangeKeyValue")
     def range_key_value(self) -> Optional[str]:
         return pulumi.get(self, "range_key_value")
-
-
-@pulumi.output_type
-class TopicRuleDynamoDBv2Action(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "putItem":
-            suggest = "put_item"
-        elif key == "roleArn":
-            suggest = "role_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDynamoDBv2Action. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TopicRuleDynamoDBv2Action.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TopicRuleDynamoDBv2Action.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 put_item: Optional['outputs.TopicRulePutItemInput'] = None,
-                 role_arn: Optional[str] = None):
-        if put_item is not None:
-            pulumi.set(__self__, "put_item", put_item)
-        if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
-
-    @property
-    @pulumi.getter(name="putItem")
-    def put_item(self) -> Optional['outputs.TopicRulePutItemInput']:
-        return pulumi.get(self, "put_item")
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[str]:
-        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

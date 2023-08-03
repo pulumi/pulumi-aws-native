@@ -16,7 +16,7 @@ __all__ = [
     'DatasetImportJobDataSourceProperties',
     'SolutionCategoricalHyperParameterRange',
     'SolutionConfig',
-    'SolutionConfigAutoMLConfigProperties',
+    'SolutionConfigAutoMlConfigProperties',
     'SolutionConfigHpoConfigProperties',
     'SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties',
     'SolutionConfigHpoConfigPropertiesHpoObjectiveProperties',
@@ -228,14 +228,14 @@ class SolutionConfig(dict):
 
     def __init__(__self__, *,
                  algorithm_hyper_parameters: Optional[Any] = None,
-                 auto_ml_config: Optional['outputs.SolutionConfigAutoMLConfigProperties'] = None,
+                 auto_ml_config: Optional['outputs.SolutionConfigAutoMlConfigProperties'] = None,
                  event_value_threshold: Optional[str] = None,
                  feature_transformation_parameters: Optional[Any] = None,
                  hpo_config: Optional['outputs.SolutionConfigHpoConfigProperties'] = None):
         """
         The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
         :param Any algorithm_hyper_parameters: Lists the hyperparameter names and ranges.
-        :param 'SolutionConfigAutoMLConfigProperties' auto_ml_config: The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+        :param 'SolutionConfigAutoMlConfigProperties' auto_ml_config: The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         :param str event_value_threshold: Only events with a value greater than or equal to this threshold are used for training a model.
         :param Any feature_transformation_parameters: Lists the feature transformation parameters.
         :param 'SolutionConfigHpoConfigProperties' hpo_config: Describes the properties for hyperparameter optimization (HPO)
@@ -261,7 +261,7 @@ class SolutionConfig(dict):
 
     @property
     @pulumi.getter(name="autoMlConfig")
-    def auto_ml_config(self) -> Optional['outputs.SolutionConfigAutoMLConfigProperties']:
+    def auto_ml_config(self) -> Optional['outputs.SolutionConfigAutoMlConfigProperties']:
         """
         The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         """
@@ -293,7 +293,7 @@ class SolutionConfig(dict):
 
 
 @pulumi.output_type
-class SolutionConfigAutoMLConfigProperties(dict):
+class SolutionConfigAutoMlConfigProperties(dict):
     """
     The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
     """
@@ -306,14 +306,14 @@ class SolutionConfigAutoMLConfigProperties(dict):
             suggest = "recipe_list"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SolutionConfigAutoMLConfigProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SolutionConfigAutoMlConfigProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SolutionConfigAutoMLConfigProperties.__key_warning(key)
+        SolutionConfigAutoMlConfigProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SolutionConfigAutoMLConfigProperties.__key_warning(key)
+        SolutionConfigAutoMlConfigProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

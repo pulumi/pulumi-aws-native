@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDBProxyTargetGroupResult',
-    'AwaitableGetDBProxyTargetGroupResult',
+    'GetDbProxyTargetGroupResult',
+    'AwaitableGetDbProxyTargetGroupResult',
     'get_db_proxy_target_group',
     'get_db_proxy_target_group_output',
 ]
 
 @pulumi.output_type
-class GetDBProxyTargetGroupResult:
+class GetDbProxyTargetGroupResult:
     def __init__(__self__, connection_pool_configuration_info=None, db_cluster_identifiers=None, db_instance_identifiers=None, target_group_arn=None):
         if connection_pool_configuration_info and not isinstance(connection_pool_configuration_info, dict):
             raise TypeError("Expected argument 'connection_pool_configuration_info' to be a dict")
@@ -35,7 +35,7 @@ class GetDBProxyTargetGroupResult:
 
     @property
     @pulumi.getter(name="connectionPoolConfigurationInfo")
-    def connection_pool_configuration_info(self) -> Optional['outputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat']:
+    def connection_pool_configuration_info(self) -> Optional['outputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat']:
         return pulumi.get(self, "connection_pool_configuration_info")
 
     @property
@@ -57,12 +57,12 @@ class GetDBProxyTargetGroupResult:
         return pulumi.get(self, "target_group_arn")
 
 
-class AwaitableGetDBProxyTargetGroupResult(GetDBProxyTargetGroupResult):
+class AwaitableGetDbProxyTargetGroupResult(GetDbProxyTargetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBProxyTargetGroupResult(
+        return GetDbProxyTargetGroupResult(
             connection_pool_configuration_info=self.connection_pool_configuration_info,
             db_cluster_identifiers=self.db_cluster_identifiers,
             db_instance_identifiers=self.db_instance_identifiers,
@@ -70,7 +70,7 @@ class AwaitableGetDBProxyTargetGroupResult(GetDBProxyTargetGroupResult):
 
 
 def get_db_proxy_target_group(target_group_arn: Optional[str] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBProxyTargetGroupResult:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbProxyTargetGroupResult:
     """
     Resource schema for AWS::RDS::DBProxyTargetGroup
 
@@ -80,9 +80,9 @@ def get_db_proxy_target_group(target_group_arn: Optional[str] = None,
     __args__ = dict()
     __args__['targetGroupArn'] = target_group_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBProxyTargetGroup', __args__, opts=opts, typ=GetDBProxyTargetGroupResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbProxyTargetGroup', __args__, opts=opts, typ=GetDbProxyTargetGroupResult).value
 
-    return AwaitableGetDBProxyTargetGroupResult(
+    return AwaitableGetDbProxyTargetGroupResult(
         connection_pool_configuration_info=pulumi.get(__ret__, 'connection_pool_configuration_info'),
         db_cluster_identifiers=pulumi.get(__ret__, 'db_cluster_identifiers'),
         db_instance_identifiers=pulumi.get(__ret__, 'db_instance_identifiers'),
@@ -91,7 +91,7 @@ def get_db_proxy_target_group(target_group_arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_proxy_target_group)
 def get_db_proxy_target_group_output(target_group_arn: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBProxyTargetGroupResult]:
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbProxyTargetGroupResult]:
     """
     Resource schema for AWS::RDS::DBProxyTargetGroup
 

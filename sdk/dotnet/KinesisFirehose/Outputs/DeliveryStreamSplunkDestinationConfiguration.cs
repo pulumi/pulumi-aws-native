@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         public readonly int? HecAcknowledgmentTimeoutInSeconds;
         public readonly string HecEndpoint;
-        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType HecEndpointType;
+        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHecEndpointType HecEndpointType;
         public readonly string HecToken;
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         public readonly Outputs.DeliveryStreamSplunkRetryOptions? RetryOptions;
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             string hecEndpoint,
 
-            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType hecEndpointType,
+            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHecEndpointType hecEndpointType,
 
             string hecToken,
 

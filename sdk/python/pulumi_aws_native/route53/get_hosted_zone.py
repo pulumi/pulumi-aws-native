@@ -71,7 +71,7 @@ class GetHostedZoneResult:
 
     @property
     @pulumi.getter
-    def vpcs(self) -> Optional[Sequence['outputs.HostedZoneVPC']]:
+    def vpcs(self) -> Optional[Sequence['outputs.HostedZoneVpc']]:
         """
         A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """

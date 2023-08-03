@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetLocationHDFSResult',
-    'AwaitableGetLocationHDFSResult',
+    'GetLocationHdfsResult',
+    'AwaitableGetLocationHdfsResult',
     'get_location_hdfs',
     'get_location_hdfs_output',
 ]
 
 @pulumi.output_type
-class GetLocationHDFSResult:
+class GetLocationHdfsResult:
     def __init__(__self__, agent_arns=None, authentication_type=None, block_size=None, kerberos_principal=None, kms_key_provider_uri=None, location_arn=None, location_uri=None, name_nodes=None, qop_configuration=None, replication_factor=None, simple_user=None, tags=None):
         if agent_arns and not isinstance(agent_arns, list):
             raise TypeError("Expected argument 'agent_arns' to be a list")
@@ -68,7 +68,7 @@ class GetLocationHDFSResult:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional['LocationHDFSAuthenticationType']:
+    def authentication_type(self) -> Optional['LocationHdfsAuthenticationType']:
         """
         The authentication mode used to determine identity of user.
         """
@@ -116,7 +116,7 @@ class GetLocationHDFSResult:
 
     @property
     @pulumi.getter(name="nameNodes")
-    def name_nodes(self) -> Optional[Sequence['outputs.LocationHDFSNameNode']]:
+    def name_nodes(self) -> Optional[Sequence['outputs.LocationHdfsNameNode']]:
         """
         An array of Name Node(s) of the HDFS location.
         """
@@ -124,7 +124,7 @@ class GetLocationHDFSResult:
 
     @property
     @pulumi.getter(name="qopConfiguration")
-    def qop_configuration(self) -> Optional['outputs.LocationHDFSQopConfiguration']:
+    def qop_configuration(self) -> Optional['outputs.LocationHdfsQopConfiguration']:
         return pulumi.get(self, "qop_configuration")
 
     @property
@@ -145,19 +145,19 @@ class GetLocationHDFSResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.LocationHDFSTag']]:
+    def tags(self) -> Optional[Sequence['outputs.LocationHdfsTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLocationHDFSResult(GetLocationHDFSResult):
+class AwaitableGetLocationHdfsResult(GetLocationHdfsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetLocationHDFSResult(
+        return GetLocationHdfsResult(
             agent_arns=self.agent_arns,
             authentication_type=self.authentication_type,
             block_size=self.block_size,
@@ -173,7 +173,7 @@ class AwaitableGetLocationHDFSResult(GetLocationHDFSResult):
 
 
 def get_location_hdfs(location_arn: Optional[str] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationHDFSResult:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationHdfsResult:
     """
     Resource schema for AWS::DataSync::LocationHDFS.
 
@@ -183,9 +183,9 @@ def get_location_hdfs(location_arn: Optional[str] = None,
     __args__ = dict()
     __args__['locationArn'] = location_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationHDFS', __args__, opts=opts, typ=GetLocationHDFSResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationHdfs', __args__, opts=opts, typ=GetLocationHdfsResult).value
 
-    return AwaitableGetLocationHDFSResult(
+    return AwaitableGetLocationHdfsResult(
         agent_arns=pulumi.get(__ret__, 'agent_arns'),
         authentication_type=pulumi.get(__ret__, 'authentication_type'),
         block_size=pulumi.get(__ret__, 'block_size'),
@@ -202,7 +202,7 @@ def get_location_hdfs(location_arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_location_hdfs)
 def get_location_hdfs_output(location_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationHDFSResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationHdfsResult]:
     """
     Resource schema for AWS::DataSync::LocationHDFS.
 

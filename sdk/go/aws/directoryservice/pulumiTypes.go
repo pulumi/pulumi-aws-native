@@ -13,125 +13,125 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type MicrosoftADVpcSettings struct {
+type MicrosoftAdVpcSettings struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	VpcId     string   `pulumi:"vpcId"`
 }
 
-// MicrosoftADVpcSettingsInput is an input type that accepts MicrosoftADVpcSettingsArgs and MicrosoftADVpcSettingsOutput values.
-// You can construct a concrete instance of `MicrosoftADVpcSettingsInput` via:
+// MicrosoftAdVpcSettingsInput is an input type that accepts MicrosoftAdVpcSettingsArgs and MicrosoftAdVpcSettingsOutput values.
+// You can construct a concrete instance of `MicrosoftAdVpcSettingsInput` via:
 //
-//	MicrosoftADVpcSettingsArgs{...}
-type MicrosoftADVpcSettingsInput interface {
+//	MicrosoftAdVpcSettingsArgs{...}
+type MicrosoftAdVpcSettingsInput interface {
 	pulumi.Input
 
-	ToMicrosoftADVpcSettingsOutput() MicrosoftADVpcSettingsOutput
-	ToMicrosoftADVpcSettingsOutputWithContext(context.Context) MicrosoftADVpcSettingsOutput
+	ToMicrosoftAdVpcSettingsOutput() MicrosoftAdVpcSettingsOutput
+	ToMicrosoftAdVpcSettingsOutputWithContext(context.Context) MicrosoftAdVpcSettingsOutput
 }
 
-type MicrosoftADVpcSettingsArgs struct {
+type MicrosoftAdVpcSettingsArgs struct {
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	VpcId     pulumi.StringInput      `pulumi:"vpcId"`
 }
 
-func (MicrosoftADVpcSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MicrosoftADVpcSettings)(nil)).Elem()
+func (MicrosoftAdVpcSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrosoftAdVpcSettings)(nil)).Elem()
 }
 
-func (i MicrosoftADVpcSettingsArgs) ToMicrosoftADVpcSettingsOutput() MicrosoftADVpcSettingsOutput {
-	return i.ToMicrosoftADVpcSettingsOutputWithContext(context.Background())
+func (i MicrosoftAdVpcSettingsArgs) ToMicrosoftAdVpcSettingsOutput() MicrosoftAdVpcSettingsOutput {
+	return i.ToMicrosoftAdVpcSettingsOutputWithContext(context.Background())
 }
 
-func (i MicrosoftADVpcSettingsArgs) ToMicrosoftADVpcSettingsOutputWithContext(ctx context.Context) MicrosoftADVpcSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MicrosoftADVpcSettingsOutput)
+func (i MicrosoftAdVpcSettingsArgs) ToMicrosoftAdVpcSettingsOutputWithContext(ctx context.Context) MicrosoftAdVpcSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrosoftAdVpcSettingsOutput)
 }
 
-type MicrosoftADVpcSettingsOutput struct{ *pulumi.OutputState }
+type MicrosoftAdVpcSettingsOutput struct{ *pulumi.OutputState }
 
-func (MicrosoftADVpcSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MicrosoftADVpcSettings)(nil)).Elem()
+func (MicrosoftAdVpcSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrosoftAdVpcSettings)(nil)).Elem()
 }
 
-func (o MicrosoftADVpcSettingsOutput) ToMicrosoftADVpcSettingsOutput() MicrosoftADVpcSettingsOutput {
+func (o MicrosoftAdVpcSettingsOutput) ToMicrosoftAdVpcSettingsOutput() MicrosoftAdVpcSettingsOutput {
 	return o
 }
 
-func (o MicrosoftADVpcSettingsOutput) ToMicrosoftADVpcSettingsOutputWithContext(ctx context.Context) MicrosoftADVpcSettingsOutput {
+func (o MicrosoftAdVpcSettingsOutput) ToMicrosoftAdVpcSettingsOutputWithContext(ctx context.Context) MicrosoftAdVpcSettingsOutput {
 	return o
 }
 
-func (o MicrosoftADVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v MicrosoftADVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+func (o MicrosoftAdVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MicrosoftAdVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o MicrosoftADVpcSettingsOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v MicrosoftADVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
+func (o MicrosoftAdVpcSettingsOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v MicrosoftAdVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
-type SimpleADVpcSettings struct {
+type SimpleAdVpcSettings struct {
 	// The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The identifier of the VPC in which to create the directory.
 	VpcId string `pulumi:"vpcId"`
 }
 
-// SimpleADVpcSettingsInput is an input type that accepts SimpleADVpcSettingsArgs and SimpleADVpcSettingsOutput values.
-// You can construct a concrete instance of `SimpleADVpcSettingsInput` via:
+// SimpleAdVpcSettingsInput is an input type that accepts SimpleAdVpcSettingsArgs and SimpleAdVpcSettingsOutput values.
+// You can construct a concrete instance of `SimpleAdVpcSettingsInput` via:
 //
-//	SimpleADVpcSettingsArgs{...}
-type SimpleADVpcSettingsInput interface {
+//	SimpleAdVpcSettingsArgs{...}
+type SimpleAdVpcSettingsInput interface {
 	pulumi.Input
 
-	ToSimpleADVpcSettingsOutput() SimpleADVpcSettingsOutput
-	ToSimpleADVpcSettingsOutputWithContext(context.Context) SimpleADVpcSettingsOutput
+	ToSimpleAdVpcSettingsOutput() SimpleAdVpcSettingsOutput
+	ToSimpleAdVpcSettingsOutputWithContext(context.Context) SimpleAdVpcSettingsOutput
 }
 
-type SimpleADVpcSettingsArgs struct {
+type SimpleAdVpcSettingsArgs struct {
 	// The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// The identifier of the VPC in which to create the directory.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
-func (SimpleADVpcSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SimpleADVpcSettings)(nil)).Elem()
+func (SimpleAdVpcSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleAdVpcSettings)(nil)).Elem()
 }
 
-func (i SimpleADVpcSettingsArgs) ToSimpleADVpcSettingsOutput() SimpleADVpcSettingsOutput {
-	return i.ToSimpleADVpcSettingsOutputWithContext(context.Background())
+func (i SimpleAdVpcSettingsArgs) ToSimpleAdVpcSettingsOutput() SimpleAdVpcSettingsOutput {
+	return i.ToSimpleAdVpcSettingsOutputWithContext(context.Background())
 }
 
-func (i SimpleADVpcSettingsArgs) ToSimpleADVpcSettingsOutputWithContext(ctx context.Context) SimpleADVpcSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SimpleADVpcSettingsOutput)
+func (i SimpleAdVpcSettingsArgs) ToSimpleAdVpcSettingsOutputWithContext(ctx context.Context) SimpleAdVpcSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SimpleAdVpcSettingsOutput)
 }
 
-type SimpleADVpcSettingsOutput struct{ *pulumi.OutputState }
+type SimpleAdVpcSettingsOutput struct{ *pulumi.OutputState }
 
-func (SimpleADVpcSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SimpleADVpcSettings)(nil)).Elem()
+func (SimpleAdVpcSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleAdVpcSettings)(nil)).Elem()
 }
 
-func (o SimpleADVpcSettingsOutput) ToSimpleADVpcSettingsOutput() SimpleADVpcSettingsOutput {
+func (o SimpleAdVpcSettingsOutput) ToSimpleAdVpcSettingsOutput() SimpleAdVpcSettingsOutput {
 	return o
 }
 
-func (o SimpleADVpcSettingsOutput) ToSimpleADVpcSettingsOutputWithContext(ctx context.Context) SimpleADVpcSettingsOutput {
+func (o SimpleAdVpcSettingsOutput) ToSimpleAdVpcSettingsOutputWithContext(ctx context.Context) SimpleAdVpcSettingsOutput {
 	return o
 }
 
 // The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
-func (o SimpleADVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SimpleADVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+func (o SimpleAdVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SimpleAdVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // The identifier of the VPC in which to create the directory.
-func (o SimpleADVpcSettingsOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v SimpleADVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
+func (o SimpleAdVpcSettingsOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v SimpleAdVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MicrosoftADVpcSettingsInput)(nil)).Elem(), MicrosoftADVpcSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SimpleADVpcSettingsInput)(nil)).Elem(), SimpleADVpcSettingsArgs{})
-	pulumi.RegisterOutputType(MicrosoftADVpcSettingsOutput{})
-	pulumi.RegisterOutputType(SimpleADVpcSettingsOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrosoftAdVpcSettingsInput)(nil)).Elem(), MicrosoftAdVpcSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SimpleAdVpcSettingsInput)(nil)).Elem(), SimpleAdVpcSettingsArgs{})
+	pulumi.RegisterOutputType(MicrosoftAdVpcSettingsOutput{})
+	pulumi.RegisterOutputType(SimpleAdVpcSettingsOutput{})
 }

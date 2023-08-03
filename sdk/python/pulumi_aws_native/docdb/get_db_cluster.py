@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDBClusterResult',
-    'AwaitableGetDBClusterResult',
+    'GetDbClusterResult',
+    'AwaitableGetDbClusterResult',
     'get_db_cluster',
     'get_db_cluster_output',
 ]
 
 @pulumi.output_type
-class GetDBClusterResult:
+class GetDbClusterResult:
     def __init__(__self__, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, db_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, id=None, master_user_password=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, restore_to_time=None, restore_type=None, tags=None, use_latest_restorable_time=None, vpc_security_group_ids=None):
         if backup_retention_period and not isinstance(backup_retention_period, int):
             raise TypeError("Expected argument 'backup_retention_period' to be a int")
@@ -152,7 +152,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBClusterTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DbClusterTag']]:
         return pulumi.get(self, "tags")
 
     @property
@@ -166,12 +166,12 @@ class GetDBClusterResult:
         return pulumi.get(self, "vpc_security_group_ids")
 
 
-class AwaitableGetDBClusterResult(GetDBClusterResult):
+class AwaitableGetDbClusterResult(GetDbClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBClusterResult(
+        return GetDbClusterResult(
             backup_retention_period=self.backup_retention_period,
             cluster_resource_id=self.cluster_resource_id,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
@@ -193,16 +193,16 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
 
 
 def get_db_cluster(id: Optional[str] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBClusterResult:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbClusterResult:
     """
     Resource Type definition for AWS::DocDB::DBCluster
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:docdb:getDBCluster', __args__, opts=opts, typ=GetDBClusterResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:docdb:getDbCluster', __args__, opts=opts, typ=GetDbClusterResult).value
 
-    return AwaitableGetDBClusterResult(
+    return AwaitableGetDbClusterResult(
         backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
         cluster_resource_id=pulumi.get(__ret__, 'cluster_resource_id'),
         copy_tags_to_snapshot=pulumi.get(__ret__, 'copy_tags_to_snapshot'),
@@ -225,7 +225,7 @@ def get_db_cluster(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_cluster)
 def get_db_cluster_output(id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBClusterResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbClusterResult]:
     """
     Resource Type definition for AWS::DocDB::DBCluster
     """

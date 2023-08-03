@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetDBInstanceResult',
-    'AwaitableGetDBInstanceResult',
+    'GetDbInstanceResult',
+    'AwaitableGetDbInstanceResult',
     'get_db_instance',
     'get_db_instance_output',
 ]
 
 @pulumi.output_type
-class GetDBInstanceResult:
+class GetDbInstanceResult:
     def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
@@ -176,7 +176,7 @@ class GetDBInstanceResult:
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> Optional[Sequence['outputs.DBInstanceRole']]:
+    def associated_roles(self) -> Optional[Sequence['outputs.DbInstanceDbInstanceRole']]:
         """
         The AWS Identity and Access Management (IAM) roles associated with the DB instance.
         """
@@ -216,7 +216,7 @@ class GetDBInstanceResult:
 
     @property
     @pulumi.getter(name="certificateDetails")
-    def certificate_details(self) -> Optional['outputs.DBInstanceCertificateDetails']:
+    def certificate_details(self) -> Optional['outputs.DbInstanceCertificateDetails']:
         """
         Returns the details of the DB instance's server certificate.
         """
@@ -344,7 +344,7 @@ class GetDBInstanceResult:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Optional['outputs.DBInstanceEndpoint']:
+    def endpoint(self) -> Optional['outputs.DbInstanceEndpoint']:
         """
         Specifies the connection endpoint.
         """
@@ -392,7 +392,7 @@ class GetDBInstanceResult:
 
     @property
     @pulumi.getter(name="masterUserSecret")
-    def master_user_secret(self) -> Optional['outputs.DBInstanceMasterUserSecret']:
+    def master_user_secret(self) -> Optional['outputs.DbInstanceMasterUserSecret']:
         """
         Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         """
@@ -480,7 +480,7 @@ class GetDBInstanceResult:
 
     @property
     @pulumi.getter(name="processorFeatures")
-    def processor_features(self) -> Optional[Sequence['outputs.DBInstanceProcessorFeature']]:
+    def processor_features(self) -> Optional[Sequence['outputs.DbInstanceProcessorFeature']]:
         """
         The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
         """
@@ -536,7 +536,7 @@ class GetDBInstanceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBInstanceTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DbInstanceTag']]:
         """
         Tags to assign to the DB instance.
         """
@@ -559,12 +559,12 @@ class GetDBInstanceResult:
         return pulumi.get(self, "vpc_security_groups")
 
 
-class AwaitableGetDBInstanceResult(GetDBInstanceResult):
+class AwaitableGetDbInstanceResult(GetDbInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBInstanceResult(
+        return GetDbInstanceResult(
             allocated_storage=self.allocated_storage,
             associated_roles=self.associated_roles,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
@@ -616,7 +616,7 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
 
 
 def get_db_instance(db_instance_identifier: Optional[str] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBInstanceResult:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbInstanceResult:
     """
     The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
 
@@ -626,9 +626,9 @@ def get_db_instance(db_instance_identifier: Optional[str] = None,
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBInstance', __args__, opts=opts, typ=GetDBInstanceResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbInstance', __args__, opts=opts, typ=GetDbInstanceResult).value
 
-    return AwaitableGetDBInstanceResult(
+    return AwaitableGetDbInstanceResult(
         allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
         associated_roles=pulumi.get(__ret__, 'associated_roles'),
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
@@ -681,7 +681,7 @@ def get_db_instance(db_instance_identifier: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_instance)
 def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBInstanceResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbInstanceResult]:
     """
     The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
 

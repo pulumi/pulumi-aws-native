@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateTableFieldLinkContentConfigurationArgs> Content { get; set; } = null!;
 
         [Input("target", required: true)]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateURLTargetConfiguration> Target { get; set; } = null!;
+        public Input<Pulumi.AwsNative.QuickSight.TemplateUrlTargetConfiguration> Target { get; set; } = null!;
 
         public TemplateTableFieldLinkConfigurationArgs()
         {

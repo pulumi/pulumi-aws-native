@@ -6840,7 +6840,7 @@ func (o BucketS3KeyFilterPtrOutput) Rules() BucketFilterRuleArrayOutput {
 type BucketServerSideEncryptionByDefault struct {
 	// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
 	KmsMasterKeyId *string                                         `pulumi:"kmsMasterKeyId"`
-	SseAlgorithm   BucketServerSideEncryptionByDefaultSSEAlgorithm `pulumi:"sseAlgorithm"`
+	SseAlgorithm   BucketServerSideEncryptionByDefaultSseAlgorithm `pulumi:"sseAlgorithm"`
 }
 
 // BucketServerSideEncryptionByDefaultInput is an input type that accepts BucketServerSideEncryptionByDefaultArgs and BucketServerSideEncryptionByDefaultOutput values.
@@ -6858,7 +6858,7 @@ type BucketServerSideEncryptionByDefaultInput interface {
 type BucketServerSideEncryptionByDefaultArgs struct {
 	// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
 	KmsMasterKeyId pulumi.StringPtrInput                                `pulumi:"kmsMasterKeyId"`
-	SseAlgorithm   BucketServerSideEncryptionByDefaultSSEAlgorithmInput `pulumi:"sseAlgorithm"`
+	SseAlgorithm   BucketServerSideEncryptionByDefaultSseAlgorithmInput `pulumi:"sseAlgorithm"`
 }
 
 func (BucketServerSideEncryptionByDefaultArgs) ElementType() reflect.Type {
@@ -6944,10 +6944,10 @@ func (o BucketServerSideEncryptionByDefaultOutput) KmsMasterKeyId() pulumi.Strin
 	return o.ApplyT(func(v BucketServerSideEncryptionByDefault) *string { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o BucketServerSideEncryptionByDefaultOutput) SseAlgorithm() BucketServerSideEncryptionByDefaultSSEAlgorithmOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionByDefault) BucketServerSideEncryptionByDefaultSSEAlgorithm {
+func (o BucketServerSideEncryptionByDefaultOutput) SseAlgorithm() BucketServerSideEncryptionByDefaultSseAlgorithmOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionByDefault) BucketServerSideEncryptionByDefaultSseAlgorithm {
 		return v.SseAlgorithm
-	}).(BucketServerSideEncryptionByDefaultSSEAlgorithmOutput)
+	}).(BucketServerSideEncryptionByDefaultSseAlgorithmOutput)
 }
 
 type BucketServerSideEncryptionByDefaultPtrOutput struct{ *pulumi.OutputState }
@@ -6984,13 +6984,13 @@ func (o BucketServerSideEncryptionByDefaultPtrOutput) KmsMasterKeyId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o BucketServerSideEncryptionByDefaultPtrOutput) SseAlgorithm() BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
-	return o.ApplyT(func(v *BucketServerSideEncryptionByDefault) *BucketServerSideEncryptionByDefaultSSEAlgorithm {
+func (o BucketServerSideEncryptionByDefaultPtrOutput) SseAlgorithm() BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionByDefault) *BucketServerSideEncryptionByDefaultSseAlgorithm {
 		if v == nil {
 			return nil
 		}
 		return &v.SseAlgorithm
-	}).(BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput)
+	}).(BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput)
 }
 
 // Specifies the default server-side encryption configuration.

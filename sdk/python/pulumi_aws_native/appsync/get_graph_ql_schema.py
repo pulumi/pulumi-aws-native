@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetGraphQLSchemaResult',
-    'AwaitableGetGraphQLSchemaResult',
+    'GetGraphQlSchemaResult',
+    'AwaitableGetGraphQlSchemaResult',
     'get_graph_ql_schema',
     'get_graph_ql_schema_output',
 ]
 
 @pulumi.output_type
-class GetGraphQLSchemaResult:
+class GetGraphQlSchemaResult:
     def __init__(__self__, definition=None, definition_s3_location=None, id=None):
         if definition and not isinstance(definition, str):
             raise TypeError("Expected argument 'definition' to be a str")
@@ -45,28 +45,28 @@ class GetGraphQLSchemaResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetGraphQLSchemaResult(GetGraphQLSchemaResult):
+class AwaitableGetGraphQlSchemaResult(GetGraphQlSchemaResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetGraphQLSchemaResult(
+        return GetGraphQlSchemaResult(
             definition=self.definition,
             definition_s3_location=self.definition_s3_location,
             id=self.id)
 
 
 def get_graph_ql_schema(id: Optional[str] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphQLSchemaResult:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphQlSchemaResult:
     """
     Resource Type definition for AWS::AppSync::GraphQLSchema
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:appsync:getGraphQLSchema', __args__, opts=opts, typ=GetGraphQLSchemaResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:appsync:getGraphQlSchema', __args__, opts=opts, typ=GetGraphQlSchemaResult).value
 
-    return AwaitableGetGraphQLSchemaResult(
+    return AwaitableGetGraphQlSchemaResult(
         definition=pulumi.get(__ret__, 'definition'),
         definition_s3_location=pulumi.get(__ret__, 'definition_s3_location'),
         id=pulumi.get(__ret__, 'id'))
@@ -74,7 +74,7 @@ def get_graph_ql_schema(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_graph_ql_schema)
 def get_graph_ql_schema_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphQLSchemaResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphQlSchemaResult]:
     """
     Resource Type definition for AWS::AppSync::GraphQLSchema
     """

@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetVPCEndpointResult',
-    'AwaitableGetVPCEndpointResult',
+    'GetVpcEndpointResult',
+    'AwaitableGetVpcEndpointResult',
     'get_vpc_endpoint',
     'get_vpc_endpoint_output',
 ]
 
 @pulumi.output_type
-class GetVPCEndpointResult:
+class GetVpcEndpointResult:
     def __init__(__self__, creation_timestamp=None, dns_entries=None, id=None, network_interface_ids=None, policy_document=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, subnet_ids=None):
         if creation_timestamp and not isinstance(creation_timestamp, str):
             raise TypeError("Expected argument 'creation_timestamp' to be a str")
@@ -108,12 +108,12 @@ class GetVPCEndpointResult:
         return pulumi.get(self, "subnet_ids")
 
 
-class AwaitableGetVPCEndpointResult(GetVPCEndpointResult):
+class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVPCEndpointResult(
+        return GetVpcEndpointResult(
             creation_timestamp=self.creation_timestamp,
             dns_entries=self.dns_entries,
             id=self.id,
@@ -126,16 +126,16 @@ class AwaitableGetVPCEndpointResult(GetVPCEndpointResult):
 
 
 def get_vpc_endpoint(id: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPCEndpointResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointResult:
     """
     Resource Type definition for AWS::EC2::VPCEndpoint
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCEndpoint', __args__, opts=opts, typ=GetVPCEndpointResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult).value
 
-    return AwaitableGetVPCEndpointResult(
+    return AwaitableGetVpcEndpointResult(
         creation_timestamp=pulumi.get(__ret__, 'creation_timestamp'),
         dns_entries=pulumi.get(__ret__, 'dns_entries'),
         id=pulumi.get(__ret__, 'id'),
@@ -149,7 +149,7 @@ def get_vpc_endpoint(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_vpc_endpoint)
 def get_vpc_endpoint_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCEndpointResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpoint
     """

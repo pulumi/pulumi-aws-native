@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetCRLResult',
-    'AwaitableGetCRLResult',
+    'GetCrlResult',
+    'AwaitableGetCrlResult',
     'get_crl',
     'get_crl_output',
 ]
 
 @pulumi.output_type
-class GetCRLResult:
+class GetCrlResult:
     def __init__(__self__, crl_data=None, crl_id=None, enabled=None, name=None, tags=None, trust_anchor_arn=None):
         if crl_data and not isinstance(crl_data, str):
             raise TypeError("Expected argument 'crl_data' to be a str")
@@ -61,7 +61,7 @@ class GetCRLResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.CRLTag']]:
+    def tags(self) -> Optional[Sequence['outputs.CrlTag']]:
         return pulumi.get(self, "tags")
 
     @property
@@ -70,12 +70,12 @@ class GetCRLResult:
         return pulumi.get(self, "trust_anchor_arn")
 
 
-class AwaitableGetCRLResult(GetCRLResult):
+class AwaitableGetCrlResult(GetCrlResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetCRLResult(
+        return GetCrlResult(
             crl_data=self.crl_data,
             crl_id=self.crl_id,
             enabled=self.enabled,
@@ -85,16 +85,16 @@ class AwaitableGetCRLResult(GetCRLResult):
 
 
 def get_crl(crl_id: Optional[str] = None,
-            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCRLResult:
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCrlResult:
     """
     Definition of AWS::RolesAnywhere::CRL Resource Type
     """
     __args__ = dict()
     __args__['crlId'] = crl_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:rolesanywhere:getCRL', __args__, opts=opts, typ=GetCRLResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:rolesanywhere:getCrl', __args__, opts=opts, typ=GetCrlResult).value
 
-    return AwaitableGetCRLResult(
+    return AwaitableGetCrlResult(
         crl_data=pulumi.get(__ret__, 'crl_data'),
         crl_id=pulumi.get(__ret__, 'crl_id'),
         enabled=pulumi.get(__ret__, 'enabled'),
@@ -105,7 +105,7 @@ def get_crl(crl_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_crl)
 def get_crl_output(crl_id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCRLResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCrlResult]:
     """
     Definition of AWS::RolesAnywhere::CRL Resource Type
     """

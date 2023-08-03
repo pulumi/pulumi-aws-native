@@ -31,16 +31,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InstanceProfile{}
 	case "aws-native:iam:ManagedPolicy":
 		r = &ManagedPolicy{}
-	case "aws-native:iam:OIDCProvider":
-		r = &OIDCProvider{}
+	case "aws-native:iam:OidcProvider":
+		r = &OidcProvider{}
 	case "aws-native:iam:Policy":
 		r = &Policy{}
 	case "aws-native:iam:Role":
 		r = &Role{}
 	case "aws-native:iam:RolePolicy":
 		r = &RolePolicy{}
-	case "aws-native:iam:SAMLProvider":
-		r = &SAMLProvider{}
+	case "aws-native:iam:SamlProvider":
+		r = &SamlProvider{}
 	case "aws-native:iam:ServerCertificate":
 		r = &ServerCertificate{}
 	case "aws-native:iam:ServiceLinkedRole":
@@ -51,8 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserPolicy{}
 	case "aws-native:iam:UserToGroupAddition":
 		r = &UserToGroupAddition{}
-	case "aws-native:iam:VirtualMFADevice":
-		r = &VirtualMFADevice{}
+	case "aws-native:iam:VirtualMfaDevice":
+		r = &VirtualMfaDevice{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

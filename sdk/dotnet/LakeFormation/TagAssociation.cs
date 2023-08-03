@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.LakeFormation
         /// List of Lake Formation Tags to associate with the Lake Formation Resource
         /// </summary>
         [Output("lfTags")]
-        public Output<ImmutableArray<Outputs.TagAssociationLFTagPair>> LfTags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TagAssociationLfTagPair>> LfTags { get; private set; } = null!;
 
         /// <summary>
         /// Resource to tag with the Lake Formation Tags
@@ -85,14 +85,14 @@ namespace Pulumi.AwsNative.LakeFormation
     public sealed class TagAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("lfTags", required: true)]
-        private InputList<Inputs.TagAssociationLFTagPairArgs>? _lfTags;
+        private InputList<Inputs.TagAssociationLfTagPairArgs>? _lfTags;
 
         /// <summary>
         /// List of Lake Formation Tags to associate with the Lake Formation Resource
         /// </summary>
-        public InputList<Inputs.TagAssociationLFTagPairArgs> LfTags
+        public InputList<Inputs.TagAssociationLfTagPairArgs> LfTags
         {
-            get => _lfTags ?? (_lfTags = new InputList<Inputs.TagAssociationLFTagPairArgs>());
+            get => _lfTags ?? (_lfTags = new InputList<Inputs.TagAssociationLfTagPairArgs>());
             set => _lfTags = value;
         }
 

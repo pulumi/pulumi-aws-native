@@ -13,7 +13,7 @@ from ._enums import *
 __all__ = [
     'AlertActionArgs',
     'AlertLambdaConfigurationArgs',
-    'AlertSNSConfigurationArgs',
+    'AlertSnsConfigurationArgs',
     'AnomalyDetectorAppFlowConfigArgs',
     'AnomalyDetectorCloudwatchConfigArgs',
     'AnomalyDetectorConfigArgs',
@@ -23,7 +23,7 @@ __all__ = [
     'AnomalyDetectorMetricSetArgs',
     'AnomalyDetectorMetricSourceArgs',
     'AnomalyDetectorMetricArgs',
-    'AnomalyDetectorRDSSourceConfigArgs',
+    'AnomalyDetectorRdsSourceConfigArgs',
     'AnomalyDetectorRedshiftSourceConfigArgs',
     'AnomalyDetectorS3SourceConfigArgs',
     'AnomalyDetectorTimestampColumnArgs',
@@ -34,7 +34,7 @@ __all__ = [
 class AlertActionArgs:
     def __init__(__self__, *,
                  lambda_configuration: Optional[pulumi.Input['AlertLambdaConfigurationArgs']] = None,
-                 sns_configuration: Optional[pulumi.Input['AlertSNSConfigurationArgs']] = None):
+                 sns_configuration: Optional[pulumi.Input['AlertSnsConfigurationArgs']] = None):
         if lambda_configuration is not None:
             pulumi.set(__self__, "lambda_configuration", lambda_configuration)
         if sns_configuration is not None:
@@ -51,11 +51,11 @@ class AlertActionArgs:
 
     @property
     @pulumi.getter(name="snsConfiguration")
-    def sns_configuration(self) -> Optional[pulumi.Input['AlertSNSConfigurationArgs']]:
+    def sns_configuration(self) -> Optional[pulumi.Input['AlertSnsConfigurationArgs']]:
         return pulumi.get(self, "sns_configuration")
 
     @sns_configuration.setter
-    def sns_configuration(self, value: Optional[pulumi.Input['AlertSNSConfigurationArgs']]):
+    def sns_configuration(self, value: Optional[pulumi.Input['AlertSnsConfigurationArgs']]):
         pulumi.set(self, "sns_configuration", value)
 
 
@@ -98,7 +98,7 @@ class AlertLambdaConfigurationArgs:
 
 
 @pulumi.input_type
-class AlertSNSConfigurationArgs:
+class AlertSnsConfigurationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  sns_topic_arn: pulumi.Input[str]):
@@ -476,7 +476,7 @@ class AnomalyDetectorMetricSourceArgs:
     def __init__(__self__, *,
                  app_flow_config: Optional[pulumi.Input['AnomalyDetectorAppFlowConfigArgs']] = None,
                  cloudwatch_config: Optional[pulumi.Input['AnomalyDetectorCloudwatchConfigArgs']] = None,
-                 rds_source_config: Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']] = None,
+                 rds_source_config: Optional[pulumi.Input['AnomalyDetectorRdsSourceConfigArgs']] = None,
                  redshift_source_config: Optional[pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs']] = None,
                  s3_source_config: Optional[pulumi.Input['AnomalyDetectorS3SourceConfigArgs']] = None):
         if app_flow_config is not None:
@@ -510,11 +510,11 @@ class AnomalyDetectorMetricSourceArgs:
 
     @property
     @pulumi.getter(name="rdsSourceConfig")
-    def rds_source_config(self) -> Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']]:
+    def rds_source_config(self) -> Optional[pulumi.Input['AnomalyDetectorRdsSourceConfigArgs']]:
         return pulumi.get(self, "rds_source_config")
 
     @rds_source_config.setter
-    def rds_source_config(self, value: Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']]):
+    def rds_source_config(self, value: Optional[pulumi.Input['AnomalyDetectorRdsSourceConfigArgs']]):
         pulumi.set(self, "rds_source_config", value)
 
     @property
@@ -582,7 +582,7 @@ class AnomalyDetectorMetricArgs:
 
 
 @pulumi.input_type
-class AnomalyDetectorRDSSourceConfigArgs:
+class AnomalyDetectorRdsSourceConfigArgs:
     def __init__(__self__, *,
                  database_host: pulumi.Input[str],
                  database_name: pulumi.Input[str],

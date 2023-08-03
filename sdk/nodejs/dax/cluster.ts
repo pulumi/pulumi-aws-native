@@ -54,7 +54,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     public readonly replicationFactor!: pulumi.Output<number>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
-    public readonly sseSpecification!: pulumi.Output<outputs.dax.ClusterSSESpecification | undefined>;
+    public readonly sseSpecification!: pulumi.Output<outputs.dax.ClusterSseSpecification | undefined>;
     public readonly subnetGroupName!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
 
@@ -136,7 +136,7 @@ export interface ClusterArgs {
     preferredMaintenanceWindow?: pulumi.Input<string>;
     replicationFactor: pulumi.Input<number>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    sseSpecification?: pulumi.Input<inputs.dax.ClusterSSESpecificationArgs>;
+    sseSpecification?: pulumi.Input<inputs.dax.ClusterSseSpecificationArgs>;
     subnetGroupName?: pulumi.Input<string>;
     tags?: any;
 }

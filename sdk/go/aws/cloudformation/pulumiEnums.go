@@ -535,7 +535,7 @@ func (in *publicTypeVersionTypePtr) ToPublicTypeVersionTypePtrOutputWithContext(
 type PublisherIdentityProvider string
 
 const (
-	PublisherIdentityProviderAWSMarketplace = PublisherIdentityProvider("AWS_Marketplace")
+	PublisherIdentityProviderAwsMarketplace = PublisherIdentityProvider("AWS_Marketplace")
 	PublisherIdentityProviderGitHub         = PublisherIdentityProvider("GitHub")
 	PublisherIdentityProviderBitbucket      = PublisherIdentityProvider("Bitbucket")
 )

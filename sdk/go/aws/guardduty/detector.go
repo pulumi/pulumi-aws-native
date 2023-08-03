@@ -18,7 +18,7 @@ import (
 type Detector struct {
 	pulumi.CustomResourceState
 
-	DataSources                DetectorCFNDataSourceConfigurationsPtrOutput `pulumi:"dataSources"`
+	DataSources                DetectorCfnDataSourceConfigurationsPtrOutput `pulumi:"dataSources"`
 	Enable                     pulumi.BoolOutput                            `pulumi:"enable"`
 	Features                   DetectorFeatureConfigurationsArrayOutput     `pulumi:"features"`
 	FindingPublishingFrequency pulumi.StringPtrOutput                       `pulumi:"findingPublishingFrequency"`
@@ -68,7 +68,7 @@ func (DetectorState) ElementType() reflect.Type {
 }
 
 type detectorArgs struct {
-	DataSources                *DetectorCFNDataSourceConfigurations `pulumi:"dataSources"`
+	DataSources                *DetectorCfnDataSourceConfigurations `pulumi:"dataSources"`
 	Enable                     bool                                 `pulumi:"enable"`
 	Features                   []DetectorFeatureConfigurations      `pulumi:"features"`
 	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
@@ -77,7 +77,7 @@ type detectorArgs struct {
 
 // The set of arguments for constructing a Detector resource.
 type DetectorArgs struct {
-	DataSources                DetectorCFNDataSourceConfigurationsPtrInput
+	DataSources                DetectorCfnDataSourceConfigurationsPtrInput
 	Enable                     pulumi.BoolInput
 	Features                   DetectorFeatureConfigurationsArrayInput
 	FindingPublishingFrequency pulumi.StringPtrInput
@@ -121,8 +121,8 @@ func (o DetectorOutput) ToDetectorOutputWithContext(ctx context.Context) Detecto
 	return o
 }
 
-func (o DetectorOutput) DataSources() DetectorCFNDataSourceConfigurationsPtrOutput {
-	return o.ApplyT(func(v *Detector) DetectorCFNDataSourceConfigurationsPtrOutput { return v.DataSources }).(DetectorCFNDataSourceConfigurationsPtrOutput)
+func (o DetectorOutput) DataSources() DetectorCfnDataSourceConfigurationsPtrOutput {
+	return o.ApplyT(func(v *Detector) DetectorCfnDataSourceConfigurationsPtrOutput { return v.DataSources }).(DetectorCfnDataSourceConfigurationsPtrOutput)
 }
 
 func (o DetectorOutput) Enable() pulumi.BoolOutput {

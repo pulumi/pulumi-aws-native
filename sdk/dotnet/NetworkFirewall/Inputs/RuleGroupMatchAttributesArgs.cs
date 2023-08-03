@@ -53,10 +53,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         }
 
         [Input("tcpFlags")]
-        private InputList<Inputs.RuleGroupTCPFlagFieldArgs>? _tcpFlags;
-        public InputList<Inputs.RuleGroupTCPFlagFieldArgs> TcpFlags
+        private InputList<Inputs.RuleGroupTcpFlagFieldArgs>? _tcpFlags;
+        public InputList<Inputs.RuleGroupTcpFlagFieldArgs> TcpFlags
         {
-            get => _tcpFlags ?? (_tcpFlags = new InputList<Inputs.RuleGroupTCPFlagFieldArgs>());
+            get => _tcpFlags ?? (_tcpFlags = new InputList<Inputs.RuleGroupTcpFlagFieldArgs>());
             set => _tcpFlags = value;
         }
 

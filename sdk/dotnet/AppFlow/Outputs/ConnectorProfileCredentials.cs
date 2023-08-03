@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.ConnectorProfilePardotConnectorProfileCredentials? Pardot;
         public readonly Outputs.ConnectorProfileRedshiftConnectorProfileCredentials? Redshift;
         public readonly Outputs.ConnectorProfileSalesforceConnectorProfileCredentials? Salesforce;
-        public readonly Outputs.ConnectorProfileSAPODataConnectorProfileCredentials? SapoData;
+        public readonly Outputs.ConnectorProfileSapoDataConnectorProfileCredentials? SapoData;
         public readonly Outputs.ConnectorProfileServiceNowConnectorProfileCredentials? ServiceNow;
         public readonly Outputs.ConnectorProfileSingularConnectorProfileCredentials? Singular;
         public readonly Outputs.ConnectorProfileSlackConnectorProfileCredentials? Slack;
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.ConnectorProfileSalesforceConnectorProfileCredentials? salesforce,
 
-            Outputs.ConnectorProfileSAPODataConnectorProfileCredentials? sapoData,
+            Outputs.ConnectorProfileSapoDataConnectorProfileCredentials? sapoData,
 
             Outputs.ConnectorProfileServiceNowConnectorProfileCredentials? serviceNow,
 

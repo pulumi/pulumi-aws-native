@@ -90,7 +90,7 @@ class GetMulticastGroupResult:
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional['outputs.MulticastGroupLoRaWAN']:
+    def lo_ra_wan(self) -> Optional['outputs.MulticastGroupLoRaWan']:
         """
         Multicast group LoRaWAN
         """

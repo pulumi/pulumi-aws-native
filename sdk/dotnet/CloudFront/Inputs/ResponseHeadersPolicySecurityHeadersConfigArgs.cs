@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<Inputs.ResponseHeadersPolicyStrictTransportSecurityArgs>? StrictTransportSecurity { get; set; }
 
         [Input("xssProtection")]
-        public Input<Inputs.ResponseHeadersPolicyXSSProtectionArgs>? XssProtection { get; set; }
+        public Input<Inputs.ResponseHeadersPolicyXssProtectionArgs>? XssProtection { get; set; }
 
         public ResponseHeadersPolicySecurityHeadersConfigArgs()
         {

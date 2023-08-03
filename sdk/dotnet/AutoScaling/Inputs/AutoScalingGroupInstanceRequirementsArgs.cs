@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public Input<int>? SpotMaxPricePercentageOverLowestPrice { get; set; }
 
         [Input("totalLocalStorageGb")]
-        public Input<Inputs.AutoScalingGroupTotalLocalStorageGBRequestArgs>? TotalLocalStorageGb { get; set; }
+        public Input<Inputs.AutoScalingGroupTotalLocalStorageGbRequestArgs>? TotalLocalStorageGb { get; set; }
 
         [Input("vCpuCount")]
         public Input<Inputs.AutoScalingGroupVCpuCountRequestArgs>? VCpuCount { get; set; }

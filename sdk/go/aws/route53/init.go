@@ -23,8 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:route53:CidrCollection":
 		r = &CidrCollection{}
-	case "aws-native:route53:DNSSEC":
-		r = &DNSSEC{}
+	case "aws-native:route53:Dnssec":
+		r = &Dnssec{}
 	case "aws-native:route53:HealthCheck":
 		r = &HealthCheck{}
 	case "aws-native:route53:HostedZone":

@@ -69,7 +69,7 @@ class GetDataSourceResult:
 
     @property
     @pulumi.getter(name="dynamoDbConfig")
-    def dynamo_db_config(self) -> Optional['outputs.DataSourceDynamoDBConfig']:
+    def dynamo_db_config(self) -> Optional['outputs.DataSourceDynamoDbConfig']:
         return pulumi.get(self, "dynamo_db_config")
 
     @property

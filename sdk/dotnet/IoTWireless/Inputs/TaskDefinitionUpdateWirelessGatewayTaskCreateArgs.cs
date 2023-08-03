@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
     public sealed class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs : global::Pulumi.ResourceArgs
     {
         [Input("loRaWan")]
-        public Input<Inputs.TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs>? LoRaWan { get; set; }
+        public Input<Inputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs>? LoRaWan { get; set; }
 
         [Input("updateDataRole")]
         public Input<string>? UpdateDataRole { get; set; }

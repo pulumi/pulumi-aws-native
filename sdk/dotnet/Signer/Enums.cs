@@ -17,8 +17,8 @@ namespace Pulumi.AwsNative.Signer
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SigningProfilePlatformId AWSLambdaSHA384ECDSA { get; } = new SigningProfilePlatformId("AWSLambda-SHA384-ECDSA");
-        public static SigningProfilePlatformId NotationOCISHA384ECDSA { get; } = new SigningProfilePlatformId("Notation-OCI-SHA384-ECDSA");
+        public static SigningProfilePlatformId AwsLambdaSha384ecdsa { get; } = new SigningProfilePlatformId("AWSLambda-SHA384-ECDSA");
+        public static SigningProfilePlatformId NotationOcisha384ecdsa { get; } = new SigningProfilePlatformId("Notation-OCI-SHA384-ECDSA");
 
         public static bool operator ==(SigningProfilePlatformId left, SigningProfilePlatformId right) => left.Equals(right);
         public static bool operator !=(SigningProfilePlatformId left, SigningProfilePlatformId right) => !left.Equals(right);

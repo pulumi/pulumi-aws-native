@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<Inputs.TopicRuleDynamoDBv2ActionArgs>? DynamoDBv2 { get; set; }
 
         [Input("dynamoDb")]
-        public Input<Inputs.TopicRuleDynamoDBActionArgs>? DynamoDb { get; set; }
+        public Input<Inputs.TopicRuleDynamoDbActionArgs>? DynamoDb { get; set; }
 
         [Input("elasticsearch")]
         public Input<Inputs.TopicRuleElasticsearchActionArgs>? Elasticsearch { get; set; }

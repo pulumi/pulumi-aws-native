@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetVPNConnectionResult',
-    'AwaitableGetVPNConnectionResult',
+    'GetVpnConnectionResult',
+    'AwaitableGetVpnConnectionResult',
     'get_vpn_connection',
     'get_vpn_connection_output',
 ]
 
 @pulumi.output_type
-class GetVPNConnectionResult:
+class GetVpnConnectionResult:
     def __init__(__self__, tags=None, vpn_connection_id=None):
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
@@ -29,7 +29,7 @@ class GetVPNConnectionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.VPNConnectionTag']]:
+    def tags(self) -> Optional[Sequence['outputs.VpnConnectionTag']]:
         """
         Any tags assigned to the VPN connection.
         """
@@ -44,18 +44,18 @@ class GetVPNConnectionResult:
         return pulumi.get(self, "vpn_connection_id")
 
 
-class AwaitableGetVPNConnectionResult(GetVPNConnectionResult):
+class AwaitableGetVpnConnectionResult(GetVpnConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVPNConnectionResult(
+        return GetVpnConnectionResult(
             tags=self.tags,
             vpn_connection_id=self.vpn_connection_id)
 
 
 def get_vpn_connection(vpn_connection_id: Optional[str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPNConnectionResult:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConnectionResult:
     """
     Resource Type definition for AWS::EC2::VPNConnection
 
@@ -65,16 +65,16 @@ def get_vpn_connection(vpn_connection_id: Optional[str] = None,
     __args__ = dict()
     __args__['vpnConnectionId'] = vpn_connection_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPNConnection', __args__, opts=opts, typ=GetVPNConnectionResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpnConnection', __args__, opts=opts, typ=GetVpnConnectionResult).value
 
-    return AwaitableGetVPNConnectionResult(
+    return AwaitableGetVpnConnectionResult(
         tags=pulumi.get(__ret__, 'tags'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'))
 
 
 @_utilities.lift_output_func(get_vpn_connection)
 def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPNConnectionResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
     Resource Type definition for AWS::EC2::VPNConnection
 

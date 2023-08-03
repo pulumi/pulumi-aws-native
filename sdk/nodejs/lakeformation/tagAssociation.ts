@@ -40,7 +40,7 @@ export class TagAssociation extends pulumi.CustomResource {
     /**
      * List of Lake Formation Tags to associate with the Lake Formation Resource
      */
-    public readonly lfTags!: pulumi.Output<outputs.lakeformation.TagAssociationLFTagPair[]>;
+    public readonly lfTags!: pulumi.Output<outputs.lakeformation.TagAssociationLfTagPair[]>;
     /**
      * Resource to tag with the Lake Formation Tags
      */
@@ -93,7 +93,7 @@ export interface TagAssociationArgs {
     /**
      * List of Lake Formation Tags to associate with the Lake Formation Resource
      */
-    lfTags: pulumi.Input<pulumi.Input<inputs.lakeformation.TagAssociationLFTagPairArgs>[]>;
+    lfTags: pulumi.Input<pulumi.Input<inputs.lakeformation.TagAssociationLfTagPairArgs>[]>;
     /**
      * Resource to tag with the Lake Formation Tags
      */

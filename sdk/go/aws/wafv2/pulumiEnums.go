@@ -11,124 +11,124 @@ import (
 )
 
 // Type of addresses in the IPSet, use IPV4 for IPV4 IP addresses, IPV6 for IPV6 address.
-type IPSetIPAddressVersion string
+type IpSetIpAddressVersion string
 
 const (
-	IPSetIPAddressVersionIpv4 = IPSetIPAddressVersion("IPV4")
-	IPSetIPAddressVersionIpv6 = IPSetIPAddressVersion("IPV6")
+	IpSetIpAddressVersionIpv4 = IpSetIpAddressVersion("IPV4")
+	IpSetIpAddressVersionIpv6 = IpSetIpAddressVersion("IPV6")
 )
 
-func (IPSetIPAddressVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSetIPAddressVersion)(nil)).Elem()
+func (IpSetIpAddressVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpSetIpAddressVersion)(nil)).Elem()
 }
 
-func (e IPSetIPAddressVersion) ToIPSetIPAddressVersionOutput() IPSetIPAddressVersionOutput {
-	return pulumi.ToOutput(e).(IPSetIPAddressVersionOutput)
+func (e IpSetIpAddressVersion) ToIpSetIpAddressVersionOutput() IpSetIpAddressVersionOutput {
+	return pulumi.ToOutput(e).(IpSetIpAddressVersionOutput)
 }
 
-func (e IPSetIPAddressVersion) ToIPSetIPAddressVersionOutputWithContext(ctx context.Context) IPSetIPAddressVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(IPSetIPAddressVersionOutput)
+func (e IpSetIpAddressVersion) ToIpSetIpAddressVersionOutputWithContext(ctx context.Context) IpSetIpAddressVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpSetIpAddressVersionOutput)
 }
 
-func (e IPSetIPAddressVersion) ToIPSetIPAddressVersionPtrOutput() IPSetIPAddressVersionPtrOutput {
-	return e.ToIPSetIPAddressVersionPtrOutputWithContext(context.Background())
+func (e IpSetIpAddressVersion) ToIpSetIpAddressVersionPtrOutput() IpSetIpAddressVersionPtrOutput {
+	return e.ToIpSetIpAddressVersionPtrOutputWithContext(context.Background())
 }
 
-func (e IPSetIPAddressVersion) ToIPSetIPAddressVersionPtrOutputWithContext(ctx context.Context) IPSetIPAddressVersionPtrOutput {
-	return IPSetIPAddressVersion(e).ToIPSetIPAddressVersionOutputWithContext(ctx).ToIPSetIPAddressVersionPtrOutputWithContext(ctx)
+func (e IpSetIpAddressVersion) ToIpSetIpAddressVersionPtrOutputWithContext(ctx context.Context) IpSetIpAddressVersionPtrOutput {
+	return IpSetIpAddressVersion(e).ToIpSetIpAddressVersionOutputWithContext(ctx).ToIpSetIpAddressVersionPtrOutputWithContext(ctx)
 }
 
-func (e IPSetIPAddressVersion) ToStringOutput() pulumi.StringOutput {
+func (e IpSetIpAddressVersion) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e IPSetIPAddressVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e IpSetIpAddressVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e IPSetIPAddressVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e IpSetIpAddressVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e IPSetIPAddressVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e IpSetIpAddressVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type IPSetIPAddressVersionOutput struct{ *pulumi.OutputState }
+type IpSetIpAddressVersionOutput struct{ *pulumi.OutputState }
 
-func (IPSetIPAddressVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSetIPAddressVersion)(nil)).Elem()
+func (IpSetIpAddressVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpSetIpAddressVersion)(nil)).Elem()
 }
 
-func (o IPSetIPAddressVersionOutput) ToIPSetIPAddressVersionOutput() IPSetIPAddressVersionOutput {
+func (o IpSetIpAddressVersionOutput) ToIpSetIpAddressVersionOutput() IpSetIpAddressVersionOutput {
 	return o
 }
 
-func (o IPSetIPAddressVersionOutput) ToIPSetIPAddressVersionOutputWithContext(ctx context.Context) IPSetIPAddressVersionOutput {
+func (o IpSetIpAddressVersionOutput) ToIpSetIpAddressVersionOutputWithContext(ctx context.Context) IpSetIpAddressVersionOutput {
 	return o
 }
 
-func (o IPSetIPAddressVersionOutput) ToIPSetIPAddressVersionPtrOutput() IPSetIPAddressVersionPtrOutput {
-	return o.ToIPSetIPAddressVersionPtrOutputWithContext(context.Background())
+func (o IpSetIpAddressVersionOutput) ToIpSetIpAddressVersionPtrOutput() IpSetIpAddressVersionPtrOutput {
+	return o.ToIpSetIpAddressVersionPtrOutputWithContext(context.Background())
 }
 
-func (o IPSetIPAddressVersionOutput) ToIPSetIPAddressVersionPtrOutputWithContext(ctx context.Context) IPSetIPAddressVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSetIPAddressVersion) *IPSetIPAddressVersion {
+func (o IpSetIpAddressVersionOutput) ToIpSetIpAddressVersionPtrOutputWithContext(ctx context.Context) IpSetIpAddressVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpSetIpAddressVersion) *IpSetIpAddressVersion {
 		return &v
-	}).(IPSetIPAddressVersionPtrOutput)
+	}).(IpSetIpAddressVersionPtrOutput)
 }
 
-func (o IPSetIPAddressVersionOutput) ToStringOutput() pulumi.StringOutput {
+func (o IpSetIpAddressVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o IPSetIPAddressVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IPSetIPAddressVersion) string {
+func (o IpSetIpAddressVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpSetIpAddressVersion) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o IPSetIPAddressVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o IpSetIpAddressVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o IPSetIPAddressVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IPSetIPAddressVersion) *string {
+func (o IpSetIpAddressVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpSetIpAddressVersion) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type IPSetIPAddressVersionPtrOutput struct{ *pulumi.OutputState }
+type IpSetIpAddressVersionPtrOutput struct{ *pulumi.OutputState }
 
-func (IPSetIPAddressVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IPSetIPAddressVersion)(nil)).Elem()
+func (IpSetIpAddressVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpSetIpAddressVersion)(nil)).Elem()
 }
 
-func (o IPSetIPAddressVersionPtrOutput) ToIPSetIPAddressVersionPtrOutput() IPSetIPAddressVersionPtrOutput {
+func (o IpSetIpAddressVersionPtrOutput) ToIpSetIpAddressVersionPtrOutput() IpSetIpAddressVersionPtrOutput {
 	return o
 }
 
-func (o IPSetIPAddressVersionPtrOutput) ToIPSetIPAddressVersionPtrOutputWithContext(ctx context.Context) IPSetIPAddressVersionPtrOutput {
+func (o IpSetIpAddressVersionPtrOutput) ToIpSetIpAddressVersionPtrOutputWithContext(ctx context.Context) IpSetIpAddressVersionPtrOutput {
 	return o
 }
 
-func (o IPSetIPAddressVersionPtrOutput) Elem() IPSetIPAddressVersionOutput {
-	return o.ApplyT(func(v *IPSetIPAddressVersion) IPSetIPAddressVersion {
+func (o IpSetIpAddressVersionPtrOutput) Elem() IpSetIpAddressVersionOutput {
+	return o.ApplyT(func(v *IpSetIpAddressVersion) IpSetIpAddressVersion {
 		if v != nil {
 			return *v
 		}
-		var ret IPSetIPAddressVersion
+		var ret IpSetIpAddressVersion
 		return ret
-	}).(IPSetIPAddressVersionOutput)
+	}).(IpSetIpAddressVersionOutput)
 }
 
-func (o IPSetIPAddressVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o IpSetIpAddressVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o IPSetIPAddressVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IPSetIPAddressVersion) *string {
+func (o IpSetIpAddressVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpSetIpAddressVersion) *string {
 		if e == nil {
 			return nil
 		}
@@ -137,163 +137,163 @@ func (o IPSetIPAddressVersionPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// IPSetIPAddressVersionInput is an input type that accepts IPSetIPAddressVersionArgs and IPSetIPAddressVersionOutput values.
-// You can construct a concrete instance of `IPSetIPAddressVersionInput` via:
+// IpSetIpAddressVersionInput is an input type that accepts IpSetIpAddressVersionArgs and IpSetIpAddressVersionOutput values.
+// You can construct a concrete instance of `IpSetIpAddressVersionInput` via:
 //
-//	IPSetIPAddressVersionArgs{...}
-type IPSetIPAddressVersionInput interface {
+//	IpSetIpAddressVersionArgs{...}
+type IpSetIpAddressVersionInput interface {
 	pulumi.Input
 
-	ToIPSetIPAddressVersionOutput() IPSetIPAddressVersionOutput
-	ToIPSetIPAddressVersionOutputWithContext(context.Context) IPSetIPAddressVersionOutput
+	ToIpSetIpAddressVersionOutput() IpSetIpAddressVersionOutput
+	ToIpSetIpAddressVersionOutputWithContext(context.Context) IpSetIpAddressVersionOutput
 }
 
-var ipsetIPAddressVersionPtrType = reflect.TypeOf((**IPSetIPAddressVersion)(nil)).Elem()
+var ipSetIpAddressVersionPtrType = reflect.TypeOf((**IpSetIpAddressVersion)(nil)).Elem()
 
-type IPSetIPAddressVersionPtrInput interface {
+type IpSetIpAddressVersionPtrInput interface {
 	pulumi.Input
 
-	ToIPSetIPAddressVersionPtrOutput() IPSetIPAddressVersionPtrOutput
-	ToIPSetIPAddressVersionPtrOutputWithContext(context.Context) IPSetIPAddressVersionPtrOutput
+	ToIpSetIpAddressVersionPtrOutput() IpSetIpAddressVersionPtrOutput
+	ToIpSetIpAddressVersionPtrOutputWithContext(context.Context) IpSetIpAddressVersionPtrOutput
 }
 
-type ipsetIPAddressVersionPtr string
+type ipSetIpAddressVersionPtr string
 
-func IPSetIPAddressVersionPtr(v string) IPSetIPAddressVersionPtrInput {
-	return (*ipsetIPAddressVersionPtr)(&v)
+func IpSetIpAddressVersionPtr(v string) IpSetIpAddressVersionPtrInput {
+	return (*ipSetIpAddressVersionPtr)(&v)
 }
 
-func (*ipsetIPAddressVersionPtr) ElementType() reflect.Type {
-	return ipsetIPAddressVersionPtrType
+func (*ipSetIpAddressVersionPtr) ElementType() reflect.Type {
+	return ipSetIpAddressVersionPtrType
 }
 
-func (in *ipsetIPAddressVersionPtr) ToIPSetIPAddressVersionPtrOutput() IPSetIPAddressVersionPtrOutput {
-	return pulumi.ToOutput(in).(IPSetIPAddressVersionPtrOutput)
+func (in *ipSetIpAddressVersionPtr) ToIpSetIpAddressVersionPtrOutput() IpSetIpAddressVersionPtrOutput {
+	return pulumi.ToOutput(in).(IpSetIpAddressVersionPtrOutput)
 }
 
-func (in *ipsetIPAddressVersionPtr) ToIPSetIPAddressVersionPtrOutputWithContext(ctx context.Context) IPSetIPAddressVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(IPSetIPAddressVersionPtrOutput)
+func (in *ipSetIpAddressVersionPtr) ToIpSetIpAddressVersionPtrOutputWithContext(ctx context.Context) IpSetIpAddressVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpSetIpAddressVersionPtrOutput)
 }
 
 // Use CLOUDFRONT for CloudFront IPSet, use REGIONAL for Application Load Balancer and API Gateway.
-type IPSetScope string
+type IpSetScope string
 
 const (
-	IPSetScopeCloudfront = IPSetScope("CLOUDFRONT")
-	IPSetScopeRegional   = IPSetScope("REGIONAL")
+	IpSetScopeCloudfront = IpSetScope("CLOUDFRONT")
+	IpSetScopeRegional   = IpSetScope("REGIONAL")
 )
 
-func (IPSetScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSetScope)(nil)).Elem()
+func (IpSetScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpSetScope)(nil)).Elem()
 }
 
-func (e IPSetScope) ToIPSetScopeOutput() IPSetScopeOutput {
-	return pulumi.ToOutput(e).(IPSetScopeOutput)
+func (e IpSetScope) ToIpSetScopeOutput() IpSetScopeOutput {
+	return pulumi.ToOutput(e).(IpSetScopeOutput)
 }
 
-func (e IPSetScope) ToIPSetScopeOutputWithContext(ctx context.Context) IPSetScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(IPSetScopeOutput)
+func (e IpSetScope) ToIpSetScopeOutputWithContext(ctx context.Context) IpSetScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpSetScopeOutput)
 }
 
-func (e IPSetScope) ToIPSetScopePtrOutput() IPSetScopePtrOutput {
-	return e.ToIPSetScopePtrOutputWithContext(context.Background())
+func (e IpSetScope) ToIpSetScopePtrOutput() IpSetScopePtrOutput {
+	return e.ToIpSetScopePtrOutputWithContext(context.Background())
 }
 
-func (e IPSetScope) ToIPSetScopePtrOutputWithContext(ctx context.Context) IPSetScopePtrOutput {
-	return IPSetScope(e).ToIPSetScopeOutputWithContext(ctx).ToIPSetScopePtrOutputWithContext(ctx)
+func (e IpSetScope) ToIpSetScopePtrOutputWithContext(ctx context.Context) IpSetScopePtrOutput {
+	return IpSetScope(e).ToIpSetScopeOutputWithContext(ctx).ToIpSetScopePtrOutputWithContext(ctx)
 }
 
-func (e IPSetScope) ToStringOutput() pulumi.StringOutput {
+func (e IpSetScope) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e IPSetScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e IpSetScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e IPSetScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e IpSetScope) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e IPSetScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e IpSetScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type IPSetScopeOutput struct{ *pulumi.OutputState }
+type IpSetScopeOutput struct{ *pulumi.OutputState }
 
-func (IPSetScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSetScope)(nil)).Elem()
+func (IpSetScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpSetScope)(nil)).Elem()
 }
 
-func (o IPSetScopeOutput) ToIPSetScopeOutput() IPSetScopeOutput {
+func (o IpSetScopeOutput) ToIpSetScopeOutput() IpSetScopeOutput {
 	return o
 }
 
-func (o IPSetScopeOutput) ToIPSetScopeOutputWithContext(ctx context.Context) IPSetScopeOutput {
+func (o IpSetScopeOutput) ToIpSetScopeOutputWithContext(ctx context.Context) IpSetScopeOutput {
 	return o
 }
 
-func (o IPSetScopeOutput) ToIPSetScopePtrOutput() IPSetScopePtrOutput {
-	return o.ToIPSetScopePtrOutputWithContext(context.Background())
+func (o IpSetScopeOutput) ToIpSetScopePtrOutput() IpSetScopePtrOutput {
+	return o.ToIpSetScopePtrOutputWithContext(context.Background())
 }
 
-func (o IPSetScopeOutput) ToIPSetScopePtrOutputWithContext(ctx context.Context) IPSetScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSetScope) *IPSetScope {
+func (o IpSetScopeOutput) ToIpSetScopePtrOutputWithContext(ctx context.Context) IpSetScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpSetScope) *IpSetScope {
 		return &v
-	}).(IPSetScopePtrOutput)
+	}).(IpSetScopePtrOutput)
 }
 
-func (o IPSetScopeOutput) ToStringOutput() pulumi.StringOutput {
+func (o IpSetScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o IPSetScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IPSetScope) string {
+func (o IpSetScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpSetScope) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o IPSetScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o IpSetScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o IPSetScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IPSetScope) *string {
+func (o IpSetScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpSetScope) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type IPSetScopePtrOutput struct{ *pulumi.OutputState }
+type IpSetScopePtrOutput struct{ *pulumi.OutputState }
 
-func (IPSetScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IPSetScope)(nil)).Elem()
+func (IpSetScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpSetScope)(nil)).Elem()
 }
 
-func (o IPSetScopePtrOutput) ToIPSetScopePtrOutput() IPSetScopePtrOutput {
+func (o IpSetScopePtrOutput) ToIpSetScopePtrOutput() IpSetScopePtrOutput {
 	return o
 }
 
-func (o IPSetScopePtrOutput) ToIPSetScopePtrOutputWithContext(ctx context.Context) IPSetScopePtrOutput {
+func (o IpSetScopePtrOutput) ToIpSetScopePtrOutputWithContext(ctx context.Context) IpSetScopePtrOutput {
 	return o
 }
 
-func (o IPSetScopePtrOutput) Elem() IPSetScopeOutput {
-	return o.ApplyT(func(v *IPSetScope) IPSetScope {
+func (o IpSetScopePtrOutput) Elem() IpSetScopeOutput {
+	return o.ApplyT(func(v *IpSetScope) IpSetScope {
 		if v != nil {
 			return *v
 		}
-		var ret IPSetScope
+		var ret IpSetScope
 		return ret
-	}).(IPSetScopeOutput)
+	}).(IpSetScopeOutput)
 }
 
-func (o IPSetScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o IpSetScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o IPSetScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IPSetScope) *string {
+func (o IpSetScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpSetScope) *string {
 		if e == nil {
 			return nil
 		}
@@ -302,42 +302,42 @@ func (o IPSetScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// IPSetScopeInput is an input type that accepts IPSetScopeArgs and IPSetScopeOutput values.
-// You can construct a concrete instance of `IPSetScopeInput` via:
+// IpSetScopeInput is an input type that accepts IpSetScopeArgs and IpSetScopeOutput values.
+// You can construct a concrete instance of `IpSetScopeInput` via:
 //
-//	IPSetScopeArgs{...}
-type IPSetScopeInput interface {
+//	IpSetScopeArgs{...}
+type IpSetScopeInput interface {
 	pulumi.Input
 
-	ToIPSetScopeOutput() IPSetScopeOutput
-	ToIPSetScopeOutputWithContext(context.Context) IPSetScopeOutput
+	ToIpSetScopeOutput() IpSetScopeOutput
+	ToIpSetScopeOutputWithContext(context.Context) IpSetScopeOutput
 }
 
-var ipsetScopePtrType = reflect.TypeOf((**IPSetScope)(nil)).Elem()
+var ipSetScopePtrType = reflect.TypeOf((**IpSetScope)(nil)).Elem()
 
-type IPSetScopePtrInput interface {
+type IpSetScopePtrInput interface {
 	pulumi.Input
 
-	ToIPSetScopePtrOutput() IPSetScopePtrOutput
-	ToIPSetScopePtrOutputWithContext(context.Context) IPSetScopePtrOutput
+	ToIpSetScopePtrOutput() IpSetScopePtrOutput
+	ToIpSetScopePtrOutputWithContext(context.Context) IpSetScopePtrOutput
 }
 
-type ipsetScopePtr string
+type ipSetScopePtr string
 
-func IPSetScopePtr(v string) IPSetScopePtrInput {
-	return (*ipsetScopePtr)(&v)
+func IpSetScopePtr(v string) IpSetScopePtrInput {
+	return (*ipSetScopePtr)(&v)
 }
 
-func (*ipsetScopePtr) ElementType() reflect.Type {
-	return ipsetScopePtrType
+func (*ipSetScopePtr) ElementType() reflect.Type {
+	return ipSetScopePtrType
 }
 
-func (in *ipsetScopePtr) ToIPSetScopePtrOutput() IPSetScopePtrOutput {
-	return pulumi.ToOutput(in).(IPSetScopePtrOutput)
+func (in *ipSetScopePtr) ToIpSetScopePtrOutput() IpSetScopePtrOutput {
+	return pulumi.ToOutput(in).(IpSetScopePtrOutput)
 }
 
-func (in *ipsetScopePtr) ToIPSetScopePtrOutputWithContext(ctx context.Context) IPSetScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(IPSetScopePtrOutput)
+func (in *ipSetScopePtr) ToIpSetScopePtrOutputWithContext(ctx context.Context) IpSetScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpSetScopePtrOutput)
 }
 
 // Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
@@ -1667,124 +1667,124 @@ func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToRuleGroupBodyParsingFallbac
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
 }
 
-type RuleGroupForwardedIPConfigurationFallbackBehavior string
+type RuleGroupForwardedIpConfigurationFallbackBehavior string
 
 const (
-	RuleGroupForwardedIPConfigurationFallbackBehaviorMatch   = RuleGroupForwardedIPConfigurationFallbackBehavior("MATCH")
-	RuleGroupForwardedIPConfigurationFallbackBehaviorNoMatch = RuleGroupForwardedIPConfigurationFallbackBehavior("NO_MATCH")
+	RuleGroupForwardedIpConfigurationFallbackBehaviorMatch   = RuleGroupForwardedIpConfigurationFallbackBehavior("MATCH")
+	RuleGroupForwardedIpConfigurationFallbackBehaviorNoMatch = RuleGroupForwardedIpConfigurationFallbackBehavior("NO_MATCH")
 )
 
-func (RuleGroupForwardedIPConfigurationFallbackBehavior) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (RuleGroupForwardedIpConfigurationFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (e RuleGroupForwardedIPConfigurationFallbackBehavior) ToRuleGroupForwardedIPConfigurationFallbackBehaviorOutput() RuleGroupForwardedIPConfigurationFallbackBehaviorOutput {
-	return pulumi.ToOutput(e).(RuleGroupForwardedIPConfigurationFallbackBehaviorOutput)
+func (e RuleGroupForwardedIpConfigurationFallbackBehavior) ToRuleGroupForwardedIpConfigurationFallbackBehaviorOutput() RuleGroupForwardedIpConfigurationFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(RuleGroupForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (e RuleGroupForwardedIPConfigurationFallbackBehavior) ToRuleGroupForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationFallbackBehaviorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupForwardedIPConfigurationFallbackBehaviorOutput)
+func (e RuleGroupForwardedIpConfigurationFallbackBehavior) ToRuleGroupForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupForwardedIpConfigurationFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (e RuleGroupForwardedIPConfigurationFallbackBehavior) ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput() RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return e.ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
+func (e RuleGroupForwardedIpConfigurationFallbackBehavior) ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput() RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return e.ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
 }
 
-func (e RuleGroupForwardedIPConfigurationFallbackBehavior) ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return RuleGroupForwardedIPConfigurationFallbackBehavior(e).ToRuleGroupForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx).ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx)
+func (e RuleGroupForwardedIpConfigurationFallbackBehavior) ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return RuleGroupForwardedIpConfigurationFallbackBehavior(e).ToRuleGroupForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx).ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx)
 }
 
-func (e RuleGroupForwardedIPConfigurationFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+func (e RuleGroupForwardedIpConfigurationFallbackBehavior) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e RuleGroupForwardedIPConfigurationFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e RuleGroupForwardedIpConfigurationFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e RuleGroupForwardedIPConfigurationFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e RuleGroupForwardedIpConfigurationFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e RuleGroupForwardedIPConfigurationFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e RuleGroupForwardedIpConfigurationFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type RuleGroupForwardedIPConfigurationFallbackBehaviorOutput struct{ *pulumi.OutputState }
+type RuleGroupForwardedIpConfigurationFallbackBehaviorOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToRuleGroupForwardedIPConfigurationFallbackBehaviorOutput() RuleGroupForwardedIPConfigurationFallbackBehaviorOutput {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToRuleGroupForwardedIpConfigurationFallbackBehaviorOutput() RuleGroupForwardedIpConfigurationFallbackBehaviorOutput {
 	return o
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToRuleGroupForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationFallbackBehaviorOutput {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToRuleGroupForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupForwardedIpConfigurationFallbackBehaviorOutput {
 	return o
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput() RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return o.ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput() RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return o.ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupForwardedIPConfigurationFallbackBehavior) *RuleGroupForwardedIPConfigurationFallbackBehavior {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupForwardedIpConfigurationFallbackBehavior) *RuleGroupForwardedIpConfigurationFallbackBehavior {
 		return &v
-	}).(RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput)
+	}).(RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupForwardedIPConfigurationFallbackBehavior) string {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupForwardedIpConfigurationFallbackBehavior) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupForwardedIPConfigurationFallbackBehavior) *string {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupForwardedIpConfigurationFallbackBehavior) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+type RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput() RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput) ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput() RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return o
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput) ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return o
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) Elem() RuleGroupForwardedIPConfigurationFallbackBehaviorOutput {
-	return o.ApplyT(func(v *RuleGroupForwardedIPConfigurationFallbackBehavior) RuleGroupForwardedIPConfigurationFallbackBehavior {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput) Elem() RuleGroupForwardedIpConfigurationFallbackBehaviorOutput {
+	return o.ApplyT(func(v *RuleGroupForwardedIpConfigurationFallbackBehavior) RuleGroupForwardedIpConfigurationFallbackBehavior {
 		if v != nil {
 			return *v
 		}
-		var ret RuleGroupForwardedIPConfigurationFallbackBehavior
+		var ret RuleGroupForwardedIpConfigurationFallbackBehavior
 		return ret
-	}).(RuleGroupForwardedIPConfigurationFallbackBehaviorOutput)
+	}).(RuleGroupForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupForwardedIPConfigurationFallbackBehavior) *string {
+func (o RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupForwardedIpConfigurationFallbackBehavior) *string {
 		if e == nil {
 			return nil
 		}
@@ -1793,162 +1793,162 @@ func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupForwardedIPConfigurationFallbackBehaviorInput is an input type that accepts RuleGroupForwardedIPConfigurationFallbackBehaviorArgs and RuleGroupForwardedIPConfigurationFallbackBehaviorOutput values.
-// You can construct a concrete instance of `RuleGroupForwardedIPConfigurationFallbackBehaviorInput` via:
+// RuleGroupForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts RuleGroupForwardedIpConfigurationFallbackBehaviorArgs and RuleGroupForwardedIpConfigurationFallbackBehaviorOutput values.
+// You can construct a concrete instance of `RuleGroupForwardedIpConfigurationFallbackBehaviorInput` via:
 //
-//	RuleGroupForwardedIPConfigurationFallbackBehaviorArgs{...}
-type RuleGroupForwardedIPConfigurationFallbackBehaviorInput interface {
+//	RuleGroupForwardedIpConfigurationFallbackBehaviorArgs{...}
+type RuleGroupForwardedIpConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
-	ToRuleGroupForwardedIPConfigurationFallbackBehaviorOutput() RuleGroupForwardedIPConfigurationFallbackBehaviorOutput
-	ToRuleGroupForwardedIPConfigurationFallbackBehaviorOutputWithContext(context.Context) RuleGroupForwardedIPConfigurationFallbackBehaviorOutput
+	ToRuleGroupForwardedIpConfigurationFallbackBehaviorOutput() RuleGroupForwardedIpConfigurationFallbackBehaviorOutput
+	ToRuleGroupForwardedIpConfigurationFallbackBehaviorOutputWithContext(context.Context) RuleGroupForwardedIpConfigurationFallbackBehaviorOutput
 }
 
-var ruleGroupForwardedIPConfigurationFallbackBehaviorPtrType = reflect.TypeOf((**RuleGroupForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+var ruleGroupForwardedIpConfigurationFallbackBehaviorPtrType = reflect.TypeOf((**RuleGroupForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 
-type RuleGroupForwardedIPConfigurationFallbackBehaviorPtrInput interface {
+type RuleGroupForwardedIpConfigurationFallbackBehaviorPtrInput interface {
 	pulumi.Input
 
-	ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput() RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput
-	ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Context) RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput
+	ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput() RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput
+	ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Context) RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput
 }
 
-type ruleGroupForwardedIPConfigurationFallbackBehaviorPtr string
+type ruleGroupForwardedIpConfigurationFallbackBehaviorPtr string
 
-func RuleGroupForwardedIPConfigurationFallbackBehaviorPtr(v string) RuleGroupForwardedIPConfigurationFallbackBehaviorPtrInput {
-	return (*ruleGroupForwardedIPConfigurationFallbackBehaviorPtr)(&v)
+func RuleGroupForwardedIpConfigurationFallbackBehaviorPtr(v string) RuleGroupForwardedIpConfigurationFallbackBehaviorPtrInput {
+	return (*ruleGroupForwardedIpConfigurationFallbackBehaviorPtr)(&v)
 }
 
-func (*ruleGroupForwardedIPConfigurationFallbackBehaviorPtr) ElementType() reflect.Type {
-	return ruleGroupForwardedIPConfigurationFallbackBehaviorPtrType
+func (*ruleGroupForwardedIpConfigurationFallbackBehaviorPtr) ElementType() reflect.Type {
+	return ruleGroupForwardedIpConfigurationFallbackBehaviorPtrType
 }
 
-func (in *ruleGroupForwardedIPConfigurationFallbackBehaviorPtr) ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput() RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return pulumi.ToOutput(in).(RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput)
+func (in *ruleGroupForwardedIpConfigurationFallbackBehaviorPtr) ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput() RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (in *ruleGroupForwardedIPConfigurationFallbackBehaviorPtr) ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput)
+func (in *ruleGroupForwardedIpConfigurationFallbackBehaviorPtr) ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-type RuleGroupIPSetForwardedIPConfigurationFallbackBehavior string
+type RuleGroupIpSetForwardedIpConfigurationFallbackBehavior string
 
 const (
-	RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorMatch   = RuleGroupIPSetForwardedIPConfigurationFallbackBehavior("MATCH")
-	RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorNoMatch = RuleGroupIPSetForwardedIPConfigurationFallbackBehavior("NO_MATCH")
+	RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorMatch   = RuleGroupIpSetForwardedIpConfigurationFallbackBehavior("MATCH")
+	RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorNoMatch = RuleGroupIpSetForwardedIpConfigurationFallbackBehavior("NO_MATCH")
 )
 
-func (RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupIPSetForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput {
-	return pulumi.ToOutput(e).(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput)
+func (e RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput() RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput)
+func (e RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return e.ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
+func (e RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput() RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return e.ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return RuleGroupIPSetForwardedIPConfigurationFallbackBehavior(e).ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx).ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx)
+func (e RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return RuleGroupIpSetForwardedIpConfigurationFallbackBehavior(e).ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx).ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx)
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+func (e RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput struct{ *pulumi.OutputState }
+type RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupIPSetForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput() RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput {
 	return o
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput {
 	return o
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return o.ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput() RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return o.ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) *RuleGroupIPSetForwardedIPConfigurationFallbackBehavior {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) *RuleGroupIpSetForwardedIpConfigurationFallbackBehavior {
 		return &v
-	}).(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
+	}).(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) string {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) *string {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+type RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupIPSetForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupIpSetForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput() RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return o
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return o
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) Elem() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput {
-	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) RuleGroupIPSetForwardedIPConfigurationFallbackBehavior {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) Elem() RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput {
+	return o.ApplyT(func(v *RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) RuleGroupIpSetForwardedIpConfigurationFallbackBehavior {
 		if v != nil {
 			return *v
 		}
-		var ret RuleGroupIPSetForwardedIPConfigurationFallbackBehavior
+		var ret RuleGroupIpSetForwardedIpConfigurationFallbackBehavior
 		return ret
-	}).(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput)
+	}).(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) *string {
+func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) *string {
 		if e == nil {
 			return nil
 		}
@@ -1957,163 +1957,163 @@ func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorInput is an input type that accepts RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorArgs and RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput values.
-// You can construct a concrete instance of `RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorInput` via:
+// RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorArgs and RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput values.
+// You can construct a concrete instance of `RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorInput` via:
 //
-//	RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorArgs{...}
-type RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorInput interface {
+//	RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorArgs{...}
+type RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
-	ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput
-	ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutputWithContext(context.Context) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput
+	ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput() RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput
+	ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutputWithContext(context.Context) RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput
 }
 
-var ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrType = reflect.TypeOf((**RuleGroupIPSetForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+var ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrType = reflect.TypeOf((**RuleGroupIpSetForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 
-type RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrInput interface {
+type RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrInput interface {
 	pulumi.Input
 
-	ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput
-	ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Context) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput
+	ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput() RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput
+	ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Context) RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput
 }
 
-type ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtr string
+type ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtr string
 
-func RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtr(v string) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrInput {
-	return (*ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtr)(&v)
+func RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtr(v string) RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrInput {
+	return (*ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtr)(&v)
 }
 
-func (*ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtr) ElementType() reflect.Type {
-	return ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrType
+func (*ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtr) ElementType() reflect.Type {
+	return ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrType
 }
 
-func (in *ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return pulumi.ToOutput(in).(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
+func (in *ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput() RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (in *ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
+func (in *ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-type RuleGroupIPSetForwardedIPConfigurationPosition string
+type RuleGroupIpSetForwardedIpConfigurationPosition string
 
 const (
-	RuleGroupIPSetForwardedIPConfigurationPositionFirst = RuleGroupIPSetForwardedIPConfigurationPosition("FIRST")
-	RuleGroupIPSetForwardedIPConfigurationPositionLast  = RuleGroupIPSetForwardedIPConfigurationPosition("LAST")
-	RuleGroupIPSetForwardedIPConfigurationPositionAny   = RuleGroupIPSetForwardedIPConfigurationPosition("ANY")
+	RuleGroupIpSetForwardedIpConfigurationPositionFirst = RuleGroupIpSetForwardedIpConfigurationPosition("FIRST")
+	RuleGroupIpSetForwardedIpConfigurationPositionLast  = RuleGroupIpSetForwardedIpConfigurationPosition("LAST")
+	RuleGroupIpSetForwardedIpConfigurationPositionAny   = RuleGroupIpSetForwardedIpConfigurationPosition("ANY")
 )
 
-func (RuleGroupIPSetForwardedIPConfigurationPosition) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupIPSetForwardedIPConfigurationPosition)(nil)).Elem()
+func (RuleGroupIpSetForwardedIpConfigurationPosition) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationPosition)(nil)).Elem()
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationPosition) ToRuleGroupIPSetForwardedIPConfigurationPositionOutput() RuleGroupIPSetForwardedIPConfigurationPositionOutput {
-	return pulumi.ToOutput(e).(RuleGroupIPSetForwardedIPConfigurationPositionOutput)
+func (e RuleGroupIpSetForwardedIpConfigurationPosition) ToRuleGroupIpSetForwardedIpConfigurationPositionOutput() RuleGroupIpSetForwardedIpConfigurationPositionOutput {
+	return pulumi.ToOutput(e).(RuleGroupIpSetForwardedIpConfigurationPositionOutput)
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationPosition) ToRuleGroupIPSetForwardedIPConfigurationPositionOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPositionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupIPSetForwardedIPConfigurationPositionOutput)
+func (e RuleGroupIpSetForwardedIpConfigurationPosition) ToRuleGroupIpSetForwardedIpConfigurationPositionOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationPositionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupIpSetForwardedIpConfigurationPositionOutput)
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationPosition) ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutput() RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
-	return e.ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(context.Background())
+func (e RuleGroupIpSetForwardedIpConfigurationPosition) ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutput() RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput {
+	return e.ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutputWithContext(context.Background())
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationPosition) ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
-	return RuleGroupIPSetForwardedIPConfigurationPosition(e).ToRuleGroupIPSetForwardedIPConfigurationPositionOutputWithContext(ctx).ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx)
+func (e RuleGroupIpSetForwardedIpConfigurationPosition) ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput {
+	return RuleGroupIpSetForwardedIpConfigurationPosition(e).ToRuleGroupIpSetForwardedIpConfigurationPositionOutputWithContext(ctx).ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx)
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationPosition) ToStringOutput() pulumi.StringOutput {
+func (e RuleGroupIpSetForwardedIpConfigurationPosition) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationPosition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e RuleGroupIpSetForwardedIpConfigurationPosition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationPosition) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e RuleGroupIpSetForwardedIpConfigurationPosition) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e RuleGroupIPSetForwardedIPConfigurationPosition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e RuleGroupIpSetForwardedIpConfigurationPosition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type RuleGroupIPSetForwardedIPConfigurationPositionOutput struct{ *pulumi.OutputState }
+type RuleGroupIpSetForwardedIpConfigurationPositionOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupIPSetForwardedIPConfigurationPositionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupIPSetForwardedIPConfigurationPosition)(nil)).Elem()
+func (RuleGroupIpSetForwardedIpConfigurationPositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationPosition)(nil)).Elem()
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToRuleGroupIPSetForwardedIPConfigurationPositionOutput() RuleGroupIPSetForwardedIPConfigurationPositionOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToRuleGroupIpSetForwardedIpConfigurationPositionOutput() RuleGroupIpSetForwardedIpConfigurationPositionOutput {
 	return o
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToRuleGroupIPSetForwardedIPConfigurationPositionOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPositionOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToRuleGroupIpSetForwardedIpConfigurationPositionOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationPositionOutput {
 	return o
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutput() RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
-	return o.ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(context.Background())
+func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutput() RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput {
+	return o.ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupIPSetForwardedIPConfigurationPosition) *RuleGroupIPSetForwardedIPConfigurationPosition {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupIpSetForwardedIpConfigurationPosition) *RuleGroupIpSetForwardedIpConfigurationPosition {
 		return &v
-	}).(RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput)
+	}).(RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput)
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToStringOutput() pulumi.StringOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupIPSetForwardedIPConfigurationPosition) string {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupIpSetForwardedIpConfigurationPosition) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupIPSetForwardedIPConfigurationPosition) *string {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupIpSetForwardedIpConfigurationPosition) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput struct{ *pulumi.OutputState }
+type RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupIPSetForwardedIPConfigurationPosition)(nil)).Elem()
+func (RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupIpSetForwardedIpConfigurationPosition)(nil)).Elem()
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutput() RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput) ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutput() RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput {
 	return o
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput) ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput {
 	return o
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) Elem() RuleGroupIPSetForwardedIPConfigurationPositionOutput {
-	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfigurationPosition) RuleGroupIPSetForwardedIPConfigurationPosition {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput) Elem() RuleGroupIpSetForwardedIpConfigurationPositionOutput {
+	return o.ApplyT(func(v *RuleGroupIpSetForwardedIpConfigurationPosition) RuleGroupIpSetForwardedIpConfigurationPosition {
 		if v != nil {
 			return *v
 		}
-		var ret RuleGroupIPSetForwardedIPConfigurationPosition
+		var ret RuleGroupIpSetForwardedIpConfigurationPosition
 		return ret
-	}).(RuleGroupIPSetForwardedIPConfigurationPositionOutput)
+	}).(RuleGroupIpSetForwardedIpConfigurationPositionOutput)
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupIPSetForwardedIPConfigurationPosition) *string {
+func (o RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupIpSetForwardedIpConfigurationPosition) *string {
 		if e == nil {
 			return nil
 		}
@@ -2122,42 +2122,42 @@ func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupIPSetForwardedIPConfigurationPositionInput is an input type that accepts RuleGroupIPSetForwardedIPConfigurationPositionArgs and RuleGroupIPSetForwardedIPConfigurationPositionOutput values.
-// You can construct a concrete instance of `RuleGroupIPSetForwardedIPConfigurationPositionInput` via:
+// RuleGroupIpSetForwardedIpConfigurationPositionInput is an input type that accepts RuleGroupIpSetForwardedIpConfigurationPositionArgs and RuleGroupIpSetForwardedIpConfigurationPositionOutput values.
+// You can construct a concrete instance of `RuleGroupIpSetForwardedIpConfigurationPositionInput` via:
 //
-//	RuleGroupIPSetForwardedIPConfigurationPositionArgs{...}
-type RuleGroupIPSetForwardedIPConfigurationPositionInput interface {
+//	RuleGroupIpSetForwardedIpConfigurationPositionArgs{...}
+type RuleGroupIpSetForwardedIpConfigurationPositionInput interface {
 	pulumi.Input
 
-	ToRuleGroupIPSetForwardedIPConfigurationPositionOutput() RuleGroupIPSetForwardedIPConfigurationPositionOutput
-	ToRuleGroupIPSetForwardedIPConfigurationPositionOutputWithContext(context.Context) RuleGroupIPSetForwardedIPConfigurationPositionOutput
+	ToRuleGroupIpSetForwardedIpConfigurationPositionOutput() RuleGroupIpSetForwardedIpConfigurationPositionOutput
+	ToRuleGroupIpSetForwardedIpConfigurationPositionOutputWithContext(context.Context) RuleGroupIpSetForwardedIpConfigurationPositionOutput
 }
 
-var ruleGroupIPSetForwardedIPConfigurationPositionPtrType = reflect.TypeOf((**RuleGroupIPSetForwardedIPConfigurationPosition)(nil)).Elem()
+var ruleGroupIpSetForwardedIpConfigurationPositionPtrType = reflect.TypeOf((**RuleGroupIpSetForwardedIpConfigurationPosition)(nil)).Elem()
 
-type RuleGroupIPSetForwardedIPConfigurationPositionPtrInput interface {
+type RuleGroupIpSetForwardedIpConfigurationPositionPtrInput interface {
 	pulumi.Input
 
-	ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutput() RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput
-	ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(context.Context) RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput
+	ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutput() RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput
+	ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutputWithContext(context.Context) RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput
 }
 
-type ruleGroupIPSetForwardedIPConfigurationPositionPtr string
+type ruleGroupIpSetForwardedIpConfigurationPositionPtr string
 
-func RuleGroupIPSetForwardedIPConfigurationPositionPtr(v string) RuleGroupIPSetForwardedIPConfigurationPositionPtrInput {
-	return (*ruleGroupIPSetForwardedIPConfigurationPositionPtr)(&v)
+func RuleGroupIpSetForwardedIpConfigurationPositionPtr(v string) RuleGroupIpSetForwardedIpConfigurationPositionPtrInput {
+	return (*ruleGroupIpSetForwardedIpConfigurationPositionPtr)(&v)
 }
 
-func (*ruleGroupIPSetForwardedIPConfigurationPositionPtr) ElementType() reflect.Type {
-	return ruleGroupIPSetForwardedIPConfigurationPositionPtrType
+func (*ruleGroupIpSetForwardedIpConfigurationPositionPtr) ElementType() reflect.Type {
+	return ruleGroupIpSetForwardedIpConfigurationPositionPtrType
 }
 
-func (in *ruleGroupIPSetForwardedIPConfigurationPositionPtr) ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutput() RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
-	return pulumi.ToOutput(in).(RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput)
+func (in *ruleGroupIpSetForwardedIpConfigurationPositionPtr) ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutput() RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput)
 }
 
-func (in *ruleGroupIPSetForwardedIPConfigurationPositionPtr) ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput)
+func (in *ruleGroupIpSetForwardedIpConfigurationPositionPtr) ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput)
 }
 
 // The parts of the JSON to match against using the MatchPattern.
@@ -3837,124 +3837,124 @@ func (in *ruleGroupTextTransformationTypePtr) ToRuleGroupTextTransformationTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupTextTransformationTypePtrOutput)
 }
 
-type WebACLAWSManagedRulesBotControlRuleSetInspectionLevel string
+type WebAclAwsManagedRulesBotControlRuleSetInspectionLevel string
 
 const (
-	WebACLAWSManagedRulesBotControlRuleSetInspectionLevelCommon   = WebACLAWSManagedRulesBotControlRuleSetInspectionLevel("COMMON")
-	WebACLAWSManagedRulesBotControlRuleSetInspectionLevelTargeted = WebACLAWSManagedRulesBotControlRuleSetInspectionLevel("TARGETED")
+	WebAclAwsManagedRulesBotControlRuleSetInspectionLevelCommon   = WebAclAwsManagedRulesBotControlRuleSetInspectionLevel("COMMON")
+	WebAclAwsManagedRulesBotControlRuleSetInspectionLevelTargeted = WebAclAwsManagedRulesBotControlRuleSetInspectionLevel("TARGETED")
 )
 
-func (WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
+func (WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
 }
 
-func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
-	return pulumi.ToOutput(e).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput)
+func (e WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput {
+	return pulumi.ToOutput(e).(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput)
 }
 
-func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput)
+func (e WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(ctx context.Context) WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput)
 }
 
-func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
-	return e.ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(context.Background())
+func (e WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return e.ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
-	return WebACLAWSManagedRulesBotControlRuleSetInspectionLevel(e).ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(ctx).ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx)
+func (e WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return WebAclAwsManagedRulesBotControlRuleSetInspectionLevel(e).ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(ctx).ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx)
 }
 
-func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToStringOutput() pulumi.StringOutput {
+func (e WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput struct{ *pulumi.OutputState }
+type WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput struct{ *pulumi.OutputState }
 
-func (WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
+func (WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput {
 	return o
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(ctx context.Context) WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput {
 	return o
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
-	return o.ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(context.Background())
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return o.ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) *WebACLAWSManagedRulesBotControlRuleSetInspectionLevel {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) *WebAclAwsManagedRulesBotControlRuleSetInspectionLevel {
 		return &v
-	}).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
+	}).(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) string {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) *string {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput struct{ *pulumi.OutputState }
+type WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLAWSManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
+func (WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclAwsManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
 	return o
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
 	return o
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) Elem() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
-	return o.ApplyT(func(v *WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) WebACLAWSManagedRulesBotControlRuleSetInspectionLevel {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput) Elem() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput {
+	return o.ApplyT(func(v *WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) WebAclAwsManagedRulesBotControlRuleSetInspectionLevel {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLAWSManagedRulesBotControlRuleSetInspectionLevel
+		var ret WebAclAwsManagedRulesBotControlRuleSetInspectionLevel
 		return ret
-	}).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput)
+	}).(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput)
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) *string {
+func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) *string {
 		if e == nil {
 			return nil
 		}
@@ -3963,164 +3963,164 @@ func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLAWSManagedRulesBotControlRuleSetInspectionLevelInput is an input type that accepts WebACLAWSManagedRulesBotControlRuleSetInspectionLevelArgs and WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput values.
-// You can construct a concrete instance of `WebACLAWSManagedRulesBotControlRuleSetInspectionLevelInput` via:
+// WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput is an input type that accepts WebAclAwsManagedRulesBotControlRuleSetInspectionLevelArgs and WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput values.
+// You can construct a concrete instance of `WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput` via:
 //
-//	WebACLAWSManagedRulesBotControlRuleSetInspectionLevelArgs{...}
-type WebACLAWSManagedRulesBotControlRuleSetInspectionLevelInput interface {
+//	WebAclAwsManagedRulesBotControlRuleSetInspectionLevelArgs{...}
+type WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput interface {
 	pulumi.Input
 
-	ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput
-	ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput
+	ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput
+	ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(context.Context) WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput
 }
 
-var webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrType = reflect.TypeOf((**WebACLAWSManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
+var webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrType = reflect.TypeOf((**WebAclAwsManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
 
-type WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrInput interface {
+type WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrInput interface {
 	pulumi.Input
 
-	ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput
-	ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput
+	ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput
+	ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(context.Context) WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput
 }
 
-type webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr string
+type webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtr string
 
-func WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr(v string) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrInput {
-	return (*webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr)(&v)
+func WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtr(v string) WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrInput {
+	return (*webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtr)(&v)
 }
 
-func (*webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr) ElementType() reflect.Type {
-	return webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrType
+func (*webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtr) ElementType() reflect.Type {
+	return webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrType
 }
 
-func (in *webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
-	return pulumi.ToOutput(in).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
+func (in *webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return pulumi.ToOutput(in).(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
 }
 
-func (in *webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
+func (in *webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
 }
 
 // The inspection behavior to fall back to if the JSON in the request body is invalid.
-type WebACLBodyParsingFallbackBehavior string
+type WebAclBodyParsingFallbackBehavior string
 
 const (
-	WebACLBodyParsingFallbackBehaviorMatch            = WebACLBodyParsingFallbackBehavior("MATCH")
-	WebACLBodyParsingFallbackBehaviorNoMatch          = WebACLBodyParsingFallbackBehavior("NO_MATCH")
-	WebACLBodyParsingFallbackBehaviorEvaluateAsString = WebACLBodyParsingFallbackBehavior("EVALUATE_AS_STRING")
+	WebAclBodyParsingFallbackBehaviorMatch            = WebAclBodyParsingFallbackBehavior("MATCH")
+	WebAclBodyParsingFallbackBehaviorNoMatch          = WebAclBodyParsingFallbackBehavior("NO_MATCH")
+	WebAclBodyParsingFallbackBehaviorEvaluateAsString = WebAclBodyParsingFallbackBehavior("EVALUATE_AS_STRING")
 )
 
-func (WebACLBodyParsingFallbackBehavior) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLBodyParsingFallbackBehavior)(nil)).Elem()
+func (WebAclBodyParsingFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclBodyParsingFallbackBehavior)(nil)).Elem()
 }
 
-func (e WebACLBodyParsingFallbackBehavior) ToWebACLBodyParsingFallbackBehaviorOutput() WebACLBodyParsingFallbackBehaviorOutput {
-	return pulumi.ToOutput(e).(WebACLBodyParsingFallbackBehaviorOutput)
+func (e WebAclBodyParsingFallbackBehavior) ToWebAclBodyParsingFallbackBehaviorOutput() WebAclBodyParsingFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(WebAclBodyParsingFallbackBehaviorOutput)
 }
 
-func (e WebACLBodyParsingFallbackBehavior) ToWebACLBodyParsingFallbackBehaviorOutputWithContext(ctx context.Context) WebACLBodyParsingFallbackBehaviorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLBodyParsingFallbackBehaviorOutput)
+func (e WebAclBodyParsingFallbackBehavior) ToWebAclBodyParsingFallbackBehaviorOutputWithContext(ctx context.Context) WebAclBodyParsingFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclBodyParsingFallbackBehaviorOutput)
 }
 
-func (e WebACLBodyParsingFallbackBehavior) ToWebACLBodyParsingFallbackBehaviorPtrOutput() WebACLBodyParsingFallbackBehaviorPtrOutput {
-	return e.ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(context.Background())
+func (e WebAclBodyParsingFallbackBehavior) ToWebAclBodyParsingFallbackBehaviorPtrOutput() WebAclBodyParsingFallbackBehaviorPtrOutput {
+	return e.ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLBodyParsingFallbackBehavior) ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLBodyParsingFallbackBehaviorPtrOutput {
-	return WebACLBodyParsingFallbackBehavior(e).ToWebACLBodyParsingFallbackBehaviorOutputWithContext(ctx).ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(ctx)
+func (e WebAclBodyParsingFallbackBehavior) ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclBodyParsingFallbackBehaviorPtrOutput {
+	return WebAclBodyParsingFallbackBehavior(e).ToWebAclBodyParsingFallbackBehaviorOutputWithContext(ctx).ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(ctx)
 }
 
-func (e WebACLBodyParsingFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+func (e WebAclBodyParsingFallbackBehavior) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLBodyParsingFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclBodyParsingFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLBodyParsingFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclBodyParsingFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLBodyParsingFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclBodyParsingFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLBodyParsingFallbackBehaviorOutput struct{ *pulumi.OutputState }
+type WebAclBodyParsingFallbackBehaviorOutput struct{ *pulumi.OutputState }
 
-func (WebACLBodyParsingFallbackBehaviorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLBodyParsingFallbackBehavior)(nil)).Elem()
+func (WebAclBodyParsingFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclBodyParsingFallbackBehavior)(nil)).Elem()
 }
 
-func (o WebACLBodyParsingFallbackBehaviorOutput) ToWebACLBodyParsingFallbackBehaviorOutput() WebACLBodyParsingFallbackBehaviorOutput {
+func (o WebAclBodyParsingFallbackBehaviorOutput) ToWebAclBodyParsingFallbackBehaviorOutput() WebAclBodyParsingFallbackBehaviorOutput {
 	return o
 }
 
-func (o WebACLBodyParsingFallbackBehaviorOutput) ToWebACLBodyParsingFallbackBehaviorOutputWithContext(ctx context.Context) WebACLBodyParsingFallbackBehaviorOutput {
+func (o WebAclBodyParsingFallbackBehaviorOutput) ToWebAclBodyParsingFallbackBehaviorOutputWithContext(ctx context.Context) WebAclBodyParsingFallbackBehaviorOutput {
 	return o
 }
 
-func (o WebACLBodyParsingFallbackBehaviorOutput) ToWebACLBodyParsingFallbackBehaviorPtrOutput() WebACLBodyParsingFallbackBehaviorPtrOutput {
-	return o.ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(context.Background())
+func (o WebAclBodyParsingFallbackBehaviorOutput) ToWebAclBodyParsingFallbackBehaviorPtrOutput() WebAclBodyParsingFallbackBehaviorPtrOutput {
+	return o.ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLBodyParsingFallbackBehaviorOutput) ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLBodyParsingFallbackBehaviorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLBodyParsingFallbackBehavior) *WebACLBodyParsingFallbackBehavior {
+func (o WebAclBodyParsingFallbackBehaviorOutput) ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclBodyParsingFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclBodyParsingFallbackBehavior) *WebAclBodyParsingFallbackBehavior {
 		return &v
-	}).(WebACLBodyParsingFallbackBehaviorPtrOutput)
+	}).(WebAclBodyParsingFallbackBehaviorPtrOutput)
 }
 
-func (o WebACLBodyParsingFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclBodyParsingFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLBodyParsingFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLBodyParsingFallbackBehavior) string {
+func (o WebAclBodyParsingFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclBodyParsingFallbackBehavior) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLBodyParsingFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclBodyParsingFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLBodyParsingFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLBodyParsingFallbackBehavior) *string {
+func (o WebAclBodyParsingFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclBodyParsingFallbackBehavior) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLBodyParsingFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+type WebAclBodyParsingFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLBodyParsingFallbackBehaviorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLBodyParsingFallbackBehavior)(nil)).Elem()
+func (WebAclBodyParsingFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclBodyParsingFallbackBehavior)(nil)).Elem()
 }
 
-func (o WebACLBodyParsingFallbackBehaviorPtrOutput) ToWebACLBodyParsingFallbackBehaviorPtrOutput() WebACLBodyParsingFallbackBehaviorPtrOutput {
+func (o WebAclBodyParsingFallbackBehaviorPtrOutput) ToWebAclBodyParsingFallbackBehaviorPtrOutput() WebAclBodyParsingFallbackBehaviorPtrOutput {
 	return o
 }
 
-func (o WebACLBodyParsingFallbackBehaviorPtrOutput) ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLBodyParsingFallbackBehaviorPtrOutput {
+func (o WebAclBodyParsingFallbackBehaviorPtrOutput) ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclBodyParsingFallbackBehaviorPtrOutput {
 	return o
 }
 
-func (o WebACLBodyParsingFallbackBehaviorPtrOutput) Elem() WebACLBodyParsingFallbackBehaviorOutput {
-	return o.ApplyT(func(v *WebACLBodyParsingFallbackBehavior) WebACLBodyParsingFallbackBehavior {
+func (o WebAclBodyParsingFallbackBehaviorPtrOutput) Elem() WebAclBodyParsingFallbackBehaviorOutput {
+	return o.ApplyT(func(v *WebAclBodyParsingFallbackBehavior) WebAclBodyParsingFallbackBehavior {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLBodyParsingFallbackBehavior
+		var ret WebAclBodyParsingFallbackBehavior
 		return ret
-	}).(WebACLBodyParsingFallbackBehaviorOutput)
+	}).(WebAclBodyParsingFallbackBehaviorOutput)
 }
 
-func (o WebACLBodyParsingFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclBodyParsingFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLBodyParsingFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLBodyParsingFallbackBehavior) *string {
+func (o WebAclBodyParsingFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclBodyParsingFallbackBehavior) *string {
 		if e == nil {
 			return nil
 		}
@@ -4129,162 +4129,162 @@ func (o WebACLBodyParsingFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLBodyParsingFallbackBehaviorInput is an input type that accepts WebACLBodyParsingFallbackBehaviorArgs and WebACLBodyParsingFallbackBehaviorOutput values.
-// You can construct a concrete instance of `WebACLBodyParsingFallbackBehaviorInput` via:
+// WebAclBodyParsingFallbackBehaviorInput is an input type that accepts WebAclBodyParsingFallbackBehaviorArgs and WebAclBodyParsingFallbackBehaviorOutput values.
+// You can construct a concrete instance of `WebAclBodyParsingFallbackBehaviorInput` via:
 //
-//	WebACLBodyParsingFallbackBehaviorArgs{...}
-type WebACLBodyParsingFallbackBehaviorInput interface {
+//	WebAclBodyParsingFallbackBehaviorArgs{...}
+type WebAclBodyParsingFallbackBehaviorInput interface {
 	pulumi.Input
 
-	ToWebACLBodyParsingFallbackBehaviorOutput() WebACLBodyParsingFallbackBehaviorOutput
-	ToWebACLBodyParsingFallbackBehaviorOutputWithContext(context.Context) WebACLBodyParsingFallbackBehaviorOutput
+	ToWebAclBodyParsingFallbackBehaviorOutput() WebAclBodyParsingFallbackBehaviorOutput
+	ToWebAclBodyParsingFallbackBehaviorOutputWithContext(context.Context) WebAclBodyParsingFallbackBehaviorOutput
 }
 
-var webACLBodyParsingFallbackBehaviorPtrType = reflect.TypeOf((**WebACLBodyParsingFallbackBehavior)(nil)).Elem()
+var webAclBodyParsingFallbackBehaviorPtrType = reflect.TypeOf((**WebAclBodyParsingFallbackBehavior)(nil)).Elem()
 
-type WebACLBodyParsingFallbackBehaviorPtrInput interface {
+type WebAclBodyParsingFallbackBehaviorPtrInput interface {
 	pulumi.Input
 
-	ToWebACLBodyParsingFallbackBehaviorPtrOutput() WebACLBodyParsingFallbackBehaviorPtrOutput
-	ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(context.Context) WebACLBodyParsingFallbackBehaviorPtrOutput
+	ToWebAclBodyParsingFallbackBehaviorPtrOutput() WebAclBodyParsingFallbackBehaviorPtrOutput
+	ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(context.Context) WebAclBodyParsingFallbackBehaviorPtrOutput
 }
 
-type webACLBodyParsingFallbackBehaviorPtr string
+type webAclBodyParsingFallbackBehaviorPtr string
 
-func WebACLBodyParsingFallbackBehaviorPtr(v string) WebACLBodyParsingFallbackBehaviorPtrInput {
-	return (*webACLBodyParsingFallbackBehaviorPtr)(&v)
+func WebAclBodyParsingFallbackBehaviorPtr(v string) WebAclBodyParsingFallbackBehaviorPtrInput {
+	return (*webAclBodyParsingFallbackBehaviorPtr)(&v)
 }
 
-func (*webACLBodyParsingFallbackBehaviorPtr) ElementType() reflect.Type {
-	return webACLBodyParsingFallbackBehaviorPtrType
+func (*webAclBodyParsingFallbackBehaviorPtr) ElementType() reflect.Type {
+	return webAclBodyParsingFallbackBehaviorPtrType
 }
 
-func (in *webACLBodyParsingFallbackBehaviorPtr) ToWebACLBodyParsingFallbackBehaviorPtrOutput() WebACLBodyParsingFallbackBehaviorPtrOutput {
-	return pulumi.ToOutput(in).(WebACLBodyParsingFallbackBehaviorPtrOutput)
+func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehaviorPtrOutput() WebAclBodyParsingFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(WebAclBodyParsingFallbackBehaviorPtrOutput)
 }
 
-func (in *webACLBodyParsingFallbackBehaviorPtr) ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLBodyParsingFallbackBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLBodyParsingFallbackBehaviorPtrOutput)
+func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclBodyParsingFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclBodyParsingFallbackBehaviorPtrOutput)
 }
 
-type WebACLForwardedIPConfigurationFallbackBehavior string
+type WebAclForwardedIpConfigurationFallbackBehavior string
 
 const (
-	WebACLForwardedIPConfigurationFallbackBehaviorMatch   = WebACLForwardedIPConfigurationFallbackBehavior("MATCH")
-	WebACLForwardedIPConfigurationFallbackBehaviorNoMatch = WebACLForwardedIPConfigurationFallbackBehavior("NO_MATCH")
+	WebAclForwardedIpConfigurationFallbackBehaviorMatch   = WebAclForwardedIpConfigurationFallbackBehavior("MATCH")
+	WebAclForwardedIpConfigurationFallbackBehaviorNoMatch = WebAclForwardedIpConfigurationFallbackBehavior("NO_MATCH")
 )
 
-func (WebACLForwardedIPConfigurationFallbackBehavior) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (WebAclForwardedIpConfigurationFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (e WebACLForwardedIPConfigurationFallbackBehavior) ToWebACLForwardedIPConfigurationFallbackBehaviorOutput() WebACLForwardedIPConfigurationFallbackBehaviorOutput {
-	return pulumi.ToOutput(e).(WebACLForwardedIPConfigurationFallbackBehaviorOutput)
+func (e WebAclForwardedIpConfigurationFallbackBehavior) ToWebAclForwardedIpConfigurationFallbackBehaviorOutput() WebAclForwardedIpConfigurationFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(WebAclForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (e WebACLForwardedIPConfigurationFallbackBehavior) ToWebACLForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationFallbackBehaviorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLForwardedIPConfigurationFallbackBehaviorOutput)
+func (e WebAclForwardedIpConfigurationFallbackBehavior) ToWebAclForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) WebAclForwardedIpConfigurationFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (e WebACLForwardedIPConfigurationFallbackBehavior) ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutput() WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return e.ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
+func (e WebAclForwardedIpConfigurationFallbackBehavior) ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutput() WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return e.ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLForwardedIPConfigurationFallbackBehavior) ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return WebACLForwardedIPConfigurationFallbackBehavior(e).ToWebACLForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx).ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx)
+func (e WebAclForwardedIpConfigurationFallbackBehavior) ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return WebAclForwardedIpConfigurationFallbackBehavior(e).ToWebAclForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx).ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx)
 }
 
-func (e WebACLForwardedIPConfigurationFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+func (e WebAclForwardedIpConfigurationFallbackBehavior) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLForwardedIPConfigurationFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclForwardedIpConfigurationFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLForwardedIPConfigurationFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclForwardedIpConfigurationFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLForwardedIPConfigurationFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclForwardedIpConfigurationFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLForwardedIPConfigurationFallbackBehaviorOutput struct{ *pulumi.OutputState }
+type WebAclForwardedIpConfigurationFallbackBehaviorOutput struct{ *pulumi.OutputState }
 
-func (WebACLForwardedIPConfigurationFallbackBehaviorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (WebAclForwardedIpConfigurationFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToWebACLForwardedIPConfigurationFallbackBehaviorOutput() WebACLForwardedIPConfigurationFallbackBehaviorOutput {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToWebAclForwardedIpConfigurationFallbackBehaviorOutput() WebAclForwardedIpConfigurationFallbackBehaviorOutput {
 	return o
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToWebACLForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationFallbackBehaviorOutput {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToWebAclForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) WebAclForwardedIpConfigurationFallbackBehaviorOutput {
 	return o
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutput() WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return o.ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
+func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutput() WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return o.ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLForwardedIPConfigurationFallbackBehavior) *WebACLForwardedIPConfigurationFallbackBehavior {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclForwardedIpConfigurationFallbackBehavior) *WebAclForwardedIpConfigurationFallbackBehavior {
 		return &v
-	}).(WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput)
+	}).(WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLForwardedIPConfigurationFallbackBehavior) string {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclForwardedIpConfigurationFallbackBehavior) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLForwardedIPConfigurationFallbackBehavior) *string {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclForwardedIpConfigurationFallbackBehavior) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+type WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutput() WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput) ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutput() WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return o
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput) ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return o
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) Elem() WebACLForwardedIPConfigurationFallbackBehaviorOutput {
-	return o.ApplyT(func(v *WebACLForwardedIPConfigurationFallbackBehavior) WebACLForwardedIPConfigurationFallbackBehavior {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput) Elem() WebAclForwardedIpConfigurationFallbackBehaviorOutput {
+	return o.ApplyT(func(v *WebAclForwardedIpConfigurationFallbackBehavior) WebAclForwardedIpConfigurationFallbackBehavior {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLForwardedIPConfigurationFallbackBehavior
+		var ret WebAclForwardedIpConfigurationFallbackBehavior
 		return ret
-	}).(WebACLForwardedIPConfigurationFallbackBehaviorOutput)
+	}).(WebAclForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLForwardedIPConfigurationFallbackBehavior) *string {
+func (o WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclForwardedIpConfigurationFallbackBehavior) *string {
 		if e == nil {
 			return nil
 		}
@@ -4293,162 +4293,162 @@ func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLForwardedIPConfigurationFallbackBehaviorInput is an input type that accepts WebACLForwardedIPConfigurationFallbackBehaviorArgs and WebACLForwardedIPConfigurationFallbackBehaviorOutput values.
-// You can construct a concrete instance of `WebACLForwardedIPConfigurationFallbackBehaviorInput` via:
+// WebAclForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts WebAclForwardedIpConfigurationFallbackBehaviorArgs and WebAclForwardedIpConfigurationFallbackBehaviorOutput values.
+// You can construct a concrete instance of `WebAclForwardedIpConfigurationFallbackBehaviorInput` via:
 //
-//	WebACLForwardedIPConfigurationFallbackBehaviorArgs{...}
-type WebACLForwardedIPConfigurationFallbackBehaviorInput interface {
+//	WebAclForwardedIpConfigurationFallbackBehaviorArgs{...}
+type WebAclForwardedIpConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
-	ToWebACLForwardedIPConfigurationFallbackBehaviorOutput() WebACLForwardedIPConfigurationFallbackBehaviorOutput
-	ToWebACLForwardedIPConfigurationFallbackBehaviorOutputWithContext(context.Context) WebACLForwardedIPConfigurationFallbackBehaviorOutput
+	ToWebAclForwardedIpConfigurationFallbackBehaviorOutput() WebAclForwardedIpConfigurationFallbackBehaviorOutput
+	ToWebAclForwardedIpConfigurationFallbackBehaviorOutputWithContext(context.Context) WebAclForwardedIpConfigurationFallbackBehaviorOutput
 }
 
-var webACLForwardedIPConfigurationFallbackBehaviorPtrType = reflect.TypeOf((**WebACLForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+var webAclForwardedIpConfigurationFallbackBehaviorPtrType = reflect.TypeOf((**WebAclForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 
-type WebACLForwardedIPConfigurationFallbackBehaviorPtrInput interface {
+type WebAclForwardedIpConfigurationFallbackBehaviorPtrInput interface {
 	pulumi.Input
 
-	ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutput() WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput
-	ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Context) WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput
+	ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutput() WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput
+	ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Context) WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput
 }
 
-type webACLForwardedIPConfigurationFallbackBehaviorPtr string
+type webAclForwardedIpConfigurationFallbackBehaviorPtr string
 
-func WebACLForwardedIPConfigurationFallbackBehaviorPtr(v string) WebACLForwardedIPConfigurationFallbackBehaviorPtrInput {
-	return (*webACLForwardedIPConfigurationFallbackBehaviorPtr)(&v)
+func WebAclForwardedIpConfigurationFallbackBehaviorPtr(v string) WebAclForwardedIpConfigurationFallbackBehaviorPtrInput {
+	return (*webAclForwardedIpConfigurationFallbackBehaviorPtr)(&v)
 }
 
-func (*webACLForwardedIPConfigurationFallbackBehaviorPtr) ElementType() reflect.Type {
-	return webACLForwardedIPConfigurationFallbackBehaviorPtrType
+func (*webAclForwardedIpConfigurationFallbackBehaviorPtr) ElementType() reflect.Type {
+	return webAclForwardedIpConfigurationFallbackBehaviorPtrType
 }
 
-func (in *webACLForwardedIPConfigurationFallbackBehaviorPtr) ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutput() WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return pulumi.ToOutput(in).(WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput)
+func (in *webAclForwardedIpConfigurationFallbackBehaviorPtr) ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutput() WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (in *webACLForwardedIPConfigurationFallbackBehaviorPtr) ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput)
+func (in *webAclForwardedIpConfigurationFallbackBehaviorPtr) ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-type WebACLIPSetForwardedIPConfigurationFallbackBehavior string
+type WebAclIpSetForwardedIpConfigurationFallbackBehavior string
 
 const (
-	WebACLIPSetForwardedIPConfigurationFallbackBehaviorMatch   = WebACLIPSetForwardedIPConfigurationFallbackBehavior("MATCH")
-	WebACLIPSetForwardedIPConfigurationFallbackBehaviorNoMatch = WebACLIPSetForwardedIPConfigurationFallbackBehavior("NO_MATCH")
+	WebAclIpSetForwardedIpConfigurationFallbackBehaviorMatch   = WebAclIpSetForwardedIpConfigurationFallbackBehavior("MATCH")
+	WebAclIpSetForwardedIpConfigurationFallbackBehaviorNoMatch = WebAclIpSetForwardedIpConfigurationFallbackBehavior("NO_MATCH")
 )
 
-func (WebACLIPSetForwardedIPConfigurationFallbackBehavior) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLIPSetForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (WebAclIpSetForwardedIpConfigurationFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (e WebACLIPSetForwardedIPConfigurationFallbackBehavior) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput() WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput {
-	return pulumi.ToOutput(e).(WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput)
+func (e WebAclIpSetForwardedIpConfigurationFallbackBehavior) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput() WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (e WebACLIPSetForwardedIPConfigurationFallbackBehavior) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput)
+func (e WebAclIpSetForwardedIpConfigurationFallbackBehavior) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (e WebACLIPSetForwardedIPConfigurationFallbackBehavior) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput() WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return e.ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
+func (e WebAclIpSetForwardedIpConfigurationFallbackBehavior) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput() WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return e.ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLIPSetForwardedIPConfigurationFallbackBehavior) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return WebACLIPSetForwardedIPConfigurationFallbackBehavior(e).ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx).ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx)
+func (e WebAclIpSetForwardedIpConfigurationFallbackBehavior) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return WebAclIpSetForwardedIpConfigurationFallbackBehavior(e).ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx).ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx)
 }
 
-func (e WebACLIPSetForwardedIPConfigurationFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+func (e WebAclIpSetForwardedIpConfigurationFallbackBehavior) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLIPSetForwardedIPConfigurationFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclIpSetForwardedIpConfigurationFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLIPSetForwardedIPConfigurationFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclIpSetForwardedIpConfigurationFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLIPSetForwardedIPConfigurationFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclIpSetForwardedIpConfigurationFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput struct{ *pulumi.OutputState }
+type WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput struct{ *pulumi.OutputState }
 
-func (WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLIPSetForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput() WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput() WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput {
 	return o
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput {
 	return o
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput() WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return o.ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput() WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return o.ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLIPSetForwardedIPConfigurationFallbackBehavior) *WebACLIPSetForwardedIPConfigurationFallbackBehavior {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclIpSetForwardedIpConfigurationFallbackBehavior) *WebAclIpSetForwardedIpConfigurationFallbackBehavior {
 		return &v
-	}).(WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
+	}).(WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLIPSetForwardedIPConfigurationFallbackBehavior) string {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclIpSetForwardedIpConfigurationFallbackBehavior) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLIPSetForwardedIPConfigurationFallbackBehavior) *string {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclIpSetForwardedIpConfigurationFallbackBehavior) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+type WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLIPSetForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+func (WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclIpSetForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput() WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput() WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return o
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return o
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) Elem() WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput {
-	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfigurationFallbackBehavior) WebACLIPSetForwardedIPConfigurationFallbackBehavior {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) Elem() WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput {
+	return o.ApplyT(func(v *WebAclIpSetForwardedIpConfigurationFallbackBehavior) WebAclIpSetForwardedIpConfigurationFallbackBehavior {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLIPSetForwardedIPConfigurationFallbackBehavior
+		var ret WebAclIpSetForwardedIpConfigurationFallbackBehavior
 		return ret
-	}).(WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput)
+	}).(WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput)
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLIPSetForwardedIPConfigurationFallbackBehavior) *string {
+func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclIpSetForwardedIpConfigurationFallbackBehavior) *string {
 		if e == nil {
 			return nil
 		}
@@ -4457,163 +4457,163 @@ func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLIPSetForwardedIPConfigurationFallbackBehaviorInput is an input type that accepts WebACLIPSetForwardedIPConfigurationFallbackBehaviorArgs and WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput values.
-// You can construct a concrete instance of `WebACLIPSetForwardedIPConfigurationFallbackBehaviorInput` via:
+// WebAclIpSetForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts WebAclIpSetForwardedIpConfigurationFallbackBehaviorArgs and WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput values.
+// You can construct a concrete instance of `WebAclIpSetForwardedIpConfigurationFallbackBehaviorInput` via:
 //
-//	WebACLIPSetForwardedIPConfigurationFallbackBehaviorArgs{...}
-type WebACLIPSetForwardedIPConfigurationFallbackBehaviorInput interface {
+//	WebAclIpSetForwardedIpConfigurationFallbackBehaviorArgs{...}
+type WebAclIpSetForwardedIpConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
-	ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput() WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput
-	ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorOutputWithContext(context.Context) WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput
+	ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput() WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput
+	ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorOutputWithContext(context.Context) WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput
 }
 
-var webACLIPSetForwardedIPConfigurationFallbackBehaviorPtrType = reflect.TypeOf((**WebACLIPSetForwardedIPConfigurationFallbackBehavior)(nil)).Elem()
+var webAclIpSetForwardedIpConfigurationFallbackBehaviorPtrType = reflect.TypeOf((**WebAclIpSetForwardedIpConfigurationFallbackBehavior)(nil)).Elem()
 
-type WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrInput interface {
+type WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrInput interface {
 	pulumi.Input
 
-	ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput() WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput
-	ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(context.Context) WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput
+	ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput() WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput
+	ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(context.Context) WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput
 }
 
-type webACLIPSetForwardedIPConfigurationFallbackBehaviorPtr string
+type webAclIpSetForwardedIpConfigurationFallbackBehaviorPtr string
 
-func WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtr(v string) WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrInput {
-	return (*webACLIPSetForwardedIPConfigurationFallbackBehaviorPtr)(&v)
+func WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtr(v string) WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrInput {
+	return (*webAclIpSetForwardedIpConfigurationFallbackBehaviorPtr)(&v)
 }
 
-func (*webACLIPSetForwardedIPConfigurationFallbackBehaviorPtr) ElementType() reflect.Type {
-	return webACLIPSetForwardedIPConfigurationFallbackBehaviorPtrType
+func (*webAclIpSetForwardedIpConfigurationFallbackBehaviorPtr) ElementType() reflect.Type {
+	return webAclIpSetForwardedIpConfigurationFallbackBehaviorPtrType
 }
 
-func (in *webACLIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput() WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return pulumi.ToOutput(in).(WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
+func (in *webAclIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput() WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (in *webACLIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
+func (in *webAclIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-type WebACLIPSetForwardedIPConfigurationPosition string
+type WebAclIpSetForwardedIpConfigurationPosition string
 
 const (
-	WebACLIPSetForwardedIPConfigurationPositionFirst = WebACLIPSetForwardedIPConfigurationPosition("FIRST")
-	WebACLIPSetForwardedIPConfigurationPositionLast  = WebACLIPSetForwardedIPConfigurationPosition("LAST")
-	WebACLIPSetForwardedIPConfigurationPositionAny   = WebACLIPSetForwardedIPConfigurationPosition("ANY")
+	WebAclIpSetForwardedIpConfigurationPositionFirst = WebAclIpSetForwardedIpConfigurationPosition("FIRST")
+	WebAclIpSetForwardedIpConfigurationPositionLast  = WebAclIpSetForwardedIpConfigurationPosition("LAST")
+	WebAclIpSetForwardedIpConfigurationPositionAny   = WebAclIpSetForwardedIpConfigurationPosition("ANY")
 )
 
-func (WebACLIPSetForwardedIPConfigurationPosition) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLIPSetForwardedIPConfigurationPosition)(nil)).Elem()
+func (WebAclIpSetForwardedIpConfigurationPosition) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationPosition)(nil)).Elem()
 }
 
-func (e WebACLIPSetForwardedIPConfigurationPosition) ToWebACLIPSetForwardedIPConfigurationPositionOutput() WebACLIPSetForwardedIPConfigurationPositionOutput {
-	return pulumi.ToOutput(e).(WebACLIPSetForwardedIPConfigurationPositionOutput)
+func (e WebAclIpSetForwardedIpConfigurationPosition) ToWebAclIpSetForwardedIpConfigurationPositionOutput() WebAclIpSetForwardedIpConfigurationPositionOutput {
+	return pulumi.ToOutput(e).(WebAclIpSetForwardedIpConfigurationPositionOutput)
 }
 
-func (e WebACLIPSetForwardedIPConfigurationPosition) ToWebACLIPSetForwardedIPConfigurationPositionOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPositionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLIPSetForwardedIPConfigurationPositionOutput)
+func (e WebAclIpSetForwardedIpConfigurationPosition) ToWebAclIpSetForwardedIpConfigurationPositionOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationPositionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclIpSetForwardedIpConfigurationPositionOutput)
 }
 
-func (e WebACLIPSetForwardedIPConfigurationPosition) ToWebACLIPSetForwardedIPConfigurationPositionPtrOutput() WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
-	return e.ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(context.Background())
+func (e WebAclIpSetForwardedIpConfigurationPosition) ToWebAclIpSetForwardedIpConfigurationPositionPtrOutput() WebAclIpSetForwardedIpConfigurationPositionPtrOutput {
+	return e.ToWebAclIpSetForwardedIpConfigurationPositionPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLIPSetForwardedIPConfigurationPosition) ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
-	return WebACLIPSetForwardedIPConfigurationPosition(e).ToWebACLIPSetForwardedIPConfigurationPositionOutputWithContext(ctx).ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx)
+func (e WebAclIpSetForwardedIpConfigurationPosition) ToWebAclIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationPositionPtrOutput {
+	return WebAclIpSetForwardedIpConfigurationPosition(e).ToWebAclIpSetForwardedIpConfigurationPositionOutputWithContext(ctx).ToWebAclIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx)
 }
 
-func (e WebACLIPSetForwardedIPConfigurationPosition) ToStringOutput() pulumi.StringOutput {
+func (e WebAclIpSetForwardedIpConfigurationPosition) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLIPSetForwardedIPConfigurationPosition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclIpSetForwardedIpConfigurationPosition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLIPSetForwardedIPConfigurationPosition) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclIpSetForwardedIpConfigurationPosition) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLIPSetForwardedIPConfigurationPosition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclIpSetForwardedIpConfigurationPosition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLIPSetForwardedIPConfigurationPositionOutput struct{ *pulumi.OutputState }
+type WebAclIpSetForwardedIpConfigurationPositionOutput struct{ *pulumi.OutputState }
 
-func (WebACLIPSetForwardedIPConfigurationPositionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLIPSetForwardedIPConfigurationPosition)(nil)).Elem()
+func (WebAclIpSetForwardedIpConfigurationPositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationPosition)(nil)).Elem()
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToWebACLIPSetForwardedIPConfigurationPositionOutput() WebACLIPSetForwardedIPConfigurationPositionOutput {
+func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToWebAclIpSetForwardedIpConfigurationPositionOutput() WebAclIpSetForwardedIpConfigurationPositionOutput {
 	return o
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToWebACLIPSetForwardedIPConfigurationPositionOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPositionOutput {
+func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToWebAclIpSetForwardedIpConfigurationPositionOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationPositionOutput {
 	return o
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToWebACLIPSetForwardedIPConfigurationPositionPtrOutput() WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
-	return o.ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(context.Background())
+func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToWebAclIpSetForwardedIpConfigurationPositionPtrOutput() WebAclIpSetForwardedIpConfigurationPositionPtrOutput {
+	return o.ToWebAclIpSetForwardedIpConfigurationPositionPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLIPSetForwardedIPConfigurationPosition) *WebACLIPSetForwardedIPConfigurationPosition {
+func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToWebAclIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationPositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclIpSetForwardedIpConfigurationPosition) *WebAclIpSetForwardedIpConfigurationPosition {
 		return &v
-	}).(WebACLIPSetForwardedIPConfigurationPositionPtrOutput)
+	}).(WebAclIpSetForwardedIpConfigurationPositionPtrOutput)
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLIPSetForwardedIPConfigurationPosition) string {
+func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclIpSetForwardedIpConfigurationPosition) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLIPSetForwardedIPConfigurationPosition) *string {
+func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclIpSetForwardedIpConfigurationPosition) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLIPSetForwardedIPConfigurationPositionPtrOutput struct{ *pulumi.OutputState }
+type WebAclIpSetForwardedIpConfigurationPositionPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLIPSetForwardedIPConfigurationPositionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLIPSetForwardedIPConfigurationPosition)(nil)).Elem()
+func (WebAclIpSetForwardedIpConfigurationPositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclIpSetForwardedIpConfigurationPosition)(nil)).Elem()
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) ToWebACLIPSetForwardedIPConfigurationPositionPtrOutput() WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
+func (o WebAclIpSetForwardedIpConfigurationPositionPtrOutput) ToWebAclIpSetForwardedIpConfigurationPositionPtrOutput() WebAclIpSetForwardedIpConfigurationPositionPtrOutput {
 	return o
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
+func (o WebAclIpSetForwardedIpConfigurationPositionPtrOutput) ToWebAclIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationPositionPtrOutput {
 	return o
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) Elem() WebACLIPSetForwardedIPConfigurationPositionOutput {
-	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfigurationPosition) WebACLIPSetForwardedIPConfigurationPosition {
+func (o WebAclIpSetForwardedIpConfigurationPositionPtrOutput) Elem() WebAclIpSetForwardedIpConfigurationPositionOutput {
+	return o.ApplyT(func(v *WebAclIpSetForwardedIpConfigurationPosition) WebAclIpSetForwardedIpConfigurationPosition {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLIPSetForwardedIPConfigurationPosition
+		var ret WebAclIpSetForwardedIpConfigurationPosition
 		return ret
-	}).(WebACLIPSetForwardedIPConfigurationPositionOutput)
+	}).(WebAclIpSetForwardedIpConfigurationPositionOutput)
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclIpSetForwardedIpConfigurationPositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLIPSetForwardedIPConfigurationPosition) *string {
+func (o WebAclIpSetForwardedIpConfigurationPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclIpSetForwardedIpConfigurationPosition) *string {
 		if e == nil {
 			return nil
 		}
@@ -4622,164 +4622,164 @@ func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLIPSetForwardedIPConfigurationPositionInput is an input type that accepts WebACLIPSetForwardedIPConfigurationPositionArgs and WebACLIPSetForwardedIPConfigurationPositionOutput values.
-// You can construct a concrete instance of `WebACLIPSetForwardedIPConfigurationPositionInput` via:
+// WebAclIpSetForwardedIpConfigurationPositionInput is an input type that accepts WebAclIpSetForwardedIpConfigurationPositionArgs and WebAclIpSetForwardedIpConfigurationPositionOutput values.
+// You can construct a concrete instance of `WebAclIpSetForwardedIpConfigurationPositionInput` via:
 //
-//	WebACLIPSetForwardedIPConfigurationPositionArgs{...}
-type WebACLIPSetForwardedIPConfigurationPositionInput interface {
+//	WebAclIpSetForwardedIpConfigurationPositionArgs{...}
+type WebAclIpSetForwardedIpConfigurationPositionInput interface {
 	pulumi.Input
 
-	ToWebACLIPSetForwardedIPConfigurationPositionOutput() WebACLIPSetForwardedIPConfigurationPositionOutput
-	ToWebACLIPSetForwardedIPConfigurationPositionOutputWithContext(context.Context) WebACLIPSetForwardedIPConfigurationPositionOutput
+	ToWebAclIpSetForwardedIpConfigurationPositionOutput() WebAclIpSetForwardedIpConfigurationPositionOutput
+	ToWebAclIpSetForwardedIpConfigurationPositionOutputWithContext(context.Context) WebAclIpSetForwardedIpConfigurationPositionOutput
 }
 
-var webACLIPSetForwardedIPConfigurationPositionPtrType = reflect.TypeOf((**WebACLIPSetForwardedIPConfigurationPosition)(nil)).Elem()
+var webAclIpSetForwardedIpConfigurationPositionPtrType = reflect.TypeOf((**WebAclIpSetForwardedIpConfigurationPosition)(nil)).Elem()
 
-type WebACLIPSetForwardedIPConfigurationPositionPtrInput interface {
+type WebAclIpSetForwardedIpConfigurationPositionPtrInput interface {
 	pulumi.Input
 
-	ToWebACLIPSetForwardedIPConfigurationPositionPtrOutput() WebACLIPSetForwardedIPConfigurationPositionPtrOutput
-	ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(context.Context) WebACLIPSetForwardedIPConfigurationPositionPtrOutput
+	ToWebAclIpSetForwardedIpConfigurationPositionPtrOutput() WebAclIpSetForwardedIpConfigurationPositionPtrOutput
+	ToWebAclIpSetForwardedIpConfigurationPositionPtrOutputWithContext(context.Context) WebAclIpSetForwardedIpConfigurationPositionPtrOutput
 }
 
-type webACLIPSetForwardedIPConfigurationPositionPtr string
+type webAclIpSetForwardedIpConfigurationPositionPtr string
 
-func WebACLIPSetForwardedIPConfigurationPositionPtr(v string) WebACLIPSetForwardedIPConfigurationPositionPtrInput {
-	return (*webACLIPSetForwardedIPConfigurationPositionPtr)(&v)
+func WebAclIpSetForwardedIpConfigurationPositionPtr(v string) WebAclIpSetForwardedIpConfigurationPositionPtrInput {
+	return (*webAclIpSetForwardedIpConfigurationPositionPtr)(&v)
 }
 
-func (*webACLIPSetForwardedIPConfigurationPositionPtr) ElementType() reflect.Type {
-	return webACLIPSetForwardedIPConfigurationPositionPtrType
+func (*webAclIpSetForwardedIpConfigurationPositionPtr) ElementType() reflect.Type {
+	return webAclIpSetForwardedIpConfigurationPositionPtrType
 }
 
-func (in *webACLIPSetForwardedIPConfigurationPositionPtr) ToWebACLIPSetForwardedIPConfigurationPositionPtrOutput() WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
-	return pulumi.ToOutput(in).(WebACLIPSetForwardedIPConfigurationPositionPtrOutput)
+func (in *webAclIpSetForwardedIpConfigurationPositionPtr) ToWebAclIpSetForwardedIpConfigurationPositionPtrOutput() WebAclIpSetForwardedIpConfigurationPositionPtrOutput {
+	return pulumi.ToOutput(in).(WebAclIpSetForwardedIpConfigurationPositionPtrOutput)
 }
 
-func (in *webACLIPSetForwardedIPConfigurationPositionPtr) ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLIPSetForwardedIPConfigurationPositionPtrOutput)
+func (in *webAclIpSetForwardedIpConfigurationPositionPtr) ToWebAclIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclIpSetForwardedIpConfigurationPositionPtrOutput)
 }
 
 // The parts of the JSON to match against using the MatchPattern.
-type WebACLJsonMatchScope string
+type WebAclJsonMatchScope string
 
 const (
-	WebACLJsonMatchScopeAll   = WebACLJsonMatchScope("ALL")
-	WebACLJsonMatchScopeKey   = WebACLJsonMatchScope("KEY")
-	WebACLJsonMatchScopeValue = WebACLJsonMatchScope("VALUE")
+	WebAclJsonMatchScopeAll   = WebAclJsonMatchScope("ALL")
+	WebAclJsonMatchScopeKey   = WebAclJsonMatchScope("KEY")
+	WebAclJsonMatchScopeValue = WebAclJsonMatchScope("VALUE")
 )
 
-func (WebACLJsonMatchScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLJsonMatchScope)(nil)).Elem()
+func (WebAclJsonMatchScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclJsonMatchScope)(nil)).Elem()
 }
 
-func (e WebACLJsonMatchScope) ToWebACLJsonMatchScopeOutput() WebACLJsonMatchScopeOutput {
-	return pulumi.ToOutput(e).(WebACLJsonMatchScopeOutput)
+func (e WebAclJsonMatchScope) ToWebAclJsonMatchScopeOutput() WebAclJsonMatchScopeOutput {
+	return pulumi.ToOutput(e).(WebAclJsonMatchScopeOutput)
 }
 
-func (e WebACLJsonMatchScope) ToWebACLJsonMatchScopeOutputWithContext(ctx context.Context) WebACLJsonMatchScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLJsonMatchScopeOutput)
+func (e WebAclJsonMatchScope) ToWebAclJsonMatchScopeOutputWithContext(ctx context.Context) WebAclJsonMatchScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclJsonMatchScopeOutput)
 }
 
-func (e WebACLJsonMatchScope) ToWebACLJsonMatchScopePtrOutput() WebACLJsonMatchScopePtrOutput {
-	return e.ToWebACLJsonMatchScopePtrOutputWithContext(context.Background())
+func (e WebAclJsonMatchScope) ToWebAclJsonMatchScopePtrOutput() WebAclJsonMatchScopePtrOutput {
+	return e.ToWebAclJsonMatchScopePtrOutputWithContext(context.Background())
 }
 
-func (e WebACLJsonMatchScope) ToWebACLJsonMatchScopePtrOutputWithContext(ctx context.Context) WebACLJsonMatchScopePtrOutput {
-	return WebACLJsonMatchScope(e).ToWebACLJsonMatchScopeOutputWithContext(ctx).ToWebACLJsonMatchScopePtrOutputWithContext(ctx)
+func (e WebAclJsonMatchScope) ToWebAclJsonMatchScopePtrOutputWithContext(ctx context.Context) WebAclJsonMatchScopePtrOutput {
+	return WebAclJsonMatchScope(e).ToWebAclJsonMatchScopeOutputWithContext(ctx).ToWebAclJsonMatchScopePtrOutputWithContext(ctx)
 }
 
-func (e WebACLJsonMatchScope) ToStringOutput() pulumi.StringOutput {
+func (e WebAclJsonMatchScope) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLJsonMatchScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclJsonMatchScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLJsonMatchScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclJsonMatchScope) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLJsonMatchScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclJsonMatchScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLJsonMatchScopeOutput struct{ *pulumi.OutputState }
+type WebAclJsonMatchScopeOutput struct{ *pulumi.OutputState }
 
-func (WebACLJsonMatchScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLJsonMatchScope)(nil)).Elem()
+func (WebAclJsonMatchScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclJsonMatchScope)(nil)).Elem()
 }
 
-func (o WebACLJsonMatchScopeOutput) ToWebACLJsonMatchScopeOutput() WebACLJsonMatchScopeOutput {
+func (o WebAclJsonMatchScopeOutput) ToWebAclJsonMatchScopeOutput() WebAclJsonMatchScopeOutput {
 	return o
 }
 
-func (o WebACLJsonMatchScopeOutput) ToWebACLJsonMatchScopeOutputWithContext(ctx context.Context) WebACLJsonMatchScopeOutput {
+func (o WebAclJsonMatchScopeOutput) ToWebAclJsonMatchScopeOutputWithContext(ctx context.Context) WebAclJsonMatchScopeOutput {
 	return o
 }
 
-func (o WebACLJsonMatchScopeOutput) ToWebACLJsonMatchScopePtrOutput() WebACLJsonMatchScopePtrOutput {
-	return o.ToWebACLJsonMatchScopePtrOutputWithContext(context.Background())
+func (o WebAclJsonMatchScopeOutput) ToWebAclJsonMatchScopePtrOutput() WebAclJsonMatchScopePtrOutput {
+	return o.ToWebAclJsonMatchScopePtrOutputWithContext(context.Background())
 }
 
-func (o WebACLJsonMatchScopeOutput) ToWebACLJsonMatchScopePtrOutputWithContext(ctx context.Context) WebACLJsonMatchScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLJsonMatchScope) *WebACLJsonMatchScope {
+func (o WebAclJsonMatchScopeOutput) ToWebAclJsonMatchScopePtrOutputWithContext(ctx context.Context) WebAclJsonMatchScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclJsonMatchScope) *WebAclJsonMatchScope {
 		return &v
-	}).(WebACLJsonMatchScopePtrOutput)
+	}).(WebAclJsonMatchScopePtrOutput)
 }
 
-func (o WebACLJsonMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclJsonMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLJsonMatchScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLJsonMatchScope) string {
+func (o WebAclJsonMatchScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclJsonMatchScope) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLJsonMatchScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclJsonMatchScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLJsonMatchScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLJsonMatchScope) *string {
+func (o WebAclJsonMatchScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclJsonMatchScope) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLJsonMatchScopePtrOutput struct{ *pulumi.OutputState }
+type WebAclJsonMatchScopePtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLJsonMatchScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLJsonMatchScope)(nil)).Elem()
+func (WebAclJsonMatchScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclJsonMatchScope)(nil)).Elem()
 }
 
-func (o WebACLJsonMatchScopePtrOutput) ToWebACLJsonMatchScopePtrOutput() WebACLJsonMatchScopePtrOutput {
+func (o WebAclJsonMatchScopePtrOutput) ToWebAclJsonMatchScopePtrOutput() WebAclJsonMatchScopePtrOutput {
 	return o
 }
 
-func (o WebACLJsonMatchScopePtrOutput) ToWebACLJsonMatchScopePtrOutputWithContext(ctx context.Context) WebACLJsonMatchScopePtrOutput {
+func (o WebAclJsonMatchScopePtrOutput) ToWebAclJsonMatchScopePtrOutputWithContext(ctx context.Context) WebAclJsonMatchScopePtrOutput {
 	return o
 }
 
-func (o WebACLJsonMatchScopePtrOutput) Elem() WebACLJsonMatchScopeOutput {
-	return o.ApplyT(func(v *WebACLJsonMatchScope) WebACLJsonMatchScope {
+func (o WebAclJsonMatchScopePtrOutput) Elem() WebAclJsonMatchScopeOutput {
+	return o.ApplyT(func(v *WebAclJsonMatchScope) WebAclJsonMatchScope {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLJsonMatchScope
+		var ret WebAclJsonMatchScope
 		return ret
-	}).(WebACLJsonMatchScopeOutput)
+	}).(WebAclJsonMatchScopeOutput)
 }
 
-func (o WebACLJsonMatchScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclJsonMatchScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLJsonMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLJsonMatchScope) *string {
+func (o WebAclJsonMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclJsonMatchScope) *string {
 		if e == nil {
 			return nil
 		}
@@ -4788,162 +4788,162 @@ func (o WebACLJsonMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLJsonMatchScopeInput is an input type that accepts WebACLJsonMatchScopeArgs and WebACLJsonMatchScopeOutput values.
-// You can construct a concrete instance of `WebACLJsonMatchScopeInput` via:
+// WebAclJsonMatchScopeInput is an input type that accepts WebAclJsonMatchScopeArgs and WebAclJsonMatchScopeOutput values.
+// You can construct a concrete instance of `WebAclJsonMatchScopeInput` via:
 //
-//	WebACLJsonMatchScopeArgs{...}
-type WebACLJsonMatchScopeInput interface {
+//	WebAclJsonMatchScopeArgs{...}
+type WebAclJsonMatchScopeInput interface {
 	pulumi.Input
 
-	ToWebACLJsonMatchScopeOutput() WebACLJsonMatchScopeOutput
-	ToWebACLJsonMatchScopeOutputWithContext(context.Context) WebACLJsonMatchScopeOutput
+	ToWebAclJsonMatchScopeOutput() WebAclJsonMatchScopeOutput
+	ToWebAclJsonMatchScopeOutputWithContext(context.Context) WebAclJsonMatchScopeOutput
 }
 
-var webACLJsonMatchScopePtrType = reflect.TypeOf((**WebACLJsonMatchScope)(nil)).Elem()
+var webAclJsonMatchScopePtrType = reflect.TypeOf((**WebAclJsonMatchScope)(nil)).Elem()
 
-type WebACLJsonMatchScopePtrInput interface {
+type WebAclJsonMatchScopePtrInput interface {
 	pulumi.Input
 
-	ToWebACLJsonMatchScopePtrOutput() WebACLJsonMatchScopePtrOutput
-	ToWebACLJsonMatchScopePtrOutputWithContext(context.Context) WebACLJsonMatchScopePtrOutput
+	ToWebAclJsonMatchScopePtrOutput() WebAclJsonMatchScopePtrOutput
+	ToWebAclJsonMatchScopePtrOutputWithContext(context.Context) WebAclJsonMatchScopePtrOutput
 }
 
-type webACLJsonMatchScopePtr string
+type webAclJsonMatchScopePtr string
 
-func WebACLJsonMatchScopePtr(v string) WebACLJsonMatchScopePtrInput {
-	return (*webACLJsonMatchScopePtr)(&v)
+func WebAclJsonMatchScopePtr(v string) WebAclJsonMatchScopePtrInput {
+	return (*webAclJsonMatchScopePtr)(&v)
 }
 
-func (*webACLJsonMatchScopePtr) ElementType() reflect.Type {
-	return webACLJsonMatchScopePtrType
+func (*webAclJsonMatchScopePtr) ElementType() reflect.Type {
+	return webAclJsonMatchScopePtrType
 }
 
-func (in *webACLJsonMatchScopePtr) ToWebACLJsonMatchScopePtrOutput() WebACLJsonMatchScopePtrOutput {
-	return pulumi.ToOutput(in).(WebACLJsonMatchScopePtrOutput)
+func (in *webAclJsonMatchScopePtr) ToWebAclJsonMatchScopePtrOutput() WebAclJsonMatchScopePtrOutput {
+	return pulumi.ToOutput(in).(WebAclJsonMatchScopePtrOutput)
 }
 
-func (in *webACLJsonMatchScopePtr) ToWebACLJsonMatchScopePtrOutputWithContext(ctx context.Context) WebACLJsonMatchScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLJsonMatchScopePtrOutput)
+func (in *webAclJsonMatchScopePtr) ToWebAclJsonMatchScopePtrOutputWithContext(ctx context.Context) WebAclJsonMatchScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclJsonMatchScopePtrOutput)
 }
 
-type WebACLLabelMatchScope string
+type WebAclLabelMatchScope string
 
 const (
-	WebACLLabelMatchScopeLabel     = WebACLLabelMatchScope("LABEL")
-	WebACLLabelMatchScopeNamespace = WebACLLabelMatchScope("NAMESPACE")
+	WebAclLabelMatchScopeLabel     = WebAclLabelMatchScope("LABEL")
+	WebAclLabelMatchScopeNamespace = WebAclLabelMatchScope("NAMESPACE")
 )
 
-func (WebACLLabelMatchScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLLabelMatchScope)(nil)).Elem()
+func (WebAclLabelMatchScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclLabelMatchScope)(nil)).Elem()
 }
 
-func (e WebACLLabelMatchScope) ToWebACLLabelMatchScopeOutput() WebACLLabelMatchScopeOutput {
-	return pulumi.ToOutput(e).(WebACLLabelMatchScopeOutput)
+func (e WebAclLabelMatchScope) ToWebAclLabelMatchScopeOutput() WebAclLabelMatchScopeOutput {
+	return pulumi.ToOutput(e).(WebAclLabelMatchScopeOutput)
 }
 
-func (e WebACLLabelMatchScope) ToWebACLLabelMatchScopeOutputWithContext(ctx context.Context) WebACLLabelMatchScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLLabelMatchScopeOutput)
+func (e WebAclLabelMatchScope) ToWebAclLabelMatchScopeOutputWithContext(ctx context.Context) WebAclLabelMatchScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclLabelMatchScopeOutput)
 }
 
-func (e WebACLLabelMatchScope) ToWebACLLabelMatchScopePtrOutput() WebACLLabelMatchScopePtrOutput {
-	return e.ToWebACLLabelMatchScopePtrOutputWithContext(context.Background())
+func (e WebAclLabelMatchScope) ToWebAclLabelMatchScopePtrOutput() WebAclLabelMatchScopePtrOutput {
+	return e.ToWebAclLabelMatchScopePtrOutputWithContext(context.Background())
 }
 
-func (e WebACLLabelMatchScope) ToWebACLLabelMatchScopePtrOutputWithContext(ctx context.Context) WebACLLabelMatchScopePtrOutput {
-	return WebACLLabelMatchScope(e).ToWebACLLabelMatchScopeOutputWithContext(ctx).ToWebACLLabelMatchScopePtrOutputWithContext(ctx)
+func (e WebAclLabelMatchScope) ToWebAclLabelMatchScopePtrOutputWithContext(ctx context.Context) WebAclLabelMatchScopePtrOutput {
+	return WebAclLabelMatchScope(e).ToWebAclLabelMatchScopeOutputWithContext(ctx).ToWebAclLabelMatchScopePtrOutputWithContext(ctx)
 }
 
-func (e WebACLLabelMatchScope) ToStringOutput() pulumi.StringOutput {
+func (e WebAclLabelMatchScope) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLLabelMatchScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclLabelMatchScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLLabelMatchScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclLabelMatchScope) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLLabelMatchScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclLabelMatchScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLLabelMatchScopeOutput struct{ *pulumi.OutputState }
+type WebAclLabelMatchScopeOutput struct{ *pulumi.OutputState }
 
-func (WebACLLabelMatchScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLLabelMatchScope)(nil)).Elem()
+func (WebAclLabelMatchScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclLabelMatchScope)(nil)).Elem()
 }
 
-func (o WebACLLabelMatchScopeOutput) ToWebACLLabelMatchScopeOutput() WebACLLabelMatchScopeOutput {
+func (o WebAclLabelMatchScopeOutput) ToWebAclLabelMatchScopeOutput() WebAclLabelMatchScopeOutput {
 	return o
 }
 
-func (o WebACLLabelMatchScopeOutput) ToWebACLLabelMatchScopeOutputWithContext(ctx context.Context) WebACLLabelMatchScopeOutput {
+func (o WebAclLabelMatchScopeOutput) ToWebAclLabelMatchScopeOutputWithContext(ctx context.Context) WebAclLabelMatchScopeOutput {
 	return o
 }
 
-func (o WebACLLabelMatchScopeOutput) ToWebACLLabelMatchScopePtrOutput() WebACLLabelMatchScopePtrOutput {
-	return o.ToWebACLLabelMatchScopePtrOutputWithContext(context.Background())
+func (o WebAclLabelMatchScopeOutput) ToWebAclLabelMatchScopePtrOutput() WebAclLabelMatchScopePtrOutput {
+	return o.ToWebAclLabelMatchScopePtrOutputWithContext(context.Background())
 }
 
-func (o WebACLLabelMatchScopeOutput) ToWebACLLabelMatchScopePtrOutputWithContext(ctx context.Context) WebACLLabelMatchScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLLabelMatchScope) *WebACLLabelMatchScope {
+func (o WebAclLabelMatchScopeOutput) ToWebAclLabelMatchScopePtrOutputWithContext(ctx context.Context) WebAclLabelMatchScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclLabelMatchScope) *WebAclLabelMatchScope {
 		return &v
-	}).(WebACLLabelMatchScopePtrOutput)
+	}).(WebAclLabelMatchScopePtrOutput)
 }
 
-func (o WebACLLabelMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclLabelMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLLabelMatchScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLLabelMatchScope) string {
+func (o WebAclLabelMatchScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclLabelMatchScope) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLLabelMatchScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclLabelMatchScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLLabelMatchScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLLabelMatchScope) *string {
+func (o WebAclLabelMatchScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclLabelMatchScope) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLLabelMatchScopePtrOutput struct{ *pulumi.OutputState }
+type WebAclLabelMatchScopePtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLLabelMatchScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLLabelMatchScope)(nil)).Elem()
+func (WebAclLabelMatchScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclLabelMatchScope)(nil)).Elem()
 }
 
-func (o WebACLLabelMatchScopePtrOutput) ToWebACLLabelMatchScopePtrOutput() WebACLLabelMatchScopePtrOutput {
+func (o WebAclLabelMatchScopePtrOutput) ToWebAclLabelMatchScopePtrOutput() WebAclLabelMatchScopePtrOutput {
 	return o
 }
 
-func (o WebACLLabelMatchScopePtrOutput) ToWebACLLabelMatchScopePtrOutputWithContext(ctx context.Context) WebACLLabelMatchScopePtrOutput {
+func (o WebAclLabelMatchScopePtrOutput) ToWebAclLabelMatchScopePtrOutputWithContext(ctx context.Context) WebAclLabelMatchScopePtrOutput {
 	return o
 }
 
-func (o WebACLLabelMatchScopePtrOutput) Elem() WebACLLabelMatchScopeOutput {
-	return o.ApplyT(func(v *WebACLLabelMatchScope) WebACLLabelMatchScope {
+func (o WebAclLabelMatchScopePtrOutput) Elem() WebAclLabelMatchScopeOutput {
+	return o.ApplyT(func(v *WebAclLabelMatchScope) WebAclLabelMatchScope {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLLabelMatchScope
+		var ret WebAclLabelMatchScope
 		return ret
-	}).(WebACLLabelMatchScopeOutput)
+	}).(WebAclLabelMatchScopeOutput)
 }
 
-func (o WebACLLabelMatchScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclLabelMatchScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLLabelMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLLabelMatchScope) *string {
+func (o WebAclLabelMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclLabelMatchScope) *string {
 		if e == nil {
 			return nil
 		}
@@ -4952,162 +4952,162 @@ func (o WebACLLabelMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLLabelMatchScopeInput is an input type that accepts WebACLLabelMatchScopeArgs and WebACLLabelMatchScopeOutput values.
-// You can construct a concrete instance of `WebACLLabelMatchScopeInput` via:
+// WebAclLabelMatchScopeInput is an input type that accepts WebAclLabelMatchScopeArgs and WebAclLabelMatchScopeOutput values.
+// You can construct a concrete instance of `WebAclLabelMatchScopeInput` via:
 //
-//	WebACLLabelMatchScopeArgs{...}
-type WebACLLabelMatchScopeInput interface {
+//	WebAclLabelMatchScopeArgs{...}
+type WebAclLabelMatchScopeInput interface {
 	pulumi.Input
 
-	ToWebACLLabelMatchScopeOutput() WebACLLabelMatchScopeOutput
-	ToWebACLLabelMatchScopeOutputWithContext(context.Context) WebACLLabelMatchScopeOutput
+	ToWebAclLabelMatchScopeOutput() WebAclLabelMatchScopeOutput
+	ToWebAclLabelMatchScopeOutputWithContext(context.Context) WebAclLabelMatchScopeOutput
 }
 
-var webACLLabelMatchScopePtrType = reflect.TypeOf((**WebACLLabelMatchScope)(nil)).Elem()
+var webAclLabelMatchScopePtrType = reflect.TypeOf((**WebAclLabelMatchScope)(nil)).Elem()
 
-type WebACLLabelMatchScopePtrInput interface {
+type WebAclLabelMatchScopePtrInput interface {
 	pulumi.Input
 
-	ToWebACLLabelMatchScopePtrOutput() WebACLLabelMatchScopePtrOutput
-	ToWebACLLabelMatchScopePtrOutputWithContext(context.Context) WebACLLabelMatchScopePtrOutput
+	ToWebAclLabelMatchScopePtrOutput() WebAclLabelMatchScopePtrOutput
+	ToWebAclLabelMatchScopePtrOutputWithContext(context.Context) WebAclLabelMatchScopePtrOutput
 }
 
-type webACLLabelMatchScopePtr string
+type webAclLabelMatchScopePtr string
 
-func WebACLLabelMatchScopePtr(v string) WebACLLabelMatchScopePtrInput {
-	return (*webACLLabelMatchScopePtr)(&v)
+func WebAclLabelMatchScopePtr(v string) WebAclLabelMatchScopePtrInput {
+	return (*webAclLabelMatchScopePtr)(&v)
 }
 
-func (*webACLLabelMatchScopePtr) ElementType() reflect.Type {
-	return webACLLabelMatchScopePtrType
+func (*webAclLabelMatchScopePtr) ElementType() reflect.Type {
+	return webAclLabelMatchScopePtrType
 }
 
-func (in *webACLLabelMatchScopePtr) ToWebACLLabelMatchScopePtrOutput() WebACLLabelMatchScopePtrOutput {
-	return pulumi.ToOutput(in).(WebACLLabelMatchScopePtrOutput)
+func (in *webAclLabelMatchScopePtr) ToWebAclLabelMatchScopePtrOutput() WebAclLabelMatchScopePtrOutput {
+	return pulumi.ToOutput(in).(WebAclLabelMatchScopePtrOutput)
 }
 
-func (in *webACLLabelMatchScopePtr) ToWebACLLabelMatchScopePtrOutputWithContext(ctx context.Context) WebACLLabelMatchScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLLabelMatchScopePtrOutput)
+func (in *webAclLabelMatchScopePtr) ToWebAclLabelMatchScopePtrOutputWithContext(ctx context.Context) WebAclLabelMatchScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclLabelMatchScopePtrOutput)
 }
 
-type WebACLManagedRuleGroupConfigPayloadType string
+type WebAclManagedRuleGroupConfigPayloadType string
 
 const (
-	WebACLManagedRuleGroupConfigPayloadTypeJson        = WebACLManagedRuleGroupConfigPayloadType("JSON")
-	WebACLManagedRuleGroupConfigPayloadTypeFormEncoded = WebACLManagedRuleGroupConfigPayloadType("FORM_ENCODED")
+	WebAclManagedRuleGroupConfigPayloadTypeJson        = WebAclManagedRuleGroupConfigPayloadType("JSON")
+	WebAclManagedRuleGroupConfigPayloadTypeFormEncoded = WebAclManagedRuleGroupConfigPayloadType("FORM_ENCODED")
 )
 
-func (WebACLManagedRuleGroupConfigPayloadType) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLManagedRuleGroupConfigPayloadType)(nil)).Elem()
+func (WebAclManagedRuleGroupConfigPayloadType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclManagedRuleGroupConfigPayloadType)(nil)).Elem()
 }
 
-func (e WebACLManagedRuleGroupConfigPayloadType) ToWebACLManagedRuleGroupConfigPayloadTypeOutput() WebACLManagedRuleGroupConfigPayloadTypeOutput {
-	return pulumi.ToOutput(e).(WebACLManagedRuleGroupConfigPayloadTypeOutput)
+func (e WebAclManagedRuleGroupConfigPayloadType) ToWebAclManagedRuleGroupConfigPayloadTypeOutput() WebAclManagedRuleGroupConfigPayloadTypeOutput {
+	return pulumi.ToOutput(e).(WebAclManagedRuleGroupConfigPayloadTypeOutput)
 }
 
-func (e WebACLManagedRuleGroupConfigPayloadType) ToWebACLManagedRuleGroupConfigPayloadTypeOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLManagedRuleGroupConfigPayloadTypeOutput)
+func (e WebAclManagedRuleGroupConfigPayloadType) ToWebAclManagedRuleGroupConfigPayloadTypeOutputWithContext(ctx context.Context) WebAclManagedRuleGroupConfigPayloadTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclManagedRuleGroupConfigPayloadTypeOutput)
 }
 
-func (e WebACLManagedRuleGroupConfigPayloadType) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutput() WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
-	return e.ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(context.Background())
+func (e WebAclManagedRuleGroupConfigPayloadType) ToWebAclManagedRuleGroupConfigPayloadTypePtrOutput() WebAclManagedRuleGroupConfigPayloadTypePtrOutput {
+	return e.ToWebAclManagedRuleGroupConfigPayloadTypePtrOutputWithContext(context.Background())
 }
 
-func (e WebACLManagedRuleGroupConfigPayloadType) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
-	return WebACLManagedRuleGroupConfigPayloadType(e).ToWebACLManagedRuleGroupConfigPayloadTypeOutputWithContext(ctx).ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx)
+func (e WebAclManagedRuleGroupConfigPayloadType) ToWebAclManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebAclManagedRuleGroupConfigPayloadTypePtrOutput {
+	return WebAclManagedRuleGroupConfigPayloadType(e).ToWebAclManagedRuleGroupConfigPayloadTypeOutputWithContext(ctx).ToWebAclManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx)
 }
 
-func (e WebACLManagedRuleGroupConfigPayloadType) ToStringOutput() pulumi.StringOutput {
+func (e WebAclManagedRuleGroupConfigPayloadType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLManagedRuleGroupConfigPayloadType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclManagedRuleGroupConfigPayloadType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLManagedRuleGroupConfigPayloadType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclManagedRuleGroupConfigPayloadType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLManagedRuleGroupConfigPayloadType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclManagedRuleGroupConfigPayloadType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLManagedRuleGroupConfigPayloadTypeOutput struct{ *pulumi.OutputState }
+type WebAclManagedRuleGroupConfigPayloadTypeOutput struct{ *pulumi.OutputState }
 
-func (WebACLManagedRuleGroupConfigPayloadTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLManagedRuleGroupConfigPayloadType)(nil)).Elem()
+func (WebAclManagedRuleGroupConfigPayloadTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclManagedRuleGroupConfigPayloadType)(nil)).Elem()
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToWebACLManagedRuleGroupConfigPayloadTypeOutput() WebACLManagedRuleGroupConfigPayloadTypeOutput {
+func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToWebAclManagedRuleGroupConfigPayloadTypeOutput() WebAclManagedRuleGroupConfigPayloadTypeOutput {
 	return o
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToWebACLManagedRuleGroupConfigPayloadTypeOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypeOutput {
+func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToWebAclManagedRuleGroupConfigPayloadTypeOutputWithContext(ctx context.Context) WebAclManagedRuleGroupConfigPayloadTypeOutput {
 	return o
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutput() WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
-	return o.ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(context.Background())
+func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToWebAclManagedRuleGroupConfigPayloadTypePtrOutput() WebAclManagedRuleGroupConfigPayloadTypePtrOutput {
+	return o.ToWebAclManagedRuleGroupConfigPayloadTypePtrOutputWithContext(context.Background())
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLManagedRuleGroupConfigPayloadType) *WebACLManagedRuleGroupConfigPayloadType {
+func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToWebAclManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebAclManagedRuleGroupConfigPayloadTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclManagedRuleGroupConfigPayloadType) *WebAclManagedRuleGroupConfigPayloadType {
 		return &v
-	}).(WebACLManagedRuleGroupConfigPayloadTypePtrOutput)
+	}).(WebAclManagedRuleGroupConfigPayloadTypePtrOutput)
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLManagedRuleGroupConfigPayloadType) string {
+func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclManagedRuleGroupConfigPayloadType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLManagedRuleGroupConfigPayloadType) *string {
+func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclManagedRuleGroupConfigPayloadType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLManagedRuleGroupConfigPayloadTypePtrOutput struct{ *pulumi.OutputState }
+type WebAclManagedRuleGroupConfigPayloadTypePtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLManagedRuleGroupConfigPayloadType)(nil)).Elem()
+func (WebAclManagedRuleGroupConfigPayloadTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclManagedRuleGroupConfigPayloadType)(nil)).Elem()
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutput() WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+func (o WebAclManagedRuleGroupConfigPayloadTypePtrOutput) ToWebAclManagedRuleGroupConfigPayloadTypePtrOutput() WebAclManagedRuleGroupConfigPayloadTypePtrOutput {
 	return o
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+func (o WebAclManagedRuleGroupConfigPayloadTypePtrOutput) ToWebAclManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebAclManagedRuleGroupConfigPayloadTypePtrOutput {
 	return o
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) Elem() WebACLManagedRuleGroupConfigPayloadTypeOutput {
-	return o.ApplyT(func(v *WebACLManagedRuleGroupConfigPayloadType) WebACLManagedRuleGroupConfigPayloadType {
+func (o WebAclManagedRuleGroupConfigPayloadTypePtrOutput) Elem() WebAclManagedRuleGroupConfigPayloadTypeOutput {
+	return o.ApplyT(func(v *WebAclManagedRuleGroupConfigPayloadType) WebAclManagedRuleGroupConfigPayloadType {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLManagedRuleGroupConfigPayloadType
+		var ret WebAclManagedRuleGroupConfigPayloadType
 		return ret
-	}).(WebACLManagedRuleGroupConfigPayloadTypeOutput)
+	}).(WebAclManagedRuleGroupConfigPayloadTypeOutput)
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclManagedRuleGroupConfigPayloadTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLManagedRuleGroupConfigPayloadType) *string {
+func (o WebAclManagedRuleGroupConfigPayloadTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclManagedRuleGroupConfigPayloadType) *string {
 		if e == nil {
 			return nil
 		}
@@ -5116,164 +5116,164 @@ func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLManagedRuleGroupConfigPayloadTypeInput is an input type that accepts WebACLManagedRuleGroupConfigPayloadTypeArgs and WebACLManagedRuleGroupConfigPayloadTypeOutput values.
-// You can construct a concrete instance of `WebACLManagedRuleGroupConfigPayloadTypeInput` via:
+// WebAclManagedRuleGroupConfigPayloadTypeInput is an input type that accepts WebAclManagedRuleGroupConfigPayloadTypeArgs and WebAclManagedRuleGroupConfigPayloadTypeOutput values.
+// You can construct a concrete instance of `WebAclManagedRuleGroupConfigPayloadTypeInput` via:
 //
-//	WebACLManagedRuleGroupConfigPayloadTypeArgs{...}
-type WebACLManagedRuleGroupConfigPayloadTypeInput interface {
+//	WebAclManagedRuleGroupConfigPayloadTypeArgs{...}
+type WebAclManagedRuleGroupConfigPayloadTypeInput interface {
 	pulumi.Input
 
-	ToWebACLManagedRuleGroupConfigPayloadTypeOutput() WebACLManagedRuleGroupConfigPayloadTypeOutput
-	ToWebACLManagedRuleGroupConfigPayloadTypeOutputWithContext(context.Context) WebACLManagedRuleGroupConfigPayloadTypeOutput
+	ToWebAclManagedRuleGroupConfigPayloadTypeOutput() WebAclManagedRuleGroupConfigPayloadTypeOutput
+	ToWebAclManagedRuleGroupConfigPayloadTypeOutputWithContext(context.Context) WebAclManagedRuleGroupConfigPayloadTypeOutput
 }
 
-var webACLManagedRuleGroupConfigPayloadTypePtrType = reflect.TypeOf((**WebACLManagedRuleGroupConfigPayloadType)(nil)).Elem()
+var webAclManagedRuleGroupConfigPayloadTypePtrType = reflect.TypeOf((**WebAclManagedRuleGroupConfigPayloadType)(nil)).Elem()
 
-type WebACLManagedRuleGroupConfigPayloadTypePtrInput interface {
+type WebAclManagedRuleGroupConfigPayloadTypePtrInput interface {
 	pulumi.Input
 
-	ToWebACLManagedRuleGroupConfigPayloadTypePtrOutput() WebACLManagedRuleGroupConfigPayloadTypePtrOutput
-	ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput
+	ToWebAclManagedRuleGroupConfigPayloadTypePtrOutput() WebAclManagedRuleGroupConfigPayloadTypePtrOutput
+	ToWebAclManagedRuleGroupConfigPayloadTypePtrOutputWithContext(context.Context) WebAclManagedRuleGroupConfigPayloadTypePtrOutput
 }
 
-type webACLManagedRuleGroupConfigPayloadTypePtr string
+type webAclManagedRuleGroupConfigPayloadTypePtr string
 
-func WebACLManagedRuleGroupConfigPayloadTypePtr(v string) WebACLManagedRuleGroupConfigPayloadTypePtrInput {
-	return (*webACLManagedRuleGroupConfigPayloadTypePtr)(&v)
+func WebAclManagedRuleGroupConfigPayloadTypePtr(v string) WebAclManagedRuleGroupConfigPayloadTypePtrInput {
+	return (*webAclManagedRuleGroupConfigPayloadTypePtr)(&v)
 }
 
-func (*webACLManagedRuleGroupConfigPayloadTypePtr) ElementType() reflect.Type {
-	return webACLManagedRuleGroupConfigPayloadTypePtrType
+func (*webAclManagedRuleGroupConfigPayloadTypePtr) ElementType() reflect.Type {
+	return webAclManagedRuleGroupConfigPayloadTypePtrType
 }
 
-func (in *webACLManagedRuleGroupConfigPayloadTypePtr) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutput() WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
-	return pulumi.ToOutput(in).(WebACLManagedRuleGroupConfigPayloadTypePtrOutput)
+func (in *webAclManagedRuleGroupConfigPayloadTypePtr) ToWebAclManagedRuleGroupConfigPayloadTypePtrOutput() WebAclManagedRuleGroupConfigPayloadTypePtrOutput {
+	return pulumi.ToOutput(in).(WebAclManagedRuleGroupConfigPayloadTypePtrOutput)
 }
 
-func (in *webACLManagedRuleGroupConfigPayloadTypePtr) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLManagedRuleGroupConfigPayloadTypePtrOutput)
+func (in *webAclManagedRuleGroupConfigPayloadTypePtr) ToWebAclManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebAclManagedRuleGroupConfigPayloadTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclManagedRuleGroupConfigPayloadTypePtrOutput)
 }
 
 // The parts of the request to match against using the MatchPattern.
-type WebACLMapMatchScope string
+type WebAclMapMatchScope string
 
 const (
-	WebACLMapMatchScopeAll   = WebACLMapMatchScope("ALL")
-	WebACLMapMatchScopeKey   = WebACLMapMatchScope("KEY")
-	WebACLMapMatchScopeValue = WebACLMapMatchScope("VALUE")
+	WebAclMapMatchScopeAll   = WebAclMapMatchScope("ALL")
+	WebAclMapMatchScopeKey   = WebAclMapMatchScope("KEY")
+	WebAclMapMatchScopeValue = WebAclMapMatchScope("VALUE")
 )
 
-func (WebACLMapMatchScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLMapMatchScope)(nil)).Elem()
+func (WebAclMapMatchScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMapMatchScope)(nil)).Elem()
 }
 
-func (e WebACLMapMatchScope) ToWebACLMapMatchScopeOutput() WebACLMapMatchScopeOutput {
-	return pulumi.ToOutput(e).(WebACLMapMatchScopeOutput)
+func (e WebAclMapMatchScope) ToWebAclMapMatchScopeOutput() WebAclMapMatchScopeOutput {
+	return pulumi.ToOutput(e).(WebAclMapMatchScopeOutput)
 }
 
-func (e WebACLMapMatchScope) ToWebACLMapMatchScopeOutputWithContext(ctx context.Context) WebACLMapMatchScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLMapMatchScopeOutput)
+func (e WebAclMapMatchScope) ToWebAclMapMatchScopeOutputWithContext(ctx context.Context) WebAclMapMatchScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclMapMatchScopeOutput)
 }
 
-func (e WebACLMapMatchScope) ToWebACLMapMatchScopePtrOutput() WebACLMapMatchScopePtrOutput {
-	return e.ToWebACLMapMatchScopePtrOutputWithContext(context.Background())
+func (e WebAclMapMatchScope) ToWebAclMapMatchScopePtrOutput() WebAclMapMatchScopePtrOutput {
+	return e.ToWebAclMapMatchScopePtrOutputWithContext(context.Background())
 }
 
-func (e WebACLMapMatchScope) ToWebACLMapMatchScopePtrOutputWithContext(ctx context.Context) WebACLMapMatchScopePtrOutput {
-	return WebACLMapMatchScope(e).ToWebACLMapMatchScopeOutputWithContext(ctx).ToWebACLMapMatchScopePtrOutputWithContext(ctx)
+func (e WebAclMapMatchScope) ToWebAclMapMatchScopePtrOutputWithContext(ctx context.Context) WebAclMapMatchScopePtrOutput {
+	return WebAclMapMatchScope(e).ToWebAclMapMatchScopeOutputWithContext(ctx).ToWebAclMapMatchScopePtrOutputWithContext(ctx)
 }
 
-func (e WebACLMapMatchScope) ToStringOutput() pulumi.StringOutput {
+func (e WebAclMapMatchScope) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLMapMatchScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclMapMatchScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLMapMatchScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclMapMatchScope) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLMapMatchScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclMapMatchScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLMapMatchScopeOutput struct{ *pulumi.OutputState }
+type WebAclMapMatchScopeOutput struct{ *pulumi.OutputState }
 
-func (WebACLMapMatchScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLMapMatchScope)(nil)).Elem()
+func (WebAclMapMatchScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMapMatchScope)(nil)).Elem()
 }
 
-func (o WebACLMapMatchScopeOutput) ToWebACLMapMatchScopeOutput() WebACLMapMatchScopeOutput {
+func (o WebAclMapMatchScopeOutput) ToWebAclMapMatchScopeOutput() WebAclMapMatchScopeOutput {
 	return o
 }
 
-func (o WebACLMapMatchScopeOutput) ToWebACLMapMatchScopeOutputWithContext(ctx context.Context) WebACLMapMatchScopeOutput {
+func (o WebAclMapMatchScopeOutput) ToWebAclMapMatchScopeOutputWithContext(ctx context.Context) WebAclMapMatchScopeOutput {
 	return o
 }
 
-func (o WebACLMapMatchScopeOutput) ToWebACLMapMatchScopePtrOutput() WebACLMapMatchScopePtrOutput {
-	return o.ToWebACLMapMatchScopePtrOutputWithContext(context.Background())
+func (o WebAclMapMatchScopeOutput) ToWebAclMapMatchScopePtrOutput() WebAclMapMatchScopePtrOutput {
+	return o.ToWebAclMapMatchScopePtrOutputWithContext(context.Background())
 }
 
-func (o WebACLMapMatchScopeOutput) ToWebACLMapMatchScopePtrOutputWithContext(ctx context.Context) WebACLMapMatchScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLMapMatchScope) *WebACLMapMatchScope {
+func (o WebAclMapMatchScopeOutput) ToWebAclMapMatchScopePtrOutputWithContext(ctx context.Context) WebAclMapMatchScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclMapMatchScope) *WebAclMapMatchScope {
 		return &v
-	}).(WebACLMapMatchScopePtrOutput)
+	}).(WebAclMapMatchScopePtrOutput)
 }
 
-func (o WebACLMapMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclMapMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLMapMatchScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLMapMatchScope) string {
+func (o WebAclMapMatchScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclMapMatchScope) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLMapMatchScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclMapMatchScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLMapMatchScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLMapMatchScope) *string {
+func (o WebAclMapMatchScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclMapMatchScope) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLMapMatchScopePtrOutput struct{ *pulumi.OutputState }
+type WebAclMapMatchScopePtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLMapMatchScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLMapMatchScope)(nil)).Elem()
+func (WebAclMapMatchScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclMapMatchScope)(nil)).Elem()
 }
 
-func (o WebACLMapMatchScopePtrOutput) ToWebACLMapMatchScopePtrOutput() WebACLMapMatchScopePtrOutput {
+func (o WebAclMapMatchScopePtrOutput) ToWebAclMapMatchScopePtrOutput() WebAclMapMatchScopePtrOutput {
 	return o
 }
 
-func (o WebACLMapMatchScopePtrOutput) ToWebACLMapMatchScopePtrOutputWithContext(ctx context.Context) WebACLMapMatchScopePtrOutput {
+func (o WebAclMapMatchScopePtrOutput) ToWebAclMapMatchScopePtrOutputWithContext(ctx context.Context) WebAclMapMatchScopePtrOutput {
 	return o
 }
 
-func (o WebACLMapMatchScopePtrOutput) Elem() WebACLMapMatchScopeOutput {
-	return o.ApplyT(func(v *WebACLMapMatchScope) WebACLMapMatchScope {
+func (o WebAclMapMatchScopePtrOutput) Elem() WebAclMapMatchScopeOutput {
+	return o.ApplyT(func(v *WebAclMapMatchScope) WebAclMapMatchScope {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLMapMatchScope
+		var ret WebAclMapMatchScope
 		return ret
-	}).(WebACLMapMatchScopeOutput)
+	}).(WebAclMapMatchScopeOutput)
 }
 
-func (o WebACLMapMatchScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclMapMatchScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLMapMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLMapMatchScope) *string {
+func (o WebAclMapMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclMapMatchScope) *string {
 		if e == nil {
 			return nil
 		}
@@ -5282,164 +5282,164 @@ func (o WebACLMapMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLMapMatchScopeInput is an input type that accepts WebACLMapMatchScopeArgs and WebACLMapMatchScopeOutput values.
-// You can construct a concrete instance of `WebACLMapMatchScopeInput` via:
+// WebAclMapMatchScopeInput is an input type that accepts WebAclMapMatchScopeArgs and WebAclMapMatchScopeOutput values.
+// You can construct a concrete instance of `WebAclMapMatchScopeInput` via:
 //
-//	WebACLMapMatchScopeArgs{...}
-type WebACLMapMatchScopeInput interface {
+//	WebAclMapMatchScopeArgs{...}
+type WebAclMapMatchScopeInput interface {
 	pulumi.Input
 
-	ToWebACLMapMatchScopeOutput() WebACLMapMatchScopeOutput
-	ToWebACLMapMatchScopeOutputWithContext(context.Context) WebACLMapMatchScopeOutput
+	ToWebAclMapMatchScopeOutput() WebAclMapMatchScopeOutput
+	ToWebAclMapMatchScopeOutputWithContext(context.Context) WebAclMapMatchScopeOutput
 }
 
-var webACLMapMatchScopePtrType = reflect.TypeOf((**WebACLMapMatchScope)(nil)).Elem()
+var webAclMapMatchScopePtrType = reflect.TypeOf((**WebAclMapMatchScope)(nil)).Elem()
 
-type WebACLMapMatchScopePtrInput interface {
+type WebAclMapMatchScopePtrInput interface {
 	pulumi.Input
 
-	ToWebACLMapMatchScopePtrOutput() WebACLMapMatchScopePtrOutput
-	ToWebACLMapMatchScopePtrOutputWithContext(context.Context) WebACLMapMatchScopePtrOutput
+	ToWebAclMapMatchScopePtrOutput() WebAclMapMatchScopePtrOutput
+	ToWebAclMapMatchScopePtrOutputWithContext(context.Context) WebAclMapMatchScopePtrOutput
 }
 
-type webACLMapMatchScopePtr string
+type webAclMapMatchScopePtr string
 
-func WebACLMapMatchScopePtr(v string) WebACLMapMatchScopePtrInput {
-	return (*webACLMapMatchScopePtr)(&v)
+func WebAclMapMatchScopePtr(v string) WebAclMapMatchScopePtrInput {
+	return (*webAclMapMatchScopePtr)(&v)
 }
 
-func (*webACLMapMatchScopePtr) ElementType() reflect.Type {
-	return webACLMapMatchScopePtrType
+func (*webAclMapMatchScopePtr) ElementType() reflect.Type {
+	return webAclMapMatchScopePtrType
 }
 
-func (in *webACLMapMatchScopePtr) ToWebACLMapMatchScopePtrOutput() WebACLMapMatchScopePtrOutput {
-	return pulumi.ToOutput(in).(WebACLMapMatchScopePtrOutput)
+func (in *webAclMapMatchScopePtr) ToWebAclMapMatchScopePtrOutput() WebAclMapMatchScopePtrOutput {
+	return pulumi.ToOutput(in).(WebAclMapMatchScopePtrOutput)
 }
 
-func (in *webACLMapMatchScopePtr) ToWebACLMapMatchScopePtrOutputWithContext(ctx context.Context) WebACLMapMatchScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLMapMatchScopePtrOutput)
+func (in *webAclMapMatchScopePtr) ToWebAclMapMatchScopePtrOutputWithContext(ctx context.Context) WebAclMapMatchScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclMapMatchScopePtrOutput)
 }
 
 // Handling of requests containing oversize fields
-type WebACLOversizeHandling string
+type WebAclOversizeHandling string
 
 const (
-	WebACLOversizeHandlingContinue = WebACLOversizeHandling("CONTINUE")
-	WebACLOversizeHandlingMatch    = WebACLOversizeHandling("MATCH")
-	WebACLOversizeHandlingNoMatch  = WebACLOversizeHandling("NO_MATCH")
+	WebAclOversizeHandlingContinue = WebAclOversizeHandling("CONTINUE")
+	WebAclOversizeHandlingMatch    = WebAclOversizeHandling("MATCH")
+	WebAclOversizeHandlingNoMatch  = WebAclOversizeHandling("NO_MATCH")
 )
 
-func (WebACLOversizeHandling) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLOversizeHandling)(nil)).Elem()
+func (WebAclOversizeHandling) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclOversizeHandling)(nil)).Elem()
 }
 
-func (e WebACLOversizeHandling) ToWebACLOversizeHandlingOutput() WebACLOversizeHandlingOutput {
-	return pulumi.ToOutput(e).(WebACLOversizeHandlingOutput)
+func (e WebAclOversizeHandling) ToWebAclOversizeHandlingOutput() WebAclOversizeHandlingOutput {
+	return pulumi.ToOutput(e).(WebAclOversizeHandlingOutput)
 }
 
-func (e WebACLOversizeHandling) ToWebACLOversizeHandlingOutputWithContext(ctx context.Context) WebACLOversizeHandlingOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLOversizeHandlingOutput)
+func (e WebAclOversizeHandling) ToWebAclOversizeHandlingOutputWithContext(ctx context.Context) WebAclOversizeHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclOversizeHandlingOutput)
 }
 
-func (e WebACLOversizeHandling) ToWebACLOversizeHandlingPtrOutput() WebACLOversizeHandlingPtrOutput {
-	return e.ToWebACLOversizeHandlingPtrOutputWithContext(context.Background())
+func (e WebAclOversizeHandling) ToWebAclOversizeHandlingPtrOutput() WebAclOversizeHandlingPtrOutput {
+	return e.ToWebAclOversizeHandlingPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLOversizeHandling) ToWebACLOversizeHandlingPtrOutputWithContext(ctx context.Context) WebACLOversizeHandlingPtrOutput {
-	return WebACLOversizeHandling(e).ToWebACLOversizeHandlingOutputWithContext(ctx).ToWebACLOversizeHandlingPtrOutputWithContext(ctx)
+func (e WebAclOversizeHandling) ToWebAclOversizeHandlingPtrOutputWithContext(ctx context.Context) WebAclOversizeHandlingPtrOutput {
+	return WebAclOversizeHandling(e).ToWebAclOversizeHandlingOutputWithContext(ctx).ToWebAclOversizeHandlingPtrOutputWithContext(ctx)
 }
 
-func (e WebACLOversizeHandling) ToStringOutput() pulumi.StringOutput {
+func (e WebAclOversizeHandling) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLOversizeHandling) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclOversizeHandling) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLOversizeHandling) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclOversizeHandling) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLOversizeHandling) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclOversizeHandling) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLOversizeHandlingOutput struct{ *pulumi.OutputState }
+type WebAclOversizeHandlingOutput struct{ *pulumi.OutputState }
 
-func (WebACLOversizeHandlingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLOversizeHandling)(nil)).Elem()
+func (WebAclOversizeHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclOversizeHandling)(nil)).Elem()
 }
 
-func (o WebACLOversizeHandlingOutput) ToWebACLOversizeHandlingOutput() WebACLOversizeHandlingOutput {
+func (o WebAclOversizeHandlingOutput) ToWebAclOversizeHandlingOutput() WebAclOversizeHandlingOutput {
 	return o
 }
 
-func (o WebACLOversizeHandlingOutput) ToWebACLOversizeHandlingOutputWithContext(ctx context.Context) WebACLOversizeHandlingOutput {
+func (o WebAclOversizeHandlingOutput) ToWebAclOversizeHandlingOutputWithContext(ctx context.Context) WebAclOversizeHandlingOutput {
 	return o
 }
 
-func (o WebACLOversizeHandlingOutput) ToWebACLOversizeHandlingPtrOutput() WebACLOversizeHandlingPtrOutput {
-	return o.ToWebACLOversizeHandlingPtrOutputWithContext(context.Background())
+func (o WebAclOversizeHandlingOutput) ToWebAclOversizeHandlingPtrOutput() WebAclOversizeHandlingPtrOutput {
+	return o.ToWebAclOversizeHandlingPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLOversizeHandlingOutput) ToWebACLOversizeHandlingPtrOutputWithContext(ctx context.Context) WebACLOversizeHandlingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLOversizeHandling) *WebACLOversizeHandling {
+func (o WebAclOversizeHandlingOutput) ToWebAclOversizeHandlingPtrOutputWithContext(ctx context.Context) WebAclOversizeHandlingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclOversizeHandling) *WebAclOversizeHandling {
 		return &v
-	}).(WebACLOversizeHandlingPtrOutput)
+	}).(WebAclOversizeHandlingPtrOutput)
 }
 
-func (o WebACLOversizeHandlingOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclOversizeHandlingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLOversizeHandlingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLOversizeHandling) string {
+func (o WebAclOversizeHandlingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclOversizeHandling) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLOversizeHandlingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclOversizeHandlingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLOversizeHandlingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLOversizeHandling) *string {
+func (o WebAclOversizeHandlingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclOversizeHandling) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLOversizeHandlingPtrOutput struct{ *pulumi.OutputState }
+type WebAclOversizeHandlingPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLOversizeHandlingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLOversizeHandling)(nil)).Elem()
+func (WebAclOversizeHandlingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclOversizeHandling)(nil)).Elem()
 }
 
-func (o WebACLOversizeHandlingPtrOutput) ToWebACLOversizeHandlingPtrOutput() WebACLOversizeHandlingPtrOutput {
+func (o WebAclOversizeHandlingPtrOutput) ToWebAclOversizeHandlingPtrOutput() WebAclOversizeHandlingPtrOutput {
 	return o
 }
 
-func (o WebACLOversizeHandlingPtrOutput) ToWebACLOversizeHandlingPtrOutputWithContext(ctx context.Context) WebACLOversizeHandlingPtrOutput {
+func (o WebAclOversizeHandlingPtrOutput) ToWebAclOversizeHandlingPtrOutputWithContext(ctx context.Context) WebAclOversizeHandlingPtrOutput {
 	return o
 }
 
-func (o WebACLOversizeHandlingPtrOutput) Elem() WebACLOversizeHandlingOutput {
-	return o.ApplyT(func(v *WebACLOversizeHandling) WebACLOversizeHandling {
+func (o WebAclOversizeHandlingPtrOutput) Elem() WebAclOversizeHandlingOutput {
+	return o.ApplyT(func(v *WebAclOversizeHandling) WebAclOversizeHandling {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLOversizeHandling
+		var ret WebAclOversizeHandling
 		return ret
-	}).(WebACLOversizeHandlingOutput)
+	}).(WebAclOversizeHandlingOutput)
 }
 
-func (o WebACLOversizeHandlingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclOversizeHandlingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLOversizeHandlingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLOversizeHandling) *string {
+func (o WebAclOversizeHandlingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclOversizeHandling) *string {
 		if e == nil {
 			return nil
 		}
@@ -5448,166 +5448,166 @@ func (o WebACLOversizeHandlingPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLOversizeHandlingInput is an input type that accepts WebACLOversizeHandlingArgs and WebACLOversizeHandlingOutput values.
-// You can construct a concrete instance of `WebACLOversizeHandlingInput` via:
+// WebAclOversizeHandlingInput is an input type that accepts WebAclOversizeHandlingArgs and WebAclOversizeHandlingOutput values.
+// You can construct a concrete instance of `WebAclOversizeHandlingInput` via:
 //
-//	WebACLOversizeHandlingArgs{...}
-type WebACLOversizeHandlingInput interface {
+//	WebAclOversizeHandlingArgs{...}
+type WebAclOversizeHandlingInput interface {
 	pulumi.Input
 
-	ToWebACLOversizeHandlingOutput() WebACLOversizeHandlingOutput
-	ToWebACLOversizeHandlingOutputWithContext(context.Context) WebACLOversizeHandlingOutput
+	ToWebAclOversizeHandlingOutput() WebAclOversizeHandlingOutput
+	ToWebAclOversizeHandlingOutputWithContext(context.Context) WebAclOversizeHandlingOutput
 }
 
-var webACLOversizeHandlingPtrType = reflect.TypeOf((**WebACLOversizeHandling)(nil)).Elem()
+var webAclOversizeHandlingPtrType = reflect.TypeOf((**WebAclOversizeHandling)(nil)).Elem()
 
-type WebACLOversizeHandlingPtrInput interface {
+type WebAclOversizeHandlingPtrInput interface {
 	pulumi.Input
 
-	ToWebACLOversizeHandlingPtrOutput() WebACLOversizeHandlingPtrOutput
-	ToWebACLOversizeHandlingPtrOutputWithContext(context.Context) WebACLOversizeHandlingPtrOutput
+	ToWebAclOversizeHandlingPtrOutput() WebAclOversizeHandlingPtrOutput
+	ToWebAclOversizeHandlingPtrOutputWithContext(context.Context) WebAclOversizeHandlingPtrOutput
 }
 
-type webACLOversizeHandlingPtr string
+type webAclOversizeHandlingPtr string
 
-func WebACLOversizeHandlingPtr(v string) WebACLOversizeHandlingPtrInput {
-	return (*webACLOversizeHandlingPtr)(&v)
+func WebAclOversizeHandlingPtr(v string) WebAclOversizeHandlingPtrInput {
+	return (*webAclOversizeHandlingPtr)(&v)
 }
 
-func (*webACLOversizeHandlingPtr) ElementType() reflect.Type {
-	return webACLOversizeHandlingPtrType
+func (*webAclOversizeHandlingPtr) ElementType() reflect.Type {
+	return webAclOversizeHandlingPtrType
 }
 
-func (in *webACLOversizeHandlingPtr) ToWebACLOversizeHandlingPtrOutput() WebACLOversizeHandlingPtrOutput {
-	return pulumi.ToOutput(in).(WebACLOversizeHandlingPtrOutput)
+func (in *webAclOversizeHandlingPtr) ToWebAclOversizeHandlingPtrOutput() WebAclOversizeHandlingPtrOutput {
+	return pulumi.ToOutput(in).(WebAclOversizeHandlingPtrOutput)
 }
 
-func (in *webACLOversizeHandlingPtr) ToWebACLOversizeHandlingPtrOutputWithContext(ctx context.Context) WebACLOversizeHandlingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLOversizeHandlingPtrOutput)
+func (in *webAclOversizeHandlingPtr) ToWebAclOversizeHandlingPtrOutputWithContext(ctx context.Context) WebAclOversizeHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclOversizeHandlingPtrOutput)
 }
 
 // Position of the evaluation in the FieldToMatch of request.
-type WebACLPositionalConstraint string
+type WebAclPositionalConstraint string
 
 const (
-	WebACLPositionalConstraintExactly      = WebACLPositionalConstraint("EXACTLY")
-	WebACLPositionalConstraintStartsWith   = WebACLPositionalConstraint("STARTS_WITH")
-	WebACLPositionalConstraintEndsWith     = WebACLPositionalConstraint("ENDS_WITH")
-	WebACLPositionalConstraintContains     = WebACLPositionalConstraint("CONTAINS")
-	WebACLPositionalConstraintContainsWord = WebACLPositionalConstraint("CONTAINS_WORD")
+	WebAclPositionalConstraintExactly      = WebAclPositionalConstraint("EXACTLY")
+	WebAclPositionalConstraintStartsWith   = WebAclPositionalConstraint("STARTS_WITH")
+	WebAclPositionalConstraintEndsWith     = WebAclPositionalConstraint("ENDS_WITH")
+	WebAclPositionalConstraintContains     = WebAclPositionalConstraint("CONTAINS")
+	WebAclPositionalConstraintContainsWord = WebAclPositionalConstraint("CONTAINS_WORD")
 )
 
-func (WebACLPositionalConstraint) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLPositionalConstraint)(nil)).Elem()
+func (WebAclPositionalConstraint) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclPositionalConstraint)(nil)).Elem()
 }
 
-func (e WebACLPositionalConstraint) ToWebACLPositionalConstraintOutput() WebACLPositionalConstraintOutput {
-	return pulumi.ToOutput(e).(WebACLPositionalConstraintOutput)
+func (e WebAclPositionalConstraint) ToWebAclPositionalConstraintOutput() WebAclPositionalConstraintOutput {
+	return pulumi.ToOutput(e).(WebAclPositionalConstraintOutput)
 }
 
-func (e WebACLPositionalConstraint) ToWebACLPositionalConstraintOutputWithContext(ctx context.Context) WebACLPositionalConstraintOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLPositionalConstraintOutput)
+func (e WebAclPositionalConstraint) ToWebAclPositionalConstraintOutputWithContext(ctx context.Context) WebAclPositionalConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclPositionalConstraintOutput)
 }
 
-func (e WebACLPositionalConstraint) ToWebACLPositionalConstraintPtrOutput() WebACLPositionalConstraintPtrOutput {
-	return e.ToWebACLPositionalConstraintPtrOutputWithContext(context.Background())
+func (e WebAclPositionalConstraint) ToWebAclPositionalConstraintPtrOutput() WebAclPositionalConstraintPtrOutput {
+	return e.ToWebAclPositionalConstraintPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLPositionalConstraint) ToWebACLPositionalConstraintPtrOutputWithContext(ctx context.Context) WebACLPositionalConstraintPtrOutput {
-	return WebACLPositionalConstraint(e).ToWebACLPositionalConstraintOutputWithContext(ctx).ToWebACLPositionalConstraintPtrOutputWithContext(ctx)
+func (e WebAclPositionalConstraint) ToWebAclPositionalConstraintPtrOutputWithContext(ctx context.Context) WebAclPositionalConstraintPtrOutput {
+	return WebAclPositionalConstraint(e).ToWebAclPositionalConstraintOutputWithContext(ctx).ToWebAclPositionalConstraintPtrOutputWithContext(ctx)
 }
 
-func (e WebACLPositionalConstraint) ToStringOutput() pulumi.StringOutput {
+func (e WebAclPositionalConstraint) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLPositionalConstraint) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclPositionalConstraint) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLPositionalConstraint) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclPositionalConstraint) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLPositionalConstraint) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclPositionalConstraint) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLPositionalConstraintOutput struct{ *pulumi.OutputState }
+type WebAclPositionalConstraintOutput struct{ *pulumi.OutputState }
 
-func (WebACLPositionalConstraintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLPositionalConstraint)(nil)).Elem()
+func (WebAclPositionalConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclPositionalConstraint)(nil)).Elem()
 }
 
-func (o WebACLPositionalConstraintOutput) ToWebACLPositionalConstraintOutput() WebACLPositionalConstraintOutput {
+func (o WebAclPositionalConstraintOutput) ToWebAclPositionalConstraintOutput() WebAclPositionalConstraintOutput {
 	return o
 }
 
-func (o WebACLPositionalConstraintOutput) ToWebACLPositionalConstraintOutputWithContext(ctx context.Context) WebACLPositionalConstraintOutput {
+func (o WebAclPositionalConstraintOutput) ToWebAclPositionalConstraintOutputWithContext(ctx context.Context) WebAclPositionalConstraintOutput {
 	return o
 }
 
-func (o WebACLPositionalConstraintOutput) ToWebACLPositionalConstraintPtrOutput() WebACLPositionalConstraintPtrOutput {
-	return o.ToWebACLPositionalConstraintPtrOutputWithContext(context.Background())
+func (o WebAclPositionalConstraintOutput) ToWebAclPositionalConstraintPtrOutput() WebAclPositionalConstraintPtrOutput {
+	return o.ToWebAclPositionalConstraintPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLPositionalConstraintOutput) ToWebACLPositionalConstraintPtrOutputWithContext(ctx context.Context) WebACLPositionalConstraintPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLPositionalConstraint) *WebACLPositionalConstraint {
+func (o WebAclPositionalConstraintOutput) ToWebAclPositionalConstraintPtrOutputWithContext(ctx context.Context) WebAclPositionalConstraintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclPositionalConstraint) *WebAclPositionalConstraint {
 		return &v
-	}).(WebACLPositionalConstraintPtrOutput)
+	}).(WebAclPositionalConstraintPtrOutput)
 }
 
-func (o WebACLPositionalConstraintOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclPositionalConstraintOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLPositionalConstraintOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLPositionalConstraint) string {
+func (o WebAclPositionalConstraintOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclPositionalConstraint) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLPositionalConstraintOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclPositionalConstraintOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLPositionalConstraintOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLPositionalConstraint) *string {
+func (o WebAclPositionalConstraintOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclPositionalConstraint) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLPositionalConstraintPtrOutput struct{ *pulumi.OutputState }
+type WebAclPositionalConstraintPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLPositionalConstraintPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLPositionalConstraint)(nil)).Elem()
+func (WebAclPositionalConstraintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclPositionalConstraint)(nil)).Elem()
 }
 
-func (o WebACLPositionalConstraintPtrOutput) ToWebACLPositionalConstraintPtrOutput() WebACLPositionalConstraintPtrOutput {
+func (o WebAclPositionalConstraintPtrOutput) ToWebAclPositionalConstraintPtrOutput() WebAclPositionalConstraintPtrOutput {
 	return o
 }
 
-func (o WebACLPositionalConstraintPtrOutput) ToWebACLPositionalConstraintPtrOutputWithContext(ctx context.Context) WebACLPositionalConstraintPtrOutput {
+func (o WebAclPositionalConstraintPtrOutput) ToWebAclPositionalConstraintPtrOutputWithContext(ctx context.Context) WebAclPositionalConstraintPtrOutput {
 	return o
 }
 
-func (o WebACLPositionalConstraintPtrOutput) Elem() WebACLPositionalConstraintOutput {
-	return o.ApplyT(func(v *WebACLPositionalConstraint) WebACLPositionalConstraint {
+func (o WebAclPositionalConstraintPtrOutput) Elem() WebAclPositionalConstraintOutput {
+	return o.ApplyT(func(v *WebAclPositionalConstraint) WebAclPositionalConstraint {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLPositionalConstraint
+		var ret WebAclPositionalConstraint
 		return ret
-	}).(WebACLPositionalConstraintOutput)
+	}).(WebAclPositionalConstraintOutput)
 }
 
-func (o WebACLPositionalConstraintPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclPositionalConstraintPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLPositionalConstraintPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLPositionalConstraint) *string {
+func (o WebAclPositionalConstraintPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclPositionalConstraint) *string {
 		if e == nil {
 			return nil
 		}
@@ -5616,163 +5616,163 @@ func (o WebACLPositionalConstraintPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLPositionalConstraintInput is an input type that accepts WebACLPositionalConstraintArgs and WebACLPositionalConstraintOutput values.
-// You can construct a concrete instance of `WebACLPositionalConstraintInput` via:
+// WebAclPositionalConstraintInput is an input type that accepts WebAclPositionalConstraintArgs and WebAclPositionalConstraintOutput values.
+// You can construct a concrete instance of `WebAclPositionalConstraintInput` via:
 //
-//	WebACLPositionalConstraintArgs{...}
-type WebACLPositionalConstraintInput interface {
+//	WebAclPositionalConstraintArgs{...}
+type WebAclPositionalConstraintInput interface {
 	pulumi.Input
 
-	ToWebACLPositionalConstraintOutput() WebACLPositionalConstraintOutput
-	ToWebACLPositionalConstraintOutputWithContext(context.Context) WebACLPositionalConstraintOutput
+	ToWebAclPositionalConstraintOutput() WebAclPositionalConstraintOutput
+	ToWebAclPositionalConstraintOutputWithContext(context.Context) WebAclPositionalConstraintOutput
 }
 
-var webACLPositionalConstraintPtrType = reflect.TypeOf((**WebACLPositionalConstraint)(nil)).Elem()
+var webAclPositionalConstraintPtrType = reflect.TypeOf((**WebAclPositionalConstraint)(nil)).Elem()
 
-type WebACLPositionalConstraintPtrInput interface {
+type WebAclPositionalConstraintPtrInput interface {
 	pulumi.Input
 
-	ToWebACLPositionalConstraintPtrOutput() WebACLPositionalConstraintPtrOutput
-	ToWebACLPositionalConstraintPtrOutputWithContext(context.Context) WebACLPositionalConstraintPtrOutput
+	ToWebAclPositionalConstraintPtrOutput() WebAclPositionalConstraintPtrOutput
+	ToWebAclPositionalConstraintPtrOutputWithContext(context.Context) WebAclPositionalConstraintPtrOutput
 }
 
-type webACLPositionalConstraintPtr string
+type webAclPositionalConstraintPtr string
 
-func WebACLPositionalConstraintPtr(v string) WebACLPositionalConstraintPtrInput {
-	return (*webACLPositionalConstraintPtr)(&v)
+func WebAclPositionalConstraintPtr(v string) WebAclPositionalConstraintPtrInput {
+	return (*webAclPositionalConstraintPtr)(&v)
 }
 
-func (*webACLPositionalConstraintPtr) ElementType() reflect.Type {
-	return webACLPositionalConstraintPtrType
+func (*webAclPositionalConstraintPtr) ElementType() reflect.Type {
+	return webAclPositionalConstraintPtrType
 }
 
-func (in *webACLPositionalConstraintPtr) ToWebACLPositionalConstraintPtrOutput() WebACLPositionalConstraintPtrOutput {
-	return pulumi.ToOutput(in).(WebACLPositionalConstraintPtrOutput)
+func (in *webAclPositionalConstraintPtr) ToWebAclPositionalConstraintPtrOutput() WebAclPositionalConstraintPtrOutput {
+	return pulumi.ToOutput(in).(WebAclPositionalConstraintPtrOutput)
 }
 
-func (in *webACLPositionalConstraintPtr) ToWebACLPositionalConstraintPtrOutputWithContext(ctx context.Context) WebACLPositionalConstraintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLPositionalConstraintPtrOutput)
+func (in *webAclPositionalConstraintPtr) ToWebAclPositionalConstraintPtrOutputWithContext(ctx context.Context) WebAclPositionalConstraintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclPositionalConstraintPtrOutput)
 }
 
-type WebACLRateBasedStatementAggregateKeyType string
+type WebAclRateBasedStatementAggregateKeyType string
 
 const (
-	WebACLRateBasedStatementAggregateKeyTypeIp          = WebACLRateBasedStatementAggregateKeyType("IP")
-	WebACLRateBasedStatementAggregateKeyTypeForwardedIp = WebACLRateBasedStatementAggregateKeyType("FORWARDED_IP")
-	WebACLRateBasedStatementAggregateKeyTypeCustomKeys  = WebACLRateBasedStatementAggregateKeyType("CUSTOM_KEYS")
+	WebAclRateBasedStatementAggregateKeyTypeIp          = WebAclRateBasedStatementAggregateKeyType("IP")
+	WebAclRateBasedStatementAggregateKeyTypeForwardedIp = WebAclRateBasedStatementAggregateKeyType("FORWARDED_IP")
+	WebAclRateBasedStatementAggregateKeyTypeCustomKeys  = WebAclRateBasedStatementAggregateKeyType("CUSTOM_KEYS")
 )
 
-func (WebACLRateBasedStatementAggregateKeyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLRateBasedStatementAggregateKeyType)(nil)).Elem()
+func (WebAclRateBasedStatementAggregateKeyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateBasedStatementAggregateKeyType)(nil)).Elem()
 }
 
-func (e WebACLRateBasedStatementAggregateKeyType) ToWebACLRateBasedStatementAggregateKeyTypeOutput() WebACLRateBasedStatementAggregateKeyTypeOutput {
-	return pulumi.ToOutput(e).(WebACLRateBasedStatementAggregateKeyTypeOutput)
+func (e WebAclRateBasedStatementAggregateKeyType) ToWebAclRateBasedStatementAggregateKeyTypeOutput() WebAclRateBasedStatementAggregateKeyTypeOutput {
+	return pulumi.ToOutput(e).(WebAclRateBasedStatementAggregateKeyTypeOutput)
 }
 
-func (e WebACLRateBasedStatementAggregateKeyType) ToWebACLRateBasedStatementAggregateKeyTypeOutputWithContext(ctx context.Context) WebACLRateBasedStatementAggregateKeyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLRateBasedStatementAggregateKeyTypeOutput)
+func (e WebAclRateBasedStatementAggregateKeyType) ToWebAclRateBasedStatementAggregateKeyTypeOutputWithContext(ctx context.Context) WebAclRateBasedStatementAggregateKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclRateBasedStatementAggregateKeyTypeOutput)
 }
 
-func (e WebACLRateBasedStatementAggregateKeyType) ToWebACLRateBasedStatementAggregateKeyTypePtrOutput() WebACLRateBasedStatementAggregateKeyTypePtrOutput {
-	return e.ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(context.Background())
+func (e WebAclRateBasedStatementAggregateKeyType) ToWebAclRateBasedStatementAggregateKeyTypePtrOutput() WebAclRateBasedStatementAggregateKeyTypePtrOutput {
+	return e.ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(context.Background())
 }
 
-func (e WebACLRateBasedStatementAggregateKeyType) ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementAggregateKeyTypePtrOutput {
-	return WebACLRateBasedStatementAggregateKeyType(e).ToWebACLRateBasedStatementAggregateKeyTypeOutputWithContext(ctx).ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx)
+func (e WebAclRateBasedStatementAggregateKeyType) ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebAclRateBasedStatementAggregateKeyTypePtrOutput {
+	return WebAclRateBasedStatementAggregateKeyType(e).ToWebAclRateBasedStatementAggregateKeyTypeOutputWithContext(ctx).ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx)
 }
 
-func (e WebACLRateBasedStatementAggregateKeyType) ToStringOutput() pulumi.StringOutput {
+func (e WebAclRateBasedStatementAggregateKeyType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLRateBasedStatementAggregateKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclRateBasedStatementAggregateKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLRateBasedStatementAggregateKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclRateBasedStatementAggregateKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLRateBasedStatementAggregateKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclRateBasedStatementAggregateKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLRateBasedStatementAggregateKeyTypeOutput struct{ *pulumi.OutputState }
+type WebAclRateBasedStatementAggregateKeyTypeOutput struct{ *pulumi.OutputState }
 
-func (WebACLRateBasedStatementAggregateKeyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLRateBasedStatementAggregateKeyType)(nil)).Elem()
+func (WebAclRateBasedStatementAggregateKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateBasedStatementAggregateKeyType)(nil)).Elem()
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToWebACLRateBasedStatementAggregateKeyTypeOutput() WebACLRateBasedStatementAggregateKeyTypeOutput {
+func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToWebAclRateBasedStatementAggregateKeyTypeOutput() WebAclRateBasedStatementAggregateKeyTypeOutput {
 	return o
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToWebACLRateBasedStatementAggregateKeyTypeOutputWithContext(ctx context.Context) WebACLRateBasedStatementAggregateKeyTypeOutput {
+func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToWebAclRateBasedStatementAggregateKeyTypeOutputWithContext(ctx context.Context) WebAclRateBasedStatementAggregateKeyTypeOutput {
 	return o
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToWebACLRateBasedStatementAggregateKeyTypePtrOutput() WebACLRateBasedStatementAggregateKeyTypePtrOutput {
-	return o.ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(context.Background())
+func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToWebAclRateBasedStatementAggregateKeyTypePtrOutput() WebAclRateBasedStatementAggregateKeyTypePtrOutput {
+	return o.ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(context.Background())
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementAggregateKeyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateBasedStatementAggregateKeyType) *WebACLRateBasedStatementAggregateKeyType {
+func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebAclRateBasedStatementAggregateKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRateBasedStatementAggregateKeyType) *WebAclRateBasedStatementAggregateKeyType {
 		return &v
-	}).(WebACLRateBasedStatementAggregateKeyTypePtrOutput)
+	}).(WebAclRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLRateBasedStatementAggregateKeyType) string {
+func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclRateBasedStatementAggregateKeyType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLRateBasedStatementAggregateKeyType) *string {
+func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclRateBasedStatementAggregateKeyType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLRateBasedStatementAggregateKeyTypePtrOutput struct{ *pulumi.OutputState }
+type WebAclRateBasedStatementAggregateKeyTypePtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLRateBasedStatementAggregateKeyTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLRateBasedStatementAggregateKeyType)(nil)).Elem()
+func (WebAclRateBasedStatementAggregateKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRateBasedStatementAggregateKeyType)(nil)).Elem()
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) ToWebACLRateBasedStatementAggregateKeyTypePtrOutput() WebACLRateBasedStatementAggregateKeyTypePtrOutput {
+func (o WebAclRateBasedStatementAggregateKeyTypePtrOutput) ToWebAclRateBasedStatementAggregateKeyTypePtrOutput() WebAclRateBasedStatementAggregateKeyTypePtrOutput {
 	return o
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementAggregateKeyTypePtrOutput {
+func (o WebAclRateBasedStatementAggregateKeyTypePtrOutput) ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebAclRateBasedStatementAggregateKeyTypePtrOutput {
 	return o
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) Elem() WebACLRateBasedStatementAggregateKeyTypeOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementAggregateKeyType) WebACLRateBasedStatementAggregateKeyType {
+func (o WebAclRateBasedStatementAggregateKeyTypePtrOutput) Elem() WebAclRateBasedStatementAggregateKeyTypeOutput {
+	return o.ApplyT(func(v *WebAclRateBasedStatementAggregateKeyType) WebAclRateBasedStatementAggregateKeyType {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLRateBasedStatementAggregateKeyType
+		var ret WebAclRateBasedStatementAggregateKeyType
 		return ret
-	}).(WebACLRateBasedStatementAggregateKeyTypeOutput)
+	}).(WebAclRateBasedStatementAggregateKeyTypeOutput)
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclRateBasedStatementAggregateKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLRateBasedStatementAggregateKeyType) *string {
+func (o WebAclRateBasedStatementAggregateKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclRateBasedStatementAggregateKeyType) *string {
 		if e == nil {
 			return nil
 		}
@@ -5781,162 +5781,162 @@ func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLRateBasedStatementAggregateKeyTypeInput is an input type that accepts WebACLRateBasedStatementAggregateKeyTypeArgs and WebACLRateBasedStatementAggregateKeyTypeOutput values.
-// You can construct a concrete instance of `WebACLRateBasedStatementAggregateKeyTypeInput` via:
+// WebAclRateBasedStatementAggregateKeyTypeInput is an input type that accepts WebAclRateBasedStatementAggregateKeyTypeArgs and WebAclRateBasedStatementAggregateKeyTypeOutput values.
+// You can construct a concrete instance of `WebAclRateBasedStatementAggregateKeyTypeInput` via:
 //
-//	WebACLRateBasedStatementAggregateKeyTypeArgs{...}
-type WebACLRateBasedStatementAggregateKeyTypeInput interface {
+//	WebAclRateBasedStatementAggregateKeyTypeArgs{...}
+type WebAclRateBasedStatementAggregateKeyTypeInput interface {
 	pulumi.Input
 
-	ToWebACLRateBasedStatementAggregateKeyTypeOutput() WebACLRateBasedStatementAggregateKeyTypeOutput
-	ToWebACLRateBasedStatementAggregateKeyTypeOutputWithContext(context.Context) WebACLRateBasedStatementAggregateKeyTypeOutput
+	ToWebAclRateBasedStatementAggregateKeyTypeOutput() WebAclRateBasedStatementAggregateKeyTypeOutput
+	ToWebAclRateBasedStatementAggregateKeyTypeOutputWithContext(context.Context) WebAclRateBasedStatementAggregateKeyTypeOutput
 }
 
-var webACLRateBasedStatementAggregateKeyTypePtrType = reflect.TypeOf((**WebACLRateBasedStatementAggregateKeyType)(nil)).Elem()
+var webAclRateBasedStatementAggregateKeyTypePtrType = reflect.TypeOf((**WebAclRateBasedStatementAggregateKeyType)(nil)).Elem()
 
-type WebACLRateBasedStatementAggregateKeyTypePtrInput interface {
+type WebAclRateBasedStatementAggregateKeyTypePtrInput interface {
 	pulumi.Input
 
-	ToWebACLRateBasedStatementAggregateKeyTypePtrOutput() WebACLRateBasedStatementAggregateKeyTypePtrOutput
-	ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(context.Context) WebACLRateBasedStatementAggregateKeyTypePtrOutput
+	ToWebAclRateBasedStatementAggregateKeyTypePtrOutput() WebAclRateBasedStatementAggregateKeyTypePtrOutput
+	ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(context.Context) WebAclRateBasedStatementAggregateKeyTypePtrOutput
 }
 
-type webACLRateBasedStatementAggregateKeyTypePtr string
+type webAclRateBasedStatementAggregateKeyTypePtr string
 
-func WebACLRateBasedStatementAggregateKeyTypePtr(v string) WebACLRateBasedStatementAggregateKeyTypePtrInput {
-	return (*webACLRateBasedStatementAggregateKeyTypePtr)(&v)
+func WebAclRateBasedStatementAggregateKeyTypePtr(v string) WebAclRateBasedStatementAggregateKeyTypePtrInput {
+	return (*webAclRateBasedStatementAggregateKeyTypePtr)(&v)
 }
 
-func (*webACLRateBasedStatementAggregateKeyTypePtr) ElementType() reflect.Type {
-	return webACLRateBasedStatementAggregateKeyTypePtrType
+func (*webAclRateBasedStatementAggregateKeyTypePtr) ElementType() reflect.Type {
+	return webAclRateBasedStatementAggregateKeyTypePtrType
 }
 
-func (in *webACLRateBasedStatementAggregateKeyTypePtr) ToWebACLRateBasedStatementAggregateKeyTypePtrOutput() WebACLRateBasedStatementAggregateKeyTypePtrOutput {
-	return pulumi.ToOutput(in).(WebACLRateBasedStatementAggregateKeyTypePtrOutput)
+func (in *webAclRateBasedStatementAggregateKeyTypePtr) ToWebAclRateBasedStatementAggregateKeyTypePtrOutput() WebAclRateBasedStatementAggregateKeyTypePtrOutput {
+	return pulumi.ToOutput(in).(WebAclRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
-func (in *webACLRateBasedStatementAggregateKeyTypePtr) ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementAggregateKeyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLRateBasedStatementAggregateKeyTypePtrOutput)
+func (in *webAclRateBasedStatementAggregateKeyTypePtr) ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebAclRateBasedStatementAggregateKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
-type WebACLRequestInspectionACFPPayloadType string
+type WebAclRequestInspectionAcfpPayloadType string
 
 const (
-	WebACLRequestInspectionACFPPayloadTypeJson        = WebACLRequestInspectionACFPPayloadType("JSON")
-	WebACLRequestInspectionACFPPayloadTypeFormEncoded = WebACLRequestInspectionACFPPayloadType("FORM_ENCODED")
+	WebAclRequestInspectionAcfpPayloadTypeJson        = WebAclRequestInspectionAcfpPayloadType("JSON")
+	WebAclRequestInspectionAcfpPayloadTypeFormEncoded = WebAclRequestInspectionAcfpPayloadType("FORM_ENCODED")
 )
 
-func (WebACLRequestInspectionACFPPayloadType) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLRequestInspectionACFPPayloadType)(nil)).Elem()
+func (WebAclRequestInspectionAcfpPayloadType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRequestInspectionAcfpPayloadType)(nil)).Elem()
 }
 
-func (e WebACLRequestInspectionACFPPayloadType) ToWebACLRequestInspectionACFPPayloadTypeOutput() WebACLRequestInspectionACFPPayloadTypeOutput {
-	return pulumi.ToOutput(e).(WebACLRequestInspectionACFPPayloadTypeOutput)
+func (e WebAclRequestInspectionAcfpPayloadType) ToWebAclRequestInspectionAcfpPayloadTypeOutput() WebAclRequestInspectionAcfpPayloadTypeOutput {
+	return pulumi.ToOutput(e).(WebAclRequestInspectionAcfpPayloadTypeOutput)
 }
 
-func (e WebACLRequestInspectionACFPPayloadType) ToWebACLRequestInspectionACFPPayloadTypeOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPPayloadTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLRequestInspectionACFPPayloadTypeOutput)
+func (e WebAclRequestInspectionAcfpPayloadType) ToWebAclRequestInspectionAcfpPayloadTypeOutputWithContext(ctx context.Context) WebAclRequestInspectionAcfpPayloadTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclRequestInspectionAcfpPayloadTypeOutput)
 }
 
-func (e WebACLRequestInspectionACFPPayloadType) ToWebACLRequestInspectionACFPPayloadTypePtrOutput() WebACLRequestInspectionACFPPayloadTypePtrOutput {
-	return e.ToWebACLRequestInspectionACFPPayloadTypePtrOutputWithContext(context.Background())
+func (e WebAclRequestInspectionAcfpPayloadType) ToWebAclRequestInspectionAcfpPayloadTypePtrOutput() WebAclRequestInspectionAcfpPayloadTypePtrOutput {
+	return e.ToWebAclRequestInspectionAcfpPayloadTypePtrOutputWithContext(context.Background())
 }
 
-func (e WebACLRequestInspectionACFPPayloadType) ToWebACLRequestInspectionACFPPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPPayloadTypePtrOutput {
-	return WebACLRequestInspectionACFPPayloadType(e).ToWebACLRequestInspectionACFPPayloadTypeOutputWithContext(ctx).ToWebACLRequestInspectionACFPPayloadTypePtrOutputWithContext(ctx)
+func (e WebAclRequestInspectionAcfpPayloadType) ToWebAclRequestInspectionAcfpPayloadTypePtrOutputWithContext(ctx context.Context) WebAclRequestInspectionAcfpPayloadTypePtrOutput {
+	return WebAclRequestInspectionAcfpPayloadType(e).ToWebAclRequestInspectionAcfpPayloadTypeOutputWithContext(ctx).ToWebAclRequestInspectionAcfpPayloadTypePtrOutputWithContext(ctx)
 }
 
-func (e WebACLRequestInspectionACFPPayloadType) ToStringOutput() pulumi.StringOutput {
+func (e WebAclRequestInspectionAcfpPayloadType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLRequestInspectionACFPPayloadType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclRequestInspectionAcfpPayloadType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLRequestInspectionACFPPayloadType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclRequestInspectionAcfpPayloadType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLRequestInspectionACFPPayloadType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclRequestInspectionAcfpPayloadType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLRequestInspectionACFPPayloadTypeOutput struct{ *pulumi.OutputState }
+type WebAclRequestInspectionAcfpPayloadTypeOutput struct{ *pulumi.OutputState }
 
-func (WebACLRequestInspectionACFPPayloadTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLRequestInspectionACFPPayloadType)(nil)).Elem()
+func (WebAclRequestInspectionAcfpPayloadTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRequestInspectionAcfpPayloadType)(nil)).Elem()
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypeOutput) ToWebACLRequestInspectionACFPPayloadTypeOutput() WebACLRequestInspectionACFPPayloadTypeOutput {
+func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToWebAclRequestInspectionAcfpPayloadTypeOutput() WebAclRequestInspectionAcfpPayloadTypeOutput {
 	return o
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypeOutput) ToWebACLRequestInspectionACFPPayloadTypeOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPPayloadTypeOutput {
+func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToWebAclRequestInspectionAcfpPayloadTypeOutputWithContext(ctx context.Context) WebAclRequestInspectionAcfpPayloadTypeOutput {
 	return o
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypeOutput) ToWebACLRequestInspectionACFPPayloadTypePtrOutput() WebACLRequestInspectionACFPPayloadTypePtrOutput {
-	return o.ToWebACLRequestInspectionACFPPayloadTypePtrOutputWithContext(context.Background())
+func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToWebAclRequestInspectionAcfpPayloadTypePtrOutput() WebAclRequestInspectionAcfpPayloadTypePtrOutput {
+	return o.ToWebAclRequestInspectionAcfpPayloadTypePtrOutputWithContext(context.Background())
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypeOutput) ToWebACLRequestInspectionACFPPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPPayloadTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRequestInspectionACFPPayloadType) *WebACLRequestInspectionACFPPayloadType {
+func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToWebAclRequestInspectionAcfpPayloadTypePtrOutputWithContext(ctx context.Context) WebAclRequestInspectionAcfpPayloadTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRequestInspectionAcfpPayloadType) *WebAclRequestInspectionAcfpPayloadType {
 		return &v
-	}).(WebACLRequestInspectionACFPPayloadTypePtrOutput)
+	}).(WebAclRequestInspectionAcfpPayloadTypePtrOutput)
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLRequestInspectionACFPPayloadType) string {
+func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclRequestInspectionAcfpPayloadType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLRequestInspectionACFPPayloadType) *string {
+func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclRequestInspectionAcfpPayloadType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLRequestInspectionACFPPayloadTypePtrOutput struct{ *pulumi.OutputState }
+type WebAclRequestInspectionAcfpPayloadTypePtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLRequestInspectionACFPPayloadTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLRequestInspectionACFPPayloadType)(nil)).Elem()
+func (WebAclRequestInspectionAcfpPayloadTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRequestInspectionAcfpPayloadType)(nil)).Elem()
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypePtrOutput) ToWebACLRequestInspectionACFPPayloadTypePtrOutput() WebACLRequestInspectionACFPPayloadTypePtrOutput {
+func (o WebAclRequestInspectionAcfpPayloadTypePtrOutput) ToWebAclRequestInspectionAcfpPayloadTypePtrOutput() WebAclRequestInspectionAcfpPayloadTypePtrOutput {
 	return o
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypePtrOutput) ToWebACLRequestInspectionACFPPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPPayloadTypePtrOutput {
+func (o WebAclRequestInspectionAcfpPayloadTypePtrOutput) ToWebAclRequestInspectionAcfpPayloadTypePtrOutputWithContext(ctx context.Context) WebAclRequestInspectionAcfpPayloadTypePtrOutput {
 	return o
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypePtrOutput) Elem() WebACLRequestInspectionACFPPayloadTypeOutput {
-	return o.ApplyT(func(v *WebACLRequestInspectionACFPPayloadType) WebACLRequestInspectionACFPPayloadType {
+func (o WebAclRequestInspectionAcfpPayloadTypePtrOutput) Elem() WebAclRequestInspectionAcfpPayloadTypeOutput {
+	return o.ApplyT(func(v *WebAclRequestInspectionAcfpPayloadType) WebAclRequestInspectionAcfpPayloadType {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLRequestInspectionACFPPayloadType
+		var ret WebAclRequestInspectionAcfpPayloadType
 		return ret
-	}).(WebACLRequestInspectionACFPPayloadTypeOutput)
+	}).(WebAclRequestInspectionAcfpPayloadTypeOutput)
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclRequestInspectionAcfpPayloadTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLRequestInspectionACFPPayloadTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLRequestInspectionACFPPayloadType) *string {
+func (o WebAclRequestInspectionAcfpPayloadTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclRequestInspectionAcfpPayloadType) *string {
 		if e == nil {
 			return nil
 		}
@@ -5945,162 +5945,162 @@ func (o WebACLRequestInspectionACFPPayloadTypePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLRequestInspectionACFPPayloadTypeInput is an input type that accepts WebACLRequestInspectionACFPPayloadTypeArgs and WebACLRequestInspectionACFPPayloadTypeOutput values.
-// You can construct a concrete instance of `WebACLRequestInspectionACFPPayloadTypeInput` via:
+// WebAclRequestInspectionAcfpPayloadTypeInput is an input type that accepts WebAclRequestInspectionAcfpPayloadTypeArgs and WebAclRequestInspectionAcfpPayloadTypeOutput values.
+// You can construct a concrete instance of `WebAclRequestInspectionAcfpPayloadTypeInput` via:
 //
-//	WebACLRequestInspectionACFPPayloadTypeArgs{...}
-type WebACLRequestInspectionACFPPayloadTypeInput interface {
+//	WebAclRequestInspectionAcfpPayloadTypeArgs{...}
+type WebAclRequestInspectionAcfpPayloadTypeInput interface {
 	pulumi.Input
 
-	ToWebACLRequestInspectionACFPPayloadTypeOutput() WebACLRequestInspectionACFPPayloadTypeOutput
-	ToWebACLRequestInspectionACFPPayloadTypeOutputWithContext(context.Context) WebACLRequestInspectionACFPPayloadTypeOutput
+	ToWebAclRequestInspectionAcfpPayloadTypeOutput() WebAclRequestInspectionAcfpPayloadTypeOutput
+	ToWebAclRequestInspectionAcfpPayloadTypeOutputWithContext(context.Context) WebAclRequestInspectionAcfpPayloadTypeOutput
 }
 
-var webACLRequestInspectionACFPPayloadTypePtrType = reflect.TypeOf((**WebACLRequestInspectionACFPPayloadType)(nil)).Elem()
+var webAclRequestInspectionAcfpPayloadTypePtrType = reflect.TypeOf((**WebAclRequestInspectionAcfpPayloadType)(nil)).Elem()
 
-type WebACLRequestInspectionACFPPayloadTypePtrInput interface {
+type WebAclRequestInspectionAcfpPayloadTypePtrInput interface {
 	pulumi.Input
 
-	ToWebACLRequestInspectionACFPPayloadTypePtrOutput() WebACLRequestInspectionACFPPayloadTypePtrOutput
-	ToWebACLRequestInspectionACFPPayloadTypePtrOutputWithContext(context.Context) WebACLRequestInspectionACFPPayloadTypePtrOutput
+	ToWebAclRequestInspectionAcfpPayloadTypePtrOutput() WebAclRequestInspectionAcfpPayloadTypePtrOutput
+	ToWebAclRequestInspectionAcfpPayloadTypePtrOutputWithContext(context.Context) WebAclRequestInspectionAcfpPayloadTypePtrOutput
 }
 
-type webACLRequestInspectionACFPPayloadTypePtr string
+type webAclRequestInspectionAcfpPayloadTypePtr string
 
-func WebACLRequestInspectionACFPPayloadTypePtr(v string) WebACLRequestInspectionACFPPayloadTypePtrInput {
-	return (*webACLRequestInspectionACFPPayloadTypePtr)(&v)
+func WebAclRequestInspectionAcfpPayloadTypePtr(v string) WebAclRequestInspectionAcfpPayloadTypePtrInput {
+	return (*webAclRequestInspectionAcfpPayloadTypePtr)(&v)
 }
 
-func (*webACLRequestInspectionACFPPayloadTypePtr) ElementType() reflect.Type {
-	return webACLRequestInspectionACFPPayloadTypePtrType
+func (*webAclRequestInspectionAcfpPayloadTypePtr) ElementType() reflect.Type {
+	return webAclRequestInspectionAcfpPayloadTypePtrType
 }
 
-func (in *webACLRequestInspectionACFPPayloadTypePtr) ToWebACLRequestInspectionACFPPayloadTypePtrOutput() WebACLRequestInspectionACFPPayloadTypePtrOutput {
-	return pulumi.ToOutput(in).(WebACLRequestInspectionACFPPayloadTypePtrOutput)
+func (in *webAclRequestInspectionAcfpPayloadTypePtr) ToWebAclRequestInspectionAcfpPayloadTypePtrOutput() WebAclRequestInspectionAcfpPayloadTypePtrOutput {
+	return pulumi.ToOutput(in).(WebAclRequestInspectionAcfpPayloadTypePtrOutput)
 }
 
-func (in *webACLRequestInspectionACFPPayloadTypePtr) ToWebACLRequestInspectionACFPPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPPayloadTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLRequestInspectionACFPPayloadTypePtrOutput)
+func (in *webAclRequestInspectionAcfpPayloadTypePtr) ToWebAclRequestInspectionAcfpPayloadTypePtrOutputWithContext(ctx context.Context) WebAclRequestInspectionAcfpPayloadTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclRequestInspectionAcfpPayloadTypePtrOutput)
 }
 
-type WebACLRequestInspectionPayloadType string
+type WebAclRequestInspectionPayloadType string
 
 const (
-	WebACLRequestInspectionPayloadTypeJson        = WebACLRequestInspectionPayloadType("JSON")
-	WebACLRequestInspectionPayloadTypeFormEncoded = WebACLRequestInspectionPayloadType("FORM_ENCODED")
+	WebAclRequestInspectionPayloadTypeJson        = WebAclRequestInspectionPayloadType("JSON")
+	WebAclRequestInspectionPayloadTypeFormEncoded = WebAclRequestInspectionPayloadType("FORM_ENCODED")
 )
 
-func (WebACLRequestInspectionPayloadType) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLRequestInspectionPayloadType)(nil)).Elem()
+func (WebAclRequestInspectionPayloadType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRequestInspectionPayloadType)(nil)).Elem()
 }
 
-func (e WebACLRequestInspectionPayloadType) ToWebACLRequestInspectionPayloadTypeOutput() WebACLRequestInspectionPayloadTypeOutput {
-	return pulumi.ToOutput(e).(WebACLRequestInspectionPayloadTypeOutput)
+func (e WebAclRequestInspectionPayloadType) ToWebAclRequestInspectionPayloadTypeOutput() WebAclRequestInspectionPayloadTypeOutput {
+	return pulumi.ToOutput(e).(WebAclRequestInspectionPayloadTypeOutput)
 }
 
-func (e WebACLRequestInspectionPayloadType) ToWebACLRequestInspectionPayloadTypeOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLRequestInspectionPayloadTypeOutput)
+func (e WebAclRequestInspectionPayloadType) ToWebAclRequestInspectionPayloadTypeOutputWithContext(ctx context.Context) WebAclRequestInspectionPayloadTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclRequestInspectionPayloadTypeOutput)
 }
 
-func (e WebACLRequestInspectionPayloadType) ToWebACLRequestInspectionPayloadTypePtrOutput() WebACLRequestInspectionPayloadTypePtrOutput {
-	return e.ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(context.Background())
+func (e WebAclRequestInspectionPayloadType) ToWebAclRequestInspectionPayloadTypePtrOutput() WebAclRequestInspectionPayloadTypePtrOutput {
+	return e.ToWebAclRequestInspectionPayloadTypePtrOutputWithContext(context.Background())
 }
 
-func (e WebACLRequestInspectionPayloadType) ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypePtrOutput {
-	return WebACLRequestInspectionPayloadType(e).ToWebACLRequestInspectionPayloadTypeOutputWithContext(ctx).ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx)
+func (e WebAclRequestInspectionPayloadType) ToWebAclRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebAclRequestInspectionPayloadTypePtrOutput {
+	return WebAclRequestInspectionPayloadType(e).ToWebAclRequestInspectionPayloadTypeOutputWithContext(ctx).ToWebAclRequestInspectionPayloadTypePtrOutputWithContext(ctx)
 }
 
-func (e WebACLRequestInspectionPayloadType) ToStringOutput() pulumi.StringOutput {
+func (e WebAclRequestInspectionPayloadType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLRequestInspectionPayloadType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclRequestInspectionPayloadType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLRequestInspectionPayloadType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclRequestInspectionPayloadType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLRequestInspectionPayloadType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclRequestInspectionPayloadType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLRequestInspectionPayloadTypeOutput struct{ *pulumi.OutputState }
+type WebAclRequestInspectionPayloadTypeOutput struct{ *pulumi.OutputState }
 
-func (WebACLRequestInspectionPayloadTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLRequestInspectionPayloadType)(nil)).Elem()
+func (WebAclRequestInspectionPayloadTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRequestInspectionPayloadType)(nil)).Elem()
 }
 
-func (o WebACLRequestInspectionPayloadTypeOutput) ToWebACLRequestInspectionPayloadTypeOutput() WebACLRequestInspectionPayloadTypeOutput {
+func (o WebAclRequestInspectionPayloadTypeOutput) ToWebAclRequestInspectionPayloadTypeOutput() WebAclRequestInspectionPayloadTypeOutput {
 	return o
 }
 
-func (o WebACLRequestInspectionPayloadTypeOutput) ToWebACLRequestInspectionPayloadTypeOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypeOutput {
+func (o WebAclRequestInspectionPayloadTypeOutput) ToWebAclRequestInspectionPayloadTypeOutputWithContext(ctx context.Context) WebAclRequestInspectionPayloadTypeOutput {
 	return o
 }
 
-func (o WebACLRequestInspectionPayloadTypeOutput) ToWebACLRequestInspectionPayloadTypePtrOutput() WebACLRequestInspectionPayloadTypePtrOutput {
-	return o.ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(context.Background())
+func (o WebAclRequestInspectionPayloadTypeOutput) ToWebAclRequestInspectionPayloadTypePtrOutput() WebAclRequestInspectionPayloadTypePtrOutput {
+	return o.ToWebAclRequestInspectionPayloadTypePtrOutputWithContext(context.Background())
 }
 
-func (o WebACLRequestInspectionPayloadTypeOutput) ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRequestInspectionPayloadType) *WebACLRequestInspectionPayloadType {
+func (o WebAclRequestInspectionPayloadTypeOutput) ToWebAclRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebAclRequestInspectionPayloadTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRequestInspectionPayloadType) *WebAclRequestInspectionPayloadType {
 		return &v
-	}).(WebACLRequestInspectionPayloadTypePtrOutput)
+	}).(WebAclRequestInspectionPayloadTypePtrOutput)
 }
 
-func (o WebACLRequestInspectionPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclRequestInspectionPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLRequestInspectionPayloadTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLRequestInspectionPayloadType) string {
+func (o WebAclRequestInspectionPayloadTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclRequestInspectionPayloadType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLRequestInspectionPayloadTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclRequestInspectionPayloadTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLRequestInspectionPayloadTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLRequestInspectionPayloadType) *string {
+func (o WebAclRequestInspectionPayloadTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclRequestInspectionPayloadType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLRequestInspectionPayloadTypePtrOutput struct{ *pulumi.OutputState }
+type WebAclRequestInspectionPayloadTypePtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLRequestInspectionPayloadTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLRequestInspectionPayloadType)(nil)).Elem()
+func (WebAclRequestInspectionPayloadTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRequestInspectionPayloadType)(nil)).Elem()
 }
 
-func (o WebACLRequestInspectionPayloadTypePtrOutput) ToWebACLRequestInspectionPayloadTypePtrOutput() WebACLRequestInspectionPayloadTypePtrOutput {
+func (o WebAclRequestInspectionPayloadTypePtrOutput) ToWebAclRequestInspectionPayloadTypePtrOutput() WebAclRequestInspectionPayloadTypePtrOutput {
 	return o
 }
 
-func (o WebACLRequestInspectionPayloadTypePtrOutput) ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypePtrOutput {
+func (o WebAclRequestInspectionPayloadTypePtrOutput) ToWebAclRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebAclRequestInspectionPayloadTypePtrOutput {
 	return o
 }
 
-func (o WebACLRequestInspectionPayloadTypePtrOutput) Elem() WebACLRequestInspectionPayloadTypeOutput {
-	return o.ApplyT(func(v *WebACLRequestInspectionPayloadType) WebACLRequestInspectionPayloadType {
+func (o WebAclRequestInspectionPayloadTypePtrOutput) Elem() WebAclRequestInspectionPayloadTypeOutput {
+	return o.ApplyT(func(v *WebAclRequestInspectionPayloadType) WebAclRequestInspectionPayloadType {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLRequestInspectionPayloadType
+		var ret WebAclRequestInspectionPayloadType
 		return ret
-	}).(WebACLRequestInspectionPayloadTypeOutput)
+	}).(WebAclRequestInspectionPayloadTypeOutput)
 }
 
-func (o WebACLRequestInspectionPayloadTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclRequestInspectionPayloadTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLRequestInspectionPayloadTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLRequestInspectionPayloadType) *string {
+func (o WebAclRequestInspectionPayloadTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclRequestInspectionPayloadType) *string {
 		if e == nil {
 			return nil
 		}
@@ -6109,163 +6109,163 @@ func (o WebACLRequestInspectionPayloadTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLRequestInspectionPayloadTypeInput is an input type that accepts WebACLRequestInspectionPayloadTypeArgs and WebACLRequestInspectionPayloadTypeOutput values.
-// You can construct a concrete instance of `WebACLRequestInspectionPayloadTypeInput` via:
+// WebAclRequestInspectionPayloadTypeInput is an input type that accepts WebAclRequestInspectionPayloadTypeArgs and WebAclRequestInspectionPayloadTypeOutput values.
+// You can construct a concrete instance of `WebAclRequestInspectionPayloadTypeInput` via:
 //
-//	WebACLRequestInspectionPayloadTypeArgs{...}
-type WebACLRequestInspectionPayloadTypeInput interface {
+//	WebAclRequestInspectionPayloadTypeArgs{...}
+type WebAclRequestInspectionPayloadTypeInput interface {
 	pulumi.Input
 
-	ToWebACLRequestInspectionPayloadTypeOutput() WebACLRequestInspectionPayloadTypeOutput
-	ToWebACLRequestInspectionPayloadTypeOutputWithContext(context.Context) WebACLRequestInspectionPayloadTypeOutput
+	ToWebAclRequestInspectionPayloadTypeOutput() WebAclRequestInspectionPayloadTypeOutput
+	ToWebAclRequestInspectionPayloadTypeOutputWithContext(context.Context) WebAclRequestInspectionPayloadTypeOutput
 }
 
-var webACLRequestInspectionPayloadTypePtrType = reflect.TypeOf((**WebACLRequestInspectionPayloadType)(nil)).Elem()
+var webAclRequestInspectionPayloadTypePtrType = reflect.TypeOf((**WebAclRequestInspectionPayloadType)(nil)).Elem()
 
-type WebACLRequestInspectionPayloadTypePtrInput interface {
+type WebAclRequestInspectionPayloadTypePtrInput interface {
 	pulumi.Input
 
-	ToWebACLRequestInspectionPayloadTypePtrOutput() WebACLRequestInspectionPayloadTypePtrOutput
-	ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(context.Context) WebACLRequestInspectionPayloadTypePtrOutput
+	ToWebAclRequestInspectionPayloadTypePtrOutput() WebAclRequestInspectionPayloadTypePtrOutput
+	ToWebAclRequestInspectionPayloadTypePtrOutputWithContext(context.Context) WebAclRequestInspectionPayloadTypePtrOutput
 }
 
-type webACLRequestInspectionPayloadTypePtr string
+type webAclRequestInspectionPayloadTypePtr string
 
-func WebACLRequestInspectionPayloadTypePtr(v string) WebACLRequestInspectionPayloadTypePtrInput {
-	return (*webACLRequestInspectionPayloadTypePtr)(&v)
+func WebAclRequestInspectionPayloadTypePtr(v string) WebAclRequestInspectionPayloadTypePtrInput {
+	return (*webAclRequestInspectionPayloadTypePtr)(&v)
 }
 
-func (*webACLRequestInspectionPayloadTypePtr) ElementType() reflect.Type {
-	return webACLRequestInspectionPayloadTypePtrType
+func (*webAclRequestInspectionPayloadTypePtr) ElementType() reflect.Type {
+	return webAclRequestInspectionPayloadTypePtrType
 }
 
-func (in *webACLRequestInspectionPayloadTypePtr) ToWebACLRequestInspectionPayloadTypePtrOutput() WebACLRequestInspectionPayloadTypePtrOutput {
-	return pulumi.ToOutput(in).(WebACLRequestInspectionPayloadTypePtrOutput)
+func (in *webAclRequestInspectionPayloadTypePtr) ToWebAclRequestInspectionPayloadTypePtrOutput() WebAclRequestInspectionPayloadTypePtrOutput {
+	return pulumi.ToOutput(in).(WebAclRequestInspectionPayloadTypePtrOutput)
 }
 
-func (in *webACLRequestInspectionPayloadTypePtr) ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLRequestInspectionPayloadTypePtrOutput)
+func (in *webAclRequestInspectionPayloadTypePtr) ToWebAclRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebAclRequestInspectionPayloadTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclRequestInspectionPayloadTypePtrOutput)
 }
 
 // Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
-type WebACLScope string
+type WebAclScope string
 
 const (
-	WebACLScopeCloudfront = WebACLScope("CLOUDFRONT")
-	WebACLScopeRegional   = WebACLScope("REGIONAL")
+	WebAclScopeCloudfront = WebAclScope("CLOUDFRONT")
+	WebAclScopeRegional   = WebAclScope("REGIONAL")
 )
 
-func (WebACLScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLScope)(nil)).Elem()
+func (WebAclScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclScope)(nil)).Elem()
 }
 
-func (e WebACLScope) ToWebACLScopeOutput() WebACLScopeOutput {
-	return pulumi.ToOutput(e).(WebACLScopeOutput)
+func (e WebAclScope) ToWebAclScopeOutput() WebAclScopeOutput {
+	return pulumi.ToOutput(e).(WebAclScopeOutput)
 }
 
-func (e WebACLScope) ToWebACLScopeOutputWithContext(ctx context.Context) WebACLScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLScopeOutput)
+func (e WebAclScope) ToWebAclScopeOutputWithContext(ctx context.Context) WebAclScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclScopeOutput)
 }
 
-func (e WebACLScope) ToWebACLScopePtrOutput() WebACLScopePtrOutput {
-	return e.ToWebACLScopePtrOutputWithContext(context.Background())
+func (e WebAclScope) ToWebAclScopePtrOutput() WebAclScopePtrOutput {
+	return e.ToWebAclScopePtrOutputWithContext(context.Background())
 }
 
-func (e WebACLScope) ToWebACLScopePtrOutputWithContext(ctx context.Context) WebACLScopePtrOutput {
-	return WebACLScope(e).ToWebACLScopeOutputWithContext(ctx).ToWebACLScopePtrOutputWithContext(ctx)
+func (e WebAclScope) ToWebAclScopePtrOutputWithContext(ctx context.Context) WebAclScopePtrOutput {
+	return WebAclScope(e).ToWebAclScopeOutputWithContext(ctx).ToWebAclScopePtrOutputWithContext(ctx)
 }
 
-func (e WebACLScope) ToStringOutput() pulumi.StringOutput {
+func (e WebAclScope) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclScope) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLScopeOutput struct{ *pulumi.OutputState }
+type WebAclScopeOutput struct{ *pulumi.OutputState }
 
-func (WebACLScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLScope)(nil)).Elem()
+func (WebAclScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclScope)(nil)).Elem()
 }
 
-func (o WebACLScopeOutput) ToWebACLScopeOutput() WebACLScopeOutput {
+func (o WebAclScopeOutput) ToWebAclScopeOutput() WebAclScopeOutput {
 	return o
 }
 
-func (o WebACLScopeOutput) ToWebACLScopeOutputWithContext(ctx context.Context) WebACLScopeOutput {
+func (o WebAclScopeOutput) ToWebAclScopeOutputWithContext(ctx context.Context) WebAclScopeOutput {
 	return o
 }
 
-func (o WebACLScopeOutput) ToWebACLScopePtrOutput() WebACLScopePtrOutput {
-	return o.ToWebACLScopePtrOutputWithContext(context.Background())
+func (o WebAclScopeOutput) ToWebAclScopePtrOutput() WebAclScopePtrOutput {
+	return o.ToWebAclScopePtrOutputWithContext(context.Background())
 }
 
-func (o WebACLScopeOutput) ToWebACLScopePtrOutputWithContext(ctx context.Context) WebACLScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLScope) *WebACLScope {
+func (o WebAclScopeOutput) ToWebAclScopePtrOutputWithContext(ctx context.Context) WebAclScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclScope) *WebAclScope {
 		return &v
-	}).(WebACLScopePtrOutput)
+	}).(WebAclScopePtrOutput)
 }
 
-func (o WebACLScopeOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLScope) string {
+func (o WebAclScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclScope) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLScope) *string {
+func (o WebAclScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclScope) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLScopePtrOutput struct{ *pulumi.OutputState }
+type WebAclScopePtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLScope)(nil)).Elem()
+func (WebAclScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclScope)(nil)).Elem()
 }
 
-func (o WebACLScopePtrOutput) ToWebACLScopePtrOutput() WebACLScopePtrOutput {
+func (o WebAclScopePtrOutput) ToWebAclScopePtrOutput() WebAclScopePtrOutput {
 	return o
 }
 
-func (o WebACLScopePtrOutput) ToWebACLScopePtrOutputWithContext(ctx context.Context) WebACLScopePtrOutput {
+func (o WebAclScopePtrOutput) ToWebAclScopePtrOutputWithContext(ctx context.Context) WebAclScopePtrOutput {
 	return o
 }
 
-func (o WebACLScopePtrOutput) Elem() WebACLScopeOutput {
-	return o.ApplyT(func(v *WebACLScope) WebACLScope {
+func (o WebAclScopePtrOutput) Elem() WebAclScopeOutput {
+	return o.ApplyT(func(v *WebAclScope) WebAclScope {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLScope
+		var ret WebAclScope
 		return ret
-	}).(WebACLScopeOutput)
+	}).(WebAclScopeOutput)
 }
 
-func (o WebACLScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLScope) *string {
+func (o WebAclScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclScope) *string {
 		if e == nil {
 			return nil
 		}
@@ -6274,163 +6274,163 @@ func (o WebACLScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLScopeInput is an input type that accepts WebACLScopeArgs and WebACLScopeOutput values.
-// You can construct a concrete instance of `WebACLScopeInput` via:
+// WebAclScopeInput is an input type that accepts WebAclScopeArgs and WebAclScopeOutput values.
+// You can construct a concrete instance of `WebAclScopeInput` via:
 //
-//	WebACLScopeArgs{...}
-type WebACLScopeInput interface {
+//	WebAclScopeArgs{...}
+type WebAclScopeInput interface {
 	pulumi.Input
 
-	ToWebACLScopeOutput() WebACLScopeOutput
-	ToWebACLScopeOutputWithContext(context.Context) WebACLScopeOutput
+	ToWebAclScopeOutput() WebAclScopeOutput
+	ToWebAclScopeOutputWithContext(context.Context) WebAclScopeOutput
 }
 
-var webACLScopePtrType = reflect.TypeOf((**WebACLScope)(nil)).Elem()
+var webAclScopePtrType = reflect.TypeOf((**WebAclScope)(nil)).Elem()
 
-type WebACLScopePtrInput interface {
+type WebAclScopePtrInput interface {
 	pulumi.Input
 
-	ToWebACLScopePtrOutput() WebACLScopePtrOutput
-	ToWebACLScopePtrOutputWithContext(context.Context) WebACLScopePtrOutput
+	ToWebAclScopePtrOutput() WebAclScopePtrOutput
+	ToWebAclScopePtrOutputWithContext(context.Context) WebAclScopePtrOutput
 }
 
-type webACLScopePtr string
+type webAclScopePtr string
 
-func WebACLScopePtr(v string) WebACLScopePtrInput {
-	return (*webACLScopePtr)(&v)
+func WebAclScopePtr(v string) WebAclScopePtrInput {
+	return (*webAclScopePtr)(&v)
 }
 
-func (*webACLScopePtr) ElementType() reflect.Type {
-	return webACLScopePtrType
+func (*webAclScopePtr) ElementType() reflect.Type {
+	return webAclScopePtrType
 }
 
-func (in *webACLScopePtr) ToWebACLScopePtrOutput() WebACLScopePtrOutput {
-	return pulumi.ToOutput(in).(WebACLScopePtrOutput)
+func (in *webAclScopePtr) ToWebAclScopePtrOutput() WebAclScopePtrOutput {
+	return pulumi.ToOutput(in).(WebAclScopePtrOutput)
 }
 
-func (in *webACLScopePtr) ToWebACLScopePtrOutputWithContext(ctx context.Context) WebACLScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLScopePtrOutput)
+func (in *webAclScopePtr) ToWebAclScopePtrOutputWithContext(ctx context.Context) WebAclScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclScopePtrOutput)
 }
 
 // Sensitivity Level current only used for sqli match statements.
-type WebACLSensitivityLevel string
+type WebAclSensitivityLevel string
 
 const (
-	WebACLSensitivityLevelLow  = WebACLSensitivityLevel("LOW")
-	WebACLSensitivityLevelHigh = WebACLSensitivityLevel("HIGH")
+	WebAclSensitivityLevelLow  = WebAclSensitivityLevel("LOW")
+	WebAclSensitivityLevelHigh = WebAclSensitivityLevel("HIGH")
 )
 
-func (WebACLSensitivityLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLSensitivityLevel)(nil)).Elem()
+func (WebAclSensitivityLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclSensitivityLevel)(nil)).Elem()
 }
 
-func (e WebACLSensitivityLevel) ToWebACLSensitivityLevelOutput() WebACLSensitivityLevelOutput {
-	return pulumi.ToOutput(e).(WebACLSensitivityLevelOutput)
+func (e WebAclSensitivityLevel) ToWebAclSensitivityLevelOutput() WebAclSensitivityLevelOutput {
+	return pulumi.ToOutput(e).(WebAclSensitivityLevelOutput)
 }
 
-func (e WebACLSensitivityLevel) ToWebACLSensitivityLevelOutputWithContext(ctx context.Context) WebACLSensitivityLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLSensitivityLevelOutput)
+func (e WebAclSensitivityLevel) ToWebAclSensitivityLevelOutputWithContext(ctx context.Context) WebAclSensitivityLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclSensitivityLevelOutput)
 }
 
-func (e WebACLSensitivityLevel) ToWebACLSensitivityLevelPtrOutput() WebACLSensitivityLevelPtrOutput {
-	return e.ToWebACLSensitivityLevelPtrOutputWithContext(context.Background())
+func (e WebAclSensitivityLevel) ToWebAclSensitivityLevelPtrOutput() WebAclSensitivityLevelPtrOutput {
+	return e.ToWebAclSensitivityLevelPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLSensitivityLevel) ToWebACLSensitivityLevelPtrOutputWithContext(ctx context.Context) WebACLSensitivityLevelPtrOutput {
-	return WebACLSensitivityLevel(e).ToWebACLSensitivityLevelOutputWithContext(ctx).ToWebACLSensitivityLevelPtrOutputWithContext(ctx)
+func (e WebAclSensitivityLevel) ToWebAclSensitivityLevelPtrOutputWithContext(ctx context.Context) WebAclSensitivityLevelPtrOutput {
+	return WebAclSensitivityLevel(e).ToWebAclSensitivityLevelOutputWithContext(ctx).ToWebAclSensitivityLevelPtrOutputWithContext(ctx)
 }
 
-func (e WebACLSensitivityLevel) ToStringOutput() pulumi.StringOutput {
+func (e WebAclSensitivityLevel) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLSensitivityLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclSensitivityLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLSensitivityLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclSensitivityLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLSensitivityLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclSensitivityLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLSensitivityLevelOutput struct{ *pulumi.OutputState }
+type WebAclSensitivityLevelOutput struct{ *pulumi.OutputState }
 
-func (WebACLSensitivityLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLSensitivityLevel)(nil)).Elem()
+func (WebAclSensitivityLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclSensitivityLevel)(nil)).Elem()
 }
 
-func (o WebACLSensitivityLevelOutput) ToWebACLSensitivityLevelOutput() WebACLSensitivityLevelOutput {
+func (o WebAclSensitivityLevelOutput) ToWebAclSensitivityLevelOutput() WebAclSensitivityLevelOutput {
 	return o
 }
 
-func (o WebACLSensitivityLevelOutput) ToWebACLSensitivityLevelOutputWithContext(ctx context.Context) WebACLSensitivityLevelOutput {
+func (o WebAclSensitivityLevelOutput) ToWebAclSensitivityLevelOutputWithContext(ctx context.Context) WebAclSensitivityLevelOutput {
 	return o
 }
 
-func (o WebACLSensitivityLevelOutput) ToWebACLSensitivityLevelPtrOutput() WebACLSensitivityLevelPtrOutput {
-	return o.ToWebACLSensitivityLevelPtrOutputWithContext(context.Background())
+func (o WebAclSensitivityLevelOutput) ToWebAclSensitivityLevelPtrOutput() WebAclSensitivityLevelPtrOutput {
+	return o.ToWebAclSensitivityLevelPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLSensitivityLevelOutput) ToWebACLSensitivityLevelPtrOutputWithContext(ctx context.Context) WebACLSensitivityLevelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLSensitivityLevel) *WebACLSensitivityLevel {
+func (o WebAclSensitivityLevelOutput) ToWebAclSensitivityLevelPtrOutputWithContext(ctx context.Context) WebAclSensitivityLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclSensitivityLevel) *WebAclSensitivityLevel {
 		return &v
-	}).(WebACLSensitivityLevelPtrOutput)
+	}).(WebAclSensitivityLevelPtrOutput)
 }
 
-func (o WebACLSensitivityLevelOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclSensitivityLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLSensitivityLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLSensitivityLevel) string {
+func (o WebAclSensitivityLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclSensitivityLevel) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLSensitivityLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclSensitivityLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLSensitivityLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLSensitivityLevel) *string {
+func (o WebAclSensitivityLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclSensitivityLevel) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLSensitivityLevelPtrOutput struct{ *pulumi.OutputState }
+type WebAclSensitivityLevelPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLSensitivityLevelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLSensitivityLevel)(nil)).Elem()
+func (WebAclSensitivityLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclSensitivityLevel)(nil)).Elem()
 }
 
-func (o WebACLSensitivityLevelPtrOutput) ToWebACLSensitivityLevelPtrOutput() WebACLSensitivityLevelPtrOutput {
+func (o WebAclSensitivityLevelPtrOutput) ToWebAclSensitivityLevelPtrOutput() WebAclSensitivityLevelPtrOutput {
 	return o
 }
 
-func (o WebACLSensitivityLevelPtrOutput) ToWebACLSensitivityLevelPtrOutputWithContext(ctx context.Context) WebACLSensitivityLevelPtrOutput {
+func (o WebAclSensitivityLevelPtrOutput) ToWebAclSensitivityLevelPtrOutputWithContext(ctx context.Context) WebAclSensitivityLevelPtrOutput {
 	return o
 }
 
-func (o WebACLSensitivityLevelPtrOutput) Elem() WebACLSensitivityLevelOutput {
-	return o.ApplyT(func(v *WebACLSensitivityLevel) WebACLSensitivityLevel {
+func (o WebAclSensitivityLevelPtrOutput) Elem() WebAclSensitivityLevelOutput {
+	return o.ApplyT(func(v *WebAclSensitivityLevel) WebAclSensitivityLevel {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLSensitivityLevel
+		var ret WebAclSensitivityLevel
 		return ret
-	}).(WebACLSensitivityLevelOutput)
+	}).(WebAclSensitivityLevelOutput)
 }
 
-func (o WebACLSensitivityLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclSensitivityLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLSensitivityLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLSensitivityLevel) *string {
+func (o WebAclSensitivityLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclSensitivityLevel) *string {
 		if e == nil {
 			return nil
 		}
@@ -6439,166 +6439,166 @@ func (o WebACLSensitivityLevelPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLSensitivityLevelInput is an input type that accepts WebACLSensitivityLevelArgs and WebACLSensitivityLevelOutput values.
-// You can construct a concrete instance of `WebACLSensitivityLevelInput` via:
+// WebAclSensitivityLevelInput is an input type that accepts WebAclSensitivityLevelArgs and WebAclSensitivityLevelOutput values.
+// You can construct a concrete instance of `WebAclSensitivityLevelInput` via:
 //
-//	WebACLSensitivityLevelArgs{...}
-type WebACLSensitivityLevelInput interface {
+//	WebAclSensitivityLevelArgs{...}
+type WebAclSensitivityLevelInput interface {
 	pulumi.Input
 
-	ToWebACLSensitivityLevelOutput() WebACLSensitivityLevelOutput
-	ToWebACLSensitivityLevelOutputWithContext(context.Context) WebACLSensitivityLevelOutput
+	ToWebAclSensitivityLevelOutput() WebAclSensitivityLevelOutput
+	ToWebAclSensitivityLevelOutputWithContext(context.Context) WebAclSensitivityLevelOutput
 }
 
-var webACLSensitivityLevelPtrType = reflect.TypeOf((**WebACLSensitivityLevel)(nil)).Elem()
+var webAclSensitivityLevelPtrType = reflect.TypeOf((**WebAclSensitivityLevel)(nil)).Elem()
 
-type WebACLSensitivityLevelPtrInput interface {
+type WebAclSensitivityLevelPtrInput interface {
 	pulumi.Input
 
-	ToWebACLSensitivityLevelPtrOutput() WebACLSensitivityLevelPtrOutput
-	ToWebACLSensitivityLevelPtrOutputWithContext(context.Context) WebACLSensitivityLevelPtrOutput
+	ToWebAclSensitivityLevelPtrOutput() WebAclSensitivityLevelPtrOutput
+	ToWebAclSensitivityLevelPtrOutputWithContext(context.Context) WebAclSensitivityLevelPtrOutput
 }
 
-type webACLSensitivityLevelPtr string
+type webAclSensitivityLevelPtr string
 
-func WebACLSensitivityLevelPtr(v string) WebACLSensitivityLevelPtrInput {
-	return (*webACLSensitivityLevelPtr)(&v)
+func WebAclSensitivityLevelPtr(v string) WebAclSensitivityLevelPtrInput {
+	return (*webAclSensitivityLevelPtr)(&v)
 }
 
-func (*webACLSensitivityLevelPtr) ElementType() reflect.Type {
-	return webACLSensitivityLevelPtrType
+func (*webAclSensitivityLevelPtr) ElementType() reflect.Type {
+	return webAclSensitivityLevelPtrType
 }
 
-func (in *webACLSensitivityLevelPtr) ToWebACLSensitivityLevelPtrOutput() WebACLSensitivityLevelPtrOutput {
-	return pulumi.ToOutput(in).(WebACLSensitivityLevelPtrOutput)
+func (in *webAclSensitivityLevelPtr) ToWebAclSensitivityLevelPtrOutput() WebAclSensitivityLevelPtrOutput {
+	return pulumi.ToOutput(in).(WebAclSensitivityLevelPtrOutput)
 }
 
-func (in *webACLSensitivityLevelPtr) ToWebACLSensitivityLevelPtrOutputWithContext(ctx context.Context) WebACLSensitivityLevelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLSensitivityLevelPtrOutput)
+func (in *webAclSensitivityLevelPtr) ToWebAclSensitivityLevelPtrOutputWithContext(ctx context.Context) WebAclSensitivityLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclSensitivityLevelPtrOutput)
 }
 
-type WebACLSizeConstraintStatementComparisonOperator string
+type WebAclSizeConstraintStatementComparisonOperator string
 
 const (
-	WebACLSizeConstraintStatementComparisonOperatorEq = WebACLSizeConstraintStatementComparisonOperator("EQ")
-	WebACLSizeConstraintStatementComparisonOperatorNe = WebACLSizeConstraintStatementComparisonOperator("NE")
-	WebACLSizeConstraintStatementComparisonOperatorLe = WebACLSizeConstraintStatementComparisonOperator("LE")
-	WebACLSizeConstraintStatementComparisonOperatorLt = WebACLSizeConstraintStatementComparisonOperator("LT")
-	WebACLSizeConstraintStatementComparisonOperatorGe = WebACLSizeConstraintStatementComparisonOperator("GE")
-	WebACLSizeConstraintStatementComparisonOperatorGt = WebACLSizeConstraintStatementComparisonOperator("GT")
+	WebAclSizeConstraintStatementComparisonOperatorEq = WebAclSizeConstraintStatementComparisonOperator("EQ")
+	WebAclSizeConstraintStatementComparisonOperatorNe = WebAclSizeConstraintStatementComparisonOperator("NE")
+	WebAclSizeConstraintStatementComparisonOperatorLe = WebAclSizeConstraintStatementComparisonOperator("LE")
+	WebAclSizeConstraintStatementComparisonOperatorLt = WebAclSizeConstraintStatementComparisonOperator("LT")
+	WebAclSizeConstraintStatementComparisonOperatorGe = WebAclSizeConstraintStatementComparisonOperator("GE")
+	WebAclSizeConstraintStatementComparisonOperatorGt = WebAclSizeConstraintStatementComparisonOperator("GT")
 )
 
-func (WebACLSizeConstraintStatementComparisonOperator) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLSizeConstraintStatementComparisonOperator)(nil)).Elem()
+func (WebAclSizeConstraintStatementComparisonOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclSizeConstraintStatementComparisonOperator)(nil)).Elem()
 }
 
-func (e WebACLSizeConstraintStatementComparisonOperator) ToWebACLSizeConstraintStatementComparisonOperatorOutput() WebACLSizeConstraintStatementComparisonOperatorOutput {
-	return pulumi.ToOutput(e).(WebACLSizeConstraintStatementComparisonOperatorOutput)
+func (e WebAclSizeConstraintStatementComparisonOperator) ToWebAclSizeConstraintStatementComparisonOperatorOutput() WebAclSizeConstraintStatementComparisonOperatorOutput {
+	return pulumi.ToOutput(e).(WebAclSizeConstraintStatementComparisonOperatorOutput)
 }
 
-func (e WebACLSizeConstraintStatementComparisonOperator) ToWebACLSizeConstraintStatementComparisonOperatorOutputWithContext(ctx context.Context) WebACLSizeConstraintStatementComparisonOperatorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLSizeConstraintStatementComparisonOperatorOutput)
+func (e WebAclSizeConstraintStatementComparisonOperator) ToWebAclSizeConstraintStatementComparisonOperatorOutputWithContext(ctx context.Context) WebAclSizeConstraintStatementComparisonOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclSizeConstraintStatementComparisonOperatorOutput)
 }
 
-func (e WebACLSizeConstraintStatementComparisonOperator) ToWebACLSizeConstraintStatementComparisonOperatorPtrOutput() WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
-	return e.ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(context.Background())
+func (e WebAclSizeConstraintStatementComparisonOperator) ToWebAclSizeConstraintStatementComparisonOperatorPtrOutput() WebAclSizeConstraintStatementComparisonOperatorPtrOutput {
+	return e.ToWebAclSizeConstraintStatementComparisonOperatorPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLSizeConstraintStatementComparisonOperator) ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
-	return WebACLSizeConstraintStatementComparisonOperator(e).ToWebACLSizeConstraintStatementComparisonOperatorOutputWithContext(ctx).ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx)
+func (e WebAclSizeConstraintStatementComparisonOperator) ToWebAclSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebAclSizeConstraintStatementComparisonOperatorPtrOutput {
+	return WebAclSizeConstraintStatementComparisonOperator(e).ToWebAclSizeConstraintStatementComparisonOperatorOutputWithContext(ctx).ToWebAclSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx)
 }
 
-func (e WebACLSizeConstraintStatementComparisonOperator) ToStringOutput() pulumi.StringOutput {
+func (e WebAclSizeConstraintStatementComparisonOperator) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLSizeConstraintStatementComparisonOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclSizeConstraintStatementComparisonOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLSizeConstraintStatementComparisonOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclSizeConstraintStatementComparisonOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLSizeConstraintStatementComparisonOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclSizeConstraintStatementComparisonOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLSizeConstraintStatementComparisonOperatorOutput struct{ *pulumi.OutputState }
+type WebAclSizeConstraintStatementComparisonOperatorOutput struct{ *pulumi.OutputState }
 
-func (WebACLSizeConstraintStatementComparisonOperatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLSizeConstraintStatementComparisonOperator)(nil)).Elem()
+func (WebAclSizeConstraintStatementComparisonOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclSizeConstraintStatementComparisonOperator)(nil)).Elem()
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToWebACLSizeConstraintStatementComparisonOperatorOutput() WebACLSizeConstraintStatementComparisonOperatorOutput {
+func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToWebAclSizeConstraintStatementComparisonOperatorOutput() WebAclSizeConstraintStatementComparisonOperatorOutput {
 	return o
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToWebACLSizeConstraintStatementComparisonOperatorOutputWithContext(ctx context.Context) WebACLSizeConstraintStatementComparisonOperatorOutput {
+func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToWebAclSizeConstraintStatementComparisonOperatorOutputWithContext(ctx context.Context) WebAclSizeConstraintStatementComparisonOperatorOutput {
 	return o
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToWebACLSizeConstraintStatementComparisonOperatorPtrOutput() WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
-	return o.ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(context.Background())
+func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToWebAclSizeConstraintStatementComparisonOperatorPtrOutput() WebAclSizeConstraintStatementComparisonOperatorPtrOutput {
+	return o.ToWebAclSizeConstraintStatementComparisonOperatorPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLSizeConstraintStatementComparisonOperator) *WebACLSizeConstraintStatementComparisonOperator {
+func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToWebAclSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebAclSizeConstraintStatementComparisonOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclSizeConstraintStatementComparisonOperator) *WebAclSizeConstraintStatementComparisonOperator {
 		return &v
-	}).(WebACLSizeConstraintStatementComparisonOperatorPtrOutput)
+	}).(WebAclSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLSizeConstraintStatementComparisonOperator) string {
+func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclSizeConstraintStatementComparisonOperator) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLSizeConstraintStatementComparisonOperator) *string {
+func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclSizeConstraintStatementComparisonOperator) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLSizeConstraintStatementComparisonOperatorPtrOutput struct{ *pulumi.OutputState }
+type WebAclSizeConstraintStatementComparisonOperatorPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLSizeConstraintStatementComparisonOperatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLSizeConstraintStatementComparisonOperator)(nil)).Elem()
+func (WebAclSizeConstraintStatementComparisonOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclSizeConstraintStatementComparisonOperator)(nil)).Elem()
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) ToWebACLSizeConstraintStatementComparisonOperatorPtrOutput() WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
+func (o WebAclSizeConstraintStatementComparisonOperatorPtrOutput) ToWebAclSizeConstraintStatementComparisonOperatorPtrOutput() WebAclSizeConstraintStatementComparisonOperatorPtrOutput {
 	return o
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
+func (o WebAclSizeConstraintStatementComparisonOperatorPtrOutput) ToWebAclSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebAclSizeConstraintStatementComparisonOperatorPtrOutput {
 	return o
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) Elem() WebACLSizeConstraintStatementComparisonOperatorOutput {
-	return o.ApplyT(func(v *WebACLSizeConstraintStatementComparisonOperator) WebACLSizeConstraintStatementComparisonOperator {
+func (o WebAclSizeConstraintStatementComparisonOperatorPtrOutput) Elem() WebAclSizeConstraintStatementComparisonOperatorOutput {
+	return o.ApplyT(func(v *WebAclSizeConstraintStatementComparisonOperator) WebAclSizeConstraintStatementComparisonOperator {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLSizeConstraintStatementComparisonOperator
+		var ret WebAclSizeConstraintStatementComparisonOperator
 		return ret
-	}).(WebACLSizeConstraintStatementComparisonOperatorOutput)
+	}).(WebAclSizeConstraintStatementComparisonOperatorOutput)
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclSizeConstraintStatementComparisonOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLSizeConstraintStatementComparisonOperator) *string {
+func (o WebAclSizeConstraintStatementComparisonOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclSizeConstraintStatementComparisonOperator) *string {
 		if e == nil {
 			return nil
 		}
@@ -6607,182 +6607,182 @@ func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLSizeConstraintStatementComparisonOperatorInput is an input type that accepts WebACLSizeConstraintStatementComparisonOperatorArgs and WebACLSizeConstraintStatementComparisonOperatorOutput values.
-// You can construct a concrete instance of `WebACLSizeConstraintStatementComparisonOperatorInput` via:
+// WebAclSizeConstraintStatementComparisonOperatorInput is an input type that accepts WebAclSizeConstraintStatementComparisonOperatorArgs and WebAclSizeConstraintStatementComparisonOperatorOutput values.
+// You can construct a concrete instance of `WebAclSizeConstraintStatementComparisonOperatorInput` via:
 //
-//	WebACLSizeConstraintStatementComparisonOperatorArgs{...}
-type WebACLSizeConstraintStatementComparisonOperatorInput interface {
+//	WebAclSizeConstraintStatementComparisonOperatorArgs{...}
+type WebAclSizeConstraintStatementComparisonOperatorInput interface {
 	pulumi.Input
 
-	ToWebACLSizeConstraintStatementComparisonOperatorOutput() WebACLSizeConstraintStatementComparisonOperatorOutput
-	ToWebACLSizeConstraintStatementComparisonOperatorOutputWithContext(context.Context) WebACLSizeConstraintStatementComparisonOperatorOutput
+	ToWebAclSizeConstraintStatementComparisonOperatorOutput() WebAclSizeConstraintStatementComparisonOperatorOutput
+	ToWebAclSizeConstraintStatementComparisonOperatorOutputWithContext(context.Context) WebAclSizeConstraintStatementComparisonOperatorOutput
 }
 
-var webACLSizeConstraintStatementComparisonOperatorPtrType = reflect.TypeOf((**WebACLSizeConstraintStatementComparisonOperator)(nil)).Elem()
+var webAclSizeConstraintStatementComparisonOperatorPtrType = reflect.TypeOf((**WebAclSizeConstraintStatementComparisonOperator)(nil)).Elem()
 
-type WebACLSizeConstraintStatementComparisonOperatorPtrInput interface {
+type WebAclSizeConstraintStatementComparisonOperatorPtrInput interface {
 	pulumi.Input
 
-	ToWebACLSizeConstraintStatementComparisonOperatorPtrOutput() WebACLSizeConstraintStatementComparisonOperatorPtrOutput
-	ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(context.Context) WebACLSizeConstraintStatementComparisonOperatorPtrOutput
+	ToWebAclSizeConstraintStatementComparisonOperatorPtrOutput() WebAclSizeConstraintStatementComparisonOperatorPtrOutput
+	ToWebAclSizeConstraintStatementComparisonOperatorPtrOutputWithContext(context.Context) WebAclSizeConstraintStatementComparisonOperatorPtrOutput
 }
 
-type webACLSizeConstraintStatementComparisonOperatorPtr string
+type webAclSizeConstraintStatementComparisonOperatorPtr string
 
-func WebACLSizeConstraintStatementComparisonOperatorPtr(v string) WebACLSizeConstraintStatementComparisonOperatorPtrInput {
-	return (*webACLSizeConstraintStatementComparisonOperatorPtr)(&v)
+func WebAclSizeConstraintStatementComparisonOperatorPtr(v string) WebAclSizeConstraintStatementComparisonOperatorPtrInput {
+	return (*webAclSizeConstraintStatementComparisonOperatorPtr)(&v)
 }
 
-func (*webACLSizeConstraintStatementComparisonOperatorPtr) ElementType() reflect.Type {
-	return webACLSizeConstraintStatementComparisonOperatorPtrType
+func (*webAclSizeConstraintStatementComparisonOperatorPtr) ElementType() reflect.Type {
+	return webAclSizeConstraintStatementComparisonOperatorPtrType
 }
 
-func (in *webACLSizeConstraintStatementComparisonOperatorPtr) ToWebACLSizeConstraintStatementComparisonOperatorPtrOutput() WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
-	return pulumi.ToOutput(in).(WebACLSizeConstraintStatementComparisonOperatorPtrOutput)
+func (in *webAclSizeConstraintStatementComparisonOperatorPtr) ToWebAclSizeConstraintStatementComparisonOperatorPtrOutput() WebAclSizeConstraintStatementComparisonOperatorPtrOutput {
+	return pulumi.ToOutput(in).(WebAclSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
-func (in *webACLSizeConstraintStatementComparisonOperatorPtr) ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLSizeConstraintStatementComparisonOperatorPtrOutput)
+func (in *webAclSizeConstraintStatementComparisonOperatorPtr) ToWebAclSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebAclSizeConstraintStatementComparisonOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
 // Type of text transformation.
-type WebACLTextTransformationType string
+type WebAclTextTransformationType string
 
 const (
-	WebACLTextTransformationTypeNone               = WebACLTextTransformationType("NONE")
-	WebACLTextTransformationTypeCompressWhiteSpace = WebACLTextTransformationType("COMPRESS_WHITE_SPACE")
-	WebACLTextTransformationTypeHtmlEntityDecode   = WebACLTextTransformationType("HTML_ENTITY_DECODE")
-	WebACLTextTransformationTypeLowercase          = WebACLTextTransformationType("LOWERCASE")
-	WebACLTextTransformationTypeCmdLine            = WebACLTextTransformationType("CMD_LINE")
-	WebACLTextTransformationTypeUrlDecode          = WebACLTextTransformationType("URL_DECODE")
-	WebACLTextTransformationTypeBase64Decode       = WebACLTextTransformationType("BASE64_DECODE")
-	WebACLTextTransformationTypeHexDecode          = WebACLTextTransformationType("HEX_DECODE")
-	WebACLTextTransformationTypeMd5                = WebACLTextTransformationType("MD5")
-	WebACLTextTransformationTypeReplaceComments    = WebACLTextTransformationType("REPLACE_COMMENTS")
-	WebACLTextTransformationTypeEscapeSeqDecode    = WebACLTextTransformationType("ESCAPE_SEQ_DECODE")
-	WebACLTextTransformationTypeSqlHexDecode       = WebACLTextTransformationType("SQL_HEX_DECODE")
-	WebACLTextTransformationTypeCssDecode          = WebACLTextTransformationType("CSS_DECODE")
-	WebACLTextTransformationTypeJsDecode           = WebACLTextTransformationType("JS_DECODE")
-	WebACLTextTransformationTypeNormalizePath      = WebACLTextTransformationType("NORMALIZE_PATH")
-	WebACLTextTransformationTypeNormalizePathWin   = WebACLTextTransformationType("NORMALIZE_PATH_WIN")
-	WebACLTextTransformationTypeRemoveNulls        = WebACLTextTransformationType("REMOVE_NULLS")
-	WebACLTextTransformationTypeReplaceNulls       = WebACLTextTransformationType("REPLACE_NULLS")
-	WebACLTextTransformationTypeBase64DecodeExt    = WebACLTextTransformationType("BASE64_DECODE_EXT")
-	WebACLTextTransformationTypeUrlDecodeUni       = WebACLTextTransformationType("URL_DECODE_UNI")
-	WebACLTextTransformationTypeUtf8ToUnicode      = WebACLTextTransformationType("UTF8_TO_UNICODE")
+	WebAclTextTransformationTypeNone               = WebAclTextTransformationType("NONE")
+	WebAclTextTransformationTypeCompressWhiteSpace = WebAclTextTransformationType("COMPRESS_WHITE_SPACE")
+	WebAclTextTransformationTypeHtmlEntityDecode   = WebAclTextTransformationType("HTML_ENTITY_DECODE")
+	WebAclTextTransformationTypeLowercase          = WebAclTextTransformationType("LOWERCASE")
+	WebAclTextTransformationTypeCmdLine            = WebAclTextTransformationType("CMD_LINE")
+	WebAclTextTransformationTypeUrlDecode          = WebAclTextTransformationType("URL_DECODE")
+	WebAclTextTransformationTypeBase64Decode       = WebAclTextTransformationType("BASE64_DECODE")
+	WebAclTextTransformationTypeHexDecode          = WebAclTextTransformationType("HEX_DECODE")
+	WebAclTextTransformationTypeMd5                = WebAclTextTransformationType("MD5")
+	WebAclTextTransformationTypeReplaceComments    = WebAclTextTransformationType("REPLACE_COMMENTS")
+	WebAclTextTransformationTypeEscapeSeqDecode    = WebAclTextTransformationType("ESCAPE_SEQ_DECODE")
+	WebAclTextTransformationTypeSqlHexDecode       = WebAclTextTransformationType("SQL_HEX_DECODE")
+	WebAclTextTransformationTypeCssDecode          = WebAclTextTransformationType("CSS_DECODE")
+	WebAclTextTransformationTypeJsDecode           = WebAclTextTransformationType("JS_DECODE")
+	WebAclTextTransformationTypeNormalizePath      = WebAclTextTransformationType("NORMALIZE_PATH")
+	WebAclTextTransformationTypeNormalizePathWin   = WebAclTextTransformationType("NORMALIZE_PATH_WIN")
+	WebAclTextTransformationTypeRemoveNulls        = WebAclTextTransformationType("REMOVE_NULLS")
+	WebAclTextTransformationTypeReplaceNulls       = WebAclTextTransformationType("REPLACE_NULLS")
+	WebAclTextTransformationTypeBase64DecodeExt    = WebAclTextTransformationType("BASE64_DECODE_EXT")
+	WebAclTextTransformationTypeUrlDecodeUni       = WebAclTextTransformationType("URL_DECODE_UNI")
+	WebAclTextTransformationTypeUtf8ToUnicode      = WebAclTextTransformationType("UTF8_TO_UNICODE")
 )
 
-func (WebACLTextTransformationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLTextTransformationType)(nil)).Elem()
+func (WebAclTextTransformationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclTextTransformationType)(nil)).Elem()
 }
 
-func (e WebACLTextTransformationType) ToWebACLTextTransformationTypeOutput() WebACLTextTransformationTypeOutput {
-	return pulumi.ToOutput(e).(WebACLTextTransformationTypeOutput)
+func (e WebAclTextTransformationType) ToWebAclTextTransformationTypeOutput() WebAclTextTransformationTypeOutput {
+	return pulumi.ToOutput(e).(WebAclTextTransformationTypeOutput)
 }
 
-func (e WebACLTextTransformationType) ToWebACLTextTransformationTypeOutputWithContext(ctx context.Context) WebACLTextTransformationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WebACLTextTransformationTypeOutput)
+func (e WebAclTextTransformationType) ToWebAclTextTransformationTypeOutputWithContext(ctx context.Context) WebAclTextTransformationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclTextTransformationTypeOutput)
 }
 
-func (e WebACLTextTransformationType) ToWebACLTextTransformationTypePtrOutput() WebACLTextTransformationTypePtrOutput {
-	return e.ToWebACLTextTransformationTypePtrOutputWithContext(context.Background())
+func (e WebAclTextTransformationType) ToWebAclTextTransformationTypePtrOutput() WebAclTextTransformationTypePtrOutput {
+	return e.ToWebAclTextTransformationTypePtrOutputWithContext(context.Background())
 }
 
-func (e WebACLTextTransformationType) ToWebACLTextTransformationTypePtrOutputWithContext(ctx context.Context) WebACLTextTransformationTypePtrOutput {
-	return WebACLTextTransformationType(e).ToWebACLTextTransformationTypeOutputWithContext(ctx).ToWebACLTextTransformationTypePtrOutputWithContext(ctx)
+func (e WebAclTextTransformationType) ToWebAclTextTransformationTypePtrOutputWithContext(ctx context.Context) WebAclTextTransformationTypePtrOutput {
+	return WebAclTextTransformationType(e).ToWebAclTextTransformationTypeOutputWithContext(ctx).ToWebAclTextTransformationTypePtrOutputWithContext(ctx)
 }
 
-func (e WebACLTextTransformationType) ToStringOutput() pulumi.StringOutput {
+func (e WebAclTextTransformationType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLTextTransformationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WebAclTextTransformationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WebACLTextTransformationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WebAclTextTransformationType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WebACLTextTransformationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WebAclTextTransformationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type WebACLTextTransformationTypeOutput struct{ *pulumi.OutputState }
+type WebAclTextTransformationTypeOutput struct{ *pulumi.OutputState }
 
-func (WebACLTextTransformationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLTextTransformationType)(nil)).Elem()
+func (WebAclTextTransformationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclTextTransformationType)(nil)).Elem()
 }
 
-func (o WebACLTextTransformationTypeOutput) ToWebACLTextTransformationTypeOutput() WebACLTextTransformationTypeOutput {
+func (o WebAclTextTransformationTypeOutput) ToWebAclTextTransformationTypeOutput() WebAclTextTransformationTypeOutput {
 	return o
 }
 
-func (o WebACLTextTransformationTypeOutput) ToWebACLTextTransformationTypeOutputWithContext(ctx context.Context) WebACLTextTransformationTypeOutput {
+func (o WebAclTextTransformationTypeOutput) ToWebAclTextTransformationTypeOutputWithContext(ctx context.Context) WebAclTextTransformationTypeOutput {
 	return o
 }
 
-func (o WebACLTextTransformationTypeOutput) ToWebACLTextTransformationTypePtrOutput() WebACLTextTransformationTypePtrOutput {
-	return o.ToWebACLTextTransformationTypePtrOutputWithContext(context.Background())
+func (o WebAclTextTransformationTypeOutput) ToWebAclTextTransformationTypePtrOutput() WebAclTextTransformationTypePtrOutput {
+	return o.ToWebAclTextTransformationTypePtrOutputWithContext(context.Background())
 }
 
-func (o WebACLTextTransformationTypeOutput) ToWebACLTextTransformationTypePtrOutputWithContext(ctx context.Context) WebACLTextTransformationTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLTextTransformationType) *WebACLTextTransformationType {
+func (o WebAclTextTransformationTypeOutput) ToWebAclTextTransformationTypePtrOutputWithContext(ctx context.Context) WebAclTextTransformationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclTextTransformationType) *WebAclTextTransformationType {
 		return &v
-	}).(WebACLTextTransformationTypePtrOutput)
+	}).(WebAclTextTransformationTypePtrOutput)
 }
 
-func (o WebACLTextTransformationTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o WebAclTextTransformationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o WebACLTextTransformationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLTextTransformationType) string {
+func (o WebAclTextTransformationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclTextTransformationType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o WebACLTextTransformationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclTextTransformationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLTextTransformationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLTextTransformationType) *string {
+func (o WebAclTextTransformationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclTextTransformationType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebACLTextTransformationTypePtrOutput struct{ *pulumi.OutputState }
+type WebAclTextTransformationTypePtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLTextTransformationTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLTextTransformationType)(nil)).Elem()
+func (WebAclTextTransformationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclTextTransformationType)(nil)).Elem()
 }
 
-func (o WebACLTextTransformationTypePtrOutput) ToWebACLTextTransformationTypePtrOutput() WebACLTextTransformationTypePtrOutput {
+func (o WebAclTextTransformationTypePtrOutput) ToWebAclTextTransformationTypePtrOutput() WebAclTextTransformationTypePtrOutput {
 	return o
 }
 
-func (o WebACLTextTransformationTypePtrOutput) ToWebACLTextTransformationTypePtrOutputWithContext(ctx context.Context) WebACLTextTransformationTypePtrOutput {
+func (o WebAclTextTransformationTypePtrOutput) ToWebAclTextTransformationTypePtrOutputWithContext(ctx context.Context) WebAclTextTransformationTypePtrOutput {
 	return o
 }
 
-func (o WebACLTextTransformationTypePtrOutput) Elem() WebACLTextTransformationTypeOutput {
-	return o.ApplyT(func(v *WebACLTextTransformationType) WebACLTextTransformationType {
+func (o WebAclTextTransformationTypePtrOutput) Elem() WebAclTextTransformationTypeOutput {
+	return o.ApplyT(func(v *WebAclTextTransformationType) WebAclTextTransformationType {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLTextTransformationType
+		var ret WebAclTextTransformationType
 		return ret
-	}).(WebACLTextTransformationTypeOutput)
+	}).(WebAclTextTransformationTypeOutput)
 }
 
-func (o WebACLTextTransformationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WebAclTextTransformationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLTextTransformationType) *string {
+func (o WebAclTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclTextTransformationType) *string {
 		if e == nil {
 			return nil
 		}
@@ -6791,49 +6791,49 @@ func (o WebACLTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebACLTextTransformationTypeInput is an input type that accepts WebACLTextTransformationTypeArgs and WebACLTextTransformationTypeOutput values.
-// You can construct a concrete instance of `WebACLTextTransformationTypeInput` via:
+// WebAclTextTransformationTypeInput is an input type that accepts WebAclTextTransformationTypeArgs and WebAclTextTransformationTypeOutput values.
+// You can construct a concrete instance of `WebAclTextTransformationTypeInput` via:
 //
-//	WebACLTextTransformationTypeArgs{...}
-type WebACLTextTransformationTypeInput interface {
+//	WebAclTextTransformationTypeArgs{...}
+type WebAclTextTransformationTypeInput interface {
 	pulumi.Input
 
-	ToWebACLTextTransformationTypeOutput() WebACLTextTransformationTypeOutput
-	ToWebACLTextTransformationTypeOutputWithContext(context.Context) WebACLTextTransformationTypeOutput
+	ToWebAclTextTransformationTypeOutput() WebAclTextTransformationTypeOutput
+	ToWebAclTextTransformationTypeOutputWithContext(context.Context) WebAclTextTransformationTypeOutput
 }
 
-var webACLTextTransformationTypePtrType = reflect.TypeOf((**WebACLTextTransformationType)(nil)).Elem()
+var webAclTextTransformationTypePtrType = reflect.TypeOf((**WebAclTextTransformationType)(nil)).Elem()
 
-type WebACLTextTransformationTypePtrInput interface {
+type WebAclTextTransformationTypePtrInput interface {
 	pulumi.Input
 
-	ToWebACLTextTransformationTypePtrOutput() WebACLTextTransformationTypePtrOutput
-	ToWebACLTextTransformationTypePtrOutputWithContext(context.Context) WebACLTextTransformationTypePtrOutput
+	ToWebAclTextTransformationTypePtrOutput() WebAclTextTransformationTypePtrOutput
+	ToWebAclTextTransformationTypePtrOutputWithContext(context.Context) WebAclTextTransformationTypePtrOutput
 }
 
-type webACLTextTransformationTypePtr string
+type webAclTextTransformationTypePtr string
 
-func WebACLTextTransformationTypePtr(v string) WebACLTextTransformationTypePtrInput {
-	return (*webACLTextTransformationTypePtr)(&v)
+func WebAclTextTransformationTypePtr(v string) WebAclTextTransformationTypePtrInput {
+	return (*webAclTextTransformationTypePtr)(&v)
 }
 
-func (*webACLTextTransformationTypePtr) ElementType() reflect.Type {
-	return webACLTextTransformationTypePtrType
+func (*webAclTextTransformationTypePtr) ElementType() reflect.Type {
+	return webAclTextTransformationTypePtrType
 }
 
-func (in *webACLTextTransformationTypePtr) ToWebACLTextTransformationTypePtrOutput() WebACLTextTransformationTypePtrOutput {
-	return pulumi.ToOutput(in).(WebACLTextTransformationTypePtrOutput)
+func (in *webAclTextTransformationTypePtr) ToWebAclTextTransformationTypePtrOutput() WebAclTextTransformationTypePtrOutput {
+	return pulumi.ToOutput(in).(WebAclTextTransformationTypePtrOutput)
 }
 
-func (in *webACLTextTransformationTypePtr) ToWebACLTextTransformationTypePtrOutputWithContext(ctx context.Context) WebACLTextTransformationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WebACLTextTransformationTypePtrOutput)
+func (in *webAclTextTransformationTypePtr) ToWebAclTextTransformationTypePtrOutputWithContext(ctx context.Context) WebAclTextTransformationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclTextTransformationTypePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IPSetIPAddressVersionInput)(nil)).Elem(), IPSetIPAddressVersion("IPV4"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IPSetIPAddressVersionPtrInput)(nil)).Elem(), IPSetIPAddressVersion("IPV4"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IPSetScopeInput)(nil)).Elem(), IPSetScope("CLOUDFRONT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IPSetScopePtrInput)(nil)).Elem(), IPSetScope("CLOUDFRONT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpSetIpAddressVersionInput)(nil)).Elem(), IpSetIpAddressVersion("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpSetIpAddressVersionPtrInput)(nil)).Elem(), IpSetIpAddressVersion("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpSetScopeInput)(nil)).Elem(), IpSetScope("CLOUDFRONT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpSetScopePtrInput)(nil)).Elem(), IpSetScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationConditionActionConditionPropertiesActionInput)(nil)).Elem(), LoggingConfigurationConditionActionConditionPropertiesAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationConditionActionConditionPropertiesActionPtrInput)(nil)).Elem(), LoggingConfigurationConditionActionConditionPropertiesAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput)(nil)).Elem(), LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior("MATCH"))
@@ -6850,12 +6850,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetScopePtrInput)(nil)).Elem(), RegexPatternSetScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyParsingFallbackBehaviorInput)(nil)).Elem(), RuleGroupBodyParsingFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyParsingFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupBodyParsingFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupForwardedIPConfigurationFallbackBehaviorInput)(nil)).Elem(), RuleGroupForwardedIPConfigurationFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupForwardedIPConfigurationFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupForwardedIPConfigurationFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorInput)(nil)).Elem(), RuleGroupIPSetForwardedIPConfigurationFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupIPSetForwardedIPConfigurationFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIPSetForwardedIPConfigurationPositionInput)(nil)).Elem(), RuleGroupIPSetForwardedIPConfigurationPosition("FIRST"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIPSetForwardedIPConfigurationPositionPtrInput)(nil)).Elem(), RuleGroupIPSetForwardedIPConfigurationPosition("FIRST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupForwardedIpConfigurationFallbackBehaviorInput)(nil)).Elem(), RuleGroupForwardedIpConfigurationFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupForwardedIpConfigurationFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupForwardedIpConfigurationFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorInput)(nil)).Elem(), RuleGroupIpSetForwardedIpConfigurationFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupIpSetForwardedIpConfigurationFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationPositionInput)(nil)).Elem(), RuleGroupIpSetForwardedIpConfigurationPosition("FIRST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationPositionPtrInput)(nil)).Elem(), RuleGroupIpSetForwardedIpConfigurationPosition("FIRST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonMatchScopeInput)(nil)).Elem(), RuleGroupJsonMatchScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonMatchScopePtrInput)(nil)).Elem(), RuleGroupJsonMatchScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelMatchScopeInput)(nil)).Elem(), RuleGroupLabelMatchScope("LABEL"))
@@ -6876,46 +6876,46 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSizeConstraintStatementComparisonOperatorPtrInput)(nil)).Elem(), RuleGroupSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationTypeInput)(nil)).Elem(), RuleGroupTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationTypePtrInput)(nil)).Elem(), RuleGroupTextTransformationType("NONE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInspectionLevelInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBodyParsingFallbackBehaviorInput)(nil)).Elem(), WebACLBodyParsingFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBodyParsingFallbackBehaviorPtrInput)(nil)).Elem(), WebACLBodyParsingFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLForwardedIPConfigurationFallbackBehaviorInput)(nil)).Elem(), WebACLForwardedIPConfigurationFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLForwardedIPConfigurationFallbackBehaviorPtrInput)(nil)).Elem(), WebACLForwardedIPConfigurationFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLIPSetForwardedIPConfigurationFallbackBehaviorInput)(nil)).Elem(), WebACLIPSetForwardedIPConfigurationFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrInput)(nil)).Elem(), WebACLIPSetForwardedIPConfigurationFallbackBehavior("MATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLIPSetForwardedIPConfigurationPositionInput)(nil)).Elem(), WebACLIPSetForwardedIPConfigurationPosition("FIRST"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLIPSetForwardedIPConfigurationPositionPtrInput)(nil)).Elem(), WebACLIPSetForwardedIPConfigurationPosition("FIRST"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLJsonMatchScopeInput)(nil)).Elem(), WebACLJsonMatchScope("ALL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLJsonMatchScopePtrInput)(nil)).Elem(), WebACLJsonMatchScope("ALL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLLabelMatchScopeInput)(nil)).Elem(), WebACLLabelMatchScope("LABEL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLLabelMatchScopePtrInput)(nil)).Elem(), WebACLLabelMatchScope("LABEL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLManagedRuleGroupConfigPayloadTypeInput)(nil)).Elem(), WebACLManagedRuleGroupConfigPayloadType("JSON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLManagedRuleGroupConfigPayloadTypePtrInput)(nil)).Elem(), WebACLManagedRuleGroupConfigPayloadType("JSON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLMapMatchScopeInput)(nil)).Elem(), WebACLMapMatchScope("ALL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLMapMatchScopePtrInput)(nil)).Elem(), WebACLMapMatchScope("ALL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOversizeHandlingInput)(nil)).Elem(), WebACLOversizeHandling("CONTINUE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOversizeHandlingPtrInput)(nil)).Elem(), WebACLOversizeHandling("CONTINUE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPositionalConstraintInput)(nil)).Elem(), WebACLPositionalConstraint("EXACTLY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPositionalConstraintPtrInput)(nil)).Elem(), WebACLPositionalConstraint("EXACTLY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), WebACLRateBasedStatementAggregateKeyType("IP"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), WebACLRateBasedStatementAggregateKeyType("IP"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionACFPPayloadTypeInput)(nil)).Elem(), WebACLRequestInspectionACFPPayloadType("JSON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionACFPPayloadTypePtrInput)(nil)).Elem(), WebACLRequestInspectionACFPPayloadType("JSON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionPayloadTypeInput)(nil)).Elem(), WebACLRequestInspectionPayloadType("JSON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionPayloadTypePtrInput)(nil)).Elem(), WebACLRequestInspectionPayloadType("JSON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLScopeInput)(nil)).Elem(), WebACLScope("CLOUDFRONT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLScopePtrInput)(nil)).Elem(), WebACLScope("CLOUDFRONT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLSensitivityLevelInput)(nil)).Elem(), WebACLSensitivityLevel("LOW"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLSensitivityLevelPtrInput)(nil)).Elem(), WebACLSensitivityLevel("LOW"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLSizeConstraintStatementComparisonOperatorInput)(nil)).Elem(), WebACLSizeConstraintStatementComparisonOperator("EQ"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLSizeConstraintStatementComparisonOperatorPtrInput)(nil)).Elem(), WebACLSizeConstraintStatementComparisonOperator("EQ"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLTextTransformationTypeInput)(nil)).Elem(), WebACLTextTransformationType("NONE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLTextTransformationTypePtrInput)(nil)).Elem(), WebACLTextTransformationType("NONE"))
-	pulumi.RegisterOutputType(IPSetIPAddressVersionOutput{})
-	pulumi.RegisterOutputType(IPSetIPAddressVersionPtrOutput{})
-	pulumi.RegisterOutputType(IPSetScopeOutput{})
-	pulumi.RegisterOutputType(IPSetScopePtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput)(nil)).Elem(), WebAclAwsManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrInput)(nil)).Elem(), WebAclAwsManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBodyParsingFallbackBehaviorInput)(nil)).Elem(), WebAclBodyParsingFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBodyParsingFallbackBehaviorPtrInput)(nil)).Elem(), WebAclBodyParsingFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclForwardedIpConfigurationFallbackBehaviorInput)(nil)).Elem(), WebAclForwardedIpConfigurationFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclForwardedIpConfigurationFallbackBehaviorPtrInput)(nil)).Elem(), WebAclForwardedIpConfigurationFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationFallbackBehaviorInput)(nil)).Elem(), WebAclIpSetForwardedIpConfigurationFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrInput)(nil)).Elem(), WebAclIpSetForwardedIpConfigurationFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationPositionInput)(nil)).Elem(), WebAclIpSetForwardedIpConfigurationPosition("FIRST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationPositionPtrInput)(nil)).Elem(), WebAclIpSetForwardedIpConfigurationPosition("FIRST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJsonMatchScopeInput)(nil)).Elem(), WebAclJsonMatchScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJsonMatchScopePtrInput)(nil)).Elem(), WebAclJsonMatchScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLabelMatchScopeInput)(nil)).Elem(), WebAclLabelMatchScope("LABEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLabelMatchScopePtrInput)(nil)).Elem(), WebAclLabelMatchScope("LABEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclManagedRuleGroupConfigPayloadTypeInput)(nil)).Elem(), WebAclManagedRuleGroupConfigPayloadType("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclManagedRuleGroupConfigPayloadTypePtrInput)(nil)).Elem(), WebAclManagedRuleGroupConfigPayloadType("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMapMatchScopeInput)(nil)).Elem(), WebAclMapMatchScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMapMatchScopePtrInput)(nil)).Elem(), WebAclMapMatchScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOversizeHandlingInput)(nil)).Elem(), WebAclOversizeHandling("CONTINUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOversizeHandlingPtrInput)(nil)).Elem(), WebAclOversizeHandling("CONTINUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPositionalConstraintInput)(nil)).Elem(), WebAclPositionalConstraint("EXACTLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPositionalConstraintPtrInput)(nil)).Elem(), WebAclPositionalConstraint("EXACTLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), WebAclRateBasedStatementAggregateKeyType("IP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), WebAclRateBasedStatementAggregateKeyType("IP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionAcfpPayloadTypeInput)(nil)).Elem(), WebAclRequestInspectionAcfpPayloadType("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionAcfpPayloadTypePtrInput)(nil)).Elem(), WebAclRequestInspectionAcfpPayloadType("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionPayloadTypeInput)(nil)).Elem(), WebAclRequestInspectionPayloadType("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionPayloadTypePtrInput)(nil)).Elem(), WebAclRequestInspectionPayloadType("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclScopeInput)(nil)).Elem(), WebAclScope("CLOUDFRONT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclScopePtrInput)(nil)).Elem(), WebAclScope("CLOUDFRONT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSensitivityLevelInput)(nil)).Elem(), WebAclSensitivityLevel("LOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSensitivityLevelPtrInput)(nil)).Elem(), WebAclSensitivityLevel("LOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeConstraintStatementComparisonOperatorInput)(nil)).Elem(), WebAclSizeConstraintStatementComparisonOperator("EQ"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeConstraintStatementComparisonOperatorPtrInput)(nil)).Elem(), WebAclSizeConstraintStatementComparisonOperator("EQ"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationTypeInput)(nil)).Elem(), WebAclTextTransformationType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationTypePtrInput)(nil)).Elem(), WebAclTextTransformationType("NONE"))
+	pulumi.RegisterOutputType(IpSetIpAddressVersionOutput{})
+	pulumi.RegisterOutputType(IpSetIpAddressVersionPtrOutput{})
+	pulumi.RegisterOutputType(IpSetScopeOutput{})
+	pulumi.RegisterOutputType(IpSetScopePtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationConditionActionConditionPropertiesActionOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput{})
@@ -6932,12 +6932,12 @@ func init() {
 	pulumi.RegisterOutputType(RegexPatternSetScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupBodyParsingFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(RuleGroupBodyParsingFallbackBehaviorPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupForwardedIPConfigurationFallbackBehaviorOutput{})
-	pulumi.RegisterOutputType(RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput{})
-	pulumi.RegisterOutputType(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupIPSetForwardedIPConfigurationPositionOutput{})
-	pulumi.RegisterOutputType(RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupForwardedIpConfigurationFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupIpSetForwardedIpConfigurationPositionOutput{})
+	pulumi.RegisterOutputType(RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupJsonMatchScopeOutput{})
 	pulumi.RegisterOutputType(RuleGroupJsonMatchScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupLabelMatchScopeOutput{})
@@ -6958,40 +6958,40 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationTypeOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationTypePtrOutput{})
-	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput{})
-	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput{})
-	pulumi.RegisterOutputType(WebACLBodyParsingFallbackBehaviorOutput{})
-	pulumi.RegisterOutputType(WebACLBodyParsingFallbackBehaviorPtrOutput{})
-	pulumi.RegisterOutputType(WebACLForwardedIPConfigurationFallbackBehaviorOutput{})
-	pulumi.RegisterOutputType(WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput{})
-	pulumi.RegisterOutputType(WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput{})
-	pulumi.RegisterOutputType(WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput{})
-	pulumi.RegisterOutputType(WebACLIPSetForwardedIPConfigurationPositionOutput{})
-	pulumi.RegisterOutputType(WebACLIPSetForwardedIPConfigurationPositionPtrOutput{})
-	pulumi.RegisterOutputType(WebACLJsonMatchScopeOutput{})
-	pulumi.RegisterOutputType(WebACLJsonMatchScopePtrOutput{})
-	pulumi.RegisterOutputType(WebACLLabelMatchScopeOutput{})
-	pulumi.RegisterOutputType(WebACLLabelMatchScopePtrOutput{})
-	pulumi.RegisterOutputType(WebACLManagedRuleGroupConfigPayloadTypeOutput{})
-	pulumi.RegisterOutputType(WebACLManagedRuleGroupConfigPayloadTypePtrOutput{})
-	pulumi.RegisterOutputType(WebACLMapMatchScopeOutput{})
-	pulumi.RegisterOutputType(WebACLMapMatchScopePtrOutput{})
-	pulumi.RegisterOutputType(WebACLOversizeHandlingOutput{})
-	pulumi.RegisterOutputType(WebACLOversizeHandlingPtrOutput{})
-	pulumi.RegisterOutputType(WebACLPositionalConstraintOutput{})
-	pulumi.RegisterOutputType(WebACLPositionalConstraintPtrOutput{})
-	pulumi.RegisterOutputType(WebACLRateBasedStatementAggregateKeyTypeOutput{})
-	pulumi.RegisterOutputType(WebACLRateBasedStatementAggregateKeyTypePtrOutput{})
-	pulumi.RegisterOutputType(WebACLRequestInspectionACFPPayloadTypeOutput{})
-	pulumi.RegisterOutputType(WebACLRequestInspectionACFPPayloadTypePtrOutput{})
-	pulumi.RegisterOutputType(WebACLRequestInspectionPayloadTypeOutput{})
-	pulumi.RegisterOutputType(WebACLRequestInspectionPayloadTypePtrOutput{})
-	pulumi.RegisterOutputType(WebACLScopeOutput{})
-	pulumi.RegisterOutputType(WebACLScopePtrOutput{})
-	pulumi.RegisterOutputType(WebACLSensitivityLevelOutput{})
-	pulumi.RegisterOutputType(WebACLSensitivityLevelPtrOutput{})
-	pulumi.RegisterOutputType(WebACLSizeConstraintStatementComparisonOperatorOutput{})
-	pulumi.RegisterOutputType(WebACLSizeConstraintStatementComparisonOperatorPtrOutput{})
-	pulumi.RegisterOutputType(WebACLTextTransformationTypeOutput{})
-	pulumi.RegisterOutputType(WebACLTextTransformationTypePtrOutput{})
+	pulumi.RegisterOutputType(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput{})
+	pulumi.RegisterOutputType(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput{})
+	pulumi.RegisterOutputType(WebAclBodyParsingFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(WebAclBodyParsingFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclForwardedIpConfigurationFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclIpSetForwardedIpConfigurationPositionOutput{})
+	pulumi.RegisterOutputType(WebAclIpSetForwardedIpConfigurationPositionPtrOutput{})
+	pulumi.RegisterOutputType(WebAclJsonMatchScopeOutput{})
+	pulumi.RegisterOutputType(WebAclJsonMatchScopePtrOutput{})
+	pulumi.RegisterOutputType(WebAclLabelMatchScopeOutput{})
+	pulumi.RegisterOutputType(WebAclLabelMatchScopePtrOutput{})
+	pulumi.RegisterOutputType(WebAclManagedRuleGroupConfigPayloadTypeOutput{})
+	pulumi.RegisterOutputType(WebAclManagedRuleGroupConfigPayloadTypePtrOutput{})
+	pulumi.RegisterOutputType(WebAclMapMatchScopeOutput{})
+	pulumi.RegisterOutputType(WebAclMapMatchScopePtrOutput{})
+	pulumi.RegisterOutputType(WebAclOversizeHandlingOutput{})
+	pulumi.RegisterOutputType(WebAclOversizeHandlingPtrOutput{})
+	pulumi.RegisterOutputType(WebAclPositionalConstraintOutput{})
+	pulumi.RegisterOutputType(WebAclPositionalConstraintPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRateBasedStatementAggregateKeyTypeOutput{})
+	pulumi.RegisterOutputType(WebAclRateBasedStatementAggregateKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(WebAclRequestInspectionAcfpPayloadTypeOutput{})
+	pulumi.RegisterOutputType(WebAclRequestInspectionAcfpPayloadTypePtrOutput{})
+	pulumi.RegisterOutputType(WebAclRequestInspectionPayloadTypeOutput{})
+	pulumi.RegisterOutputType(WebAclRequestInspectionPayloadTypePtrOutput{})
+	pulumi.RegisterOutputType(WebAclScopeOutput{})
+	pulumi.RegisterOutputType(WebAclScopePtrOutput{})
+	pulumi.RegisterOutputType(WebAclSensitivityLevelOutput{})
+	pulumi.RegisterOutputType(WebAclSensitivityLevelPtrOutput{})
+	pulumi.RegisterOutputType(WebAclSizeConstraintStatementComparisonOperatorOutput{})
+	pulumi.RegisterOutputType(WebAclSizeConstraintStatementComparisonOperatorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclTextTransformationTypeOutput{})
+	pulumi.RegisterOutputType(WebAclTextTransformationTypePtrOutput{})
 }

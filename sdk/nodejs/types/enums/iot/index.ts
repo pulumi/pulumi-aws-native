@@ -9,26 +9,26 @@ export const AuthorizerStatus = {
 
 export type AuthorizerStatus = (typeof AuthorizerStatus)[keyof typeof AuthorizerStatus];
 
-export const CACertificateAutoRegistrationStatus = {
+export const CaCertificateAutoRegistrationStatus = {
     Enable: "ENABLE",
     Disable: "DISABLE",
 } as const;
 
-export type CACertificateAutoRegistrationStatus = (typeof CACertificateAutoRegistrationStatus)[keyof typeof CACertificateAutoRegistrationStatus];
+export type CaCertificateAutoRegistrationStatus = (typeof CaCertificateAutoRegistrationStatus)[keyof typeof CaCertificateAutoRegistrationStatus];
 
-export const CACertificateCertificateMode = {
+export const CaCertificateCertificateMode = {
     Default: "DEFAULT",
     SniOnly: "SNI_ONLY",
 } as const;
 
-export type CACertificateCertificateMode = (typeof CACertificateCertificateMode)[keyof typeof CACertificateCertificateMode];
+export type CaCertificateCertificateMode = (typeof CaCertificateCertificateMode)[keyof typeof CaCertificateCertificateMode];
 
-export const CACertificateStatus = {
+export const CaCertificateStatus = {
     Active: "ACTIVE",
     Inactive: "INACTIVE",
 } as const;
 
-export type CACertificateStatus = (typeof CACertificateStatus)[keyof typeof CACertificateStatus];
+export type CaCertificateStatus = (typeof CaCertificateStatus)[keyof typeof CaCertificateStatus];
 
 export const CertificateMode = {
     Default: "DEFAULT",
@@ -152,11 +152,11 @@ export const MitigationActionReplaceDefaultPolicyVersionParamsTemplateName = {
 
 export type MitigationActionReplaceDefaultPolicyVersionParamsTemplateName = (typeof MitigationActionReplaceDefaultPolicyVersionParamsTemplateName)[keyof typeof MitigationActionReplaceDefaultPolicyVersionParamsTemplateName];
 
-export const MitigationActionUpdateCACertificateParamsAction = {
+export const MitigationActionUpdateCaCertificateParamsAction = {
     Deactivate: "DEACTIVATE",
 } as const;
 
-export type MitigationActionUpdateCACertificateParamsAction = (typeof MitigationActionUpdateCACertificateParamsAction)[keyof typeof MitigationActionUpdateCACertificateParamsAction];
+export type MitigationActionUpdateCaCertificateParamsAction = (typeof MitigationActionUpdateCaCertificateParamsAction)[keyof typeof MitigationActionUpdateCaCertificateParamsAction];
 
 export const MitigationActionUpdateDeviceCertificateParamsAction = {
     Deactivate: "DEACTIVATE",

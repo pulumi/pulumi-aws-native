@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         }
 
         public static ProfilingGroupComputePlatform Default { get; } = new ProfilingGroupComputePlatform("Default");
-        public static ProfilingGroupComputePlatform AWSLambda { get; } = new ProfilingGroupComputePlatform("AWSLambda");
+        public static ProfilingGroupComputePlatform AwsLambda { get; } = new ProfilingGroupComputePlatform("AWSLambda");
 
         public static bool operator ==(ProfilingGroupComputePlatform left, ProfilingGroupComputePlatform right) => left.Equals(right);
         public static bool operator !=(ProfilingGroupComputePlatform left, ProfilingGroupComputePlatform right) => !left.Equals(right);

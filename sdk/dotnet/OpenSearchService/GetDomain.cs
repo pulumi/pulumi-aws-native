@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public readonly string? DomainEndpoint;
         public readonly Outputs.DomainEndpointOptions? DomainEndpointOptions;
         public readonly object? DomainEndpoints;
-        public readonly Outputs.DomainEBSOptions? EbsOptions;
+        public readonly Outputs.DomainEbsOptions? EbsOptions;
         public readonly Outputs.DomainEncryptionAtRestOptions? EncryptionAtRestOptions;
         public readonly string? EngineVersion;
         public readonly string? Id;
@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// An arbitrary set of tags (key-value pairs) for this Domain.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainTag> Tags;
-        public readonly Outputs.DomainVPCOptions? VpcOptions;
+        public readonly Outputs.DomainVpcOptions? VpcOptions;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -99,7 +99,7 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             object? domainEndpoints,
 
-            Outputs.DomainEBSOptions? ebsOptions,
+            Outputs.DomainEbsOptions? ebsOptions,
 
             Outputs.DomainEncryptionAtRestOptions? encryptionAtRestOptions,
 
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             ImmutableArray<Outputs.DomainTag> tags,
 
-            Outputs.DomainVPCOptions? vpcOptions)
+            Outputs.DomainVpcOptions? vpcOptions)
         {
             AccessPolicies = accessPolicies;
             AdvancedOptions = advancedOptions;

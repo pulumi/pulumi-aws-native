@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisTableFieldLinkConfiguration
     {
         public readonly Outputs.AnalysisTableFieldLinkContentConfiguration Content;
-        public readonly Pulumi.AwsNative.QuickSight.AnalysisURLTargetConfiguration Target;
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisUrlTargetConfiguration Target;
 
         [OutputConstructor]
         private AnalysisTableFieldLinkConfiguration(
             Outputs.AnalysisTableFieldLinkContentConfiguration content,
 
-            Pulumi.AwsNative.QuickSight.AnalysisURLTargetConfiguration target)
+            Pulumi.AwsNative.QuickSight.AnalysisUrlTargetConfiguration target)
         {
             Content = content;
             Target = target;

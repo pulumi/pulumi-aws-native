@@ -15,14 +15,14 @@ __all__ = [
     'ClassifierCsvClassifier',
     'ClassifierGrokClassifier',
     'ClassifierJsonClassifier',
-    'ClassifierXMLClassifier',
+    'ClassifierXmlClassifier',
     'ConnectionInput',
     'ConnectionPhysicalConnectionRequirements',
     'CrawlerCatalogTarget',
     'CrawlerDeltaTarget',
-    'CrawlerDynamoDBTarget',
+    'CrawlerDynamoDbTarget',
     'CrawlerJdbcTarget',
-    'CrawlerMongoDBTarget',
+    'CrawlerMongoDbTarget',
     'CrawlerRecrawlPolicy',
     'CrawlerS3Target',
     'CrawlerSchedule',
@@ -41,12 +41,12 @@ __all__ = [
     'JobConnectionsList',
     'JobExecutionProperty',
     'JobNotificationProperty',
-    'MLTransformFindMatchesParameters',
-    'MLTransformGlueTables',
-    'MLTransformInputRecordTables',
-    'MLTransformMLUserDataEncryption',
-    'MLTransformTransformEncryption',
-    'MLTransformTransformParameters',
+    'MlTransformFindMatchesParameters',
+    'MlTransformGlueTables',
+    'MlTransformInputRecordTables',
+    'MlTransformMlUserDataEncryption',
+    'MlTransformTransformEncryption',
+    'MlTransformTransformParameters',
     'PartitionColumn',
     'PartitionInput',
     'PartitionOrder',
@@ -256,7 +256,7 @@ class ClassifierJsonClassifier(dict):
 
 
 @pulumi.output_type
-class ClassifierXMLClassifier(dict):
+class ClassifierXmlClassifier(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -264,14 +264,14 @@ class ClassifierXMLClassifier(dict):
             suggest = "row_tag"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClassifierXMLClassifier. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ClassifierXmlClassifier. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ClassifierXMLClassifier.__key_warning(key)
+        ClassifierXmlClassifier.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ClassifierXMLClassifier.__key_warning(key)
+        ClassifierXmlClassifier.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -553,7 +553,7 @@ class CrawlerDeltaTarget(dict):
 
 
 @pulumi.output_type
-class CrawlerDynamoDBTarget(dict):
+class CrawlerDynamoDbTarget(dict):
     def __init__(__self__, *,
                  path: Optional[str] = None):
         if path is not None:
@@ -612,7 +612,7 @@ class CrawlerJdbcTarget(dict):
 
 
 @pulumi.output_type
-class CrawlerMongoDBTarget(dict):
+class CrawlerMongoDbTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -620,14 +620,14 @@ class CrawlerMongoDBTarget(dict):
             suggest = "connection_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CrawlerMongoDBTarget. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerMongoDbTarget. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CrawlerMongoDBTarget.__key_warning(key)
+        CrawlerMongoDbTarget.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CrawlerMongoDBTarget.__key_warning(key)
+        CrawlerMongoDbTarget.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -857,9 +857,9 @@ class CrawlerTargets(dict):
     def __init__(__self__, *,
                  catalog_targets: Optional[Sequence['outputs.CrawlerCatalogTarget']] = None,
                  delta_targets: Optional[Sequence['outputs.CrawlerDeltaTarget']] = None,
-                 dynamo_db_targets: Optional[Sequence['outputs.CrawlerDynamoDBTarget']] = None,
+                 dynamo_db_targets: Optional[Sequence['outputs.CrawlerDynamoDbTarget']] = None,
                  jdbc_targets: Optional[Sequence['outputs.CrawlerJdbcTarget']] = None,
-                 mongo_db_targets: Optional[Sequence['outputs.CrawlerMongoDBTarget']] = None,
+                 mongo_db_targets: Optional[Sequence['outputs.CrawlerMongoDbTarget']] = None,
                  s3_targets: Optional[Sequence['outputs.CrawlerS3Target']] = None):
         if catalog_targets is not None:
             pulumi.set(__self__, "catalog_targets", catalog_targets)
@@ -886,7 +886,7 @@ class CrawlerTargets(dict):
 
     @property
     @pulumi.getter(name="dynamoDbTargets")
-    def dynamo_db_targets(self) -> Optional[Sequence['outputs.CrawlerDynamoDBTarget']]:
+    def dynamo_db_targets(self) -> Optional[Sequence['outputs.CrawlerDynamoDbTarget']]:
         return pulumi.get(self, "dynamo_db_targets")
 
     @property
@@ -896,7 +896,7 @@ class CrawlerTargets(dict):
 
     @property
     @pulumi.getter(name="mongoDbTargets")
-    def mongo_db_targets(self) -> Optional[Sequence['outputs.CrawlerMongoDBTarget']]:
+    def mongo_db_targets(self) -> Optional[Sequence['outputs.CrawlerMongoDbTarget']]:
         return pulumi.get(self, "mongo_db_targets")
 
     @property
@@ -1408,7 +1408,7 @@ class JobNotificationProperty(dict):
 
 
 @pulumi.output_type
-class MLTransformFindMatchesParameters(dict):
+class MlTransformFindMatchesParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1422,14 +1422,14 @@ class MLTransformFindMatchesParameters(dict):
             suggest = "precision_recall_tradeoff"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLTransformFindMatchesParameters. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformFindMatchesParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MLTransformFindMatchesParameters.__key_warning(key)
+        MlTransformFindMatchesParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MLTransformFindMatchesParameters.__key_warning(key)
+        MlTransformFindMatchesParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1467,7 +1467,7 @@ class MLTransformFindMatchesParameters(dict):
 
 
 @pulumi.output_type
-class MLTransformGlueTables(dict):
+class MlTransformGlueTables(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1481,14 +1481,14 @@ class MLTransformGlueTables(dict):
             suggest = "connection_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLTransformGlueTables. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformGlueTables. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MLTransformGlueTables.__key_warning(key)
+        MlTransformGlueTables.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MLTransformGlueTables.__key_warning(key)
+        MlTransformGlueTables.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1525,7 +1525,7 @@ class MLTransformGlueTables(dict):
 
 
 @pulumi.output_type
-class MLTransformInputRecordTables(dict):
+class MlTransformInputRecordTables(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1533,29 +1533,29 @@ class MLTransformInputRecordTables(dict):
             suggest = "glue_tables"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLTransformInputRecordTables. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformInputRecordTables. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MLTransformInputRecordTables.__key_warning(key)
+        MlTransformInputRecordTables.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MLTransformInputRecordTables.__key_warning(key)
+        MlTransformInputRecordTables.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 glue_tables: Optional[Sequence['outputs.MLTransformGlueTables']] = None):
+                 glue_tables: Optional[Sequence['outputs.MlTransformGlueTables']] = None):
         if glue_tables is not None:
             pulumi.set(__self__, "glue_tables", glue_tables)
 
     @property
     @pulumi.getter(name="glueTables")
-    def glue_tables(self) -> Optional[Sequence['outputs.MLTransformGlueTables']]:
+    def glue_tables(self) -> Optional[Sequence['outputs.MlTransformGlueTables']]:
         return pulumi.get(self, "glue_tables")
 
 
 @pulumi.output_type
-class MLTransformMLUserDataEncryption(dict):
+class MlTransformMlUserDataEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1565,14 +1565,14 @@ class MLTransformMLUserDataEncryption(dict):
             suggest = "kms_key_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLTransformMLUserDataEncryption. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformMlUserDataEncryption. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MLTransformMLUserDataEncryption.__key_warning(key)
+        MlTransformMlUserDataEncryption.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MLTransformMLUserDataEncryption.__key_warning(key)
+        MlTransformMlUserDataEncryption.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1594,7 +1594,7 @@ class MLTransformMLUserDataEncryption(dict):
 
 
 @pulumi.output_type
-class MLTransformTransformEncryption(dict):
+class MlTransformTransformEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1604,18 +1604,18 @@ class MLTransformTransformEncryption(dict):
             suggest = "task_run_security_configuration_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLTransformTransformEncryption. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformTransformEncryption. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MLTransformTransformEncryption.__key_warning(key)
+        MlTransformTransformEncryption.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MLTransformTransformEncryption.__key_warning(key)
+        MlTransformTransformEncryption.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ml_user_data_encryption: Optional['outputs.MLTransformMLUserDataEncryption'] = None,
+                 ml_user_data_encryption: Optional['outputs.MlTransformMlUserDataEncryption'] = None,
                  task_run_security_configuration_name: Optional[str] = None):
         if ml_user_data_encryption is not None:
             pulumi.set(__self__, "ml_user_data_encryption", ml_user_data_encryption)
@@ -1624,7 +1624,7 @@ class MLTransformTransformEncryption(dict):
 
     @property
     @pulumi.getter(name="mlUserDataEncryption")
-    def ml_user_data_encryption(self) -> Optional['outputs.MLTransformMLUserDataEncryption']:
+    def ml_user_data_encryption(self) -> Optional['outputs.MlTransformMlUserDataEncryption']:
         return pulumi.get(self, "ml_user_data_encryption")
 
     @property
@@ -1634,7 +1634,7 @@ class MLTransformTransformEncryption(dict):
 
 
 @pulumi.output_type
-class MLTransformTransformParameters(dict):
+class MlTransformTransformParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1644,19 +1644,19 @@ class MLTransformTransformParameters(dict):
             suggest = "find_matches_parameters"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLTransformTransformParameters. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformTransformParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MLTransformTransformParameters.__key_warning(key)
+        MlTransformTransformParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MLTransformTransformParameters.__key_warning(key)
+        MlTransformTransformParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  transform_type: str,
-                 find_matches_parameters: Optional['outputs.MLTransformFindMatchesParameters'] = None):
+                 find_matches_parameters: Optional['outputs.MlTransformFindMatchesParameters'] = None):
         pulumi.set(__self__, "transform_type", transform_type)
         if find_matches_parameters is not None:
             pulumi.set(__self__, "find_matches_parameters", find_matches_parameters)
@@ -1668,7 +1668,7 @@ class MLTransformTransformParameters(dict):
 
     @property
     @pulumi.getter(name="findMatchesParameters")
-    def find_matches_parameters(self) -> Optional['outputs.MLTransformFindMatchesParameters']:
+    def find_matches_parameters(self) -> Optional['outputs.MlTransformFindMatchesParameters']:
         return pulumi.get(self, "find_matches_parameters")
 
 

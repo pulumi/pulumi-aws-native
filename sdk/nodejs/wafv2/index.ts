@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetIPSetArgs, GetIPSetResult, GetIPSetOutputArgs } from "./getIPSet";
-export const getIPSet: typeof import("./getIPSet").getIPSet = null as any;
-export const getIPSetOutput: typeof import("./getIPSet").getIPSetOutput = null as any;
-utilities.lazyLoad(exports, ["getIPSet","getIPSetOutput"], () => require("./getIPSet"));
+export { GetIpSetArgs, GetIpSetResult, GetIpSetOutputArgs } from "./getIpSet";
+export const getIpSet: typeof import("./getIpSet").getIpSet = null as any;
+export const getIpSetOutput: typeof import("./getIpSet").getIpSetOutput = null as any;
+utilities.lazyLoad(exports, ["getIpSet","getIpSetOutput"], () => require("./getIpSet"));
 
 export { GetLoggingConfigurationArgs, GetLoggingConfigurationResult, GetLoggingConfigurationOutputArgs } from "./getLoggingConfiguration";
 export const getLoggingConfiguration: typeof import("./getLoggingConfiguration").getLoggingConfiguration = null as any;
@@ -25,15 +25,15 @@ export const getRuleGroup: typeof import("./getRuleGroup").getRuleGroup = null a
 export const getRuleGroupOutput: typeof import("./getRuleGroup").getRuleGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getRuleGroup","getRuleGroupOutput"], () => require("./getRuleGroup"));
 
-export { GetWebACLArgs, GetWebACLResult, GetWebACLOutputArgs } from "./getWebACL";
-export const getWebACL: typeof import("./getWebACL").getWebACL = null as any;
-export const getWebACLOutput: typeof import("./getWebACL").getWebACLOutput = null as any;
-utilities.lazyLoad(exports, ["getWebACL","getWebACLOutput"], () => require("./getWebACL"));
+export { GetWebAclArgs, GetWebAclResult, GetWebAclOutputArgs } from "./getWebAcl";
+export const getWebAcl: typeof import("./getWebAcl").getWebAcl = null as any;
+export const getWebAclOutput: typeof import("./getWebAcl").getWebAclOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAcl","getWebAclOutput"], () => require("./getWebAcl"));
 
-export { IPSetArgs } from "./ipset";
-export type IPSet = import("./ipset").IPSet;
-export const IPSet: typeof import("./ipset").IPSet = null as any;
-utilities.lazyLoad(exports, ["IPSet"], () => require("./ipset"));
+export { IpSetArgs } from "./ipSet";
+export type IpSet = import("./ipSet").IpSet;
+export const IpSet: typeof import("./ipSet").IpSet = null as any;
+utilities.lazyLoad(exports, ["IpSet"], () => require("./ipSet"));
 
 export { LoggingConfigurationArgs } from "./loggingConfiguration";
 export type LoggingConfiguration = import("./loggingConfiguration").LoggingConfiguration;
@@ -50,15 +50,15 @@ export type RuleGroup = import("./ruleGroup").RuleGroup;
 export const RuleGroup: typeof import("./ruleGroup").RuleGroup = null as any;
 utilities.lazyLoad(exports, ["RuleGroup"], () => require("./ruleGroup"));
 
-export { WebACLArgs } from "./webACL";
-export type WebACL = import("./webACL").WebACL;
-export const WebACL: typeof import("./webACL").WebACL = null as any;
-utilities.lazyLoad(exports, ["WebACL"], () => require("./webACL"));
+export { WebAclArgs } from "./webAcl";
+export type WebAcl = import("./webAcl").WebAcl;
+export const WebAcl: typeof import("./webAcl").WebAcl = null as any;
+utilities.lazyLoad(exports, ["WebAcl"], () => require("./webAcl"));
 
-export { WebACLAssociationArgs } from "./webACLAssociation";
-export type WebACLAssociation = import("./webACLAssociation").WebACLAssociation;
-export const WebACLAssociation: typeof import("./webACLAssociation").WebACLAssociation = null as any;
-utilities.lazyLoad(exports, ["WebACLAssociation"], () => require("./webACLAssociation"));
+export { WebAclAssociationArgs } from "./webAclAssociation";
+export type WebAclAssociation = import("./webAclAssociation").WebAclAssociation;
+export const WebAclAssociation: typeof import("./webAclAssociation").WebAclAssociation = null as any;
+utilities.lazyLoad(exports, ["WebAclAssociation"], () => require("./webAclAssociation"));
 
 
 // Export enums:
@@ -68,18 +68,18 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:wafv2:IPSet":
-                return new IPSet(name, <any>undefined, { urn })
+            case "aws-native:wafv2:IpSet":
+                return new IpSet(name, <any>undefined, { urn })
             case "aws-native:wafv2:LoggingConfiguration":
                 return new LoggingConfiguration(name, <any>undefined, { urn })
             case "aws-native:wafv2:RegexPatternSet":
                 return new RegexPatternSet(name, <any>undefined, { urn })
             case "aws-native:wafv2:RuleGroup":
                 return new RuleGroup(name, <any>undefined, { urn })
-            case "aws-native:wafv2:WebACL":
-                return new WebACL(name, <any>undefined, { urn })
-            case "aws-native:wafv2:WebACLAssociation":
-                return new WebACLAssociation(name, <any>undefined, { urn })
+            case "aws-native:wafv2:WebAcl":
+                return new WebAcl(name, <any>undefined, { urn })
+            case "aws-native:wafv2:WebAclAssociation":
+                return new WebAclAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

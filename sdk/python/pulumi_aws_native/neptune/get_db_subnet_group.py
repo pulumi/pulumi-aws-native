@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDBSubnetGroupResult',
-    'AwaitableGetDBSubnetGroupResult',
+    'GetDbSubnetGroupResult',
+    'AwaitableGetDbSubnetGroupResult',
     'get_db_subnet_group',
     'get_db_subnet_group_output',
 ]
 
 @pulumi.output_type
-class GetDBSubnetGroupResult:
+class GetDbSubnetGroupResult:
     def __init__(__self__, db_subnet_group_description=None, id=None, subnet_ids=None, tags=None):
         if db_subnet_group_description and not isinstance(db_subnet_group_description, str):
             raise TypeError("Expected argument 'db_subnet_group_description' to be a str")
@@ -50,16 +50,16 @@ class GetDBSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBSubnetGroupTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DbSubnetGroupTag']]:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDBSubnetGroupResult(GetDBSubnetGroupResult):
+class AwaitableGetDbSubnetGroupResult(GetDbSubnetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBSubnetGroupResult(
+        return GetDbSubnetGroupResult(
             db_subnet_group_description=self.db_subnet_group_description,
             id=self.id,
             subnet_ids=self.subnet_ids,
@@ -67,16 +67,16 @@ class AwaitableGetDBSubnetGroupResult(GetDBSubnetGroupResult):
 
 
 def get_db_subnet_group(id: Optional[str] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBSubnetGroupResult:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbSubnetGroupResult:
     """
     Resource Type definition for AWS::Neptune::DBSubnetGroup
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBSubnetGroup', __args__, opts=opts, typ=GetDBSubnetGroupResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDbSubnetGroup', __args__, opts=opts, typ=GetDbSubnetGroupResult).value
 
-    return AwaitableGetDBSubnetGroupResult(
+    return AwaitableGetDbSubnetGroupResult(
         db_subnet_group_description=pulumi.get(__ret__, 'db_subnet_group_description'),
         id=pulumi.get(__ret__, 'id'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
@@ -85,7 +85,7 @@ def get_db_subnet_group(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_subnet_group)
 def get_db_subnet_group_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBSubnetGroupResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbSubnetGroupResult]:
     """
     Resource Type definition for AWS::Neptune::DBSubnetGroup
     """

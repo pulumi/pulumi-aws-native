@@ -198,3 +198,68 @@ func TestPropertyTypeSpec(t *testing.T) {
 		}
 	}
 }
+
+func TestEnumType(t *testing.T) {
+	cases := []struct {
+		name           string
+		schema         *jsschema.Schema
+		expectedType   string
+		expectedValues map[string]string
+	}{
+		{
+			name: "SomeHTTPEnum",
+			schema: &jsschema.Schema{
+				Type: jsschema.PrimitiveTypes{jsschema.StringType},
+				Enum: []interface{}{"UseHTTP1Thing", "use_HTTP2_thing"},
+			},
+			expectedType: "aws-native::SomeHttpEnum",
+			expectedValues: map[string]string{
+				"UseHttp1Thing": "UseHTTP1Thing",
+				"UseHttp2Thing": "use_HTTP2_thing",
+			},
+		},
+	}
+
+	for _, tt := range cases {
+
+		ctx := context{
+			pkg: &pschema.PackageSpec{
+				Types: map[string]pschema.ComplexTypeSpec{},
+			},
+			metadata: &CloudAPIMetadata{
+				Types: map[string]CloudAPIType{},
+			},
+		}
+		out, err := (&ctx).genEnumType(tt.name, tt.schema)
+		assert.NoError(t, err)
+		assert.Equal(t, "#/types/"+tt.expectedType, out.Ref)
+		if assert.Contains(t, ctx.pkg.Types, tt.expectedType) {
+			v, _ := ctx.pkg.Types[tt.expectedType]
+			actualValues := map[string]string{}
+			for _, v := range v.Enum {
+				actualValues[v.Name] = v.Value.(string)
+			}
+			assert.Equal(t, tt.expectedValues, actualValues)
+		}
+	}
+}
+
+func TestModuleName(t *testing.T) {
+	cases := map[string]string{
+		"aws::SomeEC2Thing::SomeDHCPOptions": "SomeEc2Thing",
+	}
+
+	for input, expected := range cases {
+		assert.Equal(t, expected, moduleName(input))
+	}
+}
+
+func TestTypeName(t *testing.T) {
+	cases := map[string]string{
+		"aws::FOO::SomeDHCPOptions": "SomeDhcpOptions",
+	}
+
+	for input, expected := range cases {
+		assert.Equal(t, expected, typeName(input))
+	}
+}

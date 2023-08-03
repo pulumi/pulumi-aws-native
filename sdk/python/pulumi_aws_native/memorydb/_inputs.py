@@ -11,7 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ACLTagArgs',
+    'AclTagArgs',
     'AuthenticationModePropertiesArgs',
     'ClusterEndpointArgs',
     'ClusterTagArgs',
@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class ACLTagArgs:
+class AclTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):

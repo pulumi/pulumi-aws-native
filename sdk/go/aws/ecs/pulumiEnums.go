@@ -1505,124 +1505,124 @@ func (in *serviceSchedulingStrategyPtr) ToServiceSchedulingStrategyPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceSchedulingStrategyPtrOutput)
 }
 
-type TaskDefinitionAuthorizationConfigIAM string
+type TaskDefinitionAuthorizationConfigIam string
 
 const (
-	TaskDefinitionAuthorizationConfigIAMEnabled  = TaskDefinitionAuthorizationConfigIAM("ENABLED")
-	TaskDefinitionAuthorizationConfigIAMDisabled = TaskDefinitionAuthorizationConfigIAM("DISABLED")
+	TaskDefinitionAuthorizationConfigIamEnabled  = TaskDefinitionAuthorizationConfigIam("ENABLED")
+	TaskDefinitionAuthorizationConfigIamDisabled = TaskDefinitionAuthorizationConfigIam("DISABLED")
 )
 
-func (TaskDefinitionAuthorizationConfigIAM) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionAuthorizationConfigIAM)(nil)).Elem()
+func (TaskDefinitionAuthorizationConfigIam) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionAuthorizationConfigIam)(nil)).Elem()
 }
 
-func (e TaskDefinitionAuthorizationConfigIAM) ToTaskDefinitionAuthorizationConfigIAMOutput() TaskDefinitionAuthorizationConfigIAMOutput {
-	return pulumi.ToOutput(e).(TaskDefinitionAuthorizationConfigIAMOutput)
+func (e TaskDefinitionAuthorizationConfigIam) ToTaskDefinitionAuthorizationConfigIamOutput() TaskDefinitionAuthorizationConfigIamOutput {
+	return pulumi.ToOutput(e).(TaskDefinitionAuthorizationConfigIamOutput)
 }
 
-func (e TaskDefinitionAuthorizationConfigIAM) ToTaskDefinitionAuthorizationConfigIAMOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIAMOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TaskDefinitionAuthorizationConfigIAMOutput)
+func (e TaskDefinitionAuthorizationConfigIam) ToTaskDefinitionAuthorizationConfigIamOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIamOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskDefinitionAuthorizationConfigIamOutput)
 }
 
-func (e TaskDefinitionAuthorizationConfigIAM) ToTaskDefinitionAuthorizationConfigIAMPtrOutput() TaskDefinitionAuthorizationConfigIAMPtrOutput {
-	return e.ToTaskDefinitionAuthorizationConfigIAMPtrOutputWithContext(context.Background())
+func (e TaskDefinitionAuthorizationConfigIam) ToTaskDefinitionAuthorizationConfigIamPtrOutput() TaskDefinitionAuthorizationConfigIamPtrOutput {
+	return e.ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(context.Background())
 }
 
-func (e TaskDefinitionAuthorizationConfigIAM) ToTaskDefinitionAuthorizationConfigIAMPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIAMPtrOutput {
-	return TaskDefinitionAuthorizationConfigIAM(e).ToTaskDefinitionAuthorizationConfigIAMOutputWithContext(ctx).ToTaskDefinitionAuthorizationConfigIAMPtrOutputWithContext(ctx)
+func (e TaskDefinitionAuthorizationConfigIam) ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIamPtrOutput {
+	return TaskDefinitionAuthorizationConfigIam(e).ToTaskDefinitionAuthorizationConfigIamOutputWithContext(ctx).ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(ctx)
 }
 
-func (e TaskDefinitionAuthorizationConfigIAM) ToStringOutput() pulumi.StringOutput {
+func (e TaskDefinitionAuthorizationConfigIam) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TaskDefinitionAuthorizationConfigIAM) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e TaskDefinitionAuthorizationConfigIam) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TaskDefinitionAuthorizationConfigIAM) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e TaskDefinitionAuthorizationConfigIam) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e TaskDefinitionAuthorizationConfigIAM) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e TaskDefinitionAuthorizationConfigIam) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type TaskDefinitionAuthorizationConfigIAMOutput struct{ *pulumi.OutputState }
+type TaskDefinitionAuthorizationConfigIamOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionAuthorizationConfigIAMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionAuthorizationConfigIAM)(nil)).Elem()
+func (TaskDefinitionAuthorizationConfigIamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionAuthorizationConfigIam)(nil)).Elem()
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMOutput) ToTaskDefinitionAuthorizationConfigIAMOutput() TaskDefinitionAuthorizationConfigIAMOutput {
+func (o TaskDefinitionAuthorizationConfigIamOutput) ToTaskDefinitionAuthorizationConfigIamOutput() TaskDefinitionAuthorizationConfigIamOutput {
 	return o
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMOutput) ToTaskDefinitionAuthorizationConfigIAMOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIAMOutput {
+func (o TaskDefinitionAuthorizationConfigIamOutput) ToTaskDefinitionAuthorizationConfigIamOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIamOutput {
 	return o
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMOutput) ToTaskDefinitionAuthorizationConfigIAMPtrOutput() TaskDefinitionAuthorizationConfigIAMPtrOutput {
-	return o.ToTaskDefinitionAuthorizationConfigIAMPtrOutputWithContext(context.Background())
+func (o TaskDefinitionAuthorizationConfigIamOutput) ToTaskDefinitionAuthorizationConfigIamPtrOutput() TaskDefinitionAuthorizationConfigIamPtrOutput {
+	return o.ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMOutput) ToTaskDefinitionAuthorizationConfigIAMPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIAMPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionAuthorizationConfigIAM) *TaskDefinitionAuthorizationConfigIAM {
+func (o TaskDefinitionAuthorizationConfigIamOutput) ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionAuthorizationConfigIam) *TaskDefinitionAuthorizationConfigIam {
 		return &v
-	}).(TaskDefinitionAuthorizationConfigIAMPtrOutput)
+	}).(TaskDefinitionAuthorizationConfigIamPtrOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMOutput) ToStringOutput() pulumi.StringOutput {
+func (o TaskDefinitionAuthorizationConfigIamOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionAuthorizationConfigIAM) string {
+func (o TaskDefinitionAuthorizationConfigIamOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionAuthorizationConfigIam) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TaskDefinitionAuthorizationConfigIamOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionAuthorizationConfigIAM) *string {
+func (o TaskDefinitionAuthorizationConfigIamOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionAuthorizationConfigIam) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type TaskDefinitionAuthorizationConfigIAMPtrOutput struct{ *pulumi.OutputState }
+type TaskDefinitionAuthorizationConfigIamPtrOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionAuthorizationConfigIAMPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionAuthorizationConfigIAM)(nil)).Elem()
+func (TaskDefinitionAuthorizationConfigIamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionAuthorizationConfigIam)(nil)).Elem()
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMPtrOutput) ToTaskDefinitionAuthorizationConfigIAMPtrOutput() TaskDefinitionAuthorizationConfigIAMPtrOutput {
+func (o TaskDefinitionAuthorizationConfigIamPtrOutput) ToTaskDefinitionAuthorizationConfigIamPtrOutput() TaskDefinitionAuthorizationConfigIamPtrOutput {
 	return o
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMPtrOutput) ToTaskDefinitionAuthorizationConfigIAMPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIAMPtrOutput {
+func (o TaskDefinitionAuthorizationConfigIamPtrOutput) ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIamPtrOutput {
 	return o
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMPtrOutput) Elem() TaskDefinitionAuthorizationConfigIAMOutput {
-	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfigIAM) TaskDefinitionAuthorizationConfigIAM {
+func (o TaskDefinitionAuthorizationConfigIamPtrOutput) Elem() TaskDefinitionAuthorizationConfigIamOutput {
+	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfigIam) TaskDefinitionAuthorizationConfigIam {
 		if v != nil {
 			return *v
 		}
-		var ret TaskDefinitionAuthorizationConfigIAM
+		var ret TaskDefinitionAuthorizationConfigIam
 		return ret
-	}).(TaskDefinitionAuthorizationConfigIAMOutput)
+	}).(TaskDefinitionAuthorizationConfigIamOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TaskDefinitionAuthorizationConfigIamPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionAuthorizationConfigIAMPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskDefinitionAuthorizationConfigIAM) *string {
+func (o TaskDefinitionAuthorizationConfigIamPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskDefinitionAuthorizationConfigIam) *string {
 		if e == nil {
 			return nil
 		}
@@ -1631,162 +1631,162 @@ func (o TaskDefinitionAuthorizationConfigIAMPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskDefinitionAuthorizationConfigIAMInput is an input type that accepts TaskDefinitionAuthorizationConfigIAMArgs and TaskDefinitionAuthorizationConfigIAMOutput values.
-// You can construct a concrete instance of `TaskDefinitionAuthorizationConfigIAMInput` via:
+// TaskDefinitionAuthorizationConfigIamInput is an input type that accepts TaskDefinitionAuthorizationConfigIamArgs and TaskDefinitionAuthorizationConfigIamOutput values.
+// You can construct a concrete instance of `TaskDefinitionAuthorizationConfigIamInput` via:
 //
-//	TaskDefinitionAuthorizationConfigIAMArgs{...}
-type TaskDefinitionAuthorizationConfigIAMInput interface {
+//	TaskDefinitionAuthorizationConfigIamArgs{...}
+type TaskDefinitionAuthorizationConfigIamInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionAuthorizationConfigIAMOutput() TaskDefinitionAuthorizationConfigIAMOutput
-	ToTaskDefinitionAuthorizationConfigIAMOutputWithContext(context.Context) TaskDefinitionAuthorizationConfigIAMOutput
+	ToTaskDefinitionAuthorizationConfigIamOutput() TaskDefinitionAuthorizationConfigIamOutput
+	ToTaskDefinitionAuthorizationConfigIamOutputWithContext(context.Context) TaskDefinitionAuthorizationConfigIamOutput
 }
 
-var taskDefinitionAuthorizationConfigIAMPtrType = reflect.TypeOf((**TaskDefinitionAuthorizationConfigIAM)(nil)).Elem()
+var taskDefinitionAuthorizationConfigIamPtrType = reflect.TypeOf((**TaskDefinitionAuthorizationConfigIam)(nil)).Elem()
 
-type TaskDefinitionAuthorizationConfigIAMPtrInput interface {
+type TaskDefinitionAuthorizationConfigIamPtrInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionAuthorizationConfigIAMPtrOutput() TaskDefinitionAuthorizationConfigIAMPtrOutput
-	ToTaskDefinitionAuthorizationConfigIAMPtrOutputWithContext(context.Context) TaskDefinitionAuthorizationConfigIAMPtrOutput
+	ToTaskDefinitionAuthorizationConfigIamPtrOutput() TaskDefinitionAuthorizationConfigIamPtrOutput
+	ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(context.Context) TaskDefinitionAuthorizationConfigIamPtrOutput
 }
 
-type taskDefinitionAuthorizationConfigIAMPtr string
+type taskDefinitionAuthorizationConfigIamPtr string
 
-func TaskDefinitionAuthorizationConfigIAMPtr(v string) TaskDefinitionAuthorizationConfigIAMPtrInput {
-	return (*taskDefinitionAuthorizationConfigIAMPtr)(&v)
+func TaskDefinitionAuthorizationConfigIamPtr(v string) TaskDefinitionAuthorizationConfigIamPtrInput {
+	return (*taskDefinitionAuthorizationConfigIamPtr)(&v)
 }
 
-func (*taskDefinitionAuthorizationConfigIAMPtr) ElementType() reflect.Type {
-	return taskDefinitionAuthorizationConfigIAMPtrType
+func (*taskDefinitionAuthorizationConfigIamPtr) ElementType() reflect.Type {
+	return taskDefinitionAuthorizationConfigIamPtrType
 }
 
-func (in *taskDefinitionAuthorizationConfigIAMPtr) ToTaskDefinitionAuthorizationConfigIAMPtrOutput() TaskDefinitionAuthorizationConfigIAMPtrOutput {
-	return pulumi.ToOutput(in).(TaskDefinitionAuthorizationConfigIAMPtrOutput)
+func (in *taskDefinitionAuthorizationConfigIamPtr) ToTaskDefinitionAuthorizationConfigIamPtrOutput() TaskDefinitionAuthorizationConfigIamPtrOutput {
+	return pulumi.ToOutput(in).(TaskDefinitionAuthorizationConfigIamPtrOutput)
 }
 
-func (in *taskDefinitionAuthorizationConfigIAMPtr) ToTaskDefinitionAuthorizationConfigIAMPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIAMPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionAuthorizationConfigIAMPtrOutput)
+func (in *taskDefinitionAuthorizationConfigIamPtr) ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionAuthorizationConfigIamPtrOutput)
 }
 
-type TaskDefinitionEFSVolumeConfigurationTransitEncryption string
+type TaskDefinitionEfsVolumeConfigurationTransitEncryption string
 
 const (
-	TaskDefinitionEFSVolumeConfigurationTransitEncryptionEnabled  = TaskDefinitionEFSVolumeConfigurationTransitEncryption("ENABLED")
-	TaskDefinitionEFSVolumeConfigurationTransitEncryptionDisabled = TaskDefinitionEFSVolumeConfigurationTransitEncryption("DISABLED")
+	TaskDefinitionEfsVolumeConfigurationTransitEncryptionEnabled  = TaskDefinitionEfsVolumeConfigurationTransitEncryption("ENABLED")
+	TaskDefinitionEfsVolumeConfigurationTransitEncryptionDisabled = TaskDefinitionEfsVolumeConfigurationTransitEncryption("DISABLED")
 )
 
-func (TaskDefinitionEFSVolumeConfigurationTransitEncryption) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionEFSVolumeConfigurationTransitEncryption)(nil)).Elem()
+func (TaskDefinitionEfsVolumeConfigurationTransitEncryption) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionEfsVolumeConfigurationTransitEncryption)(nil)).Elem()
 }
 
-func (e TaskDefinitionEFSVolumeConfigurationTransitEncryption) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput() TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput {
-	return pulumi.ToOutput(e).(TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput)
+func (e TaskDefinitionEfsVolumeConfigurationTransitEncryption) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput() TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput {
+	return pulumi.ToOutput(e).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput)
 }
 
-func (e TaskDefinitionEFSVolumeConfigurationTransitEncryption) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput)
+func (e TaskDefinitionEfsVolumeConfigurationTransitEncryption) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput)
 }
 
-func (e TaskDefinitionEFSVolumeConfigurationTransitEncryption) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput() TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
-	return e.ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutputWithContext(context.Background())
+func (e TaskDefinitionEfsVolumeConfigurationTransitEncryption) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput() TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
+	return e.ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(context.Background())
 }
 
-func (e TaskDefinitionEFSVolumeConfigurationTransitEncryption) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
-	return TaskDefinitionEFSVolumeConfigurationTransitEncryption(e).ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionOutputWithContext(ctx).ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx)
+func (e TaskDefinitionEfsVolumeConfigurationTransitEncryption) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
+	return TaskDefinitionEfsVolumeConfigurationTransitEncryption(e).ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionOutputWithContext(ctx).ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx)
 }
 
-func (e TaskDefinitionEFSVolumeConfigurationTransitEncryption) ToStringOutput() pulumi.StringOutput {
+func (e TaskDefinitionEfsVolumeConfigurationTransitEncryption) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TaskDefinitionEFSVolumeConfigurationTransitEncryption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e TaskDefinitionEfsVolumeConfigurationTransitEncryption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TaskDefinitionEFSVolumeConfigurationTransitEncryption) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e TaskDefinitionEfsVolumeConfigurationTransitEncryption) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e TaskDefinitionEFSVolumeConfigurationTransitEncryption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e TaskDefinitionEfsVolumeConfigurationTransitEncryption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput struct{ *pulumi.OutputState }
+type TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionEFSVolumeConfigurationTransitEncryption)(nil)).Elem()
+func (TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionEfsVolumeConfigurationTransitEncryption)(nil)).Elem()
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput() TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput() TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput {
 	return o
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput {
 	return o
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput() TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
-	return o.ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutputWithContext(context.Background())
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput() TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
+	return o.ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionEFSVolumeConfigurationTransitEncryption) *TaskDefinitionEFSVolumeConfigurationTransitEncryption {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionEfsVolumeConfigurationTransitEncryption) *TaskDefinitionEfsVolumeConfigurationTransitEncryption {
 		return &v
-	}).(TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput)
+	}).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput) ToStringOutput() pulumi.StringOutput {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionEFSVolumeConfigurationTransitEncryption) string {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionEfsVolumeConfigurationTransitEncryption) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionEFSVolumeConfigurationTransitEncryption) *string {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionEfsVolumeConfigurationTransitEncryption) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput struct{ *pulumi.OutputState }
+type TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionEFSVolumeConfigurationTransitEncryption)(nil)).Elem()
+func (TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionEfsVolumeConfigurationTransitEncryption)(nil)).Elem()
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput() TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput() TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
 	return o
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
 	return o
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput) Elem() TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput {
-	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfigurationTransitEncryption) TaskDefinitionEFSVolumeConfigurationTransitEncryption {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) Elem() TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput {
+	return o.ApplyT(func(v *TaskDefinitionEfsVolumeConfigurationTransitEncryption) TaskDefinitionEfsVolumeConfigurationTransitEncryption {
 		if v != nil {
 			return *v
 		}
-		var ret TaskDefinitionEFSVolumeConfigurationTransitEncryption
+		var ret TaskDefinitionEfsVolumeConfigurationTransitEncryption
 		return ret
-	}).(TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput)
+	}).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskDefinitionEFSVolumeConfigurationTransitEncryption) *string {
+func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskDefinitionEfsVolumeConfigurationTransitEncryption) *string {
 		if e == nil {
 			return nil
 		}
@@ -1795,42 +1795,42 @@ func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskDefinitionEFSVolumeConfigurationTransitEncryptionInput is an input type that accepts TaskDefinitionEFSVolumeConfigurationTransitEncryptionArgs and TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput values.
-// You can construct a concrete instance of `TaskDefinitionEFSVolumeConfigurationTransitEncryptionInput` via:
+// TaskDefinitionEfsVolumeConfigurationTransitEncryptionInput is an input type that accepts TaskDefinitionEfsVolumeConfigurationTransitEncryptionArgs and TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput values.
+// You can construct a concrete instance of `TaskDefinitionEfsVolumeConfigurationTransitEncryptionInput` via:
 //
-//	TaskDefinitionEFSVolumeConfigurationTransitEncryptionArgs{...}
-type TaskDefinitionEFSVolumeConfigurationTransitEncryptionInput interface {
+//	TaskDefinitionEfsVolumeConfigurationTransitEncryptionArgs{...}
+type TaskDefinitionEfsVolumeConfigurationTransitEncryptionInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput() TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput
-	ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionOutputWithContext(context.Context) TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput
+	ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput() TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput
+	ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionOutputWithContext(context.Context) TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput
 }
 
-var taskDefinitionEFSVolumeConfigurationTransitEncryptionPtrType = reflect.TypeOf((**TaskDefinitionEFSVolumeConfigurationTransitEncryption)(nil)).Elem()
+var taskDefinitionEfsVolumeConfigurationTransitEncryptionPtrType = reflect.TypeOf((**TaskDefinitionEfsVolumeConfigurationTransitEncryption)(nil)).Elem()
 
-type TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrInput interface {
+type TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput() TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput
-	ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutputWithContext(context.Context) TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput
+	ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput() TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput
+	ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(context.Context) TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput
 }
 
-type taskDefinitionEFSVolumeConfigurationTransitEncryptionPtr string
+type taskDefinitionEfsVolumeConfigurationTransitEncryptionPtr string
 
-func TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtr(v string) TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrInput {
-	return (*taskDefinitionEFSVolumeConfigurationTransitEncryptionPtr)(&v)
+func TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtr(v string) TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrInput {
+	return (*taskDefinitionEfsVolumeConfigurationTransitEncryptionPtr)(&v)
 }
 
-func (*taskDefinitionEFSVolumeConfigurationTransitEncryptionPtr) ElementType() reflect.Type {
-	return taskDefinitionEFSVolumeConfigurationTransitEncryptionPtrType
+func (*taskDefinitionEfsVolumeConfigurationTransitEncryptionPtr) ElementType() reflect.Type {
+	return taskDefinitionEfsVolumeConfigurationTransitEncryptionPtrType
 }
 
-func (in *taskDefinitionEFSVolumeConfigurationTransitEncryptionPtr) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput() TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
-	return pulumi.ToOutput(in).(TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput)
+func (in *taskDefinitionEfsVolumeConfigurationTransitEncryptionPtr) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput() TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
+	return pulumi.ToOutput(in).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput)
 }
 
-func (in *taskDefinitionEFSVolumeConfigurationTransitEncryptionPtr) ToTaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx context.Context) TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput)
+func (in *taskDefinitionEfsVolumeConfigurationTransitEncryptionPtr) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput)
 }
 
 type TaskDefinitionPortMappingAppProtocol string
@@ -2511,10 +2511,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePropagateTagsPtrInput)(nil)).Elem(), ServicePropagateTags("SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSchedulingStrategyInput)(nil)).Elem(), ServiceSchedulingStrategy("DAEMON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSchedulingStrategyPtrInput)(nil)).Elem(), ServiceSchedulingStrategy("DAEMON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigIAMInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigIAM("ENABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigIAMPtrInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigIAM("ENABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEFSVolumeConfigurationTransitEncryptionInput)(nil)).Elem(), TaskDefinitionEFSVolumeConfigurationTransitEncryption("ENABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrInput)(nil)).Elem(), TaskDefinitionEFSVolumeConfigurationTransitEncryption("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigIamInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigIam("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigIamPtrInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigIam("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEfsVolumeConfigurationTransitEncryptionInput)(nil)).Elem(), TaskDefinitionEfsVolumeConfigurationTransitEncryption("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrInput)(nil)).Elem(), TaskDefinitionEfsVolumeConfigurationTransitEncryption("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPortMappingAppProtocolInput)(nil)).Elem(), TaskDefinitionPortMappingAppProtocol("http"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPortMappingAppProtocolPtrInput)(nil)).Elem(), TaskDefinitionPortMappingAppProtocol("http"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetAwsVpcConfigurationAssignPublicIpInput)(nil)).Elem(), TaskSetAwsVpcConfigurationAssignPublicIp("DISABLED"))
@@ -2541,10 +2541,10 @@ func init() {
 	pulumi.RegisterOutputType(ServicePropagateTagsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSchedulingStrategyOutput{})
 	pulumi.RegisterOutputType(ServiceSchedulingStrategyPtrOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigIAMOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigIAMPtrOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigIamOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigIamPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPortMappingAppProtocolOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPortMappingAppProtocolPtrOutput{})
 	pulumi.RegisterOutputType(TaskSetAwsVpcConfigurationAssignPublicIpOutput{})

@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WebACLArgs', 'WebACL']
+__all__ = ['WebAclArgs', 'WebAcl']
 
 @pulumi.input_type
-class WebACLArgs:
+class WebAclArgs:
     def __init__(__self__, *,
-                 default_action: pulumi.Input['WebACLActionArgs'],
+                 default_action: pulumi.Input['WebAclActionArgs'],
                  metric_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None):
         """
-        The set of arguments for constructing a WebACL resource.
+        The set of arguments for constructing a WebAcl resource.
         """
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -32,11 +32,11 @@ class WebACLArgs:
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> pulumi.Input['WebACLActionArgs']:
+    def default_action(self) -> pulumi.Input['WebAclActionArgs']:
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: pulumi.Input['WebACLActionArgs']):
+    def default_action(self, value: pulumi.Input['WebAclActionArgs']):
         pulumi.set(self, "default_action", value)
 
     @property
@@ -59,28 +59,28 @@ class WebACLArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
-warnings.warn("""WebACL is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""WebAcl is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class WebACL(pulumi.CustomResource):
-    warnings.warn("""WebACL is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class WebAcl(pulumi.CustomResource):
+    warnings.warn("""WebAcl is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: Optional[pulumi.Input[pulumi.InputType['WebACLActionArgs']]] = None,
+                 default_action: Optional[pulumi.Input[pulumi.InputType['WebAclActionArgs']]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::WAFRegional::WebACL
@@ -92,18 +92,18 @@ class WebACL(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebACLArgs,
+                 args: WebAclArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::WAFRegional::WebACL
 
         :param str resource_name: The name of the resource.
-        :param WebACLArgs args: The arguments to use to populate this resource's properties.
+        :param WebAclArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebACLArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebAclArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -112,19 +112,19 @@ class WebACL(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: Optional[pulumi.Input[pulumi.InputType['WebACLActionArgs']]] = None,
+                 default_action: Optional[pulumi.Input[pulumi.InputType['WebAclActionArgs']]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""WebACL is deprecated: WebACL is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""WebAcl is deprecated: WebAcl is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebACLArgs.__new__(WebACLArgs)
+            __props__ = WebAclArgs.__new__(WebAclArgs)
 
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
@@ -134,8 +134,8 @@ class WebACL(pulumi.CustomResource):
             __props__.__dict__["metric_name"] = metric_name
             __props__.__dict__["name"] = name
             __props__.__dict__["rules"] = rules
-        super(WebACL, __self__).__init__(
-            'aws-native:wafregional:WebACL',
+        super(WebAcl, __self__).__init__(
+            'aws-native:wafregional:WebAcl',
             resource_name,
             __props__,
             opts)
@@ -143,9 +143,9 @@ class WebACL(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebACL':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAcl':
         """
-        Get an existing WebACL resource's state with the given name, id, and optional extra
+        Get an existing WebAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -154,17 +154,17 @@ class WebACL(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = WebACLArgs.__new__(WebACLArgs)
+        __props__ = WebAclArgs.__new__(WebAclArgs)
 
         __props__.__dict__["default_action"] = None
         __props__.__dict__["metric_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rules"] = None
-        return WebACL(resource_name, opts=opts, __props__=__props__)
+        return WebAcl(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> pulumi.Output['outputs.WebACLAction']:
+    def default_action(self) -> pulumi.Output['outputs.WebAclAction']:
         return pulumi.get(self, "default_action")
 
     @property
@@ -179,6 +179,6 @@ class WebACL(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Output[Optional[Sequence['outputs.WebACLRule']]]:
+    def rules(self) -> pulumi.Output[Optional[Sequence['outputs.WebAclRule']]]:
         return pulumi.get(self, "rules")
 

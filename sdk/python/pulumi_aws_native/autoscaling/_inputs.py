@@ -27,7 +27,7 @@ __all__ = [
     'AutoScalingGroupNetworkInterfaceCountRequestArgs',
     'AutoScalingGroupNotificationConfigurationArgs',
     'AutoScalingGroupTagPropertyArgs',
-    'AutoScalingGroupTotalLocalStorageGBRequestArgs',
+    'AutoScalingGroupTotalLocalStorageGbRequestArgs',
     'AutoScalingGroupVCpuCountRequestArgs',
     'LaunchConfigurationBlockDeviceMappingArgs',
     'LaunchConfigurationBlockDeviceArgs',
@@ -162,7 +162,7 @@ class AutoScalingGroupInstanceRequirementsArgs:
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
-                 total_local_storage_gb: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGBRequestArgs']] = None,
+                 total_local_storage_gb: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']] = None,
                  v_cpu_count: Optional[pulumi.Input['AutoScalingGroupVCpuCountRequestArgs']] = None):
         if accelerator_count is not None:
             pulumi.set(__self__, "accelerator_count", accelerator_count)
@@ -402,11 +402,11 @@ class AutoScalingGroupInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="totalLocalStorageGb")
-    def total_local_storage_gb(self) -> Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGBRequestArgs']]:
+    def total_local_storage_gb(self) -> Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']]:
         return pulumi.get(self, "total_local_storage_gb")
 
     @total_local_storage_gb.setter
-    def total_local_storage_gb(self, value: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGBRequestArgs']]):
+    def total_local_storage_gb(self, value: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']]):
         pulumi.set(self, "total_local_storage_gb", value)
 
     @property
@@ -943,7 +943,7 @@ class AutoScalingGroupTagPropertyArgs:
 
 
 @pulumi.input_type
-class AutoScalingGroupTotalLocalStorageGBRequestArgs:
+class AutoScalingGroupTotalLocalStorageGbRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):

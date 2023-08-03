@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.FlowRedshiftDestinationProperties? Redshift;
         public readonly Outputs.FlowS3DestinationProperties? S3;
         public readonly Outputs.FlowSalesforceDestinationProperties? Salesforce;
-        public readonly Outputs.FlowSAPODataDestinationProperties? SapoData;
+        public readonly Outputs.FlowSapoDataDestinationProperties? SapoData;
         public readonly Outputs.FlowSnowflakeDestinationProperties? Snowflake;
         public readonly Outputs.FlowUpsolverDestinationProperties? Upsolver;
         public readonly Outputs.FlowZendeskDestinationProperties? Zendesk;
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.FlowSalesforceDestinationProperties? salesforce,
 
-            Outputs.FlowSAPODataDestinationProperties? sapoData,
+            Outputs.FlowSapoDataDestinationProperties? sapoData,
 
             Outputs.FlowSnowflakeDestinationProperties? snowflake,
 

@@ -332,28 +332,28 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
     /// </summary>
     [EnumType]
-    public readonly struct ResolverDNSSECConfigValidationStatus : IEquatable<ResolverDNSSECConfigValidationStatus>
+    public readonly struct ResolverDnssecConfigValidationStatus : IEquatable<ResolverDnssecConfigValidationStatus>
     {
         private readonly string _value;
 
-        private ResolverDNSSECConfigValidationStatus(string value)
+        private ResolverDnssecConfigValidationStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ResolverDNSSECConfigValidationStatus Enabling { get; } = new ResolverDNSSECConfigValidationStatus("ENABLING");
-        public static ResolverDNSSECConfigValidationStatus Enabled { get; } = new ResolverDNSSECConfigValidationStatus("ENABLED");
-        public static ResolverDNSSECConfigValidationStatus Disabling { get; } = new ResolverDNSSECConfigValidationStatus("DISABLING");
-        public static ResolverDNSSECConfigValidationStatus Disabled { get; } = new ResolverDNSSECConfigValidationStatus("DISABLED");
+        public static ResolverDnssecConfigValidationStatus Enabling { get; } = new ResolverDnssecConfigValidationStatus("ENABLING");
+        public static ResolverDnssecConfigValidationStatus Enabled { get; } = new ResolverDnssecConfigValidationStatus("ENABLED");
+        public static ResolverDnssecConfigValidationStatus Disabling { get; } = new ResolverDnssecConfigValidationStatus("DISABLING");
+        public static ResolverDnssecConfigValidationStatus Disabled { get; } = new ResolverDnssecConfigValidationStatus("DISABLED");
 
-        public static bool operator ==(ResolverDNSSECConfigValidationStatus left, ResolverDNSSECConfigValidationStatus right) => left.Equals(right);
-        public static bool operator !=(ResolverDNSSECConfigValidationStatus left, ResolverDNSSECConfigValidationStatus right) => !left.Equals(right);
+        public static bool operator ==(ResolverDnssecConfigValidationStatus left, ResolverDnssecConfigValidationStatus right) => left.Equals(right);
+        public static bool operator !=(ResolverDnssecConfigValidationStatus left, ResolverDnssecConfigValidationStatus right) => !left.Equals(right);
 
-        public static explicit operator string(ResolverDNSSECConfigValidationStatus value) => value._value;
+        public static explicit operator string(ResolverDnssecConfigValidationStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResolverDNSSECConfigValidationStatus other && Equals(other);
-        public bool Equals(ResolverDNSSECConfigValidationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ResolverDnssecConfigValidationStatus other && Equals(other);
+        public bool Equals(ResolverDnssecConfigValidationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

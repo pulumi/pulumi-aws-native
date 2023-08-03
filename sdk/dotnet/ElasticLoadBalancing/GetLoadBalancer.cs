@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         public readonly Outputs.LoadBalancerHealthCheck? HealthCheck;
         public readonly string? Id;
         public readonly ImmutableArray<string> Instances;
-        public readonly ImmutableArray<Outputs.LoadBalancerLBCookieStickinessPolicy> LbCookieStickinessPolicy;
+        public readonly ImmutableArray<Outputs.LoadBalancerLbCookieStickinessPolicy> LbCookieStickinessPolicy;
         public readonly ImmutableArray<Outputs.LoadBalancerListeners> Listeners;
         public readonly ImmutableArray<Outputs.LoadBalancerPolicies> Policies;
         public readonly ImmutableArray<string> SecurityGroups;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
 
             ImmutableArray<string> instances,
 
-            ImmutableArray<Outputs.LoadBalancerLBCookieStickinessPolicy> lbCookieStickinessPolicy,
+            ImmutableArray<Outputs.LoadBalancerLbCookieStickinessPolicy> lbCookieStickinessPolicy,
 
             ImmutableArray<Outputs.LoadBalancerListeners> listeners,
 

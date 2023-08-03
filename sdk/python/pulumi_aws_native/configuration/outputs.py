@@ -31,7 +31,7 @@ __all__ = [
     'RemediationConfigurationExecutionControls',
     'RemediationConfigurationSsmControls',
     'StoredQueryTag',
-    'TemplateSSMDocumentDetailsProperties',
+    'TemplateSsmDocumentDetailsProperties',
 ]
 
 @pulumi.output_type
@@ -1138,7 +1138,7 @@ class StoredQueryTag(dict):
 
 
 @pulumi.output_type
-class TemplateSSMDocumentDetailsProperties(dict):
+class TemplateSsmDocumentDetailsProperties(dict):
     """
     The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
     """
@@ -1151,14 +1151,14 @@ class TemplateSSMDocumentDetailsProperties(dict):
             suggest = "document_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TemplateSSMDocumentDetailsProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSsmDocumentDetailsProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TemplateSSMDocumentDetailsProperties.__key_warning(key)
+        TemplateSsmDocumentDetailsProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TemplateSSMDocumentDetailsProperties.__key_warning(key)
+        TemplateSsmDocumentDetailsProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

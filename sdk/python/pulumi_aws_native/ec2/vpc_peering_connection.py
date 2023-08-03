@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VPCPeeringConnectionArgs', 'VPCPeeringConnection']
+__all__ = ['VpcPeeringConnectionArgs', 'VpcPeeringConnection']
 
 @pulumi.input_type
-class VPCPeeringConnectionArgs:
+class VpcPeeringConnectionArgs:
     def __init__(__self__, *,
                  peer_vpc_id: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
                  peer_owner_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VPCPeeringConnectionTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcPeeringConnectionTagArgs']]]] = None):
         """
-        The set of arguments for constructing a VPCPeeringConnection resource.
+        The set of arguments for constructing a VpcPeeringConnection resource.
         :param pulumi.Input[str] peer_vpc_id: The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the accepter VPC.
@@ -103,15 +103,15 @@ class VPCPeeringConnectionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VPCPeeringConnectionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcPeeringConnectionTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VPCPeeringConnectionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcPeeringConnectionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class VPCPeeringConnection(pulumi.CustomResource):
+class VpcPeeringConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -120,7 +120,7 @@ class VPCPeeringConnection(pulumi.CustomResource):
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_role_arn: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCPeeringConnectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcPeeringConnectionTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -138,18 +138,18 @@ class VPCPeeringConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPCPeeringConnectionArgs,
+                 args: VpcPeeringConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCPeeringConnection
 
         :param str resource_name: The name of the resource.
-        :param VPCPeeringConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param VpcPeeringConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPCPeeringConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcPeeringConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -162,7 +162,7 @@ class VPCPeeringConnection(pulumi.CustomResource):
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_role_arn: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCPeeringConnectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcPeeringConnectionTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -171,7 +171,7 @@ class VPCPeeringConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPCPeeringConnectionArgs.__new__(VPCPeeringConnectionArgs)
+            __props__ = VpcPeeringConnectionArgs.__new__(VpcPeeringConnectionArgs)
 
             __props__.__dict__["peer_owner_id"] = peer_owner_id
             __props__.__dict__["peer_region"] = peer_region
@@ -183,8 +183,8 @@ class VPCPeeringConnection(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
-        super(VPCPeeringConnection, __self__).__init__(
-            'aws-native:ec2:VPCPeeringConnection',
+        super(VpcPeeringConnection, __self__).__init__(
+            'aws-native:ec2:VpcPeeringConnection',
             resource_name,
             __props__,
             opts)
@@ -192,9 +192,9 @@ class VPCPeeringConnection(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPCPeeringConnection':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpcPeeringConnection':
         """
-        Get an existing VPCPeeringConnection resource's state with the given name, id, and optional extra
+        Get an existing VpcPeeringConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -203,7 +203,7 @@ class VPCPeeringConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPCPeeringConnectionArgs.__new__(VPCPeeringConnectionArgs)
+        __props__ = VpcPeeringConnectionArgs.__new__(VpcPeeringConnectionArgs)
 
         __props__.__dict__["peer_owner_id"] = None
         __props__.__dict__["peer_region"] = None
@@ -211,7 +211,7 @@ class VPCPeeringConnection(pulumi.CustomResource):
         __props__.__dict__["peer_vpc_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
-        return VPCPeeringConnection(resource_name, opts=opts, __props__=__props__)
+        return VpcPeeringConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="peerOwnerId")
@@ -247,7 +247,7 @@ class VPCPeeringConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VPCPeeringConnectionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VpcPeeringConnectionTag']]]:
         return pulumi.get(self, "tags")
 
     @property

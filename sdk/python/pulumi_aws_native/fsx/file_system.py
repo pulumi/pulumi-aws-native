@@ -23,7 +23,7 @@ class FileSystemArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lustre_configuration: Optional[pulumi.Input['FileSystemLustreConfigurationArgs']] = None,
                  ontap_configuration: Optional[pulumi.Input['FileSystemOntapConfigurationArgs']] = None,
-                 open_zfs_configuration: Optional[pulumi.Input['FileSystemOpenZFSConfigurationArgs']] = None,
+                 open_zfs_configuration: Optional[pulumi.Input['FileSystemOpenZfsConfigurationArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -122,11 +122,11 @@ class FileSystemArgs:
 
     @property
     @pulumi.getter(name="openZfsConfiguration")
-    def open_zfs_configuration(self) -> Optional[pulumi.Input['FileSystemOpenZFSConfigurationArgs']]:
+    def open_zfs_configuration(self) -> Optional[pulumi.Input['FileSystemOpenZfsConfigurationArgs']]:
         return pulumi.get(self, "open_zfs_configuration")
 
     @open_zfs_configuration.setter
-    def open_zfs_configuration(self, value: Optional[pulumi.Input['FileSystemOpenZFSConfigurationArgs']]):
+    def open_zfs_configuration(self, value: Optional[pulumi.Input['FileSystemOpenZfsConfigurationArgs']]):
         pulumi.set(self, "open_zfs_configuration", value)
 
     @property
@@ -191,7 +191,7 @@ class FileSystem(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lustre_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemLustreConfigurationArgs']]] = None,
                  ontap_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOntapConfigurationArgs']]] = None,
-                 open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOpenZFSConfigurationArgs']]] = None,
+                 open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOpenZfsConfigurationArgs']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -235,7 +235,7 @@ class FileSystem(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lustre_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemLustreConfigurationArgs']]] = None,
                  ontap_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOntapConfigurationArgs']]] = None,
-                 open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOpenZFSConfigurationArgs']]] = None,
+                 open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOpenZfsConfigurationArgs']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -356,7 +356,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="openZfsConfiguration")
-    def open_zfs_configuration(self) -> pulumi.Output[Optional['outputs.FileSystemOpenZFSConfiguration']]:
+    def open_zfs_configuration(self) -> pulumi.Output[Optional['outputs.FileSystemOpenZfsConfiguration']]:
         return pulumi.get(self, "open_zfs_configuration")
 
     @property

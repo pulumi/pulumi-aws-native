@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AuditManager
         public Output<Outputs.AssessmentReportsDestination?> AssessmentReportsDestination { get; private set; } = null!;
 
         [Output("awsAccount")]
-        public Output<Outputs.AssessmentAWSAccount?> AwsAccount { get; private set; } = null!;
+        public Output<Outputs.AssessmentAwsAccount?> AwsAccount { get; private set; } = null!;
 
         [Output("creationTime")]
         public Output<double> CreationTime { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.AuditManager
         public Input<Inputs.AssessmentReportsDestinationArgs>? AssessmentReportsDestination { get; set; }
 
         [Input("awsAccount")]
-        public Input<Inputs.AssessmentAWSAccountArgs>? AwsAccount { get; set; }
+        public Input<Inputs.AssessmentAwsAccountArgs>? AwsAccount { get; set; }
 
         [Input("delegations")]
         private InputList<Inputs.AssessmentDelegationArgs>? _delegations;

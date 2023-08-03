@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public Output<Outputs.PushTemplateAndroidPushNotificationTemplate?> Adm { get; private set; } = null!;
 
         [Output("apns")]
-        public Output<Outputs.PushTemplateAPNSPushNotificationTemplate?> Apns { get; private set; } = null!;
+        public Output<Outputs.PushTemplateApnsPushNotificationTemplate?> Apns { get; private set; } = null!;
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public Input<Inputs.PushTemplateAndroidPushNotificationTemplateArgs>? Adm { get; set; }
 
         [Input("apns")]
-        public Input<Inputs.PushTemplateAPNSPushNotificationTemplateArgs>? Apns { get; set; }
+        public Input<Inputs.PushTemplateApnsPushNotificationTemplateArgs>? Apns { get; set; }
 
         [Input("baidu")]
         public Input<Inputs.PushTemplateAndroidPushNotificationTemplateArgs>? Baidu { get; set; }

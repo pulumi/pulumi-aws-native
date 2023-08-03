@@ -13,7 +13,7 @@ __all__ = [
     'DomainAdvancedSecurityOptionsInputArgs',
     'DomainClusterConfigArgs',
     'DomainCognitoOptionsArgs',
-    'DomainEBSOptionsArgs',
+    'DomainEbsOptionsArgs',
     'DomainEncryptionAtRestOptionsArgs',
     'DomainEndpointOptionsArgs',
     'DomainIdpArgs',
@@ -21,11 +21,11 @@ __all__ = [
     'DomainNodeToNodeEncryptionOptionsArgs',
     'DomainOffPeakWindowOptionsArgs',
     'DomainOffPeakWindowArgs',
-    'DomainSAMLOptionsArgs',
+    'DomainSamlOptionsArgs',
     'DomainSnapshotOptionsArgs',
     'DomainSoftwareUpdateOptionsArgs',
     'DomainTagArgs',
-    'DomainVPCOptionsArgs',
+    'DomainVpcOptionsArgs',
     'DomainWindowStartTimeArgs',
     'DomainZoneAwarenessConfigArgs',
 ]
@@ -38,7 +38,7 @@ class DomainAdvancedSecurityOptionsInputArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  internal_user_database_enabled: Optional[pulumi.Input[bool]] = None,
                  master_user_options: Optional[pulumi.Input['DomainMasterUserOptionsArgs']] = None,
-                 saml_options: Optional[pulumi.Input['DomainSAMLOptionsArgs']] = None):
+                 saml_options: Optional[pulumi.Input['DomainSamlOptionsArgs']] = None):
         if anonymous_auth_disable_date is not None:
             pulumi.set(__self__, "anonymous_auth_disable_date", anonymous_auth_disable_date)
         if anonymous_auth_enabled is not None:
@@ -99,11 +99,11 @@ class DomainAdvancedSecurityOptionsInputArgs:
 
     @property
     @pulumi.getter(name="samlOptions")
-    def saml_options(self) -> Optional[pulumi.Input['DomainSAMLOptionsArgs']]:
+    def saml_options(self) -> Optional[pulumi.Input['DomainSamlOptionsArgs']]:
         return pulumi.get(self, "saml_options")
 
     @saml_options.setter
-    def saml_options(self, value: Optional[pulumi.Input['DomainSAMLOptionsArgs']]):
+    def saml_options(self, value: Optional[pulumi.Input['DomainSamlOptionsArgs']]):
         pulumi.set(self, "saml_options", value)
 
 
@@ -298,7 +298,7 @@ class DomainCognitoOptionsArgs:
 
 
 @pulumi.input_type
-class DomainEBSOptionsArgs:
+class DomainEbsOptionsArgs:
     def __init__(__self__, *,
                  ebs_enabled: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
@@ -588,7 +588,7 @@ class DomainOffPeakWindowArgs:
 
 
 @pulumi.input_type
-class DomainSAMLOptionsArgs:
+class DomainSamlOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  idp: Optional[pulumi.Input['DomainIdpArgs']] = None,
@@ -748,7 +748,7 @@ class DomainTagArgs:
 
 
 @pulumi.input_type
-class DomainVPCOptionsArgs:
+class DomainVpcOptionsArgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):

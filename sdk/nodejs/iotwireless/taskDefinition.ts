@@ -48,7 +48,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * The list of task definitions.
      */
-    public readonly loRaWanUpdateGatewayTaskEntry!: pulumi.Output<outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntry | undefined>;
+    public readonly loRaWanUpdateGatewayTaskEntry!: pulumi.Output<outputs.iotwireless.TaskDefinitionLoRaWanUpdateGatewayTaskEntry | undefined>;
     /**
      * The name of the new resource.
      */
@@ -112,7 +112,7 @@ export interface TaskDefinitionArgs {
     /**
      * The list of task definitions.
      */
-    loRaWanUpdateGatewayTaskEntry?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs>;
+    loRaWanUpdateGatewayTaskEntry?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs>;
     /**
      * The name of the new resource.
      */

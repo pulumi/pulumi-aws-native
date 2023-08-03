@@ -20,7 +20,7 @@ class HostedZoneArgs:
                  hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_logging_config: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]]] = None):
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]]] = None):
         """
         The set of arguments for constructing a HostedZone resource.
         :param pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
@@ -29,7 +29,7 @@ class HostedZoneArgs:
         :param pulumi.Input[str] name: The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
                
                If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
-        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]] vpcs: A complex type that contains information about the VPCs that are associated with the specified hosted zone.
+        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]] vpcs: A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """
         if hosted_zone_config is not None:
             pulumi.set(__self__, "hosted_zone_config", hosted_zone_config)
@@ -90,14 +90,14 @@ class HostedZoneArgs:
 
     @property
     @pulumi.getter
-    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]]]:
+    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]]]:
         """
         A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """
         return pulumi.get(self, "vpcs")
 
     @vpcs.setter
-    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]]]):
+    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]]]):
         pulumi.set(self, "vpcs", value)
 
 
@@ -110,7 +110,7 @@ class HostedZone(pulumi.CustomResource):
                  hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneTagArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_logging_config: Optional[pulumi.Input[pulumi.InputType['HostedZoneQueryLoggingConfigArgs']]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVPCArgs']]]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVpcArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53::HostedZone.
@@ -123,7 +123,7 @@ class HostedZone(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
                
                If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVPCArgs']]]] vpcs: A complex type that contains information about the VPCs that are associated with the specified hosted zone.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVpcArgs']]]] vpcs: A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """
         ...
     @overload
@@ -153,7 +153,7 @@ class HostedZone(pulumi.CustomResource):
                  hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneTagArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_logging_config: Optional[pulumi.Input[pulumi.InputType['HostedZoneQueryLoggingConfigArgs']]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVPCArgs']]]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVpcArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -236,7 +236,7 @@ class HostedZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vpcs(self) -> pulumi.Output[Optional[Sequence['outputs.HostedZoneVPC']]]:
+    def vpcs(self) -> pulumi.Output[Optional[Sequence['outputs.HostedZoneVpc']]]:
         """
         A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """

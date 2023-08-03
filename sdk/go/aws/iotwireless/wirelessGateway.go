@@ -23,7 +23,7 @@ type WirelessGateway struct {
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt pulumi.StringPtrOutput `pulumi:"lastUplinkReceivedAt"`
 	// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
-	LoRaWan WirelessGatewayLoRaWANGatewayOutput `pulumi:"loRaWan"`
+	LoRaWan WirelessGatewayLoRaWanGatewayOutput `pulumi:"loRaWan"`
 	// Name of Wireless Gateway.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the gateway.
@@ -82,7 +82,7 @@ type wirelessGatewayArgs struct {
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt *string `pulumi:"lastUplinkReceivedAt"`
 	// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
-	LoRaWan WirelessGatewayLoRaWANGateway `pulumi:"loRaWan"`
+	LoRaWan WirelessGatewayLoRaWanGateway `pulumi:"loRaWan"`
 	// Name of Wireless Gateway.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the gateway.
@@ -100,7 +100,7 @@ type WirelessGatewayArgs struct {
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt pulumi.StringPtrInput
 	// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
-	LoRaWan WirelessGatewayLoRaWANGatewayInput
+	LoRaWan WirelessGatewayLoRaWanGatewayInput
 	// Name of Wireless Gateway.
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the gateway.
@@ -164,8 +164,8 @@ func (o WirelessGatewayOutput) LastUplinkReceivedAt() pulumi.StringPtrOutput {
 }
 
 // The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
-func (o WirelessGatewayOutput) LoRaWan() WirelessGatewayLoRaWANGatewayOutput {
-	return o.ApplyT(func(v *WirelessGateway) WirelessGatewayLoRaWANGatewayOutput { return v.LoRaWan }).(WirelessGatewayLoRaWANGatewayOutput)
+func (o WirelessGatewayOutput) LoRaWan() WirelessGatewayLoRaWanGatewayOutput {
+	return o.ApplyT(func(v *WirelessGateway) WirelessGatewayLoRaWanGatewayOutput { return v.LoRaWan }).(WirelessGatewayLoRaWanGatewayOutput)
 }
 
 // Name of Wireless Gateway.

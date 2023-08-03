@@ -12,7 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'IPSetTag',
+    'IpSetTag',
     'LoggingConfigurationCondition',
     'LoggingConfigurationConditionActionConditionProperties',
     'LoggingConfigurationConditionLabelNameConditionProperties',
@@ -35,20 +35,20 @@ __all__ = [
     'RuleGroupCookieMatchPattern',
     'RuleGroupCookies',
     'RuleGroupCountAction',
-    'RuleGroupCustomHTTPHeader',
+    'RuleGroupCustomHttpHeader',
     'RuleGroupCustomRequestHandling',
     'RuleGroupCustomResponse',
     'RuleGroupCustomResponseBodies',
     'RuleGroupFieldToMatch',
     'RuleGroupFieldToMatchSingleHeaderProperties',
     'RuleGroupFieldToMatchSingleQueryArgumentProperties',
-    'RuleGroupForwardedIPConfiguration',
+    'RuleGroupForwardedIpConfiguration',
     'RuleGroupGeoMatchStatement',
     'RuleGroupHeaderMatchPattern',
     'RuleGroupHeaders',
-    'RuleGroupIPSetForwardedIPConfiguration',
-    'RuleGroupIPSetReferenceStatement',
     'RuleGroupImmunityTimeProperty',
+    'RuleGroupIpSetForwardedIpConfiguration',
+    'RuleGroupIpSetReferenceStatement',
     'RuleGroupJsonBody',
     'RuleGroupJsonMatchPattern',
     'RuleGroupLabel',
@@ -59,10 +59,10 @@ __all__ = [
     'RuleGroupRateBasedStatement',
     'RuleGroupRateBasedStatementCustomKey',
     'RuleGroupRateLimitCookie',
-    'RuleGroupRateLimitForwardedIP',
-    'RuleGroupRateLimitHTTPMethod',
+    'RuleGroupRateLimitForwardedIp',
     'RuleGroupRateLimitHeader',
-    'RuleGroupRateLimitIP',
+    'RuleGroupRateLimitHttpMethod',
+    'RuleGroupRateLimitIp',
     'RuleGroupRateLimitLabelNamespace',
     'RuleGroupRateLimitQueryArgument',
     'RuleGroupRateLimitQueryString',
@@ -78,84 +78,84 @@ __all__ = [
     'RuleGroupTextTransformation',
     'RuleGroupVisibilityConfig',
     'RuleGroupXssMatchStatement',
-    'WebACLAWSManagedRulesACFPRuleSet',
-    'WebACLAWSManagedRulesATPRuleSet',
-    'WebACLAWSManagedRulesBotControlRuleSet',
-    'WebACLAllowAction',
-    'WebACLAndStatement',
-    'WebACLAssociationConfig',
-    'WebACLBlockAction',
-    'WebACLBody',
-    'WebACLByteMatchStatement',
-    'WebACLCaptchaAction',
-    'WebACLCaptchaConfig',
-    'WebACLChallengeAction',
-    'WebACLChallengeConfig',
-    'WebACLCookieMatchPattern',
-    'WebACLCookies',
-    'WebACLCountAction',
-    'WebACLCustomHTTPHeader',
-    'WebACLCustomRequestHandling',
-    'WebACLCustomResponse',
-    'WebACLCustomResponseBodies',
-    'WebACLDefaultAction',
-    'WebACLExcludedRule',
-    'WebACLFieldIdentifier',
-    'WebACLFieldToMatch',
-    'WebACLFieldToMatchSingleHeaderProperties',
-    'WebACLFieldToMatchSingleQueryArgumentProperties',
-    'WebACLForwardedIPConfiguration',
-    'WebACLGeoMatchStatement',
-    'WebACLHeaderMatchPattern',
-    'WebACLHeaders',
-    'WebACLIPSetForwardedIPConfiguration',
-    'WebACLIPSetReferenceStatement',
-    'WebACLImmunityTimeProperty',
-    'WebACLJsonBody',
-    'WebACLJsonMatchPattern',
-    'WebACLLabel',
-    'WebACLLabelMatchStatement',
-    'WebACLManagedRuleGroupConfig',
-    'WebACLManagedRuleGroupStatement',
-    'WebACLNotStatement',
-    'WebACLOrStatement',
-    'WebACLOverrideAction',
-    'WebACLRateBasedStatement',
-    'WebACLRateBasedStatementCustomKey',
-    'WebACLRateLimitCookie',
-    'WebACLRateLimitForwardedIP',
-    'WebACLRateLimitHTTPMethod',
-    'WebACLRateLimitHeader',
-    'WebACLRateLimitIP',
-    'WebACLRateLimitLabelNamespace',
-    'WebACLRateLimitQueryArgument',
-    'WebACLRateLimitQueryString',
-    'WebACLRateLimitUriPath',
-    'WebACLRegexMatchStatement',
-    'WebACLRegexPatternSetReferenceStatement',
-    'WebACLRequestBody',
-    'WebACLRequestInspection',
-    'WebACLRequestInspectionACFP',
-    'WebACLResponseInspection',
-    'WebACLResponseInspectionBodyContains',
-    'WebACLResponseInspectionHeader',
-    'WebACLResponseInspectionJson',
-    'WebACLResponseInspectionStatusCode',
-    'WebACLRule',
-    'WebACLRuleAction',
-    'WebACLRuleActionOverride',
-    'WebACLRuleGroupReferenceStatement',
-    'WebACLSizeConstraintStatement',
-    'WebACLSqliMatchStatement',
-    'WebACLStatement',
-    'WebACLTag',
-    'WebACLTextTransformation',
-    'WebACLVisibilityConfig',
-    'WebACLXssMatchStatement',
+    'WebAclAllowAction',
+    'WebAclAndStatement',
+    'WebAclAssociationConfig',
+    'WebAclAwsManagedRulesAcfpRuleSet',
+    'WebAclAwsManagedRulesAtpRuleSet',
+    'WebAclAwsManagedRulesBotControlRuleSet',
+    'WebAclBlockAction',
+    'WebAclBody',
+    'WebAclByteMatchStatement',
+    'WebAclCaptchaAction',
+    'WebAclCaptchaConfig',
+    'WebAclChallengeAction',
+    'WebAclChallengeConfig',
+    'WebAclCookieMatchPattern',
+    'WebAclCookies',
+    'WebAclCountAction',
+    'WebAclCustomHttpHeader',
+    'WebAclCustomRequestHandling',
+    'WebAclCustomResponse',
+    'WebAclCustomResponseBodies',
+    'WebAclDefaultAction',
+    'WebAclExcludedRule',
+    'WebAclFieldIdentifier',
+    'WebAclFieldToMatch',
+    'WebAclFieldToMatchSingleHeaderProperties',
+    'WebAclFieldToMatchSingleQueryArgumentProperties',
+    'WebAclForwardedIpConfiguration',
+    'WebAclGeoMatchStatement',
+    'WebAclHeaderMatchPattern',
+    'WebAclHeaders',
+    'WebAclImmunityTimeProperty',
+    'WebAclIpSetForwardedIpConfiguration',
+    'WebAclIpSetReferenceStatement',
+    'WebAclJsonBody',
+    'WebAclJsonMatchPattern',
+    'WebAclLabel',
+    'WebAclLabelMatchStatement',
+    'WebAclManagedRuleGroupConfig',
+    'WebAclManagedRuleGroupStatement',
+    'WebAclNotStatement',
+    'WebAclOrStatement',
+    'WebAclOverrideAction',
+    'WebAclRateBasedStatement',
+    'WebAclRateBasedStatementCustomKey',
+    'WebAclRateLimitCookie',
+    'WebAclRateLimitForwardedIp',
+    'WebAclRateLimitHeader',
+    'WebAclRateLimitHttpMethod',
+    'WebAclRateLimitIp',
+    'WebAclRateLimitLabelNamespace',
+    'WebAclRateLimitQueryArgument',
+    'WebAclRateLimitQueryString',
+    'WebAclRateLimitUriPath',
+    'WebAclRegexMatchStatement',
+    'WebAclRegexPatternSetReferenceStatement',
+    'WebAclRequestBody',
+    'WebAclRequestInspection',
+    'WebAclRequestInspectionAcfp',
+    'WebAclResponseInspection',
+    'WebAclResponseInspectionBodyContains',
+    'WebAclResponseInspectionHeader',
+    'WebAclResponseInspectionJson',
+    'WebAclResponseInspectionStatusCode',
+    'WebAclRule',
+    'WebAclRuleAction',
+    'WebAclRuleActionOverride',
+    'WebAclRuleGroupReferenceStatement',
+    'WebAclSizeConstraintStatement',
+    'WebAclSqliMatchStatement',
+    'WebAclStatement',
+    'WebAclTag',
+    'WebAclTextTransformation',
+    'WebAclVisibilityConfig',
+    'WebAclXssMatchStatement',
 ]
 
 @pulumi.output_type
-class IPSetTag(dict):
+class IpSetTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
@@ -1104,7 +1104,7 @@ class RuleGroupCountAction(dict):
 
 
 @pulumi.output_type
-class RuleGroupCustomHTTPHeader(dict):
+class RuleGroupCustomHttpHeader(dict):
     """
     HTTP header.
     """
@@ -1151,16 +1151,16 @@ class RuleGroupCustomRequestHandling(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 insert_headers: Sequence['outputs.RuleGroupCustomHTTPHeader']):
+                 insert_headers: Sequence['outputs.RuleGroupCustomHttpHeader']):
         """
         Custom request handling.
-        :param Sequence['RuleGroupCustomHTTPHeader'] insert_headers: Collection of HTTP headers.
+        :param Sequence['RuleGroupCustomHttpHeader'] insert_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
-    def insert_headers(self) -> Sequence['outputs.RuleGroupCustomHTTPHeader']:
+    def insert_headers(self) -> Sequence['outputs.RuleGroupCustomHttpHeader']:
         """
         Collection of HTTP headers.
         """
@@ -1196,11 +1196,11 @@ class RuleGroupCustomResponse(dict):
     def __init__(__self__, *,
                  response_code: int,
                  custom_response_body_key: Optional[str] = None,
-                 response_headers: Optional[Sequence['outputs.RuleGroupCustomHTTPHeader']] = None):
+                 response_headers: Optional[Sequence['outputs.RuleGroupCustomHttpHeader']] = None):
         """
         Custom response.
         :param str custom_response_body_key: Custom response body key.
-        :param Sequence['RuleGroupCustomHTTPHeader'] response_headers: Collection of HTTP headers.
+        :param Sequence['RuleGroupCustomHttpHeader'] response_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -1223,7 +1223,7 @@ class RuleGroupCustomResponse(dict):
 
     @property
     @pulumi.getter(name="responseHeaders")
-    def response_headers(self) -> Optional[Sequence['outputs.RuleGroupCustomHTTPHeader']]:
+    def response_headers(self) -> Optional[Sequence['outputs.RuleGroupCustomHttpHeader']]:
         """
         Collection of HTTP headers.
         """
@@ -1411,7 +1411,7 @@ class RuleGroupFieldToMatchSingleQueryArgumentProperties(dict):
 
 
 @pulumi.output_type
-class RuleGroupForwardedIPConfiguration(dict):
+class RuleGroupForwardedIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1421,25 +1421,25 @@ class RuleGroupForwardedIPConfiguration(dict):
             suggest = "header_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RuleGroupForwardedIPConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupForwardedIpConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        RuleGroupForwardedIPConfiguration.__key_warning(key)
+        RuleGroupForwardedIpConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        RuleGroupForwardedIPConfiguration.__key_warning(key)
+        RuleGroupForwardedIpConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 fallback_behavior: 'RuleGroupForwardedIPConfigurationFallbackBehavior',
+                 fallback_behavior: 'RuleGroupForwardedIpConfigurationFallbackBehavior',
                  header_name: str):
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> 'RuleGroupForwardedIPConfigurationFallbackBehavior':
+    def fallback_behavior(self) -> 'RuleGroupForwardedIpConfigurationFallbackBehavior':
         return pulumi.get(self, "fallback_behavior")
 
     @property
@@ -1471,7 +1471,7 @@ class RuleGroupGeoMatchStatement(dict):
 
     def __init__(__self__, *,
                  country_codes: Optional[Sequence[str]] = None,
-                 forwarded_ip_config: Optional['outputs.RuleGroupForwardedIPConfiguration'] = None):
+                 forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None):
         if country_codes is not None:
             pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -1484,7 +1484,7 @@ class RuleGroupGeoMatchStatement(dict):
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
-    def forwarded_ip_config(self) -> Optional['outputs.RuleGroupForwardedIPConfiguration']:
+    def forwarded_ip_config(self) -> Optional['outputs.RuleGroupForwardedIpConfiguration']:
         return pulumi.get(self, "forwarded_ip_config")
 
 
@@ -1600,88 +1600,6 @@ class RuleGroupHeaders(dict):
 
 
 @pulumi.output_type
-class RuleGroupIPSetForwardedIPConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "fallbackBehavior":
-            suggest = "fallback_behavior"
-        elif key == "headerName":
-            suggest = "header_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RuleGroupIPSetForwardedIPConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RuleGroupIPSetForwardedIPConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RuleGroupIPSetForwardedIPConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 fallback_behavior: 'RuleGroupIPSetForwardedIPConfigurationFallbackBehavior',
-                 header_name: str,
-                 position: 'RuleGroupIPSetForwardedIPConfigurationPosition'):
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "position", position)
-
-    @property
-    @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> 'RuleGroupIPSetForwardedIPConfigurationFallbackBehavior':
-        return pulumi.get(self, "fallback_behavior")
-
-    @property
-    @pulumi.getter(name="headerName")
-    def header_name(self) -> str:
-        return pulumi.get(self, "header_name")
-
-    @property
-    @pulumi.getter
-    def position(self) -> 'RuleGroupIPSetForwardedIPConfigurationPosition':
-        return pulumi.get(self, "position")
-
-
-@pulumi.output_type
-class RuleGroupIPSetReferenceStatement(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipSetForwardedIpConfig":
-            suggest = "ip_set_forwarded_ip_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RuleGroupIPSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RuleGroupIPSetReferenceStatement.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RuleGroupIPSetReferenceStatement.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arn: str,
-                 ip_set_forwarded_ip_config: Optional['outputs.RuleGroupIPSetForwardedIPConfiguration'] = None):
-        pulumi.set(__self__, "arn", arn)
-        if ip_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="ipSetForwardedIpConfig")
-    def ip_set_forwarded_ip_config(self) -> Optional['outputs.RuleGroupIPSetForwardedIPConfiguration']:
-        return pulumi.get(self, "ip_set_forwarded_ip_config")
-
-
-@pulumi.output_type
 class RuleGroupImmunityTimeProperty(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1708,6 +1626,88 @@ class RuleGroupImmunityTimeProperty(dict):
     @pulumi.getter(name="immunityTime")
     def immunity_time(self) -> int:
         return pulumi.get(self, "immunity_time")
+
+
+@pulumi.output_type
+class RuleGroupIpSetForwardedIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupIpSetForwardedIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupIpSetForwardedIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupIpSetForwardedIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: 'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior',
+                 header_name: str,
+                 position: 'RuleGroupIpSetForwardedIpConfigurationPosition'):
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "position", position)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> 'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior':
+        return pulumi.get(self, "fallback_behavior")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> str:
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter
+    def position(self) -> 'RuleGroupIpSetForwardedIpConfigurationPosition':
+        return pulumi.get(self, "position")
+
+
+@pulumi.output_type
+class RuleGroupIpSetReferenceStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipSetForwardedIpConfig":
+            suggest = "ip_set_forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupIpSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupIpSetReferenceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupIpSetReferenceStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: str,
+                 ip_set_forwarded_ip_config: Optional['outputs.RuleGroupIpSetForwardedIpConfiguration'] = None):
+        pulumi.set(__self__, "arn", arn)
+        if ip_set_forwarded_ip_config is not None:
+            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="ipSetForwardedIpConfig")
+    def ip_set_forwarded_ip_config(self) -> Optional['outputs.RuleGroupIpSetForwardedIpConfiguration']:
+        return pulumi.get(self, "ip_set_forwarded_ip_config")
 
 
 @pulumi.output_type
@@ -1919,7 +1919,7 @@ class RuleGroupRateBasedStatement(dict):
                  aggregate_key_type: 'RuleGroupRateBasedStatementAggregateKeyType',
                  limit: int,
                  custom_keys: Optional[Sequence['outputs.RuleGroupRateBasedStatementCustomKey']] = None,
-                 forwarded_ip_config: Optional['outputs.RuleGroupForwardedIPConfiguration'] = None,
+                 forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None,
                  scope_down_statement: Optional['outputs.RuleGroupStatement'] = None):
         """
         :param Sequence['RuleGroupRateBasedStatementCustomKey'] custom_keys: Specifies the aggregate keys to use in a rate-base rule.
@@ -1953,7 +1953,7 @@ class RuleGroupRateBasedStatement(dict):
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
-    def forwarded_ip_config(self) -> Optional['outputs.RuleGroupForwardedIPConfiguration']:
+    def forwarded_ip_config(self) -> Optional['outputs.RuleGroupForwardedIpConfiguration']:
         return pulumi.get(self, "forwarded_ip_config")
 
     @property
@@ -1996,10 +1996,10 @@ class RuleGroupRateBasedStatementCustomKey(dict):
 
     def __init__(__self__, *,
                  cookie: Optional['outputs.RuleGroupRateLimitCookie'] = None,
-                 forwarded_ip: Optional['outputs.RuleGroupRateLimitForwardedIP'] = None,
+                 forwarded_ip: Optional['outputs.RuleGroupRateLimitForwardedIp'] = None,
                  header: Optional['outputs.RuleGroupRateLimitHeader'] = None,
-                 http_method: Optional['outputs.RuleGroupRateLimitHTTPMethod'] = None,
-                 ip: Optional['outputs.RuleGroupRateLimitIP'] = None,
+                 http_method: Optional['outputs.RuleGroupRateLimitHttpMethod'] = None,
+                 ip: Optional['outputs.RuleGroupRateLimitIp'] = None,
                  label_namespace: Optional['outputs.RuleGroupRateLimitLabelNamespace'] = None,
                  query_argument: Optional['outputs.RuleGroupRateLimitQueryArgument'] = None,
                  query_string: Optional['outputs.RuleGroupRateLimitQueryString'] = None,
@@ -2033,7 +2033,7 @@ class RuleGroupRateBasedStatementCustomKey(dict):
 
     @property
     @pulumi.getter(name="forwardedIp")
-    def forwarded_ip(self) -> Optional['outputs.RuleGroupRateLimitForwardedIP']:
+    def forwarded_ip(self) -> Optional['outputs.RuleGroupRateLimitForwardedIp']:
         return pulumi.get(self, "forwarded_ip")
 
     @property
@@ -2043,12 +2043,12 @@ class RuleGroupRateBasedStatementCustomKey(dict):
 
     @property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> Optional['outputs.RuleGroupRateLimitHTTPMethod']:
+    def http_method(self) -> Optional['outputs.RuleGroupRateLimitHttpMethod']:
         return pulumi.get(self, "http_method")
 
     @property
     @pulumi.getter
-    def ip(self) -> Optional['outputs.RuleGroupRateLimitIP']:
+    def ip(self) -> Optional['outputs.RuleGroupRateLimitIp']:
         return pulumi.get(self, "ip")
 
     @property
@@ -2119,25 +2119,13 @@ class RuleGroupRateLimitCookie(dict):
 
 
 @pulumi.output_type
-class RuleGroupRateLimitForwardedIP(dict):
+class RuleGroupRateLimitForwardedIp(dict):
     """
     Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
     """
     def __init__(__self__):
         """
         Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
-        """
-        pass
-
-
-@pulumi.output_type
-class RuleGroupRateLimitHTTPMethod(dict):
-    """
-    Specifies the request's HTTP method as an aggregate key for a rate-based rule.
-    """
-    def __init__(__self__):
-        """
-        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
         """
         pass
 
@@ -2189,7 +2177,19 @@ class RuleGroupRateLimitHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRateLimitIP(dict):
+class RuleGroupRateLimitHttpMethod(dict):
+    """
+    Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+    """
+    def __init__(__self__):
+        """
+        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+        """
+        pass
+
+
+@pulumi.output_type
+class RuleGroupRateLimitIp(dict):
     """
     Specifies the IP address in the web request as an aggregate key for a rate-based rule.
     """
@@ -2743,7 +2743,7 @@ class RuleGroupStatement(dict):
                  and_statement: Optional['outputs.RuleGroupAndStatement'] = None,
                  byte_match_statement: Optional['outputs.RuleGroupByteMatchStatement'] = None,
                  geo_match_statement: Optional['outputs.RuleGroupGeoMatchStatement'] = None,
-                 ip_set_reference_statement: Optional['outputs.RuleGroupIPSetReferenceStatement'] = None,
+                 ip_set_reference_statement: Optional['outputs.RuleGroupIpSetReferenceStatement'] = None,
                  label_match_statement: Optional['outputs.RuleGroupLabelMatchStatement'] = None,
                  not_statement: Optional['outputs.RuleGroupNotStatement'] = None,
                  or_statement: Optional['outputs.RuleGroupOrStatement'] = None,
@@ -2800,7 +2800,7 @@ class RuleGroupStatement(dict):
 
     @property
     @pulumi.getter(name="ipSetReferenceStatement")
-    def ip_set_reference_statement(self) -> Optional['outputs.RuleGroupIPSetReferenceStatement']:
+    def ip_set_reference_statement(self) -> Optional['outputs.RuleGroupIpSetReferenceStatement']:
         return pulumi.get(self, "ip_set_reference_statement")
 
     @property
@@ -2993,7 +2993,91 @@ class RuleGroupXssMatchStatement(dict):
 
 
 @pulumi.output_type
-class WebACLAWSManagedRulesACFPRuleSet(dict):
+class WebAclAllowAction(dict):
+    """
+    Allow traffic towards application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAllowAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclAllowAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclAllowAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None):
+        """
+        Allow traffic towards application.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.WebAclCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
+
+
+@pulumi.output_type
+class WebAclAndStatement(dict):
+    def __init__(__self__, *,
+                 statements: Sequence['outputs.WebAclStatement']):
+        pulumi.set(__self__, "statements", statements)
+
+    @property
+    @pulumi.getter
+    def statements(self) -> Sequence['outputs.WebAclStatement']:
+        return pulumi.get(self, "statements")
+
+
+@pulumi.output_type
+class WebAclAssociationConfig(dict):
+    """
+    AssociationConfig for body inspection
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestBody":
+            suggest = "request_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAssociationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclAssociationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclAssociationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 request_body: Optional['outputs.WebAclRequestBody'] = None):
+        """
+        AssociationConfig for body inspection
+        """
+        if request_body is not None:
+            pulumi.set(__self__, "request_body", request_body)
+
+    @property
+    @pulumi.getter(name="requestBody")
+    def request_body(self) -> Optional['outputs.WebAclRequestBody']:
+        return pulumi.get(self, "request_body")
+
+
+@pulumi.output_type
+class WebAclAwsManagedRulesAcfpRuleSet(dict):
     """
     Configures how to use the Account creation fraud prevention managed rule group in the web ACL
     """
@@ -3012,22 +3096,22 @@ class WebACLAWSManagedRulesACFPRuleSet(dict):
             suggest = "response_inspection"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLAWSManagedRulesACFPRuleSet. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAwsManagedRulesAcfpRuleSet. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLAWSManagedRulesACFPRuleSet.__key_warning(key)
+        WebAclAwsManagedRulesAcfpRuleSet.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLAWSManagedRulesACFPRuleSet.__key_warning(key)
+        WebAclAwsManagedRulesAcfpRuleSet.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  creation_path: str,
                  registration_page_path: str,
-                 request_inspection: 'outputs.WebACLRequestInspectionACFP',
+                 request_inspection: 'outputs.WebAclRequestInspectionAcfp',
                  enable_regex_in_path: Optional[bool] = None,
-                 response_inspection: Optional['outputs.WebACLResponseInspection'] = None):
+                 response_inspection: Optional['outputs.WebAclResponseInspection'] = None):
         """
         Configures how to use the Account creation fraud prevention managed rule group in the web ACL
         """
@@ -3051,7 +3135,7 @@ class WebACLAWSManagedRulesACFPRuleSet(dict):
 
     @property
     @pulumi.getter(name="requestInspection")
-    def request_inspection(self) -> 'outputs.WebACLRequestInspectionACFP':
+    def request_inspection(self) -> 'outputs.WebAclRequestInspectionAcfp':
         return pulumi.get(self, "request_inspection")
 
     @property
@@ -3061,12 +3145,12 @@ class WebACLAWSManagedRulesACFPRuleSet(dict):
 
     @property
     @pulumi.getter(name="responseInspection")
-    def response_inspection(self) -> Optional['outputs.WebACLResponseInspection']:
+    def response_inspection(self) -> Optional['outputs.WebAclResponseInspection']:
         return pulumi.get(self, "response_inspection")
 
 
 @pulumi.output_type
-class WebACLAWSManagedRulesATPRuleSet(dict):
+class WebAclAwsManagedRulesAtpRuleSet(dict):
     """
     Configures how to use the Account Takeover Prevention managed rule group in the web ACL
     """
@@ -3083,21 +3167,21 @@ class WebACLAWSManagedRulesATPRuleSet(dict):
             suggest = "response_inspection"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLAWSManagedRulesATPRuleSet. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAwsManagedRulesAtpRuleSet. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLAWSManagedRulesATPRuleSet.__key_warning(key)
+        WebAclAwsManagedRulesAtpRuleSet.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLAWSManagedRulesATPRuleSet.__key_warning(key)
+        WebAclAwsManagedRulesAtpRuleSet.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  login_path: str,
                  enable_regex_in_path: Optional[bool] = None,
-                 request_inspection: Optional['outputs.WebACLRequestInspection'] = None,
-                 response_inspection: Optional['outputs.WebACLResponseInspection'] = None):
+                 request_inspection: Optional['outputs.WebAclRequestInspection'] = None,
+                 response_inspection: Optional['outputs.WebAclResponseInspection'] = None):
         """
         Configures how to use the Account Takeover Prevention managed rule group in the web ACL
         """
@@ -3121,17 +3205,17 @@ class WebACLAWSManagedRulesATPRuleSet(dict):
 
     @property
     @pulumi.getter(name="requestInspection")
-    def request_inspection(self) -> Optional['outputs.WebACLRequestInspection']:
+    def request_inspection(self) -> Optional['outputs.WebAclRequestInspection']:
         return pulumi.get(self, "request_inspection")
 
     @property
     @pulumi.getter(name="responseInspection")
-    def response_inspection(self) -> Optional['outputs.WebACLResponseInspection']:
+    def response_inspection(self) -> Optional['outputs.WebAclResponseInspection']:
         return pulumi.get(self, "response_inspection")
 
 
 @pulumi.output_type
-class WebACLAWSManagedRulesBotControlRuleSet(dict):
+class WebAclAwsManagedRulesBotControlRuleSet(dict):
     """
     Configures how to use the Bot Control managed rule group in the web ACL
     """
@@ -3142,18 +3226,18 @@ class WebACLAWSManagedRulesBotControlRuleSet(dict):
             suggest = "inspection_level"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLAWSManagedRulesBotControlRuleSet. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAwsManagedRulesBotControlRuleSet. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLAWSManagedRulesBotControlRuleSet.__key_warning(key)
+        WebAclAwsManagedRulesBotControlRuleSet.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLAWSManagedRulesBotControlRuleSet.__key_warning(key)
+        WebAclAwsManagedRulesBotControlRuleSet.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 inspection_level: 'WebACLAWSManagedRulesBotControlRuleSetInspectionLevel'):
+                 inspection_level: 'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel'):
         """
         Configures how to use the Bot Control managed rule group in the web ACL
         """
@@ -3161,96 +3245,12 @@ class WebACLAWSManagedRulesBotControlRuleSet(dict):
 
     @property
     @pulumi.getter(name="inspectionLevel")
-    def inspection_level(self) -> 'WebACLAWSManagedRulesBotControlRuleSetInspectionLevel':
+    def inspection_level(self) -> 'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel':
         return pulumi.get(self, "inspection_level")
 
 
 @pulumi.output_type
-class WebACLAllowAction(dict):
-    """
-    Allow traffic towards application.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customRequestHandling":
-            suggest = "custom_request_handling"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLAllowAction. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WebACLAllowAction.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WebACLAllowAction.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 custom_request_handling: Optional['outputs.WebACLCustomRequestHandling'] = None):
-        """
-        Allow traffic towards application.
-        """
-        if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
-
-    @property
-    @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional['outputs.WebACLCustomRequestHandling']:
-        return pulumi.get(self, "custom_request_handling")
-
-
-@pulumi.output_type
-class WebACLAndStatement(dict):
-    def __init__(__self__, *,
-                 statements: Sequence['outputs.WebACLStatement']):
-        pulumi.set(__self__, "statements", statements)
-
-    @property
-    @pulumi.getter
-    def statements(self) -> Sequence['outputs.WebACLStatement']:
-        return pulumi.get(self, "statements")
-
-
-@pulumi.output_type
-class WebACLAssociationConfig(dict):
-    """
-    AssociationConfig for body inspection
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "requestBody":
-            suggest = "request_body"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLAssociationConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WebACLAssociationConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WebACLAssociationConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 request_body: Optional['outputs.WebACLRequestBody'] = None):
-        """
-        AssociationConfig for body inspection
-        """
-        if request_body is not None:
-            pulumi.set(__self__, "request_body", request_body)
-
-    @property
-    @pulumi.getter(name="requestBody")
-    def request_body(self) -> Optional['outputs.WebACLRequestBody']:
-        return pulumi.get(self, "request_body")
-
-
-@pulumi.output_type
-class WebACLBlockAction(dict):
+class WebAclBlockAction(dict):
     """
     Block traffic towards application.
     """
@@ -3261,18 +3261,18 @@ class WebACLBlockAction(dict):
             suggest = "custom_response"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLBlockAction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclBlockAction. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLBlockAction.__key_warning(key)
+        WebAclBlockAction.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLBlockAction.__key_warning(key)
+        WebAclBlockAction.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_response: Optional['outputs.WebACLCustomResponse'] = None):
+                 custom_response: Optional['outputs.WebAclCustomResponse'] = None):
         """
         Block traffic towards application.
         """
@@ -3281,12 +3281,12 @@ class WebACLBlockAction(dict):
 
     @property
     @pulumi.getter(name="customResponse")
-    def custom_response(self) -> Optional['outputs.WebACLCustomResponse']:
+    def custom_response(self) -> Optional['outputs.WebAclCustomResponse']:
         return pulumi.get(self, "custom_response")
 
 
 @pulumi.output_type
-class WebACLBody(dict):
+class WebAclBody(dict):
     """
     The body of a web request. This immediately follows the request headers.
     """
@@ -3297,18 +3297,18 @@ class WebACLBody(dict):
             suggest = "oversize_handling"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLBody. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclBody. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLBody.__key_warning(key)
+        WebAclBody.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLBody.__key_warning(key)
+        WebAclBody.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 oversize_handling: Optional['WebACLOversizeHandling'] = None):
+                 oversize_handling: Optional['WebAclOversizeHandling'] = None):
         """
         The body of a web request. This immediately follows the request headers.
         """
@@ -3317,12 +3317,12 @@ class WebACLBody(dict):
 
     @property
     @pulumi.getter(name="oversizeHandling")
-    def oversize_handling(self) -> Optional['WebACLOversizeHandling']:
+    def oversize_handling(self) -> Optional['WebAclOversizeHandling']:
         return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
-class WebACLByteMatchStatement(dict):
+class WebAclByteMatchStatement(dict):
     """
     Byte Match statement.
     """
@@ -3341,20 +3341,20 @@ class WebACLByteMatchStatement(dict):
             suggest = "search_string_base64"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLByteMatchStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclByteMatchStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLByteMatchStatement.__key_warning(key)
+        WebAclByteMatchStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLByteMatchStatement.__key_warning(key)
+        WebAclByteMatchStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 field_to_match: 'outputs.WebACLFieldToMatch',
-                 positional_constraint: 'WebACLPositionalConstraint',
-                 text_transformations: Sequence['outputs.WebACLTextTransformation'],
+                 field_to_match: 'outputs.WebAclFieldToMatch',
+                 positional_constraint: 'WebAclPositionalConstraint',
+                 text_transformations: Sequence['outputs.WebAclTextTransformation'],
                  search_string: Optional[str] = None,
                  search_string_base64: Optional[str] = None):
         """
@@ -3370,17 +3370,17 @@ class WebACLByteMatchStatement(dict):
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
+    def field_to_match(self) -> 'outputs.WebAclFieldToMatch':
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="positionalConstraint")
-    def positional_constraint(self) -> 'WebACLPositionalConstraint':
+    def positional_constraint(self) -> 'WebAclPositionalConstraint':
         return pulumi.get(self, "positional_constraint")
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
     @property
@@ -3395,7 +3395,7 @@ class WebACLByteMatchStatement(dict):
 
 
 @pulumi.output_type
-class WebACLCaptchaAction(dict):
+class WebAclCaptchaAction(dict):
     """
     Checks valid token exists with request.
     """
@@ -3406,18 +3406,18 @@ class WebACLCaptchaAction(dict):
             suggest = "custom_request_handling"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLCaptchaAction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclCaptchaAction. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLCaptchaAction.__key_warning(key)
+        WebAclCaptchaAction.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLCaptchaAction.__key_warning(key)
+        WebAclCaptchaAction.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_request_handling: Optional['outputs.WebACLCustomRequestHandling'] = None):
+                 custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None):
         """
         Checks valid token exists with request.
         """
@@ -3426,12 +3426,12 @@ class WebACLCaptchaAction(dict):
 
     @property
     @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional['outputs.WebACLCustomRequestHandling']:
+    def custom_request_handling(self) -> Optional['outputs.WebAclCustomRequestHandling']:
         return pulumi.get(self, "custom_request_handling")
 
 
 @pulumi.output_type
-class WebACLCaptchaConfig(dict):
+class WebAclCaptchaConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3439,29 +3439,29 @@ class WebACLCaptchaConfig(dict):
             suggest = "immunity_time_property"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLCaptchaConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclCaptchaConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLCaptchaConfig.__key_warning(key)
+        WebAclCaptchaConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLCaptchaConfig.__key_warning(key)
+        WebAclCaptchaConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 immunity_time_property: Optional['outputs.WebACLImmunityTimeProperty'] = None):
+                 immunity_time_property: Optional['outputs.WebAclImmunityTimeProperty'] = None):
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
-    def immunity_time_property(self) -> Optional['outputs.WebACLImmunityTimeProperty']:
+    def immunity_time_property(self) -> Optional['outputs.WebAclImmunityTimeProperty']:
         return pulumi.get(self, "immunity_time_property")
 
 
 @pulumi.output_type
-class WebACLChallengeAction(dict):
+class WebAclChallengeAction(dict):
     """
     Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
     """
@@ -3472,18 +3472,18 @@ class WebACLChallengeAction(dict):
             suggest = "custom_request_handling"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLChallengeAction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclChallengeAction. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLChallengeAction.__key_warning(key)
+        WebAclChallengeAction.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLChallengeAction.__key_warning(key)
+        WebAclChallengeAction.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_request_handling: Optional['outputs.WebACLCustomRequestHandling'] = None):
+                 custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None):
         """
         Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
         """
@@ -3492,12 +3492,12 @@ class WebACLChallengeAction(dict):
 
     @property
     @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional['outputs.WebACLCustomRequestHandling']:
+    def custom_request_handling(self) -> Optional['outputs.WebAclCustomRequestHandling']:
         return pulumi.get(self, "custom_request_handling")
 
 
 @pulumi.output_type
-class WebACLChallengeConfig(dict):
+class WebAclChallengeConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3505,29 +3505,29 @@ class WebACLChallengeConfig(dict):
             suggest = "immunity_time_property"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLChallengeConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclChallengeConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLChallengeConfig.__key_warning(key)
+        WebAclChallengeConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLChallengeConfig.__key_warning(key)
+        WebAclChallengeConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 immunity_time_property: Optional['outputs.WebACLImmunityTimeProperty'] = None):
+                 immunity_time_property: Optional['outputs.WebAclImmunityTimeProperty'] = None):
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
-    def immunity_time_property(self) -> Optional['outputs.WebACLImmunityTimeProperty']:
+    def immunity_time_property(self) -> Optional['outputs.WebAclImmunityTimeProperty']:
         return pulumi.get(self, "immunity_time_property")
 
 
 @pulumi.output_type
-class WebACLCookieMatchPattern(dict):
+class WebAclCookieMatchPattern(dict):
     """
     The pattern to look for in the request cookies.
     """
@@ -3540,14 +3540,14 @@ class WebACLCookieMatchPattern(dict):
             suggest = "included_cookies"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLCookieMatchPattern. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclCookieMatchPattern. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLCookieMatchPattern.__key_warning(key)
+        WebAclCookieMatchPattern.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLCookieMatchPattern.__key_warning(key)
+        WebAclCookieMatchPattern.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3585,7 +3585,7 @@ class WebACLCookieMatchPattern(dict):
 
 
 @pulumi.output_type
-class WebACLCookies(dict):
+class WebAclCookies(dict):
     """
     Includes headers of a web request.
     """
@@ -3600,20 +3600,20 @@ class WebACLCookies(dict):
             suggest = "oversize_handling"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLCookies. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclCookies. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLCookies.__key_warning(key)
+        WebAclCookies.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLCookies.__key_warning(key)
+        WebAclCookies.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 match_pattern: 'outputs.WebACLCookieMatchPattern',
-                 match_scope: 'WebACLMapMatchScope',
-                 oversize_handling: 'WebACLOversizeHandling'):
+                 match_pattern: 'outputs.WebAclCookieMatchPattern',
+                 match_scope: 'WebAclMapMatchScope',
+                 oversize_handling: 'WebAclOversizeHandling'):
         """
         Includes headers of a web request.
         """
@@ -3623,22 +3623,22 @@ class WebACLCookies(dict):
 
     @property
     @pulumi.getter(name="matchPattern")
-    def match_pattern(self) -> 'outputs.WebACLCookieMatchPattern':
+    def match_pattern(self) -> 'outputs.WebAclCookieMatchPattern':
         return pulumi.get(self, "match_pattern")
 
     @property
     @pulumi.getter(name="matchScope")
-    def match_scope(self) -> 'WebACLMapMatchScope':
+    def match_scope(self) -> 'WebAclMapMatchScope':
         return pulumi.get(self, "match_scope")
 
     @property
     @pulumi.getter(name="oversizeHandling")
-    def oversize_handling(self) -> 'WebACLOversizeHandling':
+    def oversize_handling(self) -> 'WebAclOversizeHandling':
         return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
-class WebACLCountAction(dict):
+class WebAclCountAction(dict):
     """
     Allow traffic towards application.
     """
@@ -3649,18 +3649,18 @@ class WebACLCountAction(dict):
             suggest = "custom_request_handling"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLCountAction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclCountAction. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLCountAction.__key_warning(key)
+        WebAclCountAction.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLCountAction.__key_warning(key)
+        WebAclCountAction.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_request_handling: Optional['outputs.WebACLCustomRequestHandling'] = None):
+                 custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None):
         """
         Allow traffic towards application.
         """
@@ -3669,12 +3669,12 @@ class WebACLCountAction(dict):
 
     @property
     @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional['outputs.WebACLCustomRequestHandling']:
+    def custom_request_handling(self) -> Optional['outputs.WebAclCustomRequestHandling']:
         return pulumi.get(self, "custom_request_handling")
 
 
 @pulumi.output_type
-class WebACLCustomHTTPHeader(dict):
+class WebAclCustomHttpHeader(dict):
     """
     HTTP header.
     """
@@ -3699,7 +3699,7 @@ class WebACLCustomHTTPHeader(dict):
 
 
 @pulumi.output_type
-class WebACLCustomRequestHandling(dict):
+class WebAclCustomRequestHandling(dict):
     """
     Custom request handling.
     """
@@ -3710,27 +3710,27 @@ class WebACLCustomRequestHandling(dict):
             suggest = "insert_headers"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLCustomRequestHandling. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclCustomRequestHandling. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLCustomRequestHandling.__key_warning(key)
+        WebAclCustomRequestHandling.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLCustomRequestHandling.__key_warning(key)
+        WebAclCustomRequestHandling.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 insert_headers: Sequence['outputs.WebACLCustomHTTPHeader']):
+                 insert_headers: Sequence['outputs.WebAclCustomHttpHeader']):
         """
         Custom request handling.
-        :param Sequence['WebACLCustomHTTPHeader'] insert_headers: Collection of HTTP headers.
+        :param Sequence['WebAclCustomHttpHeader'] insert_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
-    def insert_headers(self) -> Sequence['outputs.WebACLCustomHTTPHeader']:
+    def insert_headers(self) -> Sequence['outputs.WebAclCustomHttpHeader']:
         """
         Collection of HTTP headers.
         """
@@ -3738,7 +3738,7 @@ class WebACLCustomRequestHandling(dict):
 
 
 @pulumi.output_type
-class WebACLCustomResponse(dict):
+class WebAclCustomResponse(dict):
     """
     Custom response.
     """
@@ -3753,24 +3753,24 @@ class WebACLCustomResponse(dict):
             suggest = "response_headers"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLCustomResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclCustomResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLCustomResponse.__key_warning(key)
+        WebAclCustomResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLCustomResponse.__key_warning(key)
+        WebAclCustomResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  response_code: int,
                  custom_response_body_key: Optional[str] = None,
-                 response_headers: Optional[Sequence['outputs.WebACLCustomHTTPHeader']] = None):
+                 response_headers: Optional[Sequence['outputs.WebAclCustomHttpHeader']] = None):
         """
         Custom response.
         :param str custom_response_body_key: Custom response body key.
-        :param Sequence['WebACLCustomHTTPHeader'] response_headers: Collection of HTTP headers.
+        :param Sequence['WebAclCustomHttpHeader'] response_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -3793,7 +3793,7 @@ class WebACLCustomResponse(dict):
 
     @property
     @pulumi.getter(name="responseHeaders")
-    def response_headers(self) -> Optional[Sequence['outputs.WebACLCustomHTTPHeader']]:
+    def response_headers(self) -> Optional[Sequence['outputs.WebAclCustomHttpHeader']]:
         """
         Collection of HTTP headers.
         """
@@ -3801,7 +3801,7 @@ class WebACLCustomResponse(dict):
 
 
 @pulumi.output_type
-class WebACLCustomResponseBodies(dict):
+class WebAclCustomResponseBodies(dict):
     """
     Custom response key and body map.
     """
@@ -3813,13 +3813,13 @@ class WebACLCustomResponseBodies(dict):
 
 
 @pulumi.output_type
-class WebACLDefaultAction(dict):
+class WebAclDefaultAction(dict):
     """
     Default Action WebACL will take against ingress traffic when there is no matching Rule.
     """
     def __init__(__self__, *,
-                 allow: Optional['outputs.WebACLAllowAction'] = None,
-                 block: Optional['outputs.WebACLBlockAction'] = None):
+                 allow: Optional['outputs.WebAclAllowAction'] = None,
+                 block: Optional['outputs.WebAclBlockAction'] = None):
         """
         Default Action WebACL will take against ingress traffic when there is no matching Rule.
         """
@@ -3830,17 +3830,17 @@ class WebACLDefaultAction(dict):
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional['outputs.WebACLAllowAction']:
+    def allow(self) -> Optional['outputs.WebAclAllowAction']:
         return pulumi.get(self, "allow")
 
     @property
     @pulumi.getter
-    def block(self) -> Optional['outputs.WebACLBlockAction']:
+    def block(self) -> Optional['outputs.WebAclBlockAction']:
         return pulumi.get(self, "block")
 
 
 @pulumi.output_type
-class WebACLExcludedRule(dict):
+class WebAclExcludedRule(dict):
     """
     Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
     """
@@ -3858,7 +3858,7 @@ class WebACLExcludedRule(dict):
 
 
 @pulumi.output_type
-class WebACLFieldIdentifier(dict):
+class WebAclFieldIdentifier(dict):
     def __init__(__self__, *,
                  identifier: str):
         pulumi.set(__self__, "identifier", identifier)
@@ -3870,7 +3870,7 @@ class WebACLFieldIdentifier(dict):
 
 
 @pulumi.output_type
-class WebACLFieldToMatch(dict):
+class WebAclFieldToMatch(dict):
     """
     Field of the request to match.
     """
@@ -3891,33 +3891,33 @@ class WebACLFieldToMatch(dict):
             suggest = "uri_path"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLFieldToMatch. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclFieldToMatch. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLFieldToMatch.__key_warning(key)
+        WebAclFieldToMatch.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLFieldToMatch.__key_warning(key)
+        WebAclFieldToMatch.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  all_query_arguments: Optional[Any] = None,
-                 body: Optional['outputs.WebACLBody'] = None,
-                 cookies: Optional['outputs.WebACLCookies'] = None,
-                 headers: Optional['outputs.WebACLHeaders'] = None,
-                 json_body: Optional['outputs.WebACLJsonBody'] = None,
+                 body: Optional['outputs.WebAclBody'] = None,
+                 cookies: Optional['outputs.WebAclCookies'] = None,
+                 headers: Optional['outputs.WebAclHeaders'] = None,
+                 json_body: Optional['outputs.WebAclJsonBody'] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
-                 single_header: Optional['outputs.WebACLFieldToMatchSingleHeaderProperties'] = None,
-                 single_query_argument: Optional['outputs.WebACLFieldToMatchSingleQueryArgumentProperties'] = None,
+                 single_header: Optional['outputs.WebAclFieldToMatchSingleHeaderProperties'] = None,
+                 single_query_argument: Optional['outputs.WebAclFieldToMatchSingleQueryArgumentProperties'] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
         :param Any all_query_arguments: All query arguments of a web request.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-        :param 'WebACLFieldToMatchSingleQueryArgumentProperties' single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        :param 'WebAclFieldToMatchSingleQueryArgumentProperties' single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if all_query_arguments is not None:
@@ -3951,22 +3951,22 @@ class WebACLFieldToMatch(dict):
 
     @property
     @pulumi.getter
-    def body(self) -> Optional['outputs.WebACLBody']:
+    def body(self) -> Optional['outputs.WebAclBody']:
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter
-    def cookies(self) -> Optional['outputs.WebACLCookies']:
+    def cookies(self) -> Optional['outputs.WebAclCookies']:
         return pulumi.get(self, "cookies")
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional['outputs.WebACLHeaders']:
+    def headers(self) -> Optional['outputs.WebAclHeaders']:
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter(name="jsonBody")
-    def json_body(self) -> Optional['outputs.WebACLJsonBody']:
+    def json_body(self) -> Optional['outputs.WebAclJsonBody']:
         return pulumi.get(self, "json_body")
 
     @property
@@ -3987,12 +3987,12 @@ class WebACLFieldToMatch(dict):
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional['outputs.WebACLFieldToMatchSingleHeaderProperties']:
+    def single_header(self) -> Optional['outputs.WebAclFieldToMatchSingleHeaderProperties']:
         return pulumi.get(self, "single_header")
 
     @property
     @pulumi.getter(name="singleQueryArgument")
-    def single_query_argument(self) -> Optional['outputs.WebACLFieldToMatchSingleQueryArgumentProperties']:
+    def single_query_argument(self) -> Optional['outputs.WebAclFieldToMatchSingleQueryArgumentProperties']:
         """
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
@@ -4008,7 +4008,7 @@ class WebACLFieldToMatch(dict):
 
 
 @pulumi.output_type
-class WebACLFieldToMatchSingleHeaderProperties(dict):
+class WebAclFieldToMatchSingleHeaderProperties(dict):
     def __init__(__self__, *,
                  name: str):
         pulumi.set(__self__, "name", name)
@@ -4020,7 +4020,7 @@ class WebACLFieldToMatchSingleHeaderProperties(dict):
 
 
 @pulumi.output_type
-class WebACLFieldToMatchSingleQueryArgumentProperties(dict):
+class WebAclFieldToMatchSingleQueryArgumentProperties(dict):
     """
     One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
     """
@@ -4038,7 +4038,7 @@ class WebACLFieldToMatchSingleQueryArgumentProperties(dict):
 
 
 @pulumi.output_type
-class WebACLForwardedIPConfiguration(dict):
+class WebAclForwardedIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4048,25 +4048,25 @@ class WebACLForwardedIPConfiguration(dict):
             suggest = "header_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLForwardedIPConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclForwardedIpConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLForwardedIPConfiguration.__key_warning(key)
+        WebAclForwardedIpConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLForwardedIPConfiguration.__key_warning(key)
+        WebAclForwardedIpConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 fallback_behavior: 'WebACLForwardedIPConfigurationFallbackBehavior',
+                 fallback_behavior: 'WebAclForwardedIpConfigurationFallbackBehavior',
                  header_name: str):
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> 'WebACLForwardedIPConfigurationFallbackBehavior':
+    def fallback_behavior(self) -> 'WebAclForwardedIpConfigurationFallbackBehavior':
         return pulumi.get(self, "fallback_behavior")
 
     @property
@@ -4076,7 +4076,7 @@ class WebACLForwardedIPConfiguration(dict):
 
 
 @pulumi.output_type
-class WebACLGeoMatchStatement(dict):
+class WebAclGeoMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4086,19 +4086,19 @@ class WebACLGeoMatchStatement(dict):
             suggest = "forwarded_ip_config"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLGeoMatchStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclGeoMatchStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLGeoMatchStatement.__key_warning(key)
+        WebAclGeoMatchStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLGeoMatchStatement.__key_warning(key)
+        WebAclGeoMatchStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  country_codes: Optional[Sequence[str]] = None,
-                 forwarded_ip_config: Optional['outputs.WebACLForwardedIPConfiguration'] = None):
+                 forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None):
         if country_codes is not None:
             pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -4111,12 +4111,12 @@ class WebACLGeoMatchStatement(dict):
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
-    def forwarded_ip_config(self) -> Optional['outputs.WebACLForwardedIPConfiguration']:
+    def forwarded_ip_config(self) -> Optional['outputs.WebAclForwardedIpConfiguration']:
         return pulumi.get(self, "forwarded_ip_config")
 
 
 @pulumi.output_type
-class WebACLHeaderMatchPattern(dict):
+class WebAclHeaderMatchPattern(dict):
     """
     The pattern to look for in the request headers.
     """
@@ -4129,14 +4129,14 @@ class WebACLHeaderMatchPattern(dict):
             suggest = "included_headers"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLHeaderMatchPattern. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclHeaderMatchPattern. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLHeaderMatchPattern.__key_warning(key)
+        WebAclHeaderMatchPattern.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLHeaderMatchPattern.__key_warning(key)
+        WebAclHeaderMatchPattern.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -4174,7 +4174,7 @@ class WebACLHeaderMatchPattern(dict):
 
 
 @pulumi.output_type
-class WebACLHeaders(dict):
+class WebAclHeaders(dict):
     """
     Includes headers of a web request.
     """
@@ -4189,20 +4189,20 @@ class WebACLHeaders(dict):
             suggest = "oversize_handling"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLHeaders. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclHeaders. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLHeaders.__key_warning(key)
+        WebAclHeaders.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLHeaders.__key_warning(key)
+        WebAclHeaders.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 match_pattern: 'outputs.WebACLHeaderMatchPattern',
-                 match_scope: 'WebACLMapMatchScope',
-                 oversize_handling: 'WebACLOversizeHandling'):
+                 match_pattern: 'outputs.WebAclHeaderMatchPattern',
+                 match_scope: 'WebAclMapMatchScope',
+                 oversize_handling: 'WebAclOversizeHandling'):
         """
         Includes headers of a web request.
         """
@@ -4212,104 +4212,22 @@ class WebACLHeaders(dict):
 
     @property
     @pulumi.getter(name="matchPattern")
-    def match_pattern(self) -> 'outputs.WebACLHeaderMatchPattern':
+    def match_pattern(self) -> 'outputs.WebAclHeaderMatchPattern':
         return pulumi.get(self, "match_pattern")
 
     @property
     @pulumi.getter(name="matchScope")
-    def match_scope(self) -> 'WebACLMapMatchScope':
+    def match_scope(self) -> 'WebAclMapMatchScope':
         return pulumi.get(self, "match_scope")
 
     @property
     @pulumi.getter(name="oversizeHandling")
-    def oversize_handling(self) -> 'WebACLOversizeHandling':
+    def oversize_handling(self) -> 'WebAclOversizeHandling':
         return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
-class WebACLIPSetForwardedIPConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "fallbackBehavior":
-            suggest = "fallback_behavior"
-        elif key == "headerName":
-            suggest = "header_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLIPSetForwardedIPConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WebACLIPSetForwardedIPConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WebACLIPSetForwardedIPConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 fallback_behavior: 'WebACLIPSetForwardedIPConfigurationFallbackBehavior',
-                 header_name: str,
-                 position: 'WebACLIPSetForwardedIPConfigurationPosition'):
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "position", position)
-
-    @property
-    @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> 'WebACLIPSetForwardedIPConfigurationFallbackBehavior':
-        return pulumi.get(self, "fallback_behavior")
-
-    @property
-    @pulumi.getter(name="headerName")
-    def header_name(self) -> str:
-        return pulumi.get(self, "header_name")
-
-    @property
-    @pulumi.getter
-    def position(self) -> 'WebACLIPSetForwardedIPConfigurationPosition':
-        return pulumi.get(self, "position")
-
-
-@pulumi.output_type
-class WebACLIPSetReferenceStatement(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipSetForwardedIpConfig":
-            suggest = "ip_set_forwarded_ip_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLIPSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WebACLIPSetReferenceStatement.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WebACLIPSetReferenceStatement.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arn: str,
-                 ip_set_forwarded_ip_config: Optional['outputs.WebACLIPSetForwardedIPConfiguration'] = None):
-        pulumi.set(__self__, "arn", arn)
-        if ip_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="ipSetForwardedIpConfig")
-    def ip_set_forwarded_ip_config(self) -> Optional['outputs.WebACLIPSetForwardedIPConfiguration']:
-        return pulumi.get(self, "ip_set_forwarded_ip_config")
-
-
-@pulumi.output_type
-class WebACLImmunityTimeProperty(dict):
+class WebAclImmunityTimeProperty(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4317,14 +4235,14 @@ class WebACLImmunityTimeProperty(dict):
             suggest = "immunity_time"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLImmunityTimeProperty. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclImmunityTimeProperty. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLImmunityTimeProperty.__key_warning(key)
+        WebAclImmunityTimeProperty.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLImmunityTimeProperty.__key_warning(key)
+        WebAclImmunityTimeProperty.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -4338,7 +4256,89 @@ class WebACLImmunityTimeProperty(dict):
 
 
 @pulumi.output_type
-class WebACLJsonBody(dict):
+class WebAclIpSetForwardedIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclIpSetForwardedIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclIpSetForwardedIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclIpSetForwardedIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: 'WebAclIpSetForwardedIpConfigurationFallbackBehavior',
+                 header_name: str,
+                 position: 'WebAclIpSetForwardedIpConfigurationPosition'):
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "position", position)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> 'WebAclIpSetForwardedIpConfigurationFallbackBehavior':
+        return pulumi.get(self, "fallback_behavior")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> str:
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter
+    def position(self) -> 'WebAclIpSetForwardedIpConfigurationPosition':
+        return pulumi.get(self, "position")
+
+
+@pulumi.output_type
+class WebAclIpSetReferenceStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipSetForwardedIpConfig":
+            suggest = "ip_set_forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclIpSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclIpSetReferenceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclIpSetReferenceStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: str,
+                 ip_set_forwarded_ip_config: Optional['outputs.WebAclIpSetForwardedIpConfiguration'] = None):
+        pulumi.set(__self__, "arn", arn)
+        if ip_set_forwarded_ip_config is not None:
+            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="ipSetForwardedIpConfig")
+    def ip_set_forwarded_ip_config(self) -> Optional['outputs.WebAclIpSetForwardedIpConfiguration']:
+        return pulumi.get(self, "ip_set_forwarded_ip_config")
+
+
+@pulumi.output_type
+class WebAclJsonBody(dict):
     """
     Inspect the request body as JSON. The request body immediately follows the request headers.
     """
@@ -4355,21 +4355,21 @@ class WebACLJsonBody(dict):
             suggest = "oversize_handling"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLJsonBody. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclJsonBody. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLJsonBody.__key_warning(key)
+        WebAclJsonBody.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLJsonBody.__key_warning(key)
+        WebAclJsonBody.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 match_pattern: 'outputs.WebACLJsonMatchPattern',
-                 match_scope: 'WebACLJsonMatchScope',
-                 invalid_fallback_behavior: Optional['WebACLBodyParsingFallbackBehavior'] = None,
-                 oversize_handling: Optional['WebACLOversizeHandling'] = None):
+                 match_pattern: 'outputs.WebAclJsonMatchPattern',
+                 match_scope: 'WebAclJsonMatchScope',
+                 invalid_fallback_behavior: Optional['WebAclBodyParsingFallbackBehavior'] = None,
+                 oversize_handling: Optional['WebAclOversizeHandling'] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
         """
@@ -4382,27 +4382,27 @@ class WebACLJsonBody(dict):
 
     @property
     @pulumi.getter(name="matchPattern")
-    def match_pattern(self) -> 'outputs.WebACLJsonMatchPattern':
+    def match_pattern(self) -> 'outputs.WebAclJsonMatchPattern':
         return pulumi.get(self, "match_pattern")
 
     @property
     @pulumi.getter(name="matchScope")
-    def match_scope(self) -> 'WebACLJsonMatchScope':
+    def match_scope(self) -> 'WebAclJsonMatchScope':
         return pulumi.get(self, "match_scope")
 
     @property
     @pulumi.getter(name="invalidFallbackBehavior")
-    def invalid_fallback_behavior(self) -> Optional['WebACLBodyParsingFallbackBehavior']:
+    def invalid_fallback_behavior(self) -> Optional['WebAclBodyParsingFallbackBehavior']:
         return pulumi.get(self, "invalid_fallback_behavior")
 
     @property
     @pulumi.getter(name="oversizeHandling")
-    def oversize_handling(self) -> Optional['WebACLOversizeHandling']:
+    def oversize_handling(self) -> Optional['WebAclOversizeHandling']:
         return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
-class WebACLJsonMatchPattern(dict):
+class WebAclJsonMatchPattern(dict):
     """
     The pattern to look for in the JSON body.
     """
@@ -4413,14 +4413,14 @@ class WebACLJsonMatchPattern(dict):
             suggest = "included_paths"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLJsonMatchPattern. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclJsonMatchPattern. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLJsonMatchPattern.__key_warning(key)
+        WebAclJsonMatchPattern.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLJsonMatchPattern.__key_warning(key)
+        WebAclJsonMatchPattern.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -4450,7 +4450,7 @@ class WebACLJsonMatchPattern(dict):
 
 
 @pulumi.output_type
-class WebACLLabel(dict):
+class WebAclLabel(dict):
     def __init__(__self__, *,
                  name: str):
         pulumi.set(__self__, "name", name)
@@ -4462,10 +4462,10 @@ class WebACLLabel(dict):
 
 
 @pulumi.output_type
-class WebACLLabelMatchStatement(dict):
+class WebAclLabelMatchStatement(dict):
     def __init__(__self__, *,
                  key: str,
-                 scope: 'WebACLLabelMatchScope'):
+                 scope: 'WebAclLabelMatchScope'):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "scope", scope)
 
@@ -4476,12 +4476,12 @@ class WebACLLabelMatchStatement(dict):
 
     @property
     @pulumi.getter
-    def scope(self) -> 'WebACLLabelMatchScope':
+    def scope(self) -> 'WebAclLabelMatchScope':
         return pulumi.get(self, "scope")
 
 
 @pulumi.output_type
-class WebACLManagedRuleGroupConfig(dict):
+class WebAclManagedRuleGroupConfig(dict):
     """
     ManagedRuleGroupConfig.
     """
@@ -4504,24 +4504,24 @@ class WebACLManagedRuleGroupConfig(dict):
             suggest = "username_field"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLManagedRuleGroupConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclManagedRuleGroupConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLManagedRuleGroupConfig.__key_warning(key)
+        WebAclManagedRuleGroupConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLManagedRuleGroupConfig.__key_warning(key)
+        WebAclManagedRuleGroupConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aws_managed_rules_acfp_rule_set: Optional['outputs.WebACLAWSManagedRulesACFPRuleSet'] = None,
-                 aws_managed_rules_atp_rule_set: Optional['outputs.WebACLAWSManagedRulesATPRuleSet'] = None,
-                 aws_managed_rules_bot_control_rule_set: Optional['outputs.WebACLAWSManagedRulesBotControlRuleSet'] = None,
+                 aws_managed_rules_acfp_rule_set: Optional['outputs.WebAclAwsManagedRulesAcfpRuleSet'] = None,
+                 aws_managed_rules_atp_rule_set: Optional['outputs.WebAclAwsManagedRulesAtpRuleSet'] = None,
+                 aws_managed_rules_bot_control_rule_set: Optional['outputs.WebAclAwsManagedRulesBotControlRuleSet'] = None,
                  login_path: Optional[str] = None,
-                 password_field: Optional['outputs.WebACLFieldIdentifier'] = None,
-                 payload_type: Optional['WebACLManagedRuleGroupConfigPayloadType'] = None,
-                 username_field: Optional['outputs.WebACLFieldIdentifier'] = None):
+                 password_field: Optional['outputs.WebAclFieldIdentifier'] = None,
+                 payload_type: Optional['WebAclManagedRuleGroupConfigPayloadType'] = None,
+                 username_field: Optional['outputs.WebAclFieldIdentifier'] = None):
         """
         ManagedRuleGroupConfig.
         """
@@ -4542,17 +4542,17 @@ class WebACLManagedRuleGroupConfig(dict):
 
     @property
     @pulumi.getter(name="awsManagedRulesAcfpRuleSet")
-    def aws_managed_rules_acfp_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesACFPRuleSet']:
+    def aws_managed_rules_acfp_rule_set(self) -> Optional['outputs.WebAclAwsManagedRulesAcfpRuleSet']:
         return pulumi.get(self, "aws_managed_rules_acfp_rule_set")
 
     @property
     @pulumi.getter(name="awsManagedRulesAtpRuleSet")
-    def aws_managed_rules_atp_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesATPRuleSet']:
+    def aws_managed_rules_atp_rule_set(self) -> Optional['outputs.WebAclAwsManagedRulesAtpRuleSet']:
         return pulumi.get(self, "aws_managed_rules_atp_rule_set")
 
     @property
     @pulumi.getter(name="awsManagedRulesBotControlRuleSet")
-    def aws_managed_rules_bot_control_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesBotControlRuleSet']:
+    def aws_managed_rules_bot_control_rule_set(self) -> Optional['outputs.WebAclAwsManagedRulesBotControlRuleSet']:
         return pulumi.get(self, "aws_managed_rules_bot_control_rule_set")
 
     @property
@@ -4562,22 +4562,22 @@ class WebACLManagedRuleGroupConfig(dict):
 
     @property
     @pulumi.getter(name="passwordField")
-    def password_field(self) -> Optional['outputs.WebACLFieldIdentifier']:
+    def password_field(self) -> Optional['outputs.WebAclFieldIdentifier']:
         return pulumi.get(self, "password_field")
 
     @property
     @pulumi.getter(name="payloadType")
-    def payload_type(self) -> Optional['WebACLManagedRuleGroupConfigPayloadType']:
+    def payload_type(self) -> Optional['WebAclManagedRuleGroupConfigPayloadType']:
         return pulumi.get(self, "payload_type")
 
     @property
     @pulumi.getter(name="usernameField")
-    def username_field(self) -> Optional['outputs.WebACLFieldIdentifier']:
+    def username_field(self) -> Optional['outputs.WebAclFieldIdentifier']:
         return pulumi.get(self, "username_field")
 
 
 @pulumi.output_type
-class WebACLManagedRuleGroupStatement(dict):
+class WebAclManagedRuleGroupStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4593,27 +4593,27 @@ class WebACLManagedRuleGroupStatement(dict):
             suggest = "scope_down_statement"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLManagedRuleGroupStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclManagedRuleGroupStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLManagedRuleGroupStatement.__key_warning(key)
+        WebAclManagedRuleGroupStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLManagedRuleGroupStatement.__key_warning(key)
+        WebAclManagedRuleGroupStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  name: str,
                  vendor_name: str,
-                 excluded_rules: Optional[Sequence['outputs.WebACLExcludedRule']] = None,
-                 managed_rule_group_configs: Optional[Sequence['outputs.WebACLManagedRuleGroupConfig']] = None,
-                 rule_action_overrides: Optional[Sequence['outputs.WebACLRuleActionOverride']] = None,
-                 scope_down_statement: Optional['outputs.WebACLStatement'] = None,
+                 excluded_rules: Optional[Sequence['outputs.WebAclExcludedRule']] = None,
+                 managed_rule_group_configs: Optional[Sequence['outputs.WebAclManagedRuleGroupConfig']] = None,
+                 rule_action_overrides: Optional[Sequence['outputs.WebAclRuleActionOverride']] = None,
+                 scope_down_statement: Optional['outputs.WebAclStatement'] = None,
                  version: Optional[str] = None):
         """
-        :param Sequence['WebACLManagedRuleGroupConfig'] managed_rule_group_configs: Collection of ManagedRuleGroupConfig.
-        :param Sequence['WebACLRuleActionOverride'] rule_action_overrides: Action overrides for rules in the rule group.
+        :param Sequence['WebAclManagedRuleGroupConfig'] managed_rule_group_configs: Collection of ManagedRuleGroupConfig.
+        :param Sequence['WebAclRuleActionOverride'] rule_action_overrides: Action overrides for rules in the rule group.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vendor_name", vendor_name)
@@ -4640,12 +4640,12 @@ class WebACLManagedRuleGroupStatement(dict):
 
     @property
     @pulumi.getter(name="excludedRules")
-    def excluded_rules(self) -> Optional[Sequence['outputs.WebACLExcludedRule']]:
+    def excluded_rules(self) -> Optional[Sequence['outputs.WebAclExcludedRule']]:
         return pulumi.get(self, "excluded_rules")
 
     @property
     @pulumi.getter(name="managedRuleGroupConfigs")
-    def managed_rule_group_configs(self) -> Optional[Sequence['outputs.WebACLManagedRuleGroupConfig']]:
+    def managed_rule_group_configs(self) -> Optional[Sequence['outputs.WebAclManagedRuleGroupConfig']]:
         """
         Collection of ManagedRuleGroupConfig.
         """
@@ -4653,7 +4653,7 @@ class WebACLManagedRuleGroupStatement(dict):
 
     @property
     @pulumi.getter(name="ruleActionOverrides")
-    def rule_action_overrides(self) -> Optional[Sequence['outputs.WebACLRuleActionOverride']]:
+    def rule_action_overrides(self) -> Optional[Sequence['outputs.WebAclRuleActionOverride']]:
         """
         Action overrides for rules in the rule group.
         """
@@ -4661,7 +4661,7 @@ class WebACLManagedRuleGroupStatement(dict):
 
     @property
     @pulumi.getter(name="scopeDownStatement")
-    def scope_down_statement(self) -> Optional['outputs.WebACLStatement']:
+    def scope_down_statement(self) -> Optional['outputs.WebAclStatement']:
         return pulumi.get(self, "scope_down_statement")
 
     @property
@@ -4671,31 +4671,31 @@ class WebACLManagedRuleGroupStatement(dict):
 
 
 @pulumi.output_type
-class WebACLNotStatement(dict):
+class WebAclNotStatement(dict):
     def __init__(__self__, *,
-                 statement: 'outputs.WebACLStatement'):
+                 statement: 'outputs.WebAclStatement'):
         pulumi.set(__self__, "statement", statement)
 
     @property
     @pulumi.getter
-    def statement(self) -> 'outputs.WebACLStatement':
+    def statement(self) -> 'outputs.WebAclStatement':
         return pulumi.get(self, "statement")
 
 
 @pulumi.output_type
-class WebACLOrStatement(dict):
+class WebAclOrStatement(dict):
     def __init__(__self__, *,
-                 statements: Sequence['outputs.WebACLStatement']):
+                 statements: Sequence['outputs.WebAclStatement']):
         pulumi.set(__self__, "statements", statements)
 
     @property
     @pulumi.getter
-    def statements(self) -> Sequence['outputs.WebACLStatement']:
+    def statements(self) -> Sequence['outputs.WebAclStatement']:
         return pulumi.get(self, "statements")
 
 
 @pulumi.output_type
-class WebACLOverrideAction(dict):
+class WebAclOverrideAction(dict):
     """
     Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
     """
@@ -4730,7 +4730,7 @@ class WebACLOverrideAction(dict):
 
 
 @pulumi.output_type
-class WebACLRateBasedStatement(dict):
+class WebAclRateBasedStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4744,24 +4744,24 @@ class WebACLRateBasedStatement(dict):
             suggest = "scope_down_statement"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRateBasedStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRateBasedStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRateBasedStatement.__key_warning(key)
+        WebAclRateBasedStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRateBasedStatement.__key_warning(key)
+        WebAclRateBasedStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aggregate_key_type: 'WebACLRateBasedStatementAggregateKeyType',
+                 aggregate_key_type: 'WebAclRateBasedStatementAggregateKeyType',
                  limit: int,
-                 custom_keys: Optional[Sequence['outputs.WebACLRateBasedStatementCustomKey']] = None,
-                 forwarded_ip_config: Optional['outputs.WebACLForwardedIPConfiguration'] = None,
-                 scope_down_statement: Optional['outputs.WebACLStatement'] = None):
+                 custom_keys: Optional[Sequence['outputs.WebAclRateBasedStatementCustomKey']] = None,
+                 forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None,
+                 scope_down_statement: Optional['outputs.WebAclStatement'] = None):
         """
-        :param Sequence['WebACLRateBasedStatementCustomKey'] custom_keys: Specifies the aggregate keys to use in a rate-base rule.
+        :param Sequence['WebAclRateBasedStatementCustomKey'] custom_keys: Specifies the aggregate keys to use in a rate-base rule.
         """
         pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         pulumi.set(__self__, "limit", limit)
@@ -4774,7 +4774,7 @@ class WebACLRateBasedStatement(dict):
 
     @property
     @pulumi.getter(name="aggregateKeyType")
-    def aggregate_key_type(self) -> 'WebACLRateBasedStatementAggregateKeyType':
+    def aggregate_key_type(self) -> 'WebAclRateBasedStatementAggregateKeyType':
         return pulumi.get(self, "aggregate_key_type")
 
     @property
@@ -4784,7 +4784,7 @@ class WebACLRateBasedStatement(dict):
 
     @property
     @pulumi.getter(name="customKeys")
-    def custom_keys(self) -> Optional[Sequence['outputs.WebACLRateBasedStatementCustomKey']]:
+    def custom_keys(self) -> Optional[Sequence['outputs.WebAclRateBasedStatementCustomKey']]:
         """
         Specifies the aggregate keys to use in a rate-base rule.
         """
@@ -4792,17 +4792,17 @@ class WebACLRateBasedStatement(dict):
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
-    def forwarded_ip_config(self) -> Optional['outputs.WebACLForwardedIPConfiguration']:
+    def forwarded_ip_config(self) -> Optional['outputs.WebAclForwardedIpConfiguration']:
         return pulumi.get(self, "forwarded_ip_config")
 
     @property
     @pulumi.getter(name="scopeDownStatement")
-    def scope_down_statement(self) -> Optional['outputs.WebACLStatement']:
+    def scope_down_statement(self) -> Optional['outputs.WebAclStatement']:
         return pulumi.get(self, "scope_down_statement")
 
 
 @pulumi.output_type
-class WebACLRateBasedStatementCustomKey(dict):
+class WebAclRateBasedStatementCustomKey(dict):
     """
     Specifies a single custom aggregate key for a rate-base rule.
     """
@@ -4823,26 +4823,26 @@ class WebACLRateBasedStatementCustomKey(dict):
             suggest = "uri_path"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRateBasedStatementCustomKey. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRateBasedStatementCustomKey. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRateBasedStatementCustomKey.__key_warning(key)
+        WebAclRateBasedStatementCustomKey.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRateBasedStatementCustomKey.__key_warning(key)
+        WebAclRateBasedStatementCustomKey.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cookie: Optional['outputs.WebACLRateLimitCookie'] = None,
-                 forwarded_ip: Optional['outputs.WebACLRateLimitForwardedIP'] = None,
-                 header: Optional['outputs.WebACLRateLimitHeader'] = None,
-                 http_method: Optional['outputs.WebACLRateLimitHTTPMethod'] = None,
-                 ip: Optional['outputs.WebACLRateLimitIP'] = None,
-                 label_namespace: Optional['outputs.WebACLRateLimitLabelNamespace'] = None,
-                 query_argument: Optional['outputs.WebACLRateLimitQueryArgument'] = None,
-                 query_string: Optional['outputs.WebACLRateLimitQueryString'] = None,
-                 uri_path: Optional['outputs.WebACLRateLimitUriPath'] = None):
+                 cookie: Optional['outputs.WebAclRateLimitCookie'] = None,
+                 forwarded_ip: Optional['outputs.WebAclRateLimitForwardedIp'] = None,
+                 header: Optional['outputs.WebAclRateLimitHeader'] = None,
+                 http_method: Optional['outputs.WebAclRateLimitHttpMethod'] = None,
+                 ip: Optional['outputs.WebAclRateLimitIp'] = None,
+                 label_namespace: Optional['outputs.WebAclRateLimitLabelNamespace'] = None,
+                 query_argument: Optional['outputs.WebAclRateLimitQueryArgument'] = None,
+                 query_string: Optional['outputs.WebAclRateLimitQueryString'] = None,
+                 uri_path: Optional['outputs.WebAclRateLimitUriPath'] = None):
         """
         Specifies a single custom aggregate key for a rate-base rule.
         """
@@ -4867,52 +4867,52 @@ class WebACLRateBasedStatementCustomKey(dict):
 
     @property
     @pulumi.getter
-    def cookie(self) -> Optional['outputs.WebACLRateLimitCookie']:
+    def cookie(self) -> Optional['outputs.WebAclRateLimitCookie']:
         return pulumi.get(self, "cookie")
 
     @property
     @pulumi.getter(name="forwardedIp")
-    def forwarded_ip(self) -> Optional['outputs.WebACLRateLimitForwardedIP']:
+    def forwarded_ip(self) -> Optional['outputs.WebAclRateLimitForwardedIp']:
         return pulumi.get(self, "forwarded_ip")
 
     @property
     @pulumi.getter
-    def header(self) -> Optional['outputs.WebACLRateLimitHeader']:
+    def header(self) -> Optional['outputs.WebAclRateLimitHeader']:
         return pulumi.get(self, "header")
 
     @property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> Optional['outputs.WebACLRateLimitHTTPMethod']:
+    def http_method(self) -> Optional['outputs.WebAclRateLimitHttpMethod']:
         return pulumi.get(self, "http_method")
 
     @property
     @pulumi.getter
-    def ip(self) -> Optional['outputs.WebACLRateLimitIP']:
+    def ip(self) -> Optional['outputs.WebAclRateLimitIp']:
         return pulumi.get(self, "ip")
 
     @property
     @pulumi.getter(name="labelNamespace")
-    def label_namespace(self) -> Optional['outputs.WebACLRateLimitLabelNamespace']:
+    def label_namespace(self) -> Optional['outputs.WebAclRateLimitLabelNamespace']:
         return pulumi.get(self, "label_namespace")
 
     @property
     @pulumi.getter(name="queryArgument")
-    def query_argument(self) -> Optional['outputs.WebACLRateLimitQueryArgument']:
+    def query_argument(self) -> Optional['outputs.WebAclRateLimitQueryArgument']:
         return pulumi.get(self, "query_argument")
 
     @property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional['outputs.WebACLRateLimitQueryString']:
+    def query_string(self) -> Optional['outputs.WebAclRateLimitQueryString']:
         return pulumi.get(self, "query_string")
 
     @property
     @pulumi.getter(name="uriPath")
-    def uri_path(self) -> Optional['outputs.WebACLRateLimitUriPath']:
+    def uri_path(self) -> Optional['outputs.WebAclRateLimitUriPath']:
         return pulumi.get(self, "uri_path")
 
 
 @pulumi.output_type
-class WebACLRateLimitCookie(dict):
+class WebAclRateLimitCookie(dict):
     """
     Specifies a cookie as an aggregate key for a rate-based rule.
     """
@@ -4923,19 +4923,19 @@ class WebACLRateLimitCookie(dict):
             suggest = "text_transformations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRateLimitCookie. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRateLimitCookie. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRateLimitCookie.__key_warning(key)
+        WebAclRateLimitCookie.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRateLimitCookie.__key_warning(key)
+        WebAclRateLimitCookie.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  name: str,
-                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Specifies a cookie as an aggregate key for a rate-based rule.
         :param str name: The name of the cookie to use.
@@ -4953,12 +4953,12 @@ class WebACLRateLimitCookie(dict):
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
-class WebACLRateLimitForwardedIP(dict):
+class WebAclRateLimitForwardedIp(dict):
     """
     Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
     """
@@ -4970,19 +4970,7 @@ class WebACLRateLimitForwardedIP(dict):
 
 
 @pulumi.output_type
-class WebACLRateLimitHTTPMethod(dict):
-    """
-    Specifies the request's HTTP method as an aggregate key for a rate-based rule.
-    """
-    def __init__(__self__):
-        """
-        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
-        """
-        pass
-
-
-@pulumi.output_type
-class WebACLRateLimitHeader(dict):
+class WebAclRateLimitHeader(dict):
     """
     Specifies a header as an aggregate key for a rate-based rule.
     """
@@ -4993,19 +4981,19 @@ class WebACLRateLimitHeader(dict):
             suggest = "text_transformations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRateLimitHeader. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRateLimitHeader. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRateLimitHeader.__key_warning(key)
+        WebAclRateLimitHeader.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRateLimitHeader.__key_warning(key)
+        WebAclRateLimitHeader.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  name: str,
-                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Specifies a header as an aggregate key for a rate-based rule.
         :param str name: The name of the header to use.
@@ -5023,12 +5011,24 @@ class WebACLRateLimitHeader(dict):
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
-class WebACLRateLimitIP(dict):
+class WebAclRateLimitHttpMethod(dict):
+    """
+    Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+    """
+    def __init__(__self__):
+        """
+        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+        """
+        pass
+
+
+@pulumi.output_type
+class WebAclRateLimitIp(dict):
     """
     Specifies the IP address in the web request as an aggregate key for a rate-based rule.
     """
@@ -5040,7 +5040,7 @@ class WebACLRateLimitIP(dict):
 
 
 @pulumi.output_type
-class WebACLRateLimitLabelNamespace(dict):
+class WebAclRateLimitLabelNamespace(dict):
     """
     Specifies a label namespace to use as an aggregate key for a rate-based rule.
     """
@@ -5062,7 +5062,7 @@ class WebACLRateLimitLabelNamespace(dict):
 
 
 @pulumi.output_type
-class WebACLRateLimitQueryArgument(dict):
+class WebAclRateLimitQueryArgument(dict):
     """
     Specifies a query argument in the request as an aggregate key for a rate-based rule.
     """
@@ -5073,19 +5073,19 @@ class WebACLRateLimitQueryArgument(dict):
             suggest = "text_transformations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRateLimitQueryArgument. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRateLimitQueryArgument. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRateLimitQueryArgument.__key_warning(key)
+        WebAclRateLimitQueryArgument.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRateLimitQueryArgument.__key_warning(key)
+        WebAclRateLimitQueryArgument.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  name: str,
-                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Specifies a query argument in the request as an aggregate key for a rate-based rule.
         :param str name: The name of the query argument to use.
@@ -5103,12 +5103,12 @@ class WebACLRateLimitQueryArgument(dict):
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
-class WebACLRateLimitQueryString(dict):
+class WebAclRateLimitQueryString(dict):
     """
     Specifies the request's query string as an aggregate key for a rate-based rule.
     """
@@ -5119,18 +5119,18 @@ class WebACLRateLimitQueryString(dict):
             suggest = "text_transformations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRateLimitQueryString. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRateLimitQueryString. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRateLimitQueryString.__key_warning(key)
+        WebAclRateLimitQueryString.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRateLimitQueryString.__key_warning(key)
+        WebAclRateLimitQueryString.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Specifies the request's query string as an aggregate key for a rate-based rule.
         """
@@ -5138,12 +5138,12 @@ class WebACLRateLimitQueryString(dict):
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
-class WebACLRateLimitUriPath(dict):
+class WebAclRateLimitUriPath(dict):
     """
     Specifies the request's URI Path as an aggregate key for a rate-based rule.
     """
@@ -5154,18 +5154,18 @@ class WebACLRateLimitUriPath(dict):
             suggest = "text_transformations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRateLimitUriPath. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRateLimitUriPath. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRateLimitUriPath.__key_warning(key)
+        WebAclRateLimitUriPath.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRateLimitUriPath.__key_warning(key)
+        WebAclRateLimitUriPath.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Specifies the request's URI Path as an aggregate key for a rate-based rule.
         """
@@ -5173,12 +5173,12 @@ class WebACLRateLimitUriPath(dict):
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
-class WebACLRegexMatchStatement(dict):
+class WebAclRegexMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5190,27 +5190,27 @@ class WebACLRegexMatchStatement(dict):
             suggest = "text_transformations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRegexMatchStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRegexMatchStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRegexMatchStatement.__key_warning(key)
+        WebAclRegexMatchStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRegexMatchStatement.__key_warning(key)
+        WebAclRegexMatchStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 field_to_match: 'outputs.WebACLFieldToMatch',
+                 field_to_match: 'outputs.WebAclFieldToMatch',
                  regex_string: str,
-                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
+    def field_to_match(self) -> 'outputs.WebAclFieldToMatch':
         return pulumi.get(self, "field_to_match")
 
     @property
@@ -5220,12 +5220,12 @@ class WebACLRegexMatchStatement(dict):
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
-class WebACLRegexPatternSetReferenceStatement(dict):
+class WebAclRegexPatternSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5235,20 +5235,20 @@ class WebACLRegexPatternSetReferenceStatement(dict):
             suggest = "text_transformations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRegexPatternSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRegexPatternSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRegexPatternSetReferenceStatement.__key_warning(key)
+        WebAclRegexPatternSetReferenceStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRegexPatternSetReferenceStatement.__key_warning(key)
+        WebAclRegexPatternSetReferenceStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  arn: str,
-                 field_to_match: 'outputs.WebACLFieldToMatch',
-                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+                 field_to_match: 'outputs.WebAclFieldToMatch',
+                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -5260,17 +5260,17 @@ class WebACLRegexPatternSetReferenceStatement(dict):
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
+    def field_to_match(self) -> 'outputs.WebAclFieldToMatch':
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
-class WebACLRequestBody(dict):
+class WebAclRequestBody(dict):
     """
     Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
     """
@@ -5282,7 +5282,7 @@ class WebACLRequestBody(dict):
 
 
 @pulumi.output_type
-class WebACLRequestInspection(dict):
+class WebAclRequestInspection(dict):
     """
     Configures the inspection of login requests
     """
@@ -5297,20 +5297,20 @@ class WebACLRequestInspection(dict):
             suggest = "username_field"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRequestInspection. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRequestInspection. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRequestInspection.__key_warning(key)
+        WebAclRequestInspection.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRequestInspection.__key_warning(key)
+        WebAclRequestInspection.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 password_field: 'outputs.WebACLFieldIdentifier',
-                 payload_type: 'WebACLRequestInspectionPayloadType',
-                 username_field: 'outputs.WebACLFieldIdentifier'):
+                 password_field: 'outputs.WebAclFieldIdentifier',
+                 payload_type: 'WebAclRequestInspectionPayloadType',
+                 username_field: 'outputs.WebAclFieldIdentifier'):
         """
         Configures the inspection of login requests
         """
@@ -5320,22 +5320,22 @@ class WebACLRequestInspection(dict):
 
     @property
     @pulumi.getter(name="passwordField")
-    def password_field(self) -> 'outputs.WebACLFieldIdentifier':
+    def password_field(self) -> 'outputs.WebAclFieldIdentifier':
         return pulumi.get(self, "password_field")
 
     @property
     @pulumi.getter(name="payloadType")
-    def payload_type(self) -> 'WebACLRequestInspectionPayloadType':
+    def payload_type(self) -> 'WebAclRequestInspectionPayloadType':
         return pulumi.get(self, "payload_type")
 
     @property
     @pulumi.getter(name="usernameField")
-    def username_field(self) -> 'outputs.WebACLFieldIdentifier':
+    def username_field(self) -> 'outputs.WebAclFieldIdentifier':
         return pulumi.get(self, "username_field")
 
 
 @pulumi.output_type
-class WebACLRequestInspectionACFP(dict):
+class WebAclRequestInspectionAcfp(dict):
     """
     Configures the inspection of sign-up requests
     """
@@ -5356,23 +5356,23 @@ class WebACLRequestInspectionACFP(dict):
             suggest = "username_field"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRequestInspectionACFP. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRequestInspectionAcfp. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRequestInspectionACFP.__key_warning(key)
+        WebAclRequestInspectionAcfp.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRequestInspectionACFP.__key_warning(key)
+        WebAclRequestInspectionAcfp.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 payload_type: 'WebACLRequestInspectionACFPPayloadType',
-                 address_fields: Optional[Sequence['outputs.WebACLFieldIdentifier']] = None,
-                 email_field: Optional['outputs.WebACLFieldIdentifier'] = None,
-                 password_field: Optional['outputs.WebACLFieldIdentifier'] = None,
-                 phone_number_fields: Optional[Sequence['outputs.WebACLFieldIdentifier']] = None,
-                 username_field: Optional['outputs.WebACLFieldIdentifier'] = None):
+                 payload_type: 'WebAclRequestInspectionAcfpPayloadType',
+                 address_fields: Optional[Sequence['outputs.WebAclFieldIdentifier']] = None,
+                 email_field: Optional['outputs.WebAclFieldIdentifier'] = None,
+                 password_field: Optional['outputs.WebAclFieldIdentifier'] = None,
+                 phone_number_fields: Optional[Sequence['outputs.WebAclFieldIdentifier']] = None,
+                 username_field: Optional['outputs.WebAclFieldIdentifier'] = None):
         """
         Configures the inspection of sign-up requests
         """
@@ -5390,37 +5390,37 @@ class WebACLRequestInspectionACFP(dict):
 
     @property
     @pulumi.getter(name="payloadType")
-    def payload_type(self) -> 'WebACLRequestInspectionACFPPayloadType':
+    def payload_type(self) -> 'WebAclRequestInspectionAcfpPayloadType':
         return pulumi.get(self, "payload_type")
 
     @property
     @pulumi.getter(name="addressFields")
-    def address_fields(self) -> Optional[Sequence['outputs.WebACLFieldIdentifier']]:
+    def address_fields(self) -> Optional[Sequence['outputs.WebAclFieldIdentifier']]:
         return pulumi.get(self, "address_fields")
 
     @property
     @pulumi.getter(name="emailField")
-    def email_field(self) -> Optional['outputs.WebACLFieldIdentifier']:
+    def email_field(self) -> Optional['outputs.WebAclFieldIdentifier']:
         return pulumi.get(self, "email_field")
 
     @property
     @pulumi.getter(name="passwordField")
-    def password_field(self) -> Optional['outputs.WebACLFieldIdentifier']:
+    def password_field(self) -> Optional['outputs.WebAclFieldIdentifier']:
         return pulumi.get(self, "password_field")
 
     @property
     @pulumi.getter(name="phoneNumberFields")
-    def phone_number_fields(self) -> Optional[Sequence['outputs.WebACLFieldIdentifier']]:
+    def phone_number_fields(self) -> Optional[Sequence['outputs.WebAclFieldIdentifier']]:
         return pulumi.get(self, "phone_number_fields")
 
     @property
     @pulumi.getter(name="usernameField")
-    def username_field(self) -> Optional['outputs.WebACLFieldIdentifier']:
+    def username_field(self) -> Optional['outputs.WebAclFieldIdentifier']:
         return pulumi.get(self, "username_field")
 
 
 @pulumi.output_type
-class WebACLResponseInspection(dict):
+class WebAclResponseInspection(dict):
     """
     Configures the inspection of login responses
     """
@@ -5433,21 +5433,21 @@ class WebACLResponseInspection(dict):
             suggest = "status_code"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLResponseInspection. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclResponseInspection. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLResponseInspection.__key_warning(key)
+        WebAclResponseInspection.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLResponseInspection.__key_warning(key)
+        WebAclResponseInspection.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 body_contains: Optional['outputs.WebACLResponseInspectionBodyContains'] = None,
-                 header: Optional['outputs.WebACLResponseInspectionHeader'] = None,
-                 json: Optional['outputs.WebACLResponseInspectionJson'] = None,
-                 status_code: Optional['outputs.WebACLResponseInspectionStatusCode'] = None):
+                 body_contains: Optional['outputs.WebAclResponseInspectionBodyContains'] = None,
+                 header: Optional['outputs.WebAclResponseInspectionHeader'] = None,
+                 json: Optional['outputs.WebAclResponseInspectionJson'] = None,
+                 status_code: Optional['outputs.WebAclResponseInspectionStatusCode'] = None):
         """
         Configures the inspection of login responses
         """
@@ -5462,27 +5462,27 @@ class WebACLResponseInspection(dict):
 
     @property
     @pulumi.getter(name="bodyContains")
-    def body_contains(self) -> Optional['outputs.WebACLResponseInspectionBodyContains']:
+    def body_contains(self) -> Optional['outputs.WebAclResponseInspectionBodyContains']:
         return pulumi.get(self, "body_contains")
 
     @property
     @pulumi.getter
-    def header(self) -> Optional['outputs.WebACLResponseInspectionHeader']:
+    def header(self) -> Optional['outputs.WebAclResponseInspectionHeader']:
         return pulumi.get(self, "header")
 
     @property
     @pulumi.getter
-    def json(self) -> Optional['outputs.WebACLResponseInspectionJson']:
+    def json(self) -> Optional['outputs.WebAclResponseInspectionJson']:
         return pulumi.get(self, "json")
 
     @property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional['outputs.WebACLResponseInspectionStatusCode']:
+    def status_code(self) -> Optional['outputs.WebAclResponseInspectionStatusCode']:
         return pulumi.get(self, "status_code")
 
 
 @pulumi.output_type
-class WebACLResponseInspectionBodyContains(dict):
+class WebAclResponseInspectionBodyContains(dict):
     """
     Response body contents that indicate success or failure of a login request
     """
@@ -5495,14 +5495,14 @@ class WebACLResponseInspectionBodyContains(dict):
             suggest = "success_strings"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLResponseInspectionBodyContains. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclResponseInspectionBodyContains. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLResponseInspectionBodyContains.__key_warning(key)
+        WebAclResponseInspectionBodyContains.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLResponseInspectionBodyContains.__key_warning(key)
+        WebAclResponseInspectionBodyContains.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5526,7 +5526,7 @@ class WebACLResponseInspectionBodyContains(dict):
 
 
 @pulumi.output_type
-class WebACLResponseInspectionHeader(dict):
+class WebAclResponseInspectionHeader(dict):
     """
     Response headers that indicate success or failure of a login request
     """
@@ -5539,14 +5539,14 @@ class WebACLResponseInspectionHeader(dict):
             suggest = "success_values"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLResponseInspectionHeader. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclResponseInspectionHeader. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLResponseInspectionHeader.__key_warning(key)
+        WebAclResponseInspectionHeader.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLResponseInspectionHeader.__key_warning(key)
+        WebAclResponseInspectionHeader.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5577,7 +5577,7 @@ class WebACLResponseInspectionHeader(dict):
 
 
 @pulumi.output_type
-class WebACLResponseInspectionJson(dict):
+class WebAclResponseInspectionJson(dict):
     """
     Response JSON that indicate success or failure of a login request
     """
@@ -5590,14 +5590,14 @@ class WebACLResponseInspectionJson(dict):
             suggest = "success_values"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLResponseInspectionJson. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclResponseInspectionJson. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLResponseInspectionJson.__key_warning(key)
+        WebAclResponseInspectionJson.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLResponseInspectionJson.__key_warning(key)
+        WebAclResponseInspectionJson.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5628,7 +5628,7 @@ class WebACLResponseInspectionJson(dict):
 
 
 @pulumi.output_type
-class WebACLResponseInspectionStatusCode(dict):
+class WebAclResponseInspectionStatusCode(dict):
     """
     Response status codes that indicate success or failure of a login request
     """
@@ -5641,14 +5641,14 @@ class WebACLResponseInspectionStatusCode(dict):
             suggest = "success_codes"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLResponseInspectionStatusCode. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclResponseInspectionStatusCode. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLResponseInspectionStatusCode.__key_warning(key)
+        WebAclResponseInspectionStatusCode.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLResponseInspectionStatusCode.__key_warning(key)
+        WebAclResponseInspectionStatusCode.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5672,7 +5672,7 @@ class WebACLResponseInspectionStatusCode(dict):
 
 
 @pulumi.output_type
-class WebACLRule(dict):
+class WebAclRule(dict):
     """
     Rule of WebACL that contains condition and action.
     """
@@ -5691,29 +5691,29 @@ class WebACLRule(dict):
             suggest = "rule_labels"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRule. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRule. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRule.__key_warning(key)
+        WebAclRule.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRule.__key_warning(key)
+        WebAclRule.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  name: str,
                  priority: int,
-                 statement: 'outputs.WebACLStatement',
-                 visibility_config: 'outputs.WebACLVisibilityConfig',
-                 action: Optional['outputs.WebACLRuleAction'] = None,
-                 captcha_config: Optional['outputs.WebACLCaptchaConfig'] = None,
-                 challenge_config: Optional['outputs.WebACLChallengeConfig'] = None,
-                 override_action: Optional['outputs.WebACLOverrideAction'] = None,
-                 rule_labels: Optional[Sequence['outputs.WebACLLabel']] = None):
+                 statement: 'outputs.WebAclStatement',
+                 visibility_config: 'outputs.WebAclVisibilityConfig',
+                 action: Optional['outputs.WebAclRuleAction'] = None,
+                 captcha_config: Optional['outputs.WebAclCaptchaConfig'] = None,
+                 challenge_config: Optional['outputs.WebAclChallengeConfig'] = None,
+                 override_action: Optional['outputs.WebAclOverrideAction'] = None,
+                 rule_labels: Optional[Sequence['outputs.WebAclLabel']] = None):
         """
         Rule of WebACL that contains condition and action.
-        :param Sequence['WebACLLabel'] rule_labels: Collection of Rule Labels.
+        :param Sequence['WebAclLabel'] rule_labels: Collection of Rule Labels.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -5742,37 +5742,37 @@ class WebACLRule(dict):
 
     @property
     @pulumi.getter
-    def statement(self) -> 'outputs.WebACLStatement':
+    def statement(self) -> 'outputs.WebAclStatement':
         return pulumi.get(self, "statement")
 
     @property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> 'outputs.WebACLVisibilityConfig':
+    def visibility_config(self) -> 'outputs.WebAclVisibilityConfig':
         return pulumi.get(self, "visibility_config")
 
     @property
     @pulumi.getter
-    def action(self) -> Optional['outputs.WebACLRuleAction']:
+    def action(self) -> Optional['outputs.WebAclRuleAction']:
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="captchaConfig")
-    def captcha_config(self) -> Optional['outputs.WebACLCaptchaConfig']:
+    def captcha_config(self) -> Optional['outputs.WebAclCaptchaConfig']:
         return pulumi.get(self, "captcha_config")
 
     @property
     @pulumi.getter(name="challengeConfig")
-    def challenge_config(self) -> Optional['outputs.WebACLChallengeConfig']:
+    def challenge_config(self) -> Optional['outputs.WebAclChallengeConfig']:
         return pulumi.get(self, "challenge_config")
 
     @property
     @pulumi.getter(name="overrideAction")
-    def override_action(self) -> Optional['outputs.WebACLOverrideAction']:
+    def override_action(self) -> Optional['outputs.WebAclOverrideAction']:
         return pulumi.get(self, "override_action")
 
     @property
     @pulumi.getter(name="ruleLabels")
-    def rule_labels(self) -> Optional[Sequence['outputs.WebACLLabel']]:
+    def rule_labels(self) -> Optional[Sequence['outputs.WebAclLabel']]:
         """
         Collection of Rule Labels.
         """
@@ -5780,16 +5780,16 @@ class WebACLRule(dict):
 
 
 @pulumi.output_type
-class WebACLRuleAction(dict):
+class WebAclRuleAction(dict):
     """
     Action taken when Rule matches its condition.
     """
     def __init__(__self__, *,
-                 allow: Optional['outputs.WebACLAllowAction'] = None,
-                 block: Optional['outputs.WebACLBlockAction'] = None,
-                 captcha: Optional['outputs.WebACLCaptchaAction'] = None,
-                 challenge: Optional['outputs.WebACLChallengeAction'] = None,
-                 count: Optional['outputs.WebACLCountAction'] = None):
+                 allow: Optional['outputs.WebAclAllowAction'] = None,
+                 block: Optional['outputs.WebAclBlockAction'] = None,
+                 captcha: Optional['outputs.WebAclCaptchaAction'] = None,
+                 challenge: Optional['outputs.WebAclChallengeAction'] = None,
+                 count: Optional['outputs.WebAclCountAction'] = None):
         """
         Action taken when Rule matches its condition.
         """
@@ -5806,32 +5806,32 @@ class WebACLRuleAction(dict):
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional['outputs.WebACLAllowAction']:
+    def allow(self) -> Optional['outputs.WebAclAllowAction']:
         return pulumi.get(self, "allow")
 
     @property
     @pulumi.getter
-    def block(self) -> Optional['outputs.WebACLBlockAction']:
+    def block(self) -> Optional['outputs.WebAclBlockAction']:
         return pulumi.get(self, "block")
 
     @property
     @pulumi.getter
-    def captcha(self) -> Optional['outputs.WebACLCaptchaAction']:
+    def captcha(self) -> Optional['outputs.WebAclCaptchaAction']:
         return pulumi.get(self, "captcha")
 
     @property
     @pulumi.getter
-    def challenge(self) -> Optional['outputs.WebACLChallengeAction']:
+    def challenge(self) -> Optional['outputs.WebAclChallengeAction']:
         return pulumi.get(self, "challenge")
 
     @property
     @pulumi.getter
-    def count(self) -> Optional['outputs.WebACLCountAction']:
+    def count(self) -> Optional['outputs.WebAclCountAction']:
         return pulumi.get(self, "count")
 
 
 @pulumi.output_type
-class WebACLRuleActionOverride(dict):
+class WebAclRuleActionOverride(dict):
     """
     Action override for rules in the rule group.
     """
@@ -5842,18 +5842,18 @@ class WebACLRuleActionOverride(dict):
             suggest = "action_to_use"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRuleActionOverride. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleActionOverride. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRuleActionOverride.__key_warning(key)
+        WebAclRuleActionOverride.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRuleActionOverride.__key_warning(key)
+        WebAclRuleActionOverride.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_to_use: 'outputs.WebACLRuleAction',
+                 action_to_use: 'outputs.WebAclRuleAction',
                  name: str):
         """
         Action override for rules in the rule group.
@@ -5863,7 +5863,7 @@ class WebACLRuleActionOverride(dict):
 
     @property
     @pulumi.getter(name="actionToUse")
-    def action_to_use(self) -> 'outputs.WebACLRuleAction':
+    def action_to_use(self) -> 'outputs.WebAclRuleAction':
         return pulumi.get(self, "action_to_use")
 
     @property
@@ -5873,7 +5873,7 @@ class WebACLRuleActionOverride(dict):
 
 
 @pulumi.output_type
-class WebACLRuleGroupReferenceStatement(dict):
+class WebAclRuleGroupReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5883,22 +5883,22 @@ class WebACLRuleGroupReferenceStatement(dict):
             suggest = "rule_action_overrides"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLRuleGroupReferenceStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleGroupReferenceStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLRuleGroupReferenceStatement.__key_warning(key)
+        WebAclRuleGroupReferenceStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLRuleGroupReferenceStatement.__key_warning(key)
+        WebAclRuleGroupReferenceStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  arn: str,
-                 excluded_rules: Optional[Sequence['outputs.WebACLExcludedRule']] = None,
-                 rule_action_overrides: Optional[Sequence['outputs.WebACLRuleActionOverride']] = None):
+                 excluded_rules: Optional[Sequence['outputs.WebAclExcludedRule']] = None,
+                 rule_action_overrides: Optional[Sequence['outputs.WebAclRuleActionOverride']] = None):
         """
-        :param Sequence['WebACLRuleActionOverride'] rule_action_overrides: Action overrides for rules in the rule group.
+        :param Sequence['WebAclRuleActionOverride'] rule_action_overrides: Action overrides for rules in the rule group.
         """
         pulumi.set(__self__, "arn", arn)
         if excluded_rules is not None:
@@ -5913,12 +5913,12 @@ class WebACLRuleGroupReferenceStatement(dict):
 
     @property
     @pulumi.getter(name="excludedRules")
-    def excluded_rules(self) -> Optional[Sequence['outputs.WebACLExcludedRule']]:
+    def excluded_rules(self) -> Optional[Sequence['outputs.WebAclExcludedRule']]:
         return pulumi.get(self, "excluded_rules")
 
     @property
     @pulumi.getter(name="ruleActionOverrides")
-    def rule_action_overrides(self) -> Optional[Sequence['outputs.WebACLRuleActionOverride']]:
+    def rule_action_overrides(self) -> Optional[Sequence['outputs.WebAclRuleActionOverride']]:
         """
         Action overrides for rules in the rule group.
         """
@@ -5926,7 +5926,7 @@ class WebACLRuleGroupReferenceStatement(dict):
 
 
 @pulumi.output_type
-class WebACLSizeConstraintStatement(dict):
+class WebAclSizeConstraintStatement(dict):
     """
     Size Constraint statement.
     """
@@ -5941,21 +5941,21 @@ class WebACLSizeConstraintStatement(dict):
             suggest = "text_transformations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLSizeConstraintStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclSizeConstraintStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLSizeConstraintStatement.__key_warning(key)
+        WebAclSizeConstraintStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLSizeConstraintStatement.__key_warning(key)
+        WebAclSizeConstraintStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 comparison_operator: 'WebACLSizeConstraintStatementComparisonOperator',
-                 field_to_match: 'outputs.WebACLFieldToMatch',
+                 comparison_operator: 'WebAclSizeConstraintStatementComparisonOperator',
+                 field_to_match: 'outputs.WebAclFieldToMatch',
                  size: float,
-                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Size Constraint statement.
         """
@@ -5966,12 +5966,12 @@ class WebACLSizeConstraintStatement(dict):
 
     @property
     @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> 'WebACLSizeConstraintStatementComparisonOperator':
+    def comparison_operator(self) -> 'WebAclSizeConstraintStatementComparisonOperator':
         return pulumi.get(self, "comparison_operator")
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
+    def field_to_match(self) -> 'outputs.WebAclFieldToMatch':
         return pulumi.get(self, "field_to_match")
 
     @property
@@ -5981,12 +5981,12 @@ class WebACLSizeConstraintStatement(dict):
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
-class WebACLSqliMatchStatement(dict):
+class WebAclSqliMatchStatement(dict):
     """
     Sqli Match Statement.
     """
@@ -6001,20 +6001,20 @@ class WebACLSqliMatchStatement(dict):
             suggest = "sensitivity_level"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLSqliMatchStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclSqliMatchStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLSqliMatchStatement.__key_warning(key)
+        WebAclSqliMatchStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLSqliMatchStatement.__key_warning(key)
+        WebAclSqliMatchStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 field_to_match: 'outputs.WebACLFieldToMatch',
-                 text_transformations: Sequence['outputs.WebACLTextTransformation'],
-                 sensitivity_level: Optional['WebACLSensitivityLevel'] = None):
+                 field_to_match: 'outputs.WebAclFieldToMatch',
+                 text_transformations: Sequence['outputs.WebAclTextTransformation'],
+                 sensitivity_level: Optional['WebAclSensitivityLevel'] = None):
         """
         Sqli Match Statement.
         """
@@ -6025,22 +6025,22 @@ class WebACLSqliMatchStatement(dict):
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
+    def field_to_match(self) -> 'outputs.WebAclFieldToMatch':
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
     @property
     @pulumi.getter(name="sensitivityLevel")
-    def sensitivity_level(self) -> Optional['WebACLSensitivityLevel']:
+    def sensitivity_level(self) -> Optional['WebAclSensitivityLevel']:
         return pulumi.get(self, "sensitivity_level")
 
 
 @pulumi.output_type
-class WebACLStatement(dict):
+class WebAclStatement(dict):
     """
     First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
     """
@@ -6079,32 +6079,32 @@ class WebACLStatement(dict):
             suggest = "xss_match_statement"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLStatement.__key_warning(key)
+        WebAclStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLStatement.__key_warning(key)
+        WebAclStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 and_statement: Optional['outputs.WebACLAndStatement'] = None,
-                 byte_match_statement: Optional['outputs.WebACLByteMatchStatement'] = None,
-                 geo_match_statement: Optional['outputs.WebACLGeoMatchStatement'] = None,
-                 ip_set_reference_statement: Optional['outputs.WebACLIPSetReferenceStatement'] = None,
-                 label_match_statement: Optional['outputs.WebACLLabelMatchStatement'] = None,
-                 managed_rule_group_statement: Optional['outputs.WebACLManagedRuleGroupStatement'] = None,
-                 not_statement: Optional['outputs.WebACLNotStatement'] = None,
-                 or_statement: Optional['outputs.WebACLOrStatement'] = None,
-                 rate_based_statement: Optional['outputs.WebACLRateBasedStatement'] = None,
-                 regex_match_statement: Optional['outputs.WebACLRegexMatchStatement'] = None,
-                 regex_pattern_set_reference_statement: Optional['outputs.WebACLRegexPatternSetReferenceStatement'] = None,
-                 rule_group_reference_statement: Optional['outputs.WebACLRuleGroupReferenceStatement'] = None,
-                 size_constraint_statement: Optional['outputs.WebACLSizeConstraintStatement'] = None,
-                 sqli_match_statement: Optional['outputs.WebACLSqliMatchStatement'] = None,
-                 xss_match_statement: Optional['outputs.WebACLXssMatchStatement'] = None):
+                 and_statement: Optional['outputs.WebAclAndStatement'] = None,
+                 byte_match_statement: Optional['outputs.WebAclByteMatchStatement'] = None,
+                 geo_match_statement: Optional['outputs.WebAclGeoMatchStatement'] = None,
+                 ip_set_reference_statement: Optional['outputs.WebAclIpSetReferenceStatement'] = None,
+                 label_match_statement: Optional['outputs.WebAclLabelMatchStatement'] = None,
+                 managed_rule_group_statement: Optional['outputs.WebAclManagedRuleGroupStatement'] = None,
+                 not_statement: Optional['outputs.WebAclNotStatement'] = None,
+                 or_statement: Optional['outputs.WebAclOrStatement'] = None,
+                 rate_based_statement: Optional['outputs.WebAclRateBasedStatement'] = None,
+                 regex_match_statement: Optional['outputs.WebAclRegexMatchStatement'] = None,
+                 regex_pattern_set_reference_statement: Optional['outputs.WebAclRegexPatternSetReferenceStatement'] = None,
+                 rule_group_reference_statement: Optional['outputs.WebAclRuleGroupReferenceStatement'] = None,
+                 size_constraint_statement: Optional['outputs.WebAclSizeConstraintStatement'] = None,
+                 sqli_match_statement: Optional['outputs.WebAclSqliMatchStatement'] = None,
+                 xss_match_statement: Optional['outputs.WebAclXssMatchStatement'] = None):
         """
         First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
         """
@@ -6141,82 +6141,82 @@ class WebACLStatement(dict):
 
     @property
     @pulumi.getter(name="andStatement")
-    def and_statement(self) -> Optional['outputs.WebACLAndStatement']:
+    def and_statement(self) -> Optional['outputs.WebAclAndStatement']:
         return pulumi.get(self, "and_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
-    def byte_match_statement(self) -> Optional['outputs.WebACLByteMatchStatement']:
+    def byte_match_statement(self) -> Optional['outputs.WebAclByteMatchStatement']:
         return pulumi.get(self, "byte_match_statement")
 
     @property
     @pulumi.getter(name="geoMatchStatement")
-    def geo_match_statement(self) -> Optional['outputs.WebACLGeoMatchStatement']:
+    def geo_match_statement(self) -> Optional['outputs.WebAclGeoMatchStatement']:
         return pulumi.get(self, "geo_match_statement")
 
     @property
     @pulumi.getter(name="ipSetReferenceStatement")
-    def ip_set_reference_statement(self) -> Optional['outputs.WebACLIPSetReferenceStatement']:
+    def ip_set_reference_statement(self) -> Optional['outputs.WebAclIpSetReferenceStatement']:
         return pulumi.get(self, "ip_set_reference_statement")
 
     @property
     @pulumi.getter(name="labelMatchStatement")
-    def label_match_statement(self) -> Optional['outputs.WebACLLabelMatchStatement']:
+    def label_match_statement(self) -> Optional['outputs.WebAclLabelMatchStatement']:
         return pulumi.get(self, "label_match_statement")
 
     @property
     @pulumi.getter(name="managedRuleGroupStatement")
-    def managed_rule_group_statement(self) -> Optional['outputs.WebACLManagedRuleGroupStatement']:
+    def managed_rule_group_statement(self) -> Optional['outputs.WebAclManagedRuleGroupStatement']:
         return pulumi.get(self, "managed_rule_group_statement")
 
     @property
     @pulumi.getter(name="notStatement")
-    def not_statement(self) -> Optional['outputs.WebACLNotStatement']:
+    def not_statement(self) -> Optional['outputs.WebAclNotStatement']:
         return pulumi.get(self, "not_statement")
 
     @property
     @pulumi.getter(name="orStatement")
-    def or_statement(self) -> Optional['outputs.WebACLOrStatement']:
+    def or_statement(self) -> Optional['outputs.WebAclOrStatement']:
         return pulumi.get(self, "or_statement")
 
     @property
     @pulumi.getter(name="rateBasedStatement")
-    def rate_based_statement(self) -> Optional['outputs.WebACLRateBasedStatement']:
+    def rate_based_statement(self) -> Optional['outputs.WebAclRateBasedStatement']:
         return pulumi.get(self, "rate_based_statement")
 
     @property
     @pulumi.getter(name="regexMatchStatement")
-    def regex_match_statement(self) -> Optional['outputs.WebACLRegexMatchStatement']:
+    def regex_match_statement(self) -> Optional['outputs.WebAclRegexMatchStatement']:
         return pulumi.get(self, "regex_match_statement")
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
-    def regex_pattern_set_reference_statement(self) -> Optional['outputs.WebACLRegexPatternSetReferenceStatement']:
+    def regex_pattern_set_reference_statement(self) -> Optional['outputs.WebAclRegexPatternSetReferenceStatement']:
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
     @property
     @pulumi.getter(name="ruleGroupReferenceStatement")
-    def rule_group_reference_statement(self) -> Optional['outputs.WebACLRuleGroupReferenceStatement']:
+    def rule_group_reference_statement(self) -> Optional['outputs.WebAclRuleGroupReferenceStatement']:
         return pulumi.get(self, "rule_group_reference_statement")
 
     @property
     @pulumi.getter(name="sizeConstraintStatement")
-    def size_constraint_statement(self) -> Optional['outputs.WebACLSizeConstraintStatement']:
+    def size_constraint_statement(self) -> Optional['outputs.WebAclSizeConstraintStatement']:
         return pulumi.get(self, "size_constraint_statement")
 
     @property
     @pulumi.getter(name="sqliMatchStatement")
-    def sqli_match_statement(self) -> Optional['outputs.WebACLSqliMatchStatement']:
+    def sqli_match_statement(self) -> Optional['outputs.WebAclSqliMatchStatement']:
         return pulumi.get(self, "sqli_match_statement")
 
     @property
     @pulumi.getter(name="xssMatchStatement")
-    def xss_match_statement(self) -> Optional['outputs.WebACLXssMatchStatement']:
+    def xss_match_statement(self) -> Optional['outputs.WebAclXssMatchStatement']:
         return pulumi.get(self, "xss_match_statement")
 
 
 @pulumi.output_type
-class WebACLTag(dict):
+class WebAclTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
@@ -6237,13 +6237,13 @@ class WebACLTag(dict):
 
 
 @pulumi.output_type
-class WebACLTextTransformation(dict):
+class WebAclTextTransformation(dict):
     """
     Text Transformation on the Search String before match.
     """
     def __init__(__self__, *,
                  priority: int,
-                 type: 'WebACLTextTransformationType'):
+                 type: 'WebAclTextTransformationType'):
         """
         Text Transformation on the Search String before match.
         """
@@ -6257,12 +6257,12 @@ class WebACLTextTransformation(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> 'WebACLTextTransformationType':
+    def type(self) -> 'WebAclTextTransformationType':
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
-class WebACLVisibilityConfig(dict):
+class WebAclVisibilityConfig(dict):
     """
     Visibility Metric of the WebACL.
     """
@@ -6277,14 +6277,14 @@ class WebACLVisibilityConfig(dict):
             suggest = "sampled_requests_enabled"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLVisibilityConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclVisibilityConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLVisibilityConfig.__key_warning(key)
+        WebAclVisibilityConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLVisibilityConfig.__key_warning(key)
+        WebAclVisibilityConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -6315,7 +6315,7 @@ class WebACLVisibilityConfig(dict):
 
 
 @pulumi.output_type
-class WebACLXssMatchStatement(dict):
+class WebAclXssMatchStatement(dict):
     """
     Xss Match Statement.
     """
@@ -6328,19 +6328,19 @@ class WebACLXssMatchStatement(dict):
             suggest = "text_transformations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLXssMatchStatement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebAclXssMatchStatement. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebACLXssMatchStatement.__key_warning(key)
+        WebAclXssMatchStatement.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebACLXssMatchStatement.__key_warning(key)
+        WebAclXssMatchStatement.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 field_to_match: 'outputs.WebACLFieldToMatch',
-                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+                 field_to_match: 'outputs.WebAclFieldToMatch',
+                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Xss Match Statement.
         """
@@ -6349,12 +6349,12 @@ class WebACLXssMatchStatement(dict):
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
+    def field_to_match(self) -> 'outputs.WebAclFieldToMatch':
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+    def text_transformations(self) -> Sequence['outputs.WebAclTextTransformation']:
         return pulumi.get(self, "text_transformations")
 
 

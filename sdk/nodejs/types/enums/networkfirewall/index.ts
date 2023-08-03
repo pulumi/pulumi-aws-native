@@ -92,7 +92,14 @@ export const RuleGroupStatefulRuleAction = {
 
 export type RuleGroupStatefulRuleAction = (typeof RuleGroupStatefulRuleAction)[keyof typeof RuleGroupStatefulRuleAction];
 
-export const RuleGroupTCPFlag = {
+export const RuleGroupTargetType = {
+    TlsSni: "TLS_SNI",
+    HttpHost: "HTTP_HOST",
+} as const;
+
+export type RuleGroupTargetType = (typeof RuleGroupTargetType)[keyof typeof RuleGroupTargetType];
+
+export const RuleGroupTcpFlag = {
     Fin: "FIN",
     Syn: "SYN",
     Rst: "RST",
@@ -103,14 +110,7 @@ export const RuleGroupTCPFlag = {
     Cwr: "CWR",
 } as const;
 
-export type RuleGroupTCPFlag = (typeof RuleGroupTCPFlag)[keyof typeof RuleGroupTCPFlag];
-
-export const RuleGroupTargetType = {
-    TlsSni: "TLS_SNI",
-    HttpHost: "HTTP_HOST",
-} as const;
-
-export type RuleGroupTargetType = (typeof RuleGroupTargetType)[keyof typeof RuleGroupTargetType];
+export type RuleGroupTcpFlag = (typeof RuleGroupTcpFlag)[keyof typeof RuleGroupTcpFlag];
 
 export const RuleGroupTypeEnum = {
     Stateless: "STATELESS",

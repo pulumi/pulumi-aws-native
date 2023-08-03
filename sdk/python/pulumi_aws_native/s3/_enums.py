@@ -26,7 +26,7 @@ __all__ = [
     'BucketReplicationRuleStatus',
     'BucketReplicationTimeStatus',
     'BucketRuleStatus',
-    'BucketServerSideEncryptionByDefaultSSEAlgorithm',
+    'BucketServerSideEncryptionByDefaultSseAlgorithm',
     'BucketSseKmsEncryptedObjectsStatus',
     'BucketTieringAccessTier',
     'BucketTransitionStorageClass',
@@ -215,7 +215,7 @@ class BucketRuleStatus(str, Enum):
     DISABLED = "Disabled"
 
 
-class BucketServerSideEncryptionByDefaultSSEAlgorithm(str, Enum):
+class BucketServerSideEncryptionByDefaultSseAlgorithm(str, Enum):
     AWSKMS = "aws:kms"
     AES256 = "AES256"
     AWSKMSDSSE = "aws:kms:dsse"

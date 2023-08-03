@@ -20,7 +20,7 @@ type Classifier struct {
 	CsvClassifier  ClassifierCsvClassifierPtrOutput  `pulumi:"csvClassifier"`
 	GrokClassifier ClassifierGrokClassifierPtrOutput `pulumi:"grokClassifier"`
 	JsonClassifier ClassifierJsonClassifierPtrOutput `pulumi:"jsonClassifier"`
-	XmlClassifier  ClassifierXMLClassifierPtrOutput  `pulumi:"xmlClassifier"`
+	XmlClassifier  ClassifierXmlClassifierPtrOutput  `pulumi:"xmlClassifier"`
 }
 
 // NewClassifier registers a new resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ type classifierArgs struct {
 	CsvClassifier  *ClassifierCsvClassifier  `pulumi:"csvClassifier"`
 	GrokClassifier *ClassifierGrokClassifier `pulumi:"grokClassifier"`
 	JsonClassifier *ClassifierJsonClassifier `pulumi:"jsonClassifier"`
-	XmlClassifier  *ClassifierXMLClassifier  `pulumi:"xmlClassifier"`
+	XmlClassifier  *ClassifierXmlClassifier  `pulumi:"xmlClassifier"`
 }
 
 // The set of arguments for constructing a Classifier resource.
@@ -74,7 +74,7 @@ type ClassifierArgs struct {
 	CsvClassifier  ClassifierCsvClassifierPtrInput
 	GrokClassifier ClassifierGrokClassifierPtrInput
 	JsonClassifier ClassifierJsonClassifierPtrInput
-	XmlClassifier  ClassifierXMLClassifierPtrInput
+	XmlClassifier  ClassifierXmlClassifierPtrInput
 }
 
 func (ClassifierArgs) ElementType() reflect.Type {
@@ -126,8 +126,8 @@ func (o ClassifierOutput) JsonClassifier() ClassifierJsonClassifierPtrOutput {
 	return o.ApplyT(func(v *Classifier) ClassifierJsonClassifierPtrOutput { return v.JsonClassifier }).(ClassifierJsonClassifierPtrOutput)
 }
 
-func (o ClassifierOutput) XmlClassifier() ClassifierXMLClassifierPtrOutput {
-	return o.ApplyT(func(v *Classifier) ClassifierXMLClassifierPtrOutput { return v.XmlClassifier }).(ClassifierXMLClassifierPtrOutput)
+func (o ClassifierOutput) XmlClassifier() ClassifierXmlClassifierPtrOutput {
+	return o.ApplyT(func(v *Classifier) ClassifierXmlClassifierPtrOutput { return v.XmlClassifier }).(ClassifierXmlClassifierPtrOutput)
 }
 
 func init() {

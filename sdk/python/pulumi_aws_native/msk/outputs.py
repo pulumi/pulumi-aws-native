@@ -18,7 +18,7 @@ __all__ = [
     'ClusterCloudWatchLogs',
     'ClusterConfigurationInfo',
     'ClusterConnectivityInfo',
-    'ClusterEBSStorageInfo',
+    'ClusterEbsStorageInfo',
     'ClusterEncryptionAtRest',
     'ClusterEncryptionInTransit',
     'ClusterEncryptionInfo',
@@ -300,7 +300,7 @@ class ClusterConnectivityInfo(dict):
 
 
 @pulumi.output_type
-class ClusterEBSStorageInfo(dict):
+class ClusterEbsStorageInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -310,14 +310,14 @@ class ClusterEBSStorageInfo(dict):
             suggest = "volume_size"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterEBSStorageInfo. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEbsStorageInfo. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ClusterEBSStorageInfo.__key_warning(key)
+        ClusterEbsStorageInfo.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ClusterEBSStorageInfo.__key_warning(key)
+        ClusterEbsStorageInfo.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -768,13 +768,13 @@ class ClusterStorageInfo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ebs_storage_info: Optional['outputs.ClusterEBSStorageInfo'] = None):
+                 ebs_storage_info: Optional['outputs.ClusterEbsStorageInfo'] = None):
         if ebs_storage_info is not None:
             pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
 
     @property
     @pulumi.getter(name="ebsStorageInfo")
-    def ebs_storage_info(self) -> Optional['outputs.ClusterEBSStorageInfo']:
+    def ebs_storage_info(self) -> Optional['outputs.ClusterEbsStorageInfo']:
         return pulumi.get(self, "ebs_storage_info")
 
 

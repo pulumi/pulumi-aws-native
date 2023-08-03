@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
     public sealed class ChannelNielsenWatermarksSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("nielsenCbetSettings")]
-        public Input<Inputs.ChannelNielsenCBETArgs>? NielsenCbetSettings { get; set; }
+        public Input<Inputs.ChannelNielsenCbetArgs>? NielsenCbetSettings { get; set; }
 
         [Input("nielsenDistributionType")]
         public Input<string>? NielsenDistributionType { get; set; }

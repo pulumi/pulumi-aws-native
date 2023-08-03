@@ -37,16 +37,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClientVpnTargetNetworkAssociation{}
 	case "aws-native:ec2:CustomerGateway":
 		r = &CustomerGateway{}
-	case "aws-native:ec2:DHCPOptions":
-		r = &DHCPOptions{}
-	case "aws-native:ec2:EC2Fleet":
-		r = &EC2Fleet{}
-	case "aws-native:ec2:EIP":
-		r = &EIP{}
-	case "aws-native:ec2:EIPAssociation":
-		r = &EIPAssociation{}
+	case "aws-native:ec2:DhcpOptions":
+		r = &DhcpOptions{}
+	case "aws-native:ec2:Ec2Fleet":
+		r = &Ec2Fleet{}
 	case "aws-native:ec2:EgressOnlyInternetGateway":
 		r = &EgressOnlyInternetGateway{}
+	case "aws-native:ec2:Eip":
+		r = &Eip{}
+	case "aws-native:ec2:EipAssociation":
+		r = &EipAssociation{}
 	case "aws-native:ec2:EnclaveCertificateIamRoleAssociation":
 		r = &EnclaveCertificateIamRoleAssociation{}
 	case "aws-native:ec2:FlowLog":
@@ -55,24 +55,24 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GatewayRouteTableAssociation{}
 	case "aws-native:ec2:Host":
 		r = &Host{}
-	case "aws-native:ec2:IPAM":
-		r = &IPAM{}
-	case "aws-native:ec2:IPAMAllocation":
-		r = &IPAMAllocation{}
-	case "aws-native:ec2:IPAMPool":
-		r = &IPAMPool{}
-	case "aws-native:ec2:IPAMPoolCidr":
-		r = &IPAMPoolCidr{}
-	case "aws-native:ec2:IPAMResourceDiscovery":
-		r = &IPAMResourceDiscovery{}
-	case "aws-native:ec2:IPAMResourceDiscoveryAssociation":
-		r = &IPAMResourceDiscoveryAssociation{}
-	case "aws-native:ec2:IPAMScope":
-		r = &IPAMScope{}
 	case "aws-native:ec2:Instance":
 		r = &Instance{}
 	case "aws-native:ec2:InternetGateway":
 		r = &InternetGateway{}
+	case "aws-native:ec2:Ipam":
+		r = &Ipam{}
+	case "aws-native:ec2:IpamAllocation":
+		r = &IpamAllocation{}
+	case "aws-native:ec2:IpamPool":
+		r = &IpamPool{}
+	case "aws-native:ec2:IpamPoolCidr":
+		r = &IpamPoolCidr{}
+	case "aws-native:ec2:IpamResourceDiscovery":
+		r = &IpamResourceDiscovery{}
+	case "aws-native:ec2:IpamResourceDiscoveryAssociation":
+		r = &IpamResourceDiscoveryAssociation{}
+	case "aws-native:ec2:IpamScope":
+		r = &IpamScope{}
 	case "aws-native:ec2:KeyPair":
 		r = &KeyPair{}
 	case "aws-native:ec2:LaunchTemplate":
@@ -81,10 +81,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalGatewayRoute{}
 	case "aws-native:ec2:LocalGatewayRouteTable":
 		r = &LocalGatewayRouteTable{}
-	case "aws-native:ec2:LocalGatewayRouteTableVPCAssociation":
-		r = &LocalGatewayRouteTableVPCAssociation{}
 	case "aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation":
 		r = &LocalGatewayRouteTableVirtualInterfaceGroupAssociation{}
+	case "aws-native:ec2:LocalGatewayRouteTableVpcAssociation":
+		r = &LocalGatewayRouteTableVpcAssociation{}
 	case "aws-native:ec2:NatGateway":
 		r = &NatGateway{}
 	case "aws-native:ec2:NetworkAcl":
@@ -165,32 +165,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitGatewayRouteTablePropagation{}
 	case "aws-native:ec2:TransitGatewayVpcAttachment":
 		r = &TransitGatewayVpcAttachment{}
-	case "aws-native:ec2:VPC":
-		r = &VPC{}
-	case "aws-native:ec2:VPCCidrBlock":
-		r = &VPCCidrBlock{}
-	case "aws-native:ec2:VPCDHCPOptionsAssociation":
-		r = &VPCDHCPOptionsAssociation{}
-	case "aws-native:ec2:VPCEndpoint":
-		r = &VPCEndpoint{}
-	case "aws-native:ec2:VPCEndpointConnectionNotification":
-		r = &VPCEndpointConnectionNotification{}
-	case "aws-native:ec2:VPCEndpointService":
-		r = &VPCEndpointService{}
-	case "aws-native:ec2:VPCEndpointServicePermissions":
-		r = &VPCEndpointServicePermissions{}
-	case "aws-native:ec2:VPCGatewayAttachment":
-		r = &VPCGatewayAttachment{}
-	case "aws-native:ec2:VPCPeeringConnection":
-		r = &VPCPeeringConnection{}
-	case "aws-native:ec2:VPNConnection":
-		r = &VPNConnection{}
-	case "aws-native:ec2:VPNConnectionRoute":
-		r = &VPNConnectionRoute{}
-	case "aws-native:ec2:VPNGateway":
-		r = &VPNGateway{}
-	case "aws-native:ec2:VPNGatewayRoutePropagation":
-		r = &VPNGatewayRoutePropagation{}
 	case "aws-native:ec2:VerifiedAccessEndpoint":
 		r = &VerifiedAccessEndpoint{}
 	case "aws-native:ec2:VerifiedAccessGroup":
@@ -203,6 +177,32 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Volume{}
 	case "aws-native:ec2:VolumeAttachment":
 		r = &VolumeAttachment{}
+	case "aws-native:ec2:Vpc":
+		r = &Vpc{}
+	case "aws-native:ec2:VpcCidrBlock":
+		r = &VpcCidrBlock{}
+	case "aws-native:ec2:VpcEndpoint":
+		r = &VpcEndpoint{}
+	case "aws-native:ec2:VpcEndpointConnectionNotification":
+		r = &VpcEndpointConnectionNotification{}
+	case "aws-native:ec2:VpcEndpointService":
+		r = &VpcEndpointService{}
+	case "aws-native:ec2:VpcEndpointServicePermissions":
+		r = &VpcEndpointServicePermissions{}
+	case "aws-native:ec2:VpcGatewayAttachment":
+		r = &VpcGatewayAttachment{}
+	case "aws-native:ec2:VpcPeeringConnection":
+		r = &VpcPeeringConnection{}
+	case "aws-native:ec2:VpcdhcpOptionsAssociation":
+		r = &VpcdhcpOptionsAssociation{}
+	case "aws-native:ec2:VpnConnection":
+		r = &VpnConnection{}
+	case "aws-native:ec2:VpnConnectionRoute":
+		r = &VpnConnectionRoute{}
+	case "aws-native:ec2:VpnGateway":
+		r = &VpnGateway{}
+	case "aws-native:ec2:VpnGatewayRoutePropagation":
+		r = &VpnGatewayRoutePropagation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

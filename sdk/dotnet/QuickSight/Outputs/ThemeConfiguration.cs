@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.ThemeDataColorPalette? DataColorPalette;
         public readonly Outputs.ThemeSheetStyle? Sheet;
         public readonly Outputs.ThemeTypography? Typography;
-        public readonly Outputs.ThemeUIColorPalette? UiColorPalette;
+        public readonly Outputs.ThemeUiColorPalette? UiColorPalette;
 
         [OutputConstructor]
         private ThemeConfiguration(
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.ThemeTypography? typography,
 
-            Outputs.ThemeUIColorPalette? uiColorPalette)
+            Outputs.ThemeUiColorPalette? uiColorPalette)
         {
             DataColorPalette = dataColorPalette;
             Sheet = sheet;

@@ -21,28 +21,28 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:rds:CustomDBEngineVersion":
-		r = &CustomDBEngineVersion{}
-	case "aws-native:rds:DBCluster":
-		r = &DBCluster{}
-	case "aws-native:rds:DBClusterParameterGroup":
-		r = &DBClusterParameterGroup{}
-	case "aws-native:rds:DBInstance":
-		r = &DBInstance{}
-	case "aws-native:rds:DBParameterGroup":
-		r = &DBParameterGroup{}
-	case "aws-native:rds:DBProxy":
-		r = &DBProxy{}
-	case "aws-native:rds:DBProxyEndpoint":
-		r = &DBProxyEndpoint{}
-	case "aws-native:rds:DBProxyTargetGroup":
-		r = &DBProxyTargetGroup{}
-	case "aws-native:rds:DBSecurityGroup":
-		r = &DBSecurityGroup{}
-	case "aws-native:rds:DBSecurityGroupIngress":
-		r = &DBSecurityGroupIngress{}
-	case "aws-native:rds:DBSubnetGroup":
-		r = &DBSubnetGroup{}
+	case "aws-native:rds:CustomDbEngineVersion":
+		r = &CustomDbEngineVersion{}
+	case "aws-native:rds:DbCluster":
+		r = &DbCluster{}
+	case "aws-native:rds:DbClusterParameterGroup":
+		r = &DbClusterParameterGroup{}
+	case "aws-native:rds:DbInstance":
+		r = &DbInstance{}
+	case "aws-native:rds:DbParameterGroup":
+		r = &DbParameterGroup{}
+	case "aws-native:rds:DbProxy":
+		r = &DbProxy{}
+	case "aws-native:rds:DbProxyEndpoint":
+		r = &DbProxyEndpoint{}
+	case "aws-native:rds:DbProxyTargetGroup":
+		r = &DbProxyTargetGroup{}
+	case "aws-native:rds:DbSecurityGroup":
+		r = &DbSecurityGroup{}
+	case "aws-native:rds:DbSecurityGroupIngress":
+		r = &DbSecurityGroupIngress{}
+	case "aws-native:rds:DbSubnetGroup":
+		r = &DbSubnetGroup{}
 	case "aws-native:rds:EventSubscription":
 		r = &EventSubscription{}
 	case "aws-native:rds:GlobalCluster":

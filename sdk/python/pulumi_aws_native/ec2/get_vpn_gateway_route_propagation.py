@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetVPNGatewayRoutePropagationResult',
-    'AwaitableGetVPNGatewayRoutePropagationResult',
+    'GetVpnGatewayRoutePropagationResult',
+    'AwaitableGetVpnGatewayRoutePropagationResult',
     'get_vpn_gateway_route_propagation',
     'get_vpn_gateway_route_propagation_output',
 ]
 
 @pulumi.output_type
-class GetVPNGatewayRoutePropagationResult:
+class GetVpnGatewayRoutePropagationResult:
     def __init__(__self__, id=None, route_table_ids=None, vpn_gateway_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -45,28 +45,28 @@ class GetVPNGatewayRoutePropagationResult:
         return pulumi.get(self, "vpn_gateway_id")
 
 
-class AwaitableGetVPNGatewayRoutePropagationResult(GetVPNGatewayRoutePropagationResult):
+class AwaitableGetVpnGatewayRoutePropagationResult(GetVpnGatewayRoutePropagationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVPNGatewayRoutePropagationResult(
+        return GetVpnGatewayRoutePropagationResult(
             id=self.id,
             route_table_ids=self.route_table_ids,
             vpn_gateway_id=self.vpn_gateway_id)
 
 
 def get_vpn_gateway_route_propagation(id: Optional[str] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPNGatewayRoutePropagationResult:
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnGatewayRoutePropagationResult:
     """
     Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPNGatewayRoutePropagation', __args__, opts=opts, typ=GetVPNGatewayRoutePropagationResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpnGatewayRoutePropagation', __args__, opts=opts, typ=GetVpnGatewayRoutePropagationResult).value
 
-    return AwaitableGetVPNGatewayRoutePropagationResult(
+    return AwaitableGetVpnGatewayRoutePropagationResult(
         id=pulumi.get(__ret__, 'id'),
         route_table_ids=pulumi.get(__ret__, 'route_table_ids'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
@@ -74,7 +74,7 @@ def get_vpn_gateway_route_propagation(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_vpn_gateway_route_propagation)
 def get_vpn_gateway_route_propagation_output(id: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPNGatewayRoutePropagationResult]:
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnGatewayRoutePropagationResult]:
     """
     Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
     """

@@ -25,7 +25,7 @@ class LoadBalancerArgs:
                  cross_zone: Optional[pulumi.Input[bool]] = None,
                  health_check: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 lb_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLBCookieStickinessPolicyArgs']]]] = None,
+                 lb_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLbCookieStickinessPolicyArgs']]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPoliciesArgs']]]] = None,
                  scheme: Optional[pulumi.Input[str]] = None,
@@ -156,11 +156,11 @@ class LoadBalancerArgs:
 
     @property
     @pulumi.getter(name="lbCookieStickinessPolicy")
-    def lb_cookie_stickiness_policy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLBCookieStickinessPolicyArgs']]]]:
+    def lb_cookie_stickiness_policy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLbCookieStickinessPolicyArgs']]]]:
         return pulumi.get(self, "lb_cookie_stickiness_policy")
 
     @lb_cookie_stickiness_policy.setter
-    def lb_cookie_stickiness_policy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLBCookieStickinessPolicyArgs']]]]):
+    def lb_cookie_stickiness_policy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLbCookieStickinessPolicyArgs']]]]):
         pulumi.set(self, "lb_cookie_stickiness_policy", value)
 
     @property
@@ -254,7 +254,7 @@ class LoadBalancer(pulumi.CustomResource):
                  cross_zone: Optional[pulumi.Input[bool]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['LoadBalancerHealthCheckArgs']]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 lb_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerLBCookieStickinessPolicyArgs']]]]] = None,
+                 lb_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerLbCookieStickinessPolicyArgs']]]]] = None,
                  listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerListenersArgs']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerPoliciesArgs']]]]] = None,
@@ -303,7 +303,7 @@ class LoadBalancer(pulumi.CustomResource):
                  cross_zone: Optional[pulumi.Input[bool]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['LoadBalancerHealthCheckArgs']]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 lb_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerLBCookieStickinessPolicyArgs']]]]] = None,
+                 lb_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerLbCookieStickinessPolicyArgs']]]]] = None,
                  listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerListenersArgs']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerPoliciesArgs']]]]] = None,
@@ -448,7 +448,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lbCookieStickinessPolicy")
-    def lb_cookie_stickiness_policy(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerLBCookieStickinessPolicy']]]:
+    def lb_cookie_stickiness_policy(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerLbCookieStickinessPolicy']]]:
         return pulumi.get(self, "lb_cookie_stickiness_policy")
 
     @property

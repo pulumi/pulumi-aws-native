@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetIPAMResourceDiscoveryAssociationResult',
-    'AwaitableGetIPAMResourceDiscoveryAssociationResult',
+    'GetIpamResourceDiscoveryAssociationResult',
+    'AwaitableGetIpamResourceDiscoveryAssociationResult',
     'get_ipam_resource_discovery_association',
     'get_ipam_resource_discovery_association_output',
 ]
 
 @pulumi.output_type
-class GetIPAMResourceDiscoveryAssociationResult:
+class GetIpamResourceDiscoveryAssociationResult:
     def __init__(__self__, ipam_arn=None, ipam_region=None, ipam_resource_discovery_association_arn=None, ipam_resource_discovery_association_id=None, is_default=None, owner_id=None, resource_discovery_status=None, state=None, tags=None):
         if ipam_arn and not isinstance(ipam_arn, str):
             raise TypeError("Expected argument 'ipam_arn' to be a str")
@@ -114,19 +114,19 @@ class GetIPAMResourceDiscoveryAssociationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.IPAMResourceDiscoveryAssociationTag']]:
+    def tags(self) -> Optional[Sequence['outputs.IpamResourceDiscoveryAssociationTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIPAMResourceDiscoveryAssociationResult(GetIPAMResourceDiscoveryAssociationResult):
+class AwaitableGetIpamResourceDiscoveryAssociationResult(GetIpamResourceDiscoveryAssociationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIPAMResourceDiscoveryAssociationResult(
+        return GetIpamResourceDiscoveryAssociationResult(
             ipam_arn=self.ipam_arn,
             ipam_region=self.ipam_region,
             ipam_resource_discovery_association_arn=self.ipam_resource_discovery_association_arn,
@@ -139,7 +139,7 @@ class AwaitableGetIPAMResourceDiscoveryAssociationResult(GetIPAMResourceDiscover
 
 
 def get_ipam_resource_discovery_association(ipam_resource_discovery_association_id: Optional[str] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPAMResourceDiscoveryAssociationResult:
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamResourceDiscoveryAssociationResult:
     """
     Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
 
@@ -149,9 +149,9 @@ def get_ipam_resource_discovery_association(ipam_resource_discovery_association_
     __args__ = dict()
     __args__['ipamResourceDiscoveryAssociationId'] = ipam_resource_discovery_association_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMResourceDiscoveryAssociation', __args__, opts=opts, typ=GetIPAMResourceDiscoveryAssociationResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIpamResourceDiscoveryAssociation', __args__, opts=opts, typ=GetIpamResourceDiscoveryAssociationResult).value
 
-    return AwaitableGetIPAMResourceDiscoveryAssociationResult(
+    return AwaitableGetIpamResourceDiscoveryAssociationResult(
         ipam_arn=pulumi.get(__ret__, 'ipam_arn'),
         ipam_region=pulumi.get(__ret__, 'ipam_region'),
         ipam_resource_discovery_association_arn=pulumi.get(__ret__, 'ipam_resource_discovery_association_arn'),
@@ -165,7 +165,7 @@ def get_ipam_resource_discovery_association(ipam_resource_discovery_association_
 
 @_utilities.lift_output_func(get_ipam_resource_discovery_association)
 def get_ipam_resource_discovery_association_output(ipam_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPAMResourceDiscoveryAssociationResult]:
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamResourceDiscoveryAssociationResult]:
     """
     Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
 

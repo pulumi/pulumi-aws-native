@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetADMChannelResult',
-    'AwaitableGetADMChannelResult',
+    'GetAdmChannelResult',
+    'AwaitableGetAdmChannelResult',
     'get_adm_channel',
     'get_adm_channel_output',
 ]
 
 @pulumi.output_type
-class GetADMChannelResult:
+class GetAdmChannelResult:
     def __init__(__self__, client_id=None, client_secret=None, enabled=None, id=None):
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
@@ -53,12 +53,12 @@ class GetADMChannelResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetADMChannelResult(GetADMChannelResult):
+class AwaitableGetAdmChannelResult(GetAdmChannelResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetADMChannelResult(
+        return GetAdmChannelResult(
             client_id=self.client_id,
             client_secret=self.client_secret,
             enabled=self.enabled,
@@ -66,16 +66,16 @@ class AwaitableGetADMChannelResult(GetADMChannelResult):
 
 
 def get_adm_channel(id: Optional[str] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADMChannelResult:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdmChannelResult:
     """
     Resource Type definition for AWS::Pinpoint::ADMChannel
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getADMChannel', __args__, opts=opts, typ=GetADMChannelResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getAdmChannel', __args__, opts=opts, typ=GetAdmChannelResult).value
 
-    return AwaitableGetADMChannelResult(
+    return AwaitableGetAdmChannelResult(
         client_id=pulumi.get(__ret__, 'client_id'),
         client_secret=pulumi.get(__ret__, 'client_secret'),
         enabled=pulumi.get(__ret__, 'enabled'),
@@ -84,7 +84,7 @@ def get_adm_channel(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_adm_channel)
 def get_adm_channel_output(id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADMChannelResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdmChannelResult]:
     """
     Resource Type definition for AWS::Pinpoint::ADMChannel
     """

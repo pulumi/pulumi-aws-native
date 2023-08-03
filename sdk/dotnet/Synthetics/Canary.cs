@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Synthetics
         /// Provide VPC Configuration if enabled.
         /// </summary>
         [Output("vpcConfig")]
-        public Output<Outputs.CanaryVPCConfig?> VpcConfig { get; private set; } = null!;
+        public Output<Outputs.CanaryVpcConfig?> VpcConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -243,7 +243,7 @@ namespace Pulumi.AwsNative.Synthetics
         /// Provide VPC Configuration if enabled.
         /// </summary>
         [Input("vpcConfig")]
-        public Input<Inputs.CanaryVPCConfigArgs>? VpcConfig { get; set; }
+        public Input<Inputs.CanaryVpcConfigArgs>? VpcConfig { get; set; }
 
         public CanaryArgs()
         {

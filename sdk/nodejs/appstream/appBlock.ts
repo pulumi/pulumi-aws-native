@@ -46,7 +46,7 @@ export class AppBlock extends pulumi.CustomResource {
     public readonly postSetupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
     public readonly setupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
     public readonly sourceS3Location!: pulumi.Output<outputs.appstream.AppBlockS3Location>;
-    public readonly tags!: pulumi.Output<(outputs.appstream.Tag0Properties | outputs.appstream.Tag1Properties)[] | undefined>;
+    public readonly tags!: pulumi.Output<(outputs.appstream.AppBlockTag0Properties | outputs.appstream.AppBlockTag1Properties)[] | undefined>;
 
     /**
      * Create a AppBlock resource with the given unique name, arguments, and options.
@@ -100,5 +100,5 @@ export interface AppBlockArgs {
     postSetupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
     setupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
     sourceS3Location: pulumi.Input<inputs.appstream.AppBlockS3LocationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appstream.Tag0PropertiesArgs | inputs.appstream.Tag1PropertiesArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.appstream.AppBlockTag0PropertiesArgs | inputs.appstream.AppBlockTag1PropertiesArgs>[]>;
 }

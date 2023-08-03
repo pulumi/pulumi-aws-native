@@ -767,13 +767,13 @@ export const AnalysisTopBottomSortOrder = {
 
 export type AnalysisTopBottomSortOrder = (typeof AnalysisTopBottomSortOrder)[keyof typeof AnalysisTopBottomSortOrder];
 
-export const AnalysisURLTargetConfiguration = {
+export const AnalysisUrlTargetConfiguration = {
     NewTab: "NEW_TAB",
     NewWindow: "NEW_WINDOW",
     SameTab: "SAME_TAB",
 } as const;
 
-export type AnalysisURLTargetConfiguration = (typeof AnalysisURLTargetConfiguration)[keyof typeof AnalysisURLTargetConfiguration];
+export type AnalysisUrlTargetConfiguration = (typeof AnalysisUrlTargetConfiguration)[keyof typeof AnalysisUrlTargetConfiguration];
 
 export const AnalysisValueWhenUnsetOption = {
     RecommendedValue: "RECOMMENDED_VALUE",
@@ -1620,20 +1620,20 @@ export const DashboardTopBottomSortOrder = {
 
 export type DashboardTopBottomSortOrder = (typeof DashboardTopBottomSortOrder)[keyof typeof DashboardTopBottomSortOrder];
 
-export const DashboardUIState = {
+export const DashboardUiState = {
     Expanded: "EXPANDED",
     Collapsed: "COLLAPSED",
 } as const;
 
-export type DashboardUIState = (typeof DashboardUIState)[keyof typeof DashboardUIState];
+export type DashboardUiState = (typeof DashboardUiState)[keyof typeof DashboardUiState];
 
-export const DashboardURLTargetConfiguration = {
+export const DashboardUrlTargetConfiguration = {
     NewTab: "NEW_TAB",
     NewWindow: "NEW_WINDOW",
     SameTab: "SAME_TAB",
 } as const;
 
-export type DashboardURLTargetConfiguration = (typeof DashboardURLTargetConfiguration)[keyof typeof DashboardURLTargetConfiguration];
+export type DashboardUrlTargetConfiguration = (typeof DashboardUrlTargetConfiguration)[keyof typeof DashboardUrlTargetConfiguration];
 
 export const DashboardValueWhenUnsetOption = {
     RecommendedValue: "RECOMMENDED_VALUE",
@@ -2627,13 +2627,13 @@ export const TemplateTopBottomSortOrder = {
 
 export type TemplateTopBottomSortOrder = (typeof TemplateTopBottomSortOrder)[keyof typeof TemplateTopBottomSortOrder];
 
-export const TemplateURLTargetConfiguration = {
+export const TemplateUrlTargetConfiguration = {
     NewTab: "NEW_TAB",
     NewWindow: "NEW_WINDOW",
     SameTab: "SAME_TAB",
 } as const;
 
-export type TemplateURLTargetConfiguration = (typeof TemplateURLTargetConfiguration)[keyof typeof TemplateURLTargetConfiguration];
+export type TemplateUrlTargetConfiguration = (typeof TemplateUrlTargetConfiguration)[keyof typeof TemplateUrlTargetConfiguration];
 
 export const TemplateValueWhenUnsetOption = {
     RecommendedValue: "RECOMMENDED_VALUE",
@@ -2927,15 +2927,7 @@ export const TopicUndefinedSpecifiedValueType = {
 
 export type TopicUndefinedSpecifiedValueType = (typeof TopicUndefinedSpecifiedValueType)[keyof typeof TopicUndefinedSpecifiedValueType];
 
-export const VPCConnectionAvailabilityStatus = {
-    Available: "AVAILABLE",
-    Unavailable: "UNAVAILABLE",
-    PartiallyAvailable: "PARTIALLY_AVAILABLE",
-} as const;
-
-export type VPCConnectionAvailabilityStatus = (typeof VPCConnectionAvailabilityStatus)[keyof typeof VPCConnectionAvailabilityStatus];
-
-export const VPCConnectionNetworkInterfaceStatus = {
+export const VpcConnectionNetworkInterfaceStatus = {
     Creating: "CREATING",
     Available: "AVAILABLE",
     CreationFailed: "CREATION_FAILED",
@@ -2948,9 +2940,17 @@ export const VPCConnectionNetworkInterfaceStatus = {
     AttachmentFailedRollbackFailed: "ATTACHMENT_FAILED_ROLLBACK_FAILED",
 } as const;
 
-export type VPCConnectionNetworkInterfaceStatus = (typeof VPCConnectionNetworkInterfaceStatus)[keyof typeof VPCConnectionNetworkInterfaceStatus];
+export type VpcConnectionNetworkInterfaceStatus = (typeof VpcConnectionNetworkInterfaceStatus)[keyof typeof VpcConnectionNetworkInterfaceStatus];
 
-export const VPCConnectionResourceStatus = {
+export const VpcConnectionVpcConnectionAvailabilityStatus = {
+    Available: "AVAILABLE",
+    Unavailable: "UNAVAILABLE",
+    PartiallyAvailable: "PARTIALLY_AVAILABLE",
+} as const;
+
+export type VpcConnectionVpcConnectionAvailabilityStatus = (typeof VpcConnectionVpcConnectionAvailabilityStatus)[keyof typeof VpcConnectionVpcConnectionAvailabilityStatus];
+
+export const VpcConnectionVpcConnectionResourceStatus = {
     CreationInProgress: "CREATION_IN_PROGRESS",
     CreationSuccessful: "CREATION_SUCCESSFUL",
     CreationFailed: "CREATION_FAILED",
@@ -2962,4 +2962,4 @@ export const VPCConnectionResourceStatus = {
     Deleted: "DELETED",
 } as const;
 
-export type VPCConnectionResourceStatus = (typeof VPCConnectionResourceStatus)[keyof typeof VPCConnectionResourceStatus];
+export type VpcConnectionVpcConnectionResourceStatus = (typeof VpcConnectionVpcConnectionResourceStatus)[keyof typeof VpcConnectionVpcConnectionResourceStatus];

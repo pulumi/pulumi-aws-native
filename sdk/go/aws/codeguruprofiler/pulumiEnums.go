@@ -15,7 +15,7 @@ type ProfilingGroupComputePlatform string
 
 const (
 	ProfilingGroupComputePlatformDefault   = ProfilingGroupComputePlatform("Default")
-	ProfilingGroupComputePlatformAWSLambda = ProfilingGroupComputePlatform("AWSLambda")
+	ProfilingGroupComputePlatformAwsLambda = ProfilingGroupComputePlatform("AWSLambda")
 )
 
 func (ProfilingGroupComputePlatform) ElementType() reflect.Type {

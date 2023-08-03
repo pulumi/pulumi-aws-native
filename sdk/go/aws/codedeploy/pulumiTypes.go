@@ -1905,531 +1905,531 @@ func (o DeploymentGroupDeploymentStylePtrOutput) DeploymentType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-type DeploymentGroupEC2TagFilter struct {
+type DeploymentGroupEc2TagFilter struct {
 	Key   *string `pulumi:"key"`
 	Type  *string `pulumi:"type"`
 	Value *string `pulumi:"value"`
 }
 
-// DeploymentGroupEC2TagFilterInput is an input type that accepts DeploymentGroupEC2TagFilterArgs and DeploymentGroupEC2TagFilterOutput values.
-// You can construct a concrete instance of `DeploymentGroupEC2TagFilterInput` via:
+// DeploymentGroupEc2TagFilterInput is an input type that accepts DeploymentGroupEc2TagFilterArgs and DeploymentGroupEc2TagFilterOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagFilterInput` via:
 //
-//	DeploymentGroupEC2TagFilterArgs{...}
-type DeploymentGroupEC2TagFilterInput interface {
+//	DeploymentGroupEc2TagFilterArgs{...}
+type DeploymentGroupEc2TagFilterInput interface {
 	pulumi.Input
 
-	ToDeploymentGroupEC2TagFilterOutput() DeploymentGroupEC2TagFilterOutput
-	ToDeploymentGroupEC2TagFilterOutputWithContext(context.Context) DeploymentGroupEC2TagFilterOutput
+	ToDeploymentGroupEc2TagFilterOutput() DeploymentGroupEc2TagFilterOutput
+	ToDeploymentGroupEc2TagFilterOutputWithContext(context.Context) DeploymentGroupEc2TagFilterOutput
 }
 
-type DeploymentGroupEC2TagFilterArgs struct {
+type DeploymentGroupEc2TagFilterArgs struct {
 	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Type  pulumi.StringPtrInput `pulumi:"type"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (DeploymentGroupEC2TagFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupEC2TagFilter)(nil)).Elem()
+func (DeploymentGroupEc2TagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagFilter)(nil)).Elem()
 }
 
-func (i DeploymentGroupEC2TagFilterArgs) ToDeploymentGroupEC2TagFilterOutput() DeploymentGroupEC2TagFilterOutput {
-	return i.ToDeploymentGroupEC2TagFilterOutputWithContext(context.Background())
+func (i DeploymentGroupEc2TagFilterArgs) ToDeploymentGroupEc2TagFilterOutput() DeploymentGroupEc2TagFilterOutput {
+	return i.ToDeploymentGroupEc2TagFilterOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroupEC2TagFilterArgs) ToDeploymentGroupEC2TagFilterOutputWithContext(ctx context.Context) DeploymentGroupEC2TagFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEC2TagFilterOutput)
+func (i DeploymentGroupEc2TagFilterArgs) ToDeploymentGroupEc2TagFilterOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagFilterOutput)
 }
 
-// DeploymentGroupEC2TagFilterArrayInput is an input type that accepts DeploymentGroupEC2TagFilterArray and DeploymentGroupEC2TagFilterArrayOutput values.
-// You can construct a concrete instance of `DeploymentGroupEC2TagFilterArrayInput` via:
+// DeploymentGroupEc2TagFilterArrayInput is an input type that accepts DeploymentGroupEc2TagFilterArray and DeploymentGroupEc2TagFilterArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagFilterArrayInput` via:
 //
-//	DeploymentGroupEC2TagFilterArray{ DeploymentGroupEC2TagFilterArgs{...} }
-type DeploymentGroupEC2TagFilterArrayInput interface {
+//	DeploymentGroupEc2TagFilterArray{ DeploymentGroupEc2TagFilterArgs{...} }
+type DeploymentGroupEc2TagFilterArrayInput interface {
 	pulumi.Input
 
-	ToDeploymentGroupEC2TagFilterArrayOutput() DeploymentGroupEC2TagFilterArrayOutput
-	ToDeploymentGroupEC2TagFilterArrayOutputWithContext(context.Context) DeploymentGroupEC2TagFilterArrayOutput
+	ToDeploymentGroupEc2TagFilterArrayOutput() DeploymentGroupEc2TagFilterArrayOutput
+	ToDeploymentGroupEc2TagFilterArrayOutputWithContext(context.Context) DeploymentGroupEc2TagFilterArrayOutput
 }
 
-type DeploymentGroupEC2TagFilterArray []DeploymentGroupEC2TagFilterInput
+type DeploymentGroupEc2TagFilterArray []DeploymentGroupEc2TagFilterInput
 
-func (DeploymentGroupEC2TagFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroupEC2TagFilter)(nil)).Elem()
+func (DeploymentGroupEc2TagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEc2TagFilter)(nil)).Elem()
 }
 
-func (i DeploymentGroupEC2TagFilterArray) ToDeploymentGroupEC2TagFilterArrayOutput() DeploymentGroupEC2TagFilterArrayOutput {
-	return i.ToDeploymentGroupEC2TagFilterArrayOutputWithContext(context.Background())
+func (i DeploymentGroupEc2TagFilterArray) ToDeploymentGroupEc2TagFilterArrayOutput() DeploymentGroupEc2TagFilterArrayOutput {
+	return i.ToDeploymentGroupEc2TagFilterArrayOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroupEC2TagFilterArray) ToDeploymentGroupEC2TagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupEC2TagFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEC2TagFilterArrayOutput)
+func (i DeploymentGroupEc2TagFilterArray) ToDeploymentGroupEc2TagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagFilterArrayOutput)
 }
 
-type DeploymentGroupEC2TagFilterOutput struct{ *pulumi.OutputState }
+type DeploymentGroupEc2TagFilterOutput struct{ *pulumi.OutputState }
 
-func (DeploymentGroupEC2TagFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupEC2TagFilter)(nil)).Elem()
+func (DeploymentGroupEc2TagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagFilter)(nil)).Elem()
 }
 
-func (o DeploymentGroupEC2TagFilterOutput) ToDeploymentGroupEC2TagFilterOutput() DeploymentGroupEC2TagFilterOutput {
+func (o DeploymentGroupEc2TagFilterOutput) ToDeploymentGroupEc2TagFilterOutput() DeploymentGroupEc2TagFilterOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagFilterOutput) ToDeploymentGroupEC2TagFilterOutputWithContext(ctx context.Context) DeploymentGroupEC2TagFilterOutput {
+func (o DeploymentGroupEc2TagFilterOutput) ToDeploymentGroupEc2TagFilterOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFilterOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagFilterOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupEC2TagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+func (o DeploymentGroupEc2TagFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2TagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-func (o DeploymentGroupEC2TagFilterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupEC2TagFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o DeploymentGroupEc2TagFilterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2TagFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-func (o DeploymentGroupEC2TagFilterOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupEC2TagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o DeploymentGroupEc2TagFilterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2TagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DeploymentGroupEC2TagFilterArrayOutput struct{ *pulumi.OutputState }
+type DeploymentGroupEc2TagFilterArrayOutput struct{ *pulumi.OutputState }
 
-func (DeploymentGroupEC2TagFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroupEC2TagFilter)(nil)).Elem()
+func (DeploymentGroupEc2TagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEc2TagFilter)(nil)).Elem()
 }
 
-func (o DeploymentGroupEC2TagFilterArrayOutput) ToDeploymentGroupEC2TagFilterArrayOutput() DeploymentGroupEC2TagFilterArrayOutput {
+func (o DeploymentGroupEc2TagFilterArrayOutput) ToDeploymentGroupEc2TagFilterArrayOutput() DeploymentGroupEc2TagFilterArrayOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagFilterArrayOutput) ToDeploymentGroupEC2TagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupEC2TagFilterArrayOutput {
+func (o DeploymentGroupEc2TagFilterArrayOutput) ToDeploymentGroupEc2TagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFilterArrayOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagFilterArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEC2TagFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEC2TagFilter {
-		return vs[0].([]DeploymentGroupEC2TagFilter)[vs[1].(int)]
-	}).(DeploymentGroupEC2TagFilterOutput)
+func (o DeploymentGroupEc2TagFilterArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEc2TagFilter {
+		return vs[0].([]DeploymentGroupEc2TagFilter)[vs[1].(int)]
+	}).(DeploymentGroupEc2TagFilterOutput)
 }
 
-type DeploymentGroupEC2TagSet struct {
-	Ec2TagSetList []DeploymentGroupEC2TagSetListObject `pulumi:"ec2TagSetList"`
+type DeploymentGroupEc2TagSet struct {
+	Ec2TagSetList []DeploymentGroupEc2TagSetListObject `pulumi:"ec2TagSetList"`
 }
 
-// DeploymentGroupEC2TagSetInput is an input type that accepts DeploymentGroupEC2TagSetArgs and DeploymentGroupEC2TagSetOutput values.
-// You can construct a concrete instance of `DeploymentGroupEC2TagSetInput` via:
+// DeploymentGroupEc2TagSetInput is an input type that accepts DeploymentGroupEc2TagSetArgs and DeploymentGroupEc2TagSetOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetInput` via:
 //
-//	DeploymentGroupEC2TagSetArgs{...}
-type DeploymentGroupEC2TagSetInput interface {
+//	DeploymentGroupEc2TagSetArgs{...}
+type DeploymentGroupEc2TagSetInput interface {
 	pulumi.Input
 
-	ToDeploymentGroupEC2TagSetOutput() DeploymentGroupEC2TagSetOutput
-	ToDeploymentGroupEC2TagSetOutputWithContext(context.Context) DeploymentGroupEC2TagSetOutput
+	ToDeploymentGroupEc2TagSetOutput() DeploymentGroupEc2TagSetOutput
+	ToDeploymentGroupEc2TagSetOutputWithContext(context.Context) DeploymentGroupEc2TagSetOutput
 }
 
-type DeploymentGroupEC2TagSetArgs struct {
-	Ec2TagSetList DeploymentGroupEC2TagSetListObjectArrayInput `pulumi:"ec2TagSetList"`
+type DeploymentGroupEc2TagSetArgs struct {
+	Ec2TagSetList DeploymentGroupEc2TagSetListObjectArrayInput `pulumi:"ec2TagSetList"`
 }
 
-func (DeploymentGroupEC2TagSetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupEC2TagSet)(nil)).Elem()
+func (DeploymentGroupEc2TagSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagSet)(nil)).Elem()
 }
 
-func (i DeploymentGroupEC2TagSetArgs) ToDeploymentGroupEC2TagSetOutput() DeploymentGroupEC2TagSetOutput {
-	return i.ToDeploymentGroupEC2TagSetOutputWithContext(context.Background())
+func (i DeploymentGroupEc2TagSetArgs) ToDeploymentGroupEc2TagSetOutput() DeploymentGroupEc2TagSetOutput {
+	return i.ToDeploymentGroupEc2TagSetOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroupEC2TagSetArgs) ToDeploymentGroupEC2TagSetOutputWithContext(ctx context.Context) DeploymentGroupEC2TagSetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEC2TagSetOutput)
+func (i DeploymentGroupEc2TagSetArgs) ToDeploymentGroupEc2TagSetOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetOutput)
 }
 
-func (i DeploymentGroupEC2TagSetArgs) ToDeploymentGroupEC2TagSetPtrOutput() DeploymentGroupEC2TagSetPtrOutput {
-	return i.ToDeploymentGroupEC2TagSetPtrOutputWithContext(context.Background())
+func (i DeploymentGroupEc2TagSetArgs) ToDeploymentGroupEc2TagSetPtrOutput() DeploymentGroupEc2TagSetPtrOutput {
+	return i.ToDeploymentGroupEc2TagSetPtrOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroupEC2TagSetArgs) ToDeploymentGroupEC2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEC2TagSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEC2TagSetOutput).ToDeploymentGroupEC2TagSetPtrOutputWithContext(ctx)
+func (i DeploymentGroupEc2TagSetArgs) ToDeploymentGroupEc2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetOutput).ToDeploymentGroupEc2TagSetPtrOutputWithContext(ctx)
 }
 
-// DeploymentGroupEC2TagSetPtrInput is an input type that accepts DeploymentGroupEC2TagSetArgs, DeploymentGroupEC2TagSetPtr and DeploymentGroupEC2TagSetPtrOutput values.
-// You can construct a concrete instance of `DeploymentGroupEC2TagSetPtrInput` via:
+// DeploymentGroupEc2TagSetPtrInput is an input type that accepts DeploymentGroupEc2TagSetArgs, DeploymentGroupEc2TagSetPtr and DeploymentGroupEc2TagSetPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetPtrInput` via:
 //
-//	        DeploymentGroupEC2TagSetArgs{...}
+//	        DeploymentGroupEc2TagSetArgs{...}
 //
 //	or:
 //
 //	        nil
-type DeploymentGroupEC2TagSetPtrInput interface {
+type DeploymentGroupEc2TagSetPtrInput interface {
 	pulumi.Input
 
-	ToDeploymentGroupEC2TagSetPtrOutput() DeploymentGroupEC2TagSetPtrOutput
-	ToDeploymentGroupEC2TagSetPtrOutputWithContext(context.Context) DeploymentGroupEC2TagSetPtrOutput
+	ToDeploymentGroupEc2TagSetPtrOutput() DeploymentGroupEc2TagSetPtrOutput
+	ToDeploymentGroupEc2TagSetPtrOutputWithContext(context.Context) DeploymentGroupEc2TagSetPtrOutput
 }
 
-type deploymentGroupEC2TagSetPtrType DeploymentGroupEC2TagSetArgs
+type deploymentGroupEc2TagSetPtrType DeploymentGroupEc2TagSetArgs
 
-func DeploymentGroupEC2TagSetPtr(v *DeploymentGroupEC2TagSetArgs) DeploymentGroupEC2TagSetPtrInput {
-	return (*deploymentGroupEC2TagSetPtrType)(v)
+func DeploymentGroupEc2TagSetPtr(v *DeploymentGroupEc2TagSetArgs) DeploymentGroupEc2TagSetPtrInput {
+	return (*deploymentGroupEc2TagSetPtrType)(v)
 }
 
-func (*deploymentGroupEC2TagSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentGroupEC2TagSet)(nil)).Elem()
+func (*deploymentGroupEc2TagSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupEc2TagSet)(nil)).Elem()
 }
 
-func (i *deploymentGroupEC2TagSetPtrType) ToDeploymentGroupEC2TagSetPtrOutput() DeploymentGroupEC2TagSetPtrOutput {
-	return i.ToDeploymentGroupEC2TagSetPtrOutputWithContext(context.Background())
+func (i *deploymentGroupEc2TagSetPtrType) ToDeploymentGroupEc2TagSetPtrOutput() DeploymentGroupEc2TagSetPtrOutput {
+	return i.ToDeploymentGroupEc2TagSetPtrOutputWithContext(context.Background())
 }
 
-func (i *deploymentGroupEC2TagSetPtrType) ToDeploymentGroupEC2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEC2TagSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEC2TagSetPtrOutput)
+func (i *deploymentGroupEc2TagSetPtrType) ToDeploymentGroupEc2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetPtrOutput)
 }
 
-type DeploymentGroupEC2TagSetOutput struct{ *pulumi.OutputState }
+type DeploymentGroupEc2TagSetOutput struct{ *pulumi.OutputState }
 
-func (DeploymentGroupEC2TagSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupEC2TagSet)(nil)).Elem()
+func (DeploymentGroupEc2TagSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagSet)(nil)).Elem()
 }
 
-func (o DeploymentGroupEC2TagSetOutput) ToDeploymentGroupEC2TagSetOutput() DeploymentGroupEC2TagSetOutput {
+func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetOutput() DeploymentGroupEc2TagSetOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagSetOutput) ToDeploymentGroupEC2TagSetOutputWithContext(ctx context.Context) DeploymentGroupEC2TagSetOutput {
+func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagSetOutput) ToDeploymentGroupEC2TagSetPtrOutput() DeploymentGroupEC2TagSetPtrOutput {
-	return o.ToDeploymentGroupEC2TagSetPtrOutputWithContext(context.Background())
+func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetPtrOutput() DeploymentGroupEc2TagSetPtrOutput {
+	return o.ToDeploymentGroupEc2TagSetPtrOutputWithContext(context.Background())
 }
 
-func (o DeploymentGroupEC2TagSetOutput) ToDeploymentGroupEC2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEC2TagSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupEC2TagSet) *DeploymentGroupEC2TagSet {
+func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupEc2TagSet) *DeploymentGroupEc2TagSet {
 		return &v
-	}).(DeploymentGroupEC2TagSetPtrOutput)
+	}).(DeploymentGroupEc2TagSetPtrOutput)
 }
 
-func (o DeploymentGroupEC2TagSetOutput) Ec2TagSetList() DeploymentGroupEC2TagSetListObjectArrayOutput {
-	return o.ApplyT(func(v DeploymentGroupEC2TagSet) []DeploymentGroupEC2TagSetListObject { return v.Ec2TagSetList }).(DeploymentGroupEC2TagSetListObjectArrayOutput)
+func (o DeploymentGroupEc2TagSetOutput) Ec2TagSetList() DeploymentGroupEc2TagSetListObjectArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2TagSet) []DeploymentGroupEc2TagSetListObject { return v.Ec2TagSetList }).(DeploymentGroupEc2TagSetListObjectArrayOutput)
 }
 
-type DeploymentGroupEC2TagSetPtrOutput struct{ *pulumi.OutputState }
+type DeploymentGroupEc2TagSetPtrOutput struct{ *pulumi.OutputState }
 
-func (DeploymentGroupEC2TagSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentGroupEC2TagSet)(nil)).Elem()
+func (DeploymentGroupEc2TagSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupEc2TagSet)(nil)).Elem()
 }
 
-func (o DeploymentGroupEC2TagSetPtrOutput) ToDeploymentGroupEC2TagSetPtrOutput() DeploymentGroupEC2TagSetPtrOutput {
+func (o DeploymentGroupEc2TagSetPtrOutput) ToDeploymentGroupEc2TagSetPtrOutput() DeploymentGroupEc2TagSetPtrOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagSetPtrOutput) ToDeploymentGroupEC2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEC2TagSetPtrOutput {
+func (o DeploymentGroupEc2TagSetPtrOutput) ToDeploymentGroupEc2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetPtrOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagSetPtrOutput) Elem() DeploymentGroupEC2TagSetOutput {
-	return o.ApplyT(func(v *DeploymentGroupEC2TagSet) DeploymentGroupEC2TagSet {
+func (o DeploymentGroupEc2TagSetPtrOutput) Elem() DeploymentGroupEc2TagSetOutput {
+	return o.ApplyT(func(v *DeploymentGroupEc2TagSet) DeploymentGroupEc2TagSet {
 		if v != nil {
 			return *v
 		}
-		var ret DeploymentGroupEC2TagSet
+		var ret DeploymentGroupEc2TagSet
 		return ret
-	}).(DeploymentGroupEC2TagSetOutput)
+	}).(DeploymentGroupEc2TagSetOutput)
 }
 
-func (o DeploymentGroupEC2TagSetPtrOutput) Ec2TagSetList() DeploymentGroupEC2TagSetListObjectArrayOutput {
-	return o.ApplyT(func(v *DeploymentGroupEC2TagSet) []DeploymentGroupEC2TagSetListObject {
+func (o DeploymentGroupEc2TagSetPtrOutput) Ec2TagSetList() DeploymentGroupEc2TagSetListObjectArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupEc2TagSet) []DeploymentGroupEc2TagSetListObject {
 		if v == nil {
 			return nil
 		}
 		return v.Ec2TagSetList
-	}).(DeploymentGroupEC2TagSetListObjectArrayOutput)
+	}).(DeploymentGroupEc2TagSetListObjectArrayOutput)
 }
 
-type DeploymentGroupEC2TagSetListObject struct {
-	Ec2TagGroup []DeploymentGroupEC2TagFilter `pulumi:"ec2TagGroup"`
+type DeploymentGroupEc2TagSetListObject struct {
+	Ec2TagGroup []DeploymentGroupEc2TagFilter `pulumi:"ec2TagGroup"`
 }
 
-// DeploymentGroupEC2TagSetListObjectInput is an input type that accepts DeploymentGroupEC2TagSetListObjectArgs and DeploymentGroupEC2TagSetListObjectOutput values.
-// You can construct a concrete instance of `DeploymentGroupEC2TagSetListObjectInput` via:
+// DeploymentGroupEc2TagSetListObjectInput is an input type that accepts DeploymentGroupEc2TagSetListObjectArgs and DeploymentGroupEc2TagSetListObjectOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetListObjectInput` via:
 //
-//	DeploymentGroupEC2TagSetListObjectArgs{...}
-type DeploymentGroupEC2TagSetListObjectInput interface {
+//	DeploymentGroupEc2TagSetListObjectArgs{...}
+type DeploymentGroupEc2TagSetListObjectInput interface {
 	pulumi.Input
 
-	ToDeploymentGroupEC2TagSetListObjectOutput() DeploymentGroupEC2TagSetListObjectOutput
-	ToDeploymentGroupEC2TagSetListObjectOutputWithContext(context.Context) DeploymentGroupEC2TagSetListObjectOutput
+	ToDeploymentGroupEc2TagSetListObjectOutput() DeploymentGroupEc2TagSetListObjectOutput
+	ToDeploymentGroupEc2TagSetListObjectOutputWithContext(context.Context) DeploymentGroupEc2TagSetListObjectOutput
 }
 
-type DeploymentGroupEC2TagSetListObjectArgs struct {
-	Ec2TagGroup DeploymentGroupEC2TagFilterArrayInput `pulumi:"ec2TagGroup"`
+type DeploymentGroupEc2TagSetListObjectArgs struct {
+	Ec2TagGroup DeploymentGroupEc2TagFilterArrayInput `pulumi:"ec2TagGroup"`
 }
 
-func (DeploymentGroupEC2TagSetListObjectArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupEC2TagSetListObject)(nil)).Elem()
+func (DeploymentGroupEc2TagSetListObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagSetListObject)(nil)).Elem()
 }
 
-func (i DeploymentGroupEC2TagSetListObjectArgs) ToDeploymentGroupEC2TagSetListObjectOutput() DeploymentGroupEC2TagSetListObjectOutput {
-	return i.ToDeploymentGroupEC2TagSetListObjectOutputWithContext(context.Background())
+func (i DeploymentGroupEc2TagSetListObjectArgs) ToDeploymentGroupEc2TagSetListObjectOutput() DeploymentGroupEc2TagSetListObjectOutput {
+	return i.ToDeploymentGroupEc2TagSetListObjectOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroupEC2TagSetListObjectArgs) ToDeploymentGroupEC2TagSetListObjectOutputWithContext(ctx context.Context) DeploymentGroupEC2TagSetListObjectOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEC2TagSetListObjectOutput)
+func (i DeploymentGroupEc2TagSetListObjectArgs) ToDeploymentGroupEc2TagSetListObjectOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetListObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetListObjectOutput)
 }
 
-// DeploymentGroupEC2TagSetListObjectArrayInput is an input type that accepts DeploymentGroupEC2TagSetListObjectArray and DeploymentGroupEC2TagSetListObjectArrayOutput values.
-// You can construct a concrete instance of `DeploymentGroupEC2TagSetListObjectArrayInput` via:
+// DeploymentGroupEc2TagSetListObjectArrayInput is an input type that accepts DeploymentGroupEc2TagSetListObjectArray and DeploymentGroupEc2TagSetListObjectArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetListObjectArrayInput` via:
 //
-//	DeploymentGroupEC2TagSetListObjectArray{ DeploymentGroupEC2TagSetListObjectArgs{...} }
-type DeploymentGroupEC2TagSetListObjectArrayInput interface {
+//	DeploymentGroupEc2TagSetListObjectArray{ DeploymentGroupEc2TagSetListObjectArgs{...} }
+type DeploymentGroupEc2TagSetListObjectArrayInput interface {
 	pulumi.Input
 
-	ToDeploymentGroupEC2TagSetListObjectArrayOutput() DeploymentGroupEC2TagSetListObjectArrayOutput
-	ToDeploymentGroupEC2TagSetListObjectArrayOutputWithContext(context.Context) DeploymentGroupEC2TagSetListObjectArrayOutput
+	ToDeploymentGroupEc2TagSetListObjectArrayOutput() DeploymentGroupEc2TagSetListObjectArrayOutput
+	ToDeploymentGroupEc2TagSetListObjectArrayOutputWithContext(context.Context) DeploymentGroupEc2TagSetListObjectArrayOutput
 }
 
-type DeploymentGroupEC2TagSetListObjectArray []DeploymentGroupEC2TagSetListObjectInput
+type DeploymentGroupEc2TagSetListObjectArray []DeploymentGroupEc2TagSetListObjectInput
 
-func (DeploymentGroupEC2TagSetListObjectArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroupEC2TagSetListObject)(nil)).Elem()
+func (DeploymentGroupEc2TagSetListObjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEc2TagSetListObject)(nil)).Elem()
 }
 
-func (i DeploymentGroupEC2TagSetListObjectArray) ToDeploymentGroupEC2TagSetListObjectArrayOutput() DeploymentGroupEC2TagSetListObjectArrayOutput {
-	return i.ToDeploymentGroupEC2TagSetListObjectArrayOutputWithContext(context.Background())
+func (i DeploymentGroupEc2TagSetListObjectArray) ToDeploymentGroupEc2TagSetListObjectArrayOutput() DeploymentGroupEc2TagSetListObjectArrayOutput {
+	return i.ToDeploymentGroupEc2TagSetListObjectArrayOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroupEC2TagSetListObjectArray) ToDeploymentGroupEC2TagSetListObjectArrayOutputWithContext(ctx context.Context) DeploymentGroupEC2TagSetListObjectArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEC2TagSetListObjectArrayOutput)
+func (i DeploymentGroupEc2TagSetListObjectArray) ToDeploymentGroupEc2TagSetListObjectArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetListObjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetListObjectArrayOutput)
 }
 
-type DeploymentGroupEC2TagSetListObjectOutput struct{ *pulumi.OutputState }
+type DeploymentGroupEc2TagSetListObjectOutput struct{ *pulumi.OutputState }
 
-func (DeploymentGroupEC2TagSetListObjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupEC2TagSetListObject)(nil)).Elem()
+func (DeploymentGroupEc2TagSetListObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagSetListObject)(nil)).Elem()
 }
 
-func (o DeploymentGroupEC2TagSetListObjectOutput) ToDeploymentGroupEC2TagSetListObjectOutput() DeploymentGroupEC2TagSetListObjectOutput {
+func (o DeploymentGroupEc2TagSetListObjectOutput) ToDeploymentGroupEc2TagSetListObjectOutput() DeploymentGroupEc2TagSetListObjectOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagSetListObjectOutput) ToDeploymentGroupEC2TagSetListObjectOutputWithContext(ctx context.Context) DeploymentGroupEC2TagSetListObjectOutput {
+func (o DeploymentGroupEc2TagSetListObjectOutput) ToDeploymentGroupEc2TagSetListObjectOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetListObjectOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagSetListObjectOutput) Ec2TagGroup() DeploymentGroupEC2TagFilterArrayOutput {
-	return o.ApplyT(func(v DeploymentGroupEC2TagSetListObject) []DeploymentGroupEC2TagFilter { return v.Ec2TagGroup }).(DeploymentGroupEC2TagFilterArrayOutput)
+func (o DeploymentGroupEc2TagSetListObjectOutput) Ec2TagGroup() DeploymentGroupEc2TagFilterArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2TagSetListObject) []DeploymentGroupEc2TagFilter { return v.Ec2TagGroup }).(DeploymentGroupEc2TagFilterArrayOutput)
 }
 
-type DeploymentGroupEC2TagSetListObjectArrayOutput struct{ *pulumi.OutputState }
+type DeploymentGroupEc2TagSetListObjectArrayOutput struct{ *pulumi.OutputState }
 
-func (DeploymentGroupEC2TagSetListObjectArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroupEC2TagSetListObject)(nil)).Elem()
+func (DeploymentGroupEc2TagSetListObjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEc2TagSetListObject)(nil)).Elem()
 }
 
-func (o DeploymentGroupEC2TagSetListObjectArrayOutput) ToDeploymentGroupEC2TagSetListObjectArrayOutput() DeploymentGroupEC2TagSetListObjectArrayOutput {
+func (o DeploymentGroupEc2TagSetListObjectArrayOutput) ToDeploymentGroupEc2TagSetListObjectArrayOutput() DeploymentGroupEc2TagSetListObjectArrayOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagSetListObjectArrayOutput) ToDeploymentGroupEC2TagSetListObjectArrayOutputWithContext(ctx context.Context) DeploymentGroupEC2TagSetListObjectArrayOutput {
+func (o DeploymentGroupEc2TagSetListObjectArrayOutput) ToDeploymentGroupEc2TagSetListObjectArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetListObjectArrayOutput {
 	return o
 }
 
-func (o DeploymentGroupEC2TagSetListObjectArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEC2TagSetListObjectOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEC2TagSetListObject {
-		return vs[0].([]DeploymentGroupEC2TagSetListObject)[vs[1].(int)]
-	}).(DeploymentGroupEC2TagSetListObjectOutput)
+func (o DeploymentGroupEc2TagSetListObjectArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagSetListObjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEc2TagSetListObject {
+		return vs[0].([]DeploymentGroupEc2TagSetListObject)[vs[1].(int)]
+	}).(DeploymentGroupEc2TagSetListObjectOutput)
 }
 
-type DeploymentGroupECSService struct {
+type DeploymentGroupEcsService struct {
 	ClusterName string `pulumi:"clusterName"`
 	ServiceName string `pulumi:"serviceName"`
 }
 
-// DeploymentGroupECSServiceInput is an input type that accepts DeploymentGroupECSServiceArgs and DeploymentGroupECSServiceOutput values.
-// You can construct a concrete instance of `DeploymentGroupECSServiceInput` via:
+// DeploymentGroupEcsServiceInput is an input type that accepts DeploymentGroupEcsServiceArgs and DeploymentGroupEcsServiceOutput values.
+// You can construct a concrete instance of `DeploymentGroupEcsServiceInput` via:
 //
-//	DeploymentGroupECSServiceArgs{...}
-type DeploymentGroupECSServiceInput interface {
+//	DeploymentGroupEcsServiceArgs{...}
+type DeploymentGroupEcsServiceInput interface {
 	pulumi.Input
 
-	ToDeploymentGroupECSServiceOutput() DeploymentGroupECSServiceOutput
-	ToDeploymentGroupECSServiceOutputWithContext(context.Context) DeploymentGroupECSServiceOutput
+	ToDeploymentGroupEcsServiceOutput() DeploymentGroupEcsServiceOutput
+	ToDeploymentGroupEcsServiceOutputWithContext(context.Context) DeploymentGroupEcsServiceOutput
 }
 
-type DeploymentGroupECSServiceArgs struct {
+type DeploymentGroupEcsServiceArgs struct {
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
 
-func (DeploymentGroupECSServiceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupECSService)(nil)).Elem()
+func (DeploymentGroupEcsServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEcsService)(nil)).Elem()
 }
 
-func (i DeploymentGroupECSServiceArgs) ToDeploymentGroupECSServiceOutput() DeploymentGroupECSServiceOutput {
-	return i.ToDeploymentGroupECSServiceOutputWithContext(context.Background())
+func (i DeploymentGroupEcsServiceArgs) ToDeploymentGroupEcsServiceOutput() DeploymentGroupEcsServiceOutput {
+	return i.ToDeploymentGroupEcsServiceOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroupECSServiceArgs) ToDeploymentGroupECSServiceOutputWithContext(ctx context.Context) DeploymentGroupECSServiceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupECSServiceOutput)
+func (i DeploymentGroupEcsServiceArgs) ToDeploymentGroupEcsServiceOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEcsServiceOutput)
 }
 
-// DeploymentGroupECSServiceArrayInput is an input type that accepts DeploymentGroupECSServiceArray and DeploymentGroupECSServiceArrayOutput values.
-// You can construct a concrete instance of `DeploymentGroupECSServiceArrayInput` via:
+// DeploymentGroupEcsServiceArrayInput is an input type that accepts DeploymentGroupEcsServiceArray and DeploymentGroupEcsServiceArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupEcsServiceArrayInput` via:
 //
-//	DeploymentGroupECSServiceArray{ DeploymentGroupECSServiceArgs{...} }
-type DeploymentGroupECSServiceArrayInput interface {
+//	DeploymentGroupEcsServiceArray{ DeploymentGroupEcsServiceArgs{...} }
+type DeploymentGroupEcsServiceArrayInput interface {
 	pulumi.Input
 
-	ToDeploymentGroupECSServiceArrayOutput() DeploymentGroupECSServiceArrayOutput
-	ToDeploymentGroupECSServiceArrayOutputWithContext(context.Context) DeploymentGroupECSServiceArrayOutput
+	ToDeploymentGroupEcsServiceArrayOutput() DeploymentGroupEcsServiceArrayOutput
+	ToDeploymentGroupEcsServiceArrayOutputWithContext(context.Context) DeploymentGroupEcsServiceArrayOutput
 }
 
-type DeploymentGroupECSServiceArray []DeploymentGroupECSServiceInput
+type DeploymentGroupEcsServiceArray []DeploymentGroupEcsServiceInput
 
-func (DeploymentGroupECSServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroupECSService)(nil)).Elem()
+func (DeploymentGroupEcsServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEcsService)(nil)).Elem()
 }
 
-func (i DeploymentGroupECSServiceArray) ToDeploymentGroupECSServiceArrayOutput() DeploymentGroupECSServiceArrayOutput {
-	return i.ToDeploymentGroupECSServiceArrayOutputWithContext(context.Background())
+func (i DeploymentGroupEcsServiceArray) ToDeploymentGroupEcsServiceArrayOutput() DeploymentGroupEcsServiceArrayOutput {
+	return i.ToDeploymentGroupEcsServiceArrayOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroupECSServiceArray) ToDeploymentGroupECSServiceArrayOutputWithContext(ctx context.Context) DeploymentGroupECSServiceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupECSServiceArrayOutput)
+func (i DeploymentGroupEcsServiceArray) ToDeploymentGroupEcsServiceArrayOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEcsServiceArrayOutput)
 }
 
-type DeploymentGroupECSServiceOutput struct{ *pulumi.OutputState }
+type DeploymentGroupEcsServiceOutput struct{ *pulumi.OutputState }
 
-func (DeploymentGroupECSServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupECSService)(nil)).Elem()
+func (DeploymentGroupEcsServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEcsService)(nil)).Elem()
 }
 
-func (o DeploymentGroupECSServiceOutput) ToDeploymentGroupECSServiceOutput() DeploymentGroupECSServiceOutput {
+func (o DeploymentGroupEcsServiceOutput) ToDeploymentGroupEcsServiceOutput() DeploymentGroupEcsServiceOutput {
 	return o
 }
 
-func (o DeploymentGroupECSServiceOutput) ToDeploymentGroupECSServiceOutputWithContext(ctx context.Context) DeploymentGroupECSServiceOutput {
+func (o DeploymentGroupEcsServiceOutput) ToDeploymentGroupEcsServiceOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceOutput {
 	return o
 }
 
-func (o DeploymentGroupECSServiceOutput) ClusterName() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentGroupECSService) string { return v.ClusterName }).(pulumi.StringOutput)
+func (o DeploymentGroupEcsServiceOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGroupEcsService) string { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-func (o DeploymentGroupECSServiceOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentGroupECSService) string { return v.ServiceName }).(pulumi.StringOutput)
+func (o DeploymentGroupEcsServiceOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGroupEcsService) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-type DeploymentGroupECSServiceArrayOutput struct{ *pulumi.OutputState }
+type DeploymentGroupEcsServiceArrayOutput struct{ *pulumi.OutputState }
 
-func (DeploymentGroupECSServiceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroupECSService)(nil)).Elem()
+func (DeploymentGroupEcsServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEcsService)(nil)).Elem()
 }
 
-func (o DeploymentGroupECSServiceArrayOutput) ToDeploymentGroupECSServiceArrayOutput() DeploymentGroupECSServiceArrayOutput {
+func (o DeploymentGroupEcsServiceArrayOutput) ToDeploymentGroupEcsServiceArrayOutput() DeploymentGroupEcsServiceArrayOutput {
 	return o
 }
 
-func (o DeploymentGroupECSServiceArrayOutput) ToDeploymentGroupECSServiceArrayOutputWithContext(ctx context.Context) DeploymentGroupECSServiceArrayOutput {
+func (o DeploymentGroupEcsServiceArrayOutput) ToDeploymentGroupEcsServiceArrayOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceArrayOutput {
 	return o
 }
 
-func (o DeploymentGroupECSServiceArrayOutput) Index(i pulumi.IntInput) DeploymentGroupECSServiceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupECSService {
-		return vs[0].([]DeploymentGroupECSService)[vs[1].(int)]
-	}).(DeploymentGroupECSServiceOutput)
+func (o DeploymentGroupEcsServiceArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEcsServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEcsService {
+		return vs[0].([]DeploymentGroupEcsService)[vs[1].(int)]
+	}).(DeploymentGroupEcsServiceOutput)
 }
 
-type DeploymentGroupELBInfo struct {
+type DeploymentGroupElbInfo struct {
 	Name *string `pulumi:"name"`
 }
 
-// DeploymentGroupELBInfoInput is an input type that accepts DeploymentGroupELBInfoArgs and DeploymentGroupELBInfoOutput values.
-// You can construct a concrete instance of `DeploymentGroupELBInfoInput` via:
+// DeploymentGroupElbInfoInput is an input type that accepts DeploymentGroupElbInfoArgs and DeploymentGroupElbInfoOutput values.
+// You can construct a concrete instance of `DeploymentGroupElbInfoInput` via:
 //
-//	DeploymentGroupELBInfoArgs{...}
-type DeploymentGroupELBInfoInput interface {
+//	DeploymentGroupElbInfoArgs{...}
+type DeploymentGroupElbInfoInput interface {
 	pulumi.Input
 
-	ToDeploymentGroupELBInfoOutput() DeploymentGroupELBInfoOutput
-	ToDeploymentGroupELBInfoOutputWithContext(context.Context) DeploymentGroupELBInfoOutput
+	ToDeploymentGroupElbInfoOutput() DeploymentGroupElbInfoOutput
+	ToDeploymentGroupElbInfoOutputWithContext(context.Context) DeploymentGroupElbInfoOutput
 }
 
-type DeploymentGroupELBInfoArgs struct {
+type DeploymentGroupElbInfoArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (DeploymentGroupELBInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupELBInfo)(nil)).Elem()
+func (DeploymentGroupElbInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupElbInfo)(nil)).Elem()
 }
 
-func (i DeploymentGroupELBInfoArgs) ToDeploymentGroupELBInfoOutput() DeploymentGroupELBInfoOutput {
-	return i.ToDeploymentGroupELBInfoOutputWithContext(context.Background())
+func (i DeploymentGroupElbInfoArgs) ToDeploymentGroupElbInfoOutput() DeploymentGroupElbInfoOutput {
+	return i.ToDeploymentGroupElbInfoOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroupELBInfoArgs) ToDeploymentGroupELBInfoOutputWithContext(ctx context.Context) DeploymentGroupELBInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupELBInfoOutput)
+func (i DeploymentGroupElbInfoArgs) ToDeploymentGroupElbInfoOutputWithContext(ctx context.Context) DeploymentGroupElbInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupElbInfoOutput)
 }
 
-// DeploymentGroupELBInfoArrayInput is an input type that accepts DeploymentGroupELBInfoArray and DeploymentGroupELBInfoArrayOutput values.
-// You can construct a concrete instance of `DeploymentGroupELBInfoArrayInput` via:
+// DeploymentGroupElbInfoArrayInput is an input type that accepts DeploymentGroupElbInfoArray and DeploymentGroupElbInfoArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupElbInfoArrayInput` via:
 //
-//	DeploymentGroupELBInfoArray{ DeploymentGroupELBInfoArgs{...} }
-type DeploymentGroupELBInfoArrayInput interface {
+//	DeploymentGroupElbInfoArray{ DeploymentGroupElbInfoArgs{...} }
+type DeploymentGroupElbInfoArrayInput interface {
 	pulumi.Input
 
-	ToDeploymentGroupELBInfoArrayOutput() DeploymentGroupELBInfoArrayOutput
-	ToDeploymentGroupELBInfoArrayOutputWithContext(context.Context) DeploymentGroupELBInfoArrayOutput
+	ToDeploymentGroupElbInfoArrayOutput() DeploymentGroupElbInfoArrayOutput
+	ToDeploymentGroupElbInfoArrayOutputWithContext(context.Context) DeploymentGroupElbInfoArrayOutput
 }
 
-type DeploymentGroupELBInfoArray []DeploymentGroupELBInfoInput
+type DeploymentGroupElbInfoArray []DeploymentGroupElbInfoInput
 
-func (DeploymentGroupELBInfoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroupELBInfo)(nil)).Elem()
+func (DeploymentGroupElbInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupElbInfo)(nil)).Elem()
 }
 
-func (i DeploymentGroupELBInfoArray) ToDeploymentGroupELBInfoArrayOutput() DeploymentGroupELBInfoArrayOutput {
-	return i.ToDeploymentGroupELBInfoArrayOutputWithContext(context.Background())
+func (i DeploymentGroupElbInfoArray) ToDeploymentGroupElbInfoArrayOutput() DeploymentGroupElbInfoArrayOutput {
+	return i.ToDeploymentGroupElbInfoArrayOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroupELBInfoArray) ToDeploymentGroupELBInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupELBInfoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupELBInfoArrayOutput)
+func (i DeploymentGroupElbInfoArray) ToDeploymentGroupElbInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupElbInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupElbInfoArrayOutput)
 }
 
-type DeploymentGroupELBInfoOutput struct{ *pulumi.OutputState }
+type DeploymentGroupElbInfoOutput struct{ *pulumi.OutputState }
 
-func (DeploymentGroupELBInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupELBInfo)(nil)).Elem()
+func (DeploymentGroupElbInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupElbInfo)(nil)).Elem()
 }
 
-func (o DeploymentGroupELBInfoOutput) ToDeploymentGroupELBInfoOutput() DeploymentGroupELBInfoOutput {
+func (o DeploymentGroupElbInfoOutput) ToDeploymentGroupElbInfoOutput() DeploymentGroupElbInfoOutput {
 	return o
 }
 
-func (o DeploymentGroupELBInfoOutput) ToDeploymentGroupELBInfoOutputWithContext(ctx context.Context) DeploymentGroupELBInfoOutput {
+func (o DeploymentGroupElbInfoOutput) ToDeploymentGroupElbInfoOutputWithContext(ctx context.Context) DeploymentGroupElbInfoOutput {
 	return o
 }
 
-func (o DeploymentGroupELBInfoOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupELBInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o DeploymentGroupElbInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupElbInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type DeploymentGroupELBInfoArrayOutput struct{ *pulumi.OutputState }
+type DeploymentGroupElbInfoArrayOutput struct{ *pulumi.OutputState }
 
-func (DeploymentGroupELBInfoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroupELBInfo)(nil)).Elem()
+func (DeploymentGroupElbInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupElbInfo)(nil)).Elem()
 }
 
-func (o DeploymentGroupELBInfoArrayOutput) ToDeploymentGroupELBInfoArrayOutput() DeploymentGroupELBInfoArrayOutput {
+func (o DeploymentGroupElbInfoArrayOutput) ToDeploymentGroupElbInfoArrayOutput() DeploymentGroupElbInfoArrayOutput {
 	return o
 }
 
-func (o DeploymentGroupELBInfoArrayOutput) ToDeploymentGroupELBInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupELBInfoArrayOutput {
+func (o DeploymentGroupElbInfoArrayOutput) ToDeploymentGroupElbInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupElbInfoArrayOutput {
 	return o
 }
 
-func (o DeploymentGroupELBInfoArrayOutput) Index(i pulumi.IntInput) DeploymentGroupELBInfoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupELBInfo {
-		return vs[0].([]DeploymentGroupELBInfo)[vs[1].(int)]
-	}).(DeploymentGroupELBInfoOutput)
+func (o DeploymentGroupElbInfoArrayOutput) Index(i pulumi.IntInput) DeploymentGroupElbInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupElbInfo {
+		return vs[0].([]DeploymentGroupElbInfo)[vs[1].(int)]
+	}).(DeploymentGroupElbInfoOutput)
 }
 
 type DeploymentGroupGitHubLocation struct {
@@ -2714,7 +2714,7 @@ func (o DeploymentGroupGreenFleetProvisioningOptionPtrOutput) Action() pulumi.St
 }
 
 type DeploymentGroupLoadBalancerInfo struct {
-	ElbInfoList             []DeploymentGroupELBInfo             `pulumi:"elbInfoList"`
+	ElbInfoList             []DeploymentGroupElbInfo             `pulumi:"elbInfoList"`
 	TargetGroupInfoList     []DeploymentGroupTargetGroupInfo     `pulumi:"targetGroupInfoList"`
 	TargetGroupPairInfoList []DeploymentGroupTargetGroupPairInfo `pulumi:"targetGroupPairInfoList"`
 }
@@ -2731,7 +2731,7 @@ type DeploymentGroupLoadBalancerInfoInput interface {
 }
 
 type DeploymentGroupLoadBalancerInfoArgs struct {
-	ElbInfoList             DeploymentGroupELBInfoArrayInput             `pulumi:"elbInfoList"`
+	ElbInfoList             DeploymentGroupElbInfoArrayInput             `pulumi:"elbInfoList"`
 	TargetGroupInfoList     DeploymentGroupTargetGroupInfoArrayInput     `pulumi:"targetGroupInfoList"`
 	TargetGroupPairInfoList DeploymentGroupTargetGroupPairInfoArrayInput `pulumi:"targetGroupPairInfoList"`
 }
@@ -2813,8 +2813,8 @@ func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfo
 	}).(DeploymentGroupLoadBalancerInfoPtrOutput)
 }
 
-func (o DeploymentGroupLoadBalancerInfoOutput) ElbInfoList() DeploymentGroupELBInfoArrayOutput {
-	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupELBInfo { return v.ElbInfoList }).(DeploymentGroupELBInfoArrayOutput)
+func (o DeploymentGroupLoadBalancerInfoOutput) ElbInfoList() DeploymentGroupElbInfoArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupElbInfo { return v.ElbInfoList }).(DeploymentGroupElbInfoArrayOutput)
 }
 
 func (o DeploymentGroupLoadBalancerInfoOutput) TargetGroupInfoList() DeploymentGroupTargetGroupInfoArrayOutput {
@@ -2851,13 +2851,13 @@ func (o DeploymentGroupLoadBalancerInfoPtrOutput) Elem() DeploymentGroupLoadBala
 	}).(DeploymentGroupLoadBalancerInfoOutput)
 }
 
-func (o DeploymentGroupLoadBalancerInfoPtrOutput) ElbInfoList() DeploymentGroupELBInfoArrayOutput {
-	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfo) []DeploymentGroupELBInfo {
+func (o DeploymentGroupLoadBalancerInfoPtrOutput) ElbInfoList() DeploymentGroupElbInfoArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfo) []DeploymentGroupElbInfo {
 		if v == nil {
 			return nil
 		}
 		return v.ElbInfoList
-	}).(DeploymentGroupELBInfoArrayOutput)
+	}).(DeploymentGroupElbInfoArrayOutput)
 }
 
 func (o DeploymentGroupLoadBalancerInfoPtrOutput) TargetGroupInfoList() DeploymentGroupTargetGroupInfoArrayOutput {
@@ -4137,16 +4137,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentReadyOptionPtrInput)(nil)).Elem(), DeploymentGroupDeploymentReadyOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentStyleInput)(nil)).Elem(), DeploymentGroupDeploymentStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentStylePtrInput)(nil)).Elem(), DeploymentGroupDeploymentStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEC2TagFilterInput)(nil)).Elem(), DeploymentGroupEC2TagFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEC2TagFilterArrayInput)(nil)).Elem(), DeploymentGroupEC2TagFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEC2TagSetInput)(nil)).Elem(), DeploymentGroupEC2TagSetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEC2TagSetPtrInput)(nil)).Elem(), DeploymentGroupEC2TagSetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEC2TagSetListObjectInput)(nil)).Elem(), DeploymentGroupEC2TagSetListObjectArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEC2TagSetListObjectArrayInput)(nil)).Elem(), DeploymentGroupEC2TagSetListObjectArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupECSServiceInput)(nil)).Elem(), DeploymentGroupECSServiceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupECSServiceArrayInput)(nil)).Elem(), DeploymentGroupECSServiceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupELBInfoInput)(nil)).Elem(), DeploymentGroupELBInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupELBInfoArrayInput)(nil)).Elem(), DeploymentGroupELBInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagFilterInput)(nil)).Elem(), DeploymentGroupEc2TagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagFilterArrayInput)(nil)).Elem(), DeploymentGroupEc2TagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagSetInput)(nil)).Elem(), DeploymentGroupEc2TagSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagSetPtrInput)(nil)).Elem(), DeploymentGroupEc2TagSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagSetListObjectInput)(nil)).Elem(), DeploymentGroupEc2TagSetListObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagSetListObjectArrayInput)(nil)).Elem(), DeploymentGroupEc2TagSetListObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEcsServiceInput)(nil)).Elem(), DeploymentGroupEcsServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEcsServiceArrayInput)(nil)).Elem(), DeploymentGroupEcsServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupElbInfoInput)(nil)).Elem(), DeploymentGroupElbInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupElbInfoArrayInput)(nil)).Elem(), DeploymentGroupElbInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupGitHubLocationInput)(nil)).Elem(), DeploymentGroupGitHubLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupGitHubLocationPtrInput)(nil)).Elem(), DeploymentGroupGitHubLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupGreenFleetProvisioningOptionInput)(nil)).Elem(), DeploymentGroupGreenFleetProvisioningOptionArgs{})
@@ -4199,16 +4199,16 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentGroupDeploymentReadyOptionPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupDeploymentStyleOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupDeploymentStylePtrOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupEC2TagFilterOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupEC2TagFilterArrayOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupEC2TagSetOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupEC2TagSetPtrOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupEC2TagSetListObjectOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupEC2TagSetListObjectArrayOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupECSServiceOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupECSServiceArrayOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupELBInfoOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupELBInfoArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagFilterOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagFilterArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagSetOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagSetPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagSetListObjectOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagSetListObjectArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEcsServiceOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEcsServiceArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupElbInfoOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupElbInfoArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupGitHubLocationOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupGitHubLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupGreenFleetProvisioningOptionOutput{})

@@ -895,8 +895,8 @@ _utilities.register(
    "aws-native:appsync:DomainName": "DomainName",
    "aws-native:appsync:DomainNameApiAssociation": "DomainNameApiAssociation",
    "aws-native:appsync:FunctionConfiguration": "FunctionConfiguration",
-   "aws-native:appsync:GraphQLApi": "GraphQLApi",
-   "aws-native:appsync:GraphQLSchema": "GraphQLSchema",
+   "aws-native:appsync:GraphQlApi": "GraphQlApi",
+   "aws-native:appsync:GraphQlSchema": "GraphQlSchema",
    "aws-native:appsync:Resolver": "Resolver",
    "aws-native:appsync:SourceApiAssociation": "SourceApiAssociation"
   }
@@ -1063,7 +1063,7 @@ _utilities.register(
   "mod": "cloud9",
   "fqn": "pulumi_aws_native.cloud9",
   "classes": {
-   "aws-native:cloud9:EnvironmentEC2": "EnvironmentEC2"
+   "aws-native:cloud9:EnvironmentEc2": "EnvironmentEc2"
   }
  },
  {
@@ -1235,7 +1235,7 @@ _utilities.register(
    "aws-native:cognito:UserPoolIdentityProvider": "UserPoolIdentityProvider",
    "aws-native:cognito:UserPoolResourceServer": "UserPoolResourceServer",
    "aws-native:cognito:UserPoolRiskConfigurationAttachment": "UserPoolRiskConfigurationAttachment",
-   "aws-native:cognito:UserPoolUICustomizationAttachment": "UserPoolUICustomizationAttachment",
+   "aws-native:cognito:UserPoolUiCustomizationAttachment": "UserPoolUiCustomizationAttachment",
    "aws-native:cognito:UserPoolUser": "UserPoolUser",
    "aws-native:cognito:UserPoolUserToGroupAttachment": "UserPoolUserToGroupAttachment"
   }
@@ -1354,16 +1354,16 @@ _utilities.register(
   "fqn": "pulumi_aws_native.datasync",
   "classes": {
    "aws-native:datasync:Agent": "Agent",
-   "aws-native:datasync:LocationEFS": "LocationEFS",
+   "aws-native:datasync:LocationEfs": "LocationEfs",
    "aws-native:datasync:LocationFSxLustre": "LocationFSxLustre",
-   "aws-native:datasync:LocationFSxONTAP": "LocationFSxONTAP",
-   "aws-native:datasync:LocationFSxOpenZFS": "LocationFSxOpenZFS",
+   "aws-native:datasync:LocationFSxOntap": "LocationFSxOntap",
+   "aws-native:datasync:LocationFSxOpenZfs": "LocationFSxOpenZfs",
    "aws-native:datasync:LocationFSxWindows": "LocationFSxWindows",
-   "aws-native:datasync:LocationHDFS": "LocationHDFS",
-   "aws-native:datasync:LocationNFS": "LocationNFS",
+   "aws-native:datasync:LocationHdfs": "LocationHdfs",
+   "aws-native:datasync:LocationNfs": "LocationNfs",
    "aws-native:datasync:LocationObjectStorage": "LocationObjectStorage",
    "aws-native:datasync:LocationS3": "LocationS3",
-   "aws-native:datasync:LocationSMB": "LocationSMB",
+   "aws-native:datasync:LocationSmb": "LocationSmb",
    "aws-native:datasync:StorageSystem": "StorageSystem",
    "aws-native:datasync:Task": "Task"
   }
@@ -1398,7 +1398,7 @@ _utilities.register(
    "aws-native:devicefarm:NetworkProfile": "NetworkProfile",
    "aws-native:devicefarm:Project": "Project",
    "aws-native:devicefarm:TestGridProject": "TestGridProject",
-   "aws-native:devicefarm:VPCEConfiguration": "VPCEConfiguration"
+   "aws-native:devicefarm:VpceConfiguration": "VpceConfiguration"
   }
  },
  {
@@ -1416,8 +1416,8 @@ _utilities.register(
   "mod": "directoryservice",
   "fqn": "pulumi_aws_native.directoryservice",
   "classes": {
-   "aws-native:directoryservice:MicrosoftAD": "MicrosoftAD",
-   "aws-native:directoryservice:SimpleAD": "SimpleAD"
+   "aws-native:directoryservice:MicrosoftAd": "MicrosoftAd",
+   "aws-native:directoryservice:SimpleAd": "SimpleAd"
   }
  },
  {
@@ -1447,10 +1447,10 @@ _utilities.register(
   "mod": "docdb",
   "fqn": "pulumi_aws_native.docdb",
   "classes": {
-   "aws-native:docdb:DBCluster": "DBCluster",
-   "aws-native:docdb:DBClusterParameterGroup": "DBClusterParameterGroup",
-   "aws-native:docdb:DBInstance": "DBInstance",
-   "aws-native:docdb:DBSubnetGroup": "DBSubnetGroup"
+   "aws-native:docdb:DbCluster": "DbCluster",
+   "aws-native:docdb:DbClusterParameterGroup": "DbClusterParameterGroup",
+   "aws-native:docdb:DbInstance": "DbInstance",
+   "aws-native:docdb:DbSubnetGroup": "DbSubnetGroup"
   }
  },
  {
@@ -1483,30 +1483,30 @@ _utilities.register(
    "aws-native:ec2:ClientVpnRoute": "ClientVpnRoute",
    "aws-native:ec2:ClientVpnTargetNetworkAssociation": "ClientVpnTargetNetworkAssociation",
    "aws-native:ec2:CustomerGateway": "CustomerGateway",
-   "aws-native:ec2:DHCPOptions": "DHCPOptions",
-   "aws-native:ec2:EC2Fleet": "EC2Fleet",
-   "aws-native:ec2:EIP": "EIP",
-   "aws-native:ec2:EIPAssociation": "EIPAssociation",
+   "aws-native:ec2:DhcpOptions": "DhcpOptions",
+   "aws-native:ec2:Ec2Fleet": "Ec2Fleet",
    "aws-native:ec2:EgressOnlyInternetGateway": "EgressOnlyInternetGateway",
+   "aws-native:ec2:Eip": "Eip",
+   "aws-native:ec2:EipAssociation": "EipAssociation",
    "aws-native:ec2:EnclaveCertificateIamRoleAssociation": "EnclaveCertificateIamRoleAssociation",
    "aws-native:ec2:FlowLog": "FlowLog",
    "aws-native:ec2:GatewayRouteTableAssociation": "GatewayRouteTableAssociation",
    "aws-native:ec2:Host": "Host",
-   "aws-native:ec2:IPAM": "IPAM",
-   "aws-native:ec2:IPAMAllocation": "IPAMAllocation",
-   "aws-native:ec2:IPAMPool": "IPAMPool",
-   "aws-native:ec2:IPAMPoolCidr": "IPAMPoolCidr",
-   "aws-native:ec2:IPAMResourceDiscovery": "IPAMResourceDiscovery",
-   "aws-native:ec2:IPAMResourceDiscoveryAssociation": "IPAMResourceDiscoveryAssociation",
-   "aws-native:ec2:IPAMScope": "IPAMScope",
    "aws-native:ec2:Instance": "Instance",
    "aws-native:ec2:InternetGateway": "InternetGateway",
+   "aws-native:ec2:Ipam": "Ipam",
+   "aws-native:ec2:IpamAllocation": "IpamAllocation",
+   "aws-native:ec2:IpamPool": "IpamPool",
+   "aws-native:ec2:IpamPoolCidr": "IpamPoolCidr",
+   "aws-native:ec2:IpamResourceDiscovery": "IpamResourceDiscovery",
+   "aws-native:ec2:IpamResourceDiscoveryAssociation": "IpamResourceDiscoveryAssociation",
+   "aws-native:ec2:IpamScope": "IpamScope",
    "aws-native:ec2:KeyPair": "KeyPair",
    "aws-native:ec2:LaunchTemplate": "LaunchTemplate",
    "aws-native:ec2:LocalGatewayRoute": "LocalGatewayRoute",
    "aws-native:ec2:LocalGatewayRouteTable": "LocalGatewayRouteTable",
-   "aws-native:ec2:LocalGatewayRouteTableVPCAssociation": "LocalGatewayRouteTableVPCAssociation",
    "aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation": "LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+   "aws-native:ec2:LocalGatewayRouteTableVpcAssociation": "LocalGatewayRouteTableVpcAssociation",
    "aws-native:ec2:NatGateway": "NatGateway",
    "aws-native:ec2:NetworkAcl": "NetworkAcl",
    "aws-native:ec2:NetworkAclEntry": "NetworkAclEntry",
@@ -1547,25 +1547,25 @@ _utilities.register(
    "aws-native:ec2:TransitGatewayRouteTableAssociation": "TransitGatewayRouteTableAssociation",
    "aws-native:ec2:TransitGatewayRouteTablePropagation": "TransitGatewayRouteTablePropagation",
    "aws-native:ec2:TransitGatewayVpcAttachment": "TransitGatewayVpcAttachment",
-   "aws-native:ec2:VPC": "VPC",
-   "aws-native:ec2:VPCCidrBlock": "VPCCidrBlock",
-   "aws-native:ec2:VPCDHCPOptionsAssociation": "VPCDHCPOptionsAssociation",
-   "aws-native:ec2:VPCEndpoint": "VPCEndpoint",
-   "aws-native:ec2:VPCEndpointConnectionNotification": "VPCEndpointConnectionNotification",
-   "aws-native:ec2:VPCEndpointService": "VPCEndpointService",
-   "aws-native:ec2:VPCEndpointServicePermissions": "VPCEndpointServicePermissions",
-   "aws-native:ec2:VPCGatewayAttachment": "VPCGatewayAttachment",
-   "aws-native:ec2:VPCPeeringConnection": "VPCPeeringConnection",
-   "aws-native:ec2:VPNConnection": "VPNConnection",
-   "aws-native:ec2:VPNConnectionRoute": "VPNConnectionRoute",
-   "aws-native:ec2:VPNGateway": "VPNGateway",
-   "aws-native:ec2:VPNGatewayRoutePropagation": "VPNGatewayRoutePropagation",
    "aws-native:ec2:VerifiedAccessEndpoint": "VerifiedAccessEndpoint",
    "aws-native:ec2:VerifiedAccessGroup": "VerifiedAccessGroup",
    "aws-native:ec2:VerifiedAccessInstance": "VerifiedAccessInstance",
    "aws-native:ec2:VerifiedAccessTrustProvider": "VerifiedAccessTrustProvider",
    "aws-native:ec2:Volume": "Volume",
-   "aws-native:ec2:VolumeAttachment": "VolumeAttachment"
+   "aws-native:ec2:VolumeAttachment": "VolumeAttachment",
+   "aws-native:ec2:Vpc": "Vpc",
+   "aws-native:ec2:VpcCidrBlock": "VpcCidrBlock",
+   "aws-native:ec2:VpcEndpoint": "VpcEndpoint",
+   "aws-native:ec2:VpcEndpointConnectionNotification": "VpcEndpointConnectionNotification",
+   "aws-native:ec2:VpcEndpointService": "VpcEndpointService",
+   "aws-native:ec2:VpcEndpointServicePermissions": "VpcEndpointServicePermissions",
+   "aws-native:ec2:VpcGatewayAttachment": "VpcGatewayAttachment",
+   "aws-native:ec2:VpcPeeringConnection": "VpcPeeringConnection",
+   "aws-native:ec2:VpcdhcpOptionsAssociation": "VpcdhcpOptionsAssociation",
+   "aws-native:ec2:VpnConnection": "VpnConnection",
+   "aws-native:ec2:VpnConnectionRoute": "VpnConnectionRoute",
+   "aws-native:ec2:VpnGateway": "VpnGateway",
+   "aws-native:ec2:VpnGatewayRoutePropagation": "VpnGatewayRoutePropagation"
   }
  },
  {
@@ -1838,7 +1838,7 @@ _utilities.register(
    "aws-native:glue:Database": "Database",
    "aws-native:glue:DevEndpoint": "DevEndpoint",
    "aws-native:glue:Job": "Job",
-   "aws-native:glue:MLTransform": "MLTransform",
+   "aws-native:glue:MlTransform": "MlTransform",
    "aws-native:glue:Partition": "Partition",
    "aws-native:glue:Registry": "Registry",
    "aws-native:glue:Schema": "Schema",
@@ -1907,7 +1907,7 @@ _utilities.register(
   "classes": {
    "aws-native:guardduty:Detector": "Detector",
    "aws-native:guardduty:Filter": "Filter",
-   "aws-native:guardduty:IPSet": "IPSet",
+   "aws-native:guardduty:IpSet": "IpSet",
    "aws-native:guardduty:Master": "Master",
    "aws-native:guardduty:Member": "Member",
    "aws-native:guardduty:ThreatIntelSet": "ThreatIntelSet"
@@ -1918,7 +1918,7 @@ _utilities.register(
   "mod": "healthlake",
   "fqn": "pulumi_aws_native.healthlake",
   "classes": {
-   "aws-native:healthlake:FHIRDatastore": "FHIRDatastore"
+   "aws-native:healthlake:FhirDatastore": "FhirDatastore"
   }
  },
  {
@@ -1931,17 +1931,17 @@ _utilities.register(
    "aws-native:iam:GroupPolicy": "GroupPolicy",
    "aws-native:iam:InstanceProfile": "InstanceProfile",
    "aws-native:iam:ManagedPolicy": "ManagedPolicy",
-   "aws-native:iam:OIDCProvider": "OIDCProvider",
+   "aws-native:iam:OidcProvider": "OidcProvider",
    "aws-native:iam:Policy": "Policy",
    "aws-native:iam:Role": "Role",
    "aws-native:iam:RolePolicy": "RolePolicy",
-   "aws-native:iam:SAMLProvider": "SAMLProvider",
+   "aws-native:iam:SamlProvider": "SamlProvider",
    "aws-native:iam:ServerCertificate": "ServerCertificate",
    "aws-native:iam:ServiceLinkedRole": "ServiceLinkedRole",
    "aws-native:iam:User": "User",
    "aws-native:iam:UserPolicy": "UserPolicy",
    "aws-native:iam:UserToGroupAddition": "UserToGroupAddition",
-   "aws-native:iam:VirtualMFADevice": "VirtualMFADevice"
+   "aws-native:iam:VirtualMfaDevice": "VirtualMfaDevice"
   }
  },
  {
@@ -2009,7 +2009,7 @@ _utilities.register(
    "aws-native:iot:AccountAuditConfiguration": "AccountAuditConfiguration",
    "aws-native:iot:Authorizer": "Authorizer",
    "aws-native:iot:BillingGroup": "BillingGroup",
-   "aws-native:iot:CACertificate": "CACertificate",
+   "aws-native:iot:CaCertificate": "CaCertificate",
    "aws-native:iot:Certificate": "Certificate",
    "aws-native:iot:CustomMetric": "CustomMetric",
    "aws-native:iot:Dimension": "Dimension",
@@ -2469,7 +2469,7 @@ _utilities.register(
   "mod": "memorydb",
   "fqn": "pulumi_aws_native.memorydb",
   "classes": {
-   "aws-native:memorydb:ACL": "ACL",
+   "aws-native:memorydb:Acl": "Acl",
    "aws-native:memorydb:Cluster": "Cluster",
    "aws-native:memorydb:ParameterGroup": "ParameterGroup",
    "aws-native:memorydb:SubnetGroup": "SubnetGroup",
@@ -2502,11 +2502,11 @@ _utilities.register(
   "mod": "neptune",
   "fqn": "pulumi_aws_native.neptune",
   "classes": {
-   "aws-native:neptune:DBCluster": "DBCluster",
-   "aws-native:neptune:DBClusterParameterGroup": "DBClusterParameterGroup",
-   "aws-native:neptune:DBInstance": "DBInstance",
-   "aws-native:neptune:DBParameterGroup": "DBParameterGroup",
-   "aws-native:neptune:DBSubnetGroup": "DBSubnetGroup"
+   "aws-native:neptune:DbCluster": "DbCluster",
+   "aws-native:neptune:DbClusterParameterGroup": "DbClusterParameterGroup",
+   "aws-native:neptune:DbInstance": "DbInstance",
+   "aws-native:neptune:DbParameterGroup": "DbParameterGroup",
+   "aws-native:neptune:DbSubnetGroup": "DbSubnetGroup"
   }
  },
  {
@@ -2662,11 +2662,11 @@ _utilities.register(
   "mod": "pinpoint",
   "fqn": "pulumi_aws_native.pinpoint",
   "classes": {
-   "aws-native:pinpoint:ADMChannel": "ADMChannel",
-   "aws-native:pinpoint:APNSChannel": "APNSChannel",
-   "aws-native:pinpoint:APNSSandboxChannel": "APNSSandboxChannel",
-   "aws-native:pinpoint:APNSVoipChannel": "APNSVoipChannel",
-   "aws-native:pinpoint:APNSVoipSandboxChannel": "APNSVoipSandboxChannel",
+   "aws-native:pinpoint:AdmChannel": "AdmChannel",
+   "aws-native:pinpoint:ApnsChannel": "ApnsChannel",
+   "aws-native:pinpoint:ApnsSandboxChannel": "ApnsSandboxChannel",
+   "aws-native:pinpoint:ApnsVoipChannel": "ApnsVoipChannel",
+   "aws-native:pinpoint:ApnsVoipSandboxChannel": "ApnsVoipSandboxChannel",
    "aws-native:pinpoint:App": "App",
    "aws-native:pinpoint:ApplicationSettings": "ApplicationSettings",
    "aws-native:pinpoint:BaiduChannel": "BaiduChannel",
@@ -2674,11 +2674,11 @@ _utilities.register(
    "aws-native:pinpoint:EmailChannel": "EmailChannel",
    "aws-native:pinpoint:EmailTemplate": "EmailTemplate",
    "aws-native:pinpoint:EventStream": "EventStream",
-   "aws-native:pinpoint:GCMChannel": "GCMChannel",
+   "aws-native:pinpoint:GcmChannel": "GcmChannel",
    "aws-native:pinpoint:InAppTemplate": "InAppTemplate",
    "aws-native:pinpoint:PushTemplate": "PushTemplate",
-   "aws-native:pinpoint:SMSChannel": "SMSChannel",
    "aws-native:pinpoint:Segment": "Segment",
+   "aws-native:pinpoint:SmsChannel": "SmsChannel",
    "aws-native:pinpoint:SmsTemplate": "SmsTemplate",
    "aws-native:pinpoint:VoiceChannel": "VoiceChannel"
   }
@@ -2734,7 +2734,7 @@ _utilities.register(
    "aws-native:quicksight:Template": "Template",
    "aws-native:quicksight:Theme": "Theme",
    "aws-native:quicksight:Topic": "Topic",
-   "aws-native:quicksight:VPCConnection": "VPCConnection"
+   "aws-native:quicksight:VpcConnection": "VpcConnection"
   }
  },
  {
@@ -2751,17 +2751,17 @@ _utilities.register(
   "mod": "rds",
   "fqn": "pulumi_aws_native.rds",
   "classes": {
-   "aws-native:rds:CustomDBEngineVersion": "CustomDBEngineVersion",
-   "aws-native:rds:DBCluster": "DBCluster",
-   "aws-native:rds:DBClusterParameterGroup": "DBClusterParameterGroup",
-   "aws-native:rds:DBInstance": "DBInstance",
-   "aws-native:rds:DBParameterGroup": "DBParameterGroup",
-   "aws-native:rds:DBProxy": "DBProxy",
-   "aws-native:rds:DBProxyEndpoint": "DBProxyEndpoint",
-   "aws-native:rds:DBProxyTargetGroup": "DBProxyTargetGroup",
-   "aws-native:rds:DBSecurityGroup": "DBSecurityGroup",
-   "aws-native:rds:DBSecurityGroupIngress": "DBSecurityGroupIngress",
-   "aws-native:rds:DBSubnetGroup": "DBSubnetGroup",
+   "aws-native:rds:CustomDbEngineVersion": "CustomDbEngineVersion",
+   "aws-native:rds:DbCluster": "DbCluster",
+   "aws-native:rds:DbClusterParameterGroup": "DbClusterParameterGroup",
+   "aws-native:rds:DbInstance": "DbInstance",
+   "aws-native:rds:DbParameterGroup": "DbParameterGroup",
+   "aws-native:rds:DbProxy": "DbProxy",
+   "aws-native:rds:DbProxyEndpoint": "DbProxyEndpoint",
+   "aws-native:rds:DbProxyTargetGroup": "DbProxyTargetGroup",
+   "aws-native:rds:DbSecurityGroup": "DbSecurityGroup",
+   "aws-native:rds:DbSecurityGroupIngress": "DbSecurityGroupIngress",
+   "aws-native:rds:DbSubnetGroup": "DbSubnetGroup",
    "aws-native:rds:EventSubscription": "EventSubscription",
    "aws-native:rds:GlobalCluster": "GlobalCluster",
    "aws-native:rds:OptionGroup": "OptionGroup"
@@ -2858,7 +2858,7 @@ _utilities.register(
   "mod": "rolesanywhere",
   "fqn": "pulumi_aws_native.rolesanywhere",
   "classes": {
-   "aws-native:rolesanywhere:CRL": "CRL",
+   "aws-native:rolesanywhere:Crl": "Crl",
    "aws-native:rolesanywhere:Profile": "Profile",
    "aws-native:rolesanywhere:TrustAnchor": "TrustAnchor"
   }
@@ -2869,7 +2869,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.route53",
   "classes": {
    "aws-native:route53:CidrCollection": "CidrCollection",
-   "aws-native:route53:DNSSEC": "DNSSEC",
+   "aws-native:route53:Dnssec": "Dnssec",
    "aws-native:route53:HealthCheck": "HealthCheck",
    "aws-native:route53:HostedZone": "HostedZone",
    "aws-native:route53:KeySigningKey": "KeySigningKey",
@@ -2908,7 +2908,7 @@ _utilities.register(
    "aws-native:route53resolver:FirewallRuleGroup": "FirewallRuleGroup",
    "aws-native:route53resolver:FirewallRuleGroupAssociation": "FirewallRuleGroupAssociation",
    "aws-native:route53resolver:ResolverConfig": "ResolverConfig",
-   "aws-native:route53resolver:ResolverDNSSECConfig": "ResolverDNSSECConfig",
+   "aws-native:route53resolver:ResolverDnssecConfig": "ResolverDnssecConfig",
    "aws-native:route53resolver:ResolverEndpoint": "ResolverEndpoint",
    "aws-native:route53resolver:ResolverQueryLoggingConfig": "ResolverQueryLoggingConfig",
    "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation": "ResolverQueryLoggingConfigAssociation",
@@ -3098,7 +3098,7 @@ _utilities.register(
   "mod": "shield",
   "fqn": "pulumi_aws_native.shield",
   "classes": {
-   "aws-native:shield:DRTAccess": "DRTAccess",
+   "aws-native:shield:DrtAccess": "DrtAccess",
    "aws-native:shield:ProactiveEngagement": "ProactiveEngagement",
    "aws-native:shield:Protection": "Protection",
    "aws-native:shield:ProtectionGroup": "ProtectionGroup"
@@ -3292,11 +3292,11 @@ _utilities.register(
   "fqn": "pulumi_aws_native.waf",
   "classes": {
    "aws-native:waf:ByteMatchSet": "ByteMatchSet",
-   "aws-native:waf:IPSet": "IPSet",
+   "aws-native:waf:IpSet": "IpSet",
    "aws-native:waf:Rule": "Rule",
    "aws-native:waf:SizeConstraintSet": "SizeConstraintSet",
    "aws-native:waf:SqlInjectionMatchSet": "SqlInjectionMatchSet",
-   "aws-native:waf:WebACL": "WebACL",
+   "aws-native:waf:WebAcl": "WebAcl",
    "aws-native:waf:XssMatchSet": "XssMatchSet"
   }
  },
@@ -3307,14 +3307,14 @@ _utilities.register(
   "classes": {
    "aws-native:wafregional:ByteMatchSet": "ByteMatchSet",
    "aws-native:wafregional:GeoMatchSet": "GeoMatchSet",
-   "aws-native:wafregional:IPSet": "IPSet",
+   "aws-native:wafregional:IpSet": "IpSet",
    "aws-native:wafregional:RateBasedRule": "RateBasedRule",
    "aws-native:wafregional:RegexPatternSet": "RegexPatternSet",
    "aws-native:wafregional:Rule": "Rule",
    "aws-native:wafregional:SizeConstraintSet": "SizeConstraintSet",
    "aws-native:wafregional:SqlInjectionMatchSet": "SqlInjectionMatchSet",
-   "aws-native:wafregional:WebACL": "WebACL",
-   "aws-native:wafregional:WebACLAssociation": "WebACLAssociation",
+   "aws-native:wafregional:WebAcl": "WebAcl",
+   "aws-native:wafregional:WebAclAssociation": "WebAclAssociation",
    "aws-native:wafregional:XssMatchSet": "XssMatchSet"
   }
  },
@@ -3323,12 +3323,12 @@ _utilities.register(
   "mod": "wafv2",
   "fqn": "pulumi_aws_native.wafv2",
   "classes": {
-   "aws-native:wafv2:IPSet": "IPSet",
+   "aws-native:wafv2:IpSet": "IpSet",
    "aws-native:wafv2:LoggingConfiguration": "LoggingConfiguration",
    "aws-native:wafv2:RegexPatternSet": "RegexPatternSet",
    "aws-native:wafv2:RuleGroup": "RuleGroup",
-   "aws-native:wafv2:WebACL": "WebACL",
-   "aws-native:wafv2:WebACLAssociation": "WebACLAssociation"
+   "aws-native:wafv2:WebAcl": "WebAcl",
+   "aws-native:wafv2:WebAclAssociation": "WebAclAssociation"
   }
  },
  {

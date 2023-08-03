@@ -1323,138 +1323,138 @@ func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) StageVariables() pulu
 	}).(pulumi.AnyOutput)
 }
 
-type AuthorizerJWTConfiguration struct {
+type AuthorizerJwtConfiguration struct {
 	Audience []string `pulumi:"audience"`
 	Issuer   *string  `pulumi:"issuer"`
 }
 
-// AuthorizerJWTConfigurationInput is an input type that accepts AuthorizerJWTConfigurationArgs and AuthorizerJWTConfigurationOutput values.
-// You can construct a concrete instance of `AuthorizerJWTConfigurationInput` via:
+// AuthorizerJwtConfigurationInput is an input type that accepts AuthorizerJwtConfigurationArgs and AuthorizerJwtConfigurationOutput values.
+// You can construct a concrete instance of `AuthorizerJwtConfigurationInput` via:
 //
-//	AuthorizerJWTConfigurationArgs{...}
-type AuthorizerJWTConfigurationInput interface {
+//	AuthorizerJwtConfigurationArgs{...}
+type AuthorizerJwtConfigurationInput interface {
 	pulumi.Input
 
-	ToAuthorizerJWTConfigurationOutput() AuthorizerJWTConfigurationOutput
-	ToAuthorizerJWTConfigurationOutputWithContext(context.Context) AuthorizerJWTConfigurationOutput
+	ToAuthorizerJwtConfigurationOutput() AuthorizerJwtConfigurationOutput
+	ToAuthorizerJwtConfigurationOutputWithContext(context.Context) AuthorizerJwtConfigurationOutput
 }
 
-type AuthorizerJWTConfigurationArgs struct {
+type AuthorizerJwtConfigurationArgs struct {
 	Audience pulumi.StringArrayInput `pulumi:"audience"`
 	Issuer   pulumi.StringPtrInput   `pulumi:"issuer"`
 }
 
-func (AuthorizerJWTConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizerJWTConfiguration)(nil)).Elem()
+func (AuthorizerJwtConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerJwtConfiguration)(nil)).Elem()
 }
 
-func (i AuthorizerJWTConfigurationArgs) ToAuthorizerJWTConfigurationOutput() AuthorizerJWTConfigurationOutput {
-	return i.ToAuthorizerJWTConfigurationOutputWithContext(context.Background())
+func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationOutput() AuthorizerJwtConfigurationOutput {
+	return i.ToAuthorizerJwtConfigurationOutputWithContext(context.Background())
 }
 
-func (i AuthorizerJWTConfigurationArgs) ToAuthorizerJWTConfigurationOutputWithContext(ctx context.Context) AuthorizerJWTConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJWTConfigurationOutput)
+func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationOutput)
 }
 
-func (i AuthorizerJWTConfigurationArgs) ToAuthorizerJWTConfigurationPtrOutput() AuthorizerJWTConfigurationPtrOutput {
-	return i.ToAuthorizerJWTConfigurationPtrOutputWithContext(context.Background())
+func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput {
+	return i.ToAuthorizerJwtConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i AuthorizerJWTConfigurationArgs) ToAuthorizerJWTConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJWTConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJWTConfigurationOutput).ToAuthorizerJWTConfigurationPtrOutputWithContext(ctx)
+func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationOutput).ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx)
 }
 
-// AuthorizerJWTConfigurationPtrInput is an input type that accepts AuthorizerJWTConfigurationArgs, AuthorizerJWTConfigurationPtr and AuthorizerJWTConfigurationPtrOutput values.
-// You can construct a concrete instance of `AuthorizerJWTConfigurationPtrInput` via:
+// AuthorizerJwtConfigurationPtrInput is an input type that accepts AuthorizerJwtConfigurationArgs, AuthorizerJwtConfigurationPtr and AuthorizerJwtConfigurationPtrOutput values.
+// You can construct a concrete instance of `AuthorizerJwtConfigurationPtrInput` via:
 //
-//	        AuthorizerJWTConfigurationArgs{...}
+//	        AuthorizerJwtConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type AuthorizerJWTConfigurationPtrInput interface {
+type AuthorizerJwtConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToAuthorizerJWTConfigurationPtrOutput() AuthorizerJWTConfigurationPtrOutput
-	ToAuthorizerJWTConfigurationPtrOutputWithContext(context.Context) AuthorizerJWTConfigurationPtrOutput
+	ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput
+	ToAuthorizerJwtConfigurationPtrOutputWithContext(context.Context) AuthorizerJwtConfigurationPtrOutput
 }
 
-type authorizerJWTConfigurationPtrType AuthorizerJWTConfigurationArgs
+type authorizerJwtConfigurationPtrType AuthorizerJwtConfigurationArgs
 
-func AuthorizerJWTConfigurationPtr(v *AuthorizerJWTConfigurationArgs) AuthorizerJWTConfigurationPtrInput {
-	return (*authorizerJWTConfigurationPtrType)(v)
+func AuthorizerJwtConfigurationPtr(v *AuthorizerJwtConfigurationArgs) AuthorizerJwtConfigurationPtrInput {
+	return (*authorizerJwtConfigurationPtrType)(v)
 }
 
-func (*authorizerJWTConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthorizerJWTConfiguration)(nil)).Elem()
+func (*authorizerJwtConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerJwtConfiguration)(nil)).Elem()
 }
 
-func (i *authorizerJWTConfigurationPtrType) ToAuthorizerJWTConfigurationPtrOutput() AuthorizerJWTConfigurationPtrOutput {
-	return i.ToAuthorizerJWTConfigurationPtrOutputWithContext(context.Background())
+func (i *authorizerJwtConfigurationPtrType) ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput {
+	return i.ToAuthorizerJwtConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *authorizerJWTConfigurationPtrType) ToAuthorizerJWTConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJWTConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJWTConfigurationPtrOutput)
+func (i *authorizerJwtConfigurationPtrType) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationPtrOutput)
 }
 
-type AuthorizerJWTConfigurationOutput struct{ *pulumi.OutputState }
+type AuthorizerJwtConfigurationOutput struct{ *pulumi.OutputState }
 
-func (AuthorizerJWTConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizerJWTConfiguration)(nil)).Elem()
+func (AuthorizerJwtConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerJwtConfiguration)(nil)).Elem()
 }
 
-func (o AuthorizerJWTConfigurationOutput) ToAuthorizerJWTConfigurationOutput() AuthorizerJWTConfigurationOutput {
+func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationOutput() AuthorizerJwtConfigurationOutput {
 	return o
 }
 
-func (o AuthorizerJWTConfigurationOutput) ToAuthorizerJWTConfigurationOutputWithContext(ctx context.Context) AuthorizerJWTConfigurationOutput {
+func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationOutput {
 	return o
 }
 
-func (o AuthorizerJWTConfigurationOutput) ToAuthorizerJWTConfigurationPtrOutput() AuthorizerJWTConfigurationPtrOutput {
-	return o.ToAuthorizerJWTConfigurationPtrOutputWithContext(context.Background())
+func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput {
+	return o.ToAuthorizerJwtConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o AuthorizerJWTConfigurationOutput) ToAuthorizerJWTConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJWTConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizerJWTConfiguration) *AuthorizerJWTConfiguration {
+func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizerJwtConfiguration) *AuthorizerJwtConfiguration {
 		return &v
-	}).(AuthorizerJWTConfigurationPtrOutput)
+	}).(AuthorizerJwtConfigurationPtrOutput)
 }
 
-func (o AuthorizerJWTConfigurationOutput) Audience() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AuthorizerJWTConfiguration) []string { return v.Audience }).(pulumi.StringArrayOutput)
+func (o AuthorizerJwtConfigurationOutput) Audience() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthorizerJwtConfiguration) []string { return v.Audience }).(pulumi.StringArrayOutput)
 }
 
-func (o AuthorizerJWTConfigurationOutput) Issuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AuthorizerJWTConfiguration) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+func (o AuthorizerJwtConfigurationOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthorizerJwtConfiguration) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
-type AuthorizerJWTConfigurationPtrOutput struct{ *pulumi.OutputState }
+type AuthorizerJwtConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (AuthorizerJWTConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthorizerJWTConfiguration)(nil)).Elem()
+func (AuthorizerJwtConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerJwtConfiguration)(nil)).Elem()
 }
 
-func (o AuthorizerJWTConfigurationPtrOutput) ToAuthorizerJWTConfigurationPtrOutput() AuthorizerJWTConfigurationPtrOutput {
+func (o AuthorizerJwtConfigurationPtrOutput) ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput {
 	return o
 }
 
-func (o AuthorizerJWTConfigurationPtrOutput) ToAuthorizerJWTConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJWTConfigurationPtrOutput {
+func (o AuthorizerJwtConfigurationPtrOutput) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
 	return o
 }
 
-func (o AuthorizerJWTConfigurationPtrOutput) Elem() AuthorizerJWTConfigurationOutput {
-	return o.ApplyT(func(v *AuthorizerJWTConfiguration) AuthorizerJWTConfiguration {
+func (o AuthorizerJwtConfigurationPtrOutput) Elem() AuthorizerJwtConfigurationOutput {
+	return o.ApplyT(func(v *AuthorizerJwtConfiguration) AuthorizerJwtConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret AuthorizerJWTConfiguration
+		var ret AuthorizerJwtConfiguration
 		return ret
-	}).(AuthorizerJWTConfigurationOutput)
+	}).(AuthorizerJwtConfigurationOutput)
 }
 
-func (o AuthorizerJWTConfigurationPtrOutput) Audience() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AuthorizerJWTConfiguration) []string {
+func (o AuthorizerJwtConfigurationPtrOutput) Audience() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthorizerJwtConfiguration) []string {
 		if v == nil {
 			return nil
 		}
@@ -1462,8 +1462,8 @@ func (o AuthorizerJWTConfigurationPtrOutput) Audience() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o AuthorizerJWTConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AuthorizerJWTConfiguration) *string {
+func (o AuthorizerJwtConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizerJwtConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -2344,8 +2344,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesRouteSettingsPtrInput)(nil)).Elem(), ApiGatewayManagedOverridesRouteSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesStageOverridesInput)(nil)).Elem(), ApiGatewayManagedOverridesStageOverridesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesStageOverridesPtrInput)(nil)).Elem(), ApiGatewayManagedOverridesStageOverridesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJWTConfigurationInput)(nil)).Elem(), AuthorizerJWTConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJWTConfigurationPtrInput)(nil)).Elem(), AuthorizerJWTConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtConfigurationInput)(nil)).Elem(), AuthorizerJwtConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtConfigurationPtrInput)(nil)).Elem(), AuthorizerJwtConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameConfigurationInput)(nil)).Elem(), DomainNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameConfigurationArrayInput)(nil)).Elem(), DomainNameConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
@@ -2372,8 +2372,8 @@ func init() {
 	pulumi.RegisterOutputType(ApiGatewayManagedOverridesRouteSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ApiGatewayManagedOverridesStageOverridesOutput{})
 	pulumi.RegisterOutputType(ApiGatewayManagedOverridesStageOverridesPtrOutput{})
-	pulumi.RegisterOutputType(AuthorizerJWTConfigurationOutput{})
-	pulumi.RegisterOutputType(AuthorizerJWTConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AuthorizerJwtConfigurationOutput{})
+	pulumi.RegisterOutputType(AuthorizerJwtConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainNameConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})

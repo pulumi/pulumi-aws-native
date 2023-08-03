@@ -65,7 +65,7 @@ class GetFormResult:
 
     @property
     @pulumi.getter
-    def cta(self) -> Optional['outputs.FormCTA']:
+    def cta(self) -> Optional['outputs.FormCta']:
         return pulumi.get(self, "cta")
 
     @property

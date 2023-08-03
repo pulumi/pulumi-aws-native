@@ -413,26 +413,26 @@ namespace Pulumi.AwsNative.KinesisFirehose
     }
 
     [EnumType]
-    public readonly struct DeliveryStreamSplunkDestinationConfigurationHECEndpointType : IEquatable<DeliveryStreamSplunkDestinationConfigurationHECEndpointType>
+    public readonly struct DeliveryStreamSplunkDestinationConfigurationHecEndpointType : IEquatable<DeliveryStreamSplunkDestinationConfigurationHecEndpointType>
     {
         private readonly string _value;
 
-        private DeliveryStreamSplunkDestinationConfigurationHECEndpointType(string value)
+        private DeliveryStreamSplunkDestinationConfigurationHecEndpointType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DeliveryStreamSplunkDestinationConfigurationHECEndpointType Raw { get; } = new DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Raw");
-        public static DeliveryStreamSplunkDestinationConfigurationHECEndpointType Event { get; } = new DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Event");
+        public static DeliveryStreamSplunkDestinationConfigurationHecEndpointType Raw { get; } = new DeliveryStreamSplunkDestinationConfigurationHecEndpointType("Raw");
+        public static DeliveryStreamSplunkDestinationConfigurationHecEndpointType Event { get; } = new DeliveryStreamSplunkDestinationConfigurationHecEndpointType("Event");
 
-        public static bool operator ==(DeliveryStreamSplunkDestinationConfigurationHECEndpointType left, DeliveryStreamSplunkDestinationConfigurationHECEndpointType right) => left.Equals(right);
-        public static bool operator !=(DeliveryStreamSplunkDestinationConfigurationHECEndpointType left, DeliveryStreamSplunkDestinationConfigurationHECEndpointType right) => !left.Equals(right);
+        public static bool operator ==(DeliveryStreamSplunkDestinationConfigurationHecEndpointType left, DeliveryStreamSplunkDestinationConfigurationHecEndpointType right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamSplunkDestinationConfigurationHecEndpointType left, DeliveryStreamSplunkDestinationConfigurationHecEndpointType right) => !left.Equals(right);
 
-        public static explicit operator string(DeliveryStreamSplunkDestinationConfigurationHECEndpointType value) => value._value;
+        public static explicit operator string(DeliveryStreamSplunkDestinationConfigurationHecEndpointType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeliveryStreamSplunkDestinationConfigurationHECEndpointType other && Equals(other);
-        public bool Equals(DeliveryStreamSplunkDestinationConfigurationHECEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DeliveryStreamSplunkDestinationConfigurationHecEndpointType other && Equals(other);
+        public bool Equals(DeliveryStreamSplunkDestinationConfigurationHecEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

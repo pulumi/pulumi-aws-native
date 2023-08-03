@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetAPNSSandboxChannelResult',
-    'AwaitableGetAPNSSandboxChannelResult',
+    'GetApnsSandboxChannelResult',
+    'AwaitableGetApnsSandboxChannelResult',
     'get_apns_sandbox_channel',
     'get_apns_sandbox_channel_output',
 ]
 
 @pulumi.output_type
-class GetAPNSSandboxChannelResult:
+class GetApnsSandboxChannelResult:
     def __init__(__self__, bundle_id=None, certificate=None, default_authentication_method=None, enabled=None, id=None, private_key=None, team_id=None, token_key=None, token_key_id=None):
         if bundle_id and not isinstance(bundle_id, str):
             raise TypeError("Expected argument 'bundle_id' to be a str")
@@ -93,12 +93,12 @@ class GetAPNSSandboxChannelResult:
         return pulumi.get(self, "token_key_id")
 
 
-class AwaitableGetAPNSSandboxChannelResult(GetAPNSSandboxChannelResult):
+class AwaitableGetApnsSandboxChannelResult(GetApnsSandboxChannelResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetAPNSSandboxChannelResult(
+        return GetApnsSandboxChannelResult(
             bundle_id=self.bundle_id,
             certificate=self.certificate,
             default_authentication_method=self.default_authentication_method,
@@ -111,16 +111,16 @@ class AwaitableGetAPNSSandboxChannelResult(GetAPNSSandboxChannelResult):
 
 
 def get_apns_sandbox_channel(id: Optional[str] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAPNSSandboxChannelResult:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApnsSandboxChannelResult:
     """
     Resource Type definition for AWS::Pinpoint::APNSSandboxChannel
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getAPNSSandboxChannel', __args__, opts=opts, typ=GetAPNSSandboxChannelResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getApnsSandboxChannel', __args__, opts=opts, typ=GetApnsSandboxChannelResult).value
 
-    return AwaitableGetAPNSSandboxChannelResult(
+    return AwaitableGetApnsSandboxChannelResult(
         bundle_id=pulumi.get(__ret__, 'bundle_id'),
         certificate=pulumi.get(__ret__, 'certificate'),
         default_authentication_method=pulumi.get(__ret__, 'default_authentication_method'),
@@ -134,7 +134,7 @@ def get_apns_sandbox_channel(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_apns_sandbox_channel)
 def get_apns_sandbox_channel_output(id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAPNSSandboxChannelResult]:
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApnsSandboxChannelResult]:
     """
     Resource Type definition for AWS::Pinpoint::APNSSandboxChannel
     """

@@ -3062,140 +3062,140 @@ func (o StoredQueryTagArrayOutput) Index(i pulumi.IntInput) StoredQueryTagOutput
 }
 
 // The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
-type TemplateSSMDocumentDetailsProperties struct {
+type TemplateSsmDocumentDetailsProperties struct {
 	DocumentName    *string `pulumi:"documentName"`
 	DocumentVersion *string `pulumi:"documentVersion"`
 }
 
-// TemplateSSMDocumentDetailsPropertiesInput is an input type that accepts TemplateSSMDocumentDetailsPropertiesArgs and TemplateSSMDocumentDetailsPropertiesOutput values.
-// You can construct a concrete instance of `TemplateSSMDocumentDetailsPropertiesInput` via:
+// TemplateSsmDocumentDetailsPropertiesInput is an input type that accepts TemplateSsmDocumentDetailsPropertiesArgs and TemplateSsmDocumentDetailsPropertiesOutput values.
+// You can construct a concrete instance of `TemplateSsmDocumentDetailsPropertiesInput` via:
 //
-//	TemplateSSMDocumentDetailsPropertiesArgs{...}
-type TemplateSSMDocumentDetailsPropertiesInput interface {
+//	TemplateSsmDocumentDetailsPropertiesArgs{...}
+type TemplateSsmDocumentDetailsPropertiesInput interface {
 	pulumi.Input
 
-	ToTemplateSSMDocumentDetailsPropertiesOutput() TemplateSSMDocumentDetailsPropertiesOutput
-	ToTemplateSSMDocumentDetailsPropertiesOutputWithContext(context.Context) TemplateSSMDocumentDetailsPropertiesOutput
+	ToTemplateSsmDocumentDetailsPropertiesOutput() TemplateSsmDocumentDetailsPropertiesOutput
+	ToTemplateSsmDocumentDetailsPropertiesOutputWithContext(context.Context) TemplateSsmDocumentDetailsPropertiesOutput
 }
 
 // The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
-type TemplateSSMDocumentDetailsPropertiesArgs struct {
+type TemplateSsmDocumentDetailsPropertiesArgs struct {
 	DocumentName    pulumi.StringPtrInput `pulumi:"documentName"`
 	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
 }
 
-func (TemplateSSMDocumentDetailsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSSMDocumentDetailsProperties)(nil)).Elem()
+func (TemplateSsmDocumentDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSsmDocumentDetailsProperties)(nil)).Elem()
 }
 
-func (i TemplateSSMDocumentDetailsPropertiesArgs) ToTemplateSSMDocumentDetailsPropertiesOutput() TemplateSSMDocumentDetailsPropertiesOutput {
-	return i.ToTemplateSSMDocumentDetailsPropertiesOutputWithContext(context.Background())
+func (i TemplateSsmDocumentDetailsPropertiesArgs) ToTemplateSsmDocumentDetailsPropertiesOutput() TemplateSsmDocumentDetailsPropertiesOutput {
+	return i.ToTemplateSsmDocumentDetailsPropertiesOutputWithContext(context.Background())
 }
 
-func (i TemplateSSMDocumentDetailsPropertiesArgs) ToTemplateSSMDocumentDetailsPropertiesOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSSMDocumentDetailsPropertiesOutput)
+func (i TemplateSsmDocumentDetailsPropertiesArgs) ToTemplateSsmDocumentDetailsPropertiesOutputWithContext(ctx context.Context) TemplateSsmDocumentDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSsmDocumentDetailsPropertiesOutput)
 }
 
-func (i TemplateSSMDocumentDetailsPropertiesArgs) ToTemplateSSMDocumentDetailsPropertiesPtrOutput() TemplateSSMDocumentDetailsPropertiesPtrOutput {
-	return i.ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(context.Background())
+func (i TemplateSsmDocumentDetailsPropertiesArgs) ToTemplateSsmDocumentDetailsPropertiesPtrOutput() TemplateSsmDocumentDetailsPropertiesPtrOutput {
+	return i.ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i TemplateSSMDocumentDetailsPropertiesArgs) ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSSMDocumentDetailsPropertiesOutput).ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(ctx)
+func (i TemplateSsmDocumentDetailsPropertiesArgs) ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSsmDocumentDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSsmDocumentDetailsPropertiesOutput).ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(ctx)
 }
 
-// TemplateSSMDocumentDetailsPropertiesPtrInput is an input type that accepts TemplateSSMDocumentDetailsPropertiesArgs, TemplateSSMDocumentDetailsPropertiesPtr and TemplateSSMDocumentDetailsPropertiesPtrOutput values.
-// You can construct a concrete instance of `TemplateSSMDocumentDetailsPropertiesPtrInput` via:
+// TemplateSsmDocumentDetailsPropertiesPtrInput is an input type that accepts TemplateSsmDocumentDetailsPropertiesArgs, TemplateSsmDocumentDetailsPropertiesPtr and TemplateSsmDocumentDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `TemplateSsmDocumentDetailsPropertiesPtrInput` via:
 //
-//	        TemplateSSMDocumentDetailsPropertiesArgs{...}
+//	        TemplateSsmDocumentDetailsPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type TemplateSSMDocumentDetailsPropertiesPtrInput interface {
+type TemplateSsmDocumentDetailsPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToTemplateSSMDocumentDetailsPropertiesPtrOutput() TemplateSSMDocumentDetailsPropertiesPtrOutput
-	ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(context.Context) TemplateSSMDocumentDetailsPropertiesPtrOutput
+	ToTemplateSsmDocumentDetailsPropertiesPtrOutput() TemplateSsmDocumentDetailsPropertiesPtrOutput
+	ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(context.Context) TemplateSsmDocumentDetailsPropertiesPtrOutput
 }
 
-type templateSSMDocumentDetailsPropertiesPtrType TemplateSSMDocumentDetailsPropertiesArgs
+type templateSsmDocumentDetailsPropertiesPtrType TemplateSsmDocumentDetailsPropertiesArgs
 
-func TemplateSSMDocumentDetailsPropertiesPtr(v *TemplateSSMDocumentDetailsPropertiesArgs) TemplateSSMDocumentDetailsPropertiesPtrInput {
-	return (*templateSSMDocumentDetailsPropertiesPtrType)(v)
+func TemplateSsmDocumentDetailsPropertiesPtr(v *TemplateSsmDocumentDetailsPropertiesArgs) TemplateSsmDocumentDetailsPropertiesPtrInput {
+	return (*templateSsmDocumentDetailsPropertiesPtrType)(v)
 }
 
-func (*templateSSMDocumentDetailsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateSSMDocumentDetailsProperties)(nil)).Elem()
+func (*templateSsmDocumentDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSsmDocumentDetailsProperties)(nil)).Elem()
 }
 
-func (i *templateSSMDocumentDetailsPropertiesPtrType) ToTemplateSSMDocumentDetailsPropertiesPtrOutput() TemplateSSMDocumentDetailsPropertiesPtrOutput {
-	return i.ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(context.Background())
+func (i *templateSsmDocumentDetailsPropertiesPtrType) ToTemplateSsmDocumentDetailsPropertiesPtrOutput() TemplateSsmDocumentDetailsPropertiesPtrOutput {
+	return i.ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *templateSSMDocumentDetailsPropertiesPtrType) ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSSMDocumentDetailsPropertiesPtrOutput)
+func (i *templateSsmDocumentDetailsPropertiesPtrType) ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSsmDocumentDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSsmDocumentDetailsPropertiesPtrOutput)
 }
 
 // The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
-type TemplateSSMDocumentDetailsPropertiesOutput struct{ *pulumi.OutputState }
+type TemplateSsmDocumentDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
-func (TemplateSSMDocumentDetailsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSSMDocumentDetailsProperties)(nil)).Elem()
+func (TemplateSsmDocumentDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSsmDocumentDetailsProperties)(nil)).Elem()
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesOutput) ToTemplateSSMDocumentDetailsPropertiesOutput() TemplateSSMDocumentDetailsPropertiesOutput {
+func (o TemplateSsmDocumentDetailsPropertiesOutput) ToTemplateSsmDocumentDetailsPropertiesOutput() TemplateSsmDocumentDetailsPropertiesOutput {
 	return o
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesOutput) ToTemplateSSMDocumentDetailsPropertiesOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesOutput {
+func (o TemplateSsmDocumentDetailsPropertiesOutput) ToTemplateSsmDocumentDetailsPropertiesOutputWithContext(ctx context.Context) TemplateSsmDocumentDetailsPropertiesOutput {
 	return o
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesOutput) ToTemplateSSMDocumentDetailsPropertiesPtrOutput() TemplateSSMDocumentDetailsPropertiesPtrOutput {
-	return o.ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(context.Background())
+func (o TemplateSsmDocumentDetailsPropertiesOutput) ToTemplateSsmDocumentDetailsPropertiesPtrOutput() TemplateSsmDocumentDetailsPropertiesPtrOutput {
+	return o.ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesOutput) ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSSMDocumentDetailsProperties) *TemplateSSMDocumentDetailsProperties {
+func (o TemplateSsmDocumentDetailsPropertiesOutput) ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSsmDocumentDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSsmDocumentDetailsProperties) *TemplateSsmDocumentDetailsProperties {
 		return &v
-	}).(TemplateSSMDocumentDetailsPropertiesPtrOutput)
+	}).(TemplateSsmDocumentDetailsPropertiesPtrOutput)
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesOutput) DocumentName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateSSMDocumentDetailsProperties) *string { return v.DocumentName }).(pulumi.StringPtrOutput)
+func (o TemplateSsmDocumentDetailsPropertiesOutput) DocumentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateSsmDocumentDetailsProperties) *string { return v.DocumentName }).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesOutput) DocumentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateSSMDocumentDetailsProperties) *string { return v.DocumentVersion }).(pulumi.StringPtrOutput)
+func (o TemplateSsmDocumentDetailsPropertiesOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateSsmDocumentDetailsProperties) *string { return v.DocumentVersion }).(pulumi.StringPtrOutput)
 }
 
-type TemplateSSMDocumentDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+type TemplateSsmDocumentDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (TemplateSSMDocumentDetailsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateSSMDocumentDetailsProperties)(nil)).Elem()
+func (TemplateSsmDocumentDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSsmDocumentDetailsProperties)(nil)).Elem()
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) ToTemplateSSMDocumentDetailsPropertiesPtrOutput() TemplateSSMDocumentDetailsPropertiesPtrOutput {
+func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) ToTemplateSsmDocumentDetailsPropertiesPtrOutput() TemplateSsmDocumentDetailsPropertiesPtrOutput {
 	return o
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesPtrOutput {
+func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSsmDocumentDetailsPropertiesPtrOutput {
 	return o
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) Elem() TemplateSSMDocumentDetailsPropertiesOutput {
-	return o.ApplyT(func(v *TemplateSSMDocumentDetailsProperties) TemplateSSMDocumentDetailsProperties {
+func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) Elem() TemplateSsmDocumentDetailsPropertiesOutput {
+	return o.ApplyT(func(v *TemplateSsmDocumentDetailsProperties) TemplateSsmDocumentDetailsProperties {
 		if v != nil {
 			return *v
 		}
-		var ret TemplateSSMDocumentDetailsProperties
+		var ret TemplateSsmDocumentDetailsProperties
 		return ret
-	}).(TemplateSSMDocumentDetailsPropertiesOutput)
+	}).(TemplateSsmDocumentDetailsPropertiesOutput)
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) DocumentName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateSSMDocumentDetailsProperties) *string {
+func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) DocumentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSsmDocumentDetailsProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -3203,8 +3203,8 @@ func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) DocumentName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateSSMDocumentDetailsProperties) *string {
+func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSsmDocumentDetailsProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -3252,8 +3252,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationSsmControlsPtrInput)(nil)).Elem(), RemediationConfigurationSsmControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StoredQueryTagInput)(nil)).Elem(), StoredQueryTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StoredQueryTagArrayInput)(nil)).Elem(), StoredQueryTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSSMDocumentDetailsPropertiesInput)(nil)).Elem(), TemplateSSMDocumentDetailsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSSMDocumentDetailsPropertiesPtrInput)(nil)).Elem(), TemplateSSMDocumentDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSsmDocumentDetailsPropertiesInput)(nil)).Elem(), TemplateSsmDocumentDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSsmDocumentDetailsPropertiesPtrInput)(nil)).Elem(), TemplateSsmDocumentDetailsPropertiesArgs{})
 	pulumi.RegisterOutputType(AggregationAuthorizationTagOutput{})
 	pulumi.RegisterOutputType(AggregationAuthorizationTagArrayOutput{})
 	pulumi.RegisterOutputType(CompliancePropertiesOutput{})
@@ -3294,6 +3294,6 @@ func init() {
 	pulumi.RegisterOutputType(RemediationConfigurationSsmControlsPtrOutput{})
 	pulumi.RegisterOutputType(StoredQueryTagOutput{})
 	pulumi.RegisterOutputType(StoredQueryTagArrayOutput{})
-	pulumi.RegisterOutputType(TemplateSSMDocumentDetailsPropertiesOutput{})
-	pulumi.RegisterOutputType(TemplateSSMDocumentDetailsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TemplateSsmDocumentDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(TemplateSsmDocumentDetailsPropertiesPtrOutput{})
 }

@@ -11,125 +11,125 @@ import (
 )
 
 // The availability status to be assigned to the CEV.
-type CustomDBEngineVersionStatus string
+type CustomDbEngineVersionStatus string
 
 const (
-	CustomDBEngineVersionStatusAvailable             = CustomDBEngineVersionStatus("available")
-	CustomDBEngineVersionStatusInactive              = CustomDBEngineVersionStatus("inactive")
-	CustomDBEngineVersionStatusInactiveExceptRestore = CustomDBEngineVersionStatus("inactive-except-restore")
+	CustomDbEngineVersionStatusAvailable             = CustomDbEngineVersionStatus("available")
+	CustomDbEngineVersionStatusInactive              = CustomDbEngineVersionStatus("inactive")
+	CustomDbEngineVersionStatusInactiveExceptRestore = CustomDbEngineVersionStatus("inactive-except-restore")
 )
 
-func (CustomDBEngineVersionStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDBEngineVersionStatus)(nil)).Elem()
+func (CustomDbEngineVersionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDbEngineVersionStatus)(nil)).Elem()
 }
 
-func (e CustomDBEngineVersionStatus) ToCustomDBEngineVersionStatusOutput() CustomDBEngineVersionStatusOutput {
-	return pulumi.ToOutput(e).(CustomDBEngineVersionStatusOutput)
+func (e CustomDbEngineVersionStatus) ToCustomDbEngineVersionStatusOutput() CustomDbEngineVersionStatusOutput {
+	return pulumi.ToOutput(e).(CustomDbEngineVersionStatusOutput)
 }
 
-func (e CustomDBEngineVersionStatus) ToCustomDBEngineVersionStatusOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(CustomDBEngineVersionStatusOutput)
+func (e CustomDbEngineVersionStatus) ToCustomDbEngineVersionStatusOutputWithContext(ctx context.Context) CustomDbEngineVersionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CustomDbEngineVersionStatusOutput)
 }
 
-func (e CustomDBEngineVersionStatus) ToCustomDBEngineVersionStatusPtrOutput() CustomDBEngineVersionStatusPtrOutput {
-	return e.ToCustomDBEngineVersionStatusPtrOutputWithContext(context.Background())
+func (e CustomDbEngineVersionStatus) ToCustomDbEngineVersionStatusPtrOutput() CustomDbEngineVersionStatusPtrOutput {
+	return e.ToCustomDbEngineVersionStatusPtrOutputWithContext(context.Background())
 }
 
-func (e CustomDBEngineVersionStatus) ToCustomDBEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusPtrOutput {
-	return CustomDBEngineVersionStatus(e).ToCustomDBEngineVersionStatusOutputWithContext(ctx).ToCustomDBEngineVersionStatusPtrOutputWithContext(ctx)
+func (e CustomDbEngineVersionStatus) ToCustomDbEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDbEngineVersionStatusPtrOutput {
+	return CustomDbEngineVersionStatus(e).ToCustomDbEngineVersionStatusOutputWithContext(ctx).ToCustomDbEngineVersionStatusPtrOutputWithContext(ctx)
 }
 
-func (e CustomDBEngineVersionStatus) ToStringOutput() pulumi.StringOutput {
+func (e CustomDbEngineVersionStatus) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e CustomDBEngineVersionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e CustomDbEngineVersionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e CustomDBEngineVersionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e CustomDbEngineVersionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e CustomDBEngineVersionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e CustomDbEngineVersionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type CustomDBEngineVersionStatusOutput struct{ *pulumi.OutputState }
+type CustomDbEngineVersionStatusOutput struct{ *pulumi.OutputState }
 
-func (CustomDBEngineVersionStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDBEngineVersionStatus)(nil)).Elem()
+func (CustomDbEngineVersionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDbEngineVersionStatus)(nil)).Elem()
 }
 
-func (o CustomDBEngineVersionStatusOutput) ToCustomDBEngineVersionStatusOutput() CustomDBEngineVersionStatusOutput {
+func (o CustomDbEngineVersionStatusOutput) ToCustomDbEngineVersionStatusOutput() CustomDbEngineVersionStatusOutput {
 	return o
 }
 
-func (o CustomDBEngineVersionStatusOutput) ToCustomDBEngineVersionStatusOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusOutput {
+func (o CustomDbEngineVersionStatusOutput) ToCustomDbEngineVersionStatusOutputWithContext(ctx context.Context) CustomDbEngineVersionStatusOutput {
 	return o
 }
 
-func (o CustomDBEngineVersionStatusOutput) ToCustomDBEngineVersionStatusPtrOutput() CustomDBEngineVersionStatusPtrOutput {
-	return o.ToCustomDBEngineVersionStatusPtrOutputWithContext(context.Background())
+func (o CustomDbEngineVersionStatusOutput) ToCustomDbEngineVersionStatusPtrOutput() CustomDbEngineVersionStatusPtrOutput {
+	return o.ToCustomDbEngineVersionStatusPtrOutputWithContext(context.Background())
 }
 
-func (o CustomDBEngineVersionStatusOutput) ToCustomDBEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDBEngineVersionStatus) *CustomDBEngineVersionStatus {
+func (o CustomDbEngineVersionStatusOutput) ToCustomDbEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDbEngineVersionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDbEngineVersionStatus) *CustomDbEngineVersionStatus {
 		return &v
-	}).(CustomDBEngineVersionStatusPtrOutput)
+	}).(CustomDbEngineVersionStatusPtrOutput)
 }
 
-func (o CustomDBEngineVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o CustomDbEngineVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o CustomDBEngineVersionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomDBEngineVersionStatus) string {
+func (o CustomDbEngineVersionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomDbEngineVersionStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o CustomDBEngineVersionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CustomDbEngineVersionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CustomDBEngineVersionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomDBEngineVersionStatus) *string {
+func (o CustomDbEngineVersionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomDbEngineVersionStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type CustomDBEngineVersionStatusPtrOutput struct{ *pulumi.OutputState }
+type CustomDbEngineVersionStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (CustomDBEngineVersionStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDBEngineVersionStatus)(nil)).Elem()
+func (CustomDbEngineVersionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomDbEngineVersionStatus)(nil)).Elem()
 }
 
-func (o CustomDBEngineVersionStatusPtrOutput) ToCustomDBEngineVersionStatusPtrOutput() CustomDBEngineVersionStatusPtrOutput {
+func (o CustomDbEngineVersionStatusPtrOutput) ToCustomDbEngineVersionStatusPtrOutput() CustomDbEngineVersionStatusPtrOutput {
 	return o
 }
 
-func (o CustomDBEngineVersionStatusPtrOutput) ToCustomDBEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusPtrOutput {
+func (o CustomDbEngineVersionStatusPtrOutput) ToCustomDbEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDbEngineVersionStatusPtrOutput {
 	return o
 }
 
-func (o CustomDBEngineVersionStatusPtrOutput) Elem() CustomDBEngineVersionStatusOutput {
-	return o.ApplyT(func(v *CustomDBEngineVersionStatus) CustomDBEngineVersionStatus {
+func (o CustomDbEngineVersionStatusPtrOutput) Elem() CustomDbEngineVersionStatusOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersionStatus) CustomDbEngineVersionStatus {
 		if v != nil {
 			return *v
 		}
-		var ret CustomDBEngineVersionStatus
+		var ret CustomDbEngineVersionStatus
 		return ret
-	}).(CustomDBEngineVersionStatusOutput)
+	}).(CustomDbEngineVersionStatusOutput)
 }
 
-func (o CustomDBEngineVersionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CustomDbEngineVersionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CustomDBEngineVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomDBEngineVersionStatus) *string {
+func (o CustomDbEngineVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomDbEngineVersionStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -138,163 +138,163 @@ func (o CustomDBEngineVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// CustomDBEngineVersionStatusInput is an input type that accepts CustomDBEngineVersionStatusArgs and CustomDBEngineVersionStatusOutput values.
-// You can construct a concrete instance of `CustomDBEngineVersionStatusInput` via:
+// CustomDbEngineVersionStatusInput is an input type that accepts CustomDbEngineVersionStatusArgs and CustomDbEngineVersionStatusOutput values.
+// You can construct a concrete instance of `CustomDbEngineVersionStatusInput` via:
 //
-//	CustomDBEngineVersionStatusArgs{...}
-type CustomDBEngineVersionStatusInput interface {
+//	CustomDbEngineVersionStatusArgs{...}
+type CustomDbEngineVersionStatusInput interface {
 	pulumi.Input
 
-	ToCustomDBEngineVersionStatusOutput() CustomDBEngineVersionStatusOutput
-	ToCustomDBEngineVersionStatusOutputWithContext(context.Context) CustomDBEngineVersionStatusOutput
+	ToCustomDbEngineVersionStatusOutput() CustomDbEngineVersionStatusOutput
+	ToCustomDbEngineVersionStatusOutputWithContext(context.Context) CustomDbEngineVersionStatusOutput
 }
 
-var customDBEngineVersionStatusPtrType = reflect.TypeOf((**CustomDBEngineVersionStatus)(nil)).Elem()
+var customDbEngineVersionStatusPtrType = reflect.TypeOf((**CustomDbEngineVersionStatus)(nil)).Elem()
 
-type CustomDBEngineVersionStatusPtrInput interface {
+type CustomDbEngineVersionStatusPtrInput interface {
 	pulumi.Input
 
-	ToCustomDBEngineVersionStatusPtrOutput() CustomDBEngineVersionStatusPtrOutput
-	ToCustomDBEngineVersionStatusPtrOutputWithContext(context.Context) CustomDBEngineVersionStatusPtrOutput
+	ToCustomDbEngineVersionStatusPtrOutput() CustomDbEngineVersionStatusPtrOutput
+	ToCustomDbEngineVersionStatusPtrOutputWithContext(context.Context) CustomDbEngineVersionStatusPtrOutput
 }
 
-type customDBEngineVersionStatusPtr string
+type customDbEngineVersionStatusPtr string
 
-func CustomDBEngineVersionStatusPtr(v string) CustomDBEngineVersionStatusPtrInput {
-	return (*customDBEngineVersionStatusPtr)(&v)
+func CustomDbEngineVersionStatusPtr(v string) CustomDbEngineVersionStatusPtrInput {
+	return (*customDbEngineVersionStatusPtr)(&v)
 }
 
-func (*customDBEngineVersionStatusPtr) ElementType() reflect.Type {
-	return customDBEngineVersionStatusPtrType
+func (*customDbEngineVersionStatusPtr) ElementType() reflect.Type {
+	return customDbEngineVersionStatusPtrType
 }
 
-func (in *customDBEngineVersionStatusPtr) ToCustomDBEngineVersionStatusPtrOutput() CustomDBEngineVersionStatusPtrOutput {
-	return pulumi.ToOutput(in).(CustomDBEngineVersionStatusPtrOutput)
+func (in *customDbEngineVersionStatusPtr) ToCustomDbEngineVersionStatusPtrOutput() CustomDbEngineVersionStatusPtrOutput {
+	return pulumi.ToOutput(in).(CustomDbEngineVersionStatusPtrOutput)
 }
 
-func (in *customDBEngineVersionStatusPtr) ToCustomDBEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(CustomDBEngineVersionStatusPtrOutput)
+func (in *customDbEngineVersionStatusPtr) ToCustomDbEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDbEngineVersionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CustomDbEngineVersionStatusPtrOutput)
 }
 
 // The name of the processor feature. Valid names are coreCount and threadsPerCore.
-type DBInstanceProcessorFeatureName string
+type DbInstanceProcessorFeatureName string
 
 const (
-	DBInstanceProcessorFeatureNameCoreCount      = DBInstanceProcessorFeatureName("coreCount")
-	DBInstanceProcessorFeatureNameThreadsPerCore = DBInstanceProcessorFeatureName("threadsPerCore")
+	DbInstanceProcessorFeatureNameCoreCount      = DbInstanceProcessorFeatureName("coreCount")
+	DbInstanceProcessorFeatureNameThreadsPerCore = DbInstanceProcessorFeatureName("threadsPerCore")
 )
 
-func (DBInstanceProcessorFeatureName) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceProcessorFeatureName)(nil)).Elem()
+func (DbInstanceProcessorFeatureName) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceProcessorFeatureName)(nil)).Elem()
 }
 
-func (e DBInstanceProcessorFeatureName) ToDBInstanceProcessorFeatureNameOutput() DBInstanceProcessorFeatureNameOutput {
-	return pulumi.ToOutput(e).(DBInstanceProcessorFeatureNameOutput)
+func (e DbInstanceProcessorFeatureName) ToDbInstanceProcessorFeatureNameOutput() DbInstanceProcessorFeatureNameOutput {
+	return pulumi.ToOutput(e).(DbInstanceProcessorFeatureNameOutput)
 }
 
-func (e DBInstanceProcessorFeatureName) ToDBInstanceProcessorFeatureNameOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNameOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DBInstanceProcessorFeatureNameOutput)
+func (e DbInstanceProcessorFeatureName) ToDbInstanceProcessorFeatureNameOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbInstanceProcessorFeatureNameOutput)
 }
 
-func (e DBInstanceProcessorFeatureName) ToDBInstanceProcessorFeatureNamePtrOutput() DBInstanceProcessorFeatureNamePtrOutput {
-	return e.ToDBInstanceProcessorFeatureNamePtrOutputWithContext(context.Background())
+func (e DbInstanceProcessorFeatureName) ToDbInstanceProcessorFeatureNamePtrOutput() DbInstanceProcessorFeatureNamePtrOutput {
+	return e.ToDbInstanceProcessorFeatureNamePtrOutputWithContext(context.Background())
 }
 
-func (e DBInstanceProcessorFeatureName) ToDBInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNamePtrOutput {
-	return DBInstanceProcessorFeatureName(e).ToDBInstanceProcessorFeatureNameOutputWithContext(ctx).ToDBInstanceProcessorFeatureNamePtrOutputWithContext(ctx)
+func (e DbInstanceProcessorFeatureName) ToDbInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureNamePtrOutput {
+	return DbInstanceProcessorFeatureName(e).ToDbInstanceProcessorFeatureNameOutputWithContext(ctx).ToDbInstanceProcessorFeatureNamePtrOutputWithContext(ctx)
 }
 
-func (e DBInstanceProcessorFeatureName) ToStringOutput() pulumi.StringOutput {
+func (e DbInstanceProcessorFeatureName) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBInstanceProcessorFeatureName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DbInstanceProcessorFeatureName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBInstanceProcessorFeatureName) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DbInstanceProcessorFeatureName) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DBInstanceProcessorFeatureName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DbInstanceProcessorFeatureName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DBInstanceProcessorFeatureNameOutput struct{ *pulumi.OutputState }
+type DbInstanceProcessorFeatureNameOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceProcessorFeatureNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceProcessorFeatureName)(nil)).Elem()
+func (DbInstanceProcessorFeatureNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceProcessorFeatureName)(nil)).Elem()
 }
 
-func (o DBInstanceProcessorFeatureNameOutput) ToDBInstanceProcessorFeatureNameOutput() DBInstanceProcessorFeatureNameOutput {
+func (o DbInstanceProcessorFeatureNameOutput) ToDbInstanceProcessorFeatureNameOutput() DbInstanceProcessorFeatureNameOutput {
 	return o
 }
 
-func (o DBInstanceProcessorFeatureNameOutput) ToDBInstanceProcessorFeatureNameOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNameOutput {
+func (o DbInstanceProcessorFeatureNameOutput) ToDbInstanceProcessorFeatureNameOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureNameOutput {
 	return o
 }
 
-func (o DBInstanceProcessorFeatureNameOutput) ToDBInstanceProcessorFeatureNamePtrOutput() DBInstanceProcessorFeatureNamePtrOutput {
-	return o.ToDBInstanceProcessorFeatureNamePtrOutputWithContext(context.Background())
+func (o DbInstanceProcessorFeatureNameOutput) ToDbInstanceProcessorFeatureNamePtrOutput() DbInstanceProcessorFeatureNamePtrOutput {
+	return o.ToDbInstanceProcessorFeatureNamePtrOutputWithContext(context.Background())
 }
 
-func (o DBInstanceProcessorFeatureNameOutput) ToDBInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNamePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBInstanceProcessorFeatureName) *DBInstanceProcessorFeatureName {
+func (o DbInstanceProcessorFeatureNameOutput) ToDbInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbInstanceProcessorFeatureName) *DbInstanceProcessorFeatureName {
 		return &v
-	}).(DBInstanceProcessorFeatureNamePtrOutput)
+	}).(DbInstanceProcessorFeatureNamePtrOutput)
 }
 
-func (o DBInstanceProcessorFeatureNameOutput) ToStringOutput() pulumi.StringOutput {
+func (o DbInstanceProcessorFeatureNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DBInstanceProcessorFeatureNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBInstanceProcessorFeatureName) string {
+func (o DbInstanceProcessorFeatureNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbInstanceProcessorFeatureName) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DBInstanceProcessorFeatureNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbInstanceProcessorFeatureNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBInstanceProcessorFeatureNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBInstanceProcessorFeatureName) *string {
+func (o DbInstanceProcessorFeatureNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbInstanceProcessorFeatureName) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBInstanceProcessorFeatureNamePtrOutput struct{ *pulumi.OutputState }
+type DbInstanceProcessorFeatureNamePtrOutput struct{ *pulumi.OutputState }
 
-func (DBInstanceProcessorFeatureNamePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBInstanceProcessorFeatureName)(nil)).Elem()
+func (DbInstanceProcessorFeatureNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbInstanceProcessorFeatureName)(nil)).Elem()
 }
 
-func (o DBInstanceProcessorFeatureNamePtrOutput) ToDBInstanceProcessorFeatureNamePtrOutput() DBInstanceProcessorFeatureNamePtrOutput {
+func (o DbInstanceProcessorFeatureNamePtrOutput) ToDbInstanceProcessorFeatureNamePtrOutput() DbInstanceProcessorFeatureNamePtrOutput {
 	return o
 }
 
-func (o DBInstanceProcessorFeatureNamePtrOutput) ToDBInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNamePtrOutput {
+func (o DbInstanceProcessorFeatureNamePtrOutput) ToDbInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureNamePtrOutput {
 	return o
 }
 
-func (o DBInstanceProcessorFeatureNamePtrOutput) Elem() DBInstanceProcessorFeatureNameOutput {
-	return o.ApplyT(func(v *DBInstanceProcessorFeatureName) DBInstanceProcessorFeatureName {
+func (o DbInstanceProcessorFeatureNamePtrOutput) Elem() DbInstanceProcessorFeatureNameOutput {
+	return o.ApplyT(func(v *DbInstanceProcessorFeatureName) DbInstanceProcessorFeatureName {
 		if v != nil {
 			return *v
 		}
-		var ret DBInstanceProcessorFeatureName
+		var ret DbInstanceProcessorFeatureName
 		return ret
-	}).(DBInstanceProcessorFeatureNameOutput)
+	}).(DbInstanceProcessorFeatureNameOutput)
 }
 
-func (o DBInstanceProcessorFeatureNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbInstanceProcessorFeatureNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBInstanceProcessorFeatureNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DBInstanceProcessorFeatureName) *string {
+func (o DbInstanceProcessorFeatureNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbInstanceProcessorFeatureName) *string {
 		if e == nil {
 			return nil
 		}
@@ -303,162 +303,162 @@ func (o DBInstanceProcessorFeatureNamePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// DBInstanceProcessorFeatureNameInput is an input type that accepts DBInstanceProcessorFeatureNameArgs and DBInstanceProcessorFeatureNameOutput values.
-// You can construct a concrete instance of `DBInstanceProcessorFeatureNameInput` via:
+// DbInstanceProcessorFeatureNameInput is an input type that accepts DbInstanceProcessorFeatureNameArgs and DbInstanceProcessorFeatureNameOutput values.
+// You can construct a concrete instance of `DbInstanceProcessorFeatureNameInput` via:
 //
-//	DBInstanceProcessorFeatureNameArgs{...}
-type DBInstanceProcessorFeatureNameInput interface {
+//	DbInstanceProcessorFeatureNameArgs{...}
+type DbInstanceProcessorFeatureNameInput interface {
 	pulumi.Input
 
-	ToDBInstanceProcessorFeatureNameOutput() DBInstanceProcessorFeatureNameOutput
-	ToDBInstanceProcessorFeatureNameOutputWithContext(context.Context) DBInstanceProcessorFeatureNameOutput
+	ToDbInstanceProcessorFeatureNameOutput() DbInstanceProcessorFeatureNameOutput
+	ToDbInstanceProcessorFeatureNameOutputWithContext(context.Context) DbInstanceProcessorFeatureNameOutput
 }
 
-var dbinstanceProcessorFeatureNamePtrType = reflect.TypeOf((**DBInstanceProcessorFeatureName)(nil)).Elem()
+var dbInstanceProcessorFeatureNamePtrType = reflect.TypeOf((**DbInstanceProcessorFeatureName)(nil)).Elem()
 
-type DBInstanceProcessorFeatureNamePtrInput interface {
+type DbInstanceProcessorFeatureNamePtrInput interface {
 	pulumi.Input
 
-	ToDBInstanceProcessorFeatureNamePtrOutput() DBInstanceProcessorFeatureNamePtrOutput
-	ToDBInstanceProcessorFeatureNamePtrOutputWithContext(context.Context) DBInstanceProcessorFeatureNamePtrOutput
+	ToDbInstanceProcessorFeatureNamePtrOutput() DbInstanceProcessorFeatureNamePtrOutput
+	ToDbInstanceProcessorFeatureNamePtrOutputWithContext(context.Context) DbInstanceProcessorFeatureNamePtrOutput
 }
 
-type dbinstanceProcessorFeatureNamePtr string
+type dbInstanceProcessorFeatureNamePtr string
 
-func DBInstanceProcessorFeatureNamePtr(v string) DBInstanceProcessorFeatureNamePtrInput {
-	return (*dbinstanceProcessorFeatureNamePtr)(&v)
+func DbInstanceProcessorFeatureNamePtr(v string) DbInstanceProcessorFeatureNamePtrInput {
+	return (*dbInstanceProcessorFeatureNamePtr)(&v)
 }
 
-func (*dbinstanceProcessorFeatureNamePtr) ElementType() reflect.Type {
-	return dbinstanceProcessorFeatureNamePtrType
+func (*dbInstanceProcessorFeatureNamePtr) ElementType() reflect.Type {
+	return dbInstanceProcessorFeatureNamePtrType
 }
 
-func (in *dbinstanceProcessorFeatureNamePtr) ToDBInstanceProcessorFeatureNamePtrOutput() DBInstanceProcessorFeatureNamePtrOutput {
-	return pulumi.ToOutput(in).(DBInstanceProcessorFeatureNamePtrOutput)
+func (in *dbInstanceProcessorFeatureNamePtr) ToDbInstanceProcessorFeatureNamePtrOutput() DbInstanceProcessorFeatureNamePtrOutput {
+	return pulumi.ToOutput(in).(DbInstanceProcessorFeatureNamePtrOutput)
 }
 
-func (in *dbinstanceProcessorFeatureNamePtr) ToDBInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNamePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DBInstanceProcessorFeatureNamePtrOutput)
+func (in *dbInstanceProcessorFeatureNamePtr) ToDbInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbInstanceProcessorFeatureNamePtrOutput)
 }
 
 // The type of authentication that the proxy uses for connections from the proxy to the underlying database.
-type DBProxyAuthFormatAuthScheme string
+type DbProxyAuthFormatAuthScheme string
 
 const (
-	DBProxyAuthFormatAuthSchemeSecrets = DBProxyAuthFormatAuthScheme("SECRETS")
+	DbProxyAuthFormatAuthSchemeSecrets = DbProxyAuthFormatAuthScheme("SECRETS")
 )
 
-func (DBProxyAuthFormatAuthScheme) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyAuthFormatAuthScheme)(nil)).Elem()
+func (DbProxyAuthFormatAuthScheme) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyAuthFormatAuthScheme)(nil)).Elem()
 }
 
-func (e DBProxyAuthFormatAuthScheme) ToDBProxyAuthFormatAuthSchemeOutput() DBProxyAuthFormatAuthSchemeOutput {
-	return pulumi.ToOutput(e).(DBProxyAuthFormatAuthSchemeOutput)
+func (e DbProxyAuthFormatAuthScheme) ToDbProxyAuthFormatAuthSchemeOutput() DbProxyAuthFormatAuthSchemeOutput {
+	return pulumi.ToOutput(e).(DbProxyAuthFormatAuthSchemeOutput)
 }
 
-func (e DBProxyAuthFormatAuthScheme) ToDBProxyAuthFormatAuthSchemeOutputWithContext(ctx context.Context) DBProxyAuthFormatAuthSchemeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DBProxyAuthFormatAuthSchemeOutput)
+func (e DbProxyAuthFormatAuthScheme) ToDbProxyAuthFormatAuthSchemeOutputWithContext(ctx context.Context) DbProxyAuthFormatAuthSchemeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbProxyAuthFormatAuthSchemeOutput)
 }
 
-func (e DBProxyAuthFormatAuthScheme) ToDBProxyAuthFormatAuthSchemePtrOutput() DBProxyAuthFormatAuthSchemePtrOutput {
-	return e.ToDBProxyAuthFormatAuthSchemePtrOutputWithContext(context.Background())
+func (e DbProxyAuthFormatAuthScheme) ToDbProxyAuthFormatAuthSchemePtrOutput() DbProxyAuthFormatAuthSchemePtrOutput {
+	return e.ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyAuthFormatAuthScheme) ToDBProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatAuthSchemePtrOutput {
-	return DBProxyAuthFormatAuthScheme(e).ToDBProxyAuthFormatAuthSchemeOutputWithContext(ctx).ToDBProxyAuthFormatAuthSchemePtrOutputWithContext(ctx)
+func (e DbProxyAuthFormatAuthScheme) ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatAuthSchemePtrOutput {
+	return DbProxyAuthFormatAuthScheme(e).ToDbProxyAuthFormatAuthSchemeOutputWithContext(ctx).ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(ctx)
 }
 
-func (e DBProxyAuthFormatAuthScheme) ToStringOutput() pulumi.StringOutput {
+func (e DbProxyAuthFormatAuthScheme) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyAuthFormatAuthScheme) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DbProxyAuthFormatAuthScheme) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyAuthFormatAuthScheme) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DbProxyAuthFormatAuthScheme) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyAuthFormatAuthScheme) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DbProxyAuthFormatAuthScheme) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DBProxyAuthFormatAuthSchemeOutput struct{ *pulumi.OutputState }
+type DbProxyAuthFormatAuthSchemeOutput struct{ *pulumi.OutputState }
 
-func (DBProxyAuthFormatAuthSchemeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyAuthFormatAuthScheme)(nil)).Elem()
+func (DbProxyAuthFormatAuthSchemeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyAuthFormatAuthScheme)(nil)).Elem()
 }
 
-func (o DBProxyAuthFormatAuthSchemeOutput) ToDBProxyAuthFormatAuthSchemeOutput() DBProxyAuthFormatAuthSchemeOutput {
+func (o DbProxyAuthFormatAuthSchemeOutput) ToDbProxyAuthFormatAuthSchemeOutput() DbProxyAuthFormatAuthSchemeOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatAuthSchemeOutput) ToDBProxyAuthFormatAuthSchemeOutputWithContext(ctx context.Context) DBProxyAuthFormatAuthSchemeOutput {
+func (o DbProxyAuthFormatAuthSchemeOutput) ToDbProxyAuthFormatAuthSchemeOutputWithContext(ctx context.Context) DbProxyAuthFormatAuthSchemeOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatAuthSchemeOutput) ToDBProxyAuthFormatAuthSchemePtrOutput() DBProxyAuthFormatAuthSchemePtrOutput {
-	return o.ToDBProxyAuthFormatAuthSchemePtrOutputWithContext(context.Background())
+func (o DbProxyAuthFormatAuthSchemeOutput) ToDbProxyAuthFormatAuthSchemePtrOutput() DbProxyAuthFormatAuthSchemePtrOutput {
+	return o.ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatAuthSchemeOutput) ToDBProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatAuthSchemePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBProxyAuthFormatAuthScheme) *DBProxyAuthFormatAuthScheme {
+func (o DbProxyAuthFormatAuthSchemeOutput) ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatAuthSchemePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyAuthFormatAuthScheme) *DbProxyAuthFormatAuthScheme {
 		return &v
-	}).(DBProxyAuthFormatAuthSchemePtrOutput)
+	}).(DbProxyAuthFormatAuthSchemePtrOutput)
 }
 
-func (o DBProxyAuthFormatAuthSchemeOutput) ToStringOutput() pulumi.StringOutput {
+func (o DbProxyAuthFormatAuthSchemeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatAuthSchemeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyAuthFormatAuthScheme) string {
+func (o DbProxyAuthFormatAuthSchemeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyAuthFormatAuthScheme) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DBProxyAuthFormatAuthSchemeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyAuthFormatAuthSchemeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatAuthSchemeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyAuthFormatAuthScheme) *string {
+func (o DbProxyAuthFormatAuthSchemeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyAuthFormatAuthScheme) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBProxyAuthFormatAuthSchemePtrOutput struct{ *pulumi.OutputState }
+type DbProxyAuthFormatAuthSchemePtrOutput struct{ *pulumi.OutputState }
 
-func (DBProxyAuthFormatAuthSchemePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBProxyAuthFormatAuthScheme)(nil)).Elem()
+func (DbProxyAuthFormatAuthSchemePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyAuthFormatAuthScheme)(nil)).Elem()
 }
 
-func (o DBProxyAuthFormatAuthSchemePtrOutput) ToDBProxyAuthFormatAuthSchemePtrOutput() DBProxyAuthFormatAuthSchemePtrOutput {
+func (o DbProxyAuthFormatAuthSchemePtrOutput) ToDbProxyAuthFormatAuthSchemePtrOutput() DbProxyAuthFormatAuthSchemePtrOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatAuthSchemePtrOutput) ToDBProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatAuthSchemePtrOutput {
+func (o DbProxyAuthFormatAuthSchemePtrOutput) ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatAuthSchemePtrOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatAuthSchemePtrOutput) Elem() DBProxyAuthFormatAuthSchemeOutput {
-	return o.ApplyT(func(v *DBProxyAuthFormatAuthScheme) DBProxyAuthFormatAuthScheme {
+func (o DbProxyAuthFormatAuthSchemePtrOutput) Elem() DbProxyAuthFormatAuthSchemeOutput {
+	return o.ApplyT(func(v *DbProxyAuthFormatAuthScheme) DbProxyAuthFormatAuthScheme {
 		if v != nil {
 			return *v
 		}
-		var ret DBProxyAuthFormatAuthScheme
+		var ret DbProxyAuthFormatAuthScheme
 		return ret
-	}).(DBProxyAuthFormatAuthSchemeOutput)
+	}).(DbProxyAuthFormatAuthSchemeOutput)
 }
 
-func (o DBProxyAuthFormatAuthSchemePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyAuthFormatAuthSchemePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatAuthSchemePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DBProxyAuthFormatAuthScheme) *string {
+func (o DbProxyAuthFormatAuthSchemePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbProxyAuthFormatAuthScheme) *string {
 		if e == nil {
 			return nil
 		}
@@ -467,165 +467,165 @@ func (o DBProxyAuthFormatAuthSchemePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DBProxyAuthFormatAuthSchemeInput is an input type that accepts DBProxyAuthFormatAuthSchemeArgs and DBProxyAuthFormatAuthSchemeOutput values.
-// You can construct a concrete instance of `DBProxyAuthFormatAuthSchemeInput` via:
+// DbProxyAuthFormatAuthSchemeInput is an input type that accepts DbProxyAuthFormatAuthSchemeArgs and DbProxyAuthFormatAuthSchemeOutput values.
+// You can construct a concrete instance of `DbProxyAuthFormatAuthSchemeInput` via:
 //
-//	DBProxyAuthFormatAuthSchemeArgs{...}
-type DBProxyAuthFormatAuthSchemeInput interface {
+//	DbProxyAuthFormatAuthSchemeArgs{...}
+type DbProxyAuthFormatAuthSchemeInput interface {
 	pulumi.Input
 
-	ToDBProxyAuthFormatAuthSchemeOutput() DBProxyAuthFormatAuthSchemeOutput
-	ToDBProxyAuthFormatAuthSchemeOutputWithContext(context.Context) DBProxyAuthFormatAuthSchemeOutput
+	ToDbProxyAuthFormatAuthSchemeOutput() DbProxyAuthFormatAuthSchemeOutput
+	ToDbProxyAuthFormatAuthSchemeOutputWithContext(context.Context) DbProxyAuthFormatAuthSchemeOutput
 }
 
-var dbproxyAuthFormatAuthSchemePtrType = reflect.TypeOf((**DBProxyAuthFormatAuthScheme)(nil)).Elem()
+var dbProxyAuthFormatAuthSchemePtrType = reflect.TypeOf((**DbProxyAuthFormatAuthScheme)(nil)).Elem()
 
-type DBProxyAuthFormatAuthSchemePtrInput interface {
+type DbProxyAuthFormatAuthSchemePtrInput interface {
 	pulumi.Input
 
-	ToDBProxyAuthFormatAuthSchemePtrOutput() DBProxyAuthFormatAuthSchemePtrOutput
-	ToDBProxyAuthFormatAuthSchemePtrOutputWithContext(context.Context) DBProxyAuthFormatAuthSchemePtrOutput
+	ToDbProxyAuthFormatAuthSchemePtrOutput() DbProxyAuthFormatAuthSchemePtrOutput
+	ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(context.Context) DbProxyAuthFormatAuthSchemePtrOutput
 }
 
-type dbproxyAuthFormatAuthSchemePtr string
+type dbProxyAuthFormatAuthSchemePtr string
 
-func DBProxyAuthFormatAuthSchemePtr(v string) DBProxyAuthFormatAuthSchemePtrInput {
-	return (*dbproxyAuthFormatAuthSchemePtr)(&v)
+func DbProxyAuthFormatAuthSchemePtr(v string) DbProxyAuthFormatAuthSchemePtrInput {
+	return (*dbProxyAuthFormatAuthSchemePtr)(&v)
 }
 
-func (*dbproxyAuthFormatAuthSchemePtr) ElementType() reflect.Type {
-	return dbproxyAuthFormatAuthSchemePtrType
+func (*dbProxyAuthFormatAuthSchemePtr) ElementType() reflect.Type {
+	return dbProxyAuthFormatAuthSchemePtrType
 }
 
-func (in *dbproxyAuthFormatAuthSchemePtr) ToDBProxyAuthFormatAuthSchemePtrOutput() DBProxyAuthFormatAuthSchemePtrOutput {
-	return pulumi.ToOutput(in).(DBProxyAuthFormatAuthSchemePtrOutput)
+func (in *dbProxyAuthFormatAuthSchemePtr) ToDbProxyAuthFormatAuthSchemePtrOutput() DbProxyAuthFormatAuthSchemePtrOutput {
+	return pulumi.ToOutput(in).(DbProxyAuthFormatAuthSchemePtrOutput)
 }
 
-func (in *dbproxyAuthFormatAuthSchemePtr) ToDBProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatAuthSchemePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DBProxyAuthFormatAuthSchemePtrOutput)
+func (in *dbProxyAuthFormatAuthSchemePtr) ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatAuthSchemePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbProxyAuthFormatAuthSchemePtrOutput)
 }
 
 // The type of authentication the proxy uses for connections from clients.
-type DBProxyAuthFormatClientPasswordAuthType string
+type DbProxyAuthFormatClientPasswordAuthType string
 
 const (
-	DBProxyAuthFormatClientPasswordAuthTypeMysqlNativePassword     = DBProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD")
-	DBProxyAuthFormatClientPasswordAuthTypePostgresScramSha256     = DBProxyAuthFormatClientPasswordAuthType("POSTGRES_SCRAM_SHA_256")
-	DBProxyAuthFormatClientPasswordAuthTypePostgresMd5             = DBProxyAuthFormatClientPasswordAuthType("POSTGRES_MD5")
-	DBProxyAuthFormatClientPasswordAuthTypeSqlServerAuthentication = DBProxyAuthFormatClientPasswordAuthType("SQL_SERVER_AUTHENTICATION")
+	DbProxyAuthFormatClientPasswordAuthTypeMysqlNativePassword     = DbProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD")
+	DbProxyAuthFormatClientPasswordAuthTypePostgresScramSha256     = DbProxyAuthFormatClientPasswordAuthType("POSTGRES_SCRAM_SHA_256")
+	DbProxyAuthFormatClientPasswordAuthTypePostgresMd5             = DbProxyAuthFormatClientPasswordAuthType("POSTGRES_MD5")
+	DbProxyAuthFormatClientPasswordAuthTypeSqlServerAuthentication = DbProxyAuthFormatClientPasswordAuthType("SQL_SERVER_AUTHENTICATION")
 )
 
-func (DBProxyAuthFormatClientPasswordAuthType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
+func (DbProxyAuthFormatClientPasswordAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
 }
 
-func (e DBProxyAuthFormatClientPasswordAuthType) ToDBProxyAuthFormatClientPasswordAuthTypeOutput() DBProxyAuthFormatClientPasswordAuthTypeOutput {
-	return pulumi.ToOutput(e).(DBProxyAuthFormatClientPasswordAuthTypeOutput)
+func (e DbProxyAuthFormatClientPasswordAuthType) ToDbProxyAuthFormatClientPasswordAuthTypeOutput() DbProxyAuthFormatClientPasswordAuthTypeOutput {
+	return pulumi.ToOutput(e).(DbProxyAuthFormatClientPasswordAuthTypeOutput)
 }
 
-func (e DBProxyAuthFormatClientPasswordAuthType) ToDBProxyAuthFormatClientPasswordAuthTypeOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DBProxyAuthFormatClientPasswordAuthTypeOutput)
+func (e DbProxyAuthFormatClientPasswordAuthType) ToDbProxyAuthFormatClientPasswordAuthTypeOutputWithContext(ctx context.Context) DbProxyAuthFormatClientPasswordAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbProxyAuthFormatClientPasswordAuthTypeOutput)
 }
 
-func (e DBProxyAuthFormatClientPasswordAuthType) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutput() DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
-	return e.ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(context.Background())
+func (e DbProxyAuthFormatClientPasswordAuthType) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutput() DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return e.ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyAuthFormatClientPasswordAuthType) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
-	return DBProxyAuthFormatClientPasswordAuthType(e).ToDBProxyAuthFormatClientPasswordAuthTypeOutputWithContext(ctx).ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx)
+func (e DbProxyAuthFormatClientPasswordAuthType) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return DbProxyAuthFormatClientPasswordAuthType(e).ToDbProxyAuthFormatClientPasswordAuthTypeOutputWithContext(ctx).ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx)
 }
 
-func (e DBProxyAuthFormatClientPasswordAuthType) ToStringOutput() pulumi.StringOutput {
+func (e DbProxyAuthFormatClientPasswordAuthType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyAuthFormatClientPasswordAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DbProxyAuthFormatClientPasswordAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyAuthFormatClientPasswordAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DbProxyAuthFormatClientPasswordAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyAuthFormatClientPasswordAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DbProxyAuthFormatClientPasswordAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DBProxyAuthFormatClientPasswordAuthTypeOutput struct{ *pulumi.OutputState }
+type DbProxyAuthFormatClientPasswordAuthTypeOutput struct{ *pulumi.OutputState }
 
-func (DBProxyAuthFormatClientPasswordAuthTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
+func (DbProxyAuthFormatClientPasswordAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToDBProxyAuthFormatClientPasswordAuthTypeOutput() DBProxyAuthFormatClientPasswordAuthTypeOutput {
+func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToDbProxyAuthFormatClientPasswordAuthTypeOutput() DbProxyAuthFormatClientPasswordAuthTypeOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToDBProxyAuthFormatClientPasswordAuthTypeOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypeOutput {
+func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToDbProxyAuthFormatClientPasswordAuthTypeOutputWithContext(ctx context.Context) DbProxyAuthFormatClientPasswordAuthTypeOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutput() DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
-	return o.ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(context.Background())
+func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutput() DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return o.ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBProxyAuthFormatClientPasswordAuthType) *DBProxyAuthFormatClientPasswordAuthType {
+func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyAuthFormatClientPasswordAuthType) *DbProxyAuthFormatClientPasswordAuthType {
 		return &v
-	}).(DBProxyAuthFormatClientPasswordAuthTypePtrOutput)
+	}).(DbProxyAuthFormatClientPasswordAuthTypePtrOutput)
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyAuthFormatClientPasswordAuthType) string {
+func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyAuthFormatClientPasswordAuthType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyAuthFormatClientPasswordAuthType) *string {
+func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyAuthFormatClientPasswordAuthType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBProxyAuthFormatClientPasswordAuthTypePtrOutput struct{ *pulumi.OutputState }
+type DbProxyAuthFormatClientPasswordAuthTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
+func (DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutput() DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutput() DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) Elem() DBProxyAuthFormatClientPasswordAuthTypeOutput {
-	return o.ApplyT(func(v *DBProxyAuthFormatClientPasswordAuthType) DBProxyAuthFormatClientPasswordAuthType {
+func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) Elem() DbProxyAuthFormatClientPasswordAuthTypeOutput {
+	return o.ApplyT(func(v *DbProxyAuthFormatClientPasswordAuthType) DbProxyAuthFormatClientPasswordAuthType {
 		if v != nil {
 			return *v
 		}
-		var ret DBProxyAuthFormatClientPasswordAuthType
+		var ret DbProxyAuthFormatClientPasswordAuthType
 		return ret
-	}).(DBProxyAuthFormatClientPasswordAuthTypeOutput)
+	}).(DbProxyAuthFormatClientPasswordAuthTypeOutput)
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DBProxyAuthFormatClientPasswordAuthType) *string {
+func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbProxyAuthFormatClientPasswordAuthType) *string {
 		if e == nil {
 			return nil
 		}
@@ -634,164 +634,164 @@ func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// DBProxyAuthFormatClientPasswordAuthTypeInput is an input type that accepts DBProxyAuthFormatClientPasswordAuthTypeArgs and DBProxyAuthFormatClientPasswordAuthTypeOutput values.
-// You can construct a concrete instance of `DBProxyAuthFormatClientPasswordAuthTypeInput` via:
+// DbProxyAuthFormatClientPasswordAuthTypeInput is an input type that accepts DbProxyAuthFormatClientPasswordAuthTypeArgs and DbProxyAuthFormatClientPasswordAuthTypeOutput values.
+// You can construct a concrete instance of `DbProxyAuthFormatClientPasswordAuthTypeInput` via:
 //
-//	DBProxyAuthFormatClientPasswordAuthTypeArgs{...}
-type DBProxyAuthFormatClientPasswordAuthTypeInput interface {
+//	DbProxyAuthFormatClientPasswordAuthTypeArgs{...}
+type DbProxyAuthFormatClientPasswordAuthTypeInput interface {
 	pulumi.Input
 
-	ToDBProxyAuthFormatClientPasswordAuthTypeOutput() DBProxyAuthFormatClientPasswordAuthTypeOutput
-	ToDBProxyAuthFormatClientPasswordAuthTypeOutputWithContext(context.Context) DBProxyAuthFormatClientPasswordAuthTypeOutput
+	ToDbProxyAuthFormatClientPasswordAuthTypeOutput() DbProxyAuthFormatClientPasswordAuthTypeOutput
+	ToDbProxyAuthFormatClientPasswordAuthTypeOutputWithContext(context.Context) DbProxyAuthFormatClientPasswordAuthTypeOutput
 }
 
-var dbproxyAuthFormatClientPasswordAuthTypePtrType = reflect.TypeOf((**DBProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
+var dbProxyAuthFormatClientPasswordAuthTypePtrType = reflect.TypeOf((**DbProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
 
-type DBProxyAuthFormatClientPasswordAuthTypePtrInput interface {
+type DbProxyAuthFormatClientPasswordAuthTypePtrInput interface {
 	pulumi.Input
 
-	ToDBProxyAuthFormatClientPasswordAuthTypePtrOutput() DBProxyAuthFormatClientPasswordAuthTypePtrOutput
-	ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(context.Context) DBProxyAuthFormatClientPasswordAuthTypePtrOutput
+	ToDbProxyAuthFormatClientPasswordAuthTypePtrOutput() DbProxyAuthFormatClientPasswordAuthTypePtrOutput
+	ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(context.Context) DbProxyAuthFormatClientPasswordAuthTypePtrOutput
 }
 
-type dbproxyAuthFormatClientPasswordAuthTypePtr string
+type dbProxyAuthFormatClientPasswordAuthTypePtr string
 
-func DBProxyAuthFormatClientPasswordAuthTypePtr(v string) DBProxyAuthFormatClientPasswordAuthTypePtrInput {
-	return (*dbproxyAuthFormatClientPasswordAuthTypePtr)(&v)
+func DbProxyAuthFormatClientPasswordAuthTypePtr(v string) DbProxyAuthFormatClientPasswordAuthTypePtrInput {
+	return (*dbProxyAuthFormatClientPasswordAuthTypePtr)(&v)
 }
 
-func (*dbproxyAuthFormatClientPasswordAuthTypePtr) ElementType() reflect.Type {
-	return dbproxyAuthFormatClientPasswordAuthTypePtrType
+func (*dbProxyAuthFormatClientPasswordAuthTypePtr) ElementType() reflect.Type {
+	return dbProxyAuthFormatClientPasswordAuthTypePtrType
 }
 
-func (in *dbproxyAuthFormatClientPasswordAuthTypePtr) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutput() DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
-	return pulumi.ToOutput(in).(DBProxyAuthFormatClientPasswordAuthTypePtrOutput)
+func (in *dbProxyAuthFormatClientPasswordAuthTypePtr) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutput() DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(DbProxyAuthFormatClientPasswordAuthTypePtrOutput)
 }
 
-func (in *dbproxyAuthFormatClientPasswordAuthTypePtr) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DBProxyAuthFormatClientPasswordAuthTypePtrOutput)
+func (in *dbProxyAuthFormatClientPasswordAuthTypePtr) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbProxyAuthFormatClientPasswordAuthTypePtrOutput)
 }
 
 // Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
-type DBProxyAuthFormatIAMAuth string
+type DbProxyAuthFormatIamAuth string
 
 const (
-	DBProxyAuthFormatIAMAuthDisabled = DBProxyAuthFormatIAMAuth("DISABLED")
-	DBProxyAuthFormatIAMAuthRequired = DBProxyAuthFormatIAMAuth("REQUIRED")
-	DBProxyAuthFormatIAMAuthEnabled  = DBProxyAuthFormatIAMAuth("ENABLED")
+	DbProxyAuthFormatIamAuthDisabled = DbProxyAuthFormatIamAuth("DISABLED")
+	DbProxyAuthFormatIamAuthRequired = DbProxyAuthFormatIamAuth("REQUIRED")
+	DbProxyAuthFormatIamAuthEnabled  = DbProxyAuthFormatIamAuth("ENABLED")
 )
 
-func (DBProxyAuthFormatIAMAuth) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyAuthFormatIAMAuth)(nil)).Elem()
+func (DbProxyAuthFormatIamAuth) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyAuthFormatIamAuth)(nil)).Elem()
 }
 
-func (e DBProxyAuthFormatIAMAuth) ToDBProxyAuthFormatIAMAuthOutput() DBProxyAuthFormatIAMAuthOutput {
-	return pulumi.ToOutput(e).(DBProxyAuthFormatIAMAuthOutput)
+func (e DbProxyAuthFormatIamAuth) ToDbProxyAuthFormatIamAuthOutput() DbProxyAuthFormatIamAuthOutput {
+	return pulumi.ToOutput(e).(DbProxyAuthFormatIamAuthOutput)
 }
 
-func (e DBProxyAuthFormatIAMAuth) ToDBProxyAuthFormatIAMAuthOutputWithContext(ctx context.Context) DBProxyAuthFormatIAMAuthOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DBProxyAuthFormatIAMAuthOutput)
+func (e DbProxyAuthFormatIamAuth) ToDbProxyAuthFormatIamAuthOutputWithContext(ctx context.Context) DbProxyAuthFormatIamAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbProxyAuthFormatIamAuthOutput)
 }
 
-func (e DBProxyAuthFormatIAMAuth) ToDBProxyAuthFormatIAMAuthPtrOutput() DBProxyAuthFormatIAMAuthPtrOutput {
-	return e.ToDBProxyAuthFormatIAMAuthPtrOutputWithContext(context.Background())
+func (e DbProxyAuthFormatIamAuth) ToDbProxyAuthFormatIamAuthPtrOutput() DbProxyAuthFormatIamAuthPtrOutput {
+	return e.ToDbProxyAuthFormatIamAuthPtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyAuthFormatIAMAuth) ToDBProxyAuthFormatIAMAuthPtrOutputWithContext(ctx context.Context) DBProxyAuthFormatIAMAuthPtrOutput {
-	return DBProxyAuthFormatIAMAuth(e).ToDBProxyAuthFormatIAMAuthOutputWithContext(ctx).ToDBProxyAuthFormatIAMAuthPtrOutputWithContext(ctx)
+func (e DbProxyAuthFormatIamAuth) ToDbProxyAuthFormatIamAuthPtrOutputWithContext(ctx context.Context) DbProxyAuthFormatIamAuthPtrOutput {
+	return DbProxyAuthFormatIamAuth(e).ToDbProxyAuthFormatIamAuthOutputWithContext(ctx).ToDbProxyAuthFormatIamAuthPtrOutputWithContext(ctx)
 }
 
-func (e DBProxyAuthFormatIAMAuth) ToStringOutput() pulumi.StringOutput {
+func (e DbProxyAuthFormatIamAuth) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyAuthFormatIAMAuth) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DbProxyAuthFormatIamAuth) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyAuthFormatIAMAuth) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DbProxyAuthFormatIamAuth) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyAuthFormatIAMAuth) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DbProxyAuthFormatIamAuth) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DBProxyAuthFormatIAMAuthOutput struct{ *pulumi.OutputState }
+type DbProxyAuthFormatIamAuthOutput struct{ *pulumi.OutputState }
 
-func (DBProxyAuthFormatIAMAuthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyAuthFormatIAMAuth)(nil)).Elem()
+func (DbProxyAuthFormatIamAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyAuthFormatIamAuth)(nil)).Elem()
 }
 
-func (o DBProxyAuthFormatIAMAuthOutput) ToDBProxyAuthFormatIAMAuthOutput() DBProxyAuthFormatIAMAuthOutput {
+func (o DbProxyAuthFormatIamAuthOutput) ToDbProxyAuthFormatIamAuthOutput() DbProxyAuthFormatIamAuthOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatIAMAuthOutput) ToDBProxyAuthFormatIAMAuthOutputWithContext(ctx context.Context) DBProxyAuthFormatIAMAuthOutput {
+func (o DbProxyAuthFormatIamAuthOutput) ToDbProxyAuthFormatIamAuthOutputWithContext(ctx context.Context) DbProxyAuthFormatIamAuthOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatIAMAuthOutput) ToDBProxyAuthFormatIAMAuthPtrOutput() DBProxyAuthFormatIAMAuthPtrOutput {
-	return o.ToDBProxyAuthFormatIAMAuthPtrOutputWithContext(context.Background())
+func (o DbProxyAuthFormatIamAuthOutput) ToDbProxyAuthFormatIamAuthPtrOutput() DbProxyAuthFormatIamAuthPtrOutput {
+	return o.ToDbProxyAuthFormatIamAuthPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatIAMAuthOutput) ToDBProxyAuthFormatIAMAuthPtrOutputWithContext(ctx context.Context) DBProxyAuthFormatIAMAuthPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBProxyAuthFormatIAMAuth) *DBProxyAuthFormatIAMAuth {
+func (o DbProxyAuthFormatIamAuthOutput) ToDbProxyAuthFormatIamAuthPtrOutputWithContext(ctx context.Context) DbProxyAuthFormatIamAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyAuthFormatIamAuth) *DbProxyAuthFormatIamAuth {
 		return &v
-	}).(DBProxyAuthFormatIAMAuthPtrOutput)
+	}).(DbProxyAuthFormatIamAuthPtrOutput)
 }
 
-func (o DBProxyAuthFormatIAMAuthOutput) ToStringOutput() pulumi.StringOutput {
+func (o DbProxyAuthFormatIamAuthOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatIAMAuthOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyAuthFormatIAMAuth) string {
+func (o DbProxyAuthFormatIamAuthOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyAuthFormatIamAuth) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DBProxyAuthFormatIAMAuthOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyAuthFormatIamAuthOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatIAMAuthOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyAuthFormatIAMAuth) *string {
+func (o DbProxyAuthFormatIamAuthOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyAuthFormatIamAuth) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBProxyAuthFormatIAMAuthPtrOutput struct{ *pulumi.OutputState }
+type DbProxyAuthFormatIamAuthPtrOutput struct{ *pulumi.OutputState }
 
-func (DBProxyAuthFormatIAMAuthPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBProxyAuthFormatIAMAuth)(nil)).Elem()
+func (DbProxyAuthFormatIamAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyAuthFormatIamAuth)(nil)).Elem()
 }
 
-func (o DBProxyAuthFormatIAMAuthPtrOutput) ToDBProxyAuthFormatIAMAuthPtrOutput() DBProxyAuthFormatIAMAuthPtrOutput {
+func (o DbProxyAuthFormatIamAuthPtrOutput) ToDbProxyAuthFormatIamAuthPtrOutput() DbProxyAuthFormatIamAuthPtrOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatIAMAuthPtrOutput) ToDBProxyAuthFormatIAMAuthPtrOutputWithContext(ctx context.Context) DBProxyAuthFormatIAMAuthPtrOutput {
+func (o DbProxyAuthFormatIamAuthPtrOutput) ToDbProxyAuthFormatIamAuthPtrOutputWithContext(ctx context.Context) DbProxyAuthFormatIamAuthPtrOutput {
 	return o
 }
 
-func (o DBProxyAuthFormatIAMAuthPtrOutput) Elem() DBProxyAuthFormatIAMAuthOutput {
-	return o.ApplyT(func(v *DBProxyAuthFormatIAMAuth) DBProxyAuthFormatIAMAuth {
+func (o DbProxyAuthFormatIamAuthPtrOutput) Elem() DbProxyAuthFormatIamAuthOutput {
+	return o.ApplyT(func(v *DbProxyAuthFormatIamAuth) DbProxyAuthFormatIamAuth {
 		if v != nil {
 			return *v
 		}
-		var ret DBProxyAuthFormatIAMAuth
+		var ret DbProxyAuthFormatIamAuth
 		return ret
-	}).(DBProxyAuthFormatIAMAuthOutput)
+	}).(DbProxyAuthFormatIamAuthOutput)
 }
 
-func (o DBProxyAuthFormatIAMAuthPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyAuthFormatIamAuthPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyAuthFormatIAMAuthPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DBProxyAuthFormatIAMAuth) *string {
+func (o DbProxyAuthFormatIamAuthPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbProxyAuthFormatIamAuth) *string {
 		if e == nil {
 			return nil
 		}
@@ -800,163 +800,163 @@ func (o DBProxyAuthFormatIAMAuthPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DBProxyAuthFormatIAMAuthInput is an input type that accepts DBProxyAuthFormatIAMAuthArgs and DBProxyAuthFormatIAMAuthOutput values.
-// You can construct a concrete instance of `DBProxyAuthFormatIAMAuthInput` via:
+// DbProxyAuthFormatIamAuthInput is an input type that accepts DbProxyAuthFormatIamAuthArgs and DbProxyAuthFormatIamAuthOutput values.
+// You can construct a concrete instance of `DbProxyAuthFormatIamAuthInput` via:
 //
-//	DBProxyAuthFormatIAMAuthArgs{...}
-type DBProxyAuthFormatIAMAuthInput interface {
+//	DbProxyAuthFormatIamAuthArgs{...}
+type DbProxyAuthFormatIamAuthInput interface {
 	pulumi.Input
 
-	ToDBProxyAuthFormatIAMAuthOutput() DBProxyAuthFormatIAMAuthOutput
-	ToDBProxyAuthFormatIAMAuthOutputWithContext(context.Context) DBProxyAuthFormatIAMAuthOutput
+	ToDbProxyAuthFormatIamAuthOutput() DbProxyAuthFormatIamAuthOutput
+	ToDbProxyAuthFormatIamAuthOutputWithContext(context.Context) DbProxyAuthFormatIamAuthOutput
 }
 
-var dbproxyAuthFormatIAMAuthPtrType = reflect.TypeOf((**DBProxyAuthFormatIAMAuth)(nil)).Elem()
+var dbProxyAuthFormatIamAuthPtrType = reflect.TypeOf((**DbProxyAuthFormatIamAuth)(nil)).Elem()
 
-type DBProxyAuthFormatIAMAuthPtrInput interface {
+type DbProxyAuthFormatIamAuthPtrInput interface {
 	pulumi.Input
 
-	ToDBProxyAuthFormatIAMAuthPtrOutput() DBProxyAuthFormatIAMAuthPtrOutput
-	ToDBProxyAuthFormatIAMAuthPtrOutputWithContext(context.Context) DBProxyAuthFormatIAMAuthPtrOutput
+	ToDbProxyAuthFormatIamAuthPtrOutput() DbProxyAuthFormatIamAuthPtrOutput
+	ToDbProxyAuthFormatIamAuthPtrOutputWithContext(context.Context) DbProxyAuthFormatIamAuthPtrOutput
 }
 
-type dbproxyAuthFormatIAMAuthPtr string
+type dbProxyAuthFormatIamAuthPtr string
 
-func DBProxyAuthFormatIAMAuthPtr(v string) DBProxyAuthFormatIAMAuthPtrInput {
-	return (*dbproxyAuthFormatIAMAuthPtr)(&v)
+func DbProxyAuthFormatIamAuthPtr(v string) DbProxyAuthFormatIamAuthPtrInput {
+	return (*dbProxyAuthFormatIamAuthPtr)(&v)
 }
 
-func (*dbproxyAuthFormatIAMAuthPtr) ElementType() reflect.Type {
-	return dbproxyAuthFormatIAMAuthPtrType
+func (*dbProxyAuthFormatIamAuthPtr) ElementType() reflect.Type {
+	return dbProxyAuthFormatIamAuthPtrType
 }
 
-func (in *dbproxyAuthFormatIAMAuthPtr) ToDBProxyAuthFormatIAMAuthPtrOutput() DBProxyAuthFormatIAMAuthPtrOutput {
-	return pulumi.ToOutput(in).(DBProxyAuthFormatIAMAuthPtrOutput)
+func (in *dbProxyAuthFormatIamAuthPtr) ToDbProxyAuthFormatIamAuthPtrOutput() DbProxyAuthFormatIamAuthPtrOutput {
+	return pulumi.ToOutput(in).(DbProxyAuthFormatIamAuthPtrOutput)
 }
 
-func (in *dbproxyAuthFormatIAMAuthPtr) ToDBProxyAuthFormatIAMAuthPtrOutputWithContext(ctx context.Context) DBProxyAuthFormatIAMAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DBProxyAuthFormatIAMAuthPtrOutput)
+func (in *dbProxyAuthFormatIamAuthPtr) ToDbProxyAuthFormatIamAuthPtrOutputWithContext(ctx context.Context) DbProxyAuthFormatIamAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbProxyAuthFormatIamAuthPtrOutput)
 }
 
 // A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-type DBProxyEndpointTargetRole string
+type DbProxyEndpointTargetRole string
 
 const (
-	DBProxyEndpointTargetRoleReadWrite = DBProxyEndpointTargetRole("READ_WRITE")
-	DBProxyEndpointTargetRoleReadOnly  = DBProxyEndpointTargetRole("READ_ONLY")
+	DbProxyEndpointTargetRoleReadWrite = DbProxyEndpointTargetRole("READ_WRITE")
+	DbProxyEndpointTargetRoleReadOnly  = DbProxyEndpointTargetRole("READ_ONLY")
 )
 
-func (DBProxyEndpointTargetRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyEndpointTargetRole)(nil)).Elem()
+func (DbProxyEndpointTargetRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyEndpointTargetRole)(nil)).Elem()
 }
 
-func (e DBProxyEndpointTargetRole) ToDBProxyEndpointTargetRoleOutput() DBProxyEndpointTargetRoleOutput {
-	return pulumi.ToOutput(e).(DBProxyEndpointTargetRoleOutput)
+func (e DbProxyEndpointTargetRole) ToDbProxyEndpointTargetRoleOutput() DbProxyEndpointTargetRoleOutput {
+	return pulumi.ToOutput(e).(DbProxyEndpointTargetRoleOutput)
 }
 
-func (e DBProxyEndpointTargetRole) ToDBProxyEndpointTargetRoleOutputWithContext(ctx context.Context) DBProxyEndpointTargetRoleOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DBProxyEndpointTargetRoleOutput)
+func (e DbProxyEndpointTargetRole) ToDbProxyEndpointTargetRoleOutputWithContext(ctx context.Context) DbProxyEndpointTargetRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbProxyEndpointTargetRoleOutput)
 }
 
-func (e DBProxyEndpointTargetRole) ToDBProxyEndpointTargetRolePtrOutput() DBProxyEndpointTargetRolePtrOutput {
-	return e.ToDBProxyEndpointTargetRolePtrOutputWithContext(context.Background())
+func (e DbProxyEndpointTargetRole) ToDbProxyEndpointTargetRolePtrOutput() DbProxyEndpointTargetRolePtrOutput {
+	return e.ToDbProxyEndpointTargetRolePtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyEndpointTargetRole) ToDBProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DBProxyEndpointTargetRolePtrOutput {
-	return DBProxyEndpointTargetRole(e).ToDBProxyEndpointTargetRoleOutputWithContext(ctx).ToDBProxyEndpointTargetRolePtrOutputWithContext(ctx)
+func (e DbProxyEndpointTargetRole) ToDbProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DbProxyEndpointTargetRolePtrOutput {
+	return DbProxyEndpointTargetRole(e).ToDbProxyEndpointTargetRoleOutputWithContext(ctx).ToDbProxyEndpointTargetRolePtrOutputWithContext(ctx)
 }
 
-func (e DBProxyEndpointTargetRole) ToStringOutput() pulumi.StringOutput {
+func (e DbProxyEndpointTargetRole) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyEndpointTargetRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DbProxyEndpointTargetRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyEndpointTargetRole) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DbProxyEndpointTargetRole) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyEndpointTargetRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DbProxyEndpointTargetRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DBProxyEndpointTargetRoleOutput struct{ *pulumi.OutputState }
+type DbProxyEndpointTargetRoleOutput struct{ *pulumi.OutputState }
 
-func (DBProxyEndpointTargetRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyEndpointTargetRole)(nil)).Elem()
+func (DbProxyEndpointTargetRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyEndpointTargetRole)(nil)).Elem()
 }
 
-func (o DBProxyEndpointTargetRoleOutput) ToDBProxyEndpointTargetRoleOutput() DBProxyEndpointTargetRoleOutput {
+func (o DbProxyEndpointTargetRoleOutput) ToDbProxyEndpointTargetRoleOutput() DbProxyEndpointTargetRoleOutput {
 	return o
 }
 
-func (o DBProxyEndpointTargetRoleOutput) ToDBProxyEndpointTargetRoleOutputWithContext(ctx context.Context) DBProxyEndpointTargetRoleOutput {
+func (o DbProxyEndpointTargetRoleOutput) ToDbProxyEndpointTargetRoleOutputWithContext(ctx context.Context) DbProxyEndpointTargetRoleOutput {
 	return o
 }
 
-func (o DBProxyEndpointTargetRoleOutput) ToDBProxyEndpointTargetRolePtrOutput() DBProxyEndpointTargetRolePtrOutput {
-	return o.ToDBProxyEndpointTargetRolePtrOutputWithContext(context.Background())
+func (o DbProxyEndpointTargetRoleOutput) ToDbProxyEndpointTargetRolePtrOutput() DbProxyEndpointTargetRolePtrOutput {
+	return o.ToDbProxyEndpointTargetRolePtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyEndpointTargetRoleOutput) ToDBProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DBProxyEndpointTargetRolePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBProxyEndpointTargetRole) *DBProxyEndpointTargetRole {
+func (o DbProxyEndpointTargetRoleOutput) ToDbProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DbProxyEndpointTargetRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyEndpointTargetRole) *DbProxyEndpointTargetRole {
 		return &v
-	}).(DBProxyEndpointTargetRolePtrOutput)
+	}).(DbProxyEndpointTargetRolePtrOutput)
 }
 
-func (o DBProxyEndpointTargetRoleOutput) ToStringOutput() pulumi.StringOutput {
+func (o DbProxyEndpointTargetRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DBProxyEndpointTargetRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyEndpointTargetRole) string {
+func (o DbProxyEndpointTargetRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyEndpointTargetRole) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DBProxyEndpointTargetRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyEndpointTargetRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyEndpointTargetRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyEndpointTargetRole) *string {
+func (o DbProxyEndpointTargetRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyEndpointTargetRole) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBProxyEndpointTargetRolePtrOutput struct{ *pulumi.OutputState }
+type DbProxyEndpointTargetRolePtrOutput struct{ *pulumi.OutputState }
 
-func (DBProxyEndpointTargetRolePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBProxyEndpointTargetRole)(nil)).Elem()
+func (DbProxyEndpointTargetRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyEndpointTargetRole)(nil)).Elem()
 }
 
-func (o DBProxyEndpointTargetRolePtrOutput) ToDBProxyEndpointTargetRolePtrOutput() DBProxyEndpointTargetRolePtrOutput {
+func (o DbProxyEndpointTargetRolePtrOutput) ToDbProxyEndpointTargetRolePtrOutput() DbProxyEndpointTargetRolePtrOutput {
 	return o
 }
 
-func (o DBProxyEndpointTargetRolePtrOutput) ToDBProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DBProxyEndpointTargetRolePtrOutput {
+func (o DbProxyEndpointTargetRolePtrOutput) ToDbProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DbProxyEndpointTargetRolePtrOutput {
 	return o
 }
 
-func (o DBProxyEndpointTargetRolePtrOutput) Elem() DBProxyEndpointTargetRoleOutput {
-	return o.ApplyT(func(v *DBProxyEndpointTargetRole) DBProxyEndpointTargetRole {
+func (o DbProxyEndpointTargetRolePtrOutput) Elem() DbProxyEndpointTargetRoleOutput {
+	return o.ApplyT(func(v *DbProxyEndpointTargetRole) DbProxyEndpointTargetRole {
 		if v != nil {
 			return *v
 		}
-		var ret DBProxyEndpointTargetRole
+		var ret DbProxyEndpointTargetRole
 		return ret
-	}).(DBProxyEndpointTargetRoleOutput)
+	}).(DbProxyEndpointTargetRoleOutput)
 }
 
-func (o DBProxyEndpointTargetRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyEndpointTargetRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyEndpointTargetRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DBProxyEndpointTargetRole) *string {
+func (o DbProxyEndpointTargetRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbProxyEndpointTargetRole) *string {
 		if e == nil {
 			return nil
 		}
@@ -965,164 +965,164 @@ func (o DBProxyEndpointTargetRolePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DBProxyEndpointTargetRoleInput is an input type that accepts DBProxyEndpointTargetRoleArgs and DBProxyEndpointTargetRoleOutput values.
-// You can construct a concrete instance of `DBProxyEndpointTargetRoleInput` via:
+// DbProxyEndpointTargetRoleInput is an input type that accepts DbProxyEndpointTargetRoleArgs and DbProxyEndpointTargetRoleOutput values.
+// You can construct a concrete instance of `DbProxyEndpointTargetRoleInput` via:
 //
-//	DBProxyEndpointTargetRoleArgs{...}
-type DBProxyEndpointTargetRoleInput interface {
+//	DbProxyEndpointTargetRoleArgs{...}
+type DbProxyEndpointTargetRoleInput interface {
 	pulumi.Input
 
-	ToDBProxyEndpointTargetRoleOutput() DBProxyEndpointTargetRoleOutput
-	ToDBProxyEndpointTargetRoleOutputWithContext(context.Context) DBProxyEndpointTargetRoleOutput
+	ToDbProxyEndpointTargetRoleOutput() DbProxyEndpointTargetRoleOutput
+	ToDbProxyEndpointTargetRoleOutputWithContext(context.Context) DbProxyEndpointTargetRoleOutput
 }
 
-var dbproxyEndpointTargetRolePtrType = reflect.TypeOf((**DBProxyEndpointTargetRole)(nil)).Elem()
+var dbProxyEndpointTargetRolePtrType = reflect.TypeOf((**DbProxyEndpointTargetRole)(nil)).Elem()
 
-type DBProxyEndpointTargetRolePtrInput interface {
+type DbProxyEndpointTargetRolePtrInput interface {
 	pulumi.Input
 
-	ToDBProxyEndpointTargetRolePtrOutput() DBProxyEndpointTargetRolePtrOutput
-	ToDBProxyEndpointTargetRolePtrOutputWithContext(context.Context) DBProxyEndpointTargetRolePtrOutput
+	ToDbProxyEndpointTargetRolePtrOutput() DbProxyEndpointTargetRolePtrOutput
+	ToDbProxyEndpointTargetRolePtrOutputWithContext(context.Context) DbProxyEndpointTargetRolePtrOutput
 }
 
-type dbproxyEndpointTargetRolePtr string
+type dbProxyEndpointTargetRolePtr string
 
-func DBProxyEndpointTargetRolePtr(v string) DBProxyEndpointTargetRolePtrInput {
-	return (*dbproxyEndpointTargetRolePtr)(&v)
+func DbProxyEndpointTargetRolePtr(v string) DbProxyEndpointTargetRolePtrInput {
+	return (*dbProxyEndpointTargetRolePtr)(&v)
 }
 
-func (*dbproxyEndpointTargetRolePtr) ElementType() reflect.Type {
-	return dbproxyEndpointTargetRolePtrType
+func (*dbProxyEndpointTargetRolePtr) ElementType() reflect.Type {
+	return dbProxyEndpointTargetRolePtrType
 }
 
-func (in *dbproxyEndpointTargetRolePtr) ToDBProxyEndpointTargetRolePtrOutput() DBProxyEndpointTargetRolePtrOutput {
-	return pulumi.ToOutput(in).(DBProxyEndpointTargetRolePtrOutput)
+func (in *dbProxyEndpointTargetRolePtr) ToDbProxyEndpointTargetRolePtrOutput() DbProxyEndpointTargetRolePtrOutput {
+	return pulumi.ToOutput(in).(DbProxyEndpointTargetRolePtrOutput)
 }
 
-func (in *dbproxyEndpointTargetRolePtr) ToDBProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DBProxyEndpointTargetRolePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DBProxyEndpointTargetRolePtrOutput)
+func (in *dbProxyEndpointTargetRolePtr) ToDbProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DbProxyEndpointTargetRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbProxyEndpointTargetRolePtrOutput)
 }
 
 // The kinds of databases that the proxy can connect to.
-type DBProxyEngineFamily string
+type DbProxyEngineFamily string
 
 const (
-	DBProxyEngineFamilyMysql      = DBProxyEngineFamily("MYSQL")
-	DBProxyEngineFamilyPostgresql = DBProxyEngineFamily("POSTGRESQL")
-	DBProxyEngineFamilySqlserver  = DBProxyEngineFamily("SQLSERVER")
+	DbProxyEngineFamilyMysql      = DbProxyEngineFamily("MYSQL")
+	DbProxyEngineFamilyPostgresql = DbProxyEngineFamily("POSTGRESQL")
+	DbProxyEngineFamilySqlserver  = DbProxyEngineFamily("SQLSERVER")
 )
 
-func (DBProxyEngineFamily) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyEngineFamily)(nil)).Elem()
+func (DbProxyEngineFamily) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyEngineFamily)(nil)).Elem()
 }
 
-func (e DBProxyEngineFamily) ToDBProxyEngineFamilyOutput() DBProxyEngineFamilyOutput {
-	return pulumi.ToOutput(e).(DBProxyEngineFamilyOutput)
+func (e DbProxyEngineFamily) ToDbProxyEngineFamilyOutput() DbProxyEngineFamilyOutput {
+	return pulumi.ToOutput(e).(DbProxyEngineFamilyOutput)
 }
 
-func (e DBProxyEngineFamily) ToDBProxyEngineFamilyOutputWithContext(ctx context.Context) DBProxyEngineFamilyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DBProxyEngineFamilyOutput)
+func (e DbProxyEngineFamily) ToDbProxyEngineFamilyOutputWithContext(ctx context.Context) DbProxyEngineFamilyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbProxyEngineFamilyOutput)
 }
 
-func (e DBProxyEngineFamily) ToDBProxyEngineFamilyPtrOutput() DBProxyEngineFamilyPtrOutput {
-	return e.ToDBProxyEngineFamilyPtrOutputWithContext(context.Background())
+func (e DbProxyEngineFamily) ToDbProxyEngineFamilyPtrOutput() DbProxyEngineFamilyPtrOutput {
+	return e.ToDbProxyEngineFamilyPtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyEngineFamily) ToDBProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DBProxyEngineFamilyPtrOutput {
-	return DBProxyEngineFamily(e).ToDBProxyEngineFamilyOutputWithContext(ctx).ToDBProxyEngineFamilyPtrOutputWithContext(ctx)
+func (e DbProxyEngineFamily) ToDbProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DbProxyEngineFamilyPtrOutput {
+	return DbProxyEngineFamily(e).ToDbProxyEngineFamilyOutputWithContext(ctx).ToDbProxyEngineFamilyPtrOutputWithContext(ctx)
 }
 
-func (e DBProxyEngineFamily) ToStringOutput() pulumi.StringOutput {
+func (e DbProxyEngineFamily) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyEngineFamily) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DbProxyEngineFamily) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyEngineFamily) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DbProxyEngineFamily) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyEngineFamily) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DbProxyEngineFamily) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DBProxyEngineFamilyOutput struct{ *pulumi.OutputState }
+type DbProxyEngineFamilyOutput struct{ *pulumi.OutputState }
 
-func (DBProxyEngineFamilyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyEngineFamily)(nil)).Elem()
+func (DbProxyEngineFamilyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyEngineFamily)(nil)).Elem()
 }
 
-func (o DBProxyEngineFamilyOutput) ToDBProxyEngineFamilyOutput() DBProxyEngineFamilyOutput {
+func (o DbProxyEngineFamilyOutput) ToDbProxyEngineFamilyOutput() DbProxyEngineFamilyOutput {
 	return o
 }
 
-func (o DBProxyEngineFamilyOutput) ToDBProxyEngineFamilyOutputWithContext(ctx context.Context) DBProxyEngineFamilyOutput {
+func (o DbProxyEngineFamilyOutput) ToDbProxyEngineFamilyOutputWithContext(ctx context.Context) DbProxyEngineFamilyOutput {
 	return o
 }
 
-func (o DBProxyEngineFamilyOutput) ToDBProxyEngineFamilyPtrOutput() DBProxyEngineFamilyPtrOutput {
-	return o.ToDBProxyEngineFamilyPtrOutputWithContext(context.Background())
+func (o DbProxyEngineFamilyOutput) ToDbProxyEngineFamilyPtrOutput() DbProxyEngineFamilyPtrOutput {
+	return o.ToDbProxyEngineFamilyPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyEngineFamilyOutput) ToDBProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DBProxyEngineFamilyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBProxyEngineFamily) *DBProxyEngineFamily {
+func (o DbProxyEngineFamilyOutput) ToDbProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DbProxyEngineFamilyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyEngineFamily) *DbProxyEngineFamily {
 		return &v
-	}).(DBProxyEngineFamilyPtrOutput)
+	}).(DbProxyEngineFamilyPtrOutput)
 }
 
-func (o DBProxyEngineFamilyOutput) ToStringOutput() pulumi.StringOutput {
+func (o DbProxyEngineFamilyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DBProxyEngineFamilyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyEngineFamily) string {
+func (o DbProxyEngineFamilyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyEngineFamily) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DBProxyEngineFamilyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyEngineFamilyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyEngineFamilyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyEngineFamily) *string {
+func (o DbProxyEngineFamilyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyEngineFamily) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBProxyEngineFamilyPtrOutput struct{ *pulumi.OutputState }
+type DbProxyEngineFamilyPtrOutput struct{ *pulumi.OutputState }
 
-func (DBProxyEngineFamilyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBProxyEngineFamily)(nil)).Elem()
+func (DbProxyEngineFamilyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyEngineFamily)(nil)).Elem()
 }
 
-func (o DBProxyEngineFamilyPtrOutput) ToDBProxyEngineFamilyPtrOutput() DBProxyEngineFamilyPtrOutput {
+func (o DbProxyEngineFamilyPtrOutput) ToDbProxyEngineFamilyPtrOutput() DbProxyEngineFamilyPtrOutput {
 	return o
 }
 
-func (o DBProxyEngineFamilyPtrOutput) ToDBProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DBProxyEngineFamilyPtrOutput {
+func (o DbProxyEngineFamilyPtrOutput) ToDbProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DbProxyEngineFamilyPtrOutput {
 	return o
 }
 
-func (o DBProxyEngineFamilyPtrOutput) Elem() DBProxyEngineFamilyOutput {
-	return o.ApplyT(func(v *DBProxyEngineFamily) DBProxyEngineFamily {
+func (o DbProxyEngineFamilyPtrOutput) Elem() DbProxyEngineFamilyOutput {
+	return o.ApplyT(func(v *DbProxyEngineFamily) DbProxyEngineFamily {
 		if v != nil {
 			return *v
 		}
-		var ret DBProxyEngineFamily
+		var ret DbProxyEngineFamily
 		return ret
-	}).(DBProxyEngineFamilyOutput)
+	}).(DbProxyEngineFamilyOutput)
 }
 
-func (o DBProxyEngineFamilyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyEngineFamilyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyEngineFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DBProxyEngineFamily) *string {
+func (o DbProxyEngineFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbProxyEngineFamily) *string {
 		if e == nil {
 			return nil
 		}
@@ -1131,162 +1131,162 @@ func (o DBProxyEngineFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// DBProxyEngineFamilyInput is an input type that accepts DBProxyEngineFamilyArgs and DBProxyEngineFamilyOutput values.
-// You can construct a concrete instance of `DBProxyEngineFamilyInput` via:
+// DbProxyEngineFamilyInput is an input type that accepts DbProxyEngineFamilyArgs and DbProxyEngineFamilyOutput values.
+// You can construct a concrete instance of `DbProxyEngineFamilyInput` via:
 //
-//	DBProxyEngineFamilyArgs{...}
-type DBProxyEngineFamilyInput interface {
+//	DbProxyEngineFamilyArgs{...}
+type DbProxyEngineFamilyInput interface {
 	pulumi.Input
 
-	ToDBProxyEngineFamilyOutput() DBProxyEngineFamilyOutput
-	ToDBProxyEngineFamilyOutputWithContext(context.Context) DBProxyEngineFamilyOutput
+	ToDbProxyEngineFamilyOutput() DbProxyEngineFamilyOutput
+	ToDbProxyEngineFamilyOutputWithContext(context.Context) DbProxyEngineFamilyOutput
 }
 
-var dbproxyEngineFamilyPtrType = reflect.TypeOf((**DBProxyEngineFamily)(nil)).Elem()
+var dbProxyEngineFamilyPtrType = reflect.TypeOf((**DbProxyEngineFamily)(nil)).Elem()
 
-type DBProxyEngineFamilyPtrInput interface {
+type DbProxyEngineFamilyPtrInput interface {
 	pulumi.Input
 
-	ToDBProxyEngineFamilyPtrOutput() DBProxyEngineFamilyPtrOutput
-	ToDBProxyEngineFamilyPtrOutputWithContext(context.Context) DBProxyEngineFamilyPtrOutput
+	ToDbProxyEngineFamilyPtrOutput() DbProxyEngineFamilyPtrOutput
+	ToDbProxyEngineFamilyPtrOutputWithContext(context.Context) DbProxyEngineFamilyPtrOutput
 }
 
-type dbproxyEngineFamilyPtr string
+type dbProxyEngineFamilyPtr string
 
-func DBProxyEngineFamilyPtr(v string) DBProxyEngineFamilyPtrInput {
-	return (*dbproxyEngineFamilyPtr)(&v)
+func DbProxyEngineFamilyPtr(v string) DbProxyEngineFamilyPtrInput {
+	return (*dbProxyEngineFamilyPtr)(&v)
 }
 
-func (*dbproxyEngineFamilyPtr) ElementType() reflect.Type {
-	return dbproxyEngineFamilyPtrType
+func (*dbProxyEngineFamilyPtr) ElementType() reflect.Type {
+	return dbProxyEngineFamilyPtrType
 }
 
-func (in *dbproxyEngineFamilyPtr) ToDBProxyEngineFamilyPtrOutput() DBProxyEngineFamilyPtrOutput {
-	return pulumi.ToOutput(in).(DBProxyEngineFamilyPtrOutput)
+func (in *dbProxyEngineFamilyPtr) ToDbProxyEngineFamilyPtrOutput() DbProxyEngineFamilyPtrOutput {
+	return pulumi.ToOutput(in).(DbProxyEngineFamilyPtrOutput)
 }
 
-func (in *dbproxyEngineFamilyPtr) ToDBProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DBProxyEngineFamilyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DBProxyEngineFamilyPtrOutput)
+func (in *dbProxyEngineFamilyPtr) ToDbProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DbProxyEngineFamilyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbProxyEngineFamilyPtrOutput)
 }
 
 // The identifier for the DBProxyTargetGroup
-type DBProxyTargetGroupTargetGroupName string
+type DbProxyTargetGroupTargetGroupName string
 
 const (
-	DBProxyTargetGroupTargetGroupNameDefault = DBProxyTargetGroupTargetGroupName("default")
+	DbProxyTargetGroupTargetGroupNameDefault = DbProxyTargetGroupTargetGroupName("default")
 )
 
-func (DBProxyTargetGroupTargetGroupName) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyTargetGroupTargetGroupName)(nil)).Elem()
+func (DbProxyTargetGroupTargetGroupName) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyTargetGroupTargetGroupName)(nil)).Elem()
 }
 
-func (e DBProxyTargetGroupTargetGroupName) ToDBProxyTargetGroupTargetGroupNameOutput() DBProxyTargetGroupTargetGroupNameOutput {
-	return pulumi.ToOutput(e).(DBProxyTargetGroupTargetGroupNameOutput)
+func (e DbProxyTargetGroupTargetGroupName) ToDbProxyTargetGroupTargetGroupNameOutput() DbProxyTargetGroupTargetGroupNameOutput {
+	return pulumi.ToOutput(e).(DbProxyTargetGroupTargetGroupNameOutput)
 }
 
-func (e DBProxyTargetGroupTargetGroupName) ToDBProxyTargetGroupTargetGroupNameOutputWithContext(ctx context.Context) DBProxyTargetGroupTargetGroupNameOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DBProxyTargetGroupTargetGroupNameOutput)
+func (e DbProxyTargetGroupTargetGroupName) ToDbProxyTargetGroupTargetGroupNameOutputWithContext(ctx context.Context) DbProxyTargetGroupTargetGroupNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbProxyTargetGroupTargetGroupNameOutput)
 }
 
-func (e DBProxyTargetGroupTargetGroupName) ToDBProxyTargetGroupTargetGroupNamePtrOutput() DBProxyTargetGroupTargetGroupNamePtrOutput {
-	return e.ToDBProxyTargetGroupTargetGroupNamePtrOutputWithContext(context.Background())
+func (e DbProxyTargetGroupTargetGroupName) ToDbProxyTargetGroupTargetGroupNamePtrOutput() DbProxyTargetGroupTargetGroupNamePtrOutput {
+	return e.ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyTargetGroupTargetGroupName) ToDBProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DBProxyTargetGroupTargetGroupNamePtrOutput {
-	return DBProxyTargetGroupTargetGroupName(e).ToDBProxyTargetGroupTargetGroupNameOutputWithContext(ctx).ToDBProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx)
+func (e DbProxyTargetGroupTargetGroupName) ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DbProxyTargetGroupTargetGroupNamePtrOutput {
+	return DbProxyTargetGroupTargetGroupName(e).ToDbProxyTargetGroupTargetGroupNameOutputWithContext(ctx).ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx)
 }
 
-func (e DBProxyTargetGroupTargetGroupName) ToStringOutput() pulumi.StringOutput {
+func (e DbProxyTargetGroupTargetGroupName) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyTargetGroupTargetGroupName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DbProxyTargetGroupTargetGroupName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DBProxyTargetGroupTargetGroupName) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DbProxyTargetGroupTargetGroupName) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DBProxyTargetGroupTargetGroupName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DbProxyTargetGroupTargetGroupName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DBProxyTargetGroupTargetGroupNameOutput struct{ *pulumi.OutputState }
+type DbProxyTargetGroupTargetGroupNameOutput struct{ *pulumi.OutputState }
 
-func (DBProxyTargetGroupTargetGroupNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyTargetGroupTargetGroupName)(nil)).Elem()
+func (DbProxyTargetGroupTargetGroupNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyTargetGroupTargetGroupName)(nil)).Elem()
 }
 
-func (o DBProxyTargetGroupTargetGroupNameOutput) ToDBProxyTargetGroupTargetGroupNameOutput() DBProxyTargetGroupTargetGroupNameOutput {
+func (o DbProxyTargetGroupTargetGroupNameOutput) ToDbProxyTargetGroupTargetGroupNameOutput() DbProxyTargetGroupTargetGroupNameOutput {
 	return o
 }
 
-func (o DBProxyTargetGroupTargetGroupNameOutput) ToDBProxyTargetGroupTargetGroupNameOutputWithContext(ctx context.Context) DBProxyTargetGroupTargetGroupNameOutput {
+func (o DbProxyTargetGroupTargetGroupNameOutput) ToDbProxyTargetGroupTargetGroupNameOutputWithContext(ctx context.Context) DbProxyTargetGroupTargetGroupNameOutput {
 	return o
 }
 
-func (o DBProxyTargetGroupTargetGroupNameOutput) ToDBProxyTargetGroupTargetGroupNamePtrOutput() DBProxyTargetGroupTargetGroupNamePtrOutput {
-	return o.ToDBProxyTargetGroupTargetGroupNamePtrOutputWithContext(context.Background())
+func (o DbProxyTargetGroupTargetGroupNameOutput) ToDbProxyTargetGroupTargetGroupNamePtrOutput() DbProxyTargetGroupTargetGroupNamePtrOutput {
+	return o.ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyTargetGroupTargetGroupNameOutput) ToDBProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DBProxyTargetGroupTargetGroupNamePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBProxyTargetGroupTargetGroupName) *DBProxyTargetGroupTargetGroupName {
+func (o DbProxyTargetGroupTargetGroupNameOutput) ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DbProxyTargetGroupTargetGroupNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyTargetGroupTargetGroupName) *DbProxyTargetGroupTargetGroupName {
 		return &v
-	}).(DBProxyTargetGroupTargetGroupNamePtrOutput)
+	}).(DbProxyTargetGroupTargetGroupNamePtrOutput)
 }
 
-func (o DBProxyTargetGroupTargetGroupNameOutput) ToStringOutput() pulumi.StringOutput {
+func (o DbProxyTargetGroupTargetGroupNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DBProxyTargetGroupTargetGroupNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyTargetGroupTargetGroupName) string {
+func (o DbProxyTargetGroupTargetGroupNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyTargetGroupTargetGroupName) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DBProxyTargetGroupTargetGroupNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyTargetGroupTargetGroupNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyTargetGroupTargetGroupNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyTargetGroupTargetGroupName) *string {
+func (o DbProxyTargetGroupTargetGroupNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyTargetGroupTargetGroupName) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DBProxyTargetGroupTargetGroupNamePtrOutput struct{ *pulumi.OutputState }
+type DbProxyTargetGroupTargetGroupNamePtrOutput struct{ *pulumi.OutputState }
 
-func (DBProxyTargetGroupTargetGroupNamePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DBProxyTargetGroupTargetGroupName)(nil)).Elem()
+func (DbProxyTargetGroupTargetGroupNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyTargetGroupTargetGroupName)(nil)).Elem()
 }
 
-func (o DBProxyTargetGroupTargetGroupNamePtrOutput) ToDBProxyTargetGroupTargetGroupNamePtrOutput() DBProxyTargetGroupTargetGroupNamePtrOutput {
+func (o DbProxyTargetGroupTargetGroupNamePtrOutput) ToDbProxyTargetGroupTargetGroupNamePtrOutput() DbProxyTargetGroupTargetGroupNamePtrOutput {
 	return o
 }
 
-func (o DBProxyTargetGroupTargetGroupNamePtrOutput) ToDBProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DBProxyTargetGroupTargetGroupNamePtrOutput {
+func (o DbProxyTargetGroupTargetGroupNamePtrOutput) ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DbProxyTargetGroupTargetGroupNamePtrOutput {
 	return o
 }
 
-func (o DBProxyTargetGroupTargetGroupNamePtrOutput) Elem() DBProxyTargetGroupTargetGroupNameOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroupTargetGroupName) DBProxyTargetGroupTargetGroupName {
+func (o DbProxyTargetGroupTargetGroupNamePtrOutput) Elem() DbProxyTargetGroupTargetGroupNameOutput {
+	return o.ApplyT(func(v *DbProxyTargetGroupTargetGroupName) DbProxyTargetGroupTargetGroupName {
 		if v != nil {
 			return *v
 		}
-		var ret DBProxyTargetGroupTargetGroupName
+		var ret DbProxyTargetGroupTargetGroupName
 		return ret
-	}).(DBProxyTargetGroupTargetGroupNameOutput)
+	}).(DbProxyTargetGroupTargetGroupNameOutput)
 }
 
-func (o DBProxyTargetGroupTargetGroupNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DbProxyTargetGroupTargetGroupNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DBProxyTargetGroupTargetGroupNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DBProxyTargetGroupTargetGroupName) *string {
+func (o DbProxyTargetGroupTargetGroupNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbProxyTargetGroupTargetGroupName) *string {
 		if e == nil {
 			return nil
 		}
@@ -1295,42 +1295,42 @@ func (o DBProxyTargetGroupTargetGroupNamePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DBProxyTargetGroupTargetGroupNameInput is an input type that accepts DBProxyTargetGroupTargetGroupNameArgs and DBProxyTargetGroupTargetGroupNameOutput values.
-// You can construct a concrete instance of `DBProxyTargetGroupTargetGroupNameInput` via:
+// DbProxyTargetGroupTargetGroupNameInput is an input type that accepts DbProxyTargetGroupTargetGroupNameArgs and DbProxyTargetGroupTargetGroupNameOutput values.
+// You can construct a concrete instance of `DbProxyTargetGroupTargetGroupNameInput` via:
 //
-//	DBProxyTargetGroupTargetGroupNameArgs{...}
-type DBProxyTargetGroupTargetGroupNameInput interface {
+//	DbProxyTargetGroupTargetGroupNameArgs{...}
+type DbProxyTargetGroupTargetGroupNameInput interface {
 	pulumi.Input
 
-	ToDBProxyTargetGroupTargetGroupNameOutput() DBProxyTargetGroupTargetGroupNameOutput
-	ToDBProxyTargetGroupTargetGroupNameOutputWithContext(context.Context) DBProxyTargetGroupTargetGroupNameOutput
+	ToDbProxyTargetGroupTargetGroupNameOutput() DbProxyTargetGroupTargetGroupNameOutput
+	ToDbProxyTargetGroupTargetGroupNameOutputWithContext(context.Context) DbProxyTargetGroupTargetGroupNameOutput
 }
 
-var dbproxyTargetGroupTargetGroupNamePtrType = reflect.TypeOf((**DBProxyTargetGroupTargetGroupName)(nil)).Elem()
+var dbProxyTargetGroupTargetGroupNamePtrType = reflect.TypeOf((**DbProxyTargetGroupTargetGroupName)(nil)).Elem()
 
-type DBProxyTargetGroupTargetGroupNamePtrInput interface {
+type DbProxyTargetGroupTargetGroupNamePtrInput interface {
 	pulumi.Input
 
-	ToDBProxyTargetGroupTargetGroupNamePtrOutput() DBProxyTargetGroupTargetGroupNamePtrOutput
-	ToDBProxyTargetGroupTargetGroupNamePtrOutputWithContext(context.Context) DBProxyTargetGroupTargetGroupNamePtrOutput
+	ToDbProxyTargetGroupTargetGroupNamePtrOutput() DbProxyTargetGroupTargetGroupNamePtrOutput
+	ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(context.Context) DbProxyTargetGroupTargetGroupNamePtrOutput
 }
 
-type dbproxyTargetGroupTargetGroupNamePtr string
+type dbProxyTargetGroupTargetGroupNamePtr string
 
-func DBProxyTargetGroupTargetGroupNamePtr(v string) DBProxyTargetGroupTargetGroupNamePtrInput {
-	return (*dbproxyTargetGroupTargetGroupNamePtr)(&v)
+func DbProxyTargetGroupTargetGroupNamePtr(v string) DbProxyTargetGroupTargetGroupNamePtrInput {
+	return (*dbProxyTargetGroupTargetGroupNamePtr)(&v)
 }
 
-func (*dbproxyTargetGroupTargetGroupNamePtr) ElementType() reflect.Type {
-	return dbproxyTargetGroupTargetGroupNamePtrType
+func (*dbProxyTargetGroupTargetGroupNamePtr) ElementType() reflect.Type {
+	return dbProxyTargetGroupTargetGroupNamePtrType
 }
 
-func (in *dbproxyTargetGroupTargetGroupNamePtr) ToDBProxyTargetGroupTargetGroupNamePtrOutput() DBProxyTargetGroupTargetGroupNamePtrOutput {
-	return pulumi.ToOutput(in).(DBProxyTargetGroupTargetGroupNamePtrOutput)
+func (in *dbProxyTargetGroupTargetGroupNamePtr) ToDbProxyTargetGroupTargetGroupNamePtrOutput() DbProxyTargetGroupTargetGroupNamePtrOutput {
+	return pulumi.ToOutput(in).(DbProxyTargetGroupTargetGroupNamePtrOutput)
 }
 
-func (in *dbproxyTargetGroupTargetGroupNamePtr) ToDBProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DBProxyTargetGroupTargetGroupNamePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DBProxyTargetGroupTargetGroupNamePtrOutput)
+func (in *dbProxyTargetGroupTargetGroupNamePtr) ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DbProxyTargetGroupTargetGroupNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbProxyTargetGroupTargetGroupNamePtrOutput)
 }
 
 // The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
@@ -1501,40 +1501,40 @@ func (in *globalClusterEnginePtr) ToGlobalClusterEnginePtrOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDBEngineVersionStatusInput)(nil)).Elem(), CustomDBEngineVersionStatus("available"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDBEngineVersionStatusPtrInput)(nil)).Elem(), CustomDBEngineVersionStatus("available"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureNameInput)(nil)).Elem(), DBInstanceProcessorFeatureName("coreCount"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureNamePtrInput)(nil)).Elem(), DBInstanceProcessorFeatureName("coreCount"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatAuthSchemeInput)(nil)).Elem(), DBProxyAuthFormatAuthScheme("SECRETS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatAuthSchemePtrInput)(nil)).Elem(), DBProxyAuthFormatAuthScheme("SECRETS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatClientPasswordAuthTypeInput)(nil)).Elem(), DBProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatClientPasswordAuthTypePtrInput)(nil)).Elem(), DBProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatIAMAuthInput)(nil)).Elem(), DBProxyAuthFormatIAMAuth("DISABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatIAMAuthPtrInput)(nil)).Elem(), DBProxyAuthFormatIAMAuth("DISABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointTargetRoleInput)(nil)).Elem(), DBProxyEndpointTargetRole("READ_WRITE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointTargetRolePtrInput)(nil)).Elem(), DBProxyEndpointTargetRole("READ_WRITE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEngineFamilyInput)(nil)).Elem(), DBProxyEngineFamily("MYSQL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEngineFamilyPtrInput)(nil)).Elem(), DBProxyEngineFamily("MYSQL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupTargetGroupNameInput)(nil)).Elem(), DBProxyTargetGroupTargetGroupName("default"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupTargetGroupNamePtrInput)(nil)).Elem(), DBProxyTargetGroupTargetGroupName("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDbEngineVersionStatusInput)(nil)).Elem(), CustomDbEngineVersionStatus("available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDbEngineVersionStatusPtrInput)(nil)).Elem(), CustomDbEngineVersionStatus("available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceProcessorFeatureNameInput)(nil)).Elem(), DbInstanceProcessorFeatureName("coreCount"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceProcessorFeatureNamePtrInput)(nil)).Elem(), DbInstanceProcessorFeatureName("coreCount"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatAuthSchemeInput)(nil)).Elem(), DbProxyAuthFormatAuthScheme("SECRETS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatAuthSchemePtrInput)(nil)).Elem(), DbProxyAuthFormatAuthScheme("SECRETS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatClientPasswordAuthTypeInput)(nil)).Elem(), DbProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatClientPasswordAuthTypePtrInput)(nil)).Elem(), DbProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatIamAuthInput)(nil)).Elem(), DbProxyAuthFormatIamAuth("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatIamAuthPtrInput)(nil)).Elem(), DbProxyAuthFormatIamAuth("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEndpointTargetRoleInput)(nil)).Elem(), DbProxyEndpointTargetRole("READ_WRITE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEndpointTargetRolePtrInput)(nil)).Elem(), DbProxyEndpointTargetRole("READ_WRITE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEngineFamilyInput)(nil)).Elem(), DbProxyEngineFamily("MYSQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEngineFamilyPtrInput)(nil)).Elem(), DbProxyEngineFamily("MYSQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetGroupTargetGroupNameInput)(nil)).Elem(), DbProxyTargetGroupTargetGroupName("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetGroupTargetGroupNamePtrInput)(nil)).Elem(), DbProxyTargetGroupTargetGroupName("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEngineInput)(nil)).Elem(), GlobalClusterEngine("aurora"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEnginePtrInput)(nil)).Elem(), GlobalClusterEngine("aurora"))
-	pulumi.RegisterOutputType(CustomDBEngineVersionStatusOutput{})
-	pulumi.RegisterOutputType(CustomDBEngineVersionStatusPtrOutput{})
-	pulumi.RegisterOutputType(DBInstanceProcessorFeatureNameOutput{})
-	pulumi.RegisterOutputType(DBInstanceProcessorFeatureNamePtrOutput{})
-	pulumi.RegisterOutputType(DBProxyAuthFormatAuthSchemeOutput{})
-	pulumi.RegisterOutputType(DBProxyAuthFormatAuthSchemePtrOutput{})
-	pulumi.RegisterOutputType(DBProxyAuthFormatClientPasswordAuthTypeOutput{})
-	pulumi.RegisterOutputType(DBProxyAuthFormatClientPasswordAuthTypePtrOutput{})
-	pulumi.RegisterOutputType(DBProxyAuthFormatIAMAuthOutput{})
-	pulumi.RegisterOutputType(DBProxyAuthFormatIAMAuthPtrOutput{})
-	pulumi.RegisterOutputType(DBProxyEndpointTargetRoleOutput{})
-	pulumi.RegisterOutputType(DBProxyEndpointTargetRolePtrOutput{})
-	pulumi.RegisterOutputType(DBProxyEngineFamilyOutput{})
-	pulumi.RegisterOutputType(DBProxyEngineFamilyPtrOutput{})
-	pulumi.RegisterOutputType(DBProxyTargetGroupTargetGroupNameOutput{})
-	pulumi.RegisterOutputType(DBProxyTargetGroupTargetGroupNamePtrOutput{})
+	pulumi.RegisterOutputType(CustomDbEngineVersionStatusOutput{})
+	pulumi.RegisterOutputType(CustomDbEngineVersionStatusPtrOutput{})
+	pulumi.RegisterOutputType(DbInstanceProcessorFeatureNameOutput{})
+	pulumi.RegisterOutputType(DbInstanceProcessorFeatureNamePtrOutput{})
+	pulumi.RegisterOutputType(DbProxyAuthFormatAuthSchemeOutput{})
+	pulumi.RegisterOutputType(DbProxyAuthFormatAuthSchemePtrOutput{})
+	pulumi.RegisterOutputType(DbProxyAuthFormatClientPasswordAuthTypeOutput{})
+	pulumi.RegisterOutputType(DbProxyAuthFormatClientPasswordAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(DbProxyAuthFormatIamAuthOutput{})
+	pulumi.RegisterOutputType(DbProxyAuthFormatIamAuthPtrOutput{})
+	pulumi.RegisterOutputType(DbProxyEndpointTargetRoleOutput{})
+	pulumi.RegisterOutputType(DbProxyEndpointTargetRolePtrOutput{})
+	pulumi.RegisterOutputType(DbProxyEngineFamilyOutput{})
+	pulumi.RegisterOutputType(DbProxyEngineFamilyPtrOutput{})
+	pulumi.RegisterOutputType(DbProxyTargetGroupTargetGroupNameOutput{})
+	pulumi.RegisterOutputType(DbProxyTargetGroupTargetGroupNamePtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterEngineOutput{})
 	pulumi.RegisterOutputType(GlobalClusterEnginePtrOutput{})
 }

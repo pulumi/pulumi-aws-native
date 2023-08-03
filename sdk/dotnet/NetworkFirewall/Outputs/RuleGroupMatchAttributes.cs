@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<int> Protocols;
         public readonly ImmutableArray<Outputs.RuleGroupPortRange> SourcePorts;
         public readonly ImmutableArray<Outputs.RuleGroupAddress> Sources;
-        public readonly ImmutableArray<Outputs.RuleGroupTCPFlagField> TcpFlags;
+        public readonly ImmutableArray<Outputs.RuleGroupTcpFlagField> TcpFlags;
 
         [OutputConstructor]
         private RuleGroupMatchAttributes(
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
             ImmutableArray<Outputs.RuleGroupAddress> sources,
 
-            ImmutableArray<Outputs.RuleGroupTCPFlagField> tcpFlags)
+            ImmutableArray<Outputs.RuleGroupTcpFlagField> tcpFlags)
         {
             DestinationPorts = destinationPorts;
             Destinations = destinations;

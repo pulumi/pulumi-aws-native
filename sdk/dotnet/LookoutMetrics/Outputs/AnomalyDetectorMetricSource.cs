@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     {
         public readonly Outputs.AnomalyDetectorAppFlowConfig? AppFlowConfig;
         public readonly Outputs.AnomalyDetectorCloudwatchConfig? CloudwatchConfig;
-        public readonly Outputs.AnomalyDetectorRDSSourceConfig? RdsSourceConfig;
+        public readonly Outputs.AnomalyDetectorRdsSourceConfig? RdsSourceConfig;
         public readonly Outputs.AnomalyDetectorRedshiftSourceConfig? RedshiftSourceConfig;
         public readonly Outputs.AnomalyDetectorS3SourceConfig? S3SourceConfig;
 
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
 
             Outputs.AnomalyDetectorCloudwatchConfig? cloudwatchConfig,
 
-            Outputs.AnomalyDetectorRDSSourceConfig? rdsSourceConfig,
+            Outputs.AnomalyDetectorRdsSourceConfig? rdsSourceConfig,
 
             Outputs.AnomalyDetectorRedshiftSourceConfig? redshiftSourceConfig,
 

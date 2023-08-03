@@ -1624,7 +1624,7 @@ func (o FileSystemOntapConfigurationPtrOutput) WeeklyMaintenanceStartTime() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-type FileSystemOpenZFSConfiguration struct {
+type FileSystemOpenZfsConfiguration struct {
 	AutomaticBackupRetentionDays  *int                               `pulumi:"automaticBackupRetentionDays"`
 	CopyTagsToBackups             *bool                              `pulumi:"copyTagsToBackups"`
 	CopyTagsToVolumes             *bool                              `pulumi:"copyTagsToVolumes"`
@@ -1637,18 +1637,18 @@ type FileSystemOpenZFSConfiguration struct {
 	WeeklyMaintenanceStartTime    *string                            `pulumi:"weeklyMaintenanceStartTime"`
 }
 
-// FileSystemOpenZFSConfigurationInput is an input type that accepts FileSystemOpenZFSConfigurationArgs and FileSystemOpenZFSConfigurationOutput values.
-// You can construct a concrete instance of `FileSystemOpenZFSConfigurationInput` via:
+// FileSystemOpenZfsConfigurationInput is an input type that accepts FileSystemOpenZfsConfigurationArgs and FileSystemOpenZfsConfigurationOutput values.
+// You can construct a concrete instance of `FileSystemOpenZfsConfigurationInput` via:
 //
-//	FileSystemOpenZFSConfigurationArgs{...}
-type FileSystemOpenZFSConfigurationInput interface {
+//	FileSystemOpenZfsConfigurationArgs{...}
+type FileSystemOpenZfsConfigurationInput interface {
 	pulumi.Input
 
-	ToFileSystemOpenZFSConfigurationOutput() FileSystemOpenZFSConfigurationOutput
-	ToFileSystemOpenZFSConfigurationOutputWithContext(context.Context) FileSystemOpenZFSConfigurationOutput
+	ToFileSystemOpenZfsConfigurationOutput() FileSystemOpenZfsConfigurationOutput
+	ToFileSystemOpenZfsConfigurationOutputWithContext(context.Context) FileSystemOpenZfsConfigurationOutput
 }
 
-type FileSystemOpenZFSConfigurationArgs struct {
+type FileSystemOpenZfsConfigurationArgs struct {
 	AutomaticBackupRetentionDays  pulumi.IntPtrInput                        `pulumi:"automaticBackupRetentionDays"`
 	CopyTagsToBackups             pulumi.BoolPtrInput                       `pulumi:"copyTagsToBackups"`
 	CopyTagsToVolumes             pulumi.BoolPtrInput                       `pulumi:"copyTagsToVolumes"`
@@ -1661,153 +1661,153 @@ type FileSystemOpenZFSConfigurationArgs struct {
 	WeeklyMaintenanceStartTime    pulumi.StringPtrInput                     `pulumi:"weeklyMaintenanceStartTime"`
 }
 
-func (FileSystemOpenZFSConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemOpenZFSConfiguration)(nil)).Elem()
+func (FileSystemOpenZfsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemOpenZfsConfiguration)(nil)).Elem()
 }
 
-func (i FileSystemOpenZFSConfigurationArgs) ToFileSystemOpenZFSConfigurationOutput() FileSystemOpenZFSConfigurationOutput {
-	return i.ToFileSystemOpenZFSConfigurationOutputWithContext(context.Background())
+func (i FileSystemOpenZfsConfigurationArgs) ToFileSystemOpenZfsConfigurationOutput() FileSystemOpenZfsConfigurationOutput {
+	return i.ToFileSystemOpenZfsConfigurationOutputWithContext(context.Background())
 }
 
-func (i FileSystemOpenZFSConfigurationArgs) ToFileSystemOpenZFSConfigurationOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZFSConfigurationOutput)
+func (i FileSystemOpenZfsConfigurationArgs) ToFileSystemOpenZfsConfigurationOutputWithContext(ctx context.Context) FileSystemOpenZfsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZfsConfigurationOutput)
 }
 
-func (i FileSystemOpenZFSConfigurationArgs) ToFileSystemOpenZFSConfigurationPtrOutput() FileSystemOpenZFSConfigurationPtrOutput {
-	return i.ToFileSystemOpenZFSConfigurationPtrOutputWithContext(context.Background())
+func (i FileSystemOpenZfsConfigurationArgs) ToFileSystemOpenZfsConfigurationPtrOutput() FileSystemOpenZfsConfigurationPtrOutput {
+	return i.ToFileSystemOpenZfsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i FileSystemOpenZFSConfigurationArgs) ToFileSystemOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZFSConfigurationOutput).ToFileSystemOpenZFSConfigurationPtrOutputWithContext(ctx)
+func (i FileSystemOpenZfsConfigurationArgs) ToFileSystemOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZfsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZfsConfigurationOutput).ToFileSystemOpenZfsConfigurationPtrOutputWithContext(ctx)
 }
 
-// FileSystemOpenZFSConfigurationPtrInput is an input type that accepts FileSystemOpenZFSConfigurationArgs, FileSystemOpenZFSConfigurationPtr and FileSystemOpenZFSConfigurationPtrOutput values.
-// You can construct a concrete instance of `FileSystemOpenZFSConfigurationPtrInput` via:
+// FileSystemOpenZfsConfigurationPtrInput is an input type that accepts FileSystemOpenZfsConfigurationArgs, FileSystemOpenZfsConfigurationPtr and FileSystemOpenZfsConfigurationPtrOutput values.
+// You can construct a concrete instance of `FileSystemOpenZfsConfigurationPtrInput` via:
 //
-//	        FileSystemOpenZFSConfigurationArgs{...}
+//	        FileSystemOpenZfsConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type FileSystemOpenZFSConfigurationPtrInput interface {
+type FileSystemOpenZfsConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToFileSystemOpenZFSConfigurationPtrOutput() FileSystemOpenZFSConfigurationPtrOutput
-	ToFileSystemOpenZFSConfigurationPtrOutputWithContext(context.Context) FileSystemOpenZFSConfigurationPtrOutput
+	ToFileSystemOpenZfsConfigurationPtrOutput() FileSystemOpenZfsConfigurationPtrOutput
+	ToFileSystemOpenZfsConfigurationPtrOutputWithContext(context.Context) FileSystemOpenZfsConfigurationPtrOutput
 }
 
-type fileSystemOpenZFSConfigurationPtrType FileSystemOpenZFSConfigurationArgs
+type fileSystemOpenZfsConfigurationPtrType FileSystemOpenZfsConfigurationArgs
 
-func FileSystemOpenZFSConfigurationPtr(v *FileSystemOpenZFSConfigurationArgs) FileSystemOpenZFSConfigurationPtrInput {
-	return (*fileSystemOpenZFSConfigurationPtrType)(v)
+func FileSystemOpenZfsConfigurationPtr(v *FileSystemOpenZfsConfigurationArgs) FileSystemOpenZfsConfigurationPtrInput {
+	return (*fileSystemOpenZfsConfigurationPtrType)(v)
 }
 
-func (*fileSystemOpenZFSConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileSystemOpenZFSConfiguration)(nil)).Elem()
+func (*fileSystemOpenZfsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemOpenZfsConfiguration)(nil)).Elem()
 }
 
-func (i *fileSystemOpenZFSConfigurationPtrType) ToFileSystemOpenZFSConfigurationPtrOutput() FileSystemOpenZFSConfigurationPtrOutput {
-	return i.ToFileSystemOpenZFSConfigurationPtrOutputWithContext(context.Background())
+func (i *fileSystemOpenZfsConfigurationPtrType) ToFileSystemOpenZfsConfigurationPtrOutput() FileSystemOpenZfsConfigurationPtrOutput {
+	return i.ToFileSystemOpenZfsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *fileSystemOpenZFSConfigurationPtrType) ToFileSystemOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZFSConfigurationPtrOutput)
+func (i *fileSystemOpenZfsConfigurationPtrType) ToFileSystemOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZfsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZfsConfigurationPtrOutput)
 }
 
-type FileSystemOpenZFSConfigurationOutput struct{ *pulumi.OutputState }
+type FileSystemOpenZfsConfigurationOutput struct{ *pulumi.OutputState }
 
-func (FileSystemOpenZFSConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemOpenZFSConfiguration)(nil)).Elem()
+func (FileSystemOpenZfsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemOpenZfsConfiguration)(nil)).Elem()
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) ToFileSystemOpenZFSConfigurationOutput() FileSystemOpenZFSConfigurationOutput {
+func (o FileSystemOpenZfsConfigurationOutput) ToFileSystemOpenZfsConfigurationOutput() FileSystemOpenZfsConfigurationOutput {
 	return o
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) ToFileSystemOpenZFSConfigurationOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationOutput {
+func (o FileSystemOpenZfsConfigurationOutput) ToFileSystemOpenZfsConfigurationOutputWithContext(ctx context.Context) FileSystemOpenZfsConfigurationOutput {
 	return o
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) ToFileSystemOpenZFSConfigurationPtrOutput() FileSystemOpenZFSConfigurationPtrOutput {
-	return o.ToFileSystemOpenZFSConfigurationPtrOutputWithContext(context.Background())
+func (o FileSystemOpenZfsConfigurationOutput) ToFileSystemOpenZfsConfigurationPtrOutput() FileSystemOpenZfsConfigurationPtrOutput {
+	return o.ToFileSystemOpenZfsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) ToFileSystemOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemOpenZFSConfiguration) *FileSystemOpenZFSConfiguration {
+func (o FileSystemOpenZfsConfigurationOutput) ToFileSystemOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZfsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemOpenZfsConfiguration) *FileSystemOpenZfsConfiguration {
 		return &v
-	}).(FileSystemOpenZFSConfigurationPtrOutput)
+	}).(FileSystemOpenZfsConfigurationPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *int { return v.AutomaticBackupRetentionDays }).(pulumi.IntPtrOutput)
+func (o FileSystemOpenZfsConfigurationOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *int { return v.AutomaticBackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *bool { return v.CopyTagsToBackups }).(pulumi.BoolPtrOutput)
+func (o FileSystemOpenZfsConfigurationOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *bool { return v.CopyTagsToBackups }).(pulumi.BoolPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) CopyTagsToVolumes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *bool { return v.CopyTagsToVolumes }).(pulumi.BoolPtrOutput)
+func (o FileSystemOpenZfsConfigurationOutput) CopyTagsToVolumes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *bool { return v.CopyTagsToVolumes }).(pulumi.BoolPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *string { return v.DailyAutomaticBackupStartTime }).(pulumi.StringPtrOutput)
+func (o FileSystemOpenZfsConfigurationOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *string { return v.DailyAutomaticBackupStartTime }).(pulumi.StringPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) DeploymentType() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) string { return v.DeploymentType }).(pulumi.StringOutput)
+func (o FileSystemOpenZfsConfigurationOutput) DeploymentType() pulumi.StringOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) string { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) DiskIopsConfiguration() FileSystemDiskIopsConfigurationPtrOutput {
-	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *FileSystemDiskIopsConfiguration {
+func (o FileSystemOpenZfsConfigurationOutput) DiskIopsConfiguration() FileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *FileSystemDiskIopsConfiguration {
 		return v.DiskIopsConfiguration
 	}).(FileSystemDiskIopsConfigurationPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) Options() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
+func (o FileSystemOpenZfsConfigurationOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) RootVolumeConfiguration() FileSystemRootVolumeConfigurationPtrOutput {
-	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *FileSystemRootVolumeConfiguration {
+func (o FileSystemOpenZfsConfigurationOutput) RootVolumeConfiguration() FileSystemRootVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *FileSystemRootVolumeConfiguration {
 		return v.RootVolumeConfiguration
 	}).(FileSystemRootVolumeConfigurationPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) ThroughputCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *int { return v.ThroughputCapacity }).(pulumi.IntPtrOutput)
+func (o FileSystemOpenZfsConfigurationOutput) ThroughputCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *int { return v.ThroughputCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *string { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
+func (o FileSystemOpenZfsConfigurationOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *string { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
 }
 
-type FileSystemOpenZFSConfigurationPtrOutput struct{ *pulumi.OutputState }
+type FileSystemOpenZfsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (FileSystemOpenZFSConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileSystemOpenZFSConfiguration)(nil)).Elem()
+func (FileSystemOpenZfsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemOpenZfsConfiguration)(nil)).Elem()
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) ToFileSystemOpenZFSConfigurationPtrOutput() FileSystemOpenZFSConfigurationPtrOutput {
+func (o FileSystemOpenZfsConfigurationPtrOutput) ToFileSystemOpenZfsConfigurationPtrOutput() FileSystemOpenZfsConfigurationPtrOutput {
 	return o
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) ToFileSystemOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationPtrOutput {
+func (o FileSystemOpenZfsConfigurationPtrOutput) ToFileSystemOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZfsConfigurationPtrOutput {
 	return o
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) Elem() FileSystemOpenZFSConfigurationOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) FileSystemOpenZFSConfiguration {
+func (o FileSystemOpenZfsConfigurationPtrOutput) Elem() FileSystemOpenZfsConfigurationOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) FileSystemOpenZfsConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret FileSystemOpenZFSConfiguration
+		var ret FileSystemOpenZfsConfiguration
 		return ret
-	}).(FileSystemOpenZFSConfigurationOutput)
+	}).(FileSystemOpenZfsConfigurationOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *int {
+func (o FileSystemOpenZfsConfigurationPtrOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *int {
 		if v == nil {
 			return nil
 		}
@@ -1815,8 +1815,8 @@ func (o FileSystemOpenZFSConfigurationPtrOutput) AutomaticBackupRetentionDays() 
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *bool {
+func (o FileSystemOpenZfsConfigurationPtrOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1824,8 +1824,8 @@ func (o FileSystemOpenZFSConfigurationPtrOutput) CopyTagsToBackups() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) CopyTagsToVolumes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *bool {
+func (o FileSystemOpenZfsConfigurationPtrOutput) CopyTagsToVolumes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1833,8 +1833,8 @@ func (o FileSystemOpenZFSConfigurationPtrOutput) CopyTagsToVolumes() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *string {
+func (o FileSystemOpenZfsConfigurationPtrOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1842,8 +1842,8 @@ func (o FileSystemOpenZFSConfigurationPtrOutput) DailyAutomaticBackupStartTime()
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) DeploymentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *string {
+func (o FileSystemOpenZfsConfigurationPtrOutput) DeploymentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1851,8 +1851,8 @@ func (o FileSystemOpenZFSConfigurationPtrOutput) DeploymentType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) DiskIopsConfiguration() FileSystemDiskIopsConfigurationPtrOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *FileSystemDiskIopsConfiguration {
+func (o FileSystemOpenZfsConfigurationPtrOutput) DiskIopsConfiguration() FileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *FileSystemDiskIopsConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -1860,8 +1860,8 @@ func (o FileSystemOpenZFSConfigurationPtrOutput) DiskIopsConfiguration() FileSys
 	}).(FileSystemDiskIopsConfigurationPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) Options() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) []string {
+func (o FileSystemOpenZfsConfigurationPtrOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) []string {
 		if v == nil {
 			return nil
 		}
@@ -1869,8 +1869,8 @@ func (o FileSystemOpenZFSConfigurationPtrOutput) Options() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) RootVolumeConfiguration() FileSystemRootVolumeConfigurationPtrOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *FileSystemRootVolumeConfiguration {
+func (o FileSystemOpenZfsConfigurationPtrOutput) RootVolumeConfiguration() FileSystemRootVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *FileSystemRootVolumeConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -1878,8 +1878,8 @@ func (o FileSystemOpenZFSConfigurationPtrOutput) RootVolumeConfiguration() FileS
 	}).(FileSystemRootVolumeConfigurationPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) ThroughputCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *int {
+func (o FileSystemOpenZfsConfigurationPtrOutput) ThroughputCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *int {
 		if v == nil {
 			return nil
 		}
@@ -1887,8 +1887,8 @@ func (o FileSystemOpenZFSConfigurationPtrOutput) ThroughputCapacity() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o FileSystemOpenZFSConfigurationPtrOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *string {
+func (o FileSystemOpenZfsConfigurationPtrOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -3981,7 +3981,7 @@ func (o VolumeOntapConfigurationPtrOutput) TieringPolicy() VolumeTieringPolicyPt
 	}).(VolumeTieringPolicyPtrOutput)
 }
 
-type VolumeOpenZFSConfiguration struct {
+type VolumeOpenZfsConfiguration struct {
 	CopyTagsToSnapshots           *bool                      `pulumi:"copyTagsToSnapshots"`
 	DataCompressionType           *string                    `pulumi:"dataCompressionType"`
 	NfsExports                    []VolumeNfsExports         `pulumi:"nfsExports"`
@@ -3995,18 +3995,18 @@ type VolumeOpenZFSConfiguration struct {
 	UserAndGroupQuotas            []VolumeUserAndGroupQuotas `pulumi:"userAndGroupQuotas"`
 }
 
-// VolumeOpenZFSConfigurationInput is an input type that accepts VolumeOpenZFSConfigurationArgs and VolumeOpenZFSConfigurationOutput values.
-// You can construct a concrete instance of `VolumeOpenZFSConfigurationInput` via:
+// VolumeOpenZfsConfigurationInput is an input type that accepts VolumeOpenZfsConfigurationArgs and VolumeOpenZfsConfigurationOutput values.
+// You can construct a concrete instance of `VolumeOpenZfsConfigurationInput` via:
 //
-//	VolumeOpenZFSConfigurationArgs{...}
-type VolumeOpenZFSConfigurationInput interface {
+//	VolumeOpenZfsConfigurationArgs{...}
+type VolumeOpenZfsConfigurationInput interface {
 	pulumi.Input
 
-	ToVolumeOpenZFSConfigurationOutput() VolumeOpenZFSConfigurationOutput
-	ToVolumeOpenZFSConfigurationOutputWithContext(context.Context) VolumeOpenZFSConfigurationOutput
+	ToVolumeOpenZfsConfigurationOutput() VolumeOpenZfsConfigurationOutput
+	ToVolumeOpenZfsConfigurationOutputWithContext(context.Context) VolumeOpenZfsConfigurationOutput
 }
 
-type VolumeOpenZFSConfigurationArgs struct {
+type VolumeOpenZfsConfigurationArgs struct {
 	CopyTagsToSnapshots           pulumi.BoolPtrInput                `pulumi:"copyTagsToSnapshots"`
 	DataCompressionType           pulumi.StringPtrInput              `pulumi:"dataCompressionType"`
 	NfsExports                    VolumeNfsExportsArrayInput         `pulumi:"nfsExports"`
@@ -4020,153 +4020,153 @@ type VolumeOpenZFSConfigurationArgs struct {
 	UserAndGroupQuotas            VolumeUserAndGroupQuotasArrayInput `pulumi:"userAndGroupQuotas"`
 }
 
-func (VolumeOpenZFSConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeOpenZFSConfiguration)(nil)).Elem()
+func (VolumeOpenZfsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOpenZfsConfiguration)(nil)).Elem()
 }
 
-func (i VolumeOpenZFSConfigurationArgs) ToVolumeOpenZFSConfigurationOutput() VolumeOpenZFSConfigurationOutput {
-	return i.ToVolumeOpenZFSConfigurationOutputWithContext(context.Background())
+func (i VolumeOpenZfsConfigurationArgs) ToVolumeOpenZfsConfigurationOutput() VolumeOpenZfsConfigurationOutput {
+	return i.ToVolumeOpenZfsConfigurationOutputWithContext(context.Background())
 }
 
-func (i VolumeOpenZFSConfigurationArgs) ToVolumeOpenZFSConfigurationOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZFSConfigurationOutput)
+func (i VolumeOpenZfsConfigurationArgs) ToVolumeOpenZfsConfigurationOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZfsConfigurationOutput)
 }
 
-func (i VolumeOpenZFSConfigurationArgs) ToVolumeOpenZFSConfigurationPtrOutput() VolumeOpenZFSConfigurationPtrOutput {
-	return i.ToVolumeOpenZFSConfigurationPtrOutputWithContext(context.Background())
+func (i VolumeOpenZfsConfigurationArgs) ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput {
+	return i.ToVolumeOpenZfsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i VolumeOpenZFSConfigurationArgs) ToVolumeOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZFSConfigurationOutput).ToVolumeOpenZFSConfigurationPtrOutputWithContext(ctx)
+func (i VolumeOpenZfsConfigurationArgs) ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZfsConfigurationOutput).ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx)
 }
 
-// VolumeOpenZFSConfigurationPtrInput is an input type that accepts VolumeOpenZFSConfigurationArgs, VolumeOpenZFSConfigurationPtr and VolumeOpenZFSConfigurationPtrOutput values.
-// You can construct a concrete instance of `VolumeOpenZFSConfigurationPtrInput` via:
+// VolumeOpenZfsConfigurationPtrInput is an input type that accepts VolumeOpenZfsConfigurationArgs, VolumeOpenZfsConfigurationPtr and VolumeOpenZfsConfigurationPtrOutput values.
+// You can construct a concrete instance of `VolumeOpenZfsConfigurationPtrInput` via:
 //
-//	        VolumeOpenZFSConfigurationArgs{...}
+//	        VolumeOpenZfsConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type VolumeOpenZFSConfigurationPtrInput interface {
+type VolumeOpenZfsConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToVolumeOpenZFSConfigurationPtrOutput() VolumeOpenZFSConfigurationPtrOutput
-	ToVolumeOpenZFSConfigurationPtrOutputWithContext(context.Context) VolumeOpenZFSConfigurationPtrOutput
+	ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput
+	ToVolumeOpenZfsConfigurationPtrOutputWithContext(context.Context) VolumeOpenZfsConfigurationPtrOutput
 }
 
-type volumeOpenZFSConfigurationPtrType VolumeOpenZFSConfigurationArgs
+type volumeOpenZfsConfigurationPtrType VolumeOpenZfsConfigurationArgs
 
-func VolumeOpenZFSConfigurationPtr(v *VolumeOpenZFSConfigurationArgs) VolumeOpenZFSConfigurationPtrInput {
-	return (*volumeOpenZFSConfigurationPtrType)(v)
+func VolumeOpenZfsConfigurationPtr(v *VolumeOpenZfsConfigurationArgs) VolumeOpenZfsConfigurationPtrInput {
+	return (*volumeOpenZfsConfigurationPtrType)(v)
 }
 
-func (*volumeOpenZFSConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumeOpenZFSConfiguration)(nil)).Elem()
+func (*volumeOpenZfsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOpenZfsConfiguration)(nil)).Elem()
 }
 
-func (i *volumeOpenZFSConfigurationPtrType) ToVolumeOpenZFSConfigurationPtrOutput() VolumeOpenZFSConfigurationPtrOutput {
-	return i.ToVolumeOpenZFSConfigurationPtrOutputWithContext(context.Background())
+func (i *volumeOpenZfsConfigurationPtrType) ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput {
+	return i.ToVolumeOpenZfsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *volumeOpenZFSConfigurationPtrType) ToVolumeOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZFSConfigurationPtrOutput)
+func (i *volumeOpenZfsConfigurationPtrType) ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZfsConfigurationPtrOutput)
 }
 
-type VolumeOpenZFSConfigurationOutput struct{ *pulumi.OutputState }
+type VolumeOpenZfsConfigurationOutput struct{ *pulumi.OutputState }
 
-func (VolumeOpenZFSConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeOpenZFSConfiguration)(nil)).Elem()
+func (VolumeOpenZfsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOpenZfsConfiguration)(nil)).Elem()
 }
 
-func (o VolumeOpenZFSConfigurationOutput) ToVolumeOpenZFSConfigurationOutput() VolumeOpenZFSConfigurationOutput {
+func (o VolumeOpenZfsConfigurationOutput) ToVolumeOpenZfsConfigurationOutput() VolumeOpenZfsConfigurationOutput {
 	return o
 }
 
-func (o VolumeOpenZFSConfigurationOutput) ToVolumeOpenZFSConfigurationOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationOutput {
+func (o VolumeOpenZfsConfigurationOutput) ToVolumeOpenZfsConfigurationOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationOutput {
 	return o
 }
 
-func (o VolumeOpenZFSConfigurationOutput) ToVolumeOpenZFSConfigurationPtrOutput() VolumeOpenZFSConfigurationPtrOutput {
-	return o.ToVolumeOpenZFSConfigurationPtrOutputWithContext(context.Background())
+func (o VolumeOpenZfsConfigurationOutput) ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput {
+	return o.ToVolumeOpenZfsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o VolumeOpenZFSConfigurationOutput) ToVolumeOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeOpenZFSConfiguration) *VolumeOpenZFSConfiguration {
+func (o VolumeOpenZfsConfigurationOutput) ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeOpenZfsConfiguration) *VolumeOpenZfsConfiguration {
 		return &v
-	}).(VolumeOpenZFSConfigurationPtrOutput)
+	}).(VolumeOpenZfsConfigurationPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *bool { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
+func (o VolumeOpenZfsConfigurationOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *bool { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) DataCompressionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *string { return v.DataCompressionType }).(pulumi.StringPtrOutput)
+func (o VolumeOpenZfsConfigurationOutput) DataCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *string { return v.DataCompressionType }).(pulumi.StringPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) NfsExports() VolumeNfsExportsArrayOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) []VolumeNfsExports { return v.NfsExports }).(VolumeNfsExportsArrayOutput)
+func (o VolumeOpenZfsConfigurationOutput) NfsExports() VolumeNfsExportsArrayOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) []VolumeNfsExports { return v.NfsExports }).(VolumeNfsExportsArrayOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) Options() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
+func (o VolumeOpenZfsConfigurationOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) OriginSnapshot() VolumeOriginSnapshotPtrOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *VolumeOriginSnapshot { return v.OriginSnapshot }).(VolumeOriginSnapshotPtrOutput)
+func (o VolumeOpenZfsConfigurationOutput) OriginSnapshot() VolumeOriginSnapshotPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *VolumeOriginSnapshot { return v.OriginSnapshot }).(VolumeOriginSnapshotPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) ParentVolumeId() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) string { return v.ParentVolumeId }).(pulumi.StringOutput)
+func (o VolumeOpenZfsConfigurationOutput) ParentVolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) string { return v.ParentVolumeId }).(pulumi.StringOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+func (o VolumeOpenZfsConfigurationOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) RecordSizeKiB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *int { return v.RecordSizeKiB }).(pulumi.IntPtrOutput)
+func (o VolumeOpenZfsConfigurationOutput) RecordSizeKiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *int { return v.RecordSizeKiB }).(pulumi.IntPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) StorageCapacityQuotaGiB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *int { return v.StorageCapacityQuotaGiB }).(pulumi.IntPtrOutput)
+func (o VolumeOpenZfsConfigurationOutput) StorageCapacityQuotaGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *int { return v.StorageCapacityQuotaGiB }).(pulumi.IntPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) StorageCapacityReservationGiB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *int { return v.StorageCapacityReservationGiB }).(pulumi.IntPtrOutput)
+func (o VolumeOpenZfsConfigurationOutput) StorageCapacityReservationGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *int { return v.StorageCapacityReservationGiB }).(pulumi.IntPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationOutput) UserAndGroupQuotas() VolumeUserAndGroupQuotasArrayOutput {
-	return o.ApplyT(func(v VolumeOpenZFSConfiguration) []VolumeUserAndGroupQuotas { return v.UserAndGroupQuotas }).(VolumeUserAndGroupQuotasArrayOutput)
+func (o VolumeOpenZfsConfigurationOutput) UserAndGroupQuotas() VolumeUserAndGroupQuotasArrayOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) []VolumeUserAndGroupQuotas { return v.UserAndGroupQuotas }).(VolumeUserAndGroupQuotasArrayOutput)
 }
 
-type VolumeOpenZFSConfigurationPtrOutput struct{ *pulumi.OutputState }
+type VolumeOpenZfsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (VolumeOpenZFSConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumeOpenZFSConfiguration)(nil)).Elem()
+func (VolumeOpenZfsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOpenZfsConfiguration)(nil)).Elem()
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) ToVolumeOpenZFSConfigurationPtrOutput() VolumeOpenZFSConfigurationPtrOutput {
+func (o VolumeOpenZfsConfigurationPtrOutput) ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput {
 	return o
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) ToVolumeOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationPtrOutput {
+func (o VolumeOpenZfsConfigurationPtrOutput) ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationPtrOutput {
 	return o
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) Elem() VolumeOpenZFSConfigurationOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) VolumeOpenZFSConfiguration {
+func (o VolumeOpenZfsConfigurationPtrOutput) Elem() VolumeOpenZfsConfigurationOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) VolumeOpenZfsConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret VolumeOpenZFSConfiguration
+		var ret VolumeOpenZfsConfiguration
 		return ret
-	}).(VolumeOpenZFSConfigurationOutput)
+	}).(VolumeOpenZfsConfigurationOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *bool {
+func (o VolumeOpenZfsConfigurationPtrOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *bool {
 		if v == nil {
 			return nil
 		}
@@ -4174,8 +4174,8 @@ func (o VolumeOpenZFSConfigurationPtrOutput) CopyTagsToSnapshots() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) DataCompressionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *string {
+func (o VolumeOpenZfsConfigurationPtrOutput) DataCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -4183,8 +4183,8 @@ func (o VolumeOpenZFSConfigurationPtrOutput) DataCompressionType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) NfsExports() VolumeNfsExportsArrayOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) []VolumeNfsExports {
+func (o VolumeOpenZfsConfigurationPtrOutput) NfsExports() VolumeNfsExportsArrayOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) []VolumeNfsExports {
 		if v == nil {
 			return nil
 		}
@@ -4192,8 +4192,8 @@ func (o VolumeOpenZFSConfigurationPtrOutput) NfsExports() VolumeNfsExportsArrayO
 	}).(VolumeNfsExportsArrayOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) Options() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) []string {
+func (o VolumeOpenZfsConfigurationPtrOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) []string {
 		if v == nil {
 			return nil
 		}
@@ -4201,8 +4201,8 @@ func (o VolumeOpenZFSConfigurationPtrOutput) Options() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) OriginSnapshot() VolumeOriginSnapshotPtrOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *VolumeOriginSnapshot {
+func (o VolumeOpenZfsConfigurationPtrOutput) OriginSnapshot() VolumeOriginSnapshotPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *VolumeOriginSnapshot {
 		if v == nil {
 			return nil
 		}
@@ -4210,8 +4210,8 @@ func (o VolumeOpenZFSConfigurationPtrOutput) OriginSnapshot() VolumeOriginSnapsh
 	}).(VolumeOriginSnapshotPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) ParentVolumeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *string {
+func (o VolumeOpenZfsConfigurationPtrOutput) ParentVolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -4219,8 +4219,8 @@ func (o VolumeOpenZFSConfigurationPtrOutput) ParentVolumeId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *bool {
+func (o VolumeOpenZfsConfigurationPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *bool {
 		if v == nil {
 			return nil
 		}
@@ -4228,8 +4228,8 @@ func (o VolumeOpenZFSConfigurationPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) RecordSizeKiB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *int {
+func (o VolumeOpenZfsConfigurationPtrOutput) RecordSizeKiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *int {
 		if v == nil {
 			return nil
 		}
@@ -4237,8 +4237,8 @@ func (o VolumeOpenZFSConfigurationPtrOutput) RecordSizeKiB() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) StorageCapacityQuotaGiB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *int {
+func (o VolumeOpenZfsConfigurationPtrOutput) StorageCapacityQuotaGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *int {
 		if v == nil {
 			return nil
 		}
@@ -4246,8 +4246,8 @@ func (o VolumeOpenZFSConfigurationPtrOutput) StorageCapacityQuotaGiB() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) StorageCapacityReservationGiB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *int {
+func (o VolumeOpenZfsConfigurationPtrOutput) StorageCapacityReservationGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *int {
 		if v == nil {
 			return nil
 		}
@@ -4255,8 +4255,8 @@ func (o VolumeOpenZFSConfigurationPtrOutput) StorageCapacityReservationGiB() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o VolumeOpenZFSConfigurationPtrOutput) UserAndGroupQuotas() VolumeUserAndGroupQuotasArrayOutput {
-	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) []VolumeUserAndGroupQuotas {
+func (o VolumeOpenZfsConfigurationPtrOutput) UserAndGroupQuotas() VolumeUserAndGroupQuotasArrayOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) []VolumeUserAndGroupQuotas {
 		if v == nil {
 			return nil
 		}
@@ -5306,8 +5306,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemNfsExportsArrayInput)(nil)).Elem(), FileSystemNfsExportsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOntapConfigurationInput)(nil)).Elem(), FileSystemOntapConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOntapConfigurationPtrInput)(nil)).Elem(), FileSystemOntapConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOpenZFSConfigurationInput)(nil)).Elem(), FileSystemOpenZFSConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOpenZFSConfigurationPtrInput)(nil)).Elem(), FileSystemOpenZFSConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOpenZfsConfigurationInput)(nil)).Elem(), FileSystemOpenZfsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOpenZfsConfigurationPtrInput)(nil)).Elem(), FileSystemOpenZfsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemRootVolumeConfigurationInput)(nil)).Elem(), FileSystemRootVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemRootVolumeConfigurationPtrInput)(nil)).Elem(), FileSystemRootVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSelfManagedActiveDirectoryConfigurationInput)(nil)).Elem(), FileSystemSelfManagedActiveDirectoryConfigurationArgs{})
@@ -5334,8 +5334,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeNfsExportsArrayInput)(nil)).Elem(), VolumeNfsExportsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOntapConfigurationInput)(nil)).Elem(), VolumeOntapConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOntapConfigurationPtrInput)(nil)).Elem(), VolumeOntapConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOpenZFSConfigurationInput)(nil)).Elem(), VolumeOpenZFSConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOpenZFSConfigurationPtrInput)(nil)).Elem(), VolumeOpenZFSConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOpenZfsConfigurationInput)(nil)).Elem(), VolumeOpenZfsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOpenZfsConfigurationPtrInput)(nil)).Elem(), VolumeOpenZfsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOriginSnapshotInput)(nil)).Elem(), VolumeOriginSnapshotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOriginSnapshotPtrInput)(nil)).Elem(), VolumeOriginSnapshotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeRetentionPeriodInput)(nil)).Elem(), VolumeRetentionPeriodArgs{})
@@ -5370,8 +5370,8 @@ func init() {
 	pulumi.RegisterOutputType(FileSystemNfsExportsArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemOntapConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemOntapConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(FileSystemOpenZFSConfigurationOutput{})
-	pulumi.RegisterOutputType(FileSystemOpenZFSConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemOpenZfsConfigurationOutput{})
+	pulumi.RegisterOutputType(FileSystemOpenZfsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemRootVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemRootVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemSelfManagedActiveDirectoryConfigurationOutput{})
@@ -5398,8 +5398,8 @@ func init() {
 	pulumi.RegisterOutputType(VolumeNfsExportsArrayOutput{})
 	pulumi.RegisterOutputType(VolumeOntapConfigurationOutput{})
 	pulumi.RegisterOutputType(VolumeOntapConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(VolumeOpenZFSConfigurationOutput{})
-	pulumi.RegisterOutputType(VolumeOpenZFSConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeOpenZfsConfigurationOutput{})
+	pulumi.RegisterOutputType(VolumeOpenZfsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeOriginSnapshotOutput{})
 	pulumi.RegisterOutputType(VolumeOriginSnapshotPtrOutput{})
 	pulumi.RegisterOutputType(VolumeRetentionPeriodOutput{})

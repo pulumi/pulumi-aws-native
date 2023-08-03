@@ -20,7 +20,7 @@ type Volume struct {
 	BackupId             pulumi.StringPtrOutput              `pulumi:"backupId"`
 	Name                 pulumi.StringOutput                 `pulumi:"name"`
 	OntapConfiguration   VolumeOntapConfigurationPtrOutput   `pulumi:"ontapConfiguration"`
-	OpenZfsConfiguration VolumeOpenZFSConfigurationPtrOutput `pulumi:"openZfsConfiguration"`
+	OpenZfsConfiguration VolumeOpenZfsConfigurationPtrOutput `pulumi:"openZfsConfiguration"`
 	ResourceArn          pulumi.StringOutput                 `pulumi:"resourceArn"`
 	Tags                 VolumeTagArrayOutput                `pulumi:"tags"`
 	Uuid                 pulumi.StringOutput                 `pulumi:"uuid"`
@@ -71,7 +71,7 @@ type volumeArgs struct {
 	BackupId             *string                     `pulumi:"backupId"`
 	Name                 *string                     `pulumi:"name"`
 	OntapConfiguration   *VolumeOntapConfiguration   `pulumi:"ontapConfiguration"`
-	OpenZfsConfiguration *VolumeOpenZFSConfiguration `pulumi:"openZfsConfiguration"`
+	OpenZfsConfiguration *VolumeOpenZfsConfiguration `pulumi:"openZfsConfiguration"`
 	Tags                 []VolumeTag                 `pulumi:"tags"`
 	VolumeType           *string                     `pulumi:"volumeType"`
 }
@@ -81,7 +81,7 @@ type VolumeArgs struct {
 	BackupId             pulumi.StringPtrInput
 	Name                 pulumi.StringPtrInput
 	OntapConfiguration   VolumeOntapConfigurationPtrInput
-	OpenZfsConfiguration VolumeOpenZFSConfigurationPtrInput
+	OpenZfsConfiguration VolumeOpenZfsConfigurationPtrInput
 	Tags                 VolumeTagArrayInput
 	VolumeType           pulumi.StringPtrInput
 }
@@ -135,8 +135,8 @@ func (o VolumeOutput) OntapConfiguration() VolumeOntapConfigurationPtrOutput {
 	return o.ApplyT(func(v *Volume) VolumeOntapConfigurationPtrOutput { return v.OntapConfiguration }).(VolumeOntapConfigurationPtrOutput)
 }
 
-func (o VolumeOutput) OpenZfsConfiguration() VolumeOpenZFSConfigurationPtrOutput {
-	return o.ApplyT(func(v *Volume) VolumeOpenZFSConfigurationPtrOutput { return v.OpenZfsConfiguration }).(VolumeOpenZFSConfigurationPtrOutput)
+func (o VolumeOutput) OpenZfsConfiguration() VolumeOpenZfsConfigurationPtrOutput {
+	return o.ApplyT(func(v *Volume) VolumeOpenZfsConfigurationPtrOutput { return v.OpenZfsConfiguration }).(VolumeOpenZfsConfigurationPtrOutput)
 }
 
 func (o VolumeOutput) ResourceArn() pulumi.StringOutput {

@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetEnvironmentEC2Result',
-    'AwaitableGetEnvironmentEC2Result',
+    'GetEnvironmentEc2Result',
+    'AwaitableGetEnvironmentEc2Result',
     'get_environment_ec2',
     'get_environment_ec2_output',
 ]
 
 @pulumi.output_type
-class GetEnvironmentEC2Result:
+class GetEnvironmentEc2Result:
     def __init__(__self__, arn=None, description=None, id=None, name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -58,16 +58,16 @@ class GetEnvironmentEC2Result:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.EnvironmentEC2Tag']]:
+    def tags(self) -> Optional[Sequence['outputs.EnvironmentEc2Tag']]:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetEnvironmentEC2Result(GetEnvironmentEC2Result):
+class AwaitableGetEnvironmentEc2Result(GetEnvironmentEc2Result):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetEnvironmentEC2Result(
+        return GetEnvironmentEc2Result(
             arn=self.arn,
             description=self.description,
             id=self.id,
@@ -76,16 +76,16 @@ class AwaitableGetEnvironmentEC2Result(GetEnvironmentEC2Result):
 
 
 def get_environment_ec2(id: Optional[str] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentEC2Result:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentEc2Result:
     """
     Resource Type definition for AWS::Cloud9::EnvironmentEC2
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:cloud9:getEnvironmentEC2', __args__, opts=opts, typ=GetEnvironmentEC2Result).value
+    __ret__ = pulumi.runtime.invoke('aws-native:cloud9:getEnvironmentEc2', __args__, opts=opts, typ=GetEnvironmentEc2Result).value
 
-    return AwaitableGetEnvironmentEC2Result(
+    return AwaitableGetEnvironmentEc2Result(
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -95,7 +95,7 @@ def get_environment_ec2(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_environment_ec2)
 def get_environment_ec2_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentEC2Result]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentEc2Result]:
     """
     Resource Type definition for AWS::Cloud9::EnvironmentEC2
     """

@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetSMSChannelResult',
-    'AwaitableGetSMSChannelResult',
+    'GetSmsChannelResult',
+    'AwaitableGetSmsChannelResult',
     'get_sms_channel',
     'get_sms_channel_output',
 ]
 
 @pulumi.output_type
-class GetSMSChannelResult:
+class GetSmsChannelResult:
     def __init__(__self__, enabled=None, id=None, sender_id=None, short_code=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
@@ -53,12 +53,12 @@ class GetSMSChannelResult:
         return pulumi.get(self, "short_code")
 
 
-class AwaitableGetSMSChannelResult(GetSMSChannelResult):
+class AwaitableGetSmsChannelResult(GetSmsChannelResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSMSChannelResult(
+        return GetSmsChannelResult(
             enabled=self.enabled,
             id=self.id,
             sender_id=self.sender_id,
@@ -66,16 +66,16 @@ class AwaitableGetSMSChannelResult(GetSMSChannelResult):
 
 
 def get_sms_channel(id: Optional[str] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSMSChannelResult:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSmsChannelResult:
     """
     Resource Type definition for AWS::Pinpoint::SMSChannel
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getSMSChannel', __args__, opts=opts, typ=GetSMSChannelResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getSmsChannel', __args__, opts=opts, typ=GetSmsChannelResult).value
 
-    return AwaitableGetSMSChannelResult(
+    return AwaitableGetSmsChannelResult(
         enabled=pulumi.get(__ret__, 'enabled'),
         id=pulumi.get(__ret__, 'id'),
         sender_id=pulumi.get(__ret__, 'sender_id'),
@@ -84,7 +84,7 @@ def get_sms_channel(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_sms_channel)
 def get_sms_channel_output(id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSMSChannelResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSmsChannelResult]:
     """
     Resource Type definition for AWS::Pinpoint::SMSChannel
     """

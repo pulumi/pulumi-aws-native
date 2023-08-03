@@ -31,7 +31,7 @@ export const ConnectorProfileConnectorType = {
     Googleanalytics: "Googleanalytics",
     Zendesk: "Zendesk",
     Servicenow: "Servicenow",
-    SAPOData: "SAPOData",
+    SapoData: "SAPOData",
     Datadog: "Datadog",
     Trendmicro: "Trendmicro",
     Snowflake: "Snowflake",
@@ -66,7 +66,7 @@ export const FlowAmplitudeConnectorOperator = {
 export type FlowAmplitudeConnectorOperator = (typeof FlowAmplitudeConnectorOperator)[keyof typeof FlowAmplitudeConnectorOperator];
 
 export const FlowConnectorType = {
-    SAPOData: "SAPOData",
+    SapoData: "SAPOData",
     Salesforce: "Salesforce",
     Pardot: "Pardot",
     Singular: "Singular",
@@ -328,32 +328,6 @@ export const FlowS3InputFormatConfigS3InputFileType = {
 
 export type FlowS3InputFormatConfigS3InputFileType = (typeof FlowS3InputFormatConfigS3InputFileType)[keyof typeof FlowS3InputFormatConfigS3InputFileType];
 
-export const FlowSAPODataConnectorOperator = {
-    Projection: "PROJECTION",
-    LessThan: "LESS_THAN",
-    Contains: "CONTAINS",
-    GreaterThan: "GREATER_THAN",
-    Between: "BETWEEN",
-    LessThanOrEqualTo: "LESS_THAN_OR_EQUAL_TO",
-    GreaterThanOrEqualTo: "GREATER_THAN_OR_EQUAL_TO",
-    EqualTo: "EQUAL_TO",
-    NotEqualTo: "NOT_EQUAL_TO",
-    Addition: "ADDITION",
-    Multiplication: "MULTIPLICATION",
-    Division: "DIVISION",
-    Subtraction: "SUBTRACTION",
-    MaskAll: "MASK_ALL",
-    MaskFirstN: "MASK_FIRST_N",
-    MaskLastN: "MASK_LAST_N",
-    ValidateNonNull: "VALIDATE_NON_NULL",
-    ValidateNonZero: "VALIDATE_NON_ZERO",
-    ValidateNonNegative: "VALIDATE_NON_NEGATIVE",
-    ValidateNumeric: "VALIDATE_NUMERIC",
-    NoOp: "NO_OP",
-} as const;
-
-export type FlowSAPODataConnectorOperator = (typeof FlowSAPODataConnectorOperator)[keyof typeof FlowSAPODataConnectorOperator];
-
 export const FlowSalesforceConnectorOperator = {
     Projection: "PROJECTION",
     LessThan: "LESS_THAN",
@@ -379,6 +353,32 @@ export const FlowSalesforceConnectorOperator = {
 } as const;
 
 export type FlowSalesforceConnectorOperator = (typeof FlowSalesforceConnectorOperator)[keyof typeof FlowSalesforceConnectorOperator];
+
+export const FlowSapoDataConnectorOperator = {
+    Projection: "PROJECTION",
+    LessThan: "LESS_THAN",
+    Contains: "CONTAINS",
+    GreaterThan: "GREATER_THAN",
+    Between: "BETWEEN",
+    LessThanOrEqualTo: "LESS_THAN_OR_EQUAL_TO",
+    GreaterThanOrEqualTo: "GREATER_THAN_OR_EQUAL_TO",
+    EqualTo: "EQUAL_TO",
+    NotEqualTo: "NOT_EQUAL_TO",
+    Addition: "ADDITION",
+    Multiplication: "MULTIPLICATION",
+    Division: "DIVISION",
+    Subtraction: "SUBTRACTION",
+    MaskAll: "MASK_ALL",
+    MaskFirstN: "MASK_FIRST_N",
+    MaskLastN: "MASK_LAST_N",
+    ValidateNonNull: "VALIDATE_NON_NULL",
+    ValidateNonZero: "VALIDATE_NON_ZERO",
+    ValidateNonNegative: "VALIDATE_NON_NEGATIVE",
+    ValidateNumeric: "VALIDATE_NUMERIC",
+    NoOp: "NO_OP",
+} as const;
+
+export type FlowSapoDataConnectorOperator = (typeof FlowSapoDataConnectorOperator)[keyof typeof FlowSapoDataConnectorOperator];
 
 export const FlowScheduledTriggerPropertiesDataPullMode = {
     Incremental: "Incremental",

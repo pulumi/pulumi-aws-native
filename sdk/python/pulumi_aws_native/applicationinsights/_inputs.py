@@ -17,9 +17,9 @@ __all__ = [
     'ApplicationComponentMonitoringSettingArgs',
     'ApplicationConfigurationDetailsArgs',
     'ApplicationCustomComponentArgs',
-    'ApplicationHAClusterPrometheusExporterArgs',
-    'ApplicationHANAPrometheusExporterArgs',
-    'ApplicationJMXPrometheusExporterArgs',
+    'ApplicationHaClusterPrometheusExporterArgs',
+    'ApplicationHanaPrometheusExporterArgs',
+    'ApplicationJmxPrometheusExporterArgs',
     'ApplicationLogPatternSetArgs',
     'ApplicationLogPatternArgs',
     'ApplicationLogArgs',
@@ -238,18 +238,18 @@ class ApplicationConfigurationDetailsArgs:
     def __init__(__self__, *,
                  alarm_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]] = None,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmArgs']]]] = None,
-                 ha_cluster_prometheus_exporter: Optional[pulumi.Input['ApplicationHAClusterPrometheusExporterArgs']] = None,
-                 hana_prometheus_exporter: Optional[pulumi.Input['ApplicationHANAPrometheusExporterArgs']] = None,
-                 jmx_prometheus_exporter: Optional[pulumi.Input['ApplicationJMXPrometheusExporterArgs']] = None,
+                 ha_cluster_prometheus_exporter: Optional[pulumi.Input['ApplicationHaClusterPrometheusExporterArgs']] = None,
+                 hana_prometheus_exporter: Optional[pulumi.Input['ApplicationHanaPrometheusExporterArgs']] = None,
+                 jmx_prometheus_exporter: Optional[pulumi.Input['ApplicationJmxPrometheusExporterArgs']] = None,
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]] = None,
                  windows_events: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]] = None):
         """
         The configuration settings.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]] alarm_metrics: A list of metrics to monitor for the component.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmArgs']]] alarms: A list of alarms to monitor for the component.
-        :param pulumi.Input['ApplicationHAClusterPrometheusExporterArgs'] ha_cluster_prometheus_exporter: The HA cluster Prometheus Exporter settings.
-        :param pulumi.Input['ApplicationHANAPrometheusExporterArgs'] hana_prometheus_exporter: The HANA DB Prometheus Exporter settings.
-        :param pulumi.Input['ApplicationJMXPrometheusExporterArgs'] jmx_prometheus_exporter: The JMX Prometheus Exporter settings.
+        :param pulumi.Input['ApplicationHaClusterPrometheusExporterArgs'] ha_cluster_prometheus_exporter: The HA cluster Prometheus Exporter settings.
+        :param pulumi.Input['ApplicationHanaPrometheusExporterArgs'] hana_prometheus_exporter: The HANA DB Prometheus Exporter settings.
+        :param pulumi.Input['ApplicationJmxPrometheusExporterArgs'] jmx_prometheus_exporter: The JMX Prometheus Exporter settings.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]] logs: A list of logs to monitor for the component.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]] windows_events: A list of Windows Events to log.
         """
@@ -294,38 +294,38 @@ class ApplicationConfigurationDetailsArgs:
 
     @property
     @pulumi.getter(name="haClusterPrometheusExporter")
-    def ha_cluster_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationHAClusterPrometheusExporterArgs']]:
+    def ha_cluster_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationHaClusterPrometheusExporterArgs']]:
         """
         The HA cluster Prometheus Exporter settings.
         """
         return pulumi.get(self, "ha_cluster_prometheus_exporter")
 
     @ha_cluster_prometheus_exporter.setter
-    def ha_cluster_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationHAClusterPrometheusExporterArgs']]):
+    def ha_cluster_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationHaClusterPrometheusExporterArgs']]):
         pulumi.set(self, "ha_cluster_prometheus_exporter", value)
 
     @property
     @pulumi.getter(name="hanaPrometheusExporter")
-    def hana_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationHANAPrometheusExporterArgs']]:
+    def hana_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationHanaPrometheusExporterArgs']]:
         """
         The HANA DB Prometheus Exporter settings.
         """
         return pulumi.get(self, "hana_prometheus_exporter")
 
     @hana_prometheus_exporter.setter
-    def hana_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationHANAPrometheusExporterArgs']]):
+    def hana_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationHanaPrometheusExporterArgs']]):
         pulumi.set(self, "hana_prometheus_exporter", value)
 
     @property
     @pulumi.getter(name="jmxPrometheusExporter")
-    def jmx_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationJMXPrometheusExporterArgs']]:
+    def jmx_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationJmxPrometheusExporterArgs']]:
         """
         The JMX Prometheus Exporter settings.
         """
         return pulumi.get(self, "jmx_prometheus_exporter")
 
     @jmx_prometheus_exporter.setter
-    def jmx_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationJMXPrometheusExporterArgs']]):
+    def jmx_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationJmxPrometheusExporterArgs']]):
         pulumi.set(self, "jmx_prometheus_exporter", value)
 
     @property
@@ -392,7 +392,7 @@ class ApplicationCustomComponentArgs:
 
 
 @pulumi.input_type
-class ApplicationHAClusterPrometheusExporterArgs:
+class ApplicationHaClusterPrometheusExporterArgs:
     def __init__(__self__, *,
                  prometheus_port: Optional[pulumi.Input[str]] = None):
         """
@@ -416,7 +416,7 @@ class ApplicationHAClusterPrometheusExporterArgs:
 
 
 @pulumi.input_type
-class ApplicationHANAPrometheusExporterArgs:
+class ApplicationHanaPrometheusExporterArgs:
     def __init__(__self__, *,
                  agree_to_install_hanadb_client: pulumi.Input[bool],
                  hana_port: pulumi.Input[str],
@@ -506,7 +506,7 @@ class ApplicationHANAPrometheusExporterArgs:
 
 
 @pulumi.input_type
-class ApplicationJMXPrometheusExporterArgs:
+class ApplicationJmxPrometheusExporterArgs:
     def __init__(__self__, *,
                  host_port: Optional[pulumi.Input[str]] = None,
                  jmxurl: Optional[pulumi.Input[str]] = None,

@@ -30,7 +30,7 @@ class CanaryArgs:
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTagArgs']]]] = None,
                  visual_reference: Optional[pulumi.Input['CanaryVisualReferenceArgs']] = None,
-                 vpc_config: Optional[pulumi.Input['CanaryVPCConfigArgs']] = None):
+                 vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Canary resource.
         :param pulumi.Input[str] artifact_s3_location: Provide the s3 bucket output location for test results
@@ -46,7 +46,7 @@ class CanaryArgs:
         :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
         :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
         :param pulumi.Input['CanaryVisualReferenceArgs'] visual_reference: Visual reference configuration for visual testing
-        :param pulumi.Input['CanaryVPCConfigArgs'] vpc_config: Provide VPC Configuration if enabled.
+        :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: Provide VPC Configuration if enabled.
         """
         pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
         pulumi.set(__self__, "code", code)
@@ -241,14 +241,14 @@ class CanaryArgs:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['CanaryVPCConfigArgs']]:
+    def vpc_config(self) -> Optional[pulumi.Input['CanaryVpcConfigArgs']]:
         """
         Provide VPC Configuration if enabled.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['CanaryVPCConfigArgs']]):
+    def vpc_config(self, value: Optional[pulumi.Input['CanaryVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -271,7 +271,7 @@ class Canary(pulumi.CustomResource):
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CanaryTagArgs']]]]] = None,
                  visual_reference: Optional[pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Synthetics::Canary
@@ -291,7 +291,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
         :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
         :param pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']] visual_reference: Visual reference configuration for visual testing
-        :param pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']] vpc_config: Provide VPC Configuration if enabled.
+        :param pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']] vpc_config: Provide VPC Configuration if enabled.
         """
         ...
     @overload
@@ -331,7 +331,7 @@ class Canary(pulumi.CustomResource):
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CanaryTagArgs']]]]] = None,
                  visual_reference: Optional[pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -526,7 +526,7 @@ class Canary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> pulumi.Output[Optional['outputs.CanaryVPCConfig']]:
+    def vpc_config(self) -> pulumi.Output[Optional['outputs.CanaryVpcConfig']]:
         """
         Provide VPC Configuration if enabled.
         """

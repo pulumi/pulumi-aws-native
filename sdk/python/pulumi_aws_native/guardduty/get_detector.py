@@ -41,7 +41,7 @@ class GetDetectorResult:
 
     @property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional['outputs.DetectorCFNDataSourceConfigurations']:
+    def data_sources(self) -> Optional['outputs.DetectorCfnDataSourceConfigurations']:
         return pulumi.get(self, "data_sources")
 
     @property

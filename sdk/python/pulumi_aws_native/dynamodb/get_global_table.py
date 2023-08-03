@@ -81,7 +81,7 @@ class GetGlobalTableResult:
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional['outputs.GlobalTableSSESpecification']:
+    def sse_specification(self) -> Optional['outputs.GlobalTableSseSpecification']:
         return pulumi.get(self, "sse_specification")
 
     @property

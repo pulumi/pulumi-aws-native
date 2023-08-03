@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetIPSetResult',
-    'AwaitableGetIPSetResult',
+    'GetIpSetResult',
+    'AwaitableGetIpSetResult',
     'get_ip_set',
     'get_ip_set_output',
 ]
 
 @pulumi.output_type
-class GetIPSetResult:
+class GetIpSetResult:
     def __init__(__self__, id=None, ip_set_descriptors=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -34,38 +34,38 @@ class GetIPSetResult:
 
     @property
     @pulumi.getter(name="ipSetDescriptors")
-    def ip_set_descriptors(self) -> Optional[Sequence['outputs.IPSetDescriptor']]:
+    def ip_set_descriptors(self) -> Optional[Sequence['outputs.IpSetIpSetDescriptor']]:
         return pulumi.get(self, "ip_set_descriptors")
 
 
-class AwaitableGetIPSetResult(GetIPSetResult):
+class AwaitableGetIpSetResult(GetIpSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIPSetResult(
+        return GetIpSetResult(
             id=self.id,
             ip_set_descriptors=self.ip_set_descriptors)
 
 
 def get_ip_set(id: Optional[str] = None,
-               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPSetResult:
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpSetResult:
     """
     Resource Type definition for AWS::WAF::IPSet
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:waf:getIPSet', __args__, opts=opts, typ=GetIPSetResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:waf:getIpSet', __args__, opts=opts, typ=GetIpSetResult).value
 
-    return AwaitableGetIPSetResult(
+    return AwaitableGetIpSetResult(
         id=pulumi.get(__ret__, 'id'),
         ip_set_descriptors=pulumi.get(__ret__, 'ip_set_descriptors'))
 
 
 @_utilities.lift_output_func(get_ip_set)
 def get_ip_set_output(id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPSetResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpSetResult]:
     """
     Resource Type definition for AWS::WAF::IPSet
     """

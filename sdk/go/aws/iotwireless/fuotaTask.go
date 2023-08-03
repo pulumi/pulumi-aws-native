@@ -35,7 +35,7 @@ type FuotaTask struct {
 	// FUOTA task status. Returned after successful read.
 	FuotaTaskStatus pulumi.StringOutput `pulumi:"fuotaTaskStatus"`
 	// FUOTA task LoRaWAN
-	LoRaWan FuotaTaskLoRaWANOutput `pulumi:"loRaWan"`
+	LoRaWan FuotaTaskLoRaWanOutput `pulumi:"loRaWan"`
 	// Name of FUOTA task
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the FUOTA task.
@@ -106,7 +106,7 @@ type fuotaTaskArgs struct {
 	// FUOTA task firmware IAM role for reading S3
 	FirmwareUpdateRole string `pulumi:"firmwareUpdateRole"`
 	// FUOTA task LoRaWAN
-	LoRaWan FuotaTaskLoRaWAN `pulumi:"loRaWan"`
+	LoRaWan FuotaTaskLoRaWan `pulumi:"loRaWan"`
 	// Name of FUOTA task
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the FUOTA task.
@@ -130,7 +130,7 @@ type FuotaTaskArgs struct {
 	// FUOTA task firmware IAM role for reading S3
 	FirmwareUpdateRole pulumi.StringInput
 	// FUOTA task LoRaWAN
-	LoRaWan FuotaTaskLoRaWANInput
+	LoRaWan FuotaTaskLoRaWanInput
 	// Name of FUOTA task
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the FUOTA task.
@@ -220,8 +220,8 @@ func (o FuotaTaskOutput) FuotaTaskStatus() pulumi.StringOutput {
 }
 
 // FUOTA task LoRaWAN
-func (o FuotaTaskOutput) LoRaWan() FuotaTaskLoRaWANOutput {
-	return o.ApplyT(func(v *FuotaTask) FuotaTaskLoRaWANOutput { return v.LoRaWan }).(FuotaTaskLoRaWANOutput)
+func (o FuotaTaskOutput) LoRaWan() FuotaTaskLoRaWanOutput {
+	return o.ApplyT(func(v *FuotaTask) FuotaTaskLoRaWanOutput { return v.LoRaWan }).(FuotaTaskLoRaWanOutput)
 }
 
 // Name of FUOTA task

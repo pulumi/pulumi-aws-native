@@ -12,14 +12,14 @@ from .. import _utilities
 __all__ = [
     'ByteMatchSetByteMatchTupleArgs',
     'ByteMatchSetFieldToMatchArgs',
-    'IPSetDescriptorArgs',
+    'IpSetIpSetDescriptorArgs',
     'RulePredicateArgs',
     'SizeConstraintSetFieldToMatchArgs',
     'SizeConstraintSetSizeConstraintArgs',
     'SqlInjectionMatchSetFieldToMatchArgs',
     'SqlInjectionMatchSetSqlInjectionMatchTupleArgs',
-    'WebACLActivatedRuleArgs',
-    'WebACLWafActionArgs',
+    'WebAclActivatedRuleArgs',
+    'WebAclWafActionArgs',
     'XssMatchSetFieldToMatchArgs',
     'XssMatchSetXssMatchTupleArgs',
 ]
@@ -115,7 +115,7 @@ class ByteMatchSetFieldToMatchArgs:
 
 
 @pulumi.input_type
-class IPSetDescriptorArgs:
+class IpSetIpSetDescriptorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -312,11 +312,11 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleArgs:
 
 
 @pulumi.input_type
-class WebACLActivatedRuleArgs:
+class WebAclActivatedRuleArgs:
     def __init__(__self__, *,
                  priority: pulumi.Input[int],
                  rule_id: pulumi.Input[str],
-                 action: Optional[pulumi.Input['WebACLWafActionArgs']] = None):
+                 action: Optional[pulumi.Input['WebAclWafActionArgs']] = None):
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_id", rule_id)
         if action is not None:
@@ -342,16 +342,16 @@ class WebACLActivatedRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['WebACLWafActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['WebAclWafActionArgs']]:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['WebACLWafActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['WebAclWafActionArgs']]):
         pulumi.set(self, "action", value)
 
 
 @pulumi.input_type
-class WebACLWafActionArgs:
+class WebAclWafActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         pulumi.set(__self__, "type", type)

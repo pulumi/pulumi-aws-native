@@ -14,7 +14,7 @@ __all__ = [
     'DomainAdvancedSecurityOptionsInput',
     'DomainClusterConfig',
     'DomainCognitoOptions',
-    'DomainEBSOptions',
+    'DomainEbsOptions',
     'DomainEncryptionAtRestOptions',
     'DomainEndpointOptions',
     'DomainIdp',
@@ -22,12 +22,12 @@ __all__ = [
     'DomainNodeToNodeEncryptionOptions',
     'DomainOffPeakWindow',
     'DomainOffPeakWindowOptions',
-    'DomainSAMLOptions',
+    'DomainSamlOptions',
     'DomainServiceSoftwareOptions',
     'DomainSnapshotOptions',
     'DomainSoftwareUpdateOptions',
     'DomainTag',
-    'DomainVPCOptions',
+    'DomainVpcOptions',
     'DomainWindowStartTime',
     'DomainZoneAwarenessConfig',
 ]
@@ -65,7 +65,7 @@ class DomainAdvancedSecurityOptionsInput(dict):
                  enabled: Optional[bool] = None,
                  internal_user_database_enabled: Optional[bool] = None,
                  master_user_options: Optional['outputs.DomainMasterUserOptions'] = None,
-                 saml_options: Optional['outputs.DomainSAMLOptions'] = None):
+                 saml_options: Optional['outputs.DomainSamlOptions'] = None):
         if anonymous_auth_disable_date is not None:
             pulumi.set(__self__, "anonymous_auth_disable_date", anonymous_auth_disable_date)
         if anonymous_auth_enabled is not None:
@@ -106,7 +106,7 @@ class DomainAdvancedSecurityOptionsInput(dict):
 
     @property
     @pulumi.getter(name="samlOptions")
-    def saml_options(self) -> Optional['outputs.DomainSAMLOptions']:
+    def saml_options(self) -> Optional['outputs.DomainSamlOptions']:
         return pulumi.get(self, "saml_options")
 
 
@@ -299,7 +299,7 @@ class DomainCognitoOptions(dict):
 
 
 @pulumi.output_type
-class DomainEBSOptions(dict):
+class DomainEbsOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -311,14 +311,14 @@ class DomainEBSOptions(dict):
             suggest = "volume_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DomainEBSOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DomainEbsOptions. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DomainEBSOptions.__key_warning(key)
+        DomainEbsOptions.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DomainEBSOptions.__key_warning(key)
+        DomainEbsOptions.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -642,7 +642,7 @@ class DomainOffPeakWindowOptions(dict):
 
 
 @pulumi.output_type
-class DomainSAMLOptions(dict):
+class DomainSamlOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -658,14 +658,14 @@ class DomainSAMLOptions(dict):
             suggest = "subject_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DomainSAMLOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DomainSamlOptions. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DomainSAMLOptions.__key_warning(key)
+        DomainSamlOptions.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DomainSAMLOptions.__key_warning(key)
+        DomainSamlOptions.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -913,7 +913,7 @@ class DomainTag(dict):
 
 
 @pulumi.output_type
-class DomainVPCOptions(dict):
+class DomainVpcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -923,14 +923,14 @@ class DomainVPCOptions(dict):
             suggest = "subnet_ids"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DomainVPCOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DomainVpcOptions. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DomainVPCOptions.__key_warning(key)
+        DomainVpcOptions.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DomainVPCOptions.__key_warning(key)
+        DomainVpcOptions.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

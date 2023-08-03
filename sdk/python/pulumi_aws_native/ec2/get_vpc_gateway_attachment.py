@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetVPCGatewayAttachmentResult',
-    'AwaitableGetVPCGatewayAttachmentResult',
+    'GetVpcGatewayAttachmentResult',
+    'AwaitableGetVpcGatewayAttachmentResult',
     'get_vpc_gateway_attachment',
     'get_vpc_gateway_attachment_output',
 ]
 
 @pulumi.output_type
-class GetVPCGatewayAttachmentResult:
+class GetVpcGatewayAttachmentResult:
     def __init__(__self__, id=None, internet_gateway_id=None, vpc_id=None, vpn_gateway_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -53,12 +53,12 @@ class GetVPCGatewayAttachmentResult:
         return pulumi.get(self, "vpn_gateway_id")
 
 
-class AwaitableGetVPCGatewayAttachmentResult(GetVPCGatewayAttachmentResult):
+class AwaitableGetVpcGatewayAttachmentResult(GetVpcGatewayAttachmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVPCGatewayAttachmentResult(
+        return GetVpcGatewayAttachmentResult(
             id=self.id,
             internet_gateway_id=self.internet_gateway_id,
             vpc_id=self.vpc_id,
@@ -66,16 +66,16 @@ class AwaitableGetVPCGatewayAttachmentResult(GetVPCGatewayAttachmentResult):
 
 
 def get_vpc_gateway_attachment(id: Optional[str] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPCGatewayAttachmentResult:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcGatewayAttachmentResult:
     """
     Resource Type definition for AWS::EC2::VPCGatewayAttachment
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCGatewayAttachment', __args__, opts=opts, typ=GetVPCGatewayAttachmentResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpcGatewayAttachment', __args__, opts=opts, typ=GetVpcGatewayAttachmentResult).value
 
-    return AwaitableGetVPCGatewayAttachmentResult(
+    return AwaitableGetVpcGatewayAttachmentResult(
         id=pulumi.get(__ret__, 'id'),
         internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
@@ -84,7 +84,7 @@ def get_vpc_gateway_attachment(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_vpc_gateway_attachment)
 def get_vpc_gateway_attachment_output(id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCGatewayAttachmentResult]:
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcGatewayAttachmentResult]:
     """
     Resource Type definition for AWS::EC2::VPCGatewayAttachment
     """

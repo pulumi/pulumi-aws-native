@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.FlowPardotSourceProperties? Pardot;
         public readonly Outputs.FlowS3SourceProperties? S3;
         public readonly Outputs.FlowSalesforceSourceProperties? Salesforce;
-        public readonly Outputs.FlowSAPODataSourceProperties? SapoData;
+        public readonly Outputs.FlowSapoDataSourceProperties? SapoData;
         public readonly Outputs.FlowServiceNowSourceProperties? ServiceNow;
         public readonly Outputs.FlowSingularSourceProperties? Singular;
         public readonly Outputs.FlowSlackSourceProperties? Slack;
@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.FlowSalesforceSourceProperties? salesforce,
 
-            Outputs.FlowSAPODataSourceProperties? sapoData,
+            Outputs.FlowSapoDataSourceProperties? sapoData,
 
             Outputs.FlowServiceNowSourceProperties? serviceNow,
 

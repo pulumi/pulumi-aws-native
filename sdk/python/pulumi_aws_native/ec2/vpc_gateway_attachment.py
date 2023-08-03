@@ -9,16 +9,16 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VPCGatewayAttachmentArgs', 'VPCGatewayAttachment']
+__all__ = ['VpcGatewayAttachmentArgs', 'VpcGatewayAttachment']
 
 @pulumi.input_type
-class VPCGatewayAttachmentArgs:
+class VpcGatewayAttachmentArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[str],
                  internet_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a VPCGatewayAttachment resource.
+        The set of arguments for constructing a VpcGatewayAttachment resource.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if internet_gateway_id is not None:
@@ -54,11 +54,11 @@ class VPCGatewayAttachmentArgs:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
-warnings.warn("""VPCGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""VpcGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class VPCGatewayAttachment(pulumi.CustomResource):
-    warnings.warn("""VPCGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class VpcGatewayAttachment(pulumi.CustomResource):
+    warnings.warn("""VpcGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -78,18 +78,18 @@ class VPCGatewayAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPCGatewayAttachmentArgs,
+                 args: VpcGatewayAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCGatewayAttachment
 
         :param str resource_name: The name of the resource.
-        :param VPCGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param VpcGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPCGatewayAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcGatewayAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -102,22 +102,22 @@ class VPCGatewayAttachment(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPCGatewayAttachment is deprecated: VPCGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""VpcGatewayAttachment is deprecated: VpcGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPCGatewayAttachmentArgs.__new__(VPCGatewayAttachmentArgs)
+            __props__ = VpcGatewayAttachmentArgs.__new__(VpcGatewayAttachmentArgs)
 
             __props__.__dict__["internet_gateway_id"] = internet_gateway_id
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
-        super(VPCGatewayAttachment, __self__).__init__(
-            'aws-native:ec2:VPCGatewayAttachment',
+        super(VpcGatewayAttachment, __self__).__init__(
+            'aws-native:ec2:VpcGatewayAttachment',
             resource_name,
             __props__,
             opts)
@@ -125,9 +125,9 @@ class VPCGatewayAttachment(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPCGatewayAttachment':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpcGatewayAttachment':
         """
-        Get an existing VPCGatewayAttachment resource's state with the given name, id, and optional extra
+        Get an existing VpcGatewayAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -136,12 +136,12 @@ class VPCGatewayAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPCGatewayAttachmentArgs.__new__(VPCGatewayAttachmentArgs)
+        __props__ = VpcGatewayAttachmentArgs.__new__(VpcGatewayAttachmentArgs)
 
         __props__.__dict__["internet_gateway_id"] = None
         __props__.__dict__["vpc_id"] = None
         __props__.__dict__["vpn_gateway_id"] = None
-        return VPCGatewayAttachment(resource_name, opts=opts, __props__=__props__)
+        return VpcGatewayAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="internetGatewayId")

@@ -20,8 +20,8 @@ __all__ = [
     'AlarmModelAssetPropertyTimestamp',
     'AlarmModelAssetPropertyValue',
     'AlarmModelAssetPropertyVariant',
-    'AlarmModelDynamoDB',
     'AlarmModelDynamoDBv2',
+    'AlarmModelDynamoDb',
     'AlarmModelFirehose',
     'AlarmModelInitializationConfiguration',
     'AlarmModelIotEvents',
@@ -39,8 +39,8 @@ __all__ = [
     'DetectorModelAssetPropertyVariant',
     'DetectorModelClearTimer',
     'DetectorModelDefinition',
-    'DetectorModelDynamoDB',
     'DetectorModelDynamoDBv2',
+    'DetectorModelDynamoDb',
     'DetectorModelEvent',
     'DetectorModelFirehose',
     'DetectorModelIotEvents',
@@ -121,7 +121,7 @@ class AlarmModelAlarmAction(dict):
 
     def __init__(__self__, *,
                  dynamo_d_bv2: Optional['outputs.AlarmModelDynamoDBv2'] = None,
-                 dynamo_db: Optional['outputs.AlarmModelDynamoDB'] = None,
+                 dynamo_db: Optional['outputs.AlarmModelDynamoDb'] = None,
                  firehose: Optional['outputs.AlarmModelFirehose'] = None,
                  iot_events: Optional['outputs.AlarmModelIotEvents'] = None,
                  iot_site_wise: Optional['outputs.AlarmModelIotSiteWise'] = None,
@@ -158,7 +158,7 @@ class AlarmModelAlarmAction(dict):
 
     @property
     @pulumi.getter(name="dynamoDb")
-    def dynamo_db(self) -> Optional['outputs.AlarmModelDynamoDB']:
+    def dynamo_db(self) -> Optional['outputs.AlarmModelDynamoDb']:
         return pulumi.get(self, "dynamo_db")
 
     @property
@@ -489,7 +489,58 @@ class AlarmModelAssetPropertyVariant(dict):
 
 
 @pulumi.output_type
-class AlarmModelDynamoDB(dict):
+class AlarmModelDynamoDBv2(dict):
+    """
+    Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+
+    You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelDynamoDBv2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelDynamoDBv2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelDynamoDBv2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 table_name: str,
+                 payload: Optional['outputs.AlarmModelPayload'] = None):
+        """
+        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+
+        You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+        :param str table_name: The name of the DynamoDB table.
+        """
+        pulumi.set(__self__, "table_name", table_name)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the DynamoDB table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional['outputs.AlarmModelPayload']:
+        return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class AlarmModelDynamoDb(dict):
     """
     Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
     """
@@ -514,14 +565,14 @@ class AlarmModelDynamoDB(dict):
             suggest = "range_key_value"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlarmModelDynamoDB. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelDynamoDb. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AlarmModelDynamoDB.__key_warning(key)
+        AlarmModelDynamoDb.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AlarmModelDynamoDB.__key_warning(key)
+        AlarmModelDynamoDb.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -685,57 +736,6 @@ class AlarmModelDynamoDB(dict):
         The value of the range key (also called the sort key).
         """
         return pulumi.get(self, "range_key_value")
-
-
-@pulumi.output_type
-class AlarmModelDynamoDBv2(dict):
-    """
-    Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-
-    You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tableName":
-            suggest = "table_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlarmModelDynamoDBv2. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AlarmModelDynamoDBv2.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AlarmModelDynamoDBv2.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 table_name: str,
-                 payload: Optional['outputs.AlarmModelPayload'] = None):
-        """
-        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-
-        You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
-        :param str table_name: The name of the DynamoDB table.
-        """
-        pulumi.set(__self__, "table_name", table_name)
-        if payload is not None:
-            pulumi.set(__self__, "payload", payload)
-
-    @property
-    @pulumi.getter(name="tableName")
-    def table_name(self) -> str:
-        """
-        The name of the DynamoDB table.
-        """
-        return pulumi.get(self, "table_name")
-
-    @property
-    @pulumi.getter
-    def payload(self) -> Optional['outputs.AlarmModelPayload']:
-        return pulumi.get(self, "payload")
 
 
 @pulumi.output_type
@@ -1362,7 +1362,7 @@ class DetectorModelAction(dict):
     def __init__(__self__, *,
                  clear_timer: Optional['outputs.DetectorModelClearTimer'] = None,
                  dynamo_d_bv2: Optional['outputs.DetectorModelDynamoDBv2'] = None,
-                 dynamo_db: Optional['outputs.DetectorModelDynamoDB'] = None,
+                 dynamo_db: Optional['outputs.DetectorModelDynamoDb'] = None,
                  firehose: Optional['outputs.DetectorModelFirehose'] = None,
                  iot_events: Optional['outputs.DetectorModelIotEvents'] = None,
                  iot_site_wise: Optional['outputs.DetectorModelIotSiteWise'] = None,
@@ -1415,7 +1415,7 @@ class DetectorModelAction(dict):
 
     @property
     @pulumi.getter(name="dynamoDb")
-    def dynamo_db(self) -> Optional['outputs.DetectorModelDynamoDB']:
+    def dynamo_db(self) -> Optional['outputs.DetectorModelDynamoDb']:
         return pulumi.get(self, "dynamo_db")
 
     @property
@@ -1728,7 +1728,58 @@ class DetectorModelDefinition(dict):
 
 
 @pulumi.output_type
-class DetectorModelDynamoDB(dict):
+class DetectorModelDynamoDBv2(dict):
+    """
+    Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+
+    You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DetectorModelDynamoDBv2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DetectorModelDynamoDBv2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DetectorModelDynamoDBv2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 table_name: str,
+                 payload: Optional['outputs.DetectorModelPayload'] = None):
+        """
+        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+
+        You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+        :param str table_name: The name of the DynamoDB table.
+        """
+        pulumi.set(__self__, "table_name", table_name)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the DynamoDB table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional['outputs.DetectorModelPayload']:
+        return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class DetectorModelDynamoDb(dict):
     """
     Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
     """
@@ -1753,14 +1804,14 @@ class DetectorModelDynamoDB(dict):
             suggest = "range_key_value"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DetectorModelDynamoDB. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DetectorModelDynamoDb. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DetectorModelDynamoDB.__key_warning(key)
+        DetectorModelDynamoDb.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DetectorModelDynamoDB.__key_warning(key)
+        DetectorModelDynamoDb.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1924,57 +1975,6 @@ class DetectorModelDynamoDB(dict):
         The value of the range key (also called the sort key).
         """
         return pulumi.get(self, "range_key_value")
-
-
-@pulumi.output_type
-class DetectorModelDynamoDBv2(dict):
-    """
-    Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-
-    You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tableName":
-            suggest = "table_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DetectorModelDynamoDBv2. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DetectorModelDynamoDBv2.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DetectorModelDynamoDBv2.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 table_name: str,
-                 payload: Optional['outputs.DetectorModelPayload'] = None):
-        """
-        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-
-        You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
-        :param str table_name: The name of the DynamoDB table.
-        """
-        pulumi.set(__self__, "table_name", table_name)
-        if payload is not None:
-            pulumi.set(__self__, "payload", payload)
-
-    @property
-    @pulumi.getter(name="tableName")
-    def table_name(self) -> str:
-        """
-        The name of the DynamoDB table.
-        """
-        return pulumi.get(self, "table_name")
-
-    @property
-    @pulumi.getter
-    def payload(self) -> Optional['outputs.DetectorModelPayload']:
-        return pulumi.get(self, "payload")
 
 
 @pulumi.output_type

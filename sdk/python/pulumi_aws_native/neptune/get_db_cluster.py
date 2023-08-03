@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDBClusterResult',
-    'AwaitableGetDBClusterResult',
+    'GetDbClusterResult',
+    'AwaitableGetDbClusterResult',
     'get_db_cluster',
     'get_db_cluster_output',
 ]
 
 @pulumi.output_type
-class GetDBClusterResult:
+class GetDbClusterResult:
     def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, db_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, engine_version=None, iam_auth_enabled=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, serverless_scaling_configuration=None, tags=None, vpc_security_group_ids=None):
         if associated_roles and not isinstance(associated_roles, list):
             raise TypeError("Expected argument 'associated_roles' to be a list")
@@ -74,7 +74,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> Optional[Sequence['outputs.DBClusterRole']]:
+    def associated_roles(self) -> Optional[Sequence['outputs.DbClusterDbClusterRole']]:
         """
         Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         """
@@ -186,7 +186,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter(name="serverlessScalingConfiguration")
-    def serverless_scaling_configuration(self) -> Optional['outputs.DBClusterServerlessScalingConfiguration']:
+    def serverless_scaling_configuration(self) -> Optional['outputs.DbClusterServerlessScalingConfiguration']:
         """
         Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
         """
@@ -194,7 +194,7 @@ class GetDBClusterResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBClusterTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DbClusterTag']]:
         """
         The tags assigned to this cluster.
         """
@@ -209,12 +209,12 @@ class GetDBClusterResult:
         return pulumi.get(self, "vpc_security_group_ids")
 
 
-class AwaitableGetDBClusterResult(GetDBClusterResult):
+class AwaitableGetDbClusterResult(GetDbClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBClusterResult(
+        return GetDbClusterResult(
             associated_roles=self.associated_roles,
             backup_retention_period=self.backup_retention_period,
             cluster_resource_id=self.cluster_resource_id,
@@ -235,7 +235,7 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
 
 
 def get_db_cluster(db_cluster_identifier: Optional[str] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBClusterResult:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbClusterResult:
     """
     The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 
@@ -245,9 +245,9 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
     __args__ = dict()
     __args__['dbClusterIdentifier'] = db_cluster_identifier
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBCluster', __args__, opts=opts, typ=GetDBClusterResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDbCluster', __args__, opts=opts, typ=GetDbClusterResult).value
 
-    return AwaitableGetDBClusterResult(
+    return AwaitableGetDbClusterResult(
         associated_roles=pulumi.get(__ret__, 'associated_roles'),
         backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
         cluster_resource_id=pulumi.get(__ret__, 'cluster_resource_id'),
@@ -269,7 +269,7 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_cluster)
 def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBClusterResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbClusterResult]:
     """
     The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 

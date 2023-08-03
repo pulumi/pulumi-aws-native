@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<string> HecEndpoint { get; set; } = null!;
 
         [Input("hecEndpointType", required: true)]
-        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType> HecEndpointType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHecEndpointType> HecEndpointType { get; set; } = null!;
 
         [Input("hecToken", required: true)]
         public Input<string> HecToken { get; set; } = null!;

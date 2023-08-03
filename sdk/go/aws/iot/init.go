@@ -27,8 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Authorizer{}
 	case "aws-native:iot:BillingGroup":
 		r = &BillingGroup{}
-	case "aws-native:iot:CACertificate":
-		r = &CACertificate{}
+	case "aws-native:iot:CaCertificate":
+		r = &CaCertificate{}
 	case "aws-native:iot:Certificate":
 		r = &Certificate{}
 	case "aws-native:iot:CustomMetric":

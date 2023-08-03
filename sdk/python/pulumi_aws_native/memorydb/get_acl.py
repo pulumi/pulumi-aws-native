@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetACLResult',
-    'AwaitableGetACLResult',
+    'GetAclResult',
+    'AwaitableGetAclResult',
     'get_acl',
     'get_acl_output',
 ]
 
 @pulumi.output_type
-class GetACLResult:
+class GetAclResult:
     def __init__(__self__, arn=None, status=None, tags=None, user_names=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -51,7 +51,7 @@ class GetACLResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ACLTag']]:
+    def tags(self) -> Optional[Sequence['outputs.AclTag']]:
         """
         An array of key-value pairs to apply to this cluster.
         """
@@ -66,12 +66,12 @@ class GetACLResult:
         return pulumi.get(self, "user_names")
 
 
-class AwaitableGetACLResult(GetACLResult):
+class AwaitableGetAclResult(GetAclResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetACLResult(
+        return GetAclResult(
             arn=self.arn,
             status=self.status,
             tags=self.tags,
@@ -79,7 +79,7 @@ class AwaitableGetACLResult(GetACLResult):
 
 
 def get_acl(acl_name: Optional[str] = None,
-            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetACLResult:
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAclResult:
     """
     Resource Type definition for AWS::MemoryDB::ACL
 
@@ -89,9 +89,9 @@ def get_acl(acl_name: Optional[str] = None,
     __args__ = dict()
     __args__['aclName'] = acl_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:memorydb:getACL', __args__, opts=opts, typ=GetACLResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:memorydb:getAcl', __args__, opts=opts, typ=GetAclResult).value
 
-    return AwaitableGetACLResult(
+    return AwaitableGetAclResult(
         arn=pulumi.get(__ret__, 'arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -100,7 +100,7 @@ def get_acl(acl_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_acl)
 def get_acl_output(acl_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetACLResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAclResult]:
     """
     Resource Type definition for AWS::MemoryDB::ACL
 

@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.Route53
         /// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         /// </summary>
         [Output("vpcs")]
-        public Output<ImmutableArray<Outputs.HostedZoneVPC>> Vpcs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HostedZoneVpc>> Vpcs { get; private set; } = null!;
 
 
         /// <summary>
@@ -120,14 +120,14 @@ namespace Pulumi.AwsNative.Route53
         public Input<Inputs.HostedZoneQueryLoggingConfigArgs>? QueryLoggingConfig { get; set; }
 
         [Input("vpcs")]
-        private InputList<Inputs.HostedZoneVPCArgs>? _vpcs;
+        private InputList<Inputs.HostedZoneVpcArgs>? _vpcs;
 
         /// <summary>
         /// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         /// </summary>
-        public InputList<Inputs.HostedZoneVPCArgs> Vpcs
+        public InputList<Inputs.HostedZoneVpcArgs> Vpcs
         {
-            get => _vpcs ?? (_vpcs = new InputList<Inputs.HostedZoneVPCArgs>());
+            get => _vpcs ?? (_vpcs = new InputList<Inputs.HostedZoneVpcArgs>());
             set => _vpcs = value;
         }
 

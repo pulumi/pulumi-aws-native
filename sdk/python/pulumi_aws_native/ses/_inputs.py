@@ -38,7 +38,7 @@ __all__ = [
     'ReceiptRuleLambdaActionArgs',
     'ReceiptRuleRuleArgs',
     'ReceiptRuleS3ActionArgs',
-    'ReceiptRuleSNSActionArgs',
+    'ReceiptRuleSnsActionArgs',
     'ReceiptRuleStopActionArgs',
     'ReceiptRuleWorkmailActionArgs',
     'TemplateArgs',
@@ -813,7 +813,7 @@ class ReceiptRuleActionArgs:
                  bounce_action: Optional[pulumi.Input['ReceiptRuleBounceActionArgs']] = None,
                  lambda_action: Optional[pulumi.Input['ReceiptRuleLambdaActionArgs']] = None,
                  s3_action: Optional[pulumi.Input['ReceiptRuleS3ActionArgs']] = None,
-                 sns_action: Optional[pulumi.Input['ReceiptRuleSNSActionArgs']] = None,
+                 sns_action: Optional[pulumi.Input['ReceiptRuleSnsActionArgs']] = None,
                  stop_action: Optional[pulumi.Input['ReceiptRuleStopActionArgs']] = None,
                  workmail_action: Optional[pulumi.Input['ReceiptRuleWorkmailActionArgs']] = None):
         if add_header_action is not None:
@@ -869,11 +869,11 @@ class ReceiptRuleActionArgs:
 
     @property
     @pulumi.getter(name="snsAction")
-    def sns_action(self) -> Optional[pulumi.Input['ReceiptRuleSNSActionArgs']]:
+    def sns_action(self) -> Optional[pulumi.Input['ReceiptRuleSnsActionArgs']]:
         return pulumi.get(self, "sns_action")
 
     @sns_action.setter
-    def sns_action(self, value: Optional[pulumi.Input['ReceiptRuleSNSActionArgs']]):
+    def sns_action(self, value: Optional[pulumi.Input['ReceiptRuleSnsActionArgs']]):
         pulumi.set(self, "sns_action", value)
 
     @property
@@ -1154,7 +1154,7 @@ class ReceiptRuleS3ActionArgs:
 
 
 @pulumi.input_type
-class ReceiptRuleSNSActionArgs:
+class ReceiptRuleSnsActionArgs:
     def __init__(__self__, *,
                  encoding: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None):

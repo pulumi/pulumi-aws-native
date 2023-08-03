@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
     public sealed class PublicDnsNamespacePublicDnsPropertiesMutableArgs : global::Pulumi.ResourceArgs
     {
         [Input("soa")]
-        public Input<Inputs.PublicDnsNamespaceSOAArgs>? Soa { get; set; }
+        public Input<Inputs.PublicDnsNamespaceSoaArgs>? Soa { get; set; }
 
         public PublicDnsNamespacePublicDnsPropertiesMutableArgs()
         {

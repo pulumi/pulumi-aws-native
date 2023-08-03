@@ -28,10 +28,10 @@ type LookupPolicyArgs struct {
 
 type LookupPolicyResult struct {
 	Arn                       *string                          `pulumi:"arn"`
-	ExcludeMap                *PolicyIEMap                     `pulumi:"excludeMap"`
+	ExcludeMap                *PolicyIeMap                     `pulumi:"excludeMap"`
 	ExcludeResourceTags       *bool                            `pulumi:"excludeResourceTags"`
 	Id                        *string                          `pulumi:"id"`
-	IncludeMap                *PolicyIEMap                     `pulumi:"includeMap"`
+	IncludeMap                *PolicyIeMap                     `pulumi:"includeMap"`
 	PolicyDescription         *string                          `pulumi:"policyDescription"`
 	PolicyName                *string                          `pulumi:"policyName"`
 	RemediationEnabled        *bool                            `pulumi:"remediationEnabled"`
@@ -83,8 +83,8 @@ func (o LookupPolicyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPolicyResultOutput) ExcludeMap() PolicyIEMapPtrOutput {
-	return o.ApplyT(func(v LookupPolicyResult) *PolicyIEMap { return v.ExcludeMap }).(PolicyIEMapPtrOutput)
+func (o LookupPolicyResultOutput) ExcludeMap() PolicyIeMapPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *PolicyIeMap { return v.ExcludeMap }).(PolicyIeMapPtrOutput)
 }
 
 func (o LookupPolicyResultOutput) ExcludeResourceTags() pulumi.BoolPtrOutput {
@@ -95,8 +95,8 @@ func (o LookupPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPolicyResultOutput) IncludeMap() PolicyIEMapPtrOutput {
-	return o.ApplyT(func(v LookupPolicyResult) *PolicyIEMap { return v.IncludeMap }).(PolicyIEMapPtrOutput)
+func (o LookupPolicyResultOutput) IncludeMap() PolicyIeMapPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *PolicyIeMap { return v.IncludeMap }).(PolicyIeMapPtrOutput)
 }
 
 func (o LookupPolicyResultOutput) PolicyDescription() pulumi.StringPtrOutput {

@@ -11,8 +11,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AssessmentAWSAccountArgs',
-    'AssessmentAWSServiceArgs',
+    'AssessmentAwsAccountArgs',
+    'AssessmentAwsServiceArgs',
     'AssessmentDelegationArgs',
     'AssessmentReportsDestinationArgs',
     'AssessmentRoleArgs',
@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class AssessmentAWSAccountArgs:
+class AssessmentAwsAccountArgs:
     def __init__(__self__, *,
                  email_address: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -65,7 +65,7 @@ class AssessmentAWSAccountArgs:
 
 
 @pulumi.input_type
-class AssessmentAWSServiceArgs:
+class AssessmentAwsServiceArgs:
     def __init__(__self__, *,
                  service_name: Optional[pulumi.Input[str]] = None):
         """
@@ -291,12 +291,12 @@ class AssessmentRoleArgs:
 @pulumi.input_type
 class AssessmentScopeArgs:
     def __init__(__self__, *,
-                 aws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]] = None,
-                 aws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]] = None):
+                 aws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]]] = None,
+                 aws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]] = None):
         """
         The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]] aws_accounts: The AWS accounts included in scope.
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]] aws_services: The AWS services included in scope.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]] aws_accounts: The AWS accounts included in scope.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]] aws_services: The AWS services included in scope.
         """
         if aws_accounts is not None:
             pulumi.set(__self__, "aws_accounts", aws_accounts)
@@ -305,26 +305,26 @@ class AssessmentScopeArgs:
 
     @property
     @pulumi.getter(name="awsAccounts")
-    def aws_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]]:
+    def aws_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]]]:
         """
         The AWS accounts included in scope.
         """
         return pulumi.get(self, "aws_accounts")
 
     @aws_accounts.setter
-    def aws_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]]):
+    def aws_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]]]):
         pulumi.set(self, "aws_accounts", value)
 
     @property
     @pulumi.getter(name="awsServices")
-    def aws_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]]:
+    def aws_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]]:
         """
         The AWS services included in scope.
         """
         return pulumi.get(self, "aws_services")
 
     @aws_services.setter
-    def aws_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]]):
+    def aws_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]]):
         pulumi.set(self, "aws_services", value)
 
 

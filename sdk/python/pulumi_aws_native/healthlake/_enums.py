@@ -5,15 +5,15 @@
 from enum import Enum
 
 __all__ = [
-    'FHIRDatastoreDatastoreStatus',
-    'FHIRDatastoreDatastoreTypeVersion',
-    'FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy',
-    'FHIRDatastoreKmsEncryptionConfigCmkType',
-    'FHIRDatastorePreloadDataConfigPreloadDataType',
+    'FhirDatastoreDatastoreStatus',
+    'FhirDatastoreDatastoreTypeVersion',
+    'FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy',
+    'FhirDatastoreKmsEncryptionConfigCmkType',
+    'FhirDatastorePreloadDataConfigPreloadDataType',
 ]
 
 
-class FHIRDatastoreDatastoreStatus(str, Enum):
+class FhirDatastoreDatastoreStatus(str, Enum):
     """
     The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
     """
@@ -23,14 +23,14 @@ class FHIRDatastoreDatastoreStatus(str, Enum):
     DELETED = "DELETED"
 
 
-class FHIRDatastoreDatastoreTypeVersion(str, Enum):
+class FhirDatastoreDatastoreTypeVersion(str, Enum):
     """
     The FHIR version. Only R4 version data is supported.
     """
     R4 = "R4"
 
 
-class FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy(str, Enum):
+class FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy(str, Enum):
     """
     Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
     """
@@ -38,7 +38,7 @@ class FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy(str, Enum)
     AWS_AUTH = "AWS_AUTH"
 
 
-class FHIRDatastoreKmsEncryptionConfigCmkType(str, Enum):
+class FhirDatastoreKmsEncryptionConfigCmkType(str, Enum):
     """
     The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
     """
@@ -46,7 +46,7 @@ class FHIRDatastoreKmsEncryptionConfigCmkType(str, Enum):
     AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY"
 
 
-class FHIRDatastorePreloadDataConfigPreloadDataType(str, Enum):
+class FhirDatastorePreloadDataConfigPreloadDataType(str, Enum):
     """
     The type of preloaded data. Only Synthea preloaded data is supported.
     """

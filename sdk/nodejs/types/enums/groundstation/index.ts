@@ -11,7 +11,7 @@ export const ConfigBandwidthUnits = {
 export type ConfigBandwidthUnits = (typeof ConfigBandwidthUnits)[keyof typeof ConfigBandwidthUnits];
 
 export const ConfigEirpUnits = {
-    DBW: "dBW",
+    Dbw: "dBW",
 } as const;
 
 export type ConfigEirpUnits = (typeof ConfigEirpUnits)[keyof typeof ConfigEirpUnits];

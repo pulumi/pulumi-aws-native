@@ -16,26 +16,26 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     public sealed class AssessmentScopeArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccounts")]
-        private InputList<Inputs.AssessmentAWSAccountArgs>? _awsAccounts;
+        private InputList<Inputs.AssessmentAwsAccountArgs>? _awsAccounts;
 
         /// <summary>
         /// The AWS accounts included in scope.
         /// </summary>
-        public InputList<Inputs.AssessmentAWSAccountArgs> AwsAccounts
+        public InputList<Inputs.AssessmentAwsAccountArgs> AwsAccounts
         {
-            get => _awsAccounts ?? (_awsAccounts = new InputList<Inputs.AssessmentAWSAccountArgs>());
+            get => _awsAccounts ?? (_awsAccounts = new InputList<Inputs.AssessmentAwsAccountArgs>());
             set => _awsAccounts = value;
         }
 
         [Input("awsServices")]
-        private InputList<Inputs.AssessmentAWSServiceArgs>? _awsServices;
+        private InputList<Inputs.AssessmentAwsServiceArgs>? _awsServices;
 
         /// <summary>
         /// The AWS services included in scope.
         /// </summary>
-        public InputList<Inputs.AssessmentAWSServiceArgs> AwsServices
+        public InputList<Inputs.AssessmentAwsServiceArgs> AwsServices
         {
-            get => _awsServices ?? (_awsServices = new InputList<Inputs.AssessmentAWSServiceArgs>());
+            get => _awsServices ?? (_awsServices = new InputList<Inputs.AssessmentAwsServiceArgs>());
             set => _awsServices = value;
         }
 

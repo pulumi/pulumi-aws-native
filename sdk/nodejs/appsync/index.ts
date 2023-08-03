@@ -65,15 +65,15 @@ export const getFunctionConfiguration: typeof import("./getFunctionConfiguration
 export const getFunctionConfigurationOutput: typeof import("./getFunctionConfiguration").getFunctionConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getFunctionConfiguration","getFunctionConfigurationOutput"], () => require("./getFunctionConfiguration"));
 
-export { GetGraphQLApiArgs, GetGraphQLApiResult, GetGraphQLApiOutputArgs } from "./getGraphQLApi";
-export const getGraphQLApi: typeof import("./getGraphQLApi").getGraphQLApi = null as any;
-export const getGraphQLApiOutput: typeof import("./getGraphQLApi").getGraphQLApiOutput = null as any;
-utilities.lazyLoad(exports, ["getGraphQLApi","getGraphQLApiOutput"], () => require("./getGraphQLApi"));
+export { GetGraphQlApiArgs, GetGraphQlApiResult, GetGraphQlApiOutputArgs } from "./getGraphQlApi";
+export const getGraphQlApi: typeof import("./getGraphQlApi").getGraphQlApi = null as any;
+export const getGraphQlApiOutput: typeof import("./getGraphQlApi").getGraphQlApiOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphQlApi","getGraphQlApiOutput"], () => require("./getGraphQlApi"));
 
-export { GetGraphQLSchemaArgs, GetGraphQLSchemaResult, GetGraphQLSchemaOutputArgs } from "./getGraphQLSchema";
-export const getGraphQLSchema: typeof import("./getGraphQLSchema").getGraphQLSchema = null as any;
-export const getGraphQLSchemaOutput: typeof import("./getGraphQLSchema").getGraphQLSchemaOutput = null as any;
-utilities.lazyLoad(exports, ["getGraphQLSchema","getGraphQLSchemaOutput"], () => require("./getGraphQLSchema"));
+export { GetGraphQlSchemaArgs, GetGraphQlSchemaResult, GetGraphQlSchemaOutputArgs } from "./getGraphQlSchema";
+export const getGraphQlSchema: typeof import("./getGraphQlSchema").getGraphQlSchema = null as any;
+export const getGraphQlSchemaOutput: typeof import("./getGraphQlSchema").getGraphQlSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphQlSchema","getGraphQlSchemaOutput"], () => require("./getGraphQlSchema"));
 
 export { GetResolverArgs, GetResolverResult, GetResolverOutputArgs } from "./getResolver";
 export const getResolver: typeof import("./getResolver").getResolver = null as any;
@@ -85,15 +85,15 @@ export const getSourceApiAssociation: typeof import("./getSourceApiAssociation")
 export const getSourceApiAssociationOutput: typeof import("./getSourceApiAssociation").getSourceApiAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getSourceApiAssociation","getSourceApiAssociationOutput"], () => require("./getSourceApiAssociation"));
 
-export { GraphQLApiArgs } from "./graphQLApi";
-export type GraphQLApi = import("./graphQLApi").GraphQLApi;
-export const GraphQLApi: typeof import("./graphQLApi").GraphQLApi = null as any;
-utilities.lazyLoad(exports, ["GraphQLApi"], () => require("./graphQLApi"));
+export { GraphQlApiArgs } from "./graphQlApi";
+export type GraphQlApi = import("./graphQlApi").GraphQlApi;
+export const GraphQlApi: typeof import("./graphQlApi").GraphQlApi = null as any;
+utilities.lazyLoad(exports, ["GraphQlApi"], () => require("./graphQlApi"));
 
-export { GraphQLSchemaArgs } from "./graphQLSchema";
-export type GraphQLSchema = import("./graphQLSchema").GraphQLSchema;
-export const GraphQLSchema: typeof import("./graphQLSchema").GraphQLSchema = null as any;
-utilities.lazyLoad(exports, ["GraphQLSchema"], () => require("./graphQLSchema"));
+export { GraphQlSchemaArgs } from "./graphQlSchema";
+export type GraphQlSchema = import("./graphQlSchema").GraphQlSchema;
+export const GraphQlSchema: typeof import("./graphQlSchema").GraphQlSchema = null as any;
+utilities.lazyLoad(exports, ["GraphQlSchema"], () => require("./graphQlSchema"));
 
 export { ResolverArgs } from "./resolver";
 export type Resolver = import("./resolver").Resolver;
@@ -125,10 +125,10 @@ const _module = {
                 return new DomainNameApiAssociation(name, <any>undefined, { urn })
             case "aws-native:appsync:FunctionConfiguration":
                 return new FunctionConfiguration(name, <any>undefined, { urn })
-            case "aws-native:appsync:GraphQLApi":
-                return new GraphQLApi(name, <any>undefined, { urn })
-            case "aws-native:appsync:GraphQLSchema":
-                return new GraphQLSchema(name, <any>undefined, { urn })
+            case "aws-native:appsync:GraphQlApi":
+                return new GraphQlApi(name, <any>undefined, { urn })
+            case "aws-native:appsync:GraphQlSchema":
+                return new GraphQlSchema(name, <any>undefined, { urn })
             case "aws-native:appsync:Resolver":
                 return new Resolver(name, <any>undefined, { urn })
             case "aws-native:appsync:SourceApiAssociation":

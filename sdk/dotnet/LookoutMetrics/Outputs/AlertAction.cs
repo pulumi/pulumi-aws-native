@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     public sealed class AlertAction
     {
         public readonly Outputs.AlertLambdaConfiguration? LambdaConfiguration;
-        public readonly Outputs.AlertSNSConfiguration? SnsConfiguration;
+        public readonly Outputs.AlertSnsConfiguration? SnsConfiguration;
 
         [OutputConstructor]
         private AlertAction(
             Outputs.AlertLambdaConfiguration? lambdaConfiguration,
 
-            Outputs.AlertSNSConfiguration? snsConfiguration)
+            Outputs.AlertSnsConfiguration? snsConfiguration)
         {
             LambdaConfiguration = lambdaConfiguration;
             SnsConfiguration = snsConfiguration;

@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VirtualMFADeviceArgs', 'VirtualMFADevice']
+__all__ = ['VirtualMfaDeviceArgs', 'VirtualMfaDevice']
 
 @pulumi.input_type
-class VirtualMFADeviceArgs:
+class VirtualMfaDeviceArgs:
     def __init__(__self__, *,
                  users: pulumi.Input[Sequence[pulumi.Input[str]]],
                  path: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMFADeviceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMfaDeviceTagArgs']]]] = None,
                  virtual_mfa_device_name: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a VirtualMFADevice resource.
+        The set of arguments for constructing a VirtualMfaDevice resource.
         """
         pulumi.set(__self__, "users", users)
         if path is not None:
@@ -51,11 +51,11 @@ class VirtualMFADeviceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMFADeviceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMfaDeviceTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMFADeviceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMfaDeviceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -68,13 +68,13 @@ class VirtualMFADeviceArgs:
         pulumi.set(self, "virtual_mfa_device_name", value)
 
 
-class VirtualMFADevice(pulumi.CustomResource):
+class VirtualMfaDevice(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMFADeviceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMfaDeviceTagArgs']]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -88,18 +88,18 @@ class VirtualMFADevice(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualMFADeviceArgs,
+                 args: VirtualMfaDeviceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IAM::VirtualMFADevice
 
         :param str resource_name: The name of the resource.
-        :param VirtualMFADeviceArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualMfaDeviceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualMFADeviceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualMfaDeviceArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -109,7 +109,7 @@ class VirtualMFADevice(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMFADeviceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMfaDeviceTagArgs']]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -119,7 +119,7 @@ class VirtualMFADevice(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualMFADeviceArgs.__new__(VirtualMFADeviceArgs)
+            __props__ = VirtualMfaDeviceArgs.__new__(VirtualMfaDeviceArgs)
 
             __props__.__dict__["path"] = path
             __props__.__dict__["tags"] = tags
@@ -128,8 +128,8 @@ class VirtualMFADevice(pulumi.CustomResource):
             __props__.__dict__["users"] = users
             __props__.__dict__["virtual_mfa_device_name"] = virtual_mfa_device_name
             __props__.__dict__["serial_number"] = None
-        super(VirtualMFADevice, __self__).__init__(
-            'aws-native:iam:VirtualMFADevice',
+        super(VirtualMfaDevice, __self__).__init__(
+            'aws-native:iam:VirtualMfaDevice',
             resource_name,
             __props__,
             opts)
@@ -137,9 +137,9 @@ class VirtualMFADevice(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VirtualMFADevice':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VirtualMfaDevice':
         """
-        Get an existing VirtualMFADevice resource's state with the given name, id, and optional extra
+        Get an existing VirtualMfaDevice resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -148,14 +148,14 @@ class VirtualMFADevice(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VirtualMFADeviceArgs.__new__(VirtualMFADeviceArgs)
+        __props__ = VirtualMfaDeviceArgs.__new__(VirtualMfaDeviceArgs)
 
         __props__.__dict__["path"] = None
         __props__.__dict__["serial_number"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["users"] = None
         __props__.__dict__["virtual_mfa_device_name"] = None
-        return VirtualMFADevice(resource_name, opts=opts, __props__=__props__)
+        return VirtualMfaDevice(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -169,7 +169,7 @@ class VirtualMFADevice(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualMFADeviceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualMfaDeviceTag']]]:
         return pulumi.get(self, "tags")
 
     @property

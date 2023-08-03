@@ -174,124 +174,124 @@ func (in *authorizerStatusPtr) ToAuthorizerStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(AuthorizerStatusPtrOutput)
 }
 
-type CACertificateAutoRegistrationStatus string
+type CaCertificateAutoRegistrationStatus string
 
 const (
-	CACertificateAutoRegistrationStatusEnable  = CACertificateAutoRegistrationStatus("ENABLE")
-	CACertificateAutoRegistrationStatusDisable = CACertificateAutoRegistrationStatus("DISABLE")
+	CaCertificateAutoRegistrationStatusEnable  = CaCertificateAutoRegistrationStatus("ENABLE")
+	CaCertificateAutoRegistrationStatusDisable = CaCertificateAutoRegistrationStatus("DISABLE")
 )
 
-func (CACertificateAutoRegistrationStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*CACertificateAutoRegistrationStatus)(nil)).Elem()
+func (CaCertificateAutoRegistrationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateAutoRegistrationStatus)(nil)).Elem()
 }
 
-func (e CACertificateAutoRegistrationStatus) ToCACertificateAutoRegistrationStatusOutput() CACertificateAutoRegistrationStatusOutput {
-	return pulumi.ToOutput(e).(CACertificateAutoRegistrationStatusOutput)
+func (e CaCertificateAutoRegistrationStatus) ToCaCertificateAutoRegistrationStatusOutput() CaCertificateAutoRegistrationStatusOutput {
+	return pulumi.ToOutput(e).(CaCertificateAutoRegistrationStatusOutput)
 }
 
-func (e CACertificateAutoRegistrationStatus) ToCACertificateAutoRegistrationStatusOutputWithContext(ctx context.Context) CACertificateAutoRegistrationStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(CACertificateAutoRegistrationStatusOutput)
+func (e CaCertificateAutoRegistrationStatus) ToCaCertificateAutoRegistrationStatusOutputWithContext(ctx context.Context) CaCertificateAutoRegistrationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CaCertificateAutoRegistrationStatusOutput)
 }
 
-func (e CACertificateAutoRegistrationStatus) ToCACertificateAutoRegistrationStatusPtrOutput() CACertificateAutoRegistrationStatusPtrOutput {
-	return e.ToCACertificateAutoRegistrationStatusPtrOutputWithContext(context.Background())
+func (e CaCertificateAutoRegistrationStatus) ToCaCertificateAutoRegistrationStatusPtrOutput() CaCertificateAutoRegistrationStatusPtrOutput {
+	return e.ToCaCertificateAutoRegistrationStatusPtrOutputWithContext(context.Background())
 }
 
-func (e CACertificateAutoRegistrationStatus) ToCACertificateAutoRegistrationStatusPtrOutputWithContext(ctx context.Context) CACertificateAutoRegistrationStatusPtrOutput {
-	return CACertificateAutoRegistrationStatus(e).ToCACertificateAutoRegistrationStatusOutputWithContext(ctx).ToCACertificateAutoRegistrationStatusPtrOutputWithContext(ctx)
+func (e CaCertificateAutoRegistrationStatus) ToCaCertificateAutoRegistrationStatusPtrOutputWithContext(ctx context.Context) CaCertificateAutoRegistrationStatusPtrOutput {
+	return CaCertificateAutoRegistrationStatus(e).ToCaCertificateAutoRegistrationStatusOutputWithContext(ctx).ToCaCertificateAutoRegistrationStatusPtrOutputWithContext(ctx)
 }
 
-func (e CACertificateAutoRegistrationStatus) ToStringOutput() pulumi.StringOutput {
+func (e CaCertificateAutoRegistrationStatus) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e CACertificateAutoRegistrationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e CaCertificateAutoRegistrationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e CACertificateAutoRegistrationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e CaCertificateAutoRegistrationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e CACertificateAutoRegistrationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e CaCertificateAutoRegistrationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type CACertificateAutoRegistrationStatusOutput struct{ *pulumi.OutputState }
+type CaCertificateAutoRegistrationStatusOutput struct{ *pulumi.OutputState }
 
-func (CACertificateAutoRegistrationStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CACertificateAutoRegistrationStatus)(nil)).Elem()
+func (CaCertificateAutoRegistrationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateAutoRegistrationStatus)(nil)).Elem()
 }
 
-func (o CACertificateAutoRegistrationStatusOutput) ToCACertificateAutoRegistrationStatusOutput() CACertificateAutoRegistrationStatusOutput {
+func (o CaCertificateAutoRegistrationStatusOutput) ToCaCertificateAutoRegistrationStatusOutput() CaCertificateAutoRegistrationStatusOutput {
 	return o
 }
 
-func (o CACertificateAutoRegistrationStatusOutput) ToCACertificateAutoRegistrationStatusOutputWithContext(ctx context.Context) CACertificateAutoRegistrationStatusOutput {
+func (o CaCertificateAutoRegistrationStatusOutput) ToCaCertificateAutoRegistrationStatusOutputWithContext(ctx context.Context) CaCertificateAutoRegistrationStatusOutput {
 	return o
 }
 
-func (o CACertificateAutoRegistrationStatusOutput) ToCACertificateAutoRegistrationStatusPtrOutput() CACertificateAutoRegistrationStatusPtrOutput {
-	return o.ToCACertificateAutoRegistrationStatusPtrOutputWithContext(context.Background())
+func (o CaCertificateAutoRegistrationStatusOutput) ToCaCertificateAutoRegistrationStatusPtrOutput() CaCertificateAutoRegistrationStatusPtrOutput {
+	return o.ToCaCertificateAutoRegistrationStatusPtrOutputWithContext(context.Background())
 }
 
-func (o CACertificateAutoRegistrationStatusOutput) ToCACertificateAutoRegistrationStatusPtrOutputWithContext(ctx context.Context) CACertificateAutoRegistrationStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CACertificateAutoRegistrationStatus) *CACertificateAutoRegistrationStatus {
+func (o CaCertificateAutoRegistrationStatusOutput) ToCaCertificateAutoRegistrationStatusPtrOutputWithContext(ctx context.Context) CaCertificateAutoRegistrationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaCertificateAutoRegistrationStatus) *CaCertificateAutoRegistrationStatus {
 		return &v
-	}).(CACertificateAutoRegistrationStatusPtrOutput)
+	}).(CaCertificateAutoRegistrationStatusPtrOutput)
 }
 
-func (o CACertificateAutoRegistrationStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o CaCertificateAutoRegistrationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o CACertificateAutoRegistrationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CACertificateAutoRegistrationStatus) string {
+func (o CaCertificateAutoRegistrationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CaCertificateAutoRegistrationStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o CACertificateAutoRegistrationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CaCertificateAutoRegistrationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CACertificateAutoRegistrationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CACertificateAutoRegistrationStatus) *string {
+func (o CaCertificateAutoRegistrationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CaCertificateAutoRegistrationStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type CACertificateAutoRegistrationStatusPtrOutput struct{ *pulumi.OutputState }
+type CaCertificateAutoRegistrationStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (CACertificateAutoRegistrationStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CACertificateAutoRegistrationStatus)(nil)).Elem()
+func (CaCertificateAutoRegistrationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaCertificateAutoRegistrationStatus)(nil)).Elem()
 }
 
-func (o CACertificateAutoRegistrationStatusPtrOutput) ToCACertificateAutoRegistrationStatusPtrOutput() CACertificateAutoRegistrationStatusPtrOutput {
+func (o CaCertificateAutoRegistrationStatusPtrOutput) ToCaCertificateAutoRegistrationStatusPtrOutput() CaCertificateAutoRegistrationStatusPtrOutput {
 	return o
 }
 
-func (o CACertificateAutoRegistrationStatusPtrOutput) ToCACertificateAutoRegistrationStatusPtrOutputWithContext(ctx context.Context) CACertificateAutoRegistrationStatusPtrOutput {
+func (o CaCertificateAutoRegistrationStatusPtrOutput) ToCaCertificateAutoRegistrationStatusPtrOutputWithContext(ctx context.Context) CaCertificateAutoRegistrationStatusPtrOutput {
 	return o
 }
 
-func (o CACertificateAutoRegistrationStatusPtrOutput) Elem() CACertificateAutoRegistrationStatusOutput {
-	return o.ApplyT(func(v *CACertificateAutoRegistrationStatus) CACertificateAutoRegistrationStatus {
+func (o CaCertificateAutoRegistrationStatusPtrOutput) Elem() CaCertificateAutoRegistrationStatusOutput {
+	return o.ApplyT(func(v *CaCertificateAutoRegistrationStatus) CaCertificateAutoRegistrationStatus {
 		if v != nil {
 			return *v
 		}
-		var ret CACertificateAutoRegistrationStatus
+		var ret CaCertificateAutoRegistrationStatus
 		return ret
-	}).(CACertificateAutoRegistrationStatusOutput)
+	}).(CaCertificateAutoRegistrationStatusOutput)
 }
 
-func (o CACertificateAutoRegistrationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CaCertificateAutoRegistrationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CACertificateAutoRegistrationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CACertificateAutoRegistrationStatus) *string {
+func (o CaCertificateAutoRegistrationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CaCertificateAutoRegistrationStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -300,162 +300,162 @@ func (o CACertificateAutoRegistrationStatusPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// CACertificateAutoRegistrationStatusInput is an input type that accepts CACertificateAutoRegistrationStatusArgs and CACertificateAutoRegistrationStatusOutput values.
-// You can construct a concrete instance of `CACertificateAutoRegistrationStatusInput` via:
+// CaCertificateAutoRegistrationStatusInput is an input type that accepts CaCertificateAutoRegistrationStatusArgs and CaCertificateAutoRegistrationStatusOutput values.
+// You can construct a concrete instance of `CaCertificateAutoRegistrationStatusInput` via:
 //
-//	CACertificateAutoRegistrationStatusArgs{...}
-type CACertificateAutoRegistrationStatusInput interface {
+//	CaCertificateAutoRegistrationStatusArgs{...}
+type CaCertificateAutoRegistrationStatusInput interface {
 	pulumi.Input
 
-	ToCACertificateAutoRegistrationStatusOutput() CACertificateAutoRegistrationStatusOutput
-	ToCACertificateAutoRegistrationStatusOutputWithContext(context.Context) CACertificateAutoRegistrationStatusOutput
+	ToCaCertificateAutoRegistrationStatusOutput() CaCertificateAutoRegistrationStatusOutput
+	ToCaCertificateAutoRegistrationStatusOutputWithContext(context.Context) CaCertificateAutoRegistrationStatusOutput
 }
 
-var cacertificateAutoRegistrationStatusPtrType = reflect.TypeOf((**CACertificateAutoRegistrationStatus)(nil)).Elem()
+var caCertificateAutoRegistrationStatusPtrType = reflect.TypeOf((**CaCertificateAutoRegistrationStatus)(nil)).Elem()
 
-type CACertificateAutoRegistrationStatusPtrInput interface {
+type CaCertificateAutoRegistrationStatusPtrInput interface {
 	pulumi.Input
 
-	ToCACertificateAutoRegistrationStatusPtrOutput() CACertificateAutoRegistrationStatusPtrOutput
-	ToCACertificateAutoRegistrationStatusPtrOutputWithContext(context.Context) CACertificateAutoRegistrationStatusPtrOutput
+	ToCaCertificateAutoRegistrationStatusPtrOutput() CaCertificateAutoRegistrationStatusPtrOutput
+	ToCaCertificateAutoRegistrationStatusPtrOutputWithContext(context.Context) CaCertificateAutoRegistrationStatusPtrOutput
 }
 
-type cacertificateAutoRegistrationStatusPtr string
+type caCertificateAutoRegistrationStatusPtr string
 
-func CACertificateAutoRegistrationStatusPtr(v string) CACertificateAutoRegistrationStatusPtrInput {
-	return (*cacertificateAutoRegistrationStatusPtr)(&v)
+func CaCertificateAutoRegistrationStatusPtr(v string) CaCertificateAutoRegistrationStatusPtrInput {
+	return (*caCertificateAutoRegistrationStatusPtr)(&v)
 }
 
-func (*cacertificateAutoRegistrationStatusPtr) ElementType() reflect.Type {
-	return cacertificateAutoRegistrationStatusPtrType
+func (*caCertificateAutoRegistrationStatusPtr) ElementType() reflect.Type {
+	return caCertificateAutoRegistrationStatusPtrType
 }
 
-func (in *cacertificateAutoRegistrationStatusPtr) ToCACertificateAutoRegistrationStatusPtrOutput() CACertificateAutoRegistrationStatusPtrOutput {
-	return pulumi.ToOutput(in).(CACertificateAutoRegistrationStatusPtrOutput)
+func (in *caCertificateAutoRegistrationStatusPtr) ToCaCertificateAutoRegistrationStatusPtrOutput() CaCertificateAutoRegistrationStatusPtrOutput {
+	return pulumi.ToOutput(in).(CaCertificateAutoRegistrationStatusPtrOutput)
 }
 
-func (in *cacertificateAutoRegistrationStatusPtr) ToCACertificateAutoRegistrationStatusPtrOutputWithContext(ctx context.Context) CACertificateAutoRegistrationStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(CACertificateAutoRegistrationStatusPtrOutput)
+func (in *caCertificateAutoRegistrationStatusPtr) ToCaCertificateAutoRegistrationStatusPtrOutputWithContext(ctx context.Context) CaCertificateAutoRegistrationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CaCertificateAutoRegistrationStatusPtrOutput)
 }
 
-type CACertificateCertificateMode string
+type CaCertificateCertificateMode string
 
 const (
-	CACertificateCertificateModeDefault = CACertificateCertificateMode("DEFAULT")
-	CACertificateCertificateModeSniOnly = CACertificateCertificateMode("SNI_ONLY")
+	CaCertificateCertificateModeDefault = CaCertificateCertificateMode("DEFAULT")
+	CaCertificateCertificateModeSniOnly = CaCertificateCertificateMode("SNI_ONLY")
 )
 
-func (CACertificateCertificateMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*CACertificateCertificateMode)(nil)).Elem()
+func (CaCertificateCertificateMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateCertificateMode)(nil)).Elem()
 }
 
-func (e CACertificateCertificateMode) ToCACertificateCertificateModeOutput() CACertificateCertificateModeOutput {
-	return pulumi.ToOutput(e).(CACertificateCertificateModeOutput)
+func (e CaCertificateCertificateMode) ToCaCertificateCertificateModeOutput() CaCertificateCertificateModeOutput {
+	return pulumi.ToOutput(e).(CaCertificateCertificateModeOutput)
 }
 
-func (e CACertificateCertificateMode) ToCACertificateCertificateModeOutputWithContext(ctx context.Context) CACertificateCertificateModeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(CACertificateCertificateModeOutput)
+func (e CaCertificateCertificateMode) ToCaCertificateCertificateModeOutputWithContext(ctx context.Context) CaCertificateCertificateModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CaCertificateCertificateModeOutput)
 }
 
-func (e CACertificateCertificateMode) ToCACertificateCertificateModePtrOutput() CACertificateCertificateModePtrOutput {
-	return e.ToCACertificateCertificateModePtrOutputWithContext(context.Background())
+func (e CaCertificateCertificateMode) ToCaCertificateCertificateModePtrOutput() CaCertificateCertificateModePtrOutput {
+	return e.ToCaCertificateCertificateModePtrOutputWithContext(context.Background())
 }
 
-func (e CACertificateCertificateMode) ToCACertificateCertificateModePtrOutputWithContext(ctx context.Context) CACertificateCertificateModePtrOutput {
-	return CACertificateCertificateMode(e).ToCACertificateCertificateModeOutputWithContext(ctx).ToCACertificateCertificateModePtrOutputWithContext(ctx)
+func (e CaCertificateCertificateMode) ToCaCertificateCertificateModePtrOutputWithContext(ctx context.Context) CaCertificateCertificateModePtrOutput {
+	return CaCertificateCertificateMode(e).ToCaCertificateCertificateModeOutputWithContext(ctx).ToCaCertificateCertificateModePtrOutputWithContext(ctx)
 }
 
-func (e CACertificateCertificateMode) ToStringOutput() pulumi.StringOutput {
+func (e CaCertificateCertificateMode) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e CACertificateCertificateMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e CaCertificateCertificateMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e CACertificateCertificateMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e CaCertificateCertificateMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e CACertificateCertificateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e CaCertificateCertificateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type CACertificateCertificateModeOutput struct{ *pulumi.OutputState }
+type CaCertificateCertificateModeOutput struct{ *pulumi.OutputState }
 
-func (CACertificateCertificateModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CACertificateCertificateMode)(nil)).Elem()
+func (CaCertificateCertificateModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateCertificateMode)(nil)).Elem()
 }
 
-func (o CACertificateCertificateModeOutput) ToCACertificateCertificateModeOutput() CACertificateCertificateModeOutput {
+func (o CaCertificateCertificateModeOutput) ToCaCertificateCertificateModeOutput() CaCertificateCertificateModeOutput {
 	return o
 }
 
-func (o CACertificateCertificateModeOutput) ToCACertificateCertificateModeOutputWithContext(ctx context.Context) CACertificateCertificateModeOutput {
+func (o CaCertificateCertificateModeOutput) ToCaCertificateCertificateModeOutputWithContext(ctx context.Context) CaCertificateCertificateModeOutput {
 	return o
 }
 
-func (o CACertificateCertificateModeOutput) ToCACertificateCertificateModePtrOutput() CACertificateCertificateModePtrOutput {
-	return o.ToCACertificateCertificateModePtrOutputWithContext(context.Background())
+func (o CaCertificateCertificateModeOutput) ToCaCertificateCertificateModePtrOutput() CaCertificateCertificateModePtrOutput {
+	return o.ToCaCertificateCertificateModePtrOutputWithContext(context.Background())
 }
 
-func (o CACertificateCertificateModeOutput) ToCACertificateCertificateModePtrOutputWithContext(ctx context.Context) CACertificateCertificateModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CACertificateCertificateMode) *CACertificateCertificateMode {
+func (o CaCertificateCertificateModeOutput) ToCaCertificateCertificateModePtrOutputWithContext(ctx context.Context) CaCertificateCertificateModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaCertificateCertificateMode) *CaCertificateCertificateMode {
 		return &v
-	}).(CACertificateCertificateModePtrOutput)
+	}).(CaCertificateCertificateModePtrOutput)
 }
 
-func (o CACertificateCertificateModeOutput) ToStringOutput() pulumi.StringOutput {
+func (o CaCertificateCertificateModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o CACertificateCertificateModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CACertificateCertificateMode) string {
+func (o CaCertificateCertificateModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CaCertificateCertificateMode) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o CACertificateCertificateModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CaCertificateCertificateModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CACertificateCertificateModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CACertificateCertificateMode) *string {
+func (o CaCertificateCertificateModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CaCertificateCertificateMode) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type CACertificateCertificateModePtrOutput struct{ *pulumi.OutputState }
+type CaCertificateCertificateModePtrOutput struct{ *pulumi.OutputState }
 
-func (CACertificateCertificateModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CACertificateCertificateMode)(nil)).Elem()
+func (CaCertificateCertificateModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaCertificateCertificateMode)(nil)).Elem()
 }
 
-func (o CACertificateCertificateModePtrOutput) ToCACertificateCertificateModePtrOutput() CACertificateCertificateModePtrOutput {
+func (o CaCertificateCertificateModePtrOutput) ToCaCertificateCertificateModePtrOutput() CaCertificateCertificateModePtrOutput {
 	return o
 }
 
-func (o CACertificateCertificateModePtrOutput) ToCACertificateCertificateModePtrOutputWithContext(ctx context.Context) CACertificateCertificateModePtrOutput {
+func (o CaCertificateCertificateModePtrOutput) ToCaCertificateCertificateModePtrOutputWithContext(ctx context.Context) CaCertificateCertificateModePtrOutput {
 	return o
 }
 
-func (o CACertificateCertificateModePtrOutput) Elem() CACertificateCertificateModeOutput {
-	return o.ApplyT(func(v *CACertificateCertificateMode) CACertificateCertificateMode {
+func (o CaCertificateCertificateModePtrOutput) Elem() CaCertificateCertificateModeOutput {
+	return o.ApplyT(func(v *CaCertificateCertificateMode) CaCertificateCertificateMode {
 		if v != nil {
 			return *v
 		}
-		var ret CACertificateCertificateMode
+		var ret CaCertificateCertificateMode
 		return ret
-	}).(CACertificateCertificateModeOutput)
+	}).(CaCertificateCertificateModeOutput)
 }
 
-func (o CACertificateCertificateModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CaCertificateCertificateModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CACertificateCertificateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CACertificateCertificateMode) *string {
+func (o CaCertificateCertificateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CaCertificateCertificateMode) *string {
 		if e == nil {
 			return nil
 		}
@@ -464,162 +464,162 @@ func (o CACertificateCertificateModePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// CACertificateCertificateModeInput is an input type that accepts CACertificateCertificateModeArgs and CACertificateCertificateModeOutput values.
-// You can construct a concrete instance of `CACertificateCertificateModeInput` via:
+// CaCertificateCertificateModeInput is an input type that accepts CaCertificateCertificateModeArgs and CaCertificateCertificateModeOutput values.
+// You can construct a concrete instance of `CaCertificateCertificateModeInput` via:
 //
-//	CACertificateCertificateModeArgs{...}
-type CACertificateCertificateModeInput interface {
+//	CaCertificateCertificateModeArgs{...}
+type CaCertificateCertificateModeInput interface {
 	pulumi.Input
 
-	ToCACertificateCertificateModeOutput() CACertificateCertificateModeOutput
-	ToCACertificateCertificateModeOutputWithContext(context.Context) CACertificateCertificateModeOutput
+	ToCaCertificateCertificateModeOutput() CaCertificateCertificateModeOutput
+	ToCaCertificateCertificateModeOutputWithContext(context.Context) CaCertificateCertificateModeOutput
 }
 
-var cacertificateCertificateModePtrType = reflect.TypeOf((**CACertificateCertificateMode)(nil)).Elem()
+var caCertificateCertificateModePtrType = reflect.TypeOf((**CaCertificateCertificateMode)(nil)).Elem()
 
-type CACertificateCertificateModePtrInput interface {
+type CaCertificateCertificateModePtrInput interface {
 	pulumi.Input
 
-	ToCACertificateCertificateModePtrOutput() CACertificateCertificateModePtrOutput
-	ToCACertificateCertificateModePtrOutputWithContext(context.Context) CACertificateCertificateModePtrOutput
+	ToCaCertificateCertificateModePtrOutput() CaCertificateCertificateModePtrOutput
+	ToCaCertificateCertificateModePtrOutputWithContext(context.Context) CaCertificateCertificateModePtrOutput
 }
 
-type cacertificateCertificateModePtr string
+type caCertificateCertificateModePtr string
 
-func CACertificateCertificateModePtr(v string) CACertificateCertificateModePtrInput {
-	return (*cacertificateCertificateModePtr)(&v)
+func CaCertificateCertificateModePtr(v string) CaCertificateCertificateModePtrInput {
+	return (*caCertificateCertificateModePtr)(&v)
 }
 
-func (*cacertificateCertificateModePtr) ElementType() reflect.Type {
-	return cacertificateCertificateModePtrType
+func (*caCertificateCertificateModePtr) ElementType() reflect.Type {
+	return caCertificateCertificateModePtrType
 }
 
-func (in *cacertificateCertificateModePtr) ToCACertificateCertificateModePtrOutput() CACertificateCertificateModePtrOutput {
-	return pulumi.ToOutput(in).(CACertificateCertificateModePtrOutput)
+func (in *caCertificateCertificateModePtr) ToCaCertificateCertificateModePtrOutput() CaCertificateCertificateModePtrOutput {
+	return pulumi.ToOutput(in).(CaCertificateCertificateModePtrOutput)
 }
 
-func (in *cacertificateCertificateModePtr) ToCACertificateCertificateModePtrOutputWithContext(ctx context.Context) CACertificateCertificateModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(CACertificateCertificateModePtrOutput)
+func (in *caCertificateCertificateModePtr) ToCaCertificateCertificateModePtrOutputWithContext(ctx context.Context) CaCertificateCertificateModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CaCertificateCertificateModePtrOutput)
 }
 
-type CACertificateStatus string
+type CaCertificateStatus string
 
 const (
-	CACertificateStatusActive   = CACertificateStatus("ACTIVE")
-	CACertificateStatusInactive = CACertificateStatus("INACTIVE")
+	CaCertificateStatusActive   = CaCertificateStatus("ACTIVE")
+	CaCertificateStatusInactive = CaCertificateStatus("INACTIVE")
 )
 
-func (CACertificateStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*CACertificateStatus)(nil)).Elem()
+func (CaCertificateStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateStatus)(nil)).Elem()
 }
 
-func (e CACertificateStatus) ToCACertificateStatusOutput() CACertificateStatusOutput {
-	return pulumi.ToOutput(e).(CACertificateStatusOutput)
+func (e CaCertificateStatus) ToCaCertificateStatusOutput() CaCertificateStatusOutput {
+	return pulumi.ToOutput(e).(CaCertificateStatusOutput)
 }
 
-func (e CACertificateStatus) ToCACertificateStatusOutputWithContext(ctx context.Context) CACertificateStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(CACertificateStatusOutput)
+func (e CaCertificateStatus) ToCaCertificateStatusOutputWithContext(ctx context.Context) CaCertificateStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CaCertificateStatusOutput)
 }
 
-func (e CACertificateStatus) ToCACertificateStatusPtrOutput() CACertificateStatusPtrOutput {
-	return e.ToCACertificateStatusPtrOutputWithContext(context.Background())
+func (e CaCertificateStatus) ToCaCertificateStatusPtrOutput() CaCertificateStatusPtrOutput {
+	return e.ToCaCertificateStatusPtrOutputWithContext(context.Background())
 }
 
-func (e CACertificateStatus) ToCACertificateStatusPtrOutputWithContext(ctx context.Context) CACertificateStatusPtrOutput {
-	return CACertificateStatus(e).ToCACertificateStatusOutputWithContext(ctx).ToCACertificateStatusPtrOutputWithContext(ctx)
+func (e CaCertificateStatus) ToCaCertificateStatusPtrOutputWithContext(ctx context.Context) CaCertificateStatusPtrOutput {
+	return CaCertificateStatus(e).ToCaCertificateStatusOutputWithContext(ctx).ToCaCertificateStatusPtrOutputWithContext(ctx)
 }
 
-func (e CACertificateStatus) ToStringOutput() pulumi.StringOutput {
+func (e CaCertificateStatus) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e CACertificateStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e CaCertificateStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e CACertificateStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e CaCertificateStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e CACertificateStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e CaCertificateStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type CACertificateStatusOutput struct{ *pulumi.OutputState }
+type CaCertificateStatusOutput struct{ *pulumi.OutputState }
 
-func (CACertificateStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CACertificateStatus)(nil)).Elem()
+func (CaCertificateStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateStatus)(nil)).Elem()
 }
 
-func (o CACertificateStatusOutput) ToCACertificateStatusOutput() CACertificateStatusOutput {
+func (o CaCertificateStatusOutput) ToCaCertificateStatusOutput() CaCertificateStatusOutput {
 	return o
 }
 
-func (o CACertificateStatusOutput) ToCACertificateStatusOutputWithContext(ctx context.Context) CACertificateStatusOutput {
+func (o CaCertificateStatusOutput) ToCaCertificateStatusOutputWithContext(ctx context.Context) CaCertificateStatusOutput {
 	return o
 }
 
-func (o CACertificateStatusOutput) ToCACertificateStatusPtrOutput() CACertificateStatusPtrOutput {
-	return o.ToCACertificateStatusPtrOutputWithContext(context.Background())
+func (o CaCertificateStatusOutput) ToCaCertificateStatusPtrOutput() CaCertificateStatusPtrOutput {
+	return o.ToCaCertificateStatusPtrOutputWithContext(context.Background())
 }
 
-func (o CACertificateStatusOutput) ToCACertificateStatusPtrOutputWithContext(ctx context.Context) CACertificateStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CACertificateStatus) *CACertificateStatus {
+func (o CaCertificateStatusOutput) ToCaCertificateStatusPtrOutputWithContext(ctx context.Context) CaCertificateStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaCertificateStatus) *CaCertificateStatus {
 		return &v
-	}).(CACertificateStatusPtrOutput)
+	}).(CaCertificateStatusPtrOutput)
 }
 
-func (o CACertificateStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o CaCertificateStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o CACertificateStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CACertificateStatus) string {
+func (o CaCertificateStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CaCertificateStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o CACertificateStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CaCertificateStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CACertificateStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CACertificateStatus) *string {
+func (o CaCertificateStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CaCertificateStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type CACertificateStatusPtrOutput struct{ *pulumi.OutputState }
+type CaCertificateStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (CACertificateStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CACertificateStatus)(nil)).Elem()
+func (CaCertificateStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaCertificateStatus)(nil)).Elem()
 }
 
-func (o CACertificateStatusPtrOutput) ToCACertificateStatusPtrOutput() CACertificateStatusPtrOutput {
+func (o CaCertificateStatusPtrOutput) ToCaCertificateStatusPtrOutput() CaCertificateStatusPtrOutput {
 	return o
 }
 
-func (o CACertificateStatusPtrOutput) ToCACertificateStatusPtrOutputWithContext(ctx context.Context) CACertificateStatusPtrOutput {
+func (o CaCertificateStatusPtrOutput) ToCaCertificateStatusPtrOutputWithContext(ctx context.Context) CaCertificateStatusPtrOutput {
 	return o
 }
 
-func (o CACertificateStatusPtrOutput) Elem() CACertificateStatusOutput {
-	return o.ApplyT(func(v *CACertificateStatus) CACertificateStatus {
+func (o CaCertificateStatusPtrOutput) Elem() CaCertificateStatusOutput {
+	return o.ApplyT(func(v *CaCertificateStatus) CaCertificateStatus {
 		if v != nil {
 			return *v
 		}
-		var ret CACertificateStatus
+		var ret CaCertificateStatus
 		return ret
-	}).(CACertificateStatusOutput)
+	}).(CaCertificateStatusOutput)
 }
 
-func (o CACertificateStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CaCertificateStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CACertificateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CACertificateStatus) *string {
+func (o CaCertificateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CaCertificateStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -628,42 +628,42 @@ func (o CACertificateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// CACertificateStatusInput is an input type that accepts CACertificateStatusArgs and CACertificateStatusOutput values.
-// You can construct a concrete instance of `CACertificateStatusInput` via:
+// CaCertificateStatusInput is an input type that accepts CaCertificateStatusArgs and CaCertificateStatusOutput values.
+// You can construct a concrete instance of `CaCertificateStatusInput` via:
 //
-//	CACertificateStatusArgs{...}
-type CACertificateStatusInput interface {
+//	CaCertificateStatusArgs{...}
+type CaCertificateStatusInput interface {
 	pulumi.Input
 
-	ToCACertificateStatusOutput() CACertificateStatusOutput
-	ToCACertificateStatusOutputWithContext(context.Context) CACertificateStatusOutput
+	ToCaCertificateStatusOutput() CaCertificateStatusOutput
+	ToCaCertificateStatusOutputWithContext(context.Context) CaCertificateStatusOutput
 }
 
-var cacertificateStatusPtrType = reflect.TypeOf((**CACertificateStatus)(nil)).Elem()
+var caCertificateStatusPtrType = reflect.TypeOf((**CaCertificateStatus)(nil)).Elem()
 
-type CACertificateStatusPtrInput interface {
+type CaCertificateStatusPtrInput interface {
 	pulumi.Input
 
-	ToCACertificateStatusPtrOutput() CACertificateStatusPtrOutput
-	ToCACertificateStatusPtrOutputWithContext(context.Context) CACertificateStatusPtrOutput
+	ToCaCertificateStatusPtrOutput() CaCertificateStatusPtrOutput
+	ToCaCertificateStatusPtrOutputWithContext(context.Context) CaCertificateStatusPtrOutput
 }
 
-type cacertificateStatusPtr string
+type caCertificateStatusPtr string
 
-func CACertificateStatusPtr(v string) CACertificateStatusPtrInput {
-	return (*cacertificateStatusPtr)(&v)
+func CaCertificateStatusPtr(v string) CaCertificateStatusPtrInput {
+	return (*caCertificateStatusPtr)(&v)
 }
 
-func (*cacertificateStatusPtr) ElementType() reflect.Type {
-	return cacertificateStatusPtrType
+func (*caCertificateStatusPtr) ElementType() reflect.Type {
+	return caCertificateStatusPtrType
 }
 
-func (in *cacertificateStatusPtr) ToCACertificateStatusPtrOutput() CACertificateStatusPtrOutput {
-	return pulumi.ToOutput(in).(CACertificateStatusPtrOutput)
+func (in *caCertificateStatusPtr) ToCaCertificateStatusPtrOutput() CaCertificateStatusPtrOutput {
+	return pulumi.ToOutput(in).(CaCertificateStatusPtrOutput)
 }
 
-func (in *cacertificateStatusPtr) ToCACertificateStatusPtrOutputWithContext(ctx context.Context) CACertificateStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(CACertificateStatusPtrOutput)
+func (in *caCertificateStatusPtr) ToCaCertificateStatusPtrOutputWithContext(ctx context.Context) CaCertificateStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CaCertificateStatusPtrOutput)
 }
 
 type CertificateMode string
@@ -2830,123 +2830,123 @@ func (in *mitigationActionReplaceDefaultPolicyVersionParamsTemplateNamePtr) ToMi
 	return pulumi.ToOutputWithContext(ctx, in).(MitigationActionReplaceDefaultPolicyVersionParamsTemplateNamePtrOutput)
 }
 
-type MitigationActionUpdateCACertificateParamsAction string
+type MitigationActionUpdateCaCertificateParamsAction string
 
 const (
-	MitigationActionUpdateCACertificateParamsActionDeactivate = MitigationActionUpdateCACertificateParamsAction("DEACTIVATE")
+	MitigationActionUpdateCaCertificateParamsActionDeactivate = MitigationActionUpdateCaCertificateParamsAction("DEACTIVATE")
 )
 
-func (MitigationActionUpdateCACertificateParamsAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*MitigationActionUpdateCACertificateParamsAction)(nil)).Elem()
+func (MitigationActionUpdateCaCertificateParamsAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*MitigationActionUpdateCaCertificateParamsAction)(nil)).Elem()
 }
 
-func (e MitigationActionUpdateCACertificateParamsAction) ToMitigationActionUpdateCACertificateParamsActionOutput() MitigationActionUpdateCACertificateParamsActionOutput {
-	return pulumi.ToOutput(e).(MitigationActionUpdateCACertificateParamsActionOutput)
+func (e MitigationActionUpdateCaCertificateParamsAction) ToMitigationActionUpdateCaCertificateParamsActionOutput() MitigationActionUpdateCaCertificateParamsActionOutput {
+	return pulumi.ToOutput(e).(MitigationActionUpdateCaCertificateParamsActionOutput)
 }
 
-func (e MitigationActionUpdateCACertificateParamsAction) ToMitigationActionUpdateCACertificateParamsActionOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsActionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MitigationActionUpdateCACertificateParamsActionOutput)
+func (e MitigationActionUpdateCaCertificateParamsAction) ToMitigationActionUpdateCaCertificateParamsActionOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MitigationActionUpdateCaCertificateParamsActionOutput)
 }
 
-func (e MitigationActionUpdateCACertificateParamsAction) ToMitigationActionUpdateCACertificateParamsActionPtrOutput() MitigationActionUpdateCACertificateParamsActionPtrOutput {
-	return e.ToMitigationActionUpdateCACertificateParamsActionPtrOutputWithContext(context.Background())
+func (e MitigationActionUpdateCaCertificateParamsAction) ToMitigationActionUpdateCaCertificateParamsActionPtrOutput() MitigationActionUpdateCaCertificateParamsActionPtrOutput {
+	return e.ToMitigationActionUpdateCaCertificateParamsActionPtrOutputWithContext(context.Background())
 }
 
-func (e MitigationActionUpdateCACertificateParamsAction) ToMitigationActionUpdateCACertificateParamsActionPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsActionPtrOutput {
-	return MitigationActionUpdateCACertificateParamsAction(e).ToMitigationActionUpdateCACertificateParamsActionOutputWithContext(ctx).ToMitigationActionUpdateCACertificateParamsActionPtrOutputWithContext(ctx)
+func (e MitigationActionUpdateCaCertificateParamsAction) ToMitigationActionUpdateCaCertificateParamsActionPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsActionPtrOutput {
+	return MitigationActionUpdateCaCertificateParamsAction(e).ToMitigationActionUpdateCaCertificateParamsActionOutputWithContext(ctx).ToMitigationActionUpdateCaCertificateParamsActionPtrOutputWithContext(ctx)
 }
 
-func (e MitigationActionUpdateCACertificateParamsAction) ToStringOutput() pulumi.StringOutput {
+func (e MitigationActionUpdateCaCertificateParamsAction) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e MitigationActionUpdateCACertificateParamsAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e MitigationActionUpdateCaCertificateParamsAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e MitigationActionUpdateCACertificateParamsAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e MitigationActionUpdateCaCertificateParamsAction) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e MitigationActionUpdateCACertificateParamsAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e MitigationActionUpdateCaCertificateParamsAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type MitigationActionUpdateCACertificateParamsActionOutput struct{ *pulumi.OutputState }
+type MitigationActionUpdateCaCertificateParamsActionOutput struct{ *pulumi.OutputState }
 
-func (MitigationActionUpdateCACertificateParamsActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MitigationActionUpdateCACertificateParamsAction)(nil)).Elem()
+func (MitigationActionUpdateCaCertificateParamsActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MitigationActionUpdateCaCertificateParamsAction)(nil)).Elem()
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionOutput) ToMitigationActionUpdateCACertificateParamsActionOutput() MitigationActionUpdateCACertificateParamsActionOutput {
+func (o MitigationActionUpdateCaCertificateParamsActionOutput) ToMitigationActionUpdateCaCertificateParamsActionOutput() MitigationActionUpdateCaCertificateParamsActionOutput {
 	return o
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionOutput) ToMitigationActionUpdateCACertificateParamsActionOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsActionOutput {
+func (o MitigationActionUpdateCaCertificateParamsActionOutput) ToMitigationActionUpdateCaCertificateParamsActionOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsActionOutput {
 	return o
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionOutput) ToMitigationActionUpdateCACertificateParamsActionPtrOutput() MitigationActionUpdateCACertificateParamsActionPtrOutput {
-	return o.ToMitigationActionUpdateCACertificateParamsActionPtrOutputWithContext(context.Background())
+func (o MitigationActionUpdateCaCertificateParamsActionOutput) ToMitigationActionUpdateCaCertificateParamsActionPtrOutput() MitigationActionUpdateCaCertificateParamsActionPtrOutput {
+	return o.ToMitigationActionUpdateCaCertificateParamsActionPtrOutputWithContext(context.Background())
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionOutput) ToMitigationActionUpdateCACertificateParamsActionPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MitigationActionUpdateCACertificateParamsAction) *MitigationActionUpdateCACertificateParamsAction {
+func (o MitigationActionUpdateCaCertificateParamsActionOutput) ToMitigationActionUpdateCaCertificateParamsActionPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MitigationActionUpdateCaCertificateParamsAction) *MitigationActionUpdateCaCertificateParamsAction {
 		return &v
-	}).(MitigationActionUpdateCACertificateParamsActionPtrOutput)
+	}).(MitigationActionUpdateCaCertificateParamsActionPtrOutput)
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionOutput) ToStringOutput() pulumi.StringOutput {
+func (o MitigationActionUpdateCaCertificateParamsActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MitigationActionUpdateCACertificateParamsAction) string {
+func (o MitigationActionUpdateCaCertificateParamsActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MitigationActionUpdateCaCertificateParamsAction) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o MitigationActionUpdateCaCertificateParamsActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MitigationActionUpdateCACertificateParamsAction) *string {
+func (o MitigationActionUpdateCaCertificateParamsActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MitigationActionUpdateCaCertificateParamsAction) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type MitigationActionUpdateCACertificateParamsActionPtrOutput struct{ *pulumi.OutputState }
+type MitigationActionUpdateCaCertificateParamsActionPtrOutput struct{ *pulumi.OutputState }
 
-func (MitigationActionUpdateCACertificateParamsActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MitigationActionUpdateCACertificateParamsAction)(nil)).Elem()
+func (MitigationActionUpdateCaCertificateParamsActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MitigationActionUpdateCaCertificateParamsAction)(nil)).Elem()
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionPtrOutput) ToMitigationActionUpdateCACertificateParamsActionPtrOutput() MitigationActionUpdateCACertificateParamsActionPtrOutput {
+func (o MitigationActionUpdateCaCertificateParamsActionPtrOutput) ToMitigationActionUpdateCaCertificateParamsActionPtrOutput() MitigationActionUpdateCaCertificateParamsActionPtrOutput {
 	return o
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionPtrOutput) ToMitigationActionUpdateCACertificateParamsActionPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsActionPtrOutput {
+func (o MitigationActionUpdateCaCertificateParamsActionPtrOutput) ToMitigationActionUpdateCaCertificateParamsActionPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsActionPtrOutput {
 	return o
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionPtrOutput) Elem() MitigationActionUpdateCACertificateParamsActionOutput {
-	return o.ApplyT(func(v *MitigationActionUpdateCACertificateParamsAction) MitigationActionUpdateCACertificateParamsAction {
+func (o MitigationActionUpdateCaCertificateParamsActionPtrOutput) Elem() MitigationActionUpdateCaCertificateParamsActionOutput {
+	return o.ApplyT(func(v *MitigationActionUpdateCaCertificateParamsAction) MitigationActionUpdateCaCertificateParamsAction {
 		if v != nil {
 			return *v
 		}
-		var ret MitigationActionUpdateCACertificateParamsAction
+		var ret MitigationActionUpdateCaCertificateParamsAction
 		return ret
-	}).(MitigationActionUpdateCACertificateParamsActionOutput)
+	}).(MitigationActionUpdateCaCertificateParamsActionOutput)
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o MitigationActionUpdateCaCertificateParamsActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o MitigationActionUpdateCACertificateParamsActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MitigationActionUpdateCACertificateParamsAction) *string {
+func (o MitigationActionUpdateCaCertificateParamsActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MitigationActionUpdateCaCertificateParamsAction) *string {
 		if e == nil {
 			return nil
 		}
@@ -2955,42 +2955,42 @@ func (o MitigationActionUpdateCACertificateParamsActionPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// MitigationActionUpdateCACertificateParamsActionInput is an input type that accepts MitigationActionUpdateCACertificateParamsActionArgs and MitigationActionUpdateCACertificateParamsActionOutput values.
-// You can construct a concrete instance of `MitigationActionUpdateCACertificateParamsActionInput` via:
+// MitigationActionUpdateCaCertificateParamsActionInput is an input type that accepts MitigationActionUpdateCaCertificateParamsActionArgs and MitigationActionUpdateCaCertificateParamsActionOutput values.
+// You can construct a concrete instance of `MitigationActionUpdateCaCertificateParamsActionInput` via:
 //
-//	MitigationActionUpdateCACertificateParamsActionArgs{...}
-type MitigationActionUpdateCACertificateParamsActionInput interface {
+//	MitigationActionUpdateCaCertificateParamsActionArgs{...}
+type MitigationActionUpdateCaCertificateParamsActionInput interface {
 	pulumi.Input
 
-	ToMitigationActionUpdateCACertificateParamsActionOutput() MitigationActionUpdateCACertificateParamsActionOutput
-	ToMitigationActionUpdateCACertificateParamsActionOutputWithContext(context.Context) MitigationActionUpdateCACertificateParamsActionOutput
+	ToMitigationActionUpdateCaCertificateParamsActionOutput() MitigationActionUpdateCaCertificateParamsActionOutput
+	ToMitigationActionUpdateCaCertificateParamsActionOutputWithContext(context.Context) MitigationActionUpdateCaCertificateParamsActionOutput
 }
 
-var mitigationActionUpdateCACertificateParamsActionPtrType = reflect.TypeOf((**MitigationActionUpdateCACertificateParamsAction)(nil)).Elem()
+var mitigationActionUpdateCaCertificateParamsActionPtrType = reflect.TypeOf((**MitigationActionUpdateCaCertificateParamsAction)(nil)).Elem()
 
-type MitigationActionUpdateCACertificateParamsActionPtrInput interface {
+type MitigationActionUpdateCaCertificateParamsActionPtrInput interface {
 	pulumi.Input
 
-	ToMitigationActionUpdateCACertificateParamsActionPtrOutput() MitigationActionUpdateCACertificateParamsActionPtrOutput
-	ToMitigationActionUpdateCACertificateParamsActionPtrOutputWithContext(context.Context) MitigationActionUpdateCACertificateParamsActionPtrOutput
+	ToMitigationActionUpdateCaCertificateParamsActionPtrOutput() MitigationActionUpdateCaCertificateParamsActionPtrOutput
+	ToMitigationActionUpdateCaCertificateParamsActionPtrOutputWithContext(context.Context) MitigationActionUpdateCaCertificateParamsActionPtrOutput
 }
 
-type mitigationActionUpdateCACertificateParamsActionPtr string
+type mitigationActionUpdateCaCertificateParamsActionPtr string
 
-func MitigationActionUpdateCACertificateParamsActionPtr(v string) MitigationActionUpdateCACertificateParamsActionPtrInput {
-	return (*mitigationActionUpdateCACertificateParamsActionPtr)(&v)
+func MitigationActionUpdateCaCertificateParamsActionPtr(v string) MitigationActionUpdateCaCertificateParamsActionPtrInput {
+	return (*mitigationActionUpdateCaCertificateParamsActionPtr)(&v)
 }
 
-func (*mitigationActionUpdateCACertificateParamsActionPtr) ElementType() reflect.Type {
-	return mitigationActionUpdateCACertificateParamsActionPtrType
+func (*mitigationActionUpdateCaCertificateParamsActionPtr) ElementType() reflect.Type {
+	return mitigationActionUpdateCaCertificateParamsActionPtrType
 }
 
-func (in *mitigationActionUpdateCACertificateParamsActionPtr) ToMitigationActionUpdateCACertificateParamsActionPtrOutput() MitigationActionUpdateCACertificateParamsActionPtrOutput {
-	return pulumi.ToOutput(in).(MitigationActionUpdateCACertificateParamsActionPtrOutput)
+func (in *mitigationActionUpdateCaCertificateParamsActionPtr) ToMitigationActionUpdateCaCertificateParamsActionPtrOutput() MitigationActionUpdateCaCertificateParamsActionPtrOutput {
+	return pulumi.ToOutput(in).(MitigationActionUpdateCaCertificateParamsActionPtrOutput)
 }
 
-func (in *mitigationActionUpdateCACertificateParamsActionPtr) ToMitigationActionUpdateCACertificateParamsActionPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCACertificateParamsActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MitigationActionUpdateCACertificateParamsActionPtrOutput)
+func (in *mitigationActionUpdateCaCertificateParamsActionPtr) ToMitigationActionUpdateCaCertificateParamsActionPtrOutputWithContext(ctx context.Context) MitigationActionUpdateCaCertificateParamsActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MitigationActionUpdateCaCertificateParamsActionPtrOutput)
 }
 
 type MitigationActionUpdateDeviceCertificateParamsAction string
@@ -5011,12 +5011,12 @@ func (in *topicRuleDestinationStatusPtr) ToTopicRuleDestinationStatusPtrOutputWi
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerStatusInput)(nil)).Elem(), AuthorizerStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerStatusPtrInput)(nil)).Elem(), AuthorizerStatus("ACTIVE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateAutoRegistrationStatusInput)(nil)).Elem(), CACertificateAutoRegistrationStatus("ENABLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateAutoRegistrationStatusPtrInput)(nil)).Elem(), CACertificateAutoRegistrationStatus("ENABLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateCertificateModeInput)(nil)).Elem(), CACertificateCertificateMode("DEFAULT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateCertificateModePtrInput)(nil)).Elem(), CACertificateCertificateMode("DEFAULT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateStatusInput)(nil)).Elem(), CACertificateStatus("ACTIVE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateStatusPtrInput)(nil)).Elem(), CACertificateStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateAutoRegistrationStatusInput)(nil)).Elem(), CaCertificateAutoRegistrationStatus("ENABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateAutoRegistrationStatusPtrInput)(nil)).Elem(), CaCertificateAutoRegistrationStatus("ENABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateCertificateModeInput)(nil)).Elem(), CaCertificateCertificateMode("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateCertificateModePtrInput)(nil)).Elem(), CaCertificateCertificateMode("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateStatusInput)(nil)).Elem(), CaCertificateStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateStatusPtrInput)(nil)).Elem(), CaCertificateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateModeInput)(nil)).Elem(), CertificateMode("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateModePtrInput)(nil)).Elem(), CertificateMode("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateStatusInput)(nil)).Elem(), CertificateStatus("ACTIVE"))
@@ -5041,8 +5041,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionEnableIoTLoggingParamsLogLevelPtrInput)(nil)).Elem(), MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameInput)(nil)).Elem(), MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("BLANK_POLICY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionReplaceDefaultPolicyVersionParamsTemplateNamePtrInput)(nil)).Elem(), MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("BLANK_POLICY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCACertificateParamsActionInput)(nil)).Elem(), MitigationActionUpdateCACertificateParamsAction("DEACTIVATE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCACertificateParamsActionPtrInput)(nil)).Elem(), MitigationActionUpdateCACertificateParamsAction("DEACTIVATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCaCertificateParamsActionInput)(nil)).Elem(), MitigationActionUpdateCaCertificateParamsAction("DEACTIVATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCaCertificateParamsActionPtrInput)(nil)).Elem(), MitigationActionUpdateCaCertificateParamsAction("DEACTIVATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateDeviceCertificateParamsActionInput)(nil)).Elem(), MitigationActionUpdateDeviceCertificateParamsAction("DEACTIVATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateDeviceCertificateParamsActionPtrInput)(nil)).Elem(), MitigationActionUpdateDeviceCertificateParamsAction("DEACTIVATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplateTemplateTypeInput)(nil)).Elem(), ProvisioningTemplateTemplateType("FLEET_PROVISIONING"))
@@ -5069,12 +5069,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationStatusPtrInput)(nil)).Elem(), TopicRuleDestinationStatus("ENABLED"))
 	pulumi.RegisterOutputType(AuthorizerStatusOutput{})
 	pulumi.RegisterOutputType(AuthorizerStatusPtrOutput{})
-	pulumi.RegisterOutputType(CACertificateAutoRegistrationStatusOutput{})
-	pulumi.RegisterOutputType(CACertificateAutoRegistrationStatusPtrOutput{})
-	pulumi.RegisterOutputType(CACertificateCertificateModeOutput{})
-	pulumi.RegisterOutputType(CACertificateCertificateModePtrOutput{})
-	pulumi.RegisterOutputType(CACertificateStatusOutput{})
-	pulumi.RegisterOutputType(CACertificateStatusPtrOutput{})
+	pulumi.RegisterOutputType(CaCertificateAutoRegistrationStatusOutput{})
+	pulumi.RegisterOutputType(CaCertificateAutoRegistrationStatusPtrOutput{})
+	pulumi.RegisterOutputType(CaCertificateCertificateModeOutput{})
+	pulumi.RegisterOutputType(CaCertificateCertificateModePtrOutput{})
+	pulumi.RegisterOutputType(CaCertificateStatusOutput{})
+	pulumi.RegisterOutputType(CaCertificateStatusPtrOutput{})
 	pulumi.RegisterOutputType(CertificateModeOutput{})
 	pulumi.RegisterOutputType(CertificateModePtrOutput{})
 	pulumi.RegisterOutputType(CertificateStatusOutput{})
@@ -5103,8 +5103,8 @@ func init() {
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameOutput{})
 	pulumi.RegisterOutputType(MitigationActionReplaceDefaultPolicyVersionParamsTemplateNamePtrOutput{})
-	pulumi.RegisterOutputType(MitigationActionUpdateCACertificateParamsActionOutput{})
-	pulumi.RegisterOutputType(MitigationActionUpdateCACertificateParamsActionPtrOutput{})
+	pulumi.RegisterOutputType(MitigationActionUpdateCaCertificateParamsActionOutput{})
+	pulumi.RegisterOutputType(MitigationActionUpdateCaCertificateParamsActionPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsActionOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsActionPtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateTemplateTypeOutput{})

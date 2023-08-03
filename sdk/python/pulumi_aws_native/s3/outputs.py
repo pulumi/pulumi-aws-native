@@ -2525,7 +2525,7 @@ class BucketServerSideEncryptionByDefault(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 sse_algorithm: 'BucketServerSideEncryptionByDefaultSSEAlgorithm',
+                 sse_algorithm: 'BucketServerSideEncryptionByDefaultSseAlgorithm',
                  kms_master_key_id: Optional[str] = None):
         """
         Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
@@ -2537,7 +2537,7 @@ class BucketServerSideEncryptionByDefault(dict):
 
     @property
     @pulumi.getter(name="sseAlgorithm")
-    def sse_algorithm(self) -> 'BucketServerSideEncryptionByDefaultSSEAlgorithm':
+    def sse_algorithm(self) -> 'BucketServerSideEncryptionByDefaultSseAlgorithm':
         return pulumi.get(self, "sse_algorithm")
 
     @property

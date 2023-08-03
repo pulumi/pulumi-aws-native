@@ -19,7 +19,7 @@ class VolumeArgs:
                  backup_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ontap_configuration: Optional[pulumi.Input['VolumeOntapConfigurationArgs']] = None,
-                 open_zfs_configuration: Optional[pulumi.Input['VolumeOpenZFSConfigurationArgs']] = None,
+                 open_zfs_configuration: Optional[pulumi.Input['VolumeOpenZfsConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
@@ -67,11 +67,11 @@ class VolumeArgs:
 
     @property
     @pulumi.getter(name="openZfsConfiguration")
-    def open_zfs_configuration(self) -> Optional[pulumi.Input['VolumeOpenZFSConfigurationArgs']]:
+    def open_zfs_configuration(self) -> Optional[pulumi.Input['VolumeOpenZfsConfigurationArgs']]:
         return pulumi.get(self, "open_zfs_configuration")
 
     @open_zfs_configuration.setter
-    def open_zfs_configuration(self, value: Optional[pulumi.Input['VolumeOpenZFSConfigurationArgs']]):
+    def open_zfs_configuration(self, value: Optional[pulumi.Input['VolumeOpenZfsConfigurationArgs']]):
         pulumi.set(self, "open_zfs_configuration", value)
 
     @property
@@ -106,7 +106,7 @@ class Volume(pulumi.CustomResource):
                  backup_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ontap_configuration: Optional[pulumi.Input[pulumi.InputType['VolumeOntapConfigurationArgs']]] = None,
-                 open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['VolumeOpenZFSConfigurationArgs']]] = None,
+                 open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['VolumeOpenZfsConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeTagArgs']]]]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -143,7 +143,7 @@ class Volume(pulumi.CustomResource):
                  backup_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ontap_configuration: Optional[pulumi.Input[pulumi.InputType['VolumeOntapConfigurationArgs']]] = None,
-                 open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['VolumeOpenZFSConfigurationArgs']]] = None,
+                 open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['VolumeOpenZfsConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeTagArgs']]]]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -215,7 +215,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="openZfsConfiguration")
-    def open_zfs_configuration(self) -> pulumi.Output[Optional['outputs.VolumeOpenZFSConfiguration']]:
+    def open_zfs_configuration(self) -> pulumi.Output[Optional['outputs.VolumeOpenZfsConfiguration']]:
         return pulumi.get(self, "open_zfs_configuration")
 
     @property

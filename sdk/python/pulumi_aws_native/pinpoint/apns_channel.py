@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['APNSChannelArgs', 'APNSChannel']
+__all__ = ['ApnsChannelArgs', 'ApnsChannel']
 
 @pulumi.input_type
-class APNSChannelArgs:
+class ApnsChannelArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  bundle_id: Optional[pulumi.Input[str]] = None,
@@ -24,7 +24,7 @@ class APNSChannelArgs:
                  token_key: Optional[pulumi.Input[str]] = None,
                  token_key_id: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a APNSChannel resource.
+        The set of arguments for constructing a ApnsChannel resource.
         """
         pulumi.set(__self__, "application_id", application_id)
         if bundle_id is not None:
@@ -126,11 +126,11 @@ class APNSChannelArgs:
         pulumi.set(self, "token_key_id", value)
 
 
-warnings.warn("""APNSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ApnsChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class APNSChannel(pulumi.CustomResource):
-    warnings.warn("""APNSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class ApnsChannel(pulumi.CustomResource):
+    warnings.warn("""ApnsChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -156,18 +156,18 @@ class APNSChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: APNSChannelArgs,
+                 args: ApnsChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Pinpoint::APNSChannel
 
         :param str resource_name: The name of the resource.
-        :param APNSChannelArgs args: The arguments to use to populate this resource's properties.
+        :param ApnsChannelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(APNSChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApnsChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -186,14 +186,14 @@ class APNSChannel(pulumi.CustomResource):
                  token_key: Optional[pulumi.Input[str]] = None,
                  token_key_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""APNSChannel is deprecated: APNSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ApnsChannel is deprecated: ApnsChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = APNSChannelArgs.__new__(APNSChannelArgs)
+            __props__ = ApnsChannelArgs.__new__(ApnsChannelArgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
@@ -206,8 +206,8 @@ class APNSChannel(pulumi.CustomResource):
             __props__.__dict__["team_id"] = team_id
             __props__.__dict__["token_key"] = token_key
             __props__.__dict__["token_key_id"] = token_key_id
-        super(APNSChannel, __self__).__init__(
-            'aws-native:pinpoint:APNSChannel',
+        super(ApnsChannel, __self__).__init__(
+            'aws-native:pinpoint:ApnsChannel',
             resource_name,
             __props__,
             opts)
@@ -215,9 +215,9 @@ class APNSChannel(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'APNSChannel':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ApnsChannel':
         """
-        Get an existing APNSChannel resource's state with the given name, id, and optional extra
+        Get an existing ApnsChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -226,7 +226,7 @@ class APNSChannel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = APNSChannelArgs.__new__(APNSChannelArgs)
+        __props__ = ApnsChannelArgs.__new__(ApnsChannelArgs)
 
         __props__.__dict__["application_id"] = None
         __props__.__dict__["bundle_id"] = None
@@ -237,7 +237,7 @@ class APNSChannel(pulumi.CustomResource):
         __props__.__dict__["team_id"] = None
         __props__.__dict__["token_key"] = None
         __props__.__dict__["token_key_id"] = None
-        return APNSChannel(resource_name, opts=opts, __props__=__props__)
+        return ApnsChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="applicationId")

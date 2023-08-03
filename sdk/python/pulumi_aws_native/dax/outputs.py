@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterSSESpecification',
+    'ClusterSseSpecification',
 ]
 
 @pulumi.output_type
-class ClusterSSESpecification(dict):
+class ClusterSseSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22,14 +22,14 @@ class ClusterSSESpecification(dict):
             suggest = "sse_enabled"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterSSESpecification. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSseSpecification. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ClusterSSESpecification.__key_warning(key)
+        ClusterSseSpecification.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ClusterSSESpecification.__key_warning(key)
+        ClusterSseSpecification.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

@@ -26,7 +26,7 @@ type Authorizer struct {
 	EnableSimpleResponses          pulumi.BoolPtrOutput                `pulumi:"enableSimpleResponses"`
 	IdentitySource                 pulumi.StringArrayOutput            `pulumi:"identitySource"`
 	IdentityValidationExpression   pulumi.StringPtrOutput              `pulumi:"identityValidationExpression"`
-	JwtConfiguration               AuthorizerJWTConfigurationPtrOutput `pulumi:"jwtConfiguration"`
+	JwtConfiguration               AuthorizerJwtConfigurationPtrOutput `pulumi:"jwtConfiguration"`
 	Name                           pulumi.StringOutput                 `pulumi:"name"`
 }
 
@@ -85,7 +85,7 @@ type authorizerArgs struct {
 	EnableSimpleResponses          *bool                       `pulumi:"enableSimpleResponses"`
 	IdentitySource                 []string                    `pulumi:"identitySource"`
 	IdentityValidationExpression   *string                     `pulumi:"identityValidationExpression"`
-	JwtConfiguration               *AuthorizerJWTConfiguration `pulumi:"jwtConfiguration"`
+	JwtConfiguration               *AuthorizerJwtConfiguration `pulumi:"jwtConfiguration"`
 	Name                           *string                     `pulumi:"name"`
 }
 
@@ -100,7 +100,7 @@ type AuthorizerArgs struct {
 	EnableSimpleResponses          pulumi.BoolPtrInput
 	IdentitySource                 pulumi.StringArrayInput
 	IdentityValidationExpression   pulumi.StringPtrInput
-	JwtConfiguration               AuthorizerJWTConfigurationPtrInput
+	JwtConfiguration               AuthorizerJwtConfigurationPtrInput
 	Name                           pulumi.StringPtrInput
 }
 
@@ -181,8 +181,8 @@ func (o AuthorizerOutput) IdentityValidationExpression() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.IdentityValidationExpression }).(pulumi.StringPtrOutput)
 }
 
-func (o AuthorizerOutput) JwtConfiguration() AuthorizerJWTConfigurationPtrOutput {
-	return o.ApplyT(func(v *Authorizer) AuthorizerJWTConfigurationPtrOutput { return v.JwtConfiguration }).(AuthorizerJWTConfigurationPtrOutput)
+func (o AuthorizerOutput) JwtConfiguration() AuthorizerJwtConfigurationPtrOutput {
+	return o.ApplyT(func(v *Authorizer) AuthorizerJwtConfigurationPtrOutput { return v.JwtConfiguration }).(AuthorizerJwtConfigurationPtrOutput)
 }
 
 func (o AuthorizerOutput) Name() pulumi.StringOutput {

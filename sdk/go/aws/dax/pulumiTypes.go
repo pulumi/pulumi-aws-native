@@ -13,132 +13,132 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type ClusterSSESpecification struct {
+type ClusterSseSpecification struct {
 	SseEnabled *bool `pulumi:"sseEnabled"`
 }
 
-// ClusterSSESpecificationInput is an input type that accepts ClusterSSESpecificationArgs and ClusterSSESpecificationOutput values.
-// You can construct a concrete instance of `ClusterSSESpecificationInput` via:
+// ClusterSseSpecificationInput is an input type that accepts ClusterSseSpecificationArgs and ClusterSseSpecificationOutput values.
+// You can construct a concrete instance of `ClusterSseSpecificationInput` via:
 //
-//	ClusterSSESpecificationArgs{...}
-type ClusterSSESpecificationInput interface {
+//	ClusterSseSpecificationArgs{...}
+type ClusterSseSpecificationInput interface {
 	pulumi.Input
 
-	ToClusterSSESpecificationOutput() ClusterSSESpecificationOutput
-	ToClusterSSESpecificationOutputWithContext(context.Context) ClusterSSESpecificationOutput
+	ToClusterSseSpecificationOutput() ClusterSseSpecificationOutput
+	ToClusterSseSpecificationOutputWithContext(context.Context) ClusterSseSpecificationOutput
 }
 
-type ClusterSSESpecificationArgs struct {
+type ClusterSseSpecificationArgs struct {
 	SseEnabled pulumi.BoolPtrInput `pulumi:"sseEnabled"`
 }
 
-func (ClusterSSESpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterSSESpecification)(nil)).Elem()
+func (ClusterSseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSseSpecification)(nil)).Elem()
 }
 
-func (i ClusterSSESpecificationArgs) ToClusterSSESpecificationOutput() ClusterSSESpecificationOutput {
-	return i.ToClusterSSESpecificationOutputWithContext(context.Background())
+func (i ClusterSseSpecificationArgs) ToClusterSseSpecificationOutput() ClusterSseSpecificationOutput {
+	return i.ToClusterSseSpecificationOutputWithContext(context.Background())
 }
 
-func (i ClusterSSESpecificationArgs) ToClusterSSESpecificationOutputWithContext(ctx context.Context) ClusterSSESpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterSSESpecificationOutput)
+func (i ClusterSseSpecificationArgs) ToClusterSseSpecificationOutputWithContext(ctx context.Context) ClusterSseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSseSpecificationOutput)
 }
 
-func (i ClusterSSESpecificationArgs) ToClusterSSESpecificationPtrOutput() ClusterSSESpecificationPtrOutput {
-	return i.ToClusterSSESpecificationPtrOutputWithContext(context.Background())
+func (i ClusterSseSpecificationArgs) ToClusterSseSpecificationPtrOutput() ClusterSseSpecificationPtrOutput {
+	return i.ToClusterSseSpecificationPtrOutputWithContext(context.Background())
 }
 
-func (i ClusterSSESpecificationArgs) ToClusterSSESpecificationPtrOutputWithContext(ctx context.Context) ClusterSSESpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterSSESpecificationOutput).ToClusterSSESpecificationPtrOutputWithContext(ctx)
+func (i ClusterSseSpecificationArgs) ToClusterSseSpecificationPtrOutputWithContext(ctx context.Context) ClusterSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSseSpecificationOutput).ToClusterSseSpecificationPtrOutputWithContext(ctx)
 }
 
-// ClusterSSESpecificationPtrInput is an input type that accepts ClusterSSESpecificationArgs, ClusterSSESpecificationPtr and ClusterSSESpecificationPtrOutput values.
-// You can construct a concrete instance of `ClusterSSESpecificationPtrInput` via:
+// ClusterSseSpecificationPtrInput is an input type that accepts ClusterSseSpecificationArgs, ClusterSseSpecificationPtr and ClusterSseSpecificationPtrOutput values.
+// You can construct a concrete instance of `ClusterSseSpecificationPtrInput` via:
 //
-//	        ClusterSSESpecificationArgs{...}
+//	        ClusterSseSpecificationArgs{...}
 //
 //	or:
 //
 //	        nil
-type ClusterSSESpecificationPtrInput interface {
+type ClusterSseSpecificationPtrInput interface {
 	pulumi.Input
 
-	ToClusterSSESpecificationPtrOutput() ClusterSSESpecificationPtrOutput
-	ToClusterSSESpecificationPtrOutputWithContext(context.Context) ClusterSSESpecificationPtrOutput
+	ToClusterSseSpecificationPtrOutput() ClusterSseSpecificationPtrOutput
+	ToClusterSseSpecificationPtrOutputWithContext(context.Context) ClusterSseSpecificationPtrOutput
 }
 
-type clusterSSESpecificationPtrType ClusterSSESpecificationArgs
+type clusterSseSpecificationPtrType ClusterSseSpecificationArgs
 
-func ClusterSSESpecificationPtr(v *ClusterSSESpecificationArgs) ClusterSSESpecificationPtrInput {
-	return (*clusterSSESpecificationPtrType)(v)
+func ClusterSseSpecificationPtr(v *ClusterSseSpecificationArgs) ClusterSseSpecificationPtrInput {
+	return (*clusterSseSpecificationPtrType)(v)
 }
 
-func (*clusterSSESpecificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterSSESpecification)(nil)).Elem()
+func (*clusterSseSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSseSpecification)(nil)).Elem()
 }
 
-func (i *clusterSSESpecificationPtrType) ToClusterSSESpecificationPtrOutput() ClusterSSESpecificationPtrOutput {
-	return i.ToClusterSSESpecificationPtrOutputWithContext(context.Background())
+func (i *clusterSseSpecificationPtrType) ToClusterSseSpecificationPtrOutput() ClusterSseSpecificationPtrOutput {
+	return i.ToClusterSseSpecificationPtrOutputWithContext(context.Background())
 }
 
-func (i *clusterSSESpecificationPtrType) ToClusterSSESpecificationPtrOutputWithContext(ctx context.Context) ClusterSSESpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterSSESpecificationPtrOutput)
+func (i *clusterSseSpecificationPtrType) ToClusterSseSpecificationPtrOutputWithContext(ctx context.Context) ClusterSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSseSpecificationPtrOutput)
 }
 
-type ClusterSSESpecificationOutput struct{ *pulumi.OutputState }
+type ClusterSseSpecificationOutput struct{ *pulumi.OutputState }
 
-func (ClusterSSESpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterSSESpecification)(nil)).Elem()
+func (ClusterSseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSseSpecification)(nil)).Elem()
 }
 
-func (o ClusterSSESpecificationOutput) ToClusterSSESpecificationOutput() ClusterSSESpecificationOutput {
+func (o ClusterSseSpecificationOutput) ToClusterSseSpecificationOutput() ClusterSseSpecificationOutput {
 	return o
 }
 
-func (o ClusterSSESpecificationOutput) ToClusterSSESpecificationOutputWithContext(ctx context.Context) ClusterSSESpecificationOutput {
+func (o ClusterSseSpecificationOutput) ToClusterSseSpecificationOutputWithContext(ctx context.Context) ClusterSseSpecificationOutput {
 	return o
 }
 
-func (o ClusterSSESpecificationOutput) ToClusterSSESpecificationPtrOutput() ClusterSSESpecificationPtrOutput {
-	return o.ToClusterSSESpecificationPtrOutputWithContext(context.Background())
+func (o ClusterSseSpecificationOutput) ToClusterSseSpecificationPtrOutput() ClusterSseSpecificationPtrOutput {
+	return o.ToClusterSseSpecificationPtrOutputWithContext(context.Background())
 }
 
-func (o ClusterSSESpecificationOutput) ToClusterSSESpecificationPtrOutputWithContext(ctx context.Context) ClusterSSESpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSSESpecification) *ClusterSSESpecification {
+func (o ClusterSseSpecificationOutput) ToClusterSseSpecificationPtrOutputWithContext(ctx context.Context) ClusterSseSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSseSpecification) *ClusterSseSpecification {
 		return &v
-	}).(ClusterSSESpecificationPtrOutput)
+	}).(ClusterSseSpecificationPtrOutput)
 }
 
-func (o ClusterSSESpecificationOutput) SseEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterSSESpecification) *bool { return v.SseEnabled }).(pulumi.BoolPtrOutput)
+func (o ClusterSseSpecificationOutput) SseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterSseSpecification) *bool { return v.SseEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterSSESpecificationPtrOutput struct{ *pulumi.OutputState }
+type ClusterSseSpecificationPtrOutput struct{ *pulumi.OutputState }
 
-func (ClusterSSESpecificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterSSESpecification)(nil)).Elem()
+func (ClusterSseSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSseSpecification)(nil)).Elem()
 }
 
-func (o ClusterSSESpecificationPtrOutput) ToClusterSSESpecificationPtrOutput() ClusterSSESpecificationPtrOutput {
+func (o ClusterSseSpecificationPtrOutput) ToClusterSseSpecificationPtrOutput() ClusterSseSpecificationPtrOutput {
 	return o
 }
 
-func (o ClusterSSESpecificationPtrOutput) ToClusterSSESpecificationPtrOutputWithContext(ctx context.Context) ClusterSSESpecificationPtrOutput {
+func (o ClusterSseSpecificationPtrOutput) ToClusterSseSpecificationPtrOutputWithContext(ctx context.Context) ClusterSseSpecificationPtrOutput {
 	return o
 }
 
-func (o ClusterSSESpecificationPtrOutput) Elem() ClusterSSESpecificationOutput {
-	return o.ApplyT(func(v *ClusterSSESpecification) ClusterSSESpecification {
+func (o ClusterSseSpecificationPtrOutput) Elem() ClusterSseSpecificationOutput {
+	return o.ApplyT(func(v *ClusterSseSpecification) ClusterSseSpecification {
 		if v != nil {
 			return *v
 		}
-		var ret ClusterSSESpecification
+		var ret ClusterSseSpecification
 		return ret
-	}).(ClusterSSESpecificationOutput)
+	}).(ClusterSseSpecificationOutput)
 }
 
-func (o ClusterSSESpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClusterSSESpecification) *bool {
+func (o ClusterSseSpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterSseSpecification) *bool {
 		if v == nil {
 			return nil
 		}
@@ -147,8 +147,8 @@ func (o ClusterSSESpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSSESpecificationInput)(nil)).Elem(), ClusterSSESpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSSESpecificationPtrInput)(nil)).Elem(), ClusterSSESpecificationArgs{})
-	pulumi.RegisterOutputType(ClusterSSESpecificationOutput{})
-	pulumi.RegisterOutputType(ClusterSSESpecificationPtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSseSpecificationInput)(nil)).Elem(), ClusterSseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSseSpecificationPtrInput)(nil)).Elem(), ClusterSseSpecificationArgs{})
+	pulumi.RegisterOutputType(ClusterSseSpecificationOutput{})
+	pulumi.RegisterOutputType(ClusterSseSpecificationPtrOutput{})
 }

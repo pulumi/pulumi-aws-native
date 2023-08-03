@@ -1110,112 +1110,112 @@ func (o HostedZoneTagArrayOutput) Index(i pulumi.IntInput) HostedZoneTagOutput {
 }
 
 // A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
-type HostedZoneVPC struct {
+type HostedZoneVpc struct {
 	// The ID of an Amazon VPC.
 	VpcId string `pulumi:"vpcId"`
 	// The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
 	VpcRegion string `pulumi:"vpcRegion"`
 }
 
-// HostedZoneVPCInput is an input type that accepts HostedZoneVPCArgs and HostedZoneVPCOutput values.
-// You can construct a concrete instance of `HostedZoneVPCInput` via:
+// HostedZoneVpcInput is an input type that accepts HostedZoneVpcArgs and HostedZoneVpcOutput values.
+// You can construct a concrete instance of `HostedZoneVpcInput` via:
 //
-//	HostedZoneVPCArgs{...}
-type HostedZoneVPCInput interface {
+//	HostedZoneVpcArgs{...}
+type HostedZoneVpcInput interface {
 	pulumi.Input
 
-	ToHostedZoneVPCOutput() HostedZoneVPCOutput
-	ToHostedZoneVPCOutputWithContext(context.Context) HostedZoneVPCOutput
+	ToHostedZoneVpcOutput() HostedZoneVpcOutput
+	ToHostedZoneVpcOutputWithContext(context.Context) HostedZoneVpcOutput
 }
 
 // A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
-type HostedZoneVPCArgs struct {
+type HostedZoneVpcArgs struct {
 	// The ID of an Amazon VPC.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 	// The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
 	VpcRegion pulumi.StringInput `pulumi:"vpcRegion"`
 }
 
-func (HostedZoneVPCArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedZoneVPC)(nil)).Elem()
+func (HostedZoneVpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneVpc)(nil)).Elem()
 }
 
-func (i HostedZoneVPCArgs) ToHostedZoneVPCOutput() HostedZoneVPCOutput {
-	return i.ToHostedZoneVPCOutputWithContext(context.Background())
+func (i HostedZoneVpcArgs) ToHostedZoneVpcOutput() HostedZoneVpcOutput {
+	return i.ToHostedZoneVpcOutputWithContext(context.Background())
 }
 
-func (i HostedZoneVPCArgs) ToHostedZoneVPCOutputWithContext(ctx context.Context) HostedZoneVPCOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneVPCOutput)
+func (i HostedZoneVpcArgs) ToHostedZoneVpcOutputWithContext(ctx context.Context) HostedZoneVpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneVpcOutput)
 }
 
-// HostedZoneVPCArrayInput is an input type that accepts HostedZoneVPCArray and HostedZoneVPCArrayOutput values.
-// You can construct a concrete instance of `HostedZoneVPCArrayInput` via:
+// HostedZoneVpcArrayInput is an input type that accepts HostedZoneVpcArray and HostedZoneVpcArrayOutput values.
+// You can construct a concrete instance of `HostedZoneVpcArrayInput` via:
 //
-//	HostedZoneVPCArray{ HostedZoneVPCArgs{...} }
-type HostedZoneVPCArrayInput interface {
+//	HostedZoneVpcArray{ HostedZoneVpcArgs{...} }
+type HostedZoneVpcArrayInput interface {
 	pulumi.Input
 
-	ToHostedZoneVPCArrayOutput() HostedZoneVPCArrayOutput
-	ToHostedZoneVPCArrayOutputWithContext(context.Context) HostedZoneVPCArrayOutput
+	ToHostedZoneVpcArrayOutput() HostedZoneVpcArrayOutput
+	ToHostedZoneVpcArrayOutputWithContext(context.Context) HostedZoneVpcArrayOutput
 }
 
-type HostedZoneVPCArray []HostedZoneVPCInput
+type HostedZoneVpcArray []HostedZoneVpcInput
 
-func (HostedZoneVPCArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostedZoneVPC)(nil)).Elem()
+func (HostedZoneVpcArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostedZoneVpc)(nil)).Elem()
 }
 
-func (i HostedZoneVPCArray) ToHostedZoneVPCArrayOutput() HostedZoneVPCArrayOutput {
-	return i.ToHostedZoneVPCArrayOutputWithContext(context.Background())
+func (i HostedZoneVpcArray) ToHostedZoneVpcArrayOutput() HostedZoneVpcArrayOutput {
+	return i.ToHostedZoneVpcArrayOutputWithContext(context.Background())
 }
 
-func (i HostedZoneVPCArray) ToHostedZoneVPCArrayOutputWithContext(ctx context.Context) HostedZoneVPCArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneVPCArrayOutput)
+func (i HostedZoneVpcArray) ToHostedZoneVpcArrayOutputWithContext(ctx context.Context) HostedZoneVpcArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneVpcArrayOutput)
 }
 
 // A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
-type HostedZoneVPCOutput struct{ *pulumi.OutputState }
+type HostedZoneVpcOutput struct{ *pulumi.OutputState }
 
-func (HostedZoneVPCOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedZoneVPC)(nil)).Elem()
+func (HostedZoneVpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneVpc)(nil)).Elem()
 }
 
-func (o HostedZoneVPCOutput) ToHostedZoneVPCOutput() HostedZoneVPCOutput {
+func (o HostedZoneVpcOutput) ToHostedZoneVpcOutput() HostedZoneVpcOutput {
 	return o
 }
 
-func (o HostedZoneVPCOutput) ToHostedZoneVPCOutputWithContext(ctx context.Context) HostedZoneVPCOutput {
+func (o HostedZoneVpcOutput) ToHostedZoneVpcOutputWithContext(ctx context.Context) HostedZoneVpcOutput {
 	return o
 }
 
 // The ID of an Amazon VPC.
-func (o HostedZoneVPCOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v HostedZoneVPC) string { return v.VpcId }).(pulumi.StringOutput)
+func (o HostedZoneVpcOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v HostedZoneVpc) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
 // The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
-func (o HostedZoneVPCOutput) VpcRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v HostedZoneVPC) string { return v.VpcRegion }).(pulumi.StringOutput)
+func (o HostedZoneVpcOutput) VpcRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v HostedZoneVpc) string { return v.VpcRegion }).(pulumi.StringOutput)
 }
 
-type HostedZoneVPCArrayOutput struct{ *pulumi.OutputState }
+type HostedZoneVpcArrayOutput struct{ *pulumi.OutputState }
 
-func (HostedZoneVPCArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostedZoneVPC)(nil)).Elem()
+func (HostedZoneVpcArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostedZoneVpc)(nil)).Elem()
 }
 
-func (o HostedZoneVPCArrayOutput) ToHostedZoneVPCArrayOutput() HostedZoneVPCArrayOutput {
+func (o HostedZoneVpcArrayOutput) ToHostedZoneVpcArrayOutput() HostedZoneVpcArrayOutput {
 	return o
 }
 
-func (o HostedZoneVPCArrayOutput) ToHostedZoneVPCArrayOutputWithContext(ctx context.Context) HostedZoneVPCArrayOutput {
+func (o HostedZoneVpcArrayOutput) ToHostedZoneVpcArrayOutputWithContext(ctx context.Context) HostedZoneVpcArrayOutput {
 	return o
 }
 
-func (o HostedZoneVPCArrayOutput) Index(i pulumi.IntInput) HostedZoneVPCOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostedZoneVPC {
-		return vs[0].([]HostedZoneVPC)[vs[1].(int)]
-	}).(HostedZoneVPCOutput)
+func (o HostedZoneVpcArrayOutput) Index(i pulumi.IntInput) HostedZoneVpcOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostedZoneVpc {
+		return vs[0].([]HostedZoneVpc)[vs[1].(int)]
+	}).(HostedZoneVpcOutput)
 }
 
 type RecordSetAliasTarget struct {
@@ -2358,8 +2358,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneQueryLoggingConfigPtrInput)(nil)).Elem(), HostedZoneQueryLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneTagInput)(nil)).Elem(), HostedZoneTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneTagArrayInput)(nil)).Elem(), HostedZoneTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVPCInput)(nil)).Elem(), HostedZoneVPCArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVPCArrayInput)(nil)).Elem(), HostedZoneVPCArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVpcInput)(nil)).Elem(), HostedZoneVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVpcArrayInput)(nil)).Elem(), HostedZoneVpcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAliasTargetInput)(nil)).Elem(), RecordSetAliasTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAliasTargetPtrInput)(nil)).Elem(), RecordSetAliasTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCidrRoutingConfigInput)(nil)).Elem(), RecordSetCidrRoutingConfigArgs{})
@@ -2388,8 +2388,8 @@ func init() {
 	pulumi.RegisterOutputType(HostedZoneQueryLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneTagOutput{})
 	pulumi.RegisterOutputType(HostedZoneTagArrayOutput{})
-	pulumi.RegisterOutputType(HostedZoneVPCOutput{})
-	pulumi.RegisterOutputType(HostedZoneVPCArrayOutput{})
+	pulumi.RegisterOutputType(HostedZoneVpcOutput{})
+	pulumi.RegisterOutputType(HostedZoneVpcArrayOutput{})
 	pulumi.RegisterOutputType(RecordSetAliasTargetOutput{})
 	pulumi.RegisterOutputType(RecordSetAliasTargetPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetCidrRoutingConfigOutput{})

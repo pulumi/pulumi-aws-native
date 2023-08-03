@@ -56,7 +56,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * Document db event source config.
      */
-    public readonly documentDbEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDocumentDBEventSourceConfig | undefined>;
+    public readonly documentDbEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDocumentDbEventSourceConfig | undefined>;
     /**
      * Disables the event source mapping to pause polling and invocation.
      */
@@ -220,7 +220,7 @@ export interface EventSourceMappingArgs {
     /**
      * Document db event source config.
      */
-    documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDBEventSourceConfigArgs>;
+    documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDbEventSourceConfigArgs>;
     /**
      * Disables the event source mapping to pause polling and invocation.
      */

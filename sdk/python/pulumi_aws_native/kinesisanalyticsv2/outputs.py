@@ -12,13 +12,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ApplicationCSVMappingParameters',
     'ApplicationCatalogConfiguration',
     'ApplicationCheckpointConfiguration',
     'ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption',
     'ApplicationCodeConfiguration',
     'ApplicationCodeContent',
     'ApplicationConfiguration',
+    'ApplicationCsvMappingParameters',
     'ApplicationCustomArtifactConfiguration',
     'ApplicationDeployAsApplicationConfiguration',
     'ApplicationEnvironmentProperties',
@@ -30,7 +30,7 @@ __all__ = [
     'ApplicationInputParallelism',
     'ApplicationInputProcessingConfiguration',
     'ApplicationInputSchema',
-    'ApplicationJSONMappingParameters',
+    'ApplicationJsonMappingParameters',
     'ApplicationKinesisFirehoseInput',
     'ApplicationKinesisStreamsInput',
     'ApplicationMaintenanceConfiguration',
@@ -46,8 +46,8 @@ __all__ = [
     'ApplicationPropertyGroup',
     'ApplicationRecordColumn',
     'ApplicationRecordFormat',
-    'ApplicationReferenceDataSourceCSVMappingParameters',
-    'ApplicationReferenceDataSourceJSONMappingParameters',
+    'ApplicationReferenceDataSourceCsvMappingParameters',
+    'ApplicationReferenceDataSourceJsonMappingParameters',
     'ApplicationReferenceDataSourceMappingParameters',
     'ApplicationReferenceDataSourceRecordColumn',
     'ApplicationReferenceDataSourceRecordFormat',
@@ -65,62 +65,6 @@ __all__ = [
     'ApplicationZeppelinApplicationConfiguration',
     'ApplicationZeppelinMonitoringConfiguration',
 ]
-
-@pulumi.output_type
-class ApplicationCSVMappingParameters(dict):
-    """
-    For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
-    `"name1", "address1"`
-    `"name2", "address2"`
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "recordColumnDelimiter":
-            suggest = "record_column_delimiter"
-        elif key == "recordRowDelimiter":
-            suggest = "record_row_delimiter"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationCSVMappingParameters. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationCSVMappingParameters.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationCSVMappingParameters.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 record_column_delimiter: str,
-                 record_row_delimiter: str):
-        """
-        For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
-        `"name1", "address1"`
-        `"name2", "address2"`
-        :param str record_column_delimiter: The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-        :param str record_row_delimiter: The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
-        """
-        pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
-        pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
-
-    @property
-    @pulumi.getter(name="recordColumnDelimiter")
-    def record_column_delimiter(self) -> str:
-        """
-        The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-        """
-        return pulumi.get(self, "record_column_delimiter")
-
-    @property
-    @pulumi.getter(name="recordRowDelimiter")
-    def record_row_delimiter(self) -> str:
-        """
-        The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
-        """
-        return pulumi.get(self, "record_row_delimiter")
-
 
 @pulumi.output_type
 class ApplicationCatalogConfiguration(dict):
@@ -514,6 +458,62 @@ class ApplicationConfiguration(dict):
         The configuration parameters for a Kinesis Data Analytics Studio notebook.
         """
         return pulumi.get(self, "zeppelin_application_configuration")
+
+
+@pulumi.output_type
+class ApplicationCsvMappingParameters(dict):
+    """
+    For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
+    `"name1", "address1"`
+    `"name2", "address2"`
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordColumnDelimiter":
+            suggest = "record_column_delimiter"
+        elif key == "recordRowDelimiter":
+            suggest = "record_row_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationCsvMappingParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationCsvMappingParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationCsvMappingParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 record_column_delimiter: str,
+                 record_row_delimiter: str):
+        """
+        For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
+        `"name1", "address1"`
+        `"name2", "address2"`
+        :param str record_column_delimiter: The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+        :param str record_row_delimiter: The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
+        """
+        pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
+        pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
+
+    @property
+    @pulumi.getter(name="recordColumnDelimiter")
+    def record_column_delimiter(self) -> str:
+        """
+        The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+        """
+        return pulumi.get(self, "record_column_delimiter")
+
+    @property
+    @pulumi.getter(name="recordRowDelimiter")
+    def record_row_delimiter(self) -> str:
+        """
+        The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
+        """
+        return pulumi.get(self, "record_row_delimiter")
 
 
 @pulumi.output_type
@@ -1087,7 +1087,7 @@ class ApplicationInputSchema(dict):
 
 
 @pulumi.output_type
-class ApplicationJSONMappingParameters(dict):
+class ApplicationJsonMappingParameters(dict):
     """
     For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
     """
@@ -1098,14 +1098,14 @@ class ApplicationJSONMappingParameters(dict):
             suggest = "record_row_path"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationJSONMappingParameters. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationJsonMappingParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationJSONMappingParameters.__key_warning(key)
+        ApplicationJsonMappingParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationJSONMappingParameters.__key_warning(key)
+        ApplicationJsonMappingParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1267,12 +1267,12 @@ class ApplicationMappingParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 csv_mapping_parameters: Optional['outputs.ApplicationCSVMappingParameters'] = None,
-                 json_mapping_parameters: Optional['outputs.ApplicationJSONMappingParameters'] = None):
+                 csv_mapping_parameters: Optional['outputs.ApplicationCsvMappingParameters'] = None,
+                 json_mapping_parameters: Optional['outputs.ApplicationJsonMappingParameters'] = None):
         """
         When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        :param 'ApplicationCSVMappingParameters' csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        :param 'ApplicationJSONMappingParameters' json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
+        :param 'ApplicationCsvMappingParameters' csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
+        :param 'ApplicationJsonMappingParameters' json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
         """
         if csv_mapping_parameters is not None:
             pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
@@ -1281,7 +1281,7 @@ class ApplicationMappingParameters(dict):
 
     @property
     @pulumi.getter(name="csvMappingParameters")
-    def csv_mapping_parameters(self) -> Optional['outputs.ApplicationCSVMappingParameters']:
+    def csv_mapping_parameters(self) -> Optional['outputs.ApplicationCsvMappingParameters']:
         """
         Provides additional mapping information when the record format uses delimiters (for example, CSV).
         """
@@ -1289,7 +1289,7 @@ class ApplicationMappingParameters(dict):
 
     @property
     @pulumi.getter(name="jsonMappingParameters")
-    def json_mapping_parameters(self) -> Optional['outputs.ApplicationJSONMappingParameters']:
+    def json_mapping_parameters(self) -> Optional['outputs.ApplicationJsonMappingParameters']:
         """
         Provides additional mapping information when JSON is the record format on the streaming source.
         """
@@ -1861,7 +1861,7 @@ class ApplicationRecordFormat(dict):
 
 
 @pulumi.output_type
-class ApplicationReferenceDataSourceCSVMappingParameters(dict):
+class ApplicationReferenceDataSourceCsvMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1871,14 +1871,14 @@ class ApplicationReferenceDataSourceCSVMappingParameters(dict):
             suggest = "record_row_delimiter"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationReferenceDataSourceCSVMappingParameters. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationReferenceDataSourceCsvMappingParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationReferenceDataSourceCSVMappingParameters.__key_warning(key)
+        ApplicationReferenceDataSourceCsvMappingParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationReferenceDataSourceCSVMappingParameters.__key_warning(key)
+        ApplicationReferenceDataSourceCsvMappingParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1899,7 +1899,7 @@ class ApplicationReferenceDataSourceCSVMappingParameters(dict):
 
 
 @pulumi.output_type
-class ApplicationReferenceDataSourceJSONMappingParameters(dict):
+class ApplicationReferenceDataSourceJsonMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1907,14 +1907,14 @@ class ApplicationReferenceDataSourceJSONMappingParameters(dict):
             suggest = "record_row_path"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationReferenceDataSourceJSONMappingParameters. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationReferenceDataSourceJsonMappingParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationReferenceDataSourceJSONMappingParameters.__key_warning(key)
+        ApplicationReferenceDataSourceJsonMappingParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationReferenceDataSourceJSONMappingParameters.__key_warning(key)
+        ApplicationReferenceDataSourceJsonMappingParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1949,8 +1949,8 @@ class ApplicationReferenceDataSourceMappingParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 csv_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceCSVMappingParameters'] = None,
-                 json_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceJSONMappingParameters'] = None):
+                 csv_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceCsvMappingParameters'] = None,
+                 json_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceJsonMappingParameters'] = None):
         if csv_mapping_parameters is not None:
             pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -1958,12 +1958,12 @@ class ApplicationReferenceDataSourceMappingParameters(dict):
 
     @property
     @pulumi.getter(name="csvMappingParameters")
-    def csv_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceCSVMappingParameters']:
+    def csv_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceCsvMappingParameters']:
         return pulumi.get(self, "csv_mapping_parameters")
 
     @property
     @pulumi.getter(name="jsonMappingParameters")
-    def json_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceJSONMappingParameters']:
+    def json_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceJsonMappingParameters']:
         return pulumi.get(self, "json_mapping_parameters")
 
 

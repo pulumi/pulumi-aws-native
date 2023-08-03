@@ -52,7 +52,7 @@ export class WirelessGateway extends pulumi.CustomResource {
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.WirelessGatewayLoRaWANGateway>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.WirelessGatewayLoRaWanGateway>;
     /**
      * Name of Wireless Gateway.
      */
@@ -122,7 +122,7 @@ export interface WirelessGatewayArgs {
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
      */
-    loRaWan: pulumi.Input<inputs.iotwireless.WirelessGatewayLoRaWANGatewayArgs>;
+    loRaWan: pulumi.Input<inputs.iotwireless.WirelessGatewayLoRaWanGatewayArgs>;
     /**
      * Name of Wireless Gateway.
      */

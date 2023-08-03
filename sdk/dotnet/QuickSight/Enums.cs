@@ -2705,27 +2705,27 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct AnalysisURLTargetConfiguration : IEquatable<AnalysisURLTargetConfiguration>
+    public readonly struct AnalysisUrlTargetConfiguration : IEquatable<AnalysisUrlTargetConfiguration>
     {
         private readonly string _value;
 
-        private AnalysisURLTargetConfiguration(string value)
+        private AnalysisUrlTargetConfiguration(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static AnalysisURLTargetConfiguration NewTab { get; } = new AnalysisURLTargetConfiguration("NEW_TAB");
-        public static AnalysisURLTargetConfiguration NewWindow { get; } = new AnalysisURLTargetConfiguration("NEW_WINDOW");
-        public static AnalysisURLTargetConfiguration SameTab { get; } = new AnalysisURLTargetConfiguration("SAME_TAB");
+        public static AnalysisUrlTargetConfiguration NewTab { get; } = new AnalysisUrlTargetConfiguration("NEW_TAB");
+        public static AnalysisUrlTargetConfiguration NewWindow { get; } = new AnalysisUrlTargetConfiguration("NEW_WINDOW");
+        public static AnalysisUrlTargetConfiguration SameTab { get; } = new AnalysisUrlTargetConfiguration("SAME_TAB");
 
-        public static bool operator ==(AnalysisURLTargetConfiguration left, AnalysisURLTargetConfiguration right) => left.Equals(right);
-        public static bool operator !=(AnalysisURLTargetConfiguration left, AnalysisURLTargetConfiguration right) => !left.Equals(right);
+        public static bool operator ==(AnalysisUrlTargetConfiguration left, AnalysisUrlTargetConfiguration right) => left.Equals(right);
+        public static bool operator !=(AnalysisUrlTargetConfiguration left, AnalysisUrlTargetConfiguration right) => !left.Equals(right);
 
-        public static explicit operator string(AnalysisURLTargetConfiguration value) => value._value;
+        public static explicit operator string(AnalysisUrlTargetConfiguration value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AnalysisURLTargetConfiguration other && Equals(other);
-        public bool Equals(AnalysisURLTargetConfiguration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is AnalysisUrlTargetConfiguration other && Equals(other);
+        public bool Equals(AnalysisUrlTargetConfiguration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -5742,26 +5742,26 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct DashboardUIState : IEquatable<DashboardUIState>
+    public readonly struct DashboardUiState : IEquatable<DashboardUiState>
     {
         private readonly string _value;
 
-        private DashboardUIState(string value)
+        private DashboardUiState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DashboardUIState Expanded { get; } = new DashboardUIState("EXPANDED");
-        public static DashboardUIState Collapsed { get; } = new DashboardUIState("COLLAPSED");
+        public static DashboardUiState Expanded { get; } = new DashboardUiState("EXPANDED");
+        public static DashboardUiState Collapsed { get; } = new DashboardUiState("COLLAPSED");
 
-        public static bool operator ==(DashboardUIState left, DashboardUIState right) => left.Equals(right);
-        public static bool operator !=(DashboardUIState left, DashboardUIState right) => !left.Equals(right);
+        public static bool operator ==(DashboardUiState left, DashboardUiState right) => left.Equals(right);
+        public static bool operator !=(DashboardUiState left, DashboardUiState right) => !left.Equals(right);
 
-        public static explicit operator string(DashboardUIState value) => value._value;
+        public static explicit operator string(DashboardUiState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DashboardUIState other && Equals(other);
-        public bool Equals(DashboardUIState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DashboardUiState other && Equals(other);
+        public bool Equals(DashboardUiState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -5770,27 +5770,27 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct DashboardURLTargetConfiguration : IEquatable<DashboardURLTargetConfiguration>
+    public readonly struct DashboardUrlTargetConfiguration : IEquatable<DashboardUrlTargetConfiguration>
     {
         private readonly string _value;
 
-        private DashboardURLTargetConfiguration(string value)
+        private DashboardUrlTargetConfiguration(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DashboardURLTargetConfiguration NewTab { get; } = new DashboardURLTargetConfiguration("NEW_TAB");
-        public static DashboardURLTargetConfiguration NewWindow { get; } = new DashboardURLTargetConfiguration("NEW_WINDOW");
-        public static DashboardURLTargetConfiguration SameTab { get; } = new DashboardURLTargetConfiguration("SAME_TAB");
+        public static DashboardUrlTargetConfiguration NewTab { get; } = new DashboardUrlTargetConfiguration("NEW_TAB");
+        public static DashboardUrlTargetConfiguration NewWindow { get; } = new DashboardUrlTargetConfiguration("NEW_WINDOW");
+        public static DashboardUrlTargetConfiguration SameTab { get; } = new DashboardUrlTargetConfiguration("SAME_TAB");
 
-        public static bool operator ==(DashboardURLTargetConfiguration left, DashboardURLTargetConfiguration right) => left.Equals(right);
-        public static bool operator !=(DashboardURLTargetConfiguration left, DashboardURLTargetConfiguration right) => !left.Equals(right);
+        public static bool operator ==(DashboardUrlTargetConfiguration left, DashboardUrlTargetConfiguration right) => left.Equals(right);
+        public static bool operator !=(DashboardUrlTargetConfiguration left, DashboardUrlTargetConfiguration right) => !left.Equals(right);
 
-        public static explicit operator string(DashboardURLTargetConfiguration value) => value._value;
+        public static explicit operator string(DashboardUrlTargetConfiguration value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DashboardURLTargetConfiguration other && Equals(other);
-        public bool Equals(DashboardURLTargetConfiguration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DashboardUrlTargetConfiguration other && Equals(other);
+        public bool Equals(DashboardUrlTargetConfiguration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -9248,27 +9248,27 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct TemplateURLTargetConfiguration : IEquatable<TemplateURLTargetConfiguration>
+    public readonly struct TemplateUrlTargetConfiguration : IEquatable<TemplateUrlTargetConfiguration>
     {
         private readonly string _value;
 
-        private TemplateURLTargetConfiguration(string value)
+        private TemplateUrlTargetConfiguration(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TemplateURLTargetConfiguration NewTab { get; } = new TemplateURLTargetConfiguration("NEW_TAB");
-        public static TemplateURLTargetConfiguration NewWindow { get; } = new TemplateURLTargetConfiguration("NEW_WINDOW");
-        public static TemplateURLTargetConfiguration SameTab { get; } = new TemplateURLTargetConfiguration("SAME_TAB");
+        public static TemplateUrlTargetConfiguration NewTab { get; } = new TemplateUrlTargetConfiguration("NEW_TAB");
+        public static TemplateUrlTargetConfiguration NewWindow { get; } = new TemplateUrlTargetConfiguration("NEW_WINDOW");
+        public static TemplateUrlTargetConfiguration SameTab { get; } = new TemplateUrlTargetConfiguration("SAME_TAB");
 
-        public static bool operator ==(TemplateURLTargetConfiguration left, TemplateURLTargetConfiguration right) => left.Equals(right);
-        public static bool operator !=(TemplateURLTargetConfiguration left, TemplateURLTargetConfiguration right) => !left.Equals(right);
+        public static bool operator ==(TemplateUrlTargetConfiguration left, TemplateUrlTargetConfiguration right) => left.Equals(right);
+        public static bool operator !=(TemplateUrlTargetConfiguration left, TemplateUrlTargetConfiguration right) => !left.Equals(right);
 
-        public static explicit operator string(TemplateURLTargetConfiguration value) => value._value;
+        public static explicit operator string(TemplateUrlTargetConfiguration value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TemplateURLTargetConfiguration other && Equals(other);
-        public bool Equals(TemplateURLTargetConfiguration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is TemplateUrlTargetConfiguration other && Equals(other);
+        public bool Equals(TemplateUrlTargetConfiguration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -10241,27 +10241,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct VPCConnectionAvailabilityStatus : IEquatable<VPCConnectionAvailabilityStatus>
+    public readonly struct VpcConnectionNetworkInterfaceStatus : IEquatable<VpcConnectionNetworkInterfaceStatus>
     {
         private readonly string _value;
 
-        private VPCConnectionAvailabilityStatus(string value)
+        private VpcConnectionNetworkInterfaceStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static VPCConnectionAvailabilityStatus Available { get; } = new VPCConnectionAvailabilityStatus("AVAILABLE");
-        public static VPCConnectionAvailabilityStatus Unavailable { get; } = new VPCConnectionAvailabilityStatus("UNAVAILABLE");
-        public static VPCConnectionAvailabilityStatus PartiallyAvailable { get; } = new VPCConnectionAvailabilityStatus("PARTIALLY_AVAILABLE");
+        public static VpcConnectionNetworkInterfaceStatus Creating { get; } = new VpcConnectionNetworkInterfaceStatus("CREATING");
+        public static VpcConnectionNetworkInterfaceStatus Available { get; } = new VpcConnectionNetworkInterfaceStatus("AVAILABLE");
+        public static VpcConnectionNetworkInterfaceStatus CreationFailed { get; } = new VpcConnectionNetworkInterfaceStatus("CREATION_FAILED");
+        public static VpcConnectionNetworkInterfaceStatus Updating { get; } = new VpcConnectionNetworkInterfaceStatus("UPDATING");
+        public static VpcConnectionNetworkInterfaceStatus UpdateFailed { get; } = new VpcConnectionNetworkInterfaceStatus("UPDATE_FAILED");
+        public static VpcConnectionNetworkInterfaceStatus Deleting { get; } = new VpcConnectionNetworkInterfaceStatus("DELETING");
+        public static VpcConnectionNetworkInterfaceStatus Deleted { get; } = new VpcConnectionNetworkInterfaceStatus("DELETED");
+        public static VpcConnectionNetworkInterfaceStatus DeletionFailed { get; } = new VpcConnectionNetworkInterfaceStatus("DELETION_FAILED");
+        public static VpcConnectionNetworkInterfaceStatus DeletionScheduled { get; } = new VpcConnectionNetworkInterfaceStatus("DELETION_SCHEDULED");
+        public static VpcConnectionNetworkInterfaceStatus AttachmentFailedRollbackFailed { get; } = new VpcConnectionNetworkInterfaceStatus("ATTACHMENT_FAILED_ROLLBACK_FAILED");
 
-        public static bool operator ==(VPCConnectionAvailabilityStatus left, VPCConnectionAvailabilityStatus right) => left.Equals(right);
-        public static bool operator !=(VPCConnectionAvailabilityStatus left, VPCConnectionAvailabilityStatus right) => !left.Equals(right);
+        public static bool operator ==(VpcConnectionNetworkInterfaceStatus left, VpcConnectionNetworkInterfaceStatus right) => left.Equals(right);
+        public static bool operator !=(VpcConnectionNetworkInterfaceStatus left, VpcConnectionNetworkInterfaceStatus right) => !left.Equals(right);
 
-        public static explicit operator string(VPCConnectionAvailabilityStatus value) => value._value;
+        public static explicit operator string(VpcConnectionNetworkInterfaceStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VPCConnectionAvailabilityStatus other && Equals(other);
-        public bool Equals(VPCConnectionAvailabilityStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is VpcConnectionNetworkInterfaceStatus other && Equals(other);
+        public bool Equals(VpcConnectionNetworkInterfaceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -10270,34 +10277,27 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct VPCConnectionNetworkInterfaceStatus : IEquatable<VPCConnectionNetworkInterfaceStatus>
+    public readonly struct VpcConnectionVpcConnectionAvailabilityStatus : IEquatable<VpcConnectionVpcConnectionAvailabilityStatus>
     {
         private readonly string _value;
 
-        private VPCConnectionNetworkInterfaceStatus(string value)
+        private VpcConnectionVpcConnectionAvailabilityStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static VPCConnectionNetworkInterfaceStatus Creating { get; } = new VPCConnectionNetworkInterfaceStatus("CREATING");
-        public static VPCConnectionNetworkInterfaceStatus Available { get; } = new VPCConnectionNetworkInterfaceStatus("AVAILABLE");
-        public static VPCConnectionNetworkInterfaceStatus CreationFailed { get; } = new VPCConnectionNetworkInterfaceStatus("CREATION_FAILED");
-        public static VPCConnectionNetworkInterfaceStatus Updating { get; } = new VPCConnectionNetworkInterfaceStatus("UPDATING");
-        public static VPCConnectionNetworkInterfaceStatus UpdateFailed { get; } = new VPCConnectionNetworkInterfaceStatus("UPDATE_FAILED");
-        public static VPCConnectionNetworkInterfaceStatus Deleting { get; } = new VPCConnectionNetworkInterfaceStatus("DELETING");
-        public static VPCConnectionNetworkInterfaceStatus Deleted { get; } = new VPCConnectionNetworkInterfaceStatus("DELETED");
-        public static VPCConnectionNetworkInterfaceStatus DeletionFailed { get; } = new VPCConnectionNetworkInterfaceStatus("DELETION_FAILED");
-        public static VPCConnectionNetworkInterfaceStatus DeletionScheduled { get; } = new VPCConnectionNetworkInterfaceStatus("DELETION_SCHEDULED");
-        public static VPCConnectionNetworkInterfaceStatus AttachmentFailedRollbackFailed { get; } = new VPCConnectionNetworkInterfaceStatus("ATTACHMENT_FAILED_ROLLBACK_FAILED");
+        public static VpcConnectionVpcConnectionAvailabilityStatus Available { get; } = new VpcConnectionVpcConnectionAvailabilityStatus("AVAILABLE");
+        public static VpcConnectionVpcConnectionAvailabilityStatus Unavailable { get; } = new VpcConnectionVpcConnectionAvailabilityStatus("UNAVAILABLE");
+        public static VpcConnectionVpcConnectionAvailabilityStatus PartiallyAvailable { get; } = new VpcConnectionVpcConnectionAvailabilityStatus("PARTIALLY_AVAILABLE");
 
-        public static bool operator ==(VPCConnectionNetworkInterfaceStatus left, VPCConnectionNetworkInterfaceStatus right) => left.Equals(right);
-        public static bool operator !=(VPCConnectionNetworkInterfaceStatus left, VPCConnectionNetworkInterfaceStatus right) => !left.Equals(right);
+        public static bool operator ==(VpcConnectionVpcConnectionAvailabilityStatus left, VpcConnectionVpcConnectionAvailabilityStatus right) => left.Equals(right);
+        public static bool operator !=(VpcConnectionVpcConnectionAvailabilityStatus left, VpcConnectionVpcConnectionAvailabilityStatus right) => !left.Equals(right);
 
-        public static explicit operator string(VPCConnectionNetworkInterfaceStatus value) => value._value;
+        public static explicit operator string(VpcConnectionVpcConnectionAvailabilityStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VPCConnectionNetworkInterfaceStatus other && Equals(other);
-        public bool Equals(VPCConnectionNetworkInterfaceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is VpcConnectionVpcConnectionAvailabilityStatus other && Equals(other);
+        public bool Equals(VpcConnectionVpcConnectionAvailabilityStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -10306,33 +10306,33 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct VPCConnectionResourceStatus : IEquatable<VPCConnectionResourceStatus>
+    public readonly struct VpcConnectionVpcConnectionResourceStatus : IEquatable<VpcConnectionVpcConnectionResourceStatus>
     {
         private readonly string _value;
 
-        private VPCConnectionResourceStatus(string value)
+        private VpcConnectionVpcConnectionResourceStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static VPCConnectionResourceStatus CreationInProgress { get; } = new VPCConnectionResourceStatus("CREATION_IN_PROGRESS");
-        public static VPCConnectionResourceStatus CreationSuccessful { get; } = new VPCConnectionResourceStatus("CREATION_SUCCESSFUL");
-        public static VPCConnectionResourceStatus CreationFailed { get; } = new VPCConnectionResourceStatus("CREATION_FAILED");
-        public static VPCConnectionResourceStatus UpdateInProgress { get; } = new VPCConnectionResourceStatus("UPDATE_IN_PROGRESS");
-        public static VPCConnectionResourceStatus UpdateSuccessful { get; } = new VPCConnectionResourceStatus("UPDATE_SUCCESSFUL");
-        public static VPCConnectionResourceStatus UpdateFailed { get; } = new VPCConnectionResourceStatus("UPDATE_FAILED");
-        public static VPCConnectionResourceStatus DeletionInProgress { get; } = new VPCConnectionResourceStatus("DELETION_IN_PROGRESS");
-        public static VPCConnectionResourceStatus DeletionFailed { get; } = new VPCConnectionResourceStatus("DELETION_FAILED");
-        public static VPCConnectionResourceStatus Deleted { get; } = new VPCConnectionResourceStatus("DELETED");
+        public static VpcConnectionVpcConnectionResourceStatus CreationInProgress { get; } = new VpcConnectionVpcConnectionResourceStatus("CREATION_IN_PROGRESS");
+        public static VpcConnectionVpcConnectionResourceStatus CreationSuccessful { get; } = new VpcConnectionVpcConnectionResourceStatus("CREATION_SUCCESSFUL");
+        public static VpcConnectionVpcConnectionResourceStatus CreationFailed { get; } = new VpcConnectionVpcConnectionResourceStatus("CREATION_FAILED");
+        public static VpcConnectionVpcConnectionResourceStatus UpdateInProgress { get; } = new VpcConnectionVpcConnectionResourceStatus("UPDATE_IN_PROGRESS");
+        public static VpcConnectionVpcConnectionResourceStatus UpdateSuccessful { get; } = new VpcConnectionVpcConnectionResourceStatus("UPDATE_SUCCESSFUL");
+        public static VpcConnectionVpcConnectionResourceStatus UpdateFailed { get; } = new VpcConnectionVpcConnectionResourceStatus("UPDATE_FAILED");
+        public static VpcConnectionVpcConnectionResourceStatus DeletionInProgress { get; } = new VpcConnectionVpcConnectionResourceStatus("DELETION_IN_PROGRESS");
+        public static VpcConnectionVpcConnectionResourceStatus DeletionFailed { get; } = new VpcConnectionVpcConnectionResourceStatus("DELETION_FAILED");
+        public static VpcConnectionVpcConnectionResourceStatus Deleted { get; } = new VpcConnectionVpcConnectionResourceStatus("DELETED");
 
-        public static bool operator ==(VPCConnectionResourceStatus left, VPCConnectionResourceStatus right) => left.Equals(right);
-        public static bool operator !=(VPCConnectionResourceStatus left, VPCConnectionResourceStatus right) => !left.Equals(right);
+        public static bool operator ==(VpcConnectionVpcConnectionResourceStatus left, VpcConnectionVpcConnectionResourceStatus right) => left.Equals(right);
+        public static bool operator !=(VpcConnectionVpcConnectionResourceStatus left, VpcConnectionVpcConnectionResourceStatus right) => !left.Equals(right);
 
-        public static explicit operator string(VPCConnectionResourceStatus value) => value._value;
+        public static explicit operator string(VpcConnectionVpcConnectionResourceStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VPCConnectionResourceStatus other && Equals(other);
-        public bool Equals(VPCConnectionResourceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is VpcConnectionVpcConnectionResourceStatus other && Equals(other);
+        public bool Equals(VpcConnectionVpcConnectionResourceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

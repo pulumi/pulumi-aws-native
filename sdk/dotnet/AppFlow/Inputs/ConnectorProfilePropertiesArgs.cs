@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileSalesforceConnectorProfilePropertiesArgs>? Salesforce { get; set; }
 
         [Input("sapoData")]
-        public Input<Inputs.ConnectorProfileSAPODataConnectorProfilePropertiesArgs>? SapoData { get; set; }
+        public Input<Inputs.ConnectorProfileSapoDataConnectorProfilePropertiesArgs>? SapoData { get; set; }
 
         [Input("serviceNow")]
         public Input<Inputs.ConnectorProfileServiceNowConnectorProfilePropertiesArgs>? ServiceNow { get; set; }

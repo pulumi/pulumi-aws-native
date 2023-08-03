@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDBClusterParameterGroupResult',
-    'AwaitableGetDBClusterParameterGroupResult',
+    'GetDbClusterParameterGroupResult',
+    'AwaitableGetDbClusterParameterGroupResult',
     'get_db_cluster_parameter_group',
     'get_db_cluster_parameter_group_output',
 ]
 
 @pulumi.output_type
-class GetDBClusterParameterGroupResult:
+class GetDbClusterParameterGroupResult:
     def __init__(__self__, id=None, parameters=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -42,32 +42,32 @@ class GetDBClusterParameterGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBClusterParameterGroupTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DbClusterParameterGroupTag']]:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDBClusterParameterGroupResult(GetDBClusterParameterGroupResult):
+class AwaitableGetDbClusterParameterGroupResult(GetDbClusterParameterGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBClusterParameterGroupResult(
+        return GetDbClusterParameterGroupResult(
             id=self.id,
             parameters=self.parameters,
             tags=self.tags)
 
 
 def get_db_cluster_parameter_group(id: Optional[str] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBClusterParameterGroupResult:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbClusterParameterGroupResult:
     """
     Resource Type definition for AWS::DocDB::DBClusterParameterGroup
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:docdb:getDBClusterParameterGroup', __args__, opts=opts, typ=GetDBClusterParameterGroupResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:docdb:getDbClusterParameterGroup', __args__, opts=opts, typ=GetDbClusterParameterGroupResult).value
 
-    return AwaitableGetDBClusterParameterGroupResult(
+    return AwaitableGetDbClusterParameterGroupResult(
         id=pulumi.get(__ret__, 'id'),
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -75,7 +75,7 @@ def get_db_cluster_parameter_group(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_cluster_parameter_group)
 def get_db_cluster_parameter_group_output(id: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBClusterParameterGroupResult]:
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbClusterParameterGroupResult]:
     """
     Resource Type definition for AWS::DocDB::DBClusterParameterGroup
     """

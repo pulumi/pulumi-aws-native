@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetGraphQLApiResult',
-    'AwaitableGetGraphQLApiResult',
+    'GetGraphQlApiResult',
+    'AwaitableGetGraphQlApiResult',
     'get_graph_ql_api',
     'get_graph_ql_api_output',
 ]
 
 @pulumi.output_type
-class GetGraphQLApiResult:
+class GetGraphQlApiResult:
     def __init__(__self__, additional_authentication_providers=None, api_id=None, arn=None, authentication_type=None, graph_ql_dns=None, graph_ql_url=None, id=None, lambda_authorizer_config=None, log_config=None, merged_api_execution_role_arn=None, name=None, open_id_connect_config=None, owner_contact=None, realtime_dns=None, realtime_url=None, tags=None, user_pool_config=None, xray_enabled=None):
         if additional_authentication_providers and not isinstance(additional_authentication_providers, list):
             raise TypeError("Expected argument 'additional_authentication_providers' to be a list")
@@ -77,7 +77,7 @@ class GetGraphQLApiResult:
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
-    def additional_authentication_providers(self) -> Optional[Sequence['outputs.GraphQLApiAdditionalAuthenticationProvider']]:
+    def additional_authentication_providers(self) -> Optional[Sequence['outputs.GraphQlApiAdditionalAuthenticationProvider']]:
         return pulumi.get(self, "additional_authentication_providers")
 
     @property
@@ -112,12 +112,12 @@ class GetGraphQLApiResult:
 
     @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
-    def lambda_authorizer_config(self) -> Optional['outputs.GraphQLApiLambdaAuthorizerConfig']:
+    def lambda_authorizer_config(self) -> Optional['outputs.GraphQlApiLambdaAuthorizerConfig']:
         return pulumi.get(self, "lambda_authorizer_config")
 
     @property
     @pulumi.getter(name="logConfig")
-    def log_config(self) -> Optional['outputs.GraphQLApiLogConfig']:
+    def log_config(self) -> Optional['outputs.GraphQlApiLogConfig']:
         return pulumi.get(self, "log_config")
 
     @property
@@ -132,7 +132,7 @@ class GetGraphQLApiResult:
 
     @property
     @pulumi.getter(name="openIdConnectConfig")
-    def open_id_connect_config(self) -> Optional['outputs.GraphQLApiOpenIDConnectConfig']:
+    def open_id_connect_config(self) -> Optional['outputs.GraphQlApiOpenIdConnectConfig']:
         return pulumi.get(self, "open_id_connect_config")
 
     @property
@@ -152,12 +152,12 @@ class GetGraphQLApiResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.GraphQLApiTag']]:
+    def tags(self) -> Optional[Sequence['outputs.GraphQlApiTag']]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userPoolConfig")
-    def user_pool_config(self) -> Optional['outputs.GraphQLApiUserPoolConfig']:
+    def user_pool_config(self) -> Optional['outputs.GraphQlApiUserPoolConfig']:
         return pulumi.get(self, "user_pool_config")
 
     @property
@@ -166,12 +166,12 @@ class GetGraphQLApiResult:
         return pulumi.get(self, "xray_enabled")
 
 
-class AwaitableGetGraphQLApiResult(GetGraphQLApiResult):
+class AwaitableGetGraphQlApiResult(GetGraphQlApiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetGraphQLApiResult(
+        return GetGraphQlApiResult(
             additional_authentication_providers=self.additional_authentication_providers,
             api_id=self.api_id,
             arn=self.arn,
@@ -193,16 +193,16 @@ class AwaitableGetGraphQLApiResult(GetGraphQLApiResult):
 
 
 def get_graph_ql_api(id: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphQLApiResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphQlApiResult:
     """
     Resource Type definition for AWS::AppSync::GraphQLApi
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:appsync:getGraphQLApi', __args__, opts=opts, typ=GetGraphQLApiResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:appsync:getGraphQlApi', __args__, opts=opts, typ=GetGraphQlApiResult).value
 
-    return AwaitableGetGraphQLApiResult(
+    return AwaitableGetGraphQlApiResult(
         additional_authentication_providers=pulumi.get(__ret__, 'additional_authentication_providers'),
         api_id=pulumi.get(__ret__, 'api_id'),
         arn=pulumi.get(__ret__, 'arn'),
@@ -225,7 +225,7 @@ def get_graph_ql_api(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_graph_ql_api)
 def get_graph_ql_api_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphQLApiResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphQlApiResult]:
     """
     Resource Type definition for AWS::AppSync::GraphQLApi
     """

@@ -11,7 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'IPSetTagArgs',
+    'IpSetTagArgs',
     'LoggingConfigurationConditionActionConditionPropertiesArgs',
     'LoggingConfigurationConditionLabelNameConditionPropertiesArgs',
     'LoggingConfigurationConditionArgs',
@@ -34,20 +34,20 @@ __all__ = [
     'RuleGroupCookieMatchPatternArgs',
     'RuleGroupCookiesArgs',
     'RuleGroupCountActionArgs',
-    'RuleGroupCustomHTTPHeaderArgs',
+    'RuleGroupCustomHttpHeaderArgs',
     'RuleGroupCustomRequestHandlingArgs',
     'RuleGroupCustomResponseBodiesArgs',
     'RuleGroupCustomResponseArgs',
     'RuleGroupFieldToMatchSingleHeaderPropertiesArgs',
     'RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs',
     'RuleGroupFieldToMatchArgs',
-    'RuleGroupForwardedIPConfigurationArgs',
+    'RuleGroupForwardedIpConfigurationArgs',
     'RuleGroupGeoMatchStatementArgs',
     'RuleGroupHeaderMatchPatternArgs',
     'RuleGroupHeadersArgs',
-    'RuleGroupIPSetForwardedIPConfigurationArgs',
-    'RuleGroupIPSetReferenceStatementArgs',
     'RuleGroupImmunityTimePropertyArgs',
+    'RuleGroupIpSetForwardedIpConfigurationArgs',
+    'RuleGroupIpSetReferenceStatementArgs',
     'RuleGroupJsonBodyArgs',
     'RuleGroupJsonMatchPatternArgs',
     'RuleGroupLabelMatchStatementArgs',
@@ -58,10 +58,10 @@ __all__ = [
     'RuleGroupRateBasedStatementCustomKeyArgs',
     'RuleGroupRateBasedStatementArgs',
     'RuleGroupRateLimitCookieArgs',
-    'RuleGroupRateLimitForwardedIPArgs',
-    'RuleGroupRateLimitHTTPMethodArgs',
+    'RuleGroupRateLimitForwardedIpArgs',
     'RuleGroupRateLimitHeaderArgs',
-    'RuleGroupRateLimitIPArgs',
+    'RuleGroupRateLimitHttpMethodArgs',
+    'RuleGroupRateLimitIpArgs',
     'RuleGroupRateLimitLabelNamespaceArgs',
     'RuleGroupRateLimitQueryArgumentArgs',
     'RuleGroupRateLimitQueryStringArgs',
@@ -77,84 +77,84 @@ __all__ = [
     'RuleGroupTextTransformationArgs',
     'RuleGroupVisibilityConfigArgs',
     'RuleGroupXssMatchStatementArgs',
-    'WebACLAWSManagedRulesACFPRuleSetArgs',
-    'WebACLAWSManagedRulesATPRuleSetArgs',
-    'WebACLAWSManagedRulesBotControlRuleSetArgs',
-    'WebACLAllowActionArgs',
-    'WebACLAndStatementArgs',
-    'WebACLAssociationConfigArgs',
-    'WebACLBlockActionArgs',
-    'WebACLBodyArgs',
-    'WebACLByteMatchStatementArgs',
-    'WebACLCaptchaActionArgs',
-    'WebACLCaptchaConfigArgs',
-    'WebACLChallengeActionArgs',
-    'WebACLChallengeConfigArgs',
-    'WebACLCookieMatchPatternArgs',
-    'WebACLCookiesArgs',
-    'WebACLCountActionArgs',
-    'WebACLCustomHTTPHeaderArgs',
-    'WebACLCustomRequestHandlingArgs',
-    'WebACLCustomResponseBodiesArgs',
-    'WebACLCustomResponseArgs',
-    'WebACLDefaultActionArgs',
-    'WebACLExcludedRuleArgs',
-    'WebACLFieldIdentifierArgs',
-    'WebACLFieldToMatchSingleHeaderPropertiesArgs',
-    'WebACLFieldToMatchSingleQueryArgumentPropertiesArgs',
-    'WebACLFieldToMatchArgs',
-    'WebACLForwardedIPConfigurationArgs',
-    'WebACLGeoMatchStatementArgs',
-    'WebACLHeaderMatchPatternArgs',
-    'WebACLHeadersArgs',
-    'WebACLIPSetForwardedIPConfigurationArgs',
-    'WebACLIPSetReferenceStatementArgs',
-    'WebACLImmunityTimePropertyArgs',
-    'WebACLJsonBodyArgs',
-    'WebACLJsonMatchPatternArgs',
-    'WebACLLabelMatchStatementArgs',
-    'WebACLLabelArgs',
-    'WebACLManagedRuleGroupConfigArgs',
-    'WebACLManagedRuleGroupStatementArgs',
-    'WebACLNotStatementArgs',
-    'WebACLOrStatementArgs',
-    'WebACLOverrideActionArgs',
-    'WebACLRateBasedStatementCustomKeyArgs',
-    'WebACLRateBasedStatementArgs',
-    'WebACLRateLimitCookieArgs',
-    'WebACLRateLimitForwardedIPArgs',
-    'WebACLRateLimitHTTPMethodArgs',
-    'WebACLRateLimitHeaderArgs',
-    'WebACLRateLimitIPArgs',
-    'WebACLRateLimitLabelNamespaceArgs',
-    'WebACLRateLimitQueryArgumentArgs',
-    'WebACLRateLimitQueryStringArgs',
-    'WebACLRateLimitUriPathArgs',
-    'WebACLRegexMatchStatementArgs',
-    'WebACLRegexPatternSetReferenceStatementArgs',
-    'WebACLRequestBodyArgs',
-    'WebACLRequestInspectionACFPArgs',
-    'WebACLRequestInspectionArgs',
-    'WebACLResponseInspectionBodyContainsArgs',
-    'WebACLResponseInspectionHeaderArgs',
-    'WebACLResponseInspectionJsonArgs',
-    'WebACLResponseInspectionStatusCodeArgs',
-    'WebACLResponseInspectionArgs',
-    'WebACLRuleActionOverrideArgs',
-    'WebACLRuleActionArgs',
-    'WebACLRuleGroupReferenceStatementArgs',
-    'WebACLRuleArgs',
-    'WebACLSizeConstraintStatementArgs',
-    'WebACLSqliMatchStatementArgs',
-    'WebACLStatementArgs',
-    'WebACLTagArgs',
-    'WebACLTextTransformationArgs',
-    'WebACLVisibilityConfigArgs',
-    'WebACLXssMatchStatementArgs',
+    'WebAclAllowActionArgs',
+    'WebAclAndStatementArgs',
+    'WebAclAssociationConfigArgs',
+    'WebAclAwsManagedRulesAcfpRuleSetArgs',
+    'WebAclAwsManagedRulesAtpRuleSetArgs',
+    'WebAclAwsManagedRulesBotControlRuleSetArgs',
+    'WebAclBlockActionArgs',
+    'WebAclBodyArgs',
+    'WebAclByteMatchStatementArgs',
+    'WebAclCaptchaActionArgs',
+    'WebAclCaptchaConfigArgs',
+    'WebAclChallengeActionArgs',
+    'WebAclChallengeConfigArgs',
+    'WebAclCookieMatchPatternArgs',
+    'WebAclCookiesArgs',
+    'WebAclCountActionArgs',
+    'WebAclCustomHttpHeaderArgs',
+    'WebAclCustomRequestHandlingArgs',
+    'WebAclCustomResponseBodiesArgs',
+    'WebAclCustomResponseArgs',
+    'WebAclDefaultActionArgs',
+    'WebAclExcludedRuleArgs',
+    'WebAclFieldIdentifierArgs',
+    'WebAclFieldToMatchSingleHeaderPropertiesArgs',
+    'WebAclFieldToMatchSingleQueryArgumentPropertiesArgs',
+    'WebAclFieldToMatchArgs',
+    'WebAclForwardedIpConfigurationArgs',
+    'WebAclGeoMatchStatementArgs',
+    'WebAclHeaderMatchPatternArgs',
+    'WebAclHeadersArgs',
+    'WebAclImmunityTimePropertyArgs',
+    'WebAclIpSetForwardedIpConfigurationArgs',
+    'WebAclIpSetReferenceStatementArgs',
+    'WebAclJsonBodyArgs',
+    'WebAclJsonMatchPatternArgs',
+    'WebAclLabelMatchStatementArgs',
+    'WebAclLabelArgs',
+    'WebAclManagedRuleGroupConfigArgs',
+    'WebAclManagedRuleGroupStatementArgs',
+    'WebAclNotStatementArgs',
+    'WebAclOrStatementArgs',
+    'WebAclOverrideActionArgs',
+    'WebAclRateBasedStatementCustomKeyArgs',
+    'WebAclRateBasedStatementArgs',
+    'WebAclRateLimitCookieArgs',
+    'WebAclRateLimitForwardedIpArgs',
+    'WebAclRateLimitHeaderArgs',
+    'WebAclRateLimitHttpMethodArgs',
+    'WebAclRateLimitIpArgs',
+    'WebAclRateLimitLabelNamespaceArgs',
+    'WebAclRateLimitQueryArgumentArgs',
+    'WebAclRateLimitQueryStringArgs',
+    'WebAclRateLimitUriPathArgs',
+    'WebAclRegexMatchStatementArgs',
+    'WebAclRegexPatternSetReferenceStatementArgs',
+    'WebAclRequestBodyArgs',
+    'WebAclRequestInspectionAcfpArgs',
+    'WebAclRequestInspectionArgs',
+    'WebAclResponseInspectionBodyContainsArgs',
+    'WebAclResponseInspectionHeaderArgs',
+    'WebAclResponseInspectionJsonArgs',
+    'WebAclResponseInspectionStatusCodeArgs',
+    'WebAclResponseInspectionArgs',
+    'WebAclRuleActionOverrideArgs',
+    'WebAclRuleActionArgs',
+    'WebAclRuleGroupReferenceStatementArgs',
+    'WebAclRuleArgs',
+    'WebAclSizeConstraintStatementArgs',
+    'WebAclSqliMatchStatementArgs',
+    'WebAclStatementArgs',
+    'WebAclTagArgs',
+    'WebAclTextTransformationArgs',
+    'WebAclVisibilityConfigArgs',
+    'WebAclXssMatchStatementArgs',
 ]
 
 @pulumi.input_type
-class IPSetTagArgs:
+class IpSetTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -916,7 +916,7 @@ class RuleGroupCountActionArgs:
 
 
 @pulumi.input_type
-class RuleGroupCustomHTTPHeaderArgs:
+class RuleGroupCustomHttpHeaderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -948,23 +948,23 @@ class RuleGroupCustomHTTPHeaderArgs:
 @pulumi.input_type
 class RuleGroupCustomRequestHandlingArgs:
     def __init__(__self__, *,
-                 insert_headers: pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]):
+                 insert_headers: pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]]):
         """
         Custom request handling.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]] insert_headers: Collection of HTTP headers.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]] insert_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
-    def insert_headers(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]:
+    def insert_headers(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]]:
         """
         Collection of HTTP headers.
         """
         return pulumi.get(self, "insert_headers")
 
     @insert_headers.setter
-    def insert_headers(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]):
+    def insert_headers(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]]):
         pulumi.set(self, "insert_headers", value)
 
 
@@ -982,11 +982,11 @@ class RuleGroupCustomResponseArgs:
     def __init__(__self__, *,
                  response_code: pulumi.Input[int],
                  custom_response_body_key: Optional[pulumi.Input[str]] = None,
-                 response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]] = None):
+                 response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]]] = None):
         """
         Custom response.
         :param pulumi.Input[str] custom_response_body_key: Custom response body key.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]] response_headers: Collection of HTTP headers.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]] response_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -1017,14 +1017,14 @@ class RuleGroupCustomResponseArgs:
 
     @property
     @pulumi.getter(name="responseHeaders")
-    def response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]]:
+    def response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]]]:
         """
         Collection of HTTP headers.
         """
         return pulumi.get(self, "response_headers")
 
     @response_headers.setter
-    def response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]]):
+    def response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]]]):
         pulumi.set(self, "response_headers", value)
 
 
@@ -1212,20 +1212,20 @@ class RuleGroupFieldToMatchArgs:
 
 
 @pulumi.input_type
-class RuleGroupForwardedIPConfigurationArgs:
+class RuleGroupForwardedIpConfigurationArgs:
     def __init__(__self__, *,
-                 fallback_behavior: pulumi.Input['RuleGroupForwardedIPConfigurationFallbackBehavior'],
+                 fallback_behavior: pulumi.Input['RuleGroupForwardedIpConfigurationFallbackBehavior'],
                  header_name: pulumi.Input[str]):
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> pulumi.Input['RuleGroupForwardedIPConfigurationFallbackBehavior']:
+    def fallback_behavior(self) -> pulumi.Input['RuleGroupForwardedIpConfigurationFallbackBehavior']:
         return pulumi.get(self, "fallback_behavior")
 
     @fallback_behavior.setter
-    def fallback_behavior(self, value: pulumi.Input['RuleGroupForwardedIPConfigurationFallbackBehavior']):
+    def fallback_behavior(self, value: pulumi.Input['RuleGroupForwardedIpConfigurationFallbackBehavior']):
         pulumi.set(self, "fallback_behavior", value)
 
     @property
@@ -1242,7 +1242,7 @@ class RuleGroupForwardedIPConfigurationArgs:
 class RuleGroupGeoMatchStatementArgs:
     def __init__(__self__, *,
                  country_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 forwarded_ip_config: Optional[pulumi.Input['RuleGroupForwardedIPConfigurationArgs']] = None):
+                 forwarded_ip_config: Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']] = None):
         if country_codes is not None:
             pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -1259,11 +1259,11 @@ class RuleGroupGeoMatchStatementArgs:
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
-    def forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupForwardedIPConfigurationArgs']]:
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']]:
         return pulumi.get(self, "forwarded_ip_config")
 
     @forwarded_ip_config.setter
-    def forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupForwardedIPConfigurationArgs']]):
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']]):
         pulumi.set(self, "forwarded_ip_config", value)
 
 
@@ -1357,22 +1357,38 @@ class RuleGroupHeadersArgs:
 
 
 @pulumi.input_type
-class RuleGroupIPSetForwardedIPConfigurationArgs:
+class RuleGroupImmunityTimePropertyArgs:
     def __init__(__self__, *,
-                 fallback_behavior: pulumi.Input['RuleGroupIPSetForwardedIPConfigurationFallbackBehavior'],
+                 immunity_time: pulumi.Input[int]):
+        pulumi.set(__self__, "immunity_time", immunity_time)
+
+    @property
+    @pulumi.getter(name="immunityTime")
+    def immunity_time(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "immunity_time")
+
+    @immunity_time.setter
+    def immunity_time(self, value: pulumi.Input[int]):
+        pulumi.set(self, "immunity_time", value)
+
+
+@pulumi.input_type
+class RuleGroupIpSetForwardedIpConfigurationArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input['RuleGroupIpSetForwardedIpConfigurationFallbackBehavior'],
                  header_name: pulumi.Input[str],
-                 position: pulumi.Input['RuleGroupIPSetForwardedIPConfigurationPosition']):
+                 position: pulumi.Input['RuleGroupIpSetForwardedIpConfigurationPosition']):
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "position", position)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> pulumi.Input['RuleGroupIPSetForwardedIPConfigurationFallbackBehavior']:
+    def fallback_behavior(self) -> pulumi.Input['RuleGroupIpSetForwardedIpConfigurationFallbackBehavior']:
         return pulumi.get(self, "fallback_behavior")
 
     @fallback_behavior.setter
-    def fallback_behavior(self, value: pulumi.Input['RuleGroupIPSetForwardedIPConfigurationFallbackBehavior']):
+    def fallback_behavior(self, value: pulumi.Input['RuleGroupIpSetForwardedIpConfigurationFallbackBehavior']):
         pulumi.set(self, "fallback_behavior", value)
 
     @property
@@ -1386,19 +1402,19 @@ class RuleGroupIPSetForwardedIPConfigurationArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Input['RuleGroupIPSetForwardedIPConfigurationPosition']:
+    def position(self) -> pulumi.Input['RuleGroupIpSetForwardedIpConfigurationPosition']:
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: pulumi.Input['RuleGroupIPSetForwardedIPConfigurationPosition']):
+    def position(self, value: pulumi.Input['RuleGroupIpSetForwardedIpConfigurationPosition']):
         pulumi.set(self, "position", value)
 
 
 @pulumi.input_type
-class RuleGroupIPSetReferenceStatementArgs:
+class RuleGroupIpSetReferenceStatementArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
-                 ip_set_forwarded_ip_config: Optional[pulumi.Input['RuleGroupIPSetForwardedIPConfigurationArgs']] = None):
+                 ip_set_forwarded_ip_config: Optional[pulumi.Input['RuleGroupIpSetForwardedIpConfigurationArgs']] = None):
         pulumi.set(__self__, "arn", arn)
         if ip_set_forwarded_ip_config is not None:
             pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
@@ -1414,28 +1430,12 @@ class RuleGroupIPSetReferenceStatementArgs:
 
     @property
     @pulumi.getter(name="ipSetForwardedIpConfig")
-    def ip_set_forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupIPSetForwardedIPConfigurationArgs']]:
+    def ip_set_forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupIpSetForwardedIpConfigurationArgs']]:
         return pulumi.get(self, "ip_set_forwarded_ip_config")
 
     @ip_set_forwarded_ip_config.setter
-    def ip_set_forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupIPSetForwardedIPConfigurationArgs']]):
+    def ip_set_forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupIpSetForwardedIpConfigurationArgs']]):
         pulumi.set(self, "ip_set_forwarded_ip_config", value)
-
-
-@pulumi.input_type
-class RuleGroupImmunityTimePropertyArgs:
-    def __init__(__self__, *,
-                 immunity_time: pulumi.Input[int]):
-        pulumi.set(__self__, "immunity_time", immunity_time)
-
-    @property
-    @pulumi.getter(name="immunityTime")
-    def immunity_time(self) -> pulumi.Input[int]:
-        return pulumi.get(self, "immunity_time")
-
-    @immunity_time.setter
-    def immunity_time(self, value: pulumi.Input[int]):
-        pulumi.set(self, "immunity_time", value)
 
 
 @pulumi.input_type
@@ -1624,10 +1624,10 @@ class RuleGroupOrStatementArgs:
 class RuleGroupRateBasedStatementCustomKeyArgs:
     def __init__(__self__, *,
                  cookie: Optional[pulumi.Input['RuleGroupRateLimitCookieArgs']] = None,
-                 forwarded_ip: Optional[pulumi.Input['RuleGroupRateLimitForwardedIPArgs']] = None,
+                 forwarded_ip: Optional[pulumi.Input['RuleGroupRateLimitForwardedIpArgs']] = None,
                  header: Optional[pulumi.Input['RuleGroupRateLimitHeaderArgs']] = None,
-                 http_method: Optional[pulumi.Input['RuleGroupRateLimitHTTPMethodArgs']] = None,
-                 ip: Optional[pulumi.Input['RuleGroupRateLimitIPArgs']] = None,
+                 http_method: Optional[pulumi.Input['RuleGroupRateLimitHttpMethodArgs']] = None,
+                 ip: Optional[pulumi.Input['RuleGroupRateLimitIpArgs']] = None,
                  label_namespace: Optional[pulumi.Input['RuleGroupRateLimitLabelNamespaceArgs']] = None,
                  query_argument: Optional[pulumi.Input['RuleGroupRateLimitQueryArgumentArgs']] = None,
                  query_string: Optional[pulumi.Input['RuleGroupRateLimitQueryStringArgs']] = None,
@@ -1665,11 +1665,11 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
 
     @property
     @pulumi.getter(name="forwardedIp")
-    def forwarded_ip(self) -> Optional[pulumi.Input['RuleGroupRateLimitForwardedIPArgs']]:
+    def forwarded_ip(self) -> Optional[pulumi.Input['RuleGroupRateLimitForwardedIpArgs']]:
         return pulumi.get(self, "forwarded_ip")
 
     @forwarded_ip.setter
-    def forwarded_ip(self, value: Optional[pulumi.Input['RuleGroupRateLimitForwardedIPArgs']]):
+    def forwarded_ip(self, value: Optional[pulumi.Input['RuleGroupRateLimitForwardedIpArgs']]):
         pulumi.set(self, "forwarded_ip", value)
 
     @property
@@ -1683,20 +1683,20 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
 
     @property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> Optional[pulumi.Input['RuleGroupRateLimitHTTPMethodArgs']]:
+    def http_method(self) -> Optional[pulumi.Input['RuleGroupRateLimitHttpMethodArgs']]:
         return pulumi.get(self, "http_method")
 
     @http_method.setter
-    def http_method(self, value: Optional[pulumi.Input['RuleGroupRateLimitHTTPMethodArgs']]):
+    def http_method(self, value: Optional[pulumi.Input['RuleGroupRateLimitHttpMethodArgs']]):
         pulumi.set(self, "http_method", value)
 
     @property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input['RuleGroupRateLimitIPArgs']]:
+    def ip(self) -> Optional[pulumi.Input['RuleGroupRateLimitIpArgs']]:
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input['RuleGroupRateLimitIPArgs']]):
+    def ip(self, value: Optional[pulumi.Input['RuleGroupRateLimitIpArgs']]):
         pulumi.set(self, "ip", value)
 
     @property
@@ -1742,7 +1742,7 @@ class RuleGroupRateBasedStatementArgs:
                  aggregate_key_type: pulumi.Input['RuleGroupRateBasedStatementAggregateKeyType'],
                  limit: pulumi.Input[int],
                  custom_keys: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRateBasedStatementCustomKeyArgs']]]] = None,
-                 forwarded_ip_config: Optional[pulumi.Input['RuleGroupForwardedIPConfigurationArgs']] = None,
+                 forwarded_ip_config: Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']] = None,
                  scope_down_statement: Optional[pulumi.Input['RuleGroupStatementArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRateBasedStatementCustomKeyArgs']]] custom_keys: Specifies the aggregate keys to use in a rate-base rule.
@@ -1788,11 +1788,11 @@ class RuleGroupRateBasedStatementArgs:
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
-    def forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupForwardedIPConfigurationArgs']]:
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']]:
         return pulumi.get(self, "forwarded_ip_config")
 
     @forwarded_ip_config.setter
-    def forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupForwardedIPConfigurationArgs']]):
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']]):
         pulumi.set(self, "forwarded_ip_config", value)
 
     @property
@@ -1840,19 +1840,10 @@ class RuleGroupRateLimitCookieArgs:
 
 
 @pulumi.input_type
-class RuleGroupRateLimitForwardedIPArgs:
+class RuleGroupRateLimitForwardedIpArgs:
     def __init__(__self__):
         """
         Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
-        """
-        pass
-
-
-@pulumi.input_type
-class RuleGroupRateLimitHTTPMethodArgs:
-    def __init__(__self__):
-        """
-        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
         """
         pass
 
@@ -1892,7 +1883,16 @@ class RuleGroupRateLimitHeaderArgs:
 
 
 @pulumi.input_type
-class RuleGroupRateLimitIPArgs:
+class RuleGroupRateLimitHttpMethodArgs:
+    def __init__(__self__):
+        """
+        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+        """
+        pass
+
+
+@pulumi.input_type
+class RuleGroupRateLimitIpArgs:
     def __init__(__self__):
         """
         Specifies the IP address in the web request as an aggregate key for a rate-based rule.
@@ -2343,7 +2343,7 @@ class RuleGroupStatementArgs:
                  and_statement: Optional[pulumi.Input['RuleGroupAndStatementArgs']] = None,
                  byte_match_statement: Optional[pulumi.Input['RuleGroupByteMatchStatementArgs']] = None,
                  geo_match_statement: Optional[pulumi.Input['RuleGroupGeoMatchStatementArgs']] = None,
-                 ip_set_reference_statement: Optional[pulumi.Input['RuleGroupIPSetReferenceStatementArgs']] = None,
+                 ip_set_reference_statement: Optional[pulumi.Input['RuleGroupIpSetReferenceStatementArgs']] = None,
                  label_match_statement: Optional[pulumi.Input['RuleGroupLabelMatchStatementArgs']] = None,
                  not_statement: Optional[pulumi.Input['RuleGroupNotStatementArgs']] = None,
                  or_statement: Optional[pulumi.Input['RuleGroupOrStatementArgs']] = None,
@@ -2412,11 +2412,11 @@ class RuleGroupStatementArgs:
 
     @property
     @pulumi.getter(name="ipSetReferenceStatement")
-    def ip_set_reference_statement(self) -> Optional[pulumi.Input['RuleGroupIPSetReferenceStatementArgs']]:
+    def ip_set_reference_statement(self) -> Optional[pulumi.Input['RuleGroupIpSetReferenceStatementArgs']]:
         return pulumi.get(self, "ip_set_reference_statement")
 
     @ip_set_reference_statement.setter
-    def ip_set_reference_statement(self, value: Optional[pulumi.Input['RuleGroupIPSetReferenceStatementArgs']]):
+    def ip_set_reference_statement(self, value: Optional[pulumi.Input['RuleGroupIpSetReferenceStatementArgs']]):
         pulumi.set(self, "ip_set_reference_statement", value)
 
     @property
@@ -2632,13 +2632,69 @@ class RuleGroupXssMatchStatementArgs:
 
 
 @pulumi.input_type
-class WebACLAWSManagedRulesACFPRuleSetArgs:
+class WebAclAllowActionArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None):
+        """
+        Allow traffic towards application.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']]:
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+@pulumi.input_type
+class WebAclAndStatementArgs:
+    def __init__(__self__, *,
+                 statements: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgs']]]):
+        pulumi.set(__self__, "statements", statements)
+
+    @property
+    @pulumi.getter
+    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgs']]]:
+        return pulumi.get(self, "statements")
+
+    @statements.setter
+    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgs']]]):
+        pulumi.set(self, "statements", value)
+
+
+@pulumi.input_type
+class WebAclAssociationConfigArgs:
+    def __init__(__self__, *,
+                 request_body: Optional[pulumi.Input['WebAclRequestBodyArgs']] = None):
+        """
+        AssociationConfig for body inspection
+        """
+        if request_body is not None:
+            pulumi.set(__self__, "request_body", request_body)
+
+    @property
+    @pulumi.getter(name="requestBody")
+    def request_body(self) -> Optional[pulumi.Input['WebAclRequestBodyArgs']]:
+        return pulumi.get(self, "request_body")
+
+    @request_body.setter
+    def request_body(self, value: Optional[pulumi.Input['WebAclRequestBodyArgs']]):
+        pulumi.set(self, "request_body", value)
+
+
+@pulumi.input_type
+class WebAclAwsManagedRulesAcfpRuleSetArgs:
     def __init__(__self__, *,
                  creation_path: pulumi.Input[str],
                  registration_page_path: pulumi.Input[str],
-                 request_inspection: pulumi.Input['WebACLRequestInspectionACFPArgs'],
+                 request_inspection: pulumi.Input['WebAclRequestInspectionAcfpArgs'],
                  enable_regex_in_path: Optional[pulumi.Input[bool]] = None,
-                 response_inspection: Optional[pulumi.Input['WebACLResponseInspectionArgs']] = None):
+                 response_inspection: Optional[pulumi.Input['WebAclResponseInspectionArgs']] = None):
         """
         Configures how to use the Account creation fraud prevention managed rule group in the web ACL
         """
@@ -2670,11 +2726,11 @@ class WebACLAWSManagedRulesACFPRuleSetArgs:
 
     @property
     @pulumi.getter(name="requestInspection")
-    def request_inspection(self) -> pulumi.Input['WebACLRequestInspectionACFPArgs']:
+    def request_inspection(self) -> pulumi.Input['WebAclRequestInspectionAcfpArgs']:
         return pulumi.get(self, "request_inspection")
 
     @request_inspection.setter
-    def request_inspection(self, value: pulumi.Input['WebACLRequestInspectionACFPArgs']):
+    def request_inspection(self, value: pulumi.Input['WebAclRequestInspectionAcfpArgs']):
         pulumi.set(self, "request_inspection", value)
 
     @property
@@ -2688,21 +2744,21 @@ class WebACLAWSManagedRulesACFPRuleSetArgs:
 
     @property
     @pulumi.getter(name="responseInspection")
-    def response_inspection(self) -> Optional[pulumi.Input['WebACLResponseInspectionArgs']]:
+    def response_inspection(self) -> Optional[pulumi.Input['WebAclResponseInspectionArgs']]:
         return pulumi.get(self, "response_inspection")
 
     @response_inspection.setter
-    def response_inspection(self, value: Optional[pulumi.Input['WebACLResponseInspectionArgs']]):
+    def response_inspection(self, value: Optional[pulumi.Input['WebAclResponseInspectionArgs']]):
         pulumi.set(self, "response_inspection", value)
 
 
 @pulumi.input_type
-class WebACLAWSManagedRulesATPRuleSetArgs:
+class WebAclAwsManagedRulesAtpRuleSetArgs:
     def __init__(__self__, *,
                  login_path: pulumi.Input[str],
                  enable_regex_in_path: Optional[pulumi.Input[bool]] = None,
-                 request_inspection: Optional[pulumi.Input['WebACLRequestInspectionArgs']] = None,
-                 response_inspection: Optional[pulumi.Input['WebACLResponseInspectionArgs']] = None):
+                 request_inspection: Optional[pulumi.Input['WebAclRequestInspectionArgs']] = None,
+                 response_inspection: Optional[pulumi.Input['WebAclResponseInspectionArgs']] = None):
         """
         Configures how to use the Account Takeover Prevention managed rule group in the web ACL
         """
@@ -2734,27 +2790,27 @@ class WebACLAWSManagedRulesATPRuleSetArgs:
 
     @property
     @pulumi.getter(name="requestInspection")
-    def request_inspection(self) -> Optional[pulumi.Input['WebACLRequestInspectionArgs']]:
+    def request_inspection(self) -> Optional[pulumi.Input['WebAclRequestInspectionArgs']]:
         return pulumi.get(self, "request_inspection")
 
     @request_inspection.setter
-    def request_inspection(self, value: Optional[pulumi.Input['WebACLRequestInspectionArgs']]):
+    def request_inspection(self, value: Optional[pulumi.Input['WebAclRequestInspectionArgs']]):
         pulumi.set(self, "request_inspection", value)
 
     @property
     @pulumi.getter(name="responseInspection")
-    def response_inspection(self) -> Optional[pulumi.Input['WebACLResponseInspectionArgs']]:
+    def response_inspection(self) -> Optional[pulumi.Input['WebAclResponseInspectionArgs']]:
         return pulumi.get(self, "response_inspection")
 
     @response_inspection.setter
-    def response_inspection(self, value: Optional[pulumi.Input['WebACLResponseInspectionArgs']]):
+    def response_inspection(self, value: Optional[pulumi.Input['WebAclResponseInspectionArgs']]):
         pulumi.set(self, "response_inspection", value)
 
 
 @pulumi.input_type
-class WebACLAWSManagedRulesBotControlRuleSetArgs:
+class WebAclAwsManagedRulesBotControlRuleSetArgs:
     def __init__(__self__, *,
-                 inspection_level: pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetInspectionLevel']):
+                 inspection_level: pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel']):
         """
         Configures how to use the Bot Control managed rule group in the web ACL
         """
@@ -2762,74 +2818,18 @@ class WebACLAWSManagedRulesBotControlRuleSetArgs:
 
     @property
     @pulumi.getter(name="inspectionLevel")
-    def inspection_level(self) -> pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetInspectionLevel']:
+    def inspection_level(self) -> pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel']:
         return pulumi.get(self, "inspection_level")
 
     @inspection_level.setter
-    def inspection_level(self, value: pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetInspectionLevel']):
+    def inspection_level(self, value: pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel']):
         pulumi.set(self, "inspection_level", value)
 
 
 @pulumi.input_type
-class WebACLAllowActionArgs:
+class WebAclBlockActionArgs:
     def __init__(__self__, *,
-                 custom_request_handling: Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']] = None):
-        """
-        Allow traffic towards application.
-        """
-        if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
-
-    @property
-    @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']]:
-        return pulumi.get(self, "custom_request_handling")
-
-    @custom_request_handling.setter
-    def custom_request_handling(self, value: Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']]):
-        pulumi.set(self, "custom_request_handling", value)
-
-
-@pulumi.input_type
-class WebACLAndStatementArgs:
-    def __init__(__self__, *,
-                 statements: pulumi.Input[Sequence[pulumi.Input['WebACLStatementArgs']]]):
-        pulumi.set(__self__, "statements", statements)
-
-    @property
-    @pulumi.getter
-    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLStatementArgs']]]:
-        return pulumi.get(self, "statements")
-
-    @statements.setter
-    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLStatementArgs']]]):
-        pulumi.set(self, "statements", value)
-
-
-@pulumi.input_type
-class WebACLAssociationConfigArgs:
-    def __init__(__self__, *,
-                 request_body: Optional[pulumi.Input['WebACLRequestBodyArgs']] = None):
-        """
-        AssociationConfig for body inspection
-        """
-        if request_body is not None:
-            pulumi.set(__self__, "request_body", request_body)
-
-    @property
-    @pulumi.getter(name="requestBody")
-    def request_body(self) -> Optional[pulumi.Input['WebACLRequestBodyArgs']]:
-        return pulumi.get(self, "request_body")
-
-    @request_body.setter
-    def request_body(self, value: Optional[pulumi.Input['WebACLRequestBodyArgs']]):
-        pulumi.set(self, "request_body", value)
-
-
-@pulumi.input_type
-class WebACLBlockActionArgs:
-    def __init__(__self__, *,
-                 custom_response: Optional[pulumi.Input['WebACLCustomResponseArgs']] = None):
+                 custom_response: Optional[pulumi.Input['WebAclCustomResponseArgs']] = None):
         """
         Block traffic towards application.
         """
@@ -2838,18 +2838,18 @@ class WebACLBlockActionArgs:
 
     @property
     @pulumi.getter(name="customResponse")
-    def custom_response(self) -> Optional[pulumi.Input['WebACLCustomResponseArgs']]:
+    def custom_response(self) -> Optional[pulumi.Input['WebAclCustomResponseArgs']]:
         return pulumi.get(self, "custom_response")
 
     @custom_response.setter
-    def custom_response(self, value: Optional[pulumi.Input['WebACLCustomResponseArgs']]):
+    def custom_response(self, value: Optional[pulumi.Input['WebAclCustomResponseArgs']]):
         pulumi.set(self, "custom_response", value)
 
 
 @pulumi.input_type
-class WebACLBodyArgs:
+class WebAclBodyArgs:
     def __init__(__self__, *,
-                 oversize_handling: Optional[pulumi.Input['WebACLOversizeHandling']] = None):
+                 oversize_handling: Optional[pulumi.Input['WebAclOversizeHandling']] = None):
         """
         The body of a web request. This immediately follows the request headers.
         """
@@ -2858,20 +2858,20 @@ class WebACLBodyArgs:
 
     @property
     @pulumi.getter(name="oversizeHandling")
-    def oversize_handling(self) -> Optional[pulumi.Input['WebACLOversizeHandling']]:
+    def oversize_handling(self) -> Optional[pulumi.Input['WebAclOversizeHandling']]:
         return pulumi.get(self, "oversize_handling")
 
     @oversize_handling.setter
-    def oversize_handling(self, value: Optional[pulumi.Input['WebACLOversizeHandling']]):
+    def oversize_handling(self, value: Optional[pulumi.Input['WebAclOversizeHandling']]):
         pulumi.set(self, "oversize_handling", value)
 
 
 @pulumi.input_type
-class WebACLByteMatchStatementArgs:
+class WebAclByteMatchStatementArgs:
     def __init__(__self__, *,
-                 field_to_match: pulumi.Input['WebACLFieldToMatchArgs'],
-                 positional_constraint: pulumi.Input['WebACLPositionalConstraint'],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]],
+                 field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
+                 positional_constraint: pulumi.Input['WebAclPositionalConstraint'],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
                  search_string: Optional[pulumi.Input[str]] = None,
                  search_string_base64: Optional[pulumi.Input[str]] = None):
         """
@@ -2887,29 +2887,29 @@ class WebACLByteMatchStatementArgs:
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['WebACLFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['WebAclFieldToMatchArgs']:
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['WebACLFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['WebAclFieldToMatchArgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
     @pulumi.getter(name="positionalConstraint")
-    def positional_constraint(self) -> pulumi.Input['WebACLPositionalConstraint']:
+    def positional_constraint(self) -> pulumi.Input['WebAclPositionalConstraint']:
         return pulumi.get(self, "positional_constraint")
 
     @positional_constraint.setter
-    def positional_constraint(self, value: pulumi.Input['WebACLPositionalConstraint']):
+    def positional_constraint(self, value: pulumi.Input['WebAclPositionalConstraint']):
         pulumi.set(self, "positional_constraint", value)
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
     @property
@@ -2932,9 +2932,9 @@ class WebACLByteMatchStatementArgs:
 
 
 @pulumi.input_type
-class WebACLCaptchaActionArgs:
+class WebAclCaptchaActionArgs:
     def __init__(__self__, *,
-                 custom_request_handling: Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']] = None):
+                 custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None):
         """
         Checks valid token exists with request.
         """
@@ -2943,35 +2943,35 @@ class WebACLCaptchaActionArgs:
 
     @property
     @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']]:
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']]:
         return pulumi.get(self, "custom_request_handling")
 
     @custom_request_handling.setter
-    def custom_request_handling(self, value: Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']]):
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']]):
         pulumi.set(self, "custom_request_handling", value)
 
 
 @pulumi.input_type
-class WebACLCaptchaConfigArgs:
+class WebAclCaptchaConfigArgs:
     def __init__(__self__, *,
-                 immunity_time_property: Optional[pulumi.Input['WebACLImmunityTimePropertyArgs']] = None):
+                 immunity_time_property: Optional[pulumi.Input['WebAclImmunityTimePropertyArgs']] = None):
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
-    def immunity_time_property(self) -> Optional[pulumi.Input['WebACLImmunityTimePropertyArgs']]:
+    def immunity_time_property(self) -> Optional[pulumi.Input['WebAclImmunityTimePropertyArgs']]:
         return pulumi.get(self, "immunity_time_property")
 
     @immunity_time_property.setter
-    def immunity_time_property(self, value: Optional[pulumi.Input['WebACLImmunityTimePropertyArgs']]):
+    def immunity_time_property(self, value: Optional[pulumi.Input['WebAclImmunityTimePropertyArgs']]):
         pulumi.set(self, "immunity_time_property", value)
 
 
 @pulumi.input_type
-class WebACLChallengeActionArgs:
+class WebAclChallengeActionArgs:
     def __init__(__self__, *,
-                 custom_request_handling: Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']] = None):
+                 custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None):
         """
         Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
         """
@@ -2980,33 +2980,33 @@ class WebACLChallengeActionArgs:
 
     @property
     @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']]:
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']]:
         return pulumi.get(self, "custom_request_handling")
 
     @custom_request_handling.setter
-    def custom_request_handling(self, value: Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']]):
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']]):
         pulumi.set(self, "custom_request_handling", value)
 
 
 @pulumi.input_type
-class WebACLChallengeConfigArgs:
+class WebAclChallengeConfigArgs:
     def __init__(__self__, *,
-                 immunity_time_property: Optional[pulumi.Input['WebACLImmunityTimePropertyArgs']] = None):
+                 immunity_time_property: Optional[pulumi.Input['WebAclImmunityTimePropertyArgs']] = None):
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
-    def immunity_time_property(self) -> Optional[pulumi.Input['WebACLImmunityTimePropertyArgs']]:
+    def immunity_time_property(self) -> Optional[pulumi.Input['WebAclImmunityTimePropertyArgs']]:
         return pulumi.get(self, "immunity_time_property")
 
     @immunity_time_property.setter
-    def immunity_time_property(self, value: Optional[pulumi.Input['WebACLImmunityTimePropertyArgs']]):
+    def immunity_time_property(self, value: Optional[pulumi.Input['WebAclImmunityTimePropertyArgs']]):
         pulumi.set(self, "immunity_time_property", value)
 
 
 @pulumi.input_type
-class WebACLCookieMatchPatternArgs:
+class WebAclCookieMatchPatternArgs:
     def __init__(__self__, *,
                  all: Optional[Any] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3054,11 +3054,11 @@ class WebACLCookieMatchPatternArgs:
 
 
 @pulumi.input_type
-class WebACLCookiesArgs:
+class WebAclCookiesArgs:
     def __init__(__self__, *,
-                 match_pattern: pulumi.Input['WebACLCookieMatchPatternArgs'],
-                 match_scope: pulumi.Input['WebACLMapMatchScope'],
-                 oversize_handling: pulumi.Input['WebACLOversizeHandling']):
+                 match_pattern: pulumi.Input['WebAclCookieMatchPatternArgs'],
+                 match_scope: pulumi.Input['WebAclMapMatchScope'],
+                 oversize_handling: pulumi.Input['WebAclOversizeHandling']):
         """
         Includes headers of a web request.
         """
@@ -3068,36 +3068,36 @@ class WebACLCookiesArgs:
 
     @property
     @pulumi.getter(name="matchPattern")
-    def match_pattern(self) -> pulumi.Input['WebACLCookieMatchPatternArgs']:
+    def match_pattern(self) -> pulumi.Input['WebAclCookieMatchPatternArgs']:
         return pulumi.get(self, "match_pattern")
 
     @match_pattern.setter
-    def match_pattern(self, value: pulumi.Input['WebACLCookieMatchPatternArgs']):
+    def match_pattern(self, value: pulumi.Input['WebAclCookieMatchPatternArgs']):
         pulumi.set(self, "match_pattern", value)
 
     @property
     @pulumi.getter(name="matchScope")
-    def match_scope(self) -> pulumi.Input['WebACLMapMatchScope']:
+    def match_scope(self) -> pulumi.Input['WebAclMapMatchScope']:
         return pulumi.get(self, "match_scope")
 
     @match_scope.setter
-    def match_scope(self, value: pulumi.Input['WebACLMapMatchScope']):
+    def match_scope(self, value: pulumi.Input['WebAclMapMatchScope']):
         pulumi.set(self, "match_scope", value)
 
     @property
     @pulumi.getter(name="oversizeHandling")
-    def oversize_handling(self) -> pulumi.Input['WebACLOversizeHandling']:
+    def oversize_handling(self) -> pulumi.Input['WebAclOversizeHandling']:
         return pulumi.get(self, "oversize_handling")
 
     @oversize_handling.setter
-    def oversize_handling(self, value: pulumi.Input['WebACLOversizeHandling']):
+    def oversize_handling(self, value: pulumi.Input['WebAclOversizeHandling']):
         pulumi.set(self, "oversize_handling", value)
 
 
 @pulumi.input_type
-class WebACLCountActionArgs:
+class WebAclCountActionArgs:
     def __init__(__self__, *,
-                 custom_request_handling: Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']] = None):
+                 custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None):
         """
         Allow traffic towards application.
         """
@@ -3106,16 +3106,16 @@ class WebACLCountActionArgs:
 
     @property
     @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']]:
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']]:
         return pulumi.get(self, "custom_request_handling")
 
     @custom_request_handling.setter
-    def custom_request_handling(self, value: Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']]):
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']]):
         pulumi.set(self, "custom_request_handling", value)
 
 
 @pulumi.input_type
-class WebACLCustomHTTPHeaderArgs:
+class WebAclCustomHttpHeaderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -3145,30 +3145,30 @@ class WebACLCustomHTTPHeaderArgs:
 
 
 @pulumi.input_type
-class WebACLCustomRequestHandlingArgs:
+class WebAclCustomRequestHandlingArgs:
     def __init__(__self__, *,
-                 insert_headers: pulumi.Input[Sequence[pulumi.Input['WebACLCustomHTTPHeaderArgs']]]):
+                 insert_headers: pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]]):
         """
         Custom request handling.
-        :param pulumi.Input[Sequence[pulumi.Input['WebACLCustomHTTPHeaderArgs']]] insert_headers: Collection of HTTP headers.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]] insert_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
-    def insert_headers(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLCustomHTTPHeaderArgs']]]:
+    def insert_headers(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]]:
         """
         Collection of HTTP headers.
         """
         return pulumi.get(self, "insert_headers")
 
     @insert_headers.setter
-    def insert_headers(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLCustomHTTPHeaderArgs']]]):
+    def insert_headers(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]]):
         pulumi.set(self, "insert_headers", value)
 
 
 @pulumi.input_type
-class WebACLCustomResponseBodiesArgs:
+class WebAclCustomResponseBodiesArgs:
     def __init__(__self__):
         """
         Custom response key and body map.
@@ -3177,15 +3177,15 @@ class WebACLCustomResponseBodiesArgs:
 
 
 @pulumi.input_type
-class WebACLCustomResponseArgs:
+class WebAclCustomResponseArgs:
     def __init__(__self__, *,
                  response_code: pulumi.Input[int],
                  custom_response_body_key: Optional[pulumi.Input[str]] = None,
-                 response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLCustomHTTPHeaderArgs']]]] = None):
+                 response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]]] = None):
         """
         Custom response.
         :param pulumi.Input[str] custom_response_body_key: Custom response body key.
-        :param pulumi.Input[Sequence[pulumi.Input['WebACLCustomHTTPHeaderArgs']]] response_headers: Collection of HTTP headers.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]] response_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -3216,22 +3216,22 @@ class WebACLCustomResponseArgs:
 
     @property
     @pulumi.getter(name="responseHeaders")
-    def response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLCustomHTTPHeaderArgs']]]]:
+    def response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]]]:
         """
         Collection of HTTP headers.
         """
         return pulumi.get(self, "response_headers")
 
     @response_headers.setter
-    def response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLCustomHTTPHeaderArgs']]]]):
+    def response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]]]):
         pulumi.set(self, "response_headers", value)
 
 
 @pulumi.input_type
-class WebACLDefaultActionArgs:
+class WebAclDefaultActionArgs:
     def __init__(__self__, *,
-                 allow: Optional[pulumi.Input['WebACLAllowActionArgs']] = None,
-                 block: Optional[pulumi.Input['WebACLBlockActionArgs']] = None):
+                 allow: Optional[pulumi.Input['WebAclAllowActionArgs']] = None,
+                 block: Optional[pulumi.Input['WebAclBlockActionArgs']] = None):
         """
         Default Action WebACL will take against ingress traffic when there is no matching Rule.
         """
@@ -3242,25 +3242,25 @@ class WebACLDefaultActionArgs:
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input['WebACLAllowActionArgs']]:
+    def allow(self) -> Optional[pulumi.Input['WebAclAllowActionArgs']]:
         return pulumi.get(self, "allow")
 
     @allow.setter
-    def allow(self, value: Optional[pulumi.Input['WebACLAllowActionArgs']]):
+    def allow(self, value: Optional[pulumi.Input['WebAclAllowActionArgs']]):
         pulumi.set(self, "allow", value)
 
     @property
     @pulumi.getter
-    def block(self) -> Optional[pulumi.Input['WebACLBlockActionArgs']]:
+    def block(self) -> Optional[pulumi.Input['WebAclBlockActionArgs']]:
         return pulumi.get(self, "block")
 
     @block.setter
-    def block(self, value: Optional[pulumi.Input['WebACLBlockActionArgs']]):
+    def block(self, value: Optional[pulumi.Input['WebAclBlockActionArgs']]):
         pulumi.set(self, "block", value)
 
 
 @pulumi.input_type
-class WebACLExcludedRuleArgs:
+class WebAclExcludedRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
@@ -3279,7 +3279,7 @@ class WebACLExcludedRuleArgs:
 
 
 @pulumi.input_type
-class WebACLFieldIdentifierArgs:
+class WebAclFieldIdentifierArgs:
     def __init__(__self__, *,
                  identifier: pulumi.Input[str]):
         pulumi.set(__self__, "identifier", identifier)
@@ -3295,7 +3295,7 @@ class WebACLFieldIdentifierArgs:
 
 
 @pulumi.input_type
-class WebACLFieldToMatchSingleHeaderPropertiesArgs:
+class WebAclFieldToMatchSingleHeaderPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         pulumi.set(__self__, "name", name)
@@ -3311,7 +3311,7 @@ class WebACLFieldToMatchSingleHeaderPropertiesArgs:
 
 
 @pulumi.input_type
-class WebACLFieldToMatchSingleQueryArgumentPropertiesArgs:
+class WebAclFieldToMatchSingleQueryArgumentPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
@@ -3330,24 +3330,24 @@ class WebACLFieldToMatchSingleQueryArgumentPropertiesArgs:
 
 
 @pulumi.input_type
-class WebACLFieldToMatchArgs:
+class WebAclFieldToMatchArgs:
     def __init__(__self__, *,
                  all_query_arguments: Optional[Any] = None,
-                 body: Optional[pulumi.Input['WebACLBodyArgs']] = None,
-                 cookies: Optional[pulumi.Input['WebACLCookiesArgs']] = None,
-                 headers: Optional[pulumi.Input['WebACLHeadersArgs']] = None,
-                 json_body: Optional[pulumi.Input['WebACLJsonBodyArgs']] = None,
+                 body: Optional[pulumi.Input['WebAclBodyArgs']] = None,
+                 cookies: Optional[pulumi.Input['WebAclCookiesArgs']] = None,
+                 headers: Optional[pulumi.Input['WebAclHeadersArgs']] = None,
+                 json_body: Optional[pulumi.Input['WebAclJsonBodyArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
-                 single_header: Optional[pulumi.Input['WebACLFieldToMatchSingleHeaderPropertiesArgs']] = None,
-                 single_query_argument: Optional[pulumi.Input['WebACLFieldToMatchSingleQueryArgumentPropertiesArgs']] = None,
+                 single_header: Optional[pulumi.Input['WebAclFieldToMatchSingleHeaderPropertiesArgs']] = None,
+                 single_query_argument: Optional[pulumi.Input['WebAclFieldToMatchSingleQueryArgumentPropertiesArgs']] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
         :param Any all_query_arguments: All query arguments of a web request.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-        :param pulumi.Input['WebACLFieldToMatchSingleQueryArgumentPropertiesArgs'] single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        :param pulumi.Input['WebAclFieldToMatchSingleQueryArgumentPropertiesArgs'] single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if all_query_arguments is not None:
@@ -3385,38 +3385,38 @@ class WebACLFieldToMatchArgs:
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input['WebACLBodyArgs']]:
+    def body(self) -> Optional[pulumi.Input['WebAclBodyArgs']]:
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input['WebACLBodyArgs']]):
+    def body(self, value: Optional[pulumi.Input['WebAclBodyArgs']]):
         pulumi.set(self, "body", value)
 
     @property
     @pulumi.getter
-    def cookies(self) -> Optional[pulumi.Input['WebACLCookiesArgs']]:
+    def cookies(self) -> Optional[pulumi.Input['WebAclCookiesArgs']]:
         return pulumi.get(self, "cookies")
 
     @cookies.setter
-    def cookies(self, value: Optional[pulumi.Input['WebACLCookiesArgs']]):
+    def cookies(self, value: Optional[pulumi.Input['WebAclCookiesArgs']]):
         pulumi.set(self, "cookies", value)
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['WebACLHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['WebAclHeadersArgs']]:
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['WebACLHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['WebAclHeadersArgs']]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="jsonBody")
-    def json_body(self) -> Optional[pulumi.Input['WebACLJsonBodyArgs']]:
+    def json_body(self) -> Optional[pulumi.Input['WebAclJsonBodyArgs']]:
         return pulumi.get(self, "json_body")
 
     @json_body.setter
-    def json_body(self, value: Optional[pulumi.Input['WebACLJsonBodyArgs']]):
+    def json_body(self, value: Optional[pulumi.Input['WebAclJsonBodyArgs']]):
         pulumi.set(self, "json_body", value)
 
     @property
@@ -3445,23 +3445,23 @@ class WebACLFieldToMatchArgs:
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional[pulumi.Input['WebACLFieldToMatchSingleHeaderPropertiesArgs']]:
+    def single_header(self) -> Optional[pulumi.Input['WebAclFieldToMatchSingleHeaderPropertiesArgs']]:
         return pulumi.get(self, "single_header")
 
     @single_header.setter
-    def single_header(self, value: Optional[pulumi.Input['WebACLFieldToMatchSingleHeaderPropertiesArgs']]):
+    def single_header(self, value: Optional[pulumi.Input['WebAclFieldToMatchSingleHeaderPropertiesArgs']]):
         pulumi.set(self, "single_header", value)
 
     @property
     @pulumi.getter(name="singleQueryArgument")
-    def single_query_argument(self) -> Optional[pulumi.Input['WebACLFieldToMatchSingleQueryArgumentPropertiesArgs']]:
+    def single_query_argument(self) -> Optional[pulumi.Input['WebAclFieldToMatchSingleQueryArgumentPropertiesArgs']]:
         """
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
         return pulumi.get(self, "single_query_argument")
 
     @single_query_argument.setter
-    def single_query_argument(self, value: Optional[pulumi.Input['WebACLFieldToMatchSingleQueryArgumentPropertiesArgs']]):
+    def single_query_argument(self, value: Optional[pulumi.Input['WebAclFieldToMatchSingleQueryArgumentPropertiesArgs']]):
         pulumi.set(self, "single_query_argument", value)
 
     @property
@@ -3478,20 +3478,20 @@ class WebACLFieldToMatchArgs:
 
 
 @pulumi.input_type
-class WebACLForwardedIPConfigurationArgs:
+class WebAclForwardedIpConfigurationArgs:
     def __init__(__self__, *,
-                 fallback_behavior: pulumi.Input['WebACLForwardedIPConfigurationFallbackBehavior'],
+                 fallback_behavior: pulumi.Input['WebAclForwardedIpConfigurationFallbackBehavior'],
                  header_name: pulumi.Input[str]):
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> pulumi.Input['WebACLForwardedIPConfigurationFallbackBehavior']:
+    def fallback_behavior(self) -> pulumi.Input['WebAclForwardedIpConfigurationFallbackBehavior']:
         return pulumi.get(self, "fallback_behavior")
 
     @fallback_behavior.setter
-    def fallback_behavior(self, value: pulumi.Input['WebACLForwardedIPConfigurationFallbackBehavior']):
+    def fallback_behavior(self, value: pulumi.Input['WebAclForwardedIpConfigurationFallbackBehavior']):
         pulumi.set(self, "fallback_behavior", value)
 
     @property
@@ -3505,10 +3505,10 @@ class WebACLForwardedIPConfigurationArgs:
 
 
 @pulumi.input_type
-class WebACLGeoMatchStatementArgs:
+class WebAclGeoMatchStatementArgs:
     def __init__(__self__, *,
                  country_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 forwarded_ip_config: Optional[pulumi.Input['WebACLForwardedIPConfigurationArgs']] = None):
+                 forwarded_ip_config: Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']] = None):
         if country_codes is not None:
             pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -3525,16 +3525,16 @@ class WebACLGeoMatchStatementArgs:
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
-    def forwarded_ip_config(self) -> Optional[pulumi.Input['WebACLForwardedIPConfigurationArgs']]:
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']]:
         return pulumi.get(self, "forwarded_ip_config")
 
     @forwarded_ip_config.setter
-    def forwarded_ip_config(self, value: Optional[pulumi.Input['WebACLForwardedIPConfigurationArgs']]):
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']]):
         pulumi.set(self, "forwarded_ip_config", value)
 
 
 @pulumi.input_type
-class WebACLHeaderMatchPatternArgs:
+class WebAclHeaderMatchPatternArgs:
     def __init__(__self__, *,
                  all: Optional[Any] = None,
                  excluded_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3582,11 +3582,11 @@ class WebACLHeaderMatchPatternArgs:
 
 
 @pulumi.input_type
-class WebACLHeadersArgs:
+class WebAclHeadersArgs:
     def __init__(__self__, *,
-                 match_pattern: pulumi.Input['WebACLHeaderMatchPatternArgs'],
-                 match_scope: pulumi.Input['WebACLMapMatchScope'],
-                 oversize_handling: pulumi.Input['WebACLOversizeHandling']):
+                 match_pattern: pulumi.Input['WebAclHeaderMatchPatternArgs'],
+                 match_scope: pulumi.Input['WebAclMapMatchScope'],
+                 oversize_handling: pulumi.Input['WebAclOversizeHandling']):
         """
         Includes headers of a web request.
         """
@@ -3596,100 +3596,34 @@ class WebACLHeadersArgs:
 
     @property
     @pulumi.getter(name="matchPattern")
-    def match_pattern(self) -> pulumi.Input['WebACLHeaderMatchPatternArgs']:
+    def match_pattern(self) -> pulumi.Input['WebAclHeaderMatchPatternArgs']:
         return pulumi.get(self, "match_pattern")
 
     @match_pattern.setter
-    def match_pattern(self, value: pulumi.Input['WebACLHeaderMatchPatternArgs']):
+    def match_pattern(self, value: pulumi.Input['WebAclHeaderMatchPatternArgs']):
         pulumi.set(self, "match_pattern", value)
 
     @property
     @pulumi.getter(name="matchScope")
-    def match_scope(self) -> pulumi.Input['WebACLMapMatchScope']:
+    def match_scope(self) -> pulumi.Input['WebAclMapMatchScope']:
         return pulumi.get(self, "match_scope")
 
     @match_scope.setter
-    def match_scope(self, value: pulumi.Input['WebACLMapMatchScope']):
+    def match_scope(self, value: pulumi.Input['WebAclMapMatchScope']):
         pulumi.set(self, "match_scope", value)
 
     @property
     @pulumi.getter(name="oversizeHandling")
-    def oversize_handling(self) -> pulumi.Input['WebACLOversizeHandling']:
+    def oversize_handling(self) -> pulumi.Input['WebAclOversizeHandling']:
         return pulumi.get(self, "oversize_handling")
 
     @oversize_handling.setter
-    def oversize_handling(self, value: pulumi.Input['WebACLOversizeHandling']):
+    def oversize_handling(self, value: pulumi.Input['WebAclOversizeHandling']):
         pulumi.set(self, "oversize_handling", value)
 
 
 @pulumi.input_type
-class WebACLIPSetForwardedIPConfigurationArgs:
-    def __init__(__self__, *,
-                 fallback_behavior: pulumi.Input['WebACLIPSetForwardedIPConfigurationFallbackBehavior'],
-                 header_name: pulumi.Input[str],
-                 position: pulumi.Input['WebACLIPSetForwardedIPConfigurationPosition']):
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "position", position)
-
-    @property
-    @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> pulumi.Input['WebACLIPSetForwardedIPConfigurationFallbackBehavior']:
-        return pulumi.get(self, "fallback_behavior")
-
-    @fallback_behavior.setter
-    def fallback_behavior(self, value: pulumi.Input['WebACLIPSetForwardedIPConfigurationFallbackBehavior']):
-        pulumi.set(self, "fallback_behavior", value)
-
-    @property
-    @pulumi.getter(name="headerName")
-    def header_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "header_name")
-
-    @header_name.setter
-    def header_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "header_name", value)
-
-    @property
-    @pulumi.getter
-    def position(self) -> pulumi.Input['WebACLIPSetForwardedIPConfigurationPosition']:
-        return pulumi.get(self, "position")
-
-    @position.setter
-    def position(self, value: pulumi.Input['WebACLIPSetForwardedIPConfigurationPosition']):
-        pulumi.set(self, "position", value)
-
-
-@pulumi.input_type
-class WebACLIPSetReferenceStatementArgs:
-    def __init__(__self__, *,
-                 arn: pulumi.Input[str],
-                 ip_set_forwarded_ip_config: Optional[pulumi.Input['WebACLIPSetForwardedIPConfigurationArgs']] = None):
-        pulumi.set(__self__, "arn", arn)
-        if ip_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "arn")
-
-    @arn.setter
-    def arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "arn", value)
-
-    @property
-    @pulumi.getter(name="ipSetForwardedIpConfig")
-    def ip_set_forwarded_ip_config(self) -> Optional[pulumi.Input['WebACLIPSetForwardedIPConfigurationArgs']]:
-        return pulumi.get(self, "ip_set_forwarded_ip_config")
-
-    @ip_set_forwarded_ip_config.setter
-    def ip_set_forwarded_ip_config(self, value: Optional[pulumi.Input['WebACLIPSetForwardedIPConfigurationArgs']]):
-        pulumi.set(self, "ip_set_forwarded_ip_config", value)
-
-
-@pulumi.input_type
-class WebACLImmunityTimePropertyArgs:
+class WebAclImmunityTimePropertyArgs:
     def __init__(__self__, *,
                  immunity_time: pulumi.Input[int]):
         pulumi.set(__self__, "immunity_time", immunity_time)
@@ -3705,12 +3639,78 @@ class WebACLImmunityTimePropertyArgs:
 
 
 @pulumi.input_type
-class WebACLJsonBodyArgs:
+class WebAclIpSetForwardedIpConfigurationArgs:
     def __init__(__self__, *,
-                 match_pattern: pulumi.Input['WebACLJsonMatchPatternArgs'],
-                 match_scope: pulumi.Input['WebACLJsonMatchScope'],
-                 invalid_fallback_behavior: Optional[pulumi.Input['WebACLBodyParsingFallbackBehavior']] = None,
-                 oversize_handling: Optional[pulumi.Input['WebACLOversizeHandling']] = None):
+                 fallback_behavior: pulumi.Input['WebAclIpSetForwardedIpConfigurationFallbackBehavior'],
+                 header_name: pulumi.Input[str],
+                 position: pulumi.Input['WebAclIpSetForwardedIpConfigurationPosition']):
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "position", position)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input['WebAclIpSetForwardedIpConfigurationFallbackBehavior']:
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input['WebAclIpSetForwardedIpConfigurationFallbackBehavior']):
+        pulumi.set(self, "fallback_behavior", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter
+    def position(self) -> pulumi.Input['WebAclIpSetForwardedIpConfigurationPosition']:
+        return pulumi.get(self, "position")
+
+    @position.setter
+    def position(self, value: pulumi.Input['WebAclIpSetForwardedIpConfigurationPosition']):
+        pulumi.set(self, "position", value)
+
+
+@pulumi.input_type
+class WebAclIpSetReferenceStatementArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str],
+                 ip_set_forwarded_ip_config: Optional[pulumi.Input['WebAclIpSetForwardedIpConfigurationArgs']] = None):
+        pulumi.set(__self__, "arn", arn)
+        if ip_set_forwarded_ip_config is not None:
+            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="ipSetForwardedIpConfig")
+    def ip_set_forwarded_ip_config(self) -> Optional[pulumi.Input['WebAclIpSetForwardedIpConfigurationArgs']]:
+        return pulumi.get(self, "ip_set_forwarded_ip_config")
+
+    @ip_set_forwarded_ip_config.setter
+    def ip_set_forwarded_ip_config(self, value: Optional[pulumi.Input['WebAclIpSetForwardedIpConfigurationArgs']]):
+        pulumi.set(self, "ip_set_forwarded_ip_config", value)
+
+
+@pulumi.input_type
+class WebAclJsonBodyArgs:
+    def __init__(__self__, *,
+                 match_pattern: pulumi.Input['WebAclJsonMatchPatternArgs'],
+                 match_scope: pulumi.Input['WebAclJsonMatchScope'],
+                 invalid_fallback_behavior: Optional[pulumi.Input['WebAclBodyParsingFallbackBehavior']] = None,
+                 oversize_handling: Optional[pulumi.Input['WebAclOversizeHandling']] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
         """
@@ -3723,43 +3723,43 @@ class WebACLJsonBodyArgs:
 
     @property
     @pulumi.getter(name="matchPattern")
-    def match_pattern(self) -> pulumi.Input['WebACLJsonMatchPatternArgs']:
+    def match_pattern(self) -> pulumi.Input['WebAclJsonMatchPatternArgs']:
         return pulumi.get(self, "match_pattern")
 
     @match_pattern.setter
-    def match_pattern(self, value: pulumi.Input['WebACLJsonMatchPatternArgs']):
+    def match_pattern(self, value: pulumi.Input['WebAclJsonMatchPatternArgs']):
         pulumi.set(self, "match_pattern", value)
 
     @property
     @pulumi.getter(name="matchScope")
-    def match_scope(self) -> pulumi.Input['WebACLJsonMatchScope']:
+    def match_scope(self) -> pulumi.Input['WebAclJsonMatchScope']:
         return pulumi.get(self, "match_scope")
 
     @match_scope.setter
-    def match_scope(self, value: pulumi.Input['WebACLJsonMatchScope']):
+    def match_scope(self, value: pulumi.Input['WebAclJsonMatchScope']):
         pulumi.set(self, "match_scope", value)
 
     @property
     @pulumi.getter(name="invalidFallbackBehavior")
-    def invalid_fallback_behavior(self) -> Optional[pulumi.Input['WebACLBodyParsingFallbackBehavior']]:
+    def invalid_fallback_behavior(self) -> Optional[pulumi.Input['WebAclBodyParsingFallbackBehavior']]:
         return pulumi.get(self, "invalid_fallback_behavior")
 
     @invalid_fallback_behavior.setter
-    def invalid_fallback_behavior(self, value: Optional[pulumi.Input['WebACLBodyParsingFallbackBehavior']]):
+    def invalid_fallback_behavior(self, value: Optional[pulumi.Input['WebAclBodyParsingFallbackBehavior']]):
         pulumi.set(self, "invalid_fallback_behavior", value)
 
     @property
     @pulumi.getter(name="oversizeHandling")
-    def oversize_handling(self) -> Optional[pulumi.Input['WebACLOversizeHandling']]:
+    def oversize_handling(self) -> Optional[pulumi.Input['WebAclOversizeHandling']]:
         return pulumi.get(self, "oversize_handling")
 
     @oversize_handling.setter
-    def oversize_handling(self, value: Optional[pulumi.Input['WebACLOversizeHandling']]):
+    def oversize_handling(self, value: Optional[pulumi.Input['WebAclOversizeHandling']]):
         pulumi.set(self, "oversize_handling", value)
 
 
 @pulumi.input_type
-class WebACLJsonMatchPatternArgs:
+class WebAclJsonMatchPatternArgs:
     def __init__(__self__, *,
                  all: Optional[Any] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -3795,10 +3795,10 @@ class WebACLJsonMatchPatternArgs:
 
 
 @pulumi.input_type
-class WebACLLabelMatchStatementArgs:
+class WebAclLabelMatchStatementArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 scope: pulumi.Input['WebACLLabelMatchScope']):
+                 scope: pulumi.Input['WebAclLabelMatchScope']):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "scope", scope)
 
@@ -3813,16 +3813,16 @@ class WebACLLabelMatchStatementArgs:
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Input['WebACLLabelMatchScope']:
+    def scope(self) -> pulumi.Input['WebAclLabelMatchScope']:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: pulumi.Input['WebACLLabelMatchScope']):
+    def scope(self, value: pulumi.Input['WebAclLabelMatchScope']):
         pulumi.set(self, "scope", value)
 
 
 @pulumi.input_type
-class WebACLLabelArgs:
+class WebAclLabelArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         pulumi.set(__self__, "name", name)
@@ -3838,15 +3838,15 @@ class WebACLLabelArgs:
 
 
 @pulumi.input_type
-class WebACLManagedRuleGroupConfigArgs:
+class WebAclManagedRuleGroupConfigArgs:
     def __init__(__self__, *,
-                 aws_managed_rules_acfp_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']] = None,
-                 aws_managed_rules_atp_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']] = None,
-                 aws_managed_rules_bot_control_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']] = None,
+                 aws_managed_rules_acfp_rule_set: Optional[pulumi.Input['WebAclAwsManagedRulesAcfpRuleSetArgs']] = None,
+                 aws_managed_rules_atp_rule_set: Optional[pulumi.Input['WebAclAwsManagedRulesAtpRuleSetArgs']] = None,
+                 aws_managed_rules_bot_control_rule_set: Optional[pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetArgs']] = None,
                  login_path: Optional[pulumi.Input[str]] = None,
-                 password_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None,
-                 payload_type: Optional[pulumi.Input['WebACLManagedRuleGroupConfigPayloadType']] = None,
-                 username_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None):
+                 password_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None,
+                 payload_type: Optional[pulumi.Input['WebAclManagedRuleGroupConfigPayloadType']] = None,
+                 username_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None):
         """
         ManagedRuleGroupConfig.
         """
@@ -3867,29 +3867,29 @@ class WebACLManagedRuleGroupConfigArgs:
 
     @property
     @pulumi.getter(name="awsManagedRulesAcfpRuleSet")
-    def aws_managed_rules_acfp_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']]:
+    def aws_managed_rules_acfp_rule_set(self) -> Optional[pulumi.Input['WebAclAwsManagedRulesAcfpRuleSetArgs']]:
         return pulumi.get(self, "aws_managed_rules_acfp_rule_set")
 
     @aws_managed_rules_acfp_rule_set.setter
-    def aws_managed_rules_acfp_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']]):
+    def aws_managed_rules_acfp_rule_set(self, value: Optional[pulumi.Input['WebAclAwsManagedRulesAcfpRuleSetArgs']]):
         pulumi.set(self, "aws_managed_rules_acfp_rule_set", value)
 
     @property
     @pulumi.getter(name="awsManagedRulesAtpRuleSet")
-    def aws_managed_rules_atp_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']]:
+    def aws_managed_rules_atp_rule_set(self) -> Optional[pulumi.Input['WebAclAwsManagedRulesAtpRuleSetArgs']]:
         return pulumi.get(self, "aws_managed_rules_atp_rule_set")
 
     @aws_managed_rules_atp_rule_set.setter
-    def aws_managed_rules_atp_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']]):
+    def aws_managed_rules_atp_rule_set(self, value: Optional[pulumi.Input['WebAclAwsManagedRulesAtpRuleSetArgs']]):
         pulumi.set(self, "aws_managed_rules_atp_rule_set", value)
 
     @property
     @pulumi.getter(name="awsManagedRulesBotControlRuleSet")
-    def aws_managed_rules_bot_control_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']]:
+    def aws_managed_rules_bot_control_rule_set(self) -> Optional[pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetArgs']]:
         return pulumi.get(self, "aws_managed_rules_bot_control_rule_set")
 
     @aws_managed_rules_bot_control_rule_set.setter
-    def aws_managed_rules_bot_control_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']]):
+    def aws_managed_rules_bot_control_rule_set(self, value: Optional[pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetArgs']]):
         pulumi.set(self, "aws_managed_rules_bot_control_rule_set", value)
 
     @property
@@ -3903,45 +3903,45 @@ class WebACLManagedRuleGroupConfigArgs:
 
     @property
     @pulumi.getter(name="passwordField")
-    def password_field(self) -> Optional[pulumi.Input['WebACLFieldIdentifierArgs']]:
+    def password_field(self) -> Optional[pulumi.Input['WebAclFieldIdentifierArgs']]:
         return pulumi.get(self, "password_field")
 
     @password_field.setter
-    def password_field(self, value: Optional[pulumi.Input['WebACLFieldIdentifierArgs']]):
+    def password_field(self, value: Optional[pulumi.Input['WebAclFieldIdentifierArgs']]):
         pulumi.set(self, "password_field", value)
 
     @property
     @pulumi.getter(name="payloadType")
-    def payload_type(self) -> Optional[pulumi.Input['WebACLManagedRuleGroupConfigPayloadType']]:
+    def payload_type(self) -> Optional[pulumi.Input['WebAclManagedRuleGroupConfigPayloadType']]:
         return pulumi.get(self, "payload_type")
 
     @payload_type.setter
-    def payload_type(self, value: Optional[pulumi.Input['WebACLManagedRuleGroupConfigPayloadType']]):
+    def payload_type(self, value: Optional[pulumi.Input['WebAclManagedRuleGroupConfigPayloadType']]):
         pulumi.set(self, "payload_type", value)
 
     @property
     @pulumi.getter(name="usernameField")
-    def username_field(self) -> Optional[pulumi.Input['WebACLFieldIdentifierArgs']]:
+    def username_field(self) -> Optional[pulumi.Input['WebAclFieldIdentifierArgs']]:
         return pulumi.get(self, "username_field")
 
     @username_field.setter
-    def username_field(self, value: Optional[pulumi.Input['WebACLFieldIdentifierArgs']]):
+    def username_field(self, value: Optional[pulumi.Input['WebAclFieldIdentifierArgs']]):
         pulumi.set(self, "username_field", value)
 
 
 @pulumi.input_type
-class WebACLManagedRuleGroupStatementArgs:
+class WebAclManagedRuleGroupStatementArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  vendor_name: pulumi.Input[str],
-                 excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]] = None,
-                 managed_rule_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLManagedRuleGroupConfigArgs']]]] = None,
-                 rule_action_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleActionOverrideArgs']]]] = None,
-                 scope_down_statement: Optional[pulumi.Input['WebACLStatementArgs']] = None,
+                 excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgs']]]] = None,
+                 managed_rule_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclManagedRuleGroupConfigArgs']]]] = None,
+                 rule_action_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgs']]]] = None,
+                 scope_down_statement: Optional[pulumi.Input['WebAclStatementArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebACLManagedRuleGroupConfigArgs']]] managed_rule_group_configs: Collection of ManagedRuleGroupConfig.
-        :param pulumi.Input[Sequence[pulumi.Input['WebACLRuleActionOverrideArgs']]] rule_action_overrides: Action overrides for rules in the rule group.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclManagedRuleGroupConfigArgs']]] managed_rule_group_configs: Collection of ManagedRuleGroupConfig.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgs']]] rule_action_overrides: Action overrides for rules in the rule group.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vendor_name", vendor_name)
@@ -3976,44 +3976,44 @@ class WebACLManagedRuleGroupStatementArgs:
 
     @property
     @pulumi.getter(name="excludedRules")
-    def excluded_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]]:
+    def excluded_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgs']]]]:
         return pulumi.get(self, "excluded_rules")
 
     @excluded_rules.setter
-    def excluded_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]]):
+    def excluded_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgs']]]]):
         pulumi.set(self, "excluded_rules", value)
 
     @property
     @pulumi.getter(name="managedRuleGroupConfigs")
-    def managed_rule_group_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLManagedRuleGroupConfigArgs']]]]:
+    def managed_rule_group_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclManagedRuleGroupConfigArgs']]]]:
         """
         Collection of ManagedRuleGroupConfig.
         """
         return pulumi.get(self, "managed_rule_group_configs")
 
     @managed_rule_group_configs.setter
-    def managed_rule_group_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLManagedRuleGroupConfigArgs']]]]):
+    def managed_rule_group_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclManagedRuleGroupConfigArgs']]]]):
         pulumi.set(self, "managed_rule_group_configs", value)
 
     @property
     @pulumi.getter(name="ruleActionOverrides")
-    def rule_action_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleActionOverrideArgs']]]]:
+    def rule_action_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgs']]]]:
         """
         Action overrides for rules in the rule group.
         """
         return pulumi.get(self, "rule_action_overrides")
 
     @rule_action_overrides.setter
-    def rule_action_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleActionOverrideArgs']]]]):
+    def rule_action_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgs']]]]):
         pulumi.set(self, "rule_action_overrides", value)
 
     @property
     @pulumi.getter(name="scopeDownStatement")
-    def scope_down_statement(self) -> Optional[pulumi.Input['WebACLStatementArgs']]:
+    def scope_down_statement(self) -> Optional[pulumi.Input['WebAclStatementArgs']]:
         return pulumi.get(self, "scope_down_statement")
 
     @scope_down_statement.setter
-    def scope_down_statement(self, value: Optional[pulumi.Input['WebACLStatementArgs']]):
+    def scope_down_statement(self, value: Optional[pulumi.Input['WebAclStatementArgs']]):
         pulumi.set(self, "scope_down_statement", value)
 
     @property
@@ -4027,39 +4027,39 @@ class WebACLManagedRuleGroupStatementArgs:
 
 
 @pulumi.input_type
-class WebACLNotStatementArgs:
+class WebAclNotStatementArgs:
     def __init__(__self__, *,
-                 statement: pulumi.Input['WebACLStatementArgs']):
+                 statement: pulumi.Input['WebAclStatementArgs']):
         pulumi.set(__self__, "statement", statement)
 
     @property
     @pulumi.getter
-    def statement(self) -> pulumi.Input['WebACLStatementArgs']:
+    def statement(self) -> pulumi.Input['WebAclStatementArgs']:
         return pulumi.get(self, "statement")
 
     @statement.setter
-    def statement(self, value: pulumi.Input['WebACLStatementArgs']):
+    def statement(self, value: pulumi.Input['WebAclStatementArgs']):
         pulumi.set(self, "statement", value)
 
 
 @pulumi.input_type
-class WebACLOrStatementArgs:
+class WebAclOrStatementArgs:
     def __init__(__self__, *,
-                 statements: pulumi.Input[Sequence[pulumi.Input['WebACLStatementArgs']]]):
+                 statements: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgs']]]):
         pulumi.set(__self__, "statements", statements)
 
     @property
     @pulumi.getter
-    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLStatementArgs']]]:
+    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgs']]]:
         return pulumi.get(self, "statements")
 
     @statements.setter
-    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLStatementArgs']]]):
+    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgs']]]):
         pulumi.set(self, "statements", value)
 
 
 @pulumi.input_type
-class WebACLOverrideActionArgs:
+class WebAclOverrideActionArgs:
     def __init__(__self__, *,
                  count: Optional[Any] = None,
                  none: Optional[Any] = None):
@@ -4099,17 +4099,17 @@ class WebACLOverrideActionArgs:
 
 
 @pulumi.input_type
-class WebACLRateBasedStatementCustomKeyArgs:
+class WebAclRateBasedStatementCustomKeyArgs:
     def __init__(__self__, *,
-                 cookie: Optional[pulumi.Input['WebACLRateLimitCookieArgs']] = None,
-                 forwarded_ip: Optional[pulumi.Input['WebACLRateLimitForwardedIPArgs']] = None,
-                 header: Optional[pulumi.Input['WebACLRateLimitHeaderArgs']] = None,
-                 http_method: Optional[pulumi.Input['WebACLRateLimitHTTPMethodArgs']] = None,
-                 ip: Optional[pulumi.Input['WebACLRateLimitIPArgs']] = None,
-                 label_namespace: Optional[pulumi.Input['WebACLRateLimitLabelNamespaceArgs']] = None,
-                 query_argument: Optional[pulumi.Input['WebACLRateLimitQueryArgumentArgs']] = None,
-                 query_string: Optional[pulumi.Input['WebACLRateLimitQueryStringArgs']] = None,
-                 uri_path: Optional[pulumi.Input['WebACLRateLimitUriPathArgs']] = None):
+                 cookie: Optional[pulumi.Input['WebAclRateLimitCookieArgs']] = None,
+                 forwarded_ip: Optional[pulumi.Input['WebAclRateLimitForwardedIpArgs']] = None,
+                 header: Optional[pulumi.Input['WebAclRateLimitHeaderArgs']] = None,
+                 http_method: Optional[pulumi.Input['WebAclRateLimitHttpMethodArgs']] = None,
+                 ip: Optional[pulumi.Input['WebAclRateLimitIpArgs']] = None,
+                 label_namespace: Optional[pulumi.Input['WebAclRateLimitLabelNamespaceArgs']] = None,
+                 query_argument: Optional[pulumi.Input['WebAclRateLimitQueryArgumentArgs']] = None,
+                 query_string: Optional[pulumi.Input['WebAclRateLimitQueryStringArgs']] = None,
+                 uri_path: Optional[pulumi.Input['WebAclRateLimitUriPathArgs']] = None):
         """
         Specifies a single custom aggregate key for a rate-base rule.
         """
@@ -4134,96 +4134,96 @@ class WebACLRateBasedStatementCustomKeyArgs:
 
     @property
     @pulumi.getter
-    def cookie(self) -> Optional[pulumi.Input['WebACLRateLimitCookieArgs']]:
+    def cookie(self) -> Optional[pulumi.Input['WebAclRateLimitCookieArgs']]:
         return pulumi.get(self, "cookie")
 
     @cookie.setter
-    def cookie(self, value: Optional[pulumi.Input['WebACLRateLimitCookieArgs']]):
+    def cookie(self, value: Optional[pulumi.Input['WebAclRateLimitCookieArgs']]):
         pulumi.set(self, "cookie", value)
 
     @property
     @pulumi.getter(name="forwardedIp")
-    def forwarded_ip(self) -> Optional[pulumi.Input['WebACLRateLimitForwardedIPArgs']]:
+    def forwarded_ip(self) -> Optional[pulumi.Input['WebAclRateLimitForwardedIpArgs']]:
         return pulumi.get(self, "forwarded_ip")
 
     @forwarded_ip.setter
-    def forwarded_ip(self, value: Optional[pulumi.Input['WebACLRateLimitForwardedIPArgs']]):
+    def forwarded_ip(self, value: Optional[pulumi.Input['WebAclRateLimitForwardedIpArgs']]):
         pulumi.set(self, "forwarded_ip", value)
 
     @property
     @pulumi.getter
-    def header(self) -> Optional[pulumi.Input['WebACLRateLimitHeaderArgs']]:
+    def header(self) -> Optional[pulumi.Input['WebAclRateLimitHeaderArgs']]:
         return pulumi.get(self, "header")
 
     @header.setter
-    def header(self, value: Optional[pulumi.Input['WebACLRateLimitHeaderArgs']]):
+    def header(self, value: Optional[pulumi.Input['WebAclRateLimitHeaderArgs']]):
         pulumi.set(self, "header", value)
 
     @property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> Optional[pulumi.Input['WebACLRateLimitHTTPMethodArgs']]:
+    def http_method(self) -> Optional[pulumi.Input['WebAclRateLimitHttpMethodArgs']]:
         return pulumi.get(self, "http_method")
 
     @http_method.setter
-    def http_method(self, value: Optional[pulumi.Input['WebACLRateLimitHTTPMethodArgs']]):
+    def http_method(self, value: Optional[pulumi.Input['WebAclRateLimitHttpMethodArgs']]):
         pulumi.set(self, "http_method", value)
 
     @property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input['WebACLRateLimitIPArgs']]:
+    def ip(self) -> Optional[pulumi.Input['WebAclRateLimitIpArgs']]:
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input['WebACLRateLimitIPArgs']]):
+    def ip(self, value: Optional[pulumi.Input['WebAclRateLimitIpArgs']]):
         pulumi.set(self, "ip", value)
 
     @property
     @pulumi.getter(name="labelNamespace")
-    def label_namespace(self) -> Optional[pulumi.Input['WebACLRateLimitLabelNamespaceArgs']]:
+    def label_namespace(self) -> Optional[pulumi.Input['WebAclRateLimitLabelNamespaceArgs']]:
         return pulumi.get(self, "label_namespace")
 
     @label_namespace.setter
-    def label_namespace(self, value: Optional[pulumi.Input['WebACLRateLimitLabelNamespaceArgs']]):
+    def label_namespace(self, value: Optional[pulumi.Input['WebAclRateLimitLabelNamespaceArgs']]):
         pulumi.set(self, "label_namespace", value)
 
     @property
     @pulumi.getter(name="queryArgument")
-    def query_argument(self) -> Optional[pulumi.Input['WebACLRateLimitQueryArgumentArgs']]:
+    def query_argument(self) -> Optional[pulumi.Input['WebAclRateLimitQueryArgumentArgs']]:
         return pulumi.get(self, "query_argument")
 
     @query_argument.setter
-    def query_argument(self, value: Optional[pulumi.Input['WebACLRateLimitQueryArgumentArgs']]):
+    def query_argument(self, value: Optional[pulumi.Input['WebAclRateLimitQueryArgumentArgs']]):
         pulumi.set(self, "query_argument", value)
 
     @property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[pulumi.Input['WebACLRateLimitQueryStringArgs']]:
+    def query_string(self) -> Optional[pulumi.Input['WebAclRateLimitQueryStringArgs']]:
         return pulumi.get(self, "query_string")
 
     @query_string.setter
-    def query_string(self, value: Optional[pulumi.Input['WebACLRateLimitQueryStringArgs']]):
+    def query_string(self, value: Optional[pulumi.Input['WebAclRateLimitQueryStringArgs']]):
         pulumi.set(self, "query_string", value)
 
     @property
     @pulumi.getter(name="uriPath")
-    def uri_path(self) -> Optional[pulumi.Input['WebACLRateLimitUriPathArgs']]:
+    def uri_path(self) -> Optional[pulumi.Input['WebAclRateLimitUriPathArgs']]:
         return pulumi.get(self, "uri_path")
 
     @uri_path.setter
-    def uri_path(self, value: Optional[pulumi.Input['WebACLRateLimitUriPathArgs']]):
+    def uri_path(self, value: Optional[pulumi.Input['WebAclRateLimitUriPathArgs']]):
         pulumi.set(self, "uri_path", value)
 
 
 @pulumi.input_type
-class WebACLRateBasedStatementArgs:
+class WebAclRateBasedStatementArgs:
     def __init__(__self__, *,
-                 aggregate_key_type: pulumi.Input['WebACLRateBasedStatementAggregateKeyType'],
+                 aggregate_key_type: pulumi.Input['WebAclRateBasedStatementAggregateKeyType'],
                  limit: pulumi.Input[int],
-                 custom_keys: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRateBasedStatementCustomKeyArgs']]]] = None,
-                 forwarded_ip_config: Optional[pulumi.Input['WebACLForwardedIPConfigurationArgs']] = None,
-                 scope_down_statement: Optional[pulumi.Input['WebACLStatementArgs']] = None):
+                 custom_keys: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRateBasedStatementCustomKeyArgs']]]] = None,
+                 forwarded_ip_config: Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']] = None,
+                 scope_down_statement: Optional[pulumi.Input['WebAclStatementArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebACLRateBasedStatementCustomKeyArgs']]] custom_keys: Specifies the aggregate keys to use in a rate-base rule.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRateBasedStatementCustomKeyArgs']]] custom_keys: Specifies the aggregate keys to use in a rate-base rule.
         """
         pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         pulumi.set(__self__, "limit", limit)
@@ -4236,11 +4236,11 @@ class WebACLRateBasedStatementArgs:
 
     @property
     @pulumi.getter(name="aggregateKeyType")
-    def aggregate_key_type(self) -> pulumi.Input['WebACLRateBasedStatementAggregateKeyType']:
+    def aggregate_key_type(self) -> pulumi.Input['WebAclRateBasedStatementAggregateKeyType']:
         return pulumi.get(self, "aggregate_key_type")
 
     @aggregate_key_type.setter
-    def aggregate_key_type(self, value: pulumi.Input['WebACLRateBasedStatementAggregateKeyType']):
+    def aggregate_key_type(self, value: pulumi.Input['WebAclRateBasedStatementAggregateKeyType']):
         pulumi.set(self, "aggregate_key_type", value)
 
     @property
@@ -4254,40 +4254,40 @@ class WebACLRateBasedStatementArgs:
 
     @property
     @pulumi.getter(name="customKeys")
-    def custom_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRateBasedStatementCustomKeyArgs']]]]:
+    def custom_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRateBasedStatementCustomKeyArgs']]]]:
         """
         Specifies the aggregate keys to use in a rate-base rule.
         """
         return pulumi.get(self, "custom_keys")
 
     @custom_keys.setter
-    def custom_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRateBasedStatementCustomKeyArgs']]]]):
+    def custom_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRateBasedStatementCustomKeyArgs']]]]):
         pulumi.set(self, "custom_keys", value)
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
-    def forwarded_ip_config(self) -> Optional[pulumi.Input['WebACLForwardedIPConfigurationArgs']]:
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']]:
         return pulumi.get(self, "forwarded_ip_config")
 
     @forwarded_ip_config.setter
-    def forwarded_ip_config(self, value: Optional[pulumi.Input['WebACLForwardedIPConfigurationArgs']]):
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']]):
         pulumi.set(self, "forwarded_ip_config", value)
 
     @property
     @pulumi.getter(name="scopeDownStatement")
-    def scope_down_statement(self) -> Optional[pulumi.Input['WebACLStatementArgs']]:
+    def scope_down_statement(self) -> Optional[pulumi.Input['WebAclStatementArgs']]:
         return pulumi.get(self, "scope_down_statement")
 
     @scope_down_statement.setter
-    def scope_down_statement(self, value: Optional[pulumi.Input['WebACLStatementArgs']]):
+    def scope_down_statement(self, value: Optional[pulumi.Input['WebAclStatementArgs']]):
         pulumi.set(self, "scope_down_statement", value)
 
 
 @pulumi.input_type
-class WebACLRateLimitCookieArgs:
+class WebAclRateLimitCookieArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Specifies a cookie as an aggregate key for a rate-based rule.
         :param pulumi.Input[str] name: The name of the cookie to use.
@@ -4309,16 +4309,16 @@ class WebACLRateLimitCookieArgs:
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
 
 @pulumi.input_type
-class WebACLRateLimitForwardedIPArgs:
+class WebAclRateLimitForwardedIpArgs:
     def __init__(__self__):
         """
         Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
@@ -4327,19 +4327,10 @@ class WebACLRateLimitForwardedIPArgs:
 
 
 @pulumi.input_type
-class WebACLRateLimitHTTPMethodArgs:
-    def __init__(__self__):
-        """
-        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
-        """
-        pass
-
-
-@pulumi.input_type
-class WebACLRateLimitHeaderArgs:
+class WebAclRateLimitHeaderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Specifies a header as an aggregate key for a rate-based rule.
         :param pulumi.Input[str] name: The name of the header to use.
@@ -4361,16 +4352,25 @@ class WebACLRateLimitHeaderArgs:
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
 
 @pulumi.input_type
-class WebACLRateLimitIPArgs:
+class WebAclRateLimitHttpMethodArgs:
+    def __init__(__self__):
+        """
+        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+        """
+        pass
+
+
+@pulumi.input_type
+class WebAclRateLimitIpArgs:
     def __init__(__self__):
         """
         Specifies the IP address in the web request as an aggregate key for a rate-based rule.
@@ -4379,7 +4379,7 @@ class WebACLRateLimitIPArgs:
 
 
 @pulumi.input_type
-class WebACLRateLimitLabelNamespaceArgs:
+class WebAclRateLimitLabelNamespaceArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
         """
@@ -4402,10 +4402,10 @@ class WebACLRateLimitLabelNamespaceArgs:
 
 
 @pulumi.input_type
-class WebACLRateLimitQueryArgumentArgs:
+class WebAclRateLimitQueryArgumentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Specifies a query argument in the request as an aggregate key for a rate-based rule.
         :param pulumi.Input[str] name: The name of the query argument to use.
@@ -4427,18 +4427,18 @@ class WebACLRateLimitQueryArgumentArgs:
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
 
 @pulumi.input_type
-class WebACLRateLimitQueryStringArgs:
+class WebAclRateLimitQueryStringArgs:
     def __init__(__self__, *,
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Specifies the request's query string as an aggregate key for a rate-based rule.
         """
@@ -4446,18 +4446,18 @@ class WebACLRateLimitQueryStringArgs:
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
 
 @pulumi.input_type
-class WebACLRateLimitUriPathArgs:
+class WebAclRateLimitUriPathArgs:
     def __init__(__self__, *,
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Specifies the request's URI Path as an aggregate key for a rate-based rule.
         """
@@ -4465,31 +4465,31 @@ class WebACLRateLimitUriPathArgs:
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
 
 @pulumi.input_type
-class WebACLRegexMatchStatementArgs:
+class WebAclRegexMatchStatementArgs:
     def __init__(__self__, *,
-                 field_to_match: pulumi.Input['WebACLFieldToMatchArgs'],
+                 field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
                  regex_string: pulumi.Input[str],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['WebACLFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['WebAclFieldToMatchArgs']:
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['WebACLFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['WebAclFieldToMatchArgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
@@ -4503,20 +4503,20 @@ class WebACLRegexMatchStatementArgs:
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
 
 @pulumi.input_type
-class WebACLRegexPatternSetReferenceStatementArgs:
+class WebAclRegexPatternSetReferenceStatementArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
-                 field_to_match: pulumi.Input['WebACLFieldToMatchArgs'],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+                 field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -4532,25 +4532,25 @@ class WebACLRegexPatternSetReferenceStatementArgs:
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['WebACLFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['WebAclFieldToMatchArgs']:
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['WebACLFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['WebAclFieldToMatchArgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
 
 @pulumi.input_type
-class WebACLRequestBodyArgs:
+class WebAclRequestBodyArgs:
     def __init__(__self__):
         """
         Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
@@ -4559,14 +4559,14 @@ class WebACLRequestBodyArgs:
 
 
 @pulumi.input_type
-class WebACLRequestInspectionACFPArgs:
+class WebAclRequestInspectionAcfpArgs:
     def __init__(__self__, *,
-                 payload_type: pulumi.Input['WebACLRequestInspectionACFPPayloadType'],
-                 address_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]] = None,
-                 email_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None,
-                 password_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None,
-                 phone_number_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]] = None,
-                 username_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None):
+                 payload_type: pulumi.Input['WebAclRequestInspectionAcfpPayloadType'],
+                 address_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgs']]]] = None,
+                 email_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None,
+                 password_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None,
+                 phone_number_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgs']]]] = None,
+                 username_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None):
         """
         Configures the inspection of sign-up requests
         """
@@ -4584,65 +4584,65 @@ class WebACLRequestInspectionACFPArgs:
 
     @property
     @pulumi.getter(name="payloadType")
-    def payload_type(self) -> pulumi.Input['WebACLRequestInspectionACFPPayloadType']:
+    def payload_type(self) -> pulumi.Input['WebAclRequestInspectionAcfpPayloadType']:
         return pulumi.get(self, "payload_type")
 
     @payload_type.setter
-    def payload_type(self, value: pulumi.Input['WebACLRequestInspectionACFPPayloadType']):
+    def payload_type(self, value: pulumi.Input['WebAclRequestInspectionAcfpPayloadType']):
         pulumi.set(self, "payload_type", value)
 
     @property
     @pulumi.getter(name="addressFields")
-    def address_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]]:
+    def address_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgs']]]]:
         return pulumi.get(self, "address_fields")
 
     @address_fields.setter
-    def address_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]]):
+    def address_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgs']]]]):
         pulumi.set(self, "address_fields", value)
 
     @property
     @pulumi.getter(name="emailField")
-    def email_field(self) -> Optional[pulumi.Input['WebACLFieldIdentifierArgs']]:
+    def email_field(self) -> Optional[pulumi.Input['WebAclFieldIdentifierArgs']]:
         return pulumi.get(self, "email_field")
 
     @email_field.setter
-    def email_field(self, value: Optional[pulumi.Input['WebACLFieldIdentifierArgs']]):
+    def email_field(self, value: Optional[pulumi.Input['WebAclFieldIdentifierArgs']]):
         pulumi.set(self, "email_field", value)
 
     @property
     @pulumi.getter(name="passwordField")
-    def password_field(self) -> Optional[pulumi.Input['WebACLFieldIdentifierArgs']]:
+    def password_field(self) -> Optional[pulumi.Input['WebAclFieldIdentifierArgs']]:
         return pulumi.get(self, "password_field")
 
     @password_field.setter
-    def password_field(self, value: Optional[pulumi.Input['WebACLFieldIdentifierArgs']]):
+    def password_field(self, value: Optional[pulumi.Input['WebAclFieldIdentifierArgs']]):
         pulumi.set(self, "password_field", value)
 
     @property
     @pulumi.getter(name="phoneNumberFields")
-    def phone_number_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]]:
+    def phone_number_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgs']]]]:
         return pulumi.get(self, "phone_number_fields")
 
     @phone_number_fields.setter
-    def phone_number_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]]):
+    def phone_number_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgs']]]]):
         pulumi.set(self, "phone_number_fields", value)
 
     @property
     @pulumi.getter(name="usernameField")
-    def username_field(self) -> Optional[pulumi.Input['WebACLFieldIdentifierArgs']]:
+    def username_field(self) -> Optional[pulumi.Input['WebAclFieldIdentifierArgs']]:
         return pulumi.get(self, "username_field")
 
     @username_field.setter
-    def username_field(self, value: Optional[pulumi.Input['WebACLFieldIdentifierArgs']]):
+    def username_field(self, value: Optional[pulumi.Input['WebAclFieldIdentifierArgs']]):
         pulumi.set(self, "username_field", value)
 
 
 @pulumi.input_type
-class WebACLRequestInspectionArgs:
+class WebAclRequestInspectionArgs:
     def __init__(__self__, *,
-                 password_field: pulumi.Input['WebACLFieldIdentifierArgs'],
-                 payload_type: pulumi.Input['WebACLRequestInspectionPayloadType'],
-                 username_field: pulumi.Input['WebACLFieldIdentifierArgs']):
+                 password_field: pulumi.Input['WebAclFieldIdentifierArgs'],
+                 payload_type: pulumi.Input['WebAclRequestInspectionPayloadType'],
+                 username_field: pulumi.Input['WebAclFieldIdentifierArgs']):
         """
         Configures the inspection of login requests
         """
@@ -4652,34 +4652,34 @@ class WebACLRequestInspectionArgs:
 
     @property
     @pulumi.getter(name="passwordField")
-    def password_field(self) -> pulumi.Input['WebACLFieldIdentifierArgs']:
+    def password_field(self) -> pulumi.Input['WebAclFieldIdentifierArgs']:
         return pulumi.get(self, "password_field")
 
     @password_field.setter
-    def password_field(self, value: pulumi.Input['WebACLFieldIdentifierArgs']):
+    def password_field(self, value: pulumi.Input['WebAclFieldIdentifierArgs']):
         pulumi.set(self, "password_field", value)
 
     @property
     @pulumi.getter(name="payloadType")
-    def payload_type(self) -> pulumi.Input['WebACLRequestInspectionPayloadType']:
+    def payload_type(self) -> pulumi.Input['WebAclRequestInspectionPayloadType']:
         return pulumi.get(self, "payload_type")
 
     @payload_type.setter
-    def payload_type(self, value: pulumi.Input['WebACLRequestInspectionPayloadType']):
+    def payload_type(self, value: pulumi.Input['WebAclRequestInspectionPayloadType']):
         pulumi.set(self, "payload_type", value)
 
     @property
     @pulumi.getter(name="usernameField")
-    def username_field(self) -> pulumi.Input['WebACLFieldIdentifierArgs']:
+    def username_field(self) -> pulumi.Input['WebAclFieldIdentifierArgs']:
         return pulumi.get(self, "username_field")
 
     @username_field.setter
-    def username_field(self, value: pulumi.Input['WebACLFieldIdentifierArgs']):
+    def username_field(self, value: pulumi.Input['WebAclFieldIdentifierArgs']):
         pulumi.set(self, "username_field", value)
 
 
 @pulumi.input_type
-class WebACLResponseInspectionBodyContainsArgs:
+class WebAclResponseInspectionBodyContainsArgs:
     def __init__(__self__, *,
                  failure_strings: pulumi.Input[Sequence[pulumi.Input[str]]],
                  success_strings: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -4709,7 +4709,7 @@ class WebACLResponseInspectionBodyContainsArgs:
 
 
 @pulumi.input_type
-class WebACLResponseInspectionHeaderArgs:
+class WebAclResponseInspectionHeaderArgs:
     def __init__(__self__, *,
                  failure_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
@@ -4750,7 +4750,7 @@ class WebACLResponseInspectionHeaderArgs:
 
 
 @pulumi.input_type
-class WebACLResponseInspectionJsonArgs:
+class WebAclResponseInspectionJsonArgs:
     def __init__(__self__, *,
                  failure_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  identifier: pulumi.Input[str],
@@ -4791,7 +4791,7 @@ class WebACLResponseInspectionJsonArgs:
 
 
 @pulumi.input_type
-class WebACLResponseInspectionStatusCodeArgs:
+class WebAclResponseInspectionStatusCodeArgs:
     def __init__(__self__, *,
                  failure_codes: pulumi.Input[Sequence[pulumi.Input[int]]],
                  success_codes: pulumi.Input[Sequence[pulumi.Input[int]]]):
@@ -4821,12 +4821,12 @@ class WebACLResponseInspectionStatusCodeArgs:
 
 
 @pulumi.input_type
-class WebACLResponseInspectionArgs:
+class WebAclResponseInspectionArgs:
     def __init__(__self__, *,
-                 body_contains: Optional[pulumi.Input['WebACLResponseInspectionBodyContainsArgs']] = None,
-                 header: Optional[pulumi.Input['WebACLResponseInspectionHeaderArgs']] = None,
-                 json: Optional[pulumi.Input['WebACLResponseInspectionJsonArgs']] = None,
-                 status_code: Optional[pulumi.Input['WebACLResponseInspectionStatusCodeArgs']] = None):
+                 body_contains: Optional[pulumi.Input['WebAclResponseInspectionBodyContainsArgs']] = None,
+                 header: Optional[pulumi.Input['WebAclResponseInspectionHeaderArgs']] = None,
+                 json: Optional[pulumi.Input['WebAclResponseInspectionJsonArgs']] = None,
+                 status_code: Optional[pulumi.Input['WebAclResponseInspectionStatusCodeArgs']] = None):
         """
         Configures the inspection of login responses
         """
@@ -4841,45 +4841,45 @@ class WebACLResponseInspectionArgs:
 
     @property
     @pulumi.getter(name="bodyContains")
-    def body_contains(self) -> Optional[pulumi.Input['WebACLResponseInspectionBodyContainsArgs']]:
+    def body_contains(self) -> Optional[pulumi.Input['WebAclResponseInspectionBodyContainsArgs']]:
         return pulumi.get(self, "body_contains")
 
     @body_contains.setter
-    def body_contains(self, value: Optional[pulumi.Input['WebACLResponseInspectionBodyContainsArgs']]):
+    def body_contains(self, value: Optional[pulumi.Input['WebAclResponseInspectionBodyContainsArgs']]):
         pulumi.set(self, "body_contains", value)
 
     @property
     @pulumi.getter
-    def header(self) -> Optional[pulumi.Input['WebACLResponseInspectionHeaderArgs']]:
+    def header(self) -> Optional[pulumi.Input['WebAclResponseInspectionHeaderArgs']]:
         return pulumi.get(self, "header")
 
     @header.setter
-    def header(self, value: Optional[pulumi.Input['WebACLResponseInspectionHeaderArgs']]):
+    def header(self, value: Optional[pulumi.Input['WebAclResponseInspectionHeaderArgs']]):
         pulumi.set(self, "header", value)
 
     @property
     @pulumi.getter
-    def json(self) -> Optional[pulumi.Input['WebACLResponseInspectionJsonArgs']]:
+    def json(self) -> Optional[pulumi.Input['WebAclResponseInspectionJsonArgs']]:
         return pulumi.get(self, "json")
 
     @json.setter
-    def json(self, value: Optional[pulumi.Input['WebACLResponseInspectionJsonArgs']]):
+    def json(self, value: Optional[pulumi.Input['WebAclResponseInspectionJsonArgs']]):
         pulumi.set(self, "json", value)
 
     @property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional[pulumi.Input['WebACLResponseInspectionStatusCodeArgs']]:
+    def status_code(self) -> Optional[pulumi.Input['WebAclResponseInspectionStatusCodeArgs']]:
         return pulumi.get(self, "status_code")
 
     @status_code.setter
-    def status_code(self, value: Optional[pulumi.Input['WebACLResponseInspectionStatusCodeArgs']]):
+    def status_code(self, value: Optional[pulumi.Input['WebAclResponseInspectionStatusCodeArgs']]):
         pulumi.set(self, "status_code", value)
 
 
 @pulumi.input_type
-class WebACLRuleActionOverrideArgs:
+class WebAclRuleActionOverrideArgs:
     def __init__(__self__, *,
-                 action_to_use: pulumi.Input['WebACLRuleActionArgs'],
+                 action_to_use: pulumi.Input['WebAclRuleActionArgs'],
                  name: pulumi.Input[str]):
         """
         Action override for rules in the rule group.
@@ -4889,11 +4889,11 @@ class WebACLRuleActionOverrideArgs:
 
     @property
     @pulumi.getter(name="actionToUse")
-    def action_to_use(self) -> pulumi.Input['WebACLRuleActionArgs']:
+    def action_to_use(self) -> pulumi.Input['WebAclRuleActionArgs']:
         return pulumi.get(self, "action_to_use")
 
     @action_to_use.setter
-    def action_to_use(self, value: pulumi.Input['WebACLRuleActionArgs']):
+    def action_to_use(self, value: pulumi.Input['WebAclRuleActionArgs']):
         pulumi.set(self, "action_to_use", value)
 
     @property
@@ -4907,13 +4907,13 @@ class WebACLRuleActionOverrideArgs:
 
 
 @pulumi.input_type
-class WebACLRuleActionArgs:
+class WebAclRuleActionArgs:
     def __init__(__self__, *,
-                 allow: Optional[pulumi.Input['WebACLAllowActionArgs']] = None,
-                 block: Optional[pulumi.Input['WebACLBlockActionArgs']] = None,
-                 captcha: Optional[pulumi.Input['WebACLCaptchaActionArgs']] = None,
-                 challenge: Optional[pulumi.Input['WebACLChallengeActionArgs']] = None,
-                 count: Optional[pulumi.Input['WebACLCountActionArgs']] = None):
+                 allow: Optional[pulumi.Input['WebAclAllowActionArgs']] = None,
+                 block: Optional[pulumi.Input['WebAclBlockActionArgs']] = None,
+                 captcha: Optional[pulumi.Input['WebAclCaptchaActionArgs']] = None,
+                 challenge: Optional[pulumi.Input['WebAclChallengeActionArgs']] = None,
+                 count: Optional[pulumi.Input['WebAclCountActionArgs']] = None):
         """
         Action taken when Rule matches its condition.
         """
@@ -4930,58 +4930,58 @@ class WebACLRuleActionArgs:
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input['WebACLAllowActionArgs']]:
+    def allow(self) -> Optional[pulumi.Input['WebAclAllowActionArgs']]:
         return pulumi.get(self, "allow")
 
     @allow.setter
-    def allow(self, value: Optional[pulumi.Input['WebACLAllowActionArgs']]):
+    def allow(self, value: Optional[pulumi.Input['WebAclAllowActionArgs']]):
         pulumi.set(self, "allow", value)
 
     @property
     @pulumi.getter
-    def block(self) -> Optional[pulumi.Input['WebACLBlockActionArgs']]:
+    def block(self) -> Optional[pulumi.Input['WebAclBlockActionArgs']]:
         return pulumi.get(self, "block")
 
     @block.setter
-    def block(self, value: Optional[pulumi.Input['WebACLBlockActionArgs']]):
+    def block(self, value: Optional[pulumi.Input['WebAclBlockActionArgs']]):
         pulumi.set(self, "block", value)
 
     @property
     @pulumi.getter
-    def captcha(self) -> Optional[pulumi.Input['WebACLCaptchaActionArgs']]:
+    def captcha(self) -> Optional[pulumi.Input['WebAclCaptchaActionArgs']]:
         return pulumi.get(self, "captcha")
 
     @captcha.setter
-    def captcha(self, value: Optional[pulumi.Input['WebACLCaptchaActionArgs']]):
+    def captcha(self, value: Optional[pulumi.Input['WebAclCaptchaActionArgs']]):
         pulumi.set(self, "captcha", value)
 
     @property
     @pulumi.getter
-    def challenge(self) -> Optional[pulumi.Input['WebACLChallengeActionArgs']]:
+    def challenge(self) -> Optional[pulumi.Input['WebAclChallengeActionArgs']]:
         return pulumi.get(self, "challenge")
 
     @challenge.setter
-    def challenge(self, value: Optional[pulumi.Input['WebACLChallengeActionArgs']]):
+    def challenge(self, value: Optional[pulumi.Input['WebAclChallengeActionArgs']]):
         pulumi.set(self, "challenge", value)
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input['WebACLCountActionArgs']]:
+    def count(self) -> Optional[pulumi.Input['WebAclCountActionArgs']]:
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input['WebACLCountActionArgs']]):
+    def count(self, value: Optional[pulumi.Input['WebAclCountActionArgs']]):
         pulumi.set(self, "count", value)
 
 
 @pulumi.input_type
-class WebACLRuleGroupReferenceStatementArgs:
+class WebAclRuleGroupReferenceStatementArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
-                 excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]] = None,
-                 rule_action_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleActionOverrideArgs']]]] = None):
+                 excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgs']]]] = None,
+                 rule_action_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebACLRuleActionOverrideArgs']]] rule_action_overrides: Action overrides for rules in the rule group.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgs']]] rule_action_overrides: Action overrides for rules in the rule group.
         """
         pulumi.set(__self__, "arn", arn)
         if excluded_rules is not None:
@@ -5000,41 +5000,41 @@ class WebACLRuleGroupReferenceStatementArgs:
 
     @property
     @pulumi.getter(name="excludedRules")
-    def excluded_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]]:
+    def excluded_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgs']]]]:
         return pulumi.get(self, "excluded_rules")
 
     @excluded_rules.setter
-    def excluded_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]]):
+    def excluded_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgs']]]]):
         pulumi.set(self, "excluded_rules", value)
 
     @property
     @pulumi.getter(name="ruleActionOverrides")
-    def rule_action_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleActionOverrideArgs']]]]:
+    def rule_action_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgs']]]]:
         """
         Action overrides for rules in the rule group.
         """
         return pulumi.get(self, "rule_action_overrides")
 
     @rule_action_overrides.setter
-    def rule_action_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleActionOverrideArgs']]]]):
+    def rule_action_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgs']]]]):
         pulumi.set(self, "rule_action_overrides", value)
 
 
 @pulumi.input_type
-class WebACLRuleArgs:
+class WebAclRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int],
-                 statement: pulumi.Input['WebACLStatementArgs'],
-                 visibility_config: pulumi.Input['WebACLVisibilityConfigArgs'],
-                 action: Optional[pulumi.Input['WebACLRuleActionArgs']] = None,
-                 captcha_config: Optional[pulumi.Input['WebACLCaptchaConfigArgs']] = None,
-                 challenge_config: Optional[pulumi.Input['WebACLChallengeConfigArgs']] = None,
-                 override_action: Optional[pulumi.Input['WebACLOverrideActionArgs']] = None,
-                 rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLLabelArgs']]]] = None):
+                 statement: pulumi.Input['WebAclStatementArgs'],
+                 visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
+                 action: Optional[pulumi.Input['WebAclRuleActionArgs']] = None,
+                 captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
+                 challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
+                 override_action: Optional[pulumi.Input['WebAclOverrideActionArgs']] = None,
+                 rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLabelArgs']]]] = None):
         """
         Rule of WebACL that contains condition and action.
-        :param pulumi.Input[Sequence[pulumi.Input['WebACLLabelArgs']]] rule_labels: Collection of Rule Labels.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclLabelArgs']]] rule_labels: Collection of Rule Labels.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -5071,78 +5071,78 @@ class WebACLRuleArgs:
 
     @property
     @pulumi.getter
-    def statement(self) -> pulumi.Input['WebACLStatementArgs']:
+    def statement(self) -> pulumi.Input['WebAclStatementArgs']:
         return pulumi.get(self, "statement")
 
     @statement.setter
-    def statement(self, value: pulumi.Input['WebACLStatementArgs']):
+    def statement(self, value: pulumi.Input['WebAclStatementArgs']):
         pulumi.set(self, "statement", value)
 
     @property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> pulumi.Input['WebACLVisibilityConfigArgs']:
+    def visibility_config(self) -> pulumi.Input['WebAclVisibilityConfigArgs']:
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
-    def visibility_config(self, value: pulumi.Input['WebACLVisibilityConfigArgs']):
+    def visibility_config(self, value: pulumi.Input['WebAclVisibilityConfigArgs']):
         pulumi.set(self, "visibility_config", value)
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['WebACLRuleActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['WebAclRuleActionArgs']]:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['WebACLRuleActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['WebAclRuleActionArgs']]):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter(name="captchaConfig")
-    def captcha_config(self) -> Optional[pulumi.Input['WebACLCaptchaConfigArgs']]:
+    def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
         return pulumi.get(self, "captcha_config")
 
     @captcha_config.setter
-    def captcha_config(self, value: Optional[pulumi.Input['WebACLCaptchaConfigArgs']]):
+    def captcha_config(self, value: Optional[pulumi.Input['WebAclCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
 
     @property
     @pulumi.getter(name="challengeConfig")
-    def challenge_config(self) -> Optional[pulumi.Input['WebACLChallengeConfigArgs']]:
+    def challenge_config(self) -> Optional[pulumi.Input['WebAclChallengeConfigArgs']]:
         return pulumi.get(self, "challenge_config")
 
     @challenge_config.setter
-    def challenge_config(self, value: Optional[pulumi.Input['WebACLChallengeConfigArgs']]):
+    def challenge_config(self, value: Optional[pulumi.Input['WebAclChallengeConfigArgs']]):
         pulumi.set(self, "challenge_config", value)
 
     @property
     @pulumi.getter(name="overrideAction")
-    def override_action(self) -> Optional[pulumi.Input['WebACLOverrideActionArgs']]:
+    def override_action(self) -> Optional[pulumi.Input['WebAclOverrideActionArgs']]:
         return pulumi.get(self, "override_action")
 
     @override_action.setter
-    def override_action(self, value: Optional[pulumi.Input['WebACLOverrideActionArgs']]):
+    def override_action(self, value: Optional[pulumi.Input['WebAclOverrideActionArgs']]):
         pulumi.set(self, "override_action", value)
 
     @property
     @pulumi.getter(name="ruleLabels")
-    def rule_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLLabelArgs']]]]:
+    def rule_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLabelArgs']]]]:
         """
         Collection of Rule Labels.
         """
         return pulumi.get(self, "rule_labels")
 
     @rule_labels.setter
-    def rule_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLLabelArgs']]]]):
+    def rule_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLabelArgs']]]]):
         pulumi.set(self, "rule_labels", value)
 
 
 @pulumi.input_type
-class WebACLSizeConstraintStatementArgs:
+class WebAclSizeConstraintStatementArgs:
     def __init__(__self__, *,
-                 comparison_operator: pulumi.Input['WebACLSizeConstraintStatementComparisonOperator'],
-                 field_to_match: pulumi.Input['WebACLFieldToMatchArgs'],
+                 comparison_operator: pulumi.Input['WebAclSizeConstraintStatementComparisonOperator'],
+                 field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
                  size: pulumi.Input[float],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Size Constraint statement.
         """
@@ -5153,20 +5153,20 @@ class WebACLSizeConstraintStatementArgs:
 
     @property
     @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> pulumi.Input['WebACLSizeConstraintStatementComparisonOperator']:
+    def comparison_operator(self) -> pulumi.Input['WebAclSizeConstraintStatementComparisonOperator']:
         return pulumi.get(self, "comparison_operator")
 
     @comparison_operator.setter
-    def comparison_operator(self, value: pulumi.Input['WebACLSizeConstraintStatementComparisonOperator']):
+    def comparison_operator(self, value: pulumi.Input['WebAclSizeConstraintStatementComparisonOperator']):
         pulumi.set(self, "comparison_operator", value)
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['WebACLFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['WebAclFieldToMatchArgs']:
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['WebACLFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['WebAclFieldToMatchArgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
@@ -5180,20 +5180,20 @@ class WebACLSizeConstraintStatementArgs:
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
 
 @pulumi.input_type
-class WebACLSqliMatchStatementArgs:
+class WebAclSqliMatchStatementArgs:
     def __init__(__self__, *,
-                 field_to_match: pulumi.Input['WebACLFieldToMatchArgs'],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]],
-                 sensitivity_level: Optional[pulumi.Input['WebACLSensitivityLevel']] = None):
+                 field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
+                 sensitivity_level: Optional[pulumi.Input['WebAclSensitivityLevel']] = None):
         """
         Sqli Match Statement.
         """
@@ -5204,50 +5204,50 @@ class WebACLSqliMatchStatementArgs:
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['WebACLFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['WebAclFieldToMatchArgs']:
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['WebACLFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['WebAclFieldToMatchArgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
     @property
     @pulumi.getter(name="sensitivityLevel")
-    def sensitivity_level(self) -> Optional[pulumi.Input['WebACLSensitivityLevel']]:
+    def sensitivity_level(self) -> Optional[pulumi.Input['WebAclSensitivityLevel']]:
         return pulumi.get(self, "sensitivity_level")
 
     @sensitivity_level.setter
-    def sensitivity_level(self, value: Optional[pulumi.Input['WebACLSensitivityLevel']]):
+    def sensitivity_level(self, value: Optional[pulumi.Input['WebAclSensitivityLevel']]):
         pulumi.set(self, "sensitivity_level", value)
 
 
 @pulumi.input_type
-class WebACLStatementArgs:
+class WebAclStatementArgs:
     def __init__(__self__, *,
-                 and_statement: Optional[pulumi.Input['WebACLAndStatementArgs']] = None,
-                 byte_match_statement: Optional[pulumi.Input['WebACLByteMatchStatementArgs']] = None,
-                 geo_match_statement: Optional[pulumi.Input['WebACLGeoMatchStatementArgs']] = None,
-                 ip_set_reference_statement: Optional[pulumi.Input['WebACLIPSetReferenceStatementArgs']] = None,
-                 label_match_statement: Optional[pulumi.Input['WebACLLabelMatchStatementArgs']] = None,
-                 managed_rule_group_statement: Optional[pulumi.Input['WebACLManagedRuleGroupStatementArgs']] = None,
-                 not_statement: Optional[pulumi.Input['WebACLNotStatementArgs']] = None,
-                 or_statement: Optional[pulumi.Input['WebACLOrStatementArgs']] = None,
-                 rate_based_statement: Optional[pulumi.Input['WebACLRateBasedStatementArgs']] = None,
-                 regex_match_statement: Optional[pulumi.Input['WebACLRegexMatchStatementArgs']] = None,
-                 regex_pattern_set_reference_statement: Optional[pulumi.Input['WebACLRegexPatternSetReferenceStatementArgs']] = None,
-                 rule_group_reference_statement: Optional[pulumi.Input['WebACLRuleGroupReferenceStatementArgs']] = None,
-                 size_constraint_statement: Optional[pulumi.Input['WebACLSizeConstraintStatementArgs']] = None,
-                 sqli_match_statement: Optional[pulumi.Input['WebACLSqliMatchStatementArgs']] = None,
-                 xss_match_statement: Optional[pulumi.Input['WebACLXssMatchStatementArgs']] = None):
+                 and_statement: Optional[pulumi.Input['WebAclAndStatementArgs']] = None,
+                 byte_match_statement: Optional[pulumi.Input['WebAclByteMatchStatementArgs']] = None,
+                 geo_match_statement: Optional[pulumi.Input['WebAclGeoMatchStatementArgs']] = None,
+                 ip_set_reference_statement: Optional[pulumi.Input['WebAclIpSetReferenceStatementArgs']] = None,
+                 label_match_statement: Optional[pulumi.Input['WebAclLabelMatchStatementArgs']] = None,
+                 managed_rule_group_statement: Optional[pulumi.Input['WebAclManagedRuleGroupStatementArgs']] = None,
+                 not_statement: Optional[pulumi.Input['WebAclNotStatementArgs']] = None,
+                 or_statement: Optional[pulumi.Input['WebAclOrStatementArgs']] = None,
+                 rate_based_statement: Optional[pulumi.Input['WebAclRateBasedStatementArgs']] = None,
+                 regex_match_statement: Optional[pulumi.Input['WebAclRegexMatchStatementArgs']] = None,
+                 regex_pattern_set_reference_statement: Optional[pulumi.Input['WebAclRegexPatternSetReferenceStatementArgs']] = None,
+                 rule_group_reference_statement: Optional[pulumi.Input['WebAclRuleGroupReferenceStatementArgs']] = None,
+                 size_constraint_statement: Optional[pulumi.Input['WebAclSizeConstraintStatementArgs']] = None,
+                 sqli_match_statement: Optional[pulumi.Input['WebAclSqliMatchStatementArgs']] = None,
+                 xss_match_statement: Optional[pulumi.Input['WebAclXssMatchStatementArgs']] = None):
         """
         First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
         """
@@ -5284,142 +5284,142 @@ class WebACLStatementArgs:
 
     @property
     @pulumi.getter(name="andStatement")
-    def and_statement(self) -> Optional[pulumi.Input['WebACLAndStatementArgs']]:
+    def and_statement(self) -> Optional[pulumi.Input['WebAclAndStatementArgs']]:
         return pulumi.get(self, "and_statement")
 
     @and_statement.setter
-    def and_statement(self, value: Optional[pulumi.Input['WebACLAndStatementArgs']]):
+    def and_statement(self, value: Optional[pulumi.Input['WebAclAndStatementArgs']]):
         pulumi.set(self, "and_statement", value)
 
     @property
     @pulumi.getter(name="byteMatchStatement")
-    def byte_match_statement(self) -> Optional[pulumi.Input['WebACLByteMatchStatementArgs']]:
+    def byte_match_statement(self) -> Optional[pulumi.Input['WebAclByteMatchStatementArgs']]:
         return pulumi.get(self, "byte_match_statement")
 
     @byte_match_statement.setter
-    def byte_match_statement(self, value: Optional[pulumi.Input['WebACLByteMatchStatementArgs']]):
+    def byte_match_statement(self, value: Optional[pulumi.Input['WebAclByteMatchStatementArgs']]):
         pulumi.set(self, "byte_match_statement", value)
 
     @property
     @pulumi.getter(name="geoMatchStatement")
-    def geo_match_statement(self) -> Optional[pulumi.Input['WebACLGeoMatchStatementArgs']]:
+    def geo_match_statement(self) -> Optional[pulumi.Input['WebAclGeoMatchStatementArgs']]:
         return pulumi.get(self, "geo_match_statement")
 
     @geo_match_statement.setter
-    def geo_match_statement(self, value: Optional[pulumi.Input['WebACLGeoMatchStatementArgs']]):
+    def geo_match_statement(self, value: Optional[pulumi.Input['WebAclGeoMatchStatementArgs']]):
         pulumi.set(self, "geo_match_statement", value)
 
     @property
     @pulumi.getter(name="ipSetReferenceStatement")
-    def ip_set_reference_statement(self) -> Optional[pulumi.Input['WebACLIPSetReferenceStatementArgs']]:
+    def ip_set_reference_statement(self) -> Optional[pulumi.Input['WebAclIpSetReferenceStatementArgs']]:
         return pulumi.get(self, "ip_set_reference_statement")
 
     @ip_set_reference_statement.setter
-    def ip_set_reference_statement(self, value: Optional[pulumi.Input['WebACLIPSetReferenceStatementArgs']]):
+    def ip_set_reference_statement(self, value: Optional[pulumi.Input['WebAclIpSetReferenceStatementArgs']]):
         pulumi.set(self, "ip_set_reference_statement", value)
 
     @property
     @pulumi.getter(name="labelMatchStatement")
-    def label_match_statement(self) -> Optional[pulumi.Input['WebACLLabelMatchStatementArgs']]:
+    def label_match_statement(self) -> Optional[pulumi.Input['WebAclLabelMatchStatementArgs']]:
         return pulumi.get(self, "label_match_statement")
 
     @label_match_statement.setter
-    def label_match_statement(self, value: Optional[pulumi.Input['WebACLLabelMatchStatementArgs']]):
+    def label_match_statement(self, value: Optional[pulumi.Input['WebAclLabelMatchStatementArgs']]):
         pulumi.set(self, "label_match_statement", value)
 
     @property
     @pulumi.getter(name="managedRuleGroupStatement")
-    def managed_rule_group_statement(self) -> Optional[pulumi.Input['WebACLManagedRuleGroupStatementArgs']]:
+    def managed_rule_group_statement(self) -> Optional[pulumi.Input['WebAclManagedRuleGroupStatementArgs']]:
         return pulumi.get(self, "managed_rule_group_statement")
 
     @managed_rule_group_statement.setter
-    def managed_rule_group_statement(self, value: Optional[pulumi.Input['WebACLManagedRuleGroupStatementArgs']]):
+    def managed_rule_group_statement(self, value: Optional[pulumi.Input['WebAclManagedRuleGroupStatementArgs']]):
         pulumi.set(self, "managed_rule_group_statement", value)
 
     @property
     @pulumi.getter(name="notStatement")
-    def not_statement(self) -> Optional[pulumi.Input['WebACLNotStatementArgs']]:
+    def not_statement(self) -> Optional[pulumi.Input['WebAclNotStatementArgs']]:
         return pulumi.get(self, "not_statement")
 
     @not_statement.setter
-    def not_statement(self, value: Optional[pulumi.Input['WebACLNotStatementArgs']]):
+    def not_statement(self, value: Optional[pulumi.Input['WebAclNotStatementArgs']]):
         pulumi.set(self, "not_statement", value)
 
     @property
     @pulumi.getter(name="orStatement")
-    def or_statement(self) -> Optional[pulumi.Input['WebACLOrStatementArgs']]:
+    def or_statement(self) -> Optional[pulumi.Input['WebAclOrStatementArgs']]:
         return pulumi.get(self, "or_statement")
 
     @or_statement.setter
-    def or_statement(self, value: Optional[pulumi.Input['WebACLOrStatementArgs']]):
+    def or_statement(self, value: Optional[pulumi.Input['WebAclOrStatementArgs']]):
         pulumi.set(self, "or_statement", value)
 
     @property
     @pulumi.getter(name="rateBasedStatement")
-    def rate_based_statement(self) -> Optional[pulumi.Input['WebACLRateBasedStatementArgs']]:
+    def rate_based_statement(self) -> Optional[pulumi.Input['WebAclRateBasedStatementArgs']]:
         return pulumi.get(self, "rate_based_statement")
 
     @rate_based_statement.setter
-    def rate_based_statement(self, value: Optional[pulumi.Input['WebACLRateBasedStatementArgs']]):
+    def rate_based_statement(self, value: Optional[pulumi.Input['WebAclRateBasedStatementArgs']]):
         pulumi.set(self, "rate_based_statement", value)
 
     @property
     @pulumi.getter(name="regexMatchStatement")
-    def regex_match_statement(self) -> Optional[pulumi.Input['WebACLRegexMatchStatementArgs']]:
+    def regex_match_statement(self) -> Optional[pulumi.Input['WebAclRegexMatchStatementArgs']]:
         return pulumi.get(self, "regex_match_statement")
 
     @regex_match_statement.setter
-    def regex_match_statement(self, value: Optional[pulumi.Input['WebACLRegexMatchStatementArgs']]):
+    def regex_match_statement(self, value: Optional[pulumi.Input['WebAclRegexMatchStatementArgs']]):
         pulumi.set(self, "regex_match_statement", value)
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
-    def regex_pattern_set_reference_statement(self) -> Optional[pulumi.Input['WebACLRegexPatternSetReferenceStatementArgs']]:
+    def regex_pattern_set_reference_statement(self) -> Optional[pulumi.Input['WebAclRegexPatternSetReferenceStatementArgs']]:
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
     @regex_pattern_set_reference_statement.setter
-    def regex_pattern_set_reference_statement(self, value: Optional[pulumi.Input['WebACLRegexPatternSetReferenceStatementArgs']]):
+    def regex_pattern_set_reference_statement(self, value: Optional[pulumi.Input['WebAclRegexPatternSetReferenceStatementArgs']]):
         pulumi.set(self, "regex_pattern_set_reference_statement", value)
 
     @property
     @pulumi.getter(name="ruleGroupReferenceStatement")
-    def rule_group_reference_statement(self) -> Optional[pulumi.Input['WebACLRuleGroupReferenceStatementArgs']]:
+    def rule_group_reference_statement(self) -> Optional[pulumi.Input['WebAclRuleGroupReferenceStatementArgs']]:
         return pulumi.get(self, "rule_group_reference_statement")
 
     @rule_group_reference_statement.setter
-    def rule_group_reference_statement(self, value: Optional[pulumi.Input['WebACLRuleGroupReferenceStatementArgs']]):
+    def rule_group_reference_statement(self, value: Optional[pulumi.Input['WebAclRuleGroupReferenceStatementArgs']]):
         pulumi.set(self, "rule_group_reference_statement", value)
 
     @property
     @pulumi.getter(name="sizeConstraintStatement")
-    def size_constraint_statement(self) -> Optional[pulumi.Input['WebACLSizeConstraintStatementArgs']]:
+    def size_constraint_statement(self) -> Optional[pulumi.Input['WebAclSizeConstraintStatementArgs']]:
         return pulumi.get(self, "size_constraint_statement")
 
     @size_constraint_statement.setter
-    def size_constraint_statement(self, value: Optional[pulumi.Input['WebACLSizeConstraintStatementArgs']]):
+    def size_constraint_statement(self, value: Optional[pulumi.Input['WebAclSizeConstraintStatementArgs']]):
         pulumi.set(self, "size_constraint_statement", value)
 
     @property
     @pulumi.getter(name="sqliMatchStatement")
-    def sqli_match_statement(self) -> Optional[pulumi.Input['WebACLSqliMatchStatementArgs']]:
+    def sqli_match_statement(self) -> Optional[pulumi.Input['WebAclSqliMatchStatementArgs']]:
         return pulumi.get(self, "sqli_match_statement")
 
     @sqli_match_statement.setter
-    def sqli_match_statement(self, value: Optional[pulumi.Input['WebACLSqliMatchStatementArgs']]):
+    def sqli_match_statement(self, value: Optional[pulumi.Input['WebAclSqliMatchStatementArgs']]):
         pulumi.set(self, "sqli_match_statement", value)
 
     @property
     @pulumi.getter(name="xssMatchStatement")
-    def xss_match_statement(self) -> Optional[pulumi.Input['WebACLXssMatchStatementArgs']]:
+    def xss_match_statement(self) -> Optional[pulumi.Input['WebAclXssMatchStatementArgs']]:
         return pulumi.get(self, "xss_match_statement")
 
     @xss_match_statement.setter
-    def xss_match_statement(self, value: Optional[pulumi.Input['WebACLXssMatchStatementArgs']]):
+    def xss_match_statement(self, value: Optional[pulumi.Input['WebAclXssMatchStatementArgs']]):
         pulumi.set(self, "xss_match_statement", value)
 
 
 @pulumi.input_type
-class WebACLTagArgs:
+class WebAclTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -5448,10 +5448,10 @@ class WebACLTagArgs:
 
 
 @pulumi.input_type
-class WebACLTextTransformationArgs:
+class WebAclTextTransformationArgs:
     def __init__(__self__, *,
                  priority: pulumi.Input[int],
-                 type: pulumi.Input['WebACLTextTransformationType']):
+                 type: pulumi.Input['WebAclTextTransformationType']):
         """
         Text Transformation on the Search String before match.
         """
@@ -5469,16 +5469,16 @@ class WebACLTextTransformationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['WebACLTextTransformationType']:
+    def type(self) -> pulumi.Input['WebAclTextTransformationType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['WebACLTextTransformationType']):
+    def type(self, value: pulumi.Input['WebAclTextTransformationType']):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
-class WebACLVisibilityConfigArgs:
+class WebAclVisibilityConfigArgs:
     def __init__(__self__, *,
                  cloud_watch_metrics_enabled: pulumi.Input[bool],
                  metric_name: pulumi.Input[str],
@@ -5519,10 +5519,10 @@ class WebACLVisibilityConfigArgs:
 
 
 @pulumi.input_type
-class WebACLXssMatchStatementArgs:
+class WebAclXssMatchStatementArgs:
     def __init__(__self__, *,
-                 field_to_match: pulumi.Input['WebACLFieldToMatchArgs'],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+                 field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Xss Match Statement.
         """
@@ -5531,20 +5531,20 @@ class WebACLXssMatchStatementArgs:
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['WebACLFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['WebAclFieldToMatchArgs']:
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['WebACLFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['WebAclFieldToMatchArgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
     @pulumi.getter(name="textTransformations")
-    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]:
         return pulumi.get(self, "text_transformations")
 
     @text_transformations.setter
-    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
 
 

@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public readonly bool? EnableSimpleResponses;
         public readonly ImmutableArray<string> IdentitySource;
         public readonly string? IdentityValidationExpression;
-        public readonly Outputs.AuthorizerJWTConfiguration? JwtConfiguration;
+        public readonly Outputs.AuthorizerJwtConfiguration? JwtConfiguration;
         public readonly string? Name;
 
         [OutputConstructor]
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             string? identityValidationExpression,
 
-            Outputs.AuthorizerJWTConfiguration? jwtConfiguration,
+            Outputs.AuthorizerJwtConfiguration? jwtConfiguration,
 
             string? name)
         {

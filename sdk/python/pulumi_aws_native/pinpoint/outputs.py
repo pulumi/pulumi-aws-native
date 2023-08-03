@@ -45,14 +45,14 @@ __all__ = [
     'InAppTemplateHeaderConfig',
     'InAppTemplateInAppMessageContent',
     'InAppTemplateOverrideButtonConfiguration',
-    'PushTemplateAPNSPushNotificationTemplate',
     'PushTemplateAndroidPushNotificationTemplate',
+    'PushTemplateApnsPushNotificationTemplate',
     'PushTemplateDefaultPushNotificationTemplate',
     'SegmentBehavior',
     'SegmentCoordinates',
     'SegmentDemographic',
     'SegmentDimensions',
-    'SegmentGPSPoint',
+    'SegmentGpsPoint',
     'SegmentGroups',
     'SegmentLocation',
     'SegmentRecency',
@@ -1905,76 +1905,6 @@ class InAppTemplateOverrideButtonConfiguration(dict):
 
 
 @pulumi.output_type
-class PushTemplateAPNSPushNotificationTemplate(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "mediaUrl":
-            suggest = "media_url"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PushTemplateAPNSPushNotificationTemplate. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PushTemplateAPNSPushNotificationTemplate.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PushTemplateAPNSPushNotificationTemplate.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 action: Optional[str] = None,
-                 body: Optional[str] = None,
-                 media_url: Optional[str] = None,
-                 sound: Optional[str] = None,
-                 title: Optional[str] = None,
-                 url: Optional[str] = None):
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-        if body is not None:
-            pulumi.set(__self__, "body", body)
-        if media_url is not None:
-            pulumi.set(__self__, "media_url", media_url)
-        if sound is not None:
-            pulumi.set(__self__, "sound", sound)
-        if title is not None:
-            pulumi.set(__self__, "title", title)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional[str]:
-        return pulumi.get(self, "action")
-
-    @property
-    @pulumi.getter
-    def body(self) -> Optional[str]:
-        return pulumi.get(self, "body")
-
-    @property
-    @pulumi.getter(name="mediaUrl")
-    def media_url(self) -> Optional[str]:
-        return pulumi.get(self, "media_url")
-
-    @property
-    @pulumi.getter
-    def sound(self) -> Optional[str]:
-        return pulumi.get(self, "sound")
-
-    @property
-    @pulumi.getter
-    def title(self) -> Optional[str]:
-        return pulumi.get(self, "title")
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[str]:
-        return pulumi.get(self, "url")
-
-
-@pulumi.output_type
 class PushTemplateAndroidPushNotificationTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2047,6 +1977,76 @@ class PushTemplateAndroidPushNotificationTemplate(dict):
     @pulumi.getter(name="smallImageIconUrl")
     def small_image_icon_url(self) -> Optional[str]:
         return pulumi.get(self, "small_image_icon_url")
+
+    @property
+    @pulumi.getter
+    def sound(self) -> Optional[str]:
+        return pulumi.get(self, "sound")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class PushTemplateApnsPushNotificationTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mediaUrl":
+            suggest = "media_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PushTemplateApnsPushNotificationTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PushTemplateApnsPushNotificationTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PushTemplateApnsPushNotificationTemplate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 body: Optional[str] = None,
+                 media_url: Optional[str] = None,
+                 sound: Optional[str] = None,
+                 title: Optional[str] = None,
+                 url: Optional[str] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if media_url is not None:
+            pulumi.set(__self__, "media_url", media_url)
+        if sound is not None:
+            pulumi.set(__self__, "sound", sound)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter(name="mediaUrl")
+    def media_url(self) -> Optional[str]:
+        return pulumi.get(self, "media_url")
 
     @property
     @pulumi.getter
@@ -2284,7 +2284,7 @@ class SegmentDimensions(dict):
 
 
 @pulumi.output_type
-class SegmentGPSPoint(dict):
+class SegmentGpsPoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2292,14 +2292,14 @@ class SegmentGPSPoint(dict):
             suggest = "range_in_kilometers"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SegmentGPSPoint. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SegmentGpsPoint. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SegmentGPSPoint.__key_warning(key)
+        SegmentGpsPoint.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SegmentGPSPoint.__key_warning(key)
+        SegmentGpsPoint.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2361,7 +2361,7 @@ class SegmentLocation(dict):
 
     def __init__(__self__, *,
                  country: Optional['outputs.SegmentSetDimension'] = None,
-                 gps_point: Optional['outputs.SegmentGPSPoint'] = None):
+                 gps_point: Optional['outputs.SegmentGpsPoint'] = None):
         if country is not None:
             pulumi.set(__self__, "country", country)
         if gps_point is not None:
@@ -2374,7 +2374,7 @@ class SegmentLocation(dict):
 
     @property
     @pulumi.getter(name="gpsPoint")
-    def gps_point(self) -> Optional['outputs.SegmentGPSPoint']:
+    def gps_point(self) -> Optional['outputs.SegmentGpsPoint']:
         return pulumi.get(self, "gps_point")
 
 

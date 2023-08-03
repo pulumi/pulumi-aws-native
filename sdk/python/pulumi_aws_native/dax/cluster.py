@@ -27,7 +27,7 @@ class ClusterArgs:
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sse_specification: Optional[pulumi.Input['ClusterSSESpecificationArgs']] = None,
+                 sse_specification: Optional[pulumi.Input['ClusterSseSpecificationArgs']] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
         """
@@ -160,11 +160,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['ClusterSSESpecificationArgs']]:
+    def sse_specification(self) -> Optional[pulumi.Input['ClusterSseSpecificationArgs']]:
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['ClusterSSESpecificationArgs']]):
+    def sse_specification(self, value: Optional[pulumi.Input['ClusterSseSpecificationArgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @property
@@ -207,7 +207,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['ClusterSSESpecificationArgs']]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['ClusterSseSpecificationArgs']]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -252,7 +252,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['ClusterSSESpecificationArgs']]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['ClusterSseSpecificationArgs']]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -401,7 +401,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> pulumi.Output[Optional['outputs.ClusterSSESpecification']]:
+    def sse_specification(self) -> pulumi.Output[Optional['outputs.ClusterSseSpecification']]:
         return pulumi.get(self, "sse_specification")
 
     @property

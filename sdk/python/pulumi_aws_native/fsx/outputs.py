@@ -22,7 +22,7 @@ __all__ = [
     'FileSystemLustreConfiguration',
     'FileSystemNfsExports',
     'FileSystemOntapConfiguration',
-    'FileSystemOpenZFSConfiguration',
+    'FileSystemOpenZfsConfiguration',
     'FileSystemRootVolumeConfiguration',
     'FileSystemSelfManagedActiveDirectoryConfiguration',
     'FileSystemTag',
@@ -36,7 +36,7 @@ __all__ = [
     'VolumeClientConfigurations',
     'VolumeNfsExports',
     'VolumeOntapConfiguration',
-    'VolumeOpenZFSConfiguration',
+    'VolumeOpenZfsConfiguration',
     'VolumeOriginSnapshot',
     'VolumeRetentionPeriod',
     'VolumeSnaplockConfiguration',
@@ -541,7 +541,7 @@ class FileSystemOntapConfiguration(dict):
 
 
 @pulumi.output_type
-class FileSystemOpenZFSConfiguration(dict):
+class FileSystemOpenZfsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -565,14 +565,14 @@ class FileSystemOpenZFSConfiguration(dict):
             suggest = "weekly_maintenance_start_time"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FileSystemOpenZFSConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemOpenZfsConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FileSystemOpenZFSConfiguration.__key_warning(key)
+        FileSystemOpenZfsConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FileSystemOpenZFSConfiguration.__key_warning(key)
+        FileSystemOpenZfsConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1350,7 +1350,7 @@ class VolumeOntapConfiguration(dict):
 
 
 @pulumi.output_type
-class VolumeOpenZFSConfiguration(dict):
+class VolumeOpenZfsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1376,14 +1376,14 @@ class VolumeOpenZFSConfiguration(dict):
             suggest = "user_and_group_quotas"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VolumeOpenZFSConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VolumeOpenZfsConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VolumeOpenZFSConfiguration.__key_warning(key)
+        VolumeOpenZfsConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VolumeOpenZFSConfiguration.__key_warning(key)
+        VolumeOpenZfsConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

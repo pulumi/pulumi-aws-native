@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<Inputs.MitigationActionReplaceDefaultPolicyVersionParamsArgs>? ReplaceDefaultPolicyVersionParams { get; set; }
 
         [Input("updateCaCertificateParams")]
-        public Input<Inputs.MitigationActionUpdateCACertificateParamsArgs>? UpdateCaCertificateParams { get; set; }
+        public Input<Inputs.MitigationActionUpdateCaCertificateParamsArgs>? UpdateCaCertificateParams { get; set; }
 
         [Input("updateDeviceCertificateParams")]
         public Input<Inputs.MitigationActionUpdateDeviceCertificateParamsArgs>? UpdateDeviceCertificateParams { get; set; }

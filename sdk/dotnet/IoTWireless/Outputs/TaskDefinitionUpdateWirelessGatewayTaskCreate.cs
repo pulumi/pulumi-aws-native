@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class TaskDefinitionUpdateWirelessGatewayTaskCreate
     {
-        public readonly Outputs.TaskDefinitionLoRaWANUpdateGatewayTaskCreate? LoRaWan;
+        public readonly Outputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreate? LoRaWan;
         public readonly string? UpdateDataRole;
         public readonly string? UpdateDataSource;
 
         [OutputConstructor]
         private TaskDefinitionUpdateWirelessGatewayTaskCreate(
-            Outputs.TaskDefinitionLoRaWANUpdateGatewayTaskCreate? loRaWan,
+            Outputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreate? loRaWan,
 
             string? updateDataRole,
 

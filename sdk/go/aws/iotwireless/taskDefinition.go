@@ -21,7 +21,7 @@ type TaskDefinition struct {
 	// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
 	AutoCreateTasks pulumi.BoolOutput `pulumi:"autoCreateTasks"`
 	// The list of task definitions.
-	LoRaWanUpdateGatewayTaskEntry TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput `pulumi:"loRaWanUpdateGatewayTaskEntry"`
+	LoRaWanUpdateGatewayTaskEntry TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput `pulumi:"loRaWanUpdateGatewayTaskEntry"`
 	// The name of the new resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the destination.
@@ -78,7 +78,7 @@ type taskDefinitionArgs struct {
 	// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
 	AutoCreateTasks bool `pulumi:"autoCreateTasks"`
 	// The list of task definitions.
-	LoRaWanUpdateGatewayTaskEntry *TaskDefinitionLoRaWANUpdateGatewayTaskEntry `pulumi:"loRaWanUpdateGatewayTaskEntry"`
+	LoRaWanUpdateGatewayTaskEntry *TaskDefinitionLoRaWanUpdateGatewayTaskEntry `pulumi:"loRaWanUpdateGatewayTaskEntry"`
 	// The name of the new resource.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the destination.
@@ -94,7 +94,7 @@ type TaskDefinitionArgs struct {
 	// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
 	AutoCreateTasks pulumi.BoolInput
 	// The list of task definitions.
-	LoRaWanUpdateGatewayTaskEntry TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrInput
+	LoRaWanUpdateGatewayTaskEntry TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrInput
 	// The name of the new resource.
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the destination.
@@ -153,10 +153,10 @@ func (o TaskDefinitionOutput) AutoCreateTasks() pulumi.BoolOutput {
 }
 
 // The list of task definitions.
-func (o TaskDefinitionOutput) LoRaWanUpdateGatewayTaskEntry() TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
-	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
+func (o TaskDefinitionOutput) LoRaWanUpdateGatewayTaskEntry() TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput {
 		return v.LoRaWanUpdateGatewayTaskEntry
-	}).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput)
+	}).(TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput)
 }
 
 // The name of the new resource.

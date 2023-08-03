@@ -5,120 +5,120 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { CustomDBEngineVersionArgs } from "./customDBEngineVersion";
-export type CustomDBEngineVersion = import("./customDBEngineVersion").CustomDBEngineVersion;
-export const CustomDBEngineVersion: typeof import("./customDBEngineVersion").CustomDBEngineVersion = null as any;
-utilities.lazyLoad(exports, ["CustomDBEngineVersion"], () => require("./customDBEngineVersion"));
+export { CustomDbEngineVersionArgs } from "./customDbEngineVersion";
+export type CustomDbEngineVersion = import("./customDbEngineVersion").CustomDbEngineVersion;
+export const CustomDbEngineVersion: typeof import("./customDbEngineVersion").CustomDbEngineVersion = null as any;
+utilities.lazyLoad(exports, ["CustomDbEngineVersion"], () => require("./customDbEngineVersion"));
 
-export { DBClusterArgs } from "./dbcluster";
-export type DBCluster = import("./dbcluster").DBCluster;
-export const DBCluster: typeof import("./dbcluster").DBCluster = null as any;
-utilities.lazyLoad(exports, ["DBCluster"], () => require("./dbcluster"));
+export { DbClusterArgs } from "./dbCluster";
+export type DbCluster = import("./dbCluster").DbCluster;
+export const DbCluster: typeof import("./dbCluster").DbCluster = null as any;
+utilities.lazyLoad(exports, ["DbCluster"], () => require("./dbCluster"));
 
-export { DBClusterParameterGroupArgs } from "./dbclusterParameterGroup";
-export type DBClusterParameterGroup = import("./dbclusterParameterGroup").DBClusterParameterGroup;
-export const DBClusterParameterGroup: typeof import("./dbclusterParameterGroup").DBClusterParameterGroup = null as any;
-utilities.lazyLoad(exports, ["DBClusterParameterGroup"], () => require("./dbclusterParameterGroup"));
+export { DbClusterParameterGroupArgs } from "./dbClusterParameterGroup";
+export type DbClusterParameterGroup = import("./dbClusterParameterGroup").DbClusterParameterGroup;
+export const DbClusterParameterGroup: typeof import("./dbClusterParameterGroup").DbClusterParameterGroup = null as any;
+utilities.lazyLoad(exports, ["DbClusterParameterGroup"], () => require("./dbClusterParameterGroup"));
 
-export { DBInstanceArgs } from "./dbinstance";
-export type DBInstance = import("./dbinstance").DBInstance;
-export const DBInstance: typeof import("./dbinstance").DBInstance = null as any;
-utilities.lazyLoad(exports, ["DBInstance"], () => require("./dbinstance"));
+export { DbInstanceArgs } from "./dbInstance";
+export type DbInstance = import("./dbInstance").DbInstance;
+export const DbInstance: typeof import("./dbInstance").DbInstance = null as any;
+utilities.lazyLoad(exports, ["DbInstance"], () => require("./dbInstance"));
 
-export { DBParameterGroupArgs } from "./dbparameterGroup";
-export type DBParameterGroup = import("./dbparameterGroup").DBParameterGroup;
-export const DBParameterGroup: typeof import("./dbparameterGroup").DBParameterGroup = null as any;
-utilities.lazyLoad(exports, ["DBParameterGroup"], () => require("./dbparameterGroup"));
+export { DbParameterGroupArgs } from "./dbParameterGroup";
+export type DbParameterGroup = import("./dbParameterGroup").DbParameterGroup;
+export const DbParameterGroup: typeof import("./dbParameterGroup").DbParameterGroup = null as any;
+utilities.lazyLoad(exports, ["DbParameterGroup"], () => require("./dbParameterGroup"));
 
-export { DBProxyArgs } from "./dbproxy";
-export type DBProxy = import("./dbproxy").DBProxy;
-export const DBProxy: typeof import("./dbproxy").DBProxy = null as any;
-utilities.lazyLoad(exports, ["DBProxy"], () => require("./dbproxy"));
+export { DbProxyArgs } from "./dbProxy";
+export type DbProxy = import("./dbProxy").DbProxy;
+export const DbProxy: typeof import("./dbProxy").DbProxy = null as any;
+utilities.lazyLoad(exports, ["DbProxy"], () => require("./dbProxy"));
 
-export { DBProxyEndpointArgs } from "./dbproxyEndpoint";
-export type DBProxyEndpoint = import("./dbproxyEndpoint").DBProxyEndpoint;
-export const DBProxyEndpoint: typeof import("./dbproxyEndpoint").DBProxyEndpoint = null as any;
-utilities.lazyLoad(exports, ["DBProxyEndpoint"], () => require("./dbproxyEndpoint"));
+export { DbProxyEndpointArgs } from "./dbProxyEndpoint";
+export type DbProxyEndpoint = import("./dbProxyEndpoint").DbProxyEndpoint;
+export const DbProxyEndpoint: typeof import("./dbProxyEndpoint").DbProxyEndpoint = null as any;
+utilities.lazyLoad(exports, ["DbProxyEndpoint"], () => require("./dbProxyEndpoint"));
 
-export { DBProxyTargetGroupArgs } from "./dbproxyTargetGroup";
-export type DBProxyTargetGroup = import("./dbproxyTargetGroup").DBProxyTargetGroup;
-export const DBProxyTargetGroup: typeof import("./dbproxyTargetGroup").DBProxyTargetGroup = null as any;
-utilities.lazyLoad(exports, ["DBProxyTargetGroup"], () => require("./dbproxyTargetGroup"));
+export { DbProxyTargetGroupArgs } from "./dbProxyTargetGroup";
+export type DbProxyTargetGroup = import("./dbProxyTargetGroup").DbProxyTargetGroup;
+export const DbProxyTargetGroup: typeof import("./dbProxyTargetGroup").DbProxyTargetGroup = null as any;
+utilities.lazyLoad(exports, ["DbProxyTargetGroup"], () => require("./dbProxyTargetGroup"));
 
-export { DBSecurityGroupArgs } from "./dbsecurityGroup";
-export type DBSecurityGroup = import("./dbsecurityGroup").DBSecurityGroup;
-export const DBSecurityGroup: typeof import("./dbsecurityGroup").DBSecurityGroup = null as any;
-utilities.lazyLoad(exports, ["DBSecurityGroup"], () => require("./dbsecurityGroup"));
+export { DbSecurityGroupArgs } from "./dbSecurityGroup";
+export type DbSecurityGroup = import("./dbSecurityGroup").DbSecurityGroup;
+export const DbSecurityGroup: typeof import("./dbSecurityGroup").DbSecurityGroup = null as any;
+utilities.lazyLoad(exports, ["DbSecurityGroup"], () => require("./dbSecurityGroup"));
 
-export { DBSecurityGroupIngressArgs } from "./dbsecurityGroupIngress";
-export type DBSecurityGroupIngress = import("./dbsecurityGroupIngress").DBSecurityGroupIngress;
-export const DBSecurityGroupIngress: typeof import("./dbsecurityGroupIngress").DBSecurityGroupIngress = null as any;
-utilities.lazyLoad(exports, ["DBSecurityGroupIngress"], () => require("./dbsecurityGroupIngress"));
+export { DbSecurityGroupIngressArgs } from "./dbSecurityGroupIngress";
+export type DbSecurityGroupIngress = import("./dbSecurityGroupIngress").DbSecurityGroupIngress;
+export const DbSecurityGroupIngress: typeof import("./dbSecurityGroupIngress").DbSecurityGroupIngress = null as any;
+utilities.lazyLoad(exports, ["DbSecurityGroupIngress"], () => require("./dbSecurityGroupIngress"));
 
-export { DBSubnetGroupArgs } from "./dbsubnetGroup";
-export type DBSubnetGroup = import("./dbsubnetGroup").DBSubnetGroup;
-export const DBSubnetGroup: typeof import("./dbsubnetGroup").DBSubnetGroup = null as any;
-utilities.lazyLoad(exports, ["DBSubnetGroup"], () => require("./dbsubnetGroup"));
+export { DbSubnetGroupArgs } from "./dbSubnetGroup";
+export type DbSubnetGroup = import("./dbSubnetGroup").DbSubnetGroup;
+export const DbSubnetGroup: typeof import("./dbSubnetGroup").DbSubnetGroup = null as any;
+utilities.lazyLoad(exports, ["DbSubnetGroup"], () => require("./dbSubnetGroup"));
 
 export { EventSubscriptionArgs } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
 utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
 
-export { GetCustomDBEngineVersionArgs, GetCustomDBEngineVersionResult, GetCustomDBEngineVersionOutputArgs } from "./getCustomDBEngineVersion";
-export const getCustomDBEngineVersion: typeof import("./getCustomDBEngineVersion").getCustomDBEngineVersion = null as any;
-export const getCustomDBEngineVersionOutput: typeof import("./getCustomDBEngineVersion").getCustomDBEngineVersionOutput = null as any;
-utilities.lazyLoad(exports, ["getCustomDBEngineVersion","getCustomDBEngineVersionOutput"], () => require("./getCustomDBEngineVersion"));
+export { GetCustomDbEngineVersionArgs, GetCustomDbEngineVersionResult, GetCustomDbEngineVersionOutputArgs } from "./getCustomDbEngineVersion";
+export const getCustomDbEngineVersion: typeof import("./getCustomDbEngineVersion").getCustomDbEngineVersion = null as any;
+export const getCustomDbEngineVersionOutput: typeof import("./getCustomDbEngineVersion").getCustomDbEngineVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomDbEngineVersion","getCustomDbEngineVersionOutput"], () => require("./getCustomDbEngineVersion"));
 
-export { GetDBClusterArgs, GetDBClusterResult, GetDBClusterOutputArgs } from "./getDBCluster";
-export const getDBCluster: typeof import("./getDBCluster").getDBCluster = null as any;
-export const getDBClusterOutput: typeof import("./getDBCluster").getDBClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getDBCluster","getDBClusterOutput"], () => require("./getDBCluster"));
+export { GetDbClusterArgs, GetDbClusterResult, GetDbClusterOutputArgs } from "./getDbCluster";
+export const getDbCluster: typeof import("./getDbCluster").getDbCluster = null as any;
+export const getDbClusterOutput: typeof import("./getDbCluster").getDbClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getDbCluster","getDbClusterOutput"], () => require("./getDbCluster"));
 
-export { GetDBClusterParameterGroupArgs, GetDBClusterParameterGroupResult, GetDBClusterParameterGroupOutputArgs } from "./getDBClusterParameterGroup";
-export const getDBClusterParameterGroup: typeof import("./getDBClusterParameterGroup").getDBClusterParameterGroup = null as any;
-export const getDBClusterParameterGroupOutput: typeof import("./getDBClusterParameterGroup").getDBClusterParameterGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getDBClusterParameterGroup","getDBClusterParameterGroupOutput"], () => require("./getDBClusterParameterGroup"));
+export { GetDbClusterParameterGroupArgs, GetDbClusterParameterGroupResult, GetDbClusterParameterGroupOutputArgs } from "./getDbClusterParameterGroup";
+export const getDbClusterParameterGroup: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroup = null as any;
+export const getDbClusterParameterGroupOutput: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbClusterParameterGroup","getDbClusterParameterGroupOutput"], () => require("./getDbClusterParameterGroup"));
 
-export { GetDBInstanceArgs, GetDBInstanceResult, GetDBInstanceOutputArgs } from "./getDBInstance";
-export const getDBInstance: typeof import("./getDBInstance").getDBInstance = null as any;
-export const getDBInstanceOutput: typeof import("./getDBInstance").getDBInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getDBInstance","getDBInstanceOutput"], () => require("./getDBInstance"));
+export { GetDbInstanceArgs, GetDbInstanceResult, GetDbInstanceOutputArgs } from "./getDbInstance";
+export const getDbInstance: typeof import("./getDbInstance").getDbInstance = null as any;
+export const getDbInstanceOutput: typeof import("./getDbInstance").getDbInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getDbInstance","getDbInstanceOutput"], () => require("./getDbInstance"));
 
-export { GetDBParameterGroupArgs, GetDBParameterGroupResult, GetDBParameterGroupOutputArgs } from "./getDBParameterGroup";
-export const getDBParameterGroup: typeof import("./getDBParameterGroup").getDBParameterGroup = null as any;
-export const getDBParameterGroupOutput: typeof import("./getDBParameterGroup").getDBParameterGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getDBParameterGroup","getDBParameterGroupOutput"], () => require("./getDBParameterGroup"));
+export { GetDbParameterGroupArgs, GetDbParameterGroupResult, GetDbParameterGroupOutputArgs } from "./getDbParameterGroup";
+export const getDbParameterGroup: typeof import("./getDbParameterGroup").getDbParameterGroup = null as any;
+export const getDbParameterGroupOutput: typeof import("./getDbParameterGroup").getDbParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbParameterGroup","getDbParameterGroupOutput"], () => require("./getDbParameterGroup"));
 
-export { GetDBProxyArgs, GetDBProxyResult, GetDBProxyOutputArgs } from "./getDBProxy";
-export const getDBProxy: typeof import("./getDBProxy").getDBProxy = null as any;
-export const getDBProxyOutput: typeof import("./getDBProxy").getDBProxyOutput = null as any;
-utilities.lazyLoad(exports, ["getDBProxy","getDBProxyOutput"], () => require("./getDBProxy"));
+export { GetDbProxyArgs, GetDbProxyResult, GetDbProxyOutputArgs } from "./getDbProxy";
+export const getDbProxy: typeof import("./getDbProxy").getDbProxy = null as any;
+export const getDbProxyOutput: typeof import("./getDbProxy").getDbProxyOutput = null as any;
+utilities.lazyLoad(exports, ["getDbProxy","getDbProxyOutput"], () => require("./getDbProxy"));
 
-export { GetDBProxyEndpointArgs, GetDBProxyEndpointResult, GetDBProxyEndpointOutputArgs } from "./getDBProxyEndpoint";
-export const getDBProxyEndpoint: typeof import("./getDBProxyEndpoint").getDBProxyEndpoint = null as any;
-export const getDBProxyEndpointOutput: typeof import("./getDBProxyEndpoint").getDBProxyEndpointOutput = null as any;
-utilities.lazyLoad(exports, ["getDBProxyEndpoint","getDBProxyEndpointOutput"], () => require("./getDBProxyEndpoint"));
+export { GetDbProxyEndpointArgs, GetDbProxyEndpointResult, GetDbProxyEndpointOutputArgs } from "./getDbProxyEndpoint";
+export const getDbProxyEndpoint: typeof import("./getDbProxyEndpoint").getDbProxyEndpoint = null as any;
+export const getDbProxyEndpointOutput: typeof import("./getDbProxyEndpoint").getDbProxyEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getDbProxyEndpoint","getDbProxyEndpointOutput"], () => require("./getDbProxyEndpoint"));
 
-export { GetDBProxyTargetGroupArgs, GetDBProxyTargetGroupResult, GetDBProxyTargetGroupOutputArgs } from "./getDBProxyTargetGroup";
-export const getDBProxyTargetGroup: typeof import("./getDBProxyTargetGroup").getDBProxyTargetGroup = null as any;
-export const getDBProxyTargetGroupOutput: typeof import("./getDBProxyTargetGroup").getDBProxyTargetGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getDBProxyTargetGroup","getDBProxyTargetGroupOutput"], () => require("./getDBProxyTargetGroup"));
+export { GetDbProxyTargetGroupArgs, GetDbProxyTargetGroupResult, GetDbProxyTargetGroupOutputArgs } from "./getDbProxyTargetGroup";
+export const getDbProxyTargetGroup: typeof import("./getDbProxyTargetGroup").getDbProxyTargetGroup = null as any;
+export const getDbProxyTargetGroupOutput: typeof import("./getDbProxyTargetGroup").getDbProxyTargetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbProxyTargetGroup","getDbProxyTargetGroupOutput"], () => require("./getDbProxyTargetGroup"));
 
-export { GetDBSecurityGroupArgs, GetDBSecurityGroupResult, GetDBSecurityGroupOutputArgs } from "./getDBSecurityGroup";
-export const getDBSecurityGroup: typeof import("./getDBSecurityGroup").getDBSecurityGroup = null as any;
-export const getDBSecurityGroupOutput: typeof import("./getDBSecurityGroup").getDBSecurityGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getDBSecurityGroup","getDBSecurityGroupOutput"], () => require("./getDBSecurityGroup"));
+export { GetDbSecurityGroupArgs, GetDbSecurityGroupResult, GetDbSecurityGroupOutputArgs } from "./getDbSecurityGroup";
+export const getDbSecurityGroup: typeof import("./getDbSecurityGroup").getDbSecurityGroup = null as any;
+export const getDbSecurityGroupOutput: typeof import("./getDbSecurityGroup").getDbSecurityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbSecurityGroup","getDbSecurityGroupOutput"], () => require("./getDbSecurityGroup"));
 
-export { GetDBSecurityGroupIngressArgs, GetDBSecurityGroupIngressResult, GetDBSecurityGroupIngressOutputArgs } from "./getDBSecurityGroupIngress";
-export const getDBSecurityGroupIngress: typeof import("./getDBSecurityGroupIngress").getDBSecurityGroupIngress = null as any;
-export const getDBSecurityGroupIngressOutput: typeof import("./getDBSecurityGroupIngress").getDBSecurityGroupIngressOutput = null as any;
-utilities.lazyLoad(exports, ["getDBSecurityGroupIngress","getDBSecurityGroupIngressOutput"], () => require("./getDBSecurityGroupIngress"));
+export { GetDbSecurityGroupIngressArgs, GetDbSecurityGroupIngressResult, GetDbSecurityGroupIngressOutputArgs } from "./getDbSecurityGroupIngress";
+export const getDbSecurityGroupIngress: typeof import("./getDbSecurityGroupIngress").getDbSecurityGroupIngress = null as any;
+export const getDbSecurityGroupIngressOutput: typeof import("./getDbSecurityGroupIngress").getDbSecurityGroupIngressOutput = null as any;
+utilities.lazyLoad(exports, ["getDbSecurityGroupIngress","getDbSecurityGroupIngressOutput"], () => require("./getDbSecurityGroupIngress"));
 
-export { GetDBSubnetGroupArgs, GetDBSubnetGroupResult, GetDBSubnetGroupOutputArgs } from "./getDBSubnetGroup";
-export const getDBSubnetGroup: typeof import("./getDBSubnetGroup").getDBSubnetGroup = null as any;
-export const getDBSubnetGroupOutput: typeof import("./getDBSubnetGroup").getDBSubnetGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getDBSubnetGroup","getDBSubnetGroupOutput"], () => require("./getDBSubnetGroup"));
+export { GetDbSubnetGroupArgs, GetDbSubnetGroupResult, GetDbSubnetGroupOutputArgs } from "./getDbSubnetGroup";
+export const getDbSubnetGroup: typeof import("./getDbSubnetGroup").getDbSubnetGroup = null as any;
+export const getDbSubnetGroupOutput: typeof import("./getDbSubnetGroup").getDbSubnetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbSubnetGroup","getDbSubnetGroupOutput"], () => require("./getDbSubnetGroup"));
 
 export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscriptionOutputArgs } from "./getEventSubscription";
 export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
@@ -153,28 +153,28 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:rds:CustomDBEngineVersion":
-                return new CustomDBEngineVersion(name, <any>undefined, { urn })
-            case "aws-native:rds:DBCluster":
-                return new DBCluster(name, <any>undefined, { urn })
-            case "aws-native:rds:DBClusterParameterGroup":
-                return new DBClusterParameterGroup(name, <any>undefined, { urn })
-            case "aws-native:rds:DBInstance":
-                return new DBInstance(name, <any>undefined, { urn })
-            case "aws-native:rds:DBParameterGroup":
-                return new DBParameterGroup(name, <any>undefined, { urn })
-            case "aws-native:rds:DBProxy":
-                return new DBProxy(name, <any>undefined, { urn })
-            case "aws-native:rds:DBProxyEndpoint":
-                return new DBProxyEndpoint(name, <any>undefined, { urn })
-            case "aws-native:rds:DBProxyTargetGroup":
-                return new DBProxyTargetGroup(name, <any>undefined, { urn })
-            case "aws-native:rds:DBSecurityGroup":
-                return new DBSecurityGroup(name, <any>undefined, { urn })
-            case "aws-native:rds:DBSecurityGroupIngress":
-                return new DBSecurityGroupIngress(name, <any>undefined, { urn })
-            case "aws-native:rds:DBSubnetGroup":
-                return new DBSubnetGroup(name, <any>undefined, { urn })
+            case "aws-native:rds:CustomDbEngineVersion":
+                return new CustomDbEngineVersion(name, <any>undefined, { urn })
+            case "aws-native:rds:DbCluster":
+                return new DbCluster(name, <any>undefined, { urn })
+            case "aws-native:rds:DbClusterParameterGroup":
+                return new DbClusterParameterGroup(name, <any>undefined, { urn })
+            case "aws-native:rds:DbInstance":
+                return new DbInstance(name, <any>undefined, { urn })
+            case "aws-native:rds:DbParameterGroup":
+                return new DbParameterGroup(name, <any>undefined, { urn })
+            case "aws-native:rds:DbProxy":
+                return new DbProxy(name, <any>undefined, { urn })
+            case "aws-native:rds:DbProxyEndpoint":
+                return new DbProxyEndpoint(name, <any>undefined, { urn })
+            case "aws-native:rds:DbProxyTargetGroup":
+                return new DbProxyTargetGroup(name, <any>undefined, { urn })
+            case "aws-native:rds:DbSecurityGroup":
+                return new DbSecurityGroup(name, <any>undefined, { urn })
+            case "aws-native:rds:DbSecurityGroupIngress":
+                return new DbSecurityGroupIngress(name, <any>undefined, { urn })
+            case "aws-native:rds:DbSubnetGroup":
+                return new DbSubnetGroup(name, <any>undefined, { urn })
             case "aws-native:rds:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws-native:rds:GlobalCluster":

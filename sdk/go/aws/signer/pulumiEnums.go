@@ -13,8 +13,8 @@ import (
 type SigningProfilePlatformId string
 
 const (
-	SigningProfilePlatformIdAWSLambdaSHA384ECDSA   = SigningProfilePlatformId("AWSLambda-SHA384-ECDSA")
-	SigningProfilePlatformIdNotationOCISHA384ECDSA = SigningProfilePlatformId("Notation-OCI-SHA384-ECDSA")
+	SigningProfilePlatformIdAwsLambdaSha384ecdsa   = SigningProfilePlatformId("AWSLambda-SHA384-ECDSA")
+	SigningProfilePlatformIdNotationOcisha384ecdsa = SigningProfilePlatformId("Notation-OCI-SHA384-ECDSA")
 )
 
 func (SigningProfilePlatformId) ElementType() reflect.Type {

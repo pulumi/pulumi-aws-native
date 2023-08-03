@@ -45,7 +45,7 @@ __all__ = [
     'TaskDefinitionContainerDependency',
     'TaskDefinitionDevice',
     'TaskDefinitionDockerVolumeConfiguration',
-    'TaskDefinitionEFSVolumeConfiguration',
+    'TaskDefinitionEfsVolumeConfiguration',
     'TaskDefinitionEnvironmentFile',
     'TaskDefinitionEphemeralStorage',
     'TaskDefinitionFirelensConfiguration',
@@ -1252,7 +1252,7 @@ class TaskDefinitionAuthorizationConfig(dict):
 
     def __init__(__self__, *,
                  access_point_id: Optional[str] = None,
-                 iam: Optional['TaskDefinitionAuthorizationConfigIAM'] = None):
+                 iam: Optional['TaskDefinitionAuthorizationConfigIam'] = None):
         if access_point_id is not None:
             pulumi.set(__self__, "access_point_id", access_point_id)
         if iam is not None:
@@ -1265,7 +1265,7 @@ class TaskDefinitionAuthorizationConfig(dict):
 
     @property
     @pulumi.getter
-    def iam(self) -> Optional['TaskDefinitionAuthorizationConfigIAM']:
+    def iam(self) -> Optional['TaskDefinitionAuthorizationConfigIam']:
         return pulumi.get(self, "iam")
 
 
@@ -1828,7 +1828,7 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionEFSVolumeConfiguration(dict):
+class TaskDefinitionEfsVolumeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1844,21 +1844,21 @@ class TaskDefinitionEFSVolumeConfiguration(dict):
             suggest = "transit_encryption_port"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionEFSVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionEfsVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TaskDefinitionEFSVolumeConfiguration.__key_warning(key)
+        TaskDefinitionEfsVolumeConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TaskDefinitionEFSVolumeConfiguration.__key_warning(key)
+        TaskDefinitionEfsVolumeConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  filesystem_id: str,
                  authorization_config: Optional['outputs.TaskDefinitionAuthorizationConfig'] = None,
                  root_directory: Optional[str] = None,
-                 transit_encryption: Optional['TaskDefinitionEFSVolumeConfigurationTransitEncryption'] = None,
+                 transit_encryption: Optional['TaskDefinitionEfsVolumeConfigurationTransitEncryption'] = None,
                  transit_encryption_port: Optional[int] = None):
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         if authorization_config is not None:
@@ -1887,7 +1887,7 @@ class TaskDefinitionEFSVolumeConfiguration(dict):
 
     @property
     @pulumi.getter(name="transitEncryption")
-    def transit_encryption(self) -> Optional['TaskDefinitionEFSVolumeConfigurationTransitEncryption']:
+    def transit_encryption(self) -> Optional['TaskDefinitionEfsVolumeConfigurationTransitEncryption']:
         return pulumi.get(self, "transit_encryption")
 
     @property
@@ -2810,7 +2810,7 @@ class TaskDefinitionVolume(dict):
 
     def __init__(__self__, *,
                  docker_volume_configuration: Optional['outputs.TaskDefinitionDockerVolumeConfiguration'] = None,
-                 efs_volume_configuration: Optional['outputs.TaskDefinitionEFSVolumeConfiguration'] = None,
+                 efs_volume_configuration: Optional['outputs.TaskDefinitionEfsVolumeConfiguration'] = None,
                  host: Optional['outputs.TaskDefinitionHostVolumeProperties'] = None,
                  name: Optional[str] = None):
         if docker_volume_configuration is not None:
@@ -2829,7 +2829,7 @@ class TaskDefinitionVolume(dict):
 
     @property
     @pulumi.getter(name="efsVolumeConfiguration")
-    def efs_volume_configuration(self) -> Optional['outputs.TaskDefinitionEFSVolumeConfiguration']:
+    def efs_volume_configuration(self) -> Optional['outputs.TaskDefinitionEfsVolumeConfiguration']:
         return pulumi.get(self, "efs_volume_configuration")
 
     @property

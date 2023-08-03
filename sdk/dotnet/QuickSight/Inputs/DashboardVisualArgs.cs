@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardInsightVisualArgs>? InsightVisual { get; set; }
 
         [Input("kpiVisual")]
-        public Input<Inputs.DashboardKPIVisualArgs>? KpiVisual { get; set; }
+        public Input<Inputs.DashboardKpiVisualArgs>? KpiVisual { get; set; }
 
         [Input("lineChartVisual")]
         public Input<Inputs.DashboardLineChartVisualArgs>? LineChartVisual { get; set; }

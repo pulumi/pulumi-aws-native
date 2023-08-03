@@ -20585,144 +20585,144 @@ func (o ChannelNetworkInputSettingsPtrOutput) ServerValidation() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-type ChannelNielsenCBET struct {
+type ChannelNielsenCbet struct {
 	CbetCheckDigitString *string `pulumi:"cbetCheckDigitString"`
 	CbetStepaside        *string `pulumi:"cbetStepaside"`
 	Csid                 *string `pulumi:"csid"`
 }
 
-// ChannelNielsenCBETInput is an input type that accepts ChannelNielsenCBETArgs and ChannelNielsenCBETOutput values.
-// You can construct a concrete instance of `ChannelNielsenCBETInput` via:
+// ChannelNielsenCbetInput is an input type that accepts ChannelNielsenCbetArgs and ChannelNielsenCbetOutput values.
+// You can construct a concrete instance of `ChannelNielsenCbetInput` via:
 //
-//	ChannelNielsenCBETArgs{...}
-type ChannelNielsenCBETInput interface {
+//	ChannelNielsenCbetArgs{...}
+type ChannelNielsenCbetInput interface {
 	pulumi.Input
 
-	ToChannelNielsenCBETOutput() ChannelNielsenCBETOutput
-	ToChannelNielsenCBETOutputWithContext(context.Context) ChannelNielsenCBETOutput
+	ToChannelNielsenCbetOutput() ChannelNielsenCbetOutput
+	ToChannelNielsenCbetOutputWithContext(context.Context) ChannelNielsenCbetOutput
 }
 
-type ChannelNielsenCBETArgs struct {
+type ChannelNielsenCbetArgs struct {
 	CbetCheckDigitString pulumi.StringPtrInput `pulumi:"cbetCheckDigitString"`
 	CbetStepaside        pulumi.StringPtrInput `pulumi:"cbetStepaside"`
 	Csid                 pulumi.StringPtrInput `pulumi:"csid"`
 }
 
-func (ChannelNielsenCBETArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelNielsenCBET)(nil)).Elem()
+func (ChannelNielsenCbetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNielsenCbet)(nil)).Elem()
 }
 
-func (i ChannelNielsenCBETArgs) ToChannelNielsenCBETOutput() ChannelNielsenCBETOutput {
-	return i.ToChannelNielsenCBETOutputWithContext(context.Background())
+func (i ChannelNielsenCbetArgs) ToChannelNielsenCbetOutput() ChannelNielsenCbetOutput {
+	return i.ToChannelNielsenCbetOutputWithContext(context.Background())
 }
 
-func (i ChannelNielsenCBETArgs) ToChannelNielsenCBETOutputWithContext(ctx context.Context) ChannelNielsenCBETOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCBETOutput)
+func (i ChannelNielsenCbetArgs) ToChannelNielsenCbetOutputWithContext(ctx context.Context) ChannelNielsenCbetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCbetOutput)
 }
 
-func (i ChannelNielsenCBETArgs) ToChannelNielsenCBETPtrOutput() ChannelNielsenCBETPtrOutput {
-	return i.ToChannelNielsenCBETPtrOutputWithContext(context.Background())
+func (i ChannelNielsenCbetArgs) ToChannelNielsenCbetPtrOutput() ChannelNielsenCbetPtrOutput {
+	return i.ToChannelNielsenCbetPtrOutputWithContext(context.Background())
 }
 
-func (i ChannelNielsenCBETArgs) ToChannelNielsenCBETPtrOutputWithContext(ctx context.Context) ChannelNielsenCBETPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCBETOutput).ToChannelNielsenCBETPtrOutputWithContext(ctx)
+func (i ChannelNielsenCbetArgs) ToChannelNielsenCbetPtrOutputWithContext(ctx context.Context) ChannelNielsenCbetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCbetOutput).ToChannelNielsenCbetPtrOutputWithContext(ctx)
 }
 
-// ChannelNielsenCBETPtrInput is an input type that accepts ChannelNielsenCBETArgs, ChannelNielsenCBETPtr and ChannelNielsenCBETPtrOutput values.
-// You can construct a concrete instance of `ChannelNielsenCBETPtrInput` via:
+// ChannelNielsenCbetPtrInput is an input type that accepts ChannelNielsenCbetArgs, ChannelNielsenCbetPtr and ChannelNielsenCbetPtrOutput values.
+// You can construct a concrete instance of `ChannelNielsenCbetPtrInput` via:
 //
-//	        ChannelNielsenCBETArgs{...}
+//	        ChannelNielsenCbetArgs{...}
 //
 //	or:
 //
 //	        nil
-type ChannelNielsenCBETPtrInput interface {
+type ChannelNielsenCbetPtrInput interface {
 	pulumi.Input
 
-	ToChannelNielsenCBETPtrOutput() ChannelNielsenCBETPtrOutput
-	ToChannelNielsenCBETPtrOutputWithContext(context.Context) ChannelNielsenCBETPtrOutput
+	ToChannelNielsenCbetPtrOutput() ChannelNielsenCbetPtrOutput
+	ToChannelNielsenCbetPtrOutputWithContext(context.Context) ChannelNielsenCbetPtrOutput
 }
 
-type channelNielsenCBETPtrType ChannelNielsenCBETArgs
+type channelNielsenCbetPtrType ChannelNielsenCbetArgs
 
-func ChannelNielsenCBETPtr(v *ChannelNielsenCBETArgs) ChannelNielsenCBETPtrInput {
-	return (*channelNielsenCBETPtrType)(v)
+func ChannelNielsenCbetPtr(v *ChannelNielsenCbetArgs) ChannelNielsenCbetPtrInput {
+	return (*channelNielsenCbetPtrType)(v)
 }
 
-func (*channelNielsenCBETPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelNielsenCBET)(nil)).Elem()
+func (*channelNielsenCbetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNielsenCbet)(nil)).Elem()
 }
 
-func (i *channelNielsenCBETPtrType) ToChannelNielsenCBETPtrOutput() ChannelNielsenCBETPtrOutput {
-	return i.ToChannelNielsenCBETPtrOutputWithContext(context.Background())
+func (i *channelNielsenCbetPtrType) ToChannelNielsenCbetPtrOutput() ChannelNielsenCbetPtrOutput {
+	return i.ToChannelNielsenCbetPtrOutputWithContext(context.Background())
 }
 
-func (i *channelNielsenCBETPtrType) ToChannelNielsenCBETPtrOutputWithContext(ctx context.Context) ChannelNielsenCBETPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCBETPtrOutput)
+func (i *channelNielsenCbetPtrType) ToChannelNielsenCbetPtrOutputWithContext(ctx context.Context) ChannelNielsenCbetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCbetPtrOutput)
 }
 
-type ChannelNielsenCBETOutput struct{ *pulumi.OutputState }
+type ChannelNielsenCbetOutput struct{ *pulumi.OutputState }
 
-func (ChannelNielsenCBETOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelNielsenCBET)(nil)).Elem()
+func (ChannelNielsenCbetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNielsenCbet)(nil)).Elem()
 }
 
-func (o ChannelNielsenCBETOutput) ToChannelNielsenCBETOutput() ChannelNielsenCBETOutput {
+func (o ChannelNielsenCbetOutput) ToChannelNielsenCbetOutput() ChannelNielsenCbetOutput {
 	return o
 }
 
-func (o ChannelNielsenCBETOutput) ToChannelNielsenCBETOutputWithContext(ctx context.Context) ChannelNielsenCBETOutput {
+func (o ChannelNielsenCbetOutput) ToChannelNielsenCbetOutputWithContext(ctx context.Context) ChannelNielsenCbetOutput {
 	return o
 }
 
-func (o ChannelNielsenCBETOutput) ToChannelNielsenCBETPtrOutput() ChannelNielsenCBETPtrOutput {
-	return o.ToChannelNielsenCBETPtrOutputWithContext(context.Background())
+func (o ChannelNielsenCbetOutput) ToChannelNielsenCbetPtrOutput() ChannelNielsenCbetPtrOutput {
+	return o.ToChannelNielsenCbetPtrOutputWithContext(context.Background())
 }
 
-func (o ChannelNielsenCBETOutput) ToChannelNielsenCBETPtrOutputWithContext(ctx context.Context) ChannelNielsenCBETPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNielsenCBET) *ChannelNielsenCBET {
+func (o ChannelNielsenCbetOutput) ToChannelNielsenCbetPtrOutputWithContext(ctx context.Context) ChannelNielsenCbetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNielsenCbet) *ChannelNielsenCbet {
 		return &v
-	}).(ChannelNielsenCBETPtrOutput)
+	}).(ChannelNielsenCbetPtrOutput)
 }
 
-func (o ChannelNielsenCBETOutput) CbetCheckDigitString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelNielsenCBET) *string { return v.CbetCheckDigitString }).(pulumi.StringPtrOutput)
+func (o ChannelNielsenCbetOutput) CbetCheckDigitString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenCbet) *string { return v.CbetCheckDigitString }).(pulumi.StringPtrOutput)
 }
 
-func (o ChannelNielsenCBETOutput) CbetStepaside() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelNielsenCBET) *string { return v.CbetStepaside }).(pulumi.StringPtrOutput)
+func (o ChannelNielsenCbetOutput) CbetStepaside() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenCbet) *string { return v.CbetStepaside }).(pulumi.StringPtrOutput)
 }
 
-func (o ChannelNielsenCBETOutput) Csid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelNielsenCBET) *string { return v.Csid }).(pulumi.StringPtrOutput)
+func (o ChannelNielsenCbetOutput) Csid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenCbet) *string { return v.Csid }).(pulumi.StringPtrOutput)
 }
 
-type ChannelNielsenCBETPtrOutput struct{ *pulumi.OutputState }
+type ChannelNielsenCbetPtrOutput struct{ *pulumi.OutputState }
 
-func (ChannelNielsenCBETPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelNielsenCBET)(nil)).Elem()
+func (ChannelNielsenCbetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNielsenCbet)(nil)).Elem()
 }
 
-func (o ChannelNielsenCBETPtrOutput) ToChannelNielsenCBETPtrOutput() ChannelNielsenCBETPtrOutput {
+func (o ChannelNielsenCbetPtrOutput) ToChannelNielsenCbetPtrOutput() ChannelNielsenCbetPtrOutput {
 	return o
 }
 
-func (o ChannelNielsenCBETPtrOutput) ToChannelNielsenCBETPtrOutputWithContext(ctx context.Context) ChannelNielsenCBETPtrOutput {
+func (o ChannelNielsenCbetPtrOutput) ToChannelNielsenCbetPtrOutputWithContext(ctx context.Context) ChannelNielsenCbetPtrOutput {
 	return o
 }
 
-func (o ChannelNielsenCBETPtrOutput) Elem() ChannelNielsenCBETOutput {
-	return o.ApplyT(func(v *ChannelNielsenCBET) ChannelNielsenCBET {
+func (o ChannelNielsenCbetPtrOutput) Elem() ChannelNielsenCbetOutput {
+	return o.ApplyT(func(v *ChannelNielsenCbet) ChannelNielsenCbet {
 		if v != nil {
 			return *v
 		}
-		var ret ChannelNielsenCBET
+		var ret ChannelNielsenCbet
 		return ret
-	}).(ChannelNielsenCBETOutput)
+	}).(ChannelNielsenCbetOutput)
 }
 
-func (o ChannelNielsenCBETPtrOutput) CbetCheckDigitString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ChannelNielsenCBET) *string {
+func (o ChannelNielsenCbetPtrOutput) CbetCheckDigitString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenCbet) *string {
 		if v == nil {
 			return nil
 		}
@@ -20730,8 +20730,8 @@ func (o ChannelNielsenCBETPtrOutput) CbetCheckDigitString() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ChannelNielsenCBETPtrOutput) CbetStepaside() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ChannelNielsenCBET) *string {
+func (o ChannelNielsenCbetPtrOutput) CbetStepaside() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenCbet) *string {
 		if v == nil {
 			return nil
 		}
@@ -20739,8 +20739,8 @@ func (o ChannelNielsenCBETPtrOutput) CbetStepaside() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ChannelNielsenCBETPtrOutput) Csid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ChannelNielsenCBET) *string {
+func (o ChannelNielsenCbetPtrOutput) Csid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenCbet) *string {
 		if v == nil {
 			return nil
 		}
@@ -21060,7 +21060,7 @@ func (o ChannelNielsenNaesIiNwPtrOutput) Timezone() pulumi.StringPtrOutput {
 }
 
 type ChannelNielsenWatermarksSettings struct {
-	NielsenCbetSettings     *ChannelNielsenCBET     `pulumi:"nielsenCbetSettings"`
+	NielsenCbetSettings     *ChannelNielsenCbet     `pulumi:"nielsenCbetSettings"`
 	NielsenDistributionType *string                 `pulumi:"nielsenDistributionType"`
 	NielsenNaesIiNwSettings *ChannelNielsenNaesIiNw `pulumi:"nielsenNaesIiNwSettings"`
 }
@@ -21077,7 +21077,7 @@ type ChannelNielsenWatermarksSettingsInput interface {
 }
 
 type ChannelNielsenWatermarksSettingsArgs struct {
-	NielsenCbetSettings     ChannelNielsenCBETPtrInput     `pulumi:"nielsenCbetSettings"`
+	NielsenCbetSettings     ChannelNielsenCbetPtrInput     `pulumi:"nielsenCbetSettings"`
 	NielsenDistributionType pulumi.StringPtrInput          `pulumi:"nielsenDistributionType"`
 	NielsenNaesIiNwSettings ChannelNielsenNaesIiNwPtrInput `pulumi:"nielsenNaesIiNwSettings"`
 }
@@ -21159,8 +21159,8 @@ func (o ChannelNielsenWatermarksSettingsOutput) ToChannelNielsenWatermarksSettin
 	}).(ChannelNielsenWatermarksSettingsPtrOutput)
 }
 
-func (o ChannelNielsenWatermarksSettingsOutput) NielsenCbetSettings() ChannelNielsenCBETPtrOutput {
-	return o.ApplyT(func(v ChannelNielsenWatermarksSettings) *ChannelNielsenCBET { return v.NielsenCbetSettings }).(ChannelNielsenCBETPtrOutput)
+func (o ChannelNielsenWatermarksSettingsOutput) NielsenCbetSettings() ChannelNielsenCbetPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenWatermarksSettings) *ChannelNielsenCbet { return v.NielsenCbetSettings }).(ChannelNielsenCbetPtrOutput)
 }
 
 func (o ChannelNielsenWatermarksSettingsOutput) NielsenDistributionType() pulumi.StringPtrOutput {
@@ -21195,13 +21195,13 @@ func (o ChannelNielsenWatermarksSettingsPtrOutput) Elem() ChannelNielsenWatermar
 	}).(ChannelNielsenWatermarksSettingsOutput)
 }
 
-func (o ChannelNielsenWatermarksSettingsPtrOutput) NielsenCbetSettings() ChannelNielsenCBETPtrOutput {
-	return o.ApplyT(func(v *ChannelNielsenWatermarksSettings) *ChannelNielsenCBET {
+func (o ChannelNielsenWatermarksSettingsPtrOutput) NielsenCbetSettings() ChannelNielsenCbetPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenWatermarksSettings) *ChannelNielsenCbet {
 		if v == nil {
 			return nil
 		}
 		return v.NielsenCbetSettings
-	}).(ChannelNielsenCBETPtrOutput)
+	}).(ChannelNielsenCbetPtrOutput)
 }
 
 func (o ChannelNielsenWatermarksSettingsPtrOutput) NielsenDistributionType() pulumi.StringPtrOutput {
@@ -28532,8 +28532,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultiplexProgramChannelDestinationSettingsPtrInput)(nil)).Elem(), ChannelMultiplexProgramChannelDestinationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNetworkInputSettingsInput)(nil)).Elem(), ChannelNetworkInputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNetworkInputSettingsPtrInput)(nil)).Elem(), ChannelNetworkInputSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenCBETInput)(nil)).Elem(), ChannelNielsenCBETArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenCBETPtrInput)(nil)).Elem(), ChannelNielsenCBETArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenCbetInput)(nil)).Elem(), ChannelNielsenCbetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenCbetPtrInput)(nil)).Elem(), ChannelNielsenCbetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenConfigurationInput)(nil)).Elem(), ChannelNielsenConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenConfigurationPtrInput)(nil)).Elem(), ChannelNielsenConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenNaesIiNwInput)(nil)).Elem(), ChannelNielsenNaesIiNwArgs{})
@@ -28856,8 +28856,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelMultiplexProgramChannelDestinationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelNetworkInputSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelNetworkInputSettingsPtrOutput{})
-	pulumi.RegisterOutputType(ChannelNielsenCBETOutput{})
-	pulumi.RegisterOutputType(ChannelNielsenCBETPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNielsenCbetOutput{})
+	pulumi.RegisterOutputType(ChannelNielsenCbetPtrOutput{})
 	pulumi.RegisterOutputType(ChannelNielsenConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelNielsenConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelNielsenNaesIiNwOutput{})

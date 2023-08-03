@@ -12,22 +12,22 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['LocationFSxONTAPArgs', 'LocationFSxONTAP']
+__all__ = ['LocationFSxOntapArgs', 'LocationFSxOntap']
 
 @pulumi.input_type
-class LocationFSxONTAPArgs:
+class LocationFSxOntapArgs:
     def __init__(__self__, *,
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  storage_virtual_machine_arn: pulumi.Input[str],
-                 protocol: Optional[pulumi.Input['LocationFSxONTAPProtocolArgs']] = None,
+                 protocol: Optional[pulumi.Input['LocationFSxOntapProtocolArgs']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxONTAPTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]]] = None):
         """
-        The set of arguments for constructing a LocationFSxONTAP resource.
+        The set of arguments for constructing a LocationFSxOntap resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
         :param pulumi.Input[str] storage_virtual_machine_arn: The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationFSxONTAPTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "security_group_arns", security_group_arns)
         pulumi.set(__self__, "storage_virtual_machine_arn", storage_virtual_machine_arn)
@@ -64,11 +64,11 @@ class LocationFSxONTAPArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input['LocationFSxONTAPProtocolArgs']]:
+    def protocol(self) -> Optional[pulumi.Input['LocationFSxOntapProtocolArgs']]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input['LocationFSxONTAPProtocolArgs']]):
+    def protocol(self, value: Optional[pulumi.Input['LocationFSxOntapProtocolArgs']]):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -85,27 +85,27 @@ class LocationFSxONTAPArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxONTAPTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxONTAPTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class LocationFSxONTAP(pulumi.CustomResource):
+class LocationFSxOntap(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 protocol: Optional[pulumi.Input[pulumi.InputType['LocationFSxONTAPProtocolArgs']]] = None,
+                 protocol: Optional[pulumi.Input[pulumi.InputType['LocationFSxOntapProtocolArgs']]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_virtual_machine_arn: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxONTAPTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOntapTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationFSxONTAP.
@@ -115,24 +115,24 @@ class LocationFSxONTAP(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
         :param pulumi.Input[str] storage_virtual_machine_arn: The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxONTAPTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOntapTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocationFSxONTAPArgs,
+                 args: LocationFSxOntapArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::LocationFSxONTAP.
 
         :param str resource_name: The name of the resource.
-        :param LocationFSxONTAPArgs args: The arguments to use to populate this resource's properties.
+        :param LocationFSxOntapArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocationFSxONTAPArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocationFSxOntapArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -141,11 +141,11 @@ class LocationFSxONTAP(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 protocol: Optional[pulumi.Input[pulumi.InputType['LocationFSxONTAPProtocolArgs']]] = None,
+                 protocol: Optional[pulumi.Input[pulumi.InputType['LocationFSxOntapProtocolArgs']]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_virtual_machine_arn: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxONTAPTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOntapTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -153,7 +153,7 @@ class LocationFSxONTAP(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocationFSxONTAPArgs.__new__(LocationFSxONTAPArgs)
+            __props__ = LocationFSxOntapArgs.__new__(LocationFSxOntapArgs)
 
             __props__.__dict__["protocol"] = protocol
             if security_group_arns is None and not opts.urn:
@@ -167,8 +167,8 @@ class LocationFSxONTAP(pulumi.CustomResource):
             __props__.__dict__["fsx_filesystem_arn"] = None
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
-        super(LocationFSxONTAP, __self__).__init__(
-            'aws-native:datasync:LocationFSxONTAP',
+        super(LocationFSxOntap, __self__).__init__(
+            'aws-native:datasync:LocationFSxOntap',
             resource_name,
             __props__,
             opts)
@@ -176,9 +176,9 @@ class LocationFSxONTAP(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'LocationFSxONTAP':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'LocationFSxOntap':
         """
-        Get an existing LocationFSxONTAP resource's state with the given name, id, and optional extra
+        Get an existing LocationFSxOntap resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -187,7 +187,7 @@ class LocationFSxONTAP(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = LocationFSxONTAPArgs.__new__(LocationFSxONTAPArgs)
+        __props__ = LocationFSxOntapArgs.__new__(LocationFSxOntapArgs)
 
         __props__.__dict__["fsx_filesystem_arn"] = None
         __props__.__dict__["location_arn"] = None
@@ -197,7 +197,7 @@ class LocationFSxONTAP(pulumi.CustomResource):
         __props__.__dict__["storage_virtual_machine_arn"] = None
         __props__.__dict__["subdirectory"] = None
         __props__.__dict__["tags"] = None
-        return LocationFSxONTAP(resource_name, opts=opts, __props__=__props__)
+        return LocationFSxOntap(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="fsxFilesystemArn")
@@ -225,7 +225,7 @@ class LocationFSxONTAP(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output[Optional['outputs.LocationFSxONTAPProtocol']]:
+    def protocol(self) -> pulumi.Output[Optional['outputs.LocationFSxOntapProtocol']]:
         return pulumi.get(self, "protocol")
 
     @property
@@ -254,7 +254,7 @@ class LocationFSxONTAP(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationFSxONTAPTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationFSxOntapTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

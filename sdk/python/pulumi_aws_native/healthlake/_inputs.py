@@ -11,23 +11,23 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'FHIRDatastoreIdentityProviderConfigurationArgs',
-    'FHIRDatastoreKmsEncryptionConfigArgs',
-    'FHIRDatastorePreloadDataConfigArgs',
-    'FHIRDatastoreSseConfigurationArgs',
-    'FHIRDatastoreTagArgs',
+    'FhirDatastoreIdentityProviderConfigurationArgs',
+    'FhirDatastoreKmsEncryptionConfigArgs',
+    'FhirDatastorePreloadDataConfigArgs',
+    'FhirDatastoreSseConfigurationArgs',
+    'FhirDatastoreTagArgs',
 ]
 
 @pulumi.input_type
-class FHIRDatastoreIdentityProviderConfigurationArgs:
+class FhirDatastoreIdentityProviderConfigurationArgs:
     def __init__(__self__, *,
-                 authorization_strategy: pulumi.Input['FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy'],
+                 authorization_strategy: pulumi.Input['FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy'],
                  fine_grained_authorization_enabled: Optional[pulumi.Input[bool]] = None,
                  idp_lambda_arn: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None):
         """
         The identity provider configuration for the datastore
-        :param pulumi.Input['FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy'] authorization_strategy: Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+        :param pulumi.Input['FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy'] authorization_strategy: Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
         :param pulumi.Input[bool] fine_grained_authorization_enabled: Flag to indicate if fine-grained authorization will be enabled for the datastore
         :param pulumi.Input[str] idp_lambda_arn: The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
         :param pulumi.Input[str] metadata: The JSON metadata elements for identity provider configuration.
@@ -42,14 +42,14 @@ class FHIRDatastoreIdentityProviderConfigurationArgs:
 
     @property
     @pulumi.getter(name="authorizationStrategy")
-    def authorization_strategy(self) -> pulumi.Input['FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy']:
+    def authorization_strategy(self) -> pulumi.Input['FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy']:
         """
         Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
         """
         return pulumi.get(self, "authorization_strategy")
 
     @authorization_strategy.setter
-    def authorization_strategy(self, value: pulumi.Input['FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy']):
+    def authorization_strategy(self, value: pulumi.Input['FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy']):
         pulumi.set(self, "authorization_strategy", value)
 
     @property
@@ -90,13 +90,13 @@ class FHIRDatastoreIdentityProviderConfigurationArgs:
 
 
 @pulumi.input_type
-class FHIRDatastoreKmsEncryptionConfigArgs:
+class FhirDatastoreKmsEncryptionConfigArgs:
     def __init__(__self__, *,
-                 cmk_type: pulumi.Input['FHIRDatastoreKmsEncryptionConfigCmkType'],
+                 cmk_type: pulumi.Input['FhirDatastoreKmsEncryptionConfigCmkType'],
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
         The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
-        :param pulumi.Input['FHIRDatastoreKmsEncryptionConfigCmkType'] cmk_type: The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
+        :param pulumi.Input['FhirDatastoreKmsEncryptionConfigCmkType'] cmk_type: The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
         :param pulumi.Input[str] kms_key_id: The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
         """
         pulumi.set(__self__, "cmk_type", cmk_type)
@@ -105,14 +105,14 @@ class FHIRDatastoreKmsEncryptionConfigArgs:
 
     @property
     @pulumi.getter(name="cmkType")
-    def cmk_type(self) -> pulumi.Input['FHIRDatastoreKmsEncryptionConfigCmkType']:
+    def cmk_type(self) -> pulumi.Input['FhirDatastoreKmsEncryptionConfigCmkType']:
         """
         The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
         """
         return pulumi.get(self, "cmk_type")
 
     @cmk_type.setter
-    def cmk_type(self, value: pulumi.Input['FHIRDatastoreKmsEncryptionConfigCmkType']):
+    def cmk_type(self, value: pulumi.Input['FhirDatastoreKmsEncryptionConfigCmkType']):
         pulumi.set(self, "cmk_type", value)
 
     @property
@@ -129,32 +129,32 @@ class FHIRDatastoreKmsEncryptionConfigArgs:
 
 
 @pulumi.input_type
-class FHIRDatastorePreloadDataConfigArgs:
+class FhirDatastorePreloadDataConfigArgs:
     def __init__(__self__, *,
-                 preload_data_type: pulumi.Input['FHIRDatastorePreloadDataConfigPreloadDataType']):
+                 preload_data_type: pulumi.Input['FhirDatastorePreloadDataConfigPreloadDataType']):
         """
         The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
-        :param pulumi.Input['FHIRDatastorePreloadDataConfigPreloadDataType'] preload_data_type: The type of preloaded data. Only Synthea preloaded data is supported.
+        :param pulumi.Input['FhirDatastorePreloadDataConfigPreloadDataType'] preload_data_type: The type of preloaded data. Only Synthea preloaded data is supported.
         """
         pulumi.set(__self__, "preload_data_type", preload_data_type)
 
     @property
     @pulumi.getter(name="preloadDataType")
-    def preload_data_type(self) -> pulumi.Input['FHIRDatastorePreloadDataConfigPreloadDataType']:
+    def preload_data_type(self) -> pulumi.Input['FhirDatastorePreloadDataConfigPreloadDataType']:
         """
         The type of preloaded data. Only Synthea preloaded data is supported.
         """
         return pulumi.get(self, "preload_data_type")
 
     @preload_data_type.setter
-    def preload_data_type(self, value: pulumi.Input['FHIRDatastorePreloadDataConfigPreloadDataType']):
+    def preload_data_type(self, value: pulumi.Input['FhirDatastorePreloadDataConfigPreloadDataType']):
         pulumi.set(self, "preload_data_type", value)
 
 
 @pulumi.input_type
-class FHIRDatastoreSseConfigurationArgs:
+class FhirDatastoreSseConfigurationArgs:
     def __init__(__self__, *,
-                 kms_encryption_config: pulumi.Input['FHIRDatastoreKmsEncryptionConfigArgs']):
+                 kms_encryption_config: pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs']):
         """
         The server-side encryption key configuration for a customer provided encryption key.
         """
@@ -162,16 +162,16 @@ class FHIRDatastoreSseConfigurationArgs:
 
     @property
     @pulumi.getter(name="kmsEncryptionConfig")
-    def kms_encryption_config(self) -> pulumi.Input['FHIRDatastoreKmsEncryptionConfigArgs']:
+    def kms_encryption_config(self) -> pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs']:
         return pulumi.get(self, "kms_encryption_config")
 
     @kms_encryption_config.setter
-    def kms_encryption_config(self, value: pulumi.Input['FHIRDatastoreKmsEncryptionConfigArgs']):
+    def kms_encryption_config(self, value: pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs']):
         pulumi.set(self, "kms_encryption_config", value)
 
 
 @pulumi.input_type
-class FHIRDatastoreTagArgs:
+class FhirDatastoreTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

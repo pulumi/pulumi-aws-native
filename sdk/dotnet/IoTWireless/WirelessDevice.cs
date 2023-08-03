@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         /// </summary>
         [Output("loRaWan")]
-        public Output<Outputs.WirelessDeviceLoRaWANDevice?> LoRaWan { get; private set; } = null!;
+        public Output<Outputs.WirelessDeviceLoRaWanDevice?> LoRaWan { get; private set; } = null!;
 
         /// <summary>
         /// Wireless device name
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         /// </summary>
         [Input("loRaWan")]
-        public Input<Inputs.WirelessDeviceLoRaWANDeviceArgs>? LoRaWan { get; set; }
+        public Input<Inputs.WirelessDeviceLoRaWanDeviceArgs>? LoRaWan { get; set; }
 
         /// <summary>
         /// Wireless device name

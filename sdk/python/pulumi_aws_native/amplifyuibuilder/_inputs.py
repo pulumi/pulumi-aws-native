@@ -20,12 +20,12 @@ __all__ = [
     'ComponentTagsArgs',
     'ComponentVariantValuesArgs',
     'ComponentVariantArgs',
-    'FieldPosition0PropertiesArgs',
-    'FieldPosition1PropertiesArgs',
-    'FieldPosition2PropertiesArgs',
     'FormButtonArgs',
-    'FormCTAArgs',
+    'FormCtaArgs',
     'FormDataTypeConfigArgs',
+    'FormFieldPosition0PropertiesArgs',
+    'FormFieldPosition1PropertiesArgs',
+    'FormFieldPosition2PropertiesArgs',
     'FormFieldsMapArgs',
     'FormSectionalElementMapArgs',
     'FormStyleConfig0PropertiesArgs',
@@ -171,59 +171,11 @@ class ComponentVariantArgs:
 
 
 @pulumi.input_type
-class FieldPosition0PropertiesArgs:
-    def __init__(__self__, *,
-                 fixed: pulumi.Input['FormFixedPosition']):
-        pulumi.set(__self__, "fixed", fixed)
-
-    @property
-    @pulumi.getter
-    def fixed(self) -> pulumi.Input['FormFixedPosition']:
-        return pulumi.get(self, "fixed")
-
-    @fixed.setter
-    def fixed(self, value: pulumi.Input['FormFixedPosition']):
-        pulumi.set(self, "fixed", value)
-
-
-@pulumi.input_type
-class FieldPosition1PropertiesArgs:
-    def __init__(__self__, *,
-                 right_of: pulumi.Input[str]):
-        pulumi.set(__self__, "right_of", right_of)
-
-    @property
-    @pulumi.getter(name="rightOf")
-    def right_of(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "right_of")
-
-    @right_of.setter
-    def right_of(self, value: pulumi.Input[str]):
-        pulumi.set(self, "right_of", value)
-
-
-@pulumi.input_type
-class FieldPosition2PropertiesArgs:
-    def __init__(__self__, *,
-                 below: pulumi.Input[str]):
-        pulumi.set(__self__, "below", below)
-
-    @property
-    @pulumi.getter
-    def below(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "below")
-
-    @below.setter
-    def below(self, value: pulumi.Input[str]):
-        pulumi.set(self, "below", value)
-
-
-@pulumi.input_type
 class FormButtonArgs:
     def __init__(__self__, *,
                  children: Optional[pulumi.Input[str]] = None,
                  excluded: Optional[pulumi.Input[bool]] = None,
-                 position: Optional[pulumi.Input[Union['FieldPosition0PropertiesArgs', 'FieldPosition1PropertiesArgs', 'FieldPosition2PropertiesArgs']]] = None):
+                 position: Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]] = None):
         if children is not None:
             pulumi.set(__self__, "children", children)
         if excluded is not None:
@@ -251,16 +203,16 @@ class FormButtonArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[Union['FieldPosition0PropertiesArgs', 'FieldPosition1PropertiesArgs', 'FieldPosition2PropertiesArgs']]]:
+    def position(self) -> Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]]:
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[Union['FieldPosition0PropertiesArgs', 'FieldPosition1PropertiesArgs', 'FieldPosition2PropertiesArgs']]]):
+    def position(self, value: Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]]):
         pulumi.set(self, "position", value)
 
 
 @pulumi.input_type
-class FormCTAArgs:
+class FormCtaArgs:
     def __init__(__self__, *,
                  cancel: Optional[pulumi.Input['FormButtonArgs']] = None,
                  clear: Optional[pulumi.Input['FormButtonArgs']] = None,
@@ -337,6 +289,54 @@ class FormDataTypeConfigArgs:
     @data_type_name.setter
     def data_type_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_type_name", value)
+
+
+@pulumi.input_type
+class FormFieldPosition0PropertiesArgs:
+    def __init__(__self__, *,
+                 fixed: pulumi.Input['FormFixedPosition']):
+        pulumi.set(__self__, "fixed", fixed)
+
+    @property
+    @pulumi.getter
+    def fixed(self) -> pulumi.Input['FormFixedPosition']:
+        return pulumi.get(self, "fixed")
+
+    @fixed.setter
+    def fixed(self, value: pulumi.Input['FormFixedPosition']):
+        pulumi.set(self, "fixed", value)
+
+
+@pulumi.input_type
+class FormFieldPosition1PropertiesArgs:
+    def __init__(__self__, *,
+                 right_of: pulumi.Input[str]):
+        pulumi.set(__self__, "right_of", right_of)
+
+    @property
+    @pulumi.getter(name="rightOf")
+    def right_of(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "right_of")
+
+    @right_of.setter
+    def right_of(self, value: pulumi.Input[str]):
+        pulumi.set(self, "right_of", value)
+
+
+@pulumi.input_type
+class FormFieldPosition2PropertiesArgs:
+    def __init__(__self__, *,
+                 below: pulumi.Input[str]):
+        pulumi.set(__self__, "below", below)
+
+    @property
+    @pulumi.getter
+    def below(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "below")
+
+    @below.setter
+    def below(self, value: pulumi.Input[str]):
+        pulumi.set(self, "below", value)
 
 
 @pulumi.input_type

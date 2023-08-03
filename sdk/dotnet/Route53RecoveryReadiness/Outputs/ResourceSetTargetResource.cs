@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
     [OutputType]
     public sealed class ResourceSetTargetResource
     {
-        public readonly Outputs.ResourceSetNLBResource? NlbResource;
+        public readonly Outputs.ResourceSetNlbResource? NlbResource;
         public readonly Outputs.ResourceSetR53ResourceRecord? R53Resource;
 
         [OutputConstructor]
         private ResourceSetTargetResource(
-            Outputs.ResourceSetNLBResource? nlbResource,
+            Outputs.ResourceSetNlbResource? nlbResource,
 
             Outputs.ResourceSetR53ResourceRecord? r53Resource)
         {

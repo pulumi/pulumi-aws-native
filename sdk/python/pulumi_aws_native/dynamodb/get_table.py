@@ -129,7 +129,7 @@ class GetTableResult:
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional['outputs.TableSSESpecification']:
+    def sse_specification(self) -> Optional['outputs.TableSseSpecification']:
         return pulumi.get(self, "sse_specification")
 
     @property

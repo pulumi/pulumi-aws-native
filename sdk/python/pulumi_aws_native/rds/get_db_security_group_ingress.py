@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetDBSecurityGroupIngressResult',
-    'AwaitableGetDBSecurityGroupIngressResult',
+    'GetDbSecurityGroupIngressResult',
+    'AwaitableGetDbSecurityGroupIngressResult',
     'get_db_security_group_ingress',
     'get_db_security_group_ingress_output',
 ]
 
 @pulumi.output_type
-class GetDBSecurityGroupIngressResult:
+class GetDbSecurityGroupIngressResult:
     def __init__(__self__, cidrip=None, db_security_group_name=None, ec2_security_group_id=None, ec2_security_group_name=None, ec2_security_group_owner_id=None, id=None):
         if cidrip and not isinstance(cidrip, str):
             raise TypeError("Expected argument 'cidrip' to be a str")
@@ -69,12 +69,12 @@ class GetDBSecurityGroupIngressResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetDBSecurityGroupIngressResult(GetDBSecurityGroupIngressResult):
+class AwaitableGetDbSecurityGroupIngressResult(GetDbSecurityGroupIngressResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBSecurityGroupIngressResult(
+        return GetDbSecurityGroupIngressResult(
             cidrip=self.cidrip,
             db_security_group_name=self.db_security_group_name,
             ec2_security_group_id=self.ec2_security_group_id,
@@ -84,16 +84,16 @@ class AwaitableGetDBSecurityGroupIngressResult(GetDBSecurityGroupIngressResult):
 
 
 def get_db_security_group_ingress(id: Optional[str] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBSecurityGroupIngressResult:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbSecurityGroupIngressResult:
     """
     Resource Type definition for AWS::RDS::DBSecurityGroupIngress
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBSecurityGroupIngress', __args__, opts=opts, typ=GetDBSecurityGroupIngressResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbSecurityGroupIngress', __args__, opts=opts, typ=GetDbSecurityGroupIngressResult).value
 
-    return AwaitableGetDBSecurityGroupIngressResult(
+    return AwaitableGetDbSecurityGroupIngressResult(
         cidrip=pulumi.get(__ret__, 'cidrip'),
         db_security_group_name=pulumi.get(__ret__, 'db_security_group_name'),
         ec2_security_group_id=pulumi.get(__ret__, 'ec2_security_group_id'),
@@ -104,7 +104,7 @@ def get_db_security_group_ingress(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_security_group_ingress)
 def get_db_security_group_ingress_output(id: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBSecurityGroupIngressResult]:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbSecurityGroupIngressResult]:
     """
     Resource Type definition for AWS::RDS::DBSecurityGroupIngress
     """

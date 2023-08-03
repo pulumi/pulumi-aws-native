@@ -543,11 +543,11 @@ type ApplicationConfigurationDetails struct {
 	// A list of alarms to monitor for the component.
 	Alarms []ApplicationAlarm `pulumi:"alarms"`
 	// The HA cluster Prometheus Exporter settings.
-	HaClusterPrometheusExporter *ApplicationHAClusterPrometheusExporter `pulumi:"haClusterPrometheusExporter"`
+	HaClusterPrometheusExporter *ApplicationHaClusterPrometheusExporter `pulumi:"haClusterPrometheusExporter"`
 	// The HANA DB Prometheus Exporter settings.
-	HanaPrometheusExporter *ApplicationHANAPrometheusExporter `pulumi:"hanaPrometheusExporter"`
+	HanaPrometheusExporter *ApplicationHanaPrometheusExporter `pulumi:"hanaPrometheusExporter"`
 	// The JMX Prometheus Exporter settings.
-	JmxPrometheusExporter *ApplicationJMXPrometheusExporter `pulumi:"jmxPrometheusExporter"`
+	JmxPrometheusExporter *ApplicationJmxPrometheusExporter `pulumi:"jmxPrometheusExporter"`
 	// A list of logs to monitor for the component.
 	Logs []ApplicationLog `pulumi:"logs"`
 	// A list of Windows Events to log.
@@ -572,11 +572,11 @@ type ApplicationConfigurationDetailsArgs struct {
 	// A list of alarms to monitor for the component.
 	Alarms ApplicationAlarmArrayInput `pulumi:"alarms"`
 	// The HA cluster Prometheus Exporter settings.
-	HaClusterPrometheusExporter ApplicationHAClusterPrometheusExporterPtrInput `pulumi:"haClusterPrometheusExporter"`
+	HaClusterPrometheusExporter ApplicationHaClusterPrometheusExporterPtrInput `pulumi:"haClusterPrometheusExporter"`
 	// The HANA DB Prometheus Exporter settings.
-	HanaPrometheusExporter ApplicationHANAPrometheusExporterPtrInput `pulumi:"hanaPrometheusExporter"`
+	HanaPrometheusExporter ApplicationHanaPrometheusExporterPtrInput `pulumi:"hanaPrometheusExporter"`
 	// The JMX Prometheus Exporter settings.
-	JmxPrometheusExporter ApplicationJMXPrometheusExporterPtrInput `pulumi:"jmxPrometheusExporter"`
+	JmxPrometheusExporter ApplicationJmxPrometheusExporterPtrInput `pulumi:"jmxPrometheusExporter"`
 	// A list of logs to monitor for the component.
 	Logs ApplicationLogArrayInput `pulumi:"logs"`
 	// A list of Windows Events to log.
@@ -672,24 +672,24 @@ func (o ApplicationConfigurationDetailsOutput) Alarms() ApplicationAlarmArrayOut
 }
 
 // The HA cluster Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsOutput) HaClusterPrometheusExporter() ApplicationHAClusterPrometheusExporterPtrOutput {
-	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationHAClusterPrometheusExporter {
+func (o ApplicationConfigurationDetailsOutput) HaClusterPrometheusExporter() ApplicationHaClusterPrometheusExporterPtrOutput {
+	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationHaClusterPrometheusExporter {
 		return v.HaClusterPrometheusExporter
-	}).(ApplicationHAClusterPrometheusExporterPtrOutput)
+	}).(ApplicationHaClusterPrometheusExporterPtrOutput)
 }
 
 // The HANA DB Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsOutput) HanaPrometheusExporter() ApplicationHANAPrometheusExporterPtrOutput {
-	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationHANAPrometheusExporter {
+func (o ApplicationConfigurationDetailsOutput) HanaPrometheusExporter() ApplicationHanaPrometheusExporterPtrOutput {
+	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationHanaPrometheusExporter {
 		return v.HanaPrometheusExporter
-	}).(ApplicationHANAPrometheusExporterPtrOutput)
+	}).(ApplicationHanaPrometheusExporterPtrOutput)
 }
 
 // The JMX Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsOutput) JmxPrometheusExporter() ApplicationJMXPrometheusExporterPtrOutput {
-	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationJMXPrometheusExporter {
+func (o ApplicationConfigurationDetailsOutput) JmxPrometheusExporter() ApplicationJmxPrometheusExporterPtrOutput {
+	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationJmxPrometheusExporter {
 		return v.JmxPrometheusExporter
-	}).(ApplicationJMXPrometheusExporterPtrOutput)
+	}).(ApplicationJmxPrometheusExporterPtrOutput)
 }
 
 // A list of logs to monitor for the component.
@@ -747,33 +747,33 @@ func (o ApplicationConfigurationDetailsPtrOutput) Alarms() ApplicationAlarmArray
 }
 
 // The HA cluster Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsPtrOutput) HaClusterPrometheusExporter() ApplicationHAClusterPrometheusExporterPtrOutput {
-	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationHAClusterPrometheusExporter {
+func (o ApplicationConfigurationDetailsPtrOutput) HaClusterPrometheusExporter() ApplicationHaClusterPrometheusExporterPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationHaClusterPrometheusExporter {
 		if v == nil {
 			return nil
 		}
 		return v.HaClusterPrometheusExporter
-	}).(ApplicationHAClusterPrometheusExporterPtrOutput)
+	}).(ApplicationHaClusterPrometheusExporterPtrOutput)
 }
 
 // The HANA DB Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsPtrOutput) HanaPrometheusExporter() ApplicationHANAPrometheusExporterPtrOutput {
-	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationHANAPrometheusExporter {
+func (o ApplicationConfigurationDetailsPtrOutput) HanaPrometheusExporter() ApplicationHanaPrometheusExporterPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationHanaPrometheusExporter {
 		if v == nil {
 			return nil
 		}
 		return v.HanaPrometheusExporter
-	}).(ApplicationHANAPrometheusExporterPtrOutput)
+	}).(ApplicationHanaPrometheusExporterPtrOutput)
 }
 
 // The JMX Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsPtrOutput) JmxPrometheusExporter() ApplicationJMXPrometheusExporterPtrOutput {
-	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationJMXPrometheusExporter {
+func (o ApplicationConfigurationDetailsPtrOutput) JmxPrometheusExporter() ApplicationJmxPrometheusExporterPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationJmxPrometheusExporter {
 		if v == nil {
 			return nil
 		}
 		return v.JmxPrometheusExporter
-	}).(ApplicationJMXPrometheusExporterPtrOutput)
+	}).(ApplicationJmxPrometheusExporterPtrOutput)
 }
 
 // A list of logs to monitor for the component.
@@ -906,138 +906,138 @@ func (o ApplicationCustomComponentArrayOutput) Index(i pulumi.IntInput) Applicat
 }
 
 // The HA cluster Prometheus Exporter settings.
-type ApplicationHAClusterPrometheusExporter struct {
+type ApplicationHaClusterPrometheusExporter struct {
 	// Prometheus exporter port.
 	PrometheusPort *string `pulumi:"prometheusPort"`
 }
 
-// ApplicationHAClusterPrometheusExporterInput is an input type that accepts ApplicationHAClusterPrometheusExporterArgs and ApplicationHAClusterPrometheusExporterOutput values.
-// You can construct a concrete instance of `ApplicationHAClusterPrometheusExporterInput` via:
+// ApplicationHaClusterPrometheusExporterInput is an input type that accepts ApplicationHaClusterPrometheusExporterArgs and ApplicationHaClusterPrometheusExporterOutput values.
+// You can construct a concrete instance of `ApplicationHaClusterPrometheusExporterInput` via:
 //
-//	ApplicationHAClusterPrometheusExporterArgs{...}
-type ApplicationHAClusterPrometheusExporterInput interface {
+//	ApplicationHaClusterPrometheusExporterArgs{...}
+type ApplicationHaClusterPrometheusExporterInput interface {
 	pulumi.Input
 
-	ToApplicationHAClusterPrometheusExporterOutput() ApplicationHAClusterPrometheusExporterOutput
-	ToApplicationHAClusterPrometheusExporterOutputWithContext(context.Context) ApplicationHAClusterPrometheusExporterOutput
+	ToApplicationHaClusterPrometheusExporterOutput() ApplicationHaClusterPrometheusExporterOutput
+	ToApplicationHaClusterPrometheusExporterOutputWithContext(context.Context) ApplicationHaClusterPrometheusExporterOutput
 }
 
 // The HA cluster Prometheus Exporter settings.
-type ApplicationHAClusterPrometheusExporterArgs struct {
+type ApplicationHaClusterPrometheusExporterArgs struct {
 	// Prometheus exporter port.
 	PrometheusPort pulumi.StringPtrInput `pulumi:"prometheusPort"`
 }
 
-func (ApplicationHAClusterPrometheusExporterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHAClusterPrometheusExporter)(nil)).Elem()
+func (ApplicationHaClusterPrometheusExporterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHaClusterPrometheusExporter)(nil)).Elem()
 }
 
-func (i ApplicationHAClusterPrometheusExporterArgs) ToApplicationHAClusterPrometheusExporterOutput() ApplicationHAClusterPrometheusExporterOutput {
-	return i.ToApplicationHAClusterPrometheusExporterOutputWithContext(context.Background())
+func (i ApplicationHaClusterPrometheusExporterArgs) ToApplicationHaClusterPrometheusExporterOutput() ApplicationHaClusterPrometheusExporterOutput {
+	return i.ToApplicationHaClusterPrometheusExporterOutputWithContext(context.Background())
 }
 
-func (i ApplicationHAClusterPrometheusExporterArgs) ToApplicationHAClusterPrometheusExporterOutputWithContext(ctx context.Context) ApplicationHAClusterPrometheusExporterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHAClusterPrometheusExporterOutput)
+func (i ApplicationHaClusterPrometheusExporterArgs) ToApplicationHaClusterPrometheusExporterOutputWithContext(ctx context.Context) ApplicationHaClusterPrometheusExporterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHaClusterPrometheusExporterOutput)
 }
 
-func (i ApplicationHAClusterPrometheusExporterArgs) ToApplicationHAClusterPrometheusExporterPtrOutput() ApplicationHAClusterPrometheusExporterPtrOutput {
-	return i.ToApplicationHAClusterPrometheusExporterPtrOutputWithContext(context.Background())
+func (i ApplicationHaClusterPrometheusExporterArgs) ToApplicationHaClusterPrometheusExporterPtrOutput() ApplicationHaClusterPrometheusExporterPtrOutput {
+	return i.ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationHAClusterPrometheusExporterArgs) ToApplicationHAClusterPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHAClusterPrometheusExporterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHAClusterPrometheusExporterOutput).ToApplicationHAClusterPrometheusExporterPtrOutputWithContext(ctx)
+func (i ApplicationHaClusterPrometheusExporterArgs) ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHaClusterPrometheusExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHaClusterPrometheusExporterOutput).ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(ctx)
 }
 
-// ApplicationHAClusterPrometheusExporterPtrInput is an input type that accepts ApplicationHAClusterPrometheusExporterArgs, ApplicationHAClusterPrometheusExporterPtr and ApplicationHAClusterPrometheusExporterPtrOutput values.
-// You can construct a concrete instance of `ApplicationHAClusterPrometheusExporterPtrInput` via:
+// ApplicationHaClusterPrometheusExporterPtrInput is an input type that accepts ApplicationHaClusterPrometheusExporterArgs, ApplicationHaClusterPrometheusExporterPtr and ApplicationHaClusterPrometheusExporterPtrOutput values.
+// You can construct a concrete instance of `ApplicationHaClusterPrometheusExporterPtrInput` via:
 //
-//	        ApplicationHAClusterPrometheusExporterArgs{...}
+//	        ApplicationHaClusterPrometheusExporterArgs{...}
 //
 //	or:
 //
 //	        nil
-type ApplicationHAClusterPrometheusExporterPtrInput interface {
+type ApplicationHaClusterPrometheusExporterPtrInput interface {
 	pulumi.Input
 
-	ToApplicationHAClusterPrometheusExporterPtrOutput() ApplicationHAClusterPrometheusExporterPtrOutput
-	ToApplicationHAClusterPrometheusExporterPtrOutputWithContext(context.Context) ApplicationHAClusterPrometheusExporterPtrOutput
+	ToApplicationHaClusterPrometheusExporterPtrOutput() ApplicationHaClusterPrometheusExporterPtrOutput
+	ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(context.Context) ApplicationHaClusterPrometheusExporterPtrOutput
 }
 
-type applicationHAClusterPrometheusExporterPtrType ApplicationHAClusterPrometheusExporterArgs
+type applicationHaClusterPrometheusExporterPtrType ApplicationHaClusterPrometheusExporterArgs
 
-func ApplicationHAClusterPrometheusExporterPtr(v *ApplicationHAClusterPrometheusExporterArgs) ApplicationHAClusterPrometheusExporterPtrInput {
-	return (*applicationHAClusterPrometheusExporterPtrType)(v)
+func ApplicationHaClusterPrometheusExporterPtr(v *ApplicationHaClusterPrometheusExporterArgs) ApplicationHaClusterPrometheusExporterPtrInput {
+	return (*applicationHaClusterPrometheusExporterPtrType)(v)
 }
 
-func (*applicationHAClusterPrometheusExporterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHAClusterPrometheusExporter)(nil)).Elem()
+func (*applicationHaClusterPrometheusExporterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationHaClusterPrometheusExporter)(nil)).Elem()
 }
 
-func (i *applicationHAClusterPrometheusExporterPtrType) ToApplicationHAClusterPrometheusExporterPtrOutput() ApplicationHAClusterPrometheusExporterPtrOutput {
-	return i.ToApplicationHAClusterPrometheusExporterPtrOutputWithContext(context.Background())
+func (i *applicationHaClusterPrometheusExporterPtrType) ToApplicationHaClusterPrometheusExporterPtrOutput() ApplicationHaClusterPrometheusExporterPtrOutput {
+	return i.ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationHAClusterPrometheusExporterPtrType) ToApplicationHAClusterPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHAClusterPrometheusExporterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHAClusterPrometheusExporterPtrOutput)
+func (i *applicationHaClusterPrometheusExporterPtrType) ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHaClusterPrometheusExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHaClusterPrometheusExporterPtrOutput)
 }
 
 // The HA cluster Prometheus Exporter settings.
-type ApplicationHAClusterPrometheusExporterOutput struct{ *pulumi.OutputState }
+type ApplicationHaClusterPrometheusExporterOutput struct{ *pulumi.OutputState }
 
-func (ApplicationHAClusterPrometheusExporterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHAClusterPrometheusExporter)(nil)).Elem()
+func (ApplicationHaClusterPrometheusExporterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHaClusterPrometheusExporter)(nil)).Elem()
 }
 
-func (o ApplicationHAClusterPrometheusExporterOutput) ToApplicationHAClusterPrometheusExporterOutput() ApplicationHAClusterPrometheusExporterOutput {
+func (o ApplicationHaClusterPrometheusExporterOutput) ToApplicationHaClusterPrometheusExporterOutput() ApplicationHaClusterPrometheusExporterOutput {
 	return o
 }
 
-func (o ApplicationHAClusterPrometheusExporterOutput) ToApplicationHAClusterPrometheusExporterOutputWithContext(ctx context.Context) ApplicationHAClusterPrometheusExporterOutput {
+func (o ApplicationHaClusterPrometheusExporterOutput) ToApplicationHaClusterPrometheusExporterOutputWithContext(ctx context.Context) ApplicationHaClusterPrometheusExporterOutput {
 	return o
 }
 
-func (o ApplicationHAClusterPrometheusExporterOutput) ToApplicationHAClusterPrometheusExporterPtrOutput() ApplicationHAClusterPrometheusExporterPtrOutput {
-	return o.ToApplicationHAClusterPrometheusExporterPtrOutputWithContext(context.Background())
+func (o ApplicationHaClusterPrometheusExporterOutput) ToApplicationHaClusterPrometheusExporterPtrOutput() ApplicationHaClusterPrometheusExporterPtrOutput {
+	return o.ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationHAClusterPrometheusExporterOutput) ToApplicationHAClusterPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHAClusterPrometheusExporterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationHAClusterPrometheusExporter) *ApplicationHAClusterPrometheusExporter {
+func (o ApplicationHaClusterPrometheusExporterOutput) ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHaClusterPrometheusExporterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationHaClusterPrometheusExporter) *ApplicationHaClusterPrometheusExporter {
 		return &v
-	}).(ApplicationHAClusterPrometheusExporterPtrOutput)
+	}).(ApplicationHaClusterPrometheusExporterPtrOutput)
 }
 
 // Prometheus exporter port.
-func (o ApplicationHAClusterPrometheusExporterOutput) PrometheusPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationHAClusterPrometheusExporter) *string { return v.PrometheusPort }).(pulumi.StringPtrOutput)
+func (o ApplicationHaClusterPrometheusExporterOutput) PrometheusPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationHaClusterPrometheusExporter) *string { return v.PrometheusPort }).(pulumi.StringPtrOutput)
 }
 
-type ApplicationHAClusterPrometheusExporterPtrOutput struct{ *pulumi.OutputState }
+type ApplicationHaClusterPrometheusExporterPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationHAClusterPrometheusExporterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHAClusterPrometheusExporter)(nil)).Elem()
+func (ApplicationHaClusterPrometheusExporterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationHaClusterPrometheusExporter)(nil)).Elem()
 }
 
-func (o ApplicationHAClusterPrometheusExporterPtrOutput) ToApplicationHAClusterPrometheusExporterPtrOutput() ApplicationHAClusterPrometheusExporterPtrOutput {
+func (o ApplicationHaClusterPrometheusExporterPtrOutput) ToApplicationHaClusterPrometheusExporterPtrOutput() ApplicationHaClusterPrometheusExporterPtrOutput {
 	return o
 }
 
-func (o ApplicationHAClusterPrometheusExporterPtrOutput) ToApplicationHAClusterPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHAClusterPrometheusExporterPtrOutput {
+func (o ApplicationHaClusterPrometheusExporterPtrOutput) ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHaClusterPrometheusExporterPtrOutput {
 	return o
 }
 
-func (o ApplicationHAClusterPrometheusExporterPtrOutput) Elem() ApplicationHAClusterPrometheusExporterOutput {
-	return o.ApplyT(func(v *ApplicationHAClusterPrometheusExporter) ApplicationHAClusterPrometheusExporter {
+func (o ApplicationHaClusterPrometheusExporterPtrOutput) Elem() ApplicationHaClusterPrometheusExporterOutput {
+	return o.ApplyT(func(v *ApplicationHaClusterPrometheusExporter) ApplicationHaClusterPrometheusExporter {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationHAClusterPrometheusExporter
+		var ret ApplicationHaClusterPrometheusExporter
 		return ret
-	}).(ApplicationHAClusterPrometheusExporterOutput)
+	}).(ApplicationHaClusterPrometheusExporterOutput)
 }
 
 // Prometheus exporter port.
-func (o ApplicationHAClusterPrometheusExporterPtrOutput) PrometheusPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationHAClusterPrometheusExporter) *string {
+func (o ApplicationHaClusterPrometheusExporterPtrOutput) PrometheusPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationHaClusterPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
@@ -1046,7 +1046,7 @@ func (o ApplicationHAClusterPrometheusExporterPtrOutput) PrometheusPort() pulumi
 }
 
 // The HANA DB Prometheus Exporter settings.
-type ApplicationHANAPrometheusExporter struct {
+type ApplicationHanaPrometheusExporter struct {
 	// A flag which indicates agreeing to install SAP HANA DB client.
 	AgreeToInstallHanadbClient bool `pulumi:"agreeToInstallHanadbClient"`
 	// The HANA DB port.
@@ -1062,19 +1062,19 @@ type ApplicationHANAPrometheusExporter struct {
 	PrometheusPort *string `pulumi:"prometheusPort"`
 }
 
-// ApplicationHANAPrometheusExporterInput is an input type that accepts ApplicationHANAPrometheusExporterArgs and ApplicationHANAPrometheusExporterOutput values.
-// You can construct a concrete instance of `ApplicationHANAPrometheusExporterInput` via:
+// ApplicationHanaPrometheusExporterInput is an input type that accepts ApplicationHanaPrometheusExporterArgs and ApplicationHanaPrometheusExporterOutput values.
+// You can construct a concrete instance of `ApplicationHanaPrometheusExporterInput` via:
 //
-//	ApplicationHANAPrometheusExporterArgs{...}
-type ApplicationHANAPrometheusExporterInput interface {
+//	ApplicationHanaPrometheusExporterArgs{...}
+type ApplicationHanaPrometheusExporterInput interface {
 	pulumi.Input
 
-	ToApplicationHANAPrometheusExporterOutput() ApplicationHANAPrometheusExporterOutput
-	ToApplicationHANAPrometheusExporterOutputWithContext(context.Context) ApplicationHANAPrometheusExporterOutput
+	ToApplicationHanaPrometheusExporterOutput() ApplicationHanaPrometheusExporterOutput
+	ToApplicationHanaPrometheusExporterOutputWithContext(context.Context) ApplicationHanaPrometheusExporterOutput
 }
 
 // The HANA DB Prometheus Exporter settings.
-type ApplicationHANAPrometheusExporterArgs struct {
+type ApplicationHanaPrometheusExporterArgs struct {
 	// A flag which indicates agreeing to install SAP HANA DB client.
 	AgreeToInstallHanadbClient pulumi.BoolInput `pulumi:"agreeToInstallHanadbClient"`
 	// The HANA DB port.
@@ -1090,139 +1090,139 @@ type ApplicationHANAPrometheusExporterArgs struct {
 	PrometheusPort pulumi.StringPtrInput `pulumi:"prometheusPort"`
 }
 
-func (ApplicationHANAPrometheusExporterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHANAPrometheusExporter)(nil)).Elem()
+func (ApplicationHanaPrometheusExporterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHanaPrometheusExporter)(nil)).Elem()
 }
 
-func (i ApplicationHANAPrometheusExporterArgs) ToApplicationHANAPrometheusExporterOutput() ApplicationHANAPrometheusExporterOutput {
-	return i.ToApplicationHANAPrometheusExporterOutputWithContext(context.Background())
+func (i ApplicationHanaPrometheusExporterArgs) ToApplicationHanaPrometheusExporterOutput() ApplicationHanaPrometheusExporterOutput {
+	return i.ToApplicationHanaPrometheusExporterOutputWithContext(context.Background())
 }
 
-func (i ApplicationHANAPrometheusExporterArgs) ToApplicationHANAPrometheusExporterOutputWithContext(ctx context.Context) ApplicationHANAPrometheusExporterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHANAPrometheusExporterOutput)
+func (i ApplicationHanaPrometheusExporterArgs) ToApplicationHanaPrometheusExporterOutputWithContext(ctx context.Context) ApplicationHanaPrometheusExporterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHanaPrometheusExporterOutput)
 }
 
-func (i ApplicationHANAPrometheusExporterArgs) ToApplicationHANAPrometheusExporterPtrOutput() ApplicationHANAPrometheusExporterPtrOutput {
-	return i.ToApplicationHANAPrometheusExporterPtrOutputWithContext(context.Background())
+func (i ApplicationHanaPrometheusExporterArgs) ToApplicationHanaPrometheusExporterPtrOutput() ApplicationHanaPrometheusExporterPtrOutput {
+	return i.ToApplicationHanaPrometheusExporterPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationHANAPrometheusExporterArgs) ToApplicationHANAPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHANAPrometheusExporterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHANAPrometheusExporterOutput).ToApplicationHANAPrometheusExporterPtrOutputWithContext(ctx)
+func (i ApplicationHanaPrometheusExporterArgs) ToApplicationHanaPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHanaPrometheusExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHanaPrometheusExporterOutput).ToApplicationHanaPrometheusExporterPtrOutputWithContext(ctx)
 }
 
-// ApplicationHANAPrometheusExporterPtrInput is an input type that accepts ApplicationHANAPrometheusExporterArgs, ApplicationHANAPrometheusExporterPtr and ApplicationHANAPrometheusExporterPtrOutput values.
-// You can construct a concrete instance of `ApplicationHANAPrometheusExporterPtrInput` via:
+// ApplicationHanaPrometheusExporterPtrInput is an input type that accepts ApplicationHanaPrometheusExporterArgs, ApplicationHanaPrometheusExporterPtr and ApplicationHanaPrometheusExporterPtrOutput values.
+// You can construct a concrete instance of `ApplicationHanaPrometheusExporterPtrInput` via:
 //
-//	        ApplicationHANAPrometheusExporterArgs{...}
+//	        ApplicationHanaPrometheusExporterArgs{...}
 //
 //	or:
 //
 //	        nil
-type ApplicationHANAPrometheusExporterPtrInput interface {
+type ApplicationHanaPrometheusExporterPtrInput interface {
 	pulumi.Input
 
-	ToApplicationHANAPrometheusExporterPtrOutput() ApplicationHANAPrometheusExporterPtrOutput
-	ToApplicationHANAPrometheusExporterPtrOutputWithContext(context.Context) ApplicationHANAPrometheusExporterPtrOutput
+	ToApplicationHanaPrometheusExporterPtrOutput() ApplicationHanaPrometheusExporterPtrOutput
+	ToApplicationHanaPrometheusExporterPtrOutputWithContext(context.Context) ApplicationHanaPrometheusExporterPtrOutput
 }
 
-type applicationHANAPrometheusExporterPtrType ApplicationHANAPrometheusExporterArgs
+type applicationHanaPrometheusExporterPtrType ApplicationHanaPrometheusExporterArgs
 
-func ApplicationHANAPrometheusExporterPtr(v *ApplicationHANAPrometheusExporterArgs) ApplicationHANAPrometheusExporterPtrInput {
-	return (*applicationHANAPrometheusExporterPtrType)(v)
+func ApplicationHanaPrometheusExporterPtr(v *ApplicationHanaPrometheusExporterArgs) ApplicationHanaPrometheusExporterPtrInput {
+	return (*applicationHanaPrometheusExporterPtrType)(v)
 }
 
-func (*applicationHANAPrometheusExporterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHANAPrometheusExporter)(nil)).Elem()
+func (*applicationHanaPrometheusExporterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationHanaPrometheusExporter)(nil)).Elem()
 }
 
-func (i *applicationHANAPrometheusExporterPtrType) ToApplicationHANAPrometheusExporterPtrOutput() ApplicationHANAPrometheusExporterPtrOutput {
-	return i.ToApplicationHANAPrometheusExporterPtrOutputWithContext(context.Background())
+func (i *applicationHanaPrometheusExporterPtrType) ToApplicationHanaPrometheusExporterPtrOutput() ApplicationHanaPrometheusExporterPtrOutput {
+	return i.ToApplicationHanaPrometheusExporterPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationHANAPrometheusExporterPtrType) ToApplicationHANAPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHANAPrometheusExporterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHANAPrometheusExporterPtrOutput)
+func (i *applicationHanaPrometheusExporterPtrType) ToApplicationHanaPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHanaPrometheusExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHanaPrometheusExporterPtrOutput)
 }
 
 // The HANA DB Prometheus Exporter settings.
-type ApplicationHANAPrometheusExporterOutput struct{ *pulumi.OutputState }
+type ApplicationHanaPrometheusExporterOutput struct{ *pulumi.OutputState }
 
-func (ApplicationHANAPrometheusExporterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHANAPrometheusExporter)(nil)).Elem()
+func (ApplicationHanaPrometheusExporterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHanaPrometheusExporter)(nil)).Elem()
 }
 
-func (o ApplicationHANAPrometheusExporterOutput) ToApplicationHANAPrometheusExporterOutput() ApplicationHANAPrometheusExporterOutput {
+func (o ApplicationHanaPrometheusExporterOutput) ToApplicationHanaPrometheusExporterOutput() ApplicationHanaPrometheusExporterOutput {
 	return o
 }
 
-func (o ApplicationHANAPrometheusExporterOutput) ToApplicationHANAPrometheusExporterOutputWithContext(ctx context.Context) ApplicationHANAPrometheusExporterOutput {
+func (o ApplicationHanaPrometheusExporterOutput) ToApplicationHanaPrometheusExporterOutputWithContext(ctx context.Context) ApplicationHanaPrometheusExporterOutput {
 	return o
 }
 
-func (o ApplicationHANAPrometheusExporterOutput) ToApplicationHANAPrometheusExporterPtrOutput() ApplicationHANAPrometheusExporterPtrOutput {
-	return o.ToApplicationHANAPrometheusExporterPtrOutputWithContext(context.Background())
+func (o ApplicationHanaPrometheusExporterOutput) ToApplicationHanaPrometheusExporterPtrOutput() ApplicationHanaPrometheusExporterPtrOutput {
+	return o.ToApplicationHanaPrometheusExporterPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationHANAPrometheusExporterOutput) ToApplicationHANAPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHANAPrometheusExporterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationHANAPrometheusExporter) *ApplicationHANAPrometheusExporter {
+func (o ApplicationHanaPrometheusExporterOutput) ToApplicationHanaPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHanaPrometheusExporterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationHanaPrometheusExporter) *ApplicationHanaPrometheusExporter {
 		return &v
-	}).(ApplicationHANAPrometheusExporterPtrOutput)
+	}).(ApplicationHanaPrometheusExporterPtrOutput)
 }
 
 // A flag which indicates agreeing to install SAP HANA DB client.
-func (o ApplicationHANAPrometheusExporterOutput) AgreeToInstallHanadbClient() pulumi.BoolOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) bool { return v.AgreeToInstallHanadbClient }).(pulumi.BoolOutput)
+func (o ApplicationHanaPrometheusExporterOutput) AgreeToInstallHanadbClient() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationHanaPrometheusExporter) bool { return v.AgreeToInstallHanadbClient }).(pulumi.BoolOutput)
 }
 
 // The HANA DB port.
-func (o ApplicationHANAPrometheusExporterOutput) HanaPort() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HanaPort }).(pulumi.StringOutput)
+func (o ApplicationHanaPrometheusExporterOutput) HanaPort() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHanaPrometheusExporter) string { return v.HanaPort }).(pulumi.StringOutput)
 }
 
 //	The secret name which manages the HANA DB credentials e.g. {
 //	  "username": "<>",
 //	  "password": "<>"
 //	}.
-func (o ApplicationHANAPrometheusExporterOutput) HanaSecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HanaSecretName }).(pulumi.StringOutput)
+func (o ApplicationHanaPrometheusExporterOutput) HanaSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHanaPrometheusExporter) string { return v.HanaSecretName }).(pulumi.StringOutput)
 }
 
 // HANA DB SID.
-func (o ApplicationHANAPrometheusExporterOutput) Hanasid() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.Hanasid }).(pulumi.StringOutput)
+func (o ApplicationHanaPrometheusExporterOutput) Hanasid() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHanaPrometheusExporter) string { return v.Hanasid }).(pulumi.StringOutput)
 }
 
 // Prometheus exporter port.
-func (o ApplicationHANAPrometheusExporterOutput) PrometheusPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) *string { return v.PrometheusPort }).(pulumi.StringPtrOutput)
+func (o ApplicationHanaPrometheusExporterOutput) PrometheusPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationHanaPrometheusExporter) *string { return v.PrometheusPort }).(pulumi.StringPtrOutput)
 }
 
-type ApplicationHANAPrometheusExporterPtrOutput struct{ *pulumi.OutputState }
+type ApplicationHanaPrometheusExporterPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationHANAPrometheusExporterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHANAPrometheusExporter)(nil)).Elem()
+func (ApplicationHanaPrometheusExporterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationHanaPrometheusExporter)(nil)).Elem()
 }
 
-func (o ApplicationHANAPrometheusExporterPtrOutput) ToApplicationHANAPrometheusExporterPtrOutput() ApplicationHANAPrometheusExporterPtrOutput {
+func (o ApplicationHanaPrometheusExporterPtrOutput) ToApplicationHanaPrometheusExporterPtrOutput() ApplicationHanaPrometheusExporterPtrOutput {
 	return o
 }
 
-func (o ApplicationHANAPrometheusExporterPtrOutput) ToApplicationHANAPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHANAPrometheusExporterPtrOutput {
+func (o ApplicationHanaPrometheusExporterPtrOutput) ToApplicationHanaPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHanaPrometheusExporterPtrOutput {
 	return o
 }
 
-func (o ApplicationHANAPrometheusExporterPtrOutput) Elem() ApplicationHANAPrometheusExporterOutput {
-	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) ApplicationHANAPrometheusExporter {
+func (o ApplicationHanaPrometheusExporterPtrOutput) Elem() ApplicationHanaPrometheusExporterOutput {
+	return o.ApplyT(func(v *ApplicationHanaPrometheusExporter) ApplicationHanaPrometheusExporter {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationHANAPrometheusExporter
+		var ret ApplicationHanaPrometheusExporter
 		return ret
-	}).(ApplicationHANAPrometheusExporterOutput)
+	}).(ApplicationHanaPrometheusExporterOutput)
 }
 
 // A flag which indicates agreeing to install SAP HANA DB client.
-func (o ApplicationHANAPrometheusExporterPtrOutput) AgreeToInstallHanadbClient() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *bool {
+func (o ApplicationHanaPrometheusExporterPtrOutput) AgreeToInstallHanadbClient() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationHanaPrometheusExporter) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1231,8 +1231,8 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) AgreeToInstallHanadbClient()
 }
 
 // The HANA DB port.
-func (o ApplicationHANAPrometheusExporterPtrOutput) HanaPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *string {
+func (o ApplicationHanaPrometheusExporterPtrOutput) HanaPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationHanaPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
@@ -1244,8 +1244,8 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) HanaPort() pulumi.StringPtrO
 //	  "username": "<>",
 //	  "password": "<>"
 //	}.
-func (o ApplicationHANAPrometheusExporterPtrOutput) HanaSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *string {
+func (o ApplicationHanaPrometheusExporterPtrOutput) HanaSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationHanaPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
@@ -1254,8 +1254,8 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) HanaSecretName() pulumi.Stri
 }
 
 // HANA DB SID.
-func (o ApplicationHANAPrometheusExporterPtrOutput) Hanasid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *string {
+func (o ApplicationHanaPrometheusExporterPtrOutput) Hanasid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationHanaPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
@@ -1264,8 +1264,8 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) Hanasid() pulumi.StringPtrOu
 }
 
 // Prometheus exporter port.
-func (o ApplicationHANAPrometheusExporterPtrOutput) PrometheusPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *string {
+func (o ApplicationHanaPrometheusExporterPtrOutput) PrometheusPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationHanaPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
@@ -1274,7 +1274,7 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) PrometheusPort() pulumi.Stri
 }
 
 // The JMX Prometheus Exporter settings.
-type ApplicationJMXPrometheusExporter struct {
+type ApplicationJmxPrometheusExporter struct {
 	// Java agent host port
 	HostPort *string `pulumi:"hostPort"`
 	// JMX service URL.
@@ -1283,19 +1283,19 @@ type ApplicationJMXPrometheusExporter struct {
 	PrometheusPort *string `pulumi:"prometheusPort"`
 }
 
-// ApplicationJMXPrometheusExporterInput is an input type that accepts ApplicationJMXPrometheusExporterArgs and ApplicationJMXPrometheusExporterOutput values.
-// You can construct a concrete instance of `ApplicationJMXPrometheusExporterInput` via:
+// ApplicationJmxPrometheusExporterInput is an input type that accepts ApplicationJmxPrometheusExporterArgs and ApplicationJmxPrometheusExporterOutput values.
+// You can construct a concrete instance of `ApplicationJmxPrometheusExporterInput` via:
 //
-//	ApplicationJMXPrometheusExporterArgs{...}
-type ApplicationJMXPrometheusExporterInput interface {
+//	ApplicationJmxPrometheusExporterArgs{...}
+type ApplicationJmxPrometheusExporterInput interface {
 	pulumi.Input
 
-	ToApplicationJMXPrometheusExporterOutput() ApplicationJMXPrometheusExporterOutput
-	ToApplicationJMXPrometheusExporterOutputWithContext(context.Context) ApplicationJMXPrometheusExporterOutput
+	ToApplicationJmxPrometheusExporterOutput() ApplicationJmxPrometheusExporterOutput
+	ToApplicationJmxPrometheusExporterOutputWithContext(context.Context) ApplicationJmxPrometheusExporterOutput
 }
 
 // The JMX Prometheus Exporter settings.
-type ApplicationJMXPrometheusExporterArgs struct {
+type ApplicationJmxPrometheusExporterArgs struct {
 	// Java agent host port
 	HostPort pulumi.StringPtrInput `pulumi:"hostPort"`
 	// JMX service URL.
@@ -1304,126 +1304,126 @@ type ApplicationJMXPrometheusExporterArgs struct {
 	PrometheusPort pulumi.StringPtrInput `pulumi:"prometheusPort"`
 }
 
-func (ApplicationJMXPrometheusExporterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationJMXPrometheusExporter)(nil)).Elem()
+func (ApplicationJmxPrometheusExporterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJmxPrometheusExporter)(nil)).Elem()
 }
 
-func (i ApplicationJMXPrometheusExporterArgs) ToApplicationJMXPrometheusExporterOutput() ApplicationJMXPrometheusExporterOutput {
-	return i.ToApplicationJMXPrometheusExporterOutputWithContext(context.Background())
+func (i ApplicationJmxPrometheusExporterArgs) ToApplicationJmxPrometheusExporterOutput() ApplicationJmxPrometheusExporterOutput {
+	return i.ToApplicationJmxPrometheusExporterOutputWithContext(context.Background())
 }
 
-func (i ApplicationJMXPrometheusExporterArgs) ToApplicationJMXPrometheusExporterOutputWithContext(ctx context.Context) ApplicationJMXPrometheusExporterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJMXPrometheusExporterOutput)
+func (i ApplicationJmxPrometheusExporterArgs) ToApplicationJmxPrometheusExporterOutputWithContext(ctx context.Context) ApplicationJmxPrometheusExporterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJmxPrometheusExporterOutput)
 }
 
-func (i ApplicationJMXPrometheusExporterArgs) ToApplicationJMXPrometheusExporterPtrOutput() ApplicationJMXPrometheusExporterPtrOutput {
-	return i.ToApplicationJMXPrometheusExporterPtrOutputWithContext(context.Background())
+func (i ApplicationJmxPrometheusExporterArgs) ToApplicationJmxPrometheusExporterPtrOutput() ApplicationJmxPrometheusExporterPtrOutput {
+	return i.ToApplicationJmxPrometheusExporterPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationJMXPrometheusExporterArgs) ToApplicationJMXPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationJMXPrometheusExporterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJMXPrometheusExporterOutput).ToApplicationJMXPrometheusExporterPtrOutputWithContext(ctx)
+func (i ApplicationJmxPrometheusExporterArgs) ToApplicationJmxPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationJmxPrometheusExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJmxPrometheusExporterOutput).ToApplicationJmxPrometheusExporterPtrOutputWithContext(ctx)
 }
 
-// ApplicationJMXPrometheusExporterPtrInput is an input type that accepts ApplicationJMXPrometheusExporterArgs, ApplicationJMXPrometheusExporterPtr and ApplicationJMXPrometheusExporterPtrOutput values.
-// You can construct a concrete instance of `ApplicationJMXPrometheusExporterPtrInput` via:
+// ApplicationJmxPrometheusExporterPtrInput is an input type that accepts ApplicationJmxPrometheusExporterArgs, ApplicationJmxPrometheusExporterPtr and ApplicationJmxPrometheusExporterPtrOutput values.
+// You can construct a concrete instance of `ApplicationJmxPrometheusExporterPtrInput` via:
 //
-//	        ApplicationJMXPrometheusExporterArgs{...}
+//	        ApplicationJmxPrometheusExporterArgs{...}
 //
 //	or:
 //
 //	        nil
-type ApplicationJMXPrometheusExporterPtrInput interface {
+type ApplicationJmxPrometheusExporterPtrInput interface {
 	pulumi.Input
 
-	ToApplicationJMXPrometheusExporterPtrOutput() ApplicationJMXPrometheusExporterPtrOutput
-	ToApplicationJMXPrometheusExporterPtrOutputWithContext(context.Context) ApplicationJMXPrometheusExporterPtrOutput
+	ToApplicationJmxPrometheusExporterPtrOutput() ApplicationJmxPrometheusExporterPtrOutput
+	ToApplicationJmxPrometheusExporterPtrOutputWithContext(context.Context) ApplicationJmxPrometheusExporterPtrOutput
 }
 
-type applicationJMXPrometheusExporterPtrType ApplicationJMXPrometheusExporterArgs
+type applicationJmxPrometheusExporterPtrType ApplicationJmxPrometheusExporterArgs
 
-func ApplicationJMXPrometheusExporterPtr(v *ApplicationJMXPrometheusExporterArgs) ApplicationJMXPrometheusExporterPtrInput {
-	return (*applicationJMXPrometheusExporterPtrType)(v)
+func ApplicationJmxPrometheusExporterPtr(v *ApplicationJmxPrometheusExporterArgs) ApplicationJmxPrometheusExporterPtrInput {
+	return (*applicationJmxPrometheusExporterPtrType)(v)
 }
 
-func (*applicationJMXPrometheusExporterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationJMXPrometheusExporter)(nil)).Elem()
+func (*applicationJmxPrometheusExporterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationJmxPrometheusExporter)(nil)).Elem()
 }
 
-func (i *applicationJMXPrometheusExporterPtrType) ToApplicationJMXPrometheusExporterPtrOutput() ApplicationJMXPrometheusExporterPtrOutput {
-	return i.ToApplicationJMXPrometheusExporterPtrOutputWithContext(context.Background())
+func (i *applicationJmxPrometheusExporterPtrType) ToApplicationJmxPrometheusExporterPtrOutput() ApplicationJmxPrometheusExporterPtrOutput {
+	return i.ToApplicationJmxPrometheusExporterPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationJMXPrometheusExporterPtrType) ToApplicationJMXPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationJMXPrometheusExporterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJMXPrometheusExporterPtrOutput)
+func (i *applicationJmxPrometheusExporterPtrType) ToApplicationJmxPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationJmxPrometheusExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJmxPrometheusExporterPtrOutput)
 }
 
 // The JMX Prometheus Exporter settings.
-type ApplicationJMXPrometheusExporterOutput struct{ *pulumi.OutputState }
+type ApplicationJmxPrometheusExporterOutput struct{ *pulumi.OutputState }
 
-func (ApplicationJMXPrometheusExporterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationJMXPrometheusExporter)(nil)).Elem()
+func (ApplicationJmxPrometheusExporterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJmxPrometheusExporter)(nil)).Elem()
 }
 
-func (o ApplicationJMXPrometheusExporterOutput) ToApplicationJMXPrometheusExporterOutput() ApplicationJMXPrometheusExporterOutput {
+func (o ApplicationJmxPrometheusExporterOutput) ToApplicationJmxPrometheusExporterOutput() ApplicationJmxPrometheusExporterOutput {
 	return o
 }
 
-func (o ApplicationJMXPrometheusExporterOutput) ToApplicationJMXPrometheusExporterOutputWithContext(ctx context.Context) ApplicationJMXPrometheusExporterOutput {
+func (o ApplicationJmxPrometheusExporterOutput) ToApplicationJmxPrometheusExporterOutputWithContext(ctx context.Context) ApplicationJmxPrometheusExporterOutput {
 	return o
 }
 
-func (o ApplicationJMXPrometheusExporterOutput) ToApplicationJMXPrometheusExporterPtrOutput() ApplicationJMXPrometheusExporterPtrOutput {
-	return o.ToApplicationJMXPrometheusExporterPtrOutputWithContext(context.Background())
+func (o ApplicationJmxPrometheusExporterOutput) ToApplicationJmxPrometheusExporterPtrOutput() ApplicationJmxPrometheusExporterPtrOutput {
+	return o.ToApplicationJmxPrometheusExporterPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationJMXPrometheusExporterOutput) ToApplicationJMXPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationJMXPrometheusExporterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJMXPrometheusExporter) *ApplicationJMXPrometheusExporter {
+func (o ApplicationJmxPrometheusExporterOutput) ToApplicationJmxPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationJmxPrometheusExporterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJmxPrometheusExporter) *ApplicationJmxPrometheusExporter {
 		return &v
-	}).(ApplicationJMXPrometheusExporterPtrOutput)
+	}).(ApplicationJmxPrometheusExporterPtrOutput)
 }
 
 // Java agent host port
-func (o ApplicationJMXPrometheusExporterOutput) HostPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationJMXPrometheusExporter) *string { return v.HostPort }).(pulumi.StringPtrOutput)
+func (o ApplicationJmxPrometheusExporterOutput) HostPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationJmxPrometheusExporter) *string { return v.HostPort }).(pulumi.StringPtrOutput)
 }
 
 // JMX service URL.
-func (o ApplicationJMXPrometheusExporterOutput) Jmxurl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationJMXPrometheusExporter) *string { return v.Jmxurl }).(pulumi.StringPtrOutput)
+func (o ApplicationJmxPrometheusExporterOutput) Jmxurl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationJmxPrometheusExporter) *string { return v.Jmxurl }).(pulumi.StringPtrOutput)
 }
 
 // Prometheus exporter port.
-func (o ApplicationJMXPrometheusExporterOutput) PrometheusPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationJMXPrometheusExporter) *string { return v.PrometheusPort }).(pulumi.StringPtrOutput)
+func (o ApplicationJmxPrometheusExporterOutput) PrometheusPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationJmxPrometheusExporter) *string { return v.PrometheusPort }).(pulumi.StringPtrOutput)
 }
 
-type ApplicationJMXPrometheusExporterPtrOutput struct{ *pulumi.OutputState }
+type ApplicationJmxPrometheusExporterPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationJMXPrometheusExporterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationJMXPrometheusExporter)(nil)).Elem()
+func (ApplicationJmxPrometheusExporterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationJmxPrometheusExporter)(nil)).Elem()
 }
 
-func (o ApplicationJMXPrometheusExporterPtrOutput) ToApplicationJMXPrometheusExporterPtrOutput() ApplicationJMXPrometheusExporterPtrOutput {
+func (o ApplicationJmxPrometheusExporterPtrOutput) ToApplicationJmxPrometheusExporterPtrOutput() ApplicationJmxPrometheusExporterPtrOutput {
 	return o
 }
 
-func (o ApplicationJMXPrometheusExporterPtrOutput) ToApplicationJMXPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationJMXPrometheusExporterPtrOutput {
+func (o ApplicationJmxPrometheusExporterPtrOutput) ToApplicationJmxPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationJmxPrometheusExporterPtrOutput {
 	return o
 }
 
-func (o ApplicationJMXPrometheusExporterPtrOutput) Elem() ApplicationJMXPrometheusExporterOutput {
-	return o.ApplyT(func(v *ApplicationJMXPrometheusExporter) ApplicationJMXPrometheusExporter {
+func (o ApplicationJmxPrometheusExporterPtrOutput) Elem() ApplicationJmxPrometheusExporterOutput {
+	return o.ApplyT(func(v *ApplicationJmxPrometheusExporter) ApplicationJmxPrometheusExporter {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationJMXPrometheusExporter
+		var ret ApplicationJmxPrometheusExporter
 		return ret
-	}).(ApplicationJMXPrometheusExporterOutput)
+	}).(ApplicationJmxPrometheusExporterOutput)
 }
 
 // Java agent host port
-func (o ApplicationJMXPrometheusExporterPtrOutput) HostPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationJMXPrometheusExporter) *string {
+func (o ApplicationJmxPrometheusExporterPtrOutput) HostPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationJmxPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
@@ -1432,8 +1432,8 @@ func (o ApplicationJMXPrometheusExporterPtrOutput) HostPort() pulumi.StringPtrOu
 }
 
 // JMX service URL.
-func (o ApplicationJMXPrometheusExporterPtrOutput) Jmxurl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationJMXPrometheusExporter) *string {
+func (o ApplicationJmxPrometheusExporterPtrOutput) Jmxurl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationJmxPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
@@ -1442,8 +1442,8 @@ func (o ApplicationJMXPrometheusExporterPtrOutput) Jmxurl() pulumi.StringPtrOutp
 }
 
 // Prometheus exporter port.
-func (o ApplicationJMXPrometheusExporterPtrOutput) PrometheusPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationJMXPrometheusExporter) *string {
+func (o ApplicationJmxPrometheusExporterPtrOutput) PrometheusPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationJmxPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
@@ -2249,12 +2249,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationDetailsPtrInput)(nil)).Elem(), ApplicationConfigurationDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomComponentInput)(nil)).Elem(), ApplicationCustomComponentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomComponentArrayInput)(nil)).Elem(), ApplicationCustomComponentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationHAClusterPrometheusExporterInput)(nil)).Elem(), ApplicationHAClusterPrometheusExporterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationHAClusterPrometheusExporterPtrInput)(nil)).Elem(), ApplicationHAClusterPrometheusExporterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationHANAPrometheusExporterInput)(nil)).Elem(), ApplicationHANAPrometheusExporterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationHANAPrometheusExporterPtrInput)(nil)).Elem(), ApplicationHANAPrometheusExporterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJMXPrometheusExporterInput)(nil)).Elem(), ApplicationJMXPrometheusExporterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJMXPrometheusExporterPtrInput)(nil)).Elem(), ApplicationJMXPrometheusExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationHaClusterPrometheusExporterInput)(nil)).Elem(), ApplicationHaClusterPrometheusExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationHaClusterPrometheusExporterPtrInput)(nil)).Elem(), ApplicationHaClusterPrometheusExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationHanaPrometheusExporterInput)(nil)).Elem(), ApplicationHanaPrometheusExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationHanaPrometheusExporterPtrInput)(nil)).Elem(), ApplicationHanaPrometheusExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJmxPrometheusExporterInput)(nil)).Elem(), ApplicationJmxPrometheusExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJmxPrometheusExporterPtrInput)(nil)).Elem(), ApplicationJmxPrometheusExporterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogInput)(nil)).Elem(), ApplicationLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogArrayInput)(nil)).Elem(), ApplicationLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogPatternInput)(nil)).Elem(), ApplicationLogPatternArgs{})
@@ -2280,12 +2280,12 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationConfigurationDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCustomComponentOutput{})
 	pulumi.RegisterOutputType(ApplicationCustomComponentArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationHAClusterPrometheusExporterOutput{})
-	pulumi.RegisterOutputType(ApplicationHAClusterPrometheusExporterPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationHANAPrometheusExporterOutput{})
-	pulumi.RegisterOutputType(ApplicationHANAPrometheusExporterPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationJMXPrometheusExporterOutput{})
-	pulumi.RegisterOutputType(ApplicationJMXPrometheusExporterPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationHaClusterPrometheusExporterOutput{})
+	pulumi.RegisterOutputType(ApplicationHaClusterPrometheusExporterPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationHanaPrometheusExporterOutput{})
+	pulumi.RegisterOutputType(ApplicationHanaPrometheusExporterPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationJmxPrometheusExporterOutput{})
+	pulumi.RegisterOutputType(ApplicationJmxPrometheusExporterPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationLogOutput{})
 	pulumi.RegisterOutputType(ApplicationLogArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationLogPatternOutput{})

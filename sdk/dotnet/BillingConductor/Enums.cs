@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.BillingConductor
         }
 
         public static PricingRuleBillingEntity Aws { get; } = new PricingRuleBillingEntity("AWS");
-        public static PricingRuleBillingEntity AWSMarketplace { get; } = new PricingRuleBillingEntity("AWS Marketplace");
+        public static PricingRuleBillingEntity AwsMarketplace { get; } = new PricingRuleBillingEntity("AWS Marketplace");
         public static PricingRuleBillingEntity Aispl { get; } = new PricingRuleBillingEntity("AISPL");
 
         public static bool operator ==(PricingRuleBillingEntity left, PricingRuleBillingEntity right) => left.Equals(right);

@@ -28,7 +28,7 @@ type LookupPushTemplateArgs struct {
 
 type LookupPushTemplateResult struct {
 	Adm                  *PushTemplateAndroidPushNotificationTemplate `pulumi:"adm"`
-	Apns                 *PushTemplateAPNSPushNotificationTemplate    `pulumi:"apns"`
+	Apns                 *PushTemplateApnsPushNotificationTemplate    `pulumi:"apns"`
 	Arn                  *string                                      `pulumi:"arn"`
 	Baidu                *PushTemplateAndroidPushNotificationTemplate `pulumi:"baidu"`
 	Default              *PushTemplateDefaultPushNotificationTemplate `pulumi:"default"`
@@ -78,8 +78,8 @@ func (o LookupPushTemplateResultOutput) Adm() PushTemplateAndroidPushNotificatio
 	return o.ApplyT(func(v LookupPushTemplateResult) *PushTemplateAndroidPushNotificationTemplate { return v.Adm }).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
 }
 
-func (o LookupPushTemplateResultOutput) Apns() PushTemplateAPNSPushNotificationTemplatePtrOutput {
-	return o.ApplyT(func(v LookupPushTemplateResult) *PushTemplateAPNSPushNotificationTemplate { return v.Apns }).(PushTemplateAPNSPushNotificationTemplatePtrOutput)
+func (o LookupPushTemplateResultOutput) Apns() PushTemplateApnsPushNotificationTemplatePtrOutput {
+	return o.ApplyT(func(v LookupPushTemplateResult) *PushTemplateApnsPushNotificationTemplate { return v.Apns }).(PushTemplateApnsPushNotificationTemplatePtrOutput)
 }
 
 func (o LookupPushTemplateResultOutput) Arn() pulumi.StringPtrOutput {

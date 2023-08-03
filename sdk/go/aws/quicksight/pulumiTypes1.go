@@ -5326,147 +5326,147 @@ func (o DashboardCustomActionSetParametersOperationPtrOutput) ParameterValueConf
 	}).(DashboardSetParameterValueConfigurationArrayOutput)
 }
 
-type DashboardCustomActionURLOperation struct {
-	UrlTarget   DashboardURLTargetConfiguration `pulumi:"urlTarget"`
+type DashboardCustomActionUrlOperation struct {
+	UrlTarget   DashboardUrlTargetConfiguration `pulumi:"urlTarget"`
 	UrlTemplate string                          `pulumi:"urlTemplate"`
 }
 
-// DashboardCustomActionURLOperationInput is an input type that accepts DashboardCustomActionURLOperationArgs and DashboardCustomActionURLOperationOutput values.
-// You can construct a concrete instance of `DashboardCustomActionURLOperationInput` via:
+// DashboardCustomActionUrlOperationInput is an input type that accepts DashboardCustomActionUrlOperationArgs and DashboardCustomActionUrlOperationOutput values.
+// You can construct a concrete instance of `DashboardCustomActionUrlOperationInput` via:
 //
-//	DashboardCustomActionURLOperationArgs{...}
-type DashboardCustomActionURLOperationInput interface {
+//	DashboardCustomActionUrlOperationArgs{...}
+type DashboardCustomActionUrlOperationInput interface {
 	pulumi.Input
 
-	ToDashboardCustomActionURLOperationOutput() DashboardCustomActionURLOperationOutput
-	ToDashboardCustomActionURLOperationOutputWithContext(context.Context) DashboardCustomActionURLOperationOutput
+	ToDashboardCustomActionUrlOperationOutput() DashboardCustomActionUrlOperationOutput
+	ToDashboardCustomActionUrlOperationOutputWithContext(context.Context) DashboardCustomActionUrlOperationOutput
 }
 
-type DashboardCustomActionURLOperationArgs struct {
-	UrlTarget   DashboardURLTargetConfigurationInput `pulumi:"urlTarget"`
+type DashboardCustomActionUrlOperationArgs struct {
+	UrlTarget   DashboardUrlTargetConfigurationInput `pulumi:"urlTarget"`
 	UrlTemplate pulumi.StringInput                   `pulumi:"urlTemplate"`
 }
 
-func (DashboardCustomActionURLOperationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardCustomActionURLOperation)(nil)).Elem()
+func (DashboardCustomActionUrlOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCustomActionUrlOperation)(nil)).Elem()
 }
 
-func (i DashboardCustomActionURLOperationArgs) ToDashboardCustomActionURLOperationOutput() DashboardCustomActionURLOperationOutput {
-	return i.ToDashboardCustomActionURLOperationOutputWithContext(context.Background())
+func (i DashboardCustomActionUrlOperationArgs) ToDashboardCustomActionUrlOperationOutput() DashboardCustomActionUrlOperationOutput {
+	return i.ToDashboardCustomActionUrlOperationOutputWithContext(context.Background())
 }
 
-func (i DashboardCustomActionURLOperationArgs) ToDashboardCustomActionURLOperationOutputWithContext(ctx context.Context) DashboardCustomActionURLOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCustomActionURLOperationOutput)
+func (i DashboardCustomActionUrlOperationArgs) ToDashboardCustomActionUrlOperationOutputWithContext(ctx context.Context) DashboardCustomActionUrlOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCustomActionUrlOperationOutput)
 }
 
-func (i DashboardCustomActionURLOperationArgs) ToDashboardCustomActionURLOperationPtrOutput() DashboardCustomActionURLOperationPtrOutput {
-	return i.ToDashboardCustomActionURLOperationPtrOutputWithContext(context.Background())
+func (i DashboardCustomActionUrlOperationArgs) ToDashboardCustomActionUrlOperationPtrOutput() DashboardCustomActionUrlOperationPtrOutput {
+	return i.ToDashboardCustomActionUrlOperationPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardCustomActionURLOperationArgs) ToDashboardCustomActionURLOperationPtrOutputWithContext(ctx context.Context) DashboardCustomActionURLOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCustomActionURLOperationOutput).ToDashboardCustomActionURLOperationPtrOutputWithContext(ctx)
+func (i DashboardCustomActionUrlOperationArgs) ToDashboardCustomActionUrlOperationPtrOutputWithContext(ctx context.Context) DashboardCustomActionUrlOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCustomActionUrlOperationOutput).ToDashboardCustomActionUrlOperationPtrOutputWithContext(ctx)
 }
 
-// DashboardCustomActionURLOperationPtrInput is an input type that accepts DashboardCustomActionURLOperationArgs, DashboardCustomActionURLOperationPtr and DashboardCustomActionURLOperationPtrOutput values.
-// You can construct a concrete instance of `DashboardCustomActionURLOperationPtrInput` via:
+// DashboardCustomActionUrlOperationPtrInput is an input type that accepts DashboardCustomActionUrlOperationArgs, DashboardCustomActionUrlOperationPtr and DashboardCustomActionUrlOperationPtrOutput values.
+// You can construct a concrete instance of `DashboardCustomActionUrlOperationPtrInput` via:
 //
-//	        DashboardCustomActionURLOperationArgs{...}
+//	        DashboardCustomActionUrlOperationArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardCustomActionURLOperationPtrInput interface {
+type DashboardCustomActionUrlOperationPtrInput interface {
 	pulumi.Input
 
-	ToDashboardCustomActionURLOperationPtrOutput() DashboardCustomActionURLOperationPtrOutput
-	ToDashboardCustomActionURLOperationPtrOutputWithContext(context.Context) DashboardCustomActionURLOperationPtrOutput
+	ToDashboardCustomActionUrlOperationPtrOutput() DashboardCustomActionUrlOperationPtrOutput
+	ToDashboardCustomActionUrlOperationPtrOutputWithContext(context.Context) DashboardCustomActionUrlOperationPtrOutput
 }
 
-type dashboardCustomActionURLOperationPtrType DashboardCustomActionURLOperationArgs
+type dashboardCustomActionUrlOperationPtrType DashboardCustomActionUrlOperationArgs
 
-func DashboardCustomActionURLOperationPtr(v *DashboardCustomActionURLOperationArgs) DashboardCustomActionURLOperationPtrInput {
-	return (*dashboardCustomActionURLOperationPtrType)(v)
+func DashboardCustomActionUrlOperationPtr(v *DashboardCustomActionUrlOperationArgs) DashboardCustomActionUrlOperationPtrInput {
+	return (*dashboardCustomActionUrlOperationPtrType)(v)
 }
 
-func (*dashboardCustomActionURLOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardCustomActionURLOperation)(nil)).Elem()
+func (*dashboardCustomActionUrlOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCustomActionUrlOperation)(nil)).Elem()
 }
 
-func (i *dashboardCustomActionURLOperationPtrType) ToDashboardCustomActionURLOperationPtrOutput() DashboardCustomActionURLOperationPtrOutput {
-	return i.ToDashboardCustomActionURLOperationPtrOutputWithContext(context.Background())
+func (i *dashboardCustomActionUrlOperationPtrType) ToDashboardCustomActionUrlOperationPtrOutput() DashboardCustomActionUrlOperationPtrOutput {
+	return i.ToDashboardCustomActionUrlOperationPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardCustomActionURLOperationPtrType) ToDashboardCustomActionURLOperationPtrOutputWithContext(ctx context.Context) DashboardCustomActionURLOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCustomActionURLOperationPtrOutput)
+func (i *dashboardCustomActionUrlOperationPtrType) ToDashboardCustomActionUrlOperationPtrOutputWithContext(ctx context.Context) DashboardCustomActionUrlOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCustomActionUrlOperationPtrOutput)
 }
 
-type DashboardCustomActionURLOperationOutput struct{ *pulumi.OutputState }
+type DashboardCustomActionUrlOperationOutput struct{ *pulumi.OutputState }
 
-func (DashboardCustomActionURLOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardCustomActionURLOperation)(nil)).Elem()
+func (DashboardCustomActionUrlOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCustomActionUrlOperation)(nil)).Elem()
 }
 
-func (o DashboardCustomActionURLOperationOutput) ToDashboardCustomActionURLOperationOutput() DashboardCustomActionURLOperationOutput {
+func (o DashboardCustomActionUrlOperationOutput) ToDashboardCustomActionUrlOperationOutput() DashboardCustomActionUrlOperationOutput {
 	return o
 }
 
-func (o DashboardCustomActionURLOperationOutput) ToDashboardCustomActionURLOperationOutputWithContext(ctx context.Context) DashboardCustomActionURLOperationOutput {
+func (o DashboardCustomActionUrlOperationOutput) ToDashboardCustomActionUrlOperationOutputWithContext(ctx context.Context) DashboardCustomActionUrlOperationOutput {
 	return o
 }
 
-func (o DashboardCustomActionURLOperationOutput) ToDashboardCustomActionURLOperationPtrOutput() DashboardCustomActionURLOperationPtrOutput {
-	return o.ToDashboardCustomActionURLOperationPtrOutputWithContext(context.Background())
+func (o DashboardCustomActionUrlOperationOutput) ToDashboardCustomActionUrlOperationPtrOutput() DashboardCustomActionUrlOperationPtrOutput {
+	return o.ToDashboardCustomActionUrlOperationPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardCustomActionURLOperationOutput) ToDashboardCustomActionURLOperationPtrOutputWithContext(ctx context.Context) DashboardCustomActionURLOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardCustomActionURLOperation) *DashboardCustomActionURLOperation {
+func (o DashboardCustomActionUrlOperationOutput) ToDashboardCustomActionUrlOperationPtrOutputWithContext(ctx context.Context) DashboardCustomActionUrlOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardCustomActionUrlOperation) *DashboardCustomActionUrlOperation {
 		return &v
-	}).(DashboardCustomActionURLOperationPtrOutput)
+	}).(DashboardCustomActionUrlOperationPtrOutput)
 }
 
-func (o DashboardCustomActionURLOperationOutput) UrlTarget() DashboardURLTargetConfigurationOutput {
-	return o.ApplyT(func(v DashboardCustomActionURLOperation) DashboardURLTargetConfiguration { return v.UrlTarget }).(DashboardURLTargetConfigurationOutput)
+func (o DashboardCustomActionUrlOperationOutput) UrlTarget() DashboardUrlTargetConfigurationOutput {
+	return o.ApplyT(func(v DashboardCustomActionUrlOperation) DashboardUrlTargetConfiguration { return v.UrlTarget }).(DashboardUrlTargetConfigurationOutput)
 }
 
-func (o DashboardCustomActionURLOperationOutput) UrlTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardCustomActionURLOperation) string { return v.UrlTemplate }).(pulumi.StringOutput)
+func (o DashboardCustomActionUrlOperationOutput) UrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardCustomActionUrlOperation) string { return v.UrlTemplate }).(pulumi.StringOutput)
 }
 
-type DashboardCustomActionURLOperationPtrOutput struct{ *pulumi.OutputState }
+type DashboardCustomActionUrlOperationPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardCustomActionURLOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardCustomActionURLOperation)(nil)).Elem()
+func (DashboardCustomActionUrlOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCustomActionUrlOperation)(nil)).Elem()
 }
 
-func (o DashboardCustomActionURLOperationPtrOutput) ToDashboardCustomActionURLOperationPtrOutput() DashboardCustomActionURLOperationPtrOutput {
+func (o DashboardCustomActionUrlOperationPtrOutput) ToDashboardCustomActionUrlOperationPtrOutput() DashboardCustomActionUrlOperationPtrOutput {
 	return o
 }
 
-func (o DashboardCustomActionURLOperationPtrOutput) ToDashboardCustomActionURLOperationPtrOutputWithContext(ctx context.Context) DashboardCustomActionURLOperationPtrOutput {
+func (o DashboardCustomActionUrlOperationPtrOutput) ToDashboardCustomActionUrlOperationPtrOutputWithContext(ctx context.Context) DashboardCustomActionUrlOperationPtrOutput {
 	return o
 }
 
-func (o DashboardCustomActionURLOperationPtrOutput) Elem() DashboardCustomActionURLOperationOutput {
-	return o.ApplyT(func(v *DashboardCustomActionURLOperation) DashboardCustomActionURLOperation {
+func (o DashboardCustomActionUrlOperationPtrOutput) Elem() DashboardCustomActionUrlOperationOutput {
+	return o.ApplyT(func(v *DashboardCustomActionUrlOperation) DashboardCustomActionUrlOperation {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardCustomActionURLOperation
+		var ret DashboardCustomActionUrlOperation
 		return ret
-	}).(DashboardCustomActionURLOperationOutput)
+	}).(DashboardCustomActionUrlOperationOutput)
 }
 
-func (o DashboardCustomActionURLOperationPtrOutput) UrlTarget() DashboardURLTargetConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardCustomActionURLOperation) *DashboardURLTargetConfiguration {
+func (o DashboardCustomActionUrlOperationPtrOutput) UrlTarget() DashboardUrlTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardCustomActionUrlOperation) *DashboardUrlTargetConfiguration {
 		if v == nil {
 			return nil
 		}
 		return &v.UrlTarget
-	}).(DashboardURLTargetConfigurationPtrOutput)
+	}).(DashboardUrlTargetConfigurationPtrOutput)
 }
 
-func (o DashboardCustomActionURLOperationPtrOutput) UrlTemplate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardCustomActionURLOperation) *string {
+func (o DashboardCustomActionUrlOperationPtrOutput) UrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardCustomActionUrlOperation) *string {
 		if v == nil {
 			return nil
 		}
@@ -13700,132 +13700,132 @@ func (o DashboardExportHiddenFieldsOptionPtrOutput) AvailabilityStatus() Dashboa
 	}).(DashboardBehaviorPtrOutput)
 }
 
-type DashboardExportToCSVOption struct {
+type DashboardExportToCsvOption struct {
 	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
 
-// DashboardExportToCSVOptionInput is an input type that accepts DashboardExportToCSVOptionArgs and DashboardExportToCSVOptionOutput values.
-// You can construct a concrete instance of `DashboardExportToCSVOptionInput` via:
+// DashboardExportToCsvOptionInput is an input type that accepts DashboardExportToCsvOptionArgs and DashboardExportToCsvOptionOutput values.
+// You can construct a concrete instance of `DashboardExportToCsvOptionInput` via:
 //
-//	DashboardExportToCSVOptionArgs{...}
-type DashboardExportToCSVOptionInput interface {
+//	DashboardExportToCsvOptionArgs{...}
+type DashboardExportToCsvOptionInput interface {
 	pulumi.Input
 
-	ToDashboardExportToCSVOptionOutput() DashboardExportToCSVOptionOutput
-	ToDashboardExportToCSVOptionOutputWithContext(context.Context) DashboardExportToCSVOptionOutput
+	ToDashboardExportToCsvOptionOutput() DashboardExportToCsvOptionOutput
+	ToDashboardExportToCsvOptionOutputWithContext(context.Context) DashboardExportToCsvOptionOutput
 }
 
-type DashboardExportToCSVOptionArgs struct {
+type DashboardExportToCsvOptionArgs struct {
 	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
 
-func (DashboardExportToCSVOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardExportToCSVOption)(nil)).Elem()
+func (DashboardExportToCsvOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardExportToCsvOption)(nil)).Elem()
 }
 
-func (i DashboardExportToCSVOptionArgs) ToDashboardExportToCSVOptionOutput() DashboardExportToCSVOptionOutput {
-	return i.ToDashboardExportToCSVOptionOutputWithContext(context.Background())
+func (i DashboardExportToCsvOptionArgs) ToDashboardExportToCsvOptionOutput() DashboardExportToCsvOptionOutput {
+	return i.ToDashboardExportToCsvOptionOutputWithContext(context.Background())
 }
 
-func (i DashboardExportToCSVOptionArgs) ToDashboardExportToCSVOptionOutputWithContext(ctx context.Context) DashboardExportToCSVOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardExportToCSVOptionOutput)
+func (i DashboardExportToCsvOptionArgs) ToDashboardExportToCsvOptionOutputWithContext(ctx context.Context) DashboardExportToCsvOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardExportToCsvOptionOutput)
 }
 
-func (i DashboardExportToCSVOptionArgs) ToDashboardExportToCSVOptionPtrOutput() DashboardExportToCSVOptionPtrOutput {
-	return i.ToDashboardExportToCSVOptionPtrOutputWithContext(context.Background())
+func (i DashboardExportToCsvOptionArgs) ToDashboardExportToCsvOptionPtrOutput() DashboardExportToCsvOptionPtrOutput {
+	return i.ToDashboardExportToCsvOptionPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardExportToCSVOptionArgs) ToDashboardExportToCSVOptionPtrOutputWithContext(ctx context.Context) DashboardExportToCSVOptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardExportToCSVOptionOutput).ToDashboardExportToCSVOptionPtrOutputWithContext(ctx)
+func (i DashboardExportToCsvOptionArgs) ToDashboardExportToCsvOptionPtrOutputWithContext(ctx context.Context) DashboardExportToCsvOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardExportToCsvOptionOutput).ToDashboardExportToCsvOptionPtrOutputWithContext(ctx)
 }
 
-// DashboardExportToCSVOptionPtrInput is an input type that accepts DashboardExportToCSVOptionArgs, DashboardExportToCSVOptionPtr and DashboardExportToCSVOptionPtrOutput values.
-// You can construct a concrete instance of `DashboardExportToCSVOptionPtrInput` via:
+// DashboardExportToCsvOptionPtrInput is an input type that accepts DashboardExportToCsvOptionArgs, DashboardExportToCsvOptionPtr and DashboardExportToCsvOptionPtrOutput values.
+// You can construct a concrete instance of `DashboardExportToCsvOptionPtrInput` via:
 //
-//	        DashboardExportToCSVOptionArgs{...}
+//	        DashboardExportToCsvOptionArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardExportToCSVOptionPtrInput interface {
+type DashboardExportToCsvOptionPtrInput interface {
 	pulumi.Input
 
-	ToDashboardExportToCSVOptionPtrOutput() DashboardExportToCSVOptionPtrOutput
-	ToDashboardExportToCSVOptionPtrOutputWithContext(context.Context) DashboardExportToCSVOptionPtrOutput
+	ToDashboardExportToCsvOptionPtrOutput() DashboardExportToCsvOptionPtrOutput
+	ToDashboardExportToCsvOptionPtrOutputWithContext(context.Context) DashboardExportToCsvOptionPtrOutput
 }
 
-type dashboardExportToCSVOptionPtrType DashboardExportToCSVOptionArgs
+type dashboardExportToCsvOptionPtrType DashboardExportToCsvOptionArgs
 
-func DashboardExportToCSVOptionPtr(v *DashboardExportToCSVOptionArgs) DashboardExportToCSVOptionPtrInput {
-	return (*dashboardExportToCSVOptionPtrType)(v)
+func DashboardExportToCsvOptionPtr(v *DashboardExportToCsvOptionArgs) DashboardExportToCsvOptionPtrInput {
+	return (*dashboardExportToCsvOptionPtrType)(v)
 }
 
-func (*dashboardExportToCSVOptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardExportToCSVOption)(nil)).Elem()
+func (*dashboardExportToCsvOptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardExportToCsvOption)(nil)).Elem()
 }
 
-func (i *dashboardExportToCSVOptionPtrType) ToDashboardExportToCSVOptionPtrOutput() DashboardExportToCSVOptionPtrOutput {
-	return i.ToDashboardExportToCSVOptionPtrOutputWithContext(context.Background())
+func (i *dashboardExportToCsvOptionPtrType) ToDashboardExportToCsvOptionPtrOutput() DashboardExportToCsvOptionPtrOutput {
+	return i.ToDashboardExportToCsvOptionPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardExportToCSVOptionPtrType) ToDashboardExportToCSVOptionPtrOutputWithContext(ctx context.Context) DashboardExportToCSVOptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardExportToCSVOptionPtrOutput)
+func (i *dashboardExportToCsvOptionPtrType) ToDashboardExportToCsvOptionPtrOutputWithContext(ctx context.Context) DashboardExportToCsvOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardExportToCsvOptionPtrOutput)
 }
 
-type DashboardExportToCSVOptionOutput struct{ *pulumi.OutputState }
+type DashboardExportToCsvOptionOutput struct{ *pulumi.OutputState }
 
-func (DashboardExportToCSVOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardExportToCSVOption)(nil)).Elem()
+func (DashboardExportToCsvOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardExportToCsvOption)(nil)).Elem()
 }
 
-func (o DashboardExportToCSVOptionOutput) ToDashboardExportToCSVOptionOutput() DashboardExportToCSVOptionOutput {
+func (o DashboardExportToCsvOptionOutput) ToDashboardExportToCsvOptionOutput() DashboardExportToCsvOptionOutput {
 	return o
 }
 
-func (o DashboardExportToCSVOptionOutput) ToDashboardExportToCSVOptionOutputWithContext(ctx context.Context) DashboardExportToCSVOptionOutput {
+func (o DashboardExportToCsvOptionOutput) ToDashboardExportToCsvOptionOutputWithContext(ctx context.Context) DashboardExportToCsvOptionOutput {
 	return o
 }
 
-func (o DashboardExportToCSVOptionOutput) ToDashboardExportToCSVOptionPtrOutput() DashboardExportToCSVOptionPtrOutput {
-	return o.ToDashboardExportToCSVOptionPtrOutputWithContext(context.Background())
+func (o DashboardExportToCsvOptionOutput) ToDashboardExportToCsvOptionPtrOutput() DashboardExportToCsvOptionPtrOutput {
+	return o.ToDashboardExportToCsvOptionPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardExportToCSVOptionOutput) ToDashboardExportToCSVOptionPtrOutputWithContext(ctx context.Context) DashboardExportToCSVOptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardExportToCSVOption) *DashboardExportToCSVOption {
+func (o DashboardExportToCsvOptionOutput) ToDashboardExportToCsvOptionPtrOutputWithContext(ctx context.Context) DashboardExportToCsvOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardExportToCsvOption) *DashboardExportToCsvOption {
 		return &v
-	}).(DashboardExportToCSVOptionPtrOutput)
+	}).(DashboardExportToCsvOptionPtrOutput)
 }
 
-func (o DashboardExportToCSVOptionOutput) AvailabilityStatus() DashboardBehaviorPtrOutput {
-	return o.ApplyT(func(v DashboardExportToCSVOption) *DashboardBehavior { return v.AvailabilityStatus }).(DashboardBehaviorPtrOutput)
+func (o DashboardExportToCsvOptionOutput) AvailabilityStatus() DashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v DashboardExportToCsvOption) *DashboardBehavior { return v.AvailabilityStatus }).(DashboardBehaviorPtrOutput)
 }
 
-type DashboardExportToCSVOptionPtrOutput struct{ *pulumi.OutputState }
+type DashboardExportToCsvOptionPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardExportToCSVOptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardExportToCSVOption)(nil)).Elem()
+func (DashboardExportToCsvOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardExportToCsvOption)(nil)).Elem()
 }
 
-func (o DashboardExportToCSVOptionPtrOutput) ToDashboardExportToCSVOptionPtrOutput() DashboardExportToCSVOptionPtrOutput {
+func (o DashboardExportToCsvOptionPtrOutput) ToDashboardExportToCsvOptionPtrOutput() DashboardExportToCsvOptionPtrOutput {
 	return o
 }
 
-func (o DashboardExportToCSVOptionPtrOutput) ToDashboardExportToCSVOptionPtrOutputWithContext(ctx context.Context) DashboardExportToCSVOptionPtrOutput {
+func (o DashboardExportToCsvOptionPtrOutput) ToDashboardExportToCsvOptionPtrOutputWithContext(ctx context.Context) DashboardExportToCsvOptionPtrOutput {
 	return o
 }
 
-func (o DashboardExportToCSVOptionPtrOutput) Elem() DashboardExportToCSVOptionOutput {
-	return o.ApplyT(func(v *DashboardExportToCSVOption) DashboardExportToCSVOption {
+func (o DashboardExportToCsvOptionPtrOutput) Elem() DashboardExportToCsvOptionOutput {
+	return o.ApplyT(func(v *DashboardExportToCsvOption) DashboardExportToCsvOption {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardExportToCSVOption
+		var ret DashboardExportToCsvOption
 		return ret
-	}).(DashboardExportToCSVOptionOutput)
+	}).(DashboardExportToCsvOptionOutput)
 }
 
-func (o DashboardExportToCSVOptionPtrOutput) AvailabilityStatus() DashboardBehaviorPtrOutput {
-	return o.ApplyT(func(v *DashboardExportToCSVOption) *DashboardBehavior {
+func (o DashboardExportToCsvOptionPtrOutput) AvailabilityStatus() DashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v *DashboardExportToCsvOption) *DashboardBehavior {
 		if v == nil {
 			return nil
 		}
@@ -28890,546 +28890,546 @@ func (o DashboardItemsLimitConfigurationPtrOutput) OtherCategories() DashboardOt
 	}).(DashboardOtherCategoriesPtrOutput)
 }
 
-type DashboardKPIConditionalFormatting struct {
-	ConditionalFormattingOptions []DashboardKPIConditionalFormattingOption `pulumi:"conditionalFormattingOptions"`
+type DashboardKpiConditionalFormatting struct {
+	ConditionalFormattingOptions []DashboardKpiConditionalFormattingOption `pulumi:"conditionalFormattingOptions"`
 }
 
-// DashboardKPIConditionalFormattingInput is an input type that accepts DashboardKPIConditionalFormattingArgs and DashboardKPIConditionalFormattingOutput values.
-// You can construct a concrete instance of `DashboardKPIConditionalFormattingInput` via:
+// DashboardKpiConditionalFormattingInput is an input type that accepts DashboardKpiConditionalFormattingArgs and DashboardKpiConditionalFormattingOutput values.
+// You can construct a concrete instance of `DashboardKpiConditionalFormattingInput` via:
 //
-//	DashboardKPIConditionalFormattingArgs{...}
-type DashboardKPIConditionalFormattingInput interface {
+//	DashboardKpiConditionalFormattingArgs{...}
+type DashboardKpiConditionalFormattingInput interface {
 	pulumi.Input
 
-	ToDashboardKPIConditionalFormattingOutput() DashboardKPIConditionalFormattingOutput
-	ToDashboardKPIConditionalFormattingOutputWithContext(context.Context) DashboardKPIConditionalFormattingOutput
+	ToDashboardKpiConditionalFormattingOutput() DashboardKpiConditionalFormattingOutput
+	ToDashboardKpiConditionalFormattingOutputWithContext(context.Context) DashboardKpiConditionalFormattingOutput
 }
 
-type DashboardKPIConditionalFormattingArgs struct {
-	ConditionalFormattingOptions DashboardKPIConditionalFormattingOptionArrayInput `pulumi:"conditionalFormattingOptions"`
+type DashboardKpiConditionalFormattingArgs struct {
+	ConditionalFormattingOptions DashboardKpiConditionalFormattingOptionArrayInput `pulumi:"conditionalFormattingOptions"`
 }
 
-func (DashboardKPIConditionalFormattingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIConditionalFormatting)(nil)).Elem()
+func (DashboardKpiConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiConditionalFormatting)(nil)).Elem()
 }
 
-func (i DashboardKPIConditionalFormattingArgs) ToDashboardKPIConditionalFormattingOutput() DashboardKPIConditionalFormattingOutput {
-	return i.ToDashboardKPIConditionalFormattingOutputWithContext(context.Background())
+func (i DashboardKpiConditionalFormattingArgs) ToDashboardKpiConditionalFormattingOutput() DashboardKpiConditionalFormattingOutput {
+	return i.ToDashboardKpiConditionalFormattingOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIConditionalFormattingArgs) ToDashboardKPIConditionalFormattingOutputWithContext(ctx context.Context) DashboardKPIConditionalFormattingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIConditionalFormattingOutput)
+func (i DashboardKpiConditionalFormattingArgs) ToDashboardKpiConditionalFormattingOutputWithContext(ctx context.Context) DashboardKpiConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiConditionalFormattingOutput)
 }
 
-func (i DashboardKPIConditionalFormattingArgs) ToDashboardKPIConditionalFormattingPtrOutput() DashboardKPIConditionalFormattingPtrOutput {
-	return i.ToDashboardKPIConditionalFormattingPtrOutputWithContext(context.Background())
+func (i DashboardKpiConditionalFormattingArgs) ToDashboardKpiConditionalFormattingPtrOutput() DashboardKpiConditionalFormattingPtrOutput {
+	return i.ToDashboardKpiConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIConditionalFormattingArgs) ToDashboardKPIConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIConditionalFormattingOutput).ToDashboardKPIConditionalFormattingPtrOutputWithContext(ctx)
+func (i DashboardKpiConditionalFormattingArgs) ToDashboardKpiConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiConditionalFormattingOutput).ToDashboardKpiConditionalFormattingPtrOutputWithContext(ctx)
 }
 
-// DashboardKPIConditionalFormattingPtrInput is an input type that accepts DashboardKPIConditionalFormattingArgs, DashboardKPIConditionalFormattingPtr and DashboardKPIConditionalFormattingPtrOutput values.
-// You can construct a concrete instance of `DashboardKPIConditionalFormattingPtrInput` via:
+// DashboardKpiConditionalFormattingPtrInput is an input type that accepts DashboardKpiConditionalFormattingArgs, DashboardKpiConditionalFormattingPtr and DashboardKpiConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `DashboardKpiConditionalFormattingPtrInput` via:
 //
-//	        DashboardKPIConditionalFormattingArgs{...}
+//	        DashboardKpiConditionalFormattingArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardKPIConditionalFormattingPtrInput interface {
+type DashboardKpiConditionalFormattingPtrInput interface {
 	pulumi.Input
 
-	ToDashboardKPIConditionalFormattingPtrOutput() DashboardKPIConditionalFormattingPtrOutput
-	ToDashboardKPIConditionalFormattingPtrOutputWithContext(context.Context) DashboardKPIConditionalFormattingPtrOutput
+	ToDashboardKpiConditionalFormattingPtrOutput() DashboardKpiConditionalFormattingPtrOutput
+	ToDashboardKpiConditionalFormattingPtrOutputWithContext(context.Context) DashboardKpiConditionalFormattingPtrOutput
 }
 
-type dashboardKPIConditionalFormattingPtrType DashboardKPIConditionalFormattingArgs
+type dashboardKpiConditionalFormattingPtrType DashboardKpiConditionalFormattingArgs
 
-func DashboardKPIConditionalFormattingPtr(v *DashboardKPIConditionalFormattingArgs) DashboardKPIConditionalFormattingPtrInput {
-	return (*dashboardKPIConditionalFormattingPtrType)(v)
+func DashboardKpiConditionalFormattingPtr(v *DashboardKpiConditionalFormattingArgs) DashboardKpiConditionalFormattingPtrInput {
+	return (*dashboardKpiConditionalFormattingPtrType)(v)
 }
 
-func (*dashboardKPIConditionalFormattingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIConditionalFormatting)(nil)).Elem()
+func (*dashboardKpiConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiConditionalFormatting)(nil)).Elem()
 }
 
-func (i *dashboardKPIConditionalFormattingPtrType) ToDashboardKPIConditionalFormattingPtrOutput() DashboardKPIConditionalFormattingPtrOutput {
-	return i.ToDashboardKPIConditionalFormattingPtrOutputWithContext(context.Background())
+func (i *dashboardKpiConditionalFormattingPtrType) ToDashboardKpiConditionalFormattingPtrOutput() DashboardKpiConditionalFormattingPtrOutput {
+	return i.ToDashboardKpiConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardKPIConditionalFormattingPtrType) ToDashboardKPIConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIConditionalFormattingPtrOutput)
+func (i *dashboardKpiConditionalFormattingPtrType) ToDashboardKpiConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiConditionalFormattingPtrOutput)
 }
 
-type DashboardKPIConditionalFormattingOutput struct{ *pulumi.OutputState }
+type DashboardKpiConditionalFormattingOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIConditionalFormattingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIConditionalFormatting)(nil)).Elem()
+func (DashboardKpiConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiConditionalFormatting)(nil)).Elem()
 }
 
-func (o DashboardKPIConditionalFormattingOutput) ToDashboardKPIConditionalFormattingOutput() DashboardKPIConditionalFormattingOutput {
+func (o DashboardKpiConditionalFormattingOutput) ToDashboardKpiConditionalFormattingOutput() DashboardKpiConditionalFormattingOutput {
 	return o
 }
 
-func (o DashboardKPIConditionalFormattingOutput) ToDashboardKPIConditionalFormattingOutputWithContext(ctx context.Context) DashboardKPIConditionalFormattingOutput {
+func (o DashboardKpiConditionalFormattingOutput) ToDashboardKpiConditionalFormattingOutputWithContext(ctx context.Context) DashboardKpiConditionalFormattingOutput {
 	return o
 }
 
-func (o DashboardKPIConditionalFormattingOutput) ToDashboardKPIConditionalFormattingPtrOutput() DashboardKPIConditionalFormattingPtrOutput {
-	return o.ToDashboardKPIConditionalFormattingPtrOutputWithContext(context.Background())
+func (o DashboardKpiConditionalFormattingOutput) ToDashboardKpiConditionalFormattingPtrOutput() DashboardKpiConditionalFormattingPtrOutput {
+	return o.ToDashboardKpiConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardKPIConditionalFormattingOutput) ToDashboardKPIConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIConditionalFormattingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKPIConditionalFormatting) *DashboardKPIConditionalFormatting {
+func (o DashboardKpiConditionalFormattingOutput) ToDashboardKpiConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKpiConditionalFormatting) *DashboardKpiConditionalFormatting {
 		return &v
-	}).(DashboardKPIConditionalFormattingPtrOutput)
+	}).(DashboardKpiConditionalFormattingPtrOutput)
 }
 
-func (o DashboardKPIConditionalFormattingOutput) ConditionalFormattingOptions() DashboardKPIConditionalFormattingOptionArrayOutput {
-	return o.ApplyT(func(v DashboardKPIConditionalFormatting) []DashboardKPIConditionalFormattingOption {
+func (o DashboardKpiConditionalFormattingOutput) ConditionalFormattingOptions() DashboardKpiConditionalFormattingOptionArrayOutput {
+	return o.ApplyT(func(v DashboardKpiConditionalFormatting) []DashboardKpiConditionalFormattingOption {
 		return v.ConditionalFormattingOptions
-	}).(DashboardKPIConditionalFormattingOptionArrayOutput)
+	}).(DashboardKpiConditionalFormattingOptionArrayOutput)
 }
 
-type DashboardKPIConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+type DashboardKpiConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIConditionalFormattingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIConditionalFormatting)(nil)).Elem()
+func (DashboardKpiConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiConditionalFormatting)(nil)).Elem()
 }
 
-func (o DashboardKPIConditionalFormattingPtrOutput) ToDashboardKPIConditionalFormattingPtrOutput() DashboardKPIConditionalFormattingPtrOutput {
+func (o DashboardKpiConditionalFormattingPtrOutput) ToDashboardKpiConditionalFormattingPtrOutput() DashboardKpiConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o DashboardKPIConditionalFormattingPtrOutput) ToDashboardKPIConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIConditionalFormattingPtrOutput {
+func (o DashboardKpiConditionalFormattingPtrOutput) ToDashboardKpiConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o DashboardKPIConditionalFormattingPtrOutput) Elem() DashboardKPIConditionalFormattingOutput {
-	return o.ApplyT(func(v *DashboardKPIConditionalFormatting) DashboardKPIConditionalFormatting {
+func (o DashboardKpiConditionalFormattingPtrOutput) Elem() DashboardKpiConditionalFormattingOutput {
+	return o.ApplyT(func(v *DashboardKpiConditionalFormatting) DashboardKpiConditionalFormatting {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardKPIConditionalFormatting
+		var ret DashboardKpiConditionalFormatting
 		return ret
-	}).(DashboardKPIConditionalFormattingOutput)
+	}).(DashboardKpiConditionalFormattingOutput)
 }
 
-func (o DashboardKPIConditionalFormattingPtrOutput) ConditionalFormattingOptions() DashboardKPIConditionalFormattingOptionArrayOutput {
-	return o.ApplyT(func(v *DashboardKPIConditionalFormatting) []DashboardKPIConditionalFormattingOption {
+func (o DashboardKpiConditionalFormattingPtrOutput) ConditionalFormattingOptions() DashboardKpiConditionalFormattingOptionArrayOutput {
+	return o.ApplyT(func(v *DashboardKpiConditionalFormatting) []DashboardKpiConditionalFormattingOption {
 		if v == nil {
 			return nil
 		}
 		return v.ConditionalFormattingOptions
-	}).(DashboardKPIConditionalFormattingOptionArrayOutput)
+	}).(DashboardKpiConditionalFormattingOptionArrayOutput)
 }
 
-type DashboardKPIConditionalFormattingOption struct {
-	PrimaryValue *DashboardKPIPrimaryValueConditionalFormatting `pulumi:"primaryValue"`
-	ProgressBar  *DashboardKPIProgressBarConditionalFormatting  `pulumi:"progressBar"`
+type DashboardKpiConditionalFormattingOption struct {
+	PrimaryValue *DashboardKpiPrimaryValueConditionalFormatting `pulumi:"primaryValue"`
+	ProgressBar  *DashboardKpiProgressBarConditionalFormatting  `pulumi:"progressBar"`
 }
 
-// DashboardKPIConditionalFormattingOptionInput is an input type that accepts DashboardKPIConditionalFormattingOptionArgs and DashboardKPIConditionalFormattingOptionOutput values.
-// You can construct a concrete instance of `DashboardKPIConditionalFormattingOptionInput` via:
+// DashboardKpiConditionalFormattingOptionInput is an input type that accepts DashboardKpiConditionalFormattingOptionArgs and DashboardKpiConditionalFormattingOptionOutput values.
+// You can construct a concrete instance of `DashboardKpiConditionalFormattingOptionInput` via:
 //
-//	DashboardKPIConditionalFormattingOptionArgs{...}
-type DashboardKPIConditionalFormattingOptionInput interface {
+//	DashboardKpiConditionalFormattingOptionArgs{...}
+type DashboardKpiConditionalFormattingOptionInput interface {
 	pulumi.Input
 
-	ToDashboardKPIConditionalFormattingOptionOutput() DashboardKPIConditionalFormattingOptionOutput
-	ToDashboardKPIConditionalFormattingOptionOutputWithContext(context.Context) DashboardKPIConditionalFormattingOptionOutput
+	ToDashboardKpiConditionalFormattingOptionOutput() DashboardKpiConditionalFormattingOptionOutput
+	ToDashboardKpiConditionalFormattingOptionOutputWithContext(context.Context) DashboardKpiConditionalFormattingOptionOutput
 }
 
-type DashboardKPIConditionalFormattingOptionArgs struct {
-	PrimaryValue DashboardKPIPrimaryValueConditionalFormattingPtrInput `pulumi:"primaryValue"`
-	ProgressBar  DashboardKPIProgressBarConditionalFormattingPtrInput  `pulumi:"progressBar"`
+type DashboardKpiConditionalFormattingOptionArgs struct {
+	PrimaryValue DashboardKpiPrimaryValueConditionalFormattingPtrInput `pulumi:"primaryValue"`
+	ProgressBar  DashboardKpiProgressBarConditionalFormattingPtrInput  `pulumi:"progressBar"`
 }
 
-func (DashboardKPIConditionalFormattingOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIConditionalFormattingOption)(nil)).Elem()
+func (DashboardKpiConditionalFormattingOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiConditionalFormattingOption)(nil)).Elem()
 }
 
-func (i DashboardKPIConditionalFormattingOptionArgs) ToDashboardKPIConditionalFormattingOptionOutput() DashboardKPIConditionalFormattingOptionOutput {
-	return i.ToDashboardKPIConditionalFormattingOptionOutputWithContext(context.Background())
+func (i DashboardKpiConditionalFormattingOptionArgs) ToDashboardKpiConditionalFormattingOptionOutput() DashboardKpiConditionalFormattingOptionOutput {
+	return i.ToDashboardKpiConditionalFormattingOptionOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIConditionalFormattingOptionArgs) ToDashboardKPIConditionalFormattingOptionOutputWithContext(ctx context.Context) DashboardKPIConditionalFormattingOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIConditionalFormattingOptionOutput)
+func (i DashboardKpiConditionalFormattingOptionArgs) ToDashboardKpiConditionalFormattingOptionOutputWithContext(ctx context.Context) DashboardKpiConditionalFormattingOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiConditionalFormattingOptionOutput)
 }
 
-// DashboardKPIConditionalFormattingOptionArrayInput is an input type that accepts DashboardKPIConditionalFormattingOptionArray and DashboardKPIConditionalFormattingOptionArrayOutput values.
-// You can construct a concrete instance of `DashboardKPIConditionalFormattingOptionArrayInput` via:
+// DashboardKpiConditionalFormattingOptionArrayInput is an input type that accepts DashboardKpiConditionalFormattingOptionArray and DashboardKpiConditionalFormattingOptionArrayOutput values.
+// You can construct a concrete instance of `DashboardKpiConditionalFormattingOptionArrayInput` via:
 //
-//	DashboardKPIConditionalFormattingOptionArray{ DashboardKPIConditionalFormattingOptionArgs{...} }
-type DashboardKPIConditionalFormattingOptionArrayInput interface {
+//	DashboardKpiConditionalFormattingOptionArray{ DashboardKpiConditionalFormattingOptionArgs{...} }
+type DashboardKpiConditionalFormattingOptionArrayInput interface {
 	pulumi.Input
 
-	ToDashboardKPIConditionalFormattingOptionArrayOutput() DashboardKPIConditionalFormattingOptionArrayOutput
-	ToDashboardKPIConditionalFormattingOptionArrayOutputWithContext(context.Context) DashboardKPIConditionalFormattingOptionArrayOutput
+	ToDashboardKpiConditionalFormattingOptionArrayOutput() DashboardKpiConditionalFormattingOptionArrayOutput
+	ToDashboardKpiConditionalFormattingOptionArrayOutputWithContext(context.Context) DashboardKpiConditionalFormattingOptionArrayOutput
 }
 
-type DashboardKPIConditionalFormattingOptionArray []DashboardKPIConditionalFormattingOptionInput
+type DashboardKpiConditionalFormattingOptionArray []DashboardKpiConditionalFormattingOptionInput
 
-func (DashboardKPIConditionalFormattingOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardKPIConditionalFormattingOption)(nil)).Elem()
+func (DashboardKpiConditionalFormattingOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardKpiConditionalFormattingOption)(nil)).Elem()
 }
 
-func (i DashboardKPIConditionalFormattingOptionArray) ToDashboardKPIConditionalFormattingOptionArrayOutput() DashboardKPIConditionalFormattingOptionArrayOutput {
-	return i.ToDashboardKPIConditionalFormattingOptionArrayOutputWithContext(context.Background())
+func (i DashboardKpiConditionalFormattingOptionArray) ToDashboardKpiConditionalFormattingOptionArrayOutput() DashboardKpiConditionalFormattingOptionArrayOutput {
+	return i.ToDashboardKpiConditionalFormattingOptionArrayOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIConditionalFormattingOptionArray) ToDashboardKPIConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) DashboardKPIConditionalFormattingOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIConditionalFormattingOptionArrayOutput)
+func (i DashboardKpiConditionalFormattingOptionArray) ToDashboardKpiConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) DashboardKpiConditionalFormattingOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiConditionalFormattingOptionArrayOutput)
 }
 
-type DashboardKPIConditionalFormattingOptionOutput struct{ *pulumi.OutputState }
+type DashboardKpiConditionalFormattingOptionOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIConditionalFormattingOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIConditionalFormattingOption)(nil)).Elem()
+func (DashboardKpiConditionalFormattingOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiConditionalFormattingOption)(nil)).Elem()
 }
 
-func (o DashboardKPIConditionalFormattingOptionOutput) ToDashboardKPIConditionalFormattingOptionOutput() DashboardKPIConditionalFormattingOptionOutput {
+func (o DashboardKpiConditionalFormattingOptionOutput) ToDashboardKpiConditionalFormattingOptionOutput() DashboardKpiConditionalFormattingOptionOutput {
 	return o
 }
 
-func (o DashboardKPIConditionalFormattingOptionOutput) ToDashboardKPIConditionalFormattingOptionOutputWithContext(ctx context.Context) DashboardKPIConditionalFormattingOptionOutput {
+func (o DashboardKpiConditionalFormattingOptionOutput) ToDashboardKpiConditionalFormattingOptionOutputWithContext(ctx context.Context) DashboardKpiConditionalFormattingOptionOutput {
 	return o
 }
 
-func (o DashboardKPIConditionalFormattingOptionOutput) PrimaryValue() DashboardKPIPrimaryValueConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v DashboardKPIConditionalFormattingOption) *DashboardKPIPrimaryValueConditionalFormatting {
+func (o DashboardKpiConditionalFormattingOptionOutput) PrimaryValue() DashboardKpiPrimaryValueConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v DashboardKpiConditionalFormattingOption) *DashboardKpiPrimaryValueConditionalFormatting {
 		return v.PrimaryValue
-	}).(DashboardKPIPrimaryValueConditionalFormattingPtrOutput)
+	}).(DashboardKpiPrimaryValueConditionalFormattingPtrOutput)
 }
 
-func (o DashboardKPIConditionalFormattingOptionOutput) ProgressBar() DashboardKPIProgressBarConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v DashboardKPIConditionalFormattingOption) *DashboardKPIProgressBarConditionalFormatting {
+func (o DashboardKpiConditionalFormattingOptionOutput) ProgressBar() DashboardKpiProgressBarConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v DashboardKpiConditionalFormattingOption) *DashboardKpiProgressBarConditionalFormatting {
 		return v.ProgressBar
-	}).(DashboardKPIProgressBarConditionalFormattingPtrOutput)
+	}).(DashboardKpiProgressBarConditionalFormattingPtrOutput)
 }
 
-type DashboardKPIConditionalFormattingOptionArrayOutput struct{ *pulumi.OutputState }
+type DashboardKpiConditionalFormattingOptionArrayOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIConditionalFormattingOptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardKPIConditionalFormattingOption)(nil)).Elem()
+func (DashboardKpiConditionalFormattingOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardKpiConditionalFormattingOption)(nil)).Elem()
 }
 
-func (o DashboardKPIConditionalFormattingOptionArrayOutput) ToDashboardKPIConditionalFormattingOptionArrayOutput() DashboardKPIConditionalFormattingOptionArrayOutput {
+func (o DashboardKpiConditionalFormattingOptionArrayOutput) ToDashboardKpiConditionalFormattingOptionArrayOutput() DashboardKpiConditionalFormattingOptionArrayOutput {
 	return o
 }
 
-func (o DashboardKPIConditionalFormattingOptionArrayOutput) ToDashboardKPIConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) DashboardKPIConditionalFormattingOptionArrayOutput {
+func (o DashboardKpiConditionalFormattingOptionArrayOutput) ToDashboardKpiConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) DashboardKpiConditionalFormattingOptionArrayOutput {
 	return o
 }
 
-func (o DashboardKPIConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInput) DashboardKPIConditionalFormattingOptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardKPIConditionalFormattingOption {
-		return vs[0].([]DashboardKPIConditionalFormattingOption)[vs[1].(int)]
-	}).(DashboardKPIConditionalFormattingOptionOutput)
+func (o DashboardKpiConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInput) DashboardKpiConditionalFormattingOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardKpiConditionalFormattingOption {
+		return vs[0].([]DashboardKpiConditionalFormattingOption)[vs[1].(int)]
+	}).(DashboardKpiConditionalFormattingOptionOutput)
 }
 
-type DashboardKPIConfiguration struct {
-	FieldWells        *DashboardKPIFieldWells        `pulumi:"fieldWells"`
-	KpiOptions        *DashboardKPIOptions           `pulumi:"kpiOptions"`
-	SortConfiguration *DashboardKPISortConfiguration `pulumi:"sortConfiguration"`
+type DashboardKpiConfiguration struct {
+	FieldWells        *DashboardKpiFieldWells        `pulumi:"fieldWells"`
+	KpiOptions        *DashboardKpiOptions           `pulumi:"kpiOptions"`
+	SortConfiguration *DashboardKpiSortConfiguration `pulumi:"sortConfiguration"`
 }
 
-// DashboardKPIConfigurationInput is an input type that accepts DashboardKPIConfigurationArgs and DashboardKPIConfigurationOutput values.
-// You can construct a concrete instance of `DashboardKPIConfigurationInput` via:
+// DashboardKpiConfigurationInput is an input type that accepts DashboardKpiConfigurationArgs and DashboardKpiConfigurationOutput values.
+// You can construct a concrete instance of `DashboardKpiConfigurationInput` via:
 //
-//	DashboardKPIConfigurationArgs{...}
-type DashboardKPIConfigurationInput interface {
+//	DashboardKpiConfigurationArgs{...}
+type DashboardKpiConfigurationInput interface {
 	pulumi.Input
 
-	ToDashboardKPIConfigurationOutput() DashboardKPIConfigurationOutput
-	ToDashboardKPIConfigurationOutputWithContext(context.Context) DashboardKPIConfigurationOutput
+	ToDashboardKpiConfigurationOutput() DashboardKpiConfigurationOutput
+	ToDashboardKpiConfigurationOutputWithContext(context.Context) DashboardKpiConfigurationOutput
 }
 
-type DashboardKPIConfigurationArgs struct {
-	FieldWells        DashboardKPIFieldWellsPtrInput        `pulumi:"fieldWells"`
-	KpiOptions        DashboardKPIOptionsPtrInput           `pulumi:"kpiOptions"`
-	SortConfiguration DashboardKPISortConfigurationPtrInput `pulumi:"sortConfiguration"`
+type DashboardKpiConfigurationArgs struct {
+	FieldWells        DashboardKpiFieldWellsPtrInput        `pulumi:"fieldWells"`
+	KpiOptions        DashboardKpiOptionsPtrInput           `pulumi:"kpiOptions"`
+	SortConfiguration DashboardKpiSortConfigurationPtrInput `pulumi:"sortConfiguration"`
 }
 
-func (DashboardKPIConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIConfiguration)(nil)).Elem()
+func (DashboardKpiConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiConfiguration)(nil)).Elem()
 }
 
-func (i DashboardKPIConfigurationArgs) ToDashboardKPIConfigurationOutput() DashboardKPIConfigurationOutput {
-	return i.ToDashboardKPIConfigurationOutputWithContext(context.Background())
+func (i DashboardKpiConfigurationArgs) ToDashboardKpiConfigurationOutput() DashboardKpiConfigurationOutput {
+	return i.ToDashboardKpiConfigurationOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIConfigurationArgs) ToDashboardKPIConfigurationOutputWithContext(ctx context.Context) DashboardKPIConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIConfigurationOutput)
+func (i DashboardKpiConfigurationArgs) ToDashboardKpiConfigurationOutputWithContext(ctx context.Context) DashboardKpiConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiConfigurationOutput)
 }
 
-func (i DashboardKPIConfigurationArgs) ToDashboardKPIConfigurationPtrOutput() DashboardKPIConfigurationPtrOutput {
-	return i.ToDashboardKPIConfigurationPtrOutputWithContext(context.Background())
+func (i DashboardKpiConfigurationArgs) ToDashboardKpiConfigurationPtrOutput() DashboardKpiConfigurationPtrOutput {
+	return i.ToDashboardKpiConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIConfigurationArgs) ToDashboardKPIConfigurationPtrOutputWithContext(ctx context.Context) DashboardKPIConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIConfigurationOutput).ToDashboardKPIConfigurationPtrOutputWithContext(ctx)
+func (i DashboardKpiConfigurationArgs) ToDashboardKpiConfigurationPtrOutputWithContext(ctx context.Context) DashboardKpiConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiConfigurationOutput).ToDashboardKpiConfigurationPtrOutputWithContext(ctx)
 }
 
-// DashboardKPIConfigurationPtrInput is an input type that accepts DashboardKPIConfigurationArgs, DashboardKPIConfigurationPtr and DashboardKPIConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardKPIConfigurationPtrInput` via:
+// DashboardKpiConfigurationPtrInput is an input type that accepts DashboardKpiConfigurationArgs, DashboardKpiConfigurationPtr and DashboardKpiConfigurationPtrOutput values.
+// You can construct a concrete instance of `DashboardKpiConfigurationPtrInput` via:
 //
-//	        DashboardKPIConfigurationArgs{...}
+//	        DashboardKpiConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardKPIConfigurationPtrInput interface {
+type DashboardKpiConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToDashboardKPIConfigurationPtrOutput() DashboardKPIConfigurationPtrOutput
-	ToDashboardKPIConfigurationPtrOutputWithContext(context.Context) DashboardKPIConfigurationPtrOutput
+	ToDashboardKpiConfigurationPtrOutput() DashboardKpiConfigurationPtrOutput
+	ToDashboardKpiConfigurationPtrOutputWithContext(context.Context) DashboardKpiConfigurationPtrOutput
 }
 
-type dashboardKPIConfigurationPtrType DashboardKPIConfigurationArgs
+type dashboardKpiConfigurationPtrType DashboardKpiConfigurationArgs
 
-func DashboardKPIConfigurationPtr(v *DashboardKPIConfigurationArgs) DashboardKPIConfigurationPtrInput {
-	return (*dashboardKPIConfigurationPtrType)(v)
+func DashboardKpiConfigurationPtr(v *DashboardKpiConfigurationArgs) DashboardKpiConfigurationPtrInput {
+	return (*dashboardKpiConfigurationPtrType)(v)
 }
 
-func (*dashboardKPIConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIConfiguration)(nil)).Elem()
+func (*dashboardKpiConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiConfiguration)(nil)).Elem()
 }
 
-func (i *dashboardKPIConfigurationPtrType) ToDashboardKPIConfigurationPtrOutput() DashboardKPIConfigurationPtrOutput {
-	return i.ToDashboardKPIConfigurationPtrOutputWithContext(context.Background())
+func (i *dashboardKpiConfigurationPtrType) ToDashboardKpiConfigurationPtrOutput() DashboardKpiConfigurationPtrOutput {
+	return i.ToDashboardKpiConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardKPIConfigurationPtrType) ToDashboardKPIConfigurationPtrOutputWithContext(ctx context.Context) DashboardKPIConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIConfigurationPtrOutput)
+func (i *dashboardKpiConfigurationPtrType) ToDashboardKpiConfigurationPtrOutputWithContext(ctx context.Context) DashboardKpiConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiConfigurationPtrOutput)
 }
 
-type DashboardKPIConfigurationOutput struct{ *pulumi.OutputState }
+type DashboardKpiConfigurationOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIConfiguration)(nil)).Elem()
+func (DashboardKpiConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiConfiguration)(nil)).Elem()
 }
 
-func (o DashboardKPIConfigurationOutput) ToDashboardKPIConfigurationOutput() DashboardKPIConfigurationOutput {
+func (o DashboardKpiConfigurationOutput) ToDashboardKpiConfigurationOutput() DashboardKpiConfigurationOutput {
 	return o
 }
 
-func (o DashboardKPIConfigurationOutput) ToDashboardKPIConfigurationOutputWithContext(ctx context.Context) DashboardKPIConfigurationOutput {
+func (o DashboardKpiConfigurationOutput) ToDashboardKpiConfigurationOutputWithContext(ctx context.Context) DashboardKpiConfigurationOutput {
 	return o
 }
 
-func (o DashboardKPIConfigurationOutput) ToDashboardKPIConfigurationPtrOutput() DashboardKPIConfigurationPtrOutput {
-	return o.ToDashboardKPIConfigurationPtrOutputWithContext(context.Background())
+func (o DashboardKpiConfigurationOutput) ToDashboardKpiConfigurationPtrOutput() DashboardKpiConfigurationPtrOutput {
+	return o.ToDashboardKpiConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardKPIConfigurationOutput) ToDashboardKPIConfigurationPtrOutputWithContext(ctx context.Context) DashboardKPIConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKPIConfiguration) *DashboardKPIConfiguration {
+func (o DashboardKpiConfigurationOutput) ToDashboardKpiConfigurationPtrOutputWithContext(ctx context.Context) DashboardKpiConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKpiConfiguration) *DashboardKpiConfiguration {
 		return &v
-	}).(DashboardKPIConfigurationPtrOutput)
+	}).(DashboardKpiConfigurationPtrOutput)
 }
 
-func (o DashboardKPIConfigurationOutput) FieldWells() DashboardKPIFieldWellsPtrOutput {
-	return o.ApplyT(func(v DashboardKPIConfiguration) *DashboardKPIFieldWells { return v.FieldWells }).(DashboardKPIFieldWellsPtrOutput)
+func (o DashboardKpiConfigurationOutput) FieldWells() DashboardKpiFieldWellsPtrOutput {
+	return o.ApplyT(func(v DashboardKpiConfiguration) *DashboardKpiFieldWells { return v.FieldWells }).(DashboardKpiFieldWellsPtrOutput)
 }
 
-func (o DashboardKPIConfigurationOutput) KpiOptions() DashboardKPIOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardKPIConfiguration) *DashboardKPIOptions { return v.KpiOptions }).(DashboardKPIOptionsPtrOutput)
+func (o DashboardKpiConfigurationOutput) KpiOptions() DashboardKpiOptionsPtrOutput {
+	return o.ApplyT(func(v DashboardKpiConfiguration) *DashboardKpiOptions { return v.KpiOptions }).(DashboardKpiOptionsPtrOutput)
 }
 
-func (o DashboardKPIConfigurationOutput) SortConfiguration() DashboardKPISortConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardKPIConfiguration) *DashboardKPISortConfiguration { return v.SortConfiguration }).(DashboardKPISortConfigurationPtrOutput)
+func (o DashboardKpiConfigurationOutput) SortConfiguration() DashboardKpiSortConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardKpiConfiguration) *DashboardKpiSortConfiguration { return v.SortConfiguration }).(DashboardKpiSortConfigurationPtrOutput)
 }
 
-type DashboardKPIConfigurationPtrOutput struct{ *pulumi.OutputState }
+type DashboardKpiConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIConfiguration)(nil)).Elem()
+func (DashboardKpiConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiConfiguration)(nil)).Elem()
 }
 
-func (o DashboardKPIConfigurationPtrOutput) ToDashboardKPIConfigurationPtrOutput() DashboardKPIConfigurationPtrOutput {
+func (o DashboardKpiConfigurationPtrOutput) ToDashboardKpiConfigurationPtrOutput() DashboardKpiConfigurationPtrOutput {
 	return o
 }
 
-func (o DashboardKPIConfigurationPtrOutput) ToDashboardKPIConfigurationPtrOutputWithContext(ctx context.Context) DashboardKPIConfigurationPtrOutput {
+func (o DashboardKpiConfigurationPtrOutput) ToDashboardKpiConfigurationPtrOutputWithContext(ctx context.Context) DashboardKpiConfigurationPtrOutput {
 	return o
 }
 
-func (o DashboardKPIConfigurationPtrOutput) Elem() DashboardKPIConfigurationOutput {
-	return o.ApplyT(func(v *DashboardKPIConfiguration) DashboardKPIConfiguration {
+func (o DashboardKpiConfigurationPtrOutput) Elem() DashboardKpiConfigurationOutput {
+	return o.ApplyT(func(v *DashboardKpiConfiguration) DashboardKpiConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardKPIConfiguration
+		var ret DashboardKpiConfiguration
 		return ret
-	}).(DashboardKPIConfigurationOutput)
+	}).(DashboardKpiConfigurationOutput)
 }
 
-func (o DashboardKPIConfigurationPtrOutput) FieldWells() DashboardKPIFieldWellsPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIConfiguration) *DashboardKPIFieldWells {
+func (o DashboardKpiConfigurationPtrOutput) FieldWells() DashboardKpiFieldWellsPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiConfiguration) *DashboardKpiFieldWells {
 		if v == nil {
 			return nil
 		}
 		return v.FieldWells
-	}).(DashboardKPIFieldWellsPtrOutput)
+	}).(DashboardKpiFieldWellsPtrOutput)
 }
 
-func (o DashboardKPIConfigurationPtrOutput) KpiOptions() DashboardKPIOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIConfiguration) *DashboardKPIOptions {
+func (o DashboardKpiConfigurationPtrOutput) KpiOptions() DashboardKpiOptionsPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiConfiguration) *DashboardKpiOptions {
 		if v == nil {
 			return nil
 		}
 		return v.KpiOptions
-	}).(DashboardKPIOptionsPtrOutput)
+	}).(DashboardKpiOptionsPtrOutput)
 }
 
-func (o DashboardKPIConfigurationPtrOutput) SortConfiguration() DashboardKPISortConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIConfiguration) *DashboardKPISortConfiguration {
+func (o DashboardKpiConfigurationPtrOutput) SortConfiguration() DashboardKpiSortConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiConfiguration) *DashboardKpiSortConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.SortConfiguration
-	}).(DashboardKPISortConfigurationPtrOutput)
+	}).(DashboardKpiSortConfigurationPtrOutput)
 }
 
-type DashboardKPIFieldWells struct {
+type DashboardKpiFieldWells struct {
 	TargetValues []DashboardMeasureField   `pulumi:"targetValues"`
 	TrendGroups  []DashboardDimensionField `pulumi:"trendGroups"`
 	Values       []DashboardMeasureField   `pulumi:"values"`
 }
 
-// DashboardKPIFieldWellsInput is an input type that accepts DashboardKPIFieldWellsArgs and DashboardKPIFieldWellsOutput values.
-// You can construct a concrete instance of `DashboardKPIFieldWellsInput` via:
+// DashboardKpiFieldWellsInput is an input type that accepts DashboardKpiFieldWellsArgs and DashboardKpiFieldWellsOutput values.
+// You can construct a concrete instance of `DashboardKpiFieldWellsInput` via:
 //
-//	DashboardKPIFieldWellsArgs{...}
-type DashboardKPIFieldWellsInput interface {
+//	DashboardKpiFieldWellsArgs{...}
+type DashboardKpiFieldWellsInput interface {
 	pulumi.Input
 
-	ToDashboardKPIFieldWellsOutput() DashboardKPIFieldWellsOutput
-	ToDashboardKPIFieldWellsOutputWithContext(context.Context) DashboardKPIFieldWellsOutput
+	ToDashboardKpiFieldWellsOutput() DashboardKpiFieldWellsOutput
+	ToDashboardKpiFieldWellsOutputWithContext(context.Context) DashboardKpiFieldWellsOutput
 }
 
-type DashboardKPIFieldWellsArgs struct {
+type DashboardKpiFieldWellsArgs struct {
 	TargetValues DashboardMeasureFieldArrayInput   `pulumi:"targetValues"`
 	TrendGroups  DashboardDimensionFieldArrayInput `pulumi:"trendGroups"`
 	Values       DashboardMeasureFieldArrayInput   `pulumi:"values"`
 }
 
-func (DashboardKPIFieldWellsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIFieldWells)(nil)).Elem()
+func (DashboardKpiFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiFieldWells)(nil)).Elem()
 }
 
-func (i DashboardKPIFieldWellsArgs) ToDashboardKPIFieldWellsOutput() DashboardKPIFieldWellsOutput {
-	return i.ToDashboardKPIFieldWellsOutputWithContext(context.Background())
+func (i DashboardKpiFieldWellsArgs) ToDashboardKpiFieldWellsOutput() DashboardKpiFieldWellsOutput {
+	return i.ToDashboardKpiFieldWellsOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIFieldWellsArgs) ToDashboardKPIFieldWellsOutputWithContext(ctx context.Context) DashboardKPIFieldWellsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIFieldWellsOutput)
+func (i DashboardKpiFieldWellsArgs) ToDashboardKpiFieldWellsOutputWithContext(ctx context.Context) DashboardKpiFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiFieldWellsOutput)
 }
 
-func (i DashboardKPIFieldWellsArgs) ToDashboardKPIFieldWellsPtrOutput() DashboardKPIFieldWellsPtrOutput {
-	return i.ToDashboardKPIFieldWellsPtrOutputWithContext(context.Background())
+func (i DashboardKpiFieldWellsArgs) ToDashboardKpiFieldWellsPtrOutput() DashboardKpiFieldWellsPtrOutput {
+	return i.ToDashboardKpiFieldWellsPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIFieldWellsArgs) ToDashboardKPIFieldWellsPtrOutputWithContext(ctx context.Context) DashboardKPIFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIFieldWellsOutput).ToDashboardKPIFieldWellsPtrOutputWithContext(ctx)
+func (i DashboardKpiFieldWellsArgs) ToDashboardKpiFieldWellsPtrOutputWithContext(ctx context.Context) DashboardKpiFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiFieldWellsOutput).ToDashboardKpiFieldWellsPtrOutputWithContext(ctx)
 }
 
-// DashboardKPIFieldWellsPtrInput is an input type that accepts DashboardKPIFieldWellsArgs, DashboardKPIFieldWellsPtr and DashboardKPIFieldWellsPtrOutput values.
-// You can construct a concrete instance of `DashboardKPIFieldWellsPtrInput` via:
+// DashboardKpiFieldWellsPtrInput is an input type that accepts DashboardKpiFieldWellsArgs, DashboardKpiFieldWellsPtr and DashboardKpiFieldWellsPtrOutput values.
+// You can construct a concrete instance of `DashboardKpiFieldWellsPtrInput` via:
 //
-//	        DashboardKPIFieldWellsArgs{...}
+//	        DashboardKpiFieldWellsArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardKPIFieldWellsPtrInput interface {
+type DashboardKpiFieldWellsPtrInput interface {
 	pulumi.Input
 
-	ToDashboardKPIFieldWellsPtrOutput() DashboardKPIFieldWellsPtrOutput
-	ToDashboardKPIFieldWellsPtrOutputWithContext(context.Context) DashboardKPIFieldWellsPtrOutput
+	ToDashboardKpiFieldWellsPtrOutput() DashboardKpiFieldWellsPtrOutput
+	ToDashboardKpiFieldWellsPtrOutputWithContext(context.Context) DashboardKpiFieldWellsPtrOutput
 }
 
-type dashboardKPIFieldWellsPtrType DashboardKPIFieldWellsArgs
+type dashboardKpiFieldWellsPtrType DashboardKpiFieldWellsArgs
 
-func DashboardKPIFieldWellsPtr(v *DashboardKPIFieldWellsArgs) DashboardKPIFieldWellsPtrInput {
-	return (*dashboardKPIFieldWellsPtrType)(v)
+func DashboardKpiFieldWellsPtr(v *DashboardKpiFieldWellsArgs) DashboardKpiFieldWellsPtrInput {
+	return (*dashboardKpiFieldWellsPtrType)(v)
 }
 
-func (*dashboardKPIFieldWellsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIFieldWells)(nil)).Elem()
+func (*dashboardKpiFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiFieldWells)(nil)).Elem()
 }
 
-func (i *dashboardKPIFieldWellsPtrType) ToDashboardKPIFieldWellsPtrOutput() DashboardKPIFieldWellsPtrOutput {
-	return i.ToDashboardKPIFieldWellsPtrOutputWithContext(context.Background())
+func (i *dashboardKpiFieldWellsPtrType) ToDashboardKpiFieldWellsPtrOutput() DashboardKpiFieldWellsPtrOutput {
+	return i.ToDashboardKpiFieldWellsPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardKPIFieldWellsPtrType) ToDashboardKPIFieldWellsPtrOutputWithContext(ctx context.Context) DashboardKPIFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIFieldWellsPtrOutput)
+func (i *dashboardKpiFieldWellsPtrType) ToDashboardKpiFieldWellsPtrOutputWithContext(ctx context.Context) DashboardKpiFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiFieldWellsPtrOutput)
 }
 
-type DashboardKPIFieldWellsOutput struct{ *pulumi.OutputState }
+type DashboardKpiFieldWellsOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIFieldWellsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIFieldWells)(nil)).Elem()
+func (DashboardKpiFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiFieldWells)(nil)).Elem()
 }
 
-func (o DashboardKPIFieldWellsOutput) ToDashboardKPIFieldWellsOutput() DashboardKPIFieldWellsOutput {
+func (o DashboardKpiFieldWellsOutput) ToDashboardKpiFieldWellsOutput() DashboardKpiFieldWellsOutput {
 	return o
 }
 
-func (o DashboardKPIFieldWellsOutput) ToDashboardKPIFieldWellsOutputWithContext(ctx context.Context) DashboardKPIFieldWellsOutput {
+func (o DashboardKpiFieldWellsOutput) ToDashboardKpiFieldWellsOutputWithContext(ctx context.Context) DashboardKpiFieldWellsOutput {
 	return o
 }
 
-func (o DashboardKPIFieldWellsOutput) ToDashboardKPIFieldWellsPtrOutput() DashboardKPIFieldWellsPtrOutput {
-	return o.ToDashboardKPIFieldWellsPtrOutputWithContext(context.Background())
+func (o DashboardKpiFieldWellsOutput) ToDashboardKpiFieldWellsPtrOutput() DashboardKpiFieldWellsPtrOutput {
+	return o.ToDashboardKpiFieldWellsPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardKPIFieldWellsOutput) ToDashboardKPIFieldWellsPtrOutputWithContext(ctx context.Context) DashboardKPIFieldWellsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKPIFieldWells) *DashboardKPIFieldWells {
+func (o DashboardKpiFieldWellsOutput) ToDashboardKpiFieldWellsPtrOutputWithContext(ctx context.Context) DashboardKpiFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKpiFieldWells) *DashboardKpiFieldWells {
 		return &v
-	}).(DashboardKPIFieldWellsPtrOutput)
+	}).(DashboardKpiFieldWellsPtrOutput)
 }
 
-func (o DashboardKPIFieldWellsOutput) TargetValues() DashboardMeasureFieldArrayOutput {
-	return o.ApplyT(func(v DashboardKPIFieldWells) []DashboardMeasureField { return v.TargetValues }).(DashboardMeasureFieldArrayOutput)
+func (o DashboardKpiFieldWellsOutput) TargetValues() DashboardMeasureFieldArrayOutput {
+	return o.ApplyT(func(v DashboardKpiFieldWells) []DashboardMeasureField { return v.TargetValues }).(DashboardMeasureFieldArrayOutput)
 }
 
-func (o DashboardKPIFieldWellsOutput) TrendGroups() DashboardDimensionFieldArrayOutput {
-	return o.ApplyT(func(v DashboardKPIFieldWells) []DashboardDimensionField { return v.TrendGroups }).(DashboardDimensionFieldArrayOutput)
+func (o DashboardKpiFieldWellsOutput) TrendGroups() DashboardDimensionFieldArrayOutput {
+	return o.ApplyT(func(v DashboardKpiFieldWells) []DashboardDimensionField { return v.TrendGroups }).(DashboardDimensionFieldArrayOutput)
 }
 
-func (o DashboardKPIFieldWellsOutput) Values() DashboardMeasureFieldArrayOutput {
-	return o.ApplyT(func(v DashboardKPIFieldWells) []DashboardMeasureField { return v.Values }).(DashboardMeasureFieldArrayOutput)
+func (o DashboardKpiFieldWellsOutput) Values() DashboardMeasureFieldArrayOutput {
+	return o.ApplyT(func(v DashboardKpiFieldWells) []DashboardMeasureField { return v.Values }).(DashboardMeasureFieldArrayOutput)
 }
 
-type DashboardKPIFieldWellsPtrOutput struct{ *pulumi.OutputState }
+type DashboardKpiFieldWellsPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIFieldWellsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIFieldWells)(nil)).Elem()
+func (DashboardKpiFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiFieldWells)(nil)).Elem()
 }
 
-func (o DashboardKPIFieldWellsPtrOutput) ToDashboardKPIFieldWellsPtrOutput() DashboardKPIFieldWellsPtrOutput {
+func (o DashboardKpiFieldWellsPtrOutput) ToDashboardKpiFieldWellsPtrOutput() DashboardKpiFieldWellsPtrOutput {
 	return o
 }
 
-func (o DashboardKPIFieldWellsPtrOutput) ToDashboardKPIFieldWellsPtrOutputWithContext(ctx context.Context) DashboardKPIFieldWellsPtrOutput {
+func (o DashboardKpiFieldWellsPtrOutput) ToDashboardKpiFieldWellsPtrOutputWithContext(ctx context.Context) DashboardKpiFieldWellsPtrOutput {
 	return o
 }
 
-func (o DashboardKPIFieldWellsPtrOutput) Elem() DashboardKPIFieldWellsOutput {
-	return o.ApplyT(func(v *DashboardKPIFieldWells) DashboardKPIFieldWells {
+func (o DashboardKpiFieldWellsPtrOutput) Elem() DashboardKpiFieldWellsOutput {
+	return o.ApplyT(func(v *DashboardKpiFieldWells) DashboardKpiFieldWells {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardKPIFieldWells
+		var ret DashboardKpiFieldWells
 		return ret
-	}).(DashboardKPIFieldWellsOutput)
+	}).(DashboardKpiFieldWellsOutput)
 }
 
-func (o DashboardKPIFieldWellsPtrOutput) TargetValues() DashboardMeasureFieldArrayOutput {
-	return o.ApplyT(func(v *DashboardKPIFieldWells) []DashboardMeasureField {
+func (o DashboardKpiFieldWellsPtrOutput) TargetValues() DashboardMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *DashboardKpiFieldWells) []DashboardMeasureField {
 		if v == nil {
 			return nil
 		}
@@ -29437,8 +29437,8 @@ func (o DashboardKPIFieldWellsPtrOutput) TargetValues() DashboardMeasureFieldArr
 	}).(DashboardMeasureFieldArrayOutput)
 }
 
-func (o DashboardKPIFieldWellsPtrOutput) TrendGroups() DashboardDimensionFieldArrayOutput {
-	return o.ApplyT(func(v *DashboardKPIFieldWells) []DashboardDimensionField {
+func (o DashboardKpiFieldWellsPtrOutput) TrendGroups() DashboardDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *DashboardKpiFieldWells) []DashboardDimensionField {
 		if v == nil {
 			return nil
 		}
@@ -29446,8 +29446,8 @@ func (o DashboardKPIFieldWellsPtrOutput) TrendGroups() DashboardDimensionFieldAr
 	}).(DashboardDimensionFieldArrayOutput)
 }
 
-func (o DashboardKPIFieldWellsPtrOutput) Values() DashboardMeasureFieldArrayOutput {
-	return o.ApplyT(func(v *DashboardKPIFieldWells) []DashboardMeasureField {
+func (o DashboardKpiFieldWellsPtrOutput) Values() DashboardMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *DashboardKpiFieldWells) []DashboardMeasureField {
 		if v == nil {
 			return nil
 		}
@@ -29455,7 +29455,7 @@ func (o DashboardKPIFieldWellsPtrOutput) Values() DashboardMeasureFieldArrayOutp
 	}).(DashboardMeasureFieldArrayOutput)
 }
 
-type DashboardKPIOptions struct {
+type DashboardKpiOptions struct {
 	Comparison                      *DashboardComparisonConfiguration `pulumi:"comparison"`
 	PrimaryValueDisplayType         *DashboardPrimaryValueDisplayType `pulumi:"primaryValueDisplayType"`
 	PrimaryValueFontConfiguration   *DashboardFontConfiguration       `pulumi:"primaryValueFontConfiguration"`
@@ -29465,18 +29465,18 @@ type DashboardKPIOptions struct {
 	TrendArrows                     *DashboardTrendArrowOptions       `pulumi:"trendArrows"`
 }
 
-// DashboardKPIOptionsInput is an input type that accepts DashboardKPIOptionsArgs and DashboardKPIOptionsOutput values.
-// You can construct a concrete instance of `DashboardKPIOptionsInput` via:
+// DashboardKpiOptionsInput is an input type that accepts DashboardKpiOptionsArgs and DashboardKpiOptionsOutput values.
+// You can construct a concrete instance of `DashboardKpiOptionsInput` via:
 //
-//	DashboardKPIOptionsArgs{...}
-type DashboardKPIOptionsInput interface {
+//	DashboardKpiOptionsArgs{...}
+type DashboardKpiOptionsInput interface {
 	pulumi.Input
 
-	ToDashboardKPIOptionsOutput() DashboardKPIOptionsOutput
-	ToDashboardKPIOptionsOutputWithContext(context.Context) DashboardKPIOptionsOutput
+	ToDashboardKpiOptionsOutput() DashboardKpiOptionsOutput
+	ToDashboardKpiOptionsOutputWithContext(context.Context) DashboardKpiOptionsOutput
 }
 
-type DashboardKPIOptionsArgs struct {
+type DashboardKpiOptionsArgs struct {
 	Comparison                      DashboardComparisonConfigurationPtrInput `pulumi:"comparison"`
 	PrimaryValueDisplayType         DashboardPrimaryValueDisplayTypePtrInput `pulumi:"primaryValueDisplayType"`
 	PrimaryValueFontConfiguration   DashboardFontConfigurationPtrInput       `pulumi:"primaryValueFontConfiguration"`
@@ -29486,137 +29486,137 @@ type DashboardKPIOptionsArgs struct {
 	TrendArrows                     DashboardTrendArrowOptionsPtrInput       `pulumi:"trendArrows"`
 }
 
-func (DashboardKPIOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIOptions)(nil)).Elem()
+func (DashboardKpiOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiOptions)(nil)).Elem()
 }
 
-func (i DashboardKPIOptionsArgs) ToDashboardKPIOptionsOutput() DashboardKPIOptionsOutput {
-	return i.ToDashboardKPIOptionsOutputWithContext(context.Background())
+func (i DashboardKpiOptionsArgs) ToDashboardKpiOptionsOutput() DashboardKpiOptionsOutput {
+	return i.ToDashboardKpiOptionsOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIOptionsArgs) ToDashboardKPIOptionsOutputWithContext(ctx context.Context) DashboardKPIOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIOptionsOutput)
+func (i DashboardKpiOptionsArgs) ToDashboardKpiOptionsOutputWithContext(ctx context.Context) DashboardKpiOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiOptionsOutput)
 }
 
-func (i DashboardKPIOptionsArgs) ToDashboardKPIOptionsPtrOutput() DashboardKPIOptionsPtrOutput {
-	return i.ToDashboardKPIOptionsPtrOutputWithContext(context.Background())
+func (i DashboardKpiOptionsArgs) ToDashboardKpiOptionsPtrOutput() DashboardKpiOptionsPtrOutput {
+	return i.ToDashboardKpiOptionsPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIOptionsArgs) ToDashboardKPIOptionsPtrOutputWithContext(ctx context.Context) DashboardKPIOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIOptionsOutput).ToDashboardKPIOptionsPtrOutputWithContext(ctx)
+func (i DashboardKpiOptionsArgs) ToDashboardKpiOptionsPtrOutputWithContext(ctx context.Context) DashboardKpiOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiOptionsOutput).ToDashboardKpiOptionsPtrOutputWithContext(ctx)
 }
 
-// DashboardKPIOptionsPtrInput is an input type that accepts DashboardKPIOptionsArgs, DashboardKPIOptionsPtr and DashboardKPIOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardKPIOptionsPtrInput` via:
+// DashboardKpiOptionsPtrInput is an input type that accepts DashboardKpiOptionsArgs, DashboardKpiOptionsPtr and DashboardKpiOptionsPtrOutput values.
+// You can construct a concrete instance of `DashboardKpiOptionsPtrInput` via:
 //
-//	        DashboardKPIOptionsArgs{...}
+//	        DashboardKpiOptionsArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardKPIOptionsPtrInput interface {
+type DashboardKpiOptionsPtrInput interface {
 	pulumi.Input
 
-	ToDashboardKPIOptionsPtrOutput() DashboardKPIOptionsPtrOutput
-	ToDashboardKPIOptionsPtrOutputWithContext(context.Context) DashboardKPIOptionsPtrOutput
+	ToDashboardKpiOptionsPtrOutput() DashboardKpiOptionsPtrOutput
+	ToDashboardKpiOptionsPtrOutputWithContext(context.Context) DashboardKpiOptionsPtrOutput
 }
 
-type dashboardKPIOptionsPtrType DashboardKPIOptionsArgs
+type dashboardKpiOptionsPtrType DashboardKpiOptionsArgs
 
-func DashboardKPIOptionsPtr(v *DashboardKPIOptionsArgs) DashboardKPIOptionsPtrInput {
-	return (*dashboardKPIOptionsPtrType)(v)
+func DashboardKpiOptionsPtr(v *DashboardKpiOptionsArgs) DashboardKpiOptionsPtrInput {
+	return (*dashboardKpiOptionsPtrType)(v)
 }
 
-func (*dashboardKPIOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIOptions)(nil)).Elem()
+func (*dashboardKpiOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiOptions)(nil)).Elem()
 }
 
-func (i *dashboardKPIOptionsPtrType) ToDashboardKPIOptionsPtrOutput() DashboardKPIOptionsPtrOutput {
-	return i.ToDashboardKPIOptionsPtrOutputWithContext(context.Background())
+func (i *dashboardKpiOptionsPtrType) ToDashboardKpiOptionsPtrOutput() DashboardKpiOptionsPtrOutput {
+	return i.ToDashboardKpiOptionsPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardKPIOptionsPtrType) ToDashboardKPIOptionsPtrOutputWithContext(ctx context.Context) DashboardKPIOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIOptionsPtrOutput)
+func (i *dashboardKpiOptionsPtrType) ToDashboardKpiOptionsPtrOutputWithContext(ctx context.Context) DashboardKpiOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiOptionsPtrOutput)
 }
 
-type DashboardKPIOptionsOutput struct{ *pulumi.OutputState }
+type DashboardKpiOptionsOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIOptions)(nil)).Elem()
+func (DashboardKpiOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiOptions)(nil)).Elem()
 }
 
-func (o DashboardKPIOptionsOutput) ToDashboardKPIOptionsOutput() DashboardKPIOptionsOutput {
+func (o DashboardKpiOptionsOutput) ToDashboardKpiOptionsOutput() DashboardKpiOptionsOutput {
 	return o
 }
 
-func (o DashboardKPIOptionsOutput) ToDashboardKPIOptionsOutputWithContext(ctx context.Context) DashboardKPIOptionsOutput {
+func (o DashboardKpiOptionsOutput) ToDashboardKpiOptionsOutputWithContext(ctx context.Context) DashboardKpiOptionsOutput {
 	return o
 }
 
-func (o DashboardKPIOptionsOutput) ToDashboardKPIOptionsPtrOutput() DashboardKPIOptionsPtrOutput {
-	return o.ToDashboardKPIOptionsPtrOutputWithContext(context.Background())
+func (o DashboardKpiOptionsOutput) ToDashboardKpiOptionsPtrOutput() DashboardKpiOptionsPtrOutput {
+	return o.ToDashboardKpiOptionsPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardKPIOptionsOutput) ToDashboardKPIOptionsPtrOutputWithContext(ctx context.Context) DashboardKPIOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKPIOptions) *DashboardKPIOptions {
+func (o DashboardKpiOptionsOutput) ToDashboardKpiOptionsPtrOutputWithContext(ctx context.Context) DashboardKpiOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKpiOptions) *DashboardKpiOptions {
 		return &v
-	}).(DashboardKPIOptionsPtrOutput)
+	}).(DashboardKpiOptionsPtrOutput)
 }
 
-func (o DashboardKPIOptionsOutput) Comparison() DashboardComparisonConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardKPIOptions) *DashboardComparisonConfiguration { return v.Comparison }).(DashboardComparisonConfigurationPtrOutput)
+func (o DashboardKpiOptionsOutput) Comparison() DashboardComparisonConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardKpiOptions) *DashboardComparisonConfiguration { return v.Comparison }).(DashboardComparisonConfigurationPtrOutput)
 }
 
-func (o DashboardKPIOptionsOutput) PrimaryValueDisplayType() DashboardPrimaryValueDisplayTypePtrOutput {
-	return o.ApplyT(func(v DashboardKPIOptions) *DashboardPrimaryValueDisplayType { return v.PrimaryValueDisplayType }).(DashboardPrimaryValueDisplayTypePtrOutput)
+func (o DashboardKpiOptionsOutput) PrimaryValueDisplayType() DashboardPrimaryValueDisplayTypePtrOutput {
+	return o.ApplyT(func(v DashboardKpiOptions) *DashboardPrimaryValueDisplayType { return v.PrimaryValueDisplayType }).(DashboardPrimaryValueDisplayTypePtrOutput)
 }
 
-func (o DashboardKPIOptionsOutput) PrimaryValueFontConfiguration() DashboardFontConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardKPIOptions) *DashboardFontConfiguration { return v.PrimaryValueFontConfiguration }).(DashboardFontConfigurationPtrOutput)
+func (o DashboardKpiOptionsOutput) PrimaryValueFontConfiguration() DashboardFontConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardKpiOptions) *DashboardFontConfiguration { return v.PrimaryValueFontConfiguration }).(DashboardFontConfigurationPtrOutput)
 }
 
-func (o DashboardKPIOptionsOutput) ProgressBar() DashboardProgressBarOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardKPIOptions) *DashboardProgressBarOptions { return v.ProgressBar }).(DashboardProgressBarOptionsPtrOutput)
+func (o DashboardKpiOptionsOutput) ProgressBar() DashboardProgressBarOptionsPtrOutput {
+	return o.ApplyT(func(v DashboardKpiOptions) *DashboardProgressBarOptions { return v.ProgressBar }).(DashboardProgressBarOptionsPtrOutput)
 }
 
-func (o DashboardKPIOptionsOutput) SecondaryValue() DashboardSecondaryValueOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardKPIOptions) *DashboardSecondaryValueOptions { return v.SecondaryValue }).(DashboardSecondaryValueOptionsPtrOutput)
+func (o DashboardKpiOptionsOutput) SecondaryValue() DashboardSecondaryValueOptionsPtrOutput {
+	return o.ApplyT(func(v DashboardKpiOptions) *DashboardSecondaryValueOptions { return v.SecondaryValue }).(DashboardSecondaryValueOptionsPtrOutput)
 }
 
-func (o DashboardKPIOptionsOutput) SecondaryValueFontConfiguration() DashboardFontConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardKPIOptions) *DashboardFontConfiguration { return v.SecondaryValueFontConfiguration }).(DashboardFontConfigurationPtrOutput)
+func (o DashboardKpiOptionsOutput) SecondaryValueFontConfiguration() DashboardFontConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardKpiOptions) *DashboardFontConfiguration { return v.SecondaryValueFontConfiguration }).(DashboardFontConfigurationPtrOutput)
 }
 
-func (o DashboardKPIOptionsOutput) TrendArrows() DashboardTrendArrowOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardKPIOptions) *DashboardTrendArrowOptions { return v.TrendArrows }).(DashboardTrendArrowOptionsPtrOutput)
+func (o DashboardKpiOptionsOutput) TrendArrows() DashboardTrendArrowOptionsPtrOutput {
+	return o.ApplyT(func(v DashboardKpiOptions) *DashboardTrendArrowOptions { return v.TrendArrows }).(DashboardTrendArrowOptionsPtrOutput)
 }
 
-type DashboardKPIOptionsPtrOutput struct{ *pulumi.OutputState }
+type DashboardKpiOptionsPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIOptions)(nil)).Elem()
+func (DashboardKpiOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiOptions)(nil)).Elem()
 }
 
-func (o DashboardKPIOptionsPtrOutput) ToDashboardKPIOptionsPtrOutput() DashboardKPIOptionsPtrOutput {
+func (o DashboardKpiOptionsPtrOutput) ToDashboardKpiOptionsPtrOutput() DashboardKpiOptionsPtrOutput {
 	return o
 }
 
-func (o DashboardKPIOptionsPtrOutput) ToDashboardKPIOptionsPtrOutputWithContext(ctx context.Context) DashboardKPIOptionsPtrOutput {
+func (o DashboardKpiOptionsPtrOutput) ToDashboardKpiOptionsPtrOutputWithContext(ctx context.Context) DashboardKpiOptionsPtrOutput {
 	return o
 }
 
-func (o DashboardKPIOptionsPtrOutput) Elem() DashboardKPIOptionsOutput {
-	return o.ApplyT(func(v *DashboardKPIOptions) DashboardKPIOptions {
+func (o DashboardKpiOptionsPtrOutput) Elem() DashboardKpiOptionsOutput {
+	return o.ApplyT(func(v *DashboardKpiOptions) DashboardKpiOptions {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardKPIOptions
+		var ret DashboardKpiOptions
 		return ret
-	}).(DashboardKPIOptionsOutput)
+	}).(DashboardKpiOptionsOutput)
 }
 
-func (o DashboardKPIOptionsPtrOutput) Comparison() DashboardComparisonConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIOptions) *DashboardComparisonConfiguration {
+func (o DashboardKpiOptionsPtrOutput) Comparison() DashboardComparisonConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiOptions) *DashboardComparisonConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -29624,8 +29624,8 @@ func (o DashboardKPIOptionsPtrOutput) Comparison() DashboardComparisonConfigurat
 	}).(DashboardComparisonConfigurationPtrOutput)
 }
 
-func (o DashboardKPIOptionsPtrOutput) PrimaryValueDisplayType() DashboardPrimaryValueDisplayTypePtrOutput {
-	return o.ApplyT(func(v *DashboardKPIOptions) *DashboardPrimaryValueDisplayType {
+func (o DashboardKpiOptionsPtrOutput) PrimaryValueDisplayType() DashboardPrimaryValueDisplayTypePtrOutput {
+	return o.ApplyT(func(v *DashboardKpiOptions) *DashboardPrimaryValueDisplayType {
 		if v == nil {
 			return nil
 		}
@@ -29633,8 +29633,8 @@ func (o DashboardKPIOptionsPtrOutput) PrimaryValueDisplayType() DashboardPrimary
 	}).(DashboardPrimaryValueDisplayTypePtrOutput)
 }
 
-func (o DashboardKPIOptionsPtrOutput) PrimaryValueFontConfiguration() DashboardFontConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIOptions) *DashboardFontConfiguration {
+func (o DashboardKpiOptionsPtrOutput) PrimaryValueFontConfiguration() DashboardFontConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiOptions) *DashboardFontConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -29642,8 +29642,8 @@ func (o DashboardKPIOptionsPtrOutput) PrimaryValueFontConfiguration() DashboardF
 	}).(DashboardFontConfigurationPtrOutput)
 }
 
-func (o DashboardKPIOptionsPtrOutput) ProgressBar() DashboardProgressBarOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIOptions) *DashboardProgressBarOptions {
+func (o DashboardKpiOptionsPtrOutput) ProgressBar() DashboardProgressBarOptionsPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiOptions) *DashboardProgressBarOptions {
 		if v == nil {
 			return nil
 		}
@@ -29651,8 +29651,8 @@ func (o DashboardKPIOptionsPtrOutput) ProgressBar() DashboardProgressBarOptionsP
 	}).(DashboardProgressBarOptionsPtrOutput)
 }
 
-func (o DashboardKPIOptionsPtrOutput) SecondaryValue() DashboardSecondaryValueOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIOptions) *DashboardSecondaryValueOptions {
+func (o DashboardKpiOptionsPtrOutput) SecondaryValue() DashboardSecondaryValueOptionsPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiOptions) *DashboardSecondaryValueOptions {
 		if v == nil {
 			return nil
 		}
@@ -29660,8 +29660,8 @@ func (o DashboardKPIOptionsPtrOutput) SecondaryValue() DashboardSecondaryValueOp
 	}).(DashboardSecondaryValueOptionsPtrOutput)
 }
 
-func (o DashboardKPIOptionsPtrOutput) SecondaryValueFontConfiguration() DashboardFontConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIOptions) *DashboardFontConfiguration {
+func (o DashboardKpiOptionsPtrOutput) SecondaryValueFontConfiguration() DashboardFontConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiOptions) *DashboardFontConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -29669,8 +29669,8 @@ func (o DashboardKPIOptionsPtrOutput) SecondaryValueFontConfiguration() Dashboar
 	}).(DashboardFontConfigurationPtrOutput)
 }
 
-func (o DashboardKPIOptionsPtrOutput) TrendArrows() DashboardTrendArrowOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIOptions) *DashboardTrendArrowOptions {
+func (o DashboardKpiOptionsPtrOutput) TrendArrows() DashboardTrendArrowOptionsPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiOptions) *DashboardTrendArrowOptions {
 		if v == nil {
 			return nil
 		}
@@ -29678,142 +29678,142 @@ func (o DashboardKPIOptionsPtrOutput) TrendArrows() DashboardTrendArrowOptionsPt
 	}).(DashboardTrendArrowOptionsPtrOutput)
 }
 
-type DashboardKPIPrimaryValueConditionalFormatting struct {
+type DashboardKpiPrimaryValueConditionalFormatting struct {
 	Icon      *DashboardConditionalFormattingIcon  `pulumi:"icon"`
 	TextColor *DashboardConditionalFormattingColor `pulumi:"textColor"`
 }
 
-// DashboardKPIPrimaryValueConditionalFormattingInput is an input type that accepts DashboardKPIPrimaryValueConditionalFormattingArgs and DashboardKPIPrimaryValueConditionalFormattingOutput values.
-// You can construct a concrete instance of `DashboardKPIPrimaryValueConditionalFormattingInput` via:
+// DashboardKpiPrimaryValueConditionalFormattingInput is an input type that accepts DashboardKpiPrimaryValueConditionalFormattingArgs and DashboardKpiPrimaryValueConditionalFormattingOutput values.
+// You can construct a concrete instance of `DashboardKpiPrimaryValueConditionalFormattingInput` via:
 //
-//	DashboardKPIPrimaryValueConditionalFormattingArgs{...}
-type DashboardKPIPrimaryValueConditionalFormattingInput interface {
+//	DashboardKpiPrimaryValueConditionalFormattingArgs{...}
+type DashboardKpiPrimaryValueConditionalFormattingInput interface {
 	pulumi.Input
 
-	ToDashboardKPIPrimaryValueConditionalFormattingOutput() DashboardKPIPrimaryValueConditionalFormattingOutput
-	ToDashboardKPIPrimaryValueConditionalFormattingOutputWithContext(context.Context) DashboardKPIPrimaryValueConditionalFormattingOutput
+	ToDashboardKpiPrimaryValueConditionalFormattingOutput() DashboardKpiPrimaryValueConditionalFormattingOutput
+	ToDashboardKpiPrimaryValueConditionalFormattingOutputWithContext(context.Context) DashboardKpiPrimaryValueConditionalFormattingOutput
 }
 
-type DashboardKPIPrimaryValueConditionalFormattingArgs struct {
+type DashboardKpiPrimaryValueConditionalFormattingArgs struct {
 	Icon      DashboardConditionalFormattingIconPtrInput  `pulumi:"icon"`
 	TextColor DashboardConditionalFormattingColorPtrInput `pulumi:"textColor"`
 }
 
-func (DashboardKPIPrimaryValueConditionalFormattingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIPrimaryValueConditionalFormatting)(nil)).Elem()
+func (DashboardKpiPrimaryValueConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiPrimaryValueConditionalFormatting)(nil)).Elem()
 }
 
-func (i DashboardKPIPrimaryValueConditionalFormattingArgs) ToDashboardKPIPrimaryValueConditionalFormattingOutput() DashboardKPIPrimaryValueConditionalFormattingOutput {
-	return i.ToDashboardKPIPrimaryValueConditionalFormattingOutputWithContext(context.Background())
+func (i DashboardKpiPrimaryValueConditionalFormattingArgs) ToDashboardKpiPrimaryValueConditionalFormattingOutput() DashboardKpiPrimaryValueConditionalFormattingOutput {
+	return i.ToDashboardKpiPrimaryValueConditionalFormattingOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIPrimaryValueConditionalFormattingArgs) ToDashboardKPIPrimaryValueConditionalFormattingOutputWithContext(ctx context.Context) DashboardKPIPrimaryValueConditionalFormattingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIPrimaryValueConditionalFormattingOutput)
+func (i DashboardKpiPrimaryValueConditionalFormattingArgs) ToDashboardKpiPrimaryValueConditionalFormattingOutputWithContext(ctx context.Context) DashboardKpiPrimaryValueConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiPrimaryValueConditionalFormattingOutput)
 }
 
-func (i DashboardKPIPrimaryValueConditionalFormattingArgs) ToDashboardKPIPrimaryValueConditionalFormattingPtrOutput() DashboardKPIPrimaryValueConditionalFormattingPtrOutput {
-	return i.ToDashboardKPIPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
+func (i DashboardKpiPrimaryValueConditionalFormattingArgs) ToDashboardKpiPrimaryValueConditionalFormattingPtrOutput() DashboardKpiPrimaryValueConditionalFormattingPtrOutput {
+	return i.ToDashboardKpiPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIPrimaryValueConditionalFormattingArgs) ToDashboardKPIPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIPrimaryValueConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIPrimaryValueConditionalFormattingOutput).ToDashboardKPIPrimaryValueConditionalFormattingPtrOutputWithContext(ctx)
+func (i DashboardKpiPrimaryValueConditionalFormattingArgs) ToDashboardKpiPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiPrimaryValueConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiPrimaryValueConditionalFormattingOutput).ToDashboardKpiPrimaryValueConditionalFormattingPtrOutputWithContext(ctx)
 }
 
-// DashboardKPIPrimaryValueConditionalFormattingPtrInput is an input type that accepts DashboardKPIPrimaryValueConditionalFormattingArgs, DashboardKPIPrimaryValueConditionalFormattingPtr and DashboardKPIPrimaryValueConditionalFormattingPtrOutput values.
-// You can construct a concrete instance of `DashboardKPIPrimaryValueConditionalFormattingPtrInput` via:
+// DashboardKpiPrimaryValueConditionalFormattingPtrInput is an input type that accepts DashboardKpiPrimaryValueConditionalFormattingArgs, DashboardKpiPrimaryValueConditionalFormattingPtr and DashboardKpiPrimaryValueConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `DashboardKpiPrimaryValueConditionalFormattingPtrInput` via:
 //
-//	        DashboardKPIPrimaryValueConditionalFormattingArgs{...}
+//	        DashboardKpiPrimaryValueConditionalFormattingArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardKPIPrimaryValueConditionalFormattingPtrInput interface {
+type DashboardKpiPrimaryValueConditionalFormattingPtrInput interface {
 	pulumi.Input
 
-	ToDashboardKPIPrimaryValueConditionalFormattingPtrOutput() DashboardKPIPrimaryValueConditionalFormattingPtrOutput
-	ToDashboardKPIPrimaryValueConditionalFormattingPtrOutputWithContext(context.Context) DashboardKPIPrimaryValueConditionalFormattingPtrOutput
+	ToDashboardKpiPrimaryValueConditionalFormattingPtrOutput() DashboardKpiPrimaryValueConditionalFormattingPtrOutput
+	ToDashboardKpiPrimaryValueConditionalFormattingPtrOutputWithContext(context.Context) DashboardKpiPrimaryValueConditionalFormattingPtrOutput
 }
 
-type dashboardKPIPrimaryValueConditionalFormattingPtrType DashboardKPIPrimaryValueConditionalFormattingArgs
+type dashboardKpiPrimaryValueConditionalFormattingPtrType DashboardKpiPrimaryValueConditionalFormattingArgs
 
-func DashboardKPIPrimaryValueConditionalFormattingPtr(v *DashboardKPIPrimaryValueConditionalFormattingArgs) DashboardKPIPrimaryValueConditionalFormattingPtrInput {
-	return (*dashboardKPIPrimaryValueConditionalFormattingPtrType)(v)
+func DashboardKpiPrimaryValueConditionalFormattingPtr(v *DashboardKpiPrimaryValueConditionalFormattingArgs) DashboardKpiPrimaryValueConditionalFormattingPtrInput {
+	return (*dashboardKpiPrimaryValueConditionalFormattingPtrType)(v)
 }
 
-func (*dashboardKPIPrimaryValueConditionalFormattingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIPrimaryValueConditionalFormatting)(nil)).Elem()
+func (*dashboardKpiPrimaryValueConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiPrimaryValueConditionalFormatting)(nil)).Elem()
 }
 
-func (i *dashboardKPIPrimaryValueConditionalFormattingPtrType) ToDashboardKPIPrimaryValueConditionalFormattingPtrOutput() DashboardKPIPrimaryValueConditionalFormattingPtrOutput {
-	return i.ToDashboardKPIPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
+func (i *dashboardKpiPrimaryValueConditionalFormattingPtrType) ToDashboardKpiPrimaryValueConditionalFormattingPtrOutput() DashboardKpiPrimaryValueConditionalFormattingPtrOutput {
+	return i.ToDashboardKpiPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardKPIPrimaryValueConditionalFormattingPtrType) ToDashboardKPIPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIPrimaryValueConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIPrimaryValueConditionalFormattingPtrOutput)
+func (i *dashboardKpiPrimaryValueConditionalFormattingPtrType) ToDashboardKpiPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiPrimaryValueConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiPrimaryValueConditionalFormattingPtrOutput)
 }
 
-type DashboardKPIPrimaryValueConditionalFormattingOutput struct{ *pulumi.OutputState }
+type DashboardKpiPrimaryValueConditionalFormattingOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIPrimaryValueConditionalFormattingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIPrimaryValueConditionalFormatting)(nil)).Elem()
+func (DashboardKpiPrimaryValueConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiPrimaryValueConditionalFormatting)(nil)).Elem()
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingOutput) ToDashboardKPIPrimaryValueConditionalFormattingOutput() DashboardKPIPrimaryValueConditionalFormattingOutput {
+func (o DashboardKpiPrimaryValueConditionalFormattingOutput) ToDashboardKpiPrimaryValueConditionalFormattingOutput() DashboardKpiPrimaryValueConditionalFormattingOutput {
 	return o
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingOutput) ToDashboardKPIPrimaryValueConditionalFormattingOutputWithContext(ctx context.Context) DashboardKPIPrimaryValueConditionalFormattingOutput {
+func (o DashboardKpiPrimaryValueConditionalFormattingOutput) ToDashboardKpiPrimaryValueConditionalFormattingOutputWithContext(ctx context.Context) DashboardKpiPrimaryValueConditionalFormattingOutput {
 	return o
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingOutput) ToDashboardKPIPrimaryValueConditionalFormattingPtrOutput() DashboardKPIPrimaryValueConditionalFormattingPtrOutput {
-	return o.ToDashboardKPIPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
+func (o DashboardKpiPrimaryValueConditionalFormattingOutput) ToDashboardKpiPrimaryValueConditionalFormattingPtrOutput() DashboardKpiPrimaryValueConditionalFormattingPtrOutput {
+	return o.ToDashboardKpiPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingOutput) ToDashboardKPIPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIPrimaryValueConditionalFormattingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKPIPrimaryValueConditionalFormatting) *DashboardKPIPrimaryValueConditionalFormatting {
+func (o DashboardKpiPrimaryValueConditionalFormattingOutput) ToDashboardKpiPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiPrimaryValueConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKpiPrimaryValueConditionalFormatting) *DashboardKpiPrimaryValueConditionalFormatting {
 		return &v
-	}).(DashboardKPIPrimaryValueConditionalFormattingPtrOutput)
+	}).(DashboardKpiPrimaryValueConditionalFormattingPtrOutput)
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingOutput) Icon() DashboardConditionalFormattingIconPtrOutput {
-	return o.ApplyT(func(v DashboardKPIPrimaryValueConditionalFormatting) *DashboardConditionalFormattingIcon {
+func (o DashboardKpiPrimaryValueConditionalFormattingOutput) Icon() DashboardConditionalFormattingIconPtrOutput {
+	return o.ApplyT(func(v DashboardKpiPrimaryValueConditionalFormatting) *DashboardConditionalFormattingIcon {
 		return v.Icon
 	}).(DashboardConditionalFormattingIconPtrOutput)
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingOutput) TextColor() DashboardConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v DashboardKPIPrimaryValueConditionalFormatting) *DashboardConditionalFormattingColor {
+func (o DashboardKpiPrimaryValueConditionalFormattingOutput) TextColor() DashboardConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v DashboardKpiPrimaryValueConditionalFormatting) *DashboardConditionalFormattingColor {
 		return v.TextColor
 	}).(DashboardConditionalFormattingColorPtrOutput)
 }
 
-type DashboardKPIPrimaryValueConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+type DashboardKpiPrimaryValueConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIPrimaryValueConditionalFormattingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIPrimaryValueConditionalFormatting)(nil)).Elem()
+func (DashboardKpiPrimaryValueConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiPrimaryValueConditionalFormatting)(nil)).Elem()
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingPtrOutput) ToDashboardKPIPrimaryValueConditionalFormattingPtrOutput() DashboardKPIPrimaryValueConditionalFormattingPtrOutput {
+func (o DashboardKpiPrimaryValueConditionalFormattingPtrOutput) ToDashboardKpiPrimaryValueConditionalFormattingPtrOutput() DashboardKpiPrimaryValueConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingPtrOutput) ToDashboardKPIPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIPrimaryValueConditionalFormattingPtrOutput {
+func (o DashboardKpiPrimaryValueConditionalFormattingPtrOutput) ToDashboardKpiPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiPrimaryValueConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingPtrOutput) Elem() DashboardKPIPrimaryValueConditionalFormattingOutput {
-	return o.ApplyT(func(v *DashboardKPIPrimaryValueConditionalFormatting) DashboardKPIPrimaryValueConditionalFormatting {
+func (o DashboardKpiPrimaryValueConditionalFormattingPtrOutput) Elem() DashboardKpiPrimaryValueConditionalFormattingOutput {
+	return o.ApplyT(func(v *DashboardKpiPrimaryValueConditionalFormatting) DashboardKpiPrimaryValueConditionalFormatting {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardKPIPrimaryValueConditionalFormatting
+		var ret DashboardKpiPrimaryValueConditionalFormatting
 		return ret
-	}).(DashboardKPIPrimaryValueConditionalFormattingOutput)
+	}).(DashboardKpiPrimaryValueConditionalFormattingOutput)
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingPtrOutput) Icon() DashboardConditionalFormattingIconPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIPrimaryValueConditionalFormatting) *DashboardConditionalFormattingIcon {
+func (o DashboardKpiPrimaryValueConditionalFormattingPtrOutput) Icon() DashboardConditionalFormattingIconPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiPrimaryValueConditionalFormatting) *DashboardConditionalFormattingIcon {
 		if v == nil {
 			return nil
 		}
@@ -29821,8 +29821,8 @@ func (o DashboardKPIPrimaryValueConditionalFormattingPtrOutput) Icon() Dashboard
 	}).(DashboardConditionalFormattingIconPtrOutput)
 }
 
-func (o DashboardKPIPrimaryValueConditionalFormattingPtrOutput) TextColor() DashboardConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIPrimaryValueConditionalFormatting) *DashboardConditionalFormattingColor {
+func (o DashboardKpiPrimaryValueConditionalFormattingPtrOutput) TextColor() DashboardConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiPrimaryValueConditionalFormatting) *DashboardConditionalFormattingColor {
 		if v == nil {
 			return nil
 		}
@@ -29830,134 +29830,134 @@ func (o DashboardKPIPrimaryValueConditionalFormattingPtrOutput) TextColor() Dash
 	}).(DashboardConditionalFormattingColorPtrOutput)
 }
 
-type DashboardKPIProgressBarConditionalFormatting struct {
+type DashboardKpiProgressBarConditionalFormatting struct {
 	ForegroundColor *DashboardConditionalFormattingColor `pulumi:"foregroundColor"`
 }
 
-// DashboardKPIProgressBarConditionalFormattingInput is an input type that accepts DashboardKPIProgressBarConditionalFormattingArgs and DashboardKPIProgressBarConditionalFormattingOutput values.
-// You can construct a concrete instance of `DashboardKPIProgressBarConditionalFormattingInput` via:
+// DashboardKpiProgressBarConditionalFormattingInput is an input type that accepts DashboardKpiProgressBarConditionalFormattingArgs and DashboardKpiProgressBarConditionalFormattingOutput values.
+// You can construct a concrete instance of `DashboardKpiProgressBarConditionalFormattingInput` via:
 //
-//	DashboardKPIProgressBarConditionalFormattingArgs{...}
-type DashboardKPIProgressBarConditionalFormattingInput interface {
+//	DashboardKpiProgressBarConditionalFormattingArgs{...}
+type DashboardKpiProgressBarConditionalFormattingInput interface {
 	pulumi.Input
 
-	ToDashboardKPIProgressBarConditionalFormattingOutput() DashboardKPIProgressBarConditionalFormattingOutput
-	ToDashboardKPIProgressBarConditionalFormattingOutputWithContext(context.Context) DashboardKPIProgressBarConditionalFormattingOutput
+	ToDashboardKpiProgressBarConditionalFormattingOutput() DashboardKpiProgressBarConditionalFormattingOutput
+	ToDashboardKpiProgressBarConditionalFormattingOutputWithContext(context.Context) DashboardKpiProgressBarConditionalFormattingOutput
 }
 
-type DashboardKPIProgressBarConditionalFormattingArgs struct {
+type DashboardKpiProgressBarConditionalFormattingArgs struct {
 	ForegroundColor DashboardConditionalFormattingColorPtrInput `pulumi:"foregroundColor"`
 }
 
-func (DashboardKPIProgressBarConditionalFormattingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIProgressBarConditionalFormatting)(nil)).Elem()
+func (DashboardKpiProgressBarConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiProgressBarConditionalFormatting)(nil)).Elem()
 }
 
-func (i DashboardKPIProgressBarConditionalFormattingArgs) ToDashboardKPIProgressBarConditionalFormattingOutput() DashboardKPIProgressBarConditionalFormattingOutput {
-	return i.ToDashboardKPIProgressBarConditionalFormattingOutputWithContext(context.Background())
+func (i DashboardKpiProgressBarConditionalFormattingArgs) ToDashboardKpiProgressBarConditionalFormattingOutput() DashboardKpiProgressBarConditionalFormattingOutput {
+	return i.ToDashboardKpiProgressBarConditionalFormattingOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIProgressBarConditionalFormattingArgs) ToDashboardKPIProgressBarConditionalFormattingOutputWithContext(ctx context.Context) DashboardKPIProgressBarConditionalFormattingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIProgressBarConditionalFormattingOutput)
+func (i DashboardKpiProgressBarConditionalFormattingArgs) ToDashboardKpiProgressBarConditionalFormattingOutputWithContext(ctx context.Context) DashboardKpiProgressBarConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiProgressBarConditionalFormattingOutput)
 }
 
-func (i DashboardKPIProgressBarConditionalFormattingArgs) ToDashboardKPIProgressBarConditionalFormattingPtrOutput() DashboardKPIProgressBarConditionalFormattingPtrOutput {
-	return i.ToDashboardKPIProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
+func (i DashboardKpiProgressBarConditionalFormattingArgs) ToDashboardKpiProgressBarConditionalFormattingPtrOutput() DashboardKpiProgressBarConditionalFormattingPtrOutput {
+	return i.ToDashboardKpiProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIProgressBarConditionalFormattingArgs) ToDashboardKPIProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIProgressBarConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIProgressBarConditionalFormattingOutput).ToDashboardKPIProgressBarConditionalFormattingPtrOutputWithContext(ctx)
+func (i DashboardKpiProgressBarConditionalFormattingArgs) ToDashboardKpiProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiProgressBarConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiProgressBarConditionalFormattingOutput).ToDashboardKpiProgressBarConditionalFormattingPtrOutputWithContext(ctx)
 }
 
-// DashboardKPIProgressBarConditionalFormattingPtrInput is an input type that accepts DashboardKPIProgressBarConditionalFormattingArgs, DashboardKPIProgressBarConditionalFormattingPtr and DashboardKPIProgressBarConditionalFormattingPtrOutput values.
-// You can construct a concrete instance of `DashboardKPIProgressBarConditionalFormattingPtrInput` via:
+// DashboardKpiProgressBarConditionalFormattingPtrInput is an input type that accepts DashboardKpiProgressBarConditionalFormattingArgs, DashboardKpiProgressBarConditionalFormattingPtr and DashboardKpiProgressBarConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `DashboardKpiProgressBarConditionalFormattingPtrInput` via:
 //
-//	        DashboardKPIProgressBarConditionalFormattingArgs{...}
+//	        DashboardKpiProgressBarConditionalFormattingArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardKPIProgressBarConditionalFormattingPtrInput interface {
+type DashboardKpiProgressBarConditionalFormattingPtrInput interface {
 	pulumi.Input
 
-	ToDashboardKPIProgressBarConditionalFormattingPtrOutput() DashboardKPIProgressBarConditionalFormattingPtrOutput
-	ToDashboardKPIProgressBarConditionalFormattingPtrOutputWithContext(context.Context) DashboardKPIProgressBarConditionalFormattingPtrOutput
+	ToDashboardKpiProgressBarConditionalFormattingPtrOutput() DashboardKpiProgressBarConditionalFormattingPtrOutput
+	ToDashboardKpiProgressBarConditionalFormattingPtrOutputWithContext(context.Context) DashboardKpiProgressBarConditionalFormattingPtrOutput
 }
 
-type dashboardKPIProgressBarConditionalFormattingPtrType DashboardKPIProgressBarConditionalFormattingArgs
+type dashboardKpiProgressBarConditionalFormattingPtrType DashboardKpiProgressBarConditionalFormattingArgs
 
-func DashboardKPIProgressBarConditionalFormattingPtr(v *DashboardKPIProgressBarConditionalFormattingArgs) DashboardKPIProgressBarConditionalFormattingPtrInput {
-	return (*dashboardKPIProgressBarConditionalFormattingPtrType)(v)
+func DashboardKpiProgressBarConditionalFormattingPtr(v *DashboardKpiProgressBarConditionalFormattingArgs) DashboardKpiProgressBarConditionalFormattingPtrInput {
+	return (*dashboardKpiProgressBarConditionalFormattingPtrType)(v)
 }
 
-func (*dashboardKPIProgressBarConditionalFormattingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIProgressBarConditionalFormatting)(nil)).Elem()
+func (*dashboardKpiProgressBarConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiProgressBarConditionalFormatting)(nil)).Elem()
 }
 
-func (i *dashboardKPIProgressBarConditionalFormattingPtrType) ToDashboardKPIProgressBarConditionalFormattingPtrOutput() DashboardKPIProgressBarConditionalFormattingPtrOutput {
-	return i.ToDashboardKPIProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
+func (i *dashboardKpiProgressBarConditionalFormattingPtrType) ToDashboardKpiProgressBarConditionalFormattingPtrOutput() DashboardKpiProgressBarConditionalFormattingPtrOutput {
+	return i.ToDashboardKpiProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardKPIProgressBarConditionalFormattingPtrType) ToDashboardKPIProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIProgressBarConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIProgressBarConditionalFormattingPtrOutput)
+func (i *dashboardKpiProgressBarConditionalFormattingPtrType) ToDashboardKpiProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiProgressBarConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiProgressBarConditionalFormattingPtrOutput)
 }
 
-type DashboardKPIProgressBarConditionalFormattingOutput struct{ *pulumi.OutputState }
+type DashboardKpiProgressBarConditionalFormattingOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIProgressBarConditionalFormattingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIProgressBarConditionalFormatting)(nil)).Elem()
+func (DashboardKpiProgressBarConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiProgressBarConditionalFormatting)(nil)).Elem()
 }
 
-func (o DashboardKPIProgressBarConditionalFormattingOutput) ToDashboardKPIProgressBarConditionalFormattingOutput() DashboardKPIProgressBarConditionalFormattingOutput {
+func (o DashboardKpiProgressBarConditionalFormattingOutput) ToDashboardKpiProgressBarConditionalFormattingOutput() DashboardKpiProgressBarConditionalFormattingOutput {
 	return o
 }
 
-func (o DashboardKPIProgressBarConditionalFormattingOutput) ToDashboardKPIProgressBarConditionalFormattingOutputWithContext(ctx context.Context) DashboardKPIProgressBarConditionalFormattingOutput {
+func (o DashboardKpiProgressBarConditionalFormattingOutput) ToDashboardKpiProgressBarConditionalFormattingOutputWithContext(ctx context.Context) DashboardKpiProgressBarConditionalFormattingOutput {
 	return o
 }
 
-func (o DashboardKPIProgressBarConditionalFormattingOutput) ToDashboardKPIProgressBarConditionalFormattingPtrOutput() DashboardKPIProgressBarConditionalFormattingPtrOutput {
-	return o.ToDashboardKPIProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
+func (o DashboardKpiProgressBarConditionalFormattingOutput) ToDashboardKpiProgressBarConditionalFormattingPtrOutput() DashboardKpiProgressBarConditionalFormattingPtrOutput {
+	return o.ToDashboardKpiProgressBarConditionalFormattingPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardKPIProgressBarConditionalFormattingOutput) ToDashboardKPIProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIProgressBarConditionalFormattingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKPIProgressBarConditionalFormatting) *DashboardKPIProgressBarConditionalFormatting {
+func (o DashboardKpiProgressBarConditionalFormattingOutput) ToDashboardKpiProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiProgressBarConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKpiProgressBarConditionalFormatting) *DashboardKpiProgressBarConditionalFormatting {
 		return &v
-	}).(DashboardKPIProgressBarConditionalFormattingPtrOutput)
+	}).(DashboardKpiProgressBarConditionalFormattingPtrOutput)
 }
 
-func (o DashboardKPIProgressBarConditionalFormattingOutput) ForegroundColor() DashboardConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v DashboardKPIProgressBarConditionalFormatting) *DashboardConditionalFormattingColor {
+func (o DashboardKpiProgressBarConditionalFormattingOutput) ForegroundColor() DashboardConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v DashboardKpiProgressBarConditionalFormatting) *DashboardConditionalFormattingColor {
 		return v.ForegroundColor
 	}).(DashboardConditionalFormattingColorPtrOutput)
 }
 
-type DashboardKPIProgressBarConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+type DashboardKpiProgressBarConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIProgressBarConditionalFormattingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIProgressBarConditionalFormatting)(nil)).Elem()
+func (DashboardKpiProgressBarConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiProgressBarConditionalFormatting)(nil)).Elem()
 }
 
-func (o DashboardKPIProgressBarConditionalFormattingPtrOutput) ToDashboardKPIProgressBarConditionalFormattingPtrOutput() DashboardKPIProgressBarConditionalFormattingPtrOutput {
+func (o DashboardKpiProgressBarConditionalFormattingPtrOutput) ToDashboardKpiProgressBarConditionalFormattingPtrOutput() DashboardKpiProgressBarConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o DashboardKPIProgressBarConditionalFormattingPtrOutput) ToDashboardKPIProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKPIProgressBarConditionalFormattingPtrOutput {
+func (o DashboardKpiProgressBarConditionalFormattingPtrOutput) ToDashboardKpiProgressBarConditionalFormattingPtrOutputWithContext(ctx context.Context) DashboardKpiProgressBarConditionalFormattingPtrOutput {
 	return o
 }
 
-func (o DashboardKPIProgressBarConditionalFormattingPtrOutput) Elem() DashboardKPIProgressBarConditionalFormattingOutput {
-	return o.ApplyT(func(v *DashboardKPIProgressBarConditionalFormatting) DashboardKPIProgressBarConditionalFormatting {
+func (o DashboardKpiProgressBarConditionalFormattingPtrOutput) Elem() DashboardKpiProgressBarConditionalFormattingOutput {
+	return o.ApplyT(func(v *DashboardKpiProgressBarConditionalFormatting) DashboardKpiProgressBarConditionalFormatting {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardKPIProgressBarConditionalFormatting
+		var ret DashboardKpiProgressBarConditionalFormatting
 		return ret
-	}).(DashboardKPIProgressBarConditionalFormattingOutput)
+	}).(DashboardKpiProgressBarConditionalFormattingOutput)
 }
 
-func (o DashboardKPIProgressBarConditionalFormattingPtrOutput) ForegroundColor() DashboardConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIProgressBarConditionalFormatting) *DashboardConditionalFormattingColor {
+func (o DashboardKpiProgressBarConditionalFormattingPtrOutput) ForegroundColor() DashboardConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiProgressBarConditionalFormatting) *DashboardConditionalFormattingColor {
 		if v == nil {
 			return nil
 		}
@@ -29965,132 +29965,132 @@ func (o DashboardKPIProgressBarConditionalFormattingPtrOutput) ForegroundColor()
 	}).(DashboardConditionalFormattingColorPtrOutput)
 }
 
-type DashboardKPISortConfiguration struct {
+type DashboardKpiSortConfiguration struct {
 	TrendGroupSort []DashboardFieldSortOptions `pulumi:"trendGroupSort"`
 }
 
-// DashboardKPISortConfigurationInput is an input type that accepts DashboardKPISortConfigurationArgs and DashboardKPISortConfigurationOutput values.
-// You can construct a concrete instance of `DashboardKPISortConfigurationInput` via:
+// DashboardKpiSortConfigurationInput is an input type that accepts DashboardKpiSortConfigurationArgs and DashboardKpiSortConfigurationOutput values.
+// You can construct a concrete instance of `DashboardKpiSortConfigurationInput` via:
 //
-//	DashboardKPISortConfigurationArgs{...}
-type DashboardKPISortConfigurationInput interface {
+//	DashboardKpiSortConfigurationArgs{...}
+type DashboardKpiSortConfigurationInput interface {
 	pulumi.Input
 
-	ToDashboardKPISortConfigurationOutput() DashboardKPISortConfigurationOutput
-	ToDashboardKPISortConfigurationOutputWithContext(context.Context) DashboardKPISortConfigurationOutput
+	ToDashboardKpiSortConfigurationOutput() DashboardKpiSortConfigurationOutput
+	ToDashboardKpiSortConfigurationOutputWithContext(context.Context) DashboardKpiSortConfigurationOutput
 }
 
-type DashboardKPISortConfigurationArgs struct {
+type DashboardKpiSortConfigurationArgs struct {
 	TrendGroupSort DashboardFieldSortOptionsArrayInput `pulumi:"trendGroupSort"`
 }
 
-func (DashboardKPISortConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPISortConfiguration)(nil)).Elem()
+func (DashboardKpiSortConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiSortConfiguration)(nil)).Elem()
 }
 
-func (i DashboardKPISortConfigurationArgs) ToDashboardKPISortConfigurationOutput() DashboardKPISortConfigurationOutput {
-	return i.ToDashboardKPISortConfigurationOutputWithContext(context.Background())
+func (i DashboardKpiSortConfigurationArgs) ToDashboardKpiSortConfigurationOutput() DashboardKpiSortConfigurationOutput {
+	return i.ToDashboardKpiSortConfigurationOutputWithContext(context.Background())
 }
 
-func (i DashboardKPISortConfigurationArgs) ToDashboardKPISortConfigurationOutputWithContext(ctx context.Context) DashboardKPISortConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPISortConfigurationOutput)
+func (i DashboardKpiSortConfigurationArgs) ToDashboardKpiSortConfigurationOutputWithContext(ctx context.Context) DashboardKpiSortConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiSortConfigurationOutput)
 }
 
-func (i DashboardKPISortConfigurationArgs) ToDashboardKPISortConfigurationPtrOutput() DashboardKPISortConfigurationPtrOutput {
-	return i.ToDashboardKPISortConfigurationPtrOutputWithContext(context.Background())
+func (i DashboardKpiSortConfigurationArgs) ToDashboardKpiSortConfigurationPtrOutput() DashboardKpiSortConfigurationPtrOutput {
+	return i.ToDashboardKpiSortConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardKPISortConfigurationArgs) ToDashboardKPISortConfigurationPtrOutputWithContext(ctx context.Context) DashboardKPISortConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPISortConfigurationOutput).ToDashboardKPISortConfigurationPtrOutputWithContext(ctx)
+func (i DashboardKpiSortConfigurationArgs) ToDashboardKpiSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardKpiSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiSortConfigurationOutput).ToDashboardKpiSortConfigurationPtrOutputWithContext(ctx)
 }
 
-// DashboardKPISortConfigurationPtrInput is an input type that accepts DashboardKPISortConfigurationArgs, DashboardKPISortConfigurationPtr and DashboardKPISortConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardKPISortConfigurationPtrInput` via:
+// DashboardKpiSortConfigurationPtrInput is an input type that accepts DashboardKpiSortConfigurationArgs, DashboardKpiSortConfigurationPtr and DashboardKpiSortConfigurationPtrOutput values.
+// You can construct a concrete instance of `DashboardKpiSortConfigurationPtrInput` via:
 //
-//	        DashboardKPISortConfigurationArgs{...}
+//	        DashboardKpiSortConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardKPISortConfigurationPtrInput interface {
+type DashboardKpiSortConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToDashboardKPISortConfigurationPtrOutput() DashboardKPISortConfigurationPtrOutput
-	ToDashboardKPISortConfigurationPtrOutputWithContext(context.Context) DashboardKPISortConfigurationPtrOutput
+	ToDashboardKpiSortConfigurationPtrOutput() DashboardKpiSortConfigurationPtrOutput
+	ToDashboardKpiSortConfigurationPtrOutputWithContext(context.Context) DashboardKpiSortConfigurationPtrOutput
 }
 
-type dashboardKPISortConfigurationPtrType DashboardKPISortConfigurationArgs
+type dashboardKpiSortConfigurationPtrType DashboardKpiSortConfigurationArgs
 
-func DashboardKPISortConfigurationPtr(v *DashboardKPISortConfigurationArgs) DashboardKPISortConfigurationPtrInput {
-	return (*dashboardKPISortConfigurationPtrType)(v)
+func DashboardKpiSortConfigurationPtr(v *DashboardKpiSortConfigurationArgs) DashboardKpiSortConfigurationPtrInput {
+	return (*dashboardKpiSortConfigurationPtrType)(v)
 }
 
-func (*dashboardKPISortConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPISortConfiguration)(nil)).Elem()
+func (*dashboardKpiSortConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiSortConfiguration)(nil)).Elem()
 }
 
-func (i *dashboardKPISortConfigurationPtrType) ToDashboardKPISortConfigurationPtrOutput() DashboardKPISortConfigurationPtrOutput {
-	return i.ToDashboardKPISortConfigurationPtrOutputWithContext(context.Background())
+func (i *dashboardKpiSortConfigurationPtrType) ToDashboardKpiSortConfigurationPtrOutput() DashboardKpiSortConfigurationPtrOutput {
+	return i.ToDashboardKpiSortConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardKPISortConfigurationPtrType) ToDashboardKPISortConfigurationPtrOutputWithContext(ctx context.Context) DashboardKPISortConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPISortConfigurationPtrOutput)
+func (i *dashboardKpiSortConfigurationPtrType) ToDashboardKpiSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardKpiSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiSortConfigurationPtrOutput)
 }
 
-type DashboardKPISortConfigurationOutput struct{ *pulumi.OutputState }
+type DashboardKpiSortConfigurationOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPISortConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPISortConfiguration)(nil)).Elem()
+func (DashboardKpiSortConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiSortConfiguration)(nil)).Elem()
 }
 
-func (o DashboardKPISortConfigurationOutput) ToDashboardKPISortConfigurationOutput() DashboardKPISortConfigurationOutput {
+func (o DashboardKpiSortConfigurationOutput) ToDashboardKpiSortConfigurationOutput() DashboardKpiSortConfigurationOutput {
 	return o
 }
 
-func (o DashboardKPISortConfigurationOutput) ToDashboardKPISortConfigurationOutputWithContext(ctx context.Context) DashboardKPISortConfigurationOutput {
+func (o DashboardKpiSortConfigurationOutput) ToDashboardKpiSortConfigurationOutputWithContext(ctx context.Context) DashboardKpiSortConfigurationOutput {
 	return o
 }
 
-func (o DashboardKPISortConfigurationOutput) ToDashboardKPISortConfigurationPtrOutput() DashboardKPISortConfigurationPtrOutput {
-	return o.ToDashboardKPISortConfigurationPtrOutputWithContext(context.Background())
+func (o DashboardKpiSortConfigurationOutput) ToDashboardKpiSortConfigurationPtrOutput() DashboardKpiSortConfigurationPtrOutput {
+	return o.ToDashboardKpiSortConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardKPISortConfigurationOutput) ToDashboardKPISortConfigurationPtrOutputWithContext(ctx context.Context) DashboardKPISortConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKPISortConfiguration) *DashboardKPISortConfiguration {
+func (o DashboardKpiSortConfigurationOutput) ToDashboardKpiSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardKpiSortConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKpiSortConfiguration) *DashboardKpiSortConfiguration {
 		return &v
-	}).(DashboardKPISortConfigurationPtrOutput)
+	}).(DashboardKpiSortConfigurationPtrOutput)
 }
 
-func (o DashboardKPISortConfigurationOutput) TrendGroupSort() DashboardFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v DashboardKPISortConfiguration) []DashboardFieldSortOptions { return v.TrendGroupSort }).(DashboardFieldSortOptionsArrayOutput)
+func (o DashboardKpiSortConfigurationOutput) TrendGroupSort() DashboardFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v DashboardKpiSortConfiguration) []DashboardFieldSortOptions { return v.TrendGroupSort }).(DashboardFieldSortOptionsArrayOutput)
 }
 
-type DashboardKPISortConfigurationPtrOutput struct{ *pulumi.OutputState }
+type DashboardKpiSortConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPISortConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPISortConfiguration)(nil)).Elem()
+func (DashboardKpiSortConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiSortConfiguration)(nil)).Elem()
 }
 
-func (o DashboardKPISortConfigurationPtrOutput) ToDashboardKPISortConfigurationPtrOutput() DashboardKPISortConfigurationPtrOutput {
+func (o DashboardKpiSortConfigurationPtrOutput) ToDashboardKpiSortConfigurationPtrOutput() DashboardKpiSortConfigurationPtrOutput {
 	return o
 }
 
-func (o DashboardKPISortConfigurationPtrOutput) ToDashboardKPISortConfigurationPtrOutputWithContext(ctx context.Context) DashboardKPISortConfigurationPtrOutput {
+func (o DashboardKpiSortConfigurationPtrOutput) ToDashboardKpiSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardKpiSortConfigurationPtrOutput {
 	return o
 }
 
-func (o DashboardKPISortConfigurationPtrOutput) Elem() DashboardKPISortConfigurationOutput {
-	return o.ApplyT(func(v *DashboardKPISortConfiguration) DashboardKPISortConfiguration {
+func (o DashboardKpiSortConfigurationPtrOutput) Elem() DashboardKpiSortConfigurationOutput {
+	return o.ApplyT(func(v *DashboardKpiSortConfiguration) DashboardKpiSortConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardKPISortConfiguration
+		var ret DashboardKpiSortConfiguration
 		return ret
-	}).(DashboardKPISortConfigurationOutput)
+	}).(DashboardKpiSortConfigurationOutput)
 }
 
-func (o DashboardKPISortConfigurationPtrOutput) TrendGroupSort() DashboardFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v *DashboardKPISortConfiguration) []DashboardFieldSortOptions {
+func (o DashboardKpiSortConfigurationPtrOutput) TrendGroupSort() DashboardFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v *DashboardKpiSortConfiguration) []DashboardFieldSortOptions {
 		if v == nil {
 			return nil
 		}
@@ -30098,168 +30098,168 @@ func (o DashboardKPISortConfigurationPtrOutput) TrendGroupSort() DashboardFieldS
 	}).(DashboardFieldSortOptionsArrayOutput)
 }
 
-type DashboardKPIVisual struct {
+type DashboardKpiVisual struct {
 	Actions               []DashboardVisualCustomAction        `pulumi:"actions"`
-	ChartConfiguration    *DashboardKPIConfiguration           `pulumi:"chartConfiguration"`
+	ChartConfiguration    *DashboardKpiConfiguration           `pulumi:"chartConfiguration"`
 	ColumnHierarchies     []DashboardColumnHierarchy           `pulumi:"columnHierarchies"`
-	ConditionalFormatting *DashboardKPIConditionalFormatting   `pulumi:"conditionalFormatting"`
+	ConditionalFormatting *DashboardKpiConditionalFormatting   `pulumi:"conditionalFormatting"`
 	Subtitle              *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	Title                 *DashboardVisualTitleLabelOptions    `pulumi:"title"`
 	VisualId              string                               `pulumi:"visualId"`
 }
 
-// DashboardKPIVisualInput is an input type that accepts DashboardKPIVisualArgs and DashboardKPIVisualOutput values.
-// You can construct a concrete instance of `DashboardKPIVisualInput` via:
+// DashboardKpiVisualInput is an input type that accepts DashboardKpiVisualArgs and DashboardKpiVisualOutput values.
+// You can construct a concrete instance of `DashboardKpiVisualInput` via:
 //
-//	DashboardKPIVisualArgs{...}
-type DashboardKPIVisualInput interface {
+//	DashboardKpiVisualArgs{...}
+type DashboardKpiVisualInput interface {
 	pulumi.Input
 
-	ToDashboardKPIVisualOutput() DashboardKPIVisualOutput
-	ToDashboardKPIVisualOutputWithContext(context.Context) DashboardKPIVisualOutput
+	ToDashboardKpiVisualOutput() DashboardKpiVisualOutput
+	ToDashboardKpiVisualOutputWithContext(context.Context) DashboardKpiVisualOutput
 }
 
-type DashboardKPIVisualArgs struct {
+type DashboardKpiVisualArgs struct {
 	Actions               DashboardVisualCustomActionArrayInput       `pulumi:"actions"`
-	ChartConfiguration    DashboardKPIConfigurationPtrInput           `pulumi:"chartConfiguration"`
+	ChartConfiguration    DashboardKpiConfigurationPtrInput           `pulumi:"chartConfiguration"`
 	ColumnHierarchies     DashboardColumnHierarchyArrayInput          `pulumi:"columnHierarchies"`
-	ConditionalFormatting DashboardKPIConditionalFormattingPtrInput   `pulumi:"conditionalFormatting"`
+	ConditionalFormatting DashboardKpiConditionalFormattingPtrInput   `pulumi:"conditionalFormatting"`
 	Subtitle              DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	Title                 DashboardVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
 	VisualId              pulumi.StringInput                          `pulumi:"visualId"`
 }
 
-func (DashboardKPIVisualArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIVisual)(nil)).Elem()
+func (DashboardKpiVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiVisual)(nil)).Elem()
 }
 
-func (i DashboardKPIVisualArgs) ToDashboardKPIVisualOutput() DashboardKPIVisualOutput {
-	return i.ToDashboardKPIVisualOutputWithContext(context.Background())
+func (i DashboardKpiVisualArgs) ToDashboardKpiVisualOutput() DashboardKpiVisualOutput {
+	return i.ToDashboardKpiVisualOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIVisualArgs) ToDashboardKPIVisualOutputWithContext(ctx context.Context) DashboardKPIVisualOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIVisualOutput)
+func (i DashboardKpiVisualArgs) ToDashboardKpiVisualOutputWithContext(ctx context.Context) DashboardKpiVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiVisualOutput)
 }
 
-func (i DashboardKPIVisualArgs) ToDashboardKPIVisualPtrOutput() DashboardKPIVisualPtrOutput {
-	return i.ToDashboardKPIVisualPtrOutputWithContext(context.Background())
+func (i DashboardKpiVisualArgs) ToDashboardKpiVisualPtrOutput() DashboardKpiVisualPtrOutput {
+	return i.ToDashboardKpiVisualPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardKPIVisualArgs) ToDashboardKPIVisualPtrOutputWithContext(ctx context.Context) DashboardKPIVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIVisualOutput).ToDashboardKPIVisualPtrOutputWithContext(ctx)
+func (i DashboardKpiVisualArgs) ToDashboardKpiVisualPtrOutputWithContext(ctx context.Context) DashboardKpiVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiVisualOutput).ToDashboardKpiVisualPtrOutputWithContext(ctx)
 }
 
-// DashboardKPIVisualPtrInput is an input type that accepts DashboardKPIVisualArgs, DashboardKPIVisualPtr and DashboardKPIVisualPtrOutput values.
-// You can construct a concrete instance of `DashboardKPIVisualPtrInput` via:
+// DashboardKpiVisualPtrInput is an input type that accepts DashboardKpiVisualArgs, DashboardKpiVisualPtr and DashboardKpiVisualPtrOutput values.
+// You can construct a concrete instance of `DashboardKpiVisualPtrInput` via:
 //
-//	        DashboardKPIVisualArgs{...}
+//	        DashboardKpiVisualArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardKPIVisualPtrInput interface {
+type DashboardKpiVisualPtrInput interface {
 	pulumi.Input
 
-	ToDashboardKPIVisualPtrOutput() DashboardKPIVisualPtrOutput
-	ToDashboardKPIVisualPtrOutputWithContext(context.Context) DashboardKPIVisualPtrOutput
+	ToDashboardKpiVisualPtrOutput() DashboardKpiVisualPtrOutput
+	ToDashboardKpiVisualPtrOutputWithContext(context.Context) DashboardKpiVisualPtrOutput
 }
 
-type dashboardKPIVisualPtrType DashboardKPIVisualArgs
+type dashboardKpiVisualPtrType DashboardKpiVisualArgs
 
-func DashboardKPIVisualPtr(v *DashboardKPIVisualArgs) DashboardKPIVisualPtrInput {
-	return (*dashboardKPIVisualPtrType)(v)
+func DashboardKpiVisualPtr(v *DashboardKpiVisualArgs) DashboardKpiVisualPtrInput {
+	return (*dashboardKpiVisualPtrType)(v)
 }
 
-func (*dashboardKPIVisualPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIVisual)(nil)).Elem()
+func (*dashboardKpiVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiVisual)(nil)).Elem()
 }
 
-func (i *dashboardKPIVisualPtrType) ToDashboardKPIVisualPtrOutput() DashboardKPIVisualPtrOutput {
-	return i.ToDashboardKPIVisualPtrOutputWithContext(context.Background())
+func (i *dashboardKpiVisualPtrType) ToDashboardKpiVisualPtrOutput() DashboardKpiVisualPtrOutput {
+	return i.ToDashboardKpiVisualPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardKPIVisualPtrType) ToDashboardKPIVisualPtrOutputWithContext(ctx context.Context) DashboardKPIVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardKPIVisualPtrOutput)
+func (i *dashboardKpiVisualPtrType) ToDashboardKpiVisualPtrOutputWithContext(ctx context.Context) DashboardKpiVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardKpiVisualPtrOutput)
 }
 
-type DashboardKPIVisualOutput struct{ *pulumi.OutputState }
+type DashboardKpiVisualOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIVisualOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardKPIVisual)(nil)).Elem()
+func (DashboardKpiVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardKpiVisual)(nil)).Elem()
 }
 
-func (o DashboardKPIVisualOutput) ToDashboardKPIVisualOutput() DashboardKPIVisualOutput {
+func (o DashboardKpiVisualOutput) ToDashboardKpiVisualOutput() DashboardKpiVisualOutput {
 	return o
 }
 
-func (o DashboardKPIVisualOutput) ToDashboardKPIVisualOutputWithContext(ctx context.Context) DashboardKPIVisualOutput {
+func (o DashboardKpiVisualOutput) ToDashboardKpiVisualOutputWithContext(ctx context.Context) DashboardKpiVisualOutput {
 	return o
 }
 
-func (o DashboardKPIVisualOutput) ToDashboardKPIVisualPtrOutput() DashboardKPIVisualPtrOutput {
-	return o.ToDashboardKPIVisualPtrOutputWithContext(context.Background())
+func (o DashboardKpiVisualOutput) ToDashboardKpiVisualPtrOutput() DashboardKpiVisualPtrOutput {
+	return o.ToDashboardKpiVisualPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardKPIVisualOutput) ToDashboardKPIVisualPtrOutputWithContext(ctx context.Context) DashboardKPIVisualPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKPIVisual) *DashboardKPIVisual {
+func (o DashboardKpiVisualOutput) ToDashboardKpiVisualPtrOutputWithContext(ctx context.Context) DashboardKpiVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardKpiVisual) *DashboardKpiVisual {
 		return &v
-	}).(DashboardKPIVisualPtrOutput)
+	}).(DashboardKpiVisualPtrOutput)
 }
 
-func (o DashboardKPIVisualOutput) Actions() DashboardVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v DashboardKPIVisual) []DashboardVisualCustomAction { return v.Actions }).(DashboardVisualCustomActionArrayOutput)
+func (o DashboardKpiVisualOutput) Actions() DashboardVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v DashboardKpiVisual) []DashboardVisualCustomAction { return v.Actions }).(DashboardVisualCustomActionArrayOutput)
 }
 
-func (o DashboardKPIVisualOutput) ChartConfiguration() DashboardKPIConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardKPIVisual) *DashboardKPIConfiguration { return v.ChartConfiguration }).(DashboardKPIConfigurationPtrOutput)
+func (o DashboardKpiVisualOutput) ChartConfiguration() DashboardKpiConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardKpiVisual) *DashboardKpiConfiguration { return v.ChartConfiguration }).(DashboardKpiConfigurationPtrOutput)
 }
 
-func (o DashboardKPIVisualOutput) ColumnHierarchies() DashboardColumnHierarchyArrayOutput {
-	return o.ApplyT(func(v DashboardKPIVisual) []DashboardColumnHierarchy { return v.ColumnHierarchies }).(DashboardColumnHierarchyArrayOutput)
+func (o DashboardKpiVisualOutput) ColumnHierarchies() DashboardColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v DashboardKpiVisual) []DashboardColumnHierarchy { return v.ColumnHierarchies }).(DashboardColumnHierarchyArrayOutput)
 }
 
-func (o DashboardKPIVisualOutput) ConditionalFormatting() DashboardKPIConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v DashboardKPIVisual) *DashboardKPIConditionalFormatting { return v.ConditionalFormatting }).(DashboardKPIConditionalFormattingPtrOutput)
+func (o DashboardKpiVisualOutput) ConditionalFormatting() DashboardKpiConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v DashboardKpiVisual) *DashboardKpiConditionalFormatting { return v.ConditionalFormatting }).(DashboardKpiConditionalFormattingPtrOutput)
 }
 
-func (o DashboardKPIVisualOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardKPIVisual) *DashboardVisualSubtitleLabelOptions { return v.Subtitle }).(DashboardVisualSubtitleLabelOptionsPtrOutput)
+func (o DashboardKpiVisualOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v DashboardKpiVisual) *DashboardVisualSubtitleLabelOptions { return v.Subtitle }).(DashboardVisualSubtitleLabelOptionsPtrOutput)
 }
 
-func (o DashboardKPIVisualOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardKPIVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
+func (o DashboardKpiVisualOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v DashboardKpiVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
 }
 
-func (o DashboardKPIVisualOutput) VisualId() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardKPIVisual) string { return v.VisualId }).(pulumi.StringOutput)
+func (o DashboardKpiVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardKpiVisual) string { return v.VisualId }).(pulumi.StringOutput)
 }
 
-type DashboardKPIVisualPtrOutput struct{ *pulumi.OutputState }
+type DashboardKpiVisualPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardKPIVisualPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardKPIVisual)(nil)).Elem()
+func (DashboardKpiVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardKpiVisual)(nil)).Elem()
 }
 
-func (o DashboardKPIVisualPtrOutput) ToDashboardKPIVisualPtrOutput() DashboardKPIVisualPtrOutput {
+func (o DashboardKpiVisualPtrOutput) ToDashboardKpiVisualPtrOutput() DashboardKpiVisualPtrOutput {
 	return o
 }
 
-func (o DashboardKPIVisualPtrOutput) ToDashboardKPIVisualPtrOutputWithContext(ctx context.Context) DashboardKPIVisualPtrOutput {
+func (o DashboardKpiVisualPtrOutput) ToDashboardKpiVisualPtrOutputWithContext(ctx context.Context) DashboardKpiVisualPtrOutput {
 	return o
 }
 
-func (o DashboardKPIVisualPtrOutput) Elem() DashboardKPIVisualOutput {
-	return o.ApplyT(func(v *DashboardKPIVisual) DashboardKPIVisual {
+func (o DashboardKpiVisualPtrOutput) Elem() DashboardKpiVisualOutput {
+	return o.ApplyT(func(v *DashboardKpiVisual) DashboardKpiVisual {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardKPIVisual
+		var ret DashboardKpiVisual
 		return ret
-	}).(DashboardKPIVisualOutput)
+	}).(DashboardKpiVisualOutput)
 }
 
-func (o DashboardKPIVisualPtrOutput) Actions() DashboardVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v *DashboardKPIVisual) []DashboardVisualCustomAction {
+func (o DashboardKpiVisualPtrOutput) Actions() DashboardVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *DashboardKpiVisual) []DashboardVisualCustomAction {
 		if v == nil {
 			return nil
 		}
@@ -30267,17 +30267,17 @@ func (o DashboardKPIVisualPtrOutput) Actions() DashboardVisualCustomActionArrayO
 	}).(DashboardVisualCustomActionArrayOutput)
 }
 
-func (o DashboardKPIVisualPtrOutput) ChartConfiguration() DashboardKPIConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIVisual) *DashboardKPIConfiguration {
+func (o DashboardKpiVisualPtrOutput) ChartConfiguration() DashboardKpiConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiVisual) *DashboardKpiConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.ChartConfiguration
-	}).(DashboardKPIConfigurationPtrOutput)
+	}).(DashboardKpiConfigurationPtrOutput)
 }
 
-func (o DashboardKPIVisualPtrOutput) ColumnHierarchies() DashboardColumnHierarchyArrayOutput {
-	return o.ApplyT(func(v *DashboardKPIVisual) []DashboardColumnHierarchy {
+func (o DashboardKpiVisualPtrOutput) ColumnHierarchies() DashboardColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v *DashboardKpiVisual) []DashboardColumnHierarchy {
 		if v == nil {
 			return nil
 		}
@@ -30285,17 +30285,17 @@ func (o DashboardKPIVisualPtrOutput) ColumnHierarchies() DashboardColumnHierarch
 	}).(DashboardColumnHierarchyArrayOutput)
 }
 
-func (o DashboardKPIVisualPtrOutput) ConditionalFormatting() DashboardKPIConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIVisual) *DashboardKPIConditionalFormatting {
+func (o DashboardKpiVisualPtrOutput) ConditionalFormatting() DashboardKpiConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiVisual) *DashboardKpiConditionalFormatting {
 		if v == nil {
 			return nil
 		}
 		return v.ConditionalFormatting
-	}).(DashboardKPIConditionalFormattingPtrOutput)
+	}).(DashboardKpiConditionalFormattingPtrOutput)
 }
 
-func (o DashboardKPIVisualPtrOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIVisual) *DashboardVisualSubtitleLabelOptions {
+func (o DashboardKpiVisualPtrOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiVisual) *DashboardVisualSubtitleLabelOptions {
 		if v == nil {
 			return nil
 		}
@@ -30303,8 +30303,8 @@ func (o DashboardKPIVisualPtrOutput) Subtitle() DashboardVisualSubtitleLabelOpti
 	}).(DashboardVisualSubtitleLabelOptionsPtrOutput)
 }
 
-func (o DashboardKPIVisualPtrOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIVisual) *DashboardVisualTitleLabelOptions {
+func (o DashboardKpiVisualPtrOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiVisual) *DashboardVisualTitleLabelOptions {
 		if v == nil {
 			return nil
 		}
@@ -30312,8 +30312,8 @@ func (o DashboardKPIVisualPtrOutput) Title() DashboardVisualTitleLabelOptionsPtr
 	}).(DashboardVisualTitleLabelOptionsPtrOutput)
 }
 
-func (o DashboardKPIVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardKPIVisual) *string {
+func (o DashboardKpiVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardKpiVisual) *string {
 		if v == nil {
 			return nil
 		}
@@ -44717,7 +44717,7 @@ type DashboardPublishOptions struct {
 	DataPointDrillUpDownOption           *DashboardDataPointDrillUpDownOption           `pulumi:"dataPointDrillUpDownOption"`
 	DataPointMenuLabelOption             *DashboardDataPointMenuLabelOption             `pulumi:"dataPointMenuLabelOption"`
 	DataPointTooltipOption               *DashboardDataPointTooltipOption               `pulumi:"dataPointTooltipOption"`
-	ExportToCsvOption                    *DashboardExportToCSVOption                    `pulumi:"exportToCsvOption"`
+	ExportToCsvOption                    *DashboardExportToCsvOption                    `pulumi:"exportToCsvOption"`
 	ExportWithHiddenFieldsOption         *DashboardExportWithHiddenFieldsOption         `pulumi:"exportWithHiddenFieldsOption"`
 	SheetControlsOption                  *DashboardSheetControlsOption                  `pulumi:"sheetControlsOption"`
 	SheetLayoutElementMaximizationOption *DashboardSheetLayoutElementMaximizationOption `pulumi:"sheetLayoutElementMaximizationOption"`
@@ -44742,7 +44742,7 @@ type DashboardPublishOptionsArgs struct {
 	DataPointDrillUpDownOption           DashboardDataPointDrillUpDownOptionPtrInput           `pulumi:"dataPointDrillUpDownOption"`
 	DataPointMenuLabelOption             DashboardDataPointMenuLabelOptionPtrInput             `pulumi:"dataPointMenuLabelOption"`
 	DataPointTooltipOption               DashboardDataPointTooltipOptionPtrInput               `pulumi:"dataPointTooltipOption"`
-	ExportToCsvOption                    DashboardExportToCSVOptionPtrInput                    `pulumi:"exportToCsvOption"`
+	ExportToCsvOption                    DashboardExportToCsvOptionPtrInput                    `pulumi:"exportToCsvOption"`
 	ExportWithHiddenFieldsOption         DashboardExportWithHiddenFieldsOptionPtrInput         `pulumi:"exportWithHiddenFieldsOption"`
 	SheetControlsOption                  DashboardSheetControlsOptionPtrInput                  `pulumi:"sheetControlsOption"`
 	SheetLayoutElementMaximizationOption DashboardSheetLayoutElementMaximizationOptionPtrInput `pulumi:"sheetLayoutElementMaximizationOption"`
@@ -44846,8 +44846,8 @@ func (o DashboardPublishOptionsOutput) DataPointTooltipOption() DashboardDataPoi
 	return o.ApplyT(func(v DashboardPublishOptions) *DashboardDataPointTooltipOption { return v.DataPointTooltipOption }).(DashboardDataPointTooltipOptionPtrOutput)
 }
 
-func (o DashboardPublishOptionsOutput) ExportToCsvOption() DashboardExportToCSVOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardExportToCSVOption { return v.ExportToCsvOption }).(DashboardExportToCSVOptionPtrOutput)
+func (o DashboardPublishOptionsOutput) ExportToCsvOption() DashboardExportToCsvOptionPtrOutput {
+	return o.ApplyT(func(v DashboardPublishOptions) *DashboardExportToCsvOption { return v.ExportToCsvOption }).(DashboardExportToCsvOptionPtrOutput)
 }
 
 func (o DashboardPublishOptionsOutput) ExportWithHiddenFieldsOption() DashboardExportWithHiddenFieldsOptionPtrOutput {
@@ -44938,13 +44938,13 @@ func (o DashboardPublishOptionsPtrOutput) DataPointTooltipOption() DashboardData
 	}).(DashboardDataPointTooltipOptionPtrOutput)
 }
 
-func (o DashboardPublishOptionsPtrOutput) ExportToCsvOption() DashboardExportToCSVOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardExportToCSVOption {
+func (o DashboardPublishOptionsPtrOutput) ExportToCsvOption() DashboardExportToCsvOptionPtrOutput {
+	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardExportToCsvOption {
 		if v == nil {
 			return nil
 		}
 		return v.ExportToCsvOption
-	}).(DashboardExportToCSVOptionPtrOutput)
+	}).(DashboardExportToCsvOptionPtrOutput)
 }
 
 func (o DashboardPublishOptionsPtrOutput) ExportWithHiddenFieldsOption() DashboardExportWithHiddenFieldsOptionPtrOutput {
@@ -52352,7 +52352,7 @@ func (o DashboardSheetControlLayoutConfigurationOutput) GridLayout() DashboardGr
 }
 
 type DashboardSheetControlsOption struct {
-	VisibilityState *DashboardUIState `pulumi:"visibilityState"`
+	VisibilityState *DashboardUiState `pulumi:"visibilityState"`
 }
 
 // DashboardSheetControlsOptionInput is an input type that accepts DashboardSheetControlsOptionArgs and DashboardSheetControlsOptionOutput values.
@@ -52367,7 +52367,7 @@ type DashboardSheetControlsOptionInput interface {
 }
 
 type DashboardSheetControlsOptionArgs struct {
-	VisibilityState DashboardUIStatePtrInput `pulumi:"visibilityState"`
+	VisibilityState DashboardUiStatePtrInput `pulumi:"visibilityState"`
 }
 
 func (DashboardSheetControlsOptionArgs) ElementType() reflect.Type {
@@ -52447,8 +52447,8 @@ func (o DashboardSheetControlsOptionOutput) ToDashboardSheetControlsOptionPtrOut
 	}).(DashboardSheetControlsOptionPtrOutput)
 }
 
-func (o DashboardSheetControlsOptionOutput) VisibilityState() DashboardUIStatePtrOutput {
-	return o.ApplyT(func(v DashboardSheetControlsOption) *DashboardUIState { return v.VisibilityState }).(DashboardUIStatePtrOutput)
+func (o DashboardSheetControlsOptionOutput) VisibilityState() DashboardUiStatePtrOutput {
+	return o.ApplyT(func(v DashboardSheetControlsOption) *DashboardUiState { return v.VisibilityState }).(DashboardUiStatePtrOutput)
 }
 
 type DashboardSheetControlsOptionPtrOutput struct{ *pulumi.OutputState }
@@ -52475,13 +52475,13 @@ func (o DashboardSheetControlsOptionPtrOutput) Elem() DashboardSheetControlsOpti
 	}).(DashboardSheetControlsOptionOutput)
 }
 
-func (o DashboardSheetControlsOptionPtrOutput) VisibilityState() DashboardUIStatePtrOutput {
-	return o.ApplyT(func(v *DashboardSheetControlsOption) *DashboardUIState {
+func (o DashboardSheetControlsOptionPtrOutput) VisibilityState() DashboardUiStatePtrOutput {
+	return o.ApplyT(func(v *DashboardSheetControlsOption) *DashboardUiState {
 		if v == nil {
 			return nil
 		}
 		return v.VisibilityState
-	}).(DashboardUIStatePtrOutput)
+	}).(DashboardUiStatePtrOutput)
 }
 
 type DashboardSheetDefinition struct {
@@ -56866,7 +56866,7 @@ func (o DashboardTableFieldImageConfigurationPtrOutput) SizingOptions() Dashboar
 
 type DashboardTableFieldLinkConfiguration struct {
 	Content DashboardTableFieldLinkContentConfiguration `pulumi:"content"`
-	Target  DashboardURLTargetConfiguration             `pulumi:"target"`
+	Target  DashboardUrlTargetConfiguration             `pulumi:"target"`
 }
 
 // DashboardTableFieldLinkConfigurationInput is an input type that accepts DashboardTableFieldLinkConfigurationArgs and DashboardTableFieldLinkConfigurationOutput values.
@@ -56882,7 +56882,7 @@ type DashboardTableFieldLinkConfigurationInput interface {
 
 type DashboardTableFieldLinkConfigurationArgs struct {
 	Content DashboardTableFieldLinkContentConfigurationInput `pulumi:"content"`
-	Target  DashboardURLTargetConfigurationInput             `pulumi:"target"`
+	Target  DashboardUrlTargetConfigurationInput             `pulumi:"target"`
 }
 
 func (DashboardTableFieldLinkConfigurationArgs) ElementType() reflect.Type {
@@ -56968,8 +56968,8 @@ func (o DashboardTableFieldLinkConfigurationOutput) Content() DashboardTableFiel
 	}).(DashboardTableFieldLinkContentConfigurationOutput)
 }
 
-func (o DashboardTableFieldLinkConfigurationOutput) Target() DashboardURLTargetConfigurationOutput {
-	return o.ApplyT(func(v DashboardTableFieldLinkConfiguration) DashboardURLTargetConfiguration { return v.Target }).(DashboardURLTargetConfigurationOutput)
+func (o DashboardTableFieldLinkConfigurationOutput) Target() DashboardUrlTargetConfigurationOutput {
+	return o.ApplyT(func(v DashboardTableFieldLinkConfiguration) DashboardUrlTargetConfiguration { return v.Target }).(DashboardUrlTargetConfigurationOutput)
 }
 
 type DashboardTableFieldLinkConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -57005,13 +57005,13 @@ func (o DashboardTableFieldLinkConfigurationPtrOutput) Content() DashboardTableF
 	}).(DashboardTableFieldLinkContentConfigurationPtrOutput)
 }
 
-func (o DashboardTableFieldLinkConfigurationPtrOutput) Target() DashboardURLTargetConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardTableFieldLinkConfiguration) *DashboardURLTargetConfiguration {
+func (o DashboardTableFieldLinkConfigurationPtrOutput) Target() DashboardUrlTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardTableFieldLinkConfiguration) *DashboardUrlTargetConfiguration {
 		if v == nil {
 			return nil
 		}
 		return &v.Target
-	}).(DashboardURLTargetConfigurationPtrOutput)
+	}).(DashboardUrlTargetConfigurationPtrOutput)
 }
 
 type DashboardTableFieldLinkContentConfiguration struct {
@@ -57169,7 +57169,7 @@ func (o DashboardTableFieldLinkContentConfigurationPtrOutput) CustomTextContent(
 type DashboardTableFieldOption struct {
 	CustomLabel *string                              `pulumi:"customLabel"`
 	FieldId     string                               `pulumi:"fieldId"`
-	UrlStyling  *DashboardTableFieldURLConfiguration `pulumi:"urlStyling"`
+	UrlStyling  *DashboardTableFieldUrlConfiguration `pulumi:"urlStyling"`
 	Visibility  *DashboardVisibility                 `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width *string `pulumi:"width"`
@@ -57189,7 +57189,7 @@ type DashboardTableFieldOptionInput interface {
 type DashboardTableFieldOptionArgs struct {
 	CustomLabel pulumi.StringPtrInput                       `pulumi:"customLabel"`
 	FieldId     pulumi.StringInput                          `pulumi:"fieldId"`
-	UrlStyling  DashboardTableFieldURLConfigurationPtrInput `pulumi:"urlStyling"`
+	UrlStyling  DashboardTableFieldUrlConfigurationPtrInput `pulumi:"urlStyling"`
 	Visibility  DashboardVisibilityPtrInput                 `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width pulumi.StringPtrInput `pulumi:"width"`
@@ -57254,8 +57254,8 @@ func (o DashboardTableFieldOptionOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardTableFieldOption) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-func (o DashboardTableFieldOptionOutput) UrlStyling() DashboardTableFieldURLConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardTableFieldOption) *DashboardTableFieldURLConfiguration { return v.UrlStyling }).(DashboardTableFieldURLConfigurationPtrOutput)
+func (o DashboardTableFieldOptionOutput) UrlStyling() DashboardTableFieldUrlConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardTableFieldOption) *DashboardTableFieldUrlConfiguration { return v.UrlStyling }).(DashboardTableFieldUrlConfigurationPtrOutput)
 }
 
 func (o DashboardTableFieldOptionOutput) Visibility() DashboardVisibilityPtrOutput {
@@ -57435,142 +57435,142 @@ func (o DashboardTableFieldOptionsPtrOutput) SelectedFieldOptions() DashboardTab
 	}).(DashboardTableFieldOptionArrayOutput)
 }
 
-type DashboardTableFieldURLConfiguration struct {
+type DashboardTableFieldUrlConfiguration struct {
 	ImageConfiguration *DashboardTableFieldImageConfiguration `pulumi:"imageConfiguration"`
 	LinkConfiguration  *DashboardTableFieldLinkConfiguration  `pulumi:"linkConfiguration"`
 }
 
-// DashboardTableFieldURLConfigurationInput is an input type that accepts DashboardTableFieldURLConfigurationArgs and DashboardTableFieldURLConfigurationOutput values.
-// You can construct a concrete instance of `DashboardTableFieldURLConfigurationInput` via:
+// DashboardTableFieldUrlConfigurationInput is an input type that accepts DashboardTableFieldUrlConfigurationArgs and DashboardTableFieldUrlConfigurationOutput values.
+// You can construct a concrete instance of `DashboardTableFieldUrlConfigurationInput` via:
 //
-//	DashboardTableFieldURLConfigurationArgs{...}
-type DashboardTableFieldURLConfigurationInput interface {
+//	DashboardTableFieldUrlConfigurationArgs{...}
+type DashboardTableFieldUrlConfigurationInput interface {
 	pulumi.Input
 
-	ToDashboardTableFieldURLConfigurationOutput() DashboardTableFieldURLConfigurationOutput
-	ToDashboardTableFieldURLConfigurationOutputWithContext(context.Context) DashboardTableFieldURLConfigurationOutput
+	ToDashboardTableFieldUrlConfigurationOutput() DashboardTableFieldUrlConfigurationOutput
+	ToDashboardTableFieldUrlConfigurationOutputWithContext(context.Context) DashboardTableFieldUrlConfigurationOutput
 }
 
-type DashboardTableFieldURLConfigurationArgs struct {
+type DashboardTableFieldUrlConfigurationArgs struct {
 	ImageConfiguration DashboardTableFieldImageConfigurationPtrInput `pulumi:"imageConfiguration"`
 	LinkConfiguration  DashboardTableFieldLinkConfigurationPtrInput  `pulumi:"linkConfiguration"`
 }
 
-func (DashboardTableFieldURLConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardTableFieldURLConfiguration)(nil)).Elem()
+func (DashboardTableFieldUrlConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardTableFieldUrlConfiguration)(nil)).Elem()
 }
 
-func (i DashboardTableFieldURLConfigurationArgs) ToDashboardTableFieldURLConfigurationOutput() DashboardTableFieldURLConfigurationOutput {
-	return i.ToDashboardTableFieldURLConfigurationOutputWithContext(context.Background())
+func (i DashboardTableFieldUrlConfigurationArgs) ToDashboardTableFieldUrlConfigurationOutput() DashboardTableFieldUrlConfigurationOutput {
+	return i.ToDashboardTableFieldUrlConfigurationOutputWithContext(context.Background())
 }
 
-func (i DashboardTableFieldURLConfigurationArgs) ToDashboardTableFieldURLConfigurationOutputWithContext(ctx context.Context) DashboardTableFieldURLConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardTableFieldURLConfigurationOutput)
+func (i DashboardTableFieldUrlConfigurationArgs) ToDashboardTableFieldUrlConfigurationOutputWithContext(ctx context.Context) DashboardTableFieldUrlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardTableFieldUrlConfigurationOutput)
 }
 
-func (i DashboardTableFieldURLConfigurationArgs) ToDashboardTableFieldURLConfigurationPtrOutput() DashboardTableFieldURLConfigurationPtrOutput {
-	return i.ToDashboardTableFieldURLConfigurationPtrOutputWithContext(context.Background())
+func (i DashboardTableFieldUrlConfigurationArgs) ToDashboardTableFieldUrlConfigurationPtrOutput() DashboardTableFieldUrlConfigurationPtrOutput {
+	return i.ToDashboardTableFieldUrlConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i DashboardTableFieldURLConfigurationArgs) ToDashboardTableFieldURLConfigurationPtrOutputWithContext(ctx context.Context) DashboardTableFieldURLConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardTableFieldURLConfigurationOutput).ToDashboardTableFieldURLConfigurationPtrOutputWithContext(ctx)
+func (i DashboardTableFieldUrlConfigurationArgs) ToDashboardTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) DashboardTableFieldUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardTableFieldUrlConfigurationOutput).ToDashboardTableFieldUrlConfigurationPtrOutputWithContext(ctx)
 }
 
-// DashboardTableFieldURLConfigurationPtrInput is an input type that accepts DashboardTableFieldURLConfigurationArgs, DashboardTableFieldURLConfigurationPtr and DashboardTableFieldURLConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardTableFieldURLConfigurationPtrInput` via:
+// DashboardTableFieldUrlConfigurationPtrInput is an input type that accepts DashboardTableFieldUrlConfigurationArgs, DashboardTableFieldUrlConfigurationPtr and DashboardTableFieldUrlConfigurationPtrOutput values.
+// You can construct a concrete instance of `DashboardTableFieldUrlConfigurationPtrInput` via:
 //
-//	        DashboardTableFieldURLConfigurationArgs{...}
+//	        DashboardTableFieldUrlConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type DashboardTableFieldURLConfigurationPtrInput interface {
+type DashboardTableFieldUrlConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToDashboardTableFieldURLConfigurationPtrOutput() DashboardTableFieldURLConfigurationPtrOutput
-	ToDashboardTableFieldURLConfigurationPtrOutputWithContext(context.Context) DashboardTableFieldURLConfigurationPtrOutput
+	ToDashboardTableFieldUrlConfigurationPtrOutput() DashboardTableFieldUrlConfigurationPtrOutput
+	ToDashboardTableFieldUrlConfigurationPtrOutputWithContext(context.Context) DashboardTableFieldUrlConfigurationPtrOutput
 }
 
-type dashboardTableFieldURLConfigurationPtrType DashboardTableFieldURLConfigurationArgs
+type dashboardTableFieldUrlConfigurationPtrType DashboardTableFieldUrlConfigurationArgs
 
-func DashboardTableFieldURLConfigurationPtr(v *DashboardTableFieldURLConfigurationArgs) DashboardTableFieldURLConfigurationPtrInput {
-	return (*dashboardTableFieldURLConfigurationPtrType)(v)
+func DashboardTableFieldUrlConfigurationPtr(v *DashboardTableFieldUrlConfigurationArgs) DashboardTableFieldUrlConfigurationPtrInput {
+	return (*dashboardTableFieldUrlConfigurationPtrType)(v)
 }
 
-func (*dashboardTableFieldURLConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardTableFieldURLConfiguration)(nil)).Elem()
+func (*dashboardTableFieldUrlConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardTableFieldUrlConfiguration)(nil)).Elem()
 }
 
-func (i *dashboardTableFieldURLConfigurationPtrType) ToDashboardTableFieldURLConfigurationPtrOutput() DashboardTableFieldURLConfigurationPtrOutput {
-	return i.ToDashboardTableFieldURLConfigurationPtrOutputWithContext(context.Background())
+func (i *dashboardTableFieldUrlConfigurationPtrType) ToDashboardTableFieldUrlConfigurationPtrOutput() DashboardTableFieldUrlConfigurationPtrOutput {
+	return i.ToDashboardTableFieldUrlConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *dashboardTableFieldURLConfigurationPtrType) ToDashboardTableFieldURLConfigurationPtrOutputWithContext(ctx context.Context) DashboardTableFieldURLConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardTableFieldURLConfigurationPtrOutput)
+func (i *dashboardTableFieldUrlConfigurationPtrType) ToDashboardTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) DashboardTableFieldUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardTableFieldUrlConfigurationPtrOutput)
 }
 
-type DashboardTableFieldURLConfigurationOutput struct{ *pulumi.OutputState }
+type DashboardTableFieldUrlConfigurationOutput struct{ *pulumi.OutputState }
 
-func (DashboardTableFieldURLConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardTableFieldURLConfiguration)(nil)).Elem()
+func (DashboardTableFieldUrlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardTableFieldUrlConfiguration)(nil)).Elem()
 }
 
-func (o DashboardTableFieldURLConfigurationOutput) ToDashboardTableFieldURLConfigurationOutput() DashboardTableFieldURLConfigurationOutput {
+func (o DashboardTableFieldUrlConfigurationOutput) ToDashboardTableFieldUrlConfigurationOutput() DashboardTableFieldUrlConfigurationOutput {
 	return o
 }
 
-func (o DashboardTableFieldURLConfigurationOutput) ToDashboardTableFieldURLConfigurationOutputWithContext(ctx context.Context) DashboardTableFieldURLConfigurationOutput {
+func (o DashboardTableFieldUrlConfigurationOutput) ToDashboardTableFieldUrlConfigurationOutputWithContext(ctx context.Context) DashboardTableFieldUrlConfigurationOutput {
 	return o
 }
 
-func (o DashboardTableFieldURLConfigurationOutput) ToDashboardTableFieldURLConfigurationPtrOutput() DashboardTableFieldURLConfigurationPtrOutput {
-	return o.ToDashboardTableFieldURLConfigurationPtrOutputWithContext(context.Background())
+func (o DashboardTableFieldUrlConfigurationOutput) ToDashboardTableFieldUrlConfigurationPtrOutput() DashboardTableFieldUrlConfigurationPtrOutput {
+	return o.ToDashboardTableFieldUrlConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardTableFieldURLConfigurationOutput) ToDashboardTableFieldURLConfigurationPtrOutputWithContext(ctx context.Context) DashboardTableFieldURLConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardTableFieldURLConfiguration) *DashboardTableFieldURLConfiguration {
+func (o DashboardTableFieldUrlConfigurationOutput) ToDashboardTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) DashboardTableFieldUrlConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardTableFieldUrlConfiguration) *DashboardTableFieldUrlConfiguration {
 		return &v
-	}).(DashboardTableFieldURLConfigurationPtrOutput)
+	}).(DashboardTableFieldUrlConfigurationPtrOutput)
 }
 
-func (o DashboardTableFieldURLConfigurationOutput) ImageConfiguration() DashboardTableFieldImageConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardTableFieldURLConfiguration) *DashboardTableFieldImageConfiguration {
+func (o DashboardTableFieldUrlConfigurationOutput) ImageConfiguration() DashboardTableFieldImageConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardTableFieldUrlConfiguration) *DashboardTableFieldImageConfiguration {
 		return v.ImageConfiguration
 	}).(DashboardTableFieldImageConfigurationPtrOutput)
 }
 
-func (o DashboardTableFieldURLConfigurationOutput) LinkConfiguration() DashboardTableFieldLinkConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardTableFieldURLConfiguration) *DashboardTableFieldLinkConfiguration {
+func (o DashboardTableFieldUrlConfigurationOutput) LinkConfiguration() DashboardTableFieldLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardTableFieldUrlConfiguration) *DashboardTableFieldLinkConfiguration {
 		return v.LinkConfiguration
 	}).(DashboardTableFieldLinkConfigurationPtrOutput)
 }
 
-type DashboardTableFieldURLConfigurationPtrOutput struct{ *pulumi.OutputState }
+type DashboardTableFieldUrlConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardTableFieldURLConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardTableFieldURLConfiguration)(nil)).Elem()
+func (DashboardTableFieldUrlConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardTableFieldUrlConfiguration)(nil)).Elem()
 }
 
-func (o DashboardTableFieldURLConfigurationPtrOutput) ToDashboardTableFieldURLConfigurationPtrOutput() DashboardTableFieldURLConfigurationPtrOutput {
+func (o DashboardTableFieldUrlConfigurationPtrOutput) ToDashboardTableFieldUrlConfigurationPtrOutput() DashboardTableFieldUrlConfigurationPtrOutput {
 	return o
 }
 
-func (o DashboardTableFieldURLConfigurationPtrOutput) ToDashboardTableFieldURLConfigurationPtrOutputWithContext(ctx context.Context) DashboardTableFieldURLConfigurationPtrOutput {
+func (o DashboardTableFieldUrlConfigurationPtrOutput) ToDashboardTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) DashboardTableFieldUrlConfigurationPtrOutput {
 	return o
 }
 
-func (o DashboardTableFieldURLConfigurationPtrOutput) Elem() DashboardTableFieldURLConfigurationOutput {
-	return o.ApplyT(func(v *DashboardTableFieldURLConfiguration) DashboardTableFieldURLConfiguration {
+func (o DashboardTableFieldUrlConfigurationPtrOutput) Elem() DashboardTableFieldUrlConfigurationOutput {
+	return o.ApplyT(func(v *DashboardTableFieldUrlConfiguration) DashboardTableFieldUrlConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardTableFieldURLConfiguration
+		var ret DashboardTableFieldUrlConfiguration
 		return ret
-	}).(DashboardTableFieldURLConfigurationOutput)
+	}).(DashboardTableFieldUrlConfigurationOutput)
 }
 
-func (o DashboardTableFieldURLConfigurationPtrOutput) ImageConfiguration() DashboardTableFieldImageConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardTableFieldURLConfiguration) *DashboardTableFieldImageConfiguration {
+func (o DashboardTableFieldUrlConfigurationPtrOutput) ImageConfiguration() DashboardTableFieldImageConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardTableFieldUrlConfiguration) *DashboardTableFieldImageConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -57578,8 +57578,8 @@ func (o DashboardTableFieldURLConfigurationPtrOutput) ImageConfiguration() Dashb
 	}).(DashboardTableFieldImageConfigurationPtrOutput)
 }
 
-func (o DashboardTableFieldURLConfigurationPtrOutput) LinkConfiguration() DashboardTableFieldLinkConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardTableFieldURLConfiguration) *DashboardTableFieldLinkConfiguration {
+func (o DashboardTableFieldUrlConfigurationPtrOutput) LinkConfiguration() DashboardTableFieldLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardTableFieldUrlConfiguration) *DashboardTableFieldLinkConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -63991,7 +63991,7 @@ type DashboardVisual struct {
 	HeatMapVisual       *DashboardHeatMapVisual       `pulumi:"heatMapVisual"`
 	HistogramVisual     *DashboardHistogramVisual     `pulumi:"histogramVisual"`
 	InsightVisual       *DashboardInsightVisual       `pulumi:"insightVisual"`
-	KpiVisual           *DashboardKPIVisual           `pulumi:"kpiVisual"`
+	KpiVisual           *DashboardKpiVisual           `pulumi:"kpiVisual"`
 	LineChartVisual     *DashboardLineChartVisual     `pulumi:"lineChartVisual"`
 	PieChartVisual      *DashboardPieChartVisual      `pulumi:"pieChartVisual"`
 	PivotTableVisual    *DashboardPivotTableVisual    `pulumi:"pivotTableVisual"`
@@ -64028,7 +64028,7 @@ type DashboardVisualArgs struct {
 	HeatMapVisual       DashboardHeatMapVisualPtrInput       `pulumi:"heatMapVisual"`
 	HistogramVisual     DashboardHistogramVisualPtrInput     `pulumi:"histogramVisual"`
 	InsightVisual       DashboardInsightVisualPtrInput       `pulumi:"insightVisual"`
-	KpiVisual           DashboardKPIVisualPtrInput           `pulumi:"kpiVisual"`
+	KpiVisual           DashboardKpiVisualPtrInput           `pulumi:"kpiVisual"`
 	LineChartVisual     DashboardLineChartVisualPtrInput     `pulumi:"lineChartVisual"`
 	PieChartVisual      DashboardPieChartVisualPtrInput      `pulumi:"pieChartVisual"`
 	PivotTableVisual    DashboardPivotTableVisualPtrInput    `pulumi:"pivotTableVisual"`
@@ -64140,8 +64140,8 @@ func (o DashboardVisualOutput) InsightVisual() DashboardInsightVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardInsightVisual { return v.InsightVisual }).(DashboardInsightVisualPtrOutput)
 }
 
-func (o DashboardVisualOutput) KpiVisual() DashboardKPIVisualPtrOutput {
-	return o.ApplyT(func(v DashboardVisual) *DashboardKPIVisual { return v.KpiVisual }).(DashboardKPIVisualPtrOutput)
+func (o DashboardVisualOutput) KpiVisual() DashboardKpiVisualPtrOutput {
+	return o.ApplyT(func(v DashboardVisual) *DashboardKpiVisual { return v.KpiVisual }).(DashboardKpiVisualPtrOutput)
 }
 
 func (o DashboardVisualOutput) LineChartVisual() DashboardLineChartVisualPtrOutput {
@@ -64459,7 +64459,7 @@ type DashboardVisualCustomActionOperation struct {
 	FilterOperation        *DashboardCustomActionFilterOperation        `pulumi:"filterOperation"`
 	NavigationOperation    *DashboardCustomActionNavigationOperation    `pulumi:"navigationOperation"`
 	SetParametersOperation *DashboardCustomActionSetParametersOperation `pulumi:"setParametersOperation"`
-	UrlOperation           *DashboardCustomActionURLOperation           `pulumi:"urlOperation"`
+	UrlOperation           *DashboardCustomActionUrlOperation           `pulumi:"urlOperation"`
 }
 
 // DashboardVisualCustomActionOperationInput is an input type that accepts DashboardVisualCustomActionOperationArgs and DashboardVisualCustomActionOperationOutput values.
@@ -64477,7 +64477,7 @@ type DashboardVisualCustomActionOperationArgs struct {
 	FilterOperation        DashboardCustomActionFilterOperationPtrInput        `pulumi:"filterOperation"`
 	NavigationOperation    DashboardCustomActionNavigationOperationPtrInput    `pulumi:"navigationOperation"`
 	SetParametersOperation DashboardCustomActionSetParametersOperationPtrInput `pulumi:"setParametersOperation"`
-	UrlOperation           DashboardCustomActionURLOperationPtrInput           `pulumi:"urlOperation"`
+	UrlOperation           DashboardCustomActionUrlOperationPtrInput           `pulumi:"urlOperation"`
 }
 
 func (DashboardVisualCustomActionOperationArgs) ElementType() reflect.Type {
@@ -64549,8 +64549,8 @@ func (o DashboardVisualCustomActionOperationOutput) SetParametersOperation() Das
 	}).(DashboardCustomActionSetParametersOperationPtrOutput)
 }
 
-func (o DashboardVisualCustomActionOperationOutput) UrlOperation() DashboardCustomActionURLOperationPtrOutput {
-	return o.ApplyT(func(v DashboardVisualCustomActionOperation) *DashboardCustomActionURLOperation { return v.UrlOperation }).(DashboardCustomActionURLOperationPtrOutput)
+func (o DashboardVisualCustomActionOperationOutput) UrlOperation() DashboardCustomActionUrlOperationPtrOutput {
+	return o.ApplyT(func(v DashboardVisualCustomActionOperation) *DashboardCustomActionUrlOperation { return v.UrlOperation }).(DashboardCustomActionUrlOperationPtrOutput)
 }
 
 type DashboardVisualCustomActionOperationArrayOutput struct{ *pulumi.OutputState }
@@ -79155,8 +79155,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCustomActionNavigationOperationPtrInput)(nil)).Elem(), DashboardCustomActionNavigationOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCustomActionSetParametersOperationInput)(nil)).Elem(), DashboardCustomActionSetParametersOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCustomActionSetParametersOperationPtrInput)(nil)).Elem(), DashboardCustomActionSetParametersOperationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCustomActionURLOperationInput)(nil)).Elem(), DashboardCustomActionURLOperationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCustomActionURLOperationPtrInput)(nil)).Elem(), DashboardCustomActionURLOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCustomActionUrlOperationInput)(nil)).Elem(), DashboardCustomActionUrlOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCustomActionUrlOperationPtrInput)(nil)).Elem(), DashboardCustomActionUrlOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCustomColorInput)(nil)).Elem(), DashboardCustomColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCustomColorArrayInput)(nil)).Elem(), DashboardCustomColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCustomContentConfigurationInput)(nil)).Elem(), DashboardCustomContentConfigurationArgs{})
@@ -79266,8 +79266,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExplicitHierarchyPtrInput)(nil)).Elem(), DashboardExplicitHierarchyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExportHiddenFieldsOptionInput)(nil)).Elem(), DashboardExportHiddenFieldsOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExportHiddenFieldsOptionPtrInput)(nil)).Elem(), DashboardExportHiddenFieldsOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExportToCSVOptionInput)(nil)).Elem(), DashboardExportToCSVOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExportToCSVOptionPtrInput)(nil)).Elem(), DashboardExportToCSVOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExportToCsvOptionInput)(nil)).Elem(), DashboardExportToCsvOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExportToCsvOptionPtrInput)(nil)).Elem(), DashboardExportToCsvOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExportWithHiddenFieldsOptionInput)(nil)).Elem(), DashboardExportWithHiddenFieldsOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExportWithHiddenFieldsOptionPtrInput)(nil)).Elem(), DashboardExportWithHiddenFieldsOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFieldBasedTooltipInput)(nil)).Elem(), DashboardFieldBasedTooltipArgs{})
@@ -79456,24 +79456,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardIntegerValueWhenUnsetConfigurationPtrInput)(nil)).Elem(), DashboardIntegerValueWhenUnsetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardItemsLimitConfigurationInput)(nil)).Elem(), DashboardItemsLimitConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardItemsLimitConfigurationPtrInput)(nil)).Elem(), DashboardItemsLimitConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIConditionalFormattingInput)(nil)).Elem(), DashboardKPIConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIConditionalFormattingPtrInput)(nil)).Elem(), DashboardKPIConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIConditionalFormattingOptionInput)(nil)).Elem(), DashboardKPIConditionalFormattingOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIConditionalFormattingOptionArrayInput)(nil)).Elem(), DashboardKPIConditionalFormattingOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIConfigurationInput)(nil)).Elem(), DashboardKPIConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIConfigurationPtrInput)(nil)).Elem(), DashboardKPIConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIFieldWellsInput)(nil)).Elem(), DashboardKPIFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIFieldWellsPtrInput)(nil)).Elem(), DashboardKPIFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIOptionsInput)(nil)).Elem(), DashboardKPIOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIOptionsPtrInput)(nil)).Elem(), DashboardKPIOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIPrimaryValueConditionalFormattingInput)(nil)).Elem(), DashboardKPIPrimaryValueConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIPrimaryValueConditionalFormattingPtrInput)(nil)).Elem(), DashboardKPIPrimaryValueConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIProgressBarConditionalFormattingInput)(nil)).Elem(), DashboardKPIProgressBarConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIProgressBarConditionalFormattingPtrInput)(nil)).Elem(), DashboardKPIProgressBarConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPISortConfigurationInput)(nil)).Elem(), DashboardKPISortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPISortConfigurationPtrInput)(nil)).Elem(), DashboardKPISortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIVisualInput)(nil)).Elem(), DashboardKPIVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKPIVisualPtrInput)(nil)).Elem(), DashboardKPIVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiConditionalFormattingInput)(nil)).Elem(), DashboardKpiConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiConditionalFormattingPtrInput)(nil)).Elem(), DashboardKpiConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiConditionalFormattingOptionInput)(nil)).Elem(), DashboardKpiConditionalFormattingOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiConditionalFormattingOptionArrayInput)(nil)).Elem(), DashboardKpiConditionalFormattingOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiConfigurationInput)(nil)).Elem(), DashboardKpiConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiConfigurationPtrInput)(nil)).Elem(), DashboardKpiConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiFieldWellsInput)(nil)).Elem(), DashboardKpiFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiFieldWellsPtrInput)(nil)).Elem(), DashboardKpiFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiOptionsInput)(nil)).Elem(), DashboardKpiOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiOptionsPtrInput)(nil)).Elem(), DashboardKpiOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiPrimaryValueConditionalFormattingInput)(nil)).Elem(), DashboardKpiPrimaryValueConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiPrimaryValueConditionalFormattingPtrInput)(nil)).Elem(), DashboardKpiPrimaryValueConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiProgressBarConditionalFormattingInput)(nil)).Elem(), DashboardKpiProgressBarConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiProgressBarConditionalFormattingPtrInput)(nil)).Elem(), DashboardKpiProgressBarConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiSortConfigurationInput)(nil)).Elem(), DashboardKpiSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiSortConfigurationPtrInput)(nil)).Elem(), DashboardKpiSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiVisualInput)(nil)).Elem(), DashboardKpiVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiVisualPtrInput)(nil)).Elem(), DashboardKpiVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLabelOptionsInput)(nil)).Elem(), DashboardLabelOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLabelOptionsPtrInput)(nil)).Elem(), DashboardLabelOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLayoutInput)(nil)).Elem(), DashboardLayoutArgs{})
@@ -79810,8 +79810,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableFieldOptionArrayInput)(nil)).Elem(), DashboardTableFieldOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableFieldOptionsInput)(nil)).Elem(), DashboardTableFieldOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableFieldOptionsPtrInput)(nil)).Elem(), DashboardTableFieldOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableFieldURLConfigurationInput)(nil)).Elem(), DashboardTableFieldURLConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableFieldURLConfigurationPtrInput)(nil)).Elem(), DashboardTableFieldURLConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableFieldUrlConfigurationInput)(nil)).Elem(), DashboardTableFieldUrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableFieldUrlConfigurationPtrInput)(nil)).Elem(), DashboardTableFieldUrlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableFieldWellsInput)(nil)).Elem(), DashboardTableFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableFieldWellsPtrInput)(nil)).Elem(), DashboardTableFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableInlineVisualizationInput)(nil)).Elem(), DashboardTableInlineVisualizationArgs{})
@@ -80142,8 +80142,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardCustomActionNavigationOperationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardCustomActionSetParametersOperationOutput{})
 	pulumi.RegisterOutputType(DashboardCustomActionSetParametersOperationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardCustomActionURLOperationOutput{})
-	pulumi.RegisterOutputType(DashboardCustomActionURLOperationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardCustomActionUrlOperationOutput{})
+	pulumi.RegisterOutputType(DashboardCustomActionUrlOperationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardCustomColorOutput{})
 	pulumi.RegisterOutputType(DashboardCustomColorArrayOutput{})
 	pulumi.RegisterOutputType(DashboardCustomContentConfigurationOutput{})
@@ -80257,8 +80257,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardExplicitHierarchyPtrOutput{})
 	pulumi.RegisterOutputType(DashboardExportHiddenFieldsOptionOutput{})
 	pulumi.RegisterOutputType(DashboardExportHiddenFieldsOptionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardExportToCSVOptionOutput{})
-	pulumi.RegisterOutputType(DashboardExportToCSVOptionPtrOutput{})
+	pulumi.RegisterOutputType(DashboardExportToCsvOptionOutput{})
+	pulumi.RegisterOutputType(DashboardExportToCsvOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardExportWithHiddenFieldsOptionOutput{})
 	pulumi.RegisterOutputType(DashboardExportWithHiddenFieldsOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardFieldBasedTooltipOutput{})
@@ -80447,24 +80447,24 @@ func init() {
 	pulumi.RegisterOutputType(DashboardIntegerValueWhenUnsetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardItemsLimitConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardItemsLimitConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardKPIConditionalFormattingOutput{})
-	pulumi.RegisterOutputType(DashboardKPIConditionalFormattingPtrOutput{})
-	pulumi.RegisterOutputType(DashboardKPIConditionalFormattingOptionOutput{})
-	pulumi.RegisterOutputType(DashboardKPIConditionalFormattingOptionArrayOutput{})
-	pulumi.RegisterOutputType(DashboardKPIConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardKPIConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardKPIFieldWellsOutput{})
-	pulumi.RegisterOutputType(DashboardKPIFieldWellsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardKPIOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardKPIOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardKPIPrimaryValueConditionalFormattingOutput{})
-	pulumi.RegisterOutputType(DashboardKPIPrimaryValueConditionalFormattingPtrOutput{})
-	pulumi.RegisterOutputType(DashboardKPIProgressBarConditionalFormattingOutput{})
-	pulumi.RegisterOutputType(DashboardKPIProgressBarConditionalFormattingPtrOutput{})
-	pulumi.RegisterOutputType(DashboardKPISortConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardKPISortConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardKPIVisualOutput{})
-	pulumi.RegisterOutputType(DashboardKPIVisualPtrOutput{})
+	pulumi.RegisterOutputType(DashboardKpiConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(DashboardKpiConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(DashboardKpiConditionalFormattingOptionOutput{})
+	pulumi.RegisterOutputType(DashboardKpiConditionalFormattingOptionArrayOutput{})
+	pulumi.RegisterOutputType(DashboardKpiConfigurationOutput{})
+	pulumi.RegisterOutputType(DashboardKpiConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardKpiFieldWellsOutput{})
+	pulumi.RegisterOutputType(DashboardKpiFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(DashboardKpiOptionsOutput{})
+	pulumi.RegisterOutputType(DashboardKpiOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DashboardKpiPrimaryValueConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(DashboardKpiPrimaryValueConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(DashboardKpiProgressBarConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(DashboardKpiProgressBarConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(DashboardKpiSortConfigurationOutput{})
+	pulumi.RegisterOutputType(DashboardKpiSortConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardKpiVisualOutput{})
+	pulumi.RegisterOutputType(DashboardKpiVisualPtrOutput{})
 	pulumi.RegisterOutputType(DashboardLabelOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardLabelOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardLayoutOutput{})
@@ -80803,8 +80803,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardTableFieldOptionArrayOutput{})
 	pulumi.RegisterOutputType(DashboardTableFieldOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardTableFieldOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardTableFieldURLConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardTableFieldURLConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardTableFieldUrlConfigurationOutput{})
+	pulumi.RegisterOutputType(DashboardTableFieldUrlConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardTableFieldWellsOutput{})
 	pulumi.RegisterOutputType(DashboardTableFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardTableInlineVisualizationOutput{})

@@ -11,25 +11,25 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DHCPOptionsArgs', 'DHCPOptions']
+__all__ = ['DhcpOptionsArgs', 'DhcpOptions']
 
 @pulumi.input_type
-class DHCPOptionsArgs:
+class DhcpOptionsArgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[int]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DHCPOptionsTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DhcpOptionsTagArgs']]]] = None):
         """
-        The set of arguments for constructing a DHCPOptions resource.
+        The set of arguments for constructing a DhcpOptions resource.
         :param pulumi.Input[str] domain_name: This value is used to complete unqualified DNS hostnames.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: The IPv4 addresses of up to four NetBIOS name servers.
         :param pulumi.Input[int] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
-        :param pulumi.Input[Sequence[pulumi.Input['DHCPOptionsTagArgs']]] tags: Any tags assigned to the DHCP options set.
+        :param pulumi.Input[Sequence[pulumi.Input['DhcpOptionsTagArgs']]] tags: Any tags assigned to the DHCP options set.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -106,18 +106,18 @@ class DHCPOptionsArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DHCPOptionsTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DhcpOptionsTagArgs']]]]:
         """
         Any tags assigned to the DHCP options set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DHCPOptionsTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DhcpOptionsTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class DHCPOptions(pulumi.CustomResource):
+class DhcpOptions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -127,7 +127,7 @@ class DHCPOptions(pulumi.CustomResource):
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[int]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DHCPOptionsTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DhcpOptionsTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::DHCPOptions
@@ -139,24 +139,24 @@ class DHCPOptions(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: The IPv4 addresses of up to four NetBIOS name servers.
         :param pulumi.Input[int] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DHCPOptionsTagArgs']]]] tags: Any tags assigned to the DHCP options set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DhcpOptionsTagArgs']]]] tags: Any tags assigned to the DHCP options set.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DHCPOptionsArgs] = None,
+                 args: Optional[DhcpOptionsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::DHCPOptions
 
         :param str resource_name: The name of the resource.
-        :param DHCPOptionsArgs args: The arguments to use to populate this resource's properties.
+        :param DhcpOptionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DHCPOptionsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DhcpOptionsArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -170,7 +170,7 @@ class DHCPOptions(pulumi.CustomResource):
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[int]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DHCPOptionsTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DhcpOptionsTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -178,7 +178,7 @@ class DHCPOptions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DHCPOptionsArgs.__new__(DHCPOptionsArgs)
+            __props__ = DhcpOptionsArgs.__new__(DhcpOptionsArgs)
 
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_name_servers"] = domain_name_servers
@@ -187,8 +187,8 @@ class DHCPOptions(pulumi.CustomResource):
             __props__.__dict__["ntp_servers"] = ntp_servers
             __props__.__dict__["tags"] = tags
             __props__.__dict__["dhcp_options_id"] = None
-        super(DHCPOptions, __self__).__init__(
-            'aws-native:ec2:DHCPOptions',
+        super(DhcpOptions, __self__).__init__(
+            'aws-native:ec2:DhcpOptions',
             resource_name,
             __props__,
             opts)
@@ -196,9 +196,9 @@ class DHCPOptions(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'DHCPOptions':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DhcpOptions':
         """
-        Get an existing DHCPOptions resource's state with the given name, id, and optional extra
+        Get an existing DhcpOptions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -207,7 +207,7 @@ class DHCPOptions(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DHCPOptionsArgs.__new__(DHCPOptionsArgs)
+        __props__ = DhcpOptionsArgs.__new__(DhcpOptionsArgs)
 
         __props__.__dict__["dhcp_options_id"] = None
         __props__.__dict__["domain_name"] = None
@@ -216,7 +216,7 @@ class DHCPOptions(pulumi.CustomResource):
         __props__.__dict__["netbios_node_type"] = None
         __props__.__dict__["ntp_servers"] = None
         __props__.__dict__["tags"] = None
-        return DHCPOptions(resource_name, opts=opts, __props__=__props__)
+        return DhcpOptions(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="dhcpOptionsId")
@@ -265,7 +265,7 @@ class DHCPOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DHCPOptionsTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DhcpOptionsTag']]]:
         """
         Any tags assigned to the DHCP options set.
         """

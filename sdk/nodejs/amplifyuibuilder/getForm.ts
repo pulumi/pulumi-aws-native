@@ -28,7 +28,7 @@ export interface GetFormArgs {
 
 export interface GetFormResult {
     readonly appId?: string;
-    readonly cta?: outputs.amplifyuibuilder.FormCTA;
+    readonly cta?: outputs.amplifyuibuilder.FormCta;
     readonly dataType?: outputs.amplifyuibuilder.FormDataTypeConfig;
     readonly environmentName?: string;
     readonly fields?: outputs.amplifyuibuilder.FormFieldsMap;

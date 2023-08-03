@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         /// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         /// </summary>
         [Input("autoMlConfig")]
-        public Input<Inputs.SolutionConfigAutoMLConfigPropertiesArgs>? AutoMlConfig { get; set; }
+        public Input<Inputs.SolutionConfigAutoMlConfigPropertiesArgs>? AutoMlConfig { get; set; }
 
         /// <summary>
         /// Only events with a value greater than or equal to this threshold are used for training a model.

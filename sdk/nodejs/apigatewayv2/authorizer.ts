@@ -47,7 +47,7 @@ export class Authorizer extends pulumi.CustomResource {
     public readonly enableSimpleResponses!: pulumi.Output<boolean | undefined>;
     public readonly identitySource!: pulumi.Output<string[] | undefined>;
     public readonly identityValidationExpression!: pulumi.Output<string | undefined>;
-    public readonly jwtConfiguration!: pulumi.Output<outputs.apigatewayv2.AuthorizerJWTConfiguration | undefined>;
+    public readonly jwtConfiguration!: pulumi.Output<outputs.apigatewayv2.AuthorizerJwtConfiguration | undefined>;
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -111,6 +111,6 @@ export interface AuthorizerArgs {
     enableSimpleResponses?: pulumi.Input<boolean>;
     identitySource?: pulumi.Input<pulumi.Input<string>[]>;
     identityValidationExpression?: pulumi.Input<string>;
-    jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJWTConfigurationArgs>;
+    jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJwtConfigurationArgs>;
     name?: pulumi.Input<string>;
 }

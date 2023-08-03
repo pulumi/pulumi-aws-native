@@ -14,112 +14,112 @@ import (
 var _ = internal.GetEnvOrDefault
 
 // A key-value pair to associate with a resource.
-type ACLTag struct {
+type AclTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value *string `pulumi:"value"`
 }
 
-// ACLTagInput is an input type that accepts ACLTagArgs and ACLTagOutput values.
-// You can construct a concrete instance of `ACLTagInput` via:
+// AclTagInput is an input type that accepts AclTagArgs and AclTagOutput values.
+// You can construct a concrete instance of `AclTagInput` via:
 //
-//	ACLTagArgs{...}
-type ACLTagInput interface {
+//	AclTagArgs{...}
+type AclTagInput interface {
 	pulumi.Input
 
-	ToACLTagOutput() ACLTagOutput
-	ToACLTagOutputWithContext(context.Context) ACLTagOutput
+	ToAclTagOutput() AclTagOutput
+	ToAclTagOutputWithContext(context.Context) AclTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type ACLTagArgs struct {
+type AclTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (ACLTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACLTag)(nil)).Elem()
+func (AclTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AclTag)(nil)).Elem()
 }
 
-func (i ACLTagArgs) ToACLTagOutput() ACLTagOutput {
-	return i.ToACLTagOutputWithContext(context.Background())
+func (i AclTagArgs) ToAclTagOutput() AclTagOutput {
+	return i.ToAclTagOutputWithContext(context.Background())
 }
 
-func (i ACLTagArgs) ToACLTagOutputWithContext(ctx context.Context) ACLTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACLTagOutput)
+func (i AclTagArgs) ToAclTagOutputWithContext(ctx context.Context) AclTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AclTagOutput)
 }
 
-// ACLTagArrayInput is an input type that accepts ACLTagArray and ACLTagArrayOutput values.
-// You can construct a concrete instance of `ACLTagArrayInput` via:
+// AclTagArrayInput is an input type that accepts AclTagArray and AclTagArrayOutput values.
+// You can construct a concrete instance of `AclTagArrayInput` via:
 //
-//	ACLTagArray{ ACLTagArgs{...} }
-type ACLTagArrayInput interface {
+//	AclTagArray{ AclTagArgs{...} }
+type AclTagArrayInput interface {
 	pulumi.Input
 
-	ToACLTagArrayOutput() ACLTagArrayOutput
-	ToACLTagArrayOutputWithContext(context.Context) ACLTagArrayOutput
+	ToAclTagArrayOutput() AclTagArrayOutput
+	ToAclTagArrayOutputWithContext(context.Context) AclTagArrayOutput
 }
 
-type ACLTagArray []ACLTagInput
+type AclTagArray []AclTagInput
 
-func (ACLTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ACLTag)(nil)).Elem()
+func (AclTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AclTag)(nil)).Elem()
 }
 
-func (i ACLTagArray) ToACLTagArrayOutput() ACLTagArrayOutput {
-	return i.ToACLTagArrayOutputWithContext(context.Background())
+func (i AclTagArray) ToAclTagArrayOutput() AclTagArrayOutput {
+	return i.ToAclTagArrayOutputWithContext(context.Background())
 }
 
-func (i ACLTagArray) ToACLTagArrayOutputWithContext(ctx context.Context) ACLTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACLTagArrayOutput)
+func (i AclTagArray) ToAclTagArrayOutputWithContext(ctx context.Context) AclTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AclTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type ACLTagOutput struct{ *pulumi.OutputState }
+type AclTagOutput struct{ *pulumi.OutputState }
 
-func (ACLTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACLTag)(nil)).Elem()
+func (AclTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AclTag)(nil)).Elem()
 }
 
-func (o ACLTagOutput) ToACLTagOutput() ACLTagOutput {
+func (o AclTagOutput) ToAclTagOutput() AclTagOutput {
 	return o
 }
 
-func (o ACLTagOutput) ToACLTagOutputWithContext(ctx context.Context) ACLTagOutput {
+func (o AclTagOutput) ToAclTagOutputWithContext(ctx context.Context) AclTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ACLTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ACLTag) string { return v.Key }).(pulumi.StringOutput)
+func (o AclTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AclTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ACLTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ACLTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o AclTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AclTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type ACLTagArrayOutput struct{ *pulumi.OutputState }
+type AclTagArrayOutput struct{ *pulumi.OutputState }
 
-func (ACLTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ACLTag)(nil)).Elem()
+func (AclTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AclTag)(nil)).Elem()
 }
 
-func (o ACLTagArrayOutput) ToACLTagArrayOutput() ACLTagArrayOutput {
+func (o AclTagArrayOutput) ToAclTagArrayOutput() AclTagArrayOutput {
 	return o
 }
 
-func (o ACLTagArrayOutput) ToACLTagArrayOutputWithContext(ctx context.Context) ACLTagArrayOutput {
+func (o AclTagArrayOutput) ToAclTagArrayOutputWithContext(ctx context.Context) AclTagArrayOutput {
 	return o
 }
 
-func (o ACLTagArrayOutput) Index(i pulumi.IntInput) ACLTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ACLTag {
-		return vs[0].([]ACLTag)[vs[1].(int)]
-	}).(ACLTagOutput)
+func (o AclTagArrayOutput) Index(i pulumi.IntInput) AclTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AclTag {
+		return vs[0].([]AclTag)[vs[1].(int)]
+	}).(AclTagOutput)
 }
 
 type AuthenticationModeProperties struct {
@@ -871,8 +871,8 @@ func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ACLTagInput)(nil)).Elem(), ACLTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ACLTagArrayInput)(nil)).Elem(), ACLTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclTagInput)(nil)).Elem(), AclTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclTagArrayInput)(nil)).Elem(), AclTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesPtrInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointInput)(nil)).Elem(), ClusterEndpointArgs{})
@@ -885,8 +885,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupTagArrayInput)(nil)).Elem(), SubnetGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
-	pulumi.RegisterOutputType(ACLTagOutput{})
-	pulumi.RegisterOutputType(ACLTagArrayOutput{})
+	pulumi.RegisterOutputType(AclTagOutput{})
+	pulumi.RegisterOutputType(AclTagArrayOutput{})
 	pulumi.RegisterOutputType(AuthenticationModePropertiesOutput{})
 	pulumi.RegisterOutputType(AuthenticationModePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointOutput{})

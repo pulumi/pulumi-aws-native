@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SAMLProviderArgs', 'SAMLProvider']
+__all__ = ['SamlProviderArgs', 'SamlProvider']
 
 @pulumi.input_type
-class SAMLProviderArgs:
+class SamlProviderArgs:
     def __init__(__self__, *,
                  saml_metadata_document: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SAMLProviderTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SamlProviderTagArgs']]]] = None):
         """
-        The set of arguments for constructing a SAMLProvider resource.
+        The set of arguments for constructing a SamlProvider resource.
         """
         pulumi.set(__self__, "saml_metadata_document", saml_metadata_document)
         if name is not None:
@@ -48,22 +48,22 @@ class SAMLProviderArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SAMLProviderTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlProviderTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SAMLProviderTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlProviderTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class SAMLProvider(pulumi.CustomResource):
+class SamlProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  saml_metadata_document: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SAMLProviderTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlProviderTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IAM::SAMLProvider
@@ -75,18 +75,18 @@ class SAMLProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SAMLProviderArgs,
+                 args: SamlProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IAM::SAMLProvider
 
         :param str resource_name: The name of the resource.
-        :param SAMLProviderArgs args: The arguments to use to populate this resource's properties.
+        :param SamlProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SAMLProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SamlProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -97,7 +97,7 @@ class SAMLProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  saml_metadata_document: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SAMLProviderTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlProviderTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -105,7 +105,7 @@ class SAMLProvider(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SAMLProviderArgs.__new__(SAMLProviderArgs)
+            __props__ = SamlProviderArgs.__new__(SamlProviderArgs)
 
             __props__.__dict__["name"] = name
             if saml_metadata_document is None and not opts.urn:
@@ -113,8 +113,8 @@ class SAMLProvider(pulumi.CustomResource):
             __props__.__dict__["saml_metadata_document"] = saml_metadata_document
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        super(SAMLProvider, __self__).__init__(
-            'aws-native:iam:SAMLProvider',
+        super(SamlProvider, __self__).__init__(
+            'aws-native:iam:SamlProvider',
             resource_name,
             __props__,
             opts)
@@ -122,9 +122,9 @@ class SAMLProvider(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'SAMLProvider':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SamlProvider':
         """
-        Get an existing SAMLProvider resource's state with the given name, id, and optional extra
+        Get an existing SamlProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -133,13 +133,13 @@ class SAMLProvider(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SAMLProviderArgs.__new__(SAMLProviderArgs)
+        __props__ = SamlProviderArgs.__new__(SamlProviderArgs)
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["saml_metadata_document"] = None
         __props__.__dict__["tags"] = None
-        return SAMLProvider(resource_name, opts=opts, __props__=__props__)
+        return SamlProvider(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -161,6 +161,6 @@ class SAMLProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SAMLProviderTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SamlProviderTag']]]:
         return pulumi.get(self, "tags")
 

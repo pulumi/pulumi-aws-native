@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetEIPResult',
-    'AwaitableGetEIPResult',
+    'GetEipResult',
+    'AwaitableGetEipResult',
     'get_eip',
     'get_eip_output',
 ]
 
 @pulumi.output_type
-class GetEIPResult:
+class GetEipResult:
     def __init__(__self__, allocation_id=None, instance_id=None, public_ip=None, public_ipv4_pool=None, tags=None):
         if allocation_id and not isinstance(allocation_id, str):
             raise TypeError("Expected argument 'allocation_id' to be a str")
@@ -70,19 +70,19 @@ class GetEIPResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.EIPTag']]:
+    def tags(self) -> Optional[Sequence['outputs.EipTag']]:
         """
         Any tags assigned to the EIP.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetEIPResult(GetEIPResult):
+class AwaitableGetEipResult(GetEipResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetEIPResult(
+        return GetEipResult(
             allocation_id=self.allocation_id,
             instance_id=self.instance_id,
             public_ip=self.public_ip,
@@ -92,7 +92,7 @@ class AwaitableGetEIPResult(GetEIPResult):
 
 def get_eip(allocation_id: Optional[str] = None,
             public_ip: Optional[str] = None,
-            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEIPResult:
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEipResult:
     """
     Resource Type definition for AWS::EC2::EIP
 
@@ -104,9 +104,9 @@ def get_eip(allocation_id: Optional[str] = None,
     __args__['allocationId'] = allocation_id
     __args__['publicIp'] = public_ip
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEIP', __args__, opts=opts, typ=GetEIPResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEip', __args__, opts=opts, typ=GetEipResult).value
 
-    return AwaitableGetEIPResult(
+    return AwaitableGetEipResult(
         allocation_id=pulumi.get(__ret__, 'allocation_id'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
         public_ip=pulumi.get(__ret__, 'public_ip'),
@@ -117,7 +117,7 @@ def get_eip(allocation_id: Optional[str] = None,
 @_utilities.lift_output_func(get_eip)
 def get_eip_output(allocation_id: Optional[pulumi.Input[str]] = None,
                    public_ip: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEIPResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEipResult]:
     """
     Resource Type definition for AWS::EC2::EIP
 

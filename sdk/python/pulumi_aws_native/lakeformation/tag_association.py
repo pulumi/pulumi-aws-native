@@ -16,11 +16,11 @@ __all__ = ['TagAssociationArgs', 'TagAssociation']
 @pulumi.input_type
 class TagAssociationArgs:
     def __init__(__self__, *,
-                 lf_tags: pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]],
+                 lf_tags: pulumi.Input[Sequence[pulumi.Input['TagAssociationLfTagPairArgs']]],
                  resource: pulumi.Input['TagAssociationResourceArgs']):
         """
         The set of arguments for constructing a TagAssociation resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
+        :param pulumi.Input[Sequence[pulumi.Input['TagAssociationLfTagPairArgs']]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
         :param pulumi.Input['TagAssociationResourceArgs'] resource: Resource to tag with the Lake Formation Tags
         """
         pulumi.set(__self__, "lf_tags", lf_tags)
@@ -28,14 +28,14 @@ class TagAssociationArgs:
 
     @property
     @pulumi.getter(name="lfTags")
-    def lf_tags(self) -> pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]]:
+    def lf_tags(self) -> pulumi.Input[Sequence[pulumi.Input['TagAssociationLfTagPairArgs']]]:
         """
         List of Lake Formation Tags to associate with the Lake Formation Resource
         """
         return pulumi.get(self, "lf_tags")
 
     @lf_tags.setter
-    def lf_tags(self, value: pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]]):
+    def lf_tags(self, value: pulumi.Input[Sequence[pulumi.Input['TagAssociationLfTagPairArgs']]]):
         pulumi.set(self, "lf_tags", value)
 
     @property
@@ -56,7 +56,7 @@ class TagAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLFTagPairArgs']]]]] = None,
+                 lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLfTagPairArgs']]]]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['TagAssociationResourceArgs']]] = None,
                  __props__=None):
         """
@@ -64,7 +64,7 @@ class TagAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLFTagPairArgs']]]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLfTagPairArgs']]]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
         :param pulumi.Input[pulumi.InputType['TagAssociationResourceArgs']] resource: Resource to tag with the Lake Formation Tags
         """
         ...
@@ -91,7 +91,7 @@ class TagAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLFTagPairArgs']]]]] = None,
+                 lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLfTagPairArgs']]]]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['TagAssociationResourceArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -140,7 +140,7 @@ class TagAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lfTags")
-    def lf_tags(self) -> pulumi.Output[Sequence['outputs.TagAssociationLFTagPair']]:
+    def lf_tags(self) -> pulumi.Output[Sequence['outputs.TagAssociationLfTagPair']]:
         """
         List of Lake Formation Tags to associate with the Lake Formation Resource
         """

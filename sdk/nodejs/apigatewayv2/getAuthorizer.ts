@@ -34,7 +34,7 @@ export interface GetAuthorizerResult {
     readonly enableSimpleResponses?: boolean;
     readonly identitySource?: string[];
     readonly identityValidationExpression?: string;
-    readonly jwtConfiguration?: outputs.apigatewayv2.AuthorizerJWTConfiguration;
+    readonly jwtConfiguration?: outputs.apigatewayv2.AuthorizerJwtConfiguration;
     readonly name?: string;
 }
 /**

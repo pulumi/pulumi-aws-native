@@ -21,7 +21,7 @@ __all__ = [
     'FileSystemLustreConfigurationArgs',
     'FileSystemNfsExportsArgs',
     'FileSystemOntapConfigurationArgs',
-    'FileSystemOpenZFSConfigurationArgs',
+    'FileSystemOpenZfsConfigurationArgs',
     'FileSystemRootVolumeConfigurationArgs',
     'FileSystemSelfManagedActiveDirectoryConfigurationArgs',
     'FileSystemTagArgs',
@@ -35,7 +35,7 @@ __all__ = [
     'VolumeClientConfigurationsArgs',
     'VolumeNfsExportsArgs',
     'VolumeOntapConfigurationArgs',
-    'VolumeOpenZFSConfigurationArgs',
+    'VolumeOpenZfsConfigurationArgs',
     'VolumeOriginSnapshotArgs',
     'VolumeRetentionPeriodArgs',
     'VolumeSnaplockConfigurationArgs',
@@ -541,7 +541,7 @@ class FileSystemOntapConfigurationArgs:
 
 
 @pulumi.input_type
-class FileSystemOpenZFSConfigurationArgs:
+class FileSystemOpenZfsConfigurationArgs:
     def __init__(__self__, *,
                  deployment_type: pulumi.Input[str],
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -1377,7 +1377,7 @@ class VolumeOntapConfigurationArgs:
 
 
 @pulumi.input_type
-class VolumeOpenZFSConfigurationArgs:
+class VolumeOpenZfsConfigurationArgs:
     def __init__(__self__, *,
                  parent_volume_id: pulumi.Input[str],
                  copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,

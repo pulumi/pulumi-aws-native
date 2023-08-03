@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetLocationEFSResult',
-    'AwaitableGetLocationEFSResult',
+    'GetLocationEfsResult',
+    'AwaitableGetLocationEfsResult',
     'get_location_efs',
     'get_location_efs_output',
 ]
 
 @pulumi.output_type
-class GetLocationEFSResult:
+class GetLocationEfsResult:
     def __init__(__self__, location_arn=None, location_uri=None, tags=None):
         if location_arn and not isinstance(location_arn, str):
             raise TypeError("Expected argument 'location_arn' to be a str")
@@ -48,26 +48,26 @@ class GetLocationEFSResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.LocationEFSTag']]:
+    def tags(self) -> Optional[Sequence['outputs.LocationEfsTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLocationEFSResult(GetLocationEFSResult):
+class AwaitableGetLocationEfsResult(GetLocationEfsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetLocationEFSResult(
+        return GetLocationEfsResult(
             location_arn=self.location_arn,
             location_uri=self.location_uri,
             tags=self.tags)
 
 
 def get_location_efs(location_arn: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationEFSResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationEfsResult:
     """
     Resource schema for AWS::DataSync::LocationEFS.
 
@@ -77,9 +77,9 @@ def get_location_efs(location_arn: Optional[str] = None,
     __args__ = dict()
     __args__['locationArn'] = location_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationEFS', __args__, opts=opts, typ=GetLocationEFSResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationEfs', __args__, opts=opts, typ=GetLocationEfsResult).value
 
-    return AwaitableGetLocationEFSResult(
+    return AwaitableGetLocationEfsResult(
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -87,7 +87,7 @@ def get_location_efs(location_arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_location_efs)
 def get_location_efs_output(location_arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationEFSResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationEfsResult]:
     """
     Resource schema for AWS::DataSync::LocationEFS.
 

@@ -39,7 +39,7 @@ type LookupMulticastGroupResult struct {
 	// Multicast group id. Returned after successful create.
 	Id *string `pulumi:"id"`
 	// Multicast group LoRaWAN
-	LoRaWan *MulticastGroupLoRaWAN `pulumi:"loRaWan"`
+	LoRaWan *MulticastGroupLoRaWan `pulumi:"loRaWan"`
 	// Name of Multicast group
 	Name *string `pulumi:"name"`
 	// Multicast group status. Returned after successful read.
@@ -110,8 +110,8 @@ func (o LookupMulticastGroupResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Multicast group LoRaWAN
-func (o LookupMulticastGroupResultOutput) LoRaWan() MulticastGroupLoRaWANPtrOutput {
-	return o.ApplyT(func(v LookupMulticastGroupResult) *MulticastGroupLoRaWAN { return v.LoRaWan }).(MulticastGroupLoRaWANPtrOutput)
+func (o LookupMulticastGroupResultOutput) LoRaWan() MulticastGroupLoRaWanPtrOutput {
+	return o.ApplyT(func(v LookupMulticastGroupResult) *MulticastGroupLoRaWan { return v.LoRaWan }).(MulticastGroupLoRaWanPtrOutput)
 }
 
 // Name of Multicast group

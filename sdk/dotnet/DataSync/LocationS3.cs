@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.DataSync
         public Output<string?> S3BucketArn { get; private set; } = null!;
 
         [Output("s3Config")]
-        public Output<Outputs.LocationS3S3Config> S3Config { get; private set; } = null!;
+        public Output<Outputs.LocationS3s3Config> S3Config { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.DataSync
         public Input<string>? S3BucketArn { get; set; }
 
         [Input("s3Config", required: true)]
-        public Input<Inputs.LocationS3S3ConfigArgs> S3Config { get; set; } = null!;
+        public Input<Inputs.LocationS3s3ConfigArgs> S3Config { get; set; } = null!;
 
         /// <summary>
         /// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.

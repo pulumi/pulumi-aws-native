@@ -11,26 +11,26 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GraphQLApiArgs', 'GraphQLApi']
+__all__ = ['GraphQlApiArgs', 'GraphQlApi']
 
 @pulumi.input_type
-class GraphQLApiArgs:
+class GraphQlApiArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiAdditionalAuthenticationProviderArgs']]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
-                 lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
-                 log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']] = None,
+                 log_config: Optional[pulumi.Input['GraphQlApiLogConfigArgs']] = None,
                  merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_id_connect_config: Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']] = None,
+                 open_id_connect_config: Optional[pulumi.Input['GraphQlApiOpenIdConnectConfigArgs']] = None,
                  owner_contact: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiTagArgs']]]] = None,
-                 user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiTagArgs']]]] = None,
+                 user_pool_config: Optional[pulumi.Input['GraphQlApiUserPoolConfigArgs']] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        The set of arguments for constructing a GraphQLApi resource.
+        The set of arguments for constructing a GraphQlApi resource.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         if additional_authentication_providers is not None:
@@ -69,11 +69,11 @@ class GraphQLApiArgs:
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
-    def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]:
+    def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiAdditionalAuthenticationProviderArgs']]]]:
         return pulumi.get(self, "additional_authentication_providers")
 
     @additional_authentication_providers.setter
-    def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]):
+    def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiAdditionalAuthenticationProviderArgs']]]]):
         pulumi.set(self, "additional_authentication_providers", value)
 
     @property
@@ -87,20 +87,20 @@ class GraphQLApiArgs:
 
     @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
-    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]:
+    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']]:
         return pulumi.get(self, "lambda_authorizer_config")
 
     @lambda_authorizer_config.setter
-    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]):
+    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']]):
         pulumi.set(self, "lambda_authorizer_config", value)
 
     @property
     @pulumi.getter(name="logConfig")
-    def log_config(self) -> Optional[pulumi.Input['GraphQLApiLogConfigArgs']]:
+    def log_config(self) -> Optional[pulumi.Input['GraphQlApiLogConfigArgs']]:
         return pulumi.get(self, "log_config")
 
     @log_config.setter
-    def log_config(self, value: Optional[pulumi.Input['GraphQLApiLogConfigArgs']]):
+    def log_config(self, value: Optional[pulumi.Input['GraphQlApiLogConfigArgs']]):
         pulumi.set(self, "log_config", value)
 
     @property
@@ -123,11 +123,11 @@ class GraphQLApiArgs:
 
     @property
     @pulumi.getter(name="openIdConnectConfig")
-    def open_id_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']]:
+    def open_id_connect_config(self) -> Optional[pulumi.Input['GraphQlApiOpenIdConnectConfigArgs']]:
         return pulumi.get(self, "open_id_connect_config")
 
     @open_id_connect_config.setter
-    def open_id_connect_config(self, value: Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']]):
+    def open_id_connect_config(self, value: Optional[pulumi.Input['GraphQlApiOpenIdConnectConfigArgs']]):
         pulumi.set(self, "open_id_connect_config", value)
 
     @property
@@ -141,20 +141,20 @@ class GraphQLApiArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="userPoolConfig")
-    def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]:
+    def user_pool_config(self) -> Optional[pulumi.Input['GraphQlApiUserPoolConfigArgs']]:
         return pulumi.get(self, "user_pool_config")
 
     @user_pool_config.setter
-    def user_pool_config(self, value: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]):
+    def user_pool_config(self, value: Optional[pulumi.Input['GraphQlApiUserPoolConfigArgs']]):
         pulumi.set(self, "user_pool_config", value)
 
     @property
@@ -176,27 +176,27 @@ class GraphQLApiArgs:
         pulumi.set(self, "xray_enabled", value)
 
 
-warnings.warn("""GraphQLApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""GraphQlApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class GraphQLApi(pulumi.CustomResource):
-    warnings.warn("""GraphQLApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class GraphQlApi(pulumi.CustomResource):
+    warnings.warn("""GraphQlApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
-                 lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
-                 log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLambdaAuthorizerConfigArgs']]] = None,
+                 log_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLogConfigArgs']]] = None,
                  merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenIDConnectConfigArgs']]] = None,
+                 open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiOpenIdConnectConfigArgs']]] = None,
                  owner_contact: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiTagArgs']]]]] = None,
-                 user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiTagArgs']]]]] = None,
+                 user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiUserPoolConfigArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -210,18 +210,18 @@ class GraphQLApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GraphQLApiArgs,
+                 args: GraphQlApiArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppSync::GraphQLApi
 
         :param str resource_name: The name of the resource.
-        :param GraphQLApiArgs args: The arguments to use to populate this resource's properties.
+        :param GraphQlApiArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GraphQLApiArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GraphQlApiArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -230,28 +230,28 @@ class GraphQLApi(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
-                 lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
-                 log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLambdaAuthorizerConfigArgs']]] = None,
+                 log_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLogConfigArgs']]] = None,
                  merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenIDConnectConfigArgs']]] = None,
+                 open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiOpenIdConnectConfigArgs']]] = None,
                  owner_contact: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiTagArgs']]]]] = None,
-                 user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiTagArgs']]]]] = None,
+                 user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiUserPoolConfigArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""GraphQLApi is deprecated: GraphQLApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""GraphQlApi is deprecated: GraphQlApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GraphQLApiArgs.__new__(GraphQLApiArgs)
+            __props__ = GraphQlApiArgs.__new__(GraphQlApiArgs)
 
             __props__.__dict__["additional_authentication_providers"] = additional_authentication_providers
             __props__.__dict__["api_type"] = api_type
@@ -274,8 +274,8 @@ class GraphQLApi(pulumi.CustomResource):
             __props__.__dict__["graph_ql_url"] = None
             __props__.__dict__["realtime_dns"] = None
             __props__.__dict__["realtime_url"] = None
-        super(GraphQLApi, __self__).__init__(
-            'aws-native:appsync:GraphQLApi',
+        super(GraphQlApi, __self__).__init__(
+            'aws-native:appsync:GraphQlApi',
             resource_name,
             __props__,
             opts)
@@ -283,9 +283,9 @@ class GraphQLApi(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'GraphQLApi':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'GraphQlApi':
         """
-        Get an existing GraphQLApi resource's state with the given name, id, and optional extra
+        Get an existing GraphQlApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -294,7 +294,7 @@ class GraphQLApi(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = GraphQLApiArgs.__new__(GraphQLApiArgs)
+        __props__ = GraphQlApiArgs.__new__(GraphQlApiArgs)
 
         __props__.__dict__["additional_authentication_providers"] = None
         __props__.__dict__["api_id"] = None
@@ -315,11 +315,11 @@ class GraphQLApi(pulumi.CustomResource):
         __props__.__dict__["user_pool_config"] = None
         __props__.__dict__["visibility"] = None
         __props__.__dict__["xray_enabled"] = None
-        return GraphQLApi(resource_name, opts=opts, __props__=__props__)
+        return GraphQlApi(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
-    def additional_authentication_providers(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQLApiAdditionalAuthenticationProvider']]]:
+    def additional_authentication_providers(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQlApiAdditionalAuthenticationProvider']]]:
         return pulumi.get(self, "additional_authentication_providers")
 
     @property
@@ -354,12 +354,12 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
-    def lambda_authorizer_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiLambdaAuthorizerConfig']]:
+    def lambda_authorizer_config(self) -> pulumi.Output[Optional['outputs.GraphQlApiLambdaAuthorizerConfig']]:
         return pulumi.get(self, "lambda_authorizer_config")
 
     @property
     @pulumi.getter(name="logConfig")
-    def log_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiLogConfig']]:
+    def log_config(self) -> pulumi.Output[Optional['outputs.GraphQlApiLogConfig']]:
         return pulumi.get(self, "log_config")
 
     @property
@@ -374,7 +374,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="openIdConnectConfig")
-    def open_id_connect_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiOpenIDConnectConfig']]:
+    def open_id_connect_config(self) -> pulumi.Output[Optional['outputs.GraphQlApiOpenIdConnectConfig']]:
         return pulumi.get(self, "open_id_connect_config")
 
     @property
@@ -394,12 +394,12 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQLApiTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQlApiTag']]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userPoolConfig")
-    def user_pool_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiUserPoolConfig']]:
+    def user_pool_config(self) -> pulumi.Output[Optional['outputs.GraphQlApiUserPoolConfig']]:
         return pulumi.get(self, "user_pool_config")
 
     @property

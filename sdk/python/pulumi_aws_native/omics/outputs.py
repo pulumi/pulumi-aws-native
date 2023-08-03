@@ -16,6 +16,7 @@ __all__ = [
     'AnnotationStoreReferenceItem',
     'AnnotationStoreSchemaItem',
     'AnnotationStoreSseConfig',
+    'AnnotationStoreStoreOptionsProperties',
     'AnnotationStoreTagMap',
     'AnnotationStoreTsvStoreOptions',
     'ReferenceStoreSseConfig',
@@ -23,7 +24,6 @@ __all__ = [
     'RunGroupTagMap',
     'SequenceStoreSseConfig',
     'SequenceStoreTagMap',
-    'StoreOptionsProperties',
     'VariantStoreReferenceItem',
     'VariantStoreSseConfig',
     'VariantStoreTagMap',
@@ -107,6 +107,35 @@ class AnnotationStoreSseConfig(dict):
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[str]:
         return pulumi.get(self, "key_arn")
+
+
+@pulumi.output_type
+class AnnotationStoreStoreOptionsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tsvStoreOptions":
+            suggest = "tsv_store_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnnotationStoreStoreOptionsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnnotationStoreStoreOptionsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnnotationStoreStoreOptionsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tsv_store_options: 'outputs.AnnotationStoreTsvStoreOptions'):
+        pulumi.set(__self__, "tsv_store_options", tsv_store_options)
+
+    @property
+    @pulumi.getter(name="tsvStoreOptions")
+    def tsv_store_options(self) -> 'outputs.AnnotationStoreTsvStoreOptions':
+        return pulumi.get(self, "tsv_store_options")
 
 
 @pulumi.output_type
@@ -279,35 +308,6 @@ class SequenceStoreSseConfig(dict):
 class SequenceStoreTagMap(dict):
     def __init__(__self__):
         pass
-
-
-@pulumi.output_type
-class StoreOptionsProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tsvStoreOptions":
-            suggest = "tsv_store_options"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StoreOptionsProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StoreOptionsProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StoreOptionsProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 tsv_store_options: 'outputs.AnnotationStoreTsvStoreOptions'):
-        pulumi.set(__self__, "tsv_store_options", tsv_store_options)
-
-    @property
-    @pulumi.getter(name="tsvStoreOptions")
-    def tsv_store_options(self) -> 'outputs.AnnotationStoreTsvStoreOptions':
-        return pulumi.get(self, "tsv_store_options")
 
 
 @pulumi.output_type

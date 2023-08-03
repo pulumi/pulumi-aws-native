@@ -636,6 +636,16 @@ func (o AppBlockScriptDetailsPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type AppBlockTag0Properties struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+type AppBlockTag1Properties struct {
+	TagKey   string `pulumi:"tagKey"`
+	TagValue string `pulumi:"tagValue"`
+}
+
 type ApplicationS3Location struct {
 	S3Bucket string `pulumi:"s3Bucket"`
 	S3Key    string `pulumi:"s3Key"`
@@ -731,6 +741,16 @@ func (o ApplicationS3LocationPtrOutput) S3Key() pulumi.StringPtrOutput {
 		}
 		return &v.S3Key
 	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationTag0Properties struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+type ApplicationTag1Properties struct {
+	TagKey   string `pulumi:"tagKey"`
+	TagValue string `pulumi:"tagValue"`
 }
 
 type DirectoryConfigCertificateBasedAuthProperties struct {
@@ -2936,16 +2956,6 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackUserSetting {
 		return vs[0].([]StackUserSetting)[vs[1].(int)]
 	}).(StackUserSettingOutput)
-}
-
-type Tag0Properties struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
-}
-
-type Tag1Properties struct {
-	TagKey   string `pulumi:"tagKey"`
-	TagValue string `pulumi:"tagValue"`
 }
 
 func init() {

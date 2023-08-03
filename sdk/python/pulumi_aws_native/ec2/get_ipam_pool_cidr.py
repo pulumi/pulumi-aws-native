@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetIPAMPoolCidrResult',
-    'AwaitableGetIPAMPoolCidrResult',
+    'GetIpamPoolCidrResult',
+    'AwaitableGetIpamPoolCidrResult',
     'get_ipam_pool_cidr',
     'get_ipam_pool_cidr_output',
 ]
 
 @pulumi.output_type
-class GetIPAMPoolCidrResult:
+class GetIpamPoolCidrResult:
     def __init__(__self__, ipam_pool_cidr_id=None, state=None):
         if ipam_pool_cidr_id and not isinstance(ipam_pool_cidr_id, str):
             raise TypeError("Expected argument 'ipam_pool_cidr_id' to be a str")
@@ -43,19 +43,19 @@ class GetIPAMPoolCidrResult:
         return pulumi.get(self, "state")
 
 
-class AwaitableGetIPAMPoolCidrResult(GetIPAMPoolCidrResult):
+class AwaitableGetIpamPoolCidrResult(GetIpamPoolCidrResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIPAMPoolCidrResult(
+        return GetIpamPoolCidrResult(
             ipam_pool_cidr_id=self.ipam_pool_cidr_id,
             state=self.state)
 
 
 def get_ipam_pool_cidr(ipam_pool_cidr_id: Optional[str] = None,
                        ipam_pool_id: Optional[str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPAMPoolCidrResult:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamPoolCidrResult:
     """
     Resource Schema of AWS::EC2::IPAMPoolCidr Type
 
@@ -67,9 +67,9 @@ def get_ipam_pool_cidr(ipam_pool_cidr_id: Optional[str] = None,
     __args__['ipamPoolCidrId'] = ipam_pool_cidr_id
     __args__['ipamPoolId'] = ipam_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMPoolCidr', __args__, opts=opts, typ=GetIPAMPoolCidrResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIpamPoolCidr', __args__, opts=opts, typ=GetIpamPoolCidrResult).value
 
-    return AwaitableGetIPAMPoolCidrResult(
+    return AwaitableGetIpamPoolCidrResult(
         ipam_pool_cidr_id=pulumi.get(__ret__, 'ipam_pool_cidr_id'),
         state=pulumi.get(__ret__, 'state'))
 
@@ -77,7 +77,7 @@ def get_ipam_pool_cidr(ipam_pool_cidr_id: Optional[str] = None,
 @_utilities.lift_output_func(get_ipam_pool_cidr)
 def get_ipam_pool_cidr_output(ipam_pool_cidr_id: Optional[pulumi.Input[str]] = None,
                               ipam_pool_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPAMPoolCidrResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamPoolCidrResult]:
     """
     Resource Schema of AWS::EC2::IPAMPoolCidr Type
 

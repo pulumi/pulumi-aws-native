@@ -12,28 +12,28 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['LocationSMBArgs', 'LocationSMB']
+__all__ = ['LocationSmbArgs', 'LocationSmb']
 
 @pulumi.input_type
-class LocationSMBArgs:
+class LocationSmbArgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  user: pulumi.Input[str],
                  domain: Optional[pulumi.Input[str]] = None,
-                 mount_options: Optional[pulumi.Input['LocationSMBMountOptionsArgs']] = None,
+                 mount_options: Optional[pulumi.Input['LocationSmbMountOptionsArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSMBTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSmbTagArgs']]]] = None):
         """
-        The set of arguments for constructing a LocationSMB resource.
+        The set of arguments for constructing a LocationSmb resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-        :param pulumi.Input[Sequence[pulumi.Input['LocationSMBTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationSmbTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "user", user)
@@ -88,11 +88,11 @@ class LocationSMBArgs:
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> Optional[pulumi.Input['LocationSMBMountOptionsArgs']]:
+    def mount_options(self) -> Optional[pulumi.Input['LocationSmbMountOptionsArgs']]:
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
-    def mount_options(self, value: Optional[pulumi.Input['LocationSMBMountOptionsArgs']]):
+    def mount_options(self, value: Optional[pulumi.Input['LocationSmbMountOptionsArgs']]):
         pulumi.set(self, "mount_options", value)
 
     @property
@@ -133,29 +133,29 @@ class LocationSMBArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationSMBTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationSmbTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSMBTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSmbTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class LocationSMB(pulumi.CustomResource):
+class LocationSmb(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 mount_options: Optional[pulumi.Input[pulumi.InputType['LocationSMBMountOptionsArgs']]] = None,
+                 mount_options: Optional[pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSMBTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSmbTagArgs']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -168,25 +168,25 @@ class LocationSMB(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSMBTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSmbTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocationSMBArgs,
+                 args: LocationSmbArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::LocationSMB.
 
         :param str resource_name: The name of the resource.
-        :param LocationSMBArgs args: The arguments to use to populate this resource's properties.
+        :param LocationSmbArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocationSMBArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocationSmbArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -197,11 +197,11 @@ class LocationSMB(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 mount_options: Optional[pulumi.Input[pulumi.InputType['LocationSMBMountOptionsArgs']]] = None,
+                 mount_options: Optional[pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSMBTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSmbTagArgs']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -210,7 +210,7 @@ class LocationSMB(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocationSMBArgs.__new__(LocationSMBArgs)
+            __props__ = LocationSmbArgs.__new__(LocationSmbArgs)
 
             if agent_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_arns'")
@@ -226,8 +226,8 @@ class LocationSMB(pulumi.CustomResource):
             __props__.__dict__["user"] = user
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
-        super(LocationSMB, __self__).__init__(
-            'aws-native:datasync:LocationSMB',
+        super(LocationSmb, __self__).__init__(
+            'aws-native:datasync:LocationSmb',
             resource_name,
             __props__,
             opts)
@@ -235,9 +235,9 @@ class LocationSMB(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'LocationSMB':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'LocationSmb':
         """
-        Get an existing LocationSMB resource's state with the given name, id, and optional extra
+        Get an existing LocationSmb resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -246,7 +246,7 @@ class LocationSMB(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = LocationSMBArgs.__new__(LocationSMBArgs)
+        __props__ = LocationSmbArgs.__new__(LocationSmbArgs)
 
         __props__.__dict__["agent_arns"] = None
         __props__.__dict__["domain"] = None
@@ -258,7 +258,7 @@ class LocationSMB(pulumi.CustomResource):
         __props__.__dict__["subdirectory"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["user"] = None
-        return LocationSMB(resource_name, opts=opts, __props__=__props__)
+        return LocationSmb(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -294,7 +294,7 @@ class LocationSMB(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> pulumi.Output[Optional['outputs.LocationSMBMountOptions']]:
+    def mount_options(self) -> pulumi.Output[Optional['outputs.LocationSmbMountOptions']]:
         return pulumi.get(self, "mount_options")
 
     @property
@@ -323,7 +323,7 @@ class LocationSMB(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationSMBTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationSmbTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

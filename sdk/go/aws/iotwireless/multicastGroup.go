@@ -25,7 +25,7 @@ type MulticastGroup struct {
 	// Wireless device to disassociate. Only for update request.
 	DisassociateWirelessDevice pulumi.StringPtrOutput `pulumi:"disassociateWirelessDevice"`
 	// Multicast group LoRaWAN
-	LoRaWan MulticastGroupLoRaWANOutput `pulumi:"loRaWan"`
+	LoRaWan MulticastGroupLoRaWanOutput `pulumi:"loRaWan"`
 	// Name of Multicast group
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Multicast group status. Returned after successful read.
@@ -84,7 +84,7 @@ type multicastGroupArgs struct {
 	// Wireless device to disassociate. Only for update request.
 	DisassociateWirelessDevice *string `pulumi:"disassociateWirelessDevice"`
 	// Multicast group LoRaWAN
-	LoRaWan MulticastGroupLoRaWAN `pulumi:"loRaWan"`
+	LoRaWan MulticastGroupLoRaWan `pulumi:"loRaWan"`
 	// Name of Multicast group
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the Multicast group.
@@ -100,7 +100,7 @@ type MulticastGroupArgs struct {
 	// Wireless device to disassociate. Only for update request.
 	DisassociateWirelessDevice pulumi.StringPtrInput
 	// Multicast group LoRaWAN
-	LoRaWan MulticastGroupLoRaWANInput
+	LoRaWan MulticastGroupLoRaWanInput
 	// Name of Multicast group
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the Multicast group.
@@ -165,8 +165,8 @@ func (o MulticastGroupOutput) DisassociateWirelessDevice() pulumi.StringPtrOutpu
 }
 
 // Multicast group LoRaWAN
-func (o MulticastGroupOutput) LoRaWan() MulticastGroupLoRaWANOutput {
-	return o.ApplyT(func(v *MulticastGroup) MulticastGroupLoRaWANOutput { return v.LoRaWan }).(MulticastGroupLoRaWANOutput)
+func (o MulticastGroupOutput) LoRaWan() MulticastGroupLoRaWanOutput {
+	return o.ApplyT(func(v *MulticastGroup) MulticastGroupLoRaWanOutput { return v.LoRaWan }).(MulticastGroupLoRaWanOutput)
 }
 
 // Name of Multicast group

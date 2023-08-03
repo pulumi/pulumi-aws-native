@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetVPCEndpointConnectionNotificationResult',
-    'AwaitableGetVPCEndpointConnectionNotificationResult',
+    'GetVpcEndpointConnectionNotificationResult',
+    'AwaitableGetVpcEndpointConnectionNotificationResult',
     'get_vpc_endpoint_connection_notification',
     'get_vpc_endpoint_connection_notification_output',
 ]
 
 @pulumi.output_type
-class GetVPCEndpointConnectionNotificationResult:
+class GetVpcEndpointConnectionNotificationResult:
     def __init__(__self__, connection_events=None, connection_notification_arn=None, id=None):
         if connection_events and not isinstance(connection_events, list):
             raise TypeError("Expected argument 'connection_events' to be a list")
@@ -45,28 +45,28 @@ class GetVPCEndpointConnectionNotificationResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetVPCEndpointConnectionNotificationResult(GetVPCEndpointConnectionNotificationResult):
+class AwaitableGetVpcEndpointConnectionNotificationResult(GetVpcEndpointConnectionNotificationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVPCEndpointConnectionNotificationResult(
+        return GetVpcEndpointConnectionNotificationResult(
             connection_events=self.connection_events,
             connection_notification_arn=self.connection_notification_arn,
             id=self.id)
 
 
 def get_vpc_endpoint_connection_notification(id: Optional[str] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPCEndpointConnectionNotificationResult:
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointConnectionNotificationResult:
     """
     Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCEndpointConnectionNotification', __args__, opts=opts, typ=GetVPCEndpointConnectionNotificationResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpcEndpointConnectionNotification', __args__, opts=opts, typ=GetVpcEndpointConnectionNotificationResult).value
 
-    return AwaitableGetVPCEndpointConnectionNotificationResult(
+    return AwaitableGetVpcEndpointConnectionNotificationResult(
         connection_events=pulumi.get(__ret__, 'connection_events'),
         connection_notification_arn=pulumi.get(__ret__, 'connection_notification_arn'),
         id=pulumi.get(__ret__, 'id'))
@@ -74,7 +74,7 @@ def get_vpc_endpoint_connection_notification(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_vpc_endpoint_connection_notification)
 def get_vpc_endpoint_connection_notification_output(id: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCEndpointConnectionNotificationResult]:
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointConnectionNotificationResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
     """

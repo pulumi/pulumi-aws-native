@@ -47,8 +47,8 @@ __all__ = [
     'RuleGroupStatefulRuleOptions',
     'RuleGroupStatelessRule',
     'RuleGroupStatelessRulesAndCustomActions',
-    'RuleGroupTCPFlagField',
     'RuleGroupTag',
+    'RuleGroupTcpFlagField',
 ]
 
 @pulumi.output_type
@@ -843,7 +843,7 @@ class RuleGroupMatchAttributes(dict):
                  protocols: Optional[Sequence[int]] = None,
                  source_ports: Optional[Sequence['outputs.RuleGroupPortRange']] = None,
                  sources: Optional[Sequence['outputs.RuleGroupAddress']] = None,
-                 tcp_flags: Optional[Sequence['outputs.RuleGroupTCPFlagField']] = None):
+                 tcp_flags: Optional[Sequence['outputs.RuleGroupTcpFlagField']] = None):
         if destination_ports is not None:
             pulumi.set(__self__, "destination_ports", destination_ports)
         if destinations is not None:
@@ -884,7 +884,7 @@ class RuleGroupMatchAttributes(dict):
 
     @property
     @pulumi.getter(name="tcpFlags")
-    def tcp_flags(self) -> Optional[Sequence['outputs.RuleGroupTCPFlagField']]:
+    def tcp_flags(self) -> Optional[Sequence['outputs.RuleGroupTcpFlagField']]:
         return pulumi.get(self, "tcp_flags")
 
 
@@ -1318,26 +1318,6 @@ class RuleGroupStatelessRulesAndCustomActions(dict):
 
 
 @pulumi.output_type
-class RuleGroupTCPFlagField(dict):
-    def __init__(__self__, *,
-                 flags: Sequence['RuleGroupTCPFlag'],
-                 masks: Optional[Sequence['RuleGroupTCPFlag']] = None):
-        pulumi.set(__self__, "flags", flags)
-        if masks is not None:
-            pulumi.set(__self__, "masks", masks)
-
-    @property
-    @pulumi.getter
-    def flags(self) -> Sequence['RuleGroupTCPFlag']:
-        return pulumi.get(self, "flags")
-
-    @property
-    @pulumi.getter
-    def masks(self) -> Optional[Sequence['RuleGroupTCPFlag']]:
-        return pulumi.get(self, "masks")
-
-
-@pulumi.output_type
 class RuleGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
@@ -1354,5 +1334,25 @@ class RuleGroupTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RuleGroupTcpFlagField(dict):
+    def __init__(__self__, *,
+                 flags: Sequence['RuleGroupTcpFlag'],
+                 masks: Optional[Sequence['RuleGroupTcpFlag']] = None):
+        pulumi.set(__self__, "flags", flags)
+        if masks is not None:
+            pulumi.set(__self__, "masks", masks)
+
+    @property
+    @pulumi.getter
+    def flags(self) -> Sequence['RuleGroupTcpFlag']:
+        return pulumi.get(self, "flags")
+
+    @property
+    @pulumi.getter
+    def masks(self) -> Optional[Sequence['RuleGroupTcpFlag']]:
+        return pulumi.get(self, "masks")
 
 

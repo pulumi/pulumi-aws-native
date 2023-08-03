@@ -49,7 +49,7 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly domainEndpoint!: pulumi.Output<string>;
     public readonly domainEndpointOptions!: pulumi.Output<outputs.elasticsearch.DomainEndpointOptions | undefined>;
     public readonly domainName!: pulumi.Output<string | undefined>;
-    public readonly ebsOptions!: pulumi.Output<outputs.elasticsearch.DomainEBSOptions | undefined>;
+    public readonly ebsOptions!: pulumi.Output<outputs.elasticsearch.DomainEbsOptions | undefined>;
     public readonly elasticsearchClusterConfig!: pulumi.Output<outputs.elasticsearch.DomainElasticsearchClusterConfig | undefined>;
     public readonly elasticsearchVersion!: pulumi.Output<string | undefined>;
     public readonly encryptionAtRestOptions!: pulumi.Output<outputs.elasticsearch.DomainEncryptionAtRestOptions | undefined>;
@@ -57,7 +57,7 @@ export class Domain extends pulumi.CustomResource {
     public readonly nodeToNodeEncryptionOptions!: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryptionOptions | undefined>;
     public readonly snapshotOptions!: pulumi.Output<outputs.elasticsearch.DomainSnapshotOptions | undefined>;
     public readonly tags!: pulumi.Output<outputs.elasticsearch.DomainTag[] | undefined>;
-    public readonly vpcOptions!: pulumi.Output<outputs.elasticsearch.DomainVPCOptions | undefined>;
+    public readonly vpcOptions!: pulumi.Output<outputs.elasticsearch.DomainVpcOptions | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -125,7 +125,7 @@ export interface DomainArgs {
     cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptionsArgs>;
     domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainEndpointOptionsArgs>;
     domainName?: pulumi.Input<string>;
-    ebsOptions?: pulumi.Input<inputs.elasticsearch.DomainEBSOptionsArgs>;
+    ebsOptions?: pulumi.Input<inputs.elasticsearch.DomainEbsOptionsArgs>;
     elasticsearchClusterConfig?: pulumi.Input<inputs.elasticsearch.DomainElasticsearchClusterConfigArgs>;
     elasticsearchVersion?: pulumi.Input<string>;
     encryptionAtRestOptions?: pulumi.Input<inputs.elasticsearch.DomainEncryptionAtRestOptionsArgs>;
@@ -133,5 +133,5 @@ export interface DomainArgs {
     nodeToNodeEncryptionOptions?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryptionOptionsArgs>;
     snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptionsArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainTagArgs>[]>;
-    vpcOptions?: pulumi.Input<inputs.elasticsearch.DomainVPCOptionsArgs>;
+    vpcOptions?: pulumi.Input<inputs.elasticsearch.DomainVpcOptionsArgs>;
 }

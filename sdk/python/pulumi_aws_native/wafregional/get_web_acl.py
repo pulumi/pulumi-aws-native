@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetWebACLResult',
-    'AwaitableGetWebACLResult',
+    'GetWebAclResult',
+    'AwaitableGetWebAclResult',
     'get_web_acl',
     'get_web_acl_output',
 ]
 
 @pulumi.output_type
-class GetWebACLResult:
+class GetWebAclResult:
     def __init__(__self__, default_action=None, id=None, rules=None):
         if default_action and not isinstance(default_action, dict):
             raise TypeError("Expected argument 'default_action' to be a dict")
@@ -32,7 +32,7 @@ class GetWebACLResult:
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional['outputs.WebACLAction']:
+    def default_action(self) -> Optional['outputs.WebAclAction']:
         return pulumi.get(self, "default_action")
 
     @property
@@ -42,32 +42,32 @@ class GetWebACLResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.WebACLRule']]:
+    def rules(self) -> Optional[Sequence['outputs.WebAclRule']]:
         return pulumi.get(self, "rules")
 
 
-class AwaitableGetWebACLResult(GetWebACLResult):
+class AwaitableGetWebAclResult(GetWebAclResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetWebACLResult(
+        return GetWebAclResult(
             default_action=self.default_action,
             id=self.id,
             rules=self.rules)
 
 
 def get_web_acl(id: Optional[str] = None,
-                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebACLResult:
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAclResult:
     """
     Resource Type definition for AWS::WAFRegional::WebACL
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:wafregional:getWebACL', __args__, opts=opts, typ=GetWebACLResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:wafregional:getWebAcl', __args__, opts=opts, typ=GetWebAclResult).value
 
-    return AwaitableGetWebACLResult(
+    return AwaitableGetWebAclResult(
         default_action=pulumi.get(__ret__, 'default_action'),
         id=pulumi.get(__ret__, 'id'),
         rules=pulumi.get(__ret__, 'rules'))
@@ -75,7 +75,7 @@ def get_web_acl(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_web_acl)
 def get_web_acl_output(id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebACLResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAclResult]:
     """
     Resource Type definition for AWS::WAFRegional::WebACL
     """

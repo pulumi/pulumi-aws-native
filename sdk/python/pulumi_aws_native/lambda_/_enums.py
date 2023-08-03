@@ -6,7 +6,7 @@ from enum import Enum
 
 __all__ = [
     'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment',
-    'EventSourceMappingDocumentDBEventSourceConfigFullDocument',
+    'EventSourceMappingDocumentDbEventSourceConfigFullDocument',
     'EventSourceMappingFunctionResponseTypesItem',
     'EventSourceMappingSourceAccessConfigurationType',
     'FunctionArchitecturesItem',
@@ -30,7 +30,7 @@ class CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment(str, Enu
     ENFORCE = "Enforce"
 
 
-class EventSourceMappingDocumentDBEventSourceConfigFullDocument(str, Enum):
+class EventSourceMappingDocumentDbEventSourceConfigFullDocument(str, Enum):
     """
     Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
     """

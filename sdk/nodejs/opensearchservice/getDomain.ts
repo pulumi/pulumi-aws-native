@@ -33,7 +33,7 @@ export interface GetDomainResult {
     readonly domainEndpoint?: string;
     readonly domainEndpointOptions?: outputs.opensearchservice.DomainEndpointOptions;
     readonly domainEndpoints?: any;
-    readonly ebsOptions?: outputs.opensearchservice.DomainEBSOptions;
+    readonly ebsOptions?: outputs.opensearchservice.DomainEbsOptions;
     readonly encryptionAtRestOptions?: outputs.opensearchservice.DomainEncryptionAtRestOptions;
     readonly engineVersion?: string;
     readonly id?: string;
@@ -47,7 +47,7 @@ export interface GetDomainResult {
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
     readonly tags?: outputs.opensearchservice.DomainTag[];
-    readonly vpcOptions?: outputs.opensearchservice.DomainVPCOptions;
+    readonly vpcOptions?: outputs.opensearchservice.DomainVpcOptions;
 }
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.

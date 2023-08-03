@@ -36,26 +36,26 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
-    public readonly struct CACertificateAutoRegistrationStatus : IEquatable<CACertificateAutoRegistrationStatus>
+    public readonly struct CaCertificateAutoRegistrationStatus : IEquatable<CaCertificateAutoRegistrationStatus>
     {
         private readonly string _value;
 
-        private CACertificateAutoRegistrationStatus(string value)
+        private CaCertificateAutoRegistrationStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CACertificateAutoRegistrationStatus Enable { get; } = new CACertificateAutoRegistrationStatus("ENABLE");
-        public static CACertificateAutoRegistrationStatus Disable { get; } = new CACertificateAutoRegistrationStatus("DISABLE");
+        public static CaCertificateAutoRegistrationStatus Enable { get; } = new CaCertificateAutoRegistrationStatus("ENABLE");
+        public static CaCertificateAutoRegistrationStatus Disable { get; } = new CaCertificateAutoRegistrationStatus("DISABLE");
 
-        public static bool operator ==(CACertificateAutoRegistrationStatus left, CACertificateAutoRegistrationStatus right) => left.Equals(right);
-        public static bool operator !=(CACertificateAutoRegistrationStatus left, CACertificateAutoRegistrationStatus right) => !left.Equals(right);
+        public static bool operator ==(CaCertificateAutoRegistrationStatus left, CaCertificateAutoRegistrationStatus right) => left.Equals(right);
+        public static bool operator !=(CaCertificateAutoRegistrationStatus left, CaCertificateAutoRegistrationStatus right) => !left.Equals(right);
 
-        public static explicit operator string(CACertificateAutoRegistrationStatus value) => value._value;
+        public static explicit operator string(CaCertificateAutoRegistrationStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CACertificateAutoRegistrationStatus other && Equals(other);
-        public bool Equals(CACertificateAutoRegistrationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is CaCertificateAutoRegistrationStatus other && Equals(other);
+        public bool Equals(CaCertificateAutoRegistrationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -64,26 +64,26 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
-    public readonly struct CACertificateCertificateMode : IEquatable<CACertificateCertificateMode>
+    public readonly struct CaCertificateCertificateMode : IEquatable<CaCertificateCertificateMode>
     {
         private readonly string _value;
 
-        private CACertificateCertificateMode(string value)
+        private CaCertificateCertificateMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CACertificateCertificateMode Default { get; } = new CACertificateCertificateMode("DEFAULT");
-        public static CACertificateCertificateMode SniOnly { get; } = new CACertificateCertificateMode("SNI_ONLY");
+        public static CaCertificateCertificateMode Default { get; } = new CaCertificateCertificateMode("DEFAULT");
+        public static CaCertificateCertificateMode SniOnly { get; } = new CaCertificateCertificateMode("SNI_ONLY");
 
-        public static bool operator ==(CACertificateCertificateMode left, CACertificateCertificateMode right) => left.Equals(right);
-        public static bool operator !=(CACertificateCertificateMode left, CACertificateCertificateMode right) => !left.Equals(right);
+        public static bool operator ==(CaCertificateCertificateMode left, CaCertificateCertificateMode right) => left.Equals(right);
+        public static bool operator !=(CaCertificateCertificateMode left, CaCertificateCertificateMode right) => !left.Equals(right);
 
-        public static explicit operator string(CACertificateCertificateMode value) => value._value;
+        public static explicit operator string(CaCertificateCertificateMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CACertificateCertificateMode other && Equals(other);
-        public bool Equals(CACertificateCertificateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is CaCertificateCertificateMode other && Equals(other);
+        public bool Equals(CaCertificateCertificateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -92,26 +92,26 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
-    public readonly struct CACertificateStatus : IEquatable<CACertificateStatus>
+    public readonly struct CaCertificateStatus : IEquatable<CaCertificateStatus>
     {
         private readonly string _value;
 
-        private CACertificateStatus(string value)
+        private CaCertificateStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CACertificateStatus Active { get; } = new CACertificateStatus("ACTIVE");
-        public static CACertificateStatus Inactive { get; } = new CACertificateStatus("INACTIVE");
+        public static CaCertificateStatus Active { get; } = new CaCertificateStatus("ACTIVE");
+        public static CaCertificateStatus Inactive { get; } = new CaCertificateStatus("INACTIVE");
 
-        public static bool operator ==(CACertificateStatus left, CACertificateStatus right) => left.Equals(right);
-        public static bool operator !=(CACertificateStatus left, CACertificateStatus right) => !left.Equals(right);
+        public static bool operator ==(CaCertificateStatus left, CaCertificateStatus right) => left.Equals(right);
+        public static bool operator !=(CaCertificateStatus left, CaCertificateStatus right) => !left.Equals(right);
 
-        public static explicit operator string(CACertificateStatus value) => value._value;
+        public static explicit operator string(CaCertificateStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CACertificateStatus other && Equals(other);
-        public bool Equals(CACertificateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is CaCertificateStatus other && Equals(other);
+        public bool Equals(CaCertificateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -536,25 +536,25 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
-    public readonly struct MitigationActionUpdateCACertificateParamsAction : IEquatable<MitigationActionUpdateCACertificateParamsAction>
+    public readonly struct MitigationActionUpdateCaCertificateParamsAction : IEquatable<MitigationActionUpdateCaCertificateParamsAction>
     {
         private readonly string _value;
 
-        private MitigationActionUpdateCACertificateParamsAction(string value)
+        private MitigationActionUpdateCaCertificateParamsAction(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static MitigationActionUpdateCACertificateParamsAction Deactivate { get; } = new MitigationActionUpdateCACertificateParamsAction("DEACTIVATE");
+        public static MitigationActionUpdateCaCertificateParamsAction Deactivate { get; } = new MitigationActionUpdateCaCertificateParamsAction("DEACTIVATE");
 
-        public static bool operator ==(MitigationActionUpdateCACertificateParamsAction left, MitigationActionUpdateCACertificateParamsAction right) => left.Equals(right);
-        public static bool operator !=(MitigationActionUpdateCACertificateParamsAction left, MitigationActionUpdateCACertificateParamsAction right) => !left.Equals(right);
+        public static bool operator ==(MitigationActionUpdateCaCertificateParamsAction left, MitigationActionUpdateCaCertificateParamsAction right) => left.Equals(right);
+        public static bool operator !=(MitigationActionUpdateCaCertificateParamsAction left, MitigationActionUpdateCaCertificateParamsAction right) => !left.Equals(right);
 
-        public static explicit operator string(MitigationActionUpdateCACertificateParamsAction value) => value._value;
+        public static explicit operator string(MitigationActionUpdateCaCertificateParamsAction value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MitigationActionUpdateCACertificateParamsAction other && Equals(other);
-        public bool Equals(MitigationActionUpdateCACertificateParamsAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is MitigationActionUpdateCaCertificateParamsAction other && Equals(other);
+        public bool Equals(MitigationActionUpdateCaCertificateParamsAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

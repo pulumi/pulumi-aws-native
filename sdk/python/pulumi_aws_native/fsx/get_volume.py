@@ -54,7 +54,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="openZfsConfiguration")
-    def open_zfs_configuration(self) -> Optional['outputs.VolumeOpenZFSConfiguration']:
+    def open_zfs_configuration(self) -> Optional['outputs.VolumeOpenZfsConfiguration']:
         return pulumi.get(self, "open_zfs_configuration")
 
     @property

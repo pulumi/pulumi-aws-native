@@ -180,8 +180,8 @@ namespace Pulumi.AwsNative.ApplicationInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ApplicationSubComponentTypeConfigurationSubComponentType AWSEC2Instance { get; } = new ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Instance");
-        public static ApplicationSubComponentTypeConfigurationSubComponentType AWSEC2Volume { get; } = new ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Volume");
+        public static ApplicationSubComponentTypeConfigurationSubComponentType Awsec2Instance { get; } = new ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Instance");
+        public static ApplicationSubComponentTypeConfigurationSubComponentType Awsec2Volume { get; } = new ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Volume");
 
         public static bool operator ==(ApplicationSubComponentTypeConfigurationSubComponentType left, ApplicationSubComponentTypeConfigurationSubComponentType right) => left.Equals(right);
         public static bool operator !=(ApplicationSubComponentTypeConfigurationSubComponentType left, ApplicationSubComponentTypeConfigurationSubComponentType right) => !left.Equals(right);

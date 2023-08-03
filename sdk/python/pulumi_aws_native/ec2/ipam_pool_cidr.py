@@ -9,16 +9,16 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IPAMPoolCidrArgs', 'IPAMPoolCidr']
+__all__ = ['IpamPoolCidrArgs', 'IpamPoolCidr']
 
 @pulumi.input_type
-class IPAMPoolCidrArgs:
+class IpamPoolCidrArgs:
     def __init__(__self__, *,
                  ipam_pool_id: pulumi.Input[str],
                  cidr: Optional[pulumi.Input[str]] = None,
                  netmask_length: Optional[pulumi.Input[int]] = None):
         """
-        The set of arguments for constructing a IPAMPoolCidr resource.
+        The set of arguments for constructing a IpamPoolCidr resource.
         :param pulumi.Input[str] ipam_pool_id: Id of the IPAM Pool.
         :param pulumi.Input[str] cidr: Represents a single IPv4 or IPv6 CIDR
         :param pulumi.Input[int] netmask_length: The desired netmask length of the provision. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.
@@ -66,7 +66,7 @@ class IPAMPoolCidrArgs:
         pulumi.set(self, "netmask_length", value)
 
 
-class IPAMPoolCidr(pulumi.CustomResource):
+class IpamPoolCidr(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -88,18 +88,18 @@ class IPAMPoolCidr(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IPAMPoolCidrArgs,
+                 args: IpamPoolCidrArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAMPoolCidr Type
 
         :param str resource_name: The name of the resource.
-        :param IPAMPoolCidrArgs args: The arguments to use to populate this resource's properties.
+        :param IpamPoolCidrArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IPAMPoolCidrArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IpamPoolCidrArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -118,7 +118,7 @@ class IPAMPoolCidr(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IPAMPoolCidrArgs.__new__(IPAMPoolCidrArgs)
+            __props__ = IpamPoolCidrArgs.__new__(IpamPoolCidrArgs)
 
             __props__.__dict__["cidr"] = cidr
             if ipam_pool_id is None and not opts.urn:
@@ -127,8 +127,8 @@ class IPAMPoolCidr(pulumi.CustomResource):
             __props__.__dict__["netmask_length"] = netmask_length
             __props__.__dict__["ipam_pool_cidr_id"] = None
             __props__.__dict__["state"] = None
-        super(IPAMPoolCidr, __self__).__init__(
-            'aws-native:ec2:IPAMPoolCidr',
+        super(IpamPoolCidr, __self__).__init__(
+            'aws-native:ec2:IpamPoolCidr',
             resource_name,
             __props__,
             opts)
@@ -136,9 +136,9 @@ class IPAMPoolCidr(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'IPAMPoolCidr':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IpamPoolCidr':
         """
-        Get an existing IPAMPoolCidr resource's state with the given name, id, and optional extra
+        Get an existing IpamPoolCidr resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -147,14 +147,14 @@ class IPAMPoolCidr(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = IPAMPoolCidrArgs.__new__(IPAMPoolCidrArgs)
+        __props__ = IpamPoolCidrArgs.__new__(IpamPoolCidrArgs)
 
         __props__.__dict__["cidr"] = None
         __props__.__dict__["ipam_pool_cidr_id"] = None
         __props__.__dict__["ipam_pool_id"] = None
         __props__.__dict__["netmask_length"] = None
         __props__.__dict__["state"] = None
-        return IPAMPoolCidr(resource_name, opts=opts, __props__=__props__)
+        return IpamPoolCidr(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter

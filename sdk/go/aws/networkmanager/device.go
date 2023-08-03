@@ -17,7 +17,7 @@ type Device struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Web Services location of the device, if applicable.
-	AwsLocation DeviceAWSLocationPtrOutput `pulumi:"awsLocation"`
+	AwsLocation DeviceAwsLocationPtrOutput `pulumi:"awsLocation"`
 	// The date and time that the device was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the device.
@@ -88,7 +88,7 @@ func (DeviceState) ElementType() reflect.Type {
 
 type deviceArgs struct {
 	// The Amazon Web Services location of the device, if applicable.
-	AwsLocation *DeviceAWSLocation `pulumi:"awsLocation"`
+	AwsLocation *DeviceAwsLocation `pulumi:"awsLocation"`
 	// The description of the device.
 	Description *string `pulumi:"description"`
 	// The ID of the global network.
@@ -112,7 +112,7 @@ type deviceArgs struct {
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
 	// The Amazon Web Services location of the device, if applicable.
-	AwsLocation DeviceAWSLocationPtrInput
+	AwsLocation DeviceAwsLocationPtrInput
 	// The description of the device.
 	Description pulumi.StringPtrInput
 	// The ID of the global network.
@@ -171,8 +171,8 @@ func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutpu
 }
 
 // The Amazon Web Services location of the device, if applicable.
-func (o DeviceOutput) AwsLocation() DeviceAWSLocationPtrOutput {
-	return o.ApplyT(func(v *Device) DeviceAWSLocationPtrOutput { return v.AwsLocation }).(DeviceAWSLocationPtrOutput)
+func (o DeviceOutput) AwsLocation() DeviceAwsLocationPtrOutput {
+	return o.ApplyT(func(v *Device) DeviceAwsLocationPtrOutput { return v.AwsLocation }).(DeviceAwsLocationPtrOutput)
 }
 
 // The date and time that the device was created.

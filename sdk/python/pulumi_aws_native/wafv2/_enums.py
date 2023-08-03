@@ -5,8 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'IPSetIPAddressVersion',
-    'IPSetScope',
+    'IpSetIpAddressVersion',
+    'IpSetScope',
     'LoggingConfigurationConditionActionConditionPropertiesAction',
     'LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior',
     'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope',
@@ -15,9 +15,9 @@ __all__ = [
     'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior',
     'RegexPatternSetScope',
     'RuleGroupBodyParsingFallbackBehavior',
-    'RuleGroupForwardedIPConfigurationFallbackBehavior',
-    'RuleGroupIPSetForwardedIPConfigurationFallbackBehavior',
-    'RuleGroupIPSetForwardedIPConfigurationPosition',
+    'RuleGroupForwardedIpConfigurationFallbackBehavior',
+    'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior',
+    'RuleGroupIpSetForwardedIpConfigurationPosition',
     'RuleGroupJsonMatchScope',
     'RuleGroupLabelMatchScope',
     'RuleGroupMapMatchScope',
@@ -28,28 +28,28 @@ __all__ = [
     'RuleGroupSensitivityLevel',
     'RuleGroupSizeConstraintStatementComparisonOperator',
     'RuleGroupTextTransformationType',
-    'WebACLAWSManagedRulesBotControlRuleSetInspectionLevel',
-    'WebACLBodyParsingFallbackBehavior',
-    'WebACLForwardedIPConfigurationFallbackBehavior',
-    'WebACLIPSetForwardedIPConfigurationFallbackBehavior',
-    'WebACLIPSetForwardedIPConfigurationPosition',
-    'WebACLJsonMatchScope',
-    'WebACLLabelMatchScope',
-    'WebACLManagedRuleGroupConfigPayloadType',
-    'WebACLMapMatchScope',
-    'WebACLOversizeHandling',
-    'WebACLPositionalConstraint',
-    'WebACLRateBasedStatementAggregateKeyType',
-    'WebACLRequestInspectionACFPPayloadType',
-    'WebACLRequestInspectionPayloadType',
-    'WebACLScope',
-    'WebACLSensitivityLevel',
-    'WebACLSizeConstraintStatementComparisonOperator',
-    'WebACLTextTransformationType',
+    'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
+    'WebAclBodyParsingFallbackBehavior',
+    'WebAclForwardedIpConfigurationFallbackBehavior',
+    'WebAclIpSetForwardedIpConfigurationFallbackBehavior',
+    'WebAclIpSetForwardedIpConfigurationPosition',
+    'WebAclJsonMatchScope',
+    'WebAclLabelMatchScope',
+    'WebAclManagedRuleGroupConfigPayloadType',
+    'WebAclMapMatchScope',
+    'WebAclOversizeHandling',
+    'WebAclPositionalConstraint',
+    'WebAclRateBasedStatementAggregateKeyType',
+    'WebAclRequestInspectionAcfpPayloadType',
+    'WebAclRequestInspectionPayloadType',
+    'WebAclScope',
+    'WebAclSensitivityLevel',
+    'WebAclSizeConstraintStatementComparisonOperator',
+    'WebAclTextTransformationType',
 ]
 
 
-class IPSetIPAddressVersion(str, Enum):
+class IpSetIpAddressVersion(str, Enum):
     """
     Type of addresses in the IPSet, use IPV4 for IPV4 IP addresses, IPV6 for IPV6 address.
     """
@@ -57,7 +57,7 @@ class IPSetIPAddressVersion(str, Enum):
     IPV6 = "IPV6"
 
 
-class IPSetScope(str, Enum):
+class IpSetScope(str, Enum):
     """
     Use CLOUDFRONT for CloudFront IPSet, use REGIONAL for Application Load Balancer and API Gateway.
     """
@@ -136,17 +136,17 @@ class RuleGroupBodyParsingFallbackBehavior(str, Enum):
     EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
 
 
-class RuleGroupForwardedIPConfigurationFallbackBehavior(str, Enum):
+class RuleGroupForwardedIpConfigurationFallbackBehavior(str, Enum):
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
 
 
-class RuleGroupIPSetForwardedIPConfigurationFallbackBehavior(str, Enum):
+class RuleGroupIpSetForwardedIpConfigurationFallbackBehavior(str, Enum):
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
 
 
-class RuleGroupIPSetForwardedIPConfigurationPosition(str, Enum):
+class RuleGroupIpSetForwardedIpConfigurationPosition(str, Enum):
     FIRST = "FIRST"
     LAST = "LAST"
     ANY = "ANY"
@@ -253,12 +253,12 @@ class RuleGroupTextTransformationType(str, Enum):
     UTF8_TO_UNICODE = "UTF8_TO_UNICODE"
 
 
-class WebACLAWSManagedRulesBotControlRuleSetInspectionLevel(str, Enum):
+class WebAclAwsManagedRulesBotControlRuleSetInspectionLevel(str, Enum):
     COMMON = "COMMON"
     TARGETED = "TARGETED"
 
 
-class WebACLBodyParsingFallbackBehavior(str, Enum):
+class WebAclBodyParsingFallbackBehavior(str, Enum):
     """
     The inspection behavior to fall back to if the JSON in the request body is invalid.
     """
@@ -267,23 +267,23 @@ class WebACLBodyParsingFallbackBehavior(str, Enum):
     EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
 
 
-class WebACLForwardedIPConfigurationFallbackBehavior(str, Enum):
+class WebAclForwardedIpConfigurationFallbackBehavior(str, Enum):
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
 
 
-class WebACLIPSetForwardedIPConfigurationFallbackBehavior(str, Enum):
+class WebAclIpSetForwardedIpConfigurationFallbackBehavior(str, Enum):
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
 
 
-class WebACLIPSetForwardedIPConfigurationPosition(str, Enum):
+class WebAclIpSetForwardedIpConfigurationPosition(str, Enum):
     FIRST = "FIRST"
     LAST = "LAST"
     ANY = "ANY"
 
 
-class WebACLJsonMatchScope(str, Enum):
+class WebAclJsonMatchScope(str, Enum):
     """
     The parts of the JSON to match against using the MatchPattern.
     """
@@ -292,17 +292,17 @@ class WebACLJsonMatchScope(str, Enum):
     VALUE = "VALUE"
 
 
-class WebACLLabelMatchScope(str, Enum):
+class WebAclLabelMatchScope(str, Enum):
     LABEL = "LABEL"
     NAMESPACE = "NAMESPACE"
 
 
-class WebACLManagedRuleGroupConfigPayloadType(str, Enum):
+class WebAclManagedRuleGroupConfigPayloadType(str, Enum):
     JSON = "JSON"
     FORM_ENCODED = "FORM_ENCODED"
 
 
-class WebACLMapMatchScope(str, Enum):
+class WebAclMapMatchScope(str, Enum):
     """
     The parts of the request to match against using the MatchPattern.
     """
@@ -311,7 +311,7 @@ class WebACLMapMatchScope(str, Enum):
     VALUE = "VALUE"
 
 
-class WebACLOversizeHandling(str, Enum):
+class WebAclOversizeHandling(str, Enum):
     """
     Handling of requests containing oversize fields
     """
@@ -320,7 +320,7 @@ class WebACLOversizeHandling(str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
-class WebACLPositionalConstraint(str, Enum):
+class WebAclPositionalConstraint(str, Enum):
     """
     Position of the evaluation in the FieldToMatch of request.
     """
@@ -331,23 +331,23 @@ class WebACLPositionalConstraint(str, Enum):
     CONTAINS_WORD = "CONTAINS_WORD"
 
 
-class WebACLRateBasedStatementAggregateKeyType(str, Enum):
+class WebAclRateBasedStatementAggregateKeyType(str, Enum):
     IP = "IP"
     FORWARDED_IP = "FORWARDED_IP"
     CUSTOM_KEYS = "CUSTOM_KEYS"
 
 
-class WebACLRequestInspectionACFPPayloadType(str, Enum):
+class WebAclRequestInspectionAcfpPayloadType(str, Enum):
     JSON = "JSON"
     FORM_ENCODED = "FORM_ENCODED"
 
 
-class WebACLRequestInspectionPayloadType(str, Enum):
+class WebAclRequestInspectionPayloadType(str, Enum):
     JSON = "JSON"
     FORM_ENCODED = "FORM_ENCODED"
 
 
-class WebACLScope(str, Enum):
+class WebAclScope(str, Enum):
     """
     Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
     """
@@ -355,7 +355,7 @@ class WebACLScope(str, Enum):
     REGIONAL = "REGIONAL"
 
 
-class WebACLSensitivityLevel(str, Enum):
+class WebAclSensitivityLevel(str, Enum):
     """
     Sensitivity Level current only used for sqli match statements.
     """
@@ -363,7 +363,7 @@ class WebACLSensitivityLevel(str, Enum):
     HIGH = "HIGH"
 
 
-class WebACLSizeConstraintStatementComparisonOperator(str, Enum):
+class WebAclSizeConstraintStatementComparisonOperator(str, Enum):
     EQ = "EQ"
     NE = "NE"
     LE = "LE"
@@ -372,7 +372,7 @@ class WebACLSizeConstraintStatementComparisonOperator(str, Enum):
     GT = "GT"
 
 
-class WebACLTextTransformationType(str, Enum):
+class WebAclTextTransformationType(str, Enum):
     """
     Type of text transformation.
     """

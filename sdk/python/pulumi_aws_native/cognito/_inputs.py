@@ -19,7 +19,7 @@ __all__ = [
     'UserPoolClientAnalyticsConfigurationArgs',
     'UserPoolClientTokenValidityUnitsArgs',
     'UserPoolCustomEmailSenderArgs',
-    'UserPoolCustomSMSSenderArgs',
+    'UserPoolCustomSmsSenderArgs',
     'UserPoolDeviceConfigurationArgs',
     'UserPoolDomainCustomDomainConfigTypeArgs',
     'UserPoolEmailConfigurationArgs',
@@ -369,7 +369,7 @@ class UserPoolCustomEmailSenderArgs:
 
 
 @pulumi.input_type
-class UserPoolCustomSMSSenderArgs:
+class UserPoolCustomSmsSenderArgs:
     def __init__(__self__, *,
                  lambda_arn: Optional[pulumi.Input[str]] = None,
                  lambda_version: Optional[pulumi.Input[str]] = None):
@@ -555,7 +555,7 @@ class UserPoolLambdaConfigArgs:
                  create_auth_challenge: Optional[pulumi.Input[str]] = None,
                  custom_email_sender: Optional[pulumi.Input['UserPoolCustomEmailSenderArgs']] = None,
                  custom_message: Optional[pulumi.Input[str]] = None,
-                 custom_sms_sender: Optional[pulumi.Input['UserPoolCustomSMSSenderArgs']] = None,
+                 custom_sms_sender: Optional[pulumi.Input['UserPoolCustomSmsSenderArgs']] = None,
                  define_auth_challenge: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  post_authentication: Optional[pulumi.Input[str]] = None,
@@ -621,11 +621,11 @@ class UserPoolLambdaConfigArgs:
 
     @property
     @pulumi.getter(name="customSmsSender")
-    def custom_sms_sender(self) -> Optional[pulumi.Input['UserPoolCustomSMSSenderArgs']]:
+    def custom_sms_sender(self) -> Optional[pulumi.Input['UserPoolCustomSmsSenderArgs']]:
         return pulumi.get(self, "custom_sms_sender")
 
     @custom_sms_sender.setter
-    def custom_sms_sender(self, value: Optional[pulumi.Input['UserPoolCustomSMSSenderArgs']]):
+    def custom_sms_sender(self, value: Optional[pulumi.Input['UserPoolCustomSmsSenderArgs']]):
         pulumi.set(self, "custom_sms_sender", value)
 
     @property

@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetIPSetResult',
-    'AwaitableGetIPSetResult',
+    'GetIpSetResult',
+    'AwaitableGetIpSetResult',
     'get_ip_set',
     'get_ip_set_output',
 ]
 
 @pulumi.output_type
-class GetIPSetResult:
+class GetIpSetResult:
     def __init__(__self__, activate=None, id=None, location=None, name=None, tags=None):
         if activate and not isinstance(activate, bool):
             raise TypeError("Expected argument 'activate' to be a bool")
@@ -58,16 +58,16 @@ class GetIPSetResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.IPSetTag']]:
+    def tags(self) -> Optional[Sequence['outputs.IpSetTag']]:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIPSetResult(GetIPSetResult):
+class AwaitableGetIpSetResult(GetIpSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIPSetResult(
+        return GetIpSetResult(
             activate=self.activate,
             id=self.id,
             location=self.location,
@@ -76,16 +76,16 @@ class AwaitableGetIPSetResult(GetIPSetResult):
 
 
 def get_ip_set(id: Optional[str] = None,
-               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPSetResult:
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpSetResult:
     """
     Resource Type definition for AWS::GuardDuty::IPSet
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:guardduty:getIPSet', __args__, opts=opts, typ=GetIPSetResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:guardduty:getIpSet', __args__, opts=opts, typ=GetIpSetResult).value
 
-    return AwaitableGetIPSetResult(
+    return AwaitableGetIpSetResult(
         activate=pulumi.get(__ret__, 'activate'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -95,7 +95,7 @@ def get_ip_set(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_ip_set)
 def get_ip_set_output(id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPSetResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpSetResult]:
     """
     Resource Type definition for AWS::GuardDuty::IPSet
     """

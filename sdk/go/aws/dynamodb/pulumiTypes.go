@@ -1327,139 +1327,6 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput) Index(i 
 	}).(GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput)
 }
 
-type GlobalTableReplicaSSESpecification struct {
-	KmsMasterKeyId string `pulumi:"kmsMasterKeyId"`
-}
-
-// GlobalTableReplicaSSESpecificationInput is an input type that accepts GlobalTableReplicaSSESpecificationArgs and GlobalTableReplicaSSESpecificationOutput values.
-// You can construct a concrete instance of `GlobalTableReplicaSSESpecificationInput` via:
-//
-//	GlobalTableReplicaSSESpecificationArgs{...}
-type GlobalTableReplicaSSESpecificationInput interface {
-	pulumi.Input
-
-	ToGlobalTableReplicaSSESpecificationOutput() GlobalTableReplicaSSESpecificationOutput
-	ToGlobalTableReplicaSSESpecificationOutputWithContext(context.Context) GlobalTableReplicaSSESpecificationOutput
-}
-
-type GlobalTableReplicaSSESpecificationArgs struct {
-	KmsMasterKeyId pulumi.StringInput `pulumi:"kmsMasterKeyId"`
-}
-
-func (GlobalTableReplicaSSESpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalTableReplicaSSESpecification)(nil)).Elem()
-}
-
-func (i GlobalTableReplicaSSESpecificationArgs) ToGlobalTableReplicaSSESpecificationOutput() GlobalTableReplicaSSESpecificationOutput {
-	return i.ToGlobalTableReplicaSSESpecificationOutputWithContext(context.Background())
-}
-
-func (i GlobalTableReplicaSSESpecificationArgs) ToGlobalTableReplicaSSESpecificationOutputWithContext(ctx context.Context) GlobalTableReplicaSSESpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSSESpecificationOutput)
-}
-
-func (i GlobalTableReplicaSSESpecificationArgs) ToGlobalTableReplicaSSESpecificationPtrOutput() GlobalTableReplicaSSESpecificationPtrOutput {
-	return i.ToGlobalTableReplicaSSESpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i GlobalTableReplicaSSESpecificationArgs) ToGlobalTableReplicaSSESpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaSSESpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSSESpecificationOutput).ToGlobalTableReplicaSSESpecificationPtrOutputWithContext(ctx)
-}
-
-// GlobalTableReplicaSSESpecificationPtrInput is an input type that accepts GlobalTableReplicaSSESpecificationArgs, GlobalTableReplicaSSESpecificationPtr and GlobalTableReplicaSSESpecificationPtrOutput values.
-// You can construct a concrete instance of `GlobalTableReplicaSSESpecificationPtrInput` via:
-//
-//	        GlobalTableReplicaSSESpecificationArgs{...}
-//
-//	or:
-//
-//	        nil
-type GlobalTableReplicaSSESpecificationPtrInput interface {
-	pulumi.Input
-
-	ToGlobalTableReplicaSSESpecificationPtrOutput() GlobalTableReplicaSSESpecificationPtrOutput
-	ToGlobalTableReplicaSSESpecificationPtrOutputWithContext(context.Context) GlobalTableReplicaSSESpecificationPtrOutput
-}
-
-type globalTableReplicaSSESpecificationPtrType GlobalTableReplicaSSESpecificationArgs
-
-func GlobalTableReplicaSSESpecificationPtr(v *GlobalTableReplicaSSESpecificationArgs) GlobalTableReplicaSSESpecificationPtrInput {
-	return (*globalTableReplicaSSESpecificationPtrType)(v)
-}
-
-func (*globalTableReplicaSSESpecificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalTableReplicaSSESpecification)(nil)).Elem()
-}
-
-func (i *globalTableReplicaSSESpecificationPtrType) ToGlobalTableReplicaSSESpecificationPtrOutput() GlobalTableReplicaSSESpecificationPtrOutput {
-	return i.ToGlobalTableReplicaSSESpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i *globalTableReplicaSSESpecificationPtrType) ToGlobalTableReplicaSSESpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaSSESpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSSESpecificationPtrOutput)
-}
-
-type GlobalTableReplicaSSESpecificationOutput struct{ *pulumi.OutputState }
-
-func (GlobalTableReplicaSSESpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalTableReplicaSSESpecification)(nil)).Elem()
-}
-
-func (o GlobalTableReplicaSSESpecificationOutput) ToGlobalTableReplicaSSESpecificationOutput() GlobalTableReplicaSSESpecificationOutput {
-	return o
-}
-
-func (o GlobalTableReplicaSSESpecificationOutput) ToGlobalTableReplicaSSESpecificationOutputWithContext(ctx context.Context) GlobalTableReplicaSSESpecificationOutput {
-	return o
-}
-
-func (o GlobalTableReplicaSSESpecificationOutput) ToGlobalTableReplicaSSESpecificationPtrOutput() GlobalTableReplicaSSESpecificationPtrOutput {
-	return o.ToGlobalTableReplicaSSESpecificationPtrOutputWithContext(context.Background())
-}
-
-func (o GlobalTableReplicaSSESpecificationOutput) ToGlobalTableReplicaSSESpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaSSESpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableReplicaSSESpecification) *GlobalTableReplicaSSESpecification {
-		return &v
-	}).(GlobalTableReplicaSSESpecificationPtrOutput)
-}
-
-func (o GlobalTableReplicaSSESpecificationOutput) KmsMasterKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GlobalTableReplicaSSESpecification) string { return v.KmsMasterKeyId }).(pulumi.StringOutput)
-}
-
-type GlobalTableReplicaSSESpecificationPtrOutput struct{ *pulumi.OutputState }
-
-func (GlobalTableReplicaSSESpecificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalTableReplicaSSESpecification)(nil)).Elem()
-}
-
-func (o GlobalTableReplicaSSESpecificationPtrOutput) ToGlobalTableReplicaSSESpecificationPtrOutput() GlobalTableReplicaSSESpecificationPtrOutput {
-	return o
-}
-
-func (o GlobalTableReplicaSSESpecificationPtrOutput) ToGlobalTableReplicaSSESpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaSSESpecificationPtrOutput {
-	return o
-}
-
-func (o GlobalTableReplicaSSESpecificationPtrOutput) Elem() GlobalTableReplicaSSESpecificationOutput {
-	return o.ApplyT(func(v *GlobalTableReplicaSSESpecification) GlobalTableReplicaSSESpecification {
-		if v != nil {
-			return *v
-		}
-		var ret GlobalTableReplicaSSESpecification
-		return ret
-	}).(GlobalTableReplicaSSESpecificationOutput)
-}
-
-func (o GlobalTableReplicaSSESpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GlobalTableReplicaSSESpecification) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KmsMasterKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
 type GlobalTableReplicaSpecification struct {
 	ContributorInsightsSpecification  *GlobalTableContributorInsightsSpecification          `pulumi:"contributorInsightsSpecification"`
 	DeletionProtectionEnabled         *bool                                                 `pulumi:"deletionProtectionEnabled"`
@@ -1468,7 +1335,7 @@ type GlobalTableReplicaSpecification struct {
 	PointInTimeRecoverySpecification  *GlobalTablePointInTimeRecoverySpecification          `pulumi:"pointInTimeRecoverySpecification"`
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings         `pulumi:"readProvisionedThroughputSettings"`
 	Region                            string                                                `pulumi:"region"`
-	SseSpecification                  *GlobalTableReplicaSSESpecification                   `pulumi:"sseSpecification"`
+	SseSpecification                  *GlobalTableReplicaSseSpecification                   `pulumi:"sseSpecification"`
 	TableClass                        *string                                               `pulumi:"tableClass"`
 	Tags                              []GlobalTableTag                                      `pulumi:"tags"`
 }
@@ -1492,7 +1359,7 @@ type GlobalTableReplicaSpecificationArgs struct {
 	PointInTimeRecoverySpecification  GlobalTablePointInTimeRecoverySpecificationPtrInput           `pulumi:"pointInTimeRecoverySpecification"`
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput          `pulumi:"readProvisionedThroughputSettings"`
 	Region                            pulumi.StringInput                                            `pulumi:"region"`
-	SseSpecification                  GlobalTableReplicaSSESpecificationPtrInput                    `pulumi:"sseSpecification"`
+	SseSpecification                  GlobalTableReplicaSseSpecificationPtrInput                    `pulumi:"sseSpecification"`
 	TableClass                        pulumi.StringPtrInput                                         `pulumi:"tableClass"`
 	Tags                              GlobalTableTagArrayInput                                      `pulumi:"tags"`
 }
@@ -1586,8 +1453,8 @@ func (o GlobalTableReplicaSpecificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) string { return v.Region }).(pulumi.StringOutput)
 }
 
-func (o GlobalTableReplicaSpecificationOutput) SseSpecification() GlobalTableReplicaSSESpecificationPtrOutput {
-	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaSSESpecification { return v.SseSpecification }).(GlobalTableReplicaSSESpecificationPtrOutput)
+func (o GlobalTableReplicaSpecificationOutput) SseSpecification() GlobalTableReplicaSseSpecificationPtrOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaSseSpecification { return v.SseSpecification }).(GlobalTableReplicaSseSpecificationPtrOutput)
 }
 
 func (o GlobalTableReplicaSpecificationOutput) TableClass() pulumi.StringPtrOutput {
@@ -1618,138 +1485,271 @@ func (o GlobalTableReplicaSpecificationArrayOutput) Index(i pulumi.IntInput) Glo
 	}).(GlobalTableReplicaSpecificationOutput)
 }
 
-type GlobalTableSSESpecification struct {
-	SseEnabled bool    `pulumi:"sseEnabled"`
-	SseType    *string `pulumi:"sseType"`
+type GlobalTableReplicaSseSpecification struct {
+	KmsMasterKeyId string `pulumi:"kmsMasterKeyId"`
 }
 
-// GlobalTableSSESpecificationInput is an input type that accepts GlobalTableSSESpecificationArgs and GlobalTableSSESpecificationOutput values.
-// You can construct a concrete instance of `GlobalTableSSESpecificationInput` via:
+// GlobalTableReplicaSseSpecificationInput is an input type that accepts GlobalTableReplicaSseSpecificationArgs and GlobalTableReplicaSseSpecificationOutput values.
+// You can construct a concrete instance of `GlobalTableReplicaSseSpecificationInput` via:
 //
-//	GlobalTableSSESpecificationArgs{...}
-type GlobalTableSSESpecificationInput interface {
+//	GlobalTableReplicaSseSpecificationArgs{...}
+type GlobalTableReplicaSseSpecificationInput interface {
 	pulumi.Input
 
-	ToGlobalTableSSESpecificationOutput() GlobalTableSSESpecificationOutput
-	ToGlobalTableSSESpecificationOutputWithContext(context.Context) GlobalTableSSESpecificationOutput
+	ToGlobalTableReplicaSseSpecificationOutput() GlobalTableReplicaSseSpecificationOutput
+	ToGlobalTableReplicaSseSpecificationOutputWithContext(context.Context) GlobalTableReplicaSseSpecificationOutput
 }
 
-type GlobalTableSSESpecificationArgs struct {
-	SseEnabled pulumi.BoolInput      `pulumi:"sseEnabled"`
-	SseType    pulumi.StringPtrInput `pulumi:"sseType"`
+type GlobalTableReplicaSseSpecificationArgs struct {
+	KmsMasterKeyId pulumi.StringInput `pulumi:"kmsMasterKeyId"`
 }
 
-func (GlobalTableSSESpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalTableSSESpecification)(nil)).Elem()
+func (GlobalTableReplicaSseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableReplicaSseSpecification)(nil)).Elem()
 }
 
-func (i GlobalTableSSESpecificationArgs) ToGlobalTableSSESpecificationOutput() GlobalTableSSESpecificationOutput {
-	return i.ToGlobalTableSSESpecificationOutputWithContext(context.Background())
+func (i GlobalTableReplicaSseSpecificationArgs) ToGlobalTableReplicaSseSpecificationOutput() GlobalTableReplicaSseSpecificationOutput {
+	return i.ToGlobalTableReplicaSseSpecificationOutputWithContext(context.Background())
 }
 
-func (i GlobalTableSSESpecificationArgs) ToGlobalTableSSESpecificationOutputWithContext(ctx context.Context) GlobalTableSSESpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSSESpecificationOutput)
+func (i GlobalTableReplicaSseSpecificationArgs) ToGlobalTableReplicaSseSpecificationOutputWithContext(ctx context.Context) GlobalTableReplicaSseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSseSpecificationOutput)
 }
 
-func (i GlobalTableSSESpecificationArgs) ToGlobalTableSSESpecificationPtrOutput() GlobalTableSSESpecificationPtrOutput {
-	return i.ToGlobalTableSSESpecificationPtrOutputWithContext(context.Background())
+func (i GlobalTableReplicaSseSpecificationArgs) ToGlobalTableReplicaSseSpecificationPtrOutput() GlobalTableReplicaSseSpecificationPtrOutput {
+	return i.ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(context.Background())
 }
 
-func (i GlobalTableSSESpecificationArgs) ToGlobalTableSSESpecificationPtrOutputWithContext(ctx context.Context) GlobalTableSSESpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSSESpecificationOutput).ToGlobalTableSSESpecificationPtrOutputWithContext(ctx)
+func (i GlobalTableReplicaSseSpecificationArgs) ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSseSpecificationOutput).ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(ctx)
 }
 
-// GlobalTableSSESpecificationPtrInput is an input type that accepts GlobalTableSSESpecificationArgs, GlobalTableSSESpecificationPtr and GlobalTableSSESpecificationPtrOutput values.
-// You can construct a concrete instance of `GlobalTableSSESpecificationPtrInput` via:
+// GlobalTableReplicaSseSpecificationPtrInput is an input type that accepts GlobalTableReplicaSseSpecificationArgs, GlobalTableReplicaSseSpecificationPtr and GlobalTableReplicaSseSpecificationPtrOutput values.
+// You can construct a concrete instance of `GlobalTableReplicaSseSpecificationPtrInput` via:
 //
-//	        GlobalTableSSESpecificationArgs{...}
+//	        GlobalTableReplicaSseSpecificationArgs{...}
 //
 //	or:
 //
 //	        nil
-type GlobalTableSSESpecificationPtrInput interface {
+type GlobalTableReplicaSseSpecificationPtrInput interface {
 	pulumi.Input
 
-	ToGlobalTableSSESpecificationPtrOutput() GlobalTableSSESpecificationPtrOutput
-	ToGlobalTableSSESpecificationPtrOutputWithContext(context.Context) GlobalTableSSESpecificationPtrOutput
+	ToGlobalTableReplicaSseSpecificationPtrOutput() GlobalTableReplicaSseSpecificationPtrOutput
+	ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(context.Context) GlobalTableReplicaSseSpecificationPtrOutput
 }
 
-type globalTableSSESpecificationPtrType GlobalTableSSESpecificationArgs
+type globalTableReplicaSseSpecificationPtrType GlobalTableReplicaSseSpecificationArgs
 
-func GlobalTableSSESpecificationPtr(v *GlobalTableSSESpecificationArgs) GlobalTableSSESpecificationPtrInput {
-	return (*globalTableSSESpecificationPtrType)(v)
+func GlobalTableReplicaSseSpecificationPtr(v *GlobalTableReplicaSseSpecificationArgs) GlobalTableReplicaSseSpecificationPtrInput {
+	return (*globalTableReplicaSseSpecificationPtrType)(v)
 }
 
-func (*globalTableSSESpecificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalTableSSESpecification)(nil)).Elem()
+func (*globalTableReplicaSseSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableReplicaSseSpecification)(nil)).Elem()
 }
 
-func (i *globalTableSSESpecificationPtrType) ToGlobalTableSSESpecificationPtrOutput() GlobalTableSSESpecificationPtrOutput {
-	return i.ToGlobalTableSSESpecificationPtrOutputWithContext(context.Background())
+func (i *globalTableReplicaSseSpecificationPtrType) ToGlobalTableReplicaSseSpecificationPtrOutput() GlobalTableReplicaSseSpecificationPtrOutput {
+	return i.ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(context.Background())
 }
 
-func (i *globalTableSSESpecificationPtrType) ToGlobalTableSSESpecificationPtrOutputWithContext(ctx context.Context) GlobalTableSSESpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSSESpecificationPtrOutput)
+func (i *globalTableReplicaSseSpecificationPtrType) ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSseSpecificationPtrOutput)
 }
 
-type GlobalTableSSESpecificationOutput struct{ *pulumi.OutputState }
+type GlobalTableReplicaSseSpecificationOutput struct{ *pulumi.OutputState }
 
-func (GlobalTableSSESpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalTableSSESpecification)(nil)).Elem()
+func (GlobalTableReplicaSseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableReplicaSseSpecification)(nil)).Elem()
 }
 
-func (o GlobalTableSSESpecificationOutput) ToGlobalTableSSESpecificationOutput() GlobalTableSSESpecificationOutput {
+func (o GlobalTableReplicaSseSpecificationOutput) ToGlobalTableReplicaSseSpecificationOutput() GlobalTableReplicaSseSpecificationOutput {
 	return o
 }
 
-func (o GlobalTableSSESpecificationOutput) ToGlobalTableSSESpecificationOutputWithContext(ctx context.Context) GlobalTableSSESpecificationOutput {
+func (o GlobalTableReplicaSseSpecificationOutput) ToGlobalTableReplicaSseSpecificationOutputWithContext(ctx context.Context) GlobalTableReplicaSseSpecificationOutput {
 	return o
 }
 
-func (o GlobalTableSSESpecificationOutput) ToGlobalTableSSESpecificationPtrOutput() GlobalTableSSESpecificationPtrOutput {
-	return o.ToGlobalTableSSESpecificationPtrOutputWithContext(context.Background())
+func (o GlobalTableReplicaSseSpecificationOutput) ToGlobalTableReplicaSseSpecificationPtrOutput() GlobalTableReplicaSseSpecificationPtrOutput {
+	return o.ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(context.Background())
 }
 
-func (o GlobalTableSSESpecificationOutput) ToGlobalTableSSESpecificationPtrOutputWithContext(ctx context.Context) GlobalTableSSESpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableSSESpecification) *GlobalTableSSESpecification {
+func (o GlobalTableReplicaSseSpecificationOutput) ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaSseSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableReplicaSseSpecification) *GlobalTableReplicaSseSpecification {
 		return &v
-	}).(GlobalTableSSESpecificationPtrOutput)
+	}).(GlobalTableReplicaSseSpecificationPtrOutput)
 }
 
-func (o GlobalTableSSESpecificationOutput) SseEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GlobalTableSSESpecification) bool { return v.SseEnabled }).(pulumi.BoolOutput)
+func (o GlobalTableReplicaSseSpecificationOutput) KmsMasterKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSseSpecification) string { return v.KmsMasterKeyId }).(pulumi.StringOutput)
 }
 
-func (o GlobalTableSSESpecificationOutput) SseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GlobalTableSSESpecification) *string { return v.SseType }).(pulumi.StringPtrOutput)
+type GlobalTableReplicaSseSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableReplicaSseSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableReplicaSseSpecification)(nil)).Elem()
 }
 
-type GlobalTableSSESpecificationPtrOutput struct{ *pulumi.OutputState }
-
-func (GlobalTableSSESpecificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalTableSSESpecification)(nil)).Elem()
-}
-
-func (o GlobalTableSSESpecificationPtrOutput) ToGlobalTableSSESpecificationPtrOutput() GlobalTableSSESpecificationPtrOutput {
+func (o GlobalTableReplicaSseSpecificationPtrOutput) ToGlobalTableReplicaSseSpecificationPtrOutput() GlobalTableReplicaSseSpecificationPtrOutput {
 	return o
 }
 
-func (o GlobalTableSSESpecificationPtrOutput) ToGlobalTableSSESpecificationPtrOutputWithContext(ctx context.Context) GlobalTableSSESpecificationPtrOutput {
+func (o GlobalTableReplicaSseSpecificationPtrOutput) ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaSseSpecificationPtrOutput {
 	return o
 }
 
-func (o GlobalTableSSESpecificationPtrOutput) Elem() GlobalTableSSESpecificationOutput {
-	return o.ApplyT(func(v *GlobalTableSSESpecification) GlobalTableSSESpecification {
+func (o GlobalTableReplicaSseSpecificationPtrOutput) Elem() GlobalTableReplicaSseSpecificationOutput {
+	return o.ApplyT(func(v *GlobalTableReplicaSseSpecification) GlobalTableReplicaSseSpecification {
 		if v != nil {
 			return *v
 		}
-		var ret GlobalTableSSESpecification
+		var ret GlobalTableReplicaSseSpecification
 		return ret
-	}).(GlobalTableSSESpecificationOutput)
+	}).(GlobalTableReplicaSseSpecificationOutput)
 }
 
-func (o GlobalTableSSESpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GlobalTableSSESpecification) *bool {
+func (o GlobalTableReplicaSseSpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalTableReplicaSseSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsMasterKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type GlobalTableSseSpecification struct {
+	SseEnabled bool    `pulumi:"sseEnabled"`
+	SseType    *string `pulumi:"sseType"`
+}
+
+// GlobalTableSseSpecificationInput is an input type that accepts GlobalTableSseSpecificationArgs and GlobalTableSseSpecificationOutput values.
+// You can construct a concrete instance of `GlobalTableSseSpecificationInput` via:
+//
+//	GlobalTableSseSpecificationArgs{...}
+type GlobalTableSseSpecificationInput interface {
+	pulumi.Input
+
+	ToGlobalTableSseSpecificationOutput() GlobalTableSseSpecificationOutput
+	ToGlobalTableSseSpecificationOutputWithContext(context.Context) GlobalTableSseSpecificationOutput
+}
+
+type GlobalTableSseSpecificationArgs struct {
+	SseEnabled pulumi.BoolInput      `pulumi:"sseEnabled"`
+	SseType    pulumi.StringPtrInput `pulumi:"sseType"`
+}
+
+func (GlobalTableSseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableSseSpecification)(nil)).Elem()
+}
+
+func (i GlobalTableSseSpecificationArgs) ToGlobalTableSseSpecificationOutput() GlobalTableSseSpecificationOutput {
+	return i.ToGlobalTableSseSpecificationOutputWithContext(context.Background())
+}
+
+func (i GlobalTableSseSpecificationArgs) ToGlobalTableSseSpecificationOutputWithContext(ctx context.Context) GlobalTableSseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSseSpecificationOutput)
+}
+
+func (i GlobalTableSseSpecificationArgs) ToGlobalTableSseSpecificationPtrOutput() GlobalTableSseSpecificationPtrOutput {
+	return i.ToGlobalTableSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalTableSseSpecificationArgs) ToGlobalTableSseSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSseSpecificationOutput).ToGlobalTableSseSpecificationPtrOutputWithContext(ctx)
+}
+
+// GlobalTableSseSpecificationPtrInput is an input type that accepts GlobalTableSseSpecificationArgs, GlobalTableSseSpecificationPtr and GlobalTableSseSpecificationPtrOutput values.
+// You can construct a concrete instance of `GlobalTableSseSpecificationPtrInput` via:
+//
+//	        GlobalTableSseSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalTableSseSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableSseSpecificationPtrOutput() GlobalTableSseSpecificationPtrOutput
+	ToGlobalTableSseSpecificationPtrOutputWithContext(context.Context) GlobalTableSseSpecificationPtrOutput
+}
+
+type globalTableSseSpecificationPtrType GlobalTableSseSpecificationArgs
+
+func GlobalTableSseSpecificationPtr(v *GlobalTableSseSpecificationArgs) GlobalTableSseSpecificationPtrInput {
+	return (*globalTableSseSpecificationPtrType)(v)
+}
+
+func (*globalTableSseSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableSseSpecification)(nil)).Elem()
+}
+
+func (i *globalTableSseSpecificationPtrType) ToGlobalTableSseSpecificationPtrOutput() GlobalTableSseSpecificationPtrOutput {
+	return i.ToGlobalTableSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *globalTableSseSpecificationPtrType) ToGlobalTableSseSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSseSpecificationPtrOutput)
+}
+
+type GlobalTableSseSpecificationOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableSseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableSseSpecification)(nil)).Elem()
+}
+
+func (o GlobalTableSseSpecificationOutput) ToGlobalTableSseSpecificationOutput() GlobalTableSseSpecificationOutput {
+	return o
+}
+
+func (o GlobalTableSseSpecificationOutput) ToGlobalTableSseSpecificationOutputWithContext(ctx context.Context) GlobalTableSseSpecificationOutput {
+	return o
+}
+
+func (o GlobalTableSseSpecificationOutput) ToGlobalTableSseSpecificationPtrOutput() GlobalTableSseSpecificationPtrOutput {
+	return o.ToGlobalTableSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableSseSpecificationOutput) ToGlobalTableSseSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableSseSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableSseSpecification) *GlobalTableSseSpecification {
+		return &v
+	}).(GlobalTableSseSpecificationPtrOutput)
+}
+
+func (o GlobalTableSseSpecificationOutput) SseEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GlobalTableSseSpecification) bool { return v.SseEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GlobalTableSseSpecificationOutput) SseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalTableSseSpecification) *string { return v.SseType }).(pulumi.StringPtrOutput)
+}
+
+type GlobalTableSseSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableSseSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableSseSpecification)(nil)).Elem()
+}
+
+func (o GlobalTableSseSpecificationPtrOutput) ToGlobalTableSseSpecificationPtrOutput() GlobalTableSseSpecificationPtrOutput {
+	return o
+}
+
+func (o GlobalTableSseSpecificationPtrOutput) ToGlobalTableSseSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableSseSpecificationPtrOutput {
+	return o
+}
+
+func (o GlobalTableSseSpecificationPtrOutput) Elem() GlobalTableSseSpecificationOutput {
+	return o.ApplyT(func(v *GlobalTableSseSpecification) GlobalTableSseSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableSseSpecification
+		return ret
+	}).(GlobalTableSseSpecificationOutput)
+}
+
+func (o GlobalTableSseSpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalTableSseSpecification) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1757,8 +1757,8 @@ func (o GlobalTableSSESpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o GlobalTableSSESpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GlobalTableSSESpecification) *string {
+func (o GlobalTableSseSpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalTableSseSpecification) *string {
 		if v == nil {
 			return nil
 		}
@@ -4110,144 +4110,144 @@ func (o TableS3BucketSourcePtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type TableSSESpecification struct {
+type TableSseSpecification struct {
 	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
 	SseEnabled     bool    `pulumi:"sseEnabled"`
 	SseType        *string `pulumi:"sseType"`
 }
 
-// TableSSESpecificationInput is an input type that accepts TableSSESpecificationArgs and TableSSESpecificationOutput values.
-// You can construct a concrete instance of `TableSSESpecificationInput` via:
+// TableSseSpecificationInput is an input type that accepts TableSseSpecificationArgs and TableSseSpecificationOutput values.
+// You can construct a concrete instance of `TableSseSpecificationInput` via:
 //
-//	TableSSESpecificationArgs{...}
-type TableSSESpecificationInput interface {
+//	TableSseSpecificationArgs{...}
+type TableSseSpecificationInput interface {
 	pulumi.Input
 
-	ToTableSSESpecificationOutput() TableSSESpecificationOutput
-	ToTableSSESpecificationOutputWithContext(context.Context) TableSSESpecificationOutput
+	ToTableSseSpecificationOutput() TableSseSpecificationOutput
+	ToTableSseSpecificationOutputWithContext(context.Context) TableSseSpecificationOutput
 }
 
-type TableSSESpecificationArgs struct {
+type TableSseSpecificationArgs struct {
 	KmsMasterKeyId pulumi.StringPtrInput `pulumi:"kmsMasterKeyId"`
 	SseEnabled     pulumi.BoolInput      `pulumi:"sseEnabled"`
 	SseType        pulumi.StringPtrInput `pulumi:"sseType"`
 }
 
-func (TableSSESpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableSSESpecification)(nil)).Elem()
+func (TableSseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSseSpecification)(nil)).Elem()
 }
 
-func (i TableSSESpecificationArgs) ToTableSSESpecificationOutput() TableSSESpecificationOutput {
-	return i.ToTableSSESpecificationOutputWithContext(context.Background())
+func (i TableSseSpecificationArgs) ToTableSseSpecificationOutput() TableSseSpecificationOutput {
+	return i.ToTableSseSpecificationOutputWithContext(context.Background())
 }
 
-func (i TableSSESpecificationArgs) ToTableSSESpecificationOutputWithContext(ctx context.Context) TableSSESpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableSSESpecificationOutput)
+func (i TableSseSpecificationArgs) ToTableSseSpecificationOutputWithContext(ctx context.Context) TableSseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSseSpecificationOutput)
 }
 
-func (i TableSSESpecificationArgs) ToTableSSESpecificationPtrOutput() TableSSESpecificationPtrOutput {
-	return i.ToTableSSESpecificationPtrOutputWithContext(context.Background())
+func (i TableSseSpecificationArgs) ToTableSseSpecificationPtrOutput() TableSseSpecificationPtrOutput {
+	return i.ToTableSseSpecificationPtrOutputWithContext(context.Background())
 }
 
-func (i TableSSESpecificationArgs) ToTableSSESpecificationPtrOutputWithContext(ctx context.Context) TableSSESpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableSSESpecificationOutput).ToTableSSESpecificationPtrOutputWithContext(ctx)
+func (i TableSseSpecificationArgs) ToTableSseSpecificationPtrOutputWithContext(ctx context.Context) TableSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSseSpecificationOutput).ToTableSseSpecificationPtrOutputWithContext(ctx)
 }
 
-// TableSSESpecificationPtrInput is an input type that accepts TableSSESpecificationArgs, TableSSESpecificationPtr and TableSSESpecificationPtrOutput values.
-// You can construct a concrete instance of `TableSSESpecificationPtrInput` via:
+// TableSseSpecificationPtrInput is an input type that accepts TableSseSpecificationArgs, TableSseSpecificationPtr and TableSseSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableSseSpecificationPtrInput` via:
 //
-//	        TableSSESpecificationArgs{...}
+//	        TableSseSpecificationArgs{...}
 //
 //	or:
 //
 //	        nil
-type TableSSESpecificationPtrInput interface {
+type TableSseSpecificationPtrInput interface {
 	pulumi.Input
 
-	ToTableSSESpecificationPtrOutput() TableSSESpecificationPtrOutput
-	ToTableSSESpecificationPtrOutputWithContext(context.Context) TableSSESpecificationPtrOutput
+	ToTableSseSpecificationPtrOutput() TableSseSpecificationPtrOutput
+	ToTableSseSpecificationPtrOutputWithContext(context.Context) TableSseSpecificationPtrOutput
 }
 
-type tableSSESpecificationPtrType TableSSESpecificationArgs
+type tableSseSpecificationPtrType TableSseSpecificationArgs
 
-func TableSSESpecificationPtr(v *TableSSESpecificationArgs) TableSSESpecificationPtrInput {
-	return (*tableSSESpecificationPtrType)(v)
+func TableSseSpecificationPtr(v *TableSseSpecificationArgs) TableSseSpecificationPtrInput {
+	return (*tableSseSpecificationPtrType)(v)
 }
 
-func (*tableSSESpecificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableSSESpecification)(nil)).Elem()
+func (*tableSseSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSseSpecification)(nil)).Elem()
 }
 
-func (i *tableSSESpecificationPtrType) ToTableSSESpecificationPtrOutput() TableSSESpecificationPtrOutput {
-	return i.ToTableSSESpecificationPtrOutputWithContext(context.Background())
+func (i *tableSseSpecificationPtrType) ToTableSseSpecificationPtrOutput() TableSseSpecificationPtrOutput {
+	return i.ToTableSseSpecificationPtrOutputWithContext(context.Background())
 }
 
-func (i *tableSSESpecificationPtrType) ToTableSSESpecificationPtrOutputWithContext(ctx context.Context) TableSSESpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableSSESpecificationPtrOutput)
+func (i *tableSseSpecificationPtrType) ToTableSseSpecificationPtrOutputWithContext(ctx context.Context) TableSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSseSpecificationPtrOutput)
 }
 
-type TableSSESpecificationOutput struct{ *pulumi.OutputState }
+type TableSseSpecificationOutput struct{ *pulumi.OutputState }
 
-func (TableSSESpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableSSESpecification)(nil)).Elem()
+func (TableSseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSseSpecification)(nil)).Elem()
 }
 
-func (o TableSSESpecificationOutput) ToTableSSESpecificationOutput() TableSSESpecificationOutput {
+func (o TableSseSpecificationOutput) ToTableSseSpecificationOutput() TableSseSpecificationOutput {
 	return o
 }
 
-func (o TableSSESpecificationOutput) ToTableSSESpecificationOutputWithContext(ctx context.Context) TableSSESpecificationOutput {
+func (o TableSseSpecificationOutput) ToTableSseSpecificationOutputWithContext(ctx context.Context) TableSseSpecificationOutput {
 	return o
 }
 
-func (o TableSSESpecificationOutput) ToTableSSESpecificationPtrOutput() TableSSESpecificationPtrOutput {
-	return o.ToTableSSESpecificationPtrOutputWithContext(context.Background())
+func (o TableSseSpecificationOutput) ToTableSseSpecificationPtrOutput() TableSseSpecificationPtrOutput {
+	return o.ToTableSseSpecificationPtrOutputWithContext(context.Background())
 }
 
-func (o TableSSESpecificationOutput) ToTableSSESpecificationPtrOutputWithContext(ctx context.Context) TableSSESpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSSESpecification) *TableSSESpecification {
+func (o TableSseSpecificationOutput) ToTableSseSpecificationPtrOutputWithContext(ctx context.Context) TableSseSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSseSpecification) *TableSseSpecification {
 		return &v
-	}).(TableSSESpecificationPtrOutput)
+	}).(TableSseSpecificationPtrOutput)
 }
 
-func (o TableSSESpecificationOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableSSESpecification) *string { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
+func (o TableSseSpecificationOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSseSpecification) *string { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o TableSSESpecificationOutput) SseEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v TableSSESpecification) bool { return v.SseEnabled }).(pulumi.BoolOutput)
+func (o TableSseSpecificationOutput) SseEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TableSseSpecification) bool { return v.SseEnabled }).(pulumi.BoolOutput)
 }
 
-func (o TableSSESpecificationOutput) SseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableSSESpecification) *string { return v.SseType }).(pulumi.StringPtrOutput)
+func (o TableSseSpecificationOutput) SseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSseSpecification) *string { return v.SseType }).(pulumi.StringPtrOutput)
 }
 
-type TableSSESpecificationPtrOutput struct{ *pulumi.OutputState }
+type TableSseSpecificationPtrOutput struct{ *pulumi.OutputState }
 
-func (TableSSESpecificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableSSESpecification)(nil)).Elem()
+func (TableSseSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSseSpecification)(nil)).Elem()
 }
 
-func (o TableSSESpecificationPtrOutput) ToTableSSESpecificationPtrOutput() TableSSESpecificationPtrOutput {
+func (o TableSseSpecificationPtrOutput) ToTableSseSpecificationPtrOutput() TableSseSpecificationPtrOutput {
 	return o
 }
 
-func (o TableSSESpecificationPtrOutput) ToTableSSESpecificationPtrOutputWithContext(ctx context.Context) TableSSESpecificationPtrOutput {
+func (o TableSseSpecificationPtrOutput) ToTableSseSpecificationPtrOutputWithContext(ctx context.Context) TableSseSpecificationPtrOutput {
 	return o
 }
 
-func (o TableSSESpecificationPtrOutput) Elem() TableSSESpecificationOutput {
-	return o.ApplyT(func(v *TableSSESpecification) TableSSESpecification {
+func (o TableSseSpecificationPtrOutput) Elem() TableSseSpecificationOutput {
+	return o.ApplyT(func(v *TableSseSpecification) TableSseSpecification {
 		if v != nil {
 			return *v
 		}
-		var ret TableSSESpecification
+		var ret TableSseSpecification
 		return ret
-	}).(TableSSESpecificationOutput)
+	}).(TableSseSpecificationOutput)
 }
 
-func (o TableSSESpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableSSESpecification) *string {
+func (o TableSseSpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSseSpecification) *string {
 		if v == nil {
 			return nil
 		}
@@ -4255,8 +4255,8 @@ func (o TableSSESpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TableSSESpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TableSSESpecification) *bool {
+func (o TableSseSpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableSseSpecification) *bool {
 		if v == nil {
 			return nil
 		}
@@ -4264,8 +4264,8 @@ func (o TableSSESpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o TableSSESpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableSSESpecification) *string {
+func (o TableSseSpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSseSpecification) *string {
 		if v == nil {
 			return nil
 		}
@@ -4676,12 +4676,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReadProvisionedThroughputSettingsPtrInput)(nil)).Elem(), GlobalTableReadProvisionedThroughputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaGlobalSecondaryIndexSpecificationInput)(nil)).Elem(), GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput)(nil)).Elem(), GlobalTableReplicaGlobalSecondaryIndexSpecificationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaSSESpecificationInput)(nil)).Elem(), GlobalTableReplicaSSESpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaSSESpecificationPtrInput)(nil)).Elem(), GlobalTableReplicaSSESpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaSpecificationInput)(nil)).Elem(), GlobalTableReplicaSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaSpecificationArrayInput)(nil)).Elem(), GlobalTableReplicaSpecificationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSSESpecificationInput)(nil)).Elem(), GlobalTableSSESpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSSESpecificationPtrInput)(nil)).Elem(), GlobalTableSSESpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaSseSpecificationInput)(nil)).Elem(), GlobalTableReplicaSseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaSseSpecificationPtrInput)(nil)).Elem(), GlobalTableReplicaSseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSseSpecificationInput)(nil)).Elem(), GlobalTableSseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSseSpecificationPtrInput)(nil)).Elem(), GlobalTableSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableStreamSpecificationInput)(nil)).Elem(), GlobalTableStreamSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableStreamSpecificationPtrInput)(nil)).Elem(), GlobalTableStreamSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableTagInput)(nil)).Elem(), GlobalTableTagArgs{})
@@ -4717,8 +4717,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputPtrInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourceInput)(nil)).Elem(), TableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourcePtrInput)(nil)).Elem(), TableS3BucketSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableSSESpecificationInput)(nil)).Elem(), TableSSESpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableSSESpecificationPtrInput)(nil)).Elem(), TableSSESpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSseSpecificationInput)(nil)).Elem(), TableSseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSseSpecificationPtrInput)(nil)).Elem(), TableSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStreamSpecificationInput)(nil)).Elem(), TableStreamSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStreamSpecificationPtrInput)(nil)).Elem(), TableStreamSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
@@ -4746,12 +4746,12 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableReadProvisionedThroughputSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(GlobalTableReplicaSSESpecificationOutput{})
-	pulumi.RegisterOutputType(GlobalTableReplicaSSESpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(GlobalTableSSESpecificationOutput{})
-	pulumi.RegisterOutputType(GlobalTableSSESpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableReplicaSseSpecificationOutput{})
+	pulumi.RegisterOutputType(GlobalTableReplicaSseSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableSseSpecificationOutput{})
+	pulumi.RegisterOutputType(GlobalTableSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableStreamSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableStreamSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableTagOutput{})
@@ -4787,8 +4787,8 @@ func init() {
 	pulumi.RegisterOutputType(TableProvisionedThroughputPtrOutput{})
 	pulumi.RegisterOutputType(TableS3BucketSourceOutput{})
 	pulumi.RegisterOutputType(TableS3BucketSourcePtrOutput{})
-	pulumi.RegisterOutputType(TableSSESpecificationOutput{})
-	pulumi.RegisterOutputType(TableSSESpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableSseSpecificationOutput{})
+	pulumi.RegisterOutputType(TableSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableStreamSpecificationOutput{})
 	pulumi.RegisterOutputType(TableStreamSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableTagOutput{})

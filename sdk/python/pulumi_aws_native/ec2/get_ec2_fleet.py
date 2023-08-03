@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetEC2FleetResult',
-    'AwaitableGetEC2FleetResult',
+    'GetEc2FleetResult',
+    'AwaitableGetEc2FleetResult',
     'get_ec2_fleet',
     'get_ec2_fleet_output',
 ]
 
 @pulumi.output_type
-class GetEC2FleetResult:
+class GetEc2FleetResult:
     def __init__(__self__, context=None, excess_capacity_termination_policy=None, fleet_id=None, target_capacity_specification=None):
         if context and not isinstance(context, str):
             raise TypeError("Expected argument 'context' to be a str")
@@ -41,7 +41,7 @@ class GetEC2FleetResult:
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
-    def excess_capacity_termination_policy(self) -> Optional['EC2FleetExcessCapacityTerminationPolicy']:
+    def excess_capacity_termination_policy(self) -> Optional['Ec2FleetExcessCapacityTerminationPolicy']:
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @property
@@ -51,16 +51,16 @@ class GetEC2FleetResult:
 
     @property
     @pulumi.getter(name="targetCapacitySpecification")
-    def target_capacity_specification(self) -> Optional['outputs.EC2FleetTargetCapacitySpecificationRequest']:
+    def target_capacity_specification(self) -> Optional['outputs.Ec2FleetTargetCapacitySpecificationRequest']:
         return pulumi.get(self, "target_capacity_specification")
 
 
-class AwaitableGetEC2FleetResult(GetEC2FleetResult):
+class AwaitableGetEc2FleetResult(GetEc2FleetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetEC2FleetResult(
+        return GetEc2FleetResult(
             context=self.context,
             excess_capacity_termination_policy=self.excess_capacity_termination_policy,
             fleet_id=self.fleet_id,
@@ -68,16 +68,16 @@ class AwaitableGetEC2FleetResult(GetEC2FleetResult):
 
 
 def get_ec2_fleet(fleet_id: Optional[str] = None,
-                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEC2FleetResult:
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEc2FleetResult:
     """
     Resource Type definition for AWS::EC2::EC2Fleet
     """
     __args__ = dict()
     __args__['fleetId'] = fleet_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEC2Fleet', __args__, opts=opts, typ=GetEC2FleetResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEc2Fleet', __args__, opts=opts, typ=GetEc2FleetResult).value
 
-    return AwaitableGetEC2FleetResult(
+    return AwaitableGetEc2FleetResult(
         context=pulumi.get(__ret__, 'context'),
         excess_capacity_termination_policy=pulumi.get(__ret__, 'excess_capacity_termination_policy'),
         fleet_id=pulumi.get(__ret__, 'fleet_id'),
@@ -86,7 +86,7 @@ def get_ec2_fleet(fleet_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_ec2_fleet)
 def get_ec2_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEC2FleetResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEc2FleetResult]:
     """
     Resource Type definition for AWS::EC2::EC2Fleet
     """

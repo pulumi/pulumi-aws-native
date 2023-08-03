@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['CustomDBEngineVersionArgs', 'CustomDBEngineVersion']
+__all__ = ['CustomDbEngineVersionArgs', 'CustomDbEngineVersion']
 
 @pulumi.input_type
-class CustomDBEngineVersionArgs:
+class CustomDbEngineVersionArgs:
     def __init__(__self__, *,
                  database_installation_files_s3_bucket_name: pulumi.Input[str],
                  engine: pulumi.Input[str],
@@ -24,10 +24,10 @@ class CustomDBEngineVersionArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  manifest: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input['CustomDBEngineVersionStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDBEngineVersionTagArgs']]]] = None):
+                 status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDbEngineVersionTagArgs']]]] = None):
         """
-        The set of arguments for constructing a CustomDBEngineVersion resource.
+        The set of arguments for constructing a CustomDbEngineVersion resource.
         :param pulumi.Input[str] database_installation_files_s3_bucket_name: The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
         :param pulumi.Input[str] engine: The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
         :param pulumi.Input[str] engine_version: The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
@@ -35,8 +35,8 @@ class CustomDBEngineVersionArgs:
         :param pulumi.Input[str] description: An optional description of your CEV.
         :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         :param pulumi.Input[str] manifest: The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
-        :param pulumi.Input['CustomDBEngineVersionStatus'] status: The availability status to be assigned to the CEV.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomDBEngineVersionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['CustomDbEngineVersionStatus'] status: The availability status to be assigned to the CEV.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDbEngineVersionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
         pulumi.set(__self__, "engine", engine)
@@ -140,30 +140,30 @@ class CustomDBEngineVersionArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['CustomDBEngineVersionStatus']]:
+    def status(self) -> Optional[pulumi.Input['CustomDbEngineVersionStatus']]:
         """
         The availability status to be assigned to the CEV.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['CustomDBEngineVersionStatus']]):
+    def status(self, value: Optional[pulumi.Input['CustomDbEngineVersionStatus']]):
         pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDBEngineVersionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDbEngineVersionTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDBEngineVersionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDbEngineVersionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class CustomDBEngineVersion(pulumi.CustomResource):
+class CustomDbEngineVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -175,8 +175,8 @@ class CustomDBEngineVersion(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  manifest: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input['CustomDBEngineVersionStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDBEngineVersionTagArgs']]]]] = None,
+                 status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDbEngineVersionTagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
@@ -190,25 +190,25 @@ class CustomDBEngineVersion(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
         :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         :param pulumi.Input[str] manifest: The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
-        :param pulumi.Input['CustomDBEngineVersionStatus'] status: The availability status to be assigned to the CEV.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDBEngineVersionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['CustomDbEngineVersionStatus'] status: The availability status to be assigned to the CEV.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDbEngineVersionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomDBEngineVersionArgs,
+                 args: CustomDbEngineVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
 
         :param str resource_name: The name of the resource.
-        :param CustomDBEngineVersionArgs args: The arguments to use to populate this resource's properties.
+        :param CustomDbEngineVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomDBEngineVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomDbEngineVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -224,8 +224,8 @@ class CustomDBEngineVersion(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  manifest: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input['CustomDBEngineVersionStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDBEngineVersionTagArgs']]]]] = None,
+                 status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDbEngineVersionTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -233,7 +233,7 @@ class CustomDBEngineVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomDBEngineVersionArgs.__new__(CustomDBEngineVersionArgs)
+            __props__ = CustomDbEngineVersionArgs.__new__(CustomDbEngineVersionArgs)
 
             if database_installation_files_s3_bucket_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_installation_files_s3_bucket_name'")
@@ -251,8 +251,8 @@ class CustomDBEngineVersion(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["db_engine_version_arn"] = None
-        super(CustomDBEngineVersion, __self__).__init__(
-            'aws-native:rds:CustomDBEngineVersion',
+        super(CustomDbEngineVersion, __self__).__init__(
+            'aws-native:rds:CustomDbEngineVersion',
             resource_name,
             __props__,
             opts)
@@ -260,9 +260,9 @@ class CustomDBEngineVersion(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'CustomDBEngineVersion':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'CustomDbEngineVersion':
         """
-        Get an existing CustomDBEngineVersion resource's state with the given name, id, and optional extra
+        Get an existing CustomDbEngineVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -271,7 +271,7 @@ class CustomDBEngineVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = CustomDBEngineVersionArgs.__new__(CustomDBEngineVersionArgs)
+        __props__ = CustomDbEngineVersionArgs.__new__(CustomDbEngineVersionArgs)
 
         __props__.__dict__["database_installation_files_s3_bucket_name"] = None
         __props__.__dict__["database_installation_files_s3_prefix"] = None
@@ -283,7 +283,7 @@ class CustomDBEngineVersion(pulumi.CustomResource):
         __props__.__dict__["manifest"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
-        return CustomDBEngineVersion(resource_name, opts=opts, __props__=__props__)
+        return CustomDbEngineVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="databaseInstallationFilesS3BucketName")
@@ -351,7 +351,7 @@ class CustomDBEngineVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional['CustomDBEngineVersionStatus']]:
+    def status(self) -> pulumi.Output[Optional['CustomDbEngineVersionStatus']]:
         """
         The availability status to be assigned to the CEV.
         """
@@ -359,7 +359,7 @@ class CustomDBEngineVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CustomDBEngineVersionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CustomDbEngineVersionTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

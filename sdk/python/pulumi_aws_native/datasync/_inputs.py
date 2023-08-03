@@ -12,31 +12,31 @@ from ._enums import *
 
 __all__ = [
     'AgentTagArgs',
-    'LocationEFSEc2ConfigArgs',
-    'LocationEFSTagArgs',
+    'LocationEfsEc2ConfigArgs',
+    'LocationEfsTagArgs',
     'LocationFSxLustreTagArgs',
-    'LocationFSxONTAPNFSArgs',
-    'LocationFSxONTAPNfsMountOptionsArgs',
-    'LocationFSxONTAPProtocolArgs',
-    'LocationFSxONTAPSMBArgs',
-    'LocationFSxONTAPSmbMountOptionsArgs',
-    'LocationFSxONTAPTagArgs',
-    'LocationFSxOpenZFSMountOptionsArgs',
-    'LocationFSxOpenZFSNFSArgs',
-    'LocationFSxOpenZFSProtocolArgs',
-    'LocationFSxOpenZFSTagArgs',
+    'LocationFSxOntapNfsMountOptionsArgs',
+    'LocationFSxOntapNfsArgs',
+    'LocationFSxOntapProtocolArgs',
+    'LocationFSxOntapSmbMountOptionsArgs',
+    'LocationFSxOntapSmbArgs',
+    'LocationFSxOntapTagArgs',
+    'LocationFSxOpenZfsMountOptionsArgs',
+    'LocationFSxOpenZfsNfsArgs',
+    'LocationFSxOpenZfsProtocolArgs',
+    'LocationFSxOpenZfsTagArgs',
     'LocationFSxWindowsTagArgs',
-    'LocationHDFSNameNodeArgs',
-    'LocationHDFSQopConfigurationArgs',
-    'LocationHDFSTagArgs',
-    'LocationNFSMountOptionsArgs',
-    'LocationNFSOnPremConfigArgs',
-    'LocationNFSTagArgs',
+    'LocationHdfsNameNodeArgs',
+    'LocationHdfsQopConfigurationArgs',
+    'LocationHdfsTagArgs',
+    'LocationNfsMountOptionsArgs',
+    'LocationNfsOnPremConfigArgs',
+    'LocationNfsTagArgs',
     'LocationObjectStorageTagArgs',
-    'LocationS3S3ConfigArgs',
     'LocationS3TagArgs',
-    'LocationSMBMountOptionsArgs',
-    'LocationSMBTagArgs',
+    'LocationS3s3ConfigArgs',
+    'LocationSmbMountOptionsArgs',
+    'LocationSmbTagArgs',
     'StorageSystemServerConfigurationArgs',
     'StorageSystemServerCredentialsArgs',
     'StorageSystemTagArgs',
@@ -85,7 +85,7 @@ class AgentTagArgs:
 
 
 @pulumi.input_type
-class LocationEFSEc2ConfigArgs:
+class LocationEfsEc2ConfigArgs:
     def __init__(__self__, *,
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_arn: pulumi.Input[str]):
@@ -123,7 +123,7 @@ class LocationEFSEc2ConfigArgs:
 
 
 @pulumi.input_type
-class LocationEFSTagArgs:
+class LocationEfsTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -199,9 +199,33 @@ class LocationFSxLustreTagArgs:
 
 
 @pulumi.input_type
-class LocationFSxONTAPNFSArgs:
+class LocationFSxOntapNfsMountOptionsArgs:
     def __init__(__self__, *,
-                 mount_options: pulumi.Input['LocationFSxONTAPNfsMountOptionsArgs']):
+                 version: Optional[pulumi.Input['LocationFSxOntapNfsMountOptionsVersion']] = None):
+        """
+        The NFS mount options that DataSync can use to mount your NFS share.
+        :param pulumi.Input['LocationFSxOntapNfsMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
+        """
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input['LocationFSxOntapNfsMountOptionsVersion']]:
+        """
+        The specific NFS version that you want DataSync to use to mount your NFS share.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input['LocationFSxOntapNfsMountOptionsVersion']]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class LocationFSxOntapNfsArgs:
+    def __init__(__self__, *,
+                 mount_options: pulumi.Input['LocationFSxOntapNfsMountOptionsArgs']):
         """
         NFS protocol configuration for FSx ONTAP file system.
         """
@@ -209,43 +233,19 @@ class LocationFSxONTAPNFSArgs:
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> pulumi.Input['LocationFSxONTAPNfsMountOptionsArgs']:
+    def mount_options(self) -> pulumi.Input['LocationFSxOntapNfsMountOptionsArgs']:
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
-    def mount_options(self, value: pulumi.Input['LocationFSxONTAPNfsMountOptionsArgs']):
+    def mount_options(self, value: pulumi.Input['LocationFSxOntapNfsMountOptionsArgs']):
         pulumi.set(self, "mount_options", value)
 
 
 @pulumi.input_type
-class LocationFSxONTAPNfsMountOptionsArgs:
+class LocationFSxOntapProtocolArgs:
     def __init__(__self__, *,
-                 version: Optional[pulumi.Input['LocationFSxONTAPNfsMountOptionsVersion']] = None):
-        """
-        The NFS mount options that DataSync can use to mount your NFS share.
-        :param pulumi.Input['LocationFSxONTAPNfsMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
-        """
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['LocationFSxONTAPNfsMountOptionsVersion']]:
-        """
-        The specific NFS version that you want DataSync to use to mount your NFS share.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input['LocationFSxONTAPNfsMountOptionsVersion']]):
-        pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class LocationFSxONTAPProtocolArgs:
-    def __init__(__self__, *,
-                 nfs: Optional[pulumi.Input['LocationFSxONTAPNFSArgs']] = None,
-                 smb: Optional[pulumi.Input['LocationFSxONTAPSMBArgs']] = None):
+                 nfs: Optional[pulumi.Input['LocationFSxOntapNfsArgs']] = None,
+                 smb: Optional[pulumi.Input['LocationFSxOntapSmbArgs']] = None):
         """
         Configuration settings for NFS or SMB protocol.
         """
@@ -256,27 +256,51 @@ class LocationFSxONTAPProtocolArgs:
 
     @property
     @pulumi.getter
-    def nfs(self) -> Optional[pulumi.Input['LocationFSxONTAPNFSArgs']]:
+    def nfs(self) -> Optional[pulumi.Input['LocationFSxOntapNfsArgs']]:
         return pulumi.get(self, "nfs")
 
     @nfs.setter
-    def nfs(self, value: Optional[pulumi.Input['LocationFSxONTAPNFSArgs']]):
+    def nfs(self, value: Optional[pulumi.Input['LocationFSxOntapNfsArgs']]):
         pulumi.set(self, "nfs", value)
 
     @property
     @pulumi.getter
-    def smb(self) -> Optional[pulumi.Input['LocationFSxONTAPSMBArgs']]:
+    def smb(self) -> Optional[pulumi.Input['LocationFSxOntapSmbArgs']]:
         return pulumi.get(self, "smb")
 
     @smb.setter
-    def smb(self, value: Optional[pulumi.Input['LocationFSxONTAPSMBArgs']]):
+    def smb(self, value: Optional[pulumi.Input['LocationFSxOntapSmbArgs']]):
         pulumi.set(self, "smb", value)
 
 
 @pulumi.input_type
-class LocationFSxONTAPSMBArgs:
+class LocationFSxOntapSmbMountOptionsArgs:
     def __init__(__self__, *,
-                 mount_options: pulumi.Input['LocationFSxONTAPSmbMountOptionsArgs'],
+                 version: Optional[pulumi.Input['LocationFSxOntapSmbMountOptionsVersion']] = None):
+        """
+        The mount options used by DataSync to access the SMB server.
+        :param pulumi.Input['LocationFSxOntapSmbMountOptionsVersion'] version: The specific SMB version that you want DataSync to use to mount your SMB share.
+        """
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input['LocationFSxOntapSmbMountOptionsVersion']]:
+        """
+        The specific SMB version that you want DataSync to use to mount your SMB share.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input['LocationFSxOntapSmbMountOptionsVersion']]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class LocationFSxOntapSmbArgs:
+    def __init__(__self__, *,
+                 mount_options: pulumi.Input['LocationFSxOntapSmbMountOptionsArgs'],
                  password: pulumi.Input[str],
                  user: pulumi.Input[str],
                  domain: Optional[pulumi.Input[str]] = None):
@@ -294,11 +318,11 @@ class LocationFSxONTAPSMBArgs:
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> pulumi.Input['LocationFSxONTAPSmbMountOptionsArgs']:
+    def mount_options(self) -> pulumi.Input['LocationFSxOntapSmbMountOptionsArgs']:
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
-    def mount_options(self, value: pulumi.Input['LocationFSxONTAPSmbMountOptionsArgs']):
+    def mount_options(self, value: pulumi.Input['LocationFSxOntapSmbMountOptionsArgs']):
         pulumi.set(self, "mount_options", value)
 
     @property
@@ -339,31 +363,7 @@ class LocationFSxONTAPSMBArgs:
 
 
 @pulumi.input_type
-class LocationFSxONTAPSmbMountOptionsArgs:
-    def __init__(__self__, *,
-                 version: Optional[pulumi.Input['LocationFSxONTAPSmbMountOptionsVersion']] = None):
-        """
-        The mount options used by DataSync to access the SMB server.
-        :param pulumi.Input['LocationFSxONTAPSmbMountOptionsVersion'] version: The specific SMB version that you want DataSync to use to mount your SMB share.
-        """
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['LocationFSxONTAPSmbMountOptionsVersion']]:
-        """
-        The specific SMB version that you want DataSync to use to mount your SMB share.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input['LocationFSxONTAPSmbMountOptionsVersion']]):
-        pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class LocationFSxONTAPTagArgs:
+class LocationFSxOntapTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -401,33 +401,33 @@ class LocationFSxONTAPTagArgs:
 
 
 @pulumi.input_type
-class LocationFSxOpenZFSMountOptionsArgs:
+class LocationFSxOpenZfsMountOptionsArgs:
     def __init__(__self__, *,
-                 version: Optional[pulumi.Input['LocationFSxOpenZFSMountOptionsVersion']] = None):
+                 version: Optional[pulumi.Input['LocationFSxOpenZfsMountOptionsVersion']] = None):
         """
         The NFS mount options that DataSync can use to mount your NFS share.
-        :param pulumi.Input['LocationFSxOpenZFSMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
+        :param pulumi.Input['LocationFSxOpenZfsMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['LocationFSxOpenZFSMountOptionsVersion']]:
+    def version(self) -> Optional[pulumi.Input['LocationFSxOpenZfsMountOptionsVersion']]:
         """
         The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['LocationFSxOpenZFSMountOptionsVersion']]):
+    def version(self, value: Optional[pulumi.Input['LocationFSxOpenZfsMountOptionsVersion']]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
-class LocationFSxOpenZFSNFSArgs:
+class LocationFSxOpenZfsNfsArgs:
     def __init__(__self__, *,
-                 mount_options: pulumi.Input['LocationFSxOpenZFSMountOptionsArgs']):
+                 mount_options: pulumi.Input['LocationFSxOpenZfsMountOptionsArgs']):
         """
         FSx OpenZFS file system NFS protocol information
         """
@@ -435,18 +435,18 @@ class LocationFSxOpenZFSNFSArgs:
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> pulumi.Input['LocationFSxOpenZFSMountOptionsArgs']:
+    def mount_options(self) -> pulumi.Input['LocationFSxOpenZfsMountOptionsArgs']:
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
-    def mount_options(self, value: pulumi.Input['LocationFSxOpenZFSMountOptionsArgs']):
+    def mount_options(self, value: pulumi.Input['LocationFSxOpenZfsMountOptionsArgs']):
         pulumi.set(self, "mount_options", value)
 
 
 @pulumi.input_type
-class LocationFSxOpenZFSProtocolArgs:
+class LocationFSxOpenZfsProtocolArgs:
     def __init__(__self__, *,
-                 nfs: Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']] = None):
+                 nfs: Optional[pulumi.Input['LocationFSxOpenZfsNfsArgs']] = None):
         """
         Configuration settings for an NFS or SMB protocol, currently only support NFS
         """
@@ -455,16 +455,16 @@ class LocationFSxOpenZFSProtocolArgs:
 
     @property
     @pulumi.getter
-    def nfs(self) -> Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']]:
+    def nfs(self) -> Optional[pulumi.Input['LocationFSxOpenZfsNfsArgs']]:
         return pulumi.get(self, "nfs")
 
     @nfs.setter
-    def nfs(self, value: Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']]):
+    def nfs(self, value: Optional[pulumi.Input['LocationFSxOpenZfsNfsArgs']]):
         pulumi.set(self, "nfs", value)
 
 
 @pulumi.input_type
-class LocationFSxOpenZFSTagArgs:
+class LocationFSxOpenZfsTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -540,7 +540,7 @@ class LocationFSxWindowsTagArgs:
 
 
 @pulumi.input_type
-class LocationHDFSNameNodeArgs:
+class LocationHdfsNameNodeArgs:
     def __init__(__self__, *,
                  hostname: pulumi.Input[str],
                  port: pulumi.Input[int]):
@@ -578,14 +578,14 @@ class LocationHDFSNameNodeArgs:
 
 
 @pulumi.input_type
-class LocationHDFSQopConfigurationArgs:
+class LocationHdfsQopConfigurationArgs:
     def __init__(__self__, *,
-                 data_transfer_protection: Optional[pulumi.Input['LocationHDFSQopConfigurationDataTransferProtection']] = None,
-                 rpc_protection: Optional[pulumi.Input['LocationHDFSQopConfigurationRpcProtection']] = None):
+                 data_transfer_protection: Optional[pulumi.Input['LocationHdfsQopConfigurationDataTransferProtection']] = None,
+                 rpc_protection: Optional[pulumi.Input['LocationHdfsQopConfigurationRpcProtection']] = None):
         """
         Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.
-        :param pulumi.Input['LocationHDFSQopConfigurationDataTransferProtection'] data_transfer_protection: Configuration for Data Transfer Protection.
-        :param pulumi.Input['LocationHDFSQopConfigurationRpcProtection'] rpc_protection: Configuration for RPC Protection.
+        :param pulumi.Input['LocationHdfsQopConfigurationDataTransferProtection'] data_transfer_protection: Configuration for Data Transfer Protection.
+        :param pulumi.Input['LocationHdfsQopConfigurationRpcProtection'] rpc_protection: Configuration for RPC Protection.
         """
         if data_transfer_protection is not None:
             pulumi.set(__self__, "data_transfer_protection", data_transfer_protection)
@@ -594,31 +594,31 @@ class LocationHDFSQopConfigurationArgs:
 
     @property
     @pulumi.getter(name="dataTransferProtection")
-    def data_transfer_protection(self) -> Optional[pulumi.Input['LocationHDFSQopConfigurationDataTransferProtection']]:
+    def data_transfer_protection(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationDataTransferProtection']]:
         """
         Configuration for Data Transfer Protection.
         """
         return pulumi.get(self, "data_transfer_protection")
 
     @data_transfer_protection.setter
-    def data_transfer_protection(self, value: Optional[pulumi.Input['LocationHDFSQopConfigurationDataTransferProtection']]):
+    def data_transfer_protection(self, value: Optional[pulumi.Input['LocationHdfsQopConfigurationDataTransferProtection']]):
         pulumi.set(self, "data_transfer_protection", value)
 
     @property
     @pulumi.getter(name="rpcProtection")
-    def rpc_protection(self) -> Optional[pulumi.Input['LocationHDFSQopConfigurationRpcProtection']]:
+    def rpc_protection(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationRpcProtection']]:
         """
         Configuration for RPC Protection.
         """
         return pulumi.get(self, "rpc_protection")
 
     @rpc_protection.setter
-    def rpc_protection(self, value: Optional[pulumi.Input['LocationHDFSQopConfigurationRpcProtection']]):
+    def rpc_protection(self, value: Optional[pulumi.Input['LocationHdfsQopConfigurationRpcProtection']]):
         pulumi.set(self, "rpc_protection", value)
 
 
 @pulumi.input_type
-class LocationHDFSTagArgs:
+class LocationHdfsTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -656,31 +656,31 @@ class LocationHDFSTagArgs:
 
 
 @pulumi.input_type
-class LocationNFSMountOptionsArgs:
+class LocationNfsMountOptionsArgs:
     def __init__(__self__, *,
-                 version: Optional[pulumi.Input['LocationNFSMountOptionsVersion']] = None):
+                 version: Optional[pulumi.Input['LocationNfsMountOptionsVersion']] = None):
         """
         The NFS mount options that DataSync can use to mount your NFS share.
-        :param pulumi.Input['LocationNFSMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
+        :param pulumi.Input['LocationNfsMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['LocationNFSMountOptionsVersion']]:
+    def version(self) -> Optional[pulumi.Input['LocationNfsMountOptionsVersion']]:
         """
         The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['LocationNFSMountOptionsVersion']]):
+    def version(self, value: Optional[pulumi.Input['LocationNfsMountOptionsVersion']]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
-class LocationNFSOnPremConfigArgs:
+class LocationNfsOnPremConfigArgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -703,7 +703,7 @@ class LocationNFSOnPremConfigArgs:
 
 
 @pulumi.input_type
-class LocationNFSTagArgs:
+class LocationNfsTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -779,29 +779,6 @@ class LocationObjectStorageTagArgs:
 
 
 @pulumi.input_type
-class LocationS3S3ConfigArgs:
-    def __init__(__self__, *,
-                 bucket_access_role_arn: pulumi.Input[str]):
-        """
-        The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
-        :param pulumi.Input[str] bucket_access_role_arn: The ARN of the IAM role of the Amazon S3 bucket.
-        """
-        pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
-
-    @property
-    @pulumi.getter(name="bucketAccessRoleArn")
-    def bucket_access_role_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the IAM role of the Amazon S3 bucket.
-        """
-        return pulumi.get(self, "bucket_access_role_arn")
-
-    @bucket_access_role_arn.setter
-    def bucket_access_role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "bucket_access_role_arn", value)
-
-
-@pulumi.input_type
 class LocationS3TagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -840,31 +817,54 @@ class LocationS3TagArgs:
 
 
 @pulumi.input_type
-class LocationSMBMountOptionsArgs:
+class LocationS3s3ConfigArgs:
     def __init__(__self__, *,
-                 version: Optional[pulumi.Input['LocationSMBMountOptionsVersion']] = None):
+                 bucket_access_role_arn: pulumi.Input[str]):
+        """
+        The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_access_role_arn: The ARN of the IAM role of the Amazon S3 bucket.
+        """
+        pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
+
+    @property
+    @pulumi.getter(name="bucketAccessRoleArn")
+    def bucket_access_role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the IAM role of the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket_access_role_arn")
+
+    @bucket_access_role_arn.setter
+    def bucket_access_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_access_role_arn", value)
+
+
+@pulumi.input_type
+class LocationSmbMountOptionsArgs:
+    def __init__(__self__, *,
+                 version: Optional[pulumi.Input['LocationSmbMountOptionsVersion']] = None):
         """
         The mount options used by DataSync to access the SMB server.
-        :param pulumi.Input['LocationSMBMountOptionsVersion'] version: The specific SMB version that you want DataSync to use to mount your SMB share.
+        :param pulumi.Input['LocationSmbMountOptionsVersion'] version: The specific SMB version that you want DataSync to use to mount your SMB share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['LocationSMBMountOptionsVersion']]:
+    def version(self) -> Optional[pulumi.Input['LocationSmbMountOptionsVersion']]:
         """
         The specific SMB version that you want DataSync to use to mount your SMB share.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['LocationSMBMountOptionsVersion']]):
+    def version(self, value: Optional[pulumi.Input['LocationSmbMountOptionsVersion']]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
-class LocationSMBTagArgs:
+class LocationSmbTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

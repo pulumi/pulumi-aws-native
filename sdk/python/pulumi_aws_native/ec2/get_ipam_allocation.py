@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetIPAMAllocationResult',
-    'AwaitableGetIPAMAllocationResult',
+    'GetIpamAllocationResult',
+    'AwaitableGetIpamAllocationResult',
     'get_ipam_allocation',
     'get_ipam_allocation_output',
 ]
 
 @pulumi.output_type
-class GetIPAMAllocationResult:
+class GetIpamAllocationResult:
     def __init__(__self__, ipam_pool_allocation_id=None):
         if ipam_pool_allocation_id and not isinstance(ipam_pool_allocation_id, str):
             raise TypeError("Expected argument 'ipam_pool_allocation_id' to be a str")
@@ -32,19 +32,19 @@ class GetIPAMAllocationResult:
         return pulumi.get(self, "ipam_pool_allocation_id")
 
 
-class AwaitableGetIPAMAllocationResult(GetIPAMAllocationResult):
+class AwaitableGetIpamAllocationResult(GetIpamAllocationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIPAMAllocationResult(
+        return GetIpamAllocationResult(
             ipam_pool_allocation_id=self.ipam_pool_allocation_id)
 
 
 def get_ipam_allocation(cidr: Optional[str] = None,
                         ipam_pool_allocation_id: Optional[str] = None,
                         ipam_pool_id: Optional[str] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPAMAllocationResult:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamAllocationResult:
     """
     Resource Schema of AWS::EC2::IPAMAllocation Type
 
@@ -57,9 +57,9 @@ def get_ipam_allocation(cidr: Optional[str] = None,
     __args__['ipamPoolAllocationId'] = ipam_pool_allocation_id
     __args__['ipamPoolId'] = ipam_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMAllocation', __args__, opts=opts, typ=GetIPAMAllocationResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIpamAllocation', __args__, opts=opts, typ=GetIpamAllocationResult).value
 
-    return AwaitableGetIPAMAllocationResult(
+    return AwaitableGetIpamAllocationResult(
         ipam_pool_allocation_id=pulumi.get(__ret__, 'ipam_pool_allocation_id'))
 
 
@@ -67,7 +67,7 @@ def get_ipam_allocation(cidr: Optional[str] = None,
 def get_ipam_allocation_output(cidr: Optional[pulumi.Input[str]] = None,
                                ipam_pool_allocation_id: Optional[pulumi.Input[str]] = None,
                                ipam_pool_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPAMAllocationResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamAllocationResult]:
     """
     Resource Schema of AWS::EC2::IPAMAllocation Type
 

@@ -13,20 +13,20 @@ import (
 )
 
 // Definition of AWS::RolesAnywhere::CRL Resource Type
-type CRL struct {
+type Crl struct {
 	pulumi.CustomResourceState
 
 	CrlData        pulumi.StringOutput    `pulumi:"crlData"`
 	CrlId          pulumi.StringOutput    `pulumi:"crlId"`
 	Enabled        pulumi.BoolPtrOutput   `pulumi:"enabled"`
 	Name           pulumi.StringOutput    `pulumi:"name"`
-	Tags           CRLTagArrayOutput      `pulumi:"tags"`
+	Tags           CrlTagArrayOutput      `pulumi:"tags"`
 	TrustAnchorArn pulumi.StringPtrOutput `pulumi:"trustAnchorArn"`
 }
 
-// NewCRL registers a new resource with the given unique name, arguments, and options.
-func NewCRL(ctx *pulumi.Context,
-	name string, args *CRLArgs, opts ...pulumi.ResourceOption) (*CRL, error) {
+// NewCrl registers a new resource with the given unique name, arguments, and options.
+func NewCrl(ctx *pulumi.Context,
+	name string, args *CrlArgs, opts ...pulumi.ResourceOption) (*Crl, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -35,34 +35,34 @@ func NewCRL(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'CrlData'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
-	var resource CRL
-	err := ctx.RegisterResource("aws-native:rolesanywhere:CRL", name, args, &resource, opts...)
+	var resource Crl
+	err := ctx.RegisterResource("aws-native:rolesanywhere:Crl", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetCRL gets an existing CRL resource's state with the given name, ID, and optional
+// GetCrl gets an existing Crl resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetCRL(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *CRLState, opts ...pulumi.ResourceOption) (*CRL, error) {
-	var resource CRL
-	err := ctx.ReadResource("aws-native:rolesanywhere:CRL", name, id, state, &resource, opts...)
+func GetCrl(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *CrlState, opts ...pulumi.ResourceOption) (*Crl, error) {
+	var resource Crl
+	err := ctx.ReadResource("aws-native:rolesanywhere:Crl", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering CRL resources.
+// Input properties used for looking up and filtering Crl resources.
 type crlState struct {
 }
 
-type CRLState struct {
+type CrlState struct {
 }
 
-func (CRLState) ElementType() reflect.Type {
+func (CrlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*crlState)(nil)).Elem()
 }
 
@@ -70,81 +70,81 @@ type crlArgs struct {
 	CrlData        string   `pulumi:"crlData"`
 	Enabled        *bool    `pulumi:"enabled"`
 	Name           *string  `pulumi:"name"`
-	Tags           []CRLTag `pulumi:"tags"`
+	Tags           []CrlTag `pulumi:"tags"`
 	TrustAnchorArn *string  `pulumi:"trustAnchorArn"`
 }
 
-// The set of arguments for constructing a CRL resource.
-type CRLArgs struct {
+// The set of arguments for constructing a Crl resource.
+type CrlArgs struct {
 	CrlData        pulumi.StringInput
 	Enabled        pulumi.BoolPtrInput
 	Name           pulumi.StringPtrInput
-	Tags           CRLTagArrayInput
+	Tags           CrlTagArrayInput
 	TrustAnchorArn pulumi.StringPtrInput
 }
 
-func (CRLArgs) ElementType() reflect.Type {
+func (CrlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*crlArgs)(nil)).Elem()
 }
 
-type CRLInput interface {
+type CrlInput interface {
 	pulumi.Input
 
-	ToCRLOutput() CRLOutput
-	ToCRLOutputWithContext(ctx context.Context) CRLOutput
+	ToCrlOutput() CrlOutput
+	ToCrlOutputWithContext(ctx context.Context) CrlOutput
 }
 
-func (*CRL) ElementType() reflect.Type {
-	return reflect.TypeOf((**CRL)(nil)).Elem()
+func (*Crl) ElementType() reflect.Type {
+	return reflect.TypeOf((**Crl)(nil)).Elem()
 }
 
-func (i *CRL) ToCRLOutput() CRLOutput {
-	return i.ToCRLOutputWithContext(context.Background())
+func (i *Crl) ToCrlOutput() CrlOutput {
+	return i.ToCrlOutputWithContext(context.Background())
 }
 
-func (i *CRL) ToCRLOutputWithContext(ctx context.Context) CRLOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CRLOutput)
+func (i *Crl) ToCrlOutputWithContext(ctx context.Context) CrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrlOutput)
 }
 
-type CRLOutput struct{ *pulumi.OutputState }
+type CrlOutput struct{ *pulumi.OutputState }
 
-func (CRLOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CRL)(nil)).Elem()
+func (CrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Crl)(nil)).Elem()
 }
 
-func (o CRLOutput) ToCRLOutput() CRLOutput {
+func (o CrlOutput) ToCrlOutput() CrlOutput {
 	return o
 }
 
-func (o CRLOutput) ToCRLOutputWithContext(ctx context.Context) CRLOutput {
+func (o CrlOutput) ToCrlOutputWithContext(ctx context.Context) CrlOutput {
 	return o
 }
 
-func (o CRLOutput) CrlData() pulumi.StringOutput {
-	return o.ApplyT(func(v *CRL) pulumi.StringOutput { return v.CrlData }).(pulumi.StringOutput)
+func (o CrlOutput) CrlData() pulumi.StringOutput {
+	return o.ApplyT(func(v *Crl) pulumi.StringOutput { return v.CrlData }).(pulumi.StringOutput)
 }
 
-func (o CRLOutput) CrlId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CRL) pulumi.StringOutput { return v.CrlId }).(pulumi.StringOutput)
+func (o CrlOutput) CrlId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Crl) pulumi.StringOutput { return v.CrlId }).(pulumi.StringOutput)
 }
 
-func (o CRLOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CRL) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o CrlOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Crl) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o CRLOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *CRL) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o CrlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Crl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o CRLOutput) Tags() CRLTagArrayOutput {
-	return o.ApplyT(func(v *CRL) CRLTagArrayOutput { return v.Tags }).(CRLTagArrayOutput)
+func (o CrlOutput) Tags() CrlTagArrayOutput {
+	return o.ApplyT(func(v *Crl) CrlTagArrayOutput { return v.Tags }).(CrlTagArrayOutput)
 }
 
-func (o CRLOutput) TrustAnchorArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CRL) pulumi.StringPtrOutput { return v.TrustAnchorArn }).(pulumi.StringPtrOutput)
+func (o CrlOutput) TrustAnchorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Crl) pulumi.StringPtrOutput { return v.TrustAnchorArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CRLInput)(nil)).Elem(), &CRL{})
-	pulumi.RegisterOutputType(CRLOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrlInput)(nil)).Elem(), &Crl{})
+	pulumi.RegisterOutputType(CrlOutput{})
 }

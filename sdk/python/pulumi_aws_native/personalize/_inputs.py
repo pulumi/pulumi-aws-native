@@ -14,7 +14,7 @@ __all__ = [
     'DatasetImportJobDataSourcePropertiesArgs',
     'DatasetImportJobArgs',
     'SolutionCategoricalHyperParameterRangeArgs',
-    'SolutionConfigAutoMLConfigPropertiesArgs',
+    'SolutionConfigAutoMlConfigPropertiesArgs',
     'SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs',
     'SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs',
     'SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs',
@@ -177,7 +177,7 @@ class SolutionCategoricalHyperParameterRangeArgs:
 
 
 @pulumi.input_type
-class SolutionConfigAutoMLConfigPropertiesArgs:
+class SolutionConfigAutoMlConfigPropertiesArgs:
     def __init__(__self__, *,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  recipe_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -428,14 +428,14 @@ class SolutionConfigHpoConfigPropertiesArgs:
 class SolutionConfigArgs:
     def __init__(__self__, *,
                  algorithm_hyper_parameters: Optional[Any] = None,
-                 auto_ml_config: Optional[pulumi.Input['SolutionConfigAutoMLConfigPropertiesArgs']] = None,
+                 auto_ml_config: Optional[pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgs']] = None,
                  event_value_threshold: Optional[pulumi.Input[str]] = None,
                  feature_transformation_parameters: Optional[Any] = None,
                  hpo_config: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesArgs']] = None):
         """
         The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
         :param Any algorithm_hyper_parameters: Lists the hyperparameter names and ranges.
-        :param pulumi.Input['SolutionConfigAutoMLConfigPropertiesArgs'] auto_ml_config: The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+        :param pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgs'] auto_ml_config: The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         :param pulumi.Input[str] event_value_threshold: Only events with a value greater than or equal to this threshold are used for training a model.
         :param Any feature_transformation_parameters: Lists the feature transformation parameters.
         :param pulumi.Input['SolutionConfigHpoConfigPropertiesArgs'] hpo_config: Describes the properties for hyperparameter optimization (HPO)
@@ -465,14 +465,14 @@ class SolutionConfigArgs:
 
     @property
     @pulumi.getter(name="autoMlConfig")
-    def auto_ml_config(self) -> Optional[pulumi.Input['SolutionConfigAutoMLConfigPropertiesArgs']]:
+    def auto_ml_config(self) -> Optional[pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgs']]:
         """
         The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         """
         return pulumi.get(self, "auto_ml_config")
 
     @auto_ml_config.setter
-    def auto_ml_config(self, value: Optional[pulumi.Input['SolutionConfigAutoMLConfigPropertiesArgs']]):
+    def auto_ml_config(self, value: Optional[pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgs']]):
         pulumi.set(self, "auto_ml_config", value)
 
     @property

@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetLocationSMBResult',
-    'AwaitableGetLocationSMBResult',
+    'GetLocationSmbResult',
+    'AwaitableGetLocationSmbResult',
     'get_location_smb',
     'get_location_smb_output',
 ]
 
 @pulumi.output_type
-class GetLocationSMBResult:
+class GetLocationSmbResult:
     def __init__(__self__, agent_arns=None, domain=None, location_arn=None, location_uri=None, mount_options=None, tags=None, user=None):
         if agent_arns and not isinstance(agent_arns, list):
             raise TypeError("Expected argument 'agent_arns' to be a list")
@@ -77,12 +77,12 @@ class GetLocationSMBResult:
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> Optional['outputs.LocationSMBMountOptions']:
+    def mount_options(self) -> Optional['outputs.LocationSmbMountOptions']:
         return pulumi.get(self, "mount_options")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.LocationSMBTag']]:
+    def tags(self) -> Optional[Sequence['outputs.LocationSmbTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
@@ -97,12 +97,12 @@ class GetLocationSMBResult:
         return pulumi.get(self, "user")
 
 
-class AwaitableGetLocationSMBResult(GetLocationSMBResult):
+class AwaitableGetLocationSmbResult(GetLocationSmbResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetLocationSMBResult(
+        return GetLocationSmbResult(
             agent_arns=self.agent_arns,
             domain=self.domain,
             location_arn=self.location_arn,
@@ -113,7 +113,7 @@ class AwaitableGetLocationSMBResult(GetLocationSMBResult):
 
 
 def get_location_smb(location_arn: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationSMBResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationSmbResult:
     """
     Resource schema for AWS::DataSync::LocationSMB.
 
@@ -123,9 +123,9 @@ def get_location_smb(location_arn: Optional[str] = None,
     __args__ = dict()
     __args__['locationArn'] = location_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationSMB', __args__, opts=opts, typ=GetLocationSMBResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationSmb', __args__, opts=opts, typ=GetLocationSmbResult).value
 
-    return AwaitableGetLocationSMBResult(
+    return AwaitableGetLocationSmbResult(
         agent_arns=pulumi.get(__ret__, 'agent_arns'),
         domain=pulumi.get(__ret__, 'domain'),
         location_arn=pulumi.get(__ret__, 'location_arn'),
@@ -137,7 +137,7 @@ def get_location_smb(location_arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_location_smb)
 def get_location_smb_output(location_arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationSMBResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationSmbResult]:
     """
     Resource schema for AWS::DataSync::LocationSMB.
 

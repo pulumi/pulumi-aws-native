@@ -7,33 +7,33 @@ from enum import Enum
 __all__ = [
     'CapacityReservationFleetInstanceMatchCriteria',
     'CapacityReservationFleetTenancy',
-    'EC2FleetCapacityRebalanceReplacementStrategy',
-    'EC2FleetCapacityReservationOptionsRequestUsageStrategy',
-    'EC2FleetExcessCapacityTerminationPolicy',
-    'EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem',
-    'EC2FleetInstanceRequirementsRequestAcceleratorNamesItem',
-    'EC2FleetInstanceRequirementsRequestAcceleratorTypesItem',
-    'EC2FleetInstanceRequirementsRequestBareMetal',
-    'EC2FleetInstanceRequirementsRequestBurstablePerformance',
-    'EC2FleetInstanceRequirementsRequestCpuManufacturersItem',
-    'EC2FleetInstanceRequirementsRequestInstanceGenerationsItem',
-    'EC2FleetInstanceRequirementsRequestLocalStorage',
-    'EC2FleetInstanceRequirementsRequestLocalStorageTypesItem',
-    'EC2FleetSpotOptionsRequestAllocationStrategy',
-    'EC2FleetSpotOptionsRequestInstanceInterruptionBehavior',
-    'EC2FleetTagSpecificationResourceType',
-    'EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType',
-    'EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType',
-    'EC2FleetType',
+    'Ec2FleetCapacityRebalanceReplacementStrategy',
+    'Ec2FleetCapacityReservationOptionsRequestUsageStrategy',
+    'Ec2FleetExcessCapacityTerminationPolicy',
+    'Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem',
+    'Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem',
+    'Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem',
+    'Ec2FleetInstanceRequirementsRequestBareMetal',
+    'Ec2FleetInstanceRequirementsRequestBurstablePerformance',
+    'Ec2FleetInstanceRequirementsRequestCpuManufacturersItem',
+    'Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem',
+    'Ec2FleetInstanceRequirementsRequestLocalStorage',
+    'Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem',
+    'Ec2FleetSpotOptionsRequestAllocationStrategy',
+    'Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior',
+    'Ec2FleetTagSpecificationResourceType',
+    'Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType',
+    'Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType',
+    'Ec2FleetType',
     'FlowLogDestinationOptionsPropertiesFileFormat',
     'FlowLogLogDestinationType',
     'FlowLogResourceType',
     'FlowLogTrafficType',
-    'IPAMPoolAwsService',
-    'IPAMPoolIpamScopeType',
-    'IPAMPoolPublicIpSource',
-    'IPAMPoolState',
-    'IPAMScopeIpamScopeType',
+    'IpamPoolAwsService',
+    'IpamPoolIpamScopeType',
+    'IpamPoolPublicIpSource',
+    'IpamPoolState',
+    'IpamScopeType',
     'KeyPairKeyFormat',
     'KeyPairKeyType',
     'LaunchTemplateCpuOptionsAmdSevSnp',
@@ -61,7 +61,7 @@ __all__ = [
     'SpotFleetSpotCapacityRebalanceReplacementStrategy',
     'SpotFleetSpotPlacementTenancy',
     'SpotFleetTagSpecificationResourceType',
-    'VPCEndpointVpcEndpointType',
+    'VpcEndpointType',
 ]
 
 
@@ -73,28 +73,28 @@ class CapacityReservationFleetTenancy(str, Enum):
     DEFAULT = "default"
 
 
-class EC2FleetCapacityRebalanceReplacementStrategy(str, Enum):
+class Ec2FleetCapacityRebalanceReplacementStrategy(str, Enum):
     LAUNCH = "launch"
     LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
 
 
-class EC2FleetCapacityReservationOptionsRequestUsageStrategy(str, Enum):
+class Ec2FleetCapacityReservationOptionsRequestUsageStrategy(str, Enum):
     USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first"
 
 
-class EC2FleetExcessCapacityTerminationPolicy(str, Enum):
+class Ec2FleetExcessCapacityTerminationPolicy(str, Enum):
     TERMINATION = "termination"
     NO_TERMINATION = "no-termination"
 
 
-class EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem(str, Enum):
+class Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem(str, Enum):
     NVIDIA = "nvidia"
     AMD = "amd"
     AMAZON_WEB_SERVICES = "amazon-web-services"
     XILINX = "xilinx"
 
 
-class EC2FleetInstanceRequirementsRequestAcceleratorNamesItem(str, Enum):
+class Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem(str, Enum):
     A100 = "a100"
     V100 = "v100"
     K80 = "k80"
@@ -106,47 +106,47 @@ class EC2FleetInstanceRequirementsRequestAcceleratorNamesItem(str, Enum):
     K520 = "k520"
 
 
-class EC2FleetInstanceRequirementsRequestAcceleratorTypesItem(str, Enum):
+class Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem(str, Enum):
     GPU = "gpu"
     FPGA = "fpga"
     INFERENCE = "inference"
 
 
-class EC2FleetInstanceRequirementsRequestBareMetal(str, Enum):
+class Ec2FleetInstanceRequirementsRequestBareMetal(str, Enum):
     INCLUDED = "included"
     REQUIRED = "required"
     EXCLUDED = "excluded"
 
 
-class EC2FleetInstanceRequirementsRequestBurstablePerformance(str, Enum):
+class Ec2FleetInstanceRequirementsRequestBurstablePerformance(str, Enum):
     INCLUDED = "included"
     REQUIRED = "required"
     EXCLUDED = "excluded"
 
 
-class EC2FleetInstanceRequirementsRequestCpuManufacturersItem(str, Enum):
+class Ec2FleetInstanceRequirementsRequestCpuManufacturersItem(str, Enum):
     INTEL = "intel"
     AMD = "amd"
     AMAZON_WEB_SERVICES = "amazon-web-services"
 
 
-class EC2FleetInstanceRequirementsRequestInstanceGenerationsItem(str, Enum):
+class Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem(str, Enum):
     CURRENT = "current"
     PREVIOUS = "previous"
 
 
-class EC2FleetInstanceRequirementsRequestLocalStorage(str, Enum):
+class Ec2FleetInstanceRequirementsRequestLocalStorage(str, Enum):
     INCLUDED = "included"
     REQUIRED = "required"
     EXCLUDED = "excluded"
 
 
-class EC2FleetInstanceRequirementsRequestLocalStorageTypesItem(str, Enum):
+class Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem(str, Enum):
     HDD = "hdd"
     SSD = "ssd"
 
 
-class EC2FleetSpotOptionsRequestAllocationStrategy(str, Enum):
+class Ec2FleetSpotOptionsRequestAllocationStrategy(str, Enum):
     LOWEST_PRICE = "lowest-price"
     DIVERSIFIED = "diversified"
     CAPACITY_OPTIMIZED = "capacityOptimized"
@@ -154,13 +154,13 @@ class EC2FleetSpotOptionsRequestAllocationStrategy(str, Enum):
     PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized"
 
 
-class EC2FleetSpotOptionsRequestInstanceInterruptionBehavior(str, Enum):
+class Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior(str, Enum):
     HIBERNATE = "hibernate"
     STOP = "stop"
     TERMINATE = "terminate"
 
 
-class EC2FleetTagSpecificationResourceType(str, Enum):
+class Ec2FleetTagSpecificationResourceType(str, Enum):
     CLIENT_VPN_ENDPOINT = "client-vpn-endpoint"
     CUSTOMER_GATEWAY = "customer-gateway"
     DEDICATED_HOST = "dedicated-host"
@@ -210,18 +210,18 @@ class EC2FleetTagSpecificationResourceType(str, Enum):
     VPN_GATEWAY = "vpn-gateway"
 
 
-class EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType(str, Enum):
+class Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType(str, Enum):
     ON_DEMAND = "on-demand"
     SPOT = "spot"
 
 
-class EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType(str, Enum):
+class Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType(str, Enum):
     VCPU = "vcpu"
     MEMORY_MIB = "memory-mib"
     UNITS = "units"
 
 
-class EC2FleetType(str, Enum):
+class Ec2FleetType(str, Enum):
     MAINTAIN = "maintain"
     REQUEST = "request"
     INSTANT = "instant"
@@ -261,14 +261,14 @@ class FlowLogTrafficType(str, Enum):
     REJECT = "REJECT"
 
 
-class IPAMPoolAwsService(str, Enum):
+class IpamPoolAwsService(str, Enum):
     """
     Limits which service in Amazon Web Services that the pool can be used in.
     """
     EC2 = "ec2"
 
 
-class IPAMPoolIpamScopeType(str, Enum):
+class IpamPoolIpamScopeType(str, Enum):
     """
     Determines whether this scope contains publicly routable space or space for a private network
     """
@@ -276,7 +276,7 @@ class IPAMPoolIpamScopeType(str, Enum):
     PRIVATE = "private"
 
 
-class IPAMPoolPublicIpSource(str, Enum):
+class IpamPoolPublicIpSource(str, Enum):
     """
     The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
     """
@@ -284,7 +284,7 @@ class IPAMPoolPublicIpSource(str, Enum):
     AMAZON = "amazon"
 
 
-class IPAMPoolState(str, Enum):
+class IpamPoolState(str, Enum):
     """
     The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
     """
@@ -296,7 +296,7 @@ class IPAMPoolState(str, Enum):
     DELETE_COMPLETE = "delete-complete"
 
 
-class IPAMScopeIpamScopeType(str, Enum):
+class IpamScopeType(str, Enum):
     """
     Determines whether this scope contains publicly routable space or space for a private network
     """
@@ -524,7 +524,7 @@ class SpotFleetTagSpecificationResourceType(str, Enum):
     VPN_GATEWAY = "vpn-gateway"
 
 
-class VPCEndpointVpcEndpointType(str, Enum):
+class VpcEndpointType(str, Enum):
     INTERFACE = "Interface"
     GATEWAY = "Gateway"
     GATEWAY_LOAD_BALANCER = "GatewayLoadBalancer"

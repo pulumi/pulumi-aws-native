@@ -12,7 +12,7 @@ import (
 )
 
 // Resource Schema of AWS::EC2::IPAM Type
-type IPAM struct {
+type Ipam struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the IPAM.
@@ -25,7 +25,7 @@ type IPAM struct {
 	// Id of the IPAM.
 	IpamId pulumi.StringOutput `pulumi:"ipamId"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-	OperatingRegions IPAMIpamOperatingRegionArrayOutput `pulumi:"operatingRegions"`
+	OperatingRegions IpamOperatingRegionArrayOutput `pulumi:"operatingRegions"`
 	// The Id of the default scope for publicly routable IP space, created with this IPAM.
 	PrivateDefaultScopeId pulumi.StringOutput `pulumi:"privateDefaultScopeId"`
 	// The Id of the default scope for publicly routable IP space, created with this IPAM.
@@ -35,157 +35,157 @@ type IPAM struct {
 	// The number of scopes that currently exist in this IPAM.
 	ScopeCount pulumi.IntOutput `pulumi:"scopeCount"`
 	// An array of key-value pairs to apply to this resource.
-	Tags IPAMTagArrayOutput `pulumi:"tags"`
+	Tags IpamTagArrayOutput `pulumi:"tags"`
 }
 
-// NewIPAM registers a new resource with the given unique name, arguments, and options.
-func NewIPAM(ctx *pulumi.Context,
-	name string, args *IPAMArgs, opts ...pulumi.ResourceOption) (*IPAM, error) {
+// NewIpam registers a new resource with the given unique name, arguments, and options.
+func NewIpam(ctx *pulumi.Context,
+	name string, args *IpamArgs, opts ...pulumi.ResourceOption) (*Ipam, error) {
 	if args == nil {
-		args = &IPAMArgs{}
+		args = &IpamArgs{}
 	}
 
 	opts = internal.PkgResourceDefaultOpts(opts)
-	var resource IPAM
-	err := ctx.RegisterResource("aws-native:ec2:IPAM", name, args, &resource, opts...)
+	var resource Ipam
+	err := ctx.RegisterResource("aws-native:ec2:Ipam", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetIPAM gets an existing IPAM resource's state with the given name, ID, and optional
+// GetIpam gets an existing Ipam resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetIPAM(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *IPAMState, opts ...pulumi.ResourceOption) (*IPAM, error) {
-	var resource IPAM
-	err := ctx.ReadResource("aws-native:ec2:IPAM", name, id, state, &resource, opts...)
+func GetIpam(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *IpamState, opts ...pulumi.ResourceOption) (*Ipam, error) {
+	var resource Ipam
+	err := ctx.ReadResource("aws-native:ec2:Ipam", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering IPAM resources.
+// Input properties used for looking up and filtering Ipam resources.
 type ipamState struct {
 }
 
-type IPAMState struct {
+type IpamState struct {
 }
 
-func (IPAMState) ElementType() reflect.Type {
+func (IpamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamState)(nil)).Elem()
 }
 
 type ipamArgs struct {
 	Description *string `pulumi:"description"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-	OperatingRegions []IPAMIpamOperatingRegion `pulumi:"operatingRegions"`
+	OperatingRegions []IpamOperatingRegion `pulumi:"operatingRegions"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IPAMTag `pulumi:"tags"`
+	Tags []IpamTag `pulumi:"tags"`
 }
 
-// The set of arguments for constructing a IPAM resource.
-type IPAMArgs struct {
+// The set of arguments for constructing a Ipam resource.
+type IpamArgs struct {
 	Description pulumi.StringPtrInput
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-	OperatingRegions IPAMIpamOperatingRegionArrayInput
+	OperatingRegions IpamOperatingRegionArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags IPAMTagArrayInput
+	Tags IpamTagArrayInput
 }
 
-func (IPAMArgs) ElementType() reflect.Type {
+func (IpamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamArgs)(nil)).Elem()
 }
 
-type IPAMInput interface {
+type IpamInput interface {
 	pulumi.Input
 
-	ToIPAMOutput() IPAMOutput
-	ToIPAMOutputWithContext(ctx context.Context) IPAMOutput
+	ToIpamOutput() IpamOutput
+	ToIpamOutputWithContext(ctx context.Context) IpamOutput
 }
 
-func (*IPAM) ElementType() reflect.Type {
-	return reflect.TypeOf((**IPAM)(nil)).Elem()
+func (*Ipam) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ipam)(nil)).Elem()
 }
 
-func (i *IPAM) ToIPAMOutput() IPAMOutput {
-	return i.ToIPAMOutputWithContext(context.Background())
+func (i *Ipam) ToIpamOutput() IpamOutput {
+	return i.ToIpamOutputWithContext(context.Background())
 }
 
-func (i *IPAM) ToIPAMOutputWithContext(ctx context.Context) IPAMOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAMOutput)
+func (i *Ipam) ToIpamOutputWithContext(ctx context.Context) IpamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamOutput)
 }
 
-type IPAMOutput struct{ *pulumi.OutputState }
+type IpamOutput struct{ *pulumi.OutputState }
 
-func (IPAMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IPAM)(nil)).Elem()
+func (IpamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ipam)(nil)).Elem()
 }
 
-func (o IPAMOutput) ToIPAMOutput() IPAMOutput {
+func (o IpamOutput) ToIpamOutput() IpamOutput {
 	return o
 }
 
-func (o IPAMOutput) ToIPAMOutputWithContext(ctx context.Context) IPAMOutput {
+func (o IpamOutput) ToIpamOutputWithContext(ctx context.Context) IpamOutput {
 	return o
 }
 
 // The Amazon Resource Name (ARN) of the IPAM.
-func (o IPAMOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o IpamOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ipam) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The Id of the default association to the default resource discovery, created with this IPAM.
-func (o IPAMOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringOutput)
+func (o IpamOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ipam) pulumi.StringOutput { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringOutput)
 }
 
 // The Id of the default resource discovery, created with this IPAM.
-func (o IPAMOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
+func (o IpamOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ipam) pulumi.StringOutput { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
 }
 
-func (o IPAMOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IPAM) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o IpamOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ipam) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Id of the IPAM.
-func (o IPAMOutput) IpamId() pulumi.StringOutput {
-	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.IpamId }).(pulumi.StringOutput)
+func (o IpamOutput) IpamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ipam) pulumi.StringOutput { return v.IpamId }).(pulumi.StringOutput)
 }
 
 // The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-func (o IPAMOutput) OperatingRegions() IPAMIpamOperatingRegionArrayOutput {
-	return o.ApplyT(func(v *IPAM) IPAMIpamOperatingRegionArrayOutput { return v.OperatingRegions }).(IPAMIpamOperatingRegionArrayOutput)
+func (o IpamOutput) OperatingRegions() IpamOperatingRegionArrayOutput {
+	return o.ApplyT(func(v *Ipam) IpamOperatingRegionArrayOutput { return v.OperatingRegions }).(IpamOperatingRegionArrayOutput)
 }
 
 // The Id of the default scope for publicly routable IP space, created with this IPAM.
-func (o IPAMOutput) PrivateDefaultScopeId() pulumi.StringOutput {
-	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.PrivateDefaultScopeId }).(pulumi.StringOutput)
+func (o IpamOutput) PrivateDefaultScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ipam) pulumi.StringOutput { return v.PrivateDefaultScopeId }).(pulumi.StringOutput)
 }
 
 // The Id of the default scope for publicly routable IP space, created with this IPAM.
-func (o IPAMOutput) PublicDefaultScopeId() pulumi.StringOutput {
-	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
+func (o IpamOutput) PublicDefaultScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ipam) pulumi.StringOutput { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
 }
 
 // The count of resource discoveries associated with this IPAM.
-func (o IPAMOutput) ResourceDiscoveryAssociationCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *IPAM) pulumi.IntOutput { return v.ResourceDiscoveryAssociationCount }).(pulumi.IntOutput)
+func (o IpamOutput) ResourceDiscoveryAssociationCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *Ipam) pulumi.IntOutput { return v.ResourceDiscoveryAssociationCount }).(pulumi.IntOutput)
 }
 
 // The number of scopes that currently exist in this IPAM.
-func (o IPAMOutput) ScopeCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *IPAM) pulumi.IntOutput { return v.ScopeCount }).(pulumi.IntOutput)
+func (o IpamOutput) ScopeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *Ipam) pulumi.IntOutput { return v.ScopeCount }).(pulumi.IntOutput)
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o IPAMOutput) Tags() IPAMTagArrayOutput {
-	return o.ApplyT(func(v *IPAM) IPAMTagArrayOutput { return v.Tags }).(IPAMTagArrayOutput)
+func (o IpamOutput) Tags() IpamTagArrayOutput {
+	return o.ApplyT(func(v *Ipam) IpamTagArrayOutput { return v.Tags }).(IpamTagArrayOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMInput)(nil)).Elem(), &IPAM{})
-	pulumi.RegisterOutputType(IPAMOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamInput)(nil)).Elem(), &Ipam{})
+	pulumi.RegisterOutputType(IpamOutput{})
 }

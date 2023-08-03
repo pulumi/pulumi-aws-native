@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Configuration
         /// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
         /// </summary>
         [Output("templateSsmDocumentDetails")]
-        public Output<Outputs.TemplateSSMDocumentDetailsProperties?> TemplateSsmDocumentDetails { get; private set; } = null!;
+        public Output<Outputs.TemplateSsmDocumentDetailsProperties?> TemplateSsmDocumentDetails { get; private set; } = null!;
 
 
         /// <summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.Configuration
         /// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
         /// </summary>
         [Input("templateSsmDocumentDetails")]
-        public Input<Inputs.TemplateSSMDocumentDetailsPropertiesArgs>? TemplateSsmDocumentDetails { get; set; }
+        public Input<Inputs.TemplateSsmDocumentDetailsPropertiesArgs>? TemplateSsmDocumentDetails { get; set; }
 
         public ConformancePackArgs()
         {

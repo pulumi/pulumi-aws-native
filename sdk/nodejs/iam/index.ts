@@ -35,10 +35,10 @@ export const getManagedPolicy: typeof import("./getManagedPolicy").getManagedPol
 export const getManagedPolicyOutput: typeof import("./getManagedPolicy").getManagedPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedPolicy","getManagedPolicyOutput"], () => require("./getManagedPolicy"));
 
-export { GetOIDCProviderArgs, GetOIDCProviderResult, GetOIDCProviderOutputArgs } from "./getOIDCProvider";
-export const getOIDCProvider: typeof import("./getOIDCProvider").getOIDCProvider = null as any;
-export const getOIDCProviderOutput: typeof import("./getOIDCProvider").getOIDCProviderOutput = null as any;
-utilities.lazyLoad(exports, ["getOIDCProvider","getOIDCProviderOutput"], () => require("./getOIDCProvider"));
+export { GetOidcProviderArgs, GetOidcProviderResult, GetOidcProviderOutputArgs } from "./getOidcProvider";
+export const getOidcProvider: typeof import("./getOidcProvider").getOidcProvider = null as any;
+export const getOidcProviderOutput: typeof import("./getOidcProvider").getOidcProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getOidcProvider","getOidcProviderOutput"], () => require("./getOidcProvider"));
 
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
@@ -55,10 +55,10 @@ export const getRolePolicy: typeof import("./getRolePolicy").getRolePolicy = nul
 export const getRolePolicyOutput: typeof import("./getRolePolicy").getRolePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getRolePolicy","getRolePolicyOutput"], () => require("./getRolePolicy"));
 
-export { GetSAMLProviderArgs, GetSAMLProviderResult, GetSAMLProviderOutputArgs } from "./getSAMLProvider";
-export const getSAMLProvider: typeof import("./getSAMLProvider").getSAMLProvider = null as any;
-export const getSAMLProviderOutput: typeof import("./getSAMLProvider").getSAMLProviderOutput = null as any;
-utilities.lazyLoad(exports, ["getSAMLProvider","getSAMLProviderOutput"], () => require("./getSAMLProvider"));
+export { GetSamlProviderArgs, GetSamlProviderResult, GetSamlProviderOutputArgs } from "./getSamlProvider";
+export const getSamlProvider: typeof import("./getSamlProvider").getSamlProvider = null as any;
+export const getSamlProviderOutput: typeof import("./getSamlProvider").getSamlProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getSamlProvider","getSamlProviderOutput"], () => require("./getSamlProvider"));
 
 export { GetServerCertificateArgs, GetServerCertificateResult, GetServerCertificateOutputArgs } from "./getServerCertificate";
 export const getServerCertificate: typeof import("./getServerCertificate").getServerCertificate = null as any;
@@ -85,10 +85,10 @@ export const getUserToGroupAddition: typeof import("./getUserToGroupAddition").g
 export const getUserToGroupAdditionOutput: typeof import("./getUserToGroupAddition").getUserToGroupAdditionOutput = null as any;
 utilities.lazyLoad(exports, ["getUserToGroupAddition","getUserToGroupAdditionOutput"], () => require("./getUserToGroupAddition"));
 
-export { GetVirtualMFADeviceArgs, GetVirtualMFADeviceResult, GetVirtualMFADeviceOutputArgs } from "./getVirtualMFADevice";
-export const getVirtualMFADevice: typeof import("./getVirtualMFADevice").getVirtualMFADevice = null as any;
-export const getVirtualMFADeviceOutput: typeof import("./getVirtualMFADevice").getVirtualMFADeviceOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMFADevice","getVirtualMFADeviceOutput"], () => require("./getVirtualMFADevice"));
+export { GetVirtualMfaDeviceArgs, GetVirtualMfaDeviceResult, GetVirtualMfaDeviceOutputArgs } from "./getVirtualMfaDevice";
+export const getVirtualMfaDevice: typeof import("./getVirtualMfaDevice").getVirtualMfaDevice = null as any;
+export const getVirtualMfaDeviceOutput: typeof import("./getVirtualMfaDevice").getVirtualMfaDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMfaDevice","getVirtualMfaDeviceOutput"], () => require("./getVirtualMfaDevice"));
 
 export { GroupArgs } from "./group";
 export type Group = import("./group").Group;
@@ -110,10 +110,10 @@ export type ManagedPolicy = import("./managedPolicy").ManagedPolicy;
 export const ManagedPolicy: typeof import("./managedPolicy").ManagedPolicy = null as any;
 utilities.lazyLoad(exports, ["ManagedPolicy"], () => require("./managedPolicy"));
 
-export { OIDCProviderArgs } from "./oidcprovider";
-export type OIDCProvider = import("./oidcprovider").OIDCProvider;
-export const OIDCProvider: typeof import("./oidcprovider").OIDCProvider = null as any;
-utilities.lazyLoad(exports, ["OIDCProvider"], () => require("./oidcprovider"));
+export { OidcProviderArgs } from "./oidcProvider";
+export type OidcProvider = import("./oidcProvider").OidcProvider;
+export const OidcProvider: typeof import("./oidcProvider").OidcProvider = null as any;
+utilities.lazyLoad(exports, ["OidcProvider"], () => require("./oidcProvider"));
 
 export { PolicyArgs } from "./policy";
 export type Policy = import("./policy").Policy;
@@ -130,10 +130,10 @@ export type RolePolicy = import("./rolePolicy").RolePolicy;
 export const RolePolicy: typeof import("./rolePolicy").RolePolicy = null as any;
 utilities.lazyLoad(exports, ["RolePolicy"], () => require("./rolePolicy"));
 
-export { SAMLProviderArgs } from "./samlprovider";
-export type SAMLProvider = import("./samlprovider").SAMLProvider;
-export const SAMLProvider: typeof import("./samlprovider").SAMLProvider = null as any;
-utilities.lazyLoad(exports, ["SAMLProvider"], () => require("./samlprovider"));
+export { SamlProviderArgs } from "./samlProvider";
+export type SamlProvider = import("./samlProvider").SamlProvider;
+export const SamlProvider: typeof import("./samlProvider").SamlProvider = null as any;
+utilities.lazyLoad(exports, ["SamlProvider"], () => require("./samlProvider"));
 
 export { ServerCertificateArgs } from "./serverCertificate";
 export type ServerCertificate = import("./serverCertificate").ServerCertificate;
@@ -160,10 +160,10 @@ export type UserToGroupAddition = import("./userToGroupAddition").UserToGroupAdd
 export const UserToGroupAddition: typeof import("./userToGroupAddition").UserToGroupAddition = null as any;
 utilities.lazyLoad(exports, ["UserToGroupAddition"], () => require("./userToGroupAddition"));
 
-export { VirtualMFADeviceArgs } from "./virtualMFADevice";
-export type VirtualMFADevice = import("./virtualMFADevice").VirtualMFADevice;
-export const VirtualMFADevice: typeof import("./virtualMFADevice").VirtualMFADevice = null as any;
-utilities.lazyLoad(exports, ["VirtualMFADevice"], () => require("./virtualMFADevice"));
+export { VirtualMfaDeviceArgs } from "./virtualMfaDevice";
+export type VirtualMfaDevice = import("./virtualMfaDevice").VirtualMfaDevice;
+export const VirtualMfaDevice: typeof import("./virtualMfaDevice").VirtualMfaDevice = null as any;
+utilities.lazyLoad(exports, ["VirtualMfaDevice"], () => require("./virtualMfaDevice"));
 
 
 const _module = {
@@ -180,16 +180,16 @@ const _module = {
                 return new InstanceProfile(name, <any>undefined, { urn })
             case "aws-native:iam:ManagedPolicy":
                 return new ManagedPolicy(name, <any>undefined, { urn })
-            case "aws-native:iam:OIDCProvider":
-                return new OIDCProvider(name, <any>undefined, { urn })
+            case "aws-native:iam:OidcProvider":
+                return new OidcProvider(name, <any>undefined, { urn })
             case "aws-native:iam:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "aws-native:iam:Role":
                 return new Role(name, <any>undefined, { urn })
             case "aws-native:iam:RolePolicy":
                 return new RolePolicy(name, <any>undefined, { urn })
-            case "aws-native:iam:SAMLProvider":
-                return new SAMLProvider(name, <any>undefined, { urn })
+            case "aws-native:iam:SamlProvider":
+                return new SamlProvider(name, <any>undefined, { urn })
             case "aws-native:iam:ServerCertificate":
                 return new ServerCertificate(name, <any>undefined, { urn })
             case "aws-native:iam:ServiceLinkedRole":
@@ -200,8 +200,8 @@ const _module = {
                 return new UserPolicy(name, <any>undefined, { urn })
             case "aws-native:iam:UserToGroupAddition":
                 return new UserToGroupAddition(name, <any>undefined, { urn })
-            case "aws-native:iam:VirtualMFADevice":
-                return new VirtualMFADevice(name, <any>undefined, { urn })
+            case "aws-native:iam:VirtualMfaDevice":
+                return new VirtualMfaDevice(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

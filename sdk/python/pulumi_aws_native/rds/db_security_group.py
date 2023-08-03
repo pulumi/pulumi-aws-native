@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DBSecurityGroupArgs', 'DBSecurityGroup']
+__all__ = ['DbSecurityGroupArgs', 'DbSecurityGroup']
 
 @pulumi.input_type
-class DBSecurityGroupArgs:
+class DbSecurityGroupArgs:
     def __init__(__self__, *,
-                 db_security_group_ingress: pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupIngressArgs']]],
+                 db_security_group_ingress: pulumi.Input[Sequence[pulumi.Input['DbSecurityGroupIngressArgs']]],
                  group_description: pulumi.Input[str],
                  ec2_vpc_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbSecurityGroupTagArgs']]]] = None):
         """
-        The set of arguments for constructing a DBSecurityGroup resource.
+        The set of arguments for constructing a DbSecurityGroup resource.
         """
         pulumi.set(__self__, "db_security_group_ingress", db_security_group_ingress)
         pulumi.set(__self__, "group_description", group_description)
@@ -32,11 +32,11 @@ class DBSecurityGroupArgs:
 
     @property
     @pulumi.getter(name="dbSecurityGroupIngress")
-    def db_security_group_ingress(self) -> pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupIngressArgs']]]:
+    def db_security_group_ingress(self) -> pulumi.Input[Sequence[pulumi.Input['DbSecurityGroupIngressArgs']]]:
         return pulumi.get(self, "db_security_group_ingress")
 
     @db_security_group_ingress.setter
-    def db_security_group_ingress(self, value: pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupIngressArgs']]]):
+    def db_security_group_ingress(self, value: pulumi.Input[Sequence[pulumi.Input['DbSecurityGroupIngressArgs']]]):
         pulumi.set(self, "db_security_group_ingress", value)
 
     @property
@@ -59,28 +59,28 @@ class DBSecurityGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbSecurityGroupTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbSecurityGroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""DBSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""DbSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class DBSecurityGroup(pulumi.CustomResource):
-    warnings.warn("""DBSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class DbSecurityGroup(pulumi.CustomResource):
+    warnings.warn("""DbSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSecurityGroupIngressArgs']]]]] = None,
+                 db_security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbSecurityGroupIngressArgs']]]]] = None,
                  ec2_vpc_id: Optional[pulumi.Input[str]] = None,
                  group_description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSecurityGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbSecurityGroupTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RDS::DBSecurityGroup
@@ -92,18 +92,18 @@ class DBSecurityGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DBSecurityGroupArgs,
+                 args: DbSecurityGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::RDS::DBSecurityGroup
 
         :param str resource_name: The name of the resource.
-        :param DBSecurityGroupArgs args: The arguments to use to populate this resource's properties.
+        :param DbSecurityGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DBSecurityGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DbSecurityGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -112,19 +112,19 @@ class DBSecurityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSecurityGroupIngressArgs']]]]] = None,
+                 db_security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbSecurityGroupIngressArgs']]]]] = None,
                  ec2_vpc_id: Optional[pulumi.Input[str]] = None,
                  group_description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSecurityGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbSecurityGroupTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DBSecurityGroup is deprecated: DBSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""DbSecurityGroup is deprecated: DbSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DBSecurityGroupArgs.__new__(DBSecurityGroupArgs)
+            __props__ = DbSecurityGroupArgs.__new__(DbSecurityGroupArgs)
 
             if db_security_group_ingress is None and not opts.urn:
                 raise TypeError("Missing required property 'db_security_group_ingress'")
@@ -134,8 +134,8 @@ class DBSecurityGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_description'")
             __props__.__dict__["group_description"] = group_description
             __props__.__dict__["tags"] = tags
-        super(DBSecurityGroup, __self__).__init__(
-            'aws-native:rds:DBSecurityGroup',
+        super(DbSecurityGroup, __self__).__init__(
+            'aws-native:rds:DbSecurityGroup',
             resource_name,
             __props__,
             opts)
@@ -143,9 +143,9 @@ class DBSecurityGroup(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'DBSecurityGroup':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DbSecurityGroup':
         """
-        Get an existing DBSecurityGroup resource's state with the given name, id, and optional extra
+        Get an existing DbSecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -154,17 +154,17 @@ class DBSecurityGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DBSecurityGroupArgs.__new__(DBSecurityGroupArgs)
+        __props__ = DbSecurityGroupArgs.__new__(DbSecurityGroupArgs)
 
         __props__.__dict__["db_security_group_ingress"] = None
         __props__.__dict__["ec2_vpc_id"] = None
         __props__.__dict__["group_description"] = None
         __props__.__dict__["tags"] = None
-        return DBSecurityGroup(resource_name, opts=opts, __props__=__props__)
+        return DbSecurityGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="dbSecurityGroupIngress")
-    def db_security_group_ingress(self) -> pulumi.Output[Sequence['outputs.DBSecurityGroupIngress']]:
+    def db_security_group_ingress(self) -> pulumi.Output[Sequence['outputs.DbSecurityGroupIngress']]:
         return pulumi.get(self, "db_security_group_ingress")
 
     @property
@@ -179,6 +179,6 @@ class DBSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBSecurityGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbSecurityGroupTag']]]:
         return pulumi.get(self, "tags")
 

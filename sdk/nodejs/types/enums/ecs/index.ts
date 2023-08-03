@@ -88,19 +88,19 @@ export const ServiceSchedulingStrategy = {
 
 export type ServiceSchedulingStrategy = (typeof ServiceSchedulingStrategy)[keyof typeof ServiceSchedulingStrategy];
 
-export const TaskDefinitionAuthorizationConfigIAM = {
+export const TaskDefinitionAuthorizationConfigIam = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
 } as const;
 
-export type TaskDefinitionAuthorizationConfigIAM = (typeof TaskDefinitionAuthorizationConfigIAM)[keyof typeof TaskDefinitionAuthorizationConfigIAM];
+export type TaskDefinitionAuthorizationConfigIam = (typeof TaskDefinitionAuthorizationConfigIam)[keyof typeof TaskDefinitionAuthorizationConfigIam];
 
-export const TaskDefinitionEFSVolumeConfigurationTransitEncryption = {
+export const TaskDefinitionEfsVolumeConfigurationTransitEncryption = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
 } as const;
 
-export type TaskDefinitionEFSVolumeConfigurationTransitEncryption = (typeof TaskDefinitionEFSVolumeConfigurationTransitEncryption)[keyof typeof TaskDefinitionEFSVolumeConfigurationTransitEncryption];
+export type TaskDefinitionEfsVolumeConfigurationTransitEncryption = (typeof TaskDefinitionEfsVolumeConfigurationTransitEncryption)[keyof typeof TaskDefinitionEfsVolumeConfigurationTransitEncryption];
 
 export const TaskDefinitionPortMappingAppProtocol = {
     Http: "http",

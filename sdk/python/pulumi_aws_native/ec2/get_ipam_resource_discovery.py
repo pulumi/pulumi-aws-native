@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetIPAMResourceDiscoveryResult',
-    'AwaitableGetIPAMResourceDiscoveryResult',
+    'GetIpamResourceDiscoveryResult',
+    'AwaitableGetIpamResourceDiscoveryResult',
     'get_ipam_resource_discovery',
     'get_ipam_resource_discovery_output',
 ]
 
 @pulumi.output_type
-class GetIPAMResourceDiscoveryResult:
+class GetIpamResourceDiscoveryResult:
     def __init__(__self__, description=None, ipam_resource_discovery_arn=None, ipam_resource_discovery_id=None, ipam_resource_discovery_region=None, is_default=None, operating_regions=None, owner_id=None, state=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
@@ -87,7 +87,7 @@ class GetIPAMResourceDiscoveryResult:
 
     @property
     @pulumi.getter(name="operatingRegions")
-    def operating_regions(self) -> Optional[Sequence['outputs.IPAMResourceDiscoveryIpamOperatingRegion']]:
+    def operating_regions(self) -> Optional[Sequence['outputs.IpamResourceDiscoveryIpamOperatingRegion']]:
         """
         The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
         """
@@ -111,19 +111,19 @@ class GetIPAMResourceDiscoveryResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.IPAMResourceDiscoveryTag']]:
+    def tags(self) -> Optional[Sequence['outputs.IpamResourceDiscoveryTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIPAMResourceDiscoveryResult(GetIPAMResourceDiscoveryResult):
+class AwaitableGetIpamResourceDiscoveryResult(GetIpamResourceDiscoveryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIPAMResourceDiscoveryResult(
+        return GetIpamResourceDiscoveryResult(
             description=self.description,
             ipam_resource_discovery_arn=self.ipam_resource_discovery_arn,
             ipam_resource_discovery_id=self.ipam_resource_discovery_id,
@@ -136,7 +136,7 @@ class AwaitableGetIPAMResourceDiscoveryResult(GetIPAMResourceDiscoveryResult):
 
 
 def get_ipam_resource_discovery(ipam_resource_discovery_id: Optional[str] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPAMResourceDiscoveryResult:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamResourceDiscoveryResult:
     """
     Resource Schema of AWS::EC2::IPAMResourceDiscovery Type
 
@@ -146,9 +146,9 @@ def get_ipam_resource_discovery(ipam_resource_discovery_id: Optional[str] = None
     __args__ = dict()
     __args__['ipamResourceDiscoveryId'] = ipam_resource_discovery_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMResourceDiscovery', __args__, opts=opts, typ=GetIPAMResourceDiscoveryResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIpamResourceDiscovery', __args__, opts=opts, typ=GetIpamResourceDiscoveryResult).value
 
-    return AwaitableGetIPAMResourceDiscoveryResult(
+    return AwaitableGetIpamResourceDiscoveryResult(
         description=pulumi.get(__ret__, 'description'),
         ipam_resource_discovery_arn=pulumi.get(__ret__, 'ipam_resource_discovery_arn'),
         ipam_resource_discovery_id=pulumi.get(__ret__, 'ipam_resource_discovery_id'),
@@ -162,7 +162,7 @@ def get_ipam_resource_discovery(ipam_resource_discovery_id: Optional[str] = None
 
 @_utilities.lift_output_func(get_ipam_resource_discovery)
 def get_ipam_resource_discovery_output(ipam_resource_discovery_id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPAMResourceDiscoveryResult]:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamResourceDiscoveryResult]:
     """
     Resource Schema of AWS::EC2::IPAMResourceDiscovery Type
 

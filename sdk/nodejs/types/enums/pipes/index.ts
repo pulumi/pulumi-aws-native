@@ -24,12 +24,12 @@ export const PipeBatchResourceRequirementType = {
 
 export type PipeBatchResourceRequirementType = (typeof PipeBatchResourceRequirementType)[keyof typeof PipeBatchResourceRequirementType];
 
-export const PipeDynamoDBStreamStartPosition = {
+export const PipeDynamoDbStreamStartPosition = {
     TrimHorizon: "TRIM_HORIZON",
     Latest: "LATEST",
 } as const;
 
-export type PipeDynamoDBStreamStartPosition = (typeof PipeDynamoDBStreamStartPosition)[keyof typeof PipeDynamoDBStreamStartPosition];
+export type PipeDynamoDbStreamStartPosition = (typeof PipeDynamoDbStreamStartPosition)[keyof typeof PipeDynamoDbStreamStartPosition];
 
 export const PipeEcsEnvironmentFileType = {
     S3: "s3",
@@ -60,12 +60,12 @@ export const PipeLaunchType = {
 
 export type PipeLaunchType = (typeof PipeLaunchType)[keyof typeof PipeLaunchType];
 
-export const PipeMSKStartPosition = {
+export const PipeMskStartPosition = {
     TrimHorizon: "TRIM_HORIZON",
     Latest: "LATEST",
 } as const;
 
-export type PipeMSKStartPosition = (typeof PipeMSKStartPosition)[keyof typeof PipeMSKStartPosition];
+export type PipeMskStartPosition = (typeof PipeMskStartPosition)[keyof typeof PipeMskStartPosition];
 
 export const PipeOnPartialBatchItemFailureStreams = {
     AutomaticBisect: "AUTOMATIC_BISECT",

@@ -14,7 +14,7 @@ __all__ = [
     'EndpointDocDbSettings',
     'EndpointDynamoDbSettings',
     'EndpointElasticsearchSettings',
-    'EndpointGcpMySQLSettings',
+    'EndpointGcpMySqlSettings',
     'EndpointIbmDb2Settings',
     'EndpointKafkaSettings',
     'EndpointKinesisSettings',
@@ -198,7 +198,7 @@ class EndpointElasticsearchSettings(dict):
 
 
 @pulumi.output_type
-class EndpointGcpMySQLSettings(dict):
+class EndpointGcpMySqlSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -224,14 +224,14 @@ class EndpointGcpMySQLSettings(dict):
             suggest = "server_timezone"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EndpointGcpMySQLSettings. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in EndpointGcpMySqlSettings. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EndpointGcpMySQLSettings.__key_warning(key)
+        EndpointGcpMySqlSettings.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EndpointGcpMySQLSettings.__key_warning(key)
+        EndpointGcpMySqlSettings.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

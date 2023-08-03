@@ -13,20 +13,20 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeSourceParameters
     {
-        public readonly Outputs.PipeSourceActiveMQBrokerParameters? ActiveMqBrokerParameters;
-        public readonly Outputs.PipeSourceDynamoDBStreamParameters? DynamoDbStreamParameters;
+        public readonly Outputs.PipeSourceActiveMqBrokerParameters? ActiveMqBrokerParameters;
+        public readonly Outputs.PipeSourceDynamoDbStreamParameters? DynamoDbStreamParameters;
         public readonly Outputs.PipeFilterCriteria? FilterCriteria;
         public readonly Outputs.PipeSourceKinesisStreamParameters? KinesisStreamParameters;
         public readonly Outputs.PipeSourceManagedStreamingKafkaParameters? ManagedStreamingKafkaParameters;
-        public readonly Outputs.PipeSourceRabbitMQBrokerParameters? RabbitMqBrokerParameters;
+        public readonly Outputs.PipeSourceRabbitMqBrokerParameters? RabbitMqBrokerParameters;
         public readonly Outputs.PipeSourceSelfManagedKafkaParameters? SelfManagedKafkaParameters;
         public readonly Outputs.PipeSourceSqsQueueParameters? SqsQueueParameters;
 
         [OutputConstructor]
         private PipeSourceParameters(
-            Outputs.PipeSourceActiveMQBrokerParameters? activeMqBrokerParameters,
+            Outputs.PipeSourceActiveMqBrokerParameters? activeMqBrokerParameters,
 
-            Outputs.PipeSourceDynamoDBStreamParameters? dynamoDbStreamParameters,
+            Outputs.PipeSourceDynamoDbStreamParameters? dynamoDbStreamParameters,
 
             Outputs.PipeFilterCriteria? filterCriteria,
 
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
 
             Outputs.PipeSourceManagedStreamingKafkaParameters? managedStreamingKafkaParameters,
 
-            Outputs.PipeSourceRabbitMQBrokerParameters? rabbitMqBrokerParameters,
+            Outputs.PipeSourceRabbitMqBrokerParameters? rabbitMqBrokerParameters,
 
             Outputs.PipeSourceSelfManagedKafkaParameters? selfManagedKafkaParameters,
 

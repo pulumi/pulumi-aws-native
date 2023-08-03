@@ -59,7 +59,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="awsLocation")
-    def aws_location(self) -> Optional['outputs.DeviceAWSLocation']:
+    def aws_location(self) -> Optional['outputs.DeviceAwsLocation']:
         """
         The Amazon Web Services location of the device, if applicable.
         """

@@ -21,7 +21,7 @@ __all__ = [
     'CoreNetworkEdge',
     'CoreNetworkSegment',
     'CoreNetworkTag',
-    'DeviceAWSLocation',
+    'DeviceAwsLocation',
     'DeviceLocation',
     'DeviceTag',
     'GlobalNetworkTag',
@@ -540,7 +540,7 @@ class CoreNetworkTag(dict):
 
 
 @pulumi.output_type
-class DeviceAWSLocation(dict):
+class DeviceAwsLocation(dict):
     """
     The Amazon Web Services location of the device, if applicable.
     """
@@ -551,14 +551,14 @@ class DeviceAWSLocation(dict):
             suggest = "subnet_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeviceAWSLocation. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DeviceAwsLocation. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DeviceAWSLocation.__key_warning(key)
+        DeviceAwsLocation.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DeviceAWSLocation.__key_warning(key)
+        DeviceAwsLocation.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

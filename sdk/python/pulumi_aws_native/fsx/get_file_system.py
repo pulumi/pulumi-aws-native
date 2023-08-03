@@ -81,7 +81,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="openZfsConfiguration")
-    def open_zfs_configuration(self) -> Optional['outputs.FileSystemOpenZFSConfiguration']:
+    def open_zfs_configuration(self) -> Optional['outputs.FileSystemOpenZfsConfiguration']:
         return pulumi.get(self, "open_zfs_configuration")
 
     @property

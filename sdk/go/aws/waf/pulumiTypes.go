@@ -186,104 +186,104 @@ func (o ByteMatchSetFieldToMatchOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ByteMatchSetFieldToMatch) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type IPSetDescriptor struct {
+type IpSetIpSetDescriptor struct {
 	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
-// IPSetDescriptorInput is an input type that accepts IPSetDescriptorArgs and IPSetDescriptorOutput values.
-// You can construct a concrete instance of `IPSetDescriptorInput` via:
+// IpSetIpSetDescriptorInput is an input type that accepts IpSetIpSetDescriptorArgs and IpSetIpSetDescriptorOutput values.
+// You can construct a concrete instance of `IpSetIpSetDescriptorInput` via:
 //
-//	IPSetDescriptorArgs{...}
-type IPSetDescriptorInput interface {
+//	IpSetIpSetDescriptorArgs{...}
+type IpSetIpSetDescriptorInput interface {
 	pulumi.Input
 
-	ToIPSetDescriptorOutput() IPSetDescriptorOutput
-	ToIPSetDescriptorOutputWithContext(context.Context) IPSetDescriptorOutput
+	ToIpSetIpSetDescriptorOutput() IpSetIpSetDescriptorOutput
+	ToIpSetIpSetDescriptorOutputWithContext(context.Context) IpSetIpSetDescriptorOutput
 }
 
-type IPSetDescriptorArgs struct {
+type IpSetIpSetDescriptorArgs struct {
 	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (IPSetDescriptorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSetDescriptor)(nil)).Elem()
+func (IpSetIpSetDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpSetIpSetDescriptor)(nil)).Elem()
 }
 
-func (i IPSetDescriptorArgs) ToIPSetDescriptorOutput() IPSetDescriptorOutput {
-	return i.ToIPSetDescriptorOutputWithContext(context.Background())
+func (i IpSetIpSetDescriptorArgs) ToIpSetIpSetDescriptorOutput() IpSetIpSetDescriptorOutput {
+	return i.ToIpSetIpSetDescriptorOutputWithContext(context.Background())
 }
 
-func (i IPSetDescriptorArgs) ToIPSetDescriptorOutputWithContext(ctx context.Context) IPSetDescriptorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPSetDescriptorOutput)
+func (i IpSetIpSetDescriptorArgs) ToIpSetIpSetDescriptorOutputWithContext(ctx context.Context) IpSetIpSetDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpSetIpSetDescriptorOutput)
 }
 
-// IPSetDescriptorArrayInput is an input type that accepts IPSetDescriptorArray and IPSetDescriptorArrayOutput values.
-// You can construct a concrete instance of `IPSetDescriptorArrayInput` via:
+// IpSetIpSetDescriptorArrayInput is an input type that accepts IpSetIpSetDescriptorArray and IpSetIpSetDescriptorArrayOutput values.
+// You can construct a concrete instance of `IpSetIpSetDescriptorArrayInput` via:
 //
-//	IPSetDescriptorArray{ IPSetDescriptorArgs{...} }
-type IPSetDescriptorArrayInput interface {
+//	IpSetIpSetDescriptorArray{ IpSetIpSetDescriptorArgs{...} }
+type IpSetIpSetDescriptorArrayInput interface {
 	pulumi.Input
 
-	ToIPSetDescriptorArrayOutput() IPSetDescriptorArrayOutput
-	ToIPSetDescriptorArrayOutputWithContext(context.Context) IPSetDescriptorArrayOutput
+	ToIpSetIpSetDescriptorArrayOutput() IpSetIpSetDescriptorArrayOutput
+	ToIpSetIpSetDescriptorArrayOutputWithContext(context.Context) IpSetIpSetDescriptorArrayOutput
 }
 
-type IPSetDescriptorArray []IPSetDescriptorInput
+type IpSetIpSetDescriptorArray []IpSetIpSetDescriptorInput
 
-func (IPSetDescriptorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPSetDescriptor)(nil)).Elem()
+func (IpSetIpSetDescriptorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpSetIpSetDescriptor)(nil)).Elem()
 }
 
-func (i IPSetDescriptorArray) ToIPSetDescriptorArrayOutput() IPSetDescriptorArrayOutput {
-	return i.ToIPSetDescriptorArrayOutputWithContext(context.Background())
+func (i IpSetIpSetDescriptorArray) ToIpSetIpSetDescriptorArrayOutput() IpSetIpSetDescriptorArrayOutput {
+	return i.ToIpSetIpSetDescriptorArrayOutputWithContext(context.Background())
 }
 
-func (i IPSetDescriptorArray) ToIPSetDescriptorArrayOutputWithContext(ctx context.Context) IPSetDescriptorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPSetDescriptorArrayOutput)
+func (i IpSetIpSetDescriptorArray) ToIpSetIpSetDescriptorArrayOutputWithContext(ctx context.Context) IpSetIpSetDescriptorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpSetIpSetDescriptorArrayOutput)
 }
 
-type IPSetDescriptorOutput struct{ *pulumi.OutputState }
+type IpSetIpSetDescriptorOutput struct{ *pulumi.OutputState }
 
-func (IPSetDescriptorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSetDescriptor)(nil)).Elem()
+func (IpSetIpSetDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpSetIpSetDescriptor)(nil)).Elem()
 }
 
-func (o IPSetDescriptorOutput) ToIPSetDescriptorOutput() IPSetDescriptorOutput {
+func (o IpSetIpSetDescriptorOutput) ToIpSetIpSetDescriptorOutput() IpSetIpSetDescriptorOutput {
 	return o
 }
 
-func (o IPSetDescriptorOutput) ToIPSetDescriptorOutputWithContext(ctx context.Context) IPSetDescriptorOutput {
+func (o IpSetIpSetDescriptorOutput) ToIpSetIpSetDescriptorOutputWithContext(ctx context.Context) IpSetIpSetDescriptorOutput {
 	return o
 }
 
-func (o IPSetDescriptorOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IPSetDescriptor) string { return v.Type }).(pulumi.StringOutput)
+func (o IpSetIpSetDescriptorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IpSetIpSetDescriptor) string { return v.Type }).(pulumi.StringOutput)
 }
 
-func (o IPSetDescriptorOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IPSetDescriptor) string { return v.Value }).(pulumi.StringOutput)
+func (o IpSetIpSetDescriptorOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IpSetIpSetDescriptor) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type IPSetDescriptorArrayOutput struct{ *pulumi.OutputState }
+type IpSetIpSetDescriptorArrayOutput struct{ *pulumi.OutputState }
 
-func (IPSetDescriptorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPSetDescriptor)(nil)).Elem()
+func (IpSetIpSetDescriptorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpSetIpSetDescriptor)(nil)).Elem()
 }
 
-func (o IPSetDescriptorArrayOutput) ToIPSetDescriptorArrayOutput() IPSetDescriptorArrayOutput {
+func (o IpSetIpSetDescriptorArrayOutput) ToIpSetIpSetDescriptorArrayOutput() IpSetIpSetDescriptorArrayOutput {
 	return o
 }
 
-func (o IPSetDescriptorArrayOutput) ToIPSetDescriptorArrayOutputWithContext(ctx context.Context) IPSetDescriptorArrayOutput {
+func (o IpSetIpSetDescriptorArrayOutput) ToIpSetIpSetDescriptorArrayOutputWithContext(ctx context.Context) IpSetIpSetDescriptorArrayOutput {
 	return o
 }
 
-func (o IPSetDescriptorArrayOutput) Index(i pulumi.IntInput) IPSetDescriptorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPSetDescriptor {
-		return vs[0].([]IPSetDescriptor)[vs[1].(int)]
-	}).(IPSetDescriptorOutput)
+func (o IpSetIpSetDescriptorArrayOutput) Index(i pulumi.IntInput) IpSetIpSetDescriptorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpSetIpSetDescriptor {
+		return vs[0].([]IpSetIpSetDescriptor)[vs[1].(int)]
+	}).(IpSetIpSetDescriptorOutput)
 }
 
 type RulePredicate struct {
@@ -716,238 +716,238 @@ func (o SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput) Index(i pulumi.In
 	}).(SqlInjectionMatchSetSqlInjectionMatchTupleOutput)
 }
 
-type WebACLActivatedRule struct {
-	Action   *WebACLWafAction `pulumi:"action"`
+type WebAclActivatedRule struct {
+	Action   *WebAclWafAction `pulumi:"action"`
 	Priority int              `pulumi:"priority"`
 	RuleId   string           `pulumi:"ruleId"`
 }
 
-// WebACLActivatedRuleInput is an input type that accepts WebACLActivatedRuleArgs and WebACLActivatedRuleOutput values.
-// You can construct a concrete instance of `WebACLActivatedRuleInput` via:
+// WebAclActivatedRuleInput is an input type that accepts WebAclActivatedRuleArgs and WebAclActivatedRuleOutput values.
+// You can construct a concrete instance of `WebAclActivatedRuleInput` via:
 //
-//	WebACLActivatedRuleArgs{...}
-type WebACLActivatedRuleInput interface {
+//	WebAclActivatedRuleArgs{...}
+type WebAclActivatedRuleInput interface {
 	pulumi.Input
 
-	ToWebACLActivatedRuleOutput() WebACLActivatedRuleOutput
-	ToWebACLActivatedRuleOutputWithContext(context.Context) WebACLActivatedRuleOutput
+	ToWebAclActivatedRuleOutput() WebAclActivatedRuleOutput
+	ToWebAclActivatedRuleOutputWithContext(context.Context) WebAclActivatedRuleOutput
 }
 
-type WebACLActivatedRuleArgs struct {
-	Action   WebACLWafActionPtrInput `pulumi:"action"`
+type WebAclActivatedRuleArgs struct {
+	Action   WebAclWafActionPtrInput `pulumi:"action"`
 	Priority pulumi.IntInput         `pulumi:"priority"`
 	RuleId   pulumi.StringInput      `pulumi:"ruleId"`
 }
 
-func (WebACLActivatedRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLActivatedRule)(nil)).Elem()
+func (WebAclActivatedRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclActivatedRule)(nil)).Elem()
 }
 
-func (i WebACLActivatedRuleArgs) ToWebACLActivatedRuleOutput() WebACLActivatedRuleOutput {
-	return i.ToWebACLActivatedRuleOutputWithContext(context.Background())
+func (i WebAclActivatedRuleArgs) ToWebAclActivatedRuleOutput() WebAclActivatedRuleOutput {
+	return i.ToWebAclActivatedRuleOutputWithContext(context.Background())
 }
 
-func (i WebACLActivatedRuleArgs) ToWebACLActivatedRuleOutputWithContext(ctx context.Context) WebACLActivatedRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLActivatedRuleOutput)
+func (i WebAclActivatedRuleArgs) ToWebAclActivatedRuleOutputWithContext(ctx context.Context) WebAclActivatedRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclActivatedRuleOutput)
 }
 
-// WebACLActivatedRuleArrayInput is an input type that accepts WebACLActivatedRuleArray and WebACLActivatedRuleArrayOutput values.
-// You can construct a concrete instance of `WebACLActivatedRuleArrayInput` via:
+// WebAclActivatedRuleArrayInput is an input type that accepts WebAclActivatedRuleArray and WebAclActivatedRuleArrayOutput values.
+// You can construct a concrete instance of `WebAclActivatedRuleArrayInput` via:
 //
-//	WebACLActivatedRuleArray{ WebACLActivatedRuleArgs{...} }
-type WebACLActivatedRuleArrayInput interface {
+//	WebAclActivatedRuleArray{ WebAclActivatedRuleArgs{...} }
+type WebAclActivatedRuleArrayInput interface {
 	pulumi.Input
 
-	ToWebACLActivatedRuleArrayOutput() WebACLActivatedRuleArrayOutput
-	ToWebACLActivatedRuleArrayOutputWithContext(context.Context) WebACLActivatedRuleArrayOutput
+	ToWebAclActivatedRuleArrayOutput() WebAclActivatedRuleArrayOutput
+	ToWebAclActivatedRuleArrayOutputWithContext(context.Context) WebAclActivatedRuleArrayOutput
 }
 
-type WebACLActivatedRuleArray []WebACLActivatedRuleInput
+type WebAclActivatedRuleArray []WebAclActivatedRuleInput
 
-func (WebACLActivatedRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebACLActivatedRule)(nil)).Elem()
+func (WebAclActivatedRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclActivatedRule)(nil)).Elem()
 }
 
-func (i WebACLActivatedRuleArray) ToWebACLActivatedRuleArrayOutput() WebACLActivatedRuleArrayOutput {
-	return i.ToWebACLActivatedRuleArrayOutputWithContext(context.Background())
+func (i WebAclActivatedRuleArray) ToWebAclActivatedRuleArrayOutput() WebAclActivatedRuleArrayOutput {
+	return i.ToWebAclActivatedRuleArrayOutputWithContext(context.Background())
 }
 
-func (i WebACLActivatedRuleArray) ToWebACLActivatedRuleArrayOutputWithContext(ctx context.Context) WebACLActivatedRuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLActivatedRuleArrayOutput)
+func (i WebAclActivatedRuleArray) ToWebAclActivatedRuleArrayOutputWithContext(ctx context.Context) WebAclActivatedRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclActivatedRuleArrayOutput)
 }
 
-type WebACLActivatedRuleOutput struct{ *pulumi.OutputState }
+type WebAclActivatedRuleOutput struct{ *pulumi.OutputState }
 
-func (WebACLActivatedRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLActivatedRule)(nil)).Elem()
+func (WebAclActivatedRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclActivatedRule)(nil)).Elem()
 }
 
-func (o WebACLActivatedRuleOutput) ToWebACLActivatedRuleOutput() WebACLActivatedRuleOutput {
+func (o WebAclActivatedRuleOutput) ToWebAclActivatedRuleOutput() WebAclActivatedRuleOutput {
 	return o
 }
 
-func (o WebACLActivatedRuleOutput) ToWebACLActivatedRuleOutputWithContext(ctx context.Context) WebACLActivatedRuleOutput {
+func (o WebAclActivatedRuleOutput) ToWebAclActivatedRuleOutputWithContext(ctx context.Context) WebAclActivatedRuleOutput {
 	return o
 }
 
-func (o WebACLActivatedRuleOutput) Action() WebACLWafActionPtrOutput {
-	return o.ApplyT(func(v WebACLActivatedRule) *WebACLWafAction { return v.Action }).(WebACLWafActionPtrOutput)
+func (o WebAclActivatedRuleOutput) Action() WebAclWafActionPtrOutput {
+	return o.ApplyT(func(v WebAclActivatedRule) *WebAclWafAction { return v.Action }).(WebAclWafActionPtrOutput)
 }
 
-func (o WebACLActivatedRuleOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v WebACLActivatedRule) int { return v.Priority }).(pulumi.IntOutput)
+func (o WebAclActivatedRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclActivatedRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-func (o WebACLActivatedRuleOutput) RuleId() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLActivatedRule) string { return v.RuleId }).(pulumi.StringOutput)
+func (o WebAclActivatedRuleOutput) RuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclActivatedRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
 
-type WebACLActivatedRuleArrayOutput struct{ *pulumi.OutputState }
+type WebAclActivatedRuleArrayOutput struct{ *pulumi.OutputState }
 
-func (WebACLActivatedRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebACLActivatedRule)(nil)).Elem()
+func (WebAclActivatedRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclActivatedRule)(nil)).Elem()
 }
 
-func (o WebACLActivatedRuleArrayOutput) ToWebACLActivatedRuleArrayOutput() WebACLActivatedRuleArrayOutput {
+func (o WebAclActivatedRuleArrayOutput) ToWebAclActivatedRuleArrayOutput() WebAclActivatedRuleArrayOutput {
 	return o
 }
 
-func (o WebACLActivatedRuleArrayOutput) ToWebACLActivatedRuleArrayOutputWithContext(ctx context.Context) WebACLActivatedRuleArrayOutput {
+func (o WebAclActivatedRuleArrayOutput) ToWebAclActivatedRuleArrayOutputWithContext(ctx context.Context) WebAclActivatedRuleArrayOutput {
 	return o
 }
 
-func (o WebACLActivatedRuleArrayOutput) Index(i pulumi.IntInput) WebACLActivatedRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLActivatedRule {
-		return vs[0].([]WebACLActivatedRule)[vs[1].(int)]
-	}).(WebACLActivatedRuleOutput)
+func (o WebAclActivatedRuleArrayOutput) Index(i pulumi.IntInput) WebAclActivatedRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclActivatedRule {
+		return vs[0].([]WebAclActivatedRule)[vs[1].(int)]
+	}).(WebAclActivatedRuleOutput)
 }
 
-type WebACLWafAction struct {
+type WebAclWafAction struct {
 	Type string `pulumi:"type"`
 }
 
-// WebACLWafActionInput is an input type that accepts WebACLWafActionArgs and WebACLWafActionOutput values.
-// You can construct a concrete instance of `WebACLWafActionInput` via:
+// WebAclWafActionInput is an input type that accepts WebAclWafActionArgs and WebAclWafActionOutput values.
+// You can construct a concrete instance of `WebAclWafActionInput` via:
 //
-//	WebACLWafActionArgs{...}
-type WebACLWafActionInput interface {
+//	WebAclWafActionArgs{...}
+type WebAclWafActionInput interface {
 	pulumi.Input
 
-	ToWebACLWafActionOutput() WebACLWafActionOutput
-	ToWebACLWafActionOutputWithContext(context.Context) WebACLWafActionOutput
+	ToWebAclWafActionOutput() WebAclWafActionOutput
+	ToWebAclWafActionOutputWithContext(context.Context) WebAclWafActionOutput
 }
 
-type WebACLWafActionArgs struct {
+type WebAclWafActionArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (WebACLWafActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLWafAction)(nil)).Elem()
+func (WebAclWafActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclWafAction)(nil)).Elem()
 }
 
-func (i WebACLWafActionArgs) ToWebACLWafActionOutput() WebACLWafActionOutput {
-	return i.ToWebACLWafActionOutputWithContext(context.Background())
+func (i WebAclWafActionArgs) ToWebAclWafActionOutput() WebAclWafActionOutput {
+	return i.ToWebAclWafActionOutputWithContext(context.Background())
 }
 
-func (i WebACLWafActionArgs) ToWebACLWafActionOutputWithContext(ctx context.Context) WebACLWafActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLWafActionOutput)
+func (i WebAclWafActionArgs) ToWebAclWafActionOutputWithContext(ctx context.Context) WebAclWafActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclWafActionOutput)
 }
 
-func (i WebACLWafActionArgs) ToWebACLWafActionPtrOutput() WebACLWafActionPtrOutput {
-	return i.ToWebACLWafActionPtrOutputWithContext(context.Background())
+func (i WebAclWafActionArgs) ToWebAclWafActionPtrOutput() WebAclWafActionPtrOutput {
+	return i.ToWebAclWafActionPtrOutputWithContext(context.Background())
 }
 
-func (i WebACLWafActionArgs) ToWebACLWafActionPtrOutputWithContext(ctx context.Context) WebACLWafActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLWafActionOutput).ToWebACLWafActionPtrOutputWithContext(ctx)
+func (i WebAclWafActionArgs) ToWebAclWafActionPtrOutputWithContext(ctx context.Context) WebAclWafActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclWafActionOutput).ToWebAclWafActionPtrOutputWithContext(ctx)
 }
 
-// WebACLWafActionPtrInput is an input type that accepts WebACLWafActionArgs, WebACLWafActionPtr and WebACLWafActionPtrOutput values.
-// You can construct a concrete instance of `WebACLWafActionPtrInput` via:
+// WebAclWafActionPtrInput is an input type that accepts WebAclWafActionArgs, WebAclWafActionPtr and WebAclWafActionPtrOutput values.
+// You can construct a concrete instance of `WebAclWafActionPtrInput` via:
 //
-//	        WebACLWafActionArgs{...}
+//	        WebAclWafActionArgs{...}
 //
 //	or:
 //
 //	        nil
-type WebACLWafActionPtrInput interface {
+type WebAclWafActionPtrInput interface {
 	pulumi.Input
 
-	ToWebACLWafActionPtrOutput() WebACLWafActionPtrOutput
-	ToWebACLWafActionPtrOutputWithContext(context.Context) WebACLWafActionPtrOutput
+	ToWebAclWafActionPtrOutput() WebAclWafActionPtrOutput
+	ToWebAclWafActionPtrOutputWithContext(context.Context) WebAclWafActionPtrOutput
 }
 
-type webACLWafActionPtrType WebACLWafActionArgs
+type webAclWafActionPtrType WebAclWafActionArgs
 
-func WebACLWafActionPtr(v *WebACLWafActionArgs) WebACLWafActionPtrInput {
-	return (*webACLWafActionPtrType)(v)
+func WebAclWafActionPtr(v *WebAclWafActionArgs) WebAclWafActionPtrInput {
+	return (*webAclWafActionPtrType)(v)
 }
 
-func (*webACLWafActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLWafAction)(nil)).Elem()
+func (*webAclWafActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclWafAction)(nil)).Elem()
 }
 
-func (i *webACLWafActionPtrType) ToWebACLWafActionPtrOutput() WebACLWafActionPtrOutput {
-	return i.ToWebACLWafActionPtrOutputWithContext(context.Background())
+func (i *webAclWafActionPtrType) ToWebAclWafActionPtrOutput() WebAclWafActionPtrOutput {
+	return i.ToWebAclWafActionPtrOutputWithContext(context.Background())
 }
 
-func (i *webACLWafActionPtrType) ToWebACLWafActionPtrOutputWithContext(ctx context.Context) WebACLWafActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLWafActionPtrOutput)
+func (i *webAclWafActionPtrType) ToWebAclWafActionPtrOutputWithContext(ctx context.Context) WebAclWafActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclWafActionPtrOutput)
 }
 
-type WebACLWafActionOutput struct{ *pulumi.OutputState }
+type WebAclWafActionOutput struct{ *pulumi.OutputState }
 
-func (WebACLWafActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLWafAction)(nil)).Elem()
+func (WebAclWafActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclWafAction)(nil)).Elem()
 }
 
-func (o WebACLWafActionOutput) ToWebACLWafActionOutput() WebACLWafActionOutput {
+func (o WebAclWafActionOutput) ToWebAclWafActionOutput() WebAclWafActionOutput {
 	return o
 }
 
-func (o WebACLWafActionOutput) ToWebACLWafActionOutputWithContext(ctx context.Context) WebACLWafActionOutput {
+func (o WebAclWafActionOutput) ToWebAclWafActionOutputWithContext(ctx context.Context) WebAclWafActionOutput {
 	return o
 }
 
-func (o WebACLWafActionOutput) ToWebACLWafActionPtrOutput() WebACLWafActionPtrOutput {
-	return o.ToWebACLWafActionPtrOutputWithContext(context.Background())
+func (o WebAclWafActionOutput) ToWebAclWafActionPtrOutput() WebAclWafActionPtrOutput {
+	return o.ToWebAclWafActionPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLWafActionOutput) ToWebACLWafActionPtrOutputWithContext(ctx context.Context) WebACLWafActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLWafAction) *WebACLWafAction {
+func (o WebAclWafActionOutput) ToWebAclWafActionPtrOutputWithContext(ctx context.Context) WebAclWafActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclWafAction) *WebAclWafAction {
 		return &v
-	}).(WebACLWafActionPtrOutput)
+	}).(WebAclWafActionPtrOutput)
 }
 
-func (o WebACLWafActionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLWafAction) string { return v.Type }).(pulumi.StringOutput)
+func (o WebAclWafActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclWafAction) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type WebACLWafActionPtrOutput struct{ *pulumi.OutputState }
+type WebAclWafActionPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLWafActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLWafAction)(nil)).Elem()
+func (WebAclWafActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclWafAction)(nil)).Elem()
 }
 
-func (o WebACLWafActionPtrOutput) ToWebACLWafActionPtrOutput() WebACLWafActionPtrOutput {
+func (o WebAclWafActionPtrOutput) ToWebAclWafActionPtrOutput() WebAclWafActionPtrOutput {
 	return o
 }
 
-func (o WebACLWafActionPtrOutput) ToWebACLWafActionPtrOutputWithContext(ctx context.Context) WebACLWafActionPtrOutput {
+func (o WebAclWafActionPtrOutput) ToWebAclWafActionPtrOutputWithContext(ctx context.Context) WebAclWafActionPtrOutput {
 	return o
 }
 
-func (o WebACLWafActionPtrOutput) Elem() WebACLWafActionOutput {
-	return o.ApplyT(func(v *WebACLWafAction) WebACLWafAction {
+func (o WebAclWafActionPtrOutput) Elem() WebAclWafActionOutput {
+	return o.ApplyT(func(v *WebAclWafAction) WebAclWafAction {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLWafAction
+		var ret WebAclWafAction
 		return ret
-	}).(WebACLWafActionOutput)
+	}).(WebAclWafActionOutput)
 }
 
-func (o WebACLWafActionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLWafAction) *string {
+func (o WebAclWafActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclWafAction) *string {
 		if v == nil {
 			return nil
 		}
@@ -1114,8 +1114,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ByteMatchSetByteMatchTupleInput)(nil)).Elem(), ByteMatchSetByteMatchTupleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ByteMatchSetByteMatchTupleArrayInput)(nil)).Elem(), ByteMatchSetByteMatchTupleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ByteMatchSetFieldToMatchInput)(nil)).Elem(), ByteMatchSetFieldToMatchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPSetDescriptorInput)(nil)).Elem(), IPSetDescriptorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IPSetDescriptorArrayInput)(nil)).Elem(), IPSetDescriptorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpSetIpSetDescriptorInput)(nil)).Elem(), IpSetIpSetDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpSetIpSetDescriptorArrayInput)(nil)).Elem(), IpSetIpSetDescriptorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePredicateInput)(nil)).Elem(), RulePredicateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePredicateArrayInput)(nil)).Elem(), RulePredicateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetFieldToMatchInput)(nil)).Elem(), SizeConstraintSetFieldToMatchArgs{})
@@ -1124,18 +1124,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetFieldToMatchInput)(nil)).Elem(), SqlInjectionMatchSetFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetSqlInjectionMatchTupleInput)(nil)).Elem(), SqlInjectionMatchSetSqlInjectionMatchTupleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput)(nil)).Elem(), SqlInjectionMatchSetSqlInjectionMatchTupleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLActivatedRuleInput)(nil)).Elem(), WebACLActivatedRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLActivatedRuleArrayInput)(nil)).Elem(), WebACLActivatedRuleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLWafActionInput)(nil)).Elem(), WebACLWafActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLWafActionPtrInput)(nil)).Elem(), WebACLWafActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclActivatedRuleInput)(nil)).Elem(), WebAclActivatedRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclActivatedRuleArrayInput)(nil)).Elem(), WebAclActivatedRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclWafActionInput)(nil)).Elem(), WebAclWafActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclWafActionPtrInput)(nil)).Elem(), WebAclWafActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*XssMatchSetFieldToMatchInput)(nil)).Elem(), XssMatchSetFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*XssMatchSetXssMatchTupleInput)(nil)).Elem(), XssMatchSetXssMatchTupleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*XssMatchSetXssMatchTupleArrayInput)(nil)).Elem(), XssMatchSetXssMatchTupleArray{})
 	pulumi.RegisterOutputType(ByteMatchSetByteMatchTupleOutput{})
 	pulumi.RegisterOutputType(ByteMatchSetByteMatchTupleArrayOutput{})
 	pulumi.RegisterOutputType(ByteMatchSetFieldToMatchOutput{})
-	pulumi.RegisterOutputType(IPSetDescriptorOutput{})
-	pulumi.RegisterOutputType(IPSetDescriptorArrayOutput{})
+	pulumi.RegisterOutputType(IpSetIpSetDescriptorOutput{})
+	pulumi.RegisterOutputType(IpSetIpSetDescriptorArrayOutput{})
 	pulumi.RegisterOutputType(RulePredicateOutput{})
 	pulumi.RegisterOutputType(RulePredicateArrayOutput{})
 	pulumi.RegisterOutputType(SizeConstraintSetFieldToMatchOutput{})
@@ -1144,10 +1144,10 @@ func init() {
 	pulumi.RegisterOutputType(SqlInjectionMatchSetFieldToMatchOutput{})
 	pulumi.RegisterOutputType(SqlInjectionMatchSetSqlInjectionMatchTupleOutput{})
 	pulumi.RegisterOutputType(SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput{})
-	pulumi.RegisterOutputType(WebACLActivatedRuleOutput{})
-	pulumi.RegisterOutputType(WebACLActivatedRuleArrayOutput{})
-	pulumi.RegisterOutputType(WebACLWafActionOutput{})
-	pulumi.RegisterOutputType(WebACLWafActionPtrOutput{})
+	pulumi.RegisterOutputType(WebAclActivatedRuleOutput{})
+	pulumi.RegisterOutputType(WebAclActivatedRuleArrayOutput{})
+	pulumi.RegisterOutputType(WebAclWafActionOutput{})
+	pulumi.RegisterOutputType(WebAclWafActionPtrOutput{})
 	pulumi.RegisterOutputType(XssMatchSetFieldToMatchOutput{})
 	pulumi.RegisterOutputType(XssMatchSetXssMatchTupleOutput{})
 	pulumi.RegisterOutputType(XssMatchSetXssMatchTupleArrayOutput{})

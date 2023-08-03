@@ -21,16 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:pinpoint:ADMChannel":
-		r = &ADMChannel{}
-	case "aws-native:pinpoint:APNSChannel":
-		r = &APNSChannel{}
-	case "aws-native:pinpoint:APNSSandboxChannel":
-		r = &APNSSandboxChannel{}
-	case "aws-native:pinpoint:APNSVoipChannel":
-		r = &APNSVoipChannel{}
-	case "aws-native:pinpoint:APNSVoipSandboxChannel":
-		r = &APNSVoipSandboxChannel{}
+	case "aws-native:pinpoint:AdmChannel":
+		r = &AdmChannel{}
+	case "aws-native:pinpoint:ApnsChannel":
+		r = &ApnsChannel{}
+	case "aws-native:pinpoint:ApnsSandboxChannel":
+		r = &ApnsSandboxChannel{}
+	case "aws-native:pinpoint:ApnsVoipChannel":
+		r = &ApnsVoipChannel{}
+	case "aws-native:pinpoint:ApnsVoipSandboxChannel":
+		r = &ApnsVoipSandboxChannel{}
 	case "aws-native:pinpoint:App":
 		r = &App{}
 	case "aws-native:pinpoint:ApplicationSettings":
@@ -45,16 +45,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EmailTemplate{}
 	case "aws-native:pinpoint:EventStream":
 		r = &EventStream{}
-	case "aws-native:pinpoint:GCMChannel":
-		r = &GCMChannel{}
+	case "aws-native:pinpoint:GcmChannel":
+		r = &GcmChannel{}
 	case "aws-native:pinpoint:InAppTemplate":
 		r = &InAppTemplate{}
 	case "aws-native:pinpoint:PushTemplate":
 		r = &PushTemplate{}
-	case "aws-native:pinpoint:SMSChannel":
-		r = &SMSChannel{}
 	case "aws-native:pinpoint:Segment":
 		r = &Segment{}
+	case "aws-native:pinpoint:SmsChannel":
+		r = &SmsChannel{}
 	case "aws-native:pinpoint:SmsTemplate":
 		r = &SmsTemplate{}
 	case "aws-native:pinpoint:VoiceChannel":

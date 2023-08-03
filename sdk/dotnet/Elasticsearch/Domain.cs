@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public Output<string?> DomainName { get; private set; } = null!;
 
         [Output("ebsOptions")]
-        public Output<Outputs.DomainEBSOptions?> EbsOptions { get; private set; } = null!;
+        public Output<Outputs.DomainEbsOptions?> EbsOptions { get; private set; } = null!;
 
         [Output("elasticsearchClusterConfig")]
         public Output<Outputs.DomainElasticsearchClusterConfig?> ElasticsearchClusterConfig { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public Output<ImmutableArray<Outputs.DomainTag>> Tags { get; private set; } = null!;
 
         [Output("vpcOptions")]
-        public Output<Outputs.DomainVPCOptions?> VpcOptions { get; private set; } = null!;
+        public Output<Outputs.DomainVpcOptions?> VpcOptions { get; private set; } = null!;
 
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public Input<string>? DomainName { get; set; }
 
         [Input("ebsOptions")]
-        public Input<Inputs.DomainEBSOptionsArgs>? EbsOptions { get; set; }
+        public Input<Inputs.DomainEbsOptionsArgs>? EbsOptions { get; set; }
 
         [Input("elasticsearchClusterConfig")]
         public Input<Inputs.DomainElasticsearchClusterConfigArgs>? ElasticsearchClusterConfig { get; set; }
@@ -163,7 +163,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         }
 
         [Input("vpcOptions")]
-        public Input<Inputs.DomainVPCOptionsArgs>? VpcOptions { get; set; }
+        public Input<Inputs.DomainVpcOptionsArgs>? VpcOptions { get; set; }
 
         public DomainArgs()
         {

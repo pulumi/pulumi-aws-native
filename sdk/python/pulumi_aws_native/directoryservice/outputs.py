@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'MicrosoftADVpcSettings',
-    'SimpleADVpcSettings',
+    'MicrosoftAdVpcSettings',
+    'SimpleAdVpcSettings',
 ]
 
 @pulumi.output_type
-class MicrosoftADVpcSettings(dict):
+class MicrosoftAdVpcSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25,14 +25,14 @@ class MicrosoftADVpcSettings(dict):
             suggest = "vpc_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MicrosoftADVpcSettings. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MicrosoftAdVpcSettings. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MicrosoftADVpcSettings.__key_warning(key)
+        MicrosoftAdVpcSettings.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MicrosoftADVpcSettings.__key_warning(key)
+        MicrosoftAdVpcSettings.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -53,7 +53,7 @@ class MicrosoftADVpcSettings(dict):
 
 
 @pulumi.output_type
-class SimpleADVpcSettings(dict):
+class SimpleAdVpcSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -63,14 +63,14 @@ class SimpleADVpcSettings(dict):
             suggest = "vpc_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SimpleADVpcSettings. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SimpleAdVpcSettings. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SimpleADVpcSettings.__key_warning(key)
+        SimpleAdVpcSettings.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SimpleADVpcSettings.__key_warning(key)
+        SimpleAdVpcSettings.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

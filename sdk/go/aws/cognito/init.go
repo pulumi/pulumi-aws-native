@@ -41,8 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserPoolResourceServer{}
 	case "aws-native:cognito:UserPoolRiskConfigurationAttachment":
 		r = &UserPoolRiskConfigurationAttachment{}
-	case "aws-native:cognito:UserPoolUICustomizationAttachment":
-		r = &UserPoolUICustomizationAttachment{}
+	case "aws-native:cognito:UserPoolUiCustomizationAttachment":
+		r = &UserPoolUiCustomizationAttachment{}
 	case "aws-native:cognito:UserPoolUser":
 		r = &UserPoolUser{}
 	case "aws-native:cognito:UserPoolUserToGroupAttachment":

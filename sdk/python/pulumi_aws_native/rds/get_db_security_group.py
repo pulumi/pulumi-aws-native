@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDBSecurityGroupResult',
-    'AwaitableGetDBSecurityGroupResult',
+    'GetDbSecurityGroupResult',
+    'AwaitableGetDbSecurityGroupResult',
     'get_db_security_group',
     'get_db_security_group_output',
 ]
 
 @pulumi.output_type
-class GetDBSecurityGroupResult:
+class GetDbSecurityGroupResult:
     def __init__(__self__, db_security_group_ingress=None, id=None, tags=None):
         if db_security_group_ingress and not isinstance(db_security_group_ingress, list):
             raise TypeError("Expected argument 'db_security_group_ingress' to be a list")
@@ -32,7 +32,7 @@ class GetDBSecurityGroupResult:
 
     @property
     @pulumi.getter(name="dbSecurityGroupIngress")
-    def db_security_group_ingress(self) -> Optional[Sequence['outputs.DBSecurityGroupIngress']]:
+    def db_security_group_ingress(self) -> Optional[Sequence['outputs.DbSecurityGroupIngress']]:
         return pulumi.get(self, "db_security_group_ingress")
 
     @property
@@ -42,32 +42,32 @@ class GetDBSecurityGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBSecurityGroupTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DbSecurityGroupTag']]:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDBSecurityGroupResult(GetDBSecurityGroupResult):
+class AwaitableGetDbSecurityGroupResult(GetDbSecurityGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBSecurityGroupResult(
+        return GetDbSecurityGroupResult(
             db_security_group_ingress=self.db_security_group_ingress,
             id=self.id,
             tags=self.tags)
 
 
 def get_db_security_group(id: Optional[str] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBSecurityGroupResult:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbSecurityGroupResult:
     """
     Resource Type definition for AWS::RDS::DBSecurityGroup
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBSecurityGroup', __args__, opts=opts, typ=GetDBSecurityGroupResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbSecurityGroup', __args__, opts=opts, typ=GetDbSecurityGroupResult).value
 
-    return AwaitableGetDBSecurityGroupResult(
+    return AwaitableGetDbSecurityGroupResult(
         db_security_group_ingress=pulumi.get(__ret__, 'db_security_group_ingress'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -75,7 +75,7 @@ def get_db_security_group(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_security_group)
 def get_db_security_group_output(id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBSecurityGroupResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbSecurityGroupResult]:
     """
     Resource Type definition for AWS::RDS::DBSecurityGroup
     """

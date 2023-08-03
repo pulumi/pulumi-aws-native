@@ -2319,124 +2319,124 @@ func (in *deliveryStreamS3DestinationConfigurationCompressionFormatPtr) ToDelive
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
-type DeliveryStreamSplunkDestinationConfigurationHECEndpointType string
+type DeliveryStreamSplunkDestinationConfigurationHecEndpointType string
 
 const (
-	DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeRaw   = DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Raw")
-	DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeEvent = DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Event")
+	DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeRaw   = DeliveryStreamSplunkDestinationConfigurationHecEndpointType("Raw")
+	DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeEvent = DeliveryStreamSplunkDestinationConfigurationHecEndpointType("Event")
 )
 
-func (DeliveryStreamSplunkDestinationConfigurationHECEndpointType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHECEndpointType)(nil)).Elem()
+func (DeliveryStreamSplunkDestinationConfigurationHecEndpointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHecEndpointType)(nil)).Elem()
 }
 
-func (e DeliveryStreamSplunkDestinationConfigurationHECEndpointType) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput {
-	return pulumi.ToOutput(e).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput)
+func (e DeliveryStreamSplunkDestinationConfigurationHecEndpointType) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput)
 }
 
-func (e DeliveryStreamSplunkDestinationConfigurationHECEndpointType) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput)
+func (e DeliveryStreamSplunkDestinationConfigurationHecEndpointType) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput)
 }
 
-func (e DeliveryStreamSplunkDestinationConfigurationHECEndpointType) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput {
-	return e.ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutputWithContext(context.Background())
+func (e DeliveryStreamSplunkDestinationConfigurationHecEndpointType) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
+	return e.ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(context.Background())
 }
 
-func (e DeliveryStreamSplunkDestinationConfigurationHECEndpointType) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput {
-	return DeliveryStreamSplunkDestinationConfigurationHECEndpointType(e).ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutputWithContext(ctx).ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutputWithContext(ctx)
+func (e DeliveryStreamSplunkDestinationConfigurationHecEndpointType) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
+	return DeliveryStreamSplunkDestinationConfigurationHecEndpointType(e).ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutputWithContext(ctx).ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(ctx)
 }
 
-func (e DeliveryStreamSplunkDestinationConfigurationHECEndpointType) ToStringOutput() pulumi.StringOutput {
+func (e DeliveryStreamSplunkDestinationConfigurationHecEndpointType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DeliveryStreamSplunkDestinationConfigurationHECEndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DeliveryStreamSplunkDestinationConfigurationHecEndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DeliveryStreamSplunkDestinationConfigurationHECEndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DeliveryStreamSplunkDestinationConfigurationHecEndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DeliveryStreamSplunkDestinationConfigurationHECEndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DeliveryStreamSplunkDestinationConfigurationHecEndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput struct{ *pulumi.OutputState }
+type DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput struct{ *pulumi.OutputState }
 
-func (DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHECEndpointType)(nil)).Elem()
+func (DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHecEndpointType)(nil)).Elem()
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput {
 	return o
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput {
 	return o
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput {
-	return o.ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutputWithContext(context.Background())
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
+	return o.ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(context.Background())
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSplunkDestinationConfigurationHECEndpointType) *DeliveryStreamSplunkDestinationConfigurationHECEndpointType {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSplunkDestinationConfigurationHecEndpointType) *DeliveryStreamSplunkDestinationConfigurationHecEndpointType {
 		return &v
-	}).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput)
+	}).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput)
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamSplunkDestinationConfigurationHECEndpointType) string {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamSplunkDestinationConfigurationHecEndpointType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamSplunkDestinationConfigurationHECEndpointType) *string {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamSplunkDestinationConfigurationHecEndpointType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput struct{ *pulumi.OutputState }
+type DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeliveryStreamSplunkDestinationConfigurationHECEndpointType)(nil)).Elem()
+func (DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSplunkDestinationConfigurationHecEndpointType)(nil)).Elem()
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
 	return o
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
 	return o
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput) Elem() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput {
-	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfigurationHECEndpointType) DeliveryStreamSplunkDestinationConfigurationHECEndpointType {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) Elem() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput {
+	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfigurationHecEndpointType) DeliveryStreamSplunkDestinationConfigurationHecEndpointType {
 		if v != nil {
 			return *v
 		}
-		var ret DeliveryStreamSplunkDestinationConfigurationHECEndpointType
+		var ret DeliveryStreamSplunkDestinationConfigurationHecEndpointType
 		return ret
-	}).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput)
+	}).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput)
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamSplunkDestinationConfigurationHECEndpointType) *string {
+func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamSplunkDestinationConfigurationHecEndpointType) *string {
 		if e == nil {
 			return nil
 		}
@@ -2445,42 +2445,42 @@ func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput) To
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeInput is an input type that accepts DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeArgs and DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput values.
-// You can construct a concrete instance of `DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeInput` via:
+// DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput is an input type that accepts DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeArgs and DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput values.
+// You can construct a concrete instance of `DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput` via:
 //
-//	DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeArgs{...}
-type DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeInput interface {
+//	DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeArgs{...}
+type DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput interface {
 	pulumi.Input
 
-	ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput
-	ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutputWithContext(context.Context) DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput
+	ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput
+	ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutputWithContext(context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput
 }
 
-var deliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrType = reflect.TypeOf((**DeliveryStreamSplunkDestinationConfigurationHECEndpointType)(nil)).Elem()
+var deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrType = reflect.TypeOf((**DeliveryStreamSplunkDestinationConfigurationHecEndpointType)(nil)).Elem()
 
-type DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrInput interface {
+type DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrInput interface {
 	pulumi.Input
 
-	ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput
-	ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutputWithContext(context.Context) DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput
+	ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput
+	ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput
 }
 
-type deliveryStreamSplunkDestinationConfigurationHECEndpointTypePtr string
+type deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr string
 
-func DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtr(v string) DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrInput {
-	return (*deliveryStreamSplunkDestinationConfigurationHECEndpointTypePtr)(&v)
+func DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr(v string) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrInput {
+	return (*deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr)(&v)
 }
 
-func (*deliveryStreamSplunkDestinationConfigurationHECEndpointTypePtr) ElementType() reflect.Type {
-	return deliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrType
+func (*deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ElementType() reflect.Type {
+	return deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrType
 }
 
-func (in *deliveryStreamSplunkDestinationConfigurationHECEndpointTypePtr) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput {
-	return pulumi.ToOutput(in).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput)
+func (in *deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput)
 }
 
-func (in *deliveryStreamSplunkDestinationConfigurationHECEndpointTypePtr) ToDeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput)
+func (in *deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput)
 }
 
 type DeliveryStreamType string
@@ -2676,8 +2676,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrInput)(nil)).Elem(), DeliveryStreamRedshiftDestinationConfigurationS3BackupMode("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamS3DestinationConfigurationCompressionFormatInput)(nil)).Elem(), DeliveryStreamS3DestinationConfigurationCompressionFormat("UNCOMPRESSED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamS3DestinationConfigurationCompressionFormatPtrInput)(nil)).Elem(), DeliveryStreamS3DestinationConfigurationCompressionFormat("UNCOMPRESSED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Raw"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Raw"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationHecEndpointType("Raw"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationHecEndpointType("Raw"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTypeInput)(nil)).Elem(), DeliveryStreamType("DirectPut"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTypePtrInput)(nil)).Elem(), DeliveryStreamType("DirectPut"))
 	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput{})
@@ -2708,8 +2708,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamS3DestinationConfigurationCompressionFormatOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput{})
-	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput{})
-	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamTypeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamTypePtrOutput{})
 }

@@ -97,7 +97,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * Provide VPC Configuration if enabled.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.synthetics.CanaryVPCConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.synthetics.CanaryVpcConfig | undefined>;
 
     /**
      * Create a Canary resource with the given unique name, arguments, and options.
@@ -224,5 +224,5 @@ export interface CanaryArgs {
     /**
      * Provide VPC Configuration if enabled.
      */
-    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVPCConfigArgs>;
+    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfigArgs>;
 }

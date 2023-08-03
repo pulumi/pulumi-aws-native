@@ -74,7 +74,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="excludeMap")
-    def exclude_map(self) -> Optional['outputs.PolicyIEMap']:
+    def exclude_map(self) -> Optional['outputs.PolicyIeMap']:
         return pulumi.get(self, "exclude_map")
 
     @property
@@ -89,7 +89,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="includeMap")
-    def include_map(self) -> Optional['outputs.PolicyIEMap']:
+    def include_map(self) -> Optional['outputs.PolicyIeMap']:
         return pulumi.get(self, "include_map")
 
     @property

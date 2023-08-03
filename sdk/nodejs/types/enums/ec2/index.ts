@@ -14,36 +14,36 @@ export const CapacityReservationFleetTenancy = {
 
 export type CapacityReservationFleetTenancy = (typeof CapacityReservationFleetTenancy)[keyof typeof CapacityReservationFleetTenancy];
 
-export const EC2FleetCapacityRebalanceReplacementStrategy = {
+export const Ec2FleetCapacityRebalanceReplacementStrategy = {
     Launch: "launch",
     LaunchBeforeTerminate: "launch-before-terminate",
 } as const;
 
-export type EC2FleetCapacityRebalanceReplacementStrategy = (typeof EC2FleetCapacityRebalanceReplacementStrategy)[keyof typeof EC2FleetCapacityRebalanceReplacementStrategy];
+export type Ec2FleetCapacityRebalanceReplacementStrategy = (typeof Ec2FleetCapacityRebalanceReplacementStrategy)[keyof typeof Ec2FleetCapacityRebalanceReplacementStrategy];
 
-export const EC2FleetCapacityReservationOptionsRequestUsageStrategy = {
+export const Ec2FleetCapacityReservationOptionsRequestUsageStrategy = {
     UseCapacityReservationsFirst: "use-capacity-reservations-first",
 } as const;
 
-export type EC2FleetCapacityReservationOptionsRequestUsageStrategy = (typeof EC2FleetCapacityReservationOptionsRequestUsageStrategy)[keyof typeof EC2FleetCapacityReservationOptionsRequestUsageStrategy];
+export type Ec2FleetCapacityReservationOptionsRequestUsageStrategy = (typeof Ec2FleetCapacityReservationOptionsRequestUsageStrategy)[keyof typeof Ec2FleetCapacityReservationOptionsRequestUsageStrategy];
 
-export const EC2FleetExcessCapacityTerminationPolicy = {
+export const Ec2FleetExcessCapacityTerminationPolicy = {
     Termination: "termination",
     NoTermination: "no-termination",
 } as const;
 
-export type EC2FleetExcessCapacityTerminationPolicy = (typeof EC2FleetExcessCapacityTerminationPolicy)[keyof typeof EC2FleetExcessCapacityTerminationPolicy];
+export type Ec2FleetExcessCapacityTerminationPolicy = (typeof Ec2FleetExcessCapacityTerminationPolicy)[keyof typeof Ec2FleetExcessCapacityTerminationPolicy];
 
-export const EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem = {
+export const Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem = {
     Nvidia: "nvidia",
     Amd: "amd",
     AmazonWebServices: "amazon-web-services",
     Xilinx: "xilinx",
 } as const;
 
-export type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem = (typeof EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)[keyof typeof EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem];
+export type Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem = (typeof Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)[keyof typeof Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem];
 
-export const EC2FleetInstanceRequirementsRequestAcceleratorNamesItem = {
+export const Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem = {
     A100: "a100",
     V100: "v100",
     K80: "k80",
@@ -55,63 +55,63 @@ export const EC2FleetInstanceRequirementsRequestAcceleratorNamesItem = {
     K520: "k520",
 } as const;
 
-export type EC2FleetInstanceRequirementsRequestAcceleratorNamesItem = (typeof EC2FleetInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof EC2FleetInstanceRequirementsRequestAcceleratorNamesItem];
+export type Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem = (typeof Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem];
 
-export const EC2FleetInstanceRequirementsRequestAcceleratorTypesItem = {
+export const Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem = {
     Gpu: "gpu",
     Fpga: "fpga",
     Inference: "inference",
 } as const;
 
-export type EC2FleetInstanceRequirementsRequestAcceleratorTypesItem = (typeof EC2FleetInstanceRequirementsRequestAcceleratorTypesItem)[keyof typeof EC2FleetInstanceRequirementsRequestAcceleratorTypesItem];
+export type Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem = (typeof Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem)[keyof typeof Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem];
 
-export const EC2FleetInstanceRequirementsRequestBareMetal = {
+export const Ec2FleetInstanceRequirementsRequestBareMetal = {
     Included: "included",
     Required: "required",
     Excluded: "excluded",
 } as const;
 
-export type EC2FleetInstanceRequirementsRequestBareMetal = (typeof EC2FleetInstanceRequirementsRequestBareMetal)[keyof typeof EC2FleetInstanceRequirementsRequestBareMetal];
+export type Ec2FleetInstanceRequirementsRequestBareMetal = (typeof Ec2FleetInstanceRequirementsRequestBareMetal)[keyof typeof Ec2FleetInstanceRequirementsRequestBareMetal];
 
-export const EC2FleetInstanceRequirementsRequestBurstablePerformance = {
+export const Ec2FleetInstanceRequirementsRequestBurstablePerformance = {
     Included: "included",
     Required: "required",
     Excluded: "excluded",
 } as const;
 
-export type EC2FleetInstanceRequirementsRequestBurstablePerformance = (typeof EC2FleetInstanceRequirementsRequestBurstablePerformance)[keyof typeof EC2FleetInstanceRequirementsRequestBurstablePerformance];
+export type Ec2FleetInstanceRequirementsRequestBurstablePerformance = (typeof Ec2FleetInstanceRequirementsRequestBurstablePerformance)[keyof typeof Ec2FleetInstanceRequirementsRequestBurstablePerformance];
 
-export const EC2FleetInstanceRequirementsRequestCpuManufacturersItem = {
+export const Ec2FleetInstanceRequirementsRequestCpuManufacturersItem = {
     Intel: "intel",
     Amd: "amd",
     AmazonWebServices: "amazon-web-services",
 } as const;
 
-export type EC2FleetInstanceRequirementsRequestCpuManufacturersItem = (typeof EC2FleetInstanceRequirementsRequestCpuManufacturersItem)[keyof typeof EC2FleetInstanceRequirementsRequestCpuManufacturersItem];
+export type Ec2FleetInstanceRequirementsRequestCpuManufacturersItem = (typeof Ec2FleetInstanceRequirementsRequestCpuManufacturersItem)[keyof typeof Ec2FleetInstanceRequirementsRequestCpuManufacturersItem];
 
-export const EC2FleetInstanceRequirementsRequestInstanceGenerationsItem = {
+export const Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem = {
     Current: "current",
     Previous: "previous",
 } as const;
 
-export type EC2FleetInstanceRequirementsRequestInstanceGenerationsItem = (typeof EC2FleetInstanceRequirementsRequestInstanceGenerationsItem)[keyof typeof EC2FleetInstanceRequirementsRequestInstanceGenerationsItem];
+export type Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem = (typeof Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem)[keyof typeof Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem];
 
-export const EC2FleetInstanceRequirementsRequestLocalStorage = {
+export const Ec2FleetInstanceRequirementsRequestLocalStorage = {
     Included: "included",
     Required: "required",
     Excluded: "excluded",
 } as const;
 
-export type EC2FleetInstanceRequirementsRequestLocalStorage = (typeof EC2FleetInstanceRequirementsRequestLocalStorage)[keyof typeof EC2FleetInstanceRequirementsRequestLocalStorage];
+export type Ec2FleetInstanceRequirementsRequestLocalStorage = (typeof Ec2FleetInstanceRequirementsRequestLocalStorage)[keyof typeof Ec2FleetInstanceRequirementsRequestLocalStorage];
 
-export const EC2FleetInstanceRequirementsRequestLocalStorageTypesItem = {
+export const Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem = {
     Hdd: "hdd",
     Ssd: "ssd",
 } as const;
 
-export type EC2FleetInstanceRequirementsRequestLocalStorageTypesItem = (typeof EC2FleetInstanceRequirementsRequestLocalStorageTypesItem)[keyof typeof EC2FleetInstanceRequirementsRequestLocalStorageTypesItem];
+export type Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem = (typeof Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem)[keyof typeof Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem];
 
-export const EC2FleetSpotOptionsRequestAllocationStrategy = {
+export const Ec2FleetSpotOptionsRequestAllocationStrategy = {
     LowestPrice: "lowest-price",
     Diversified: "diversified",
     CapacityOptimized: "capacityOptimized",
@@ -119,17 +119,17 @@ export const EC2FleetSpotOptionsRequestAllocationStrategy = {
     PriceCapacityOptimized: "priceCapacityOptimized",
 } as const;
 
-export type EC2FleetSpotOptionsRequestAllocationStrategy = (typeof EC2FleetSpotOptionsRequestAllocationStrategy)[keyof typeof EC2FleetSpotOptionsRequestAllocationStrategy];
+export type Ec2FleetSpotOptionsRequestAllocationStrategy = (typeof Ec2FleetSpotOptionsRequestAllocationStrategy)[keyof typeof Ec2FleetSpotOptionsRequestAllocationStrategy];
 
-export const EC2FleetSpotOptionsRequestInstanceInterruptionBehavior = {
+export const Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior = {
     Hibernate: "hibernate",
     Stop: "stop",
     Terminate: "terminate",
 } as const;
 
-export type EC2FleetSpotOptionsRequestInstanceInterruptionBehavior = (typeof EC2FleetSpotOptionsRequestInstanceInterruptionBehavior)[keyof typeof EC2FleetSpotOptionsRequestInstanceInterruptionBehavior];
+export type Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior = (typeof Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior)[keyof typeof Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior];
 
-export const EC2FleetTagSpecificationResourceType = {
+export const Ec2FleetTagSpecificationResourceType = {
     ClientVpnEndpoint: "client-vpn-endpoint",
     CustomerGateway: "customer-gateway",
     DedicatedHost: "dedicated-host",
@@ -179,30 +179,30 @@ export const EC2FleetTagSpecificationResourceType = {
     VpnGateway: "vpn-gateway",
 } as const;
 
-export type EC2FleetTagSpecificationResourceType = (typeof EC2FleetTagSpecificationResourceType)[keyof typeof EC2FleetTagSpecificationResourceType];
+export type Ec2FleetTagSpecificationResourceType = (typeof Ec2FleetTagSpecificationResourceType)[keyof typeof Ec2FleetTagSpecificationResourceType];
 
-export const EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType = {
+export const Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType = {
     OnDemand: "on-demand",
     Spot: "spot",
 } as const;
 
-export type EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType = (typeof EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType)[keyof typeof EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType];
+export type Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType = (typeof Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType)[keyof typeof Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType];
 
-export const EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType = {
+export const Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType = {
     Vcpu: "vcpu",
     MemoryMib: "memory-mib",
     Units: "units",
 } as const;
 
-export type EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType = (typeof EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType)[keyof typeof EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType];
+export type Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType = (typeof Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType)[keyof typeof Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType];
 
-export const EC2FleetType = {
+export const Ec2FleetType = {
     Maintain: "maintain",
     Request: "request",
     Instant: "instant",
 } as const;
 
-export type EC2FleetType = (typeof EC2FleetType)[keyof typeof EC2FleetType];
+export type Ec2FleetType = (typeof Ec2FleetType)[keyof typeof Ec2FleetType];
 
 export const FlowLogDestinationOptionsPropertiesFileFormat = {
     PlainText: "plain-text",
@@ -246,16 +246,16 @@ export const FlowLogTrafficType = {
  */
 export type FlowLogTrafficType = (typeof FlowLogTrafficType)[keyof typeof FlowLogTrafficType];
 
-export const IPAMPoolAwsService = {
+export const IpamPoolAwsService = {
     Ec2: "ec2",
 } as const;
 
 /**
  * Limits which service in Amazon Web Services that the pool can be used in.
  */
-export type IPAMPoolAwsService = (typeof IPAMPoolAwsService)[keyof typeof IPAMPoolAwsService];
+export type IpamPoolAwsService = (typeof IpamPoolAwsService)[keyof typeof IpamPoolAwsService];
 
-export const IPAMPoolIpamScopeType = {
+export const IpamPoolIpamScopeType = {
     Public: "public",
     Private: "private",
 } as const;
@@ -263,9 +263,9 @@ export const IPAMPoolIpamScopeType = {
 /**
  * Determines whether this scope contains publicly routable space or space for a private network
  */
-export type IPAMPoolIpamScopeType = (typeof IPAMPoolIpamScopeType)[keyof typeof IPAMPoolIpamScopeType];
+export type IpamPoolIpamScopeType = (typeof IpamPoolIpamScopeType)[keyof typeof IpamPoolIpamScopeType];
 
-export const IPAMPoolPublicIpSource = {
+export const IpamPoolPublicIpSource = {
     Byoip: "byoip",
     Amazon: "amazon",
 } as const;
@@ -273,9 +273,9 @@ export const IPAMPoolPublicIpSource = {
 /**
  * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
  */
-export type IPAMPoolPublicIpSource = (typeof IPAMPoolPublicIpSource)[keyof typeof IPAMPoolPublicIpSource];
+export type IpamPoolPublicIpSource = (typeof IpamPoolPublicIpSource)[keyof typeof IpamPoolPublicIpSource];
 
-export const IPAMPoolState = {
+export const IpamPoolState = {
     CreateInProgress: "create-in-progress",
     CreateComplete: "create-complete",
     ModifyInProgress: "modify-in-progress",
@@ -287,9 +287,9 @@ export const IPAMPoolState = {
 /**
  * The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
  */
-export type IPAMPoolState = (typeof IPAMPoolState)[keyof typeof IPAMPoolState];
+export type IpamPoolState = (typeof IpamPoolState)[keyof typeof IpamPoolState];
 
-export const IPAMScopeIpamScopeType = {
+export const IpamScopeType = {
     Public: "public",
     Private: "private",
 } as const;
@@ -297,7 +297,7 @@ export const IPAMScopeIpamScopeType = {
 /**
  * Determines whether this scope contains publicly routable space or space for a private network
  */
-export type IPAMScopeIpamScopeType = (typeof IPAMScopeIpamScopeType)[keyof typeof IPAMScopeIpamScopeType];
+export type IpamScopeType = (typeof IpamScopeType)[keyof typeof IpamScopeType];
 
 export const KeyPairKeyFormat = {
     Pem: "pem",
@@ -573,10 +573,10 @@ export const SpotFleetTagSpecificationResourceType = {
 
 export type SpotFleetTagSpecificationResourceType = (typeof SpotFleetTagSpecificationResourceType)[keyof typeof SpotFleetTagSpecificationResourceType];
 
-export const VPCEndpointVpcEndpointType = {
+export const VpcEndpointType = {
     Interface: "Interface",
     Gateway: "Gateway",
     GatewayLoadBalancer: "GatewayLoadBalancer",
 } as const;
 
-export type VPCEndpointVpcEndpointType = (typeof VPCEndpointVpcEndpointType)[keyof typeof VPCEndpointVpcEndpointType];
+export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointType];

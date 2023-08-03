@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDBParameterGroupResult',
-    'AwaitableGetDBParameterGroupResult',
+    'GetDbParameterGroupResult',
+    'AwaitableGetDbParameterGroupResult',
     'get_db_parameter_group',
     'get_db_parameter_group_output',
 ]
 
 @pulumi.output_type
-class GetDBParameterGroupResult:
+class GetDbParameterGroupResult:
     def __init__(__self__, parameters=None, tags=None):
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
@@ -37,25 +37,25 @@ class GetDBParameterGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBParameterGroupTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DbParameterGroupTag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDBParameterGroupResult(GetDBParameterGroupResult):
+class AwaitableGetDbParameterGroupResult(GetDbParameterGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBParameterGroupResult(
+        return GetDbParameterGroupResult(
             parameters=self.parameters,
             tags=self.tags)
 
 
 def get_db_parameter_group(db_parameter_group_name: Optional[str] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBParameterGroupResult:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbParameterGroupResult:
     """
     The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
 
@@ -65,16 +65,16 @@ def get_db_parameter_group(db_parameter_group_name: Optional[str] = None,
     __args__ = dict()
     __args__['dbParameterGroupName'] = db_parameter_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBParameterGroup', __args__, opts=opts, typ=GetDBParameterGroupResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbParameterGroup', __args__, opts=opts, typ=GetDbParameterGroupResult).value
 
-    return AwaitableGetDBParameterGroupResult(
+    return AwaitableGetDbParameterGroupResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_db_parameter_group)
 def get_db_parameter_group_output(db_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBParameterGroupResult]:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbParameterGroupResult]:
     """
     The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
 

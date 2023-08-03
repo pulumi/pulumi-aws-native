@@ -27,9 +27,9 @@ type DeploymentGroup struct {
 	DeploymentConfigName             pulumi.StringPtrOutput                                   `pulumi:"deploymentConfigName"`
 	DeploymentGroupName              pulumi.StringPtrOutput                                   `pulumi:"deploymentGroupName"`
 	DeploymentStyle                  DeploymentGroupDeploymentStylePtrOutput                  `pulumi:"deploymentStyle"`
-	Ec2TagFilters                    DeploymentGroupEC2TagFilterArrayOutput                   `pulumi:"ec2TagFilters"`
-	Ec2TagSet                        DeploymentGroupEC2TagSetPtrOutput                        `pulumi:"ec2TagSet"`
-	EcsServices                      DeploymentGroupECSServiceArrayOutput                     `pulumi:"ecsServices"`
+	Ec2TagFilters                    DeploymentGroupEc2TagFilterArrayOutput                   `pulumi:"ec2TagFilters"`
+	Ec2TagSet                        DeploymentGroupEc2TagSetPtrOutput                        `pulumi:"ec2TagSet"`
+	EcsServices                      DeploymentGroupEcsServiceArrayOutput                     `pulumi:"ecsServices"`
 	LoadBalancerInfo                 DeploymentGroupLoadBalancerInfoPtrOutput                 `pulumi:"loadBalancerInfo"`
 	OnPremisesInstanceTagFilters     DeploymentGroupTagFilterArrayOutput                      `pulumi:"onPremisesInstanceTagFilters"`
 	OnPremisesTagSet                 DeploymentGroupOnPremisesTagSetPtrOutput                 `pulumi:"onPremisesTagSet"`
@@ -94,9 +94,9 @@ type deploymentGroupArgs struct {
 	DeploymentConfigName             *string                                          `pulumi:"deploymentConfigName"`
 	DeploymentGroupName              *string                                          `pulumi:"deploymentGroupName"`
 	DeploymentStyle                  *DeploymentGroupDeploymentStyle                  `pulumi:"deploymentStyle"`
-	Ec2TagFilters                    []DeploymentGroupEC2TagFilter                    `pulumi:"ec2TagFilters"`
-	Ec2TagSet                        *DeploymentGroupEC2TagSet                        `pulumi:"ec2TagSet"`
-	EcsServices                      []DeploymentGroupECSService                      `pulumi:"ecsServices"`
+	Ec2TagFilters                    []DeploymentGroupEc2TagFilter                    `pulumi:"ec2TagFilters"`
+	Ec2TagSet                        *DeploymentGroupEc2TagSet                        `pulumi:"ec2TagSet"`
+	EcsServices                      []DeploymentGroupEcsService                      `pulumi:"ecsServices"`
 	LoadBalancerInfo                 *DeploymentGroupLoadBalancerInfo                 `pulumi:"loadBalancerInfo"`
 	OnPremisesInstanceTagFilters     []DeploymentGroupTagFilter                       `pulumi:"onPremisesInstanceTagFilters"`
 	OnPremisesTagSet                 *DeploymentGroupOnPremisesTagSet                 `pulumi:"onPremisesTagSet"`
@@ -117,9 +117,9 @@ type DeploymentGroupArgs struct {
 	DeploymentConfigName             pulumi.StringPtrInput
 	DeploymentGroupName              pulumi.StringPtrInput
 	DeploymentStyle                  DeploymentGroupDeploymentStylePtrInput
-	Ec2TagFilters                    DeploymentGroupEC2TagFilterArrayInput
-	Ec2TagSet                        DeploymentGroupEC2TagSetPtrInput
-	EcsServices                      DeploymentGroupECSServiceArrayInput
+	Ec2TagFilters                    DeploymentGroupEc2TagFilterArrayInput
+	Ec2TagSet                        DeploymentGroupEc2TagSetPtrInput
+	EcsServices                      DeploymentGroupEcsServiceArrayInput
 	LoadBalancerInfo                 DeploymentGroupLoadBalancerInfoPtrInput
 	OnPremisesInstanceTagFilters     DeploymentGroupTagFilterArrayInput
 	OnPremisesTagSet                 DeploymentGroupOnPremisesTagSetPtrInput
@@ -206,16 +206,16 @@ func (o DeploymentGroupOutput) DeploymentStyle() DeploymentGroupDeploymentStyleP
 	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupDeploymentStylePtrOutput { return v.DeploymentStyle }).(DeploymentGroupDeploymentStylePtrOutput)
 }
 
-func (o DeploymentGroupOutput) Ec2TagFilters() DeploymentGroupEC2TagFilterArrayOutput {
-	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupEC2TagFilterArrayOutput { return v.Ec2TagFilters }).(DeploymentGroupEC2TagFilterArrayOutput)
+func (o DeploymentGroupOutput) Ec2TagFilters() DeploymentGroupEc2TagFilterArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupEc2TagFilterArrayOutput { return v.Ec2TagFilters }).(DeploymentGroupEc2TagFilterArrayOutput)
 }
 
-func (o DeploymentGroupOutput) Ec2TagSet() DeploymentGroupEC2TagSetPtrOutput {
-	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupEC2TagSetPtrOutput { return v.Ec2TagSet }).(DeploymentGroupEC2TagSetPtrOutput)
+func (o DeploymentGroupOutput) Ec2TagSet() DeploymentGroupEc2TagSetPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupEc2TagSetPtrOutput { return v.Ec2TagSet }).(DeploymentGroupEc2TagSetPtrOutput)
 }
 
-func (o DeploymentGroupOutput) EcsServices() DeploymentGroupECSServiceArrayOutput {
-	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupECSServiceArrayOutput { return v.EcsServices }).(DeploymentGroupECSServiceArrayOutput)
+func (o DeploymentGroupOutput) EcsServices() DeploymentGroupEcsServiceArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupEcsServiceArrayOutput { return v.EcsServices }).(DeploymentGroupEcsServiceArrayOutput)
 }
 
 func (o DeploymentGroupOutput) LoadBalancerInfo() DeploymentGroupLoadBalancerInfoPtrOutput {

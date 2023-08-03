@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OIDCProviderArgs', 'OIDCProvider']
+__all__ = ['OidcProviderArgs', 'OidcProvider']
 
 @pulumi.input_type
-class OIDCProviderArgs:
+class OidcProviderArgs:
     def __init__(__self__, *,
                  thumbprint_list: pulumi.Input[Sequence[pulumi.Input[str]]],
                  client_id_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['OIDCProviderTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['OidcProviderTagArgs']]]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a OIDCProvider resource.
+        The set of arguments for constructing a OidcProvider resource.
         """
         pulumi.set(__self__, "thumbprint_list", thumbprint_list)
         if client_id_list is not None:
@@ -51,11 +51,11 @@ class OIDCProviderArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OIDCProviderTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OidcProviderTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OIDCProviderTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OidcProviderTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -68,13 +68,13 @@ class OIDCProviderArgs:
         pulumi.set(self, "url", value)
 
 
-class OIDCProvider(pulumi.CustomResource):
+class OidcProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_id_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OIDCProviderTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OidcProviderTagArgs']]]]] = None,
                  thumbprint_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -88,18 +88,18 @@ class OIDCProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OIDCProviderArgs,
+                 args: OidcProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IAM::OIDCProvider
 
         :param str resource_name: The name of the resource.
-        :param OIDCProviderArgs args: The arguments to use to populate this resource's properties.
+        :param OidcProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OIDCProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OidcProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -109,7 +109,7 @@ class OIDCProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_id_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OIDCProviderTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OidcProviderTagArgs']]]]] = None,
                  thumbprint_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -119,7 +119,7 @@ class OIDCProvider(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OIDCProviderArgs.__new__(OIDCProviderArgs)
+            __props__ = OidcProviderArgs.__new__(OidcProviderArgs)
 
             __props__.__dict__["client_id_list"] = client_id_list
             __props__.__dict__["tags"] = tags
@@ -128,8 +128,8 @@ class OIDCProvider(pulumi.CustomResource):
             __props__.__dict__["thumbprint_list"] = thumbprint_list
             __props__.__dict__["url"] = url
             __props__.__dict__["arn"] = None
-        super(OIDCProvider, __self__).__init__(
-            'aws-native:iam:OIDCProvider',
+        super(OidcProvider, __self__).__init__(
+            'aws-native:iam:OidcProvider',
             resource_name,
             __props__,
             opts)
@@ -137,9 +137,9 @@ class OIDCProvider(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'OIDCProvider':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'OidcProvider':
         """
-        Get an existing OIDCProvider resource's state with the given name, id, and optional extra
+        Get an existing OidcProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -148,14 +148,14 @@ class OIDCProvider(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = OIDCProviderArgs.__new__(OIDCProviderArgs)
+        __props__ = OidcProviderArgs.__new__(OidcProviderArgs)
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["client_id_list"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["thumbprint_list"] = None
         __props__.__dict__["url"] = None
-        return OIDCProvider(resource_name, opts=opts, __props__=__props__)
+        return OidcProvider(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -172,7 +172,7 @@ class OIDCProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.OIDCProviderTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.OidcProviderTag']]]:
         return pulumi.get(self, "tags")
 
     @property

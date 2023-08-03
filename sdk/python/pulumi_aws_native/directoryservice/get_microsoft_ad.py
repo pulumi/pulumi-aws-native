@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetMicrosoftADResult',
-    'AwaitableGetMicrosoftADResult',
+    'GetMicrosoftAdResult',
+    'AwaitableGetMicrosoftAdResult',
     'get_microsoft_ad',
     'get_microsoft_ad_output',
 ]
 
 @pulumi.output_type
-class GetMicrosoftADResult:
+class GetMicrosoftAdResult:
     def __init__(__self__, alias=None, dns_ip_addresses=None, enable_sso=None, id=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
@@ -53,12 +53,12 @@ class GetMicrosoftADResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetMicrosoftADResult(GetMicrosoftADResult):
+class AwaitableGetMicrosoftAdResult(GetMicrosoftAdResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetMicrosoftADResult(
+        return GetMicrosoftAdResult(
             alias=self.alias,
             dns_ip_addresses=self.dns_ip_addresses,
             enable_sso=self.enable_sso,
@@ -66,16 +66,16 @@ class AwaitableGetMicrosoftADResult(GetMicrosoftADResult):
 
 
 def get_microsoft_ad(id: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMicrosoftADResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMicrosoftAdResult:
     """
     Resource Type definition for AWS::DirectoryService::MicrosoftAD
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:directoryservice:getMicrosoftAD', __args__, opts=opts, typ=GetMicrosoftADResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:directoryservice:getMicrosoftAd', __args__, opts=opts, typ=GetMicrosoftAdResult).value
 
-    return AwaitableGetMicrosoftADResult(
+    return AwaitableGetMicrosoftAdResult(
         alias=pulumi.get(__ret__, 'alias'),
         dns_ip_addresses=pulumi.get(__ret__, 'dns_ip_addresses'),
         enable_sso=pulumi.get(__ret__, 'enable_sso'),
@@ -84,7 +84,7 @@ def get_microsoft_ad(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_microsoft_ad)
 def get_microsoft_ad_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftADResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftAdResult]:
     """
     Resource Type definition for AWS::DirectoryService::MicrosoftAD
     """

@@ -56,7 +56,7 @@ export class MulticastGroup extends pulumi.CustomResource {
     /**
      * Multicast group LoRaWAN
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.MulticastGroupLoRaWAN>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.MulticastGroupLoRaWan>;
     /**
      * Name of Multicast group
      */
@@ -126,7 +126,7 @@ export interface MulticastGroupArgs {
     /**
      * Multicast group LoRaWAN
      */
-    loRaWan: pulumi.Input<inputs.iotwireless.MulticastGroupLoRaWANArgs>;
+    loRaWan: pulumi.Input<inputs.iotwireless.MulticastGroupLoRaWanArgs>;
     /**
      * Name of Multicast group
      */

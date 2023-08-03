@@ -19,7 +19,7 @@ __all__ = [
     'ProjectVpcConfigArgs',
     'TestGridProjectTagArgs',
     'TestGridProjectVpcConfigArgs',
-    'VPCEConfigurationTagArgs',
+    'VpceConfigurationTagArgs',
 ]
 
 @pulumi.input_type
@@ -316,7 +316,7 @@ class TestGridProjectVpcConfigArgs:
 
 
 @pulumi.input_type
-class VPCEConfigurationTagArgs:
+class VpceConfigurationTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

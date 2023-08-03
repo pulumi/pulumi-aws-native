@@ -765,104 +765,104 @@ func (o LoadBalancerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-type LoadBalancerLBCookieStickinessPolicy struct {
+type LoadBalancerLbCookieStickinessPolicy struct {
 	CookieExpirationPeriod *string `pulumi:"cookieExpirationPeriod"`
 	PolicyName             *string `pulumi:"policyName"`
 }
 
-// LoadBalancerLBCookieStickinessPolicyInput is an input type that accepts LoadBalancerLBCookieStickinessPolicyArgs and LoadBalancerLBCookieStickinessPolicyOutput values.
-// You can construct a concrete instance of `LoadBalancerLBCookieStickinessPolicyInput` via:
+// LoadBalancerLbCookieStickinessPolicyInput is an input type that accepts LoadBalancerLbCookieStickinessPolicyArgs and LoadBalancerLbCookieStickinessPolicyOutput values.
+// You can construct a concrete instance of `LoadBalancerLbCookieStickinessPolicyInput` via:
 //
-//	LoadBalancerLBCookieStickinessPolicyArgs{...}
-type LoadBalancerLBCookieStickinessPolicyInput interface {
+//	LoadBalancerLbCookieStickinessPolicyArgs{...}
+type LoadBalancerLbCookieStickinessPolicyInput interface {
 	pulumi.Input
 
-	ToLoadBalancerLBCookieStickinessPolicyOutput() LoadBalancerLBCookieStickinessPolicyOutput
-	ToLoadBalancerLBCookieStickinessPolicyOutputWithContext(context.Context) LoadBalancerLBCookieStickinessPolicyOutput
+	ToLoadBalancerLbCookieStickinessPolicyOutput() LoadBalancerLbCookieStickinessPolicyOutput
+	ToLoadBalancerLbCookieStickinessPolicyOutputWithContext(context.Context) LoadBalancerLbCookieStickinessPolicyOutput
 }
 
-type LoadBalancerLBCookieStickinessPolicyArgs struct {
+type LoadBalancerLbCookieStickinessPolicyArgs struct {
 	CookieExpirationPeriod pulumi.StringPtrInput `pulumi:"cookieExpirationPeriod"`
 	PolicyName             pulumi.StringPtrInput `pulumi:"policyName"`
 }
 
-func (LoadBalancerLBCookieStickinessPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerLBCookieStickinessPolicy)(nil)).Elem()
+func (LoadBalancerLbCookieStickinessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerLbCookieStickinessPolicy)(nil)).Elem()
 }
 
-func (i LoadBalancerLBCookieStickinessPolicyArgs) ToLoadBalancerLBCookieStickinessPolicyOutput() LoadBalancerLBCookieStickinessPolicyOutput {
-	return i.ToLoadBalancerLBCookieStickinessPolicyOutputWithContext(context.Background())
+func (i LoadBalancerLbCookieStickinessPolicyArgs) ToLoadBalancerLbCookieStickinessPolicyOutput() LoadBalancerLbCookieStickinessPolicyOutput {
+	return i.ToLoadBalancerLbCookieStickinessPolicyOutputWithContext(context.Background())
 }
 
-func (i LoadBalancerLBCookieStickinessPolicyArgs) ToLoadBalancerLBCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerLBCookieStickinessPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerLBCookieStickinessPolicyOutput)
+func (i LoadBalancerLbCookieStickinessPolicyArgs) ToLoadBalancerLbCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerLbCookieStickinessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerLbCookieStickinessPolicyOutput)
 }
 
-// LoadBalancerLBCookieStickinessPolicyArrayInput is an input type that accepts LoadBalancerLBCookieStickinessPolicyArray and LoadBalancerLBCookieStickinessPolicyArrayOutput values.
-// You can construct a concrete instance of `LoadBalancerLBCookieStickinessPolicyArrayInput` via:
+// LoadBalancerLbCookieStickinessPolicyArrayInput is an input type that accepts LoadBalancerLbCookieStickinessPolicyArray and LoadBalancerLbCookieStickinessPolicyArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerLbCookieStickinessPolicyArrayInput` via:
 //
-//	LoadBalancerLBCookieStickinessPolicyArray{ LoadBalancerLBCookieStickinessPolicyArgs{...} }
-type LoadBalancerLBCookieStickinessPolicyArrayInput interface {
+//	LoadBalancerLbCookieStickinessPolicyArray{ LoadBalancerLbCookieStickinessPolicyArgs{...} }
+type LoadBalancerLbCookieStickinessPolicyArrayInput interface {
 	pulumi.Input
 
-	ToLoadBalancerLBCookieStickinessPolicyArrayOutput() LoadBalancerLBCookieStickinessPolicyArrayOutput
-	ToLoadBalancerLBCookieStickinessPolicyArrayOutputWithContext(context.Context) LoadBalancerLBCookieStickinessPolicyArrayOutput
+	ToLoadBalancerLbCookieStickinessPolicyArrayOutput() LoadBalancerLbCookieStickinessPolicyArrayOutput
+	ToLoadBalancerLbCookieStickinessPolicyArrayOutputWithContext(context.Context) LoadBalancerLbCookieStickinessPolicyArrayOutput
 }
 
-type LoadBalancerLBCookieStickinessPolicyArray []LoadBalancerLBCookieStickinessPolicyInput
+type LoadBalancerLbCookieStickinessPolicyArray []LoadBalancerLbCookieStickinessPolicyInput
 
-func (LoadBalancerLBCookieStickinessPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerLBCookieStickinessPolicy)(nil)).Elem()
+func (LoadBalancerLbCookieStickinessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerLbCookieStickinessPolicy)(nil)).Elem()
 }
 
-func (i LoadBalancerLBCookieStickinessPolicyArray) ToLoadBalancerLBCookieStickinessPolicyArrayOutput() LoadBalancerLBCookieStickinessPolicyArrayOutput {
-	return i.ToLoadBalancerLBCookieStickinessPolicyArrayOutputWithContext(context.Background())
+func (i LoadBalancerLbCookieStickinessPolicyArray) ToLoadBalancerLbCookieStickinessPolicyArrayOutput() LoadBalancerLbCookieStickinessPolicyArrayOutput {
+	return i.ToLoadBalancerLbCookieStickinessPolicyArrayOutputWithContext(context.Background())
 }
 
-func (i LoadBalancerLBCookieStickinessPolicyArray) ToLoadBalancerLBCookieStickinessPolicyArrayOutputWithContext(ctx context.Context) LoadBalancerLBCookieStickinessPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerLBCookieStickinessPolicyArrayOutput)
+func (i LoadBalancerLbCookieStickinessPolicyArray) ToLoadBalancerLbCookieStickinessPolicyArrayOutputWithContext(ctx context.Context) LoadBalancerLbCookieStickinessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerLbCookieStickinessPolicyArrayOutput)
 }
 
-type LoadBalancerLBCookieStickinessPolicyOutput struct{ *pulumi.OutputState }
+type LoadBalancerLbCookieStickinessPolicyOutput struct{ *pulumi.OutputState }
 
-func (LoadBalancerLBCookieStickinessPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerLBCookieStickinessPolicy)(nil)).Elem()
+func (LoadBalancerLbCookieStickinessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerLbCookieStickinessPolicy)(nil)).Elem()
 }
 
-func (o LoadBalancerLBCookieStickinessPolicyOutput) ToLoadBalancerLBCookieStickinessPolicyOutput() LoadBalancerLBCookieStickinessPolicyOutput {
+func (o LoadBalancerLbCookieStickinessPolicyOutput) ToLoadBalancerLbCookieStickinessPolicyOutput() LoadBalancerLbCookieStickinessPolicyOutput {
 	return o
 }
 
-func (o LoadBalancerLBCookieStickinessPolicyOutput) ToLoadBalancerLBCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerLBCookieStickinessPolicyOutput {
+func (o LoadBalancerLbCookieStickinessPolicyOutput) ToLoadBalancerLbCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerLbCookieStickinessPolicyOutput {
 	return o
 }
 
-func (o LoadBalancerLBCookieStickinessPolicyOutput) CookieExpirationPeriod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerLBCookieStickinessPolicy) *string { return v.CookieExpirationPeriod }).(pulumi.StringPtrOutput)
+func (o LoadBalancerLbCookieStickinessPolicyOutput) CookieExpirationPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerLbCookieStickinessPolicy) *string { return v.CookieExpirationPeriod }).(pulumi.StringPtrOutput)
 }
 
-func (o LoadBalancerLBCookieStickinessPolicyOutput) PolicyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerLBCookieStickinessPolicy) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+func (o LoadBalancerLbCookieStickinessPolicyOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerLbCookieStickinessPolicy) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
-type LoadBalancerLBCookieStickinessPolicyArrayOutput struct{ *pulumi.OutputState }
+type LoadBalancerLbCookieStickinessPolicyArrayOutput struct{ *pulumi.OutputState }
 
-func (LoadBalancerLBCookieStickinessPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerLBCookieStickinessPolicy)(nil)).Elem()
+func (LoadBalancerLbCookieStickinessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerLbCookieStickinessPolicy)(nil)).Elem()
 }
 
-func (o LoadBalancerLBCookieStickinessPolicyArrayOutput) ToLoadBalancerLBCookieStickinessPolicyArrayOutput() LoadBalancerLBCookieStickinessPolicyArrayOutput {
+func (o LoadBalancerLbCookieStickinessPolicyArrayOutput) ToLoadBalancerLbCookieStickinessPolicyArrayOutput() LoadBalancerLbCookieStickinessPolicyArrayOutput {
 	return o
 }
 
-func (o LoadBalancerLBCookieStickinessPolicyArrayOutput) ToLoadBalancerLBCookieStickinessPolicyArrayOutputWithContext(ctx context.Context) LoadBalancerLBCookieStickinessPolicyArrayOutput {
+func (o LoadBalancerLbCookieStickinessPolicyArrayOutput) ToLoadBalancerLbCookieStickinessPolicyArrayOutputWithContext(ctx context.Context) LoadBalancerLbCookieStickinessPolicyArrayOutput {
 	return o
 }
 
-func (o LoadBalancerLBCookieStickinessPolicyArrayOutput) Index(i pulumi.IntInput) LoadBalancerLBCookieStickinessPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerLBCookieStickinessPolicy {
-		return vs[0].([]LoadBalancerLBCookieStickinessPolicy)[vs[1].(int)]
-	}).(LoadBalancerLBCookieStickinessPolicyOutput)
+func (o LoadBalancerLbCookieStickinessPolicyArrayOutput) Index(i pulumi.IntInput) LoadBalancerLbCookieStickinessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerLbCookieStickinessPolicy {
+		return vs[0].([]LoadBalancerLbCookieStickinessPolicy)[vs[1].(int)]
+	}).(LoadBalancerLbCookieStickinessPolicyOutput)
 }
 
 type LoadBalancerListeners struct {
@@ -1218,8 +1218,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionSettingsPtrInput)(nil)).Elem(), LoadBalancerConnectionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerHealthCheckInput)(nil)).Elem(), LoadBalancerHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerHealthCheckPtrInput)(nil)).Elem(), LoadBalancerHealthCheckArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerLBCookieStickinessPolicyInput)(nil)).Elem(), LoadBalancerLBCookieStickinessPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerLBCookieStickinessPolicyArrayInput)(nil)).Elem(), LoadBalancerLBCookieStickinessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerLbCookieStickinessPolicyInput)(nil)).Elem(), LoadBalancerLbCookieStickinessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerLbCookieStickinessPolicyArrayInput)(nil)).Elem(), LoadBalancerLbCookieStickinessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerListenersInput)(nil)).Elem(), LoadBalancerListenersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerListenersArrayInput)(nil)).Elem(), LoadBalancerListenersArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPoliciesInput)(nil)).Elem(), LoadBalancerPoliciesArgs{})
@@ -1236,8 +1236,8 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerConnectionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerHealthCheckOutput{})
 	pulumi.RegisterOutputType(LoadBalancerHealthCheckPtrOutput{})
-	pulumi.RegisterOutputType(LoadBalancerLBCookieStickinessPolicyOutput{})
-	pulumi.RegisterOutputType(LoadBalancerLBCookieStickinessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerLbCookieStickinessPolicyOutput{})
+	pulumi.RegisterOutputType(LoadBalancerLbCookieStickinessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerListenersOutput{})
 	pulumi.RegisterOutputType(LoadBalancerListenersArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerPoliciesOutput{})

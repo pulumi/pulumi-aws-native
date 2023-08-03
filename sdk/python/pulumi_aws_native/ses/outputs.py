@@ -39,7 +39,7 @@ __all__ = [
     'ReceiptRuleLambdaAction',
     'ReceiptRuleRule',
     'ReceiptRuleS3Action',
-    'ReceiptRuleSNSAction',
+    'ReceiptRuleSnsAction',
     'ReceiptRuleStopAction',
     'ReceiptRuleWorkmailAction',
     'Template',
@@ -1096,7 +1096,7 @@ class ReceiptRuleAction(dict):
                  bounce_action: Optional['outputs.ReceiptRuleBounceAction'] = None,
                  lambda_action: Optional['outputs.ReceiptRuleLambdaAction'] = None,
                  s3_action: Optional['outputs.ReceiptRuleS3Action'] = None,
-                 sns_action: Optional['outputs.ReceiptRuleSNSAction'] = None,
+                 sns_action: Optional['outputs.ReceiptRuleSnsAction'] = None,
                  stop_action: Optional['outputs.ReceiptRuleStopAction'] = None,
                  workmail_action: Optional['outputs.ReceiptRuleWorkmailAction'] = None):
         if add_header_action is not None:
@@ -1136,7 +1136,7 @@ class ReceiptRuleAction(dict):
 
     @property
     @pulumi.getter(name="snsAction")
-    def sns_action(self) -> Optional['outputs.ReceiptRuleSNSAction']:
+    def sns_action(self) -> Optional['outputs.ReceiptRuleSnsAction']:
         return pulumi.get(self, "sns_action")
 
     @property
@@ -1432,7 +1432,7 @@ class ReceiptRuleS3Action(dict):
 
 
 @pulumi.output_type
-class ReceiptRuleSNSAction(dict):
+class ReceiptRuleSnsAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1440,14 +1440,14 @@ class ReceiptRuleSNSAction(dict):
             suggest = "topic_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleSNSAction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleSnsAction. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ReceiptRuleSNSAction.__key_warning(key)
+        ReceiptRuleSnsAction.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ReceiptRuleSNSAction.__key_warning(key)
+        ReceiptRuleSnsAction.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

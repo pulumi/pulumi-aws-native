@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         public readonly Outputs.MitigationActionEnableIoTLoggingParams? EnableIoTLoggingParams;
         public readonly Outputs.MitigationActionPublishFindingToSnsParams? PublishFindingToSnsParams;
         public readonly Outputs.MitigationActionReplaceDefaultPolicyVersionParams? ReplaceDefaultPolicyVersionParams;
-        public readonly Outputs.MitigationActionUpdateCACertificateParams? UpdateCaCertificateParams;
+        public readonly Outputs.MitigationActionUpdateCaCertificateParams? UpdateCaCertificateParams;
         public readonly Outputs.MitigationActionUpdateDeviceCertificateParams? UpdateDeviceCertificateParams;
 
         [OutputConstructor]
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             Outputs.MitigationActionReplaceDefaultPolicyVersionParams? replaceDefaultPolicyVersionParams,
 
-            Outputs.MitigationActionUpdateCACertificateParams? updateCaCertificateParams,
+            Outputs.MitigationActionUpdateCaCertificateParams? updateCaCertificateParams,
 
             Outputs.MitigationActionUpdateDeviceCertificateParams? updateDeviceCertificateParams)
         {

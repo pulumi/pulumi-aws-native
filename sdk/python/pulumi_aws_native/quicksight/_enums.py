@@ -97,7 +97,7 @@ __all__ = [
     'AnalysisTooltipTitleType',
     'AnalysisTopBottomComputationType',
     'AnalysisTopBottomSortOrder',
-    'AnalysisURLTargetConfiguration',
+    'AnalysisUrlTargetConfiguration',
     'AnalysisValueWhenUnsetOption',
     'AnalysisVerticalTextAlignment',
     'AnalysisVisibility',
@@ -201,8 +201,8 @@ __all__ = [
     'DashboardTooltipTitleType',
     'DashboardTopBottomComputationType',
     'DashboardTopBottomSortOrder',
-    'DashboardUIState',
-    'DashboardURLTargetConfiguration',
+    'DashboardUiState',
+    'DashboardUrlTargetConfiguration',
     'DashboardValueWhenUnsetOption',
     'DashboardVerticalTextAlignment',
     'DashboardVisibility',
@@ -320,7 +320,7 @@ __all__ = [
     'TemplateTooltipTitleType',
     'TemplateTopBottomComputationType',
     'TemplateTopBottomSortOrder',
-    'TemplateURLTargetConfiguration',
+    'TemplateUrlTargetConfiguration',
     'TemplateValueWhenUnsetOption',
     'TemplateVerticalTextAlignment',
     'TemplateVisibility',
@@ -353,9 +353,9 @@ __all__ = [
     'TopicRelativeDateFilterFunction',
     'TopicTimeGranularity',
     'TopicUndefinedSpecifiedValueType',
-    'VPCConnectionAvailabilityStatus',
-    'VPCConnectionNetworkInterfaceStatus',
-    'VPCConnectionResourceStatus',
+    'VpcConnectionNetworkInterfaceStatus',
+    'VpcConnectionVpcConnectionAvailabilityStatus',
+    'VpcConnectionVpcConnectionResourceStatus',
 ]
 
 
@@ -940,7 +940,7 @@ class AnalysisTopBottomSortOrder(str, Enum):
     ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE"
 
 
-class AnalysisURLTargetConfiguration(str, Enum):
+class AnalysisUrlTargetConfiguration(str, Enum):
     NEW_TAB = "NEW_TAB"
     NEW_WINDOW = "NEW_WINDOW"
     SAME_TAB = "SAME_TAB"
@@ -1585,12 +1585,12 @@ class DashboardTopBottomSortOrder(str, Enum):
     ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE"
 
 
-class DashboardUIState(str, Enum):
+class DashboardUiState(str, Enum):
     EXPANDED = "EXPANDED"
     COLLAPSED = "COLLAPSED"
 
 
-class DashboardURLTargetConfiguration(str, Enum):
+class DashboardUrlTargetConfiguration(str, Enum):
     NEW_TAB = "NEW_TAB"
     NEW_WINDOW = "NEW_WINDOW"
     SAME_TAB = "SAME_TAB"
@@ -2354,7 +2354,7 @@ class TemplateTopBottomSortOrder(str, Enum):
     ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE"
 
 
-class TemplateURLTargetConfiguration(str, Enum):
+class TemplateUrlTargetConfiguration(str, Enum):
     NEW_TAB = "NEW_TAB"
     NEW_WINDOW = "NEW_WINDOW"
     SAME_TAB = "SAME_TAB"
@@ -2588,13 +2588,7 @@ class TopicUndefinedSpecifiedValueType(str, Enum):
     MOST = "MOST"
 
 
-class VPCConnectionAvailabilityStatus(str, Enum):
-    AVAILABLE = "AVAILABLE"
-    UNAVAILABLE = "UNAVAILABLE"
-    PARTIALLY_AVAILABLE = "PARTIALLY_AVAILABLE"
-
-
-class VPCConnectionNetworkInterfaceStatus(str, Enum):
+class VpcConnectionNetworkInterfaceStatus(str, Enum):
     CREATING = "CREATING"
     AVAILABLE = "AVAILABLE"
     CREATION_FAILED = "CREATION_FAILED"
@@ -2607,7 +2601,13 @@ class VPCConnectionNetworkInterfaceStatus(str, Enum):
     ATTACHMENT_FAILED_ROLLBACK_FAILED = "ATTACHMENT_FAILED_ROLLBACK_FAILED"
 
 
-class VPCConnectionResourceStatus(str, Enum):
+class VpcConnectionVpcConnectionAvailabilityStatus(str, Enum):
+    AVAILABLE = "AVAILABLE"
+    UNAVAILABLE = "UNAVAILABLE"
+    PARTIALLY_AVAILABLE = "PARTIALLY_AVAILABLE"
+
+
+class VpcConnectionVpcConnectionResourceStatus(str, Enum):
     CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
     CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"
     CREATION_FAILED = "CREATION_FAILED"

@@ -18,7 +18,7 @@ type ServiceProfile struct {
 	// Service profile Arn. Returned after successful create.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
-	LoRaWan ServiceProfileLoRaWANServiceProfilePtrOutput `pulumi:"loRaWan"`
+	LoRaWan ServiceProfileLoRaWanServiceProfilePtrOutput `pulumi:"loRaWan"`
 	// Name of service profile
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the service profile.
@@ -66,7 +66,7 @@ func (ServiceProfileState) ElementType() reflect.Type {
 
 type serviceProfileArgs struct {
 	// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
-	LoRaWan *ServiceProfileLoRaWANServiceProfile `pulumi:"loRaWan"`
+	LoRaWan *ServiceProfileLoRaWanServiceProfile `pulumi:"loRaWan"`
 	// Name of service profile
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the service profile.
@@ -76,7 +76,7 @@ type serviceProfileArgs struct {
 // The set of arguments for constructing a ServiceProfile resource.
 type ServiceProfileArgs struct {
 	// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
-	LoRaWan ServiceProfileLoRaWANServiceProfilePtrInput
+	LoRaWan ServiceProfileLoRaWanServiceProfilePtrInput
 	// Name of service profile
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the service profile.
@@ -126,8 +126,8 @@ func (o ServiceProfileOutput) Arn() pulumi.StringOutput {
 }
 
 // LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
-func (o ServiceProfileOutput) LoRaWan() ServiceProfileLoRaWANServiceProfilePtrOutput {
-	return o.ApplyT(func(v *ServiceProfile) ServiceProfileLoRaWANServiceProfilePtrOutput { return v.LoRaWan }).(ServiceProfileLoRaWANServiceProfilePtrOutput)
+func (o ServiceProfileOutput) LoRaWan() ServiceProfileLoRaWanServiceProfilePtrOutput {
+	return o.ApplyT(func(v *ServiceProfile) ServiceProfileLoRaWanServiceProfilePtrOutput { return v.LoRaWan }).(ServiceProfileLoRaWanServiceProfilePtrOutput)
 }
 
 // Name of service profile

@@ -35,7 +35,7 @@ export interface GetLoadBalancerResult {
     readonly healthCheck?: outputs.elasticloadbalancing.LoadBalancerHealthCheck;
     readonly id?: string;
     readonly instances?: string[];
-    readonly lbCookieStickinessPolicy?: outputs.elasticloadbalancing.LoadBalancerLBCookieStickinessPolicy[];
+    readonly lbCookieStickinessPolicy?: outputs.elasticloadbalancing.LoadBalancerLbCookieStickinessPolicy[];
     readonly listeners?: outputs.elasticloadbalancing.LoadBalancerListeners[];
     readonly policies?: outputs.elasticloadbalancing.LoadBalancerPolicies[];
     readonly securityGroups?: string[];

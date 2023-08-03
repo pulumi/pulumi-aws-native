@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDBParameterGroupResult',
-    'AwaitableGetDBParameterGroupResult',
+    'GetDbParameterGroupResult',
+    'AwaitableGetDbParameterGroupResult',
     'get_db_parameter_group',
     'get_db_parameter_group_output',
 ]
 
 @pulumi.output_type
-class GetDBParameterGroupResult:
+class GetDbParameterGroupResult:
     def __init__(__self__, id=None, parameters=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -42,32 +42,32 @@ class GetDBParameterGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBParameterGroupTag']]:
+    def tags(self) -> Optional[Sequence['outputs.DbParameterGroupTag']]:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDBParameterGroupResult(GetDBParameterGroupResult):
+class AwaitableGetDbParameterGroupResult(GetDbParameterGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBParameterGroupResult(
+        return GetDbParameterGroupResult(
             id=self.id,
             parameters=self.parameters,
             tags=self.tags)
 
 
 def get_db_parameter_group(id: Optional[str] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBParameterGroupResult:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbParameterGroupResult:
     """
     Resource Type definition for AWS::Neptune::DBParameterGroup
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBParameterGroup', __args__, opts=opts, typ=GetDBParameterGroupResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDbParameterGroup', __args__, opts=opts, typ=GetDbParameterGroupResult).value
 
-    return AwaitableGetDBParameterGroupResult(
+    return AwaitableGetDbParameterGroupResult(
         id=pulumi.get(__ret__, 'id'),
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -75,7 +75,7 @@ def get_db_parameter_group(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_parameter_group)
 def get_db_parameter_group_output(id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBParameterGroupResult]:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbParameterGroupResult]:
     """
     Resource Type definition for AWS::Neptune::DBParameterGroup
     """

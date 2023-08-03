@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// The list of task definitions.
         /// </summary>
         [Output("loRaWanUpdateGatewayTaskEntry")]
-        public Output<Outputs.TaskDefinitionLoRaWANUpdateGatewayTaskEntry?> LoRaWanUpdateGatewayTaskEntry { get; private set; } = null!;
+        public Output<Outputs.TaskDefinitionLoRaWanUpdateGatewayTaskEntry?> LoRaWanUpdateGatewayTaskEntry { get; private set; } = null!;
 
         /// <summary>
         /// The name of the new resource.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// The list of task definitions.
         /// </summary>
         [Input("loRaWanUpdateGatewayTaskEntry")]
-        public Input<Inputs.TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs>? LoRaWanUpdateGatewayTaskEntry { get; set; }
+        public Input<Inputs.TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs>? LoRaWanUpdateGatewayTaskEntry { get; set; }
 
         /// <summary>
         /// The name of the new resource.

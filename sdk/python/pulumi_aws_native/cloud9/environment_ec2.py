@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EnvironmentEC2Args', 'EnvironmentEC2']
+__all__ = ['EnvironmentEc2Args', 'EnvironmentEc2']
 
 @pulumi.input_type
-class EnvironmentEC2Args:
+class EnvironmentEc2Args:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
                  automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
@@ -23,11 +23,11 @@ class EnvironmentEC2Args:
                  image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_arn: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEC2RepositoryArgs']]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2RepositoryArgs']]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEC2TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2TagArgs']]]] = None):
         """
-        The set of arguments for constructing a EnvironmentEC2 resource.
+        The set of arguments for constructing a EnvironmentEc2 resource.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if automatic_stop_time_minutes is not None:
@@ -114,11 +114,11 @@ class EnvironmentEC2Args:
 
     @property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEC2RepositoryArgs']]]]:
+    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2RepositoryArgs']]]]:
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEC2RepositoryArgs']]]]):
+    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2RepositoryArgs']]]]):
         pulumi.set(self, "repositories", value)
 
     @property
@@ -132,19 +132,19 @@ class EnvironmentEC2Args:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEC2TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEC2TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""EnvironmentEc2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class EnvironmentEC2(pulumi.CustomResource):
-    warnings.warn("""EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class EnvironmentEc2(pulumi.CustomResource):
+    warnings.warn("""EnvironmentEc2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -157,9 +157,9 @@ class EnvironmentEC2(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_arn: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEC2RepositoryArgs']]]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEc2RepositoryArgs']]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEC2TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEc2TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cloud9::EnvironmentEC2
@@ -171,18 +171,18 @@ class EnvironmentEC2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnvironmentEC2Args,
+                 args: EnvironmentEc2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cloud9::EnvironmentEC2
 
         :param str resource_name: The name of the resource.
-        :param EnvironmentEC2Args args: The arguments to use to populate this resource's properties.
+        :param EnvironmentEc2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentEC2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentEc2Args, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -198,18 +198,18 @@ class EnvironmentEC2(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_arn: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEC2RepositoryArgs']]]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEc2RepositoryArgs']]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEC2TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEc2TagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""EnvironmentEC2 is deprecated: EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""EnvironmentEc2 is deprecated: EnvironmentEc2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EnvironmentEC2Args.__new__(EnvironmentEC2Args)
+            __props__ = EnvironmentEc2Args.__new__(EnvironmentEc2Args)
 
             __props__.__dict__["automatic_stop_time_minutes"] = automatic_stop_time_minutes
             __props__.__dict__["connection_type"] = connection_type
@@ -224,8 +224,8 @@ class EnvironmentEC2(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        super(EnvironmentEC2, __self__).__init__(
-            'aws-native:cloud9:EnvironmentEC2',
+        super(EnvironmentEc2, __self__).__init__(
+            'aws-native:cloud9:EnvironmentEc2',
             resource_name,
             __props__,
             opts)
@@ -233,9 +233,9 @@ class EnvironmentEC2(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'EnvironmentEC2':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'EnvironmentEc2':
         """
-        Get an existing EnvironmentEC2 resource's state with the given name, id, and optional extra
+        Get an existing EnvironmentEc2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -244,7 +244,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = EnvironmentEC2Args.__new__(EnvironmentEC2Args)
+        __props__ = EnvironmentEc2Args.__new__(EnvironmentEc2Args)
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["automatic_stop_time_minutes"] = None
@@ -257,7 +257,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         __props__.__dict__["repositories"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
-        return EnvironmentEC2(resource_name, opts=opts, __props__=__props__)
+        return EnvironmentEc2(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -301,7 +301,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def repositories(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentEC2Repository']]]:
+    def repositories(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentEc2Repository']]]:
         return pulumi.get(self, "repositories")
 
     @property
@@ -311,6 +311,6 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentEC2Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentEc2Tag']]]:
         return pulumi.get(self, "tags")
 

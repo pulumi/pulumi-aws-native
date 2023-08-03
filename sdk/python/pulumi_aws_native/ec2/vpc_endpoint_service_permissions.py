@@ -9,15 +9,15 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VPCEndpointServicePermissionsArgs', 'VPCEndpointServicePermissions']
+__all__ = ['VpcEndpointServicePermissionsArgs', 'VpcEndpointServicePermissions']
 
 @pulumi.input_type
-class VPCEndpointServicePermissionsArgs:
+class VpcEndpointServicePermissionsArgs:
     def __init__(__self__, *,
                  service_id: pulumi.Input[str],
                  allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a VPCEndpointServicePermissions resource.
+        The set of arguments for constructing a VpcEndpointServicePermissions resource.
         """
         pulumi.set(__self__, "service_id", service_id)
         if allowed_principals is not None:
@@ -42,7 +42,7 @@ class VPCEndpointServicePermissionsArgs:
         pulumi.set(self, "allowed_principals", value)
 
 
-class VPCEndpointServicePermissions(pulumi.CustomResource):
+class VpcEndpointServicePermissions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -60,18 +60,18 @@ class VPCEndpointServicePermissions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPCEndpointServicePermissionsArgs,
+                 args: VpcEndpointServicePermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
 
         :param str resource_name: The name of the resource.
-        :param VPCEndpointServicePermissionsArgs args: The arguments to use to populate this resource's properties.
+        :param VpcEndpointServicePermissionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPCEndpointServicePermissionsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointServicePermissionsArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -89,14 +89,14 @@ class VPCEndpointServicePermissions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPCEndpointServicePermissionsArgs.__new__(VPCEndpointServicePermissionsArgs)
+            __props__ = VpcEndpointServicePermissionsArgs.__new__(VpcEndpointServicePermissionsArgs)
 
             __props__.__dict__["allowed_principals"] = allowed_principals
             if service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'service_id'")
             __props__.__dict__["service_id"] = service_id
-        super(VPCEndpointServicePermissions, __self__).__init__(
-            'aws-native:ec2:VPCEndpointServicePermissions',
+        super(VpcEndpointServicePermissions, __self__).__init__(
+            'aws-native:ec2:VpcEndpointServicePermissions',
             resource_name,
             __props__,
             opts)
@@ -104,9 +104,9 @@ class VPCEndpointServicePermissions(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPCEndpointServicePermissions':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpcEndpointServicePermissions':
         """
-        Get an existing VPCEndpointServicePermissions resource's state with the given name, id, and optional extra
+        Get an existing VpcEndpointServicePermissions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -115,11 +115,11 @@ class VPCEndpointServicePermissions(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPCEndpointServicePermissionsArgs.__new__(VPCEndpointServicePermissionsArgs)
+        __props__ = VpcEndpointServicePermissionsArgs.__new__(VpcEndpointServicePermissionsArgs)
 
         __props__.__dict__["allowed_principals"] = None
         __props__.__dict__["service_id"] = None
-        return VPCEndpointServicePermissions(resource_name, opts=opts, __props__=__props__)
+        return VpcEndpointServicePermissions(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="allowedPrincipals")

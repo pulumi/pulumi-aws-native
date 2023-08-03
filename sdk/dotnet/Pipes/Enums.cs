@@ -93,26 +93,26 @@ namespace Pulumi.AwsNative.Pipes
     }
 
     [EnumType]
-    public readonly struct PipeDynamoDBStreamStartPosition : IEquatable<PipeDynamoDBStreamStartPosition>
+    public readonly struct PipeDynamoDbStreamStartPosition : IEquatable<PipeDynamoDbStreamStartPosition>
     {
         private readonly string _value;
 
-        private PipeDynamoDBStreamStartPosition(string value)
+        private PipeDynamoDbStreamStartPosition(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PipeDynamoDBStreamStartPosition TrimHorizon { get; } = new PipeDynamoDBStreamStartPosition("TRIM_HORIZON");
-        public static PipeDynamoDBStreamStartPosition Latest { get; } = new PipeDynamoDBStreamStartPosition("LATEST");
+        public static PipeDynamoDbStreamStartPosition TrimHorizon { get; } = new PipeDynamoDbStreamStartPosition("TRIM_HORIZON");
+        public static PipeDynamoDbStreamStartPosition Latest { get; } = new PipeDynamoDbStreamStartPosition("LATEST");
 
-        public static bool operator ==(PipeDynamoDBStreamStartPosition left, PipeDynamoDBStreamStartPosition right) => left.Equals(right);
-        public static bool operator !=(PipeDynamoDBStreamStartPosition left, PipeDynamoDBStreamStartPosition right) => !left.Equals(right);
+        public static bool operator ==(PipeDynamoDbStreamStartPosition left, PipeDynamoDbStreamStartPosition right) => left.Equals(right);
+        public static bool operator !=(PipeDynamoDbStreamStartPosition left, PipeDynamoDbStreamStartPosition right) => !left.Equals(right);
 
-        public static explicit operator string(PipeDynamoDBStreamStartPosition value) => value._value;
+        public static explicit operator string(PipeDynamoDbStreamStartPosition value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PipeDynamoDBStreamStartPosition other && Equals(other);
-        public bool Equals(PipeDynamoDBStreamStartPosition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PipeDynamoDbStreamStartPosition other && Equals(other);
+        public bool Equals(PipeDynamoDbStreamStartPosition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -234,26 +234,26 @@ namespace Pulumi.AwsNative.Pipes
     }
 
     [EnumType]
-    public readonly struct PipeMSKStartPosition : IEquatable<PipeMSKStartPosition>
+    public readonly struct PipeMskStartPosition : IEquatable<PipeMskStartPosition>
     {
         private readonly string _value;
 
-        private PipeMSKStartPosition(string value)
+        private PipeMskStartPosition(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PipeMSKStartPosition TrimHorizon { get; } = new PipeMSKStartPosition("TRIM_HORIZON");
-        public static PipeMSKStartPosition Latest { get; } = new PipeMSKStartPosition("LATEST");
+        public static PipeMskStartPosition TrimHorizon { get; } = new PipeMskStartPosition("TRIM_HORIZON");
+        public static PipeMskStartPosition Latest { get; } = new PipeMskStartPosition("LATEST");
 
-        public static bool operator ==(PipeMSKStartPosition left, PipeMSKStartPosition right) => left.Equals(right);
-        public static bool operator !=(PipeMSKStartPosition left, PipeMSKStartPosition right) => !left.Equals(right);
+        public static bool operator ==(PipeMskStartPosition left, PipeMskStartPosition right) => left.Equals(right);
+        public static bool operator !=(PipeMskStartPosition left, PipeMskStartPosition right) => !left.Equals(right);
 
-        public static explicit operator string(PipeMSKStartPosition value) => value._value;
+        public static explicit operator string(PipeMskStartPosition value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PipeMSKStartPosition other && Equals(other);
-        public bool Equals(PipeMSKStartPosition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PipeMskStartPosition other && Equals(other);
+        public bool Equals(PipeMskStartPosition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -18,9 +18,9 @@ type Policy struct {
 
 	Arn                       pulumi.StringOutput                   `pulumi:"arn"`
 	DeleteAllPolicyResources  pulumi.BoolPtrOutput                  `pulumi:"deleteAllPolicyResources"`
-	ExcludeMap                PolicyIEMapPtrOutput                  `pulumi:"excludeMap"`
+	ExcludeMap                PolicyIeMapPtrOutput                  `pulumi:"excludeMap"`
 	ExcludeResourceTags       pulumi.BoolOutput                     `pulumi:"excludeResourceTags"`
-	IncludeMap                PolicyIEMapPtrOutput                  `pulumi:"includeMap"`
+	IncludeMap                PolicyIeMapPtrOutput                  `pulumi:"includeMap"`
 	PolicyDescription         pulumi.StringPtrOutput                `pulumi:"policyDescription"`
 	PolicyName                pulumi.StringOutput                   `pulumi:"policyName"`
 	RemediationEnabled        pulumi.BoolOutput                     `pulumi:"remediationEnabled"`
@@ -83,9 +83,9 @@ func (PolicyState) ElementType() reflect.Type {
 
 type policyArgs struct {
 	DeleteAllPolicyResources  *bool                           `pulumi:"deleteAllPolicyResources"`
-	ExcludeMap                *PolicyIEMap                    `pulumi:"excludeMap"`
+	ExcludeMap                *PolicyIeMap                    `pulumi:"excludeMap"`
 	ExcludeResourceTags       bool                            `pulumi:"excludeResourceTags"`
-	IncludeMap                *PolicyIEMap                    `pulumi:"includeMap"`
+	IncludeMap                *PolicyIeMap                    `pulumi:"includeMap"`
 	PolicyDescription         *string                         `pulumi:"policyDescription"`
 	PolicyName                *string                         `pulumi:"policyName"`
 	RemediationEnabled        bool                            `pulumi:"remediationEnabled"`
@@ -101,9 +101,9 @@ type policyArgs struct {
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
 	DeleteAllPolicyResources  pulumi.BoolPtrInput
-	ExcludeMap                PolicyIEMapPtrInput
+	ExcludeMap                PolicyIeMapPtrInput
 	ExcludeResourceTags       pulumi.BoolInput
-	IncludeMap                PolicyIEMapPtrInput
+	IncludeMap                PolicyIeMapPtrInput
 	PolicyDescription         pulumi.StringPtrInput
 	PolicyName                pulumi.StringPtrInput
 	RemediationEnabled        pulumi.BoolInput
@@ -161,16 +161,16 @@ func (o PolicyOutput) DeleteAllPolicyResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.DeleteAllPolicyResources }).(pulumi.BoolPtrOutput)
 }
 
-func (o PolicyOutput) ExcludeMap() PolicyIEMapPtrOutput {
-	return o.ApplyT(func(v *Policy) PolicyIEMapPtrOutput { return v.ExcludeMap }).(PolicyIEMapPtrOutput)
+func (o PolicyOutput) ExcludeMap() PolicyIeMapPtrOutput {
+	return o.ApplyT(func(v *Policy) PolicyIeMapPtrOutput { return v.ExcludeMap }).(PolicyIeMapPtrOutput)
 }
 
 func (o PolicyOutput) ExcludeResourceTags() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Policy) pulumi.BoolOutput { return v.ExcludeResourceTags }).(pulumi.BoolOutput)
 }
 
-func (o PolicyOutput) IncludeMap() PolicyIEMapPtrOutput {
-	return o.ApplyT(func(v *Policy) PolicyIEMapPtrOutput { return v.IncludeMap }).(PolicyIEMapPtrOutput)
+func (o PolicyOutput) IncludeMap() PolicyIeMapPtrOutput {
+	return o.ApplyT(func(v *Policy) PolicyIeMapPtrOutput { return v.IncludeMap }).(PolicyIeMapPtrOutput)
 }
 
 func (o PolicyOutput) PolicyDescription() pulumi.StringPtrOutput {

@@ -12,7 +12,7 @@ import (
 )
 
 // Resource Type definition for AWS::MemoryDB::ACL
-type ACL struct {
+type Acl struct {
 	pulumi.CustomResourceState
 
 	// The name of the acl.
@@ -22,47 +22,47 @@ type ACL struct {
 	// Indicates acl status. Can be "creating", "active", "modifying", "deleting".
 	Status pulumi.StringOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this cluster.
-	Tags ACLTagArrayOutput `pulumi:"tags"`
+	Tags AclTagArrayOutput `pulumi:"tags"`
 	// List of users associated to this acl.
 	UserNames pulumi.StringArrayOutput `pulumi:"userNames"`
 }
 
-// NewACL registers a new resource with the given unique name, arguments, and options.
-func NewACL(ctx *pulumi.Context,
-	name string, args *ACLArgs, opts ...pulumi.ResourceOption) (*ACL, error) {
+// NewAcl registers a new resource with the given unique name, arguments, and options.
+func NewAcl(ctx *pulumi.Context,
+	name string, args *AclArgs, opts ...pulumi.ResourceOption) (*Acl, error) {
 	if args == nil {
-		args = &ACLArgs{}
+		args = &AclArgs{}
 	}
 
 	opts = internal.PkgResourceDefaultOpts(opts)
-	var resource ACL
-	err := ctx.RegisterResource("aws-native:memorydb:ACL", name, args, &resource, opts...)
+	var resource Acl
+	err := ctx.RegisterResource("aws-native:memorydb:Acl", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetACL gets an existing ACL resource's state with the given name, ID, and optional
+// GetAcl gets an existing Acl resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetACL(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *ACLState, opts ...pulumi.ResourceOption) (*ACL, error) {
-	var resource ACL
-	err := ctx.ReadResource("aws-native:memorydb:ACL", name, id, state, &resource, opts...)
+func GetAcl(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *AclState, opts ...pulumi.ResourceOption) (*Acl, error) {
+	var resource Acl
+	err := ctx.ReadResource("aws-native:memorydb:Acl", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering ACL resources.
+// Input properties used for looking up and filtering Acl resources.
 type aclState struct {
 }
 
-type ACLState struct {
+type AclState struct {
 }
 
-func (ACLState) ElementType() reflect.Type {
+func (AclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aclState)(nil)).Elem()
 }
 
@@ -70,84 +70,84 @@ type aclArgs struct {
 	// The name of the acl.
 	AclName *string `pulumi:"aclName"`
 	// An array of key-value pairs to apply to this cluster.
-	Tags []ACLTag `pulumi:"tags"`
+	Tags []AclTag `pulumi:"tags"`
 	// List of users associated to this acl.
 	UserNames []string `pulumi:"userNames"`
 }
 
-// The set of arguments for constructing a ACL resource.
-type ACLArgs struct {
+// The set of arguments for constructing a Acl resource.
+type AclArgs struct {
 	// The name of the acl.
 	AclName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this cluster.
-	Tags ACLTagArrayInput
+	Tags AclTagArrayInput
 	// List of users associated to this acl.
 	UserNames pulumi.StringArrayInput
 }
 
-func (ACLArgs) ElementType() reflect.Type {
+func (AclArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*aclArgs)(nil)).Elem()
 }
 
-type ACLInput interface {
+type AclInput interface {
 	pulumi.Input
 
-	ToACLOutput() ACLOutput
-	ToACLOutputWithContext(ctx context.Context) ACLOutput
+	ToAclOutput() AclOutput
+	ToAclOutputWithContext(ctx context.Context) AclOutput
 }
 
-func (*ACL) ElementType() reflect.Type {
-	return reflect.TypeOf((**ACL)(nil)).Elem()
+func (*Acl) ElementType() reflect.Type {
+	return reflect.TypeOf((**Acl)(nil)).Elem()
 }
 
-func (i *ACL) ToACLOutput() ACLOutput {
-	return i.ToACLOutputWithContext(context.Background())
+func (i *Acl) ToAclOutput() AclOutput {
+	return i.ToAclOutputWithContext(context.Background())
 }
 
-func (i *ACL) ToACLOutputWithContext(ctx context.Context) ACLOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACLOutput)
+func (i *Acl) ToAclOutputWithContext(ctx context.Context) AclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AclOutput)
 }
 
-type ACLOutput struct{ *pulumi.OutputState }
+type AclOutput struct{ *pulumi.OutputState }
 
-func (ACLOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ACL)(nil)).Elem()
+func (AclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Acl)(nil)).Elem()
 }
 
-func (o ACLOutput) ToACLOutput() ACLOutput {
+func (o AclOutput) ToAclOutput() AclOutput {
 	return o
 }
 
-func (o ACLOutput) ToACLOutputWithContext(ctx context.Context) ACLOutput {
+func (o AclOutput) ToAclOutputWithContext(ctx context.Context) AclOutput {
 	return o
 }
 
 // The name of the acl.
-func (o ACLOutput) AclName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ACL) pulumi.StringOutput { return v.AclName }).(pulumi.StringOutput)
+func (o AclOutput) AclName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.AclName }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the acl.
-func (o ACLOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ACL) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AclOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Indicates acl status. Can be "creating", "active", "modifying", "deleting".
-func (o ACLOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ACL) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o AclOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
 // An array of key-value pairs to apply to this cluster.
-func (o ACLOutput) Tags() ACLTagArrayOutput {
-	return o.ApplyT(func(v *ACL) ACLTagArrayOutput { return v.Tags }).(ACLTagArrayOutput)
+func (o AclOutput) Tags() AclTagArrayOutput {
+	return o.ApplyT(func(v *Acl) AclTagArrayOutput { return v.Tags }).(AclTagArrayOutput)
 }
 
 // List of users associated to this acl.
-func (o ACLOutput) UserNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ACL) pulumi.StringArrayOutput { return v.UserNames }).(pulumi.StringArrayOutput)
+func (o AclOutput) UserNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Acl) pulumi.StringArrayOutput { return v.UserNames }).(pulumi.StringArrayOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ACLInput)(nil)).Elem(), &ACL{})
-	pulumi.RegisterOutputType(ACLOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclInput)(nil)).Elem(), &Acl{})
+	pulumi.RegisterOutputType(AclOutput{})
 }

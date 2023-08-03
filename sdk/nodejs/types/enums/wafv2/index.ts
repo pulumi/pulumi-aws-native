@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const IPSetIPAddressVersion = {
+export const IpSetIpAddressVersion = {
     Ipv4: "IPV4",
     Ipv6: "IPV6",
 } as const;
@@ -10,9 +10,9 @@ export const IPSetIPAddressVersion = {
 /**
  * Type of addresses in the IPSet, use IPV4 for IPV4 IP addresses, IPV6 for IPV6 address.
  */
-export type IPSetIPAddressVersion = (typeof IPSetIPAddressVersion)[keyof typeof IPSetIPAddressVersion];
+export type IpSetIpAddressVersion = (typeof IpSetIpAddressVersion)[keyof typeof IpSetIpAddressVersion];
 
-export const IPSetScope = {
+export const IpSetScope = {
     Cloudfront: "CLOUDFRONT",
     Regional: "REGIONAL",
 } as const;
@@ -20,7 +20,7 @@ export const IPSetScope = {
 /**
  * Use CLOUDFRONT for CloudFront IPSet, use REGIONAL for Application Load Balancer and API Gateway.
  */
-export type IPSetScope = (typeof IPSetScope)[keyof typeof IPSetScope];
+export type IpSetScope = (typeof IpSetScope)[keyof typeof IpSetScope];
 
 export const LoggingConfigurationConditionActionConditionPropertiesAction = {
     Allow: "ALLOW",
@@ -109,27 +109,27 @@ export const RuleGroupBodyParsingFallbackBehavior = {
  */
 export type RuleGroupBodyParsingFallbackBehavior = (typeof RuleGroupBodyParsingFallbackBehavior)[keyof typeof RuleGroupBodyParsingFallbackBehavior];
 
-export const RuleGroupForwardedIPConfigurationFallbackBehavior = {
+export const RuleGroupForwardedIpConfigurationFallbackBehavior = {
     Match: "MATCH",
     NoMatch: "NO_MATCH",
 } as const;
 
-export type RuleGroupForwardedIPConfigurationFallbackBehavior = (typeof RuleGroupForwardedIPConfigurationFallbackBehavior)[keyof typeof RuleGroupForwardedIPConfigurationFallbackBehavior];
+export type RuleGroupForwardedIpConfigurationFallbackBehavior = (typeof RuleGroupForwardedIpConfigurationFallbackBehavior)[keyof typeof RuleGroupForwardedIpConfigurationFallbackBehavior];
 
-export const RuleGroupIPSetForwardedIPConfigurationFallbackBehavior = {
+export const RuleGroupIpSetForwardedIpConfigurationFallbackBehavior = {
     Match: "MATCH",
     NoMatch: "NO_MATCH",
 } as const;
 
-export type RuleGroupIPSetForwardedIPConfigurationFallbackBehavior = (typeof RuleGroupIPSetForwardedIPConfigurationFallbackBehavior)[keyof typeof RuleGroupIPSetForwardedIPConfigurationFallbackBehavior];
+export type RuleGroupIpSetForwardedIpConfigurationFallbackBehavior = (typeof RuleGroupIpSetForwardedIpConfigurationFallbackBehavior)[keyof typeof RuleGroupIpSetForwardedIpConfigurationFallbackBehavior];
 
-export const RuleGroupIPSetForwardedIPConfigurationPosition = {
+export const RuleGroupIpSetForwardedIpConfigurationPosition = {
     First: "FIRST",
     Last: "LAST",
     Any: "ANY",
 } as const;
 
-export type RuleGroupIPSetForwardedIPConfigurationPosition = (typeof RuleGroupIPSetForwardedIPConfigurationPosition)[keyof typeof RuleGroupIPSetForwardedIPConfigurationPosition];
+export type RuleGroupIpSetForwardedIpConfigurationPosition = (typeof RuleGroupIpSetForwardedIpConfigurationPosition)[keyof typeof RuleGroupIpSetForwardedIpConfigurationPosition];
 
 export const RuleGroupJsonMatchScope = {
     All: "ALL",
@@ -252,14 +252,14 @@ export const RuleGroupTextTransformationType = {
  */
 export type RuleGroupTextTransformationType = (typeof RuleGroupTextTransformationType)[keyof typeof RuleGroupTextTransformationType];
 
-export const WebACLAWSManagedRulesBotControlRuleSetInspectionLevel = {
+export const WebAclAwsManagedRulesBotControlRuleSetInspectionLevel = {
     Common: "COMMON",
     Targeted: "TARGETED",
 } as const;
 
-export type WebACLAWSManagedRulesBotControlRuleSetInspectionLevel = (typeof WebACLAWSManagedRulesBotControlRuleSetInspectionLevel)[keyof typeof WebACLAWSManagedRulesBotControlRuleSetInspectionLevel];
+export type WebAclAwsManagedRulesBotControlRuleSetInspectionLevel = (typeof WebAclAwsManagedRulesBotControlRuleSetInspectionLevel)[keyof typeof WebAclAwsManagedRulesBotControlRuleSetInspectionLevel];
 
-export const WebACLBodyParsingFallbackBehavior = {
+export const WebAclBodyParsingFallbackBehavior = {
     Match: "MATCH",
     NoMatch: "NO_MATCH",
     EvaluateAsString: "EVALUATE_AS_STRING",
@@ -268,31 +268,31 @@ export const WebACLBodyParsingFallbackBehavior = {
 /**
  * The inspection behavior to fall back to if the JSON in the request body is invalid.
  */
-export type WebACLBodyParsingFallbackBehavior = (typeof WebACLBodyParsingFallbackBehavior)[keyof typeof WebACLBodyParsingFallbackBehavior];
+export type WebAclBodyParsingFallbackBehavior = (typeof WebAclBodyParsingFallbackBehavior)[keyof typeof WebAclBodyParsingFallbackBehavior];
 
-export const WebACLForwardedIPConfigurationFallbackBehavior = {
+export const WebAclForwardedIpConfigurationFallbackBehavior = {
     Match: "MATCH",
     NoMatch: "NO_MATCH",
 } as const;
 
-export type WebACLForwardedIPConfigurationFallbackBehavior = (typeof WebACLForwardedIPConfigurationFallbackBehavior)[keyof typeof WebACLForwardedIPConfigurationFallbackBehavior];
+export type WebAclForwardedIpConfigurationFallbackBehavior = (typeof WebAclForwardedIpConfigurationFallbackBehavior)[keyof typeof WebAclForwardedIpConfigurationFallbackBehavior];
 
-export const WebACLIPSetForwardedIPConfigurationFallbackBehavior = {
+export const WebAclIpSetForwardedIpConfigurationFallbackBehavior = {
     Match: "MATCH",
     NoMatch: "NO_MATCH",
 } as const;
 
-export type WebACLIPSetForwardedIPConfigurationFallbackBehavior = (typeof WebACLIPSetForwardedIPConfigurationFallbackBehavior)[keyof typeof WebACLIPSetForwardedIPConfigurationFallbackBehavior];
+export type WebAclIpSetForwardedIpConfigurationFallbackBehavior = (typeof WebAclIpSetForwardedIpConfigurationFallbackBehavior)[keyof typeof WebAclIpSetForwardedIpConfigurationFallbackBehavior];
 
-export const WebACLIPSetForwardedIPConfigurationPosition = {
+export const WebAclIpSetForwardedIpConfigurationPosition = {
     First: "FIRST",
     Last: "LAST",
     Any: "ANY",
 } as const;
 
-export type WebACLIPSetForwardedIPConfigurationPosition = (typeof WebACLIPSetForwardedIPConfigurationPosition)[keyof typeof WebACLIPSetForwardedIPConfigurationPosition];
+export type WebAclIpSetForwardedIpConfigurationPosition = (typeof WebAclIpSetForwardedIpConfigurationPosition)[keyof typeof WebAclIpSetForwardedIpConfigurationPosition];
 
-export const WebACLJsonMatchScope = {
+export const WebAclJsonMatchScope = {
     All: "ALL",
     Key: "KEY",
     Value: "VALUE",
@@ -301,23 +301,23 @@ export const WebACLJsonMatchScope = {
 /**
  * The parts of the JSON to match against using the MatchPattern.
  */
-export type WebACLJsonMatchScope = (typeof WebACLJsonMatchScope)[keyof typeof WebACLJsonMatchScope];
+export type WebAclJsonMatchScope = (typeof WebAclJsonMatchScope)[keyof typeof WebAclJsonMatchScope];
 
-export const WebACLLabelMatchScope = {
+export const WebAclLabelMatchScope = {
     Label: "LABEL",
     Namespace: "NAMESPACE",
 } as const;
 
-export type WebACLLabelMatchScope = (typeof WebACLLabelMatchScope)[keyof typeof WebACLLabelMatchScope];
+export type WebAclLabelMatchScope = (typeof WebAclLabelMatchScope)[keyof typeof WebAclLabelMatchScope];
 
-export const WebACLManagedRuleGroupConfigPayloadType = {
+export const WebAclManagedRuleGroupConfigPayloadType = {
     Json: "JSON",
     FormEncoded: "FORM_ENCODED",
 } as const;
 
-export type WebACLManagedRuleGroupConfigPayloadType = (typeof WebACLManagedRuleGroupConfigPayloadType)[keyof typeof WebACLManagedRuleGroupConfigPayloadType];
+export type WebAclManagedRuleGroupConfigPayloadType = (typeof WebAclManagedRuleGroupConfigPayloadType)[keyof typeof WebAclManagedRuleGroupConfigPayloadType];
 
-export const WebACLMapMatchScope = {
+export const WebAclMapMatchScope = {
     All: "ALL",
     Key: "KEY",
     Value: "VALUE",
@@ -326,9 +326,9 @@ export const WebACLMapMatchScope = {
 /**
  * The parts of the request to match against using the MatchPattern.
  */
-export type WebACLMapMatchScope = (typeof WebACLMapMatchScope)[keyof typeof WebACLMapMatchScope];
+export type WebAclMapMatchScope = (typeof WebAclMapMatchScope)[keyof typeof WebAclMapMatchScope];
 
-export const WebACLOversizeHandling = {
+export const WebAclOversizeHandling = {
     Continue: "CONTINUE",
     Match: "MATCH",
     NoMatch: "NO_MATCH",
@@ -337,9 +337,9 @@ export const WebACLOversizeHandling = {
 /**
  * Handling of requests containing oversize fields
  */
-export type WebACLOversizeHandling = (typeof WebACLOversizeHandling)[keyof typeof WebACLOversizeHandling];
+export type WebAclOversizeHandling = (typeof WebAclOversizeHandling)[keyof typeof WebAclOversizeHandling];
 
-export const WebACLPositionalConstraint = {
+export const WebAclPositionalConstraint = {
     Exactly: "EXACTLY",
     StartsWith: "STARTS_WITH",
     EndsWith: "ENDS_WITH",
@@ -350,31 +350,31 @@ export const WebACLPositionalConstraint = {
 /**
  * Position of the evaluation in the FieldToMatch of request.
  */
-export type WebACLPositionalConstraint = (typeof WebACLPositionalConstraint)[keyof typeof WebACLPositionalConstraint];
+export type WebAclPositionalConstraint = (typeof WebAclPositionalConstraint)[keyof typeof WebAclPositionalConstraint];
 
-export const WebACLRateBasedStatementAggregateKeyType = {
+export const WebAclRateBasedStatementAggregateKeyType = {
     Ip: "IP",
     ForwardedIp: "FORWARDED_IP",
     CustomKeys: "CUSTOM_KEYS",
 } as const;
 
-export type WebACLRateBasedStatementAggregateKeyType = (typeof WebACLRateBasedStatementAggregateKeyType)[keyof typeof WebACLRateBasedStatementAggregateKeyType];
+export type WebAclRateBasedStatementAggregateKeyType = (typeof WebAclRateBasedStatementAggregateKeyType)[keyof typeof WebAclRateBasedStatementAggregateKeyType];
 
-export const WebACLRequestInspectionACFPPayloadType = {
+export const WebAclRequestInspectionAcfpPayloadType = {
     Json: "JSON",
     FormEncoded: "FORM_ENCODED",
 } as const;
 
-export type WebACLRequestInspectionACFPPayloadType = (typeof WebACLRequestInspectionACFPPayloadType)[keyof typeof WebACLRequestInspectionACFPPayloadType];
+export type WebAclRequestInspectionAcfpPayloadType = (typeof WebAclRequestInspectionAcfpPayloadType)[keyof typeof WebAclRequestInspectionAcfpPayloadType];
 
-export const WebACLRequestInspectionPayloadType = {
+export const WebAclRequestInspectionPayloadType = {
     Json: "JSON",
     FormEncoded: "FORM_ENCODED",
 } as const;
 
-export type WebACLRequestInspectionPayloadType = (typeof WebACLRequestInspectionPayloadType)[keyof typeof WebACLRequestInspectionPayloadType];
+export type WebAclRequestInspectionPayloadType = (typeof WebAclRequestInspectionPayloadType)[keyof typeof WebAclRequestInspectionPayloadType];
 
-export const WebACLScope = {
+export const WebAclScope = {
     Cloudfront: "CLOUDFRONT",
     Regional: "REGIONAL",
 } as const;
@@ -382,9 +382,9 @@ export const WebACLScope = {
 /**
  * Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
  */
-export type WebACLScope = (typeof WebACLScope)[keyof typeof WebACLScope];
+export type WebAclScope = (typeof WebAclScope)[keyof typeof WebAclScope];
 
-export const WebACLSensitivityLevel = {
+export const WebAclSensitivityLevel = {
     Low: "LOW",
     High: "HIGH",
 } as const;
@@ -392,9 +392,9 @@ export const WebACLSensitivityLevel = {
 /**
  * Sensitivity Level current only used for sqli match statements.
  */
-export type WebACLSensitivityLevel = (typeof WebACLSensitivityLevel)[keyof typeof WebACLSensitivityLevel];
+export type WebAclSensitivityLevel = (typeof WebAclSensitivityLevel)[keyof typeof WebAclSensitivityLevel];
 
-export const WebACLSizeConstraintStatementComparisonOperator = {
+export const WebAclSizeConstraintStatementComparisonOperator = {
     Eq: "EQ",
     Ne: "NE",
     Le: "LE",
@@ -403,9 +403,9 @@ export const WebACLSizeConstraintStatementComparisonOperator = {
     Gt: "GT",
 } as const;
 
-export type WebACLSizeConstraintStatementComparisonOperator = (typeof WebACLSizeConstraintStatementComparisonOperator)[keyof typeof WebACLSizeConstraintStatementComparisonOperator];
+export type WebAclSizeConstraintStatementComparisonOperator = (typeof WebAclSizeConstraintStatementComparisonOperator)[keyof typeof WebAclSizeConstraintStatementComparisonOperator];
 
-export const WebACLTextTransformationType = {
+export const WebAclTextTransformationType = {
     None: "NONE",
     CompressWhiteSpace: "COMPRESS_WHITE_SPACE",
     HtmlEntityDecode: "HTML_ENTITY_DECODE",
@@ -432,4 +432,4 @@ export const WebACLTextTransformationType = {
 /**
  * Type of text transformation.
  */
-export type WebACLTextTransformationType = (typeof WebACLTextTransformationType)[keyof typeof WebACLTextTransformationType];
+export type WebAclTextTransformationType = (typeof WebAclTextTransformationType)[keyof typeof WebAclTextTransformationType];

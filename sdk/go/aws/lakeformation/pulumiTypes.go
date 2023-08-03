@@ -2592,244 +2592,244 @@ func (o PrincipalPermissionsDatabaseResourcePtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-type PrincipalPermissionsLFTag struct {
+type PrincipalPermissionsLfTag struct {
 	TagKey    *string  `pulumi:"tagKey"`
 	TagValues []string `pulumi:"tagValues"`
 }
 
-// PrincipalPermissionsLFTagInput is an input type that accepts PrincipalPermissionsLFTagArgs and PrincipalPermissionsLFTagOutput values.
-// You can construct a concrete instance of `PrincipalPermissionsLFTagInput` via:
+// PrincipalPermissionsLfTagInput is an input type that accepts PrincipalPermissionsLfTagArgs and PrincipalPermissionsLfTagOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLfTagInput` via:
 //
-//	PrincipalPermissionsLFTagArgs{...}
-type PrincipalPermissionsLFTagInput interface {
+//	PrincipalPermissionsLfTagArgs{...}
+type PrincipalPermissionsLfTagInput interface {
 	pulumi.Input
 
-	ToPrincipalPermissionsLFTagOutput() PrincipalPermissionsLFTagOutput
-	ToPrincipalPermissionsLFTagOutputWithContext(context.Context) PrincipalPermissionsLFTagOutput
+	ToPrincipalPermissionsLfTagOutput() PrincipalPermissionsLfTagOutput
+	ToPrincipalPermissionsLfTagOutputWithContext(context.Context) PrincipalPermissionsLfTagOutput
 }
 
-type PrincipalPermissionsLFTagArgs struct {
+type PrincipalPermissionsLfTagArgs struct {
 	TagKey    pulumi.StringPtrInput   `pulumi:"tagKey"`
 	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
 }
 
-func (PrincipalPermissionsLFTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalPermissionsLFTag)(nil)).Elem()
+func (PrincipalPermissionsLfTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLfTag)(nil)).Elem()
 }
 
-func (i PrincipalPermissionsLFTagArgs) ToPrincipalPermissionsLFTagOutput() PrincipalPermissionsLFTagOutput {
-	return i.ToPrincipalPermissionsLFTagOutputWithContext(context.Background())
+func (i PrincipalPermissionsLfTagArgs) ToPrincipalPermissionsLfTagOutput() PrincipalPermissionsLfTagOutput {
+	return i.ToPrincipalPermissionsLfTagOutputWithContext(context.Background())
 }
 
-func (i PrincipalPermissionsLFTagArgs) ToPrincipalPermissionsLFTagOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagOutput)
+func (i PrincipalPermissionsLfTagArgs) ToPrincipalPermissionsLfTagOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagOutput)
 }
 
-// PrincipalPermissionsLFTagArrayInput is an input type that accepts PrincipalPermissionsLFTagArray and PrincipalPermissionsLFTagArrayOutput values.
-// You can construct a concrete instance of `PrincipalPermissionsLFTagArrayInput` via:
+// PrincipalPermissionsLfTagArrayInput is an input type that accepts PrincipalPermissionsLfTagArray and PrincipalPermissionsLfTagArrayOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLfTagArrayInput` via:
 //
-//	PrincipalPermissionsLFTagArray{ PrincipalPermissionsLFTagArgs{...} }
-type PrincipalPermissionsLFTagArrayInput interface {
+//	PrincipalPermissionsLfTagArray{ PrincipalPermissionsLfTagArgs{...} }
+type PrincipalPermissionsLfTagArrayInput interface {
 	pulumi.Input
 
-	ToPrincipalPermissionsLFTagArrayOutput() PrincipalPermissionsLFTagArrayOutput
-	ToPrincipalPermissionsLFTagArrayOutputWithContext(context.Context) PrincipalPermissionsLFTagArrayOutput
+	ToPrincipalPermissionsLfTagArrayOutput() PrincipalPermissionsLfTagArrayOutput
+	ToPrincipalPermissionsLfTagArrayOutputWithContext(context.Context) PrincipalPermissionsLfTagArrayOutput
 }
 
-type PrincipalPermissionsLFTagArray []PrincipalPermissionsLFTagInput
+type PrincipalPermissionsLfTagArray []PrincipalPermissionsLfTagInput
 
-func (PrincipalPermissionsLFTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrincipalPermissionsLFTag)(nil)).Elem()
+func (PrincipalPermissionsLfTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrincipalPermissionsLfTag)(nil)).Elem()
 }
 
-func (i PrincipalPermissionsLFTagArray) ToPrincipalPermissionsLFTagArrayOutput() PrincipalPermissionsLFTagArrayOutput {
-	return i.ToPrincipalPermissionsLFTagArrayOutputWithContext(context.Background())
+func (i PrincipalPermissionsLfTagArray) ToPrincipalPermissionsLfTagArrayOutput() PrincipalPermissionsLfTagArrayOutput {
+	return i.ToPrincipalPermissionsLfTagArrayOutputWithContext(context.Background())
 }
 
-func (i PrincipalPermissionsLFTagArray) ToPrincipalPermissionsLFTagArrayOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagArrayOutput)
+func (i PrincipalPermissionsLfTagArray) ToPrincipalPermissionsLfTagArrayOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagArrayOutput)
 }
 
-type PrincipalPermissionsLFTagOutput struct{ *pulumi.OutputState }
+type PrincipalPermissionsLfTagOutput struct{ *pulumi.OutputState }
 
-func (PrincipalPermissionsLFTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalPermissionsLFTag)(nil)).Elem()
+func (PrincipalPermissionsLfTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLfTag)(nil)).Elem()
 }
 
-func (o PrincipalPermissionsLFTagOutput) ToPrincipalPermissionsLFTagOutput() PrincipalPermissionsLFTagOutput {
+func (o PrincipalPermissionsLfTagOutput) ToPrincipalPermissionsLfTagOutput() PrincipalPermissionsLfTagOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagOutput) ToPrincipalPermissionsLFTagOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagOutput {
+func (o PrincipalPermissionsLfTagOutput) ToPrincipalPermissionsLfTagOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagOutput) TagKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrincipalPermissionsLFTag) *string { return v.TagKey }).(pulumi.StringPtrOutput)
+func (o PrincipalPermissionsLfTagOutput) TagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLfTag) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-func (o PrincipalPermissionsLFTagOutput) TagValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PrincipalPermissionsLFTag) []string { return v.TagValues }).(pulumi.StringArrayOutput)
+func (o PrincipalPermissionsLfTagOutput) TagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLfTag) []string { return v.TagValues }).(pulumi.StringArrayOutput)
 }
 
-type PrincipalPermissionsLFTagArrayOutput struct{ *pulumi.OutputState }
+type PrincipalPermissionsLfTagArrayOutput struct{ *pulumi.OutputState }
 
-func (PrincipalPermissionsLFTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrincipalPermissionsLFTag)(nil)).Elem()
+func (PrincipalPermissionsLfTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrincipalPermissionsLfTag)(nil)).Elem()
 }
 
-func (o PrincipalPermissionsLFTagArrayOutput) ToPrincipalPermissionsLFTagArrayOutput() PrincipalPermissionsLFTagArrayOutput {
+func (o PrincipalPermissionsLfTagArrayOutput) ToPrincipalPermissionsLfTagArrayOutput() PrincipalPermissionsLfTagArrayOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagArrayOutput) ToPrincipalPermissionsLFTagArrayOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagArrayOutput {
+func (o PrincipalPermissionsLfTagArrayOutput) ToPrincipalPermissionsLfTagArrayOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagArrayOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagArrayOutput) Index(i pulumi.IntInput) PrincipalPermissionsLFTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrincipalPermissionsLFTag {
-		return vs[0].([]PrincipalPermissionsLFTag)[vs[1].(int)]
-	}).(PrincipalPermissionsLFTagOutput)
+func (o PrincipalPermissionsLfTagArrayOutput) Index(i pulumi.IntInput) PrincipalPermissionsLfTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrincipalPermissionsLfTag {
+		return vs[0].([]PrincipalPermissionsLfTag)[vs[1].(int)]
+	}).(PrincipalPermissionsLfTagOutput)
 }
 
-type PrincipalPermissionsLFTagKeyResource struct {
+type PrincipalPermissionsLfTagKeyResource struct {
 	CatalogId string   `pulumi:"catalogId"`
 	TagKey    string   `pulumi:"tagKey"`
 	TagValues []string `pulumi:"tagValues"`
 }
 
-// PrincipalPermissionsLFTagKeyResourceInput is an input type that accepts PrincipalPermissionsLFTagKeyResourceArgs and PrincipalPermissionsLFTagKeyResourceOutput values.
-// You can construct a concrete instance of `PrincipalPermissionsLFTagKeyResourceInput` via:
+// PrincipalPermissionsLfTagKeyResourceInput is an input type that accepts PrincipalPermissionsLfTagKeyResourceArgs and PrincipalPermissionsLfTagKeyResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLfTagKeyResourceInput` via:
 //
-//	PrincipalPermissionsLFTagKeyResourceArgs{...}
-type PrincipalPermissionsLFTagKeyResourceInput interface {
+//	PrincipalPermissionsLfTagKeyResourceArgs{...}
+type PrincipalPermissionsLfTagKeyResourceInput interface {
 	pulumi.Input
 
-	ToPrincipalPermissionsLFTagKeyResourceOutput() PrincipalPermissionsLFTagKeyResourceOutput
-	ToPrincipalPermissionsLFTagKeyResourceOutputWithContext(context.Context) PrincipalPermissionsLFTagKeyResourceOutput
+	ToPrincipalPermissionsLfTagKeyResourceOutput() PrincipalPermissionsLfTagKeyResourceOutput
+	ToPrincipalPermissionsLfTagKeyResourceOutputWithContext(context.Context) PrincipalPermissionsLfTagKeyResourceOutput
 }
 
-type PrincipalPermissionsLFTagKeyResourceArgs struct {
+type PrincipalPermissionsLfTagKeyResourceArgs struct {
 	CatalogId pulumi.StringInput      `pulumi:"catalogId"`
 	TagKey    pulumi.StringInput      `pulumi:"tagKey"`
 	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
 }
 
-func (PrincipalPermissionsLFTagKeyResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalPermissionsLFTagKeyResource)(nil)).Elem()
+func (PrincipalPermissionsLfTagKeyResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLfTagKeyResource)(nil)).Elem()
 }
 
-func (i PrincipalPermissionsLFTagKeyResourceArgs) ToPrincipalPermissionsLFTagKeyResourceOutput() PrincipalPermissionsLFTagKeyResourceOutput {
-	return i.ToPrincipalPermissionsLFTagKeyResourceOutputWithContext(context.Background())
+func (i PrincipalPermissionsLfTagKeyResourceArgs) ToPrincipalPermissionsLfTagKeyResourceOutput() PrincipalPermissionsLfTagKeyResourceOutput {
+	return i.ToPrincipalPermissionsLfTagKeyResourceOutputWithContext(context.Background())
 }
 
-func (i PrincipalPermissionsLFTagKeyResourceArgs) ToPrincipalPermissionsLFTagKeyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagKeyResourceOutput)
+func (i PrincipalPermissionsLfTagKeyResourceArgs) ToPrincipalPermissionsLfTagKeyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagKeyResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagKeyResourceOutput)
 }
 
-func (i PrincipalPermissionsLFTagKeyResourceArgs) ToPrincipalPermissionsLFTagKeyResourcePtrOutput() PrincipalPermissionsLFTagKeyResourcePtrOutput {
-	return i.ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(context.Background())
+func (i PrincipalPermissionsLfTagKeyResourceArgs) ToPrincipalPermissionsLfTagKeyResourcePtrOutput() PrincipalPermissionsLfTagKeyResourcePtrOutput {
+	return i.ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(context.Background())
 }
 
-func (i PrincipalPermissionsLFTagKeyResourceArgs) ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagKeyResourceOutput).ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(ctx)
+func (i PrincipalPermissionsLfTagKeyResourceArgs) ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagKeyResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagKeyResourceOutput).ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(ctx)
 }
 
-// PrincipalPermissionsLFTagKeyResourcePtrInput is an input type that accepts PrincipalPermissionsLFTagKeyResourceArgs, PrincipalPermissionsLFTagKeyResourcePtr and PrincipalPermissionsLFTagKeyResourcePtrOutput values.
-// You can construct a concrete instance of `PrincipalPermissionsLFTagKeyResourcePtrInput` via:
+// PrincipalPermissionsLfTagKeyResourcePtrInput is an input type that accepts PrincipalPermissionsLfTagKeyResourceArgs, PrincipalPermissionsLfTagKeyResourcePtr and PrincipalPermissionsLfTagKeyResourcePtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLfTagKeyResourcePtrInput` via:
 //
-//	        PrincipalPermissionsLFTagKeyResourceArgs{...}
+//	        PrincipalPermissionsLfTagKeyResourceArgs{...}
 //
 //	or:
 //
 //	        nil
-type PrincipalPermissionsLFTagKeyResourcePtrInput interface {
+type PrincipalPermissionsLfTagKeyResourcePtrInput interface {
 	pulumi.Input
 
-	ToPrincipalPermissionsLFTagKeyResourcePtrOutput() PrincipalPermissionsLFTagKeyResourcePtrOutput
-	ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(context.Context) PrincipalPermissionsLFTagKeyResourcePtrOutput
+	ToPrincipalPermissionsLfTagKeyResourcePtrOutput() PrincipalPermissionsLfTagKeyResourcePtrOutput
+	ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(context.Context) PrincipalPermissionsLfTagKeyResourcePtrOutput
 }
 
-type principalPermissionsLFTagKeyResourcePtrType PrincipalPermissionsLFTagKeyResourceArgs
+type principalPermissionsLfTagKeyResourcePtrType PrincipalPermissionsLfTagKeyResourceArgs
 
-func PrincipalPermissionsLFTagKeyResourcePtr(v *PrincipalPermissionsLFTagKeyResourceArgs) PrincipalPermissionsLFTagKeyResourcePtrInput {
-	return (*principalPermissionsLFTagKeyResourcePtrType)(v)
+func PrincipalPermissionsLfTagKeyResourcePtr(v *PrincipalPermissionsLfTagKeyResourceArgs) PrincipalPermissionsLfTagKeyResourcePtrInput {
+	return (*principalPermissionsLfTagKeyResourcePtrType)(v)
 }
 
-func (*principalPermissionsLFTagKeyResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrincipalPermissionsLFTagKeyResource)(nil)).Elem()
+func (*principalPermissionsLfTagKeyResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsLfTagKeyResource)(nil)).Elem()
 }
 
-func (i *principalPermissionsLFTagKeyResourcePtrType) ToPrincipalPermissionsLFTagKeyResourcePtrOutput() PrincipalPermissionsLFTagKeyResourcePtrOutput {
-	return i.ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(context.Background())
+func (i *principalPermissionsLfTagKeyResourcePtrType) ToPrincipalPermissionsLfTagKeyResourcePtrOutput() PrincipalPermissionsLfTagKeyResourcePtrOutput {
+	return i.ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(context.Background())
 }
 
-func (i *principalPermissionsLFTagKeyResourcePtrType) ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagKeyResourcePtrOutput)
+func (i *principalPermissionsLfTagKeyResourcePtrType) ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagKeyResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagKeyResourcePtrOutput)
 }
 
-type PrincipalPermissionsLFTagKeyResourceOutput struct{ *pulumi.OutputState }
+type PrincipalPermissionsLfTagKeyResourceOutput struct{ *pulumi.OutputState }
 
-func (PrincipalPermissionsLFTagKeyResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalPermissionsLFTagKeyResource)(nil)).Elem()
+func (PrincipalPermissionsLfTagKeyResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLfTagKeyResource)(nil)).Elem()
 }
 
-func (o PrincipalPermissionsLFTagKeyResourceOutput) ToPrincipalPermissionsLFTagKeyResourceOutput() PrincipalPermissionsLFTagKeyResourceOutput {
+func (o PrincipalPermissionsLfTagKeyResourceOutput) ToPrincipalPermissionsLfTagKeyResourceOutput() PrincipalPermissionsLfTagKeyResourceOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagKeyResourceOutput) ToPrincipalPermissionsLFTagKeyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourceOutput {
+func (o PrincipalPermissionsLfTagKeyResourceOutput) ToPrincipalPermissionsLfTagKeyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagKeyResourceOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagKeyResourceOutput) ToPrincipalPermissionsLFTagKeyResourcePtrOutput() PrincipalPermissionsLFTagKeyResourcePtrOutput {
-	return o.ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(context.Background())
+func (o PrincipalPermissionsLfTagKeyResourceOutput) ToPrincipalPermissionsLfTagKeyResourcePtrOutput() PrincipalPermissionsLfTagKeyResourcePtrOutput {
+	return o.ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(context.Background())
 }
 
-func (o PrincipalPermissionsLFTagKeyResourceOutput) ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsLFTagKeyResource) *PrincipalPermissionsLFTagKeyResource {
+func (o PrincipalPermissionsLfTagKeyResourceOutput) ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagKeyResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsLfTagKeyResource) *PrincipalPermissionsLfTagKeyResource {
 		return &v
-	}).(PrincipalPermissionsLFTagKeyResourcePtrOutput)
+	}).(PrincipalPermissionsLfTagKeyResourcePtrOutput)
 }
 
-func (o PrincipalPermissionsLFTagKeyResourceOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v PrincipalPermissionsLFTagKeyResource) string { return v.CatalogId }).(pulumi.StringOutput)
+func (o PrincipalPermissionsLfTagKeyResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLfTagKeyResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-func (o PrincipalPermissionsLFTagKeyResourceOutput) TagKey() pulumi.StringOutput {
-	return o.ApplyT(func(v PrincipalPermissionsLFTagKeyResource) string { return v.TagKey }).(pulumi.StringOutput)
+func (o PrincipalPermissionsLfTagKeyResourceOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLfTagKeyResource) string { return v.TagKey }).(pulumi.StringOutput)
 }
 
-func (o PrincipalPermissionsLFTagKeyResourceOutput) TagValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PrincipalPermissionsLFTagKeyResource) []string { return v.TagValues }).(pulumi.StringArrayOutput)
+func (o PrincipalPermissionsLfTagKeyResourceOutput) TagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLfTagKeyResource) []string { return v.TagValues }).(pulumi.StringArrayOutput)
 }
 
-type PrincipalPermissionsLFTagKeyResourcePtrOutput struct{ *pulumi.OutputState }
+type PrincipalPermissionsLfTagKeyResourcePtrOutput struct{ *pulumi.OutputState }
 
-func (PrincipalPermissionsLFTagKeyResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrincipalPermissionsLFTagKeyResource)(nil)).Elem()
+func (PrincipalPermissionsLfTagKeyResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsLfTagKeyResource)(nil)).Elem()
 }
 
-func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) ToPrincipalPermissionsLFTagKeyResourcePtrOutput() PrincipalPermissionsLFTagKeyResourcePtrOutput {
+func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) ToPrincipalPermissionsLfTagKeyResourcePtrOutput() PrincipalPermissionsLfTagKeyResourcePtrOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourcePtrOutput {
+func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagKeyResourcePtrOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) Elem() PrincipalPermissionsLFTagKeyResourceOutput {
-	return o.ApplyT(func(v *PrincipalPermissionsLFTagKeyResource) PrincipalPermissionsLFTagKeyResource {
+func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) Elem() PrincipalPermissionsLfTagKeyResourceOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLfTagKeyResource) PrincipalPermissionsLfTagKeyResource {
 		if v != nil {
 			return *v
 		}
-		var ret PrincipalPermissionsLFTagKeyResource
+		var ret PrincipalPermissionsLfTagKeyResource
 		return ret
-	}).(PrincipalPermissionsLFTagKeyResourceOutput)
+	}).(PrincipalPermissionsLfTagKeyResourceOutput)
 }
 
-func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrincipalPermissionsLFTagKeyResource) *string {
+func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLfTagKeyResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -2837,8 +2837,8 @@ func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) CatalogId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) TagKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrincipalPermissionsLFTagKeyResource) *string {
+func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) TagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLfTagKeyResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -2846,8 +2846,8 @@ func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) TagKey() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) TagValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PrincipalPermissionsLFTagKeyResource) []string {
+func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) TagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLfTagKeyResource) []string {
 		if v == nil {
 			return nil
 		}
@@ -2855,146 +2855,146 @@ func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) TagValues() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-type PrincipalPermissionsLFTagPolicyResource struct {
+type PrincipalPermissionsLfTagPolicyResource struct {
 	CatalogId    string                           `pulumi:"catalogId"`
-	Expression   []PrincipalPermissionsLFTag      `pulumi:"expression"`
+	Expression   []PrincipalPermissionsLfTag      `pulumi:"expression"`
 	ResourceType PrincipalPermissionsResourceType `pulumi:"resourceType"`
 }
 
-// PrincipalPermissionsLFTagPolicyResourceInput is an input type that accepts PrincipalPermissionsLFTagPolicyResourceArgs and PrincipalPermissionsLFTagPolicyResourceOutput values.
-// You can construct a concrete instance of `PrincipalPermissionsLFTagPolicyResourceInput` via:
+// PrincipalPermissionsLfTagPolicyResourceInput is an input type that accepts PrincipalPermissionsLfTagPolicyResourceArgs and PrincipalPermissionsLfTagPolicyResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLfTagPolicyResourceInput` via:
 //
-//	PrincipalPermissionsLFTagPolicyResourceArgs{...}
-type PrincipalPermissionsLFTagPolicyResourceInput interface {
+//	PrincipalPermissionsLfTagPolicyResourceArgs{...}
+type PrincipalPermissionsLfTagPolicyResourceInput interface {
 	pulumi.Input
 
-	ToPrincipalPermissionsLFTagPolicyResourceOutput() PrincipalPermissionsLFTagPolicyResourceOutput
-	ToPrincipalPermissionsLFTagPolicyResourceOutputWithContext(context.Context) PrincipalPermissionsLFTagPolicyResourceOutput
+	ToPrincipalPermissionsLfTagPolicyResourceOutput() PrincipalPermissionsLfTagPolicyResourceOutput
+	ToPrincipalPermissionsLfTagPolicyResourceOutputWithContext(context.Context) PrincipalPermissionsLfTagPolicyResourceOutput
 }
 
-type PrincipalPermissionsLFTagPolicyResourceArgs struct {
+type PrincipalPermissionsLfTagPolicyResourceArgs struct {
 	CatalogId    pulumi.StringInput                    `pulumi:"catalogId"`
-	Expression   PrincipalPermissionsLFTagArrayInput   `pulumi:"expression"`
+	Expression   PrincipalPermissionsLfTagArrayInput   `pulumi:"expression"`
 	ResourceType PrincipalPermissionsResourceTypeInput `pulumi:"resourceType"`
 }
 
-func (PrincipalPermissionsLFTagPolicyResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalPermissionsLFTagPolicyResource)(nil)).Elem()
+func (PrincipalPermissionsLfTagPolicyResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLfTagPolicyResource)(nil)).Elem()
 }
 
-func (i PrincipalPermissionsLFTagPolicyResourceArgs) ToPrincipalPermissionsLFTagPolicyResourceOutput() PrincipalPermissionsLFTagPolicyResourceOutput {
-	return i.ToPrincipalPermissionsLFTagPolicyResourceOutputWithContext(context.Background())
+func (i PrincipalPermissionsLfTagPolicyResourceArgs) ToPrincipalPermissionsLfTagPolicyResourceOutput() PrincipalPermissionsLfTagPolicyResourceOutput {
+	return i.ToPrincipalPermissionsLfTagPolicyResourceOutputWithContext(context.Background())
 }
 
-func (i PrincipalPermissionsLFTagPolicyResourceArgs) ToPrincipalPermissionsLFTagPolicyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagPolicyResourceOutput)
+func (i PrincipalPermissionsLfTagPolicyResourceArgs) ToPrincipalPermissionsLfTagPolicyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagPolicyResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagPolicyResourceOutput)
 }
 
-func (i PrincipalPermissionsLFTagPolicyResourceArgs) ToPrincipalPermissionsLFTagPolicyResourcePtrOutput() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
-	return i.ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(context.Background())
+func (i PrincipalPermissionsLfTagPolicyResourceArgs) ToPrincipalPermissionsLfTagPolicyResourcePtrOutput() PrincipalPermissionsLfTagPolicyResourcePtrOutput {
+	return i.ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(context.Background())
 }
 
-func (i PrincipalPermissionsLFTagPolicyResourceArgs) ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagPolicyResourceOutput).ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(ctx)
+func (i PrincipalPermissionsLfTagPolicyResourceArgs) ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagPolicyResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagPolicyResourceOutput).ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(ctx)
 }
 
-// PrincipalPermissionsLFTagPolicyResourcePtrInput is an input type that accepts PrincipalPermissionsLFTagPolicyResourceArgs, PrincipalPermissionsLFTagPolicyResourcePtr and PrincipalPermissionsLFTagPolicyResourcePtrOutput values.
-// You can construct a concrete instance of `PrincipalPermissionsLFTagPolicyResourcePtrInput` via:
+// PrincipalPermissionsLfTagPolicyResourcePtrInput is an input type that accepts PrincipalPermissionsLfTagPolicyResourceArgs, PrincipalPermissionsLfTagPolicyResourcePtr and PrincipalPermissionsLfTagPolicyResourcePtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLfTagPolicyResourcePtrInput` via:
 //
-//	        PrincipalPermissionsLFTagPolicyResourceArgs{...}
+//	        PrincipalPermissionsLfTagPolicyResourceArgs{...}
 //
 //	or:
 //
 //	        nil
-type PrincipalPermissionsLFTagPolicyResourcePtrInput interface {
+type PrincipalPermissionsLfTagPolicyResourcePtrInput interface {
 	pulumi.Input
 
-	ToPrincipalPermissionsLFTagPolicyResourcePtrOutput() PrincipalPermissionsLFTagPolicyResourcePtrOutput
-	ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(context.Context) PrincipalPermissionsLFTagPolicyResourcePtrOutput
+	ToPrincipalPermissionsLfTagPolicyResourcePtrOutput() PrincipalPermissionsLfTagPolicyResourcePtrOutput
+	ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(context.Context) PrincipalPermissionsLfTagPolicyResourcePtrOutput
 }
 
-type principalPermissionsLFTagPolicyResourcePtrType PrincipalPermissionsLFTagPolicyResourceArgs
+type principalPermissionsLfTagPolicyResourcePtrType PrincipalPermissionsLfTagPolicyResourceArgs
 
-func PrincipalPermissionsLFTagPolicyResourcePtr(v *PrincipalPermissionsLFTagPolicyResourceArgs) PrincipalPermissionsLFTagPolicyResourcePtrInput {
-	return (*principalPermissionsLFTagPolicyResourcePtrType)(v)
+func PrincipalPermissionsLfTagPolicyResourcePtr(v *PrincipalPermissionsLfTagPolicyResourceArgs) PrincipalPermissionsLfTagPolicyResourcePtrInput {
+	return (*principalPermissionsLfTagPolicyResourcePtrType)(v)
 }
 
-func (*principalPermissionsLFTagPolicyResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrincipalPermissionsLFTagPolicyResource)(nil)).Elem()
+func (*principalPermissionsLfTagPolicyResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsLfTagPolicyResource)(nil)).Elem()
 }
 
-func (i *principalPermissionsLFTagPolicyResourcePtrType) ToPrincipalPermissionsLFTagPolicyResourcePtrOutput() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
-	return i.ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(context.Background())
+func (i *principalPermissionsLfTagPolicyResourcePtrType) ToPrincipalPermissionsLfTagPolicyResourcePtrOutput() PrincipalPermissionsLfTagPolicyResourcePtrOutput {
+	return i.ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(context.Background())
 }
 
-func (i *principalPermissionsLFTagPolicyResourcePtrType) ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagPolicyResourcePtrOutput)
+func (i *principalPermissionsLfTagPolicyResourcePtrType) ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagPolicyResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagPolicyResourcePtrOutput)
 }
 
-type PrincipalPermissionsLFTagPolicyResourceOutput struct{ *pulumi.OutputState }
+type PrincipalPermissionsLfTagPolicyResourceOutput struct{ *pulumi.OutputState }
 
-func (PrincipalPermissionsLFTagPolicyResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalPermissionsLFTagPolicyResource)(nil)).Elem()
+func (PrincipalPermissionsLfTagPolicyResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLfTagPolicyResource)(nil)).Elem()
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourceOutput) ToPrincipalPermissionsLFTagPolicyResourceOutput() PrincipalPermissionsLFTagPolicyResourceOutput {
+func (o PrincipalPermissionsLfTagPolicyResourceOutput) ToPrincipalPermissionsLfTagPolicyResourceOutput() PrincipalPermissionsLfTagPolicyResourceOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourceOutput) ToPrincipalPermissionsLFTagPolicyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourceOutput {
+func (o PrincipalPermissionsLfTagPolicyResourceOutput) ToPrincipalPermissionsLfTagPolicyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagPolicyResourceOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourceOutput) ToPrincipalPermissionsLFTagPolicyResourcePtrOutput() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
-	return o.ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(context.Background())
+func (o PrincipalPermissionsLfTagPolicyResourceOutput) ToPrincipalPermissionsLfTagPolicyResourcePtrOutput() PrincipalPermissionsLfTagPolicyResourcePtrOutput {
+	return o.ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(context.Background())
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourceOutput) ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsLFTagPolicyResource) *PrincipalPermissionsLFTagPolicyResource {
+func (o PrincipalPermissionsLfTagPolicyResourceOutput) ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagPolicyResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsLfTagPolicyResource) *PrincipalPermissionsLfTagPolicyResource {
 		return &v
-	}).(PrincipalPermissionsLFTagPolicyResourcePtrOutput)
+	}).(PrincipalPermissionsLfTagPolicyResourcePtrOutput)
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourceOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v PrincipalPermissionsLFTagPolicyResource) string { return v.CatalogId }).(pulumi.StringOutput)
+func (o PrincipalPermissionsLfTagPolicyResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLfTagPolicyResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourceOutput) Expression() PrincipalPermissionsLFTagArrayOutput {
-	return o.ApplyT(func(v PrincipalPermissionsLFTagPolicyResource) []PrincipalPermissionsLFTag { return v.Expression }).(PrincipalPermissionsLFTagArrayOutput)
+func (o PrincipalPermissionsLfTagPolicyResourceOutput) Expression() PrincipalPermissionsLfTagArrayOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLfTagPolicyResource) []PrincipalPermissionsLfTag { return v.Expression }).(PrincipalPermissionsLfTagArrayOutput)
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourceOutput) ResourceType() PrincipalPermissionsResourceTypeOutput {
-	return o.ApplyT(func(v PrincipalPermissionsLFTagPolicyResource) PrincipalPermissionsResourceType {
+func (o PrincipalPermissionsLfTagPolicyResourceOutput) ResourceType() PrincipalPermissionsResourceTypeOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLfTagPolicyResource) PrincipalPermissionsResourceType {
 		return v.ResourceType
 	}).(PrincipalPermissionsResourceTypeOutput)
 }
 
-type PrincipalPermissionsLFTagPolicyResourcePtrOutput struct{ *pulumi.OutputState }
+type PrincipalPermissionsLfTagPolicyResourcePtrOutput struct{ *pulumi.OutputState }
 
-func (PrincipalPermissionsLFTagPolicyResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrincipalPermissionsLFTagPolicyResource)(nil)).Elem()
+func (PrincipalPermissionsLfTagPolicyResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsLfTagPolicyResource)(nil)).Elem()
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) ToPrincipalPermissionsLFTagPolicyResourcePtrOutput() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) ToPrincipalPermissionsLfTagPolicyResourcePtrOutput() PrincipalPermissionsLfTagPolicyResourcePtrOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagPolicyResourcePtrOutput {
 	return o
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) Elem() PrincipalPermissionsLFTagPolicyResourceOutput {
-	return o.ApplyT(func(v *PrincipalPermissionsLFTagPolicyResource) PrincipalPermissionsLFTagPolicyResource {
+func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) Elem() PrincipalPermissionsLfTagPolicyResourceOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLfTagPolicyResource) PrincipalPermissionsLfTagPolicyResource {
 		if v != nil {
 			return *v
 		}
-		var ret PrincipalPermissionsLFTagPolicyResource
+		var ret PrincipalPermissionsLfTagPolicyResource
 		return ret
-	}).(PrincipalPermissionsLFTagPolicyResourceOutput)
+	}).(PrincipalPermissionsLfTagPolicyResourceOutput)
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrincipalPermissionsLFTagPolicyResource) *string {
+func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLfTagPolicyResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -3002,17 +3002,17 @@ func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) CatalogId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) Expression() PrincipalPermissionsLFTagArrayOutput {
-	return o.ApplyT(func(v *PrincipalPermissionsLFTagPolicyResource) []PrincipalPermissionsLFTag {
+func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) Expression() PrincipalPermissionsLfTagArrayOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLfTagPolicyResource) []PrincipalPermissionsLfTag {
 		if v == nil {
 			return nil
 		}
 		return v.Expression
-	}).(PrincipalPermissionsLFTagArrayOutput)
+	}).(PrincipalPermissionsLfTagArrayOutput)
 }
 
-func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) ResourceType() PrincipalPermissionsResourceTypePtrOutput {
-	return o.ApplyT(func(v *PrincipalPermissionsLFTagPolicyResource) *PrincipalPermissionsResourceType {
+func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) ResourceType() PrincipalPermissionsResourceTypePtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLfTagPolicyResource) *PrincipalPermissionsResourceType {
 		if v == nil {
 			return nil
 		}
@@ -3025,8 +3025,8 @@ type PrincipalPermissionsResource struct {
 	DataCellsFilter  *PrincipalPermissionsDataCellsFilterResource  `pulumi:"dataCellsFilter"`
 	DataLocation     *PrincipalPermissionsDataLocationResource     `pulumi:"dataLocation"`
 	Database         *PrincipalPermissionsDatabaseResource         `pulumi:"database"`
-	LfTag            *PrincipalPermissionsLFTagKeyResource         `pulumi:"lfTag"`
-	LfTagPolicy      *PrincipalPermissionsLFTagPolicyResource      `pulumi:"lfTagPolicy"`
+	LfTag            *PrincipalPermissionsLfTagKeyResource         `pulumi:"lfTag"`
+	LfTagPolicy      *PrincipalPermissionsLfTagPolicyResource      `pulumi:"lfTagPolicy"`
 	Table            *PrincipalPermissionsTableResource            `pulumi:"table"`
 	TableWithColumns *PrincipalPermissionsTableWithColumnsResource `pulumi:"tableWithColumns"`
 }
@@ -3047,8 +3047,8 @@ type PrincipalPermissionsResourceArgs struct {
 	DataCellsFilter  PrincipalPermissionsDataCellsFilterResourcePtrInput  `pulumi:"dataCellsFilter"`
 	DataLocation     PrincipalPermissionsDataLocationResourcePtrInput     `pulumi:"dataLocation"`
 	Database         PrincipalPermissionsDatabaseResourcePtrInput         `pulumi:"database"`
-	LfTag            PrincipalPermissionsLFTagKeyResourcePtrInput         `pulumi:"lfTag"`
-	LfTagPolicy      PrincipalPermissionsLFTagPolicyResourcePtrInput      `pulumi:"lfTagPolicy"`
+	LfTag            PrincipalPermissionsLfTagKeyResourcePtrInput         `pulumi:"lfTag"`
+	LfTagPolicy      PrincipalPermissionsLfTagPolicyResourcePtrInput      `pulumi:"lfTagPolicy"`
 	Table            PrincipalPermissionsTableResourcePtrInput            `pulumi:"table"`
 	TableWithColumns PrincipalPermissionsTableWithColumnsResourcePtrInput `pulumi:"tableWithColumns"`
 }
@@ -3097,12 +3097,12 @@ func (o PrincipalPermissionsResourceOutput) Database() PrincipalPermissionsDatab
 	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsDatabaseResource { return v.Database }).(PrincipalPermissionsDatabaseResourcePtrOutput)
 }
 
-func (o PrincipalPermissionsResourceOutput) LfTag() PrincipalPermissionsLFTagKeyResourcePtrOutput {
-	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLFTagKeyResource { return v.LfTag }).(PrincipalPermissionsLFTagKeyResourcePtrOutput)
+func (o PrincipalPermissionsResourceOutput) LfTag() PrincipalPermissionsLfTagKeyResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLfTagKeyResource { return v.LfTag }).(PrincipalPermissionsLfTagKeyResourcePtrOutput)
 }
 
-func (o PrincipalPermissionsResourceOutput) LfTagPolicy() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
-	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLFTagPolicyResource { return v.LfTagPolicy }).(PrincipalPermissionsLFTagPolicyResourcePtrOutput)
+func (o PrincipalPermissionsResourceOutput) LfTagPolicy() PrincipalPermissionsLfTagPolicyResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLfTagPolicyResource { return v.LfTagPolicy }).(PrincipalPermissionsLfTagPolicyResourcePtrOutput)
 }
 
 func (o PrincipalPermissionsResourceOutput) Table() PrincipalPermissionsTableResourcePtrOutput {
@@ -3872,110 +3872,110 @@ func (o TagAssociationDatabaseResourcePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type TagAssociationLFTagPair struct {
+type TagAssociationLfTagPair struct {
 	CatalogId string   `pulumi:"catalogId"`
 	TagKey    string   `pulumi:"tagKey"`
 	TagValues []string `pulumi:"tagValues"`
 }
 
-// TagAssociationLFTagPairInput is an input type that accepts TagAssociationLFTagPairArgs and TagAssociationLFTagPairOutput values.
-// You can construct a concrete instance of `TagAssociationLFTagPairInput` via:
+// TagAssociationLfTagPairInput is an input type that accepts TagAssociationLfTagPairArgs and TagAssociationLfTagPairOutput values.
+// You can construct a concrete instance of `TagAssociationLfTagPairInput` via:
 //
-//	TagAssociationLFTagPairArgs{...}
-type TagAssociationLFTagPairInput interface {
+//	TagAssociationLfTagPairArgs{...}
+type TagAssociationLfTagPairInput interface {
 	pulumi.Input
 
-	ToTagAssociationLFTagPairOutput() TagAssociationLFTagPairOutput
-	ToTagAssociationLFTagPairOutputWithContext(context.Context) TagAssociationLFTagPairOutput
+	ToTagAssociationLfTagPairOutput() TagAssociationLfTagPairOutput
+	ToTagAssociationLfTagPairOutputWithContext(context.Context) TagAssociationLfTagPairOutput
 }
 
-type TagAssociationLFTagPairArgs struct {
+type TagAssociationLfTagPairArgs struct {
 	CatalogId pulumi.StringInput      `pulumi:"catalogId"`
 	TagKey    pulumi.StringInput      `pulumi:"tagKey"`
 	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
 }
 
-func (TagAssociationLFTagPairArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagAssociationLFTagPair)(nil)).Elem()
+func (TagAssociationLfTagPairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationLfTagPair)(nil)).Elem()
 }
 
-func (i TagAssociationLFTagPairArgs) ToTagAssociationLFTagPairOutput() TagAssociationLFTagPairOutput {
-	return i.ToTagAssociationLFTagPairOutputWithContext(context.Background())
+func (i TagAssociationLfTagPairArgs) ToTagAssociationLfTagPairOutput() TagAssociationLfTagPairOutput {
+	return i.ToTagAssociationLfTagPairOutputWithContext(context.Background())
 }
 
-func (i TagAssociationLFTagPairArgs) ToTagAssociationLFTagPairOutputWithContext(ctx context.Context) TagAssociationLFTagPairOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationLFTagPairOutput)
+func (i TagAssociationLfTagPairArgs) ToTagAssociationLfTagPairOutputWithContext(ctx context.Context) TagAssociationLfTagPairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationLfTagPairOutput)
 }
 
-// TagAssociationLFTagPairArrayInput is an input type that accepts TagAssociationLFTagPairArray and TagAssociationLFTagPairArrayOutput values.
-// You can construct a concrete instance of `TagAssociationLFTagPairArrayInput` via:
+// TagAssociationLfTagPairArrayInput is an input type that accepts TagAssociationLfTagPairArray and TagAssociationLfTagPairArrayOutput values.
+// You can construct a concrete instance of `TagAssociationLfTagPairArrayInput` via:
 //
-//	TagAssociationLFTagPairArray{ TagAssociationLFTagPairArgs{...} }
-type TagAssociationLFTagPairArrayInput interface {
+//	TagAssociationLfTagPairArray{ TagAssociationLfTagPairArgs{...} }
+type TagAssociationLfTagPairArrayInput interface {
 	pulumi.Input
 
-	ToTagAssociationLFTagPairArrayOutput() TagAssociationLFTagPairArrayOutput
-	ToTagAssociationLFTagPairArrayOutputWithContext(context.Context) TagAssociationLFTagPairArrayOutput
+	ToTagAssociationLfTagPairArrayOutput() TagAssociationLfTagPairArrayOutput
+	ToTagAssociationLfTagPairArrayOutputWithContext(context.Context) TagAssociationLfTagPairArrayOutput
 }
 
-type TagAssociationLFTagPairArray []TagAssociationLFTagPairInput
+type TagAssociationLfTagPairArray []TagAssociationLfTagPairInput
 
-func (TagAssociationLFTagPairArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TagAssociationLFTagPair)(nil)).Elem()
+func (TagAssociationLfTagPairArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagAssociationLfTagPair)(nil)).Elem()
 }
 
-func (i TagAssociationLFTagPairArray) ToTagAssociationLFTagPairArrayOutput() TagAssociationLFTagPairArrayOutput {
-	return i.ToTagAssociationLFTagPairArrayOutputWithContext(context.Background())
+func (i TagAssociationLfTagPairArray) ToTagAssociationLfTagPairArrayOutput() TagAssociationLfTagPairArrayOutput {
+	return i.ToTagAssociationLfTagPairArrayOutputWithContext(context.Background())
 }
 
-func (i TagAssociationLFTagPairArray) ToTagAssociationLFTagPairArrayOutputWithContext(ctx context.Context) TagAssociationLFTagPairArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationLFTagPairArrayOutput)
+func (i TagAssociationLfTagPairArray) ToTagAssociationLfTagPairArrayOutputWithContext(ctx context.Context) TagAssociationLfTagPairArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationLfTagPairArrayOutput)
 }
 
-type TagAssociationLFTagPairOutput struct{ *pulumi.OutputState }
+type TagAssociationLfTagPairOutput struct{ *pulumi.OutputState }
 
-func (TagAssociationLFTagPairOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagAssociationLFTagPair)(nil)).Elem()
+func (TagAssociationLfTagPairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationLfTagPair)(nil)).Elem()
 }
 
-func (o TagAssociationLFTagPairOutput) ToTagAssociationLFTagPairOutput() TagAssociationLFTagPairOutput {
+func (o TagAssociationLfTagPairOutput) ToTagAssociationLfTagPairOutput() TagAssociationLfTagPairOutput {
 	return o
 }
 
-func (o TagAssociationLFTagPairOutput) ToTagAssociationLFTagPairOutputWithContext(ctx context.Context) TagAssociationLFTagPairOutput {
+func (o TagAssociationLfTagPairOutput) ToTagAssociationLfTagPairOutputWithContext(ctx context.Context) TagAssociationLfTagPairOutput {
 	return o
 }
 
-func (o TagAssociationLFTagPairOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v TagAssociationLFTagPair) string { return v.CatalogId }).(pulumi.StringOutput)
+func (o TagAssociationLfTagPairOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationLfTagPair) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-func (o TagAssociationLFTagPairOutput) TagKey() pulumi.StringOutput {
-	return o.ApplyT(func(v TagAssociationLFTagPair) string { return v.TagKey }).(pulumi.StringOutput)
+func (o TagAssociationLfTagPairOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationLfTagPair) string { return v.TagKey }).(pulumi.StringOutput)
 }
 
-func (o TagAssociationLFTagPairOutput) TagValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TagAssociationLFTagPair) []string { return v.TagValues }).(pulumi.StringArrayOutput)
+func (o TagAssociationLfTagPairOutput) TagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TagAssociationLfTagPair) []string { return v.TagValues }).(pulumi.StringArrayOutput)
 }
 
-type TagAssociationLFTagPairArrayOutput struct{ *pulumi.OutputState }
+type TagAssociationLfTagPairArrayOutput struct{ *pulumi.OutputState }
 
-func (TagAssociationLFTagPairArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TagAssociationLFTagPair)(nil)).Elem()
+func (TagAssociationLfTagPairArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagAssociationLfTagPair)(nil)).Elem()
 }
 
-func (o TagAssociationLFTagPairArrayOutput) ToTagAssociationLFTagPairArrayOutput() TagAssociationLFTagPairArrayOutput {
+func (o TagAssociationLfTagPairArrayOutput) ToTagAssociationLfTagPairArrayOutput() TagAssociationLfTagPairArrayOutput {
 	return o
 }
 
-func (o TagAssociationLFTagPairArrayOutput) ToTagAssociationLFTagPairArrayOutputWithContext(ctx context.Context) TagAssociationLFTagPairArrayOutput {
+func (o TagAssociationLfTagPairArrayOutput) ToTagAssociationLfTagPairArrayOutputWithContext(ctx context.Context) TagAssociationLfTagPairArrayOutput {
 	return o
 }
 
-func (o TagAssociationLFTagPairArrayOutput) Index(i pulumi.IntInput) TagAssociationLFTagPairOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagAssociationLFTagPair {
-		return vs[0].([]TagAssociationLFTagPair)[vs[1].(int)]
-	}).(TagAssociationLFTagPairOutput)
+func (o TagAssociationLfTagPairArrayOutput) Index(i pulumi.IntInput) TagAssociationLfTagPairOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagAssociationLfTagPair {
+		return vs[0].([]TagAssociationLfTagPair)[vs[1].(int)]
+	}).(TagAssociationLfTagPairOutput)
 }
 
 type TagAssociationResource struct {
@@ -4557,12 +4557,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsDataLocationResourcePtrInput)(nil)).Elem(), PrincipalPermissionsDataLocationResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsDatabaseResourceInput)(nil)).Elem(), PrincipalPermissionsDatabaseResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsDatabaseResourcePtrInput)(nil)).Elem(), PrincipalPermissionsDatabaseResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagInput)(nil)).Elem(), PrincipalPermissionsLFTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagArrayInput)(nil)).Elem(), PrincipalPermissionsLFTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagKeyResourceInput)(nil)).Elem(), PrincipalPermissionsLFTagKeyResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagKeyResourcePtrInput)(nil)).Elem(), PrincipalPermissionsLFTagKeyResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagPolicyResourceInput)(nil)).Elem(), PrincipalPermissionsLFTagPolicyResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagPolicyResourcePtrInput)(nil)).Elem(), PrincipalPermissionsLFTagPolicyResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLfTagInput)(nil)).Elem(), PrincipalPermissionsLfTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLfTagArrayInput)(nil)).Elem(), PrincipalPermissionsLfTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLfTagKeyResourceInput)(nil)).Elem(), PrincipalPermissionsLfTagKeyResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLfTagKeyResourcePtrInput)(nil)).Elem(), PrincipalPermissionsLfTagKeyResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLfTagPolicyResourceInput)(nil)).Elem(), PrincipalPermissionsLfTagPolicyResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLfTagPolicyResourcePtrInput)(nil)).Elem(), PrincipalPermissionsLfTagPolicyResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsResourceInput)(nil)).Elem(), PrincipalPermissionsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsTableResourceInput)(nil)).Elem(), PrincipalPermissionsTableResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsTableResourcePtrInput)(nil)).Elem(), PrincipalPermissionsTableResourceArgs{})
@@ -4574,8 +4574,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationCatalogResourcePtrInput)(nil)).Elem(), TagAssociationCatalogResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationDatabaseResourceInput)(nil)).Elem(), TagAssociationDatabaseResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationDatabaseResourcePtrInput)(nil)).Elem(), TagAssociationDatabaseResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationLFTagPairInput)(nil)).Elem(), TagAssociationLFTagPairArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationLFTagPairArrayInput)(nil)).Elem(), TagAssociationLFTagPairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationLfTagPairInput)(nil)).Elem(), TagAssociationLfTagPairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationLfTagPairArrayInput)(nil)).Elem(), TagAssociationLfTagPairArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationResourceInput)(nil)).Elem(), TagAssociationResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationTableResourceInput)(nil)).Elem(), TagAssociationTableResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationTableResourcePtrInput)(nil)).Elem(), TagAssociationTableResourceArgs{})
@@ -4620,12 +4620,12 @@ func init() {
 	pulumi.RegisterOutputType(PrincipalPermissionsDataLocationResourcePtrOutput{})
 	pulumi.RegisterOutputType(PrincipalPermissionsDatabaseResourceOutput{})
 	pulumi.RegisterOutputType(PrincipalPermissionsDatabaseResourcePtrOutput{})
-	pulumi.RegisterOutputType(PrincipalPermissionsLFTagOutput{})
-	pulumi.RegisterOutputType(PrincipalPermissionsLFTagArrayOutput{})
-	pulumi.RegisterOutputType(PrincipalPermissionsLFTagKeyResourceOutput{})
-	pulumi.RegisterOutputType(PrincipalPermissionsLFTagKeyResourcePtrOutput{})
-	pulumi.RegisterOutputType(PrincipalPermissionsLFTagPolicyResourceOutput{})
-	pulumi.RegisterOutputType(PrincipalPermissionsLFTagPolicyResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLfTagOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLfTagArrayOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLfTagKeyResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLfTagKeyResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLfTagPolicyResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLfTagPolicyResourcePtrOutput{})
 	pulumi.RegisterOutputType(PrincipalPermissionsResourceOutput{})
 	pulumi.RegisterOutputType(PrincipalPermissionsTableResourceOutput{})
 	pulumi.RegisterOutputType(PrincipalPermissionsTableResourcePtrOutput{})
@@ -4637,8 +4637,8 @@ func init() {
 	pulumi.RegisterOutputType(TagAssociationCatalogResourcePtrOutput{})
 	pulumi.RegisterOutputType(TagAssociationDatabaseResourceOutput{})
 	pulumi.RegisterOutputType(TagAssociationDatabaseResourcePtrOutput{})
-	pulumi.RegisterOutputType(TagAssociationLFTagPairOutput{})
-	pulumi.RegisterOutputType(TagAssociationLFTagPairArrayOutput{})
+	pulumi.RegisterOutputType(TagAssociationLfTagPairOutput{})
+	pulumi.RegisterOutputType(TagAssociationLfTagPairArrayOutput{})
 	pulumi.RegisterOutputType(TagAssociationResourceOutput{})
 	pulumi.RegisterOutputType(TagAssociationTableResourceOutput{})
 	pulumi.RegisterOutputType(TagAssociationTableResourcePtrOutput{})

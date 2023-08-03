@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DBInstanceArgs', 'DBInstance']
+__all__ = ['DbInstanceArgs', 'DbInstance']
 
 @pulumi.input_type
-class DBInstanceArgs:
+class DbInstanceArgs:
     def __init__(__self__, *,
                  db_cluster_identifier: pulumi.Input[str],
                  db_instance_class: pulumi.Input[str],
@@ -23,9 +23,9 @@ class DBInstanceArgs:
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]] = None):
         """
-        The set of arguments for constructing a DBInstance resource.
+        The set of arguments for constructing a DbInstance resource.
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         pulumi.set(__self__, "db_instance_class", db_instance_class)
@@ -107,19 +107,19 @@ class DBInstanceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""DbInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class DBInstance(pulumi.CustomResource):
-    warnings.warn("""DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class DbInstance(pulumi.CustomResource):
+    warnings.warn("""DbInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -132,7 +132,7 @@ class DBInstance(pulumi.CustomResource):
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DocDB::DBInstance
@@ -144,18 +144,18 @@ class DBInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DBInstanceArgs,
+                 args: DbInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DocDB::DBInstance
 
         :param str resource_name: The name of the resource.
-        :param DBInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param DbInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DBInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DbInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -171,16 +171,16 @@ class DBInstance(pulumi.CustomResource):
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DBInstance is deprecated: DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""DbInstance is deprecated: DbInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DBInstanceArgs.__new__(DBInstanceArgs)
+            __props__ = DbInstanceArgs.__new__(DbInstanceArgs)
 
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["availability_zone"] = availability_zone
@@ -196,8 +196,8 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["port"] = None
-        super(DBInstance, __self__).__init__(
-            'aws-native:docdb:DBInstance',
+        super(DbInstance, __self__).__init__(
+            'aws-native:docdb:DbInstance',
             resource_name,
             __props__,
             opts)
@@ -205,9 +205,9 @@ class DBInstance(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'DBInstance':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DbInstance':
         """
-        Get an existing DBInstance resource's state with the given name, id, and optional extra
+        Get an existing DbInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -216,7 +216,7 @@ class DBInstance(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DBInstanceArgs.__new__(DBInstanceArgs)
+        __props__ = DbInstanceArgs.__new__(DbInstanceArgs)
 
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["availability_zone"] = None
@@ -228,7 +228,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["port"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
         __props__.__dict__["tags"] = None
-        return DBInstance(resource_name, opts=opts, __props__=__props__)
+        return DbInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
@@ -277,6 +277,6 @@ class DBInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBInstanceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbInstanceTag']]]:
         return pulumi.get(self, "tags")
 

@@ -101,7 +101,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter(name="jwtConfiguration")
-    def jwt_configuration(self) -> Optional['outputs.AuthorizerJWTConfiguration']:
+    def jwt_configuration(self) -> Optional['outputs.AuthorizerJwtConfiguration']:
         return pulumi.get(self, "jwt_configuration")
 
     @property

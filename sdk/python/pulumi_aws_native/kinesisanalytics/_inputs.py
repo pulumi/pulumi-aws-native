@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationCSVMappingParametersArgs',
+    'ApplicationCsvMappingParametersArgs',
     'ApplicationInputLambdaProcessorArgs',
     'ApplicationInputParallelismArgs',
     'ApplicationInputProcessingConfigurationArgs',
     'ApplicationInputSchemaArgs',
     'ApplicationInputArgs',
-    'ApplicationJSONMappingParametersArgs',
+    'ApplicationJsonMappingParametersArgs',
     'ApplicationKinesisFirehoseInputArgs',
     'ApplicationKinesisStreamsInputArgs',
     'ApplicationMappingParametersArgs',
@@ -27,8 +27,8 @@ __all__ = [
     'ApplicationOutputResourceOutputArgs',
     'ApplicationRecordColumnArgs',
     'ApplicationRecordFormatArgs',
-    'ApplicationReferenceDataSourceCSVMappingParametersArgs',
-    'ApplicationReferenceDataSourceJSONMappingParametersArgs',
+    'ApplicationReferenceDataSourceCsvMappingParametersArgs',
+    'ApplicationReferenceDataSourceJsonMappingParametersArgs',
     'ApplicationReferenceDataSourceMappingParametersArgs',
     'ApplicationReferenceDataSourceRecordColumnArgs',
     'ApplicationReferenceDataSourceRecordFormatArgs',
@@ -38,7 +38,7 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class ApplicationCSVMappingParametersArgs:
+class ApplicationCsvMappingParametersArgs:
     def __init__(__self__, *,
                  record_column_delimiter: pulumi.Input[str],
                  record_row_delimiter: pulumi.Input[str]):
@@ -240,7 +240,7 @@ class ApplicationInputArgs:
 
 
 @pulumi.input_type
-class ApplicationJSONMappingParametersArgs:
+class ApplicationJsonMappingParametersArgs:
     def __init__(__self__, *,
                  record_row_path: pulumi.Input[str]):
         pulumi.set(__self__, "record_row_path", record_row_path)
@@ -312,8 +312,8 @@ class ApplicationKinesisStreamsInputArgs:
 @pulumi.input_type
 class ApplicationMappingParametersArgs:
     def __init__(__self__, *,
-                 csv_mapping_parameters: Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']] = None,
-                 json_mapping_parameters: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']] = None):
+                 csv_mapping_parameters: Optional[pulumi.Input['ApplicationCsvMappingParametersArgs']] = None,
+                 json_mapping_parameters: Optional[pulumi.Input['ApplicationJsonMappingParametersArgs']] = None):
         if csv_mapping_parameters is not None:
             pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -321,20 +321,20 @@ class ApplicationMappingParametersArgs:
 
     @property
     @pulumi.getter(name="csvMappingParameters")
-    def csv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']]:
+    def csv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationCsvMappingParametersArgs']]:
         return pulumi.get(self, "csv_mapping_parameters")
 
     @csv_mapping_parameters.setter
-    def csv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']]):
+    def csv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationCsvMappingParametersArgs']]):
         pulumi.set(self, "csv_mapping_parameters", value)
 
     @property
     @pulumi.getter(name="jsonMappingParameters")
-    def json_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]:
+    def json_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationJsonMappingParametersArgs']]:
         return pulumi.get(self, "json_mapping_parameters")
 
     @json_mapping_parameters.setter
-    def json_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]):
+    def json_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationJsonMappingParametersArgs']]):
         pulumi.set(self, "json_mapping_parameters", value)
 
 
@@ -568,7 +568,7 @@ class ApplicationRecordFormatArgs:
 
 
 @pulumi.input_type
-class ApplicationReferenceDataSourceCSVMappingParametersArgs:
+class ApplicationReferenceDataSourceCsvMappingParametersArgs:
     def __init__(__self__, *,
                  record_column_delimiter: pulumi.Input[str],
                  record_row_delimiter: pulumi.Input[str]):
@@ -595,7 +595,7 @@ class ApplicationReferenceDataSourceCSVMappingParametersArgs:
 
 
 @pulumi.input_type
-class ApplicationReferenceDataSourceJSONMappingParametersArgs:
+class ApplicationReferenceDataSourceJsonMappingParametersArgs:
     def __init__(__self__, *,
                  record_row_path: pulumi.Input[str]):
         pulumi.set(__self__, "record_row_path", record_row_path)
@@ -613,8 +613,8 @@ class ApplicationReferenceDataSourceJSONMappingParametersArgs:
 @pulumi.input_type
 class ApplicationReferenceDataSourceMappingParametersArgs:
     def __init__(__self__, *,
-                 csv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']] = None,
-                 json_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']] = None):
+                 csv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCsvMappingParametersArgs']] = None,
+                 json_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJsonMappingParametersArgs']] = None):
         if csv_mapping_parameters is not None:
             pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -622,20 +622,20 @@ class ApplicationReferenceDataSourceMappingParametersArgs:
 
     @property
     @pulumi.getter(name="csvMappingParameters")
-    def csv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']]:
+    def csv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceCsvMappingParametersArgs']]:
         return pulumi.get(self, "csv_mapping_parameters")
 
     @csv_mapping_parameters.setter
-    def csv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']]):
+    def csv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceCsvMappingParametersArgs']]):
         pulumi.set(self, "csv_mapping_parameters", value)
 
     @property
     @pulumi.getter(name="jsonMappingParameters")
-    def json_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']]:
+    def json_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceJsonMappingParametersArgs']]:
         return pulumi.get(self, "json_mapping_parameters")
 
     @json_mapping_parameters.setter
-    def json_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']]):
+    def json_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceJsonMappingParametersArgs']]):
         pulumi.set(self, "json_mapping_parameters", value)
 
 

@@ -97,7 +97,7 @@ class GetWirelessDeviceResult:
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional['outputs.WirelessDeviceLoRaWANDevice']:
+    def lo_ra_wan(self) -> Optional['outputs.WirelessDeviceLoRaWanDevice']:
         """
         The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         """

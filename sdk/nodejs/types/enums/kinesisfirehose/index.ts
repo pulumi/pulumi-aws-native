@@ -113,12 +113,12 @@ export const DeliveryStreamS3DestinationConfigurationCompressionFormat = {
 
 export type DeliveryStreamS3DestinationConfigurationCompressionFormat = (typeof DeliveryStreamS3DestinationConfigurationCompressionFormat)[keyof typeof DeliveryStreamS3DestinationConfigurationCompressionFormat];
 
-export const DeliveryStreamSplunkDestinationConfigurationHECEndpointType = {
+export const DeliveryStreamSplunkDestinationConfigurationHecEndpointType = {
     Raw: "Raw",
     Event: "Event",
 } as const;
 
-export type DeliveryStreamSplunkDestinationConfigurationHECEndpointType = (typeof DeliveryStreamSplunkDestinationConfigurationHECEndpointType)[keyof typeof DeliveryStreamSplunkDestinationConfigurationHECEndpointType];
+export type DeliveryStreamSplunkDestinationConfigurationHecEndpointType = (typeof DeliveryStreamSplunkDestinationConfigurationHecEndpointType)[keyof typeof DeliveryStreamSplunkDestinationConfigurationHecEndpointType];
 
 export const DeliveryStreamType = {
     DirectPut: "DirectPut",

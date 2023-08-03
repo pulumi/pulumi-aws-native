@@ -43,7 +43,7 @@ export class DataSource extends pulumi.CustomResource {
     public readonly apiId!: pulumi.Output<string>;
     public /*out*/ readonly dataSourceArn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly dynamoDbConfig!: pulumi.Output<outputs.appsync.DataSourceDynamoDBConfig | undefined>;
+    public readonly dynamoDbConfig!: pulumi.Output<outputs.appsync.DataSourceDynamoDbConfig | undefined>;
     public readonly elasticsearchConfig!: pulumi.Output<outputs.appsync.DataSourceElasticsearchConfig | undefined>;
     public readonly eventBridgeConfig!: pulumi.Output<outputs.appsync.DataSourceEventBridgeConfig | undefined>;
     public readonly httpConfig!: pulumi.Output<outputs.appsync.DataSourceHttpConfig | undefined>;
@@ -112,7 +112,7 @@ export class DataSource extends pulumi.CustomResource {
 export interface DataSourceArgs {
     apiId: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    dynamoDbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamoDBConfigArgs>;
+    dynamoDbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamoDbConfigArgs>;
     elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfigArgs>;
     eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfigArgs>;
     httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfigArgs>;

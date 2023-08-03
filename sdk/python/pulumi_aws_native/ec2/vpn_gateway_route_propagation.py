@@ -9,15 +9,15 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VPNGatewayRoutePropagationArgs', 'VPNGatewayRoutePropagation']
+__all__ = ['VpnGatewayRoutePropagationArgs', 'VpnGatewayRoutePropagation']
 
 @pulumi.input_type
-class VPNGatewayRoutePropagationArgs:
+class VpnGatewayRoutePropagationArgs:
     def __init__(__self__, *,
                  route_table_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpn_gateway_id: pulumi.Input[str]):
         """
-        The set of arguments for constructing a VPNGatewayRoutePropagation resource.
+        The set of arguments for constructing a VpnGatewayRoutePropagation resource.
         """
         pulumi.set(__self__, "route_table_ids", route_table_ids)
         pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
@@ -41,11 +41,11 @@ class VPNGatewayRoutePropagationArgs:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
-warnings.warn("""VPNGatewayRoutePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""VpnGatewayRoutePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class VPNGatewayRoutePropagation(pulumi.CustomResource):
-    warnings.warn("""VPNGatewayRoutePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class VpnGatewayRoutePropagation(pulumi.CustomResource):
+    warnings.warn("""VpnGatewayRoutePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -64,18 +64,18 @@ class VPNGatewayRoutePropagation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPNGatewayRoutePropagationArgs,
+                 args: VpnGatewayRoutePropagationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
 
         :param str resource_name: The name of the resource.
-        :param VPNGatewayRoutePropagationArgs args: The arguments to use to populate this resource's properties.
+        :param VpnGatewayRoutePropagationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPNGatewayRoutePropagationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpnGatewayRoutePropagationArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -87,14 +87,14 @@ class VPNGatewayRoutePropagation(pulumi.CustomResource):
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPNGatewayRoutePropagation is deprecated: VPNGatewayRoutePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""VpnGatewayRoutePropagation is deprecated: VpnGatewayRoutePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPNGatewayRoutePropagationArgs.__new__(VPNGatewayRoutePropagationArgs)
+            __props__ = VpnGatewayRoutePropagationArgs.__new__(VpnGatewayRoutePropagationArgs)
 
             if route_table_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_ids'")
@@ -102,8 +102,8 @@ class VPNGatewayRoutePropagation(pulumi.CustomResource):
             if vpn_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_gateway_id'")
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
-        super(VPNGatewayRoutePropagation, __self__).__init__(
-            'aws-native:ec2:VPNGatewayRoutePropagation',
+        super(VpnGatewayRoutePropagation, __self__).__init__(
+            'aws-native:ec2:VpnGatewayRoutePropagation',
             resource_name,
             __props__,
             opts)
@@ -111,9 +111,9 @@ class VPNGatewayRoutePropagation(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPNGatewayRoutePropagation':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpnGatewayRoutePropagation':
         """
-        Get an existing VPNGatewayRoutePropagation resource's state with the given name, id, and optional extra
+        Get an existing VpnGatewayRoutePropagation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -122,11 +122,11 @@ class VPNGatewayRoutePropagation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPNGatewayRoutePropagationArgs.__new__(VPNGatewayRoutePropagationArgs)
+        __props__ = VpnGatewayRoutePropagationArgs.__new__(VpnGatewayRoutePropagationArgs)
 
         __props__.__dict__["route_table_ids"] = None
         __props__.__dict__["vpn_gateway_id"] = None
-        return VPNGatewayRoutePropagation(resource_name, opts=opts, __props__=__props__)
+        return VpnGatewayRoutePropagation(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="routeTableIds")

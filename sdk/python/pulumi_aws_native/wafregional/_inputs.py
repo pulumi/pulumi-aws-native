@@ -13,15 +13,15 @@ __all__ = [
     'ByteMatchSetByteMatchTupleArgs',
     'ByteMatchSetFieldToMatchArgs',
     'GeoMatchSetGeoMatchConstraintArgs',
-    'IPSetDescriptorArgs',
+    'IpSetIpSetDescriptorArgs',
     'RateBasedRulePredicateArgs',
     'RulePredicateArgs',
     'SizeConstraintSetFieldToMatchArgs',
     'SizeConstraintSetSizeConstraintArgs',
     'SqlInjectionMatchSetFieldToMatchArgs',
     'SqlInjectionMatchSetSqlInjectionMatchTupleArgs',
-    'WebACLActionArgs',
-    'WebACLRuleArgs',
+    'WebAclActionArgs',
+    'WebAclRuleArgs',
     'XssMatchSetFieldToMatchArgs',
     'XssMatchSetXssMatchTupleArgs',
 ]
@@ -144,7 +144,7 @@ class GeoMatchSetGeoMatchConstraintArgs:
 
 
 @pulumi.input_type
-class IPSetDescriptorArgs:
+class IpSetIpSetDescriptorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -379,7 +379,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleArgs:
 
 
 @pulumi.input_type
-class WebACLActionArgs:
+class WebAclActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         pulumi.set(__self__, "type", type)
@@ -395,9 +395,9 @@ class WebACLActionArgs:
 
 
 @pulumi.input_type
-class WebACLRuleArgs:
+class WebAclRuleArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input['WebACLActionArgs'],
+                 action: pulumi.Input['WebAclActionArgs'],
                  priority: pulumi.Input[int],
                  rule_id: pulumi.Input[str]):
         pulumi.set(__self__, "action", action)
@@ -406,11 +406,11 @@ class WebACLRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input['WebACLActionArgs']:
+    def action(self) -> pulumi.Input['WebAclActionArgs']:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input['WebACLActionArgs']):
+    def action(self, value: pulumi.Input['WebAclActionArgs']):
         pulumi.set(self, "action", value)
 
     @property

@@ -642,9 +642,9 @@ export type ModelPackageTransformInputCompressionType = (typeof ModelPackageTran
 
 export const ModelPackageTransformInputSplitType = {
     None: "None",
-    TFRecord: "TFRecord",
+    TfRecord: "TFRecord",
     Line: "Line",
-    RecordIO: "RecordIO",
+    RecordIo: "RecordIO",
 } as const;
 
 /**

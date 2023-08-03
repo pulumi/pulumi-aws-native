@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetDBProxyEndpointResult',
-    'AwaitableGetDBProxyEndpointResult',
+    'GetDbProxyEndpointResult',
+    'AwaitableGetDbProxyEndpointResult',
     'get_db_proxy_endpoint',
     'get_db_proxy_endpoint_output',
 ]
 
 @pulumi.output_type
-class GetDBProxyEndpointResult:
+class GetDbProxyEndpointResult:
     def __init__(__self__, db_proxy_endpoint_arn=None, endpoint=None, is_default=None, tags=None, target_role=None, vpc_id=None, vpc_security_group_ids=None):
         if db_proxy_endpoint_arn and not isinstance(db_proxy_endpoint_arn, str):
             raise TypeError("Expected argument 'db_proxy_endpoint_arn' to be a str")
@@ -69,7 +69,7 @@ class GetDBProxyEndpointResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBProxyEndpointTagFormat']]:
+    def tags(self) -> Optional[Sequence['outputs.DbProxyEndpointTagFormat']]:
         """
         An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         """
@@ -77,7 +77,7 @@ class GetDBProxyEndpointResult:
 
     @property
     @pulumi.getter(name="targetRole")
-    def target_role(self) -> Optional['DBProxyEndpointTargetRole']:
+    def target_role(self) -> Optional['DbProxyEndpointTargetRole']:
         """
         A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         """
@@ -100,12 +100,12 @@ class GetDBProxyEndpointResult:
         return pulumi.get(self, "vpc_security_group_ids")
 
 
-class AwaitableGetDBProxyEndpointResult(GetDBProxyEndpointResult):
+class AwaitableGetDbProxyEndpointResult(GetDbProxyEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBProxyEndpointResult(
+        return GetDbProxyEndpointResult(
             db_proxy_endpoint_arn=self.db_proxy_endpoint_arn,
             endpoint=self.endpoint,
             is_default=self.is_default,
@@ -116,7 +116,7 @@ class AwaitableGetDBProxyEndpointResult(GetDBProxyEndpointResult):
 
 
 def get_db_proxy_endpoint(db_proxy_endpoint_name: Optional[str] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBProxyEndpointResult:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbProxyEndpointResult:
     """
     Resource schema for AWS::RDS::DBProxyEndpoint.
 
@@ -126,9 +126,9 @@ def get_db_proxy_endpoint(db_proxy_endpoint_name: Optional[str] = None,
     __args__ = dict()
     __args__['dbProxyEndpointName'] = db_proxy_endpoint_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBProxyEndpoint', __args__, opts=opts, typ=GetDBProxyEndpointResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbProxyEndpoint', __args__, opts=opts, typ=GetDbProxyEndpointResult).value
 
-    return AwaitableGetDBProxyEndpointResult(
+    return AwaitableGetDbProxyEndpointResult(
         db_proxy_endpoint_arn=pulumi.get(__ret__, 'db_proxy_endpoint_arn'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         is_default=pulumi.get(__ret__, 'is_default'),
@@ -140,7 +140,7 @@ def get_db_proxy_endpoint(db_proxy_endpoint_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_proxy_endpoint)
 def get_db_proxy_endpoint_output(db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBProxyEndpointResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbProxyEndpointResult]:
     """
     Resource schema for AWS::RDS::DBProxyEndpoint.
 

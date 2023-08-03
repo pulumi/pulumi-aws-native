@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public Input<Inputs.AlertLambdaConfigurationArgs>? LambdaConfiguration { get; set; }
 
         [Input("snsConfiguration")]
-        public Input<Inputs.AlertSNSConfigurationArgs>? SnsConfiguration { get; set; }
+        public Input<Inputs.AlertSnsConfigurationArgs>? SnsConfiguration { get; set; }
 
         public AlertActionArgs()
         {

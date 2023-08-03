@@ -12,16 +12,16 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CampaignCollectionScheme0Properties',
+    'CampaignCollectionScheme1Properties',
     'CampaignConditionBasedCollectionScheme',
+    'CampaignDataDestinationConfig0Properties',
+    'CampaignDataDestinationConfig1Properties',
     'CampaignS3Config',
     'CampaignSignalInformation',
     'CampaignTag',
     'CampaignTimeBasedCollectionScheme',
     'CampaignTimestreamConfig',
-    'CollectionScheme0Properties',
-    'CollectionScheme1Properties',
-    'DataDestinationConfig0Properties',
-    'DataDestinationConfig1Properties',
     'DecoderManifestCanInterface',
     'DecoderManifestCanNetworkInterface',
     'DecoderManifestCanSignal',
@@ -33,19 +33,77 @@ __all__ = [
     'DecoderManifestTag',
     'FleetTag',
     'ModelManifestTag',
-    'Node0Properties',
-    'Node1Properties',
-    'Node2Properties',
-    'Node3Properties',
     'SignalCatalogActuator',
     'SignalCatalogAttribute',
     'SignalCatalogBranch',
+    'SignalCatalogNode0Properties',
+    'SignalCatalogNode1Properties',
+    'SignalCatalogNode2Properties',
+    'SignalCatalogNode3Properties',
     'SignalCatalogNodeCounts',
     'SignalCatalogSensor',
     'SignalCatalogTag',
     'VehicleTag',
     'VehicleattributesMap',
 ]
+
+@pulumi.output_type
+class CampaignCollectionScheme0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeBasedCollectionScheme":
+            suggest = "time_based_collection_scheme"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignCollectionScheme0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignCollectionScheme0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignCollectionScheme0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time_based_collection_scheme: 'outputs.CampaignTimeBasedCollectionScheme'):
+        pulumi.set(__self__, "time_based_collection_scheme", time_based_collection_scheme)
+
+    @property
+    @pulumi.getter(name="timeBasedCollectionScheme")
+    def time_based_collection_scheme(self) -> 'outputs.CampaignTimeBasedCollectionScheme':
+        return pulumi.get(self, "time_based_collection_scheme")
+
+
+@pulumi.output_type
+class CampaignCollectionScheme1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionBasedCollectionScheme":
+            suggest = "condition_based_collection_scheme"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignCollectionScheme1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignCollectionScheme1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignCollectionScheme1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_based_collection_scheme: 'outputs.CampaignConditionBasedCollectionScheme'):
+        pulumi.set(__self__, "condition_based_collection_scheme", condition_based_collection_scheme)
+
+    @property
+    @pulumi.getter(name="conditionBasedCollectionScheme")
+    def condition_based_collection_scheme(self) -> 'outputs.CampaignConditionBasedCollectionScheme':
+        return pulumi.get(self, "condition_based_collection_scheme")
+
 
 @pulumi.output_type
 class CampaignConditionBasedCollectionScheme(dict):
@@ -102,6 +160,64 @@ class CampaignConditionBasedCollectionScheme(dict):
     @pulumi.getter(name="triggerMode")
     def trigger_mode(self) -> Optional['CampaignTriggerMode']:
         return pulumi.get(self, "trigger_mode")
+
+
+@pulumi.output_type
+class CampaignDataDestinationConfig0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Config":
+            suggest = "s3_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignDataDestinationConfig0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignDataDestinationConfig0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignDataDestinationConfig0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_config: 'outputs.CampaignS3Config'):
+        pulumi.set(__self__, "s3_config", s3_config)
+
+    @property
+    @pulumi.getter(name="s3Config")
+    def s3_config(self) -> 'outputs.CampaignS3Config':
+        return pulumi.get(self, "s3_config")
+
+
+@pulumi.output_type
+class CampaignDataDestinationConfig1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timestreamConfig":
+            suggest = "timestream_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignDataDestinationConfig1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignDataDestinationConfig1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignDataDestinationConfig1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timestream_config: 'outputs.CampaignTimestreamConfig'):
+        pulumi.set(__self__, "timestream_config", timestream_config)
+
+    @property
+    @pulumi.getter(name="timestreamConfig")
+    def timestream_config(self) -> 'outputs.CampaignTimestreamConfig':
+        return pulumi.get(self, "timestream_config")
 
 
 @pulumi.output_type
@@ -292,122 +408,6 @@ class CampaignTimestreamConfig(dict):
     @pulumi.getter(name="timestreamTableArn")
     def timestream_table_arn(self) -> str:
         return pulumi.get(self, "timestream_table_arn")
-
-
-@pulumi.output_type
-class CollectionScheme0Properties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "timeBasedCollectionScheme":
-            suggest = "time_based_collection_scheme"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CollectionScheme0Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CollectionScheme0Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CollectionScheme0Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 time_based_collection_scheme: 'outputs.CampaignTimeBasedCollectionScheme'):
-        pulumi.set(__self__, "time_based_collection_scheme", time_based_collection_scheme)
-
-    @property
-    @pulumi.getter(name="timeBasedCollectionScheme")
-    def time_based_collection_scheme(self) -> 'outputs.CampaignTimeBasedCollectionScheme':
-        return pulumi.get(self, "time_based_collection_scheme")
-
-
-@pulumi.output_type
-class CollectionScheme1Properties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "conditionBasedCollectionScheme":
-            suggest = "condition_based_collection_scheme"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CollectionScheme1Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CollectionScheme1Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CollectionScheme1Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 condition_based_collection_scheme: 'outputs.CampaignConditionBasedCollectionScheme'):
-        pulumi.set(__self__, "condition_based_collection_scheme", condition_based_collection_scheme)
-
-    @property
-    @pulumi.getter(name="conditionBasedCollectionScheme")
-    def condition_based_collection_scheme(self) -> 'outputs.CampaignConditionBasedCollectionScheme':
-        return pulumi.get(self, "condition_based_collection_scheme")
-
-
-@pulumi.output_type
-class DataDestinationConfig0Properties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "s3Config":
-            suggest = "s3_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataDestinationConfig0Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DataDestinationConfig0Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DataDestinationConfig0Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 s3_config: 'outputs.CampaignS3Config'):
-        pulumi.set(__self__, "s3_config", s3_config)
-
-    @property
-    @pulumi.getter(name="s3Config")
-    def s3_config(self) -> 'outputs.CampaignS3Config':
-        return pulumi.get(self, "s3_config")
-
-
-@pulumi.output_type
-class DataDestinationConfig1Properties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "timestreamConfig":
-            suggest = "timestream_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataDestinationConfig1Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DataDestinationConfig1Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DataDestinationConfig1Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 timestream_config: 'outputs.CampaignTimestreamConfig'):
-        pulumi.set(__self__, "timestream_config", timestream_config)
-
-    @property
-    @pulumi.getter(name="timestreamConfig")
-    def timestream_config(self) -> 'outputs.CampaignTimestreamConfig':
-        return pulumi.get(self, "timestream_config")
 
 
 @pulumi.output_type
@@ -981,58 +981,6 @@ class ModelManifestTag(dict):
 
 
 @pulumi.output_type
-class Node0Properties(dict):
-    def __init__(__self__, *,
-                 branch: Optional['outputs.SignalCatalogBranch'] = None):
-        if branch is not None:
-            pulumi.set(__self__, "branch", branch)
-
-    @property
-    @pulumi.getter
-    def branch(self) -> Optional['outputs.SignalCatalogBranch']:
-        return pulumi.get(self, "branch")
-
-
-@pulumi.output_type
-class Node1Properties(dict):
-    def __init__(__self__, *,
-                 sensor: Optional['outputs.SignalCatalogSensor'] = None):
-        if sensor is not None:
-            pulumi.set(__self__, "sensor", sensor)
-
-    @property
-    @pulumi.getter
-    def sensor(self) -> Optional['outputs.SignalCatalogSensor']:
-        return pulumi.get(self, "sensor")
-
-
-@pulumi.output_type
-class Node2Properties(dict):
-    def __init__(__self__, *,
-                 actuator: Optional['outputs.SignalCatalogActuator'] = None):
-        if actuator is not None:
-            pulumi.set(__self__, "actuator", actuator)
-
-    @property
-    @pulumi.getter
-    def actuator(self) -> Optional['outputs.SignalCatalogActuator']:
-        return pulumi.get(self, "actuator")
-
-
-@pulumi.output_type
-class Node3Properties(dict):
-    def __init__(__self__, *,
-                 attribute: Optional['outputs.SignalCatalogAttribute'] = None):
-        if attribute is not None:
-            pulumi.set(__self__, "attribute", attribute)
-
-    @property
-    @pulumi.getter
-    def attribute(self) -> Optional['outputs.SignalCatalogAttribute']:
-        return pulumi.get(self, "attribute")
-
-
-@pulumi.output_type
 class SignalCatalogActuator(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1257,6 +1205,58 @@ class SignalCatalogBranch(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class SignalCatalogNode0Properties(dict):
+    def __init__(__self__, *,
+                 branch: Optional['outputs.SignalCatalogBranch'] = None):
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional['outputs.SignalCatalogBranch']:
+        return pulumi.get(self, "branch")
+
+
+@pulumi.output_type
+class SignalCatalogNode1Properties(dict):
+    def __init__(__self__, *,
+                 sensor: Optional['outputs.SignalCatalogSensor'] = None):
+        if sensor is not None:
+            pulumi.set(__self__, "sensor", sensor)
+
+    @property
+    @pulumi.getter
+    def sensor(self) -> Optional['outputs.SignalCatalogSensor']:
+        return pulumi.get(self, "sensor")
+
+
+@pulumi.output_type
+class SignalCatalogNode2Properties(dict):
+    def __init__(__self__, *,
+                 actuator: Optional['outputs.SignalCatalogActuator'] = None):
+        if actuator is not None:
+            pulumi.set(__self__, "actuator", actuator)
+
+    @property
+    @pulumi.getter
+    def actuator(self) -> Optional['outputs.SignalCatalogActuator']:
+        return pulumi.get(self, "actuator")
+
+
+@pulumi.output_type
+class SignalCatalogNode3Properties(dict):
+    def __init__(__self__, *,
+                 attribute: Optional['outputs.SignalCatalogAttribute'] = None):
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> Optional['outputs.SignalCatalogAttribute']:
+        return pulumi.get(self, "attribute")
 
 
 @pulumi.output_type

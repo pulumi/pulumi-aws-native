@@ -58,7 +58,7 @@ class GetClassifierResult:
 
     @property
     @pulumi.getter(name="xmlClassifier")
-    def xml_classifier(self) -> Optional['outputs.ClassifierXMLClassifier']:
+    def xml_classifier(self) -> Optional['outputs.ClassifierXmlClassifier']:
         return pulumi.get(self, "xml_classifier")
 
 

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VPCEndpointServiceArgs', 'VPCEndpointService']
+__all__ = ['VpcEndpointServiceArgs', 'VpcEndpointService']
 
 @pulumi.input_type
-class VPCEndpointServiceArgs:
+class VpcEndpointServiceArgs:
     def __init__(__self__, *,
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
                  contributor_insights_enabled: Optional[pulumi.Input[bool]] = None,
@@ -20,7 +20,7 @@ class VPCEndpointServiceArgs:
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  payer_responsibility: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a VPCEndpointService resource.
+        The set of arguments for constructing a VpcEndpointService resource.
         """
         if acceptance_required is not None:
             pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -79,7 +79,7 @@ class VPCEndpointServiceArgs:
         pulumi.set(self, "payer_responsibility", value)
 
 
-class VPCEndpointService(pulumi.CustomResource):
+class VpcEndpointService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -100,18 +100,18 @@ class VPCEndpointService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VPCEndpointServiceArgs] = None,
+                 args: Optional[VpcEndpointServiceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointService
 
         :param str resource_name: The name of the resource.
-        :param VPCEndpointServiceArgs args: The arguments to use to populate this resource's properties.
+        :param VpcEndpointServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VPCEndpointServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -132,7 +132,7 @@ class VPCEndpointService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VPCEndpointServiceArgs.__new__(VPCEndpointServiceArgs)
+            __props__ = VpcEndpointServiceArgs.__new__(VpcEndpointServiceArgs)
 
             __props__.__dict__["acceptance_required"] = acceptance_required
             __props__.__dict__["contributor_insights_enabled"] = contributor_insights_enabled
@@ -140,8 +140,8 @@ class VPCEndpointService(pulumi.CustomResource):
             __props__.__dict__["network_load_balancer_arns"] = network_load_balancer_arns
             __props__.__dict__["payer_responsibility"] = payer_responsibility
             __props__.__dict__["service_id"] = None
-        super(VPCEndpointService, __self__).__init__(
-            'aws-native:ec2:VPCEndpointService',
+        super(VpcEndpointService, __self__).__init__(
+            'aws-native:ec2:VpcEndpointService',
             resource_name,
             __props__,
             opts)
@@ -149,9 +149,9 @@ class VPCEndpointService(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'VPCEndpointService':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpcEndpointService':
         """
-        Get an existing VPCEndpointService resource's state with the given name, id, and optional extra
+        Get an existing VpcEndpointService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -160,7 +160,7 @@ class VPCEndpointService(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VPCEndpointServiceArgs.__new__(VPCEndpointServiceArgs)
+        __props__ = VpcEndpointServiceArgs.__new__(VpcEndpointServiceArgs)
 
         __props__.__dict__["acceptance_required"] = None
         __props__.__dict__["contributor_insights_enabled"] = None
@@ -168,7 +168,7 @@ class VPCEndpointService(pulumi.CustomResource):
         __props__.__dict__["network_load_balancer_arns"] = None
         __props__.__dict__["payer_responsibility"] = None
         __props__.__dict__["service_id"] = None
-        return VPCEndpointService(resource_name, opts=opts, __props__=__props__)
+        return VpcEndpointService(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="acceptanceRequired")

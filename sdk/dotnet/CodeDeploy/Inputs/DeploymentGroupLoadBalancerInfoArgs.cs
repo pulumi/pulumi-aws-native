@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
     public sealed class DeploymentGroupLoadBalancerInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("elbInfoList")]
-        private InputList<Inputs.DeploymentGroupELBInfoArgs>? _elbInfoList;
-        public InputList<Inputs.DeploymentGroupELBInfoArgs> ElbInfoList
+        private InputList<Inputs.DeploymentGroupElbInfoArgs>? _elbInfoList;
+        public InputList<Inputs.DeploymentGroupElbInfoArgs> ElbInfoList
         {
-            get => _elbInfoList ?? (_elbInfoList = new InputList<Inputs.DeploymentGroupELBInfoArgs>());
+            get => _elbInfoList ?? (_elbInfoList = new InputList<Inputs.DeploymentGroupElbInfoArgs>());
             set => _elbInfoList = value;
         }
 

@@ -13,16 +13,16 @@ import (
 )
 
 // Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
-type DNSSEC struct {
+type Dnssec struct {
 	pulumi.CustomResourceState
 
 	// The unique string (ID) used to identify a hosted zone.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 }
 
-// NewDNSSEC registers a new resource with the given unique name, arguments, and options.
-func NewDNSSEC(ctx *pulumi.Context,
-	name string, args *DNSSECArgs, opts ...pulumi.ResourceOption) (*DNSSEC, error) {
+// NewDnssec registers a new resource with the given unique name, arguments, and options.
+func NewDnssec(ctx *pulumi.Context,
+	name string, args *DnssecArgs, opts ...pulumi.ResourceOption) (*Dnssec, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -31,34 +31,34 @@ func NewDNSSEC(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'HostedZoneId'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
-	var resource DNSSEC
-	err := ctx.RegisterResource("aws-native:route53:DNSSEC", name, args, &resource, opts...)
+	var resource Dnssec
+	err := ctx.RegisterResource("aws-native:route53:Dnssec", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetDNSSEC gets an existing DNSSEC resource's state with the given name, ID, and optional
+// GetDnssec gets an existing Dnssec resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetDNSSEC(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *DNSSECState, opts ...pulumi.ResourceOption) (*DNSSEC, error) {
-	var resource DNSSEC
-	err := ctx.ReadResource("aws-native:route53:DNSSEC", name, id, state, &resource, opts...)
+func GetDnssec(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *DnssecState, opts ...pulumi.ResourceOption) (*Dnssec, error) {
+	var resource Dnssec
+	err := ctx.ReadResource("aws-native:route53:Dnssec", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering DNSSEC resources.
+// Input properties used for looking up and filtering Dnssec resources.
 type dnssecState struct {
 }
 
-type DNSSECState struct {
+type DnssecState struct {
 }
 
-func (DNSSECState) ElementType() reflect.Type {
+func (DnssecState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dnssecState)(nil)).Elem()
 }
 
@@ -67,55 +67,55 @@ type dnssecArgs struct {
 	HostedZoneId string `pulumi:"hostedZoneId"`
 }
 
-// The set of arguments for constructing a DNSSEC resource.
-type DNSSECArgs struct {
+// The set of arguments for constructing a Dnssec resource.
+type DnssecArgs struct {
 	// The unique string (ID) used to identify a hosted zone.
 	HostedZoneId pulumi.StringInput
 }
 
-func (DNSSECArgs) ElementType() reflect.Type {
+func (DnssecArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dnssecArgs)(nil)).Elem()
 }
 
-type DNSSECInput interface {
+type DnssecInput interface {
 	pulumi.Input
 
-	ToDNSSECOutput() DNSSECOutput
-	ToDNSSECOutputWithContext(ctx context.Context) DNSSECOutput
+	ToDnssecOutput() DnssecOutput
+	ToDnssecOutputWithContext(ctx context.Context) DnssecOutput
 }
 
-func (*DNSSEC) ElementType() reflect.Type {
-	return reflect.TypeOf((**DNSSEC)(nil)).Elem()
+func (*Dnssec) ElementType() reflect.Type {
+	return reflect.TypeOf((**Dnssec)(nil)).Elem()
 }
 
-func (i *DNSSEC) ToDNSSECOutput() DNSSECOutput {
-	return i.ToDNSSECOutputWithContext(context.Background())
+func (i *Dnssec) ToDnssecOutput() DnssecOutput {
+	return i.ToDnssecOutputWithContext(context.Background())
 }
 
-func (i *DNSSEC) ToDNSSECOutputWithContext(ctx context.Context) DNSSECOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DNSSECOutput)
+func (i *Dnssec) ToDnssecOutputWithContext(ctx context.Context) DnssecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnssecOutput)
 }
 
-type DNSSECOutput struct{ *pulumi.OutputState }
+type DnssecOutput struct{ *pulumi.OutputState }
 
-func (DNSSECOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DNSSEC)(nil)).Elem()
+func (DnssecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Dnssec)(nil)).Elem()
 }
 
-func (o DNSSECOutput) ToDNSSECOutput() DNSSECOutput {
+func (o DnssecOutput) ToDnssecOutput() DnssecOutput {
 	return o
 }
 
-func (o DNSSECOutput) ToDNSSECOutputWithContext(ctx context.Context) DNSSECOutput {
+func (o DnssecOutput) ToDnssecOutputWithContext(ctx context.Context) DnssecOutput {
 	return o
 }
 
 // The unique string (ID) used to identify a hosted zone.
-func (o DNSSECOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DNSSEC) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o DnssecOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dnssec) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DNSSECInput)(nil)).Elem(), &DNSSEC{})
-	pulumi.RegisterOutputType(DNSSECOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DnssecInput)(nil)).Elem(), &Dnssec{})
+	pulumi.RegisterOutputType(DnssecOutput{})
 }

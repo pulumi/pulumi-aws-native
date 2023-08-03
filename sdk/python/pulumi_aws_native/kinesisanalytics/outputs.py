@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'ApplicationCSVMappingParameters',
+    'ApplicationCsvMappingParameters',
     'ApplicationInput',
     'ApplicationInputLambdaProcessor',
     'ApplicationInputParallelism',
     'ApplicationInputProcessingConfiguration',
     'ApplicationInputSchema',
-    'ApplicationJSONMappingParameters',
+    'ApplicationJsonMappingParameters',
     'ApplicationKinesisFirehoseInput',
     'ApplicationKinesisStreamsInput',
     'ApplicationMappingParameters',
@@ -28,8 +28,8 @@ __all__ = [
     'ApplicationOutputResourceOutput',
     'ApplicationRecordColumn',
     'ApplicationRecordFormat',
-    'ApplicationReferenceDataSourceCSVMappingParameters',
-    'ApplicationReferenceDataSourceJSONMappingParameters',
+    'ApplicationReferenceDataSourceCsvMappingParameters',
+    'ApplicationReferenceDataSourceJsonMappingParameters',
     'ApplicationReferenceDataSourceMappingParameters',
     'ApplicationReferenceDataSourceRecordColumn',
     'ApplicationReferenceDataSourceRecordFormat',
@@ -39,7 +39,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicationCSVMappingParameters(dict):
+class ApplicationCsvMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -49,14 +49,14 @@ class ApplicationCSVMappingParameters(dict):
             suggest = "record_row_delimiter"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationCSVMappingParameters. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationCsvMappingParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationCSVMappingParameters.__key_warning(key)
+        ApplicationCsvMappingParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationCSVMappingParameters.__key_warning(key)
+        ApplicationCsvMappingParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -284,7 +284,7 @@ class ApplicationInputSchema(dict):
 
 
 @pulumi.output_type
-class ApplicationJSONMappingParameters(dict):
+class ApplicationJsonMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -292,14 +292,14 @@ class ApplicationJSONMappingParameters(dict):
             suggest = "record_row_path"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationJSONMappingParameters. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationJsonMappingParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationJSONMappingParameters.__key_warning(key)
+        ApplicationJsonMappingParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationJSONMappingParameters.__key_warning(key)
+        ApplicationJsonMappingParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -410,8 +410,8 @@ class ApplicationMappingParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 csv_mapping_parameters: Optional['outputs.ApplicationCSVMappingParameters'] = None,
-                 json_mapping_parameters: Optional['outputs.ApplicationJSONMappingParameters'] = None):
+                 csv_mapping_parameters: Optional['outputs.ApplicationCsvMappingParameters'] = None,
+                 json_mapping_parameters: Optional['outputs.ApplicationJsonMappingParameters'] = None):
         if csv_mapping_parameters is not None:
             pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -419,12 +419,12 @@ class ApplicationMappingParameters(dict):
 
     @property
     @pulumi.getter(name="csvMappingParameters")
-    def csv_mapping_parameters(self) -> Optional['outputs.ApplicationCSVMappingParameters']:
+    def csv_mapping_parameters(self) -> Optional['outputs.ApplicationCsvMappingParameters']:
         return pulumi.get(self, "csv_mapping_parameters")
 
     @property
     @pulumi.getter(name="jsonMappingParameters")
-    def json_mapping_parameters(self) -> Optional['outputs.ApplicationJSONMappingParameters']:
+    def json_mapping_parameters(self) -> Optional['outputs.ApplicationJsonMappingParameters']:
         return pulumi.get(self, "json_mapping_parameters")
 
 
@@ -723,7 +723,7 @@ class ApplicationRecordFormat(dict):
 
 
 @pulumi.output_type
-class ApplicationReferenceDataSourceCSVMappingParameters(dict):
+class ApplicationReferenceDataSourceCsvMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -733,14 +733,14 @@ class ApplicationReferenceDataSourceCSVMappingParameters(dict):
             suggest = "record_row_delimiter"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationReferenceDataSourceCSVMappingParameters. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationReferenceDataSourceCsvMappingParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationReferenceDataSourceCSVMappingParameters.__key_warning(key)
+        ApplicationReferenceDataSourceCsvMappingParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationReferenceDataSourceCSVMappingParameters.__key_warning(key)
+        ApplicationReferenceDataSourceCsvMappingParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -761,7 +761,7 @@ class ApplicationReferenceDataSourceCSVMappingParameters(dict):
 
 
 @pulumi.output_type
-class ApplicationReferenceDataSourceJSONMappingParameters(dict):
+class ApplicationReferenceDataSourceJsonMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -769,14 +769,14 @@ class ApplicationReferenceDataSourceJSONMappingParameters(dict):
             suggest = "record_row_path"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationReferenceDataSourceJSONMappingParameters. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationReferenceDataSourceJsonMappingParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationReferenceDataSourceJSONMappingParameters.__key_warning(key)
+        ApplicationReferenceDataSourceJsonMappingParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationReferenceDataSourceJSONMappingParameters.__key_warning(key)
+        ApplicationReferenceDataSourceJsonMappingParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -811,8 +811,8 @@ class ApplicationReferenceDataSourceMappingParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 csv_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceCSVMappingParameters'] = None,
-                 json_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceJSONMappingParameters'] = None):
+                 csv_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceCsvMappingParameters'] = None,
+                 json_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceJsonMappingParameters'] = None):
         if csv_mapping_parameters is not None:
             pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -820,12 +820,12 @@ class ApplicationReferenceDataSourceMappingParameters(dict):
 
     @property
     @pulumi.getter(name="csvMappingParameters")
-    def csv_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceCSVMappingParameters']:
+    def csv_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceCsvMappingParameters']:
         return pulumi.get(self, "csv_mapping_parameters")
 
     @property
     @pulumi.getter(name="jsonMappingParameters")
-    def json_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceJSONMappingParameters']:
+    def json_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceJsonMappingParameters']:
         return pulumi.get(self, "json_mapping_parameters")
 
 

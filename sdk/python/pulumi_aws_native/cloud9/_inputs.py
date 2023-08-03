@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EnvironmentEC2RepositoryArgs',
-    'EnvironmentEC2TagArgs',
+    'EnvironmentEc2RepositoryArgs',
+    'EnvironmentEc2TagArgs',
 ]
 
 @pulumi.input_type
-class EnvironmentEC2RepositoryArgs:
+class EnvironmentEc2RepositoryArgs:
     def __init__(__self__, *,
                  path_component: pulumi.Input[str],
                  repository_url: pulumi.Input[str]):
@@ -42,7 +42,7 @@ class EnvironmentEC2RepositoryArgs:
 
 
 @pulumi.input_type
-class EnvironmentEC2TagArgs:
+class EnvironmentEc2TagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetVirtualMFADeviceResult',
-    'AwaitableGetVirtualMFADeviceResult',
+    'GetVirtualMfaDeviceResult',
+    'AwaitableGetVirtualMfaDeviceResult',
     'get_virtual_mfa_device',
     'get_virtual_mfa_device_output',
 ]
 
 @pulumi.output_type
-class GetVirtualMFADeviceResult:
+class GetVirtualMfaDeviceResult:
     def __init__(__self__, serial_number=None, tags=None, users=None):
         if serial_number and not isinstance(serial_number, str):
             raise TypeError("Expected argument 'serial_number' to be a str")
@@ -37,7 +37,7 @@ class GetVirtualMFADeviceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.VirtualMFADeviceTag']]:
+    def tags(self) -> Optional[Sequence['outputs.VirtualMfaDeviceTag']]:
         return pulumi.get(self, "tags")
 
     @property
@@ -46,28 +46,28 @@ class GetVirtualMFADeviceResult:
         return pulumi.get(self, "users")
 
 
-class AwaitableGetVirtualMFADeviceResult(GetVirtualMFADeviceResult):
+class AwaitableGetVirtualMfaDeviceResult(GetVirtualMfaDeviceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVirtualMFADeviceResult(
+        return GetVirtualMfaDeviceResult(
             serial_number=self.serial_number,
             tags=self.tags,
             users=self.users)
 
 
 def get_virtual_mfa_device(serial_number: Optional[str] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMFADeviceResult:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMfaDeviceResult:
     """
     Resource Type definition for AWS::IAM::VirtualMFADevice
     """
     __args__ = dict()
     __args__['serialNumber'] = serial_number
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:iam:getVirtualMFADevice', __args__, opts=opts, typ=GetVirtualMFADeviceResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:iam:getVirtualMfaDevice', __args__, opts=opts, typ=GetVirtualMfaDeviceResult).value
 
-    return AwaitableGetVirtualMFADeviceResult(
+    return AwaitableGetVirtualMfaDeviceResult(
         serial_number=pulumi.get(__ret__, 'serial_number'),
         tags=pulumi.get(__ret__, 'tags'),
         users=pulumi.get(__ret__, 'users'))
@@ -75,7 +75,7 @@ def get_virtual_mfa_device(serial_number: Optional[str] = None,
 
 @_utilities.lift_output_func(get_virtual_mfa_device)
 def get_virtual_mfa_device_output(serial_number: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMFADeviceResult]:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMfaDeviceResult]:
     """
     Resource Type definition for AWS::IAM::VirtualMFADevice
     """

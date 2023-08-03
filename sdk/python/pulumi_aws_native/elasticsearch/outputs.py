@@ -14,7 +14,7 @@ __all__ = [
     'DomainAdvancedSecurityOptionsInput',
     'DomainCognitoOptions',
     'DomainColdStorageOptions',
-    'DomainEBSOptions',
+    'DomainEbsOptions',
     'DomainElasticsearchClusterConfig',
     'DomainEncryptionAtRestOptions',
     'DomainEndpointOptions',
@@ -22,7 +22,7 @@ __all__ = [
     'DomainNodeToNodeEncryptionOptions',
     'DomainSnapshotOptions',
     'DomainTag',
-    'DomainVPCOptions',
+    'DomainVpcOptions',
     'DomainZoneAwarenessConfig',
 ]
 
@@ -156,7 +156,7 @@ class DomainColdStorageOptions(dict):
 
 
 @pulumi.output_type
-class DomainEBSOptions(dict):
+class DomainEbsOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -168,14 +168,14 @@ class DomainEBSOptions(dict):
             suggest = "volume_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DomainEBSOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DomainEbsOptions. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DomainEBSOptions.__key_warning(key)
+        DomainEbsOptions.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DomainEBSOptions.__key_warning(key)
+        DomainEbsOptions.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -564,7 +564,7 @@ class DomainTag(dict):
 
 
 @pulumi.output_type
-class DomainVPCOptions(dict):
+class DomainVpcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -574,14 +574,14 @@ class DomainVPCOptions(dict):
             suggest = "subnet_ids"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DomainVPCOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DomainVpcOptions. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DomainVPCOptions.__key_warning(key)
+        DomainVpcOptions.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DomainVPCOptions.__key_warning(key)
+        DomainVpcOptions.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

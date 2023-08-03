@@ -32,16 +32,16 @@ __all__ = [
     'PrincipalPermissionsDataLakePrincipal',
     'PrincipalPermissionsDataLocationResource',
     'PrincipalPermissionsDatabaseResource',
-    'PrincipalPermissionsLFTag',
-    'PrincipalPermissionsLFTagKeyResource',
-    'PrincipalPermissionsLFTagPolicyResource',
+    'PrincipalPermissionsLfTag',
+    'PrincipalPermissionsLfTagKeyResource',
+    'PrincipalPermissionsLfTagPolicyResource',
     'PrincipalPermissionsResource',
     'PrincipalPermissionsTableResource',
     'PrincipalPermissionsTableWildcard',
     'PrincipalPermissionsTableWithColumnsResource',
     'TagAssociationCatalogResource',
     'TagAssociationDatabaseResource',
-    'TagAssociationLFTagPair',
+    'TagAssociationLfTagPair',
     'TagAssociationResource',
     'TagAssociationTableResource',
     'TagAssociationTableWildcard',
@@ -691,7 +691,7 @@ class PrincipalPermissionsDatabaseResource(dict):
 
 
 @pulumi.output_type
-class PrincipalPermissionsLFTag(dict):
+class PrincipalPermissionsLfTag(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -701,14 +701,14 @@ class PrincipalPermissionsLFTag(dict):
             suggest = "tag_values"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrincipalPermissionsLFTag. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PrincipalPermissionsLfTag. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PrincipalPermissionsLFTag.__key_warning(key)
+        PrincipalPermissionsLfTag.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PrincipalPermissionsLFTag.__key_warning(key)
+        PrincipalPermissionsLfTag.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -731,7 +731,7 @@ class PrincipalPermissionsLFTag(dict):
 
 
 @pulumi.output_type
-class PrincipalPermissionsLFTagKeyResource(dict):
+class PrincipalPermissionsLfTagKeyResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -743,14 +743,14 @@ class PrincipalPermissionsLFTagKeyResource(dict):
             suggest = "tag_values"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrincipalPermissionsLFTagKeyResource. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PrincipalPermissionsLfTagKeyResource. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PrincipalPermissionsLFTagKeyResource.__key_warning(key)
+        PrincipalPermissionsLfTagKeyResource.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PrincipalPermissionsLFTagKeyResource.__key_warning(key)
+        PrincipalPermissionsLfTagKeyResource.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -778,7 +778,7 @@ class PrincipalPermissionsLFTagKeyResource(dict):
 
 
 @pulumi.output_type
-class PrincipalPermissionsLFTagPolicyResource(dict):
+class PrincipalPermissionsLfTagPolicyResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -788,19 +788,19 @@ class PrincipalPermissionsLFTagPolicyResource(dict):
             suggest = "resource_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrincipalPermissionsLFTagPolicyResource. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PrincipalPermissionsLfTagPolicyResource. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PrincipalPermissionsLFTagPolicyResource.__key_warning(key)
+        PrincipalPermissionsLfTagPolicyResource.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PrincipalPermissionsLFTagPolicyResource.__key_warning(key)
+        PrincipalPermissionsLfTagPolicyResource.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  catalog_id: str,
-                 expression: Sequence['outputs.PrincipalPermissionsLFTag'],
+                 expression: Sequence['outputs.PrincipalPermissionsLfTag'],
                  resource_type: 'PrincipalPermissionsResourceType'):
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "expression", expression)
@@ -813,7 +813,7 @@ class PrincipalPermissionsLFTagPolicyResource(dict):
 
     @property
     @pulumi.getter
-    def expression(self) -> Sequence['outputs.PrincipalPermissionsLFTag']:
+    def expression(self) -> Sequence['outputs.PrincipalPermissionsLfTag']:
         return pulumi.get(self, "expression")
 
     @property
@@ -854,8 +854,8 @@ class PrincipalPermissionsResource(dict):
                  data_cells_filter: Optional['outputs.PrincipalPermissionsDataCellsFilterResource'] = None,
                  data_location: Optional['outputs.PrincipalPermissionsDataLocationResource'] = None,
                  database: Optional['outputs.PrincipalPermissionsDatabaseResource'] = None,
-                 lf_tag: Optional['outputs.PrincipalPermissionsLFTagKeyResource'] = None,
-                 lf_tag_policy: Optional['outputs.PrincipalPermissionsLFTagPolicyResource'] = None,
+                 lf_tag: Optional['outputs.PrincipalPermissionsLfTagKeyResource'] = None,
+                 lf_tag_policy: Optional['outputs.PrincipalPermissionsLfTagPolicyResource'] = None,
                  table: Optional['outputs.PrincipalPermissionsTableResource'] = None,
                  table_with_columns: Optional['outputs.PrincipalPermissionsTableWithColumnsResource'] = None):
         if catalog is not None:
@@ -897,12 +897,12 @@ class PrincipalPermissionsResource(dict):
 
     @property
     @pulumi.getter(name="lfTag")
-    def lf_tag(self) -> Optional['outputs.PrincipalPermissionsLFTagKeyResource']:
+    def lf_tag(self) -> Optional['outputs.PrincipalPermissionsLfTagKeyResource']:
         return pulumi.get(self, "lf_tag")
 
     @property
     @pulumi.getter(name="lfTagPolicy")
-    def lf_tag_policy(self) -> Optional['outputs.PrincipalPermissionsLFTagPolicyResource']:
+    def lf_tag_policy(self) -> Optional['outputs.PrincipalPermissionsLfTagPolicyResource']:
         return pulumi.get(self, "lf_tag_policy")
 
     @property
@@ -1086,7 +1086,7 @@ class TagAssociationDatabaseResource(dict):
 
 
 @pulumi.output_type
-class TagAssociationLFTagPair(dict):
+class TagAssociationLfTagPair(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1098,14 +1098,14 @@ class TagAssociationLFTagPair(dict):
             suggest = "tag_values"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TagAssociationLFTagPair. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TagAssociationLfTagPair. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TagAssociationLFTagPair.__key_warning(key)
+        TagAssociationLfTagPair.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TagAssociationLFTagPair.__key_warning(key)
+        TagAssociationLfTagPair.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

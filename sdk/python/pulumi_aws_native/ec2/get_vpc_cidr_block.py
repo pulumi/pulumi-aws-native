@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetVPCCidrBlockResult',
-    'AwaitableGetVPCCidrBlockResult',
+    'GetVpcCidrBlockResult',
+    'AwaitableGetVpcCidrBlockResult',
     'get_vpc_cidr_block',
     'get_vpc_cidr_block_output',
 ]
 
 @pulumi.output_type
-class GetVPCCidrBlockResult:
+class GetVpcCidrBlockResult:
     def __init__(__self__, id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -29,32 +29,32 @@ class GetVPCCidrBlockResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetVPCCidrBlockResult(GetVPCCidrBlockResult):
+class AwaitableGetVpcCidrBlockResult(GetVpcCidrBlockResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVPCCidrBlockResult(
+        return GetVpcCidrBlockResult(
             id=self.id)
 
 
 def get_vpc_cidr_block(id: Optional[str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPCCidrBlockResult:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcCidrBlockResult:
     """
     Resource Type definition for AWS::EC2::VPCCidrBlock
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCCidrBlock', __args__, opts=opts, typ=GetVPCCidrBlockResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpcCidrBlock', __args__, opts=opts, typ=GetVpcCidrBlockResult).value
 
-    return AwaitableGetVPCCidrBlockResult(
+    return AwaitableGetVpcCidrBlockResult(
         id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_vpc_cidr_block)
 def get_vpc_cidr_block_output(id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCCidrBlockResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcCidrBlockResult]:
     """
     Resource Type definition for AWS::EC2::VPCCidrBlock
     """

@@ -483,7 +483,7 @@ type SolutionConfig struct {
 	// Lists the hyperparameter names and ranges.
 	AlgorithmHyperParameters interface{} `pulumi:"algorithmHyperParameters"`
 	// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-	AutoMlConfig *SolutionConfigAutoMLConfigProperties `pulumi:"autoMlConfig"`
+	AutoMlConfig *SolutionConfigAutoMlConfigProperties `pulumi:"autoMlConfig"`
 	// Only events with a value greater than or equal to this threshold are used for training a model.
 	EventValueThreshold *string `pulumi:"eventValueThreshold"`
 	// Lists the feature transformation parameters.
@@ -508,7 +508,7 @@ type SolutionConfigArgs struct {
 	// Lists the hyperparameter names and ranges.
 	AlgorithmHyperParameters pulumi.Input `pulumi:"algorithmHyperParameters"`
 	// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-	AutoMlConfig SolutionConfigAutoMLConfigPropertiesPtrInput `pulumi:"autoMlConfig"`
+	AutoMlConfig SolutionConfigAutoMlConfigPropertiesPtrInput `pulumi:"autoMlConfig"`
 	// Only events with a value greater than or equal to this threshold are used for training a model.
 	EventValueThreshold pulumi.StringPtrInput `pulumi:"eventValueThreshold"`
 	// Lists the feature transformation parameters.
@@ -601,8 +601,8 @@ func (o SolutionConfigOutput) AlgorithmHyperParameters() pulumi.AnyOutput {
 }
 
 // The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-func (o SolutionConfigOutput) AutoMlConfig() SolutionConfigAutoMLConfigPropertiesPtrOutput {
-	return o.ApplyT(func(v SolutionConfig) *SolutionConfigAutoMLConfigProperties { return v.AutoMlConfig }).(SolutionConfigAutoMLConfigPropertiesPtrOutput)
+func (o SolutionConfigOutput) AutoMlConfig() SolutionConfigAutoMlConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v SolutionConfig) *SolutionConfigAutoMlConfigProperties { return v.AutoMlConfig }).(SolutionConfigAutoMlConfigPropertiesPtrOutput)
 }
 
 // Only events with a value greater than or equal to this threshold are used for training a model.
@@ -655,13 +655,13 @@ func (o SolutionConfigPtrOutput) AlgorithmHyperParameters() pulumi.AnyOutput {
 }
 
 // The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-func (o SolutionConfigPtrOutput) AutoMlConfig() SolutionConfigAutoMLConfigPropertiesPtrOutput {
-	return o.ApplyT(func(v *SolutionConfig) *SolutionConfigAutoMLConfigProperties {
+func (o SolutionConfigPtrOutput) AutoMlConfig() SolutionConfigAutoMlConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *SolutionConfig) *SolutionConfigAutoMlConfigProperties {
 		if v == nil {
 			return nil
 		}
 		return v.AutoMlConfig
-	}).(SolutionConfigAutoMLConfigPropertiesPtrOutput)
+	}).(SolutionConfigAutoMlConfigPropertiesPtrOutput)
 }
 
 // Only events with a value greater than or equal to this threshold are used for training a model.
@@ -695,147 +695,147 @@ func (o SolutionConfigPtrOutput) HpoConfig() SolutionConfigHpoConfigPropertiesPt
 }
 
 // The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-type SolutionConfigAutoMLConfigProperties struct {
+type SolutionConfigAutoMlConfigProperties struct {
 	// The metric to optimize.
 	MetricName *string `pulumi:"metricName"`
 	// The list of candidate recipes.
 	RecipeList []string `pulumi:"recipeList"`
 }
 
-// SolutionConfigAutoMLConfigPropertiesInput is an input type that accepts SolutionConfigAutoMLConfigPropertiesArgs and SolutionConfigAutoMLConfigPropertiesOutput values.
-// You can construct a concrete instance of `SolutionConfigAutoMLConfigPropertiesInput` via:
+// SolutionConfigAutoMlConfigPropertiesInput is an input type that accepts SolutionConfigAutoMlConfigPropertiesArgs and SolutionConfigAutoMlConfigPropertiesOutput values.
+// You can construct a concrete instance of `SolutionConfigAutoMlConfigPropertiesInput` via:
 //
-//	SolutionConfigAutoMLConfigPropertiesArgs{...}
-type SolutionConfigAutoMLConfigPropertiesInput interface {
+//	SolutionConfigAutoMlConfigPropertiesArgs{...}
+type SolutionConfigAutoMlConfigPropertiesInput interface {
 	pulumi.Input
 
-	ToSolutionConfigAutoMLConfigPropertiesOutput() SolutionConfigAutoMLConfigPropertiesOutput
-	ToSolutionConfigAutoMLConfigPropertiesOutputWithContext(context.Context) SolutionConfigAutoMLConfigPropertiesOutput
+	ToSolutionConfigAutoMlConfigPropertiesOutput() SolutionConfigAutoMlConfigPropertiesOutput
+	ToSolutionConfigAutoMlConfigPropertiesOutputWithContext(context.Context) SolutionConfigAutoMlConfigPropertiesOutput
 }
 
 // The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-type SolutionConfigAutoMLConfigPropertiesArgs struct {
+type SolutionConfigAutoMlConfigPropertiesArgs struct {
 	// The metric to optimize.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// The list of candidate recipes.
 	RecipeList pulumi.StringArrayInput `pulumi:"recipeList"`
 }
 
-func (SolutionConfigAutoMLConfigPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionConfigAutoMLConfigProperties)(nil)).Elem()
+func (SolutionConfigAutoMlConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SolutionConfigAutoMlConfigProperties)(nil)).Elem()
 }
 
-func (i SolutionConfigAutoMLConfigPropertiesArgs) ToSolutionConfigAutoMLConfigPropertiesOutput() SolutionConfigAutoMLConfigPropertiesOutput {
-	return i.ToSolutionConfigAutoMLConfigPropertiesOutputWithContext(context.Background())
+func (i SolutionConfigAutoMlConfigPropertiesArgs) ToSolutionConfigAutoMlConfigPropertiesOutput() SolutionConfigAutoMlConfigPropertiesOutput {
+	return i.ToSolutionConfigAutoMlConfigPropertiesOutputWithContext(context.Background())
 }
 
-func (i SolutionConfigAutoMLConfigPropertiesArgs) ToSolutionConfigAutoMLConfigPropertiesOutputWithContext(ctx context.Context) SolutionConfigAutoMLConfigPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigAutoMLConfigPropertiesOutput)
+func (i SolutionConfigAutoMlConfigPropertiesArgs) ToSolutionConfigAutoMlConfigPropertiesOutputWithContext(ctx context.Context) SolutionConfigAutoMlConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigAutoMlConfigPropertiesOutput)
 }
 
-func (i SolutionConfigAutoMLConfigPropertiesArgs) ToSolutionConfigAutoMLConfigPropertiesPtrOutput() SolutionConfigAutoMLConfigPropertiesPtrOutput {
-	return i.ToSolutionConfigAutoMLConfigPropertiesPtrOutputWithContext(context.Background())
+func (i SolutionConfigAutoMlConfigPropertiesArgs) ToSolutionConfigAutoMlConfigPropertiesPtrOutput() SolutionConfigAutoMlConfigPropertiesPtrOutput {
+	return i.ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i SolutionConfigAutoMLConfigPropertiesArgs) ToSolutionConfigAutoMLConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigAutoMLConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigAutoMLConfigPropertiesOutput).ToSolutionConfigAutoMLConfigPropertiesPtrOutputWithContext(ctx)
+func (i SolutionConfigAutoMlConfigPropertiesArgs) ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigAutoMlConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigAutoMlConfigPropertiesOutput).ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(ctx)
 }
 
-// SolutionConfigAutoMLConfigPropertiesPtrInput is an input type that accepts SolutionConfigAutoMLConfigPropertiesArgs, SolutionConfigAutoMLConfigPropertiesPtr and SolutionConfigAutoMLConfigPropertiesPtrOutput values.
-// You can construct a concrete instance of `SolutionConfigAutoMLConfigPropertiesPtrInput` via:
+// SolutionConfigAutoMlConfigPropertiesPtrInput is an input type that accepts SolutionConfigAutoMlConfigPropertiesArgs, SolutionConfigAutoMlConfigPropertiesPtr and SolutionConfigAutoMlConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `SolutionConfigAutoMlConfigPropertiesPtrInput` via:
 //
-//	        SolutionConfigAutoMLConfigPropertiesArgs{...}
+//	        SolutionConfigAutoMlConfigPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type SolutionConfigAutoMLConfigPropertiesPtrInput interface {
+type SolutionConfigAutoMlConfigPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSolutionConfigAutoMLConfigPropertiesPtrOutput() SolutionConfigAutoMLConfigPropertiesPtrOutput
-	ToSolutionConfigAutoMLConfigPropertiesPtrOutputWithContext(context.Context) SolutionConfigAutoMLConfigPropertiesPtrOutput
+	ToSolutionConfigAutoMlConfigPropertiesPtrOutput() SolutionConfigAutoMlConfigPropertiesPtrOutput
+	ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(context.Context) SolutionConfigAutoMlConfigPropertiesPtrOutput
 }
 
-type solutionConfigAutoMLConfigPropertiesPtrType SolutionConfigAutoMLConfigPropertiesArgs
+type solutionConfigAutoMlConfigPropertiesPtrType SolutionConfigAutoMlConfigPropertiesArgs
 
-func SolutionConfigAutoMLConfigPropertiesPtr(v *SolutionConfigAutoMLConfigPropertiesArgs) SolutionConfigAutoMLConfigPropertiesPtrInput {
-	return (*solutionConfigAutoMLConfigPropertiesPtrType)(v)
+func SolutionConfigAutoMlConfigPropertiesPtr(v *SolutionConfigAutoMlConfigPropertiesArgs) SolutionConfigAutoMlConfigPropertiesPtrInput {
+	return (*solutionConfigAutoMlConfigPropertiesPtrType)(v)
 }
 
-func (*solutionConfigAutoMLConfigPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SolutionConfigAutoMLConfigProperties)(nil)).Elem()
+func (*solutionConfigAutoMlConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SolutionConfigAutoMlConfigProperties)(nil)).Elem()
 }
 
-func (i *solutionConfigAutoMLConfigPropertiesPtrType) ToSolutionConfigAutoMLConfigPropertiesPtrOutput() SolutionConfigAutoMLConfigPropertiesPtrOutput {
-	return i.ToSolutionConfigAutoMLConfigPropertiesPtrOutputWithContext(context.Background())
+func (i *solutionConfigAutoMlConfigPropertiesPtrType) ToSolutionConfigAutoMlConfigPropertiesPtrOutput() SolutionConfigAutoMlConfigPropertiesPtrOutput {
+	return i.ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *solutionConfigAutoMLConfigPropertiesPtrType) ToSolutionConfigAutoMLConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigAutoMLConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigAutoMLConfigPropertiesPtrOutput)
+func (i *solutionConfigAutoMlConfigPropertiesPtrType) ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigAutoMlConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SolutionConfigAutoMlConfigPropertiesPtrOutput)
 }
 
 // The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-type SolutionConfigAutoMLConfigPropertiesOutput struct{ *pulumi.OutputState }
+type SolutionConfigAutoMlConfigPropertiesOutput struct{ *pulumi.OutputState }
 
-func (SolutionConfigAutoMLConfigPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionConfigAutoMLConfigProperties)(nil)).Elem()
+func (SolutionConfigAutoMlConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SolutionConfigAutoMlConfigProperties)(nil)).Elem()
 }
 
-func (o SolutionConfigAutoMLConfigPropertiesOutput) ToSolutionConfigAutoMLConfigPropertiesOutput() SolutionConfigAutoMLConfigPropertiesOutput {
+func (o SolutionConfigAutoMlConfigPropertiesOutput) ToSolutionConfigAutoMlConfigPropertiesOutput() SolutionConfigAutoMlConfigPropertiesOutput {
 	return o
 }
 
-func (o SolutionConfigAutoMLConfigPropertiesOutput) ToSolutionConfigAutoMLConfigPropertiesOutputWithContext(ctx context.Context) SolutionConfigAutoMLConfigPropertiesOutput {
+func (o SolutionConfigAutoMlConfigPropertiesOutput) ToSolutionConfigAutoMlConfigPropertiesOutputWithContext(ctx context.Context) SolutionConfigAutoMlConfigPropertiesOutput {
 	return o
 }
 
-func (o SolutionConfigAutoMLConfigPropertiesOutput) ToSolutionConfigAutoMLConfigPropertiesPtrOutput() SolutionConfigAutoMLConfigPropertiesPtrOutput {
-	return o.ToSolutionConfigAutoMLConfigPropertiesPtrOutputWithContext(context.Background())
+func (o SolutionConfigAutoMlConfigPropertiesOutput) ToSolutionConfigAutoMlConfigPropertiesPtrOutput() SolutionConfigAutoMlConfigPropertiesPtrOutput {
+	return o.ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o SolutionConfigAutoMLConfigPropertiesOutput) ToSolutionConfigAutoMLConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigAutoMLConfigPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionConfigAutoMLConfigProperties) *SolutionConfigAutoMLConfigProperties {
+func (o SolutionConfigAutoMlConfigPropertiesOutput) ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigAutoMlConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionConfigAutoMlConfigProperties) *SolutionConfigAutoMlConfigProperties {
 		return &v
-	}).(SolutionConfigAutoMLConfigPropertiesPtrOutput)
+	}).(SolutionConfigAutoMlConfigPropertiesPtrOutput)
 }
 
 // The metric to optimize.
-func (o SolutionConfigAutoMLConfigPropertiesOutput) MetricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionConfigAutoMLConfigProperties) *string { return v.MetricName }).(pulumi.StringPtrOutput)
+func (o SolutionConfigAutoMlConfigPropertiesOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SolutionConfigAutoMlConfigProperties) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
 // The list of candidate recipes.
-func (o SolutionConfigAutoMLConfigPropertiesOutput) RecipeList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SolutionConfigAutoMLConfigProperties) []string { return v.RecipeList }).(pulumi.StringArrayOutput)
+func (o SolutionConfigAutoMlConfigPropertiesOutput) RecipeList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SolutionConfigAutoMlConfigProperties) []string { return v.RecipeList }).(pulumi.StringArrayOutput)
 }
 
-type SolutionConfigAutoMLConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SolutionConfigAutoMlConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (SolutionConfigAutoMLConfigPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SolutionConfigAutoMLConfigProperties)(nil)).Elem()
+func (SolutionConfigAutoMlConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SolutionConfigAutoMlConfigProperties)(nil)).Elem()
 }
 
-func (o SolutionConfigAutoMLConfigPropertiesPtrOutput) ToSolutionConfigAutoMLConfigPropertiesPtrOutput() SolutionConfigAutoMLConfigPropertiesPtrOutput {
+func (o SolutionConfigAutoMlConfigPropertiesPtrOutput) ToSolutionConfigAutoMlConfigPropertiesPtrOutput() SolutionConfigAutoMlConfigPropertiesPtrOutput {
 	return o
 }
 
-func (o SolutionConfigAutoMLConfigPropertiesPtrOutput) ToSolutionConfigAutoMLConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigAutoMLConfigPropertiesPtrOutput {
+func (o SolutionConfigAutoMlConfigPropertiesPtrOutput) ToSolutionConfigAutoMlConfigPropertiesPtrOutputWithContext(ctx context.Context) SolutionConfigAutoMlConfigPropertiesPtrOutput {
 	return o
 }
 
-func (o SolutionConfigAutoMLConfigPropertiesPtrOutput) Elem() SolutionConfigAutoMLConfigPropertiesOutput {
-	return o.ApplyT(func(v *SolutionConfigAutoMLConfigProperties) SolutionConfigAutoMLConfigProperties {
+func (o SolutionConfigAutoMlConfigPropertiesPtrOutput) Elem() SolutionConfigAutoMlConfigPropertiesOutput {
+	return o.ApplyT(func(v *SolutionConfigAutoMlConfigProperties) SolutionConfigAutoMlConfigProperties {
 		if v != nil {
 			return *v
 		}
-		var ret SolutionConfigAutoMLConfigProperties
+		var ret SolutionConfigAutoMlConfigProperties
 		return ret
-	}).(SolutionConfigAutoMLConfigPropertiesOutput)
+	}).(SolutionConfigAutoMlConfigPropertiesOutput)
 }
 
 // The metric to optimize.
-func (o SolutionConfigAutoMLConfigPropertiesPtrOutput) MetricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionConfigAutoMLConfigProperties) *string {
+func (o SolutionConfigAutoMlConfigPropertiesPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SolutionConfigAutoMlConfigProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -844,8 +844,8 @@ func (o SolutionConfigAutoMLConfigPropertiesPtrOutput) MetricName() pulumi.Strin
 }
 
 // The list of candidate recipes.
-func (o SolutionConfigAutoMLConfigPropertiesPtrOutput) RecipeList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SolutionConfigAutoMLConfigProperties) []string {
+func (o SolutionConfigAutoMlConfigPropertiesPtrOutput) RecipeList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SolutionConfigAutoMlConfigProperties) []string {
 		if v == nil {
 			return nil
 		}
@@ -1809,8 +1809,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionCategoricalHyperParameterRangeArrayInput)(nil)).Elem(), SolutionCategoricalHyperParameterRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigInput)(nil)).Elem(), SolutionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigPtrInput)(nil)).Elem(), SolutionConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigAutoMLConfigPropertiesInput)(nil)).Elem(), SolutionConfigAutoMLConfigPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigAutoMLConfigPropertiesPtrInput)(nil)).Elem(), SolutionConfigAutoMLConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigAutoMlConfigPropertiesInput)(nil)).Elem(), SolutionConfigAutoMlConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigAutoMlConfigPropertiesPtrInput)(nil)).Elem(), SolutionConfigAutoMlConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigHpoConfigPropertiesInput)(nil)).Elem(), SolutionConfigHpoConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigHpoConfigPropertiesPtrInput)(nil)).Elem(), SolutionConfigHpoConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesInput)(nil)).Elem(), SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs{})
@@ -1831,8 +1831,8 @@ func init() {
 	pulumi.RegisterOutputType(SolutionCategoricalHyperParameterRangeArrayOutput{})
 	pulumi.RegisterOutputType(SolutionConfigOutput{})
 	pulumi.RegisterOutputType(SolutionConfigPtrOutput{})
-	pulumi.RegisterOutputType(SolutionConfigAutoMLConfigPropertiesOutput{})
-	pulumi.RegisterOutputType(SolutionConfigAutoMLConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SolutionConfigAutoMlConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(SolutionConfigAutoMlConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SolutionConfigHpoConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(SolutionConfigHpoConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesOutput{})

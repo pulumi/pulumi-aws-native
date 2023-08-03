@@ -7,31 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
  */
-export class DNSSEC extends pulumi.CustomResource {
+export class Dnssec extends pulumi.CustomResource {
     /**
-     * Get an existing DNSSEC resource's state with the given name, ID, and optional extra
+     * Get an existing Dnssec resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DNSSEC {
-        return new DNSSEC(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Dnssec {
+        return new Dnssec(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:route53:DNSSEC';
+    public static readonly __pulumiType = 'aws-native:route53:Dnssec';
 
     /**
-     * Returns true if the given object is an instance of DNSSEC.  This is designed to work even
+     * Returns true if the given object is an instance of Dnssec.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DNSSEC {
+    public static isInstance(obj: any): obj is Dnssec {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DNSSEC.__pulumiType;
+        return obj['__pulumiType'] === Dnssec.__pulumiType;
     }
 
     /**
@@ -40,13 +40,13 @@ export class DNSSEC extends pulumi.CustomResource {
     public readonly hostedZoneId!: pulumi.Output<string>;
 
     /**
-     * Create a DNSSEC resource with the given unique name, arguments, and options.
+     * Create a Dnssec resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DNSSECArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DnssecArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -58,14 +58,14 @@ export class DNSSEC extends pulumi.CustomResource {
             resourceInputs["hostedZoneId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DNSSEC.__pulumiType, name, resourceInputs, opts);
+        super(Dnssec.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a DNSSEC resource.
+ * The set of arguments for constructing a Dnssec resource.
  */
-export interface DNSSECArgs {
+export interface DnssecArgs {
     /**
      * The unique string (ID) used to identify a hosted zone.
      */

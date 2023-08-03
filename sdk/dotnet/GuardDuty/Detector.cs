@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.GuardDuty
     public partial class Detector : global::Pulumi.CustomResource
     {
         [Output("dataSources")]
-        public Output<Outputs.DetectorCFNDataSourceConfigurations?> DataSources { get; private set; } = null!;
+        public Output<Outputs.DetectorCfnDataSourceConfigurations?> DataSources { get; private set; } = null!;
 
         [Output("enable")]
         public Output<bool> Enable { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.GuardDuty
     public sealed class DetectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSources")]
-        public Input<Inputs.DetectorCFNDataSourceConfigurationsArgs>? DataSources { get; set; }
+        public Input<Inputs.DetectorCfnDataSourceConfigurationsArgs>? DataSources { get; set; }
 
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;

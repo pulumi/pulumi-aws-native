@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DBClusterParameterGroupTag',
-    'DBClusterTag',
-    'DBInstanceTag',
-    'DBSubnetGroupTag',
+    'DbClusterParameterGroupTag',
+    'DbClusterTag',
+    'DbInstanceTag',
+    'DbSubnetGroupTag',
 ]
 
 @pulumi.output_type
-class DBClusterParameterGroupTag(dict):
+class DbClusterParameterGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -36,7 +36,7 @@ class DBClusterParameterGroupTag(dict):
 
 
 @pulumi.output_type
-class DBClusterTag(dict):
+class DbClusterTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -55,7 +55,7 @@ class DBClusterTag(dict):
 
 
 @pulumi.output_type
-class DBInstanceTag(dict):
+class DbInstanceTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -74,7 +74,7 @@ class DBInstanceTag(dict):
 
 
 @pulumi.output_type
-class DBSubnetGroupTag(dict):
+class DbSubnetGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

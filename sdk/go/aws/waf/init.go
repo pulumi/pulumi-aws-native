@@ -23,16 +23,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:waf:ByteMatchSet":
 		r = &ByteMatchSet{}
-	case "aws-native:waf:IPSet":
-		r = &IPSet{}
+	case "aws-native:waf:IpSet":
+		r = &IpSet{}
 	case "aws-native:waf:Rule":
 		r = &Rule{}
 	case "aws-native:waf:SizeConstraintSet":
 		r = &SizeConstraintSet{}
 	case "aws-native:waf:SqlInjectionMatchSet":
 		r = &SqlInjectionMatchSet{}
-	case "aws-native:waf:WebACL":
-		r = &WebACL{}
+	case "aws-native:waf:WebAcl":
+		r = &WebAcl{}
 	case "aws-native:waf:XssMatchSet":
 		r = &XssMatchSet{}
 	default:

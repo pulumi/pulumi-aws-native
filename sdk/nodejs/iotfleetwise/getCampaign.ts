@@ -25,7 +25,7 @@ export interface GetCampaignArgs {
 export interface GetCampaignResult {
     readonly arn?: string;
     readonly creationTime?: string;
-    readonly dataDestinationConfigs?: (outputs.iotfleetwise.DataDestinationConfig0Properties | outputs.iotfleetwise.DataDestinationConfig1Properties)[];
+    readonly dataDestinationConfigs?: (outputs.iotfleetwise.CampaignDataDestinationConfig0Properties | outputs.iotfleetwise.CampaignDataDestinationConfig1Properties)[];
     readonly dataExtraDimensions?: string[];
     readonly description?: string;
     readonly lastModificationTime?: string;

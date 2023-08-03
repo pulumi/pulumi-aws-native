@@ -9,17 +9,17 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ADMChannelArgs', 'ADMChannel']
+__all__ = ['AdmChannelArgs', 'AdmChannel']
 
 @pulumi.input_type
-class ADMChannelArgs:
+class AdmChannelArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        The set of arguments for constructing a ADMChannel resource.
+        The set of arguments for constructing a AdmChannel resource.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "client_id", client_id)
@@ -64,11 +64,11 @@ class ADMChannelArgs:
         pulumi.set(self, "enabled", value)
 
 
-warnings.warn("""ADMChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""AdmChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
-class ADMChannel(pulumi.CustomResource):
-    warnings.warn("""ADMChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+class AdmChannel(pulumi.CustomResource):
+    warnings.warn("""AdmChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -89,18 +89,18 @@ class ADMChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ADMChannelArgs,
+                 args: AdmChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Pinpoint::ADMChannel
 
         :param str resource_name: The name of the resource.
-        :param ADMChannelArgs args: The arguments to use to populate this resource's properties.
+        :param AdmChannelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ADMChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AdmChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -114,14 +114,14 @@ class ADMChannel(pulumi.CustomResource):
                  client_secret: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""ADMChannel is deprecated: ADMChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""AdmChannel is deprecated: AdmChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ADMChannelArgs.__new__(ADMChannelArgs)
+            __props__ = AdmChannelArgs.__new__(AdmChannelArgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
@@ -133,8 +133,8 @@ class ADMChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = client_secret
             __props__.__dict__["enabled"] = enabled
-        super(ADMChannel, __self__).__init__(
-            'aws-native:pinpoint:ADMChannel',
+        super(AdmChannel, __self__).__init__(
+            'aws-native:pinpoint:AdmChannel',
             resource_name,
             __props__,
             opts)
@@ -142,9 +142,9 @@ class ADMChannel(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'ADMChannel':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AdmChannel':
         """
-        Get an existing ADMChannel resource's state with the given name, id, and optional extra
+        Get an existing AdmChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -153,13 +153,13 @@ class ADMChannel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ADMChannelArgs.__new__(ADMChannelArgs)
+        __props__ = AdmChannelArgs.__new__(AdmChannelArgs)
 
         __props__.__dict__["application_id"] = None
         __props__.__dict__["client_id"] = None
         __props__.__dict__["client_secret"] = None
         __props__.__dict__["enabled"] = None
-        return ADMChannel(resource_name, opts=opts, __props__=__props__)
+        return AdmChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="applicationId")

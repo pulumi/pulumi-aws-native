@@ -119,7 +119,7 @@ __all__ = [
     'ChannelMultiplexOutputSettings',
     'ChannelMultiplexProgramChannelDestinationSettings',
     'ChannelNetworkInputSettings',
-    'ChannelNielsenCBET',
+    'ChannelNielsenCbet',
     'ChannelNielsenConfiguration',
     'ChannelNielsenNaesIiNw',
     'ChannelNielsenWatermarksSettings',
@@ -7613,7 +7613,7 @@ class ChannelNetworkInputSettings(dict):
 
 
 @pulumi.output_type
-class ChannelNielsenCBET(dict):
+class ChannelNielsenCbet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7623,14 +7623,14 @@ class ChannelNielsenCBET(dict):
             suggest = "cbet_stepaside"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ChannelNielsenCBET. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNielsenCbet. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ChannelNielsenCBET.__key_warning(key)
+        ChannelNielsenCbet.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ChannelNielsenCBET.__key_warning(key)
+        ChannelNielsenCbet.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -7770,7 +7770,7 @@ class ChannelNielsenWatermarksSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 nielsen_cbet_settings: Optional['outputs.ChannelNielsenCBET'] = None,
+                 nielsen_cbet_settings: Optional['outputs.ChannelNielsenCbet'] = None,
                  nielsen_distribution_type: Optional[str] = None,
                  nielsen_naes_ii_nw_settings: Optional['outputs.ChannelNielsenNaesIiNw'] = None):
         if nielsen_cbet_settings is not None:
@@ -7782,7 +7782,7 @@ class ChannelNielsenWatermarksSettings(dict):
 
     @property
     @pulumi.getter(name="nielsenCbetSettings")
-    def nielsen_cbet_settings(self) -> Optional['outputs.ChannelNielsenCBET']:
+    def nielsen_cbet_settings(self) -> Optional['outputs.ChannelNielsenCbet']:
         return pulumi.get(self, "nielsen_cbet_settings")
 
     @property

@@ -13,110 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type AttributesItemProperties struct {
+type DatasetAttributesItemProperties struct {
 	// Name of the dataset field
 	AttributeName *string `pulumi:"attributeName"`
 	// Data type of the field
 	AttributeType *DatasetAttributesItemPropertiesAttributeType `pulumi:"attributeType"`
 }
 
-// AttributesItemPropertiesInput is an input type that accepts AttributesItemPropertiesArgs and AttributesItemPropertiesOutput values.
-// You can construct a concrete instance of `AttributesItemPropertiesInput` via:
+// DatasetAttributesItemPropertiesInput is an input type that accepts DatasetAttributesItemPropertiesArgs and DatasetAttributesItemPropertiesOutput values.
+// You can construct a concrete instance of `DatasetAttributesItemPropertiesInput` via:
 //
-//	AttributesItemPropertiesArgs{...}
-type AttributesItemPropertiesInput interface {
+//	DatasetAttributesItemPropertiesArgs{...}
+type DatasetAttributesItemPropertiesInput interface {
 	pulumi.Input
 
-	ToAttributesItemPropertiesOutput() AttributesItemPropertiesOutput
-	ToAttributesItemPropertiesOutputWithContext(context.Context) AttributesItemPropertiesOutput
+	ToDatasetAttributesItemPropertiesOutput() DatasetAttributesItemPropertiesOutput
+	ToDatasetAttributesItemPropertiesOutputWithContext(context.Context) DatasetAttributesItemPropertiesOutput
 }
 
-type AttributesItemPropertiesArgs struct {
+type DatasetAttributesItemPropertiesArgs struct {
 	// Name of the dataset field
 	AttributeName pulumi.StringPtrInput `pulumi:"attributeName"`
 	// Data type of the field
 	AttributeType DatasetAttributesItemPropertiesAttributeTypePtrInput `pulumi:"attributeType"`
 }
 
-func (AttributesItemPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttributesItemProperties)(nil)).Elem()
+func (DatasetAttributesItemPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetAttributesItemProperties)(nil)).Elem()
 }
 
-func (i AttributesItemPropertiesArgs) ToAttributesItemPropertiesOutput() AttributesItemPropertiesOutput {
-	return i.ToAttributesItemPropertiesOutputWithContext(context.Background())
+func (i DatasetAttributesItemPropertiesArgs) ToDatasetAttributesItemPropertiesOutput() DatasetAttributesItemPropertiesOutput {
+	return i.ToDatasetAttributesItemPropertiesOutputWithContext(context.Background())
 }
 
-func (i AttributesItemPropertiesArgs) ToAttributesItemPropertiesOutputWithContext(ctx context.Context) AttributesItemPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AttributesItemPropertiesOutput)
+func (i DatasetAttributesItemPropertiesArgs) ToDatasetAttributesItemPropertiesOutputWithContext(ctx context.Context) DatasetAttributesItemPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetAttributesItemPropertiesOutput)
 }
 
-// AttributesItemPropertiesArrayInput is an input type that accepts AttributesItemPropertiesArray and AttributesItemPropertiesArrayOutput values.
-// You can construct a concrete instance of `AttributesItemPropertiesArrayInput` via:
+// DatasetAttributesItemPropertiesArrayInput is an input type that accepts DatasetAttributesItemPropertiesArray and DatasetAttributesItemPropertiesArrayOutput values.
+// You can construct a concrete instance of `DatasetAttributesItemPropertiesArrayInput` via:
 //
-//	AttributesItemPropertiesArray{ AttributesItemPropertiesArgs{...} }
-type AttributesItemPropertiesArrayInput interface {
+//	DatasetAttributesItemPropertiesArray{ DatasetAttributesItemPropertiesArgs{...} }
+type DatasetAttributesItemPropertiesArrayInput interface {
 	pulumi.Input
 
-	ToAttributesItemPropertiesArrayOutput() AttributesItemPropertiesArrayOutput
-	ToAttributesItemPropertiesArrayOutputWithContext(context.Context) AttributesItemPropertiesArrayOutput
+	ToDatasetAttributesItemPropertiesArrayOutput() DatasetAttributesItemPropertiesArrayOutput
+	ToDatasetAttributesItemPropertiesArrayOutputWithContext(context.Context) DatasetAttributesItemPropertiesArrayOutput
 }
 
-type AttributesItemPropertiesArray []AttributesItemPropertiesInput
+type DatasetAttributesItemPropertiesArray []DatasetAttributesItemPropertiesInput
 
-func (AttributesItemPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AttributesItemProperties)(nil)).Elem()
+func (DatasetAttributesItemPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetAttributesItemProperties)(nil)).Elem()
 }
 
-func (i AttributesItemPropertiesArray) ToAttributesItemPropertiesArrayOutput() AttributesItemPropertiesArrayOutput {
-	return i.ToAttributesItemPropertiesArrayOutputWithContext(context.Background())
+func (i DatasetAttributesItemPropertiesArray) ToDatasetAttributesItemPropertiesArrayOutput() DatasetAttributesItemPropertiesArrayOutput {
+	return i.ToDatasetAttributesItemPropertiesArrayOutputWithContext(context.Background())
 }
 
-func (i AttributesItemPropertiesArray) ToAttributesItemPropertiesArrayOutputWithContext(ctx context.Context) AttributesItemPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AttributesItemPropertiesArrayOutput)
+func (i DatasetAttributesItemPropertiesArray) ToDatasetAttributesItemPropertiesArrayOutputWithContext(ctx context.Context) DatasetAttributesItemPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetAttributesItemPropertiesArrayOutput)
 }
 
-type AttributesItemPropertiesOutput struct{ *pulumi.OutputState }
+type DatasetAttributesItemPropertiesOutput struct{ *pulumi.OutputState }
 
-func (AttributesItemPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttributesItemProperties)(nil)).Elem()
+func (DatasetAttributesItemPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetAttributesItemProperties)(nil)).Elem()
 }
 
-func (o AttributesItemPropertiesOutput) ToAttributesItemPropertiesOutput() AttributesItemPropertiesOutput {
+func (o DatasetAttributesItemPropertiesOutput) ToDatasetAttributesItemPropertiesOutput() DatasetAttributesItemPropertiesOutput {
 	return o
 }
 
-func (o AttributesItemPropertiesOutput) ToAttributesItemPropertiesOutputWithContext(ctx context.Context) AttributesItemPropertiesOutput {
+func (o DatasetAttributesItemPropertiesOutput) ToDatasetAttributesItemPropertiesOutputWithContext(ctx context.Context) DatasetAttributesItemPropertiesOutput {
 	return o
 }
 
 // Name of the dataset field
-func (o AttributesItemPropertiesOutput) AttributeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AttributesItemProperties) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
+func (o DatasetAttributesItemPropertiesOutput) AttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetAttributesItemProperties) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
 }
 
 // Data type of the field
-func (o AttributesItemPropertiesOutput) AttributeType() DatasetAttributesItemPropertiesAttributeTypePtrOutput {
-	return o.ApplyT(func(v AttributesItemProperties) *DatasetAttributesItemPropertiesAttributeType { return v.AttributeType }).(DatasetAttributesItemPropertiesAttributeTypePtrOutput)
+func (o DatasetAttributesItemPropertiesOutput) AttributeType() DatasetAttributesItemPropertiesAttributeTypePtrOutput {
+	return o.ApplyT(func(v DatasetAttributesItemProperties) *DatasetAttributesItemPropertiesAttributeType {
+		return v.AttributeType
+	}).(DatasetAttributesItemPropertiesAttributeTypePtrOutput)
 }
 
-type AttributesItemPropertiesArrayOutput struct{ *pulumi.OutputState }
+type DatasetAttributesItemPropertiesArrayOutput struct{ *pulumi.OutputState }
 
-func (AttributesItemPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AttributesItemProperties)(nil)).Elem()
+func (DatasetAttributesItemPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetAttributesItemProperties)(nil)).Elem()
 }
 
-func (o AttributesItemPropertiesArrayOutput) ToAttributesItemPropertiesArrayOutput() AttributesItemPropertiesArrayOutput {
+func (o DatasetAttributesItemPropertiesArrayOutput) ToDatasetAttributesItemPropertiesArrayOutput() DatasetAttributesItemPropertiesArrayOutput {
 	return o
 }
 
-func (o AttributesItemPropertiesArrayOutput) ToAttributesItemPropertiesArrayOutputWithContext(ctx context.Context) AttributesItemPropertiesArrayOutput {
+func (o DatasetAttributesItemPropertiesArrayOutput) ToDatasetAttributesItemPropertiesArrayOutputWithContext(ctx context.Context) DatasetAttributesItemPropertiesArrayOutput {
 	return o
 }
 
-func (o AttributesItemPropertiesArrayOutput) Index(i pulumi.IntInput) AttributesItemPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AttributesItemProperties {
-		return vs[0].([]AttributesItemProperties)[vs[1].(int)]
-	}).(AttributesItemPropertiesOutput)
+func (o DatasetAttributesItemPropertiesArrayOutput) Index(i pulumi.IntInput) DatasetAttributesItemPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetAttributesItemProperties {
+		return vs[0].([]DatasetAttributesItemProperties)[vs[1].(int)]
+	}).(DatasetAttributesItemPropertiesOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -377,7 +379,7 @@ func (o EncryptionConfigPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type SchemaProperties struct {
-	Attributes []AttributesItemProperties `pulumi:"attributes"`
+	Attributes []DatasetAttributesItemProperties `pulumi:"attributes"`
 }
 
 // SchemaPropertiesInput is an input type that accepts SchemaPropertiesArgs and SchemaPropertiesOutput values.
@@ -392,7 +394,7 @@ type SchemaPropertiesInput interface {
 }
 
 type SchemaPropertiesArgs struct {
-	Attributes AttributesItemPropertiesArrayInput `pulumi:"attributes"`
+	Attributes DatasetAttributesItemPropertiesArrayInput `pulumi:"attributes"`
 }
 
 func (SchemaPropertiesArgs) ElementType() reflect.Type {
@@ -421,8 +423,8 @@ func (o SchemaPropertiesOutput) ToSchemaPropertiesOutputWithContext(ctx context.
 	return o
 }
 
-func (o SchemaPropertiesOutput) Attributes() AttributesItemPropertiesArrayOutput {
-	return o.ApplyT(func(v SchemaProperties) []AttributesItemProperties { return v.Attributes }).(AttributesItemPropertiesArrayOutput)
+func (o SchemaPropertiesOutput) Attributes() DatasetAttributesItemPropertiesArrayOutput {
+	return o.ApplyT(func(v SchemaProperties) []DatasetAttributesItemProperties { return v.Attributes }).(DatasetAttributesItemPropertiesArrayOutput)
 }
 
 type SchemaPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -449,13 +451,13 @@ func (o SchemaPropertiesPtrOutput) Elem() SchemaPropertiesOutput {
 	}).(SchemaPropertiesOutput)
 }
 
-func (o SchemaPropertiesPtrOutput) Attributes() AttributesItemPropertiesArrayOutput {
-	return o.ApplyT(func(v *SchemaProperties) []AttributesItemProperties {
+func (o SchemaPropertiesPtrOutput) Attributes() DatasetAttributesItemPropertiesArrayOutput {
+	return o.ApplyT(func(v *SchemaProperties) []DatasetAttributesItemProperties {
 		if v == nil {
 			return nil
 		}
 		return v.Attributes
-	}).(AttributesItemPropertiesArrayOutput)
+	}).(DatasetAttributesItemPropertiesArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -562,8 +564,8 @@ func (o TagsItemPropertiesArrayOutput) Index(i pulumi.IntInput) TagsItemProperti
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AttributesItemPropertiesInput)(nil)).Elem(), AttributesItemPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AttributesItemPropertiesArrayInput)(nil)).Elem(), AttributesItemPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAttributesItemPropertiesInput)(nil)).Elem(), DatasetAttributesItemPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAttributesItemPropertiesArrayInput)(nil)).Elem(), DatasetAttributesItemPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetGroupTagInput)(nil)).Elem(), DatasetGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetGroupTagArrayInput)(nil)).Elem(), DatasetGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigPropertiesInput)(nil)).Elem(), EncryptionConfigPropertiesArgs{})
@@ -571,8 +573,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPropertiesInput)(nil)).Elem(), SchemaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagsItemPropertiesInput)(nil)).Elem(), TagsItemPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagsItemPropertiesArrayInput)(nil)).Elem(), TagsItemPropertiesArray{})
-	pulumi.RegisterOutputType(AttributesItemPropertiesOutput{})
-	pulumi.RegisterOutputType(AttributesItemPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(DatasetAttributesItemPropertiesOutput{})
+	pulumi.RegisterOutputType(DatasetAttributesItemPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(DatasetGroupTagOutput{})
 	pulumi.RegisterOutputType(DatasetGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigPropertiesOutput{})

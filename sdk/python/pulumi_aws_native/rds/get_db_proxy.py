@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetDBProxyResult',
-    'AwaitableGetDBProxyResult',
+    'GetDbProxyResult',
+    'AwaitableGetDbProxyResult',
     'get_db_proxy',
     'get_db_proxy_output',
 ]
 
 @pulumi.output_type
-class GetDBProxyResult:
+class GetDbProxyResult:
     def __init__(__self__, auth=None, db_proxy_arn=None, debug_logging=None, endpoint=None, idle_client_timeout=None, require_tls=None, role_arn=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if auth and not isinstance(auth, list):
             raise TypeError("Expected argument 'auth' to be a list")
@@ -54,7 +54,7 @@ class GetDBProxyResult:
 
     @property
     @pulumi.getter
-    def auth(self) -> Optional[Sequence['outputs.DBProxyAuthFormat']]:
+    def auth(self) -> Optional[Sequence['outputs.DbProxyAuthFormat']]:
         """
         The authorization mechanism that the proxy uses.
         """
@@ -110,7 +110,7 @@ class GetDBProxyResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DBProxyTagFormat']]:
+    def tags(self) -> Optional[Sequence['outputs.DbProxyTagFormat']]:
         """
         An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         """
@@ -133,12 +133,12 @@ class GetDBProxyResult:
         return pulumi.get(self, "vpc_security_group_ids")
 
 
-class AwaitableGetDBProxyResult(GetDBProxyResult):
+class AwaitableGetDbProxyResult(GetDbProxyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDBProxyResult(
+        return GetDbProxyResult(
             auth=self.auth,
             db_proxy_arn=self.db_proxy_arn,
             debug_logging=self.debug_logging,
@@ -152,7 +152,7 @@ class AwaitableGetDBProxyResult(GetDBProxyResult):
 
 
 def get_db_proxy(db_proxy_name: Optional[str] = None,
-                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBProxyResult:
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbProxyResult:
     """
     Resource schema for AWS::RDS::DBProxy
 
@@ -162,9 +162,9 @@ def get_db_proxy(db_proxy_name: Optional[str] = None,
     __args__ = dict()
     __args__['dbProxyName'] = db_proxy_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBProxy', __args__, opts=opts, typ=GetDBProxyResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbProxy', __args__, opts=opts, typ=GetDbProxyResult).value
 
-    return AwaitableGetDBProxyResult(
+    return AwaitableGetDbProxyResult(
         auth=pulumi.get(__ret__, 'auth'),
         db_proxy_arn=pulumi.get(__ret__, 'db_proxy_arn'),
         debug_logging=pulumi.get(__ret__, 'debug_logging'),
@@ -179,7 +179,7 @@ def get_db_proxy(db_proxy_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_db_proxy)
 def get_db_proxy_output(db_proxy_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBProxyResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbProxyResult]:
     """
     Resource schema for AWS::RDS::DBProxy
 

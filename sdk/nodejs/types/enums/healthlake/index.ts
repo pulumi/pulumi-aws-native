@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const FHIRDatastoreDatastoreStatus = {
+export const FhirDatastoreDatastoreStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",
     Deleting: "DELETING",
@@ -12,18 +12,18 @@ export const FHIRDatastoreDatastoreStatus = {
 /**
  * The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
  */
-export type FHIRDatastoreDatastoreStatus = (typeof FHIRDatastoreDatastoreStatus)[keyof typeof FHIRDatastoreDatastoreStatus];
+export type FhirDatastoreDatastoreStatus = (typeof FhirDatastoreDatastoreStatus)[keyof typeof FhirDatastoreDatastoreStatus];
 
-export const FHIRDatastoreDatastoreTypeVersion = {
+export const FhirDatastoreDatastoreTypeVersion = {
     R4: "R4",
 } as const;
 
 /**
  * The FHIR version. Only R4 version data is supported.
  */
-export type FHIRDatastoreDatastoreTypeVersion = (typeof FHIRDatastoreDatastoreTypeVersion)[keyof typeof FHIRDatastoreDatastoreTypeVersion];
+export type FhirDatastoreDatastoreTypeVersion = (typeof FhirDatastoreDatastoreTypeVersion)[keyof typeof FhirDatastoreDatastoreTypeVersion];
 
-export const FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy = {
+export const FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy = {
     SmartOnFhirV1: "SMART_ON_FHIR_V1",
     AwsAuth: "AWS_AUTH",
 } as const;
@@ -31,9 +31,9 @@ export const FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy = {
 /**
  * Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
  */
-export type FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy = (typeof FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy)[keyof typeof FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy];
+export type FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy = (typeof FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy)[keyof typeof FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy];
 
-export const FHIRDatastoreKmsEncryptionConfigCmkType = {
+export const FhirDatastoreKmsEncryptionConfigCmkType = {
     CustomerManagedKmsKey: "CUSTOMER_MANAGED_KMS_KEY",
     AwsOwnedKmsKey: "AWS_OWNED_KMS_KEY",
 } as const;
@@ -41,13 +41,13 @@ export const FHIRDatastoreKmsEncryptionConfigCmkType = {
 /**
  * The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
  */
-export type FHIRDatastoreKmsEncryptionConfigCmkType = (typeof FHIRDatastoreKmsEncryptionConfigCmkType)[keyof typeof FHIRDatastoreKmsEncryptionConfigCmkType];
+export type FhirDatastoreKmsEncryptionConfigCmkType = (typeof FhirDatastoreKmsEncryptionConfigCmkType)[keyof typeof FhirDatastoreKmsEncryptionConfigCmkType];
 
-export const FHIRDatastorePreloadDataConfigPreloadDataType = {
+export const FhirDatastorePreloadDataConfigPreloadDataType = {
     Synthea: "SYNTHEA",
 } as const;
 
 /**
  * The type of preloaded data. Only Synthea preloaded data is supported.
  */
-export type FHIRDatastorePreloadDataConfigPreloadDataType = (typeof FHIRDatastorePreloadDataConfigPreloadDataType)[keyof typeof FHIRDatastorePreloadDataConfigPreloadDataType];
+export type FhirDatastorePreloadDataConfigPreloadDataType = (typeof FhirDatastorePreloadDataConfigPreloadDataType)[keyof typeof FhirDatastorePreloadDataConfigPreloadDataType];

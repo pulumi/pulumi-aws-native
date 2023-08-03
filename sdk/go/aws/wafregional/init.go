@@ -25,8 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ByteMatchSet{}
 	case "aws-native:wafregional:GeoMatchSet":
 		r = &GeoMatchSet{}
-	case "aws-native:wafregional:IPSet":
-		r = &IPSet{}
+	case "aws-native:wafregional:IpSet":
+		r = &IpSet{}
 	case "aws-native:wafregional:RateBasedRule":
 		r = &RateBasedRule{}
 	case "aws-native:wafregional:RegexPatternSet":
@@ -37,10 +37,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SizeConstraintSet{}
 	case "aws-native:wafregional:SqlInjectionMatchSet":
 		r = &SqlInjectionMatchSet{}
-	case "aws-native:wafregional:WebACL":
-		r = &WebACL{}
-	case "aws-native:wafregional:WebACLAssociation":
-		r = &WebACLAssociation{}
+	case "aws-native:wafregional:WebAcl":
+		r = &WebAcl{}
+	case "aws-native:wafregional:WebAclAssociation":
+		r = &WebAclAssociation{}
 	case "aws-native:wafregional:XssMatchSet":
 		r = &XssMatchSet{}
 	default:

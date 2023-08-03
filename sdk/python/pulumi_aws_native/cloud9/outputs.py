@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EnvironmentEC2Repository',
-    'EnvironmentEC2Tag',
+    'EnvironmentEc2Repository',
+    'EnvironmentEc2Tag',
 ]
 
 @pulumi.output_type
-class EnvironmentEC2Repository(dict):
+class EnvironmentEc2Repository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25,14 +25,14 @@ class EnvironmentEC2Repository(dict):
             suggest = "repository_url"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EnvironmentEC2Repository. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentEc2Repository. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EnvironmentEC2Repository.__key_warning(key)
+        EnvironmentEc2Repository.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EnvironmentEC2Repository.__key_warning(key)
+        EnvironmentEc2Repository.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -53,7 +53,7 @@ class EnvironmentEC2Repository(dict):
 
 
 @pulumi.output_type
-class EnvironmentEC2Tag(dict):
+class EnvironmentEc2Tag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

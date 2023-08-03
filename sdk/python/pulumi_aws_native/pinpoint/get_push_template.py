@@ -58,7 +58,7 @@ class GetPushTemplateResult:
 
     @property
     @pulumi.getter
-    def apns(self) -> Optional['outputs.PushTemplateAPNSPushNotificationTemplate']:
+    def apns(self) -> Optional['outputs.PushTemplateApnsPushNotificationTemplate']:
         return pulumi.get(self, "apns")
 
     @property

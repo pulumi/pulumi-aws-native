@@ -2926,7 +2926,7 @@ func (o DeliveryStreamElasticsearchRetryOptionsPtrOutput) DurationInSeconds() pu
 }
 
 type DeliveryStreamEncryptionConfiguration struct {
-	KmsEncryptionConfig *DeliveryStreamKMSEncryptionConfig                       `pulumi:"kmsEncryptionConfig"`
+	KmsEncryptionConfig *DeliveryStreamKmsEncryptionConfig                       `pulumi:"kmsEncryptionConfig"`
 	NoEncryptionConfig  *DeliveryStreamEncryptionConfigurationNoEncryptionConfig `pulumi:"noEncryptionConfig"`
 }
 
@@ -2942,7 +2942,7 @@ type DeliveryStreamEncryptionConfigurationInput interface {
 }
 
 type DeliveryStreamEncryptionConfigurationArgs struct {
-	KmsEncryptionConfig DeliveryStreamKMSEncryptionConfigPtrInput                       `pulumi:"kmsEncryptionConfig"`
+	KmsEncryptionConfig DeliveryStreamKmsEncryptionConfigPtrInput                       `pulumi:"kmsEncryptionConfig"`
 	NoEncryptionConfig  DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrInput `pulumi:"noEncryptionConfig"`
 }
 
@@ -3023,10 +3023,10 @@ func (o DeliveryStreamEncryptionConfigurationOutput) ToDeliveryStreamEncryptionC
 	}).(DeliveryStreamEncryptionConfigurationPtrOutput)
 }
 
-func (o DeliveryStreamEncryptionConfigurationOutput) KmsEncryptionConfig() DeliveryStreamKMSEncryptionConfigPtrOutput {
-	return o.ApplyT(func(v DeliveryStreamEncryptionConfiguration) *DeliveryStreamKMSEncryptionConfig {
+func (o DeliveryStreamEncryptionConfigurationOutput) KmsEncryptionConfig() DeliveryStreamKmsEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamEncryptionConfiguration) *DeliveryStreamKmsEncryptionConfig {
 		return v.KmsEncryptionConfig
-	}).(DeliveryStreamKMSEncryptionConfigPtrOutput)
+	}).(DeliveryStreamKmsEncryptionConfigPtrOutput)
 }
 
 func (o DeliveryStreamEncryptionConfigurationOutput) NoEncryptionConfig() DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput {
@@ -3059,13 +3059,13 @@ func (o DeliveryStreamEncryptionConfigurationPtrOutput) Elem() DeliveryStreamEnc
 	}).(DeliveryStreamEncryptionConfigurationOutput)
 }
 
-func (o DeliveryStreamEncryptionConfigurationPtrOutput) KmsEncryptionConfig() DeliveryStreamKMSEncryptionConfigPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamEncryptionConfiguration) *DeliveryStreamKMSEncryptionConfig {
+func (o DeliveryStreamEncryptionConfigurationPtrOutput) KmsEncryptionConfig() DeliveryStreamKmsEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamEncryptionConfiguration) *DeliveryStreamKmsEncryptionConfig {
 		if v == nil {
 			return nil
 		}
 		return v.KmsEncryptionConfig
-	}).(DeliveryStreamKMSEncryptionConfigPtrOutput)
+	}).(DeliveryStreamKmsEncryptionConfigPtrOutput)
 }
 
 func (o DeliveryStreamEncryptionConfigurationPtrOutput) NoEncryptionConfig() DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput {
@@ -4506,139 +4506,6 @@ func (o DeliveryStreamInputFormatConfigurationPtrOutput) Deserializer() Delivery
 	}).(DeliveryStreamDeserializerPtrOutput)
 }
 
-type DeliveryStreamKMSEncryptionConfig struct {
-	AwskmsKeyArn string `pulumi:"awskmsKeyArn"`
-}
-
-// DeliveryStreamKMSEncryptionConfigInput is an input type that accepts DeliveryStreamKMSEncryptionConfigArgs and DeliveryStreamKMSEncryptionConfigOutput values.
-// You can construct a concrete instance of `DeliveryStreamKMSEncryptionConfigInput` via:
-//
-//	DeliveryStreamKMSEncryptionConfigArgs{...}
-type DeliveryStreamKMSEncryptionConfigInput interface {
-	pulumi.Input
-
-	ToDeliveryStreamKMSEncryptionConfigOutput() DeliveryStreamKMSEncryptionConfigOutput
-	ToDeliveryStreamKMSEncryptionConfigOutputWithContext(context.Context) DeliveryStreamKMSEncryptionConfigOutput
-}
-
-type DeliveryStreamKMSEncryptionConfigArgs struct {
-	AwskmsKeyArn pulumi.StringInput `pulumi:"awskmsKeyArn"`
-}
-
-func (DeliveryStreamKMSEncryptionConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStreamKMSEncryptionConfig)(nil)).Elem()
-}
-
-func (i DeliveryStreamKMSEncryptionConfigArgs) ToDeliveryStreamKMSEncryptionConfigOutput() DeliveryStreamKMSEncryptionConfigOutput {
-	return i.ToDeliveryStreamKMSEncryptionConfigOutputWithContext(context.Background())
-}
-
-func (i DeliveryStreamKMSEncryptionConfigArgs) ToDeliveryStreamKMSEncryptionConfigOutputWithContext(ctx context.Context) DeliveryStreamKMSEncryptionConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamKMSEncryptionConfigOutput)
-}
-
-func (i DeliveryStreamKMSEncryptionConfigArgs) ToDeliveryStreamKMSEncryptionConfigPtrOutput() DeliveryStreamKMSEncryptionConfigPtrOutput {
-	return i.ToDeliveryStreamKMSEncryptionConfigPtrOutputWithContext(context.Background())
-}
-
-func (i DeliveryStreamKMSEncryptionConfigArgs) ToDeliveryStreamKMSEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamKMSEncryptionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamKMSEncryptionConfigOutput).ToDeliveryStreamKMSEncryptionConfigPtrOutputWithContext(ctx)
-}
-
-// DeliveryStreamKMSEncryptionConfigPtrInput is an input type that accepts DeliveryStreamKMSEncryptionConfigArgs, DeliveryStreamKMSEncryptionConfigPtr and DeliveryStreamKMSEncryptionConfigPtrOutput values.
-// You can construct a concrete instance of `DeliveryStreamKMSEncryptionConfigPtrInput` via:
-//
-//	        DeliveryStreamKMSEncryptionConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type DeliveryStreamKMSEncryptionConfigPtrInput interface {
-	pulumi.Input
-
-	ToDeliveryStreamKMSEncryptionConfigPtrOutput() DeliveryStreamKMSEncryptionConfigPtrOutput
-	ToDeliveryStreamKMSEncryptionConfigPtrOutputWithContext(context.Context) DeliveryStreamKMSEncryptionConfigPtrOutput
-}
-
-type deliveryStreamKMSEncryptionConfigPtrType DeliveryStreamKMSEncryptionConfigArgs
-
-func DeliveryStreamKMSEncryptionConfigPtr(v *DeliveryStreamKMSEncryptionConfigArgs) DeliveryStreamKMSEncryptionConfigPtrInput {
-	return (*deliveryStreamKMSEncryptionConfigPtrType)(v)
-}
-
-func (*deliveryStreamKMSEncryptionConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeliveryStreamKMSEncryptionConfig)(nil)).Elem()
-}
-
-func (i *deliveryStreamKMSEncryptionConfigPtrType) ToDeliveryStreamKMSEncryptionConfigPtrOutput() DeliveryStreamKMSEncryptionConfigPtrOutput {
-	return i.ToDeliveryStreamKMSEncryptionConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *deliveryStreamKMSEncryptionConfigPtrType) ToDeliveryStreamKMSEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamKMSEncryptionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamKMSEncryptionConfigPtrOutput)
-}
-
-type DeliveryStreamKMSEncryptionConfigOutput struct{ *pulumi.OutputState }
-
-func (DeliveryStreamKMSEncryptionConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStreamKMSEncryptionConfig)(nil)).Elem()
-}
-
-func (o DeliveryStreamKMSEncryptionConfigOutput) ToDeliveryStreamKMSEncryptionConfigOutput() DeliveryStreamKMSEncryptionConfigOutput {
-	return o
-}
-
-func (o DeliveryStreamKMSEncryptionConfigOutput) ToDeliveryStreamKMSEncryptionConfigOutputWithContext(ctx context.Context) DeliveryStreamKMSEncryptionConfigOutput {
-	return o
-}
-
-func (o DeliveryStreamKMSEncryptionConfigOutput) ToDeliveryStreamKMSEncryptionConfigPtrOutput() DeliveryStreamKMSEncryptionConfigPtrOutput {
-	return o.ToDeliveryStreamKMSEncryptionConfigPtrOutputWithContext(context.Background())
-}
-
-func (o DeliveryStreamKMSEncryptionConfigOutput) ToDeliveryStreamKMSEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamKMSEncryptionConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamKMSEncryptionConfig) *DeliveryStreamKMSEncryptionConfig {
-		return &v
-	}).(DeliveryStreamKMSEncryptionConfigPtrOutput)
-}
-
-func (o DeliveryStreamKMSEncryptionConfigOutput) AwskmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryStreamKMSEncryptionConfig) string { return v.AwskmsKeyArn }).(pulumi.StringOutput)
-}
-
-type DeliveryStreamKMSEncryptionConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (DeliveryStreamKMSEncryptionConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeliveryStreamKMSEncryptionConfig)(nil)).Elem()
-}
-
-func (o DeliveryStreamKMSEncryptionConfigPtrOutput) ToDeliveryStreamKMSEncryptionConfigPtrOutput() DeliveryStreamKMSEncryptionConfigPtrOutput {
-	return o
-}
-
-func (o DeliveryStreamKMSEncryptionConfigPtrOutput) ToDeliveryStreamKMSEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamKMSEncryptionConfigPtrOutput {
-	return o
-}
-
-func (o DeliveryStreamKMSEncryptionConfigPtrOutput) Elem() DeliveryStreamKMSEncryptionConfigOutput {
-	return o.ApplyT(func(v *DeliveryStreamKMSEncryptionConfig) DeliveryStreamKMSEncryptionConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DeliveryStreamKMSEncryptionConfig
-		return ret
-	}).(DeliveryStreamKMSEncryptionConfigOutput)
-}
-
-func (o DeliveryStreamKMSEncryptionConfigPtrOutput) AwskmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamKMSEncryptionConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AwskmsKeyArn
-	}).(pulumi.StringPtrOutput)
-}
-
 type DeliveryStreamKinesisStreamSourceConfiguration struct {
 	KinesisStreamArn string `pulumi:"kinesisStreamArn"`
 	RoleArn          string `pulumi:"roleArn"`
@@ -4784,6 +4651,139 @@ func (o DeliveryStreamKinesisStreamSourceConfigurationPtrOutput) RoleArn() pulum
 			return nil
 		}
 		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamKmsEncryptionConfig struct {
+	AwskmsKeyArn string `pulumi:"awskmsKeyArn"`
+}
+
+// DeliveryStreamKmsEncryptionConfigInput is an input type that accepts DeliveryStreamKmsEncryptionConfigArgs and DeliveryStreamKmsEncryptionConfigOutput values.
+// You can construct a concrete instance of `DeliveryStreamKmsEncryptionConfigInput` via:
+//
+//	DeliveryStreamKmsEncryptionConfigArgs{...}
+type DeliveryStreamKmsEncryptionConfigInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamKmsEncryptionConfigOutput() DeliveryStreamKmsEncryptionConfigOutput
+	ToDeliveryStreamKmsEncryptionConfigOutputWithContext(context.Context) DeliveryStreamKmsEncryptionConfigOutput
+}
+
+type DeliveryStreamKmsEncryptionConfigArgs struct {
+	AwskmsKeyArn pulumi.StringInput `pulumi:"awskmsKeyArn"`
+}
+
+func (DeliveryStreamKmsEncryptionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamKmsEncryptionConfig)(nil)).Elem()
+}
+
+func (i DeliveryStreamKmsEncryptionConfigArgs) ToDeliveryStreamKmsEncryptionConfigOutput() DeliveryStreamKmsEncryptionConfigOutput {
+	return i.ToDeliveryStreamKmsEncryptionConfigOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamKmsEncryptionConfigArgs) ToDeliveryStreamKmsEncryptionConfigOutputWithContext(ctx context.Context) DeliveryStreamKmsEncryptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamKmsEncryptionConfigOutput)
+}
+
+func (i DeliveryStreamKmsEncryptionConfigArgs) ToDeliveryStreamKmsEncryptionConfigPtrOutput() DeliveryStreamKmsEncryptionConfigPtrOutput {
+	return i.ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamKmsEncryptionConfigArgs) ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamKmsEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamKmsEncryptionConfigOutput).ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamKmsEncryptionConfigPtrInput is an input type that accepts DeliveryStreamKmsEncryptionConfigArgs, DeliveryStreamKmsEncryptionConfigPtr and DeliveryStreamKmsEncryptionConfigPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamKmsEncryptionConfigPtrInput` via:
+//
+//	        DeliveryStreamKmsEncryptionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamKmsEncryptionConfigPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamKmsEncryptionConfigPtrOutput() DeliveryStreamKmsEncryptionConfigPtrOutput
+	ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(context.Context) DeliveryStreamKmsEncryptionConfigPtrOutput
+}
+
+type deliveryStreamKmsEncryptionConfigPtrType DeliveryStreamKmsEncryptionConfigArgs
+
+func DeliveryStreamKmsEncryptionConfigPtr(v *DeliveryStreamKmsEncryptionConfigArgs) DeliveryStreamKmsEncryptionConfigPtrInput {
+	return (*deliveryStreamKmsEncryptionConfigPtrType)(v)
+}
+
+func (*deliveryStreamKmsEncryptionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamKmsEncryptionConfig)(nil)).Elem()
+}
+
+func (i *deliveryStreamKmsEncryptionConfigPtrType) ToDeliveryStreamKmsEncryptionConfigPtrOutput() DeliveryStreamKmsEncryptionConfigPtrOutput {
+	return i.ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamKmsEncryptionConfigPtrType) ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamKmsEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamKmsEncryptionConfigPtrOutput)
+}
+
+type DeliveryStreamKmsEncryptionConfigOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamKmsEncryptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamKmsEncryptionConfig)(nil)).Elem()
+}
+
+func (o DeliveryStreamKmsEncryptionConfigOutput) ToDeliveryStreamKmsEncryptionConfigOutput() DeliveryStreamKmsEncryptionConfigOutput {
+	return o
+}
+
+func (o DeliveryStreamKmsEncryptionConfigOutput) ToDeliveryStreamKmsEncryptionConfigOutputWithContext(ctx context.Context) DeliveryStreamKmsEncryptionConfigOutput {
+	return o
+}
+
+func (o DeliveryStreamKmsEncryptionConfigOutput) ToDeliveryStreamKmsEncryptionConfigPtrOutput() DeliveryStreamKmsEncryptionConfigPtrOutput {
+	return o.ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamKmsEncryptionConfigOutput) ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamKmsEncryptionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamKmsEncryptionConfig) *DeliveryStreamKmsEncryptionConfig {
+		return &v
+	}).(DeliveryStreamKmsEncryptionConfigPtrOutput)
+}
+
+func (o DeliveryStreamKmsEncryptionConfigOutput) AwskmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamKmsEncryptionConfig) string { return v.AwskmsKeyArn }).(pulumi.StringOutput)
+}
+
+type DeliveryStreamKmsEncryptionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamKmsEncryptionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamKmsEncryptionConfig)(nil)).Elem()
+}
+
+func (o DeliveryStreamKmsEncryptionConfigPtrOutput) ToDeliveryStreamKmsEncryptionConfigPtrOutput() DeliveryStreamKmsEncryptionConfigPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamKmsEncryptionConfigPtrOutput) ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamKmsEncryptionConfigPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamKmsEncryptionConfigPtrOutput) Elem() DeliveryStreamKmsEncryptionConfigOutput {
+	return o.ApplyT(func(v *DeliveryStreamKmsEncryptionConfig) DeliveryStreamKmsEncryptionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamKmsEncryptionConfig
+		return ret
+	}).(DeliveryStreamKmsEncryptionConfigOutput)
+}
+
+func (o DeliveryStreamKmsEncryptionConfigPtrOutput) AwskmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamKmsEncryptionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwskmsKeyArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7074,7 +7074,7 @@ type DeliveryStreamSplunkDestinationConfiguration struct {
 	CloudWatchLoggingOptions          *DeliveryStreamCloudWatchLoggingOptions                     `pulumi:"cloudWatchLoggingOptions"`
 	HecAcknowledgmentTimeoutInSeconds *int                                                        `pulumi:"hecAcknowledgmentTimeoutInSeconds"`
 	HecEndpoint                       string                                                      `pulumi:"hecEndpoint"`
-	HecEndpointType                   DeliveryStreamSplunkDestinationConfigurationHECEndpointType `pulumi:"hecEndpointType"`
+	HecEndpointType                   DeliveryStreamSplunkDestinationConfigurationHecEndpointType `pulumi:"hecEndpointType"`
 	HecToken                          string                                                      `pulumi:"hecToken"`
 	ProcessingConfiguration           *DeliveryStreamProcessingConfiguration                      `pulumi:"processingConfiguration"`
 	RetryOptions                      *DeliveryStreamSplunkRetryOptions                           `pulumi:"retryOptions"`
@@ -7097,7 +7097,7 @@ type DeliveryStreamSplunkDestinationConfigurationArgs struct {
 	CloudWatchLoggingOptions          DeliveryStreamCloudWatchLoggingOptionsPtrInput                   `pulumi:"cloudWatchLoggingOptions"`
 	HecAcknowledgmentTimeoutInSeconds pulumi.IntPtrInput                                               `pulumi:"hecAcknowledgmentTimeoutInSeconds"`
 	HecEndpoint                       pulumi.StringInput                                               `pulumi:"hecEndpoint"`
-	HecEndpointType                   DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeInput `pulumi:"hecEndpointType"`
+	HecEndpointType                   DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput `pulumi:"hecEndpointType"`
 	HecToken                          pulumi.StringInput                                               `pulumi:"hecToken"`
 	ProcessingConfiguration           DeliveryStreamProcessingConfigurationPtrInput                    `pulumi:"processingConfiguration"`
 	RetryOptions                      DeliveryStreamSplunkRetryOptionsPtrInput                         `pulumi:"retryOptions"`
@@ -7196,10 +7196,10 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) HecEndpoint() pulumi
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) string { return v.HecEndpoint }).(pulumi.StringOutput)
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationOutput) HecEndpointType() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput {
-	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) DeliveryStreamSplunkDestinationConfigurationHECEndpointType {
+func (o DeliveryStreamSplunkDestinationConfigurationOutput) HecEndpointType() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput {
+	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) DeliveryStreamSplunkDestinationConfigurationHecEndpointType {
 		return v.HecEndpointType
-	}).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput)
+	}).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput)
 }
 
 func (o DeliveryStreamSplunkDestinationConfigurationOutput) HecToken() pulumi.StringOutput {
@@ -7279,13 +7279,13 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) HecEndpoint() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) HecEndpointType() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSplunkDestinationConfigurationHECEndpointType {
+func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) HecEndpointType() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSplunkDestinationConfigurationHecEndpointType {
 		if v == nil {
 			return nil
 		}
 		return &v.HecEndpointType
-	}).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput)
+	}).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput)
 }
 
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) HecToken() pulumi.StringPtrOutput {
@@ -7780,10 +7780,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamHttpEndpointRequestConfigurationPtrInput)(nil)).Elem(), DeliveryStreamHttpEndpointRequestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamInputFormatConfigurationInput)(nil)).Elem(), DeliveryStreamInputFormatConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamInputFormatConfigurationPtrInput)(nil)).Elem(), DeliveryStreamInputFormatConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamKMSEncryptionConfigInput)(nil)).Elem(), DeliveryStreamKMSEncryptionConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamKMSEncryptionConfigPtrInput)(nil)).Elem(), DeliveryStreamKMSEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamKinesisStreamSourceConfigurationInput)(nil)).Elem(), DeliveryStreamKinesisStreamSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamKinesisStreamSourceConfigurationPtrInput)(nil)).Elem(), DeliveryStreamKinesisStreamSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamKmsEncryptionConfigInput)(nil)).Elem(), DeliveryStreamKmsEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamKmsEncryptionConfigPtrInput)(nil)).Elem(), DeliveryStreamKmsEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamOpenXJsonSerDeInput)(nil)).Elem(), DeliveryStreamOpenXJsonSerDeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamOpenXJsonSerDePtrInput)(nil)).Elem(), DeliveryStreamOpenXJsonSerDeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamOrcSerDeInput)(nil)).Elem(), DeliveryStreamOrcSerDeArgs{})
@@ -7868,10 +7868,10 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamInputFormatConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamInputFormatConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DeliveryStreamKMSEncryptionConfigOutput{})
-	pulumi.RegisterOutputType(DeliveryStreamKMSEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamKinesisStreamSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamKinesisStreamSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamKmsEncryptionConfigOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamKmsEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamOpenXJsonSerDeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamOpenXJsonSerDePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamOrcSerDeOutput{})

@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['IPAMArgs', 'IPAM']
+__all__ = ['IpamArgs', 'Ipam']
 
 @pulumi.input_type
-class IPAMArgs:
+class IpamArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMIpamOperatingRegionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMTagArgs']]]] = None):
+                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamTagArgs']]]] = None):
         """
-        The set of arguments for constructing a IPAM resource.
-        :param pulumi.Input[Sequence[pulumi.Input['IPAMIpamOperatingRegionArgs']]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-        :param pulumi.Input[Sequence[pulumi.Input['IPAMTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        The set of arguments for constructing a Ipam resource.
+        :param pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+        :param pulumi.Input[Sequence[pulumi.Input['IpamTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -42,62 +42,62 @@ class IPAMArgs:
 
     @property
     @pulumi.getter(name="operatingRegions")
-    def operating_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPAMIpamOperatingRegionArgs']]]]:
+    def operating_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]]]:
         """
         The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         """
         return pulumi.get(self, "operating_regions")
 
     @operating_regions.setter
-    def operating_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMIpamOperatingRegionArgs']]]]):
+    def operating_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]]]):
         pulumi.set(self, "operating_regions", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPAMTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class IPAM(pulumi.CustomResource):
+class Ipam(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMIpamOperatingRegionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMTagArgs']]]]] = None,
+                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamOperatingRegionArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EC2::IPAM Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMIpamOperatingRegionArgs']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamOperatingRegionArgs']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[IPAMArgs] = None,
+                 args: Optional[IpamArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAM Type
 
         :param str resource_name: The name of the resource.
-        :param IPAMArgs args: The arguments to use to populate this resource's properties.
+        :param IpamArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IPAMArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IpamArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -107,8 +107,8 @@ class IPAM(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMIpamOperatingRegionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMTagArgs']]]]] = None,
+                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamOperatingRegionArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -116,7 +116,7 @@ class IPAM(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IPAMArgs.__new__(IPAMArgs)
+            __props__ = IpamArgs.__new__(IpamArgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["operating_regions"] = operating_regions
@@ -129,8 +129,8 @@ class IPAM(pulumi.CustomResource):
             __props__.__dict__["public_default_scope_id"] = None
             __props__.__dict__["resource_discovery_association_count"] = None
             __props__.__dict__["scope_count"] = None
-        super(IPAM, __self__).__init__(
-            'aws-native:ec2:IPAM',
+        super(Ipam, __self__).__init__(
+            'aws-native:ec2:Ipam',
             resource_name,
             __props__,
             opts)
@@ -138,9 +138,9 @@ class IPAM(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'IPAM':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Ipam':
         """
-        Get an existing IPAM resource's state with the given name, id, and optional extra
+        Get an existing Ipam resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -149,7 +149,7 @@ class IPAM(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = IPAMArgs.__new__(IPAMArgs)
+        __props__ = IpamArgs.__new__(IpamArgs)
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["default_resource_discovery_association_id"] = None
@@ -162,7 +162,7 @@ class IPAM(pulumi.CustomResource):
         __props__.__dict__["resource_discovery_association_count"] = None
         __props__.__dict__["scope_count"] = None
         __props__.__dict__["tags"] = None
-        return IPAM(resource_name, opts=opts, __props__=__props__)
+        return Ipam(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -203,7 +203,7 @@ class IPAM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operatingRegions")
-    def operating_regions(self) -> pulumi.Output[Optional[Sequence['outputs.IPAMIpamOperatingRegion']]]:
+    def operating_regions(self) -> pulumi.Output[Optional[Sequence['outputs.IpamOperatingRegion']]]:
         """
         The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         """
@@ -243,7 +243,7 @@ class IPAM(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IPAMTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IpamTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

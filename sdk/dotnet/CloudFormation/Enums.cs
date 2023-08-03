@@ -153,7 +153,7 @@ namespace Pulumi.AwsNative.CloudFormation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PublisherIdentityProvider AWSMarketplace { get; } = new PublisherIdentityProvider("AWS_Marketplace");
+        public static PublisherIdentityProvider AwsMarketplace { get; } = new PublisherIdentityProvider("AWS_Marketplace");
         public static PublisherIdentityProvider GitHub { get; } = new PublisherIdentityProvider("GitHub");
         public static PublisherIdentityProvider Bitbucket { get; } = new PublisherIdentityProvider("Bitbucket");
 

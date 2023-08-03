@@ -25,10 +25,10 @@ namespace Pulumi.AwsNative.LakeFormation.Inputs
         public Input<Inputs.PrincipalPermissionsDatabaseResourceArgs>? Database { get; set; }
 
         [Input("lfTag")]
-        public Input<Inputs.PrincipalPermissionsLFTagKeyResourceArgs>? LfTag { get; set; }
+        public Input<Inputs.PrincipalPermissionsLfTagKeyResourceArgs>? LfTag { get; set; }
 
         [Input("lfTagPolicy")]
-        public Input<Inputs.PrincipalPermissionsLFTagPolicyResourceArgs>? LfTagPolicy { get; set; }
+        public Input<Inputs.PrincipalPermissionsLfTagPolicyResourceArgs>? LfTagPolicy { get; set; }
 
         [Input("table")]
         public Input<Inputs.PrincipalPermissionsTableResourceArgs>? Table { get; set; }

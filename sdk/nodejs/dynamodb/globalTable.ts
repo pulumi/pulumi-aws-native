@@ -44,7 +44,7 @@ export class GlobalTable extends pulumi.CustomResource {
     public readonly keySchema!: pulumi.Output<outputs.dynamodb.GlobalTableKeySchema[]>;
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.GlobalTableLocalSecondaryIndex[] | undefined>;
     public readonly replicas!: pulumi.Output<outputs.dynamodb.GlobalTableReplicaSpecification[]>;
-    public readonly sseSpecification!: pulumi.Output<outputs.dynamodb.GlobalTableSSESpecification | undefined>;
+    public readonly sseSpecification!: pulumi.Output<outputs.dynamodb.GlobalTableSseSpecification | undefined>;
     public /*out*/ readonly streamArn!: pulumi.Output<string>;
     public readonly streamSpecification!: pulumi.Output<outputs.dynamodb.GlobalTableStreamSpecification | undefined>;
     public /*out*/ readonly tableId!: pulumi.Output<string>;
@@ -117,7 +117,7 @@ export interface GlobalTableArgs {
     keySchema: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableKeySchemaArgs>[]>;
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableLocalSecondaryIndexArgs>[]>;
     replicas: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplicaSpecificationArgs>[]>;
-    sseSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableSSESpecificationArgs>;
+    sseSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableSseSpecificationArgs>;
     streamSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableStreamSpecificationArgs>;
     tableName?: pulumi.Input<string>;
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableTimeToLiveSpecificationArgs>;

@@ -13,7 +13,7 @@ __all__ = [
     'DomainAdvancedSecurityOptionsInputArgs',
     'DomainCognitoOptionsArgs',
     'DomainColdStorageOptionsArgs',
-    'DomainEBSOptionsArgs',
+    'DomainEbsOptionsArgs',
     'DomainElasticsearchClusterConfigArgs',
     'DomainEncryptionAtRestOptionsArgs',
     'DomainEndpointOptionsArgs',
@@ -21,7 +21,7 @@ __all__ = [
     'DomainNodeToNodeEncryptionOptionsArgs',
     'DomainSnapshotOptionsArgs',
     'DomainTagArgs',
-    'DomainVPCOptionsArgs',
+    'DomainVpcOptionsArgs',
     'DomainZoneAwarenessConfigArgs',
 ]
 
@@ -149,7 +149,7 @@ class DomainColdStorageOptionsArgs:
 
 
 @pulumi.input_type
-class DomainEBSOptionsArgs:
+class DomainEbsOptionsArgs:
     def __init__(__self__, *,
                  ebs_enabled: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
@@ -535,7 +535,7 @@ class DomainTagArgs:
 
 
 @pulumi.input_type
-class DomainVPCOptionsArgs:
+class DomainVpcOptionsArgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):

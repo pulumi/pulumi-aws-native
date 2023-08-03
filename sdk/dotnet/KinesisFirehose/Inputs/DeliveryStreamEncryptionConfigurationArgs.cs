@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
     public sealed class DeliveryStreamEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsEncryptionConfig")]
-        public Input<Inputs.DeliveryStreamKMSEncryptionConfigArgs>? KmsEncryptionConfig { get; set; }
+        public Input<Inputs.DeliveryStreamKmsEncryptionConfigArgs>? KmsEncryptionConfig { get; set; }
 
         [Input("noEncryptionConfig")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamEncryptionConfigurationNoEncryptionConfig>? NoEncryptionConfig { get; set; }

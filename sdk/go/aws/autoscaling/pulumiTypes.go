@@ -479,7 +479,7 @@ type AutoScalingGroupInstanceRequirements struct {
 	OnDemandMaxPricePercentageOverLowestPrice *int                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   *bool                                             `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     *int                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       *AutoScalingGroupTotalLocalStorageGBRequest       `pulumi:"totalLocalStorageGb"`
+	TotalLocalStorageGb                       *AutoScalingGroupTotalLocalStorageGbRequest       `pulumi:"totalLocalStorageGb"`
 	VCpuCount                                 *AutoScalingGroupVCpuCountRequest                 `pulumi:"vCpuCount"`
 }
 
@@ -516,7 +516,7 @@ type AutoScalingGroupInstanceRequirementsArgs struct {
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                       `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolPtrInput                                      `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                       `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       AutoScalingGroupTotalLocalStorageGBRequestPtrInput       `pulumi:"totalLocalStorageGb"`
+	TotalLocalStorageGb                       AutoScalingGroupTotalLocalStorageGbRequestPtrInput       `pulumi:"totalLocalStorageGb"`
 	VCpuCount                                 AutoScalingGroupVCpuCountRequestPtrInput                 `pulumi:"vCpuCount"`
 }
 
@@ -693,10 +693,10 @@ func (o AutoScalingGroupInstanceRequirementsOutput) SpotMaxPricePercentageOverLo
 	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
-func (o AutoScalingGroupInstanceRequirementsOutput) TotalLocalStorageGb() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *AutoScalingGroupTotalLocalStorageGBRequest {
+func (o AutoScalingGroupInstanceRequirementsOutput) TotalLocalStorageGb() AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *AutoScalingGroupTotalLocalStorageGbRequest {
 		return v.TotalLocalStorageGb
-	}).(AutoScalingGroupTotalLocalStorageGBRequestPtrOutput)
+	}).(AutoScalingGroupTotalLocalStorageGbRequestPtrOutput)
 }
 
 func (o AutoScalingGroupInstanceRequirementsOutput) VCpuCount() AutoScalingGroupVCpuCountRequestPtrOutput {
@@ -916,13 +916,13 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) SpotMaxPricePercentageOve
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o AutoScalingGroupInstanceRequirementsPtrOutput) TotalLocalStorageGb() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupInstanceRequirements) *AutoScalingGroupTotalLocalStorageGBRequest {
+func (o AutoScalingGroupInstanceRequirementsPtrOutput) TotalLocalStorageGb() AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupInstanceRequirements) *AutoScalingGroupTotalLocalStorageGbRequest {
 		if v == nil {
 			return nil
 		}
 		return v.TotalLocalStorageGb
-	}).(AutoScalingGroupTotalLocalStorageGBRequestPtrOutput)
+	}).(AutoScalingGroupTotalLocalStorageGbRequestPtrOutput)
 }
 
 func (o AutoScalingGroupInstanceRequirementsPtrOutput) VCpuCount() AutoScalingGroupVCpuCountRequestPtrOutput {
@@ -2749,138 +2749,138 @@ func (o AutoScalingGroupTagPropertyArrayOutput) Index(i pulumi.IntInput) AutoSca
 	}).(AutoScalingGroupTagPropertyOutput)
 }
 
-type AutoScalingGroupTotalLocalStorageGBRequest struct {
+type AutoScalingGroupTotalLocalStorageGbRequest struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
 }
 
-// AutoScalingGroupTotalLocalStorageGBRequestInput is an input type that accepts AutoScalingGroupTotalLocalStorageGBRequestArgs and AutoScalingGroupTotalLocalStorageGBRequestOutput values.
-// You can construct a concrete instance of `AutoScalingGroupTotalLocalStorageGBRequestInput` via:
+// AutoScalingGroupTotalLocalStorageGbRequestInput is an input type that accepts AutoScalingGroupTotalLocalStorageGbRequestArgs and AutoScalingGroupTotalLocalStorageGbRequestOutput values.
+// You can construct a concrete instance of `AutoScalingGroupTotalLocalStorageGbRequestInput` via:
 //
-//	AutoScalingGroupTotalLocalStorageGBRequestArgs{...}
-type AutoScalingGroupTotalLocalStorageGBRequestInput interface {
+//	AutoScalingGroupTotalLocalStorageGbRequestArgs{...}
+type AutoScalingGroupTotalLocalStorageGbRequestInput interface {
 	pulumi.Input
 
-	ToAutoScalingGroupTotalLocalStorageGBRequestOutput() AutoScalingGroupTotalLocalStorageGBRequestOutput
-	ToAutoScalingGroupTotalLocalStorageGBRequestOutputWithContext(context.Context) AutoScalingGroupTotalLocalStorageGBRequestOutput
+	ToAutoScalingGroupTotalLocalStorageGbRequestOutput() AutoScalingGroupTotalLocalStorageGbRequestOutput
+	ToAutoScalingGroupTotalLocalStorageGbRequestOutputWithContext(context.Context) AutoScalingGroupTotalLocalStorageGbRequestOutput
 }
 
-type AutoScalingGroupTotalLocalStorageGBRequestArgs struct {
+type AutoScalingGroupTotalLocalStorageGbRequestArgs struct {
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
-func (AutoScalingGroupTotalLocalStorageGBRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGBRequest)(nil)).Elem()
+func (AutoScalingGroupTotalLocalStorageGbRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (i AutoScalingGroupTotalLocalStorageGBRequestArgs) ToAutoScalingGroupTotalLocalStorageGBRequestOutput() AutoScalingGroupTotalLocalStorageGBRequestOutput {
-	return i.ToAutoScalingGroupTotalLocalStorageGBRequestOutputWithContext(context.Background())
+func (i AutoScalingGroupTotalLocalStorageGbRequestArgs) ToAutoScalingGroupTotalLocalStorageGbRequestOutput() AutoScalingGroupTotalLocalStorageGbRequestOutput {
+	return i.ToAutoScalingGroupTotalLocalStorageGbRequestOutputWithContext(context.Background())
 }
 
-func (i AutoScalingGroupTotalLocalStorageGBRequestArgs) ToAutoScalingGroupTotalLocalStorageGBRequestOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGBRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTotalLocalStorageGBRequestOutput)
+func (i AutoScalingGroupTotalLocalStorageGbRequestArgs) ToAutoScalingGroupTotalLocalStorageGbRequestOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGbRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTotalLocalStorageGbRequestOutput)
 }
 
-func (i AutoScalingGroupTotalLocalStorageGBRequestArgs) ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutput() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
-	return i.ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutputWithContext(context.Background())
+func (i AutoScalingGroupTotalLocalStorageGbRequestArgs) ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutput() AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
+	return i.ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
 }
 
-func (i AutoScalingGroupTotalLocalStorageGBRequestArgs) ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTotalLocalStorageGBRequestOutput).ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutputWithContext(ctx)
+func (i AutoScalingGroupTotalLocalStorageGbRequestArgs) ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTotalLocalStorageGbRequestOutput).ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(ctx)
 }
 
-// AutoScalingGroupTotalLocalStorageGBRequestPtrInput is an input type that accepts AutoScalingGroupTotalLocalStorageGBRequestArgs, AutoScalingGroupTotalLocalStorageGBRequestPtr and AutoScalingGroupTotalLocalStorageGBRequestPtrOutput values.
-// You can construct a concrete instance of `AutoScalingGroupTotalLocalStorageGBRequestPtrInput` via:
+// AutoScalingGroupTotalLocalStorageGbRequestPtrInput is an input type that accepts AutoScalingGroupTotalLocalStorageGbRequestArgs, AutoScalingGroupTotalLocalStorageGbRequestPtr and AutoScalingGroupTotalLocalStorageGbRequestPtrOutput values.
+// You can construct a concrete instance of `AutoScalingGroupTotalLocalStorageGbRequestPtrInput` via:
 //
-//	        AutoScalingGroupTotalLocalStorageGBRequestArgs{...}
+//	        AutoScalingGroupTotalLocalStorageGbRequestArgs{...}
 //
 //	or:
 //
 //	        nil
-type AutoScalingGroupTotalLocalStorageGBRequestPtrInput interface {
+type AutoScalingGroupTotalLocalStorageGbRequestPtrInput interface {
 	pulumi.Input
 
-	ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutput() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput
-	ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutputWithContext(context.Context) AutoScalingGroupTotalLocalStorageGBRequestPtrOutput
+	ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutput() AutoScalingGroupTotalLocalStorageGbRequestPtrOutput
+	ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(context.Context) AutoScalingGroupTotalLocalStorageGbRequestPtrOutput
 }
 
-type autoScalingGroupTotalLocalStorageGBRequestPtrType AutoScalingGroupTotalLocalStorageGBRequestArgs
+type autoScalingGroupTotalLocalStorageGbRequestPtrType AutoScalingGroupTotalLocalStorageGbRequestArgs
 
-func AutoScalingGroupTotalLocalStorageGBRequestPtr(v *AutoScalingGroupTotalLocalStorageGBRequestArgs) AutoScalingGroupTotalLocalStorageGBRequestPtrInput {
-	return (*autoScalingGroupTotalLocalStorageGBRequestPtrType)(v)
+func AutoScalingGroupTotalLocalStorageGbRequestPtr(v *AutoScalingGroupTotalLocalStorageGbRequestArgs) AutoScalingGroupTotalLocalStorageGbRequestPtrInput {
+	return (*autoScalingGroupTotalLocalStorageGbRequestPtrType)(v)
 }
 
-func (*autoScalingGroupTotalLocalStorageGBRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoScalingGroupTotalLocalStorageGBRequest)(nil)).Elem()
+func (*autoScalingGroupTotalLocalStorageGbRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (i *autoScalingGroupTotalLocalStorageGBRequestPtrType) ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutput() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
-	return i.ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutputWithContext(context.Background())
+func (i *autoScalingGroupTotalLocalStorageGbRequestPtrType) ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutput() AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
+	return i.ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
 }
 
-func (i *autoScalingGroupTotalLocalStorageGBRequestPtrType) ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTotalLocalStorageGBRequestPtrOutput)
+func (i *autoScalingGroupTotalLocalStorageGbRequestPtrType) ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTotalLocalStorageGbRequestPtrOutput)
 }
 
-type AutoScalingGroupTotalLocalStorageGBRequestOutput struct{ *pulumi.OutputState }
+type AutoScalingGroupTotalLocalStorageGbRequestOutput struct{ *pulumi.OutputState }
 
-func (AutoScalingGroupTotalLocalStorageGBRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGBRequest)(nil)).Elem()
+func (AutoScalingGroupTotalLocalStorageGbRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestOutput) ToAutoScalingGroupTotalLocalStorageGBRequestOutput() AutoScalingGroupTotalLocalStorageGBRequestOutput {
+func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) ToAutoScalingGroupTotalLocalStorageGbRequestOutput() AutoScalingGroupTotalLocalStorageGbRequestOutput {
 	return o
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestOutput) ToAutoScalingGroupTotalLocalStorageGBRequestOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGBRequestOutput {
+func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) ToAutoScalingGroupTotalLocalStorageGbRequestOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGbRequestOutput {
 	return o
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestOutput) ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutput() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
-	return o.ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutputWithContext(context.Background())
+func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutput() AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
+	return o.ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestOutput) ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupTotalLocalStorageGBRequest) *AutoScalingGroupTotalLocalStorageGBRequest {
+func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupTotalLocalStorageGbRequest) *AutoScalingGroupTotalLocalStorageGbRequest {
 		return &v
-	}).(AutoScalingGroupTotalLocalStorageGBRequestPtrOutput)
+	}).(AutoScalingGroupTotalLocalStorageGbRequestPtrOutput)
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupTotalLocalStorageGBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupTotalLocalStorageGbRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupTotalLocalStorageGBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupTotalLocalStorageGbRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
 
-type AutoScalingGroupTotalLocalStorageGBRequestPtrOutput struct{ *pulumi.OutputState }
+type AutoScalingGroupTotalLocalStorageGbRequestPtrOutput struct{ *pulumi.OutputState }
 
-func (AutoScalingGroupTotalLocalStorageGBRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoScalingGroupTotalLocalStorageGBRequest)(nil)).Elem()
+func (AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupTotalLocalStorageGbRequest)(nil)).Elem()
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestPtrOutput) ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutput() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
+func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutput() AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
 	return o
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestPtrOutput) ToAutoScalingGroupTotalLocalStorageGBRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
+func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
 	return o
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestPtrOutput) Elem() AutoScalingGroupTotalLocalStorageGBRequestOutput {
-	return o.ApplyT(func(v *AutoScalingGroupTotalLocalStorageGBRequest) AutoScalingGroupTotalLocalStorageGBRequest {
+func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Elem() AutoScalingGroupTotalLocalStorageGbRequestOutput {
+	return o.ApplyT(func(v *AutoScalingGroupTotalLocalStorageGbRequest) AutoScalingGroupTotalLocalStorageGbRequest {
 		if v != nil {
 			return *v
 		}
-		var ret AutoScalingGroupTotalLocalStorageGBRequest
+		var ret AutoScalingGroupTotalLocalStorageGbRequest
 		return ret
-	}).(AutoScalingGroupTotalLocalStorageGBRequestOutput)
+	}).(AutoScalingGroupTotalLocalStorageGbRequestOutput)
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestPtrOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupTotalLocalStorageGBRequest) *int {
+func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupTotalLocalStorageGbRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -2888,8 +2888,8 @@ func (o AutoScalingGroupTotalLocalStorageGBRequestPtrOutput) Max() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o AutoScalingGroupTotalLocalStorageGBRequestPtrOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupTotalLocalStorageGBRequest) *int {
+func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupTotalLocalStorageGbRequest) *int {
 		if v == nil {
 			return nil
 		}
@@ -6131,8 +6131,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupNotificationConfigurationArrayInput)(nil)).Elem(), AutoScalingGroupNotificationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTagPropertyInput)(nil)).Elem(), AutoScalingGroupTagPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTagPropertyArrayInput)(nil)).Elem(), AutoScalingGroupTagPropertyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGBRequestInput)(nil)).Elem(), AutoScalingGroupTotalLocalStorageGBRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGBRequestPtrInput)(nil)).Elem(), AutoScalingGroupTotalLocalStorageGBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGbRequestInput)(nil)).Elem(), AutoScalingGroupTotalLocalStorageGbRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGbRequestPtrInput)(nil)).Elem(), AutoScalingGroupTotalLocalStorageGbRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupVCpuCountRequestInput)(nil)).Elem(), AutoScalingGroupVCpuCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupVCpuCountRequestPtrInput)(nil)).Elem(), AutoScalingGroupVCpuCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationBlockDeviceInput)(nil)).Elem(), LaunchConfigurationBlockDeviceArgs{})
@@ -6209,8 +6209,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupNotificationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTagPropertyOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTagPropertyArrayOutput{})
-	pulumi.RegisterOutputType(AutoScalingGroupTotalLocalStorageGBRequestOutput{})
-	pulumi.RegisterOutputType(AutoScalingGroupTotalLocalStorageGBRequestPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupTotalLocalStorageGbRequestOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupTotalLocalStorageGbRequestPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupVCpuCountRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupVCpuCountRequestPtrOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationBlockDeviceOutput{})

@@ -10,36 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DBClusterParameterGroupTag',
-    'DBClusterRole',
-    'DBClusterServerlessScalingConfiguration',
-    'DBClusterTag',
-    'DBInstanceTag',
-    'DBParameterGroupTag',
-    'DBSubnetGroupTag',
+    'DbClusterDbClusterRole',
+    'DbClusterParameterGroupTag',
+    'DbClusterServerlessScalingConfiguration',
+    'DbClusterTag',
+    'DbInstanceTag',
+    'DbParameterGroupTag',
+    'DbSubnetGroupTag',
 ]
 
 @pulumi.output_type
-class DBClusterParameterGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class DBClusterRole(dict):
+class DbClusterDbClusterRole(dict):
     """
     Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
     """
@@ -52,14 +33,14 @@ class DBClusterRole(dict):
             suggest = "feature_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBClusterRole. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbClusterDbClusterRole. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBClusterRole.__key_warning(key)
+        DbClusterDbClusterRole.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBClusterRole.__key_warning(key)
+        DbClusterDbClusterRole.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -92,7 +73,26 @@ class DBClusterRole(dict):
 
 
 @pulumi.output_type
-class DBClusterServerlessScalingConfiguration(dict):
+class DbClusterParameterGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DbClusterServerlessScalingConfiguration(dict):
     """
     Contains the scaling configuration of an Neptune Serverless DB cluster.
     """
@@ -105,14 +105,14 @@ class DBClusterServerlessScalingConfiguration(dict):
             suggest = "min_capacity"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBClusterServerlessScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DbClusterServerlessScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DBClusterServerlessScalingConfiguration.__key_warning(key)
+        DbClusterServerlessScalingConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DBClusterServerlessScalingConfiguration.__key_warning(key)
+        DbClusterServerlessScalingConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -144,7 +144,7 @@ class DBClusterServerlessScalingConfiguration(dict):
 
 
 @pulumi.output_type
-class DBClusterTag(dict):
+class DbClusterTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -178,7 +178,7 @@ class DBClusterTag(dict):
 
 
 @pulumi.output_type
-class DBInstanceTag(dict):
+class DbInstanceTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -197,7 +197,7 @@ class DBInstanceTag(dict):
 
 
 @pulumi.output_type
-class DBParameterGroupTag(dict):
+class DbParameterGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -216,7 +216,7 @@ class DBParameterGroupTag(dict):
 
 
 @pulumi.output_type
-class DBSubnetGroupTag(dict):
+class DbSubnetGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

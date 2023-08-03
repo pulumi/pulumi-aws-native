@@ -14,7 +14,7 @@ from ._enums import *
 __all__ = [
     'AlertAction',
     'AlertLambdaConfiguration',
-    'AlertSNSConfiguration',
+    'AlertSnsConfiguration',
     'AnomalyDetectorAppFlowConfig',
     'AnomalyDetectorCloudwatchConfig',
     'AnomalyDetectorConfig',
@@ -24,7 +24,7 @@ __all__ = [
     'AnomalyDetectorMetric',
     'AnomalyDetectorMetricSet',
     'AnomalyDetectorMetricSource',
-    'AnomalyDetectorRDSSourceConfig',
+    'AnomalyDetectorRdsSourceConfig',
     'AnomalyDetectorRedshiftSourceConfig',
     'AnomalyDetectorS3SourceConfig',
     'AnomalyDetectorTimestampColumn',
@@ -54,7 +54,7 @@ class AlertAction(dict):
 
     def __init__(__self__, *,
                  lambda_configuration: Optional['outputs.AlertLambdaConfiguration'] = None,
-                 sns_configuration: Optional['outputs.AlertSNSConfiguration'] = None):
+                 sns_configuration: Optional['outputs.AlertSnsConfiguration'] = None):
         if lambda_configuration is not None:
             pulumi.set(__self__, "lambda_configuration", lambda_configuration)
         if sns_configuration is not None:
@@ -67,7 +67,7 @@ class AlertAction(dict):
 
     @property
     @pulumi.getter(name="snsConfiguration")
-    def sns_configuration(self) -> Optional['outputs.AlertSNSConfiguration']:
+    def sns_configuration(self) -> Optional['outputs.AlertSnsConfiguration']:
         return pulumi.get(self, "sns_configuration")
 
 
@@ -124,7 +124,7 @@ class AlertLambdaConfiguration(dict):
 
 
 @pulumi.output_type
-class AlertSNSConfiguration(dict):
+class AlertSnsConfiguration(dict):
     """
     Configuration options for an SNS alert action.
     """
@@ -137,14 +137,14 @@ class AlertSNSConfiguration(dict):
             suggest = "sns_topic_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlertSNSConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AlertSnsConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AlertSNSConfiguration.__key_warning(key)
+        AlertSnsConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AlertSNSConfiguration.__key_warning(key)
+        AlertSnsConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -642,7 +642,7 @@ class AnomalyDetectorMetricSource(dict):
     def __init__(__self__, *,
                  app_flow_config: Optional['outputs.AnomalyDetectorAppFlowConfig'] = None,
                  cloudwatch_config: Optional['outputs.AnomalyDetectorCloudwatchConfig'] = None,
-                 rds_source_config: Optional['outputs.AnomalyDetectorRDSSourceConfig'] = None,
+                 rds_source_config: Optional['outputs.AnomalyDetectorRdsSourceConfig'] = None,
                  redshift_source_config: Optional['outputs.AnomalyDetectorRedshiftSourceConfig'] = None,
                  s3_source_config: Optional['outputs.AnomalyDetectorS3SourceConfig'] = None):
         if app_flow_config is not None:
@@ -668,7 +668,7 @@ class AnomalyDetectorMetricSource(dict):
 
     @property
     @pulumi.getter(name="rdsSourceConfig")
-    def rds_source_config(self) -> Optional['outputs.AnomalyDetectorRDSSourceConfig']:
+    def rds_source_config(self) -> Optional['outputs.AnomalyDetectorRdsSourceConfig']:
         return pulumi.get(self, "rds_source_config")
 
     @property
@@ -683,7 +683,7 @@ class AnomalyDetectorMetricSource(dict):
 
 
 @pulumi.output_type
-class AnomalyDetectorRDSSourceConfig(dict):
+class AnomalyDetectorRdsSourceConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -705,14 +705,14 @@ class AnomalyDetectorRDSSourceConfig(dict):
             suggest = "vpc_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorRDSSourceConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorRdsSourceConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AnomalyDetectorRDSSourceConfig.__key_warning(key)
+        AnomalyDetectorRdsSourceConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AnomalyDetectorRDSSourceConfig.__key_warning(key)
+        AnomalyDetectorRdsSourceConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

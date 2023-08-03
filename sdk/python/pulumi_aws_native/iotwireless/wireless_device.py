@@ -21,7 +21,7 @@ class WirelessDeviceArgs:
                  type: pulumi.Input['WirelessDeviceType'],
                  description: Optional[pulumi.Input[str]] = None,
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input['WirelessDeviceLoRaWANDeviceArgs']] = None,
+                 lo_ra_wan: Optional[pulumi.Input['WirelessDeviceLoRaWanDeviceArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceTagArgs']]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None):
@@ -31,7 +31,7 @@ class WirelessDeviceArgs:
         :param pulumi.Input['WirelessDeviceType'] type: Wireless device type, currently only Sidewalk and LoRa
         :param pulumi.Input[str] description: Wireless device description
         :param pulumi.Input[str] last_uplink_received_at: The date and time when the most recent uplink was received.
-        :param pulumi.Input['WirelessDeviceLoRaWANDeviceArgs'] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
+        :param pulumi.Input['WirelessDeviceLoRaWanDeviceArgs'] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         :param pulumi.Input[str] name: Wireless device name
         :param pulumi.Input[Sequence[pulumi.Input['WirelessDeviceTagArgs']]] tags: A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         :param pulumi.Input[str] thing_arn: Thing arn. Passed into update to associate Thing with Wireless device.
@@ -101,14 +101,14 @@ class WirelessDeviceArgs:
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional[pulumi.Input['WirelessDeviceLoRaWANDeviceArgs']]:
+    def lo_ra_wan(self) -> Optional[pulumi.Input['WirelessDeviceLoRaWanDeviceArgs']]:
         """
         The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         """
         return pulumi.get(self, "lo_ra_wan")
 
     @lo_ra_wan.setter
-    def lo_ra_wan(self, value: Optional[pulumi.Input['WirelessDeviceLoRaWANDeviceArgs']]):
+    def lo_ra_wan(self, value: Optional[pulumi.Input['WirelessDeviceLoRaWanDeviceArgs']]):
         pulumi.set(self, "lo_ra_wan", value)
 
     @property
@@ -156,7 +156,7 @@ class WirelessDevice(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  destination_name: Optional[pulumi.Input[str]] = None,
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['WirelessDeviceLoRaWANDeviceArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['WirelessDeviceLoRaWanDeviceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessDeviceTagArgs']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
@@ -170,7 +170,7 @@ class WirelessDevice(pulumi.CustomResource):
         :param pulumi.Input[str] description: Wireless device description
         :param pulumi.Input[str] destination_name: Wireless device destination name
         :param pulumi.Input[str] last_uplink_received_at: The date and time when the most recent uplink was received.
-        :param pulumi.Input[pulumi.InputType['WirelessDeviceLoRaWANDeviceArgs']] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
+        :param pulumi.Input[pulumi.InputType['WirelessDeviceLoRaWanDeviceArgs']] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         :param pulumi.Input[str] name: Wireless device name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessDeviceTagArgs']]]] tags: A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         :param pulumi.Input[str] thing_arn: Thing arn. Passed into update to associate Thing with Wireless device.
@@ -203,7 +203,7 @@ class WirelessDevice(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  destination_name: Optional[pulumi.Input[str]] = None,
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['WirelessDeviceLoRaWANDeviceArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['WirelessDeviceLoRaWanDeviceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessDeviceTagArgs']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
@@ -299,7 +299,7 @@ class WirelessDevice(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.WirelessDeviceLoRaWANDevice']]:
+    def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.WirelessDeviceLoRaWanDevice']]:
         """
         The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         """

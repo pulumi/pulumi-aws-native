@@ -37,7 +37,7 @@ type LookupAuthorizerResult struct {
 	EnableSimpleResponses          *bool                       `pulumi:"enableSimpleResponses"`
 	IdentitySource                 []string                    `pulumi:"identitySource"`
 	IdentityValidationExpression   *string                     `pulumi:"identityValidationExpression"`
-	JwtConfiguration               *AuthorizerJWTConfiguration `pulumi:"jwtConfiguration"`
+	JwtConfiguration               *AuthorizerJwtConfiguration `pulumi:"jwtConfiguration"`
 	Name                           *string                     `pulumi:"name"`
 }
 
@@ -113,8 +113,8 @@ func (o LookupAuthorizerResultOutput) IdentityValidationExpression() pulumi.Stri
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.IdentityValidationExpression }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAuthorizerResultOutput) JwtConfiguration() AuthorizerJWTConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) *AuthorizerJWTConfiguration { return v.JwtConfiguration }).(AuthorizerJWTConfigurationPtrOutput)
+func (o LookupAuthorizerResultOutput) JwtConfiguration() AuthorizerJwtConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *AuthorizerJwtConfiguration { return v.JwtConfiguration }).(AuthorizerJwtConfigurationPtrOutput)
 }
 
 func (o LookupAuthorizerResultOutput) Name() pulumi.StringPtrOutput {

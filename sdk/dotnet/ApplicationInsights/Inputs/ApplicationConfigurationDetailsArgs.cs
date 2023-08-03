@@ -43,19 +43,19 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// The HA cluster Prometheus Exporter settings.
         /// </summary>
         [Input("haClusterPrometheusExporter")]
-        public Input<Inputs.ApplicationHAClusterPrometheusExporterArgs>? HaClusterPrometheusExporter { get; set; }
+        public Input<Inputs.ApplicationHaClusterPrometheusExporterArgs>? HaClusterPrometheusExporter { get; set; }
 
         /// <summary>
         /// The HANA DB Prometheus Exporter settings.
         /// </summary>
         [Input("hanaPrometheusExporter")]
-        public Input<Inputs.ApplicationHANAPrometheusExporterArgs>? HanaPrometheusExporter { get; set; }
+        public Input<Inputs.ApplicationHanaPrometheusExporterArgs>? HanaPrometheusExporter { get; set; }
 
         /// <summary>
         /// The JMX Prometheus Exporter settings.
         /// </summary>
         [Input("jmxPrometheusExporter")]
-        public Input<Inputs.ApplicationJMXPrometheusExporterArgs>? JmxPrometheusExporter { get; set; }
+        public Input<Inputs.ApplicationJmxPrometheusExporterArgs>? JmxPrometheusExporter { get; set; }
 
         [Input("logs")]
         private InputList<Inputs.ApplicationLogArgs>? _logs;

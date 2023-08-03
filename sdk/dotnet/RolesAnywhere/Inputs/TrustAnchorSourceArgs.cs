@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RolesAnywhere.Inputs
     public sealed class TrustAnchorSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("sourceData")]
-        public InputUnion<Inputs.SourceData0PropertiesArgs, Inputs.SourceData1PropertiesArgs>? SourceData { get; set; }
+        public InputUnion<Inputs.TrustAnchorSourceData0PropertiesArgs, Inputs.TrustAnchorSourceData1PropertiesArgs>? SourceData { get; set; }
 
         [Input("sourceType")]
         public Input<Pulumi.AwsNative.RolesAnywhere.TrustAnchorType>? SourceType { get; set; }

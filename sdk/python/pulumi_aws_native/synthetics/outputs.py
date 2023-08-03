@@ -18,8 +18,8 @@ __all__ = [
     'CanaryS3Encryption',
     'CanarySchedule',
     'CanaryTag',
-    'CanaryVPCConfig',
     'CanaryVisualReference',
+    'CanaryVpcConfig',
     'GroupTag',
 ]
 
@@ -382,54 +382,6 @@ class CanaryTag(dict):
 
 
 @pulumi.output_type
-class CanaryVPCConfig(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "securityGroupIds":
-            suggest = "security_group_ids"
-        elif key == "subnetIds":
-            suggest = "subnet_ids"
-        elif key == "vpcId":
-            suggest = "vpc_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CanaryVPCConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CanaryVPCConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CanaryVPCConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 security_group_ids: Sequence[str],
-                 subnet_ids: Sequence[str],
-                 vpc_id: Optional[str] = None):
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
-
-    @property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
-        return pulumi.get(self, "security_group_ids")
-
-    @property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
-        return pulumi.get(self, "subnet_ids")
-
-    @property
-    @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[str]:
-        return pulumi.get(self, "vpc_id")
-
-
-@pulumi.output_type
 class CanaryVisualReference(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -476,6 +428,54 @@ class CanaryVisualReference(dict):
         List of screenshots used as base reference for visual testing
         """
         return pulumi.get(self, "base_screenshots")
+
+
+@pulumi.output_type
+class CanaryVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanaryVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanaryVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanaryVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[str],
+                 subnet_ids: Sequence[str],
+                 vpc_id: Optional[str] = None):
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[str]:
+        return pulumi.get(self, "vpc_id")
 
 
 @pulumi.output_type

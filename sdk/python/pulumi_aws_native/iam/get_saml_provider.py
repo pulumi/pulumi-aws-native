@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetSAMLProviderResult',
-    'AwaitableGetSAMLProviderResult',
+    'GetSamlProviderResult',
+    'AwaitableGetSamlProviderResult',
     'get_saml_provider',
     'get_saml_provider_output',
 ]
 
 @pulumi.output_type
-class GetSAMLProviderResult:
+class GetSamlProviderResult:
     def __init__(__self__, arn=None, saml_metadata_document=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -45,23 +45,23 @@ class GetSAMLProviderResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.SAMLProviderTag']]:
+    def tags(self) -> Optional[Sequence['outputs.SamlProviderTag']]:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetSAMLProviderResult(GetSAMLProviderResult):
+class AwaitableGetSamlProviderResult(GetSamlProviderResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSAMLProviderResult(
+        return GetSamlProviderResult(
             arn=self.arn,
             saml_metadata_document=self.saml_metadata_document,
             tags=self.tags)
 
 
 def get_saml_provider(arn: Optional[str] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAMLProviderResult:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSamlProviderResult:
     """
     Resource Type definition for AWS::IAM::SAMLProvider
 
@@ -71,9 +71,9 @@ def get_saml_provider(arn: Optional[str] = None,
     __args__ = dict()
     __args__['arn'] = arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:iam:getSAMLProvider', __args__, opts=opts, typ=GetSAMLProviderResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:iam:getSamlProvider', __args__, opts=opts, typ=GetSamlProviderResult).value
 
-    return AwaitableGetSAMLProviderResult(
+    return AwaitableGetSamlProviderResult(
         arn=pulumi.get(__ret__, 'arn'),
         saml_metadata_document=pulumi.get(__ret__, 'saml_metadata_document'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -81,7 +81,7 @@ def get_saml_provider(arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_saml_provider)
 def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAMLProviderResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlProviderResult]:
     """
     Resource Type definition for AWS::IAM::SAMLProvider
 

@@ -80,10 +80,10 @@ export const getJob: typeof import("./getJob").getJob = null as any;
 export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
 utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
 
-export { GetMLTransformArgs, GetMLTransformResult, GetMLTransformOutputArgs } from "./getMLTransform";
-export const getMLTransform: typeof import("./getMLTransform").getMLTransform = null as any;
-export const getMLTransformOutput: typeof import("./getMLTransform").getMLTransformOutput = null as any;
-utilities.lazyLoad(exports, ["getMLTransform","getMLTransformOutput"], () => require("./getMLTransform"));
+export { GetMlTransformArgs, GetMlTransformResult, GetMlTransformOutputArgs } from "./getMlTransform";
+export const getMlTransform: typeof import("./getMlTransform").getMlTransform = null as any;
+export const getMlTransformOutput: typeof import("./getMlTransform").getMlTransformOutput = null as any;
+utilities.lazyLoad(exports, ["getMlTransform","getMlTransformOutput"], () => require("./getMlTransform"));
 
 export { GetPartitionArgs, GetPartitionResult, GetPartitionOutputArgs } from "./getPartition";
 export const getPartition: typeof import("./getPartition").getPartition = null as any;
@@ -130,10 +130,10 @@ export type Job = import("./job").Job;
 export const Job: typeof import("./job").Job = null as any;
 utilities.lazyLoad(exports, ["Job"], () => require("./job"));
 
-export { MLTransformArgs } from "./mltransform";
-export type MLTransform = import("./mltransform").MLTransform;
-export const MLTransform: typeof import("./mltransform").MLTransform = null as any;
-utilities.lazyLoad(exports, ["MLTransform"], () => require("./mltransform"));
+export { MlTransformArgs } from "./mlTransform";
+export type MlTransform = import("./mlTransform").MlTransform;
+export const MlTransform: typeof import("./mlTransform").MlTransform = null as any;
+utilities.lazyLoad(exports, ["MlTransform"], () => require("./mlTransform"));
 
 export { PartitionArgs } from "./partition";
 export type Partition = import("./partition").Partition;
@@ -204,8 +204,8 @@ const _module = {
                 return new DevEndpoint(name, <any>undefined, { urn })
             case "aws-native:glue:Job":
                 return new Job(name, <any>undefined, { urn })
-            case "aws-native:glue:MLTransform":
-                return new MLTransform(name, <any>undefined, { urn })
+            case "aws-native:glue:MlTransform":
+                return new MlTransform(name, <any>undefined, { urn })
             case "aws-native:glue:Partition":
                 return new Partition(name, <any>undefined, { urn })
             case "aws-native:glue:Registry":

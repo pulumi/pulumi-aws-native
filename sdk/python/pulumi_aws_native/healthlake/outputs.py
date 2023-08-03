@@ -12,16 +12,16 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'FHIRDatastoreCreatedAt',
-    'FHIRDatastoreIdentityProviderConfiguration',
-    'FHIRDatastoreKmsEncryptionConfig',
-    'FHIRDatastorePreloadDataConfig',
-    'FHIRDatastoreSseConfiguration',
-    'FHIRDatastoreTag',
+    'FhirDatastoreCreatedAt',
+    'FhirDatastoreIdentityProviderConfiguration',
+    'FhirDatastoreKmsEncryptionConfig',
+    'FhirDatastorePreloadDataConfig',
+    'FhirDatastoreSseConfiguration',
+    'FhirDatastoreTag',
 ]
 
 @pulumi.output_type
-class FHIRDatastoreCreatedAt(dict):
+class FhirDatastoreCreatedAt(dict):
     """
     The time that a Data Store was created.
     """
@@ -54,7 +54,7 @@ class FHIRDatastoreCreatedAt(dict):
 
 
 @pulumi.output_type
-class FHIRDatastoreIdentityProviderConfiguration(dict):
+class FhirDatastoreIdentityProviderConfiguration(dict):
     """
     The identity provider configuration for the datastore
     """
@@ -69,24 +69,24 @@ class FHIRDatastoreIdentityProviderConfiguration(dict):
             suggest = "idp_lambda_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FHIRDatastoreIdentityProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FhirDatastoreIdentityProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FHIRDatastoreIdentityProviderConfiguration.__key_warning(key)
+        FhirDatastoreIdentityProviderConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FHIRDatastoreIdentityProviderConfiguration.__key_warning(key)
+        FhirDatastoreIdentityProviderConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 authorization_strategy: 'FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy',
+                 authorization_strategy: 'FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy',
                  fine_grained_authorization_enabled: Optional[bool] = None,
                  idp_lambda_arn: Optional[str] = None,
                  metadata: Optional[str] = None):
         """
         The identity provider configuration for the datastore
-        :param 'FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy' authorization_strategy: Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+        :param 'FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy' authorization_strategy: Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
         :param bool fine_grained_authorization_enabled: Flag to indicate if fine-grained authorization will be enabled for the datastore
         :param str idp_lambda_arn: The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
         :param str metadata: The JSON metadata elements for identity provider configuration.
@@ -101,7 +101,7 @@ class FHIRDatastoreIdentityProviderConfiguration(dict):
 
     @property
     @pulumi.getter(name="authorizationStrategy")
-    def authorization_strategy(self) -> 'FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy':
+    def authorization_strategy(self) -> 'FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy':
         """
         Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
         """
@@ -133,7 +133,7 @@ class FHIRDatastoreIdentityProviderConfiguration(dict):
 
 
 @pulumi.output_type
-class FHIRDatastoreKmsEncryptionConfig(dict):
+class FhirDatastoreKmsEncryptionConfig(dict):
     """
     The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
     """
@@ -146,22 +146,22 @@ class FHIRDatastoreKmsEncryptionConfig(dict):
             suggest = "kms_key_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FHIRDatastoreKmsEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FhirDatastoreKmsEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FHIRDatastoreKmsEncryptionConfig.__key_warning(key)
+        FhirDatastoreKmsEncryptionConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FHIRDatastoreKmsEncryptionConfig.__key_warning(key)
+        FhirDatastoreKmsEncryptionConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cmk_type: 'FHIRDatastoreKmsEncryptionConfigCmkType',
+                 cmk_type: 'FhirDatastoreKmsEncryptionConfigCmkType',
                  kms_key_id: Optional[str] = None):
         """
         The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
-        :param 'FHIRDatastoreKmsEncryptionConfigCmkType' cmk_type: The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
+        :param 'FhirDatastoreKmsEncryptionConfigCmkType' cmk_type: The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
         :param str kms_key_id: The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
         """
         pulumi.set(__self__, "cmk_type", cmk_type)
@@ -170,7 +170,7 @@ class FHIRDatastoreKmsEncryptionConfig(dict):
 
     @property
     @pulumi.getter(name="cmkType")
-    def cmk_type(self) -> 'FHIRDatastoreKmsEncryptionConfigCmkType':
+    def cmk_type(self) -> 'FhirDatastoreKmsEncryptionConfigCmkType':
         """
         The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
         """
@@ -186,7 +186,7 @@ class FHIRDatastoreKmsEncryptionConfig(dict):
 
 
 @pulumi.output_type
-class FHIRDatastorePreloadDataConfig(dict):
+class FhirDatastorePreloadDataConfig(dict):
     """
     The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
     """
@@ -197,27 +197,27 @@ class FHIRDatastorePreloadDataConfig(dict):
             suggest = "preload_data_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FHIRDatastorePreloadDataConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FhirDatastorePreloadDataConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FHIRDatastorePreloadDataConfig.__key_warning(key)
+        FhirDatastorePreloadDataConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FHIRDatastorePreloadDataConfig.__key_warning(key)
+        FhirDatastorePreloadDataConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 preload_data_type: 'FHIRDatastorePreloadDataConfigPreloadDataType'):
+                 preload_data_type: 'FhirDatastorePreloadDataConfigPreloadDataType'):
         """
         The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
-        :param 'FHIRDatastorePreloadDataConfigPreloadDataType' preload_data_type: The type of preloaded data. Only Synthea preloaded data is supported.
+        :param 'FhirDatastorePreloadDataConfigPreloadDataType' preload_data_type: The type of preloaded data. Only Synthea preloaded data is supported.
         """
         pulumi.set(__self__, "preload_data_type", preload_data_type)
 
     @property
     @pulumi.getter(name="preloadDataType")
-    def preload_data_type(self) -> 'FHIRDatastorePreloadDataConfigPreloadDataType':
+    def preload_data_type(self) -> 'FhirDatastorePreloadDataConfigPreloadDataType':
         """
         The type of preloaded data. Only Synthea preloaded data is supported.
         """
@@ -225,7 +225,7 @@ class FHIRDatastorePreloadDataConfig(dict):
 
 
 @pulumi.output_type
-class FHIRDatastoreSseConfiguration(dict):
+class FhirDatastoreSseConfiguration(dict):
     """
     The server-side encryption key configuration for a customer provided encryption key.
     """
@@ -236,18 +236,18 @@ class FHIRDatastoreSseConfiguration(dict):
             suggest = "kms_encryption_config"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FHIRDatastoreSseConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FhirDatastoreSseConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FHIRDatastoreSseConfiguration.__key_warning(key)
+        FhirDatastoreSseConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FHIRDatastoreSseConfiguration.__key_warning(key)
+        FhirDatastoreSseConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 kms_encryption_config: 'outputs.FHIRDatastoreKmsEncryptionConfig'):
+                 kms_encryption_config: 'outputs.FhirDatastoreKmsEncryptionConfig'):
         """
         The server-side encryption key configuration for a customer provided encryption key.
         """
@@ -255,12 +255,12 @@ class FHIRDatastoreSseConfiguration(dict):
 
     @property
     @pulumi.getter(name="kmsEncryptionConfig")
-    def kms_encryption_config(self) -> 'outputs.FHIRDatastoreKmsEncryptionConfig':
+    def kms_encryption_config(self) -> 'outputs.FhirDatastoreKmsEncryptionConfig':
         return pulumi.get(self, "kms_encryption_config")
 
 
 @pulumi.output_type
-class FHIRDatastoreTag(dict):
+class FhirDatastoreTag(dict):
     """
     A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
     """

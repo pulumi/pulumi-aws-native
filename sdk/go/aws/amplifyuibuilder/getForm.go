@@ -30,7 +30,7 @@ type LookupFormArgs struct {
 
 type LookupFormResult struct {
 	AppId             *string                  `pulumi:"appId"`
-	Cta               *FormCTA                 `pulumi:"cta"`
+	Cta               *FormCta                 `pulumi:"cta"`
 	DataType          *FormDataTypeConfig      `pulumi:"dataType"`
 	EnvironmentName   *string                  `pulumi:"environmentName"`
 	Fields            *FormFieldsMap           `pulumi:"fields"`
@@ -84,8 +84,8 @@ func (o LookupFormResultOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupFormResultOutput) Cta() FormCTAPtrOutput {
-	return o.ApplyT(func(v LookupFormResult) *FormCTA { return v.Cta }).(FormCTAPtrOutput)
+func (o LookupFormResultOutput) Cta() FormCtaPtrOutput {
+	return o.ApplyT(func(v LookupFormResult) *FormCta { return v.Cta }).(FormCtaPtrOutput)
 }
 
 func (o LookupFormResultOutput) DataType() FormDataTypeConfigPtrOutput {

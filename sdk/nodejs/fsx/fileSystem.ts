@@ -48,7 +48,7 @@ export class FileSystem extends pulumi.CustomResource {
     public readonly lustreConfiguration!: pulumi.Output<outputs.fsx.FileSystemLustreConfiguration | undefined>;
     public /*out*/ readonly lustreMountName!: pulumi.Output<string>;
     public readonly ontapConfiguration!: pulumi.Output<outputs.fsx.FileSystemOntapConfiguration | undefined>;
-    public readonly openZfsConfiguration!: pulumi.Output<outputs.fsx.FileSystemOpenZFSConfiguration | undefined>;
+    public readonly openZfsConfiguration!: pulumi.Output<outputs.fsx.FileSystemOpenZfsConfiguration | undefined>;
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     public /*out*/ readonly rootVolumeId!: pulumi.Output<string>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -128,7 +128,7 @@ export interface FileSystemArgs {
     kmsKeyId?: pulumi.Input<string>;
     lustreConfiguration?: pulumi.Input<inputs.fsx.FileSystemLustreConfigurationArgs>;
     ontapConfiguration?: pulumi.Input<inputs.fsx.FileSystemOntapConfigurationArgs>;
-    openZfsConfiguration?: pulumi.Input<inputs.fsx.FileSystemOpenZFSConfigurationArgs>;
+    openZfsConfiguration?: pulumi.Input<inputs.fsx.FileSystemOpenZfsConfigurationArgs>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     storageCapacity?: pulumi.Input<number>;
     storageType?: pulumi.Input<string>;

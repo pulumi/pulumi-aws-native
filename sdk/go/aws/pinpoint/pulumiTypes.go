@@ -5607,214 +5607,6 @@ func (o InAppTemplateOverrideButtonConfigurationPtrOutput) Link() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-type PushTemplateAPNSPushNotificationTemplate struct {
-	Action   *string `pulumi:"action"`
-	Body     *string `pulumi:"body"`
-	MediaUrl *string `pulumi:"mediaUrl"`
-	Sound    *string `pulumi:"sound"`
-	Title    *string `pulumi:"title"`
-	Url      *string `pulumi:"url"`
-}
-
-// PushTemplateAPNSPushNotificationTemplateInput is an input type that accepts PushTemplateAPNSPushNotificationTemplateArgs and PushTemplateAPNSPushNotificationTemplateOutput values.
-// You can construct a concrete instance of `PushTemplateAPNSPushNotificationTemplateInput` via:
-//
-//	PushTemplateAPNSPushNotificationTemplateArgs{...}
-type PushTemplateAPNSPushNotificationTemplateInput interface {
-	pulumi.Input
-
-	ToPushTemplateAPNSPushNotificationTemplateOutput() PushTemplateAPNSPushNotificationTemplateOutput
-	ToPushTemplateAPNSPushNotificationTemplateOutputWithContext(context.Context) PushTemplateAPNSPushNotificationTemplateOutput
-}
-
-type PushTemplateAPNSPushNotificationTemplateArgs struct {
-	Action   pulumi.StringPtrInput `pulumi:"action"`
-	Body     pulumi.StringPtrInput `pulumi:"body"`
-	MediaUrl pulumi.StringPtrInput `pulumi:"mediaUrl"`
-	Sound    pulumi.StringPtrInput `pulumi:"sound"`
-	Title    pulumi.StringPtrInput `pulumi:"title"`
-	Url      pulumi.StringPtrInput `pulumi:"url"`
-}
-
-func (PushTemplateAPNSPushNotificationTemplateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PushTemplateAPNSPushNotificationTemplate)(nil)).Elem()
-}
-
-func (i PushTemplateAPNSPushNotificationTemplateArgs) ToPushTemplateAPNSPushNotificationTemplateOutput() PushTemplateAPNSPushNotificationTemplateOutput {
-	return i.ToPushTemplateAPNSPushNotificationTemplateOutputWithContext(context.Background())
-}
-
-func (i PushTemplateAPNSPushNotificationTemplateArgs) ToPushTemplateAPNSPushNotificationTemplateOutputWithContext(ctx context.Context) PushTemplateAPNSPushNotificationTemplateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateAPNSPushNotificationTemplateOutput)
-}
-
-func (i PushTemplateAPNSPushNotificationTemplateArgs) ToPushTemplateAPNSPushNotificationTemplatePtrOutput() PushTemplateAPNSPushNotificationTemplatePtrOutput {
-	return i.ToPushTemplateAPNSPushNotificationTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i PushTemplateAPNSPushNotificationTemplateArgs) ToPushTemplateAPNSPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateAPNSPushNotificationTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateAPNSPushNotificationTemplateOutput).ToPushTemplateAPNSPushNotificationTemplatePtrOutputWithContext(ctx)
-}
-
-// PushTemplateAPNSPushNotificationTemplatePtrInput is an input type that accepts PushTemplateAPNSPushNotificationTemplateArgs, PushTemplateAPNSPushNotificationTemplatePtr and PushTemplateAPNSPushNotificationTemplatePtrOutput values.
-// You can construct a concrete instance of `PushTemplateAPNSPushNotificationTemplatePtrInput` via:
-//
-//	        PushTemplateAPNSPushNotificationTemplateArgs{...}
-//
-//	or:
-//
-//	        nil
-type PushTemplateAPNSPushNotificationTemplatePtrInput interface {
-	pulumi.Input
-
-	ToPushTemplateAPNSPushNotificationTemplatePtrOutput() PushTemplateAPNSPushNotificationTemplatePtrOutput
-	ToPushTemplateAPNSPushNotificationTemplatePtrOutputWithContext(context.Context) PushTemplateAPNSPushNotificationTemplatePtrOutput
-}
-
-type pushTemplateAPNSPushNotificationTemplatePtrType PushTemplateAPNSPushNotificationTemplateArgs
-
-func PushTemplateAPNSPushNotificationTemplatePtr(v *PushTemplateAPNSPushNotificationTemplateArgs) PushTemplateAPNSPushNotificationTemplatePtrInput {
-	return (*pushTemplateAPNSPushNotificationTemplatePtrType)(v)
-}
-
-func (*pushTemplateAPNSPushNotificationTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PushTemplateAPNSPushNotificationTemplate)(nil)).Elem()
-}
-
-func (i *pushTemplateAPNSPushNotificationTemplatePtrType) ToPushTemplateAPNSPushNotificationTemplatePtrOutput() PushTemplateAPNSPushNotificationTemplatePtrOutput {
-	return i.ToPushTemplateAPNSPushNotificationTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *pushTemplateAPNSPushNotificationTemplatePtrType) ToPushTemplateAPNSPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateAPNSPushNotificationTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateAPNSPushNotificationTemplatePtrOutput)
-}
-
-type PushTemplateAPNSPushNotificationTemplateOutput struct{ *pulumi.OutputState }
-
-func (PushTemplateAPNSPushNotificationTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PushTemplateAPNSPushNotificationTemplate)(nil)).Elem()
-}
-
-func (o PushTemplateAPNSPushNotificationTemplateOutput) ToPushTemplateAPNSPushNotificationTemplateOutput() PushTemplateAPNSPushNotificationTemplateOutput {
-	return o
-}
-
-func (o PushTemplateAPNSPushNotificationTemplateOutput) ToPushTemplateAPNSPushNotificationTemplateOutputWithContext(ctx context.Context) PushTemplateAPNSPushNotificationTemplateOutput {
-	return o
-}
-
-func (o PushTemplateAPNSPushNotificationTemplateOutput) ToPushTemplateAPNSPushNotificationTemplatePtrOutput() PushTemplateAPNSPushNotificationTemplatePtrOutput {
-	return o.ToPushTemplateAPNSPushNotificationTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o PushTemplateAPNSPushNotificationTemplateOutput) ToPushTemplateAPNSPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateAPNSPushNotificationTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushTemplateAPNSPushNotificationTemplate) *PushTemplateAPNSPushNotificationTemplate {
-		return &v
-	}).(PushTemplateAPNSPushNotificationTemplatePtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplateOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PushTemplateAPNSPushNotificationTemplate) *string { return v.Action }).(pulumi.StringPtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplateOutput) Body() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PushTemplateAPNSPushNotificationTemplate) *string { return v.Body }).(pulumi.StringPtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplateOutput) MediaUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PushTemplateAPNSPushNotificationTemplate) *string { return v.MediaUrl }).(pulumi.StringPtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplateOutput) Sound() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PushTemplateAPNSPushNotificationTemplate) *string { return v.Sound }).(pulumi.StringPtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplateOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PushTemplateAPNSPushNotificationTemplate) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplateOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PushTemplateAPNSPushNotificationTemplate) *string { return v.Url }).(pulumi.StringPtrOutput)
-}
-
-type PushTemplateAPNSPushNotificationTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (PushTemplateAPNSPushNotificationTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PushTemplateAPNSPushNotificationTemplate)(nil)).Elem()
-}
-
-func (o PushTemplateAPNSPushNotificationTemplatePtrOutput) ToPushTemplateAPNSPushNotificationTemplatePtrOutput() PushTemplateAPNSPushNotificationTemplatePtrOutput {
-	return o
-}
-
-func (o PushTemplateAPNSPushNotificationTemplatePtrOutput) ToPushTemplateAPNSPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateAPNSPushNotificationTemplatePtrOutput {
-	return o
-}
-
-func (o PushTemplateAPNSPushNotificationTemplatePtrOutput) Elem() PushTemplateAPNSPushNotificationTemplateOutput {
-	return o.ApplyT(func(v *PushTemplateAPNSPushNotificationTemplate) PushTemplateAPNSPushNotificationTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret PushTemplateAPNSPushNotificationTemplate
-		return ret
-	}).(PushTemplateAPNSPushNotificationTemplateOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplatePtrOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PushTemplateAPNSPushNotificationTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Action
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplatePtrOutput) Body() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PushTemplateAPNSPushNotificationTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Body
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplatePtrOutput) MediaUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PushTemplateAPNSPushNotificationTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MediaUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplatePtrOutput) Sound() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PushTemplateAPNSPushNotificationTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Sound
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplatePtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PushTemplateAPNSPushNotificationTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PushTemplateAPNSPushNotificationTemplatePtrOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PushTemplateAPNSPushNotificationTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Url
-	}).(pulumi.StringPtrOutput)
-}
-
 type PushTemplateAndroidPushNotificationTemplate struct {
 	Action            *string `pulumi:"action"`
 	Body              *string `pulumi:"body"`
@@ -6046,6 +5838,214 @@ func (o PushTemplateAndroidPushNotificationTemplatePtrOutput) Title() pulumi.Str
 
 func (o PushTemplateAndroidPushNotificationTemplatePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushTemplateAndroidPushNotificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type PushTemplateApnsPushNotificationTemplate struct {
+	Action   *string `pulumi:"action"`
+	Body     *string `pulumi:"body"`
+	MediaUrl *string `pulumi:"mediaUrl"`
+	Sound    *string `pulumi:"sound"`
+	Title    *string `pulumi:"title"`
+	Url      *string `pulumi:"url"`
+}
+
+// PushTemplateApnsPushNotificationTemplateInput is an input type that accepts PushTemplateApnsPushNotificationTemplateArgs and PushTemplateApnsPushNotificationTemplateOutput values.
+// You can construct a concrete instance of `PushTemplateApnsPushNotificationTemplateInput` via:
+//
+//	PushTemplateApnsPushNotificationTemplateArgs{...}
+type PushTemplateApnsPushNotificationTemplateInput interface {
+	pulumi.Input
+
+	ToPushTemplateApnsPushNotificationTemplateOutput() PushTemplateApnsPushNotificationTemplateOutput
+	ToPushTemplateApnsPushNotificationTemplateOutputWithContext(context.Context) PushTemplateApnsPushNotificationTemplateOutput
+}
+
+type PushTemplateApnsPushNotificationTemplateArgs struct {
+	Action   pulumi.StringPtrInput `pulumi:"action"`
+	Body     pulumi.StringPtrInput `pulumi:"body"`
+	MediaUrl pulumi.StringPtrInput `pulumi:"mediaUrl"`
+	Sound    pulumi.StringPtrInput `pulumi:"sound"`
+	Title    pulumi.StringPtrInput `pulumi:"title"`
+	Url      pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (PushTemplateApnsPushNotificationTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushTemplateApnsPushNotificationTemplate)(nil)).Elem()
+}
+
+func (i PushTemplateApnsPushNotificationTemplateArgs) ToPushTemplateApnsPushNotificationTemplateOutput() PushTemplateApnsPushNotificationTemplateOutput {
+	return i.ToPushTemplateApnsPushNotificationTemplateOutputWithContext(context.Background())
+}
+
+func (i PushTemplateApnsPushNotificationTemplateArgs) ToPushTemplateApnsPushNotificationTemplateOutputWithContext(ctx context.Context) PushTemplateApnsPushNotificationTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateApnsPushNotificationTemplateOutput)
+}
+
+func (i PushTemplateApnsPushNotificationTemplateArgs) ToPushTemplateApnsPushNotificationTemplatePtrOutput() PushTemplateApnsPushNotificationTemplatePtrOutput {
+	return i.ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i PushTemplateApnsPushNotificationTemplateArgs) ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateApnsPushNotificationTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateApnsPushNotificationTemplateOutput).ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(ctx)
+}
+
+// PushTemplateApnsPushNotificationTemplatePtrInput is an input type that accepts PushTemplateApnsPushNotificationTemplateArgs, PushTemplateApnsPushNotificationTemplatePtr and PushTemplateApnsPushNotificationTemplatePtrOutput values.
+// You can construct a concrete instance of `PushTemplateApnsPushNotificationTemplatePtrInput` via:
+//
+//	        PushTemplateApnsPushNotificationTemplateArgs{...}
+//
+//	or:
+//
+//	        nil
+type PushTemplateApnsPushNotificationTemplatePtrInput interface {
+	pulumi.Input
+
+	ToPushTemplateApnsPushNotificationTemplatePtrOutput() PushTemplateApnsPushNotificationTemplatePtrOutput
+	ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(context.Context) PushTemplateApnsPushNotificationTemplatePtrOutput
+}
+
+type pushTemplateApnsPushNotificationTemplatePtrType PushTemplateApnsPushNotificationTemplateArgs
+
+func PushTemplateApnsPushNotificationTemplatePtr(v *PushTemplateApnsPushNotificationTemplateArgs) PushTemplateApnsPushNotificationTemplatePtrInput {
+	return (*pushTemplateApnsPushNotificationTemplatePtrType)(v)
+}
+
+func (*pushTemplateApnsPushNotificationTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushTemplateApnsPushNotificationTemplate)(nil)).Elem()
+}
+
+func (i *pushTemplateApnsPushNotificationTemplatePtrType) ToPushTemplateApnsPushNotificationTemplatePtrOutput() PushTemplateApnsPushNotificationTemplatePtrOutput {
+	return i.ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *pushTemplateApnsPushNotificationTemplatePtrType) ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateApnsPushNotificationTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateApnsPushNotificationTemplatePtrOutput)
+}
+
+type PushTemplateApnsPushNotificationTemplateOutput struct{ *pulumi.OutputState }
+
+func (PushTemplateApnsPushNotificationTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushTemplateApnsPushNotificationTemplate)(nil)).Elem()
+}
+
+func (o PushTemplateApnsPushNotificationTemplateOutput) ToPushTemplateApnsPushNotificationTemplateOutput() PushTemplateApnsPushNotificationTemplateOutput {
+	return o
+}
+
+func (o PushTemplateApnsPushNotificationTemplateOutput) ToPushTemplateApnsPushNotificationTemplateOutputWithContext(ctx context.Context) PushTemplateApnsPushNotificationTemplateOutput {
+	return o
+}
+
+func (o PushTemplateApnsPushNotificationTemplateOutput) ToPushTemplateApnsPushNotificationTemplatePtrOutput() PushTemplateApnsPushNotificationTemplatePtrOutput {
+	return o.ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o PushTemplateApnsPushNotificationTemplateOutput) ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateApnsPushNotificationTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushTemplateApnsPushNotificationTemplate) *PushTemplateApnsPushNotificationTemplate {
+		return &v
+	}).(PushTemplateApnsPushNotificationTemplatePtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplateOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushTemplateApnsPushNotificationTemplate) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplateOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushTemplateApnsPushNotificationTemplate) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplateOutput) MediaUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushTemplateApnsPushNotificationTemplate) *string { return v.MediaUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplateOutput) Sound() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushTemplateApnsPushNotificationTemplate) *string { return v.Sound }).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplateOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushTemplateApnsPushNotificationTemplate) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplateOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushTemplateApnsPushNotificationTemplate) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type PushTemplateApnsPushNotificationTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (PushTemplateApnsPushNotificationTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushTemplateApnsPushNotificationTemplate)(nil)).Elem()
+}
+
+func (o PushTemplateApnsPushNotificationTemplatePtrOutput) ToPushTemplateApnsPushNotificationTemplatePtrOutput() PushTemplateApnsPushNotificationTemplatePtrOutput {
+	return o
+}
+
+func (o PushTemplateApnsPushNotificationTemplatePtrOutput) ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateApnsPushNotificationTemplatePtrOutput {
+	return o
+}
+
+func (o PushTemplateApnsPushNotificationTemplatePtrOutput) Elem() PushTemplateApnsPushNotificationTemplateOutput {
+	return o.ApplyT(func(v *PushTemplateApnsPushNotificationTemplate) PushTemplateApnsPushNotificationTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret PushTemplateApnsPushNotificationTemplate
+		return ret
+	}).(PushTemplateApnsPushNotificationTemplateOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplatePtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushTemplateApnsPushNotificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplatePtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushTemplateApnsPushNotificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplatePtrOutput) MediaUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushTemplateApnsPushNotificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MediaUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplatePtrOutput) Sound() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushTemplateApnsPushNotificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sound
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplatePtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushTemplateApnsPushNotificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateApnsPushNotificationTemplatePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushTemplateApnsPushNotificationTemplate) *string {
 		if v == nil {
 			return nil
 		}
@@ -6988,138 +6988,138 @@ func (o SegmentDimensionsArrayOutput) Index(i pulumi.IntInput) SegmentDimensions
 	}).(SegmentDimensionsOutput)
 }
 
-type SegmentGPSPoint struct {
+type SegmentGpsPoint struct {
 	Coordinates       SegmentCoordinates `pulumi:"coordinates"`
 	RangeInKilometers float64            `pulumi:"rangeInKilometers"`
 }
 
-// SegmentGPSPointInput is an input type that accepts SegmentGPSPointArgs and SegmentGPSPointOutput values.
-// You can construct a concrete instance of `SegmentGPSPointInput` via:
+// SegmentGpsPointInput is an input type that accepts SegmentGpsPointArgs and SegmentGpsPointOutput values.
+// You can construct a concrete instance of `SegmentGpsPointInput` via:
 //
-//	SegmentGPSPointArgs{...}
-type SegmentGPSPointInput interface {
+//	SegmentGpsPointArgs{...}
+type SegmentGpsPointInput interface {
 	pulumi.Input
 
-	ToSegmentGPSPointOutput() SegmentGPSPointOutput
-	ToSegmentGPSPointOutputWithContext(context.Context) SegmentGPSPointOutput
+	ToSegmentGpsPointOutput() SegmentGpsPointOutput
+	ToSegmentGpsPointOutputWithContext(context.Context) SegmentGpsPointOutput
 }
 
-type SegmentGPSPointArgs struct {
+type SegmentGpsPointArgs struct {
 	Coordinates       SegmentCoordinatesInput `pulumi:"coordinates"`
 	RangeInKilometers pulumi.Float64Input     `pulumi:"rangeInKilometers"`
 }
 
-func (SegmentGPSPointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SegmentGPSPoint)(nil)).Elem()
+func (SegmentGpsPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentGpsPoint)(nil)).Elem()
 }
 
-func (i SegmentGPSPointArgs) ToSegmentGPSPointOutput() SegmentGPSPointOutput {
-	return i.ToSegmentGPSPointOutputWithContext(context.Background())
+func (i SegmentGpsPointArgs) ToSegmentGpsPointOutput() SegmentGpsPointOutput {
+	return i.ToSegmentGpsPointOutputWithContext(context.Background())
 }
 
-func (i SegmentGPSPointArgs) ToSegmentGPSPointOutputWithContext(ctx context.Context) SegmentGPSPointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentGPSPointOutput)
+func (i SegmentGpsPointArgs) ToSegmentGpsPointOutputWithContext(ctx context.Context) SegmentGpsPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentGpsPointOutput)
 }
 
-func (i SegmentGPSPointArgs) ToSegmentGPSPointPtrOutput() SegmentGPSPointPtrOutput {
-	return i.ToSegmentGPSPointPtrOutputWithContext(context.Background())
+func (i SegmentGpsPointArgs) ToSegmentGpsPointPtrOutput() SegmentGpsPointPtrOutput {
+	return i.ToSegmentGpsPointPtrOutputWithContext(context.Background())
 }
 
-func (i SegmentGPSPointArgs) ToSegmentGPSPointPtrOutputWithContext(ctx context.Context) SegmentGPSPointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentGPSPointOutput).ToSegmentGPSPointPtrOutputWithContext(ctx)
+func (i SegmentGpsPointArgs) ToSegmentGpsPointPtrOutputWithContext(ctx context.Context) SegmentGpsPointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentGpsPointOutput).ToSegmentGpsPointPtrOutputWithContext(ctx)
 }
 
-// SegmentGPSPointPtrInput is an input type that accepts SegmentGPSPointArgs, SegmentGPSPointPtr and SegmentGPSPointPtrOutput values.
-// You can construct a concrete instance of `SegmentGPSPointPtrInput` via:
+// SegmentGpsPointPtrInput is an input type that accepts SegmentGpsPointArgs, SegmentGpsPointPtr and SegmentGpsPointPtrOutput values.
+// You can construct a concrete instance of `SegmentGpsPointPtrInput` via:
 //
-//	        SegmentGPSPointArgs{...}
+//	        SegmentGpsPointArgs{...}
 //
 //	or:
 //
 //	        nil
-type SegmentGPSPointPtrInput interface {
+type SegmentGpsPointPtrInput interface {
 	pulumi.Input
 
-	ToSegmentGPSPointPtrOutput() SegmentGPSPointPtrOutput
-	ToSegmentGPSPointPtrOutputWithContext(context.Context) SegmentGPSPointPtrOutput
+	ToSegmentGpsPointPtrOutput() SegmentGpsPointPtrOutput
+	ToSegmentGpsPointPtrOutputWithContext(context.Context) SegmentGpsPointPtrOutput
 }
 
-type segmentGPSPointPtrType SegmentGPSPointArgs
+type segmentGpsPointPtrType SegmentGpsPointArgs
 
-func SegmentGPSPointPtr(v *SegmentGPSPointArgs) SegmentGPSPointPtrInput {
-	return (*segmentGPSPointPtrType)(v)
+func SegmentGpsPointPtr(v *SegmentGpsPointArgs) SegmentGpsPointPtrInput {
+	return (*segmentGpsPointPtrType)(v)
 }
 
-func (*segmentGPSPointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SegmentGPSPoint)(nil)).Elem()
+func (*segmentGpsPointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentGpsPoint)(nil)).Elem()
 }
 
-func (i *segmentGPSPointPtrType) ToSegmentGPSPointPtrOutput() SegmentGPSPointPtrOutput {
-	return i.ToSegmentGPSPointPtrOutputWithContext(context.Background())
+func (i *segmentGpsPointPtrType) ToSegmentGpsPointPtrOutput() SegmentGpsPointPtrOutput {
+	return i.ToSegmentGpsPointPtrOutputWithContext(context.Background())
 }
 
-func (i *segmentGPSPointPtrType) ToSegmentGPSPointPtrOutputWithContext(ctx context.Context) SegmentGPSPointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentGPSPointPtrOutput)
+func (i *segmentGpsPointPtrType) ToSegmentGpsPointPtrOutputWithContext(ctx context.Context) SegmentGpsPointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentGpsPointPtrOutput)
 }
 
-type SegmentGPSPointOutput struct{ *pulumi.OutputState }
+type SegmentGpsPointOutput struct{ *pulumi.OutputState }
 
-func (SegmentGPSPointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SegmentGPSPoint)(nil)).Elem()
+func (SegmentGpsPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentGpsPoint)(nil)).Elem()
 }
 
-func (o SegmentGPSPointOutput) ToSegmentGPSPointOutput() SegmentGPSPointOutput {
+func (o SegmentGpsPointOutput) ToSegmentGpsPointOutput() SegmentGpsPointOutput {
 	return o
 }
 
-func (o SegmentGPSPointOutput) ToSegmentGPSPointOutputWithContext(ctx context.Context) SegmentGPSPointOutput {
+func (o SegmentGpsPointOutput) ToSegmentGpsPointOutputWithContext(ctx context.Context) SegmentGpsPointOutput {
 	return o
 }
 
-func (o SegmentGPSPointOutput) ToSegmentGPSPointPtrOutput() SegmentGPSPointPtrOutput {
-	return o.ToSegmentGPSPointPtrOutputWithContext(context.Background())
+func (o SegmentGpsPointOutput) ToSegmentGpsPointPtrOutput() SegmentGpsPointPtrOutput {
+	return o.ToSegmentGpsPointPtrOutputWithContext(context.Background())
 }
 
-func (o SegmentGPSPointOutput) ToSegmentGPSPointPtrOutputWithContext(ctx context.Context) SegmentGPSPointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentGPSPoint) *SegmentGPSPoint {
+func (o SegmentGpsPointOutput) ToSegmentGpsPointPtrOutputWithContext(ctx context.Context) SegmentGpsPointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentGpsPoint) *SegmentGpsPoint {
 		return &v
-	}).(SegmentGPSPointPtrOutput)
+	}).(SegmentGpsPointPtrOutput)
 }
 
-func (o SegmentGPSPointOutput) Coordinates() SegmentCoordinatesOutput {
-	return o.ApplyT(func(v SegmentGPSPoint) SegmentCoordinates { return v.Coordinates }).(SegmentCoordinatesOutput)
+func (o SegmentGpsPointOutput) Coordinates() SegmentCoordinatesOutput {
+	return o.ApplyT(func(v SegmentGpsPoint) SegmentCoordinates { return v.Coordinates }).(SegmentCoordinatesOutput)
 }
 
-func (o SegmentGPSPointOutput) RangeInKilometers() pulumi.Float64Output {
-	return o.ApplyT(func(v SegmentGPSPoint) float64 { return v.RangeInKilometers }).(pulumi.Float64Output)
+func (o SegmentGpsPointOutput) RangeInKilometers() pulumi.Float64Output {
+	return o.ApplyT(func(v SegmentGpsPoint) float64 { return v.RangeInKilometers }).(pulumi.Float64Output)
 }
 
-type SegmentGPSPointPtrOutput struct{ *pulumi.OutputState }
+type SegmentGpsPointPtrOutput struct{ *pulumi.OutputState }
 
-func (SegmentGPSPointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SegmentGPSPoint)(nil)).Elem()
+func (SegmentGpsPointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentGpsPoint)(nil)).Elem()
 }
 
-func (o SegmentGPSPointPtrOutput) ToSegmentGPSPointPtrOutput() SegmentGPSPointPtrOutput {
+func (o SegmentGpsPointPtrOutput) ToSegmentGpsPointPtrOutput() SegmentGpsPointPtrOutput {
 	return o
 }
 
-func (o SegmentGPSPointPtrOutput) ToSegmentGPSPointPtrOutputWithContext(ctx context.Context) SegmentGPSPointPtrOutput {
+func (o SegmentGpsPointPtrOutput) ToSegmentGpsPointPtrOutputWithContext(ctx context.Context) SegmentGpsPointPtrOutput {
 	return o
 }
 
-func (o SegmentGPSPointPtrOutput) Elem() SegmentGPSPointOutput {
-	return o.ApplyT(func(v *SegmentGPSPoint) SegmentGPSPoint {
+func (o SegmentGpsPointPtrOutput) Elem() SegmentGpsPointOutput {
+	return o.ApplyT(func(v *SegmentGpsPoint) SegmentGpsPoint {
 		if v != nil {
 			return *v
 		}
-		var ret SegmentGPSPoint
+		var ret SegmentGpsPoint
 		return ret
-	}).(SegmentGPSPointOutput)
+	}).(SegmentGpsPointOutput)
 }
 
-func (o SegmentGPSPointPtrOutput) Coordinates() SegmentCoordinatesPtrOutput {
-	return o.ApplyT(func(v *SegmentGPSPoint) *SegmentCoordinates {
+func (o SegmentGpsPointPtrOutput) Coordinates() SegmentCoordinatesPtrOutput {
+	return o.ApplyT(func(v *SegmentGpsPoint) *SegmentCoordinates {
 		if v == nil {
 			return nil
 		}
@@ -7127,8 +7127,8 @@ func (o SegmentGPSPointPtrOutput) Coordinates() SegmentCoordinatesPtrOutput {
 	}).(SegmentCoordinatesPtrOutput)
 }
 
-func (o SegmentGPSPointPtrOutput) RangeInKilometers() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *SegmentGPSPoint) *float64 {
+func (o SegmentGpsPointPtrOutput) RangeInKilometers() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SegmentGpsPoint) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -7286,7 +7286,7 @@ func (o SegmentGroupsPtrOutput) Include() pulumi.StringPtrOutput {
 
 type SegmentLocation struct {
 	Country  *SegmentSetDimension `pulumi:"country"`
-	GpsPoint *SegmentGPSPoint     `pulumi:"gpsPoint"`
+	GpsPoint *SegmentGpsPoint     `pulumi:"gpsPoint"`
 }
 
 // SegmentLocationInput is an input type that accepts SegmentLocationArgs and SegmentLocationOutput values.
@@ -7302,7 +7302,7 @@ type SegmentLocationInput interface {
 
 type SegmentLocationArgs struct {
 	Country  SegmentSetDimensionPtrInput `pulumi:"country"`
-	GpsPoint SegmentGPSPointPtrInput     `pulumi:"gpsPoint"`
+	GpsPoint SegmentGpsPointPtrInput     `pulumi:"gpsPoint"`
 }
 
 func (SegmentLocationArgs) ElementType() reflect.Type {
@@ -7386,8 +7386,8 @@ func (o SegmentLocationOutput) Country() SegmentSetDimensionPtrOutput {
 	return o.ApplyT(func(v SegmentLocation) *SegmentSetDimension { return v.Country }).(SegmentSetDimensionPtrOutput)
 }
 
-func (o SegmentLocationOutput) GpsPoint() SegmentGPSPointPtrOutput {
-	return o.ApplyT(func(v SegmentLocation) *SegmentGPSPoint { return v.GpsPoint }).(SegmentGPSPointPtrOutput)
+func (o SegmentLocationOutput) GpsPoint() SegmentGpsPointPtrOutput {
+	return o.ApplyT(func(v SegmentLocation) *SegmentGpsPoint { return v.GpsPoint }).(SegmentGpsPointPtrOutput)
 }
 
 type SegmentLocationPtrOutput struct{ *pulumi.OutputState }
@@ -7423,13 +7423,13 @@ func (o SegmentLocationPtrOutput) Country() SegmentSetDimensionPtrOutput {
 	}).(SegmentSetDimensionPtrOutput)
 }
 
-func (o SegmentLocationPtrOutput) GpsPoint() SegmentGPSPointPtrOutput {
-	return o.ApplyT(func(v *SegmentLocation) *SegmentGPSPoint {
+func (o SegmentLocationPtrOutput) GpsPoint() SegmentGpsPointPtrOutput {
+	return o.ApplyT(func(v *SegmentLocation) *SegmentGpsPoint {
 		if v == nil {
 			return nil
 		}
 		return v.GpsPoint
-	}).(SegmentGPSPointPtrOutput)
+	}).(SegmentGpsPointPtrOutput)
 }
 
 type SegmentRecency struct {
@@ -7895,10 +7895,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateInAppMessageContentArrayInput)(nil)).Elem(), InAppTemplateInAppMessageContentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateOverrideButtonConfigurationInput)(nil)).Elem(), InAppTemplateOverrideButtonConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateOverrideButtonConfigurationPtrInput)(nil)).Elem(), InAppTemplateOverrideButtonConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateAPNSPushNotificationTemplateInput)(nil)).Elem(), PushTemplateAPNSPushNotificationTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateAPNSPushNotificationTemplatePtrInput)(nil)).Elem(), PushTemplateAPNSPushNotificationTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateAndroidPushNotificationTemplateInput)(nil)).Elem(), PushTemplateAndroidPushNotificationTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateAndroidPushNotificationTemplatePtrInput)(nil)).Elem(), PushTemplateAndroidPushNotificationTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateApnsPushNotificationTemplateInput)(nil)).Elem(), PushTemplateApnsPushNotificationTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateApnsPushNotificationTemplatePtrInput)(nil)).Elem(), PushTemplateApnsPushNotificationTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateDefaultPushNotificationTemplateInput)(nil)).Elem(), PushTemplateDefaultPushNotificationTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateDefaultPushNotificationTemplatePtrInput)(nil)).Elem(), PushTemplateDefaultPushNotificationTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentBehaviorInput)(nil)).Elem(), SegmentBehaviorArgs{})
@@ -7910,8 +7910,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDimensionsInput)(nil)).Elem(), SegmentDimensionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDimensionsPtrInput)(nil)).Elem(), SegmentDimensionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDimensionsArrayInput)(nil)).Elem(), SegmentDimensionsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGPSPointInput)(nil)).Elem(), SegmentGPSPointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGPSPointPtrInput)(nil)).Elem(), SegmentGPSPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGpsPointInput)(nil)).Elem(), SegmentGpsPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGpsPointPtrInput)(nil)).Elem(), SegmentGpsPointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGroupsInput)(nil)).Elem(), SegmentGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGroupsPtrInput)(nil)).Elem(), SegmentGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentLocationInput)(nil)).Elem(), SegmentLocationArgs{})
@@ -7988,10 +7988,10 @@ func init() {
 	pulumi.RegisterOutputType(InAppTemplateInAppMessageContentArrayOutput{})
 	pulumi.RegisterOutputType(InAppTemplateOverrideButtonConfigurationOutput{})
 	pulumi.RegisterOutputType(InAppTemplateOverrideButtonConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(PushTemplateAPNSPushNotificationTemplateOutput{})
-	pulumi.RegisterOutputType(PushTemplateAPNSPushNotificationTemplatePtrOutput{})
 	pulumi.RegisterOutputType(PushTemplateAndroidPushNotificationTemplateOutput{})
 	pulumi.RegisterOutputType(PushTemplateAndroidPushNotificationTemplatePtrOutput{})
+	pulumi.RegisterOutputType(PushTemplateApnsPushNotificationTemplateOutput{})
+	pulumi.RegisterOutputType(PushTemplateApnsPushNotificationTemplatePtrOutput{})
 	pulumi.RegisterOutputType(PushTemplateDefaultPushNotificationTemplateOutput{})
 	pulumi.RegisterOutputType(PushTemplateDefaultPushNotificationTemplatePtrOutput{})
 	pulumi.RegisterOutputType(SegmentBehaviorOutput{})
@@ -8003,8 +8003,8 @@ func init() {
 	pulumi.RegisterOutputType(SegmentDimensionsOutput{})
 	pulumi.RegisterOutputType(SegmentDimensionsPtrOutput{})
 	pulumi.RegisterOutputType(SegmentDimensionsArrayOutput{})
-	pulumi.RegisterOutputType(SegmentGPSPointOutput{})
-	pulumi.RegisterOutputType(SegmentGPSPointPtrOutput{})
+	pulumi.RegisterOutputType(SegmentGpsPointOutput{})
+	pulumi.RegisterOutputType(SegmentGpsPointPtrOutput{})
 	pulumi.RegisterOutputType(SegmentGroupsOutput{})
 	pulumi.RegisterOutputType(SegmentGroupsPtrOutput{})
 	pulumi.RegisterOutputType(SegmentLocationOutput{})

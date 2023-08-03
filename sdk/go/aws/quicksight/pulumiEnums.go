@@ -15145,125 +15145,125 @@ func (in *analysisTopBottomSortOrderPtr) ToAnalysisTopBottomSortOrderPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTopBottomSortOrderPtrOutput)
 }
 
-type AnalysisURLTargetConfiguration string
+type AnalysisUrlTargetConfiguration string
 
 const (
-	AnalysisURLTargetConfigurationNewTab    = AnalysisURLTargetConfiguration("NEW_TAB")
-	AnalysisURLTargetConfigurationNewWindow = AnalysisURLTargetConfiguration("NEW_WINDOW")
-	AnalysisURLTargetConfigurationSameTab   = AnalysisURLTargetConfiguration("SAME_TAB")
+	AnalysisUrlTargetConfigurationNewTab    = AnalysisUrlTargetConfiguration("NEW_TAB")
+	AnalysisUrlTargetConfigurationNewWindow = AnalysisUrlTargetConfiguration("NEW_WINDOW")
+	AnalysisUrlTargetConfigurationSameTab   = AnalysisUrlTargetConfiguration("SAME_TAB")
 )
 
-func (AnalysisURLTargetConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisURLTargetConfiguration)(nil)).Elem()
+func (AnalysisUrlTargetConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisUrlTargetConfiguration)(nil)).Elem()
 }
 
-func (e AnalysisURLTargetConfiguration) ToAnalysisURLTargetConfigurationOutput() AnalysisURLTargetConfigurationOutput {
-	return pulumi.ToOutput(e).(AnalysisURLTargetConfigurationOutput)
+func (e AnalysisUrlTargetConfiguration) ToAnalysisUrlTargetConfigurationOutput() AnalysisUrlTargetConfigurationOutput {
+	return pulumi.ToOutput(e).(AnalysisUrlTargetConfigurationOutput)
 }
 
-func (e AnalysisURLTargetConfiguration) ToAnalysisURLTargetConfigurationOutputWithContext(ctx context.Context) AnalysisURLTargetConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AnalysisURLTargetConfigurationOutput)
+func (e AnalysisUrlTargetConfiguration) ToAnalysisUrlTargetConfigurationOutputWithContext(ctx context.Context) AnalysisUrlTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisUrlTargetConfigurationOutput)
 }
 
-func (e AnalysisURLTargetConfiguration) ToAnalysisURLTargetConfigurationPtrOutput() AnalysisURLTargetConfigurationPtrOutput {
-	return e.ToAnalysisURLTargetConfigurationPtrOutputWithContext(context.Background())
+func (e AnalysisUrlTargetConfiguration) ToAnalysisUrlTargetConfigurationPtrOutput() AnalysisUrlTargetConfigurationPtrOutput {
+	return e.ToAnalysisUrlTargetConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (e AnalysisURLTargetConfiguration) ToAnalysisURLTargetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisURLTargetConfigurationPtrOutput {
-	return AnalysisURLTargetConfiguration(e).ToAnalysisURLTargetConfigurationOutputWithContext(ctx).ToAnalysisURLTargetConfigurationPtrOutputWithContext(ctx)
+func (e AnalysisUrlTargetConfiguration) ToAnalysisUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisUrlTargetConfigurationPtrOutput {
+	return AnalysisUrlTargetConfiguration(e).ToAnalysisUrlTargetConfigurationOutputWithContext(ctx).ToAnalysisUrlTargetConfigurationPtrOutputWithContext(ctx)
 }
 
-func (e AnalysisURLTargetConfiguration) ToStringOutput() pulumi.StringOutput {
+func (e AnalysisUrlTargetConfiguration) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e AnalysisURLTargetConfiguration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e AnalysisUrlTargetConfiguration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e AnalysisURLTargetConfiguration) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e AnalysisUrlTargetConfiguration) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e AnalysisURLTargetConfiguration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e AnalysisUrlTargetConfiguration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type AnalysisURLTargetConfigurationOutput struct{ *pulumi.OutputState }
+type AnalysisUrlTargetConfigurationOutput struct{ *pulumi.OutputState }
 
-func (AnalysisURLTargetConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisURLTargetConfiguration)(nil)).Elem()
+func (AnalysisUrlTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisUrlTargetConfiguration)(nil)).Elem()
 }
 
-func (o AnalysisURLTargetConfigurationOutput) ToAnalysisURLTargetConfigurationOutput() AnalysisURLTargetConfigurationOutput {
+func (o AnalysisUrlTargetConfigurationOutput) ToAnalysisUrlTargetConfigurationOutput() AnalysisUrlTargetConfigurationOutput {
 	return o
 }
 
-func (o AnalysisURLTargetConfigurationOutput) ToAnalysisURLTargetConfigurationOutputWithContext(ctx context.Context) AnalysisURLTargetConfigurationOutput {
+func (o AnalysisUrlTargetConfigurationOutput) ToAnalysisUrlTargetConfigurationOutputWithContext(ctx context.Context) AnalysisUrlTargetConfigurationOutput {
 	return o
 }
 
-func (o AnalysisURLTargetConfigurationOutput) ToAnalysisURLTargetConfigurationPtrOutput() AnalysisURLTargetConfigurationPtrOutput {
-	return o.ToAnalysisURLTargetConfigurationPtrOutputWithContext(context.Background())
+func (o AnalysisUrlTargetConfigurationOutput) ToAnalysisUrlTargetConfigurationPtrOutput() AnalysisUrlTargetConfigurationPtrOutput {
+	return o.ToAnalysisUrlTargetConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisURLTargetConfigurationOutput) ToAnalysisURLTargetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisURLTargetConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisURLTargetConfiguration) *AnalysisURLTargetConfiguration {
+func (o AnalysisUrlTargetConfigurationOutput) ToAnalysisUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisUrlTargetConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisUrlTargetConfiguration) *AnalysisUrlTargetConfiguration {
 		return &v
-	}).(AnalysisURLTargetConfigurationPtrOutput)
+	}).(AnalysisUrlTargetConfigurationPtrOutput)
 }
 
-func (o AnalysisURLTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
+func (o AnalysisUrlTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o AnalysisURLTargetConfigurationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisURLTargetConfiguration) string {
+func (o AnalysisUrlTargetConfigurationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisUrlTargetConfiguration) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o AnalysisURLTargetConfigurationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o AnalysisUrlTargetConfigurationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisURLTargetConfigurationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisURLTargetConfiguration) *string {
+func (o AnalysisUrlTargetConfigurationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisUrlTargetConfiguration) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type AnalysisURLTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+type AnalysisUrlTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (AnalysisURLTargetConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisURLTargetConfiguration)(nil)).Elem()
+func (AnalysisUrlTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisUrlTargetConfiguration)(nil)).Elem()
 }
 
-func (o AnalysisURLTargetConfigurationPtrOutput) ToAnalysisURLTargetConfigurationPtrOutput() AnalysisURLTargetConfigurationPtrOutput {
+func (o AnalysisUrlTargetConfigurationPtrOutput) ToAnalysisUrlTargetConfigurationPtrOutput() AnalysisUrlTargetConfigurationPtrOutput {
 	return o
 }
 
-func (o AnalysisURLTargetConfigurationPtrOutput) ToAnalysisURLTargetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisURLTargetConfigurationPtrOutput {
+func (o AnalysisUrlTargetConfigurationPtrOutput) ToAnalysisUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisUrlTargetConfigurationPtrOutput {
 	return o
 }
 
-func (o AnalysisURLTargetConfigurationPtrOutput) Elem() AnalysisURLTargetConfigurationOutput {
-	return o.ApplyT(func(v *AnalysisURLTargetConfiguration) AnalysisURLTargetConfiguration {
+func (o AnalysisUrlTargetConfigurationPtrOutput) Elem() AnalysisUrlTargetConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisUrlTargetConfiguration) AnalysisUrlTargetConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret AnalysisURLTargetConfiguration
+		var ret AnalysisUrlTargetConfiguration
 		return ret
-	}).(AnalysisURLTargetConfigurationOutput)
+	}).(AnalysisUrlTargetConfigurationOutput)
 }
 
-func (o AnalysisURLTargetConfigurationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o AnalysisUrlTargetConfigurationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o AnalysisURLTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisURLTargetConfiguration) *string {
+func (o AnalysisUrlTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisUrlTargetConfiguration) *string {
 		if e == nil {
 			return nil
 		}
@@ -15272,42 +15272,42 @@ func (o AnalysisURLTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisURLTargetConfigurationInput is an input type that accepts AnalysisURLTargetConfigurationArgs and AnalysisURLTargetConfigurationOutput values.
-// You can construct a concrete instance of `AnalysisURLTargetConfigurationInput` via:
+// AnalysisUrlTargetConfigurationInput is an input type that accepts AnalysisUrlTargetConfigurationArgs and AnalysisUrlTargetConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisUrlTargetConfigurationInput` via:
 //
-//	AnalysisURLTargetConfigurationArgs{...}
-type AnalysisURLTargetConfigurationInput interface {
+//	AnalysisUrlTargetConfigurationArgs{...}
+type AnalysisUrlTargetConfigurationInput interface {
 	pulumi.Input
 
-	ToAnalysisURLTargetConfigurationOutput() AnalysisURLTargetConfigurationOutput
-	ToAnalysisURLTargetConfigurationOutputWithContext(context.Context) AnalysisURLTargetConfigurationOutput
+	ToAnalysisUrlTargetConfigurationOutput() AnalysisUrlTargetConfigurationOutput
+	ToAnalysisUrlTargetConfigurationOutputWithContext(context.Context) AnalysisUrlTargetConfigurationOutput
 }
 
-var analysisURLTargetConfigurationPtrType = reflect.TypeOf((**AnalysisURLTargetConfiguration)(nil)).Elem()
+var analysisUrlTargetConfigurationPtrType = reflect.TypeOf((**AnalysisUrlTargetConfiguration)(nil)).Elem()
 
-type AnalysisURLTargetConfigurationPtrInput interface {
+type AnalysisUrlTargetConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToAnalysisURLTargetConfigurationPtrOutput() AnalysisURLTargetConfigurationPtrOutput
-	ToAnalysisURLTargetConfigurationPtrOutputWithContext(context.Context) AnalysisURLTargetConfigurationPtrOutput
+	ToAnalysisUrlTargetConfigurationPtrOutput() AnalysisUrlTargetConfigurationPtrOutput
+	ToAnalysisUrlTargetConfigurationPtrOutputWithContext(context.Context) AnalysisUrlTargetConfigurationPtrOutput
 }
 
-type analysisURLTargetConfigurationPtr string
+type analysisUrlTargetConfigurationPtr string
 
-func AnalysisURLTargetConfigurationPtr(v string) AnalysisURLTargetConfigurationPtrInput {
-	return (*analysisURLTargetConfigurationPtr)(&v)
+func AnalysisUrlTargetConfigurationPtr(v string) AnalysisUrlTargetConfigurationPtrInput {
+	return (*analysisUrlTargetConfigurationPtr)(&v)
 }
 
-func (*analysisURLTargetConfigurationPtr) ElementType() reflect.Type {
-	return analysisURLTargetConfigurationPtrType
+func (*analysisUrlTargetConfigurationPtr) ElementType() reflect.Type {
+	return analysisUrlTargetConfigurationPtrType
 }
 
-func (in *analysisURLTargetConfigurationPtr) ToAnalysisURLTargetConfigurationPtrOutput() AnalysisURLTargetConfigurationPtrOutput {
-	return pulumi.ToOutput(in).(AnalysisURLTargetConfigurationPtrOutput)
+func (in *analysisUrlTargetConfigurationPtr) ToAnalysisUrlTargetConfigurationPtrOutput() AnalysisUrlTargetConfigurationPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisUrlTargetConfigurationPtrOutput)
 }
 
-func (in *analysisURLTargetConfigurationPtr) ToAnalysisURLTargetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisURLTargetConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AnalysisURLTargetConfigurationPtrOutput)
+func (in *analysisUrlTargetConfigurationPtr) ToAnalysisUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisUrlTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisUrlTargetConfigurationPtrOutput)
 }
 
 type AnalysisValueWhenUnsetOption string
@@ -32178,124 +32178,124 @@ func (in *dashboardTopBottomSortOrderPtr) ToDashboardTopBottomSortOrderPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTopBottomSortOrderPtrOutput)
 }
 
-type DashboardUIState string
+type DashboardUiState string
 
 const (
-	DashboardUIStateExpanded  = DashboardUIState("EXPANDED")
-	DashboardUIStateCollapsed = DashboardUIState("COLLAPSED")
+	DashboardUiStateExpanded  = DashboardUiState("EXPANDED")
+	DashboardUiStateCollapsed = DashboardUiState("COLLAPSED")
 )
 
-func (DashboardUIState) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardUIState)(nil)).Elem()
+func (DashboardUiState) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardUiState)(nil)).Elem()
 }
 
-func (e DashboardUIState) ToDashboardUIStateOutput() DashboardUIStateOutput {
-	return pulumi.ToOutput(e).(DashboardUIStateOutput)
+func (e DashboardUiState) ToDashboardUiStateOutput() DashboardUiStateOutput {
+	return pulumi.ToOutput(e).(DashboardUiStateOutput)
 }
 
-func (e DashboardUIState) ToDashboardUIStateOutputWithContext(ctx context.Context) DashboardUIStateOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DashboardUIStateOutput)
+func (e DashboardUiState) ToDashboardUiStateOutputWithContext(ctx context.Context) DashboardUiStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardUiStateOutput)
 }
 
-func (e DashboardUIState) ToDashboardUIStatePtrOutput() DashboardUIStatePtrOutput {
-	return e.ToDashboardUIStatePtrOutputWithContext(context.Background())
+func (e DashboardUiState) ToDashboardUiStatePtrOutput() DashboardUiStatePtrOutput {
+	return e.ToDashboardUiStatePtrOutputWithContext(context.Background())
 }
 
-func (e DashboardUIState) ToDashboardUIStatePtrOutputWithContext(ctx context.Context) DashboardUIStatePtrOutput {
-	return DashboardUIState(e).ToDashboardUIStateOutputWithContext(ctx).ToDashboardUIStatePtrOutputWithContext(ctx)
+func (e DashboardUiState) ToDashboardUiStatePtrOutputWithContext(ctx context.Context) DashboardUiStatePtrOutput {
+	return DashboardUiState(e).ToDashboardUiStateOutputWithContext(ctx).ToDashboardUiStatePtrOutputWithContext(ctx)
 }
 
-func (e DashboardUIState) ToStringOutput() pulumi.StringOutput {
+func (e DashboardUiState) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DashboardUIState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DashboardUiState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DashboardUIState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DashboardUiState) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DashboardUIState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DashboardUiState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DashboardUIStateOutput struct{ *pulumi.OutputState }
+type DashboardUiStateOutput struct{ *pulumi.OutputState }
 
-func (DashboardUIStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardUIState)(nil)).Elem()
+func (DashboardUiStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardUiState)(nil)).Elem()
 }
 
-func (o DashboardUIStateOutput) ToDashboardUIStateOutput() DashboardUIStateOutput {
+func (o DashboardUiStateOutput) ToDashboardUiStateOutput() DashboardUiStateOutput {
 	return o
 }
 
-func (o DashboardUIStateOutput) ToDashboardUIStateOutputWithContext(ctx context.Context) DashboardUIStateOutput {
+func (o DashboardUiStateOutput) ToDashboardUiStateOutputWithContext(ctx context.Context) DashboardUiStateOutput {
 	return o
 }
 
-func (o DashboardUIStateOutput) ToDashboardUIStatePtrOutput() DashboardUIStatePtrOutput {
-	return o.ToDashboardUIStatePtrOutputWithContext(context.Background())
+func (o DashboardUiStateOutput) ToDashboardUiStatePtrOutput() DashboardUiStatePtrOutput {
+	return o.ToDashboardUiStatePtrOutputWithContext(context.Background())
 }
 
-func (o DashboardUIStateOutput) ToDashboardUIStatePtrOutputWithContext(ctx context.Context) DashboardUIStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardUIState) *DashboardUIState {
+func (o DashboardUiStateOutput) ToDashboardUiStatePtrOutputWithContext(ctx context.Context) DashboardUiStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardUiState) *DashboardUiState {
 		return &v
-	}).(DashboardUIStatePtrOutput)
+	}).(DashboardUiStatePtrOutput)
 }
 
-func (o DashboardUIStateOutput) ToStringOutput() pulumi.StringOutput {
+func (o DashboardUiStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DashboardUIStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardUIState) string {
+func (o DashboardUiStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardUiState) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DashboardUIStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DashboardUiStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardUIStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardUIState) *string {
+func (o DashboardUiStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardUiState) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DashboardUIStatePtrOutput struct{ *pulumi.OutputState }
+type DashboardUiStatePtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardUIStatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardUIState)(nil)).Elem()
+func (DashboardUiStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardUiState)(nil)).Elem()
 }
 
-func (o DashboardUIStatePtrOutput) ToDashboardUIStatePtrOutput() DashboardUIStatePtrOutput {
+func (o DashboardUiStatePtrOutput) ToDashboardUiStatePtrOutput() DashboardUiStatePtrOutput {
 	return o
 }
 
-func (o DashboardUIStatePtrOutput) ToDashboardUIStatePtrOutputWithContext(ctx context.Context) DashboardUIStatePtrOutput {
+func (o DashboardUiStatePtrOutput) ToDashboardUiStatePtrOutputWithContext(ctx context.Context) DashboardUiStatePtrOutput {
 	return o
 }
 
-func (o DashboardUIStatePtrOutput) Elem() DashboardUIStateOutput {
-	return o.ApplyT(func(v *DashboardUIState) DashboardUIState {
+func (o DashboardUiStatePtrOutput) Elem() DashboardUiStateOutput {
+	return o.ApplyT(func(v *DashboardUiState) DashboardUiState {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardUIState
+		var ret DashboardUiState
 		return ret
-	}).(DashboardUIStateOutput)
+	}).(DashboardUiStateOutput)
 }
 
-func (o DashboardUIStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DashboardUiStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardUIStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardUIState) *string {
+func (o DashboardUiStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardUiState) *string {
 		if e == nil {
 			return nil
 		}
@@ -32304,163 +32304,163 @@ func (o DashboardUIStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardUIStateInput is an input type that accepts DashboardUIStateArgs and DashboardUIStateOutput values.
-// You can construct a concrete instance of `DashboardUIStateInput` via:
+// DashboardUiStateInput is an input type that accepts DashboardUiStateArgs and DashboardUiStateOutput values.
+// You can construct a concrete instance of `DashboardUiStateInput` via:
 //
-//	DashboardUIStateArgs{...}
-type DashboardUIStateInput interface {
+//	DashboardUiStateArgs{...}
+type DashboardUiStateInput interface {
 	pulumi.Input
 
-	ToDashboardUIStateOutput() DashboardUIStateOutput
-	ToDashboardUIStateOutputWithContext(context.Context) DashboardUIStateOutput
+	ToDashboardUiStateOutput() DashboardUiStateOutput
+	ToDashboardUiStateOutputWithContext(context.Context) DashboardUiStateOutput
 }
 
-var dashboardUIStatePtrType = reflect.TypeOf((**DashboardUIState)(nil)).Elem()
+var dashboardUiStatePtrType = reflect.TypeOf((**DashboardUiState)(nil)).Elem()
 
-type DashboardUIStatePtrInput interface {
+type DashboardUiStatePtrInput interface {
 	pulumi.Input
 
-	ToDashboardUIStatePtrOutput() DashboardUIStatePtrOutput
-	ToDashboardUIStatePtrOutputWithContext(context.Context) DashboardUIStatePtrOutput
+	ToDashboardUiStatePtrOutput() DashboardUiStatePtrOutput
+	ToDashboardUiStatePtrOutputWithContext(context.Context) DashboardUiStatePtrOutput
 }
 
-type dashboardUIStatePtr string
+type dashboardUiStatePtr string
 
-func DashboardUIStatePtr(v string) DashboardUIStatePtrInput {
-	return (*dashboardUIStatePtr)(&v)
+func DashboardUiStatePtr(v string) DashboardUiStatePtrInput {
+	return (*dashboardUiStatePtr)(&v)
 }
 
-func (*dashboardUIStatePtr) ElementType() reflect.Type {
-	return dashboardUIStatePtrType
+func (*dashboardUiStatePtr) ElementType() reflect.Type {
+	return dashboardUiStatePtrType
 }
 
-func (in *dashboardUIStatePtr) ToDashboardUIStatePtrOutput() DashboardUIStatePtrOutput {
-	return pulumi.ToOutput(in).(DashboardUIStatePtrOutput)
+func (in *dashboardUiStatePtr) ToDashboardUiStatePtrOutput() DashboardUiStatePtrOutput {
+	return pulumi.ToOutput(in).(DashboardUiStatePtrOutput)
 }
 
-func (in *dashboardUIStatePtr) ToDashboardUIStatePtrOutputWithContext(ctx context.Context) DashboardUIStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DashboardUIStatePtrOutput)
+func (in *dashboardUiStatePtr) ToDashboardUiStatePtrOutputWithContext(ctx context.Context) DashboardUiStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardUiStatePtrOutput)
 }
 
-type DashboardURLTargetConfiguration string
+type DashboardUrlTargetConfiguration string
 
 const (
-	DashboardURLTargetConfigurationNewTab    = DashboardURLTargetConfiguration("NEW_TAB")
-	DashboardURLTargetConfigurationNewWindow = DashboardURLTargetConfiguration("NEW_WINDOW")
-	DashboardURLTargetConfigurationSameTab   = DashboardURLTargetConfiguration("SAME_TAB")
+	DashboardUrlTargetConfigurationNewTab    = DashboardUrlTargetConfiguration("NEW_TAB")
+	DashboardUrlTargetConfigurationNewWindow = DashboardUrlTargetConfiguration("NEW_WINDOW")
+	DashboardUrlTargetConfigurationSameTab   = DashboardUrlTargetConfiguration("SAME_TAB")
 )
 
-func (DashboardURLTargetConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardURLTargetConfiguration)(nil)).Elem()
+func (DashboardUrlTargetConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardUrlTargetConfiguration)(nil)).Elem()
 }
 
-func (e DashboardURLTargetConfiguration) ToDashboardURLTargetConfigurationOutput() DashboardURLTargetConfigurationOutput {
-	return pulumi.ToOutput(e).(DashboardURLTargetConfigurationOutput)
+func (e DashboardUrlTargetConfiguration) ToDashboardUrlTargetConfigurationOutput() DashboardUrlTargetConfigurationOutput {
+	return pulumi.ToOutput(e).(DashboardUrlTargetConfigurationOutput)
 }
 
-func (e DashboardURLTargetConfiguration) ToDashboardURLTargetConfigurationOutputWithContext(ctx context.Context) DashboardURLTargetConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DashboardURLTargetConfigurationOutput)
+func (e DashboardUrlTargetConfiguration) ToDashboardUrlTargetConfigurationOutputWithContext(ctx context.Context) DashboardUrlTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardUrlTargetConfigurationOutput)
 }
 
-func (e DashboardURLTargetConfiguration) ToDashboardURLTargetConfigurationPtrOutput() DashboardURLTargetConfigurationPtrOutput {
-	return e.ToDashboardURLTargetConfigurationPtrOutputWithContext(context.Background())
+func (e DashboardUrlTargetConfiguration) ToDashboardUrlTargetConfigurationPtrOutput() DashboardUrlTargetConfigurationPtrOutput {
+	return e.ToDashboardUrlTargetConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (e DashboardURLTargetConfiguration) ToDashboardURLTargetConfigurationPtrOutputWithContext(ctx context.Context) DashboardURLTargetConfigurationPtrOutput {
-	return DashboardURLTargetConfiguration(e).ToDashboardURLTargetConfigurationOutputWithContext(ctx).ToDashboardURLTargetConfigurationPtrOutputWithContext(ctx)
+func (e DashboardUrlTargetConfiguration) ToDashboardUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) DashboardUrlTargetConfigurationPtrOutput {
+	return DashboardUrlTargetConfiguration(e).ToDashboardUrlTargetConfigurationOutputWithContext(ctx).ToDashboardUrlTargetConfigurationPtrOutputWithContext(ctx)
 }
 
-func (e DashboardURLTargetConfiguration) ToStringOutput() pulumi.StringOutput {
+func (e DashboardUrlTargetConfiguration) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DashboardURLTargetConfiguration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DashboardUrlTargetConfiguration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DashboardURLTargetConfiguration) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DashboardUrlTargetConfiguration) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DashboardURLTargetConfiguration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DashboardUrlTargetConfiguration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DashboardURLTargetConfigurationOutput struct{ *pulumi.OutputState }
+type DashboardUrlTargetConfigurationOutput struct{ *pulumi.OutputState }
 
-func (DashboardURLTargetConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardURLTargetConfiguration)(nil)).Elem()
+func (DashboardUrlTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardUrlTargetConfiguration)(nil)).Elem()
 }
 
-func (o DashboardURLTargetConfigurationOutput) ToDashboardURLTargetConfigurationOutput() DashboardURLTargetConfigurationOutput {
+func (o DashboardUrlTargetConfigurationOutput) ToDashboardUrlTargetConfigurationOutput() DashboardUrlTargetConfigurationOutput {
 	return o
 }
 
-func (o DashboardURLTargetConfigurationOutput) ToDashboardURLTargetConfigurationOutputWithContext(ctx context.Context) DashboardURLTargetConfigurationOutput {
+func (o DashboardUrlTargetConfigurationOutput) ToDashboardUrlTargetConfigurationOutputWithContext(ctx context.Context) DashboardUrlTargetConfigurationOutput {
 	return o
 }
 
-func (o DashboardURLTargetConfigurationOutput) ToDashboardURLTargetConfigurationPtrOutput() DashboardURLTargetConfigurationPtrOutput {
-	return o.ToDashboardURLTargetConfigurationPtrOutputWithContext(context.Background())
+func (o DashboardUrlTargetConfigurationOutput) ToDashboardUrlTargetConfigurationPtrOutput() DashboardUrlTargetConfigurationPtrOutput {
+	return o.ToDashboardUrlTargetConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardURLTargetConfigurationOutput) ToDashboardURLTargetConfigurationPtrOutputWithContext(ctx context.Context) DashboardURLTargetConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardURLTargetConfiguration) *DashboardURLTargetConfiguration {
+func (o DashboardUrlTargetConfigurationOutput) ToDashboardUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) DashboardUrlTargetConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardUrlTargetConfiguration) *DashboardUrlTargetConfiguration {
 		return &v
-	}).(DashboardURLTargetConfigurationPtrOutput)
+	}).(DashboardUrlTargetConfigurationPtrOutput)
 }
 
-func (o DashboardURLTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
+func (o DashboardUrlTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DashboardURLTargetConfigurationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardURLTargetConfiguration) string {
+func (o DashboardUrlTargetConfigurationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardUrlTargetConfiguration) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DashboardURLTargetConfigurationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DashboardUrlTargetConfigurationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardURLTargetConfigurationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardURLTargetConfiguration) *string {
+func (o DashboardUrlTargetConfigurationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardUrlTargetConfiguration) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DashboardURLTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+type DashboardUrlTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (DashboardURLTargetConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardURLTargetConfiguration)(nil)).Elem()
+func (DashboardUrlTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardUrlTargetConfiguration)(nil)).Elem()
 }
 
-func (o DashboardURLTargetConfigurationPtrOutput) ToDashboardURLTargetConfigurationPtrOutput() DashboardURLTargetConfigurationPtrOutput {
+func (o DashboardUrlTargetConfigurationPtrOutput) ToDashboardUrlTargetConfigurationPtrOutput() DashboardUrlTargetConfigurationPtrOutput {
 	return o
 }
 
-func (o DashboardURLTargetConfigurationPtrOutput) ToDashboardURLTargetConfigurationPtrOutputWithContext(ctx context.Context) DashboardURLTargetConfigurationPtrOutput {
+func (o DashboardUrlTargetConfigurationPtrOutput) ToDashboardUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) DashboardUrlTargetConfigurationPtrOutput {
 	return o
 }
 
-func (o DashboardURLTargetConfigurationPtrOutput) Elem() DashboardURLTargetConfigurationOutput {
-	return o.ApplyT(func(v *DashboardURLTargetConfiguration) DashboardURLTargetConfiguration {
+func (o DashboardUrlTargetConfigurationPtrOutput) Elem() DashboardUrlTargetConfigurationOutput {
+	return o.ApplyT(func(v *DashboardUrlTargetConfiguration) DashboardUrlTargetConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret DashboardURLTargetConfiguration
+		var ret DashboardUrlTargetConfiguration
 		return ret
-	}).(DashboardURLTargetConfigurationOutput)
+	}).(DashboardUrlTargetConfigurationOutput)
 }
 
-func (o DashboardURLTargetConfigurationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DashboardUrlTargetConfigurationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DashboardURLTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardURLTargetConfiguration) *string {
+func (o DashboardUrlTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardUrlTargetConfiguration) *string {
 		if e == nil {
 			return nil
 		}
@@ -32469,42 +32469,42 @@ func (o DashboardURLTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardURLTargetConfigurationInput is an input type that accepts DashboardURLTargetConfigurationArgs and DashboardURLTargetConfigurationOutput values.
-// You can construct a concrete instance of `DashboardURLTargetConfigurationInput` via:
+// DashboardUrlTargetConfigurationInput is an input type that accepts DashboardUrlTargetConfigurationArgs and DashboardUrlTargetConfigurationOutput values.
+// You can construct a concrete instance of `DashboardUrlTargetConfigurationInput` via:
 //
-//	DashboardURLTargetConfigurationArgs{...}
-type DashboardURLTargetConfigurationInput interface {
+//	DashboardUrlTargetConfigurationArgs{...}
+type DashboardUrlTargetConfigurationInput interface {
 	pulumi.Input
 
-	ToDashboardURLTargetConfigurationOutput() DashboardURLTargetConfigurationOutput
-	ToDashboardURLTargetConfigurationOutputWithContext(context.Context) DashboardURLTargetConfigurationOutput
+	ToDashboardUrlTargetConfigurationOutput() DashboardUrlTargetConfigurationOutput
+	ToDashboardUrlTargetConfigurationOutputWithContext(context.Context) DashboardUrlTargetConfigurationOutput
 }
 
-var dashboardURLTargetConfigurationPtrType = reflect.TypeOf((**DashboardURLTargetConfiguration)(nil)).Elem()
+var dashboardUrlTargetConfigurationPtrType = reflect.TypeOf((**DashboardUrlTargetConfiguration)(nil)).Elem()
 
-type DashboardURLTargetConfigurationPtrInput interface {
+type DashboardUrlTargetConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToDashboardURLTargetConfigurationPtrOutput() DashboardURLTargetConfigurationPtrOutput
-	ToDashboardURLTargetConfigurationPtrOutputWithContext(context.Context) DashboardURLTargetConfigurationPtrOutput
+	ToDashboardUrlTargetConfigurationPtrOutput() DashboardUrlTargetConfigurationPtrOutput
+	ToDashboardUrlTargetConfigurationPtrOutputWithContext(context.Context) DashboardUrlTargetConfigurationPtrOutput
 }
 
-type dashboardURLTargetConfigurationPtr string
+type dashboardUrlTargetConfigurationPtr string
 
-func DashboardURLTargetConfigurationPtr(v string) DashboardURLTargetConfigurationPtrInput {
-	return (*dashboardURLTargetConfigurationPtr)(&v)
+func DashboardUrlTargetConfigurationPtr(v string) DashboardUrlTargetConfigurationPtrInput {
+	return (*dashboardUrlTargetConfigurationPtr)(&v)
 }
 
-func (*dashboardURLTargetConfigurationPtr) ElementType() reflect.Type {
-	return dashboardURLTargetConfigurationPtrType
+func (*dashboardUrlTargetConfigurationPtr) ElementType() reflect.Type {
+	return dashboardUrlTargetConfigurationPtrType
 }
 
-func (in *dashboardURLTargetConfigurationPtr) ToDashboardURLTargetConfigurationPtrOutput() DashboardURLTargetConfigurationPtrOutput {
-	return pulumi.ToOutput(in).(DashboardURLTargetConfigurationPtrOutput)
+func (in *dashboardUrlTargetConfigurationPtr) ToDashboardUrlTargetConfigurationPtrOutput() DashboardUrlTargetConfigurationPtrOutput {
+	return pulumi.ToOutput(in).(DashboardUrlTargetConfigurationPtrOutput)
 }
 
-func (in *dashboardURLTargetConfigurationPtr) ToDashboardURLTargetConfigurationPtrOutputWithContext(ctx context.Context) DashboardURLTargetConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DashboardURLTargetConfigurationPtrOutput)
+func (in *dashboardUrlTargetConfigurationPtr) ToDashboardUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) DashboardUrlTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardUrlTargetConfigurationPtrOutput)
 }
 
 type DashboardValueWhenUnsetOption string
@@ -51570,125 +51570,125 @@ func (in *templateTopBottomSortOrderPtr) ToTemplateTopBottomSortOrderPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTopBottomSortOrderPtrOutput)
 }
 
-type TemplateURLTargetConfiguration string
+type TemplateUrlTargetConfiguration string
 
 const (
-	TemplateURLTargetConfigurationNewTab    = TemplateURLTargetConfiguration("NEW_TAB")
-	TemplateURLTargetConfigurationNewWindow = TemplateURLTargetConfiguration("NEW_WINDOW")
-	TemplateURLTargetConfigurationSameTab   = TemplateURLTargetConfiguration("SAME_TAB")
+	TemplateUrlTargetConfigurationNewTab    = TemplateUrlTargetConfiguration("NEW_TAB")
+	TemplateUrlTargetConfigurationNewWindow = TemplateUrlTargetConfiguration("NEW_WINDOW")
+	TemplateUrlTargetConfigurationSameTab   = TemplateUrlTargetConfiguration("SAME_TAB")
 )
 
-func (TemplateURLTargetConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateURLTargetConfiguration)(nil)).Elem()
+func (TemplateUrlTargetConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateUrlTargetConfiguration)(nil)).Elem()
 }
 
-func (e TemplateURLTargetConfiguration) ToTemplateURLTargetConfigurationOutput() TemplateURLTargetConfigurationOutput {
-	return pulumi.ToOutput(e).(TemplateURLTargetConfigurationOutput)
+func (e TemplateUrlTargetConfiguration) ToTemplateUrlTargetConfigurationOutput() TemplateUrlTargetConfigurationOutput {
+	return pulumi.ToOutput(e).(TemplateUrlTargetConfigurationOutput)
 }
 
-func (e TemplateURLTargetConfiguration) ToTemplateURLTargetConfigurationOutputWithContext(ctx context.Context) TemplateURLTargetConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TemplateURLTargetConfigurationOutput)
+func (e TemplateUrlTargetConfiguration) ToTemplateUrlTargetConfigurationOutputWithContext(ctx context.Context) TemplateUrlTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateUrlTargetConfigurationOutput)
 }
 
-func (e TemplateURLTargetConfiguration) ToTemplateURLTargetConfigurationPtrOutput() TemplateURLTargetConfigurationPtrOutput {
-	return e.ToTemplateURLTargetConfigurationPtrOutputWithContext(context.Background())
+func (e TemplateUrlTargetConfiguration) ToTemplateUrlTargetConfigurationPtrOutput() TemplateUrlTargetConfigurationPtrOutput {
+	return e.ToTemplateUrlTargetConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (e TemplateURLTargetConfiguration) ToTemplateURLTargetConfigurationPtrOutputWithContext(ctx context.Context) TemplateURLTargetConfigurationPtrOutput {
-	return TemplateURLTargetConfiguration(e).ToTemplateURLTargetConfigurationOutputWithContext(ctx).ToTemplateURLTargetConfigurationPtrOutputWithContext(ctx)
+func (e TemplateUrlTargetConfiguration) ToTemplateUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) TemplateUrlTargetConfigurationPtrOutput {
+	return TemplateUrlTargetConfiguration(e).ToTemplateUrlTargetConfigurationOutputWithContext(ctx).ToTemplateUrlTargetConfigurationPtrOutputWithContext(ctx)
 }
 
-func (e TemplateURLTargetConfiguration) ToStringOutput() pulumi.StringOutput {
+func (e TemplateUrlTargetConfiguration) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TemplateURLTargetConfiguration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e TemplateUrlTargetConfiguration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TemplateURLTargetConfiguration) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e TemplateUrlTargetConfiguration) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e TemplateURLTargetConfiguration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e TemplateUrlTargetConfiguration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type TemplateURLTargetConfigurationOutput struct{ *pulumi.OutputState }
+type TemplateUrlTargetConfigurationOutput struct{ *pulumi.OutputState }
 
-func (TemplateURLTargetConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateURLTargetConfiguration)(nil)).Elem()
+func (TemplateUrlTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateUrlTargetConfiguration)(nil)).Elem()
 }
 
-func (o TemplateURLTargetConfigurationOutput) ToTemplateURLTargetConfigurationOutput() TemplateURLTargetConfigurationOutput {
+func (o TemplateUrlTargetConfigurationOutput) ToTemplateUrlTargetConfigurationOutput() TemplateUrlTargetConfigurationOutput {
 	return o
 }
 
-func (o TemplateURLTargetConfigurationOutput) ToTemplateURLTargetConfigurationOutputWithContext(ctx context.Context) TemplateURLTargetConfigurationOutput {
+func (o TemplateUrlTargetConfigurationOutput) ToTemplateUrlTargetConfigurationOutputWithContext(ctx context.Context) TemplateUrlTargetConfigurationOutput {
 	return o
 }
 
-func (o TemplateURLTargetConfigurationOutput) ToTemplateURLTargetConfigurationPtrOutput() TemplateURLTargetConfigurationPtrOutput {
-	return o.ToTemplateURLTargetConfigurationPtrOutputWithContext(context.Background())
+func (o TemplateUrlTargetConfigurationOutput) ToTemplateUrlTargetConfigurationPtrOutput() TemplateUrlTargetConfigurationPtrOutput {
+	return o.ToTemplateUrlTargetConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o TemplateURLTargetConfigurationOutput) ToTemplateURLTargetConfigurationPtrOutputWithContext(ctx context.Context) TemplateURLTargetConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateURLTargetConfiguration) *TemplateURLTargetConfiguration {
+func (o TemplateUrlTargetConfigurationOutput) ToTemplateUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) TemplateUrlTargetConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateUrlTargetConfiguration) *TemplateUrlTargetConfiguration {
 		return &v
-	}).(TemplateURLTargetConfigurationPtrOutput)
+	}).(TemplateUrlTargetConfigurationPtrOutput)
 }
 
-func (o TemplateURLTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
+func (o TemplateUrlTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o TemplateURLTargetConfigurationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateURLTargetConfiguration) string {
+func (o TemplateUrlTargetConfigurationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateUrlTargetConfiguration) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o TemplateURLTargetConfigurationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TemplateUrlTargetConfigurationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TemplateURLTargetConfigurationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateURLTargetConfiguration) *string {
+func (o TemplateUrlTargetConfigurationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateUrlTargetConfiguration) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type TemplateURLTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+type TemplateUrlTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (TemplateURLTargetConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateURLTargetConfiguration)(nil)).Elem()
+func (TemplateUrlTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateUrlTargetConfiguration)(nil)).Elem()
 }
 
-func (o TemplateURLTargetConfigurationPtrOutput) ToTemplateURLTargetConfigurationPtrOutput() TemplateURLTargetConfigurationPtrOutput {
+func (o TemplateUrlTargetConfigurationPtrOutput) ToTemplateUrlTargetConfigurationPtrOutput() TemplateUrlTargetConfigurationPtrOutput {
 	return o
 }
 
-func (o TemplateURLTargetConfigurationPtrOutput) ToTemplateURLTargetConfigurationPtrOutputWithContext(ctx context.Context) TemplateURLTargetConfigurationPtrOutput {
+func (o TemplateUrlTargetConfigurationPtrOutput) ToTemplateUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) TemplateUrlTargetConfigurationPtrOutput {
 	return o
 }
 
-func (o TemplateURLTargetConfigurationPtrOutput) Elem() TemplateURLTargetConfigurationOutput {
-	return o.ApplyT(func(v *TemplateURLTargetConfiguration) TemplateURLTargetConfiguration {
+func (o TemplateUrlTargetConfigurationPtrOutput) Elem() TemplateUrlTargetConfigurationOutput {
+	return o.ApplyT(func(v *TemplateUrlTargetConfiguration) TemplateUrlTargetConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret TemplateURLTargetConfiguration
+		var ret TemplateUrlTargetConfiguration
 		return ret
-	}).(TemplateURLTargetConfigurationOutput)
+	}).(TemplateUrlTargetConfigurationOutput)
 }
 
-func (o TemplateURLTargetConfigurationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TemplateUrlTargetConfigurationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TemplateURLTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateURLTargetConfiguration) *string {
+func (o TemplateUrlTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateUrlTargetConfiguration) *string {
 		if e == nil {
 			return nil
 		}
@@ -51697,42 +51697,42 @@ func (o TemplateURLTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateURLTargetConfigurationInput is an input type that accepts TemplateURLTargetConfigurationArgs and TemplateURLTargetConfigurationOutput values.
-// You can construct a concrete instance of `TemplateURLTargetConfigurationInput` via:
+// TemplateUrlTargetConfigurationInput is an input type that accepts TemplateUrlTargetConfigurationArgs and TemplateUrlTargetConfigurationOutput values.
+// You can construct a concrete instance of `TemplateUrlTargetConfigurationInput` via:
 //
-//	TemplateURLTargetConfigurationArgs{...}
-type TemplateURLTargetConfigurationInput interface {
+//	TemplateUrlTargetConfigurationArgs{...}
+type TemplateUrlTargetConfigurationInput interface {
 	pulumi.Input
 
-	ToTemplateURLTargetConfigurationOutput() TemplateURLTargetConfigurationOutput
-	ToTemplateURLTargetConfigurationOutputWithContext(context.Context) TemplateURLTargetConfigurationOutput
+	ToTemplateUrlTargetConfigurationOutput() TemplateUrlTargetConfigurationOutput
+	ToTemplateUrlTargetConfigurationOutputWithContext(context.Context) TemplateUrlTargetConfigurationOutput
 }
 
-var templateURLTargetConfigurationPtrType = reflect.TypeOf((**TemplateURLTargetConfiguration)(nil)).Elem()
+var templateUrlTargetConfigurationPtrType = reflect.TypeOf((**TemplateUrlTargetConfiguration)(nil)).Elem()
 
-type TemplateURLTargetConfigurationPtrInput interface {
+type TemplateUrlTargetConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToTemplateURLTargetConfigurationPtrOutput() TemplateURLTargetConfigurationPtrOutput
-	ToTemplateURLTargetConfigurationPtrOutputWithContext(context.Context) TemplateURLTargetConfigurationPtrOutput
+	ToTemplateUrlTargetConfigurationPtrOutput() TemplateUrlTargetConfigurationPtrOutput
+	ToTemplateUrlTargetConfigurationPtrOutputWithContext(context.Context) TemplateUrlTargetConfigurationPtrOutput
 }
 
-type templateURLTargetConfigurationPtr string
+type templateUrlTargetConfigurationPtr string
 
-func TemplateURLTargetConfigurationPtr(v string) TemplateURLTargetConfigurationPtrInput {
-	return (*templateURLTargetConfigurationPtr)(&v)
+func TemplateUrlTargetConfigurationPtr(v string) TemplateUrlTargetConfigurationPtrInput {
+	return (*templateUrlTargetConfigurationPtr)(&v)
 }
 
-func (*templateURLTargetConfigurationPtr) ElementType() reflect.Type {
-	return templateURLTargetConfigurationPtrType
+func (*templateUrlTargetConfigurationPtr) ElementType() reflect.Type {
+	return templateUrlTargetConfigurationPtrType
 }
 
-func (in *templateURLTargetConfigurationPtr) ToTemplateURLTargetConfigurationPtrOutput() TemplateURLTargetConfigurationPtrOutput {
-	return pulumi.ToOutput(in).(TemplateURLTargetConfigurationPtrOutput)
+func (in *templateUrlTargetConfigurationPtr) ToTemplateUrlTargetConfigurationPtrOutput() TemplateUrlTargetConfigurationPtrOutput {
+	return pulumi.ToOutput(in).(TemplateUrlTargetConfigurationPtrOutput)
 }
 
-func (in *templateURLTargetConfigurationPtr) ToTemplateURLTargetConfigurationPtrOutputWithContext(ctx context.Context) TemplateURLTargetConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TemplateURLTargetConfigurationPtrOutput)
+func (in *templateUrlTargetConfigurationPtr) ToTemplateUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) TemplateUrlTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateUrlTargetConfigurationPtrOutput)
 }
 
 type TemplateValueWhenUnsetOption string
@@ -56874,125 +56874,223 @@ func (in *topicUndefinedSpecifiedValueTypePtr) ToTopicUndefinedSpecifiedValueTyp
 	return pulumi.ToOutputWithContext(ctx, in).(TopicUndefinedSpecifiedValueTypePtrOutput)
 }
 
-type VPCConnectionAvailabilityStatus string
+type VpcConnectionNetworkInterfaceStatus string
 
 const (
-	VPCConnectionAvailabilityStatusAvailable          = VPCConnectionAvailabilityStatus("AVAILABLE")
-	VPCConnectionAvailabilityStatusUnavailable        = VPCConnectionAvailabilityStatus("UNAVAILABLE")
-	VPCConnectionAvailabilityStatusPartiallyAvailable = VPCConnectionAvailabilityStatus("PARTIALLY_AVAILABLE")
+	VpcConnectionNetworkInterfaceStatusCreating                       = VpcConnectionNetworkInterfaceStatus("CREATING")
+	VpcConnectionNetworkInterfaceStatusAvailable                      = VpcConnectionNetworkInterfaceStatus("AVAILABLE")
+	VpcConnectionNetworkInterfaceStatusCreationFailed                 = VpcConnectionNetworkInterfaceStatus("CREATION_FAILED")
+	VpcConnectionNetworkInterfaceStatusUpdating                       = VpcConnectionNetworkInterfaceStatus("UPDATING")
+	VpcConnectionNetworkInterfaceStatusUpdateFailed                   = VpcConnectionNetworkInterfaceStatus("UPDATE_FAILED")
+	VpcConnectionNetworkInterfaceStatusDeleting                       = VpcConnectionNetworkInterfaceStatus("DELETING")
+	VpcConnectionNetworkInterfaceStatusDeleted                        = VpcConnectionNetworkInterfaceStatus("DELETED")
+	VpcConnectionNetworkInterfaceStatusDeletionFailed                 = VpcConnectionNetworkInterfaceStatus("DELETION_FAILED")
+	VpcConnectionNetworkInterfaceStatusDeletionScheduled              = VpcConnectionNetworkInterfaceStatus("DELETION_SCHEDULED")
+	VpcConnectionNetworkInterfaceStatusAttachmentFailedRollbackFailed = VpcConnectionNetworkInterfaceStatus("ATTACHMENT_FAILED_ROLLBACK_FAILED")
 )
 
-func (VPCConnectionAvailabilityStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCConnectionAvailabilityStatus)(nil)).Elem()
+type VpcConnectionNetworkInterfaceStatusOutput struct{ *pulumi.OutputState }
+
+func (VpcConnectionNetworkInterfaceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcConnectionNetworkInterfaceStatus)(nil)).Elem()
 }
 
-func (e VPCConnectionAvailabilityStatus) ToVPCConnectionAvailabilityStatusOutput() VPCConnectionAvailabilityStatusOutput {
-	return pulumi.ToOutput(e).(VPCConnectionAvailabilityStatusOutput)
+func (o VpcConnectionNetworkInterfaceStatusOutput) ToVpcConnectionNetworkInterfaceStatusOutput() VpcConnectionNetworkInterfaceStatusOutput {
+	return o
 }
 
-func (e VPCConnectionAvailabilityStatus) ToVPCConnectionAvailabilityStatusOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(VPCConnectionAvailabilityStatusOutput)
+func (o VpcConnectionNetworkInterfaceStatusOutput) ToVpcConnectionNetworkInterfaceStatusOutputWithContext(ctx context.Context) VpcConnectionNetworkInterfaceStatusOutput {
+	return o
 }
 
-func (e VPCConnectionAvailabilityStatus) ToVPCConnectionAvailabilityStatusPtrOutput() VPCConnectionAvailabilityStatusPtrOutput {
-	return e.ToVPCConnectionAvailabilityStatusPtrOutputWithContext(context.Background())
+func (o VpcConnectionNetworkInterfaceStatusOutput) ToVpcConnectionNetworkInterfaceStatusPtrOutput() VpcConnectionNetworkInterfaceStatusPtrOutput {
+	return o.ToVpcConnectionNetworkInterfaceStatusPtrOutputWithContext(context.Background())
 }
 
-func (e VPCConnectionAvailabilityStatus) ToVPCConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusPtrOutput {
-	return VPCConnectionAvailabilityStatus(e).ToVPCConnectionAvailabilityStatusOutputWithContext(ctx).ToVPCConnectionAvailabilityStatusPtrOutputWithContext(ctx)
+func (o VpcConnectionNetworkInterfaceStatusOutput) ToVpcConnectionNetworkInterfaceStatusPtrOutputWithContext(ctx context.Context) VpcConnectionNetworkInterfaceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcConnectionNetworkInterfaceStatus) *VpcConnectionNetworkInterfaceStatus {
+		return &v
+	}).(VpcConnectionNetworkInterfaceStatusPtrOutput)
 }
 
-func (e VPCConnectionAvailabilityStatus) ToStringOutput() pulumi.StringOutput {
+func (o VpcConnectionNetworkInterfaceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcConnectionNetworkInterfaceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcConnectionNetworkInterfaceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcConnectionNetworkInterfaceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcConnectionNetworkInterfaceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcConnectionNetworkInterfaceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcConnectionNetworkInterfaceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcConnectionNetworkInterfaceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcConnectionNetworkInterfaceStatus)(nil)).Elem()
+}
+
+func (o VpcConnectionNetworkInterfaceStatusPtrOutput) ToVpcConnectionNetworkInterfaceStatusPtrOutput() VpcConnectionNetworkInterfaceStatusPtrOutput {
+	return o
+}
+
+func (o VpcConnectionNetworkInterfaceStatusPtrOutput) ToVpcConnectionNetworkInterfaceStatusPtrOutputWithContext(ctx context.Context) VpcConnectionNetworkInterfaceStatusPtrOutput {
+	return o
+}
+
+func (o VpcConnectionNetworkInterfaceStatusPtrOutput) Elem() VpcConnectionNetworkInterfaceStatusOutput {
+	return o.ApplyT(func(v *VpcConnectionNetworkInterfaceStatus) VpcConnectionNetworkInterfaceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret VpcConnectionNetworkInterfaceStatus
+		return ret
+	}).(VpcConnectionNetworkInterfaceStatusOutput)
+}
+
+func (o VpcConnectionNetworkInterfaceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcConnectionNetworkInterfaceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcConnectionNetworkInterfaceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcConnectionVpcConnectionAvailabilityStatus string
+
+const (
+	VpcConnectionVpcConnectionAvailabilityStatusAvailable          = VpcConnectionVpcConnectionAvailabilityStatus("AVAILABLE")
+	VpcConnectionVpcConnectionAvailabilityStatusUnavailable        = VpcConnectionVpcConnectionAvailabilityStatus("UNAVAILABLE")
+	VpcConnectionVpcConnectionAvailabilityStatusPartiallyAvailable = VpcConnectionVpcConnectionAvailabilityStatus("PARTIALLY_AVAILABLE")
+)
+
+func (VpcConnectionVpcConnectionAvailabilityStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcConnectionVpcConnectionAvailabilityStatus)(nil)).Elem()
+}
+
+func (e VpcConnectionVpcConnectionAvailabilityStatus) ToVpcConnectionVpcConnectionAvailabilityStatusOutput() VpcConnectionVpcConnectionAvailabilityStatusOutput {
+	return pulumi.ToOutput(e).(VpcConnectionVpcConnectionAvailabilityStatusOutput)
+}
+
+func (e VpcConnectionVpcConnectionAvailabilityStatus) ToVpcConnectionVpcConnectionAvailabilityStatusOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionAvailabilityStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcConnectionVpcConnectionAvailabilityStatusOutput)
+}
+
+func (e VpcConnectionVpcConnectionAvailabilityStatus) ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutput() VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
+	return e.ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(context.Background())
+}
+
+func (e VpcConnectionVpcConnectionAvailabilityStatus) ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
+	return VpcConnectionVpcConnectionAvailabilityStatus(e).ToVpcConnectionVpcConnectionAvailabilityStatusOutputWithContext(ctx).ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(ctx)
+}
+
+func (e VpcConnectionVpcConnectionAvailabilityStatus) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e VPCConnectionAvailabilityStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e VpcConnectionVpcConnectionAvailabilityStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e VPCConnectionAvailabilityStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e VpcConnectionVpcConnectionAvailabilityStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e VPCConnectionAvailabilityStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e VpcConnectionVpcConnectionAvailabilityStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type VPCConnectionAvailabilityStatusOutput struct{ *pulumi.OutputState }
+type VpcConnectionVpcConnectionAvailabilityStatusOutput struct{ *pulumi.OutputState }
 
-func (VPCConnectionAvailabilityStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCConnectionAvailabilityStatus)(nil)).Elem()
+func (VpcConnectionVpcConnectionAvailabilityStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcConnectionVpcConnectionAvailabilityStatus)(nil)).Elem()
 }
 
-func (o VPCConnectionAvailabilityStatusOutput) ToVPCConnectionAvailabilityStatusOutput() VPCConnectionAvailabilityStatusOutput {
+func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToVpcConnectionVpcConnectionAvailabilityStatusOutput() VpcConnectionVpcConnectionAvailabilityStatusOutput {
 	return o
 }
 
-func (o VPCConnectionAvailabilityStatusOutput) ToVPCConnectionAvailabilityStatusOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusOutput {
+func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToVpcConnectionVpcConnectionAvailabilityStatusOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionAvailabilityStatusOutput {
 	return o
 }
 
-func (o VPCConnectionAvailabilityStatusOutput) ToVPCConnectionAvailabilityStatusPtrOutput() VPCConnectionAvailabilityStatusPtrOutput {
-	return o.ToVPCConnectionAvailabilityStatusPtrOutputWithContext(context.Background())
+func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutput() VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
+	return o.ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(context.Background())
 }
 
-func (o VPCConnectionAvailabilityStatusOutput) ToVPCConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VPCConnectionAvailabilityStatus) *VPCConnectionAvailabilityStatus {
+func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcConnectionVpcConnectionAvailabilityStatus) *VpcConnectionVpcConnectionAvailabilityStatus {
 		return &v
-	}).(VPCConnectionAvailabilityStatusPtrOutput)
+	}).(VpcConnectionVpcConnectionAvailabilityStatusPtrOutput)
 }
 
-func (o VPCConnectionAvailabilityStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o VPCConnectionAvailabilityStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionAvailabilityStatus) string {
+func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcConnectionVpcConnectionAvailabilityStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o VPCConnectionAvailabilityStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o VPCConnectionAvailabilityStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionAvailabilityStatus) *string {
+func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcConnectionVpcConnectionAvailabilityStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type VPCConnectionAvailabilityStatusPtrOutput struct{ *pulumi.OutputState }
+type VpcConnectionVpcConnectionAvailabilityStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (VPCConnectionAvailabilityStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VPCConnectionAvailabilityStatus)(nil)).Elem()
+func (VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcConnectionVpcConnectionAvailabilityStatus)(nil)).Elem()
 }
 
-func (o VPCConnectionAvailabilityStatusPtrOutput) ToVPCConnectionAvailabilityStatusPtrOutput() VPCConnectionAvailabilityStatusPtrOutput {
+func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutput() VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
 	return o
 }
 
-func (o VPCConnectionAvailabilityStatusPtrOutput) ToVPCConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusPtrOutput {
+func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
 	return o
 }
 
-func (o VPCConnectionAvailabilityStatusPtrOutput) Elem() VPCConnectionAvailabilityStatusOutput {
-	return o.ApplyT(func(v *VPCConnectionAvailabilityStatus) VPCConnectionAvailabilityStatus {
+func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) Elem() VpcConnectionVpcConnectionAvailabilityStatusOutput {
+	return o.ApplyT(func(v *VpcConnectionVpcConnectionAvailabilityStatus) VpcConnectionVpcConnectionAvailabilityStatus {
 		if v != nil {
 			return *v
 		}
-		var ret VPCConnectionAvailabilityStatus
+		var ret VpcConnectionVpcConnectionAvailabilityStatus
 		return ret
-	}).(VPCConnectionAvailabilityStatusOutput)
+	}).(VpcConnectionVpcConnectionAvailabilityStatusOutput)
 }
 
-func (o VPCConnectionAvailabilityStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o VPCConnectionAvailabilityStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VPCConnectionAvailabilityStatus) *string {
+func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcConnectionVpcConnectionAvailabilityStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -57001,231 +57099,133 @@ func (o VPCConnectionAvailabilityStatusPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// VPCConnectionAvailabilityStatusInput is an input type that accepts VPCConnectionAvailabilityStatusArgs and VPCConnectionAvailabilityStatusOutput values.
-// You can construct a concrete instance of `VPCConnectionAvailabilityStatusInput` via:
+// VpcConnectionVpcConnectionAvailabilityStatusInput is an input type that accepts VpcConnectionVpcConnectionAvailabilityStatusArgs and VpcConnectionVpcConnectionAvailabilityStatusOutput values.
+// You can construct a concrete instance of `VpcConnectionVpcConnectionAvailabilityStatusInput` via:
 //
-//	VPCConnectionAvailabilityStatusArgs{...}
-type VPCConnectionAvailabilityStatusInput interface {
+//	VpcConnectionVpcConnectionAvailabilityStatusArgs{...}
+type VpcConnectionVpcConnectionAvailabilityStatusInput interface {
 	pulumi.Input
 
-	ToVPCConnectionAvailabilityStatusOutput() VPCConnectionAvailabilityStatusOutput
-	ToVPCConnectionAvailabilityStatusOutputWithContext(context.Context) VPCConnectionAvailabilityStatusOutput
+	ToVpcConnectionVpcConnectionAvailabilityStatusOutput() VpcConnectionVpcConnectionAvailabilityStatusOutput
+	ToVpcConnectionVpcConnectionAvailabilityStatusOutputWithContext(context.Context) VpcConnectionVpcConnectionAvailabilityStatusOutput
 }
 
-var vpcconnectionAvailabilityStatusPtrType = reflect.TypeOf((**VPCConnectionAvailabilityStatus)(nil)).Elem()
+var vpcConnectionVpcConnectionAvailabilityStatusPtrType = reflect.TypeOf((**VpcConnectionVpcConnectionAvailabilityStatus)(nil)).Elem()
 
-type VPCConnectionAvailabilityStatusPtrInput interface {
+type VpcConnectionVpcConnectionAvailabilityStatusPtrInput interface {
 	pulumi.Input
 
-	ToVPCConnectionAvailabilityStatusPtrOutput() VPCConnectionAvailabilityStatusPtrOutput
-	ToVPCConnectionAvailabilityStatusPtrOutputWithContext(context.Context) VPCConnectionAvailabilityStatusPtrOutput
+	ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutput() VpcConnectionVpcConnectionAvailabilityStatusPtrOutput
+	ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(context.Context) VpcConnectionVpcConnectionAvailabilityStatusPtrOutput
 }
 
-type vpcconnectionAvailabilityStatusPtr string
+type vpcConnectionVpcConnectionAvailabilityStatusPtr string
 
-func VPCConnectionAvailabilityStatusPtr(v string) VPCConnectionAvailabilityStatusPtrInput {
-	return (*vpcconnectionAvailabilityStatusPtr)(&v)
+func VpcConnectionVpcConnectionAvailabilityStatusPtr(v string) VpcConnectionVpcConnectionAvailabilityStatusPtrInput {
+	return (*vpcConnectionVpcConnectionAvailabilityStatusPtr)(&v)
 }
 
-func (*vpcconnectionAvailabilityStatusPtr) ElementType() reflect.Type {
-	return vpcconnectionAvailabilityStatusPtrType
+func (*vpcConnectionVpcConnectionAvailabilityStatusPtr) ElementType() reflect.Type {
+	return vpcConnectionVpcConnectionAvailabilityStatusPtrType
 }
 
-func (in *vpcconnectionAvailabilityStatusPtr) ToVPCConnectionAvailabilityStatusPtrOutput() VPCConnectionAvailabilityStatusPtrOutput {
-	return pulumi.ToOutput(in).(VPCConnectionAvailabilityStatusPtrOutput)
+func (in *vpcConnectionVpcConnectionAvailabilityStatusPtr) ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutput() VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
+	return pulumi.ToOutput(in).(VpcConnectionVpcConnectionAvailabilityStatusPtrOutput)
 }
 
-func (in *vpcconnectionAvailabilityStatusPtr) ToVPCConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(VPCConnectionAvailabilityStatusPtrOutput)
+func (in *vpcConnectionVpcConnectionAvailabilityStatusPtr) ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcConnectionVpcConnectionAvailabilityStatusPtrOutput)
 }
 
-type VPCConnectionNetworkInterfaceStatus string
+type VpcConnectionVpcConnectionResourceStatus string
 
 const (
-	VPCConnectionNetworkInterfaceStatusCreating                       = VPCConnectionNetworkInterfaceStatus("CREATING")
-	VPCConnectionNetworkInterfaceStatusAvailable                      = VPCConnectionNetworkInterfaceStatus("AVAILABLE")
-	VPCConnectionNetworkInterfaceStatusCreationFailed                 = VPCConnectionNetworkInterfaceStatus("CREATION_FAILED")
-	VPCConnectionNetworkInterfaceStatusUpdating                       = VPCConnectionNetworkInterfaceStatus("UPDATING")
-	VPCConnectionNetworkInterfaceStatusUpdateFailed                   = VPCConnectionNetworkInterfaceStatus("UPDATE_FAILED")
-	VPCConnectionNetworkInterfaceStatusDeleting                       = VPCConnectionNetworkInterfaceStatus("DELETING")
-	VPCConnectionNetworkInterfaceStatusDeleted                        = VPCConnectionNetworkInterfaceStatus("DELETED")
-	VPCConnectionNetworkInterfaceStatusDeletionFailed                 = VPCConnectionNetworkInterfaceStatus("DELETION_FAILED")
-	VPCConnectionNetworkInterfaceStatusDeletionScheduled              = VPCConnectionNetworkInterfaceStatus("DELETION_SCHEDULED")
-	VPCConnectionNetworkInterfaceStatusAttachmentFailedRollbackFailed = VPCConnectionNetworkInterfaceStatus("ATTACHMENT_FAILED_ROLLBACK_FAILED")
+	VpcConnectionVpcConnectionResourceStatusCreationInProgress = VpcConnectionVpcConnectionResourceStatus("CREATION_IN_PROGRESS")
+	VpcConnectionVpcConnectionResourceStatusCreationSuccessful = VpcConnectionVpcConnectionResourceStatus("CREATION_SUCCESSFUL")
+	VpcConnectionVpcConnectionResourceStatusCreationFailed     = VpcConnectionVpcConnectionResourceStatus("CREATION_FAILED")
+	VpcConnectionVpcConnectionResourceStatusUpdateInProgress   = VpcConnectionVpcConnectionResourceStatus("UPDATE_IN_PROGRESS")
+	VpcConnectionVpcConnectionResourceStatusUpdateSuccessful   = VpcConnectionVpcConnectionResourceStatus("UPDATE_SUCCESSFUL")
+	VpcConnectionVpcConnectionResourceStatusUpdateFailed       = VpcConnectionVpcConnectionResourceStatus("UPDATE_FAILED")
+	VpcConnectionVpcConnectionResourceStatusDeletionInProgress = VpcConnectionVpcConnectionResourceStatus("DELETION_IN_PROGRESS")
+	VpcConnectionVpcConnectionResourceStatusDeletionFailed     = VpcConnectionVpcConnectionResourceStatus("DELETION_FAILED")
+	VpcConnectionVpcConnectionResourceStatusDeleted            = VpcConnectionVpcConnectionResourceStatus("DELETED")
 )
 
-type VPCConnectionNetworkInterfaceStatusOutput struct{ *pulumi.OutputState }
+type VpcConnectionVpcConnectionResourceStatusOutput struct{ *pulumi.OutputState }
 
-func (VPCConnectionNetworkInterfaceStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCConnectionNetworkInterfaceStatus)(nil)).Elem()
+func (VpcConnectionVpcConnectionResourceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcConnectionVpcConnectionResourceStatus)(nil)).Elem()
 }
 
-func (o VPCConnectionNetworkInterfaceStatusOutput) ToVPCConnectionNetworkInterfaceStatusOutput() VPCConnectionNetworkInterfaceStatusOutput {
+func (o VpcConnectionVpcConnectionResourceStatusOutput) ToVpcConnectionVpcConnectionResourceStatusOutput() VpcConnectionVpcConnectionResourceStatusOutput {
 	return o
 }
 
-func (o VPCConnectionNetworkInterfaceStatusOutput) ToVPCConnectionNetworkInterfaceStatusOutputWithContext(ctx context.Context) VPCConnectionNetworkInterfaceStatusOutput {
+func (o VpcConnectionVpcConnectionResourceStatusOutput) ToVpcConnectionVpcConnectionResourceStatusOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionResourceStatusOutput {
 	return o
 }
 
-func (o VPCConnectionNetworkInterfaceStatusOutput) ToVPCConnectionNetworkInterfaceStatusPtrOutput() VPCConnectionNetworkInterfaceStatusPtrOutput {
-	return o.ToVPCConnectionNetworkInterfaceStatusPtrOutputWithContext(context.Background())
+func (o VpcConnectionVpcConnectionResourceStatusOutput) ToVpcConnectionVpcConnectionResourceStatusPtrOutput() VpcConnectionVpcConnectionResourceStatusPtrOutput {
+	return o.ToVpcConnectionVpcConnectionResourceStatusPtrOutputWithContext(context.Background())
 }
 
-func (o VPCConnectionNetworkInterfaceStatusOutput) ToVPCConnectionNetworkInterfaceStatusPtrOutputWithContext(ctx context.Context) VPCConnectionNetworkInterfaceStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VPCConnectionNetworkInterfaceStatus) *VPCConnectionNetworkInterfaceStatus {
+func (o VpcConnectionVpcConnectionResourceStatusOutput) ToVpcConnectionVpcConnectionResourceStatusPtrOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionResourceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcConnectionVpcConnectionResourceStatus) *VpcConnectionVpcConnectionResourceStatus {
 		return &v
-	}).(VPCConnectionNetworkInterfaceStatusPtrOutput)
+	}).(VpcConnectionVpcConnectionResourceStatusPtrOutput)
 }
 
-func (o VPCConnectionNetworkInterfaceStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o VpcConnectionVpcConnectionResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o VPCConnectionNetworkInterfaceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionNetworkInterfaceStatus) string {
+func (o VpcConnectionVpcConnectionResourceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcConnectionVpcConnectionResourceStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o VPCConnectionNetworkInterfaceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o VpcConnectionVpcConnectionResourceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o VPCConnectionNetworkInterfaceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionNetworkInterfaceStatus) *string {
+func (o VpcConnectionVpcConnectionResourceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcConnectionVpcConnectionResourceStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type VPCConnectionNetworkInterfaceStatusPtrOutput struct{ *pulumi.OutputState }
+type VpcConnectionVpcConnectionResourceStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (VPCConnectionNetworkInterfaceStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VPCConnectionNetworkInterfaceStatus)(nil)).Elem()
+func (VpcConnectionVpcConnectionResourceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcConnectionVpcConnectionResourceStatus)(nil)).Elem()
 }
 
-func (o VPCConnectionNetworkInterfaceStatusPtrOutput) ToVPCConnectionNetworkInterfaceStatusPtrOutput() VPCConnectionNetworkInterfaceStatusPtrOutput {
+func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToVpcConnectionVpcConnectionResourceStatusPtrOutput() VpcConnectionVpcConnectionResourceStatusPtrOutput {
 	return o
 }
 
-func (o VPCConnectionNetworkInterfaceStatusPtrOutput) ToVPCConnectionNetworkInterfaceStatusPtrOutputWithContext(ctx context.Context) VPCConnectionNetworkInterfaceStatusPtrOutput {
+func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToVpcConnectionVpcConnectionResourceStatusPtrOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionResourceStatusPtrOutput {
 	return o
 }
 
-func (o VPCConnectionNetworkInterfaceStatusPtrOutput) Elem() VPCConnectionNetworkInterfaceStatusOutput {
-	return o.ApplyT(func(v *VPCConnectionNetworkInterfaceStatus) VPCConnectionNetworkInterfaceStatus {
+func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) Elem() VpcConnectionVpcConnectionResourceStatusOutput {
+	return o.ApplyT(func(v *VpcConnectionVpcConnectionResourceStatus) VpcConnectionVpcConnectionResourceStatus {
 		if v != nil {
 			return *v
 		}
-		var ret VPCConnectionNetworkInterfaceStatus
+		var ret VpcConnectionVpcConnectionResourceStatus
 		return ret
-	}).(VPCConnectionNetworkInterfaceStatusOutput)
+	}).(VpcConnectionVpcConnectionResourceStatusOutput)
 }
 
-func (o VPCConnectionNetworkInterfaceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o VPCConnectionNetworkInterfaceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VPCConnectionNetworkInterfaceStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type VPCConnectionResourceStatus string
-
-const (
-	VPCConnectionResourceStatusCreationInProgress = VPCConnectionResourceStatus("CREATION_IN_PROGRESS")
-	VPCConnectionResourceStatusCreationSuccessful = VPCConnectionResourceStatus("CREATION_SUCCESSFUL")
-	VPCConnectionResourceStatusCreationFailed     = VPCConnectionResourceStatus("CREATION_FAILED")
-	VPCConnectionResourceStatusUpdateInProgress   = VPCConnectionResourceStatus("UPDATE_IN_PROGRESS")
-	VPCConnectionResourceStatusUpdateSuccessful   = VPCConnectionResourceStatus("UPDATE_SUCCESSFUL")
-	VPCConnectionResourceStatusUpdateFailed       = VPCConnectionResourceStatus("UPDATE_FAILED")
-	VPCConnectionResourceStatusDeletionInProgress = VPCConnectionResourceStatus("DELETION_IN_PROGRESS")
-	VPCConnectionResourceStatusDeletionFailed     = VPCConnectionResourceStatus("DELETION_FAILED")
-	VPCConnectionResourceStatusDeleted            = VPCConnectionResourceStatus("DELETED")
-)
-
-type VPCConnectionResourceStatusOutput struct{ *pulumi.OutputState }
-
-func (VPCConnectionResourceStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCConnectionResourceStatus)(nil)).Elem()
-}
-
-func (o VPCConnectionResourceStatusOutput) ToVPCConnectionResourceStatusOutput() VPCConnectionResourceStatusOutput {
-	return o
-}
-
-func (o VPCConnectionResourceStatusOutput) ToVPCConnectionResourceStatusOutputWithContext(ctx context.Context) VPCConnectionResourceStatusOutput {
-	return o
-}
-
-func (o VPCConnectionResourceStatusOutput) ToVPCConnectionResourceStatusPtrOutput() VPCConnectionResourceStatusPtrOutput {
-	return o.ToVPCConnectionResourceStatusPtrOutputWithContext(context.Background())
-}
-
-func (o VPCConnectionResourceStatusOutput) ToVPCConnectionResourceStatusPtrOutputWithContext(ctx context.Context) VPCConnectionResourceStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VPCConnectionResourceStatus) *VPCConnectionResourceStatus {
-		return &v
-	}).(VPCConnectionResourceStatusPtrOutput)
-}
-
-func (o VPCConnectionResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o VPCConnectionResourceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionResourceStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o VPCConnectionResourceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o VPCConnectionResourceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionResourceStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type VPCConnectionResourceStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (VPCConnectionResourceStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VPCConnectionResourceStatus)(nil)).Elem()
-}
-
-func (o VPCConnectionResourceStatusPtrOutput) ToVPCConnectionResourceStatusPtrOutput() VPCConnectionResourceStatusPtrOutput {
-	return o
-}
-
-func (o VPCConnectionResourceStatusPtrOutput) ToVPCConnectionResourceStatusPtrOutputWithContext(ctx context.Context) VPCConnectionResourceStatusPtrOutput {
-	return o
-}
-
-func (o VPCConnectionResourceStatusPtrOutput) Elem() VPCConnectionResourceStatusOutput {
-	return o.ApplyT(func(v *VPCConnectionResourceStatus) VPCConnectionResourceStatus {
-		if v != nil {
-			return *v
-		}
-		var ret VPCConnectionResourceStatus
-		return ret
-	}).(VPCConnectionResourceStatusOutput)
-}
-
-func (o VPCConnectionResourceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o VPCConnectionResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VPCConnectionResourceStatus) *string {
+func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcConnectionVpcConnectionResourceStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -57417,8 +57417,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomComputationTypePtrInput)(nil)).Elem(), AnalysisTopBottomComputationType("TOP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomSortOrderInput)(nil)).Elem(), AnalysisTopBottomSortOrder("PERCENT_DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomSortOrderPtrInput)(nil)).Elem(), AnalysisTopBottomSortOrder("PERCENT_DIFFERENCE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisURLTargetConfigurationInput)(nil)).Elem(), AnalysisURLTargetConfiguration("NEW_TAB"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisURLTargetConfigurationPtrInput)(nil)).Elem(), AnalysisURLTargetConfiguration("NEW_TAB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisUrlTargetConfigurationInput)(nil)).Elem(), AnalysisUrlTargetConfiguration("NEW_TAB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisUrlTargetConfigurationPtrInput)(nil)).Elem(), AnalysisUrlTargetConfiguration("NEW_TAB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisValueWhenUnsetOptionInput)(nil)).Elem(), AnalysisValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisValueWhenUnsetOptionPtrInput)(nil)).Elem(), AnalysisValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVerticalTextAlignmentInput)(nil)).Elem(), AnalysisVerticalTextAlignment("TOP"))
@@ -57621,10 +57621,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTopBottomComputationTypePtrInput)(nil)).Elem(), DashboardTopBottomComputationType("TOP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTopBottomSortOrderInput)(nil)).Elem(), DashboardTopBottomSortOrder("PERCENT_DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTopBottomSortOrderPtrInput)(nil)).Elem(), DashboardTopBottomSortOrder("PERCENT_DIFFERENCE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUIStateInput)(nil)).Elem(), DashboardUIState("EXPANDED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUIStatePtrInput)(nil)).Elem(), DashboardUIState("EXPANDED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardURLTargetConfigurationInput)(nil)).Elem(), DashboardURLTargetConfiguration("NEW_TAB"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardURLTargetConfigurationPtrInput)(nil)).Elem(), DashboardURLTargetConfiguration("NEW_TAB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUiStateInput)(nil)).Elem(), DashboardUiState("EXPANDED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUiStatePtrInput)(nil)).Elem(), DashboardUiState("EXPANDED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUrlTargetConfigurationInput)(nil)).Elem(), DashboardUrlTargetConfiguration("NEW_TAB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUrlTargetConfigurationPtrInput)(nil)).Elem(), DashboardUrlTargetConfiguration("NEW_TAB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardValueWhenUnsetOptionInput)(nil)).Elem(), DashboardValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardValueWhenUnsetOptionPtrInput)(nil)).Elem(), DashboardValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardVerticalTextAlignmentInput)(nil)).Elem(), DashboardVerticalTextAlignment("TOP"))
@@ -57851,8 +57851,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTopBottomComputationTypePtrInput)(nil)).Elem(), TemplateTopBottomComputationType("TOP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTopBottomSortOrderInput)(nil)).Elem(), TemplateTopBottomSortOrder("PERCENT_DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTopBottomSortOrderPtrInput)(nil)).Elem(), TemplateTopBottomSortOrder("PERCENT_DIFFERENCE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateURLTargetConfigurationInput)(nil)).Elem(), TemplateURLTargetConfiguration("NEW_TAB"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateURLTargetConfigurationPtrInput)(nil)).Elem(), TemplateURLTargetConfiguration("NEW_TAB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateUrlTargetConfigurationInput)(nil)).Elem(), TemplateUrlTargetConfiguration("NEW_TAB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateUrlTargetConfigurationPtrInput)(nil)).Elem(), TemplateUrlTargetConfiguration("NEW_TAB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValueWhenUnsetOptionInput)(nil)).Elem(), TemplateValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValueWhenUnsetOptionPtrInput)(nil)).Elem(), TemplateValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVerticalTextAlignmentInput)(nil)).Elem(), TemplateVerticalTextAlignment("TOP"))
@@ -57912,8 +57912,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTimeGranularityPtrInput)(nil)).Elem(), TopicTimeGranularity("SECOND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicUndefinedSpecifiedValueTypeInput)(nil)).Elem(), TopicUndefinedSpecifiedValueType("LEAST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicUndefinedSpecifiedValueTypePtrInput)(nil)).Elem(), TopicUndefinedSpecifiedValueType("LEAST"))
-	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionAvailabilityStatusInput)(nil)).Elem(), VPCConnectionAvailabilityStatus("AVAILABLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionAvailabilityStatusPtrInput)(nil)).Elem(), VPCConnectionAvailabilityStatus("AVAILABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionVpcConnectionAvailabilityStatusInput)(nil)).Elem(), VpcConnectionVpcConnectionAvailabilityStatus("AVAILABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionVpcConnectionAvailabilityStatusPtrInput)(nil)).Elem(), VpcConnectionVpcConnectionAvailabilityStatus("AVAILABLE"))
 	pulumi.RegisterOutputType(AnalysisAnchorOptionOutput{})
 	pulumi.RegisterOutputType(AnalysisAnchorOptionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisArcThicknessOutput{})
@@ -58098,8 +58098,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTopBottomComputationTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTopBottomSortOrderOutput{})
 	pulumi.RegisterOutputType(AnalysisTopBottomSortOrderPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisURLTargetConfigurationOutput{})
-	pulumi.RegisterOutputType(AnalysisURLTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisUrlTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisUrlTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisValueWhenUnsetOptionOutput{})
 	pulumi.RegisterOutputType(AnalysisValueWhenUnsetOptionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisVerticalTextAlignmentOutput{})
@@ -58306,10 +58306,10 @@ func init() {
 	pulumi.RegisterOutputType(DashboardTopBottomComputationTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardTopBottomSortOrderOutput{})
 	pulumi.RegisterOutputType(DashboardTopBottomSortOrderPtrOutput{})
-	pulumi.RegisterOutputType(DashboardUIStateOutput{})
-	pulumi.RegisterOutputType(DashboardUIStatePtrOutput{})
-	pulumi.RegisterOutputType(DashboardURLTargetConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardURLTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardUiStateOutput{})
+	pulumi.RegisterOutputType(DashboardUiStatePtrOutput{})
+	pulumi.RegisterOutputType(DashboardUrlTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(DashboardUrlTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardValueWhenUnsetOptionOutput{})
 	pulumi.RegisterOutputType(DashboardValueWhenUnsetOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardVerticalTextAlignmentOutput{})
@@ -58544,8 +58544,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTopBottomComputationTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateTopBottomSortOrderOutput{})
 	pulumi.RegisterOutputType(TemplateTopBottomSortOrderPtrOutput{})
-	pulumi.RegisterOutputType(TemplateURLTargetConfigurationOutput{})
-	pulumi.RegisterOutputType(TemplateURLTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateUrlTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateUrlTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateValueWhenUnsetOptionOutput{})
 	pulumi.RegisterOutputType(TemplateValueWhenUnsetOptionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateVerticalTextAlignmentOutput{})
@@ -58611,10 +58611,10 @@ func init() {
 	pulumi.RegisterOutputType(TopicTimeGranularityPtrOutput{})
 	pulumi.RegisterOutputType(TopicUndefinedSpecifiedValueTypeOutput{})
 	pulumi.RegisterOutputType(TopicUndefinedSpecifiedValueTypePtrOutput{})
-	pulumi.RegisterOutputType(VPCConnectionAvailabilityStatusOutput{})
-	pulumi.RegisterOutputType(VPCConnectionAvailabilityStatusPtrOutput{})
-	pulumi.RegisterOutputType(VPCConnectionNetworkInterfaceStatusOutput{})
-	pulumi.RegisterOutputType(VPCConnectionNetworkInterfaceStatusPtrOutput{})
-	pulumi.RegisterOutputType(VPCConnectionResourceStatusOutput{})
-	pulumi.RegisterOutputType(VPCConnectionResourceStatusPtrOutput{})
+	pulumi.RegisterOutputType(VpcConnectionNetworkInterfaceStatusOutput{})
+	pulumi.RegisterOutputType(VpcConnectionNetworkInterfaceStatusPtrOutput{})
+	pulumi.RegisterOutputType(VpcConnectionVpcConnectionAvailabilityStatusOutput{})
+	pulumi.RegisterOutputType(VpcConnectionVpcConnectionAvailabilityStatusPtrOutput{})
+	pulumi.RegisterOutputType(VpcConnectionVpcConnectionResourceStatusOutput{})
+	pulumi.RegisterOutputType(VpcConnectionVpcConnectionResourceStatusPtrOutput{})
 }

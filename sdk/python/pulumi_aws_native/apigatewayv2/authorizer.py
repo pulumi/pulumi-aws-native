@@ -25,7 +25,7 @@ class AuthorizerArgs:
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_source: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None,
-                 jwt_configuration: Optional[pulumi.Input['AuthorizerJWTConfigurationArgs']] = None,
+                 jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
@@ -134,11 +134,11 @@ class AuthorizerArgs:
 
     @property
     @pulumi.getter(name="jwtConfiguration")
-    def jwt_configuration(self) -> Optional[pulumi.Input['AuthorizerJWTConfigurationArgs']]:
+    def jwt_configuration(self) -> Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]:
         return pulumi.get(self, "jwt_configuration")
 
     @jwt_configuration.setter
-    def jwt_configuration(self, value: Optional[pulumi.Input['AuthorizerJWTConfigurationArgs']]):
+    def jwt_configuration(self, value: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]):
         pulumi.set(self, "jwt_configuration", value)
 
     @property
@@ -165,7 +165,7 @@ class Authorizer(pulumi.CustomResource):
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_source: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None,
-                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJWTConfigurationArgs']]] = None,
+                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -207,7 +207,7 @@ class Authorizer(pulumi.CustomResource):
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_source: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None,
-                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJWTConfigurationArgs']]] = None,
+                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -322,7 +322,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jwtConfiguration")
-    def jwt_configuration(self) -> pulumi.Output[Optional['outputs.AuthorizerJWTConfiguration']]:
+    def jwt_configuration(self) -> pulumi.Output[Optional['outputs.AuthorizerJwtConfiguration']]:
         return pulumi.get(self, "jwt_configuration")
 
     @property

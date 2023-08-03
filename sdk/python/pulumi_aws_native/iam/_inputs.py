@@ -11,15 +11,15 @@ from .. import _utilities
 
 __all__ = [
     'GroupPolicyArgs',
-    'OIDCProviderTagArgs',
+    'OidcProviderTagArgs',
     'RolePolicyArgs',
     'RoleTagArgs',
-    'SAMLProviderTagArgs',
+    'SamlProviderTagArgs',
     'ServerCertificateTagArgs',
     'UserLoginProfileArgs',
     'UserPolicyArgs',
     'UserTagArgs',
-    'VirtualMFADeviceTagArgs',
+    'VirtualMfaDeviceTagArgs',
 ]
 
 @pulumi.input_type
@@ -50,7 +50,7 @@ class GroupPolicyArgs:
 
 
 @pulumi.input_type
-class OIDCProviderTagArgs:
+class OidcProviderTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -164,7 +164,7 @@ class RoleTagArgs:
 
 
 @pulumi.input_type
-class SAMLProviderTagArgs:
+class SamlProviderTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -322,7 +322,7 @@ class UserTagArgs:
 
 
 @pulumi.input_type
-class VirtualMFADeviceTagArgs:
+class VirtualMfaDeviceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

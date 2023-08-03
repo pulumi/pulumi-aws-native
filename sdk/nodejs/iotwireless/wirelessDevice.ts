@@ -56,7 +56,7 @@ export class WirelessDevice extends pulumi.CustomResource {
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.WirelessDeviceLoRaWANDevice | undefined>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.WirelessDeviceLoRaWanDevice | undefined>;
     /**
      * Wireless device name
      */
@@ -141,7 +141,7 @@ export interface WirelessDeviceArgs {
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
      */
-    loRaWan?: pulumi.Input<inputs.iotwireless.WirelessDeviceLoRaWANDeviceArgs>;
+    loRaWan?: pulumi.Input<inputs.iotwireless.WirelessDeviceLoRaWanDeviceArgs>;
     /**
      * Wireless device name
      */

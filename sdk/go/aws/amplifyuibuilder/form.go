@@ -17,7 +17,7 @@ type Form struct {
 	pulumi.CustomResourceState
 
 	AppId             pulumi.StringPtrOutput        `pulumi:"appId"`
-	Cta               FormCTAPtrOutput              `pulumi:"cta"`
+	Cta               FormCtaPtrOutput              `pulumi:"cta"`
 	DataType          FormDataTypeConfigOutput      `pulumi:"dataType"`
 	EnvironmentName   pulumi.StringPtrOutput        `pulumi:"environmentName"`
 	Fields            FormFieldsMapOutput           `pulumi:"fields"`
@@ -89,7 +89,7 @@ func (FormState) ElementType() reflect.Type {
 
 type formArgs struct {
 	AppId             *string                 `pulumi:"appId"`
-	Cta               *FormCTA                `pulumi:"cta"`
+	Cta               *FormCta                `pulumi:"cta"`
 	DataType          FormDataTypeConfig      `pulumi:"dataType"`
 	EnvironmentName   *string                 `pulumi:"environmentName"`
 	Fields            FormFieldsMap           `pulumi:"fields"`
@@ -105,7 +105,7 @@ type formArgs struct {
 // The set of arguments for constructing a Form resource.
 type FormArgs struct {
 	AppId             pulumi.StringPtrInput
-	Cta               FormCTAPtrInput
+	Cta               FormCtaPtrInput
 	DataType          FormDataTypeConfigInput
 	EnvironmentName   pulumi.StringPtrInput
 	Fields            FormFieldsMapInput
@@ -159,8 +159,8 @@ func (o FormOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Form) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-func (o FormOutput) Cta() FormCTAPtrOutput {
-	return o.ApplyT(func(v *Form) FormCTAPtrOutput { return v.Cta }).(FormCTAPtrOutput)
+func (o FormOutput) Cta() FormCtaPtrOutput {
+	return o.ApplyT(func(v *Form) FormCtaPtrOutput { return v.Cta }).(FormCtaPtrOutput)
 }
 
 func (o FormOutput) DataType() FormDataTypeConfigOutput {

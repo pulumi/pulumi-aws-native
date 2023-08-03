@@ -114,112 +114,112 @@ func (o GroupPolicyTypeArrayOutput) Index(i pulumi.IntInput) GroupPolicyTypeOutp
 }
 
 // A key-value pair to associate with a resource.
-type OIDCProviderTag struct {
+type OidcProviderTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
-// OIDCProviderTagInput is an input type that accepts OIDCProviderTagArgs and OIDCProviderTagOutput values.
-// You can construct a concrete instance of `OIDCProviderTagInput` via:
+// OidcProviderTagInput is an input type that accepts OidcProviderTagArgs and OidcProviderTagOutput values.
+// You can construct a concrete instance of `OidcProviderTagInput` via:
 //
-//	OIDCProviderTagArgs{...}
-type OIDCProviderTagInput interface {
+//	OidcProviderTagArgs{...}
+type OidcProviderTagInput interface {
 	pulumi.Input
 
-	ToOIDCProviderTagOutput() OIDCProviderTagOutput
-	ToOIDCProviderTagOutputWithContext(context.Context) OIDCProviderTagOutput
+	ToOidcProviderTagOutput() OidcProviderTagOutput
+	ToOidcProviderTagOutputWithContext(context.Context) OidcProviderTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type OIDCProviderTagArgs struct {
+type OidcProviderTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (OIDCProviderTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OIDCProviderTag)(nil)).Elem()
+func (OidcProviderTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OidcProviderTag)(nil)).Elem()
 }
 
-func (i OIDCProviderTagArgs) ToOIDCProviderTagOutput() OIDCProviderTagOutput {
-	return i.ToOIDCProviderTagOutputWithContext(context.Background())
+func (i OidcProviderTagArgs) ToOidcProviderTagOutput() OidcProviderTagOutput {
+	return i.ToOidcProviderTagOutputWithContext(context.Background())
 }
 
-func (i OIDCProviderTagArgs) ToOIDCProviderTagOutputWithContext(ctx context.Context) OIDCProviderTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OIDCProviderTagOutput)
+func (i OidcProviderTagArgs) ToOidcProviderTagOutputWithContext(ctx context.Context) OidcProviderTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OidcProviderTagOutput)
 }
 
-// OIDCProviderTagArrayInput is an input type that accepts OIDCProviderTagArray and OIDCProviderTagArrayOutput values.
-// You can construct a concrete instance of `OIDCProviderTagArrayInput` via:
+// OidcProviderTagArrayInput is an input type that accepts OidcProviderTagArray and OidcProviderTagArrayOutput values.
+// You can construct a concrete instance of `OidcProviderTagArrayInput` via:
 //
-//	OIDCProviderTagArray{ OIDCProviderTagArgs{...} }
-type OIDCProviderTagArrayInput interface {
+//	OidcProviderTagArray{ OidcProviderTagArgs{...} }
+type OidcProviderTagArrayInput interface {
 	pulumi.Input
 
-	ToOIDCProviderTagArrayOutput() OIDCProviderTagArrayOutput
-	ToOIDCProviderTagArrayOutputWithContext(context.Context) OIDCProviderTagArrayOutput
+	ToOidcProviderTagArrayOutput() OidcProviderTagArrayOutput
+	ToOidcProviderTagArrayOutputWithContext(context.Context) OidcProviderTagArrayOutput
 }
 
-type OIDCProviderTagArray []OIDCProviderTagInput
+type OidcProviderTagArray []OidcProviderTagInput
 
-func (OIDCProviderTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OIDCProviderTag)(nil)).Elem()
+func (OidcProviderTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OidcProviderTag)(nil)).Elem()
 }
 
-func (i OIDCProviderTagArray) ToOIDCProviderTagArrayOutput() OIDCProviderTagArrayOutput {
-	return i.ToOIDCProviderTagArrayOutputWithContext(context.Background())
+func (i OidcProviderTagArray) ToOidcProviderTagArrayOutput() OidcProviderTagArrayOutput {
+	return i.ToOidcProviderTagArrayOutputWithContext(context.Background())
 }
 
-func (i OIDCProviderTagArray) ToOIDCProviderTagArrayOutputWithContext(ctx context.Context) OIDCProviderTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OIDCProviderTagArrayOutput)
+func (i OidcProviderTagArray) ToOidcProviderTagArrayOutputWithContext(ctx context.Context) OidcProviderTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OidcProviderTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type OIDCProviderTagOutput struct{ *pulumi.OutputState }
+type OidcProviderTagOutput struct{ *pulumi.OutputState }
 
-func (OIDCProviderTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OIDCProviderTag)(nil)).Elem()
+func (OidcProviderTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OidcProviderTag)(nil)).Elem()
 }
 
-func (o OIDCProviderTagOutput) ToOIDCProviderTagOutput() OIDCProviderTagOutput {
+func (o OidcProviderTagOutput) ToOidcProviderTagOutput() OidcProviderTagOutput {
 	return o
 }
 
-func (o OIDCProviderTagOutput) ToOIDCProviderTagOutputWithContext(ctx context.Context) OIDCProviderTagOutput {
+func (o OidcProviderTagOutput) ToOidcProviderTagOutputWithContext(ctx context.Context) OidcProviderTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o OIDCProviderTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v OIDCProviderTag) string { return v.Key }).(pulumi.StringOutput)
+func (o OidcProviderTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v OidcProviderTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o OIDCProviderTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v OIDCProviderTag) string { return v.Value }).(pulumi.StringOutput)
+func (o OidcProviderTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v OidcProviderTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type OIDCProviderTagArrayOutput struct{ *pulumi.OutputState }
+type OidcProviderTagArrayOutput struct{ *pulumi.OutputState }
 
-func (OIDCProviderTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OIDCProviderTag)(nil)).Elem()
+func (OidcProviderTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OidcProviderTag)(nil)).Elem()
 }
 
-func (o OIDCProviderTagArrayOutput) ToOIDCProviderTagArrayOutput() OIDCProviderTagArrayOutput {
+func (o OidcProviderTagArrayOutput) ToOidcProviderTagArrayOutput() OidcProviderTagArrayOutput {
 	return o
 }
 
-func (o OIDCProviderTagArrayOutput) ToOIDCProviderTagArrayOutputWithContext(ctx context.Context) OIDCProviderTagArrayOutput {
+func (o OidcProviderTagArrayOutput) ToOidcProviderTagArrayOutputWithContext(ctx context.Context) OidcProviderTagArrayOutput {
 	return o
 }
 
-func (o OIDCProviderTagArrayOutput) Index(i pulumi.IntInput) OIDCProviderTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OIDCProviderTag {
-		return vs[0].([]OIDCProviderTag)[vs[1].(int)]
-	}).(OIDCProviderTagOutput)
+func (o OidcProviderTagArrayOutput) Index(i pulumi.IntInput) OidcProviderTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OidcProviderTag {
+		return vs[0].([]OidcProviderTag)[vs[1].(int)]
+	}).(OidcProviderTagOutput)
 }
 
 // The inline policy document that is embedded in the specified IAM role.
@@ -441,112 +441,112 @@ func (o RoleTagArrayOutput) Index(i pulumi.IntInput) RoleTagOutput {
 }
 
 // A key-value pair to associate with a resource.
-type SAMLProviderTag struct {
+type SamlProviderTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
-// SAMLProviderTagInput is an input type that accepts SAMLProviderTagArgs and SAMLProviderTagOutput values.
-// You can construct a concrete instance of `SAMLProviderTagInput` via:
+// SamlProviderTagInput is an input type that accepts SamlProviderTagArgs and SamlProviderTagOutput values.
+// You can construct a concrete instance of `SamlProviderTagInput` via:
 //
-//	SAMLProviderTagArgs{...}
-type SAMLProviderTagInput interface {
+//	SamlProviderTagArgs{...}
+type SamlProviderTagInput interface {
 	pulumi.Input
 
-	ToSAMLProviderTagOutput() SAMLProviderTagOutput
-	ToSAMLProviderTagOutputWithContext(context.Context) SAMLProviderTagOutput
+	ToSamlProviderTagOutput() SamlProviderTagOutput
+	ToSamlProviderTagOutputWithContext(context.Context) SamlProviderTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type SAMLProviderTagArgs struct {
+type SamlProviderTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (SAMLProviderTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SAMLProviderTag)(nil)).Elem()
+func (SamlProviderTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlProviderTag)(nil)).Elem()
 }
 
-func (i SAMLProviderTagArgs) ToSAMLProviderTagOutput() SAMLProviderTagOutput {
-	return i.ToSAMLProviderTagOutputWithContext(context.Background())
+func (i SamlProviderTagArgs) ToSamlProviderTagOutput() SamlProviderTagOutput {
+	return i.ToSamlProviderTagOutputWithContext(context.Background())
 }
 
-func (i SAMLProviderTagArgs) ToSAMLProviderTagOutputWithContext(ctx context.Context) SAMLProviderTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SAMLProviderTagOutput)
+func (i SamlProviderTagArgs) ToSamlProviderTagOutputWithContext(ctx context.Context) SamlProviderTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderTagOutput)
 }
 
-// SAMLProviderTagArrayInput is an input type that accepts SAMLProviderTagArray and SAMLProviderTagArrayOutput values.
-// You can construct a concrete instance of `SAMLProviderTagArrayInput` via:
+// SamlProviderTagArrayInput is an input type that accepts SamlProviderTagArray and SamlProviderTagArrayOutput values.
+// You can construct a concrete instance of `SamlProviderTagArrayInput` via:
 //
-//	SAMLProviderTagArray{ SAMLProviderTagArgs{...} }
-type SAMLProviderTagArrayInput interface {
+//	SamlProviderTagArray{ SamlProviderTagArgs{...} }
+type SamlProviderTagArrayInput interface {
 	pulumi.Input
 
-	ToSAMLProviderTagArrayOutput() SAMLProviderTagArrayOutput
-	ToSAMLProviderTagArrayOutputWithContext(context.Context) SAMLProviderTagArrayOutput
+	ToSamlProviderTagArrayOutput() SamlProviderTagArrayOutput
+	ToSamlProviderTagArrayOutputWithContext(context.Context) SamlProviderTagArrayOutput
 }
 
-type SAMLProviderTagArray []SAMLProviderTagInput
+type SamlProviderTagArray []SamlProviderTagInput
 
-func (SAMLProviderTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SAMLProviderTag)(nil)).Elem()
+func (SamlProviderTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlProviderTag)(nil)).Elem()
 }
 
-func (i SAMLProviderTagArray) ToSAMLProviderTagArrayOutput() SAMLProviderTagArrayOutput {
-	return i.ToSAMLProviderTagArrayOutputWithContext(context.Background())
+func (i SamlProviderTagArray) ToSamlProviderTagArrayOutput() SamlProviderTagArrayOutput {
+	return i.ToSamlProviderTagArrayOutputWithContext(context.Background())
 }
 
-func (i SAMLProviderTagArray) ToSAMLProviderTagArrayOutputWithContext(ctx context.Context) SAMLProviderTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SAMLProviderTagArrayOutput)
+func (i SamlProviderTagArray) ToSamlProviderTagArrayOutputWithContext(ctx context.Context) SamlProviderTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type SAMLProviderTagOutput struct{ *pulumi.OutputState }
+type SamlProviderTagOutput struct{ *pulumi.OutputState }
 
-func (SAMLProviderTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SAMLProviderTag)(nil)).Elem()
+func (SamlProviderTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlProviderTag)(nil)).Elem()
 }
 
-func (o SAMLProviderTagOutput) ToSAMLProviderTagOutput() SAMLProviderTagOutput {
+func (o SamlProviderTagOutput) ToSamlProviderTagOutput() SamlProviderTagOutput {
 	return o
 }
 
-func (o SAMLProviderTagOutput) ToSAMLProviderTagOutputWithContext(ctx context.Context) SAMLProviderTagOutput {
+func (o SamlProviderTagOutput) ToSamlProviderTagOutputWithContext(ctx context.Context) SamlProviderTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o SAMLProviderTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SAMLProviderTag) string { return v.Key }).(pulumi.StringOutput)
+func (o SamlProviderTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SamlProviderTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o SAMLProviderTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SAMLProviderTag) string { return v.Value }).(pulumi.StringOutput)
+func (o SamlProviderTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SamlProviderTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type SAMLProviderTagArrayOutput struct{ *pulumi.OutputState }
+type SamlProviderTagArrayOutput struct{ *pulumi.OutputState }
 
-func (SAMLProviderTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SAMLProviderTag)(nil)).Elem()
+func (SamlProviderTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlProviderTag)(nil)).Elem()
 }
 
-func (o SAMLProviderTagArrayOutput) ToSAMLProviderTagArrayOutput() SAMLProviderTagArrayOutput {
+func (o SamlProviderTagArrayOutput) ToSamlProviderTagArrayOutput() SamlProviderTagArrayOutput {
 	return o
 }
 
-func (o SAMLProviderTagArrayOutput) ToSAMLProviderTagArrayOutputWithContext(ctx context.Context) SAMLProviderTagArrayOutput {
+func (o SamlProviderTagArrayOutput) ToSamlProviderTagArrayOutputWithContext(ctx context.Context) SamlProviderTagArrayOutput {
 	return o
 }
 
-func (o SAMLProviderTagArrayOutput) Index(i pulumi.IntInput) SAMLProviderTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SAMLProviderTag {
-		return vs[0].([]SAMLProviderTag)[vs[1].(int)]
-	}).(SAMLProviderTagOutput)
+func (o SamlProviderTagArrayOutput) Index(i pulumi.IntInput) SamlProviderTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlProviderTag {
+		return vs[0].([]SamlProviderTag)[vs[1].(int)]
+	}).(SamlProviderTagOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1007,125 +1007,125 @@ func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
 }
 
 // A key-value pair to associate with a resource.
-type VirtualMFADeviceTag struct {
+type VirtualMfaDeviceTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
-// VirtualMFADeviceTagInput is an input type that accepts VirtualMFADeviceTagArgs and VirtualMFADeviceTagOutput values.
-// You can construct a concrete instance of `VirtualMFADeviceTagInput` via:
+// VirtualMfaDeviceTagInput is an input type that accepts VirtualMfaDeviceTagArgs and VirtualMfaDeviceTagOutput values.
+// You can construct a concrete instance of `VirtualMfaDeviceTagInput` via:
 //
-//	VirtualMFADeviceTagArgs{...}
-type VirtualMFADeviceTagInput interface {
+//	VirtualMfaDeviceTagArgs{...}
+type VirtualMfaDeviceTagInput interface {
 	pulumi.Input
 
-	ToVirtualMFADeviceTagOutput() VirtualMFADeviceTagOutput
-	ToVirtualMFADeviceTagOutputWithContext(context.Context) VirtualMFADeviceTagOutput
+	ToVirtualMfaDeviceTagOutput() VirtualMfaDeviceTagOutput
+	ToVirtualMfaDeviceTagOutputWithContext(context.Context) VirtualMfaDeviceTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type VirtualMFADeviceTagArgs struct {
+type VirtualMfaDeviceTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (VirtualMFADeviceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMFADeviceTag)(nil)).Elem()
+func (VirtualMfaDeviceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMfaDeviceTag)(nil)).Elem()
 }
 
-func (i VirtualMFADeviceTagArgs) ToVirtualMFADeviceTagOutput() VirtualMFADeviceTagOutput {
-	return i.ToVirtualMFADeviceTagOutputWithContext(context.Background())
+func (i VirtualMfaDeviceTagArgs) ToVirtualMfaDeviceTagOutput() VirtualMfaDeviceTagOutput {
+	return i.ToVirtualMfaDeviceTagOutputWithContext(context.Background())
 }
 
-func (i VirtualMFADeviceTagArgs) ToVirtualMFADeviceTagOutputWithContext(ctx context.Context) VirtualMFADeviceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMFADeviceTagOutput)
+func (i VirtualMfaDeviceTagArgs) ToVirtualMfaDeviceTagOutputWithContext(ctx context.Context) VirtualMfaDeviceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMfaDeviceTagOutput)
 }
 
-// VirtualMFADeviceTagArrayInput is an input type that accepts VirtualMFADeviceTagArray and VirtualMFADeviceTagArrayOutput values.
-// You can construct a concrete instance of `VirtualMFADeviceTagArrayInput` via:
+// VirtualMfaDeviceTagArrayInput is an input type that accepts VirtualMfaDeviceTagArray and VirtualMfaDeviceTagArrayOutput values.
+// You can construct a concrete instance of `VirtualMfaDeviceTagArrayInput` via:
 //
-//	VirtualMFADeviceTagArray{ VirtualMFADeviceTagArgs{...} }
-type VirtualMFADeviceTagArrayInput interface {
+//	VirtualMfaDeviceTagArray{ VirtualMfaDeviceTagArgs{...} }
+type VirtualMfaDeviceTagArrayInput interface {
 	pulumi.Input
 
-	ToVirtualMFADeviceTagArrayOutput() VirtualMFADeviceTagArrayOutput
-	ToVirtualMFADeviceTagArrayOutputWithContext(context.Context) VirtualMFADeviceTagArrayOutput
+	ToVirtualMfaDeviceTagArrayOutput() VirtualMfaDeviceTagArrayOutput
+	ToVirtualMfaDeviceTagArrayOutputWithContext(context.Context) VirtualMfaDeviceTagArrayOutput
 }
 
-type VirtualMFADeviceTagArray []VirtualMFADeviceTagInput
+type VirtualMfaDeviceTagArray []VirtualMfaDeviceTagInput
 
-func (VirtualMFADeviceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualMFADeviceTag)(nil)).Elem()
+func (VirtualMfaDeviceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMfaDeviceTag)(nil)).Elem()
 }
 
-func (i VirtualMFADeviceTagArray) ToVirtualMFADeviceTagArrayOutput() VirtualMFADeviceTagArrayOutput {
-	return i.ToVirtualMFADeviceTagArrayOutputWithContext(context.Background())
+func (i VirtualMfaDeviceTagArray) ToVirtualMfaDeviceTagArrayOutput() VirtualMfaDeviceTagArrayOutput {
+	return i.ToVirtualMfaDeviceTagArrayOutputWithContext(context.Background())
 }
 
-func (i VirtualMFADeviceTagArray) ToVirtualMFADeviceTagArrayOutputWithContext(ctx context.Context) VirtualMFADeviceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMFADeviceTagArrayOutput)
+func (i VirtualMfaDeviceTagArray) ToVirtualMfaDeviceTagArrayOutputWithContext(ctx context.Context) VirtualMfaDeviceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMfaDeviceTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type VirtualMFADeviceTagOutput struct{ *pulumi.OutputState }
+type VirtualMfaDeviceTagOutput struct{ *pulumi.OutputState }
 
-func (VirtualMFADeviceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMFADeviceTag)(nil)).Elem()
+func (VirtualMfaDeviceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMfaDeviceTag)(nil)).Elem()
 }
 
-func (o VirtualMFADeviceTagOutput) ToVirtualMFADeviceTagOutput() VirtualMFADeviceTagOutput {
+func (o VirtualMfaDeviceTagOutput) ToVirtualMfaDeviceTagOutput() VirtualMfaDeviceTagOutput {
 	return o
 }
 
-func (o VirtualMFADeviceTagOutput) ToVirtualMFADeviceTagOutputWithContext(ctx context.Context) VirtualMFADeviceTagOutput {
+func (o VirtualMfaDeviceTagOutput) ToVirtualMfaDeviceTagOutputWithContext(ctx context.Context) VirtualMfaDeviceTagOutput {
 	return o
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o VirtualMFADeviceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMFADeviceTag) string { return v.Key }).(pulumi.StringOutput)
+func (o VirtualMfaDeviceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMfaDeviceTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o VirtualMFADeviceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMFADeviceTag) string { return v.Value }).(pulumi.StringOutput)
+func (o VirtualMfaDeviceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMfaDeviceTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type VirtualMFADeviceTagArrayOutput struct{ *pulumi.OutputState }
+type VirtualMfaDeviceTagArrayOutput struct{ *pulumi.OutputState }
 
-func (VirtualMFADeviceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualMFADeviceTag)(nil)).Elem()
+func (VirtualMfaDeviceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMfaDeviceTag)(nil)).Elem()
 }
 
-func (o VirtualMFADeviceTagArrayOutput) ToVirtualMFADeviceTagArrayOutput() VirtualMFADeviceTagArrayOutput {
+func (o VirtualMfaDeviceTagArrayOutput) ToVirtualMfaDeviceTagArrayOutput() VirtualMfaDeviceTagArrayOutput {
 	return o
 }
 
-func (o VirtualMFADeviceTagArrayOutput) ToVirtualMFADeviceTagArrayOutputWithContext(ctx context.Context) VirtualMFADeviceTagArrayOutput {
+func (o VirtualMfaDeviceTagArrayOutput) ToVirtualMfaDeviceTagArrayOutputWithContext(ctx context.Context) VirtualMfaDeviceTagArrayOutput {
 	return o
 }
 
-func (o VirtualMFADeviceTagArrayOutput) Index(i pulumi.IntInput) VirtualMFADeviceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMFADeviceTag {
-		return vs[0].([]VirtualMFADeviceTag)[vs[1].(int)]
-	}).(VirtualMFADeviceTagOutput)
+func (o VirtualMfaDeviceTagArrayOutput) Index(i pulumi.IntInput) VirtualMfaDeviceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMfaDeviceTag {
+		return vs[0].([]VirtualMfaDeviceTag)[vs[1].(int)]
+	}).(VirtualMfaDeviceTagOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyTypeInput)(nil)).Elem(), GroupPolicyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyTypeArrayInput)(nil)).Elem(), GroupPolicyTypeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OIDCProviderTagInput)(nil)).Elem(), OIDCProviderTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OIDCProviderTagArrayInput)(nil)).Elem(), OIDCProviderTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OidcProviderTagInput)(nil)).Elem(), OidcProviderTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OidcProviderTagArrayInput)(nil)).Elem(), OidcProviderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyTypeInput)(nil)).Elem(), RolePolicyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyTypeArrayInput)(nil)).Elem(), RolePolicyTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagInput)(nil)).Elem(), RoleTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagArrayInput)(nil)).Elem(), RoleTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SAMLProviderTagInput)(nil)).Elem(), SAMLProviderTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SAMLProviderTagArrayInput)(nil)).Elem(), SAMLProviderTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlProviderTagInput)(nil)).Elem(), SamlProviderTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlProviderTagArrayInput)(nil)).Elem(), SamlProviderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerCertificateTagInput)(nil)).Elem(), ServerCertificateTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerCertificateTagArrayInput)(nil)).Elem(), ServerCertificateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserLoginProfileInput)(nil)).Elem(), UserLoginProfileArgs{})
@@ -1134,18 +1134,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPolicyTypeArrayInput)(nil)).Elem(), UserPolicyTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMFADeviceTagInput)(nil)).Elem(), VirtualMFADeviceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMFADeviceTagArrayInput)(nil)).Elem(), VirtualMFADeviceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMfaDeviceTagInput)(nil)).Elem(), VirtualMfaDeviceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMfaDeviceTagArrayInput)(nil)).Elem(), VirtualMfaDeviceTagArray{})
 	pulumi.RegisterOutputType(GroupPolicyTypeOutput{})
 	pulumi.RegisterOutputType(GroupPolicyTypeArrayOutput{})
-	pulumi.RegisterOutputType(OIDCProviderTagOutput{})
-	pulumi.RegisterOutputType(OIDCProviderTagArrayOutput{})
+	pulumi.RegisterOutputType(OidcProviderTagOutput{})
+	pulumi.RegisterOutputType(OidcProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(RolePolicyTypeOutput{})
 	pulumi.RegisterOutputType(RolePolicyTypeArrayOutput{})
 	pulumi.RegisterOutputType(RoleTagOutput{})
 	pulumi.RegisterOutputType(RoleTagArrayOutput{})
-	pulumi.RegisterOutputType(SAMLProviderTagOutput{})
-	pulumi.RegisterOutputType(SAMLProviderTagArrayOutput{})
+	pulumi.RegisterOutputType(SamlProviderTagOutput{})
+	pulumi.RegisterOutputType(SamlProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(ServerCertificateTagOutput{})
 	pulumi.RegisterOutputType(ServerCertificateTagArrayOutput{})
 	pulumi.RegisterOutputType(UserLoginProfileOutput{})
@@ -1154,6 +1154,6 @@ func init() {
 	pulumi.RegisterOutputType(UserPolicyTypeArrayOutput{})
 	pulumi.RegisterOutputType(UserTagOutput{})
 	pulumi.RegisterOutputType(UserTagArrayOutput{})
-	pulumi.RegisterOutputType(VirtualMFADeviceTagOutput{})
-	pulumi.RegisterOutputType(VirtualMFADeviceTagArrayOutput{})
+	pulumi.RegisterOutputType(VirtualMfaDeviceTagOutput{})
+	pulumi.RegisterOutputType(VirtualMfaDeviceTagArrayOutput{})
 }

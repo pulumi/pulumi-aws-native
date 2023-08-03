@@ -51,7 +51,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     public readonly healthCheck!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerHealthCheck | undefined>;
     public readonly instances!: pulumi.Output<string[] | undefined>;
-    public readonly lbCookieStickinessPolicy!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerLBCookieStickinessPolicy[] | undefined>;
+    public readonly lbCookieStickinessPolicy!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerLbCookieStickinessPolicy[] | undefined>;
     public readonly listeners!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerListeners[]>;
     public readonly loadBalancerName!: pulumi.Output<string | undefined>;
     public readonly policies!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerPolicies[] | undefined>;
@@ -139,7 +139,7 @@ export interface LoadBalancerArgs {
     crossZone?: pulumi.Input<boolean>;
     healthCheck?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerHealthCheckArgs>;
     instances?: pulumi.Input<pulumi.Input<string>[]>;
-    lbCookieStickinessPolicy?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerLBCookieStickinessPolicyArgs>[]>;
+    lbCookieStickinessPolicy?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerLbCookieStickinessPolicyArgs>[]>;
     listeners: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerListenersArgs>[]>;
     loadBalancerName?: pulumi.Input<string>;
     policies?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerPoliciesArgs>[]>;

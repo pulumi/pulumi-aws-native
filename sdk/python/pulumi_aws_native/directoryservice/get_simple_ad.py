@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetSimpleADResult',
-    'AwaitableGetSimpleADResult',
+    'GetSimpleAdResult',
+    'AwaitableGetSimpleAdResult',
     'get_simple_ad',
     'get_simple_ad_output',
 ]
 
 @pulumi.output_type
-class GetSimpleADResult:
+class GetSimpleAdResult:
     def __init__(__self__, alias=None, directory_id=None, dns_ip_addresses=None, enable_sso=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
@@ -65,12 +65,12 @@ class GetSimpleADResult:
         return pulumi.get(self, "enable_sso")
 
 
-class AwaitableGetSimpleADResult(GetSimpleADResult):
+class AwaitableGetSimpleAdResult(GetSimpleAdResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSimpleADResult(
+        return GetSimpleAdResult(
             alias=self.alias,
             directory_id=self.directory_id,
             dns_ip_addresses=self.dns_ip_addresses,
@@ -78,7 +78,7 @@ class AwaitableGetSimpleADResult(GetSimpleADResult):
 
 
 def get_simple_ad(directory_id: Optional[str] = None,
-                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimpleADResult:
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimpleAdResult:
     """
     Resource Type definition for AWS::DirectoryService::SimpleAD
 
@@ -88,9 +88,9 @@ def get_simple_ad(directory_id: Optional[str] = None,
     __args__ = dict()
     __args__['directoryId'] = directory_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws-native:directoryservice:getSimpleAD', __args__, opts=opts, typ=GetSimpleADResult).value
+    __ret__ = pulumi.runtime.invoke('aws-native:directoryservice:getSimpleAd', __args__, opts=opts, typ=GetSimpleAdResult).value
 
-    return AwaitableGetSimpleADResult(
+    return AwaitableGetSimpleAdResult(
         alias=pulumi.get(__ret__, 'alias'),
         directory_id=pulumi.get(__ret__, 'directory_id'),
         dns_ip_addresses=pulumi.get(__ret__, 'dns_ip_addresses'),
@@ -99,7 +99,7 @@ def get_simple_ad(directory_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_simple_ad)
 def get_simple_ad_output(directory_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimpleADResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimpleAdResult]:
     """
     Resource Type definition for AWS::DirectoryService::SimpleAD
 

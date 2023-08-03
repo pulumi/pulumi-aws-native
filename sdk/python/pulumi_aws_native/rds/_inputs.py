@@ -11,28 +11,28 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'CustomDBEngineVersionTagArgs',
-    'DBClusterMasterUserSecretArgs',
-    'DBClusterParameterGroupTagArgs',
-    'DBClusterReadEndpointArgs',
-    'DBClusterRoleArgs',
-    'DBClusterScalingConfigurationArgs',
-    'DBClusterServerlessV2ScalingConfigurationArgs',
-    'DBClusterTagArgs',
-    'DBInstanceCertificateDetailsArgs',
-    'DBInstanceEndpointArgs',
-    'DBInstanceMasterUserSecretArgs',
-    'DBInstanceProcessorFeatureArgs',
-    'DBInstanceRoleArgs',
-    'DBInstanceTagArgs',
-    'DBParameterGroupTagArgs',
-    'DBProxyAuthFormatArgs',
-    'DBProxyEndpointTagFormatArgs',
-    'DBProxyTagFormatArgs',
-    'DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs',
-    'DBSecurityGroupIngressArgs',
-    'DBSecurityGroupTagArgs',
-    'DBSubnetGroupTagArgs',
+    'CustomDbEngineVersionTagArgs',
+    'DbClusterDbClusterRoleArgs',
+    'DbClusterMasterUserSecretArgs',
+    'DbClusterParameterGroupTagArgs',
+    'DbClusterReadEndpointArgs',
+    'DbClusterScalingConfigurationArgs',
+    'DbClusterServerlessV2ScalingConfigurationArgs',
+    'DbClusterTagArgs',
+    'DbInstanceCertificateDetailsArgs',
+    'DbInstanceDbInstanceRoleArgs',
+    'DbInstanceEndpointArgs',
+    'DbInstanceMasterUserSecretArgs',
+    'DbInstanceProcessorFeatureArgs',
+    'DbInstanceTagArgs',
+    'DbParameterGroupTagArgs',
+    'DbProxyAuthFormatArgs',
+    'DbProxyEndpointTagFormatArgs',
+    'DbProxyTagFormatArgs',
+    'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs',
+    'DbSecurityGroupIngressArgs',
+    'DbSecurityGroupTagArgs',
+    'DbSubnetGroupTagArgs',
     'EventSubscriptionTagArgs',
     'OptionGroupOptionConfigurationArgs',
     'OptionGroupOptionSettingArgs',
@@ -40,7 +40,7 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class CustomDBEngineVersionTagArgs:
+class CustomDbEngineVersionTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
@@ -79,108 +79,7 @@ class CustomDBEngineVersionTagArgs:
 
 
 @pulumi.input_type
-class DBClusterMasterUserSecretArgs:
-    def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[str]] = None,
-                 secret_arn: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
-        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
-        """
-        if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
-        if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
-
-    @property
-    @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The AWS KMS key identifier that is used to encrypt the secret.
-        """
-        return pulumi.get(self, "kms_key_id")
-
-    @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kms_key_id", value)
-
-    @property
-    @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the secret.
-        """
-        return pulumi.get(self, "secret_arn")
-
-    @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secret_arn", value)
-
-
-@pulumi.input_type
-class DBClusterParameterGroupTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class DBClusterReadEndpointArgs:
-    def __init__(__self__, *,
-                 address: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] address: The reader endpoint for the DB cluster.
-        """
-        if address is not None:
-            pulumi.set(__self__, "address", address)
-
-    @property
-    @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The reader endpoint for the DB cluster.
-        """
-        return pulumi.get(self, "address")
-
-    @address.setter
-    def address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "address", value)
-
-
-@pulumi.input_type
-class DBClusterRoleArgs:
+class DbClusterDbClusterRoleArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  feature_name: Optional[pulumi.Input[str]] = None):
@@ -219,7 +118,108 @@ class DBClusterRoleArgs:
 
 
 @pulumi.input_type
-class DBClusterScalingConfigurationArgs:
+class DbClusterMasterUserSecretArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS KMS key identifier that is used to encrypt the secret.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
+
+@pulumi.input_type
+class DbClusterParameterGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DbClusterReadEndpointArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address: The reader endpoint for the DB cluster.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reader endpoint for the DB cluster.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+
+@pulumi.input_type
+class DbClusterScalingConfigurationArgs:
     def __init__(__self__, *,
                  auto_pause: Optional[pulumi.Input[bool]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
@@ -345,7 +345,7 @@ class DBClusterScalingConfigurationArgs:
 
 
 @pulumi.input_type
-class DBClusterServerlessV2ScalingConfigurationArgs:
+class DbClusterServerlessV2ScalingConfigurationArgs:
     def __init__(__self__, *,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None):
@@ -385,7 +385,7 @@ class DBClusterServerlessV2ScalingConfigurationArgs:
 
 
 @pulumi.input_type
-class DBClusterTagArgs:
+class DbClusterTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
@@ -424,7 +424,7 @@ class DBClusterTagArgs:
 
 
 @pulumi.input_type
-class DBInstanceCertificateDetailsArgs:
+class DbInstanceCertificateDetailsArgs:
     def __init__(__self__, *,
                  ca_identifier: Optional[pulumi.Input[str]] = None,
                  valid_till: Optional[pulumi.Input[str]] = None):
@@ -463,7 +463,44 @@ class DBInstanceCertificateDetailsArgs:
 
 
 @pulumi.input_type
-class DBInstanceEndpointArgs:
+class DbInstanceDbInstanceRoleArgs:
+    def __init__(__self__, *,
+                 feature_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+        """
+        pulumi.set(__self__, "feature_name", feature_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> pulumi.Input[str]:
+        """
+        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        """
+        return pulumi.get(self, "feature_name")
+
+    @feature_name.setter
+    def feature_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "feature_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class DbInstanceEndpointArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
@@ -518,7 +555,7 @@ class DBInstanceEndpointArgs:
 
 
 @pulumi.input_type
-class DBInstanceMasterUserSecretArgs:
+class DbInstanceMasterUserSecretArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None):
@@ -557,12 +594,12 @@ class DBInstanceMasterUserSecretArgs:
 
 
 @pulumi.input_type
-class DBInstanceProcessorFeatureArgs:
+class DbInstanceProcessorFeatureArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input['DBInstanceProcessorFeatureName']] = None,
+                 name: Optional[pulumi.Input['DbInstanceProcessorFeatureName']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['DBInstanceProcessorFeatureName'] name: The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        :param pulumi.Input['DbInstanceProcessorFeatureName'] name: The name of the processor feature. Valid names are coreCount and threadsPerCore.
         :param pulumi.Input[str] value: The value of a processor feature name.
         """
         if name is not None:
@@ -572,14 +609,14 @@ class DBInstanceProcessorFeatureArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input['DBInstanceProcessorFeatureName']]:
+    def name(self) -> Optional[pulumi.Input['DbInstanceProcessorFeatureName']]:
         """
         The name of the processor feature. Valid names are coreCount and threadsPerCore.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input['DBInstanceProcessorFeatureName']]):
+    def name(self, value: Optional[pulumi.Input['DbInstanceProcessorFeatureName']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -596,44 +633,7 @@ class DBInstanceProcessorFeatureArgs:
 
 
 @pulumi.input_type
-class DBInstanceRoleArgs:
-    def __init__(__self__, *,
-                 feature_name: pulumi.Input[str],
-                 role_arn: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-        """
-        pulumi.set(__self__, "feature_name", feature_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-
-    @property
-    @pulumi.getter(name="featureName")
-    def feature_name(self) -> pulumi.Input[str]:
-        """
-        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
-        """
-        return pulumi.get(self, "feature_name")
-
-    @feature_name.setter
-    def feature_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "feature_name", value)
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-        """
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_arn", value)
-
-
-@pulumi.input_type
-class DBInstanceTagArgs:
+class DbInstanceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
@@ -672,7 +672,7 @@ class DBInstanceTagArgs:
 
 
 @pulumi.input_type
-class DBParameterGroupTagArgs:
+class DbParameterGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
@@ -711,18 +711,18 @@ class DBParameterGroupTagArgs:
 
 
 @pulumi.input_type
-class DBProxyAuthFormatArgs:
+class DbProxyAuthFormatArgs:
     def __init__(__self__, *,
-                 auth_scheme: Optional[pulumi.Input['DBProxyAuthFormatAuthScheme']] = None,
-                 client_password_auth_type: Optional[pulumi.Input['DBProxyAuthFormatClientPasswordAuthType']] = None,
+                 auth_scheme: Optional[pulumi.Input['DbProxyAuthFormatAuthScheme']] = None,
+                 client_password_auth_type: Optional[pulumi.Input['DbProxyAuthFormatClientPasswordAuthType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 iam_auth: Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']] = None,
+                 iam_auth: Optional[pulumi.Input['DbProxyAuthFormatIamAuth']] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['DBProxyAuthFormatAuthScheme'] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
-        :param pulumi.Input['DBProxyAuthFormatClientPasswordAuthType'] client_password_auth_type: The type of authentication the proxy uses for connections from clients.
+        :param pulumi.Input['DbProxyAuthFormatAuthScheme'] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+        :param pulumi.Input['DbProxyAuthFormatClientPasswordAuthType'] client_password_auth_type: The type of authentication the proxy uses for connections from clients.
         :param pulumi.Input[str] description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
-        :param pulumi.Input['DBProxyAuthFormatIAMAuth'] iam_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
+        :param pulumi.Input['DbProxyAuthFormatIamAuth'] iam_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         """
         if auth_scheme is not None:
@@ -738,26 +738,26 @@ class DBProxyAuthFormatArgs:
 
     @property
     @pulumi.getter(name="authScheme")
-    def auth_scheme(self) -> Optional[pulumi.Input['DBProxyAuthFormatAuthScheme']]:
+    def auth_scheme(self) -> Optional[pulumi.Input['DbProxyAuthFormatAuthScheme']]:
         """
         The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         """
         return pulumi.get(self, "auth_scheme")
 
     @auth_scheme.setter
-    def auth_scheme(self, value: Optional[pulumi.Input['DBProxyAuthFormatAuthScheme']]):
+    def auth_scheme(self, value: Optional[pulumi.Input['DbProxyAuthFormatAuthScheme']]):
         pulumi.set(self, "auth_scheme", value)
 
     @property
     @pulumi.getter(name="clientPasswordAuthType")
-    def client_password_auth_type(self) -> Optional[pulumi.Input['DBProxyAuthFormatClientPasswordAuthType']]:
+    def client_password_auth_type(self) -> Optional[pulumi.Input['DbProxyAuthFormatClientPasswordAuthType']]:
         """
         The type of authentication the proxy uses for connections from clients.
         """
         return pulumi.get(self, "client_password_auth_type")
 
     @client_password_auth_type.setter
-    def client_password_auth_type(self, value: Optional[pulumi.Input['DBProxyAuthFormatClientPasswordAuthType']]):
+    def client_password_auth_type(self, value: Optional[pulumi.Input['DbProxyAuthFormatClientPasswordAuthType']]):
         pulumi.set(self, "client_password_auth_type", value)
 
     @property
@@ -774,14 +774,14 @@ class DBProxyAuthFormatArgs:
 
     @property
     @pulumi.getter(name="iamAuth")
-    def iam_auth(self) -> Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']]:
+    def iam_auth(self) -> Optional[pulumi.Input['DbProxyAuthFormatIamAuth']]:
         """
         Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         """
         return pulumi.get(self, "iam_auth")
 
     @iam_auth.setter
-    def iam_auth(self, value: Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']]):
+    def iam_auth(self, value: Optional[pulumi.Input['DbProxyAuthFormatIamAuth']]):
         pulumi.set(self, "iam_auth", value)
 
     @property
@@ -798,7 +798,7 @@ class DBProxyAuthFormatArgs:
 
 
 @pulumi.input_type
-class DBProxyEndpointTagFormatArgs:
+class DbProxyEndpointTagFormatArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -827,7 +827,7 @@ class DBProxyEndpointTagFormatArgs:
 
 
 @pulumi.input_type
-class DBProxyTagFormatArgs:
+class DbProxyTagFormatArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -856,7 +856,7 @@ class DBProxyTagFormatArgs:
 
 
 @pulumi.input_type
-class DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs:
+class DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs:
     def __init__(__self__, *,
                  connection_borrow_timeout: Optional[pulumi.Input[int]] = None,
                  init_query: Optional[pulumi.Input[str]] = None,
@@ -943,7 +943,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs:
 
 
 @pulumi.input_type
-class DBSecurityGroupIngressArgs:
+class DbSecurityGroupIngressArgs:
     def __init__(__self__, *,
                  cidrip: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_id: Optional[pulumi.Input[str]] = None,
@@ -996,7 +996,7 @@ class DBSecurityGroupIngressArgs:
 
 
 @pulumi.input_type
-class DBSecurityGroupTagArgs:
+class DbSecurityGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -1023,7 +1023,7 @@ class DBSecurityGroupTagArgs:
 
 
 @pulumi.input_type
-class DBSubnetGroupTagArgs:
+class DbSubnetGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):

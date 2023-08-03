@@ -562,144 +562,144 @@ func (o ClassifierJsonClassifierPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ClassifierXMLClassifier struct {
+type ClassifierXmlClassifier struct {
 	Classification string  `pulumi:"classification"`
 	Name           *string `pulumi:"name"`
 	RowTag         string  `pulumi:"rowTag"`
 }
 
-// ClassifierXMLClassifierInput is an input type that accepts ClassifierXMLClassifierArgs and ClassifierXMLClassifierOutput values.
-// You can construct a concrete instance of `ClassifierXMLClassifierInput` via:
+// ClassifierXmlClassifierInput is an input type that accepts ClassifierXmlClassifierArgs and ClassifierXmlClassifierOutput values.
+// You can construct a concrete instance of `ClassifierXmlClassifierInput` via:
 //
-//	ClassifierXMLClassifierArgs{...}
-type ClassifierXMLClassifierInput interface {
+//	ClassifierXmlClassifierArgs{...}
+type ClassifierXmlClassifierInput interface {
 	pulumi.Input
 
-	ToClassifierXMLClassifierOutput() ClassifierXMLClassifierOutput
-	ToClassifierXMLClassifierOutputWithContext(context.Context) ClassifierXMLClassifierOutput
+	ToClassifierXmlClassifierOutput() ClassifierXmlClassifierOutput
+	ToClassifierXmlClassifierOutputWithContext(context.Context) ClassifierXmlClassifierOutput
 }
 
-type ClassifierXMLClassifierArgs struct {
+type ClassifierXmlClassifierArgs struct {
 	Classification pulumi.StringInput    `pulumi:"classification"`
 	Name           pulumi.StringPtrInput `pulumi:"name"`
 	RowTag         pulumi.StringInput    `pulumi:"rowTag"`
 }
 
-func (ClassifierXMLClassifierArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClassifierXMLClassifier)(nil)).Elem()
+func (ClassifierXmlClassifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierXmlClassifier)(nil)).Elem()
 }
 
-func (i ClassifierXMLClassifierArgs) ToClassifierXMLClassifierOutput() ClassifierXMLClassifierOutput {
-	return i.ToClassifierXMLClassifierOutputWithContext(context.Background())
+func (i ClassifierXmlClassifierArgs) ToClassifierXmlClassifierOutput() ClassifierXmlClassifierOutput {
+	return i.ToClassifierXmlClassifierOutputWithContext(context.Background())
 }
 
-func (i ClassifierXMLClassifierArgs) ToClassifierXMLClassifierOutputWithContext(ctx context.Context) ClassifierXMLClassifierOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXMLClassifierOutput)
+func (i ClassifierXmlClassifierArgs) ToClassifierXmlClassifierOutputWithContext(ctx context.Context) ClassifierXmlClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXmlClassifierOutput)
 }
 
-func (i ClassifierXMLClassifierArgs) ToClassifierXMLClassifierPtrOutput() ClassifierXMLClassifierPtrOutput {
-	return i.ToClassifierXMLClassifierPtrOutputWithContext(context.Background())
+func (i ClassifierXmlClassifierArgs) ToClassifierXmlClassifierPtrOutput() ClassifierXmlClassifierPtrOutput {
+	return i.ToClassifierXmlClassifierPtrOutputWithContext(context.Background())
 }
 
-func (i ClassifierXMLClassifierArgs) ToClassifierXMLClassifierPtrOutputWithContext(ctx context.Context) ClassifierXMLClassifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXMLClassifierOutput).ToClassifierXMLClassifierPtrOutputWithContext(ctx)
+func (i ClassifierXmlClassifierArgs) ToClassifierXmlClassifierPtrOutputWithContext(ctx context.Context) ClassifierXmlClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXmlClassifierOutput).ToClassifierXmlClassifierPtrOutputWithContext(ctx)
 }
 
-// ClassifierXMLClassifierPtrInput is an input type that accepts ClassifierXMLClassifierArgs, ClassifierXMLClassifierPtr and ClassifierXMLClassifierPtrOutput values.
-// You can construct a concrete instance of `ClassifierXMLClassifierPtrInput` via:
+// ClassifierXmlClassifierPtrInput is an input type that accepts ClassifierXmlClassifierArgs, ClassifierXmlClassifierPtr and ClassifierXmlClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierXmlClassifierPtrInput` via:
 //
-//	        ClassifierXMLClassifierArgs{...}
+//	        ClassifierXmlClassifierArgs{...}
 //
 //	or:
 //
 //	        nil
-type ClassifierXMLClassifierPtrInput interface {
+type ClassifierXmlClassifierPtrInput interface {
 	pulumi.Input
 
-	ToClassifierXMLClassifierPtrOutput() ClassifierXMLClassifierPtrOutput
-	ToClassifierXMLClassifierPtrOutputWithContext(context.Context) ClassifierXMLClassifierPtrOutput
+	ToClassifierXmlClassifierPtrOutput() ClassifierXmlClassifierPtrOutput
+	ToClassifierXmlClassifierPtrOutputWithContext(context.Context) ClassifierXmlClassifierPtrOutput
 }
 
-type classifierXMLClassifierPtrType ClassifierXMLClassifierArgs
+type classifierXmlClassifierPtrType ClassifierXmlClassifierArgs
 
-func ClassifierXMLClassifierPtr(v *ClassifierXMLClassifierArgs) ClassifierXMLClassifierPtrInput {
-	return (*classifierXMLClassifierPtrType)(v)
+func ClassifierXmlClassifierPtr(v *ClassifierXmlClassifierArgs) ClassifierXmlClassifierPtrInput {
+	return (*classifierXmlClassifierPtrType)(v)
 }
 
-func (*classifierXMLClassifierPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClassifierXMLClassifier)(nil)).Elem()
+func (*classifierXmlClassifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierXmlClassifier)(nil)).Elem()
 }
 
-func (i *classifierXMLClassifierPtrType) ToClassifierXMLClassifierPtrOutput() ClassifierXMLClassifierPtrOutput {
-	return i.ToClassifierXMLClassifierPtrOutputWithContext(context.Background())
+func (i *classifierXmlClassifierPtrType) ToClassifierXmlClassifierPtrOutput() ClassifierXmlClassifierPtrOutput {
+	return i.ToClassifierXmlClassifierPtrOutputWithContext(context.Background())
 }
 
-func (i *classifierXMLClassifierPtrType) ToClassifierXMLClassifierPtrOutputWithContext(ctx context.Context) ClassifierXMLClassifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXMLClassifierPtrOutput)
+func (i *classifierXmlClassifierPtrType) ToClassifierXmlClassifierPtrOutputWithContext(ctx context.Context) ClassifierXmlClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXmlClassifierPtrOutput)
 }
 
-type ClassifierXMLClassifierOutput struct{ *pulumi.OutputState }
+type ClassifierXmlClassifierOutput struct{ *pulumi.OutputState }
 
-func (ClassifierXMLClassifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClassifierXMLClassifier)(nil)).Elem()
+func (ClassifierXmlClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierXmlClassifier)(nil)).Elem()
 }
 
-func (o ClassifierXMLClassifierOutput) ToClassifierXMLClassifierOutput() ClassifierXMLClassifierOutput {
+func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierOutput() ClassifierXmlClassifierOutput {
 	return o
 }
 
-func (o ClassifierXMLClassifierOutput) ToClassifierXMLClassifierOutputWithContext(ctx context.Context) ClassifierXMLClassifierOutput {
+func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierOutputWithContext(ctx context.Context) ClassifierXmlClassifierOutput {
 	return o
 }
 
-func (o ClassifierXMLClassifierOutput) ToClassifierXMLClassifierPtrOutput() ClassifierXMLClassifierPtrOutput {
-	return o.ToClassifierXMLClassifierPtrOutputWithContext(context.Background())
+func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierPtrOutput() ClassifierXmlClassifierPtrOutput {
+	return o.ToClassifierXmlClassifierPtrOutputWithContext(context.Background())
 }
 
-func (o ClassifierXMLClassifierOutput) ToClassifierXMLClassifierPtrOutputWithContext(ctx context.Context) ClassifierXMLClassifierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierXMLClassifier) *ClassifierXMLClassifier {
+func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierPtrOutputWithContext(ctx context.Context) ClassifierXmlClassifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierXmlClassifier) *ClassifierXmlClassifier {
 		return &v
-	}).(ClassifierXMLClassifierPtrOutput)
+	}).(ClassifierXmlClassifierPtrOutput)
 }
 
-func (o ClassifierXMLClassifierOutput) Classification() pulumi.StringOutput {
-	return o.ApplyT(func(v ClassifierXMLClassifier) string { return v.Classification }).(pulumi.StringOutput)
+func (o ClassifierXmlClassifierOutput) Classification() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierXmlClassifier) string { return v.Classification }).(pulumi.StringOutput)
 }
 
-func (o ClassifierXMLClassifierOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClassifierXMLClassifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ClassifierXmlClassifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierXmlClassifier) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o ClassifierXMLClassifierOutput) RowTag() pulumi.StringOutput {
-	return o.ApplyT(func(v ClassifierXMLClassifier) string { return v.RowTag }).(pulumi.StringOutput)
+func (o ClassifierXmlClassifierOutput) RowTag() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierXmlClassifier) string { return v.RowTag }).(pulumi.StringOutput)
 }
 
-type ClassifierXMLClassifierPtrOutput struct{ *pulumi.OutputState }
+type ClassifierXmlClassifierPtrOutput struct{ *pulumi.OutputState }
 
-func (ClassifierXMLClassifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClassifierXMLClassifier)(nil)).Elem()
+func (ClassifierXmlClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierXmlClassifier)(nil)).Elem()
 }
 
-func (o ClassifierXMLClassifierPtrOutput) ToClassifierXMLClassifierPtrOutput() ClassifierXMLClassifierPtrOutput {
+func (o ClassifierXmlClassifierPtrOutput) ToClassifierXmlClassifierPtrOutput() ClassifierXmlClassifierPtrOutput {
 	return o
 }
 
-func (o ClassifierXMLClassifierPtrOutput) ToClassifierXMLClassifierPtrOutputWithContext(ctx context.Context) ClassifierXMLClassifierPtrOutput {
+func (o ClassifierXmlClassifierPtrOutput) ToClassifierXmlClassifierPtrOutputWithContext(ctx context.Context) ClassifierXmlClassifierPtrOutput {
 	return o
 }
 
-func (o ClassifierXMLClassifierPtrOutput) Elem() ClassifierXMLClassifierOutput {
-	return o.ApplyT(func(v *ClassifierXMLClassifier) ClassifierXMLClassifier {
+func (o ClassifierXmlClassifierPtrOutput) Elem() ClassifierXmlClassifierOutput {
+	return o.ApplyT(func(v *ClassifierXmlClassifier) ClassifierXmlClassifier {
 		if v != nil {
 			return *v
 		}
-		var ret ClassifierXMLClassifier
+		var ret ClassifierXmlClassifier
 		return ret
-	}).(ClassifierXMLClassifierOutput)
+	}).(ClassifierXmlClassifierOutput)
 }
 
-func (o ClassifierXMLClassifierPtrOutput) Classification() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClassifierXMLClassifier) *string {
+func (o ClassifierXmlClassifierPtrOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierXmlClassifier) *string {
 		if v == nil {
 			return nil
 		}
@@ -707,8 +707,8 @@ func (o ClassifierXMLClassifierPtrOutput) Classification() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ClassifierXMLClassifierPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClassifierXMLClassifier) *string {
+func (o ClassifierXmlClassifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierXmlClassifier) *string {
 		if v == nil {
 			return nil
 		}
@@ -716,8 +716,8 @@ func (o ClassifierXMLClassifierPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ClassifierXMLClassifierPtrOutput) RowTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClassifierXMLClassifier) *string {
+func (o ClassifierXmlClassifierPtrOutput) RowTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierXmlClassifier) *string {
 		if v == nil {
 			return nil
 		}
@@ -1277,98 +1277,98 @@ func (o CrawlerDeltaTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDeltaTarg
 	}).(CrawlerDeltaTargetOutput)
 }
 
-type CrawlerDynamoDBTarget struct {
+type CrawlerDynamoDbTarget struct {
 	Path *string `pulumi:"path"`
 }
 
-// CrawlerDynamoDBTargetInput is an input type that accepts CrawlerDynamoDBTargetArgs and CrawlerDynamoDBTargetOutput values.
-// You can construct a concrete instance of `CrawlerDynamoDBTargetInput` via:
+// CrawlerDynamoDbTargetInput is an input type that accepts CrawlerDynamoDbTargetArgs and CrawlerDynamoDbTargetOutput values.
+// You can construct a concrete instance of `CrawlerDynamoDbTargetInput` via:
 //
-//	CrawlerDynamoDBTargetArgs{...}
-type CrawlerDynamoDBTargetInput interface {
+//	CrawlerDynamoDbTargetArgs{...}
+type CrawlerDynamoDbTargetInput interface {
 	pulumi.Input
 
-	ToCrawlerDynamoDBTargetOutput() CrawlerDynamoDBTargetOutput
-	ToCrawlerDynamoDBTargetOutputWithContext(context.Context) CrawlerDynamoDBTargetOutput
+	ToCrawlerDynamoDbTargetOutput() CrawlerDynamoDbTargetOutput
+	ToCrawlerDynamoDbTargetOutputWithContext(context.Context) CrawlerDynamoDbTargetOutput
 }
 
-type CrawlerDynamoDBTargetArgs struct {
+type CrawlerDynamoDbTargetArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
-func (CrawlerDynamoDBTargetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CrawlerDynamoDBTarget)(nil)).Elem()
+func (CrawlerDynamoDbTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDynamoDbTarget)(nil)).Elem()
 }
 
-func (i CrawlerDynamoDBTargetArgs) ToCrawlerDynamoDBTargetOutput() CrawlerDynamoDBTargetOutput {
-	return i.ToCrawlerDynamoDBTargetOutputWithContext(context.Background())
+func (i CrawlerDynamoDbTargetArgs) ToCrawlerDynamoDbTargetOutput() CrawlerDynamoDbTargetOutput {
+	return i.ToCrawlerDynamoDbTargetOutputWithContext(context.Background())
 }
 
-func (i CrawlerDynamoDBTargetArgs) ToCrawlerDynamoDBTargetOutputWithContext(ctx context.Context) CrawlerDynamoDBTargetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamoDBTargetOutput)
+func (i CrawlerDynamoDbTargetArgs) ToCrawlerDynamoDbTargetOutputWithContext(ctx context.Context) CrawlerDynamoDbTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamoDbTargetOutput)
 }
 
-// CrawlerDynamoDBTargetArrayInput is an input type that accepts CrawlerDynamoDBTargetArray and CrawlerDynamoDBTargetArrayOutput values.
-// You can construct a concrete instance of `CrawlerDynamoDBTargetArrayInput` via:
+// CrawlerDynamoDbTargetArrayInput is an input type that accepts CrawlerDynamoDbTargetArray and CrawlerDynamoDbTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerDynamoDbTargetArrayInput` via:
 //
-//	CrawlerDynamoDBTargetArray{ CrawlerDynamoDBTargetArgs{...} }
-type CrawlerDynamoDBTargetArrayInput interface {
+//	CrawlerDynamoDbTargetArray{ CrawlerDynamoDbTargetArgs{...} }
+type CrawlerDynamoDbTargetArrayInput interface {
 	pulumi.Input
 
-	ToCrawlerDynamoDBTargetArrayOutput() CrawlerDynamoDBTargetArrayOutput
-	ToCrawlerDynamoDBTargetArrayOutputWithContext(context.Context) CrawlerDynamoDBTargetArrayOutput
+	ToCrawlerDynamoDbTargetArrayOutput() CrawlerDynamoDbTargetArrayOutput
+	ToCrawlerDynamoDbTargetArrayOutputWithContext(context.Context) CrawlerDynamoDbTargetArrayOutput
 }
 
-type CrawlerDynamoDBTargetArray []CrawlerDynamoDBTargetInput
+type CrawlerDynamoDbTargetArray []CrawlerDynamoDbTargetInput
 
-func (CrawlerDynamoDBTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CrawlerDynamoDBTarget)(nil)).Elem()
+func (CrawlerDynamoDbTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDynamoDbTarget)(nil)).Elem()
 }
 
-func (i CrawlerDynamoDBTargetArray) ToCrawlerDynamoDBTargetArrayOutput() CrawlerDynamoDBTargetArrayOutput {
-	return i.ToCrawlerDynamoDBTargetArrayOutputWithContext(context.Background())
+func (i CrawlerDynamoDbTargetArray) ToCrawlerDynamoDbTargetArrayOutput() CrawlerDynamoDbTargetArrayOutput {
+	return i.ToCrawlerDynamoDbTargetArrayOutputWithContext(context.Background())
 }
 
-func (i CrawlerDynamoDBTargetArray) ToCrawlerDynamoDBTargetArrayOutputWithContext(ctx context.Context) CrawlerDynamoDBTargetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamoDBTargetArrayOutput)
+func (i CrawlerDynamoDbTargetArray) ToCrawlerDynamoDbTargetArrayOutputWithContext(ctx context.Context) CrawlerDynamoDbTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamoDbTargetArrayOutput)
 }
 
-type CrawlerDynamoDBTargetOutput struct{ *pulumi.OutputState }
+type CrawlerDynamoDbTargetOutput struct{ *pulumi.OutputState }
 
-func (CrawlerDynamoDBTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CrawlerDynamoDBTarget)(nil)).Elem()
+func (CrawlerDynamoDbTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDynamoDbTarget)(nil)).Elem()
 }
 
-func (o CrawlerDynamoDBTargetOutput) ToCrawlerDynamoDBTargetOutput() CrawlerDynamoDBTargetOutput {
+func (o CrawlerDynamoDbTargetOutput) ToCrawlerDynamoDbTargetOutput() CrawlerDynamoDbTargetOutput {
 	return o
 }
 
-func (o CrawlerDynamoDBTargetOutput) ToCrawlerDynamoDBTargetOutputWithContext(ctx context.Context) CrawlerDynamoDBTargetOutput {
+func (o CrawlerDynamoDbTargetOutput) ToCrawlerDynamoDbTargetOutputWithContext(ctx context.Context) CrawlerDynamoDbTargetOutput {
 	return o
 }
 
-func (o CrawlerDynamoDBTargetOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CrawlerDynamoDBTarget) *string { return v.Path }).(pulumi.StringPtrOutput)
+func (o CrawlerDynamoDbTargetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerDynamoDbTarget) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-type CrawlerDynamoDBTargetArrayOutput struct{ *pulumi.OutputState }
+type CrawlerDynamoDbTargetArrayOutput struct{ *pulumi.OutputState }
 
-func (CrawlerDynamoDBTargetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CrawlerDynamoDBTarget)(nil)).Elem()
+func (CrawlerDynamoDbTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDynamoDbTarget)(nil)).Elem()
 }
 
-func (o CrawlerDynamoDBTargetArrayOutput) ToCrawlerDynamoDBTargetArrayOutput() CrawlerDynamoDBTargetArrayOutput {
+func (o CrawlerDynamoDbTargetArrayOutput) ToCrawlerDynamoDbTargetArrayOutput() CrawlerDynamoDbTargetArrayOutput {
 	return o
 }
 
-func (o CrawlerDynamoDBTargetArrayOutput) ToCrawlerDynamoDBTargetArrayOutputWithContext(ctx context.Context) CrawlerDynamoDBTargetArrayOutput {
+func (o CrawlerDynamoDbTargetArrayOutput) ToCrawlerDynamoDbTargetArrayOutputWithContext(ctx context.Context) CrawlerDynamoDbTargetArrayOutput {
 	return o
 }
 
-func (o CrawlerDynamoDBTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamoDBTargetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerDynamoDBTarget {
-		return vs[0].([]CrawlerDynamoDBTarget)[vs[1].(int)]
-	}).(CrawlerDynamoDBTargetOutput)
+func (o CrawlerDynamoDbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamoDbTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerDynamoDbTarget {
+		return vs[0].([]CrawlerDynamoDbTarget)[vs[1].(int)]
+	}).(CrawlerDynamoDbTargetOutput)
 }
 
 type CrawlerJdbcTarget struct {
@@ -1477,104 +1477,104 @@ func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTarget
 	}).(CrawlerJdbcTargetOutput)
 }
 
-type CrawlerMongoDBTarget struct {
+type CrawlerMongoDbTarget struct {
 	ConnectionName *string `pulumi:"connectionName"`
 	Path           *string `pulumi:"path"`
 }
 
-// CrawlerMongoDBTargetInput is an input type that accepts CrawlerMongoDBTargetArgs and CrawlerMongoDBTargetOutput values.
-// You can construct a concrete instance of `CrawlerMongoDBTargetInput` via:
+// CrawlerMongoDbTargetInput is an input type that accepts CrawlerMongoDbTargetArgs and CrawlerMongoDbTargetOutput values.
+// You can construct a concrete instance of `CrawlerMongoDbTargetInput` via:
 //
-//	CrawlerMongoDBTargetArgs{...}
-type CrawlerMongoDBTargetInput interface {
+//	CrawlerMongoDbTargetArgs{...}
+type CrawlerMongoDbTargetInput interface {
 	pulumi.Input
 
-	ToCrawlerMongoDBTargetOutput() CrawlerMongoDBTargetOutput
-	ToCrawlerMongoDBTargetOutputWithContext(context.Context) CrawlerMongoDBTargetOutput
+	ToCrawlerMongoDbTargetOutput() CrawlerMongoDbTargetOutput
+	ToCrawlerMongoDbTargetOutputWithContext(context.Context) CrawlerMongoDbTargetOutput
 }
 
-type CrawlerMongoDBTargetArgs struct {
+type CrawlerMongoDbTargetArgs struct {
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	Path           pulumi.StringPtrInput `pulumi:"path"`
 }
 
-func (CrawlerMongoDBTargetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CrawlerMongoDBTarget)(nil)).Elem()
+func (CrawlerMongoDbTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerMongoDbTarget)(nil)).Elem()
 }
 
-func (i CrawlerMongoDBTargetArgs) ToCrawlerMongoDBTargetOutput() CrawlerMongoDBTargetOutput {
-	return i.ToCrawlerMongoDBTargetOutputWithContext(context.Background())
+func (i CrawlerMongoDbTargetArgs) ToCrawlerMongoDbTargetOutput() CrawlerMongoDbTargetOutput {
+	return i.ToCrawlerMongoDbTargetOutputWithContext(context.Background())
 }
 
-func (i CrawlerMongoDBTargetArgs) ToCrawlerMongoDBTargetOutputWithContext(ctx context.Context) CrawlerMongoDBTargetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongoDBTargetOutput)
+func (i CrawlerMongoDbTargetArgs) ToCrawlerMongoDbTargetOutputWithContext(ctx context.Context) CrawlerMongoDbTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongoDbTargetOutput)
 }
 
-// CrawlerMongoDBTargetArrayInput is an input type that accepts CrawlerMongoDBTargetArray and CrawlerMongoDBTargetArrayOutput values.
-// You can construct a concrete instance of `CrawlerMongoDBTargetArrayInput` via:
+// CrawlerMongoDbTargetArrayInput is an input type that accepts CrawlerMongoDbTargetArray and CrawlerMongoDbTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerMongoDbTargetArrayInput` via:
 //
-//	CrawlerMongoDBTargetArray{ CrawlerMongoDBTargetArgs{...} }
-type CrawlerMongoDBTargetArrayInput interface {
+//	CrawlerMongoDbTargetArray{ CrawlerMongoDbTargetArgs{...} }
+type CrawlerMongoDbTargetArrayInput interface {
 	pulumi.Input
 
-	ToCrawlerMongoDBTargetArrayOutput() CrawlerMongoDBTargetArrayOutput
-	ToCrawlerMongoDBTargetArrayOutputWithContext(context.Context) CrawlerMongoDBTargetArrayOutput
+	ToCrawlerMongoDbTargetArrayOutput() CrawlerMongoDbTargetArrayOutput
+	ToCrawlerMongoDbTargetArrayOutputWithContext(context.Context) CrawlerMongoDbTargetArrayOutput
 }
 
-type CrawlerMongoDBTargetArray []CrawlerMongoDBTargetInput
+type CrawlerMongoDbTargetArray []CrawlerMongoDbTargetInput
 
-func (CrawlerMongoDBTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CrawlerMongoDBTarget)(nil)).Elem()
+func (CrawlerMongoDbTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerMongoDbTarget)(nil)).Elem()
 }
 
-func (i CrawlerMongoDBTargetArray) ToCrawlerMongoDBTargetArrayOutput() CrawlerMongoDBTargetArrayOutput {
-	return i.ToCrawlerMongoDBTargetArrayOutputWithContext(context.Background())
+func (i CrawlerMongoDbTargetArray) ToCrawlerMongoDbTargetArrayOutput() CrawlerMongoDbTargetArrayOutput {
+	return i.ToCrawlerMongoDbTargetArrayOutputWithContext(context.Background())
 }
 
-func (i CrawlerMongoDBTargetArray) ToCrawlerMongoDBTargetArrayOutputWithContext(ctx context.Context) CrawlerMongoDBTargetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongoDBTargetArrayOutput)
+func (i CrawlerMongoDbTargetArray) ToCrawlerMongoDbTargetArrayOutputWithContext(ctx context.Context) CrawlerMongoDbTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongoDbTargetArrayOutput)
 }
 
-type CrawlerMongoDBTargetOutput struct{ *pulumi.OutputState }
+type CrawlerMongoDbTargetOutput struct{ *pulumi.OutputState }
 
-func (CrawlerMongoDBTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CrawlerMongoDBTarget)(nil)).Elem()
+func (CrawlerMongoDbTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerMongoDbTarget)(nil)).Elem()
 }
 
-func (o CrawlerMongoDBTargetOutput) ToCrawlerMongoDBTargetOutput() CrawlerMongoDBTargetOutput {
+func (o CrawlerMongoDbTargetOutput) ToCrawlerMongoDbTargetOutput() CrawlerMongoDbTargetOutput {
 	return o
 }
 
-func (o CrawlerMongoDBTargetOutput) ToCrawlerMongoDBTargetOutputWithContext(ctx context.Context) CrawlerMongoDBTargetOutput {
+func (o CrawlerMongoDbTargetOutput) ToCrawlerMongoDbTargetOutputWithContext(ctx context.Context) CrawlerMongoDbTargetOutput {
 	return o
 }
 
-func (o CrawlerMongoDBTargetOutput) ConnectionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CrawlerMongoDBTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+func (o CrawlerMongoDbTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerMongoDbTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-func (o CrawlerMongoDBTargetOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CrawlerMongoDBTarget) *string { return v.Path }).(pulumi.StringPtrOutput)
+func (o CrawlerMongoDbTargetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerMongoDbTarget) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-type CrawlerMongoDBTargetArrayOutput struct{ *pulumi.OutputState }
+type CrawlerMongoDbTargetArrayOutput struct{ *pulumi.OutputState }
 
-func (CrawlerMongoDBTargetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CrawlerMongoDBTarget)(nil)).Elem()
+func (CrawlerMongoDbTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerMongoDbTarget)(nil)).Elem()
 }
 
-func (o CrawlerMongoDBTargetArrayOutput) ToCrawlerMongoDBTargetArrayOutput() CrawlerMongoDBTargetArrayOutput {
+func (o CrawlerMongoDbTargetArrayOutput) ToCrawlerMongoDbTargetArrayOutput() CrawlerMongoDbTargetArrayOutput {
 	return o
 }
 
-func (o CrawlerMongoDBTargetArrayOutput) ToCrawlerMongoDBTargetArrayOutputWithContext(ctx context.Context) CrawlerMongoDBTargetArrayOutput {
+func (o CrawlerMongoDbTargetArrayOutput) ToCrawlerMongoDbTargetArrayOutputWithContext(ctx context.Context) CrawlerMongoDbTargetArrayOutput {
 	return o
 }
 
-func (o CrawlerMongoDBTargetArrayOutput) Index(i pulumi.IntInput) CrawlerMongoDBTargetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerMongoDBTarget {
-		return vs[0].([]CrawlerMongoDBTarget)[vs[1].(int)]
-	}).(CrawlerMongoDBTargetOutput)
+func (o CrawlerMongoDbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerMongoDbTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerMongoDbTarget {
+		return vs[0].([]CrawlerMongoDbTarget)[vs[1].(int)]
+	}).(CrawlerMongoDbTargetOutput)
 }
 
 type CrawlerRecrawlPolicy struct {
@@ -2118,9 +2118,9 @@ func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOut
 type CrawlerTargets struct {
 	CatalogTargets  []CrawlerCatalogTarget  `pulumi:"catalogTargets"`
 	DeltaTargets    []CrawlerDeltaTarget    `pulumi:"deltaTargets"`
-	DynamoDbTargets []CrawlerDynamoDBTarget `pulumi:"dynamoDbTargets"`
+	DynamoDbTargets []CrawlerDynamoDbTarget `pulumi:"dynamoDbTargets"`
 	JdbcTargets     []CrawlerJdbcTarget     `pulumi:"jdbcTargets"`
-	MongoDbTargets  []CrawlerMongoDBTarget  `pulumi:"mongoDbTargets"`
+	MongoDbTargets  []CrawlerMongoDbTarget  `pulumi:"mongoDbTargets"`
 	S3Targets       []CrawlerS3Target       `pulumi:"s3Targets"`
 }
 
@@ -2138,9 +2138,9 @@ type CrawlerTargetsInput interface {
 type CrawlerTargetsArgs struct {
 	CatalogTargets  CrawlerCatalogTargetArrayInput  `pulumi:"catalogTargets"`
 	DeltaTargets    CrawlerDeltaTargetArrayInput    `pulumi:"deltaTargets"`
-	DynamoDbTargets CrawlerDynamoDBTargetArrayInput `pulumi:"dynamoDbTargets"`
+	DynamoDbTargets CrawlerDynamoDbTargetArrayInput `pulumi:"dynamoDbTargets"`
 	JdbcTargets     CrawlerJdbcTargetArrayInput     `pulumi:"jdbcTargets"`
-	MongoDbTargets  CrawlerMongoDBTargetArrayInput  `pulumi:"mongoDbTargets"`
+	MongoDbTargets  CrawlerMongoDbTargetArrayInput  `pulumi:"mongoDbTargets"`
 	S3Targets       CrawlerS3TargetArrayInput       `pulumi:"s3Targets"`
 }
 
@@ -2178,16 +2178,16 @@ func (o CrawlerTargetsOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
 	return o.ApplyT(func(v CrawlerTargets) []CrawlerDeltaTarget { return v.DeltaTargets }).(CrawlerDeltaTargetArrayOutput)
 }
 
-func (o CrawlerTargetsOutput) DynamoDbTargets() CrawlerDynamoDBTargetArrayOutput {
-	return o.ApplyT(func(v CrawlerTargets) []CrawlerDynamoDBTarget { return v.DynamoDbTargets }).(CrawlerDynamoDBTargetArrayOutput)
+func (o CrawlerTargetsOutput) DynamoDbTargets() CrawlerDynamoDbTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerDynamoDbTarget { return v.DynamoDbTargets }).(CrawlerDynamoDbTargetArrayOutput)
 }
 
 func (o CrawlerTargetsOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
 	return o.ApplyT(func(v CrawlerTargets) []CrawlerJdbcTarget { return v.JdbcTargets }).(CrawlerJdbcTargetArrayOutput)
 }
 
-func (o CrawlerTargetsOutput) MongoDbTargets() CrawlerMongoDBTargetArrayOutput {
-	return o.ApplyT(func(v CrawlerTargets) []CrawlerMongoDBTarget { return v.MongoDbTargets }).(CrawlerMongoDBTargetArrayOutput)
+func (o CrawlerTargetsOutput) MongoDbTargets() CrawlerMongoDbTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerMongoDbTarget { return v.MongoDbTargets }).(CrawlerMongoDbTargetArrayOutput)
 }
 
 func (o CrawlerTargetsOutput) S3Targets() CrawlerS3TargetArrayOutput {
@@ -2236,13 +2236,13 @@ func (o CrawlerTargetsPtrOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
 	}).(CrawlerDeltaTargetArrayOutput)
 }
 
-func (o CrawlerTargetsPtrOutput) DynamoDbTargets() CrawlerDynamoDBTargetArrayOutput {
-	return o.ApplyT(func(v *CrawlerTargets) []CrawlerDynamoDBTarget {
+func (o CrawlerTargetsPtrOutput) DynamoDbTargets() CrawlerDynamoDbTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerDynamoDbTarget {
 		if v == nil {
 			return nil
 		}
 		return v.DynamoDbTargets
-	}).(CrawlerDynamoDBTargetArrayOutput)
+	}).(CrawlerDynamoDbTargetArrayOutput)
 }
 
 func (o CrawlerTargetsPtrOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
@@ -2254,13 +2254,13 @@ func (o CrawlerTargetsPtrOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
 	}).(CrawlerJdbcTargetArrayOutput)
 }
 
-func (o CrawlerTargetsPtrOutput) MongoDbTargets() CrawlerMongoDBTargetArrayOutput {
-	return o.ApplyT(func(v *CrawlerTargets) []CrawlerMongoDBTarget {
+func (o CrawlerTargetsPtrOutput) MongoDbTargets() CrawlerMongoDbTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerMongoDbTarget {
 		if v == nil {
 			return nil
 		}
 		return v.MongoDbTargets
-	}).(CrawlerMongoDBTargetArrayOutput)
+	}).(CrawlerMongoDbTargetArrayOutput)
 }
 
 func (o CrawlerTargetsPtrOutput) S3Targets() CrawlerS3TargetArrayOutput {
@@ -4046,150 +4046,150 @@ func (o JobNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-type MLTransformFindMatchesParameters struct {
+type MlTransformFindMatchesParameters struct {
 	AccuracyCostTradeoff    *float64 `pulumi:"accuracyCostTradeoff"`
 	EnforceProvidedLabels   *bool    `pulumi:"enforceProvidedLabels"`
 	PrecisionRecallTradeoff *float64 `pulumi:"precisionRecallTradeoff"`
 	PrimaryKeyColumnName    string   `pulumi:"primaryKeyColumnName"`
 }
 
-// MLTransformFindMatchesParametersInput is an input type that accepts MLTransformFindMatchesParametersArgs and MLTransformFindMatchesParametersOutput values.
-// You can construct a concrete instance of `MLTransformFindMatchesParametersInput` via:
+// MlTransformFindMatchesParametersInput is an input type that accepts MlTransformFindMatchesParametersArgs and MlTransformFindMatchesParametersOutput values.
+// You can construct a concrete instance of `MlTransformFindMatchesParametersInput` via:
 //
-//	MLTransformFindMatchesParametersArgs{...}
-type MLTransformFindMatchesParametersInput interface {
+//	MlTransformFindMatchesParametersArgs{...}
+type MlTransformFindMatchesParametersInput interface {
 	pulumi.Input
 
-	ToMLTransformFindMatchesParametersOutput() MLTransformFindMatchesParametersOutput
-	ToMLTransformFindMatchesParametersOutputWithContext(context.Context) MLTransformFindMatchesParametersOutput
+	ToMlTransformFindMatchesParametersOutput() MlTransformFindMatchesParametersOutput
+	ToMlTransformFindMatchesParametersOutputWithContext(context.Context) MlTransformFindMatchesParametersOutput
 }
 
-type MLTransformFindMatchesParametersArgs struct {
+type MlTransformFindMatchesParametersArgs struct {
 	AccuracyCostTradeoff    pulumi.Float64PtrInput `pulumi:"accuracyCostTradeoff"`
 	EnforceProvidedLabels   pulumi.BoolPtrInput    `pulumi:"enforceProvidedLabels"`
 	PrecisionRecallTradeoff pulumi.Float64PtrInput `pulumi:"precisionRecallTradeoff"`
 	PrimaryKeyColumnName    pulumi.StringInput     `pulumi:"primaryKeyColumnName"`
 }
 
-func (MLTransformFindMatchesParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformFindMatchesParameters)(nil)).Elem()
+func (MlTransformFindMatchesParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformFindMatchesParameters)(nil)).Elem()
 }
 
-func (i MLTransformFindMatchesParametersArgs) ToMLTransformFindMatchesParametersOutput() MLTransformFindMatchesParametersOutput {
-	return i.ToMLTransformFindMatchesParametersOutputWithContext(context.Background())
+func (i MlTransformFindMatchesParametersArgs) ToMlTransformFindMatchesParametersOutput() MlTransformFindMatchesParametersOutput {
+	return i.ToMlTransformFindMatchesParametersOutputWithContext(context.Background())
 }
 
-func (i MLTransformFindMatchesParametersArgs) ToMLTransformFindMatchesParametersOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformFindMatchesParametersOutput)
+func (i MlTransformFindMatchesParametersArgs) ToMlTransformFindMatchesParametersOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformFindMatchesParametersOutput)
 }
 
-func (i MLTransformFindMatchesParametersArgs) ToMLTransformFindMatchesParametersPtrOutput() MLTransformFindMatchesParametersPtrOutput {
-	return i.ToMLTransformFindMatchesParametersPtrOutputWithContext(context.Background())
+func (i MlTransformFindMatchesParametersArgs) ToMlTransformFindMatchesParametersPtrOutput() MlTransformFindMatchesParametersPtrOutput {
+	return i.ToMlTransformFindMatchesParametersPtrOutputWithContext(context.Background())
 }
 
-func (i MLTransformFindMatchesParametersArgs) ToMLTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformFindMatchesParametersOutput).ToMLTransformFindMatchesParametersPtrOutputWithContext(ctx)
+func (i MlTransformFindMatchesParametersArgs) ToMlTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformFindMatchesParametersOutput).ToMlTransformFindMatchesParametersPtrOutputWithContext(ctx)
 }
 
-// MLTransformFindMatchesParametersPtrInput is an input type that accepts MLTransformFindMatchesParametersArgs, MLTransformFindMatchesParametersPtr and MLTransformFindMatchesParametersPtrOutput values.
-// You can construct a concrete instance of `MLTransformFindMatchesParametersPtrInput` via:
+// MlTransformFindMatchesParametersPtrInput is an input type that accepts MlTransformFindMatchesParametersArgs, MlTransformFindMatchesParametersPtr and MlTransformFindMatchesParametersPtrOutput values.
+// You can construct a concrete instance of `MlTransformFindMatchesParametersPtrInput` via:
 //
-//	        MLTransformFindMatchesParametersArgs{...}
+//	        MlTransformFindMatchesParametersArgs{...}
 //
 //	or:
 //
 //	        nil
-type MLTransformFindMatchesParametersPtrInput interface {
+type MlTransformFindMatchesParametersPtrInput interface {
 	pulumi.Input
 
-	ToMLTransformFindMatchesParametersPtrOutput() MLTransformFindMatchesParametersPtrOutput
-	ToMLTransformFindMatchesParametersPtrOutputWithContext(context.Context) MLTransformFindMatchesParametersPtrOutput
+	ToMlTransformFindMatchesParametersPtrOutput() MlTransformFindMatchesParametersPtrOutput
+	ToMlTransformFindMatchesParametersPtrOutputWithContext(context.Context) MlTransformFindMatchesParametersPtrOutput
 }
 
-type mltransformFindMatchesParametersPtrType MLTransformFindMatchesParametersArgs
+type mlTransformFindMatchesParametersPtrType MlTransformFindMatchesParametersArgs
 
-func MLTransformFindMatchesParametersPtr(v *MLTransformFindMatchesParametersArgs) MLTransformFindMatchesParametersPtrInput {
-	return (*mltransformFindMatchesParametersPtrType)(v)
+func MlTransformFindMatchesParametersPtr(v *MlTransformFindMatchesParametersArgs) MlTransformFindMatchesParametersPtrInput {
+	return (*mlTransformFindMatchesParametersPtrType)(v)
 }
 
-func (*mltransformFindMatchesParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformFindMatchesParameters)(nil)).Elem()
+func (*mlTransformFindMatchesParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformFindMatchesParameters)(nil)).Elem()
 }
 
-func (i *mltransformFindMatchesParametersPtrType) ToMLTransformFindMatchesParametersPtrOutput() MLTransformFindMatchesParametersPtrOutput {
-	return i.ToMLTransformFindMatchesParametersPtrOutputWithContext(context.Background())
+func (i *mlTransformFindMatchesParametersPtrType) ToMlTransformFindMatchesParametersPtrOutput() MlTransformFindMatchesParametersPtrOutput {
+	return i.ToMlTransformFindMatchesParametersPtrOutputWithContext(context.Background())
 }
 
-func (i *mltransformFindMatchesParametersPtrType) ToMLTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformFindMatchesParametersPtrOutput)
+func (i *mlTransformFindMatchesParametersPtrType) ToMlTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformFindMatchesParametersPtrOutput)
 }
 
-type MLTransformFindMatchesParametersOutput struct{ *pulumi.OutputState }
+type MlTransformFindMatchesParametersOutput struct{ *pulumi.OutputState }
 
-func (MLTransformFindMatchesParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformFindMatchesParameters)(nil)).Elem()
+func (MlTransformFindMatchesParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformFindMatchesParameters)(nil)).Elem()
 }
 
-func (o MLTransformFindMatchesParametersOutput) ToMLTransformFindMatchesParametersOutput() MLTransformFindMatchesParametersOutput {
+func (o MlTransformFindMatchesParametersOutput) ToMlTransformFindMatchesParametersOutput() MlTransformFindMatchesParametersOutput {
 	return o
 }
 
-func (o MLTransformFindMatchesParametersOutput) ToMLTransformFindMatchesParametersOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersOutput {
+func (o MlTransformFindMatchesParametersOutput) ToMlTransformFindMatchesParametersOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersOutput {
 	return o
 }
 
-func (o MLTransformFindMatchesParametersOutput) ToMLTransformFindMatchesParametersPtrOutput() MLTransformFindMatchesParametersPtrOutput {
-	return o.ToMLTransformFindMatchesParametersPtrOutputWithContext(context.Background())
+func (o MlTransformFindMatchesParametersOutput) ToMlTransformFindMatchesParametersPtrOutput() MlTransformFindMatchesParametersPtrOutput {
+	return o.ToMlTransformFindMatchesParametersPtrOutputWithContext(context.Background())
 }
 
-func (o MLTransformFindMatchesParametersOutput) ToMLTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformFindMatchesParameters) *MLTransformFindMatchesParameters {
+func (o MlTransformFindMatchesParametersOutput) ToMlTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MlTransformFindMatchesParameters) *MlTransformFindMatchesParameters {
 		return &v
-	}).(MLTransformFindMatchesParametersPtrOutput)
+	}).(MlTransformFindMatchesParametersPtrOutput)
 }
 
-func (o MLTransformFindMatchesParametersOutput) AccuracyCostTradeoff() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v MLTransformFindMatchesParameters) *float64 { return v.AccuracyCostTradeoff }).(pulumi.Float64PtrOutput)
+func (o MlTransformFindMatchesParametersOutput) AccuracyCostTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MlTransformFindMatchesParameters) *float64 { return v.AccuracyCostTradeoff }).(pulumi.Float64PtrOutput)
 }
 
-func (o MLTransformFindMatchesParametersOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MLTransformFindMatchesParameters) *bool { return v.EnforceProvidedLabels }).(pulumi.BoolPtrOutput)
+func (o MlTransformFindMatchesParametersOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MlTransformFindMatchesParameters) *bool { return v.EnforceProvidedLabels }).(pulumi.BoolPtrOutput)
 }
 
-func (o MLTransformFindMatchesParametersOutput) PrecisionRecallTradeoff() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v MLTransformFindMatchesParameters) *float64 { return v.PrecisionRecallTradeoff }).(pulumi.Float64PtrOutput)
+func (o MlTransformFindMatchesParametersOutput) PrecisionRecallTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MlTransformFindMatchesParameters) *float64 { return v.PrecisionRecallTradeoff }).(pulumi.Float64PtrOutput)
 }
 
-func (o MLTransformFindMatchesParametersOutput) PrimaryKeyColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v MLTransformFindMatchesParameters) string { return v.PrimaryKeyColumnName }).(pulumi.StringOutput)
+func (o MlTransformFindMatchesParametersOutput) PrimaryKeyColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v MlTransformFindMatchesParameters) string { return v.PrimaryKeyColumnName }).(pulumi.StringOutput)
 }
 
-type MLTransformFindMatchesParametersPtrOutput struct{ *pulumi.OutputState }
+type MlTransformFindMatchesParametersPtrOutput struct{ *pulumi.OutputState }
 
-func (MLTransformFindMatchesParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformFindMatchesParameters)(nil)).Elem()
+func (MlTransformFindMatchesParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformFindMatchesParameters)(nil)).Elem()
 }
 
-func (o MLTransformFindMatchesParametersPtrOutput) ToMLTransformFindMatchesParametersPtrOutput() MLTransformFindMatchesParametersPtrOutput {
+func (o MlTransformFindMatchesParametersPtrOutput) ToMlTransformFindMatchesParametersPtrOutput() MlTransformFindMatchesParametersPtrOutput {
 	return o
 }
 
-func (o MLTransformFindMatchesParametersPtrOutput) ToMLTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersPtrOutput {
+func (o MlTransformFindMatchesParametersPtrOutput) ToMlTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersPtrOutput {
 	return o
 }
 
-func (o MLTransformFindMatchesParametersPtrOutput) Elem() MLTransformFindMatchesParametersOutput {
-	return o.ApplyT(func(v *MLTransformFindMatchesParameters) MLTransformFindMatchesParameters {
+func (o MlTransformFindMatchesParametersPtrOutput) Elem() MlTransformFindMatchesParametersOutput {
+	return o.ApplyT(func(v *MlTransformFindMatchesParameters) MlTransformFindMatchesParameters {
 		if v != nil {
 			return *v
 		}
-		var ret MLTransformFindMatchesParameters
+		var ret MlTransformFindMatchesParameters
 		return ret
-	}).(MLTransformFindMatchesParametersOutput)
+	}).(MlTransformFindMatchesParametersOutput)
 }
 
-func (o MLTransformFindMatchesParametersPtrOutput) AccuracyCostTradeoff() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MLTransformFindMatchesParameters) *float64 {
+func (o MlTransformFindMatchesParametersPtrOutput) AccuracyCostTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MlTransformFindMatchesParameters) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -4197,8 +4197,8 @@ func (o MLTransformFindMatchesParametersPtrOutput) AccuracyCostTradeoff() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o MLTransformFindMatchesParametersPtrOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MLTransformFindMatchesParameters) *bool {
+func (o MlTransformFindMatchesParametersPtrOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MlTransformFindMatchesParameters) *bool {
 		if v == nil {
 			return nil
 		}
@@ -4206,8 +4206,8 @@ func (o MLTransformFindMatchesParametersPtrOutput) EnforceProvidedLabels() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o MLTransformFindMatchesParametersPtrOutput) PrecisionRecallTradeoff() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MLTransformFindMatchesParameters) *float64 {
+func (o MlTransformFindMatchesParametersPtrOutput) PrecisionRecallTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MlTransformFindMatchesParameters) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -4215,8 +4215,8 @@ func (o MLTransformFindMatchesParametersPtrOutput) PrecisionRecallTradeoff() pul
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o MLTransformFindMatchesParametersPtrOutput) PrimaryKeyColumnName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLTransformFindMatchesParameters) *string {
+func (o MlTransformFindMatchesParametersPtrOutput) PrimaryKeyColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlTransformFindMatchesParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -4224,299 +4224,299 @@ func (o MLTransformFindMatchesParametersPtrOutput) PrimaryKeyColumnName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-type MLTransformGlueTables struct {
+type MlTransformGlueTables struct {
 	CatalogId      *string `pulumi:"catalogId"`
 	ConnectionName *string `pulumi:"connectionName"`
 	DatabaseName   string  `pulumi:"databaseName"`
 	TableName      string  `pulumi:"tableName"`
 }
 
-// MLTransformGlueTablesInput is an input type that accepts MLTransformGlueTablesArgs and MLTransformGlueTablesOutput values.
-// You can construct a concrete instance of `MLTransformGlueTablesInput` via:
+// MlTransformGlueTablesInput is an input type that accepts MlTransformGlueTablesArgs and MlTransformGlueTablesOutput values.
+// You can construct a concrete instance of `MlTransformGlueTablesInput` via:
 //
-//	MLTransformGlueTablesArgs{...}
-type MLTransformGlueTablesInput interface {
+//	MlTransformGlueTablesArgs{...}
+type MlTransformGlueTablesInput interface {
 	pulumi.Input
 
-	ToMLTransformGlueTablesOutput() MLTransformGlueTablesOutput
-	ToMLTransformGlueTablesOutputWithContext(context.Context) MLTransformGlueTablesOutput
+	ToMlTransformGlueTablesOutput() MlTransformGlueTablesOutput
+	ToMlTransformGlueTablesOutputWithContext(context.Context) MlTransformGlueTablesOutput
 }
 
-type MLTransformGlueTablesArgs struct {
+type MlTransformGlueTablesArgs struct {
 	CatalogId      pulumi.StringPtrInput `pulumi:"catalogId"`
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	DatabaseName   pulumi.StringInput    `pulumi:"databaseName"`
 	TableName      pulumi.StringInput    `pulumi:"tableName"`
 }
 
-func (MLTransformGlueTablesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformGlueTables)(nil)).Elem()
+func (MlTransformGlueTablesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformGlueTables)(nil)).Elem()
 }
 
-func (i MLTransformGlueTablesArgs) ToMLTransformGlueTablesOutput() MLTransformGlueTablesOutput {
-	return i.ToMLTransformGlueTablesOutputWithContext(context.Background())
+func (i MlTransformGlueTablesArgs) ToMlTransformGlueTablesOutput() MlTransformGlueTablesOutput {
+	return i.ToMlTransformGlueTablesOutputWithContext(context.Background())
 }
 
-func (i MLTransformGlueTablesArgs) ToMLTransformGlueTablesOutputWithContext(ctx context.Context) MLTransformGlueTablesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformGlueTablesOutput)
+func (i MlTransformGlueTablesArgs) ToMlTransformGlueTablesOutputWithContext(ctx context.Context) MlTransformGlueTablesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformGlueTablesOutput)
 }
 
-// MLTransformGlueTablesArrayInput is an input type that accepts MLTransformGlueTablesArray and MLTransformGlueTablesArrayOutput values.
-// You can construct a concrete instance of `MLTransformGlueTablesArrayInput` via:
+// MlTransformGlueTablesArrayInput is an input type that accepts MlTransformGlueTablesArray and MlTransformGlueTablesArrayOutput values.
+// You can construct a concrete instance of `MlTransformGlueTablesArrayInput` via:
 //
-//	MLTransformGlueTablesArray{ MLTransformGlueTablesArgs{...} }
-type MLTransformGlueTablesArrayInput interface {
+//	MlTransformGlueTablesArray{ MlTransformGlueTablesArgs{...} }
+type MlTransformGlueTablesArrayInput interface {
 	pulumi.Input
 
-	ToMLTransformGlueTablesArrayOutput() MLTransformGlueTablesArrayOutput
-	ToMLTransformGlueTablesArrayOutputWithContext(context.Context) MLTransformGlueTablesArrayOutput
+	ToMlTransformGlueTablesArrayOutput() MlTransformGlueTablesArrayOutput
+	ToMlTransformGlueTablesArrayOutputWithContext(context.Context) MlTransformGlueTablesArrayOutput
 }
 
-type MLTransformGlueTablesArray []MLTransformGlueTablesInput
+type MlTransformGlueTablesArray []MlTransformGlueTablesInput
 
-func (MLTransformGlueTablesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MLTransformGlueTables)(nil)).Elem()
+func (MlTransformGlueTablesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MlTransformGlueTables)(nil)).Elem()
 }
 
-func (i MLTransformGlueTablesArray) ToMLTransformGlueTablesArrayOutput() MLTransformGlueTablesArrayOutput {
-	return i.ToMLTransformGlueTablesArrayOutputWithContext(context.Background())
+func (i MlTransformGlueTablesArray) ToMlTransformGlueTablesArrayOutput() MlTransformGlueTablesArrayOutput {
+	return i.ToMlTransformGlueTablesArrayOutputWithContext(context.Background())
 }
 
-func (i MLTransformGlueTablesArray) ToMLTransformGlueTablesArrayOutputWithContext(ctx context.Context) MLTransformGlueTablesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformGlueTablesArrayOutput)
+func (i MlTransformGlueTablesArray) ToMlTransformGlueTablesArrayOutputWithContext(ctx context.Context) MlTransformGlueTablesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformGlueTablesArrayOutput)
 }
 
-type MLTransformGlueTablesOutput struct{ *pulumi.OutputState }
+type MlTransformGlueTablesOutput struct{ *pulumi.OutputState }
 
-func (MLTransformGlueTablesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformGlueTables)(nil)).Elem()
+func (MlTransformGlueTablesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformGlueTables)(nil)).Elem()
 }
 
-func (o MLTransformGlueTablesOutput) ToMLTransformGlueTablesOutput() MLTransformGlueTablesOutput {
+func (o MlTransformGlueTablesOutput) ToMlTransformGlueTablesOutput() MlTransformGlueTablesOutput {
 	return o
 }
 
-func (o MLTransformGlueTablesOutput) ToMLTransformGlueTablesOutputWithContext(ctx context.Context) MLTransformGlueTablesOutput {
+func (o MlTransformGlueTablesOutput) ToMlTransformGlueTablesOutputWithContext(ctx context.Context) MlTransformGlueTablesOutput {
 	return o
 }
 
-func (o MLTransformGlueTablesOutput) CatalogId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MLTransformGlueTables) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+func (o MlTransformGlueTablesOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlTransformGlueTables) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-func (o MLTransformGlueTablesOutput) ConnectionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MLTransformGlueTables) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+func (o MlTransformGlueTablesOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlTransformGlueTables) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-func (o MLTransformGlueTablesOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v MLTransformGlueTables) string { return v.DatabaseName }).(pulumi.StringOutput)
+func (o MlTransformGlueTablesOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v MlTransformGlueTables) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-func (o MLTransformGlueTablesOutput) TableName() pulumi.StringOutput {
-	return o.ApplyT(func(v MLTransformGlueTables) string { return v.TableName }).(pulumi.StringOutput)
+func (o MlTransformGlueTablesOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v MlTransformGlueTables) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-type MLTransformGlueTablesArrayOutput struct{ *pulumi.OutputState }
+type MlTransformGlueTablesArrayOutput struct{ *pulumi.OutputState }
 
-func (MLTransformGlueTablesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MLTransformGlueTables)(nil)).Elem()
+func (MlTransformGlueTablesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MlTransformGlueTables)(nil)).Elem()
 }
 
-func (o MLTransformGlueTablesArrayOutput) ToMLTransformGlueTablesArrayOutput() MLTransformGlueTablesArrayOutput {
+func (o MlTransformGlueTablesArrayOutput) ToMlTransformGlueTablesArrayOutput() MlTransformGlueTablesArrayOutput {
 	return o
 }
 
-func (o MLTransformGlueTablesArrayOutput) ToMLTransformGlueTablesArrayOutputWithContext(ctx context.Context) MLTransformGlueTablesArrayOutput {
+func (o MlTransformGlueTablesArrayOutput) ToMlTransformGlueTablesArrayOutputWithContext(ctx context.Context) MlTransformGlueTablesArrayOutput {
 	return o
 }
 
-func (o MLTransformGlueTablesArrayOutput) Index(i pulumi.IntInput) MLTransformGlueTablesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MLTransformGlueTables {
-		return vs[0].([]MLTransformGlueTables)[vs[1].(int)]
-	}).(MLTransformGlueTablesOutput)
+func (o MlTransformGlueTablesArrayOutput) Index(i pulumi.IntInput) MlTransformGlueTablesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MlTransformGlueTables {
+		return vs[0].([]MlTransformGlueTables)[vs[1].(int)]
+	}).(MlTransformGlueTablesOutput)
 }
 
-type MLTransformInputRecordTables struct {
-	GlueTables []MLTransformGlueTables `pulumi:"glueTables"`
+type MlTransformInputRecordTables struct {
+	GlueTables []MlTransformGlueTables `pulumi:"glueTables"`
 }
 
-// MLTransformInputRecordTablesInput is an input type that accepts MLTransformInputRecordTablesArgs and MLTransformInputRecordTablesOutput values.
-// You can construct a concrete instance of `MLTransformInputRecordTablesInput` via:
+// MlTransformInputRecordTablesInput is an input type that accepts MlTransformInputRecordTablesArgs and MlTransformInputRecordTablesOutput values.
+// You can construct a concrete instance of `MlTransformInputRecordTablesInput` via:
 //
-//	MLTransformInputRecordTablesArgs{...}
-type MLTransformInputRecordTablesInput interface {
+//	MlTransformInputRecordTablesArgs{...}
+type MlTransformInputRecordTablesInput interface {
 	pulumi.Input
 
-	ToMLTransformInputRecordTablesOutput() MLTransformInputRecordTablesOutput
-	ToMLTransformInputRecordTablesOutputWithContext(context.Context) MLTransformInputRecordTablesOutput
+	ToMlTransformInputRecordTablesOutput() MlTransformInputRecordTablesOutput
+	ToMlTransformInputRecordTablesOutputWithContext(context.Context) MlTransformInputRecordTablesOutput
 }
 
-type MLTransformInputRecordTablesArgs struct {
-	GlueTables MLTransformGlueTablesArrayInput `pulumi:"glueTables"`
+type MlTransformInputRecordTablesArgs struct {
+	GlueTables MlTransformGlueTablesArrayInput `pulumi:"glueTables"`
 }
 
-func (MLTransformInputRecordTablesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformInputRecordTables)(nil)).Elem()
+func (MlTransformInputRecordTablesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformInputRecordTables)(nil)).Elem()
 }
 
-func (i MLTransformInputRecordTablesArgs) ToMLTransformInputRecordTablesOutput() MLTransformInputRecordTablesOutput {
-	return i.ToMLTransformInputRecordTablesOutputWithContext(context.Background())
+func (i MlTransformInputRecordTablesArgs) ToMlTransformInputRecordTablesOutput() MlTransformInputRecordTablesOutput {
+	return i.ToMlTransformInputRecordTablesOutputWithContext(context.Background())
 }
 
-func (i MLTransformInputRecordTablesArgs) ToMLTransformInputRecordTablesOutputWithContext(ctx context.Context) MLTransformInputRecordTablesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformInputRecordTablesOutput)
+func (i MlTransformInputRecordTablesArgs) ToMlTransformInputRecordTablesOutputWithContext(ctx context.Context) MlTransformInputRecordTablesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformInputRecordTablesOutput)
 }
 
-type MLTransformInputRecordTablesOutput struct{ *pulumi.OutputState }
+type MlTransformInputRecordTablesOutput struct{ *pulumi.OutputState }
 
-func (MLTransformInputRecordTablesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformInputRecordTables)(nil)).Elem()
+func (MlTransformInputRecordTablesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformInputRecordTables)(nil)).Elem()
 }
 
-func (o MLTransformInputRecordTablesOutput) ToMLTransformInputRecordTablesOutput() MLTransformInputRecordTablesOutput {
+func (o MlTransformInputRecordTablesOutput) ToMlTransformInputRecordTablesOutput() MlTransformInputRecordTablesOutput {
 	return o
 }
 
-func (o MLTransformInputRecordTablesOutput) ToMLTransformInputRecordTablesOutputWithContext(ctx context.Context) MLTransformInputRecordTablesOutput {
+func (o MlTransformInputRecordTablesOutput) ToMlTransformInputRecordTablesOutputWithContext(ctx context.Context) MlTransformInputRecordTablesOutput {
 	return o
 }
 
-func (o MLTransformInputRecordTablesOutput) GlueTables() MLTransformGlueTablesArrayOutput {
-	return o.ApplyT(func(v MLTransformInputRecordTables) []MLTransformGlueTables { return v.GlueTables }).(MLTransformGlueTablesArrayOutput)
+func (o MlTransformInputRecordTablesOutput) GlueTables() MlTransformGlueTablesArrayOutput {
+	return o.ApplyT(func(v MlTransformInputRecordTables) []MlTransformGlueTables { return v.GlueTables }).(MlTransformGlueTablesArrayOutput)
 }
 
-type MLTransformMLUserDataEncryption struct {
+type MlTransformMlUserDataEncryption struct {
 	KmsKeyId                 *string `pulumi:"kmsKeyId"`
 	MlUserDataEncryptionMode string  `pulumi:"mlUserDataEncryptionMode"`
 }
 
-// MLTransformMLUserDataEncryptionInput is an input type that accepts MLTransformMLUserDataEncryptionArgs and MLTransformMLUserDataEncryptionOutput values.
-// You can construct a concrete instance of `MLTransformMLUserDataEncryptionInput` via:
+// MlTransformMlUserDataEncryptionInput is an input type that accepts MlTransformMlUserDataEncryptionArgs and MlTransformMlUserDataEncryptionOutput values.
+// You can construct a concrete instance of `MlTransformMlUserDataEncryptionInput` via:
 //
-//	MLTransformMLUserDataEncryptionArgs{...}
-type MLTransformMLUserDataEncryptionInput interface {
+//	MlTransformMlUserDataEncryptionArgs{...}
+type MlTransformMlUserDataEncryptionInput interface {
 	pulumi.Input
 
-	ToMLTransformMLUserDataEncryptionOutput() MLTransformMLUserDataEncryptionOutput
-	ToMLTransformMLUserDataEncryptionOutputWithContext(context.Context) MLTransformMLUserDataEncryptionOutput
+	ToMlTransformMlUserDataEncryptionOutput() MlTransformMlUserDataEncryptionOutput
+	ToMlTransformMlUserDataEncryptionOutputWithContext(context.Context) MlTransformMlUserDataEncryptionOutput
 }
 
-type MLTransformMLUserDataEncryptionArgs struct {
+type MlTransformMlUserDataEncryptionArgs struct {
 	KmsKeyId                 pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	MlUserDataEncryptionMode pulumi.StringInput    `pulumi:"mlUserDataEncryptionMode"`
 }
 
-func (MLTransformMLUserDataEncryptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformMLUserDataEncryption)(nil)).Elem()
+func (MlTransformMlUserDataEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformMlUserDataEncryption)(nil)).Elem()
 }
 
-func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionOutput() MLTransformMLUserDataEncryptionOutput {
-	return i.ToMLTransformMLUserDataEncryptionOutputWithContext(context.Background())
+func (i MlTransformMlUserDataEncryptionArgs) ToMlTransformMlUserDataEncryptionOutput() MlTransformMlUserDataEncryptionOutput {
+	return i.ToMlTransformMlUserDataEncryptionOutputWithContext(context.Background())
 }
 
-func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformMLUserDataEncryptionOutput)
+func (i MlTransformMlUserDataEncryptionArgs) ToMlTransformMlUserDataEncryptionOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformMlUserDataEncryptionOutput)
 }
 
-func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
-	return i.ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Background())
+func (i MlTransformMlUserDataEncryptionArgs) ToMlTransformMlUserDataEncryptionPtrOutput() MlTransformMlUserDataEncryptionPtrOutput {
+	return i.ToMlTransformMlUserDataEncryptionPtrOutputWithContext(context.Background())
 }
 
-func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformMLUserDataEncryptionOutput).ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx)
+func (i MlTransformMlUserDataEncryptionArgs) ToMlTransformMlUserDataEncryptionPtrOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformMlUserDataEncryptionOutput).ToMlTransformMlUserDataEncryptionPtrOutputWithContext(ctx)
 }
 
-// MLTransformMLUserDataEncryptionPtrInput is an input type that accepts MLTransformMLUserDataEncryptionArgs, MLTransformMLUserDataEncryptionPtr and MLTransformMLUserDataEncryptionPtrOutput values.
-// You can construct a concrete instance of `MLTransformMLUserDataEncryptionPtrInput` via:
+// MlTransformMlUserDataEncryptionPtrInput is an input type that accepts MlTransformMlUserDataEncryptionArgs, MlTransformMlUserDataEncryptionPtr and MlTransformMlUserDataEncryptionPtrOutput values.
+// You can construct a concrete instance of `MlTransformMlUserDataEncryptionPtrInput` via:
 //
-//	        MLTransformMLUserDataEncryptionArgs{...}
+//	        MlTransformMlUserDataEncryptionArgs{...}
 //
 //	or:
 //
 //	        nil
-type MLTransformMLUserDataEncryptionPtrInput interface {
+type MlTransformMlUserDataEncryptionPtrInput interface {
 	pulumi.Input
 
-	ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput
-	ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Context) MLTransformMLUserDataEncryptionPtrOutput
+	ToMlTransformMlUserDataEncryptionPtrOutput() MlTransformMlUserDataEncryptionPtrOutput
+	ToMlTransformMlUserDataEncryptionPtrOutputWithContext(context.Context) MlTransformMlUserDataEncryptionPtrOutput
 }
 
-type mltransformMLUserDataEncryptionPtrType MLTransformMLUserDataEncryptionArgs
+type mlTransformMlUserDataEncryptionPtrType MlTransformMlUserDataEncryptionArgs
 
-func MLTransformMLUserDataEncryptionPtr(v *MLTransformMLUserDataEncryptionArgs) MLTransformMLUserDataEncryptionPtrInput {
-	return (*mltransformMLUserDataEncryptionPtrType)(v)
+func MlTransformMlUserDataEncryptionPtr(v *MlTransformMlUserDataEncryptionArgs) MlTransformMlUserDataEncryptionPtrInput {
+	return (*mlTransformMlUserDataEncryptionPtrType)(v)
 }
 
-func (*mltransformMLUserDataEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformMLUserDataEncryption)(nil)).Elem()
+func (*mlTransformMlUserDataEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformMlUserDataEncryption)(nil)).Elem()
 }
 
-func (i *mltransformMLUserDataEncryptionPtrType) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
-	return i.ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Background())
+func (i *mlTransformMlUserDataEncryptionPtrType) ToMlTransformMlUserDataEncryptionPtrOutput() MlTransformMlUserDataEncryptionPtrOutput {
+	return i.ToMlTransformMlUserDataEncryptionPtrOutputWithContext(context.Background())
 }
 
-func (i *mltransformMLUserDataEncryptionPtrType) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformMLUserDataEncryptionPtrOutput)
+func (i *mlTransformMlUserDataEncryptionPtrType) ToMlTransformMlUserDataEncryptionPtrOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformMlUserDataEncryptionPtrOutput)
 }
 
-type MLTransformMLUserDataEncryptionOutput struct{ *pulumi.OutputState }
+type MlTransformMlUserDataEncryptionOutput struct{ *pulumi.OutputState }
 
-func (MLTransformMLUserDataEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformMLUserDataEncryption)(nil)).Elem()
+func (MlTransformMlUserDataEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformMlUserDataEncryption)(nil)).Elem()
 }
 
-func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionOutput() MLTransformMLUserDataEncryptionOutput {
+func (o MlTransformMlUserDataEncryptionOutput) ToMlTransformMlUserDataEncryptionOutput() MlTransformMlUserDataEncryptionOutput {
 	return o
 }
 
-func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionOutput {
+func (o MlTransformMlUserDataEncryptionOutput) ToMlTransformMlUserDataEncryptionOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionOutput {
 	return o
 }
 
-func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
-	return o.ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Background())
+func (o MlTransformMlUserDataEncryptionOutput) ToMlTransformMlUserDataEncryptionPtrOutput() MlTransformMlUserDataEncryptionPtrOutput {
+	return o.ToMlTransformMlUserDataEncryptionPtrOutputWithContext(context.Background())
 }
 
-func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformMLUserDataEncryption) *MLTransformMLUserDataEncryption {
+func (o MlTransformMlUserDataEncryptionOutput) ToMlTransformMlUserDataEncryptionPtrOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MlTransformMlUserDataEncryption) *MlTransformMlUserDataEncryption {
 		return &v
-	}).(MLTransformMLUserDataEncryptionPtrOutput)
+	}).(MlTransformMlUserDataEncryptionPtrOutput)
 }
 
-func (o MLTransformMLUserDataEncryptionOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MLTransformMLUserDataEncryption) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+func (o MlTransformMlUserDataEncryptionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlTransformMlUserDataEncryption) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o MLTransformMLUserDataEncryptionOutput) MlUserDataEncryptionMode() pulumi.StringOutput {
-	return o.ApplyT(func(v MLTransformMLUserDataEncryption) string { return v.MlUserDataEncryptionMode }).(pulumi.StringOutput)
+func (o MlTransformMlUserDataEncryptionOutput) MlUserDataEncryptionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v MlTransformMlUserDataEncryption) string { return v.MlUserDataEncryptionMode }).(pulumi.StringOutput)
 }
 
-type MLTransformMLUserDataEncryptionPtrOutput struct{ *pulumi.OutputState }
+type MlTransformMlUserDataEncryptionPtrOutput struct{ *pulumi.OutputState }
 
-func (MLTransformMLUserDataEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformMLUserDataEncryption)(nil)).Elem()
+func (MlTransformMlUserDataEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformMlUserDataEncryption)(nil)).Elem()
 }
 
-func (o MLTransformMLUserDataEncryptionPtrOutput) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
+func (o MlTransformMlUserDataEncryptionPtrOutput) ToMlTransformMlUserDataEncryptionPtrOutput() MlTransformMlUserDataEncryptionPtrOutput {
 	return o
 }
 
-func (o MLTransformMLUserDataEncryptionPtrOutput) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
+func (o MlTransformMlUserDataEncryptionPtrOutput) ToMlTransformMlUserDataEncryptionPtrOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionPtrOutput {
 	return o
 }
 
-func (o MLTransformMLUserDataEncryptionPtrOutput) Elem() MLTransformMLUserDataEncryptionOutput {
-	return o.ApplyT(func(v *MLTransformMLUserDataEncryption) MLTransformMLUserDataEncryption {
+func (o MlTransformMlUserDataEncryptionPtrOutput) Elem() MlTransformMlUserDataEncryptionOutput {
+	return o.ApplyT(func(v *MlTransformMlUserDataEncryption) MlTransformMlUserDataEncryption {
 		if v != nil {
 			return *v
 		}
-		var ret MLTransformMLUserDataEncryption
+		var ret MlTransformMlUserDataEncryption
 		return ret
-	}).(MLTransformMLUserDataEncryptionOutput)
+	}).(MlTransformMlUserDataEncryptionOutput)
 }
 
-func (o MLTransformMLUserDataEncryptionPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLTransformMLUserDataEncryption) *string {
+func (o MlTransformMlUserDataEncryptionPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlTransformMlUserDataEncryption) *string {
 		if v == nil {
 			return nil
 		}
@@ -4524,8 +4524,8 @@ func (o MLTransformMLUserDataEncryptionPtrOutput) KmsKeyId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MLTransformMLUserDataEncryptionPtrOutput) MlUserDataEncryptionMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLTransformMLUserDataEncryption) *string {
+func (o MlTransformMlUserDataEncryptionPtrOutput) MlUserDataEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlTransformMlUserDataEncryption) *string {
 		if v == nil {
 			return nil
 		}
@@ -4533,147 +4533,147 @@ func (o MLTransformMLUserDataEncryptionPtrOutput) MlUserDataEncryptionMode() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-type MLTransformTransformEncryption struct {
-	MlUserDataEncryption             *MLTransformMLUserDataEncryption `pulumi:"mlUserDataEncryption"`
+type MlTransformTransformEncryption struct {
+	MlUserDataEncryption             *MlTransformMlUserDataEncryption `pulumi:"mlUserDataEncryption"`
 	TaskRunSecurityConfigurationName *string                          `pulumi:"taskRunSecurityConfigurationName"`
 }
 
-// MLTransformTransformEncryptionInput is an input type that accepts MLTransformTransformEncryptionArgs and MLTransformTransformEncryptionOutput values.
-// You can construct a concrete instance of `MLTransformTransformEncryptionInput` via:
+// MlTransformTransformEncryptionInput is an input type that accepts MlTransformTransformEncryptionArgs and MlTransformTransformEncryptionOutput values.
+// You can construct a concrete instance of `MlTransformTransformEncryptionInput` via:
 //
-//	MLTransformTransformEncryptionArgs{...}
-type MLTransformTransformEncryptionInput interface {
+//	MlTransformTransformEncryptionArgs{...}
+type MlTransformTransformEncryptionInput interface {
 	pulumi.Input
 
-	ToMLTransformTransformEncryptionOutput() MLTransformTransformEncryptionOutput
-	ToMLTransformTransformEncryptionOutputWithContext(context.Context) MLTransformTransformEncryptionOutput
+	ToMlTransformTransformEncryptionOutput() MlTransformTransformEncryptionOutput
+	ToMlTransformTransformEncryptionOutputWithContext(context.Context) MlTransformTransformEncryptionOutput
 }
 
-type MLTransformTransformEncryptionArgs struct {
-	MlUserDataEncryption             MLTransformMLUserDataEncryptionPtrInput `pulumi:"mlUserDataEncryption"`
+type MlTransformTransformEncryptionArgs struct {
+	MlUserDataEncryption             MlTransformMlUserDataEncryptionPtrInput `pulumi:"mlUserDataEncryption"`
 	TaskRunSecurityConfigurationName pulumi.StringPtrInput                   `pulumi:"taskRunSecurityConfigurationName"`
 }
 
-func (MLTransformTransformEncryptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformTransformEncryption)(nil)).Elem()
+func (MlTransformTransformEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformTransformEncryption)(nil)).Elem()
 }
 
-func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionOutput() MLTransformTransformEncryptionOutput {
-	return i.ToMLTransformTransformEncryptionOutputWithContext(context.Background())
+func (i MlTransformTransformEncryptionArgs) ToMlTransformTransformEncryptionOutput() MlTransformTransformEncryptionOutput {
+	return i.ToMlTransformTransformEncryptionOutputWithContext(context.Background())
 }
 
-func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionOutputWithContext(ctx context.Context) MLTransformTransformEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformEncryptionOutput)
+func (i MlTransformTransformEncryptionArgs) ToMlTransformTransformEncryptionOutputWithContext(ctx context.Context) MlTransformTransformEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformTransformEncryptionOutput)
 }
 
-func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
-	return i.ToMLTransformTransformEncryptionPtrOutputWithContext(context.Background())
+func (i MlTransformTransformEncryptionArgs) ToMlTransformTransformEncryptionPtrOutput() MlTransformTransformEncryptionPtrOutput {
+	return i.ToMlTransformTransformEncryptionPtrOutputWithContext(context.Background())
 }
 
-func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformEncryptionOutput).ToMLTransformTransformEncryptionPtrOutputWithContext(ctx)
+func (i MlTransformTransformEncryptionArgs) ToMlTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MlTransformTransformEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformTransformEncryptionOutput).ToMlTransformTransformEncryptionPtrOutputWithContext(ctx)
 }
 
-// MLTransformTransformEncryptionPtrInput is an input type that accepts MLTransformTransformEncryptionArgs, MLTransformTransformEncryptionPtr and MLTransformTransformEncryptionPtrOutput values.
-// You can construct a concrete instance of `MLTransformTransformEncryptionPtrInput` via:
+// MlTransformTransformEncryptionPtrInput is an input type that accepts MlTransformTransformEncryptionArgs, MlTransformTransformEncryptionPtr and MlTransformTransformEncryptionPtrOutput values.
+// You can construct a concrete instance of `MlTransformTransformEncryptionPtrInput` via:
 //
-//	        MLTransformTransformEncryptionArgs{...}
+//	        MlTransformTransformEncryptionArgs{...}
 //
 //	or:
 //
 //	        nil
-type MLTransformTransformEncryptionPtrInput interface {
+type MlTransformTransformEncryptionPtrInput interface {
 	pulumi.Input
 
-	ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput
-	ToMLTransformTransformEncryptionPtrOutputWithContext(context.Context) MLTransformTransformEncryptionPtrOutput
+	ToMlTransformTransformEncryptionPtrOutput() MlTransformTransformEncryptionPtrOutput
+	ToMlTransformTransformEncryptionPtrOutputWithContext(context.Context) MlTransformTransformEncryptionPtrOutput
 }
 
-type mltransformTransformEncryptionPtrType MLTransformTransformEncryptionArgs
+type mlTransformTransformEncryptionPtrType MlTransformTransformEncryptionArgs
 
-func MLTransformTransformEncryptionPtr(v *MLTransformTransformEncryptionArgs) MLTransformTransformEncryptionPtrInput {
-	return (*mltransformTransformEncryptionPtrType)(v)
+func MlTransformTransformEncryptionPtr(v *MlTransformTransformEncryptionArgs) MlTransformTransformEncryptionPtrInput {
+	return (*mlTransformTransformEncryptionPtrType)(v)
 }
 
-func (*mltransformTransformEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformTransformEncryption)(nil)).Elem()
+func (*mlTransformTransformEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformTransformEncryption)(nil)).Elem()
 }
 
-func (i *mltransformTransformEncryptionPtrType) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
-	return i.ToMLTransformTransformEncryptionPtrOutputWithContext(context.Background())
+func (i *mlTransformTransformEncryptionPtrType) ToMlTransformTransformEncryptionPtrOutput() MlTransformTransformEncryptionPtrOutput {
+	return i.ToMlTransformTransformEncryptionPtrOutputWithContext(context.Background())
 }
 
-func (i *mltransformTransformEncryptionPtrType) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformEncryptionPtrOutput)
+func (i *mlTransformTransformEncryptionPtrType) ToMlTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MlTransformTransformEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformTransformEncryptionPtrOutput)
 }
 
-type MLTransformTransformEncryptionOutput struct{ *pulumi.OutputState }
+type MlTransformTransformEncryptionOutput struct{ *pulumi.OutputState }
 
-func (MLTransformTransformEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformTransformEncryption)(nil)).Elem()
+func (MlTransformTransformEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformTransformEncryption)(nil)).Elem()
 }
 
-func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionOutput() MLTransformTransformEncryptionOutput {
+func (o MlTransformTransformEncryptionOutput) ToMlTransformTransformEncryptionOutput() MlTransformTransformEncryptionOutput {
 	return o
 }
 
-func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionOutputWithContext(ctx context.Context) MLTransformTransformEncryptionOutput {
+func (o MlTransformTransformEncryptionOutput) ToMlTransformTransformEncryptionOutputWithContext(ctx context.Context) MlTransformTransformEncryptionOutput {
 	return o
 }
 
-func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
-	return o.ToMLTransformTransformEncryptionPtrOutputWithContext(context.Background())
+func (o MlTransformTransformEncryptionOutput) ToMlTransformTransformEncryptionPtrOutput() MlTransformTransformEncryptionPtrOutput {
+	return o.ToMlTransformTransformEncryptionPtrOutputWithContext(context.Background())
 }
 
-func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformTransformEncryption) *MLTransformTransformEncryption {
+func (o MlTransformTransformEncryptionOutput) ToMlTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MlTransformTransformEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MlTransformTransformEncryption) *MlTransformTransformEncryption {
 		return &v
-	}).(MLTransformTransformEncryptionPtrOutput)
+	}).(MlTransformTransformEncryptionPtrOutput)
 }
 
-func (o MLTransformTransformEncryptionOutput) MlUserDataEncryption() MLTransformMLUserDataEncryptionPtrOutput {
-	return o.ApplyT(func(v MLTransformTransformEncryption) *MLTransformMLUserDataEncryption { return v.MlUserDataEncryption }).(MLTransformMLUserDataEncryptionPtrOutput)
+func (o MlTransformTransformEncryptionOutput) MlUserDataEncryption() MlTransformMlUserDataEncryptionPtrOutput {
+	return o.ApplyT(func(v MlTransformTransformEncryption) *MlTransformMlUserDataEncryption { return v.MlUserDataEncryption }).(MlTransformMlUserDataEncryptionPtrOutput)
 }
 
-func (o MLTransformTransformEncryptionOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MLTransformTransformEncryption) *string { return v.TaskRunSecurityConfigurationName }).(pulumi.StringPtrOutput)
+func (o MlTransformTransformEncryptionOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlTransformTransformEncryption) *string { return v.TaskRunSecurityConfigurationName }).(pulumi.StringPtrOutput)
 }
 
-type MLTransformTransformEncryptionPtrOutput struct{ *pulumi.OutputState }
+type MlTransformTransformEncryptionPtrOutput struct{ *pulumi.OutputState }
 
-func (MLTransformTransformEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformTransformEncryption)(nil)).Elem()
+func (MlTransformTransformEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformTransformEncryption)(nil)).Elem()
 }
 
-func (o MLTransformTransformEncryptionPtrOutput) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
+func (o MlTransformTransformEncryptionPtrOutput) ToMlTransformTransformEncryptionPtrOutput() MlTransformTransformEncryptionPtrOutput {
 	return o
 }
 
-func (o MLTransformTransformEncryptionPtrOutput) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
+func (o MlTransformTransformEncryptionPtrOutput) ToMlTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MlTransformTransformEncryptionPtrOutput {
 	return o
 }
 
-func (o MLTransformTransformEncryptionPtrOutput) Elem() MLTransformTransformEncryptionOutput {
-	return o.ApplyT(func(v *MLTransformTransformEncryption) MLTransformTransformEncryption {
+func (o MlTransformTransformEncryptionPtrOutput) Elem() MlTransformTransformEncryptionOutput {
+	return o.ApplyT(func(v *MlTransformTransformEncryption) MlTransformTransformEncryption {
 		if v != nil {
 			return *v
 		}
-		var ret MLTransformTransformEncryption
+		var ret MlTransformTransformEncryption
 		return ret
-	}).(MLTransformTransformEncryptionOutput)
+	}).(MlTransformTransformEncryptionOutput)
 }
 
-func (o MLTransformTransformEncryptionPtrOutput) MlUserDataEncryption() MLTransformMLUserDataEncryptionPtrOutput {
-	return o.ApplyT(func(v *MLTransformTransformEncryption) *MLTransformMLUserDataEncryption {
+func (o MlTransformTransformEncryptionPtrOutput) MlUserDataEncryption() MlTransformMlUserDataEncryptionPtrOutput {
+	return o.ApplyT(func(v *MlTransformTransformEncryption) *MlTransformMlUserDataEncryption {
 		if v == nil {
 			return nil
 		}
 		return v.MlUserDataEncryption
-	}).(MLTransformMLUserDataEncryptionPtrOutput)
+	}).(MlTransformMlUserDataEncryptionPtrOutput)
 }
 
-func (o MLTransformTransformEncryptionPtrOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLTransformTransformEncryption) *string {
+func (o MlTransformTransformEncryptionPtrOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlTransformTransformEncryption) *string {
 		if v == nil {
 			return nil
 		}
@@ -4681,98 +4681,98 @@ func (o MLTransformTransformEncryptionPtrOutput) TaskRunSecurityConfigurationNam
 	}).(pulumi.StringPtrOutput)
 }
 
-type MLTransformTransformParameters struct {
-	FindMatchesParameters *MLTransformFindMatchesParameters `pulumi:"findMatchesParameters"`
+type MlTransformTransformParameters struct {
+	FindMatchesParameters *MlTransformFindMatchesParameters `pulumi:"findMatchesParameters"`
 	TransformType         string                            `pulumi:"transformType"`
 }
 
-// MLTransformTransformParametersInput is an input type that accepts MLTransformTransformParametersArgs and MLTransformTransformParametersOutput values.
-// You can construct a concrete instance of `MLTransformTransformParametersInput` via:
+// MlTransformTransformParametersInput is an input type that accepts MlTransformTransformParametersArgs and MlTransformTransformParametersOutput values.
+// You can construct a concrete instance of `MlTransformTransformParametersInput` via:
 //
-//	MLTransformTransformParametersArgs{...}
-type MLTransformTransformParametersInput interface {
+//	MlTransformTransformParametersArgs{...}
+type MlTransformTransformParametersInput interface {
 	pulumi.Input
 
-	ToMLTransformTransformParametersOutput() MLTransformTransformParametersOutput
-	ToMLTransformTransformParametersOutputWithContext(context.Context) MLTransformTransformParametersOutput
+	ToMlTransformTransformParametersOutput() MlTransformTransformParametersOutput
+	ToMlTransformTransformParametersOutputWithContext(context.Context) MlTransformTransformParametersOutput
 }
 
-type MLTransformTransformParametersArgs struct {
-	FindMatchesParameters MLTransformFindMatchesParametersPtrInput `pulumi:"findMatchesParameters"`
+type MlTransformTransformParametersArgs struct {
+	FindMatchesParameters MlTransformFindMatchesParametersPtrInput `pulumi:"findMatchesParameters"`
 	TransformType         pulumi.StringInput                       `pulumi:"transformType"`
 }
 
-func (MLTransformTransformParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformTransformParameters)(nil)).Elem()
+func (MlTransformTransformParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformTransformParameters)(nil)).Elem()
 }
 
-func (i MLTransformTransformParametersArgs) ToMLTransformTransformParametersOutput() MLTransformTransformParametersOutput {
-	return i.ToMLTransformTransformParametersOutputWithContext(context.Background())
+func (i MlTransformTransformParametersArgs) ToMlTransformTransformParametersOutput() MlTransformTransformParametersOutput {
+	return i.ToMlTransformTransformParametersOutputWithContext(context.Background())
 }
 
-func (i MLTransformTransformParametersArgs) ToMLTransformTransformParametersOutputWithContext(ctx context.Context) MLTransformTransformParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformParametersOutput)
+func (i MlTransformTransformParametersArgs) ToMlTransformTransformParametersOutputWithContext(ctx context.Context) MlTransformTransformParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformTransformParametersOutput)
 }
 
-type MLTransformTransformParametersOutput struct{ *pulumi.OutputState }
+type MlTransformTransformParametersOutput struct{ *pulumi.OutputState }
 
-func (MLTransformTransformParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformTransformParameters)(nil)).Elem()
+func (MlTransformTransformParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformTransformParameters)(nil)).Elem()
 }
 
-func (o MLTransformTransformParametersOutput) ToMLTransformTransformParametersOutput() MLTransformTransformParametersOutput {
+func (o MlTransformTransformParametersOutput) ToMlTransformTransformParametersOutput() MlTransformTransformParametersOutput {
 	return o
 }
 
-func (o MLTransformTransformParametersOutput) ToMLTransformTransformParametersOutputWithContext(ctx context.Context) MLTransformTransformParametersOutput {
+func (o MlTransformTransformParametersOutput) ToMlTransformTransformParametersOutputWithContext(ctx context.Context) MlTransformTransformParametersOutput {
 	return o
 }
 
-func (o MLTransformTransformParametersOutput) FindMatchesParameters() MLTransformFindMatchesParametersPtrOutput {
-	return o.ApplyT(func(v MLTransformTransformParameters) *MLTransformFindMatchesParameters {
+func (o MlTransformTransformParametersOutput) FindMatchesParameters() MlTransformFindMatchesParametersPtrOutput {
+	return o.ApplyT(func(v MlTransformTransformParameters) *MlTransformFindMatchesParameters {
 		return v.FindMatchesParameters
-	}).(MLTransformFindMatchesParametersPtrOutput)
+	}).(MlTransformFindMatchesParametersPtrOutput)
 }
 
-func (o MLTransformTransformParametersOutput) TransformType() pulumi.StringOutput {
-	return o.ApplyT(func(v MLTransformTransformParameters) string { return v.TransformType }).(pulumi.StringOutput)
+func (o MlTransformTransformParametersOutput) TransformType() pulumi.StringOutput {
+	return o.ApplyT(func(v MlTransformTransformParameters) string { return v.TransformType }).(pulumi.StringOutput)
 }
 
-type MLTransformTransformParametersPtrOutput struct{ *pulumi.OutputState }
+type MlTransformTransformParametersPtrOutput struct{ *pulumi.OutputState }
 
-func (MLTransformTransformParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformTransformParameters)(nil)).Elem()
+func (MlTransformTransformParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformTransformParameters)(nil)).Elem()
 }
 
-func (o MLTransformTransformParametersPtrOutput) ToMLTransformTransformParametersPtrOutput() MLTransformTransformParametersPtrOutput {
+func (o MlTransformTransformParametersPtrOutput) ToMlTransformTransformParametersPtrOutput() MlTransformTransformParametersPtrOutput {
 	return o
 }
 
-func (o MLTransformTransformParametersPtrOutput) ToMLTransformTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformTransformParametersPtrOutput {
+func (o MlTransformTransformParametersPtrOutput) ToMlTransformTransformParametersPtrOutputWithContext(ctx context.Context) MlTransformTransformParametersPtrOutput {
 	return o
 }
 
-func (o MLTransformTransformParametersPtrOutput) Elem() MLTransformTransformParametersOutput {
-	return o.ApplyT(func(v *MLTransformTransformParameters) MLTransformTransformParameters {
+func (o MlTransformTransformParametersPtrOutput) Elem() MlTransformTransformParametersOutput {
+	return o.ApplyT(func(v *MlTransformTransformParameters) MlTransformTransformParameters {
 		if v != nil {
 			return *v
 		}
-		var ret MLTransformTransformParameters
+		var ret MlTransformTransformParameters
 		return ret
-	}).(MLTransformTransformParametersOutput)
+	}).(MlTransformTransformParametersOutput)
 }
 
-func (o MLTransformTransformParametersPtrOutput) FindMatchesParameters() MLTransformFindMatchesParametersPtrOutput {
-	return o.ApplyT(func(v *MLTransformTransformParameters) *MLTransformFindMatchesParameters {
+func (o MlTransformTransformParametersPtrOutput) FindMatchesParameters() MlTransformFindMatchesParametersPtrOutput {
+	return o.ApplyT(func(v *MlTransformTransformParameters) *MlTransformFindMatchesParameters {
 		if v == nil {
 			return nil
 		}
 		return v.FindMatchesParameters
-	}).(MLTransformFindMatchesParametersPtrOutput)
+	}).(MlTransformFindMatchesParametersPtrOutput)
 }
 
-func (o MLTransformTransformParametersPtrOutput) TransformType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLTransformTransformParameters) *string {
+func (o MlTransformTransformParametersPtrOutput) TransformType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlTransformTransformParameters) *string {
 		if v == nil {
 			return nil
 		}
@@ -9442,8 +9442,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierGrokClassifierPtrInput)(nil)).Elem(), ClassifierGrokClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierJsonClassifierInput)(nil)).Elem(), ClassifierJsonClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierJsonClassifierPtrInput)(nil)).Elem(), ClassifierJsonClassifierArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierXMLClassifierInput)(nil)).Elem(), ClassifierXMLClassifierArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierXMLClassifierPtrInput)(nil)).Elem(), ClassifierXMLClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierXmlClassifierInput)(nil)).Elem(), ClassifierXmlClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierXmlClassifierPtrInput)(nil)).Elem(), ClassifierXmlClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionInputTypeInput)(nil)).Elem(), ConnectionInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsPtrInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
@@ -9451,12 +9451,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetArrayInput)(nil)).Elem(), CrawlerCatalogTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetInput)(nil)).Elem(), CrawlerDeltaTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetArrayInput)(nil)).Elem(), CrawlerDeltaTargetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDBTargetInput)(nil)).Elem(), CrawlerDynamoDBTargetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDBTargetArrayInput)(nil)).Elem(), CrawlerDynamoDBTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDbTargetInput)(nil)).Elem(), CrawlerDynamoDbTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDbTargetArrayInput)(nil)).Elem(), CrawlerDynamoDbTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetInput)(nil)).Elem(), CrawlerJdbcTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetArrayInput)(nil)).Elem(), CrawlerJdbcTargetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMongoDBTargetInput)(nil)).Elem(), CrawlerMongoDBTargetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMongoDBTargetArrayInput)(nil)).Elem(), CrawlerMongoDBTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMongoDbTargetInput)(nil)).Elem(), CrawlerMongoDbTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMongoDbTargetArrayInput)(nil)).Elem(), CrawlerMongoDbTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerRecrawlPolicyInput)(nil)).Elem(), CrawlerRecrawlPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerRecrawlPolicyPtrInput)(nil)).Elem(), CrawlerRecrawlPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerS3TargetInput)(nil)).Elem(), CrawlerS3TargetArgs{})
@@ -9489,16 +9489,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionPropertyPtrInput)(nil)).Elem(), JobExecutionPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobNotificationPropertyInput)(nil)).Elem(), JobNotificationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobNotificationPropertyPtrInput)(nil)).Elem(), JobNotificationPropertyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformFindMatchesParametersInput)(nil)).Elem(), MLTransformFindMatchesParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformFindMatchesParametersPtrInput)(nil)).Elem(), MLTransformFindMatchesParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformGlueTablesInput)(nil)).Elem(), MLTransformGlueTablesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformGlueTablesArrayInput)(nil)).Elem(), MLTransformGlueTablesArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformInputRecordTablesInput)(nil)).Elem(), MLTransformInputRecordTablesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformMLUserDataEncryptionInput)(nil)).Elem(), MLTransformMLUserDataEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformMLUserDataEncryptionPtrInput)(nil)).Elem(), MLTransformMLUserDataEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformTransformEncryptionInput)(nil)).Elem(), MLTransformTransformEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformTransformEncryptionPtrInput)(nil)).Elem(), MLTransformTransformEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformTransformParametersInput)(nil)).Elem(), MLTransformTransformParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformFindMatchesParametersInput)(nil)).Elem(), MlTransformFindMatchesParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformFindMatchesParametersPtrInput)(nil)).Elem(), MlTransformFindMatchesParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformGlueTablesInput)(nil)).Elem(), MlTransformGlueTablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformGlueTablesArrayInput)(nil)).Elem(), MlTransformGlueTablesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformInputRecordTablesInput)(nil)).Elem(), MlTransformInputRecordTablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformMlUserDataEncryptionInput)(nil)).Elem(), MlTransformMlUserDataEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformMlUserDataEncryptionPtrInput)(nil)).Elem(), MlTransformMlUserDataEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformTransformEncryptionInput)(nil)).Elem(), MlTransformTransformEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformTransformEncryptionPtrInput)(nil)).Elem(), MlTransformTransformEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformTransformParametersInput)(nil)).Elem(), MlTransformTransformParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionColumnInput)(nil)).Elem(), PartitionColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionColumnArrayInput)(nil)).Elem(), PartitionColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionInputTypeInput)(nil)).Elem(), PartitionInputTypeArgs{})
@@ -9563,8 +9563,8 @@ func init() {
 	pulumi.RegisterOutputType(ClassifierGrokClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierJsonClassifierOutput{})
 	pulumi.RegisterOutputType(ClassifierJsonClassifierPtrOutput{})
-	pulumi.RegisterOutputType(ClassifierXMLClassifierOutput{})
-	pulumi.RegisterOutputType(ClassifierXMLClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ClassifierXmlClassifierOutput{})
+	pulumi.RegisterOutputType(ClassifierXmlClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionInputTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionInputTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsOutput{})
@@ -9573,12 +9573,12 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerCatalogTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDeltaTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerDeltaTargetArrayOutput{})
-	pulumi.RegisterOutputType(CrawlerDynamoDBTargetOutput{})
-	pulumi.RegisterOutputType(CrawlerDynamoDBTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerDynamoDbTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerDynamoDbTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetArrayOutput{})
-	pulumi.RegisterOutputType(CrawlerMongoDBTargetOutput{})
-	pulumi.RegisterOutputType(CrawlerMongoDBTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerMongoDbTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerMongoDbTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerRecrawlPolicyOutput{})
 	pulumi.RegisterOutputType(CrawlerRecrawlPolicyPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerS3TargetOutput{})
@@ -9615,17 +9615,17 @@ func init() {
 	pulumi.RegisterOutputType(JobExecutionPropertyPtrOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyPtrOutput{})
-	pulumi.RegisterOutputType(MLTransformFindMatchesParametersOutput{})
-	pulumi.RegisterOutputType(MLTransformFindMatchesParametersPtrOutput{})
-	pulumi.RegisterOutputType(MLTransformGlueTablesOutput{})
-	pulumi.RegisterOutputType(MLTransformGlueTablesArrayOutput{})
-	pulumi.RegisterOutputType(MLTransformInputRecordTablesOutput{})
-	pulumi.RegisterOutputType(MLTransformMLUserDataEncryptionOutput{})
-	pulumi.RegisterOutputType(MLTransformMLUserDataEncryptionPtrOutput{})
-	pulumi.RegisterOutputType(MLTransformTransformEncryptionOutput{})
-	pulumi.RegisterOutputType(MLTransformTransformEncryptionPtrOutput{})
-	pulumi.RegisterOutputType(MLTransformTransformParametersOutput{})
-	pulumi.RegisterOutputType(MLTransformTransformParametersPtrOutput{})
+	pulumi.RegisterOutputType(MlTransformFindMatchesParametersOutput{})
+	pulumi.RegisterOutputType(MlTransformFindMatchesParametersPtrOutput{})
+	pulumi.RegisterOutputType(MlTransformGlueTablesOutput{})
+	pulumi.RegisterOutputType(MlTransformGlueTablesArrayOutput{})
+	pulumi.RegisterOutputType(MlTransformInputRecordTablesOutput{})
+	pulumi.RegisterOutputType(MlTransformMlUserDataEncryptionOutput{})
+	pulumi.RegisterOutputType(MlTransformMlUserDataEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(MlTransformTransformEncryptionOutput{})
+	pulumi.RegisterOutputType(MlTransformTransformEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(MlTransformTransformParametersOutput{})
+	pulumi.RegisterOutputType(MlTransformTransformParametersPtrOutput{})
 	pulumi.RegisterOutputType(PartitionColumnOutput{})
 	pulumi.RegisterOutputType(PartitionColumnArrayOutput{})
 	pulumi.RegisterOutputType(PartitionInputTypeOutput{})

@@ -12,36 +12,36 @@ from ._enums import *
 
 __all__ = [
     'DestinationTagArgs',
-    'DeviceProfileLoRaWANDeviceProfileArgs',
+    'DeviceProfileLoRaWanDeviceProfileArgs',
     'DeviceProfileTagArgs',
-    'FuotaTaskLoRaWANArgs',
+    'FuotaTaskLoRaWanArgs',
     'FuotaTaskTagArgs',
-    'MulticastGroupLoRaWANArgs',
+    'MulticastGroupLoRaWanArgs',
     'MulticastGroupTagArgs',
     'NetworkAnalyzerConfigurationTagArgs',
     'PartnerAccountSidewalkAccountInfoWithFingerprintArgs',
     'PartnerAccountSidewalkAccountInfoArgs',
     'PartnerAccountSidewalkUpdateAccountArgs',
     'PartnerAccountTagArgs',
-    'ServiceProfileLoRaWANServiceProfileArgs',
+    'ServiceProfileLoRaWanServiceProfileArgs',
     'ServiceProfileTagArgs',
     'SidewalkPropertiesArgs',
-    'TaskDefinitionLoRaWANGatewayVersionArgs',
-    'TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs',
-    'TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs',
+    'TaskDefinitionLoRaWanGatewayVersionArgs',
+    'TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs',
+    'TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs',
     'TaskDefinitionTagArgs',
     'TaskDefinitionUpdateWirelessGatewayTaskCreateArgs',
     'TraceContentPropertiesArgs',
     'WirelessDeviceAbpV10xArgs',
     'WirelessDeviceAbpV11Args',
     'WirelessDeviceImportTaskTagArgs',
-    'WirelessDeviceLoRaWANDeviceArgs',
+    'WirelessDeviceLoRaWanDeviceArgs',
     'WirelessDeviceOtaaV10xArgs',
     'WirelessDeviceOtaaV11Args',
     'WirelessDeviceSessionKeysAbpV10xArgs',
     'WirelessDeviceSessionKeysAbpV11Args',
     'WirelessDeviceTagArgs',
-    'WirelessGatewayLoRaWANGatewayArgs',
+    'WirelessGatewayLoRaWanGatewayArgs',
     'WirelessGatewayTagArgs',
 ]
 
@@ -75,7 +75,7 @@ class DestinationTagArgs:
 
 
 @pulumi.input_type
-class DeviceProfileLoRaWANDeviceProfileArgs:
+class DeviceProfileLoRaWanDeviceProfileArgs:
     def __init__(__self__, *,
                  class_b_timeout: Optional[pulumi.Input[int]] = None,
                  class_c_timeout: Optional[pulumi.Input[int]] = None,
@@ -337,7 +337,7 @@ class DeviceProfileTagArgs:
 
 
 @pulumi.input_type
-class FuotaTaskLoRaWANArgs:
+class FuotaTaskLoRaWanArgs:
     def __init__(__self__, *,
                  rf_region: pulumi.Input[str],
                  start_time: Optional[pulumi.Input[str]] = None):
@@ -404,7 +404,7 @@ class FuotaTaskTagArgs:
 
 
 @pulumi.input_type
-class MulticastGroupLoRaWANArgs:
+class MulticastGroupLoRaWanArgs:
     def __init__(__self__, *,
                  dl_class: pulumi.Input[str],
                  rf_region: pulumi.Input[str],
@@ -643,7 +643,7 @@ class PartnerAccountTagArgs:
 
 
 @pulumi.input_type
-class ServiceProfileLoRaWANServiceProfileArgs:
+class ServiceProfileLoRaWanServiceProfileArgs:
     def __init__(__self__, *,
                  add_gw_metadata: Optional[pulumi.Input[bool]] = None,
                  channel_mask: Optional[pulumi.Input[str]] = None,
@@ -961,7 +961,7 @@ class SidewalkPropertiesArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionLoRaWANGatewayVersionArgs:
+class TaskDefinitionLoRaWanGatewayVersionArgs:
     def __init__(__self__, *,
                  model: Optional[pulumi.Input[str]] = None,
                  package_version: Optional[pulumi.Input[str]] = None,
@@ -1002,12 +1002,12 @@ class TaskDefinitionLoRaWANGatewayVersionArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs:
+class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
     def __init__(__self__, *,
-                 current_version: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']] = None,
+                 current_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None,
                  sig_key_crc: Optional[pulumi.Input[int]] = None,
                  update_signature: Optional[pulumi.Input[str]] = None,
-                 update_version: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']] = None):
+                 update_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None):
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
         if sig_key_crc is not None:
@@ -1019,11 +1019,11 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs:
 
     @property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]:
+    def current_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
         return pulumi.get(self, "current_version")
 
     @current_version.setter
-    def current_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]):
+    def current_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]):
         pulumi.set(self, "current_version", value)
 
     @property
@@ -1046,19 +1046,19 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs:
 
     @property
     @pulumi.getter(name="updateVersion")
-    def update_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]:
+    def update_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
         return pulumi.get(self, "update_version")
 
     @update_version.setter
-    def update_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]):
+    def update_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]):
         pulumi.set(self, "update_version", value)
 
 
 @pulumi.input_type
-class TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs:
+class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs:
     def __init__(__self__, *,
-                 current_version: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']] = None,
-                 update_version: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']] = None):
+                 current_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None,
+                 update_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None):
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
         if update_version is not None:
@@ -1066,20 +1066,20 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs:
 
     @property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]:
+    def current_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
         return pulumi.get(self, "current_version")
 
     @current_version.setter
-    def current_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]):
+    def current_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]):
         pulumi.set(self, "current_version", value)
 
     @property
     @pulumi.getter(name="updateVersion")
-    def update_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]:
+    def update_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
         return pulumi.get(self, "update_version")
 
     @update_version.setter
-    def update_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]):
+    def update_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]):
         pulumi.set(self, "update_version", value)
 
 
@@ -1115,7 +1115,7 @@ class TaskDefinitionTagArgs:
 @pulumi.input_type
 class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
     def __init__(__self__, *,
-                 lo_ra_wan: Optional[pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs']] = None,
+                 lo_ra_wan: Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']] = None,
                  update_data_role: Optional[pulumi.Input[str]] = None,
                  update_data_source: Optional[pulumi.Input[str]] = None):
         if lo_ra_wan is not None:
@@ -1127,11 +1127,11 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
 
     @property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs']]:
+    def lo_ra_wan(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']]:
         return pulumi.get(self, "lo_ra_wan")
 
     @lo_ra_wan.setter
-    def lo_ra_wan(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs']]):
+    def lo_ra_wan(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']]):
         pulumi.set(self, "lo_ra_wan", value)
 
     @property
@@ -1278,7 +1278,7 @@ class WirelessDeviceImportTaskTagArgs:
 
 
 @pulumi.input_type
-class WirelessDeviceLoRaWANDeviceArgs:
+class WirelessDeviceLoRaWanDeviceArgs:
     def __init__(__self__, *,
                  abp_v10x: Optional[pulumi.Input['WirelessDeviceAbpV10xArgs']] = None,
                  abp_v11: Optional[pulumi.Input['WirelessDeviceAbpV11Args']] = None,
@@ -1537,7 +1537,7 @@ class WirelessDeviceTagArgs:
 
 
 @pulumi.input_type
-class WirelessGatewayLoRaWANGatewayArgs:
+class WirelessGatewayLoRaWanGatewayArgs:
     def __init__(__self__, *,
                  gateway_eui: pulumi.Input[str],
                  rf_region: pulumi.Input[str]):

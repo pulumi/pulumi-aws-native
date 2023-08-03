@@ -12,29 +12,29 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['LocationHDFSArgs', 'LocationHDFS']
+__all__ = ['LocationHdfsArgs', 'LocationHdfs']
 
 @pulumi.input_type
-class LocationHDFSArgs:
+class LocationHdfsArgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 authentication_type: pulumi.Input['LocationHDFSAuthenticationType'],
-                 name_nodes: pulumi.Input[Sequence[pulumi.Input['LocationHDFSNameNodeArgs']]],
+                 authentication_type: pulumi.Input['LocationHdfsAuthenticationType'],
+                 name_nodes: pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]],
                  block_size: Optional[pulumi.Input[int]] = None,
                  kerberos_keytab: Optional[pulumi.Input[str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
-                 qop_configuration: Optional[pulumi.Input['LocationHDFSQopConfigurationArgs']] = None,
+                 qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHDFSTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]]] = None):
         """
-        The set of arguments for constructing a LocationHDFS resource.
+        The set of arguments for constructing a LocationHdfs resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: ARN(s) of the agent(s) to use for an HDFS location.
-        :param pulumi.Input['LocationHDFSAuthenticationType'] authentication_type: The authentication mode used to determine identity of user.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationHDFSNameNodeArgs']]] name_nodes: An array of Name Node(s) of the HDFS location.
+        :param pulumi.Input['LocationHdfsAuthenticationType'] authentication_type: The authentication mode used to determine identity of user.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]] name_nodes: An array of Name Node(s) of the HDFS location.
         :param pulumi.Input[int] block_size: Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
         :param pulumi.Input[str] kerberos_keytab: The Base64 string representation of the Keytab file.
         :param pulumi.Input[str] kerberos_krb5_conf: The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket.
@@ -43,7 +43,7 @@ class LocationHDFSArgs:
         :param pulumi.Input[int] replication_factor: Number of copies of each block that exists inside the HDFS cluster.
         :param pulumi.Input[str] simple_user: The user name that has read and write permissions on the specified HDFS cluster.
         :param pulumi.Input[str] subdirectory: The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationHDFSTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -83,26 +83,26 @@ class LocationHDFSArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input['LocationHDFSAuthenticationType']:
+    def authentication_type(self) -> pulumi.Input['LocationHdfsAuthenticationType']:
         """
         The authentication mode used to determine identity of user.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input['LocationHDFSAuthenticationType']):
+    def authentication_type(self, value: pulumi.Input['LocationHdfsAuthenticationType']):
         pulumi.set(self, "authentication_type", value)
 
     @property
     @pulumi.getter(name="nameNodes")
-    def name_nodes(self) -> pulumi.Input[Sequence[pulumi.Input['LocationHDFSNameNodeArgs']]]:
+    def name_nodes(self) -> pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]:
         """
         An array of Name Node(s) of the HDFS location.
         """
         return pulumi.get(self, "name_nodes")
 
     @name_nodes.setter
-    def name_nodes(self, value: pulumi.Input[Sequence[pulumi.Input['LocationHDFSNameNodeArgs']]]):
+    def name_nodes(self, value: pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]):
         pulumi.set(self, "name_nodes", value)
 
     @property
@@ -167,11 +167,11 @@ class LocationHDFSArgs:
 
     @property
     @pulumi.getter(name="qopConfiguration")
-    def qop_configuration(self) -> Optional[pulumi.Input['LocationHDFSQopConfigurationArgs']]:
+    def qop_configuration(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]:
         return pulumi.get(self, "qop_configuration")
 
     @qop_configuration.setter
-    def qop_configuration(self, value: Optional[pulumi.Input['LocationHDFSQopConfigurationArgs']]):
+    def qop_configuration(self, value: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]):
         pulumi.set(self, "qop_configuration", value)
 
     @property
@@ -212,35 +212,35 @@ class LocationHDFSArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationHDFSTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHDFSTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-class LocationHDFS(pulumi.CustomResource):
+class LocationHdfs(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 authentication_type: Optional[pulumi.Input['LocationHDFSAuthenticationType']] = None,
+                 authentication_type: Optional[pulumi.Input['LocationHdfsAuthenticationType']] = None,
                  block_size: Optional[pulumi.Input[int]] = None,
                  kerberos_keytab: Optional[pulumi.Input[str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
-                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHDFSNameNodeArgs']]]]] = None,
-                 qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHDFSQopConfigurationArgs']]] = None,
+                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]]] = None,
+                 qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']]] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHDFSTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationHDFS.
@@ -248,34 +248,34 @@ class LocationHDFS(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: ARN(s) of the agent(s) to use for an HDFS location.
-        :param pulumi.Input['LocationHDFSAuthenticationType'] authentication_type: The authentication mode used to determine identity of user.
+        :param pulumi.Input['LocationHdfsAuthenticationType'] authentication_type: The authentication mode used to determine identity of user.
         :param pulumi.Input[int] block_size: Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
         :param pulumi.Input[str] kerberos_keytab: The Base64 string representation of the Keytab file.
         :param pulumi.Input[str] kerberos_krb5_conf: The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket.
         :param pulumi.Input[str] kerberos_principal: The unique identity, or principal, to which Kerberos can assign tickets.
         :param pulumi.Input[str] kms_key_provider_uri: The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHDFSNameNodeArgs']]]] name_nodes: An array of Name Node(s) of the HDFS location.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]] name_nodes: An array of Name Node(s) of the HDFS location.
         :param pulumi.Input[int] replication_factor: Number of copies of each block that exists inside the HDFS cluster.
         :param pulumi.Input[str] simple_user: The user name that has read and write permissions on the specified HDFS cluster.
         :param pulumi.Input[str] subdirectory: The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHDFSTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocationHDFSArgs,
+                 args: LocationHdfsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::LocationHDFS.
 
         :param str resource_name: The name of the resource.
-        :param LocationHDFSArgs args: The arguments to use to populate this resource's properties.
+        :param LocationHdfsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocationHDFSArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocationHdfsArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -285,18 +285,18 @@ class LocationHDFS(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 authentication_type: Optional[pulumi.Input['LocationHDFSAuthenticationType']] = None,
+                 authentication_type: Optional[pulumi.Input['LocationHdfsAuthenticationType']] = None,
                  block_size: Optional[pulumi.Input[int]] = None,
                  kerberos_keytab: Optional[pulumi.Input[str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
-                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHDFSNameNodeArgs']]]]] = None,
-                 qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHDFSQopConfigurationArgs']]] = None,
+                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]]] = None,
+                 qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']]] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHDFSTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -304,7 +304,7 @@ class LocationHDFS(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocationHDFSArgs.__new__(LocationHDFSArgs)
+            __props__ = LocationHdfsArgs.__new__(LocationHdfsArgs)
 
             if agent_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_arns'")
@@ -327,8 +327,8 @@ class LocationHDFS(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
-        super(LocationHDFS, __self__).__init__(
-            'aws-native:datasync:LocationHDFS',
+        super(LocationHdfs, __self__).__init__(
+            'aws-native:datasync:LocationHdfs',
             resource_name,
             __props__,
             opts)
@@ -336,9 +336,9 @@ class LocationHDFS(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'LocationHDFS':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'LocationHdfs':
         """
-        Get an existing LocationHDFS resource's state with the given name, id, and optional extra
+        Get an existing LocationHdfs resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -347,7 +347,7 @@ class LocationHDFS(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = LocationHDFSArgs.__new__(LocationHDFSArgs)
+        __props__ = LocationHdfsArgs.__new__(LocationHdfsArgs)
 
         __props__.__dict__["agent_arns"] = None
         __props__.__dict__["authentication_type"] = None
@@ -364,7 +364,7 @@ class LocationHDFS(pulumi.CustomResource):
         __props__.__dict__["simple_user"] = None
         __props__.__dict__["subdirectory"] = None
         __props__.__dict__["tags"] = None
-        return LocationHDFS(resource_name, opts=opts, __props__=__props__)
+        return LocationHdfs(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -376,7 +376,7 @@ class LocationHDFS(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Output['LocationHDFSAuthenticationType']:
+    def authentication_type(self) -> pulumi.Output['LocationHdfsAuthenticationType']:
         """
         The authentication mode used to determine identity of user.
         """
@@ -440,7 +440,7 @@ class LocationHDFS(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameNodes")
-    def name_nodes(self) -> pulumi.Output[Sequence['outputs.LocationHDFSNameNode']]:
+    def name_nodes(self) -> pulumi.Output[Sequence['outputs.LocationHdfsNameNode']]:
         """
         An array of Name Node(s) of the HDFS location.
         """
@@ -448,7 +448,7 @@ class LocationHDFS(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="qopConfiguration")
-    def qop_configuration(self) -> pulumi.Output[Optional['outputs.LocationHDFSQopConfiguration']]:
+    def qop_configuration(self) -> pulumi.Output[Optional['outputs.LocationHdfsQopConfiguration']]:
         return pulumi.get(self, "qop_configuration")
 
     @property
@@ -477,7 +477,7 @@ class LocationHDFS(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationHDFSTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationHdfsTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

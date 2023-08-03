@@ -10,10 +10,10 @@ export type CidrCollection = import("./cidrCollection").CidrCollection;
 export const CidrCollection: typeof import("./cidrCollection").CidrCollection = null as any;
 utilities.lazyLoad(exports, ["CidrCollection"], () => require("./cidrCollection"));
 
-export { DNSSECArgs } from "./dnssec";
-export type DNSSEC = import("./dnssec").DNSSEC;
-export const DNSSEC: typeof import("./dnssec").DNSSEC = null as any;
-utilities.lazyLoad(exports, ["DNSSEC"], () => require("./dnssec"));
+export { DnssecArgs } from "./dnssec";
+export type Dnssec = import("./dnssec").Dnssec;
+export const Dnssec: typeof import("./dnssec").Dnssec = null as any;
+utilities.lazyLoad(exports, ["Dnssec"], () => require("./dnssec"));
 
 export { GetCidrCollectionArgs, GetCidrCollectionResult, GetCidrCollectionOutputArgs } from "./getCidrCollection";
 export const getCidrCollection: typeof import("./getCidrCollection").getCidrCollection = null as any;
@@ -80,8 +80,8 @@ const _module = {
         switch (type) {
             case "aws-native:route53:CidrCollection":
                 return new CidrCollection(name, <any>undefined, { urn })
-            case "aws-native:route53:DNSSEC":
-                return new DNSSEC(name, <any>undefined, { urn })
+            case "aws-native:route53:Dnssec":
+                return new Dnssec(name, <any>undefined, { urn })
             case "aws-native:route53:HealthCheck":
                 return new HealthCheck(name, <any>undefined, { urn })
             case "aws-native:route53:HostedZone":
