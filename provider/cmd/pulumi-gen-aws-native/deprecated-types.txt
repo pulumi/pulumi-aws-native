@@ -1,9 +1,8 @@
 AWS::EC2::EIPAssociation
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
+AWS::IAM::ManagedPolicy
 AWS::Lambda::EventInvokeConfig
-AWS::Lambda::LayerVersionPermission
-AWS::Lambda::Permission
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
 AWSQS::Kubernetes::Helm

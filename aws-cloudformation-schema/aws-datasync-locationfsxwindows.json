@@ -105,7 +105,7 @@
   "createOnlyProperties" : [ "/properties/Domain", "/properties/FsxFilesystemArn", "/properties/Password", "/properties/SecurityGroupArns", "/properties/Subdirectory", "/properties/User" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateLocationFsxWindows", "datasync:DescribeLocationFsxWindows", "datasync:ListTagsForResource", "fsx:DescribeFileSystems", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
+      "permissions" : [ "datasync:CreateLocationFsxWindows", "datasync:DescribeLocationFsxWindows", "datasync:ListTagsForResource", "datasync:TagResource", "fsx:DescribeFileSystems", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeLocationFsxWindows", "datasync:ListTagsForResource" ]

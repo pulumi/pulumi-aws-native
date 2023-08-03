@@ -121,19 +121,19 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ivschat:CreateRoom" ]
+      "permissions" : [ "ivschat:CreateRoom", "ivschat:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "ivschat:GetRoom" ]
+      "permissions" : [ "ivschat:GetRoom", "ivschat:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "ivschat:UpdateRoom", "ivschat:TagResource", "ivschat:UnTagResource", "ivschat:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "ivschat:DeleteRoom" ]
+      "permissions" : [ "ivschat:DeleteRoom", "ivschat:UntagResource" ]
     },
     "list" : {
-      "permissions" : [ "ivschat:ListRooms" ]
+      "permissions" : [ "ivschat:ListRooms", "ivschat:ListTagsForResource" ]
     }
   }
 }
