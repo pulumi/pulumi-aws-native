@@ -57,7 +57,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -87,15 +87,15 @@ jobs:
         echo 'EOF' >> $GITHUB_ENV
     - if: github.event_name == 'pull_request'
       name: Comment on PR with Details of Schema Check
-      uses: thollander/actions-comment-pull-request@v1
+      uses: thollander/actions-comment-pull-request@v2
       with:
         message: |
           ### Does the PR have any schema changes?
 
           ${{ env.SCHEMA_CHANGES }}
+        comment_tag: schemaCheck
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - if:
-          contains(env.SCHEMA_CHANGES, 'Looking good! No breaking changes found.') &&
+    - if: contains(env.SCHEMA_CHANGES, 'Looking good! No breaking changes found.') &&
         github.actor == 'pulumi-bot'
       name: Add label if no breaking changes
       uses: actions-ecosystem/action-add-labels@v1.1.0
@@ -152,7 +152,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -183,7 +183,6 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-          # Pin to known good version until #2262 is resolved
         gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
@@ -194,8 +193,7 @@ jobs:
       run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace}}/bin
     - name: Restore Binary Permissions
-      run:
-          find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
+      run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
     - name: Initialize submodules
       run: make init_submodules
@@ -213,6 +211,7 @@ jobs:
       with:
         name: ${{ matrix.language  }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
+        retention-days: 30
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -250,7 +249,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -281,7 +280,6 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-          # Pin to known good version until #2262 is resolved
         gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
@@ -292,8 +290,7 @@ jobs:
       run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace}}/bin
     - name: Restore Binary Permissions
-      run:
-          find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
+      run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
     - name: Download SDK
       uses: actions/download-artifact@v2
@@ -301,8 +298,7 @@ jobs:
         name: ${{ matrix.language }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
     - name: UnTar SDK folder
-      run:
-          tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{
+      run: tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{
         github.workspace}}/sdk/${{ matrix.language}}
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
@@ -353,7 +349,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -373,14 +369,12 @@ jobs:
         role-external-id: upload-pulumi-release
         role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
     - name: Set PreRelease Version
-      run:
-          echo "GORELEASER_CURRENT_TAG=v$(pulumictl get version --language generic)"
+      run: echo "GORELEASER_CURRENT_TAG=v$(pulumictl get version --language generic)"
         >> $GITHUB_ENV
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
       with:
-        args:
-            -p 3 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
+        args: -p 3 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
           60m0s
         version: latest
     - if: failure() && github.event_name == 'push'
@@ -407,7 +401,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -484,7 +478,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -502,7 +496,6 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-          # Pin to known good version until #2262 is resolved
         gradle-version: "7.6"
     - name: Download java SDK
       uses: actions/download-artifact@v2
@@ -513,11 +506,10 @@ jobs:
       run: tar -zxf ${{github.workspace}}/sdk/java.tar.gz -C
         ${{github.workspace}}/sdk/java
     - name: Set PACKAGE_VERSION to Env
-      run:
-          echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
+      run: echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
         $GITHUB_ENV
     - name: Publish Java SDK
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@9b814496b50909128c6a52622b416c5ffa04db49
       with:
         arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
         build-root-directory: ./sdk/java
