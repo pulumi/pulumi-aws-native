@@ -13,6 +13,7 @@
     },
     "gradle_7@latest": {
       "last_modified": "2023-06-29T16:20:38Z",
+      "plugin_version": "0.0.1",
       "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#gradle_7",
       "version": "7.6.1"
     },
@@ -43,6 +44,7 @@
     },
     "python3@latest": {
       "last_modified": "2023-06-29T16:20:38Z",
+      "plugin_version": "0.0.1",
       "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#python311",
       "version": "3.11.4"
     },
