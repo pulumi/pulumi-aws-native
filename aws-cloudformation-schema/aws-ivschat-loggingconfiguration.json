@@ -139,19 +139,19 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ivschat:CreateLoggingConfiguration", "ivschat:GetLoggingConfiguration", "logs:CreateLogDelivery", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "s3:PutBucketPolicy", "s3:GetBucketPolicy", "iam:CreateServiceLinkedRole", "firehose:TagDeliveryStream" ]
+      "permissions" : [ "ivschat:CreateLoggingConfiguration", "ivschat:GetLoggingConfiguration", "logs:CreateLogDelivery", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "s3:PutBucketPolicy", "s3:GetBucketPolicy", "iam:CreateServiceLinkedRole", "firehose:TagDeliveryStream", "ivschat:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "ivschat:GetLoggingConfiguration" ]
+      "permissions" : [ "ivschat:GetLoggingConfiguration", "ivschat:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "ivschat:UpdateLoggingConfiguration", "ivschat:GetLoggingConfiguration", "ivschat:TagResource", "ivschat:UnTagResource", "ivschat:ListTagsForResource", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "s3:PutBucketPolicy", "s3:GetBucketPolicy", "iam:CreateServiceLinkedRole", "firehose:TagDeliveryStream" ]
     },
     "delete" : {
-      "permissions" : [ "ivschat:DeleteLoggingConfiguration", "ivschat:GetLoggingConfiguration", "logs:DeleteLogDelivery", "logs:ListLogDeliveries" ]
+      "permissions" : [ "ivschat:DeleteLoggingConfiguration", "ivschat:GetLoggingConfiguration", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "ivschat:UntagResource", "logs:GetLogDelivery" ]
     },
     "list" : {
-      "permissions" : [ "ivschat:ListLoggingConfigurations" ]
+      "permissions" : [ "ivschat:ListLoggingConfigurations", "ivschat:ListTagsForResource" ]
     }
   }
 }

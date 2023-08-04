@@ -317,7 +317,7 @@
   "required" : [ "Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "athena:CreateWorkGroup", "athena:TagResource" ]
+      "permissions" : [ "athena:CreateWorkGroup", "athena:TagResource", "iam:PassRole", "s3:GetBucketLocation", "s3:GetObject", "s3:ListBucket", "s3:ListBucketMultipartUploads", "s3:AbortMultipartUpload", "s3:PutObject", "s3:ListMultipartUploadParts", "kms:Decrypt", "kms:GenerateDataKey" ]
     },
     "read" : {
       "permissions" : [ "athena:GetWorkGroup", "athena:ListTagsForResource" ]
@@ -326,10 +326,10 @@
       "permissions" : [ "athena:ListWorkGroups" ]
     },
     "delete" : {
-      "permissions" : [ "athena:DeleteWorkGroup", "athena:UntagResource" ]
+      "permissions" : [ "athena:DeleteWorkGroup", "athena:GetWorkGroup", "athena:UntagResource" ]
     },
     "update" : {
-      "permissions" : [ "athena:UpdateWorkGroup", "athena:TagResource", "athena:UntagResource" ]
+      "permissions" : [ "athena:UpdateWorkGroup", "athena:TagResource", "athena:UntagResource", "iam:PassRole", "s3:GetBucketLocation", "s3:GetObject", "s3:ListBucket", "s3:ListBucketMultipartUploads", "s3:AbortMultipartUpload", "s3:PutObject", "s3:ListMultipartUploadParts", "kms:Decrypt", "kms:GenerateDataKey" ]
     }
   },
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/WorkGroupConfiguration/EngineVersion/EffectiveEngineVersion", "/properties/WorkGroupConfigurationUpdates/EngineVersion/EffectiveEngineVersion" ],

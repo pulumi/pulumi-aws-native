@@ -206,7 +206,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:POST", "apigateway:PATCH", "apigateway:GET" ]
+      "permissions" : [ "apigateway:POST", "apigateway:PATCH", "apigateway:GET", "apigateway:PUT" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]

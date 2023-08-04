@@ -240,6 +240,7 @@ AWS::EC2::NetworkInterface
 AWS::EC2::NetworkPerformanceMetricSubscription
 AWS::EC2::PlacementGroup
 AWS::EC2::PrefixList
+AWS::EC2::Route
 AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
@@ -520,7 +521,10 @@ AWS::MediaPackage::Channel
 AWS::MediaPackage::OriginEndpoint
 AWS::MediaPackage::PackagingConfiguration
 AWS::MediaPackage::PackagingGroup
+AWS::MediaTailor::Channel
+AWS::MediaTailor::ChannelPolicy
 AWS::MediaTailor::PlaybackConfiguration
+AWS::MediaTailor::SourceLocation
 AWS::MemoryDB::ACL
 AWS::MemoryDB::Cluster
 AWS::MemoryDB::ParameterGroup

@@ -9,6 +9,9 @@
     "TableInput" : {
       "$ref" : "#/definitions/TableInput"
     },
+    "OpenTableFormatInput" : {
+      "$ref" : "#/definitions/OpenTableFormatInput"
+    },
     "Id" : {
       "type" : "string"
     },
@@ -22,6 +25,9 @@
       "additionalProperties" : false,
       "properties" : {
         "DatabaseName" : {
+          "type" : "string"
+        },
+        "Region" : {
           "type" : "string"
         },
         "CatalogId" : {
@@ -100,6 +106,19 @@
         },
         "Name" : {
           "type" : "string"
+        }
+      }
+    },
+    "MetadataOperation" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
+    "OpenTableFormatInput" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IcebergInput" : {
+          "$ref" : "#/definitions/IcebergInput"
         }
       }
     },
@@ -210,6 +229,18 @@
           "type" : "string"
         },
         "SchemaArn" : {
+          "type" : "string"
+        }
+      }
+    },
+    "IcebergInput" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MetadataOperation" : {
+          "$ref" : "#/definitions/MetadataOperation"
+        },
+        "Version" : {
           "type" : "string"
         }
       }

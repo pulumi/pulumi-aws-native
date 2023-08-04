@@ -190,16 +190,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "omics:CreateAnnotationStore", "omics:TagResource" ]
+      "permissions" : [ "omics:CreateAnnotationStore", "omics:TagResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:CreateGrant", "ram:AcceptResourceShareInvitation", "ram:GetResourceShareInvitations", "omics:GetAnnotationStore" ]
     },
     "read" : {
       "permissions" : [ "omics:GetAnnotationStore" ]
     },
     "update" : {
-      "permissions" : [ "omics:UpdateAnnotationStore", "omics:TagResource", "omics:UntagResource" ]
+      "permissions" : [ "omics:UpdateAnnotationStore", "omics:TagResource", "omics:UntagResource", "omics:GetAnnotationStore", "omics:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "omics:DeleteAnnotationStore" ]
+      "permissions" : [ "omics:DeleteAnnotationStore", "omics:ListAnnotationStores" ]
     },
     "list" : {
       "permissions" : [ "omics:ListAnnotationStores" ]

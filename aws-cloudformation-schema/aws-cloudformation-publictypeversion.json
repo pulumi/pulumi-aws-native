@@ -53,6 +53,7 @@
     "required" : [ "Arn" ]
   } ],
   "readOnlyProperties" : [ "/properties/PublicTypeArn", "/properties/TypeVersionArn", "/properties/PublisherId" ],
+  "writeOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/LogDeliveryBucket", "/properties/PublicVersionNumber", "/properties/TypeName", "/properties/Type", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/PublicTypeArn" ],
   "handlers" : {

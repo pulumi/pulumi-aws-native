@@ -176,7 +176,7 @@
   "createOnlyProperties" : [ "/properties/StorageVirtualMachineArn", "/properties/SecurityGroupArns", "/properties/Protocol", "/properties/Subdirectory" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateLocationFsxOntap", "datasync:DescribeLocationFsxOntap", "datasync:ListTagsForResource", "fsx:DescribeStorageVirtualMachines", "fsx:DescribeFileSystems", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
+      "permissions" : [ "datasync:CreateLocationFsxOntap", "datasync:DescribeLocationFsxOntap", "datasync:ListTagsForResource", "datasync:TagResource", "fsx:DescribeStorageVirtualMachines", "fsx:DescribeFileSystems", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeLocationFsxOntap", "datasync:ListTagsForResource" ]
