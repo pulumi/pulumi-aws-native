@@ -1,5 +1,8 @@
 ## HEAD (Unreleased)
 
+
+## 0.72.0 (2023-08-04)
+
 This release includes a large number of breaking changes as we now UPPERCASE initialisms
 to TitleCase in all property/type/module/resource names. 
 
