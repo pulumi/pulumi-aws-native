@@ -17,12 +17,12 @@ builds:
       main: ./cmd/cf2pulumi/
 archives:
   - name_template: >-
-      {{ .Binary }}-
-      {{ .Tag }}-
-      {{ .Os }}-
+      {{- .Binary }}-
+      {{- .Tag }}-
+      {{- .Os }}-
       {{- if eq .Arch "amd64" }}x64
       {{- else if eq .Arch "386" }}x86
-      {{- else }}{{ .Arch }}{{ end }}
+      {{- else }}{{ .Arch }}{{ end -}}
     format_overrides:
       - goos: windows
         format: zip
