@@ -64,7 +64,17 @@ func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interfa
 		}
 
 		typName := strings.TrimPrefix(spec.Ref, "#/types/")
-		return c.sdkObjectValueToCfn(typName, v)
+		typSpec := c.types[typName]
+		switch typSpec.Type {
+		case "object":
+			return c.sdkObjectValueToCfn(typName, typSpec, v)
+		case "string":
+			if _, ok := v.(string); ok {
+				return v, nil
+			}
+		default:
+			return nil, &ConversionError{spec.Type, v}
+		}
 	}
 
 	if spec.OneOf != nil {
@@ -133,13 +143,12 @@ func isNumberLike(v interface{}) bool {
 	return false
 }
 
-func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, value interface{}) (interface{}, error) {
+func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, spec CloudAPIType, value interface{}) (interface{}, error) {
 	properties, ok := value.(map[string]interface{})
 	if !ok {
 		return nil, &ConversionError{typeName, value}
 	}
 
-	spec := c.types[typeName]
 	result := map[string]interface{}{}
 	for k, prop := range spec.Properties {
 		if v, ok := properties[k]; ok {

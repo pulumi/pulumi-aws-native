@@ -34,6 +34,27 @@ func TestSdkToCfn(t *testing.T) {
 	assert.ErrorAs(t, err, &cErr, "Should catch conversions of invalid types")
 }
 
+func TestSdkToCfnEnumTypeRef(t *testing.T) {
+	res := CloudAPIResource{
+		Inputs: map[string]pschema.PropertySpec{
+			"foo": {
+				TypeSpec: pschema.TypeSpec{
+					Ref: "#/types/bar",
+				},
+			},
+		},
+	}
+	// Enums just look like strings in the metadata
+	types := map[string]CloudAPIType{
+		"bar": {Type: "string"},
+	}
+	state := map[string]interface{}{"foo": "BBB"}
+	expected := map[string]interface{}{"Foo": "BBB"}
+	actual, err := SdkToCfn(&res, types, state)
+	assert.NoError(t, err)
+	assert.Equal(t, expected, actual)
+}
+
 func TestSdkToCfnOneOf(t *testing.T) {
 	res := CloudAPIResource{
 		Inputs: map[string]pschema.PropertySpec{
@@ -189,6 +210,7 @@ var sdkState = map[string]interface{}{
 var sampleSchema = &CloudAPIMetadata{
 	Types: map[string]CloudAPIType{
 		"aws-native:ecs:AwsVpcConfiguration": {
+			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
 				"assignPublicIp": {TypeSpec: pschema.TypeSpec{Type: "string"}},
 				"securityGroups": {
@@ -206,12 +228,14 @@ var sampleSchema = &CloudAPIMetadata{
 			},
 		},
 		"aws-native:ecs:DeploymentCircuitBreaker": {
+			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
 				"enable":   {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
 				"rollback": {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
 			},
 		},
 		"aws-native:ecs:DeploymentConfiguration": {
+			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
 				"deploymentCircuitBreaker": {
 					TypeSpec: pschema.TypeSpec{
@@ -223,6 +247,7 @@ var sampleSchema = &CloudAPIMetadata{
 			},
 		},
 		"aws-native:ecs:LoadBalancer": {
+			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
 				"containerName":    {TypeSpec: pschema.TypeSpec{Type: "string"}},
 				"containerPort":    {TypeSpec: pschema.TypeSpec{Type: "integer"}},
@@ -231,6 +256,7 @@ var sampleSchema = &CloudAPIMetadata{
 			},
 		},
 		"aws-native:ecs:NetworkConfiguration": {
+			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
 				"awsvpcConfiguration": {
 					TypeSpec: pschema.TypeSpec{
