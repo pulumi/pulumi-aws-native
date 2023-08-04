@@ -19,8 +19,66 @@ func TestCfnToSdk(t *testing.T) {
 
 func TestSdkToCfn(t *testing.T) {
 	res := sampleSchema.Resources["aws-native:ecs:Service"]
-	actual := SdkToCfn(&res, sampleSchema.Types, sdkState)
+	actual, _ := SdkToCfn(&res, sampleSchema.Types, sdkState)
 	assert.Equal(t, cfnPayload, actual)
+
+	// error when value does not match type
+	badSdkState := sdkState
+	badSdkState["loadBalancers"] = map[string]interface{}{
+		"containerName":  "my-app",
+		"containerPort":  80,
+		"targetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:12345:targetgroup/app-tg-a56e4c3/51317265a5dc6a1f",
+	}
+	_, err := SdkToCfn(&res, sampleSchema.Types, badSdkState)
+	cErr := &ConversionError{}
+	assert.ErrorAs(t, err, &cErr, "Should catch conversions of invalid types")
+}
+
+func TestSdkToCfnEnumTypeRef(t *testing.T) {
+	res := CloudAPIResource{
+		Inputs: map[string]pschema.PropertySpec{
+			"foo": {
+				TypeSpec: pschema.TypeSpec{
+					Ref: "#/types/bar",
+				},
+			},
+		},
+	}
+	// Enums just look like strings in the metadata
+	types := map[string]CloudAPIType{
+		"bar": {Type: "string"},
+	}
+	state := map[string]interface{}{"foo": "BBB"}
+	expected := map[string]interface{}{"Foo": "BBB"}
+	actual, err := SdkToCfn(&res, types, state)
+	assert.NoError(t, err)
+	assert.Equal(t, expected, actual)
+}
+
+func TestSdkToCfnOneOf(t *testing.T) {
+	res := CloudAPIResource{
+		Inputs: map[string]pschema.PropertySpec{
+			"foo": {
+				TypeSpec: pschema.TypeSpec{
+					OneOf: []pschema.TypeSpec{
+						pschema.TypeSpec{
+							Type:  "array",
+							Items: &pschema.TypeSpec{Type: "string"},
+						},
+						pschema.TypeSpec{
+							Type:                 "object",
+							AdditionalProperties: &pschema.TypeSpec{Type: "number"},
+						},
+					},
+				},
+			},
+		},
+	}
+	state := map[string]interface{}{"foo": map[string]interface{}{"bar": 1, "baz": 2}}
+	expected := map[string]interface{}{"Foo": map[string]interface{}{"bar": 1, "baz": 2}}
+	actual, err := SdkToCfn(&res, sampleSchema.Types, state)
+	assert.NoError(t, err)
+	assert.Equal(t, expected, actual)
 }
 
 func TestDiffToPatch(t *testing.T) {
@@ -55,7 +113,7 @@ func TestDiffToPatch(t *testing.T) {
 					"ContainerName": "my-app",
 					"ContainerPort": 80.,
 				},
-		}),
+			}),
 		jsonpatch.NewPatch("remove", "/PlatformVersion", nil),
 	}
 	res := sampleSchema.Resources["aws-native:ecs:Service"]
@@ -152,40 +210,44 @@ var sdkState = map[string]interface{}{
 var sampleSchema = &CloudAPIMetadata{
 	Types: map[string]CloudAPIType{
 		"aws-native:ecs:AwsVpcConfiguration": {
+			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
 				"assignPublicIp": {TypeSpec: pschema.TypeSpec{Type: "string"}},
 				"securityGroups": {
 					TypeSpec: pschema.TypeSpec{
-						Type: "array",
+						Type:  "array",
 						Items: &pschema.TypeSpec{Type: "string"},
 					},
 				},
 				"subnets": {
 					TypeSpec: pschema.TypeSpec{
-						Type: "array",
+						Type:  "array",
 						Items: &pschema.TypeSpec{Type: "string"},
 					},
 				},
 			},
 		},
 		"aws-native:ecs:DeploymentCircuitBreaker": {
+			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
 				"enable":   {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
 				"rollback": {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
 			},
 		},
 		"aws-native:ecs:DeploymentConfiguration": {
+			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
 				"deploymentCircuitBreaker": {
 					TypeSpec: pschema.TypeSpec{
 						Ref: "#/types/aws-native:ecs:DeploymentCircuitBreaker",
 					},
 				},
-				"maximumPercent":           {TypeSpec: pschema.TypeSpec{Type: "integer"}},
-				"minimumHealthyPercent":    {TypeSpec: pschema.TypeSpec{Type: "integer"}},
+				"maximumPercent":        {TypeSpec: pschema.TypeSpec{Type: "integer"}},
+				"minimumHealthyPercent": {TypeSpec: pschema.TypeSpec{Type: "integer"}},
 			},
 		},
 		"aws-native:ecs:LoadBalancer": {
+			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
 				"containerName":    {TypeSpec: pschema.TypeSpec{Type: "string"}},
 				"containerPort":    {TypeSpec: pschema.TypeSpec{Type: "integer"}},
@@ -194,6 +256,7 @@ var sampleSchema = &CloudAPIMetadata{
 			},
 		},
 		"aws-native:ecs:NetworkConfiguration": {
+			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
 				"awsvpcConfiguration": {
 					TypeSpec: pschema.TypeSpec{
@@ -206,16 +269,16 @@ var sampleSchema = &CloudAPIMetadata{
 	Resources: map[string]CloudAPIResource{
 		"aws-native:ecs:Service": {
 			Inputs: map[string]pschema.PropertySpec{
-				"serviceArn":              {TypeSpec: pschema.TypeSpec{Type: "string"}},
-				"cluster":                 {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"serviceArn": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"cluster":    {TypeSpec: pschema.TypeSpec{Type: "string"}},
 				"deploymentConfiguration": {
 					TypeSpec: pschema.TypeSpec{
 						Ref: "#/types/aws-native:ecs:DeploymentConfiguration",
 					},
 				},
-				"desiredCount":            {TypeSpec: pschema.TypeSpec{Type: "integer"}},
-				"enableEcsManagedTags":    {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
-				"launchType":              {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"desiredCount":         {TypeSpec: pschema.TypeSpec{Type: "integer"}},
+				"enableEcsManagedTags": {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
+				"launchType":           {TypeSpec: pschema.TypeSpec{Type: "string"}},
 				"loadBalancers": {
 					TypeSpec: pschema.TypeSpec{
 						Type: "array",
@@ -229,11 +292,11 @@ var sampleSchema = &CloudAPIMetadata{
 						Ref: "#/types/aws-native:ecs:NetworkConfiguration",
 					},
 				},
-				"platformVersion":      {TypeSpec: pschema.TypeSpec{Type: "string"}},
-				"role":                 {TypeSpec: pschema.TypeSpec{Type: "string"}},
-				"schedulingStrategy":   {TypeSpec: pschema.TypeSpec{Type: "string"}},
-				"serviceName":          {TypeSpec: pschema.TypeSpec{Type: "string"}},
-				"taskDefinition":       {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"platformVersion":    {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"role":               {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"schedulingStrategy": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"serviceName":        {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"taskDefinition":     {TypeSpec: pschema.TypeSpec{Type: "string"}},
 			},
 			Outputs: map[string]pschema.PropertySpec{
 				"name": {TypeSpec: pschema.TypeSpec{Type: "string"}},

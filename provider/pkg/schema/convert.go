@@ -3,6 +3,7 @@
 package schema
 
 import (
+	"fmt"
 	"reflect"
 	"strings"
 
@@ -13,7 +14,7 @@ import (
 
 // SdkToCfn converts Pulumi-SDK-shaped state to CloudFormation-shaped payload. In particular, SDK properties
 // are lowerCamelCase, while CloudFormation is usually (but not always) PascalCase.
-func SdkToCfn(res *CloudAPIResource, types map[string]CloudAPIType, properties map[string]interface{}) map[string]interface{} {
+func SdkToCfn(res *CloudAPIResource, types map[string]CloudAPIType, properties map[string]interface{}) (map[string]interface{}, error) {
 	converter := sdkToCfnConverter{res, types}
 	return converter.sdkToCfn(properties)
 }
@@ -25,7 +26,7 @@ func DiffToPatch(res *CloudAPIResource, types map[string]CloudAPIType, diff *res
 		return []jsonpatch.JsonPatchOperation{}, nil
 	}
 	converter := sdkToCfnConverter{res, types}
-	return converter.diffToPatch(diff), nil
+	return converter.diffToPatch(diff)
 }
 
 type sdkToCfnConverter struct {
@@ -33,80 +34,135 @@ type sdkToCfnConverter struct {
 	types map[string]CloudAPIType
 }
 
-func (c *sdkToCfnConverter) sdkToCfn(properties map[string]interface{}) map[string]interface{} {
+func (c *sdkToCfnConverter) sdkToCfn(properties map[string]interface{}) (map[string]interface{}, error) {
 	result := map[string]interface{}{}
 	for k, prop := range c.spec.Inputs {
 		if v, ok := properties[k]; ok {
-			result[ToCfnName(k, c.spec.IrreversibleNames)] = c.sdkTypedValueToCfn(&prop.TypeSpec, v)
+			converted, err := c.sdkTypedValueToCfn(&prop.TypeSpec, v)
+			if err != nil {
+				return nil, err
+			}
+			result[ToCfnName(k, c.spec.IrreversibleNames)] = converted
 		}
 	}
 	for k, attr := range c.spec.Outputs {
 		if v, ok := properties[k]; ok {
-			result[ToCfnName(k, c.spec.IrreversibleNames)] = c.sdkTypedValueToCfn(&attr.TypeSpec, v)
+			converted, err := c.sdkTypedValueToCfn(&attr.TypeSpec, v)
+			if err != nil {
+				return nil, err
+			}
+			result[ToCfnName(k, c.spec.IrreversibleNames)] = converted
 		}
 	}
-	return result
+	return result, nil
 }
 
-func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interface{}) interface{} {
+func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interface{}) (interface{}, error) {
 	if spec.Ref != "" {
 		if spec.Ref == "pulumi.json#/Any" {
-			return v
+			return v, nil
 		}
 
 		typName := strings.TrimPrefix(spec.Ref, "#/types/")
-		return c.sdkObjectValueToCfn(typName, v)
+		typSpec := c.types[typName]
+		switch typSpec.Type {
+		case "object":
+			return c.sdkObjectValueToCfn(typName, typSpec, v)
+		case "string":
+			if _, ok := v.(string); ok {
+				return v, nil
+			}
+		default:
+			return nil, &ConversionError{spec.Type, v}
+		}
 	}
 
 	if spec.OneOf != nil {
 		for _, item := range spec.OneOf {
-			converted := c.sdkTypedValueToCfn(&item, v)
-			// If the conversion resulted in a different value, return it.
-			// We should probably fail if we can't convert rather than considering change a success.
-			// This is likely to happen if one of the types is any.
-			if !reflect.DeepEqual(converted, v) {
-				return converted
+			converted, err := c.sdkTypedValueToCfn(&item, v)
+			// return the first successful conversion
+			if err == nil {
+				return converted, nil
 			}
 		}
+		return nil, &ConversionError{fmt.Sprintf("%v", *spec), v}
 	}
 
 	switch spec.Type {
 	case "array":
-		array := v.([]interface{})
-		vs := make([]interface{}, len(array))
-		for i, item := range array {
-			vs[i] = c.sdkTypedValueToCfn(spec.Items, item)
+		if array, ok := v.([]interface{}); ok {
+			vs := make([]interface{}, len(array))
+			for i, item := range array {
+				converted, err := c.sdkTypedValueToCfn(spec.Items, item)
+				if err != nil {
+					return nil, err
+				}
+				vs[i] = converted
+			}
+			return vs, nil
 		}
-		return vs
 	case "object":
-		sourceMap := v.(map[string]interface{})
-		vs := map[string]interface{}{}
-		for n, item := range sourceMap {
-			vs[n] = c.sdkTypedValueToCfn(spec.AdditionalProperties, item)
+		if sourceMap, ok := v.(map[string]interface{}); ok {
+			vs := map[string]interface{}{}
+			for n, item := range sourceMap {
+				converted, err := c.sdkTypedValueToCfn(spec.AdditionalProperties, item)
+				if err != nil {
+					return nil, err
+				}
+				vs[n] = converted
+			}
+			return vs, nil
 		}
-		return vs
+	case "string":
+		if _, ok := v.(string); ok {
+			return v, nil
+		}
+	case "number":
+		if isNumberLike(v) {
+			return v, nil
+		}
+	case "integer":
+		if isNumberLike(v) {
+			return v, nil
+		}
+	case "boolean":
+		if _, ok := v.(bool); ok {
+			return v, nil
+		}
 	default:
-		return v
+		return nil, fmt.Errorf("Unrecognized type: " + spec.Type)
 	}
+	return nil, &ConversionError{spec.Type, v}
 }
 
-func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, value interface{}) interface{} {
+func isNumberLike(v interface{}) bool {
+	switch v.(type) {
+	case int, uint, int32, uint32, int64, uint64, float32, float64:
+		return true
+	}
+	return false
+}
+
+func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, spec CloudAPIType, value interface{}) (interface{}, error) {
 	properties, ok := value.(map[string]interface{})
 	if !ok {
-		return value
+		return nil, &ConversionError{typeName, value}
 	}
 
-	spec := c.types[typeName]
 	result := map[string]interface{}{}
 	for k, prop := range spec.Properties {
 		if v, ok := properties[k]; ok {
-			result[ToCfnName(k, spec.IrreversibleNames)] = c.sdkTypedValueToCfn(&prop.TypeSpec, v)
+			converted, err := c.sdkTypedValueToCfn(&prop.TypeSpec, v)
+			if err != nil {
+				return nil, err
+			}
+			result[ToCfnName(k, spec.IrreversibleNames)] = converted
 		}
 	}
-	return result
+	return result, nil
 }
 
-func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []jsonpatch.JsonPatchOperation {
+func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
 	var ops []jsonpatch.JsonPatchOperation
 	for sdkName, prop := range c.spec.Inputs {
 		cfnName := ToCfnName(sdkName, c.spec.IrreversibleNames)
@@ -115,26 +171,35 @@ func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []jsonpatch.J
 			// Check if properties are write-only, and use an "add" if so. This is because the old values of write only
 			// properties don't show up when applying the diff within CC, so we need to do an "add".
 			if c.isPropWriteOnly(sdkName) {
-				op := c.valueToPatch("add", cfnName, prop, v.New)
-				ops = append(ops, op)
+				op, err := c.valueToPatch("add", cfnName, prop, v.New)
+				if err != nil {
+					return nil, err
+				}
+				ops = append(ops, *op)
 			} else {
-				op := c.valueToPatch("replace", cfnName, prop, v.New)
-				ops = append(ops, op)
+				op, err := c.valueToPatch("replace", cfnName, prop, v.New)
+				if err != nil {
+					return nil, err
+				}
+				ops = append(ops, *op)
 			}
 		}
 		if v, ok := diff.Adds[key]; ok {
-			op := c.valueToPatch("add", cfnName, prop, v)
-			ops = append(ops, op)
+			op, err := c.valueToPatch("add", cfnName, prop, v)
+			if err != nil {
+				return nil, err
+			}
+			ops = append(ops, *op)
 		}
 		if _, ok := diff.Deletes[key]; ok {
 			op := jsonpatch.NewPatch("remove", "/"+cfnName, nil)
 			ops = append(ops, op)
 		}
 	}
-	return ops
+	return ops, nil
 }
 
-func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop pschema.PropertySpec, value resource.PropertyValue) jsonpatch.JsonPatchOperation {
+func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop pschema.PropertySpec, value resource.PropertyValue) (*jsonpatch.JsonPatchOperation, error) {
 	op := jsonpatch.NewPatch(opName, "/"+propName, nil)
 	switch {
 	case value.IsNumber() && prop.Type == "integer":
@@ -148,10 +213,13 @@ func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop pschema.P
 		op.Value = value.StringValue()
 	default:
 		sdkObj := value.MapRepl(nil, nil)
-		cfnObj := c.sdkTypedValueToCfn(&prop.TypeSpec, sdkObj)
+		cfnObj, err := c.sdkTypedValueToCfn(&prop.TypeSpec, sdkObj)
+		if err != nil {
+			return nil, err
+		}
 		op.Value = cfnObj
 	}
-	return op
+	return &op, nil
 }
 
 func (c *sdkToCfnConverter) isPropWriteOnly(cfnName string) bool {
@@ -194,4 +262,13 @@ func cfnValueToSdk(value interface{}) interface{} {
 	default:
 		return value
 	}
+}
+
+type ConversionError struct {
+	Type  string
+	Value interface{}
+}
+
+func (e *ConversionError) Error() string {
+	return fmt.Sprintf("Could not convert as type %s: %v", e.Type, e.Value)
 }
