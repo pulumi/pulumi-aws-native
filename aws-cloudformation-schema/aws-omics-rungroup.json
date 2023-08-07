@@ -38,6 +38,11 @@
       "maximum" : 100000,
       "minimum" : 1
     },
+    "MaxGpus" : {
+      "type" : "number",
+      "maximum" : 100000,
+      "minimum" : 1
+    },
     "MaxDuration" : {
       "type" : "number",
       "maximum" : 100000,
@@ -74,10 +79,10 @@
       "permissions" : [ "omics:GetRunGroup" ]
     },
     "update" : {
-      "permissions" : [ "omics:UpdateRunGroup", "omics:TagResource", "omics:UntagResource" ]
+      "permissions" : [ "omics:UpdateRunGroup", "omics:TagResource", "omics:GetRunGroup", "omics:ListTagsForResource", "omics:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "omics:DeleteRunGroup" ]
+      "permissions" : [ "omics:DeleteRunGroup", "omics:GetRunGroup" ]
     },
     "list" : {
       "permissions" : [ "omics:ListRunGroups" ]

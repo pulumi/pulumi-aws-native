@@ -81,13 +81,13 @@
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotfleetwise:CreateModelManifest", "iotfleetwise:GetModelManifest", "iotfleetwise:UpdateModelManifest" ]
+      "permissions" : [ "iotfleetwise:CreateModelManifest", "iotfleetwise:GetModelManifest", "iotfleetwise:UpdateModelManifest", "iotfleetwise:ListModelManifestNodes", "iotfleetwise:ListTagsForResource", "iotfleetwise:TagResource" ]
     },
     "read" : {
       "permissions" : [ "iotfleetwise:GetModelManifest", "iotfleetwise:ListModelManifestNodes", "iotfleetwise:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iotfleetwise:UpdateModelManifest", "iotfleetwise:GetModelManifest", "iotfleetwise:ListModelManifestNodes", "iotfleetwise:TagResource", "iotfleetwise:UntagResource" ]
+      "permissions" : [ "iotfleetwise:UpdateModelManifest", "iotfleetwise:GetModelManifest", "iotfleetwise:ListModelManifestNodes", "iotfleetwise:ListTagsForResource", "iotfleetwise:TagResource", "iotfleetwise:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "iotfleetwise:DeleteModelManifest", "iotfleetwise:GetModelManifest" ]

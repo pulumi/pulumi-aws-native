@@ -95,16 +95,16 @@
   "additionalIdentifiers" : [ [ "/properties/Id" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "proton:CreateEnvironmentAccountConnection", "proton:TagResource" ]
+      "permissions" : [ "proton:CreateEnvironmentAccountConnection", "proton:TagResource", "iam:PassRole", "proton:ListTagsForResource", "proton:GetEnvironmentAccountConnection" ]
     },
     "read" : {
-      "permissions" : [ "proton:GetEnvironmentAccountConnection", "proton:ListTagsForResource" ]
+      "permissions" : [ "proton:GetEnvironmentAccountConnection", "proton:ListTagsForResource", "iam:PassRole", "proton:GetEnvironmentAccountConnection" ]
     },
     "update" : {
-      "permissions" : [ "proton:CreateEnvironmentAccountConnection", "proton:ListTagsForResource", "proton:TagResource", "proton:UntagResource", "proton:UpdateEnvironmentAccountConnection" ]
+      "permissions" : [ "proton:CreateEnvironmentAccountConnection", "proton:ListTagsForResource", "proton:TagResource", "proton:UntagResource", "proton:UpdateEnvironmentAccountConnection", "iam:PassRole", "proton:GetEnvironmentAccountConnection" ]
     },
     "delete" : {
-      "permissions" : [ "proton:DeleteEnvironmentAccountConnection", "proton:UntagResource" ]
+      "permissions" : [ "proton:DeleteEnvironmentAccountConnection", "proton:UntagResource", "iam:PassRole", "proton:ListTagsForResource", "proton:GetEnvironmentAccountConnection" ]
     },
     "list" : {
       "permissions" : [ "proton:ListEnvironmentAccountConnections" ]

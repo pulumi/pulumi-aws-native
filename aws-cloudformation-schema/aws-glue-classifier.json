@@ -3,27 +3,63 @@
   "description" : "Resource Type definition for AWS::Glue::Classifier",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "XMLClassifier" : {
       "$ref" : "#/definitions/XMLClassifier"
-    },
-    "JsonClassifier" : {
-      "$ref" : "#/definitions/JsonClassifier"
     },
     "CsvClassifier" : {
       "$ref" : "#/definitions/CsvClassifier"
     },
+    "Id" : {
+      "type" : "string"
+    },
     "GrokClassifier" : {
       "$ref" : "#/definitions/GrokClassifier"
+    },
+    "JsonClassifier" : {
+      "$ref" : "#/definitions/JsonClassifier"
     }
   },
   "definitions" : {
+    "XMLClassifier" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RowTag" : {
+          "type" : "string"
+        },
+        "Classification" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "RowTag", "Classification" ]
+    },
+    "JsonClassifier" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "JsonPath" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "JsonPath" ]
+    },
     "CsvClassifier" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "ContainsCustomDatatype" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
         "QuoteSymbol" : {
           "type" : "string"
         },
@@ -43,6 +79,9 @@
         "AllowSingleColumn" : {
           "type" : "boolean"
         },
+        "CustomDatatypeConfigured" : {
+          "type" : "boolean"
+        },
         "DisableValueTrimming" : {
           "type" : "boolean"
         },
@@ -50,35 +89,6 @@
           "type" : "string"
         }
       }
-    },
-    "JsonClassifier" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "JsonPath" : {
-          "type" : "string"
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "JsonPath" ]
-    },
-    "XMLClassifier" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "RowTag" : {
-          "type" : "string"
-        },
-        "Classification" : {
-          "type" : "string"
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "RowTag", "Classification" ]
     },
     "GrokClassifier" : {
       "type" : "object",

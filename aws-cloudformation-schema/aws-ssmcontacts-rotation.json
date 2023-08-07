@@ -217,19 +217,19 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ssm-contacts:CreateRotation", "ssm-contacts:TagResource", "ssm-contacts:ListTagsForResource", "ssm-contacts:UntagResource" ]
+      "permissions" : [ "ssm-contacts:CreateRotation", "ssm-contacts:GetRotation", "ssm-contacts:TagResource", "ssm-contacts:ListTagsForResource", "ssm-contacts:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "ssm-contacts:GetRotation", "ssm-contacts:TagResource", "ssm-contacts:ListTagsForResource", "ssm-contacts:UntagResource" ]
     },
     "update" : {
-      "permissions" : [ "ssm-contacts:UpdateRotation", "ssm-contacts:TagResource", "ssm-contacts:ListTagsForResource", "ssm-contacts:UntagResource" ]
+      "permissions" : [ "ssm-contacts:UpdateRotation", "ssm-contacts:GetRotation", "ssm-contacts:TagResource", "ssm-contacts:ListTagsForResource", "ssm-contacts:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "ssm-contacts:DeleteRotation", "ssm-contacts:ListTagsForResource", "ssm-contacts:UntagResource" ]
+      "permissions" : [ "ssm-contacts:DeleteRotation", "ssm-contacts:GetRotation", "ssm-contacts:ListTagsForResource", "ssm-contacts:UntagResource" ]
     },
     "list" : {
-      "permissions" : [ "ssm-contacts:ListRotations", "ssm-contacts:ListTagsForResource" ]
+      "permissions" : [ "ssm-contacts:ListRotations", "ssm-contacts:GetRotation", "ssm-contacts:ListTagsForResource" ]
     }
   }
 }

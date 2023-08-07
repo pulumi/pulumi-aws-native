@@ -6,20 +6,24 @@
     "Id" : {
       "type" : "string"
     },
-    "DeleteOnTermination" : {
-      "type" : "boolean"
-    },
-    "DeviceIndex" : {
+    "NetworkInterfaceId" : {
       "type" : "string"
     },
     "InstanceId" : {
       "type" : "string"
     },
-    "NetworkInterfaceId" : {
+    "AttachmentId" : {
       "type" : "string"
+    },
+    "DeviceIndex" : {
+      "type" : "string"
+    },
+    "DeleteOnTermination" : {
+      "type" : "boolean"
     }
   },
-  "required" : [ "NetworkInterfaceId", "InstanceId", "DeviceIndex" ],
-  "readOnlyProperties" : [ "/properties/Id" ],
-  "primaryIdentifier" : [ "/properties/Id" ]
+  "required" : [ "InstanceId", "DeviceIndex", "NetworkInterfaceId" ],
+  "createOnlyProperties" : [ "/properties/DeviceIndex", "/properties/InstanceId", "/properties/NetworkInterfaceId" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/AttachmentId" ]
 }

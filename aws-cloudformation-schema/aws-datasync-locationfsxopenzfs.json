@@ -126,7 +126,7 @@
   "createOnlyProperties" : [ "/properties/FsxFilesystemArn", "/properties/SecurityGroupArns", "/properties/Protocol", "/properties/Subdirectory" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateLocationFsxOpenZfs", "datasync:DescribeLocationFsxOpenZfs", "datasync:ListTagsForResource", "fsx:DescribeFileSystems", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
+      "permissions" : [ "datasync:CreateLocationFsxOpenZfs", "datasync:DescribeLocationFsxOpenZfs", "datasync:ListTagsForResource", "datasync:TagResource", "fsx:DescribeFileSystems", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeLocationFsxOpenZfs", "datasync:ListTagsForResource" ]

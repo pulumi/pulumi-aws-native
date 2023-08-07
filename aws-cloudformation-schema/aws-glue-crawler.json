@@ -91,6 +91,32 @@
         }
       }
     },
+    "IcebergTarget" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ConnectionName" : {
+          "type" : "string"
+        },
+        "Paths" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Exclusions" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "MaximumTraversalDepth" : {
+          "type" : "integer"
+        }
+      }
+    },
     "Schedule" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -206,6 +232,13 @@
           "uniqueItems" : false,
           "items" : {
             "$ref" : "#/definitions/DynamoDBTarget"
+          }
+        },
+        "IcebergTargets" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/IcebergTarget"
           }
         }
       }

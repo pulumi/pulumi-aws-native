@@ -15,13 +15,13 @@
   "taggable" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "route53:EnableHostedZoneDNSSEC", "kms:DescribeKey", "kms:GetPublicKey", "kms:Sign", "kms:CreateGrant" ]
+      "permissions" : [ "route53:GetDNSSEC", "route53:EnableHostedZoneDNSSEC", "kms:DescribeKey", "kms:GetPublicKey", "kms:Sign", "kms:CreateGrant" ]
     },
     "read" : {
       "permissions" : [ "route53:GetDNSSEC" ]
     },
     "delete" : {
-      "permissions" : [ "route53:DisableHostedZoneDNSSEC", "kms:DescribeKey", "kms:GetPublicKey", "kms:Sign", "kms:CreateGrant" ]
+      "permissions" : [ "route53:GetDNSSEC", "route53:DisableHostedZoneDNSSEC", "kms:DescribeKey", "kms:GetPublicKey", "kms:Sign", "kms:CreateGrant" ]
     },
     "list" : {
       "permissions" : [ "route53:GetDNSSEC", "route53:ListHostedZones" ]
