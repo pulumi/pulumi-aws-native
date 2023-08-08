@@ -39,6 +39,7 @@
   "required" : [ "AcceptTermsAndConditions" ],
   "readOnlyProperties" : [ "/properties/PublisherId", "/properties/PublisherStatus", "/properties/PublisherProfile", "/properties/IdentityProvider" ],
   "createOnlyProperties" : [ "/properties/AcceptTermsAndConditions", "/properties/ConnectionArn" ],
+  "writeOnlyProperties" : [ "/properties/ConnectionArn" ],
   "primaryIdentifier" : [ "/properties/PublisherId" ],
   "handlers" : {
     "create" : {

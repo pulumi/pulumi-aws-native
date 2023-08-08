@@ -125,16 +125,16 @@
   "createOnlyProperties" : [ "/properties/Alias", "/properties/Type" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ssm-contacts:CreateContact" ]
+      "permissions" : [ "ssm-contacts:CreateContact", "ssm-contacts:GetContact", "ssm-contacts:AssociateContact" ]
     },
     "read" : {
       "permissions" : [ "ssm-contacts:GetContact" ]
     },
     "update" : {
-      "permissions" : [ "ssm-contacts:UpdateContact" ]
+      "permissions" : [ "ssm-contacts:UpdateContact", "ssm-contacts:GetContact", "ssm-contacts:AssociateContact" ]
     },
     "delete" : {
-      "permissions" : [ "ssm-contacts:DeleteContact" ]
+      "permissions" : [ "ssm-contacts:DeleteContact", "ssm-contacts:GetContact", "ssm-contacts:AssociateContact" ]
     },
     "list" : {
       "permissions" : [ "ssm-contacts:ListContacts" ]

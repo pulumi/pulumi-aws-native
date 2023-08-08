@@ -115,6 +115,13 @@
   "primaryIdentifier" : [ "/properties/AccessPointId" ],
   "createOnlyProperties" : [ "/properties/FileSystemId", "/properties/ClientToken", "/properties/CreationInfo", "/properties/CreationInfo/OwnerUid", "/properties/CreationInfo/OwnerGid", "/properties/CreationInfo/Permissions", "/properties/PosixUser", "/properties/PosixUser/Uid", "/properties/PosixUser/Gid", "/properties/PosixUser/SecondaryGids", "/properties/RootDirectory", "/properties/RootDirectory/Path", "/properties/RootDirectory/CreationInfo" ],
   "readOnlyProperties" : [ "/properties/AccessPointId", "/properties/Arn" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/AccessPointTags"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "elasticfilesystem:CreateAccessPoint", "elasticfilesystem:TagResource", "elasticfilesystem:DescribeAccessPoints" ]

@@ -143,7 +143,7 @@
       "permissions" : [ "ecr:DescribeRepositories", "ecr:GetLifecyclePolicy", "ecr:GetRepositoryPolicy", "ecr:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "ecr:PutLifecyclePolicy", "ecr:SetRepositoryPolicy", "ecr:TagResource", "ecr:UntagResource", "ecr:DeleteLifecyclePolicy", "ecr:DeleteRepositoryPolicy", "ecr:PutImageScanningConfiguration", "ecr:PutImageTagMutability", "kms:DescribeKey", "kms:CreateGrant", "kms:RetireGrant" ]
+      "permissions" : [ "ecr:DescribeRepositories", "ecr:PutLifecyclePolicy", "ecr:SetRepositoryPolicy", "ecr:ListTagsForResource", "ecr:TagResource", "ecr:UntagResource", "ecr:DeleteLifecyclePolicy", "ecr:DeleteRepositoryPolicy", "ecr:PutImageScanningConfiguration", "ecr:PutImageTagMutability", "kms:DescribeKey", "kms:CreateGrant", "kms:RetireGrant" ]
     },
     "delete" : {
       "permissions" : [ "ecr:DeleteRepository", "kms:RetireGrant" ]
