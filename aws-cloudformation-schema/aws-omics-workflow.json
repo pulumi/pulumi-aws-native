@@ -19,7 +19,13 @@
       "type" : "string",
       "maxLength" : 64,
       "minLength" : 1,
-      "enum" : [ "WDL", "NEXTFLOW" ]
+      "enum" : [ "WDL", "NEXTFLOW", "CWL" ]
+    },
+    "Accelerators" : {
+      "type" : "string",
+      "maxLength" : 64,
+      "minLength" : 1,
+      "enum" : [ "GPU" ]
     },
     "WorkflowParameter" : {
       "type" : "object",
@@ -110,6 +116,9 @@
     "Status" : {
       "$ref" : "#/definitions/WorkflowStatus"
     },
+    "Accelerators" : {
+      "$ref" : "#/definitions/Accelerators"
+    },
     "StorageCapacity" : {
       "type" : "number",
       "maximum" : 100000,
@@ -124,7 +133,7 @@
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/Id", "/properties/Status", "/properties/Type" ],
   "writeOnlyProperties" : [ "/properties/DefinitionUri" ],
-  "createOnlyProperties" : [ "/properties/DefinitionUri", "/properties/Engine", "/properties/Main", "/properties/ParameterTemplate", "/properties/StorageCapacity" ],
+  "createOnlyProperties" : [ "/properties/DefinitionUri", "/properties/Engine", "/properties/Main", "/properties/ParameterTemplate", "/properties/StorageCapacity", "/properties/Accelerators" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "tagging" : {
     "taggable" : true,
@@ -134,16 +143,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "omics:CreateWorkflow", "omics:TagResource", "s3:PutObject", "s3:GetObject", "s3:GetObjectAttributes", "s3:HeadObject", "s3:GetEncryptionConfiguration", "kms:Decrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext" ]
+      "permissions" : [ "omics:CreateWorkflow", "omics:GetWorkflow", "omics:TagResource", "s3:PutObject", "s3:GetObject", "s3:GetObjectAttributes", "s3:HeadObject", "s3:GetEncryptionConfiguration", "kms:Decrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext" ]
     },
     "read" : {
       "permissions" : [ "omics:GetWorkflow" ]
     },
     "update" : {
-      "permissions" : [ "omics:UpdateWorkflow", "omics:TagResource", "omics:UntagResource" ]
+      "permissions" : [ "omics:UpdateWorkflow", "omics:GetWorkflow", "omics:TagResource", "omics:ListTagsForResource", "omics:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "omics:DeleteWorkflow" ]
+      "permissions" : [ "omics:DeleteWorkflow", "omics:GetWorkflow" ]
     },
     "list" : {
       "permissions" : [ "omics:ListWorkflows" ]

@@ -1,6 +1,10 @@
 {
   "typeName" : "AWS::SSO::Assignment",
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false
+  },
   "description" : "Resource Type definition for SSO assignmet",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sso/aws-sso-assignment",
   "properties" : {
@@ -47,16 +51,16 @@
   "primaryIdentifier" : [ "/properties/InstanceArn", "/properties/TargetId", "/properties/TargetType", "/properties/PermissionSetArn", "/properties/PrincipalType", "/properties/PrincipalId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sso:CreateAccountAssignment", "sso:DescribeAccountAssignmentCreationStatus", "sso:ListAccountAssignments" ]
+      "permissions" : [ "sso:CreateAccountAssignment", "sso:DescribeAccountAssignmentCreationStatus", "sso:ListAccountAssignments", "iam:GetSAMLProvider", "iam:CreateSAMLProvider", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:CreateRole", "iam:ListRolePolicies" ]
     },
     "read" : {
-      "permissions" : [ "sso:ListAccountAssignments" ]
+      "permissions" : [ "sso:ListAccountAssignments", "iam:GetSAMLProvider", "iam:ListRolePolicies" ]
     },
     "delete" : {
-      "permissions" : [ "sso:ListAccountAssignments", "sso:DeleteAccountAssignment", "sso:DescribeAccountAssignmentDeletionStatus" ]
+      "permissions" : [ "sso:ListAccountAssignments", "sso:DeleteAccountAssignment", "sso:DescribeAccountAssignmentDeletionStatus", "iam:GetSAMLProvider", "iam:ListRolePolicies" ]
     },
     "list" : {
-      "permissions" : [ "sso:ListAccountAssignments" ]
+      "permissions" : [ "sso:ListAccountAssignments", "iam:ListRolePolicies" ]
     }
   }
 }

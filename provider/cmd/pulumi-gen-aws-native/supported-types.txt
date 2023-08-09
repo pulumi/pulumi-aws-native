@@ -121,6 +121,7 @@ AWS::CloudTrail::Channel
 AWS::CloudTrail::EventDataStore
 AWS::CloudTrail::ResourcePolicy
 AWS::CloudTrail::Trail
+AWS::CloudWatch::Alarm
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
 AWS::CodeArtifact::Domain
@@ -237,9 +238,11 @@ AWS::EC2::NetworkInsightsAccessScopeAnalysis
 AWS::EC2::NetworkInsightsAnalysis
 AWS::EC2::NetworkInsightsPath
 AWS::EC2::NetworkInterface
+AWS::EC2::NetworkInterfaceAttachment
 AWS::EC2::NetworkPerformanceMetricSubscription
 AWS::EC2::PlacementGroup
 AWS::EC2::PrefixList
+AWS::EC2::Route
 AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
@@ -520,7 +523,12 @@ AWS::MediaPackage::Channel
 AWS::MediaPackage::OriginEndpoint
 AWS::MediaPackage::PackagingConfiguration
 AWS::MediaPackage::PackagingGroup
+AWS::MediaTailor::Channel
+AWS::MediaTailor::ChannelPolicy
+AWS::MediaTailor::LiveSource
 AWS::MediaTailor::PlaybackConfiguration
+AWS::MediaTailor::SourceLocation
+AWS::MediaTailor::VodSource
 AWS::MemoryDB::ACL
 AWS::MemoryDB::Cluster
 AWS::MemoryDB::ParameterGroup
@@ -819,10 +827,12 @@ Fastly::Dictionary::Dictionary
 Fastly::Dictionary::DictionaryItem
 Fastly::Logging::S3
 Fastly::Logging::Splunk
+Fastly::Services::ActiveVersion
 Fastly::Services::Backend
 Fastly::Services::Domain
 Fastly::Services::Healthcheck
 Fastly::Services::Service
+Fastly::Services::Version
 Fastly::Tls::Certificate
 Fastly::Tls::Domain
 Fastly::Tls::PrivateKeys

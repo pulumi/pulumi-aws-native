@@ -332,10 +332,10 @@
       "permissions" : [ "iotfleetwise:GetCampaign", "iotfleetwise:ListTagsForResource" ]
     },
     "create" : {
-      "permissions" : [ "iotfleetwise:CreateCampaign", "iotfleetwise:GetCampaign" ]
+      "permissions" : [ "iotfleetwise:CreateCampaign", "iotfleetwise:GetCampaign", "iotfleetwise:ListTagsForResource", "iotfleetwise:TagResource", "iam:PassRole", "timestream:DescribeEndpoints", "timestream:DescribeTable" ]
     },
     "update" : {
-      "permissions" : [ "iotfleetwise:UpdateCampaign", "iotfleetwise:TagResource", "iotfleetwise:UntagResource" ]
+      "permissions" : [ "iotfleetwise:GetCampaign", "iotfleetwise:ListTagsForResource", "iotfleetwise:UpdateCampaign", "iotfleetwise:TagResource", "iotfleetwise:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "iotfleetwise:ListCampaigns", "iotfleetwise:GetCampaign" ]

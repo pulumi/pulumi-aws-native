@@ -128,16 +128,16 @@
   "primaryIdentifier" : [ "/properties/SuiteDefinitionId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotdeviceadvisor:CreateSuiteDefinition", "iam:PassRole" ]
+      "permissions" : [ "iot:DescribeCertificate", "iot:DescribeThing", "iot:GetPolicy", "iot:ListAttachedPolicies", "iot:ListCertificates", "iot:ListPrincipalPolicies", "iot:ListTagsForResource", "iot:ListThingPrincipals", "iot:ListThings", "iotdeviceadvisor:CreateSuiteDefinition", "iotdeviceadvisor:TagResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "iotdeviceadvisor:GetSuiteDefinition" ]
+      "permissions" : [ "iotdeviceadvisor:GetSuiteDefinition", "iotdeviceadvisor:TagResource" ]
     },
     "update" : {
-      "permissions" : [ "iotdeviceadvisor:UpdateSuiteDefinition", "iotdeviceadvisor:GetSuiteDefinition", "iotdeviceadvisor:UntagResource", "iotdeviceadvisor:TagResource" ]
+      "permissions" : [ "iot:DescribeCertificate", "iot:DescribeThing", "iot:GetPolicy", "iot:ListAttachedPolicies", "iot:ListCertificates", "iot:ListPrincipalPolicies", "iot:ListTagsForResource", "iot:ListThingPrincipals", "iot:ListThings", "iotdeviceadvisor:UpdateSuiteDefinition", "iotdeviceadvisor:GetSuiteDefinition", "iotdeviceadvisor:UntagResource", "iotdeviceadvisor:TagResource", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "iotdeviceadvisor:DeleteSuiteDefinition" ]
+      "permissions" : [ "iotdeviceadvisor:GetSuiteDefinition", "iotdeviceadvisor:DeleteSuiteDefinition" ]
     },
     "list" : {
       "permissions" : [ "iotdeviceadvisor:ListSuiteDefinitions" ]

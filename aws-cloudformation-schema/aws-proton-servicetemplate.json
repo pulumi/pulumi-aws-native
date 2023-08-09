@@ -80,16 +80,16 @@
   "additionalIdentifiers" : [ [ "/properties/Name" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "proton:CreateServiceTemplate", "proton:TagResource" ]
+      "permissions" : [ "proton:CreateServiceTemplate", "proton:TagResource", "kms:*", "proton:GetServiceTemplate" ]
     },
     "read" : {
-      "permissions" : [ "proton:GetServiceTemplate", "proton:ListTagsForResource" ]
+      "permissions" : [ "proton:GetServiceTemplate", "proton:ListTagsForResource", "kms:*" ]
     },
     "update" : {
-      "permissions" : [ "proton:CreateServiceTemplate", "proton:ListTagsForResource", "proton:TagResource", "proton:UntagResource", "proton:UpdateServiceTemplate" ]
+      "permissions" : [ "proton:GetServiceTemplate", "proton:CreateServiceTemplate", "proton:ListTagsForResource", "proton:TagResource", "proton:UntagResource", "proton:UpdateServiceTemplate", "kms:*" ]
     },
     "delete" : {
-      "permissions" : [ "proton:DeleteServiceTemplate", "proton:UntagResource" ]
+      "permissions" : [ "proton:DeleteServiceTemplate", "proton:UntagResource", "kms:*", "proton:GetServiceTemplate" ]
     },
     "list" : {
       "permissions" : [ "proton:ListServiceTemplates" ]
