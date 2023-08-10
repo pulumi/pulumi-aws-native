@@ -507,6 +507,383 @@ func (in *channelTypePtr) ToChannelTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelTypePtrOutput)
 }
 
+// Resolution Selection indicates which set of renditions are recorded for a stream.
+type RecordingConfigurationRenditionConfigurationRenditionSelection string
+
+const (
+	RecordingConfigurationRenditionConfigurationRenditionSelectionAll    = RecordingConfigurationRenditionConfigurationRenditionSelection("ALL")
+	RecordingConfigurationRenditionConfigurationRenditionSelectionNone   = RecordingConfigurationRenditionConfigurationRenditionSelection("NONE")
+	RecordingConfigurationRenditionConfigurationRenditionSelectionCustom = RecordingConfigurationRenditionConfigurationRenditionSelection("CUSTOM")
+)
+
+func (RecordingConfigurationRenditionConfigurationRenditionSelection) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionSelection)(nil)).Elem()
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionSelection) ToRecordingConfigurationRenditionConfigurationRenditionSelectionOutput() RecordingConfigurationRenditionConfigurationRenditionSelectionOutput {
+	return pulumi.ToOutput(e).(RecordingConfigurationRenditionConfigurationRenditionSelectionOutput)
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionSelection) ToRecordingConfigurationRenditionConfigurationRenditionSelectionOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RecordingConfigurationRenditionConfigurationRenditionSelectionOutput)
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionSelection) ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput() RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput {
+	return e.ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutputWithContext(context.Background())
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionSelection) ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput {
+	return RecordingConfigurationRenditionConfigurationRenditionSelection(e).ToRecordingConfigurationRenditionConfigurationRenditionSelectionOutputWithContext(ctx).ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutputWithContext(ctx)
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionSelection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionSelection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionSelection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionSelection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RecordingConfigurationRenditionConfigurationRenditionSelectionOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionSelection)(nil)).Elem()
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ToRecordingConfigurationRenditionConfigurationRenditionSelectionOutput() RecordingConfigurationRenditionConfigurationRenditionSelectionOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ToRecordingConfigurationRenditionConfigurationRenditionSelectionOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionSelectionOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput() RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput {
+	return o.ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationRenditionConfigurationRenditionSelection) *RecordingConfigurationRenditionConfigurationRenditionSelection {
+		return &v
+	}).(RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput)
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordingConfigurationRenditionConfigurationRenditionSelection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordingConfigurationRenditionConfigurationRenditionSelection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordingConfigurationRenditionConfigurationRenditionSelection)(nil)).Elem()
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput) ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput() RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput) ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput) Elem() RecordingConfigurationRenditionConfigurationRenditionSelectionOutput {
+	return o.ApplyT(func(v *RecordingConfigurationRenditionConfigurationRenditionSelection) RecordingConfigurationRenditionConfigurationRenditionSelection {
+		if v != nil {
+			return *v
+		}
+		var ret RecordingConfigurationRenditionConfigurationRenditionSelection
+		return ret
+	}).(RecordingConfigurationRenditionConfigurationRenditionSelectionOutput)
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecordingConfigurationRenditionConfigurationRenditionSelection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RecordingConfigurationRenditionConfigurationRenditionSelectionInput is an input type that accepts RecordingConfigurationRenditionConfigurationRenditionSelectionArgs and RecordingConfigurationRenditionConfigurationRenditionSelectionOutput values.
+// You can construct a concrete instance of `RecordingConfigurationRenditionConfigurationRenditionSelectionInput` via:
+//
+//	RecordingConfigurationRenditionConfigurationRenditionSelectionArgs{...}
+type RecordingConfigurationRenditionConfigurationRenditionSelectionInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationRenditionConfigurationRenditionSelectionOutput() RecordingConfigurationRenditionConfigurationRenditionSelectionOutput
+	ToRecordingConfigurationRenditionConfigurationRenditionSelectionOutputWithContext(context.Context) RecordingConfigurationRenditionConfigurationRenditionSelectionOutput
+}
+
+var recordingConfigurationRenditionConfigurationRenditionSelectionPtrType = reflect.TypeOf((**RecordingConfigurationRenditionConfigurationRenditionSelection)(nil)).Elem()
+
+type RecordingConfigurationRenditionConfigurationRenditionSelectionPtrInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput() RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput
+	ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutputWithContext(context.Context) RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput
+}
+
+type recordingConfigurationRenditionConfigurationRenditionSelectionPtr string
+
+func RecordingConfigurationRenditionConfigurationRenditionSelectionPtr(v string) RecordingConfigurationRenditionConfigurationRenditionSelectionPtrInput {
+	return (*recordingConfigurationRenditionConfigurationRenditionSelectionPtr)(&v)
+}
+
+func (*recordingConfigurationRenditionConfigurationRenditionSelectionPtr) ElementType() reflect.Type {
+	return recordingConfigurationRenditionConfigurationRenditionSelectionPtrType
+}
+
+func (in *recordingConfigurationRenditionConfigurationRenditionSelectionPtr) ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput() RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput {
+	return pulumi.ToOutput(in).(RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput)
+}
+
+func (in *recordingConfigurationRenditionConfigurationRenditionSelectionPtr) ToRecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput)
+}
+
+type RecordingConfigurationRenditionConfigurationRenditionsItem string
+
+const (
+	RecordingConfigurationRenditionConfigurationRenditionsItemFullHd           = RecordingConfigurationRenditionConfigurationRenditionsItem("FULL_HD")
+	RecordingConfigurationRenditionConfigurationRenditionsItemHd               = RecordingConfigurationRenditionConfigurationRenditionsItem("HD")
+	RecordingConfigurationRenditionConfigurationRenditionsItemSd               = RecordingConfigurationRenditionConfigurationRenditionsItem("SD")
+	RecordingConfigurationRenditionConfigurationRenditionsItemLowestResolution = RecordingConfigurationRenditionConfigurationRenditionsItem("LOWEST_RESOLUTION")
+)
+
+func (RecordingConfigurationRenditionConfigurationRenditionsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionsItem)(nil)).Elem()
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionsItem) ToRecordingConfigurationRenditionConfigurationRenditionsItemOutput() RecordingConfigurationRenditionConfigurationRenditionsItemOutput {
+	return pulumi.ToOutput(e).(RecordingConfigurationRenditionConfigurationRenditionsItemOutput)
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionsItem) ToRecordingConfigurationRenditionConfigurationRenditionsItemOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RecordingConfigurationRenditionConfigurationRenditionsItemOutput)
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionsItem) ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput() RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput {
+	return e.ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutputWithContext(context.Background())
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionsItem) ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput {
+	return RecordingConfigurationRenditionConfigurationRenditionsItem(e).ToRecordingConfigurationRenditionConfigurationRenditionsItemOutputWithContext(ctx).ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutputWithContext(ctx)
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecordingConfigurationRenditionConfigurationRenditionsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RecordingConfigurationRenditionConfigurationRenditionsItemOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionsItem)(nil)).Elem()
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToRecordingConfigurationRenditionConfigurationRenditionsItemOutput() RecordingConfigurationRenditionConfigurationRenditionsItemOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToRecordingConfigurationRenditionConfigurationRenditionsItemOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput() RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput {
+	return o.ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationRenditionConfigurationRenditionsItem) *RecordingConfigurationRenditionConfigurationRenditionsItem {
+		return &v
+	}).(RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput)
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordingConfigurationRenditionConfigurationRenditionsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordingConfigurationRenditionConfigurationRenditionsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordingConfigurationRenditionConfigurationRenditionsItem)(nil)).Elem()
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput) ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput() RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput) ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput) Elem() RecordingConfigurationRenditionConfigurationRenditionsItemOutput {
+	return o.ApplyT(func(v *RecordingConfigurationRenditionConfigurationRenditionsItem) RecordingConfigurationRenditionConfigurationRenditionsItem {
+		if v != nil {
+			return *v
+		}
+		var ret RecordingConfigurationRenditionConfigurationRenditionsItem
+		return ret
+	}).(RecordingConfigurationRenditionConfigurationRenditionsItemOutput)
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecordingConfigurationRenditionConfigurationRenditionsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RecordingConfigurationRenditionConfigurationRenditionsItemInput is an input type that accepts RecordingConfigurationRenditionConfigurationRenditionsItemArgs and RecordingConfigurationRenditionConfigurationRenditionsItemOutput values.
+// You can construct a concrete instance of `RecordingConfigurationRenditionConfigurationRenditionsItemInput` via:
+//
+//	RecordingConfigurationRenditionConfigurationRenditionsItemArgs{...}
+type RecordingConfigurationRenditionConfigurationRenditionsItemInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationRenditionConfigurationRenditionsItemOutput() RecordingConfigurationRenditionConfigurationRenditionsItemOutput
+	ToRecordingConfigurationRenditionConfigurationRenditionsItemOutputWithContext(context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemOutput
+}
+
+var recordingConfigurationRenditionConfigurationRenditionsItemPtrType = reflect.TypeOf((**RecordingConfigurationRenditionConfigurationRenditionsItem)(nil)).Elem()
+
+type RecordingConfigurationRenditionConfigurationRenditionsItemPtrInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput() RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput
+	ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutputWithContext(context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput
+}
+
+type recordingConfigurationRenditionConfigurationRenditionsItemPtr string
+
+func RecordingConfigurationRenditionConfigurationRenditionsItemPtr(v string) RecordingConfigurationRenditionConfigurationRenditionsItemPtrInput {
+	return (*recordingConfigurationRenditionConfigurationRenditionsItemPtr)(&v)
+}
+
+func (*recordingConfigurationRenditionConfigurationRenditionsItemPtr) ElementType() reflect.Type {
+	return recordingConfigurationRenditionConfigurationRenditionsItemPtrType
+}
+
+func (in *recordingConfigurationRenditionConfigurationRenditionsItemPtr) ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput() RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput {
+	return pulumi.ToOutput(in).(RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput)
+}
+
+func (in *recordingConfigurationRenditionConfigurationRenditionsItemPtr) ToRecordingConfigurationRenditionConfigurationRenditionsItemPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput)
+}
+
+// RecordingConfigurationRenditionConfigurationRenditionsItemArrayInput is an input type that accepts RecordingConfigurationRenditionConfigurationRenditionsItemArray and RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput values.
+// You can construct a concrete instance of `RecordingConfigurationRenditionConfigurationRenditionsItemArrayInput` via:
+//
+//	RecordingConfigurationRenditionConfigurationRenditionsItemArray{ RecordingConfigurationRenditionConfigurationRenditionsItemArgs{...} }
+type RecordingConfigurationRenditionConfigurationRenditionsItemArrayInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput() RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput
+	ToRecordingConfigurationRenditionConfigurationRenditionsItemArrayOutputWithContext(context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput
+}
+
+type RecordingConfigurationRenditionConfigurationRenditionsItemArray []RecordingConfigurationRenditionConfigurationRenditionsItem
+
+func (RecordingConfigurationRenditionConfigurationRenditionsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordingConfigurationRenditionConfigurationRenditionsItem)(nil)).Elem()
+}
+
+func (i RecordingConfigurationRenditionConfigurationRenditionsItemArray) ToRecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput() RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput {
+	return i.ToRecordingConfigurationRenditionConfigurationRenditionsItemArrayOutputWithContext(context.Background())
+}
+
+func (i RecordingConfigurationRenditionConfigurationRenditionsItemArray) ToRecordingConfigurationRenditionConfigurationRenditionsItemArrayOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput)
+}
+
+type RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordingConfigurationRenditionConfigurationRenditionsItem)(nil)).Elem()
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput) ToRecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput() RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput) ToRecordingConfigurationRenditionConfigurationRenditionsItemArrayOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput) Index(i pulumi.IntInput) RecordingConfigurationRenditionConfigurationRenditionsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordingConfigurationRenditionConfigurationRenditionsItem {
+		return vs[0].([]RecordingConfigurationRenditionConfigurationRenditionsItem)[vs[1].(int)]
+	}).(RecordingConfigurationRenditionConfigurationRenditionsItemOutput)
+}
+
 // Recording Configuration State.
 type RecordingConfigurationStateEnum string
 
@@ -764,6 +1141,382 @@ func (in *recordingConfigurationThumbnailConfigurationRecordingModePtr) ToRecord
 	return pulumi.ToOutputWithContext(ctx, in).(RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput)
 }
 
+// Resolution indicates the desired resolution of recorded thumbnails.
+type RecordingConfigurationThumbnailConfigurationResolution string
+
+const (
+	RecordingConfigurationThumbnailConfigurationResolutionFullHd           = RecordingConfigurationThumbnailConfigurationResolution("FULL_HD")
+	RecordingConfigurationThumbnailConfigurationResolutionHd               = RecordingConfigurationThumbnailConfigurationResolution("HD")
+	RecordingConfigurationThumbnailConfigurationResolutionSd               = RecordingConfigurationThumbnailConfigurationResolution("SD")
+	RecordingConfigurationThumbnailConfigurationResolutionLowestResolution = RecordingConfigurationThumbnailConfigurationResolution("LOWEST_RESOLUTION")
+)
+
+func (RecordingConfigurationThumbnailConfigurationResolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationResolution)(nil)).Elem()
+}
+
+func (e RecordingConfigurationThumbnailConfigurationResolution) ToRecordingConfigurationThumbnailConfigurationResolutionOutput() RecordingConfigurationThumbnailConfigurationResolutionOutput {
+	return pulumi.ToOutput(e).(RecordingConfigurationThumbnailConfigurationResolutionOutput)
+}
+
+func (e RecordingConfigurationThumbnailConfigurationResolution) ToRecordingConfigurationThumbnailConfigurationResolutionOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationResolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RecordingConfigurationThumbnailConfigurationResolutionOutput)
+}
+
+func (e RecordingConfigurationThumbnailConfigurationResolution) ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutput() RecordingConfigurationThumbnailConfigurationResolutionPtrOutput {
+	return e.ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutputWithContext(context.Background())
+}
+
+func (e RecordingConfigurationThumbnailConfigurationResolution) ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationResolutionPtrOutput {
+	return RecordingConfigurationThumbnailConfigurationResolution(e).ToRecordingConfigurationThumbnailConfigurationResolutionOutputWithContext(ctx).ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutputWithContext(ctx)
+}
+
+func (e RecordingConfigurationThumbnailConfigurationResolution) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordingConfigurationThumbnailConfigurationResolution) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordingConfigurationThumbnailConfigurationResolution) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecordingConfigurationThumbnailConfigurationResolution) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RecordingConfigurationThumbnailConfigurationResolutionOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationThumbnailConfigurationResolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationResolution)(nil)).Elem()
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToRecordingConfigurationThumbnailConfigurationResolutionOutput() RecordingConfigurationThumbnailConfigurationResolutionOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToRecordingConfigurationThumbnailConfigurationResolutionOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationResolutionOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutput() RecordingConfigurationThumbnailConfigurationResolutionPtrOutput {
+	return o.ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationResolutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationThumbnailConfigurationResolution) *RecordingConfigurationThumbnailConfigurationResolution {
+		return &v
+	}).(RecordingConfigurationThumbnailConfigurationResolutionPtrOutput)
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordingConfigurationThumbnailConfigurationResolution) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordingConfigurationThumbnailConfigurationResolution) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordingConfigurationThumbnailConfigurationResolutionPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationThumbnailConfigurationResolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordingConfigurationThumbnailConfigurationResolution)(nil)).Elem()
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionPtrOutput) ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutput() RecordingConfigurationThumbnailConfigurationResolutionPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionPtrOutput) ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationResolutionPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionPtrOutput) Elem() RecordingConfigurationThumbnailConfigurationResolutionOutput {
+	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfigurationResolution) RecordingConfigurationThumbnailConfigurationResolution {
+		if v != nil {
+			return *v
+		}
+		var ret RecordingConfigurationThumbnailConfigurationResolution
+		return ret
+	}).(RecordingConfigurationThumbnailConfigurationResolutionOutput)
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationThumbnailConfigurationResolutionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecordingConfigurationThumbnailConfigurationResolution) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RecordingConfigurationThumbnailConfigurationResolutionInput is an input type that accepts RecordingConfigurationThumbnailConfigurationResolutionArgs and RecordingConfigurationThumbnailConfigurationResolutionOutput values.
+// You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationResolutionInput` via:
+//
+//	RecordingConfigurationThumbnailConfigurationResolutionArgs{...}
+type RecordingConfigurationThumbnailConfigurationResolutionInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationThumbnailConfigurationResolutionOutput() RecordingConfigurationThumbnailConfigurationResolutionOutput
+	ToRecordingConfigurationThumbnailConfigurationResolutionOutputWithContext(context.Context) RecordingConfigurationThumbnailConfigurationResolutionOutput
+}
+
+var recordingConfigurationThumbnailConfigurationResolutionPtrType = reflect.TypeOf((**RecordingConfigurationThumbnailConfigurationResolution)(nil)).Elem()
+
+type RecordingConfigurationThumbnailConfigurationResolutionPtrInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutput() RecordingConfigurationThumbnailConfigurationResolutionPtrOutput
+	ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutputWithContext(context.Context) RecordingConfigurationThumbnailConfigurationResolutionPtrOutput
+}
+
+type recordingConfigurationThumbnailConfigurationResolutionPtr string
+
+func RecordingConfigurationThumbnailConfigurationResolutionPtr(v string) RecordingConfigurationThumbnailConfigurationResolutionPtrInput {
+	return (*recordingConfigurationThumbnailConfigurationResolutionPtr)(&v)
+}
+
+func (*recordingConfigurationThumbnailConfigurationResolutionPtr) ElementType() reflect.Type {
+	return recordingConfigurationThumbnailConfigurationResolutionPtrType
+}
+
+func (in *recordingConfigurationThumbnailConfigurationResolutionPtr) ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutput() RecordingConfigurationThumbnailConfigurationResolutionPtrOutput {
+	return pulumi.ToOutput(in).(RecordingConfigurationThumbnailConfigurationResolutionPtrOutput)
+}
+
+func (in *recordingConfigurationThumbnailConfigurationResolutionPtr) ToRecordingConfigurationThumbnailConfigurationResolutionPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationResolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RecordingConfigurationThumbnailConfigurationResolutionPtrOutput)
+}
+
+type RecordingConfigurationThumbnailConfigurationStorageItem string
+
+const (
+	RecordingConfigurationThumbnailConfigurationStorageItemSequential = RecordingConfigurationThumbnailConfigurationStorageItem("SEQUENTIAL")
+	RecordingConfigurationThumbnailConfigurationStorageItemLatest     = RecordingConfigurationThumbnailConfigurationStorageItem("LATEST")
+)
+
+func (RecordingConfigurationThumbnailConfigurationStorageItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationStorageItem)(nil)).Elem()
+}
+
+func (e RecordingConfigurationThumbnailConfigurationStorageItem) ToRecordingConfigurationThumbnailConfigurationStorageItemOutput() RecordingConfigurationThumbnailConfigurationStorageItemOutput {
+	return pulumi.ToOutput(e).(RecordingConfigurationThumbnailConfigurationStorageItemOutput)
+}
+
+func (e RecordingConfigurationThumbnailConfigurationStorageItem) ToRecordingConfigurationThumbnailConfigurationStorageItemOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationStorageItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RecordingConfigurationThumbnailConfigurationStorageItemOutput)
+}
+
+func (e RecordingConfigurationThumbnailConfigurationStorageItem) ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutput() RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput {
+	return e.ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutputWithContext(context.Background())
+}
+
+func (e RecordingConfigurationThumbnailConfigurationStorageItem) ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput {
+	return RecordingConfigurationThumbnailConfigurationStorageItem(e).ToRecordingConfigurationThumbnailConfigurationStorageItemOutputWithContext(ctx).ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutputWithContext(ctx)
+}
+
+func (e RecordingConfigurationThumbnailConfigurationStorageItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordingConfigurationThumbnailConfigurationStorageItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordingConfigurationThumbnailConfigurationStorageItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecordingConfigurationThumbnailConfigurationStorageItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RecordingConfigurationThumbnailConfigurationStorageItemOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationThumbnailConfigurationStorageItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationStorageItem)(nil)).Elem()
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToRecordingConfigurationThumbnailConfigurationStorageItemOutput() RecordingConfigurationThumbnailConfigurationStorageItemOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToRecordingConfigurationThumbnailConfigurationStorageItemOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationStorageItemOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutput() RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput {
+	return o.ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationThumbnailConfigurationStorageItem) *RecordingConfigurationThumbnailConfigurationStorageItem {
+		return &v
+	}).(RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput)
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordingConfigurationThumbnailConfigurationStorageItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordingConfigurationThumbnailConfigurationStorageItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordingConfigurationThumbnailConfigurationStorageItem)(nil)).Elem()
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput) ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutput() RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput) ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput) Elem() RecordingConfigurationThumbnailConfigurationStorageItemOutput {
+	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfigurationStorageItem) RecordingConfigurationThumbnailConfigurationStorageItem {
+		if v != nil {
+			return *v
+		}
+		var ret RecordingConfigurationThumbnailConfigurationStorageItem
+		return ret
+	}).(RecordingConfigurationThumbnailConfigurationStorageItemOutput)
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecordingConfigurationThumbnailConfigurationStorageItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RecordingConfigurationThumbnailConfigurationStorageItemInput is an input type that accepts RecordingConfigurationThumbnailConfigurationStorageItemArgs and RecordingConfigurationThumbnailConfigurationStorageItemOutput values.
+// You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationStorageItemInput` via:
+//
+//	RecordingConfigurationThumbnailConfigurationStorageItemArgs{...}
+type RecordingConfigurationThumbnailConfigurationStorageItemInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationThumbnailConfigurationStorageItemOutput() RecordingConfigurationThumbnailConfigurationStorageItemOutput
+	ToRecordingConfigurationThumbnailConfigurationStorageItemOutputWithContext(context.Context) RecordingConfigurationThumbnailConfigurationStorageItemOutput
+}
+
+var recordingConfigurationThumbnailConfigurationStorageItemPtrType = reflect.TypeOf((**RecordingConfigurationThumbnailConfigurationStorageItem)(nil)).Elem()
+
+type RecordingConfigurationThumbnailConfigurationStorageItemPtrInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutput() RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput
+	ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutputWithContext(context.Context) RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput
+}
+
+type recordingConfigurationThumbnailConfigurationStorageItemPtr string
+
+func RecordingConfigurationThumbnailConfigurationStorageItemPtr(v string) RecordingConfigurationThumbnailConfigurationStorageItemPtrInput {
+	return (*recordingConfigurationThumbnailConfigurationStorageItemPtr)(&v)
+}
+
+func (*recordingConfigurationThumbnailConfigurationStorageItemPtr) ElementType() reflect.Type {
+	return recordingConfigurationThumbnailConfigurationStorageItemPtrType
+}
+
+func (in *recordingConfigurationThumbnailConfigurationStorageItemPtr) ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutput() RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput {
+	return pulumi.ToOutput(in).(RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput)
+}
+
+func (in *recordingConfigurationThumbnailConfigurationStorageItemPtr) ToRecordingConfigurationThumbnailConfigurationStorageItemPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput)
+}
+
+// RecordingConfigurationThumbnailConfigurationStorageItemArrayInput is an input type that accepts RecordingConfigurationThumbnailConfigurationStorageItemArray and RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput values.
+// You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationStorageItemArrayInput` via:
+//
+//	RecordingConfigurationThumbnailConfigurationStorageItemArray{ RecordingConfigurationThumbnailConfigurationStorageItemArgs{...} }
+type RecordingConfigurationThumbnailConfigurationStorageItemArrayInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationThumbnailConfigurationStorageItemArrayOutput() RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput
+	ToRecordingConfigurationThumbnailConfigurationStorageItemArrayOutputWithContext(context.Context) RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput
+}
+
+type RecordingConfigurationThumbnailConfigurationStorageItemArray []RecordingConfigurationThumbnailConfigurationStorageItem
+
+func (RecordingConfigurationThumbnailConfigurationStorageItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordingConfigurationThumbnailConfigurationStorageItem)(nil)).Elem()
+}
+
+func (i RecordingConfigurationThumbnailConfigurationStorageItemArray) ToRecordingConfigurationThumbnailConfigurationStorageItemArrayOutput() RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput {
+	return i.ToRecordingConfigurationThumbnailConfigurationStorageItemArrayOutputWithContext(context.Background())
+}
+
+func (i RecordingConfigurationThumbnailConfigurationStorageItemArray) ToRecordingConfigurationThumbnailConfigurationStorageItemArrayOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput)
+}
+
+type RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordingConfigurationThumbnailConfigurationStorageItem)(nil)).Elem()
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput) ToRecordingConfigurationThumbnailConfigurationStorageItemArrayOutput() RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput) ToRecordingConfigurationThumbnailConfigurationStorageItemArrayOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput) Index(i pulumi.IntInput) RecordingConfigurationThumbnailConfigurationStorageItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordingConfigurationThumbnailConfigurationStorageItem {
+		return vs[0].([]RecordingConfigurationThumbnailConfigurationStorageItem)[vs[1].(int)]
+	}).(RecordingConfigurationThumbnailConfigurationStorageItemOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModeInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModePtrInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
@@ -771,16 +1524,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPresetPtrInput)(nil)).Elem(), ChannelPreset("HIGHER_BANDWIDTH_DELIVERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeInput)(nil)).Elem(), ChannelType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypePtrInput)(nil)).Elem(), ChannelType("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionSelectionInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationRenditionSelection("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionSelectionPtrInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationRenditionSelection("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionsItemInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationRenditionsItem("FULL_HD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionsItemPtrInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationRenditionsItem("FULL_HD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionsItemArrayInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationRenditionsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationRecordingModeInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationRecordingMode("INTERVAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationRecordingModePtrInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationRecordingMode("INTERVAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationResolutionInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationResolution("FULL_HD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationResolutionPtrInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationResolution("FULL_HD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationStorageItemInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationStorageItem("SEQUENTIAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationStorageItemPtrInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationStorageItem("SEQUENTIAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationStorageItemArrayInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationStorageItemArray{})
 	pulumi.RegisterOutputType(ChannelLatencyModeOutput{})
 	pulumi.RegisterOutputType(ChannelLatencyModePtrOutput{})
 	pulumi.RegisterOutputType(ChannelPresetOutput{})
 	pulumi.RegisterOutputType(ChannelPresetPtrOutput{})
 	pulumi.RegisterOutputType(ChannelTypeOutput{})
 	pulumi.RegisterOutputType(ChannelTypePtrOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationRenditionSelectionOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationRenditionsItemOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationStateEnumOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationRecordingModeOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationResolutionOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationResolutionPtrOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationStorageItemOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput{})
 }

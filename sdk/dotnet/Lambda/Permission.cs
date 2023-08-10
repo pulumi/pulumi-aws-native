@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.Lambda
     [AwsNativeResourceType("aws-native:lambda:Permission")]
     public partial class Permission : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The action that the principal can use on the function.
+        /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
 
+        /// <summary>
+        /// For Alexa Smart Home functions, a token that must be supplied by the invoker.
+        /// </summary>
         [Output("eventSourceToken")]
         public Output<string?> EventSourceToken { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Lambda function, version, or alias.
+        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+        /// </summary>
         [Output("functionUrlAuthType")]
-        public Output<string?> FunctionUrlAuthType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Lambda.PermissionFunctionUrlAuthType?> FunctionUrlAuthType { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS service or account that invokes the function. If you specify a service, use SourceArn or SourceAccount to limit who can invoke the function through that service.
+        /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        /// </summary>
         [Output("principalOrgId")]
         public Output<string?> PrincipalOrgId { get; private set; } = null!;
 
+        /// <summary>
+        /// For Amazon S3, the ID of the account that owns the resource. Use this together with SourceArn to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+        /// </summary>
         [Output("sourceAccount")]
         public Output<string?> SourceAccount { get; private set; } = null!;
 
+        /// <summary>
+        /// For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
+        /// </summary>
         [Output("sourceArn")]
         public Output<string?> SourceArn { get; private set; } = null!;
 
@@ -84,27 +108,51 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class PermissionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that the principal can use on the function.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        /// <summary>
+        /// For Alexa Smart Home functions, a token that must be supplied by the invoker.
+        /// </summary>
         [Input("eventSourceToken")]
         public Input<string>? EventSourceToken { get; set; }
 
+        /// <summary>
+        /// The name of the Lambda function, version, or alias.
+        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
+        /// <summary>
+        /// The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+        /// </summary>
         [Input("functionUrlAuthType")]
-        public Input<string>? FunctionUrlAuthType { get; set; }
+        public Input<Pulumi.AwsNative.Lambda.PermissionFunctionUrlAuthType>? FunctionUrlAuthType { get; set; }
 
+        /// <summary>
+        /// The AWS service or account that invokes the function. If you specify a service, use SourceArn or SourceAccount to limit who can invoke the function through that service.
+        /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        /// </summary>
         [Input("principalOrgId")]
         public Input<string>? PrincipalOrgId { get; set; }
 
+        /// <summary>
+        /// For Amazon S3, the ID of the account that owns the resource. Use this together with SourceArn to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+        /// </summary>
         [Input("sourceAccount")]
         public Input<string>? SourceAccount { get; set; }
 
+        /// <summary>
+        /// For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
+        /// </summary>
         [Input("sourceArn")]
         public Input<string>? SourceArn { get; set; }
 

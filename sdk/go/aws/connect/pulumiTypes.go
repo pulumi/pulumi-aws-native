@@ -7161,6 +7161,115 @@ func (o TaskTemplateTagArrayOutput) Index(i pulumi.IntInput) TaskTemplateTagOutp
 	}).(TaskTemplateTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type TrafficDistributionGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// TrafficDistributionGroupTagInput is an input type that accepts TrafficDistributionGroupTagArgs and TrafficDistributionGroupTagOutput values.
+// You can construct a concrete instance of `TrafficDistributionGroupTagInput` via:
+//
+//	TrafficDistributionGroupTagArgs{...}
+type TrafficDistributionGroupTagInput interface {
+	pulumi.Input
+
+	ToTrafficDistributionGroupTagOutput() TrafficDistributionGroupTagOutput
+	ToTrafficDistributionGroupTagOutputWithContext(context.Context) TrafficDistributionGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type TrafficDistributionGroupTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TrafficDistributionGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficDistributionGroupTag)(nil)).Elem()
+}
+
+func (i TrafficDistributionGroupTagArgs) ToTrafficDistributionGroupTagOutput() TrafficDistributionGroupTagOutput {
+	return i.ToTrafficDistributionGroupTagOutputWithContext(context.Background())
+}
+
+func (i TrafficDistributionGroupTagArgs) ToTrafficDistributionGroupTagOutputWithContext(ctx context.Context) TrafficDistributionGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficDistributionGroupTagOutput)
+}
+
+// TrafficDistributionGroupTagArrayInput is an input type that accepts TrafficDistributionGroupTagArray and TrafficDistributionGroupTagArrayOutput values.
+// You can construct a concrete instance of `TrafficDistributionGroupTagArrayInput` via:
+//
+//	TrafficDistributionGroupTagArray{ TrafficDistributionGroupTagArgs{...} }
+type TrafficDistributionGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToTrafficDistributionGroupTagArrayOutput() TrafficDistributionGroupTagArrayOutput
+	ToTrafficDistributionGroupTagArrayOutputWithContext(context.Context) TrafficDistributionGroupTagArrayOutput
+}
+
+type TrafficDistributionGroupTagArray []TrafficDistributionGroupTagInput
+
+func (TrafficDistributionGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficDistributionGroupTag)(nil)).Elem()
+}
+
+func (i TrafficDistributionGroupTagArray) ToTrafficDistributionGroupTagArrayOutput() TrafficDistributionGroupTagArrayOutput {
+	return i.ToTrafficDistributionGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficDistributionGroupTagArray) ToTrafficDistributionGroupTagArrayOutputWithContext(ctx context.Context) TrafficDistributionGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficDistributionGroupTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type TrafficDistributionGroupTagOutput struct{ *pulumi.OutputState }
+
+func (TrafficDistributionGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficDistributionGroupTag)(nil)).Elem()
+}
+
+func (o TrafficDistributionGroupTagOutput) ToTrafficDistributionGroupTagOutput() TrafficDistributionGroupTagOutput {
+	return o
+}
+
+func (o TrafficDistributionGroupTagOutput) ToTrafficDistributionGroupTagOutputWithContext(ctx context.Context) TrafficDistributionGroupTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o TrafficDistributionGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficDistributionGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o TrafficDistributionGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficDistributionGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TrafficDistributionGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficDistributionGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficDistributionGroupTag)(nil)).Elem()
+}
+
+func (o TrafficDistributionGroupTagArrayOutput) ToTrafficDistributionGroupTagArrayOutput() TrafficDistributionGroupTagArrayOutput {
+	return o
+}
+
+func (o TrafficDistributionGroupTagArrayOutput) ToTrafficDistributionGroupTagArrayOutputWithContext(ctx context.Context) TrafficDistributionGroupTagArrayOutput {
+	return o
+}
+
+func (o TrafficDistributionGroupTagArrayOutput) Index(i pulumi.IntInput) TrafficDistributionGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficDistributionGroupTag {
+		return vs[0].([]TrafficDistributionGroupTag)[vs[1].(int)]
+	}).(TrafficDistributionGroupTagOutput)
+}
+
 // Contains information about the identity of a user.
 type UserIdentityInfo struct {
 	Email          *string `pulumi:"email"`
@@ -7702,6 +7811,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateRequiredFieldInfoArrayInput)(nil)).Elem(), TaskTemplateRequiredFieldInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateTagInput)(nil)).Elem(), TaskTemplateTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateTagArrayInput)(nil)).Elem(), TaskTemplateTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficDistributionGroupTagInput)(nil)).Elem(), TrafficDistributionGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficDistributionGroupTagArrayInput)(nil)).Elem(), TrafficDistributionGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoPtrInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
@@ -7815,6 +7926,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskTemplateRequiredFieldInfoArrayOutput{})
 	pulumi.RegisterOutputType(TaskTemplateTagOutput{})
 	pulumi.RegisterOutputType(TaskTemplateTagArrayOutput{})
+	pulumi.RegisterOutputType(TrafficDistributionGroupTagOutput{})
+	pulumi.RegisterOutputType(TrafficDistributionGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneConfigOutput{})

@@ -13,33 +13,53 @@ import (
 )
 
 // Resource Type definition for AWS::CloudWatch::Alarm
-//
-// Deprecated: Alarm is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Alarm struct {
 	pulumi.CustomResourceState
 
-	ActionsEnabled                   pulumi.BoolPtrOutput            `pulumi:"actionsEnabled"`
-	AlarmActions                     pulumi.StringArrayOutput        `pulumi:"alarmActions"`
-	AlarmDescription                 pulumi.StringPtrOutput          `pulumi:"alarmDescription"`
-	AlarmName                        pulumi.StringPtrOutput          `pulumi:"alarmName"`
-	Arn                              pulumi.StringOutput             `pulumi:"arn"`
-	ComparisonOperator               pulumi.StringOutput             `pulumi:"comparisonOperator"`
-	DatapointsToAlarm                pulumi.IntPtrOutput             `pulumi:"datapointsToAlarm"`
-	Dimensions                       AlarmDimensionArrayOutput       `pulumi:"dimensions"`
-	EvaluateLowSampleCountPercentile pulumi.StringPtrOutput          `pulumi:"evaluateLowSampleCountPercentile"`
-	EvaluationPeriods                pulumi.IntOutput                `pulumi:"evaluationPeriods"`
-	ExtendedStatistic                pulumi.StringPtrOutput          `pulumi:"extendedStatistic"`
-	InsufficientDataActions          pulumi.StringArrayOutput        `pulumi:"insufficientDataActions"`
-	MetricName                       pulumi.StringPtrOutput          `pulumi:"metricName"`
-	Metrics                          AlarmMetricDataQueryArrayOutput `pulumi:"metrics"`
-	Namespace                        pulumi.StringPtrOutput          `pulumi:"namespace"`
-	OkActions                        pulumi.StringArrayOutput        `pulumi:"okActions"`
-	Period                           pulumi.IntPtrOutput             `pulumi:"period"`
-	Statistic                        pulumi.StringPtrOutput          `pulumi:"statistic"`
-	Threshold                        pulumi.Float64PtrOutput         `pulumi:"threshold"`
-	ThresholdMetricId                pulumi.StringPtrOutput          `pulumi:"thresholdMetricId"`
-	TreatMissingData                 pulumi.StringPtrOutput          `pulumi:"treatMissingData"`
-	Unit                             pulumi.StringPtrOutput          `pulumi:"unit"`
+	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+	ActionsEnabled pulumi.BoolPtrOutput `pulumi:"actionsEnabled"`
+	// The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+	AlarmActions pulumi.StringArrayOutput `pulumi:"alarmActions"`
+	// The description of the alarm.
+	AlarmDescription pulumi.StringPtrOutput `pulumi:"alarmDescription"`
+	// The name of the alarm.
+	AlarmName pulumi.StringPtrOutput `pulumi:"alarmName"`
+	// Amazon Resource Name is a unique name for each resource.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The arithmetic operation to use when comparing the specified statistic and threshold.
+	ComparisonOperator pulumi.StringOutput `pulumi:"comparisonOperator"`
+	// The number of datapoints that must be breaching to trigger the alarm.
+	DatapointsToAlarm pulumi.IntPtrOutput `pulumi:"datapointsToAlarm"`
+	// The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+	Dimensions AlarmDimensionArrayOutput `pulumi:"dimensions"`
+	// Used only for alarms based on percentiles.
+	EvaluateLowSampleCountPercentile pulumi.StringPtrOutput `pulumi:"evaluateLowSampleCountPercentile"`
+	// The number of periods over which data is compared to the specified threshold.
+	EvaluationPeriods pulumi.IntOutput `pulumi:"evaluationPeriods"`
+	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+	ExtendedStatistic pulumi.StringPtrOutput `pulumi:"extendedStatistic"`
+	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+	InsufficientDataActions pulumi.StringArrayOutput `pulumi:"insufficientDataActions"`
+	// The name of the metric associated with the alarm.
+	MetricName pulumi.StringPtrOutput `pulumi:"metricName"`
+	// An array that enables you to create an alarm based on the result of a metric math expression.
+	Metrics AlarmMetricDataQueryArrayOutput `pulumi:"metrics"`
+	// The namespace of the metric associated with the alarm.
+	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
+	// The actions to execute when this alarm transitions to the OK state from any other state.
+	OkActions pulumi.StringArrayOutput `pulumi:"okActions"`
+	// The period in seconds, over which the statistic is applied.
+	Period pulumi.IntPtrOutput `pulumi:"period"`
+	// The statistic for the metric associated with the alarm, other than percentile.
+	Statistic pulumi.StringPtrOutput `pulumi:"statistic"`
+	// In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+	Threshold pulumi.Float64PtrOutput `pulumi:"threshold"`
+	// In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+	ThresholdMetricId pulumi.StringPtrOutput `pulumi:"thresholdMetricId"`
+	// Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+	TreatMissingData pulumi.StringPtrOutput `pulumi:"treatMissingData"`
+	// The unit of the metric associated with the alarm.
+	Unit pulumi.StringPtrOutput `pulumi:"unit"`
 }
 
 // NewAlarm registers a new resource with the given unique name, arguments, and options.
@@ -88,52 +108,94 @@ func (AlarmState) ElementType() reflect.Type {
 }
 
 type alarmArgs struct {
-	ActionsEnabled                   *bool                  `pulumi:"actionsEnabled"`
-	AlarmActions                     []string               `pulumi:"alarmActions"`
-	AlarmDescription                 *string                `pulumi:"alarmDescription"`
-	AlarmName                        *string                `pulumi:"alarmName"`
-	ComparisonOperator               string                 `pulumi:"comparisonOperator"`
-	DatapointsToAlarm                *int                   `pulumi:"datapointsToAlarm"`
-	Dimensions                       []AlarmDimension       `pulumi:"dimensions"`
-	EvaluateLowSampleCountPercentile *string                `pulumi:"evaluateLowSampleCountPercentile"`
-	EvaluationPeriods                int                    `pulumi:"evaluationPeriods"`
-	ExtendedStatistic                *string                `pulumi:"extendedStatistic"`
-	InsufficientDataActions          []string               `pulumi:"insufficientDataActions"`
-	MetricName                       *string                `pulumi:"metricName"`
-	Metrics                          []AlarmMetricDataQuery `pulumi:"metrics"`
-	Namespace                        *string                `pulumi:"namespace"`
-	OkActions                        []string               `pulumi:"okActions"`
-	Period                           *int                   `pulumi:"period"`
-	Statistic                        *string                `pulumi:"statistic"`
-	Threshold                        *float64               `pulumi:"threshold"`
-	ThresholdMetricId                *string                `pulumi:"thresholdMetricId"`
-	TreatMissingData                 *string                `pulumi:"treatMissingData"`
-	Unit                             *string                `pulumi:"unit"`
+	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+	ActionsEnabled *bool `pulumi:"actionsEnabled"`
+	// The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+	AlarmActions []string `pulumi:"alarmActions"`
+	// The description of the alarm.
+	AlarmDescription *string `pulumi:"alarmDescription"`
+	// The name of the alarm.
+	AlarmName *string `pulumi:"alarmName"`
+	// The arithmetic operation to use when comparing the specified statistic and threshold.
+	ComparisonOperator string `pulumi:"comparisonOperator"`
+	// The number of datapoints that must be breaching to trigger the alarm.
+	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
+	// The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+	Dimensions []AlarmDimension `pulumi:"dimensions"`
+	// Used only for alarms based on percentiles.
+	EvaluateLowSampleCountPercentile *string `pulumi:"evaluateLowSampleCountPercentile"`
+	// The number of periods over which data is compared to the specified threshold.
+	EvaluationPeriods int `pulumi:"evaluationPeriods"`
+	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+	ExtendedStatistic *string `pulumi:"extendedStatistic"`
+	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+	InsufficientDataActions []string `pulumi:"insufficientDataActions"`
+	// The name of the metric associated with the alarm.
+	MetricName *string `pulumi:"metricName"`
+	// An array that enables you to create an alarm based on the result of a metric math expression.
+	Metrics []AlarmMetricDataQuery `pulumi:"metrics"`
+	// The namespace of the metric associated with the alarm.
+	Namespace *string `pulumi:"namespace"`
+	// The actions to execute when this alarm transitions to the OK state from any other state.
+	OkActions []string `pulumi:"okActions"`
+	// The period in seconds, over which the statistic is applied.
+	Period *int `pulumi:"period"`
+	// The statistic for the metric associated with the alarm, other than percentile.
+	Statistic *string `pulumi:"statistic"`
+	// In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+	Threshold *float64 `pulumi:"threshold"`
+	// In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+	ThresholdMetricId *string `pulumi:"thresholdMetricId"`
+	// Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+	TreatMissingData *string `pulumi:"treatMissingData"`
+	// The unit of the metric associated with the alarm.
+	Unit *string `pulumi:"unit"`
 }
 
 // The set of arguments for constructing a Alarm resource.
 type AlarmArgs struct {
-	ActionsEnabled                   pulumi.BoolPtrInput
-	AlarmActions                     pulumi.StringArrayInput
-	AlarmDescription                 pulumi.StringPtrInput
-	AlarmName                        pulumi.StringPtrInput
-	ComparisonOperator               pulumi.StringInput
-	DatapointsToAlarm                pulumi.IntPtrInput
-	Dimensions                       AlarmDimensionArrayInput
+	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+	ActionsEnabled pulumi.BoolPtrInput
+	// The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+	AlarmActions pulumi.StringArrayInput
+	// The description of the alarm.
+	AlarmDescription pulumi.StringPtrInput
+	// The name of the alarm.
+	AlarmName pulumi.StringPtrInput
+	// The arithmetic operation to use when comparing the specified statistic and threshold.
+	ComparisonOperator pulumi.StringInput
+	// The number of datapoints that must be breaching to trigger the alarm.
+	DatapointsToAlarm pulumi.IntPtrInput
+	// The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+	Dimensions AlarmDimensionArrayInput
+	// Used only for alarms based on percentiles.
 	EvaluateLowSampleCountPercentile pulumi.StringPtrInput
-	EvaluationPeriods                pulumi.IntInput
-	ExtendedStatistic                pulumi.StringPtrInput
-	InsufficientDataActions          pulumi.StringArrayInput
-	MetricName                       pulumi.StringPtrInput
-	Metrics                          AlarmMetricDataQueryArrayInput
-	Namespace                        pulumi.StringPtrInput
-	OkActions                        pulumi.StringArrayInput
-	Period                           pulumi.IntPtrInput
-	Statistic                        pulumi.StringPtrInput
-	Threshold                        pulumi.Float64PtrInput
-	ThresholdMetricId                pulumi.StringPtrInput
-	TreatMissingData                 pulumi.StringPtrInput
-	Unit                             pulumi.StringPtrInput
+	// The number of periods over which data is compared to the specified threshold.
+	EvaluationPeriods pulumi.IntInput
+	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+	ExtendedStatistic pulumi.StringPtrInput
+	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+	InsufficientDataActions pulumi.StringArrayInput
+	// The name of the metric associated with the alarm.
+	MetricName pulumi.StringPtrInput
+	// An array that enables you to create an alarm based on the result of a metric math expression.
+	Metrics AlarmMetricDataQueryArrayInput
+	// The namespace of the metric associated with the alarm.
+	Namespace pulumi.StringPtrInput
+	// The actions to execute when this alarm transitions to the OK state from any other state.
+	OkActions pulumi.StringArrayInput
+	// The period in seconds, over which the statistic is applied.
+	Period pulumi.IntPtrInput
+	// The statistic for the metric associated with the alarm, other than percentile.
+	Statistic pulumi.StringPtrInput
+	// In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+	Threshold pulumi.Float64PtrInput
+	// In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+	ThresholdMetricId pulumi.StringPtrInput
+	// Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+	TreatMissingData pulumi.StringPtrInput
+	// The unit of the metric associated with the alarm.
+	Unit pulumi.StringPtrInput
 }
 
 func (AlarmArgs) ElementType() reflect.Type {
@@ -173,90 +235,112 @@ func (o AlarmOutput) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
 	return o
 }
 
+// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 func (o AlarmOutput) ActionsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.BoolPtrOutput { return v.ActionsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The list of actions to execute when this alarm transitions into an ALARM state from any other state.
 func (o AlarmOutput) AlarmActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringArrayOutput { return v.AlarmActions }).(pulumi.StringArrayOutput)
 }
 
+// The description of the alarm.
 func (o AlarmOutput) AlarmDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.AlarmDescription }).(pulumi.StringPtrOutput)
 }
 
+// The name of the alarm.
 func (o AlarmOutput) AlarmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.AlarmName }).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name is a unique name for each resource.
 func (o AlarmOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The arithmetic operation to use when comparing the specified statistic and threshold.
 func (o AlarmOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
 
+// The number of datapoints that must be breaching to trigger the alarm.
 func (o AlarmOutput) DatapointsToAlarm() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.IntPtrOutput { return v.DatapointsToAlarm }).(pulumi.IntPtrOutput)
 }
 
+// The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
 func (o AlarmOutput) Dimensions() AlarmDimensionArrayOutput {
 	return o.ApplyT(func(v *Alarm) AlarmDimensionArrayOutput { return v.Dimensions }).(AlarmDimensionArrayOutput)
 }
 
+// Used only for alarms based on percentiles.
 func (o AlarmOutput) EvaluateLowSampleCountPercentile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.EvaluateLowSampleCountPercentile }).(pulumi.StringPtrOutput)
 }
 
+// The number of periods over which data is compared to the specified threshold.
 func (o AlarmOutput) EvaluationPeriods() pulumi.IntOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.IntOutput { return v.EvaluationPeriods }).(pulumi.IntOutput)
 }
 
+// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 func (o AlarmOutput) ExtendedStatistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.ExtendedStatistic }).(pulumi.StringPtrOutput)
 }
 
+// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
 func (o AlarmOutput) InsufficientDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringArrayOutput { return v.InsufficientDataActions }).(pulumi.StringArrayOutput)
 }
 
+// The name of the metric associated with the alarm.
 func (o AlarmOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
+// An array that enables you to create an alarm based on the result of a metric math expression.
 func (o AlarmOutput) Metrics() AlarmMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v *Alarm) AlarmMetricDataQueryArrayOutput { return v.Metrics }).(AlarmMetricDataQueryArrayOutput)
 }
 
+// The namespace of the metric associated with the alarm.
 func (o AlarmOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
+// The actions to execute when this alarm transitions to the OK state from any other state.
 func (o AlarmOutput) OkActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringArrayOutput { return v.OkActions }).(pulumi.StringArrayOutput)
 }
 
+// The period in seconds, over which the statistic is applied.
 func (o AlarmOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.IntPtrOutput { return v.Period }).(pulumi.IntPtrOutput)
 }
 
+// The statistic for the metric associated with the alarm, other than percentile.
 func (o AlarmOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.Statistic }).(pulumi.StringPtrOutput)
 }
 
+// In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
 func (o AlarmOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.Float64PtrOutput { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
+// In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
 func (o AlarmOutput) ThresholdMetricId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.ThresholdMetricId }).(pulumi.StringPtrOutput)
 }
 
+// Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
 func (o AlarmOutput) TreatMissingData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.TreatMissingData }).(pulumi.StringPtrOutput)
 }
 
+// The unit of the metric associated with the alarm.
 func (o AlarmOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.Unit }).(pulumi.StringPtrOutput)
 }

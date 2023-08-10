@@ -12,8 +12,14 @@ namespace Pulumi.AwsNative.InternetMonitor.Inputs
 
     public sealed class MonitorHealthEventsConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("availabilityLocalHealthEventsConfig")]
+        public Input<Inputs.MonitorLocalHealthEventsConfigArgs>? AvailabilityLocalHealthEventsConfig { get; set; }
+
         [Input("availabilityScoreThreshold")]
         public Input<double>? AvailabilityScoreThreshold { get; set; }
+
+        [Input("performanceLocalHealthEventsConfig")]
+        public Input<Inputs.MonitorLocalHealthEventsConfigArgs>? PerformanceLocalHealthEventsConfig { get; set; }
 
         [Input("performanceScoreThreshold")]
         public Input<double>? PerformanceScoreThreshold { get; set; }

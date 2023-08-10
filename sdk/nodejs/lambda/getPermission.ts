@@ -11,15 +11,26 @@ export function getPermission(args: GetPermissionArgs, opts?: pulumi.InvokeOptio
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getPermission", {
+        "functionName": args.functionName,
         "id": args.id,
     }, opts);
 }
 
 export interface GetPermissionArgs {
+    /**
+     * The name of the Lambda function, version, or alias.
+     */
+    functionName: string;
+    /**
+     * A statement identifier that differentiates the statement from others in the same policy.
+     */
     id: string;
 }
 
 export interface GetPermissionResult {
+    /**
+     * A statement identifier that differentiates the statement from others in the same policy.
+     */
     readonly id?: string;
 }
 /**
@@ -30,5 +41,12 @@ export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi
 }
 
 export interface GetPermissionOutputArgs {
+    /**
+     * The name of the Lambda function, version, or alias.
+     */
+    functionName: pulumi.Input<string>;
+    /**
+     * A statement identifier that differentiates the statement from others in the same policy.
+     */
     id: pulumi.Input<string>;
 }

@@ -16,6 +16,8 @@ import (
 type FeatureGroup struct {
 	pulumi.CustomResourceState
 
+	// A timestamp of FeatureGroup creation time.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// Description about the FeatureGroup.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Event Time Feature Name.
@@ -23,7 +25,9 @@ type FeatureGroup struct {
 	// An Array of Feature Definition
 	FeatureDefinitions FeatureGroupFeatureDefinitionArrayOutput `pulumi:"featureDefinitions"`
 	// The Name of the FeatureGroup.
-	FeatureGroupName   pulumi.StringOutput                   `pulumi:"featureGroupName"`
+	FeatureGroupName pulumi.StringOutput `pulumi:"featureGroupName"`
+	// The status of the feature group.
+	FeatureGroupStatus pulumi.StringOutput                   `pulumi:"featureGroupStatus"`
 	OfflineStoreConfig OfflineStoreConfigPropertiesPtrOutput `pulumi:"offlineStoreConfig"`
 	OnlineStoreConfig  OnlineStoreConfigPropertiesPtrOutput  `pulumi:"onlineStoreConfig"`
 	// The Record Identifier Feature Name.
@@ -158,6 +162,11 @@ func (o FeatureGroupOutput) ToFeatureGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
+// A timestamp of FeatureGroup creation time.
+func (o FeatureGroupOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
 // Description about the FeatureGroup.
 func (o FeatureGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -176,6 +185,11 @@ func (o FeatureGroupOutput) FeatureDefinitions() FeatureGroupFeatureDefinitionAr
 // The Name of the FeatureGroup.
 func (o FeatureGroupOutput) FeatureGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.FeatureGroupName }).(pulumi.StringOutput)
+}
+
+// The status of the feature group.
+func (o FeatureGroupOutput) FeatureGroupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.FeatureGroupStatus }).(pulumi.StringOutput)
 }
 
 func (o FeatureGroupOutput) OfflineStoreConfig() OfflineStoreConfigPropertiesPtrOutput {

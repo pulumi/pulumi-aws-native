@@ -7,6 +7,117 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.MediaTailor
 {
+    [EnumType]
+    public readonly struct ChannelLogType : IEquatable<ChannelLogType>
+    {
+        private readonly string _value;
+
+        private ChannelLogType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelLogType AsRun { get; } = new ChannelLogType("AS_RUN");
+
+        public static bool operator ==(ChannelLogType left, ChannelLogType right) => left.Equals(right);
+        public static bool operator !=(ChannelLogType left, ChannelLogType right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelLogType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelLogType other && Equals(other);
+        public bool Equals(ChannelLogType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ChannelPlaybackMode : IEquatable<ChannelPlaybackMode>
+    {
+        private readonly string _value;
+
+        private ChannelPlaybackMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelPlaybackMode Loop { get; } = new ChannelPlaybackMode("LOOP");
+        public static ChannelPlaybackMode Linear { get; } = new ChannelPlaybackMode("LINEAR");
+
+        public static bool operator ==(ChannelPlaybackMode left, ChannelPlaybackMode right) => left.Equals(right);
+        public static bool operator !=(ChannelPlaybackMode left, ChannelPlaybackMode right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelPlaybackMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelPlaybackMode other && Equals(other);
+        public bool Equals(ChannelPlaybackMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ChannelTier : IEquatable<ChannelTier>
+    {
+        private readonly string _value;
+
+        private ChannelTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelTier Basic { get; } = new ChannelTier("BASIC");
+        public static ChannelTier Standard { get; } = new ChannelTier("STANDARD");
+
+        public static bool operator ==(ChannelTier left, ChannelTier right) => left.Equals(right);
+        public static bool operator !=(ChannelTier left, ChannelTier right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelTier other && Equals(other);
+        public bool Equals(ChannelTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct LiveSourceType : IEquatable<LiveSourceType>
+    {
+        private readonly string _value;
+
+        private LiveSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LiveSourceType Dash { get; } = new LiveSourceType("DASH");
+        public static LiveSourceType Hls { get; } = new LiveSourceType("HLS");
+
+        public static bool operator ==(LiveSourceType left, LiveSourceType right) => left.Equals(right);
+        public static bool operator !=(LiveSourceType left, LiveSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(LiveSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LiveSourceType other && Equals(other);
+        public bool Equals(LiveSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
     /// </summary>
@@ -62,6 +173,62 @@ namespace Pulumi.AwsNative.MediaTailor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PlaybackConfigurationDashConfigurationOriginManifestType other && Equals(other);
         public bool Equals(PlaybackConfigurationDashConfigurationOriginManifestType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SourceLocationAccessType : IEquatable<SourceLocationAccessType>
+    {
+        private readonly string _value;
+
+        private SourceLocationAccessType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceLocationAccessType S3Sigv4 { get; } = new SourceLocationAccessType("S3_SIGV4");
+        public static SourceLocationAccessType SecretsManagerAccessToken { get; } = new SourceLocationAccessType("SECRETS_MANAGER_ACCESS_TOKEN");
+
+        public static bool operator ==(SourceLocationAccessType left, SourceLocationAccessType right) => left.Equals(right);
+        public static bool operator !=(SourceLocationAccessType left, SourceLocationAccessType right) => !left.Equals(right);
+
+        public static explicit operator string(SourceLocationAccessType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceLocationAccessType other && Equals(other);
+        public bool Equals(SourceLocationAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VodSourceType : IEquatable<VodSourceType>
+    {
+        private readonly string _value;
+
+        private VodSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VodSourceType Dash { get; } = new VodSourceType("DASH");
+        public static VodSourceType Hls { get; } = new VodSourceType("HLS");
+
+        public static bool operator ==(VodSourceType left, VodSourceType right) => left.Equals(right);
+        public static bool operator !=(VodSourceType left, VodSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(VodSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VodSourceType other && Equals(other);
+        public bool Equals(VodSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

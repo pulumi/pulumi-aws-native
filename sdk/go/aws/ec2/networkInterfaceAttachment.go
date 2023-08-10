@@ -13,15 +13,19 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
-//
-// Deprecated: NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type NetworkInterfaceAttachment struct {
 	pulumi.CustomResourceState
 
+	// The ID of the network interface attachment.
+	AttachmentId pulumi.StringOutput `pulumi:"attachmentId"`
+	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
 	DeleteOnTermination pulumi.BoolPtrOutput `pulumi:"deleteOnTermination"`
-	DeviceIndex         pulumi.StringOutput  `pulumi:"deviceIndex"`
-	InstanceId          pulumi.StringOutput  `pulumi:"instanceId"`
-	NetworkInterfaceId  pulumi.StringOutput  `pulumi:"networkInterfaceId"`
+	// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+	DeviceIndex pulumi.StringOutput `pulumi:"deviceIndex"`
+	// The ID of the instance to which you will attach the ENI.
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// The ID of the ENI that you want to attach.
+	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 }
 
 // NewNetworkInterfaceAttachment registers a new resource with the given unique name, arguments, and options.
@@ -73,18 +77,26 @@ func (NetworkInterfaceAttachmentState) ElementType() reflect.Type {
 }
 
 type networkInterfaceAttachmentArgs struct {
-	DeleteOnTermination *bool  `pulumi:"deleteOnTermination"`
-	DeviceIndex         string `pulumi:"deviceIndex"`
-	InstanceId          string `pulumi:"instanceId"`
-	NetworkInterfaceId  string `pulumi:"networkInterfaceId"`
+	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+	DeviceIndex string `pulumi:"deviceIndex"`
+	// The ID of the instance to which you will attach the ENI.
+	InstanceId string `pulumi:"instanceId"`
+	// The ID of the ENI that you want to attach.
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
 // The set of arguments for constructing a NetworkInterfaceAttachment resource.
 type NetworkInterfaceAttachmentArgs struct {
+	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
 	DeleteOnTermination pulumi.BoolPtrInput
-	DeviceIndex         pulumi.StringInput
-	InstanceId          pulumi.StringInput
-	NetworkInterfaceId  pulumi.StringInput
+	// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+	DeviceIndex pulumi.StringInput
+	// The ID of the instance to which you will attach the ENI.
+	InstanceId pulumi.StringInput
+	// The ID of the ENI that you want to attach.
+	NetworkInterfaceId pulumi.StringInput
 }
 
 func (NetworkInterfaceAttachmentArgs) ElementType() reflect.Type {
@@ -124,18 +136,27 @@ func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutputWith
 	return o
 }
 
+// The ID of the network interface attachment.
+func (o NetworkInterfaceAttachmentOutput) AttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.AttachmentId }).(pulumi.StringOutput)
+}
+
+// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
 func (o NetworkInterfaceAttachmentOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.BoolPtrOutput { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
 func (o NetworkInterfaceAttachmentOutput) DeviceIndex() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.DeviceIndex }).(pulumi.StringOutput)
 }
 
+// The ID of the instance to which you will attach the ENI.
 func (o NetworkInterfaceAttachmentOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
+// The ID of the ENI that you want to attach.
 func (o NetworkInterfaceAttachmentOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }

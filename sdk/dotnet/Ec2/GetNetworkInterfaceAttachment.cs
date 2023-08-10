@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkInterfaceAttachmentArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The ID of the network interface attachment.
+        /// </summary>
+        [Input("attachmentId", required: true)]
+        public string AttachmentId { get; set; } = null!;
 
         public GetNetworkInterfaceAttachmentArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkInterfaceAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The ID of the network interface attachment.
+        /// </summary>
+        [Input("attachmentId", required: true)]
+        public Input<string> AttachmentId { get; set; } = null!;
 
         public GetNetworkInterfaceAttachmentInvokeArgs()
         {
@@ -51,29 +57,23 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetNetworkInterfaceAttachmentResult
     {
+        /// <summary>
+        /// The ID of the network interface attachment.
+        /// </summary>
+        public readonly string? AttachmentId;
+        /// <summary>
+        /// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        /// </summary>
         public readonly bool? DeleteOnTermination;
-        public readonly string? DeviceIndex;
-        public readonly string? Id;
-        public readonly string? InstanceId;
-        public readonly string? NetworkInterfaceId;
 
         [OutputConstructor]
         private GetNetworkInterfaceAttachmentResult(
-            bool? deleteOnTermination,
+            string? attachmentId,
 
-            string? deviceIndex,
-
-            string? id,
-
-            string? instanceId,
-
-            string? networkInterfaceId)
+            bool? deleteOnTermination)
         {
+            AttachmentId = attachmentId;
             DeleteOnTermination = deleteOnTermination;
-            DeviceIndex = deviceIndex;
-            Id = id;
-            InstanceId = instanceId;
-            NetworkInterfaceId = networkInterfaceId;
         }
     }
 }

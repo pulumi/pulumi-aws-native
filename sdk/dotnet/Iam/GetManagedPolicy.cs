@@ -27,11 +27,8 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetManagedPolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the managed policy
-        /// </summary>
-        [Input("policyArn", required: true)]
-        public string PolicyArn { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetManagedPolicyArgs()
         {
@@ -41,11 +38,8 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetManagedPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the managed policy
-        /// </summary>
-        [Input("policyArn", required: true)]
-        public Input<string> PolicyArn { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetManagedPolicyInvokeArgs()
         {
@@ -57,92 +51,28 @@ namespace Pulumi.AwsNative.Iam
     [OutputType]
     public sealed class GetManagedPolicyResult
     {
-        /// <summary>
-        /// The number of entities (users, groups, and roles) that the policy is attached to.
-        /// </summary>
-        public readonly int? AttachmentCount;
-        /// <summary>
-        /// The date and time, in ISO 8601 date-time format, when the policy was created.
-        /// </summary>
-        public readonly string? CreateDate;
-        /// <summary>
-        /// The identifier for the version of the policy that is set as the default version.
-        /// </summary>
-        public readonly string? DefaultVersionId;
-        /// <summary>
-        /// The name (friendly name, not ARN) of the group to attach the policy to.
-        /// </summary>
         public readonly ImmutableArray<string> Groups;
-        /// <summary>
-        /// Specifies whether the policy can be attached to an IAM user, group, or role.
-        /// </summary>
-        public readonly bool? IsAttachable;
-        /// <summary>
-        /// The number of entities (users and roles) for which the policy is used to set the permissions boundary.
-        /// </summary>
-        public readonly int? PermissionsBoundaryUsageCount;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the managed policy
-        /// </summary>
-        public readonly string? PolicyArn;
-        /// <summary>
-        /// The JSON policy document that you want to use as the content for the new policy.
-        /// </summary>
+        public readonly string? Id;
         public readonly object? PolicyDocument;
-        /// <summary>
-        /// The stable and unique string identifying the policy.
-        /// </summary>
-        public readonly string? PolicyId;
-        /// <summary>
-        /// The name (friendly name, not ARN) of the role to attach the policy to.
-        /// </summary>
         public readonly ImmutableArray<string> Roles;
-        /// <summary>
-        /// The date and time, in ISO 8601 date-time format, when the policy was last updated.
-        /// </summary>
-        public readonly string? UpdateDate;
-        /// <summary>
-        /// The name (friendly name, not ARN) of the IAM user to attach the policy to.
-        /// </summary>
         public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]
         private GetManagedPolicyResult(
-            int? attachmentCount,
-
-            string? createDate,
-
-            string? defaultVersionId,
-
             ImmutableArray<string> groups,
 
-            bool? isAttachable,
-
-            int? permissionsBoundaryUsageCount,
-
-            string? policyArn,
+            string? id,
 
             object? policyDocument,
 
-            string? policyId,
-
             ImmutableArray<string> roles,
-
-            string? updateDate,
 
             ImmutableArray<string> users)
         {
-            AttachmentCount = attachmentCount;
-            CreateDate = createDate;
-            DefaultVersionId = defaultVersionId;
             Groups = groups;
-            IsAttachable = isAttachable;
-            PermissionsBoundaryUsageCount = permissionsBoundaryUsageCount;
-            PolicyArn = policyArn;
+            Id = id;
             PolicyDocument = policyDocument;
-            PolicyId = policyId;
             Roles = roles;
-            UpdateDate = updateDate;
             Users = users;
         }
     }

@@ -47,6 +47,14 @@ export interface GetDbClusterResult {
      */
     readonly dbClusterParameterGroupName?: string;
     /**
+     * The port number on which the DB instances in the DB cluster accept connections. 
+     *
+     * If not specified, the default port used is `8182`. 
+     *
+     * Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+     */
+    readonly dbPort?: number;
+    /**
      * Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
      */
     readonly deletionProtection?: boolean;
@@ -55,7 +63,7 @@ export interface GetDbClusterResult {
      */
     readonly enableCloudwatchLogsExports?: string[];
     /**
-     * The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+     * The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
      */
     readonly endpoint?: string;
     /**
@@ -67,7 +75,7 @@ export interface GetDbClusterResult {
      */
     readonly iamAuthEnabled?: boolean;
     /**
-     * Specifies the port that the database engine is listening on.
+     * The port number on which the DB cluster accepts connections. For example: `8182`.
      */
     readonly port?: string;
     /**
@@ -79,7 +87,7 @@ export interface GetDbClusterResult {
      */
     readonly preferredMaintenanceWindow?: string;
     /**
-     * The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+     * The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
      */
     readonly readEndpoint?: string;
     /**

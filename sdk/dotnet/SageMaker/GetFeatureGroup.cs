@@ -58,14 +58,29 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class GetFeatureGroupResult
     {
         /// <summary>
+        /// A timestamp of FeatureGroup creation time.
+        /// </summary>
+        public readonly string? CreationTime;
+        /// <summary>
         /// An Array of Feature Definition
         /// </summary>
         public readonly ImmutableArray<Outputs.FeatureGroupFeatureDefinition> FeatureDefinitions;
+        /// <summary>
+        /// The status of the feature group.
+        /// </summary>
+        public readonly string? FeatureGroupStatus;
 
         [OutputConstructor]
-        private GetFeatureGroupResult(ImmutableArray<Outputs.FeatureGroupFeatureDefinition> featureDefinitions)
+        private GetFeatureGroupResult(
+            string? creationTime,
+
+            ImmutableArray<Outputs.FeatureGroupFeatureDefinition> featureDefinitions,
+
+            string? featureGroupStatus)
         {
+            CreationTime = creationTime;
             FeatureDefinitions = featureDefinitions;
+            FeatureGroupStatus = featureGroupStatus;
         }
     }
 }

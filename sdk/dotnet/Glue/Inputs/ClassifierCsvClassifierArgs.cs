@@ -15,8 +15,19 @@ namespace Pulumi.AwsNative.Glue.Inputs
         [Input("allowSingleColumn")]
         public Input<bool>? AllowSingleColumn { get; set; }
 
+        [Input("containsCustomDatatype")]
+        private InputList<string>? _containsCustomDatatype;
+        public InputList<string> ContainsCustomDatatype
+        {
+            get => _containsCustomDatatype ?? (_containsCustomDatatype = new InputList<string>());
+            set => _containsCustomDatatype = value;
+        }
+
         [Input("containsHeader")]
         public Input<string>? ContainsHeader { get; set; }
+
+        [Input("customDatatypeConfigured")]
+        public Input<bool>? CustomDatatypeConfigured { get; set; }
 
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }

@@ -1182,11 +1182,175 @@ func (o VariantStoreStoreStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkflowAccelerators string
+
+const (
+	WorkflowAcceleratorsGpu = WorkflowAccelerators("GPU")
+)
+
+func (WorkflowAccelerators) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccelerators)(nil)).Elem()
+}
+
+func (e WorkflowAccelerators) ToWorkflowAcceleratorsOutput() WorkflowAcceleratorsOutput {
+	return pulumi.ToOutput(e).(WorkflowAcceleratorsOutput)
+}
+
+func (e WorkflowAccelerators) ToWorkflowAcceleratorsOutputWithContext(ctx context.Context) WorkflowAcceleratorsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkflowAcceleratorsOutput)
+}
+
+func (e WorkflowAccelerators) ToWorkflowAcceleratorsPtrOutput() WorkflowAcceleratorsPtrOutput {
+	return e.ToWorkflowAcceleratorsPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowAccelerators) ToWorkflowAcceleratorsPtrOutputWithContext(ctx context.Context) WorkflowAcceleratorsPtrOutput {
+	return WorkflowAccelerators(e).ToWorkflowAcceleratorsOutputWithContext(ctx).ToWorkflowAcceleratorsPtrOutputWithContext(ctx)
+}
+
+func (e WorkflowAccelerators) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowAccelerators) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowAccelerators) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowAccelerators) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkflowAcceleratorsOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAcceleratorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccelerators)(nil)).Elem()
+}
+
+func (o WorkflowAcceleratorsOutput) ToWorkflowAcceleratorsOutput() WorkflowAcceleratorsOutput {
+	return o
+}
+
+func (o WorkflowAcceleratorsOutput) ToWorkflowAcceleratorsOutputWithContext(ctx context.Context) WorkflowAcceleratorsOutput {
+	return o
+}
+
+func (o WorkflowAcceleratorsOutput) ToWorkflowAcceleratorsPtrOutput() WorkflowAcceleratorsPtrOutput {
+	return o.ToWorkflowAcceleratorsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowAcceleratorsOutput) ToWorkflowAcceleratorsPtrOutputWithContext(ctx context.Context) WorkflowAcceleratorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowAccelerators) *WorkflowAccelerators {
+		return &v
+	}).(WorkflowAcceleratorsPtrOutput)
+}
+
+func (o WorkflowAcceleratorsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowAcceleratorsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowAccelerators) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowAcceleratorsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowAcceleratorsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowAccelerators) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowAcceleratorsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAcceleratorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccelerators)(nil)).Elem()
+}
+
+func (o WorkflowAcceleratorsPtrOutput) ToWorkflowAcceleratorsPtrOutput() WorkflowAcceleratorsPtrOutput {
+	return o
+}
+
+func (o WorkflowAcceleratorsPtrOutput) ToWorkflowAcceleratorsPtrOutputWithContext(ctx context.Context) WorkflowAcceleratorsPtrOutput {
+	return o
+}
+
+func (o WorkflowAcceleratorsPtrOutput) Elem() WorkflowAcceleratorsOutput {
+	return o.ApplyT(func(v *WorkflowAccelerators) WorkflowAccelerators {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowAccelerators
+		return ret
+	}).(WorkflowAcceleratorsOutput)
+}
+
+func (o WorkflowAcceleratorsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowAcceleratorsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowAccelerators) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkflowAcceleratorsInput is an input type that accepts WorkflowAcceleratorsArgs and WorkflowAcceleratorsOutput values.
+// You can construct a concrete instance of `WorkflowAcceleratorsInput` via:
+//
+//	WorkflowAcceleratorsArgs{...}
+type WorkflowAcceleratorsInput interface {
+	pulumi.Input
+
+	ToWorkflowAcceleratorsOutput() WorkflowAcceleratorsOutput
+	ToWorkflowAcceleratorsOutputWithContext(context.Context) WorkflowAcceleratorsOutput
+}
+
+var workflowAcceleratorsPtrType = reflect.TypeOf((**WorkflowAccelerators)(nil)).Elem()
+
+type WorkflowAcceleratorsPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowAcceleratorsPtrOutput() WorkflowAcceleratorsPtrOutput
+	ToWorkflowAcceleratorsPtrOutputWithContext(context.Context) WorkflowAcceleratorsPtrOutput
+}
+
+type workflowAcceleratorsPtr string
+
+func WorkflowAcceleratorsPtr(v string) WorkflowAcceleratorsPtrInput {
+	return (*workflowAcceleratorsPtr)(&v)
+}
+
+func (*workflowAcceleratorsPtr) ElementType() reflect.Type {
+	return workflowAcceleratorsPtrType
+}
+
+func (in *workflowAcceleratorsPtr) ToWorkflowAcceleratorsPtrOutput() WorkflowAcceleratorsPtrOutput {
+	return pulumi.ToOutput(in).(WorkflowAcceleratorsPtrOutput)
+}
+
+func (in *workflowAcceleratorsPtr) ToWorkflowAcceleratorsPtrOutputWithContext(ctx context.Context) WorkflowAcceleratorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkflowAcceleratorsPtrOutput)
+}
+
 type WorkflowEngine string
 
 const (
 	WorkflowEngineWdl      = WorkflowEngine("WDL")
 	WorkflowEngineNextflow = WorkflowEngine("NEXTFLOW")
+	WorkflowEngineCwl      = WorkflowEngine("CWL")
 )
 
 func (WorkflowEngine) ElementType() reflect.Type {
@@ -1541,6 +1705,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreEncryptionTypePtrInput)(nil)).Elem(), SequenceStoreEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreEncryptionTypeInput)(nil)).Elem(), VariantStoreEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreEncryptionTypePtrInput)(nil)).Elem(), VariantStoreEncryptionType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAcceleratorsInput)(nil)).Elem(), WorkflowAccelerators("GPU"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAcceleratorsPtrInput)(nil)).Elem(), WorkflowAccelerators("GPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEngineInput)(nil)).Elem(), WorkflowEngine("WDL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnginePtrInput)(nil)).Elem(), WorkflowEngine("WDL"))
 	pulumi.RegisterOutputType(AnnotationStoreAnnotationTypeOutput{})
@@ -1559,6 +1725,8 @@ func init() {
 	pulumi.RegisterOutputType(VariantStoreEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(VariantStoreStoreStatusOutput{})
 	pulumi.RegisterOutputType(VariantStoreStoreStatusPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowAcceleratorsOutput{})
+	pulumi.RegisterOutputType(WorkflowAcceleratorsPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowEngineOutput{})
 	pulumi.RegisterOutputType(WorkflowEnginePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStatusOutput{})

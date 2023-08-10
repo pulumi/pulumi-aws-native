@@ -348,6 +348,37 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct PermissionFunctionUrlAuthType : IEquatable<PermissionFunctionUrlAuthType>
+    {
+        private readonly string _value;
+
+        private PermissionFunctionUrlAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PermissionFunctionUrlAuthType AwsIam { get; } = new PermissionFunctionUrlAuthType("AWS_IAM");
+        public static PermissionFunctionUrlAuthType None { get; } = new PermissionFunctionUrlAuthType("NONE");
+
+        public static bool operator ==(PermissionFunctionUrlAuthType left, PermissionFunctionUrlAuthType right) => left.Equals(right);
+        public static bool operator !=(PermissionFunctionUrlAuthType left, PermissionFunctionUrlAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(PermissionFunctionUrlAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PermissionFunctionUrlAuthType other && Equals(other);
+        public bool Equals(PermissionFunctionUrlAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct UrlAllowMethodsItem : IEquatable<UrlAllowMethodsItem>
     {

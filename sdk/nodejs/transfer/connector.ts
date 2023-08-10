@@ -42,13 +42,13 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly accessRole!: pulumi.Output<string>;
     /**
-     * Specifies the unique Amazon Resource Name (ARN) for the workflow.
+     * Specifies the unique Amazon Resource Name (ARN) for the connector.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration for an AS2 connector.
      */
-    public readonly as2Config!: pulumi.Output<outputs.transfer.As2ConfigProperties>;
+    public readonly as2Config!: pulumi.Output<outputs.transfer.As2ConfigProperties | undefined>;
     /**
      * A unique identifier for the connector.
      */
@@ -58,7 +58,11 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly loggingRole!: pulumi.Output<string | undefined>;
     /**
-     * Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+     * Configuration for an SFTP connector.
+     */
+    public readonly sftpConfig!: pulumi.Output<outputs.transfer.SftpConfigProperties | undefined>;
+    /**
+     * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
      */
     public readonly tags!: pulumi.Output<outputs.transfer.ConnectorTag[] | undefined>;
     /**
@@ -80,15 +84,13 @@ export class Connector extends pulumi.CustomResource {
             if ((!args || args.accessRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessRole'");
             }
-            if ((!args || args.as2Config === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'as2Config'");
-            }
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
             resourceInputs["accessRole"] = args ? args.accessRole : undefined;
             resourceInputs["as2Config"] = args ? args.as2Config : undefined;
             resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
+            resourceInputs["sftpConfig"] = args ? args.sftpConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -99,6 +101,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["as2Config"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["loggingRole"] = undefined /*out*/;
+            resourceInputs["sftpConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }
@@ -118,13 +121,17 @@ export interface ConnectorArgs {
     /**
      * Configuration for an AS2 connector.
      */
-    as2Config: pulumi.Input<inputs.transfer.As2ConfigPropertiesArgs>;
+    as2Config?: pulumi.Input<inputs.transfer.As2ConfigPropertiesArgs>;
     /**
      * Specifies the logging role for the connector.
      */
     loggingRole?: pulumi.Input<string>;
     /**
-     * Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+     * Configuration for an SFTP connector.
+     */
+    sftpConfig?: pulumi.Input<inputs.transfer.SftpConfigPropertiesArgs>;
+    /**
+     * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.transfer.ConnectorTagArgs>[]>;
     /**

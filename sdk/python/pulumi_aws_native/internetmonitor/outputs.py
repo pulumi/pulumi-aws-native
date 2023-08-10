@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'MonitorHealthEventsConfig',
     'MonitorInternetMeasurementsLogDelivery',
+    'MonitorLocalHealthEventsConfig',
     'MonitorS3Config',
     'MonitorTag',
 ]
@@ -23,8 +24,12 @@ class MonitorHealthEventsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "availabilityScoreThreshold":
+        if key == "availabilityLocalHealthEventsConfig":
+            suggest = "availability_local_health_events_config"
+        elif key == "availabilityScoreThreshold":
             suggest = "availability_score_threshold"
+        elif key == "performanceLocalHealthEventsConfig":
+            suggest = "performance_local_health_events_config"
         elif key == "performanceScoreThreshold":
             suggest = "performance_score_threshold"
 
@@ -40,17 +45,33 @@ class MonitorHealthEventsConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 availability_local_health_events_config: Optional['outputs.MonitorLocalHealthEventsConfig'] = None,
                  availability_score_threshold: Optional[float] = None,
+                 performance_local_health_events_config: Optional['outputs.MonitorLocalHealthEventsConfig'] = None,
                  performance_score_threshold: Optional[float] = None):
+        if availability_local_health_events_config is not None:
+            pulumi.set(__self__, "availability_local_health_events_config", availability_local_health_events_config)
         if availability_score_threshold is not None:
             pulumi.set(__self__, "availability_score_threshold", availability_score_threshold)
+        if performance_local_health_events_config is not None:
+            pulumi.set(__self__, "performance_local_health_events_config", performance_local_health_events_config)
         if performance_score_threshold is not None:
             pulumi.set(__self__, "performance_score_threshold", performance_score_threshold)
+
+    @property
+    @pulumi.getter(name="availabilityLocalHealthEventsConfig")
+    def availability_local_health_events_config(self) -> Optional['outputs.MonitorLocalHealthEventsConfig']:
+        return pulumi.get(self, "availability_local_health_events_config")
 
     @property
     @pulumi.getter(name="availabilityScoreThreshold")
     def availability_score_threshold(self) -> Optional[float]:
         return pulumi.get(self, "availability_score_threshold")
+
+    @property
+    @pulumi.getter(name="performanceLocalHealthEventsConfig")
+    def performance_local_health_events_config(self) -> Optional['outputs.MonitorLocalHealthEventsConfig']:
+        return pulumi.get(self, "performance_local_health_events_config")
 
     @property
     @pulumi.getter(name="performanceScoreThreshold")
@@ -86,6 +107,54 @@ class MonitorInternetMeasurementsLogDelivery(dict):
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> Optional['outputs.MonitorS3Config']:
         return pulumi.get(self, "s3_config")
+
+
+@pulumi.output_type
+class MonitorLocalHealthEventsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthScoreThreshold":
+            suggest = "health_score_threshold"
+        elif key == "minTrafficImpact":
+            suggest = "min_traffic_impact"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorLocalHealthEventsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorLocalHealthEventsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorLocalHealthEventsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 health_score_threshold: Optional[float] = None,
+                 min_traffic_impact: Optional[float] = None,
+                 status: Optional['MonitorLocalHealthEventsConfigStatus'] = None):
+        if health_score_threshold is not None:
+            pulumi.set(__self__, "health_score_threshold", health_score_threshold)
+        if min_traffic_impact is not None:
+            pulumi.set(__self__, "min_traffic_impact", min_traffic_impact)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="healthScoreThreshold")
+    def health_score_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "health_score_threshold")
+
+    @property
+    @pulumi.getter(name="minTrafficImpact")
+    def min_traffic_impact(self) -> Optional[float]:
+        return pulumi.get(self, "min_traffic_impact")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['MonitorLocalHealthEventsConfigStatus']:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

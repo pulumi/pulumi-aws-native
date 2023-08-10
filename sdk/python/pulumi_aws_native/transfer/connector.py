@@ -18,23 +18,28 @@ __all__ = ['ConnectorArgs', 'Connector']
 class ConnectorArgs:
     def __init__(__self__, *,
                  access_role: pulumi.Input[str],
-                 as2_config: pulumi.Input['As2ConfigPropertiesArgs'],
                  url: pulumi.Input[str],
+                 as2_config: Optional[pulumi.Input['As2ConfigPropertiesArgs']] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 sftp_config: Optional[pulumi.Input['SftpConfigPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]]] = None):
         """
         The set of arguments for constructing a Connector resource.
         :param pulumi.Input[str] access_role: Specifies the access role for the connector.
-        :param pulumi.Input['As2ConfigPropertiesArgs'] as2_config: Configuration for an AS2 connector.
         :param pulumi.Input[str] url: URL for Connector
+        :param pulumi.Input['As2ConfigPropertiesArgs'] as2_config: Configuration for an AS2 connector.
         :param pulumi.Input[str] logging_role: Specifies the logging role for the connector.
-        :param pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]] tags: Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+        :param pulumi.Input['SftpConfigPropertiesArgs'] sftp_config: Configuration for an SFTP connector.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         """
         pulumi.set(__self__, "access_role", access_role)
-        pulumi.set(__self__, "as2_config", as2_config)
         pulumi.set(__self__, "url", url)
+        if as2_config is not None:
+            pulumi.set(__self__, "as2_config", as2_config)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
+        if sftp_config is not None:
+            pulumi.set(__self__, "sftp_config", sftp_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -51,18 +56,6 @@ class ConnectorArgs:
         pulumi.set(self, "access_role", value)
 
     @property
-    @pulumi.getter(name="as2Config")
-    def as2_config(self) -> pulumi.Input['As2ConfigPropertiesArgs']:
-        """
-        Configuration for an AS2 connector.
-        """
-        return pulumi.get(self, "as2_config")
-
-    @as2_config.setter
-    def as2_config(self, value: pulumi.Input['As2ConfigPropertiesArgs']):
-        pulumi.set(self, "as2_config", value)
-
-    @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
@@ -73,6 +66,18 @@ class ConnectorArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="as2Config")
+    def as2_config(self) -> Optional[pulumi.Input['As2ConfigPropertiesArgs']]:
+        """
+        Configuration for an AS2 connector.
+        """
+        return pulumi.get(self, "as2_config")
+
+    @as2_config.setter
+    def as2_config(self, value: Optional[pulumi.Input['As2ConfigPropertiesArgs']]):
+        pulumi.set(self, "as2_config", value)
 
     @property
     @pulumi.getter(name="loggingRole")
@@ -87,10 +92,22 @@ class ConnectorArgs:
         pulumi.set(self, "logging_role", value)
 
     @property
+    @pulumi.getter(name="sftpConfig")
+    def sftp_config(self) -> Optional[pulumi.Input['SftpConfigPropertiesArgs']]:
+        """
+        Configuration for an SFTP connector.
+        """
+        return pulumi.get(self, "sftp_config")
+
+    @sftp_config.setter
+    def sftp_config(self, value: Optional[pulumi.Input['SftpConfigPropertiesArgs']]):
+        pulumi.set(self, "sftp_config", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]]]:
         """
-        Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+        Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         """
         return pulumi.get(self, "tags")
 
@@ -107,6 +124,7 @@ class Connector(pulumi.CustomResource):
                  access_role: Optional[pulumi.Input[str]] = None,
                  as2_config: Optional[pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 sftp_config: Optional[pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectorTagArgs']]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -118,7 +136,8 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[str] access_role: Specifies the access role for the connector.
         :param pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']] as2_config: Configuration for an AS2 connector.
         :param pulumi.Input[str] logging_role: Specifies the logging role for the connector.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectorTagArgs']]]] tags: Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+        :param pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']] sftp_config: Configuration for an SFTP connector.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectorTagArgs']]]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         :param pulumi.Input[str] url: URL for Connector
         """
         ...
@@ -148,6 +167,7 @@ class Connector(pulumi.CustomResource):
                  access_role: Optional[pulumi.Input[str]] = None,
                  as2_config: Optional[pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 sftp_config: Optional[pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectorTagArgs']]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -162,10 +182,9 @@ class Connector(pulumi.CustomResource):
             if access_role is None and not opts.urn:
                 raise TypeError("Missing required property 'access_role'")
             __props__.__dict__["access_role"] = access_role
-            if as2_config is None and not opts.urn:
-                raise TypeError("Missing required property 'as2_config'")
             __props__.__dict__["as2_config"] = as2_config
             __props__.__dict__["logging_role"] = logging_role
+            __props__.__dict__["sftp_config"] = sftp_config
             __props__.__dict__["tags"] = tags
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
@@ -199,6 +218,7 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["as2_config"] = None
         __props__.__dict__["connector_id"] = None
         __props__.__dict__["logging_role"] = None
+        __props__.__dict__["sftp_config"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["url"] = None
         return Connector(resource_name, opts=opts, __props__=__props__)
@@ -215,13 +235,13 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        Specifies the unique Amazon Resource Name (ARN) for the workflow.
+        Specifies the unique Amazon Resource Name (ARN) for the connector.
         """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="as2Config")
-    def as2_config(self) -> pulumi.Output['outputs.As2ConfigProperties']:
+    def as2_config(self) -> pulumi.Output[Optional['outputs.As2ConfigProperties']]:
         """
         Configuration for an AS2 connector.
         """
@@ -244,10 +264,18 @@ class Connector(pulumi.CustomResource):
         return pulumi.get(self, "logging_role")
 
     @property
+    @pulumi.getter(name="sftpConfig")
+    def sftp_config(self) -> pulumi.Output[Optional['outputs.SftpConfigProperties']]:
+        """
+        Configuration for an SFTP connector.
+        """
+        return pulumi.get(self, "sftp_config")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ConnectorTag']]]:
         """
-        Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+        Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         """
         return pulumi.get(self, "tags")
 

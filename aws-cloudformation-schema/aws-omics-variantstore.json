@@ -112,16 +112,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "omics:CreateVariantStore", "omics:TagResource" ]
+      "permissions" : [ "omics:CreateVariantStore", "omics:TagResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:CreateGrant", "ram:AcceptResourceShareInvitation", "ram:GetResourceShareInvitations", "omics:GetVariantStore" ]
     },
     "read" : {
       "permissions" : [ "omics:GetVariantStore" ]
     },
     "update" : {
-      "permissions" : [ "omics:UpdateVariantStore", "omics:TagResource", "omics:UntagResource" ]
+      "permissions" : [ "omics:UpdateVariantStore", "omics:TagResource", "omics:UntagResource", "omics:ListTagsForResource", "omics:GetVariantStore" ]
     },
     "delete" : {
-      "permissions" : [ "omics:DeleteVariantStore" ]
+      "permissions" : [ "omics:DeleteVariantStore", "omics:ListVariantStores" ]
     },
     "list" : {
       "permissions" : [ "omics:ListVariantStores" ]

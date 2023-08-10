@@ -50,6 +50,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      * Recording Reconnect Window Seconds. (0 means disabled)
      */
     public readonly recordingReconnectWindowSeconds!: pulumi.Output<number | undefined>;
+    public readonly renditionConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationRenditionConfiguration | undefined>;
     /**
      * Recording Configuration State.
      */
@@ -77,6 +78,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recordingReconnectWindowSeconds"] = args ? args.recordingReconnectWindowSeconds : undefined;
+            resourceInputs["renditionConfiguration"] = args ? args.renditionConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thumbnailConfiguration"] = args ? args.thumbnailConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -86,6 +88,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["destinationConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["recordingReconnectWindowSeconds"] = undefined /*out*/;
+            resourceInputs["renditionConfiguration"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["thumbnailConfiguration"] = undefined /*out*/;
@@ -108,6 +111,7 @@ export interface RecordingConfigurationArgs {
      * Recording Reconnect Window Seconds. (0 means disabled)
      */
     recordingReconnectWindowSeconds?: pulumi.Input<number>;
+    renditionConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationRenditionConfigurationArgs>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */

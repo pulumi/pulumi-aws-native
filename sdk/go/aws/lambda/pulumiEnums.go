@@ -1771,6 +1771,171 @@ func (in *functionTracingConfigModePtr) ToFunctionTracingConfigModePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionTracingConfigModePtrOutput)
 }
 
+// The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+type PermissionFunctionUrlAuthType string
+
+const (
+	PermissionFunctionUrlAuthTypeAwsIam = PermissionFunctionUrlAuthType("AWS_IAM")
+	PermissionFunctionUrlAuthTypeNone   = PermissionFunctionUrlAuthType("NONE")
+)
+
+func (PermissionFunctionUrlAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionFunctionUrlAuthType)(nil)).Elem()
+}
+
+func (e PermissionFunctionUrlAuthType) ToPermissionFunctionUrlAuthTypeOutput() PermissionFunctionUrlAuthTypeOutput {
+	return pulumi.ToOutput(e).(PermissionFunctionUrlAuthTypeOutput)
+}
+
+func (e PermissionFunctionUrlAuthType) ToPermissionFunctionUrlAuthTypeOutputWithContext(ctx context.Context) PermissionFunctionUrlAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PermissionFunctionUrlAuthTypeOutput)
+}
+
+func (e PermissionFunctionUrlAuthType) ToPermissionFunctionUrlAuthTypePtrOutput() PermissionFunctionUrlAuthTypePtrOutput {
+	return e.ToPermissionFunctionUrlAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e PermissionFunctionUrlAuthType) ToPermissionFunctionUrlAuthTypePtrOutputWithContext(ctx context.Context) PermissionFunctionUrlAuthTypePtrOutput {
+	return PermissionFunctionUrlAuthType(e).ToPermissionFunctionUrlAuthTypeOutputWithContext(ctx).ToPermissionFunctionUrlAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e PermissionFunctionUrlAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PermissionFunctionUrlAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PermissionFunctionUrlAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PermissionFunctionUrlAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PermissionFunctionUrlAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (PermissionFunctionUrlAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionFunctionUrlAuthType)(nil)).Elem()
+}
+
+func (o PermissionFunctionUrlAuthTypeOutput) ToPermissionFunctionUrlAuthTypeOutput() PermissionFunctionUrlAuthTypeOutput {
+	return o
+}
+
+func (o PermissionFunctionUrlAuthTypeOutput) ToPermissionFunctionUrlAuthTypeOutputWithContext(ctx context.Context) PermissionFunctionUrlAuthTypeOutput {
+	return o
+}
+
+func (o PermissionFunctionUrlAuthTypeOutput) ToPermissionFunctionUrlAuthTypePtrOutput() PermissionFunctionUrlAuthTypePtrOutput {
+	return o.ToPermissionFunctionUrlAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o PermissionFunctionUrlAuthTypeOutput) ToPermissionFunctionUrlAuthTypePtrOutputWithContext(ctx context.Context) PermissionFunctionUrlAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionFunctionUrlAuthType) *PermissionFunctionUrlAuthType {
+		return &v
+	}).(PermissionFunctionUrlAuthTypePtrOutput)
+}
+
+func (o PermissionFunctionUrlAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PermissionFunctionUrlAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PermissionFunctionUrlAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PermissionFunctionUrlAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionFunctionUrlAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PermissionFunctionUrlAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PermissionFunctionUrlAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionFunctionUrlAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionFunctionUrlAuthType)(nil)).Elem()
+}
+
+func (o PermissionFunctionUrlAuthTypePtrOutput) ToPermissionFunctionUrlAuthTypePtrOutput() PermissionFunctionUrlAuthTypePtrOutput {
+	return o
+}
+
+func (o PermissionFunctionUrlAuthTypePtrOutput) ToPermissionFunctionUrlAuthTypePtrOutputWithContext(ctx context.Context) PermissionFunctionUrlAuthTypePtrOutput {
+	return o
+}
+
+func (o PermissionFunctionUrlAuthTypePtrOutput) Elem() PermissionFunctionUrlAuthTypeOutput {
+	return o.ApplyT(func(v *PermissionFunctionUrlAuthType) PermissionFunctionUrlAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionFunctionUrlAuthType
+		return ret
+	}).(PermissionFunctionUrlAuthTypeOutput)
+}
+
+func (o PermissionFunctionUrlAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionFunctionUrlAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PermissionFunctionUrlAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PermissionFunctionUrlAuthTypeInput is an input type that accepts PermissionFunctionUrlAuthTypeArgs and PermissionFunctionUrlAuthTypeOutput values.
+// You can construct a concrete instance of `PermissionFunctionUrlAuthTypeInput` via:
+//
+//	PermissionFunctionUrlAuthTypeArgs{...}
+type PermissionFunctionUrlAuthTypeInput interface {
+	pulumi.Input
+
+	ToPermissionFunctionUrlAuthTypeOutput() PermissionFunctionUrlAuthTypeOutput
+	ToPermissionFunctionUrlAuthTypeOutputWithContext(context.Context) PermissionFunctionUrlAuthTypeOutput
+}
+
+var permissionFunctionUrlAuthTypePtrType = reflect.TypeOf((**PermissionFunctionUrlAuthType)(nil)).Elem()
+
+type PermissionFunctionUrlAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToPermissionFunctionUrlAuthTypePtrOutput() PermissionFunctionUrlAuthTypePtrOutput
+	ToPermissionFunctionUrlAuthTypePtrOutputWithContext(context.Context) PermissionFunctionUrlAuthTypePtrOutput
+}
+
+type permissionFunctionUrlAuthTypePtr string
+
+func PermissionFunctionUrlAuthTypePtr(v string) PermissionFunctionUrlAuthTypePtrInput {
+	return (*permissionFunctionUrlAuthTypePtr)(&v)
+}
+
+func (*permissionFunctionUrlAuthTypePtr) ElementType() reflect.Type {
+	return permissionFunctionUrlAuthTypePtrType
+}
+
+func (in *permissionFunctionUrlAuthTypePtr) ToPermissionFunctionUrlAuthTypePtrOutput() PermissionFunctionUrlAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(PermissionFunctionUrlAuthTypePtrOutput)
+}
+
+func (in *permissionFunctionUrlAuthTypePtr) ToPermissionFunctionUrlAuthTypePtrOutputWithContext(ctx context.Context) PermissionFunctionUrlAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PermissionFunctionUrlAuthTypePtrOutput)
+}
+
 type UrlAllowMethodsItem string
 
 const (
@@ -2336,6 +2501,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartApplyOnPtrInput)(nil)).Elem(), FunctionSnapStartApplyOn("PublishedVersions"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigModeInput)(nil)).Elem(), FunctionTracingConfigMode("Active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigModePtrInput)(nil)).Elem(), FunctionTracingConfigMode("Active"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionFunctionUrlAuthTypeInput)(nil)).Elem(), PermissionFunctionUrlAuthType("AWS_IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionFunctionUrlAuthTypePtrInput)(nil)).Elem(), PermissionFunctionUrlAuthType("AWS_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemInput)(nil)).Elem(), UrlAllowMethodsItem("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemPtrInput)(nil)).Elem(), UrlAllowMethodsItem("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemArrayInput)(nil)).Elem(), UrlAllowMethodsItemArray{})
@@ -2367,6 +2534,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionSnapStartResponseOptimizationStatusPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigModeOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigModePtrOutput{})
+	pulumi.RegisterOutputType(PermissionFunctionUrlAuthTypeOutput{})
+	pulumi.RegisterOutputType(PermissionFunctionUrlAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(UrlAllowMethodsItemOutput{})
 	pulumi.RegisterOutputType(UrlAllowMethodsItemPtrOutput{})
 	pulumi.RegisterOutputType(UrlAllowMethodsItemArrayOutput{})

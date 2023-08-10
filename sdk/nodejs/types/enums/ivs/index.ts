@@ -34,6 +34,26 @@ export const ChannelType = {
  */
 export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
+export const RecordingConfigurationRenditionConfigurationRenditionSelection = {
+    All: "ALL",
+    None: "NONE",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * Resolution Selection indicates which set of renditions are recorded for a stream.
+ */
+export type RecordingConfigurationRenditionConfigurationRenditionSelection = (typeof RecordingConfigurationRenditionConfigurationRenditionSelection)[keyof typeof RecordingConfigurationRenditionConfigurationRenditionSelection];
+
+export const RecordingConfigurationRenditionConfigurationRenditionsItem = {
+    FullHd: "FULL_HD",
+    Hd: "HD",
+    Sd: "SD",
+    LowestResolution: "LOWEST_RESOLUTION",
+} as const;
+
+export type RecordingConfigurationRenditionConfigurationRenditionsItem = (typeof RecordingConfigurationRenditionConfigurationRenditionsItem)[keyof typeof RecordingConfigurationRenditionConfigurationRenditionsItem];
+
 export const RecordingConfigurationState = {
     Creating: "CREATING",
     CreateFailed: "CREATE_FAILED",
@@ -54,3 +74,22 @@ export const RecordingConfigurationThumbnailConfigurationRecordingMode = {
  * Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
  */
 export type RecordingConfigurationThumbnailConfigurationRecordingMode = (typeof RecordingConfigurationThumbnailConfigurationRecordingMode)[keyof typeof RecordingConfigurationThumbnailConfigurationRecordingMode];
+
+export const RecordingConfigurationThumbnailConfigurationResolution = {
+    FullHd: "FULL_HD",
+    Hd: "HD",
+    Sd: "SD",
+    LowestResolution: "LOWEST_RESOLUTION",
+} as const;
+
+/**
+ * Resolution indicates the desired resolution of recorded thumbnails.
+ */
+export type RecordingConfigurationThumbnailConfigurationResolution = (typeof RecordingConfigurationThumbnailConfigurationResolution)[keyof typeof RecordingConfigurationThumbnailConfigurationResolution];
+
+export const RecordingConfigurationThumbnailConfigurationStorageItem = {
+    Sequential: "SEQUENTIAL",
+    Latest: "LATEST",
+} as const;
+
+export type RecordingConfigurationThumbnailConfigurationStorageItem = (typeof RecordingConfigurationThumbnailConfigurationStorageItem)[keyof typeof RecordingConfigurationThumbnailConfigurationStorageItem];

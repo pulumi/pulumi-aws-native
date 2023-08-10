@@ -15,6 +15,7 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
+	Accelerators      WorkflowAcceleratorsPtrOutput      `pulumi:"accelerators"`
 	Arn               pulumi.StringOutput                `pulumi:"arn"`
 	CreationTime      pulumi.StringOutput                `pulumi:"creationTime"`
 	DefinitionUri     pulumi.StringPtrOutput             `pulumi:"definitionUri"`
@@ -69,6 +70,7 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
+	Accelerators      *WorkflowAccelerators      `pulumi:"accelerators"`
 	DefinitionUri     *string                    `pulumi:"definitionUri"`
 	Description       *string                    `pulumi:"description"`
 	Engine            *WorkflowEngine            `pulumi:"engine"`
@@ -81,6 +83,7 @@ type workflowArgs struct {
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
+	Accelerators      WorkflowAcceleratorsPtrInput
 	DefinitionUri     pulumi.StringPtrInput
 	Description       pulumi.StringPtrInput
 	Engine            WorkflowEnginePtrInput
@@ -126,6 +129,10 @@ func (o WorkflowOutput) ToWorkflowOutput() WorkflowOutput {
 
 func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
 	return o
+}
+
+func (o WorkflowOutput) Accelerators() WorkflowAcceleratorsPtrOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowAcceleratorsPtrOutput { return v.Accelerators }).(WorkflowAcceleratorsPtrOutput)
 }
 
 func (o WorkflowOutput) Arn() pulumi.StringOutput {

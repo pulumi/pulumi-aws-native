@@ -26,6 +26,7 @@ __all__ = [
     'ServerTag',
     'ServerWorkflowDetail',
     'ServerWorkflowDetails',
+    'SftpConfigProperties',
     'UserHomeDirectoryMapEntry',
     'UserPosixProfile',
     'UserSshPublicKey',
@@ -85,7 +86,9 @@ class As2ConfigProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "encryptionAlgorithm":
+        if key == "basicAuthSecretId":
+            suggest = "basic_auth_secret_id"
+        elif key == "encryptionAlgorithm":
             suggest = "encryption_algorithm"
         elif key == "localProfileId":
             suggest = "local_profile_id"
@@ -112,6 +115,7 @@ class As2ConfigProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 basic_auth_secret_id: Optional[str] = None,
                  compression: Optional['ConnectorAs2ConfigPropertiesCompression'] = None,
                  encryption_algorithm: Optional['ConnectorAs2ConfigPropertiesEncryptionAlgorithm'] = None,
                  local_profile_id: Optional[str] = None,
@@ -122,6 +126,7 @@ class As2ConfigProperties(dict):
                  signing_algorithm: Optional['ConnectorAs2ConfigPropertiesSigningAlgorithm'] = None):
         """
         Configuration for an AS2 connector.
+        :param str basic_auth_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
         :param 'ConnectorAs2ConfigPropertiesCompression' compression: Compression setting for this AS2 connector configuration.
         :param 'ConnectorAs2ConfigPropertiesEncryptionAlgorithm' encryption_algorithm: Encryption algorithm for this AS2 connector configuration.
         :param str local_profile_id: A unique identifier for the local profile.
@@ -131,6 +136,8 @@ class As2ConfigProperties(dict):
         :param str partner_profile_id: A unique identifier for the partner profile.
         :param 'ConnectorAs2ConfigPropertiesSigningAlgorithm' signing_algorithm: Signing algorithm for this AS2 connector configuration.
         """
+        if basic_auth_secret_id is not None:
+            pulumi.set(__self__, "basic_auth_secret_id", basic_auth_secret_id)
         if compression is not None:
             pulumi.set(__self__, "compression", compression)
         if encryption_algorithm is not None:
@@ -147,6 +154,14 @@ class As2ConfigProperties(dict):
             pulumi.set(__self__, "partner_profile_id", partner_profile_id)
         if signing_algorithm is not None:
             pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+
+    @property
+    @pulumi.getter(name="basicAuthSecretId")
+    def basic_auth_secret_id(self) -> Optional[str]:
+        """
+        ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+        """
+        return pulumi.get(self, "basic_auth_secret_id")
 
     @property
     @pulumi.getter
@@ -621,6 +636,60 @@ class ServerWorkflowDetails(dict):
     @pulumi.getter(name="onUpload")
     def on_upload(self) -> Optional[Sequence['outputs.ServerWorkflowDetail']]:
         return pulumi.get(self, "on_upload")
+
+
+@pulumi.output_type
+class SftpConfigProperties(dict):
+    """
+    Configuration for an SFTP connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustedHostKeys":
+            suggest = "trusted_host_keys"
+        elif key == "userSecretId":
+            suggest = "user_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SftpConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SftpConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SftpConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trusted_host_keys: Optional[Sequence[str]] = None,
+                 user_secret_id: Optional[str] = None):
+        """
+        Configuration for an SFTP connector.
+        :param Sequence[str] trusted_host_keys: List of public host keys, for the external server to which you are connecting.
+        :param str user_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+        """
+        if trusted_host_keys is not None:
+            pulumi.set(__self__, "trusted_host_keys", trusted_host_keys)
+        if user_secret_id is not None:
+            pulumi.set(__self__, "user_secret_id", user_secret_id)
+
+    @property
+    @pulumi.getter(name="trustedHostKeys")
+    def trusted_host_keys(self) -> Optional[Sequence[str]]:
+        """
+        List of public host keys, for the external server to which you are connecting.
+        """
+        return pulumi.get(self, "trusted_host_keys")
+
+    @property
+    @pulumi.getter(name="userSecretId")
+    def user_secret_id(self) -> Optional[str]:
+        """
+        ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+        """
+        return pulumi.get(self, "user_secret_id")
 
 
 @pulumi.output_type

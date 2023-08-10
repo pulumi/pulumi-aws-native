@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
+        [Output("openTableFormatInput")]
+        public Output<Outputs.TableOpenTableFormatInput?> OpenTableFormatInput { get; private set; } = null!;
+
         [Output("tableInput")]
         public Output<Outputs.TableInput> TableInput { get; private set; } = null!;
 
@@ -75,6 +78,9 @@ namespace Pulumi.AwsNative.Glue
 
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
+
+        [Input("openTableFormatInput")]
+        public Input<Inputs.TableOpenTableFormatInputArgs>? OpenTableFormatInput { get; set; }
 
         [Input("tableInput", required: true)]
         public Input<Inputs.TableInputArgs> TableInput { get; set; } = null!;

@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -31,17 +28,23 @@ export interface GetTypeActivationResult {
      */
     readonly arn?: string;
     /**
-     * Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
+     * The Amazon Resource Number (ARN) assigned to the public extension upon publication
      */
-    readonly autoUpdate?: boolean;
+    readonly publicTypeArn?: string;
     /**
-     * The Major Version of the type you want to enable
+     * The publisher id assigned by CloudFormation for publishing in this region.
      */
-    readonly majorVersion?: string;
+    readonly publisherId?: string;
     /**
-     * Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
+     * The name of the type being registered.
+     *
+     * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
-    readonly versionBump?: enums.cloudformation.TypeActivationVersionBump;
+    readonly typeName?: string;
+    /**
+     * An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
+     */
+    readonly typeNameAlias?: string;
 }
 /**
  * Enable a resource that has been published in the CloudFormation Registry.

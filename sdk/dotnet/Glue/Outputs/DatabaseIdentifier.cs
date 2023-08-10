@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.Glue.Outputs
     {
         public readonly string? CatalogId;
         public readonly string? DatabaseName;
+        public readonly string? Region;
 
         [OutputConstructor]
         private DatabaseIdentifier(
             string? catalogId,
 
-            string? databaseName)
+            string? databaseName,
+
+            string? region)
         {
             CatalogId = catalogId;
             DatabaseName = databaseName;
+            Region = region;
         }
     }
 }

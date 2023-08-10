@@ -66,9 +66,16 @@ export const VariantStoreStoreStatus = {
 
 export type VariantStoreStoreStatus = (typeof VariantStoreStoreStatus)[keyof typeof VariantStoreStoreStatus];
 
+export const WorkflowAccelerators = {
+    Gpu: "GPU",
+} as const;
+
+export type WorkflowAccelerators = (typeof WorkflowAccelerators)[keyof typeof WorkflowAccelerators];
+
 export const WorkflowEngine = {
     Wdl: "WDL",
     Nextflow: "NEXTFLOW",
+    Cwl: "CWL",
 } as const;
 
 export type WorkflowEngine = (typeof WorkflowEngine)[keyof typeof WorkflowEngine];

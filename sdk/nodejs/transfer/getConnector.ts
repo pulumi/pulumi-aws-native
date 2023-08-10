@@ -31,7 +31,7 @@ export interface GetConnectorResult {
      */
     readonly accessRole?: string;
     /**
-     * Specifies the unique Amazon Resource Name (ARN) for the workflow.
+     * Specifies the unique Amazon Resource Name (ARN) for the connector.
      */
     readonly arn?: string;
     /**
@@ -47,7 +47,11 @@ export interface GetConnectorResult {
      */
     readonly loggingRole?: string;
     /**
-     * Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+     * Configuration for an SFTP connector.
+     */
+    readonly sftpConfig?: outputs.transfer.SftpConfigProperties;
+    /**
+     * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
      */
     readonly tags?: outputs.transfer.ConnectorTag[];
     /**

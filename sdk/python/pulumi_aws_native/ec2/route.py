@@ -29,6 +29,19 @@ class RouteArgs:
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Route resource.
+        :param pulumi.Input[str] route_table_id: The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to.
+        :param pulumi.Input[str] carrier_gateway_id: The ID of the carrier gateway.
+        :param pulumi.Input[str] destination_cidr_block: The IPv4 CIDR block used for the destination match.
+        :param pulumi.Input[str] destination_ipv6_cidr_block: The IPv6 CIDR block used for the destination match.
+        :param pulumi.Input[str] egress_only_internet_gateway_id: The ID of the egress-only internet gateway.
+        :param pulumi.Input[str] gateway_id: The ID of an internet gateway or virtual private gateway attached to your VPC.
+        :param pulumi.Input[str] instance_id: The ID of a NAT instance in your VPC.
+        :param pulumi.Input[str] local_gateway_id: The ID of the local gateway.
+        :param pulumi.Input[str] nat_gateway_id: The ID of a NAT gateway.
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface.
+        :param pulumi.Input[str] transit_gateway_id: The ID of a transit gateway.
+        :param pulumi.Input[str] vpc_endpoint_id: The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
+        :param pulumi.Input[str] vpc_peering_connection_id: The ID of a VPC peering connection.
         """
         pulumi.set(__self__, "route_table_id", route_table_id)
         if carrier_gateway_id is not None:
@@ -59,6 +72,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to.
+        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -68,6 +84,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="carrierGatewayId")
     def carrier_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the carrier gateway.
+        """
         return pulumi.get(self, "carrier_gateway_id")
 
     @carrier_gateway_id.setter
@@ -77,6 +96,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR block used for the destination match.
+        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -86,6 +108,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="destinationIpv6CidrBlock")
     def destination_ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 CIDR block used for the destination match.
+        """
         return pulumi.get(self, "destination_ipv6_cidr_block")
 
     @destination_ipv6_cidr_block.setter
@@ -95,6 +120,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="egressOnlyInternetGatewayId")
     def egress_only_internet_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the egress-only internet gateway.
+        """
         return pulumi.get(self, "egress_only_internet_gateway_id")
 
     @egress_only_internet_gateway_id.setter
@@ -104,6 +132,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an internet gateway or virtual private gateway attached to your VPC.
+        """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
@@ -113,6 +144,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a NAT instance in your VPC.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -122,6 +156,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the local gateway.
+        """
         return pulumi.get(self, "local_gateway_id")
 
     @local_gateway_id.setter
@@ -131,6 +168,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a NAT gateway.
+        """
         return pulumi.get(self, "nat_gateway_id")
 
     @nat_gateway_id.setter
@@ -140,6 +180,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the network interface.
+        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -149,6 +192,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a transit gateway.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -158,6 +204,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
+        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -167,6 +216,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
     def vpc_peering_connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a VPC peering connection.
+        """
         return pulumi.get(self, "vpc_peering_connection_id")
 
     @vpc_peering_connection_id.setter
@@ -174,12 +226,7 @@ class RouteArgs:
         pulumi.set(self, "vpc_peering_connection_id", value)
 
 
-warnings.warn("""Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Route(pulumi.CustomResource):
-    warnings.warn("""Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -203,6 +250,19 @@ class Route(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] carrier_gateway_id: The ID of the carrier gateway.
+        :param pulumi.Input[str] destination_cidr_block: The IPv4 CIDR block used for the destination match.
+        :param pulumi.Input[str] destination_ipv6_cidr_block: The IPv6 CIDR block used for the destination match.
+        :param pulumi.Input[str] egress_only_internet_gateway_id: The ID of the egress-only internet gateway.
+        :param pulumi.Input[str] gateway_id: The ID of an internet gateway or virtual private gateway attached to your VPC.
+        :param pulumi.Input[str] instance_id: The ID of a NAT instance in your VPC.
+        :param pulumi.Input[str] local_gateway_id: The ID of the local gateway.
+        :param pulumi.Input[str] nat_gateway_id: The ID of a NAT gateway.
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface.
+        :param pulumi.Input[str] route_table_id: The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to.
+        :param pulumi.Input[str] transit_gateway_id: The ID of a transit gateway.
+        :param pulumi.Input[str] vpc_endpoint_id: The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
+        :param pulumi.Input[str] vpc_peering_connection_id: The ID of a VPC peering connection.
         """
         ...
     @overload
@@ -242,7 +302,6 @@ class Route(pulumi.CustomResource):
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Route is deprecated: Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -266,6 +325,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
             __props__.__dict__["vpc_peering_connection_id"] = vpc_peering_connection_id
+            __props__.__dict__["cidr_block"] = None
         super(Route, __self__).__init__(
             'aws-native:ec2:Route',
             resource_name,
@@ -289,6 +349,7 @@ class Route(pulumi.CustomResource):
         __props__ = RouteArgs.__new__(RouteArgs)
 
         __props__.__dict__["carrier_gateway_id"] = None
+        __props__.__dict__["cidr_block"] = None
         __props__.__dict__["destination_cidr_block"] = None
         __props__.__dict__["destination_ipv6_cidr_block"] = None
         __props__.__dict__["egress_only_internet_gateway_id"] = None
@@ -306,65 +367,112 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter(name="carrierGatewayId")
     def carrier_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the carrier gateway.
+        """
         return pulumi.get(self, "carrier_gateway_id")
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> pulumi.Output[str]:
+        """
+        The primary identifier of the resource generated by the service.
+        """
+        return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IPv4 CIDR block used for the destination match.
+        """
         return pulumi.get(self, "destination_cidr_block")
 
     @property
     @pulumi.getter(name="destinationIpv6CidrBlock")
     def destination_ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IPv6 CIDR block used for the destination match.
+        """
         return pulumi.get(self, "destination_ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="egressOnlyInternetGatewayId")
     def egress_only_internet_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the egress-only internet gateway.
+        """
         return pulumi.get(self, "egress_only_internet_gateway_id")
 
     @property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of an internet gateway or virtual private gateway attached to your VPC.
+        """
         return pulumi.get(self, "gateway_id")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a NAT instance in your VPC.
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the local gateway.
+        """
         return pulumi.get(self, "local_gateway_id")
 
     @property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a NAT gateway.
+        """
         return pulumi.get(self, "nat_gateway_id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the network interface.
+        """
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to.
+        """
         return pulumi.get(self, "route_table_id")
 
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a transit gateway.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
+        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
     def vpc_peering_connection_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a VPC peering connection.
+        """
         return pulumi.get(self, "vpc_peering_connection_id")
 

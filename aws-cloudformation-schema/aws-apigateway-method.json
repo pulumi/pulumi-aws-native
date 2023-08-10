@@ -250,13 +250,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:PUT", "apigateway:GET" ]
+      "permissions" : [ "apigateway:PUT", "apigateway:GET", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:GET", "apigateway:DELETE", "apigateway:PUT" ]
+      "permissions" : [ "apigateway:GET", "apigateway:DELETE", "apigateway:PUT", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "apigateway:DELETE" ]

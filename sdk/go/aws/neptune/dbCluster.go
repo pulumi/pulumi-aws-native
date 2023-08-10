@@ -31,13 +31,19 @@ type DbCluster struct {
 	DbClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dbClusterParameterGroupName"`
 	// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
 	DbInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"dbInstanceParameterGroupName"`
+	// The port number on which the DB instances in the DB cluster accept connections.
+	//
+	// If not specified, the default port used is `8182`.
+	//
+	// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+	DbPort pulumi.IntPtrOutput `pulumi:"dbPort"`
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
-	// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+	// The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Indicates the database engine version.
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
@@ -45,13 +51,13 @@ type DbCluster struct {
 	IamAuthEnabled pulumi.BoolPtrOutput `pulumi:"iamAuthEnabled"`
 	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Specifies the port that the database engine is listening on.
+	// The port number on which the DB cluster accepts connections. For example: `8182`.
 	Port pulumi.StringOutput `pulumi:"port"`
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
 	PreferredBackupWindow pulumi.StringPtrOutput `pulumi:"preferredBackupWindow"`
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
-	// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+	// The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
 	ReadEndpoint pulumi.StringOutput `pulumi:"readEndpoint"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
@@ -151,6 +157,12 @@ type dbClusterArgs struct {
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
 	DbInstanceParameterGroupName *string `pulumi:"dbInstanceParameterGroupName"`
+	// The port number on which the DB instances in the DB cluster accept connections.
+	//
+	// If not specified, the default port used is `8182`.
+	//
+	// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+	DbPort *int `pulumi:"dbPort"`
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
@@ -227,6 +239,12 @@ type DbClusterArgs struct {
 	DbClusterParameterGroupName pulumi.StringPtrInput
 	// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
 	DbInstanceParameterGroupName pulumi.StringPtrInput
+	// The port number on which the DB instances in the DB cluster accept connections.
+	//
+	// If not specified, the default port used is `8182`.
+	//
+	// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+	DbPort pulumi.IntPtrInput
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 	DbSubnetGroupName pulumi.StringPtrInput
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
@@ -364,6 +382,15 @@ func (o DbClusterOutput) DbInstanceParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.DbInstanceParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The port number on which the DB instances in the DB cluster accept connections.
+//
+// If not specified, the default port used is `8182`.
+//
+// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+func (o DbClusterOutput) DbPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.IntPtrOutput { return v.DbPort }).(pulumi.IntPtrOutput)
+}
+
 // Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 func (o DbClusterOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.DbSubnetGroupName }).(pulumi.StringPtrOutput)
@@ -379,7 +406,7 @@ func (o DbClusterOutput) EnableCloudwatchLogsExports() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v *DbCluster) pulumi.StringArrayOutput { return v.EnableCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }
 
-// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+// The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
 func (o DbClusterOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -399,7 +426,7 @@ func (o DbClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the port that the database engine is listening on.
+// The port number on which the DB cluster accepts connections. For example: `8182`.
 func (o DbClusterOutput) Port() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringOutput { return v.Port }).(pulumi.StringOutput)
 }
@@ -414,7 +441,7 @@ func (o DbClusterOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+// The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
 func (o DbClusterOutput) ReadEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringOutput { return v.ReadEndpoint }).(pulumi.StringOutput)
 }

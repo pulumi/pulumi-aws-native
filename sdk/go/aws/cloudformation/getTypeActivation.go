@@ -30,12 +30,16 @@ type LookupTypeActivationArgs struct {
 type LookupTypeActivationResult struct {
 	// The Amazon Resource Name (ARN) of the extension.
 	Arn *string `pulumi:"arn"`
-	// Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
-	AutoUpdate *bool `pulumi:"autoUpdate"`
-	// The Major Version of the type you want to enable
-	MajorVersion *string `pulumi:"majorVersion"`
-	// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
-	VersionBump *TypeActivationVersionBump `pulumi:"versionBump"`
+	// The Amazon Resource Number (ARN) assigned to the public extension upon publication
+	PublicTypeArn *string `pulumi:"publicTypeArn"`
+	// The publisher id assigned by CloudFormation for publishing in this region.
+	PublisherId *string `pulumi:"publisherId"`
+	// The name of the type being registered.
+	//
+	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+	TypeName *string `pulumi:"typeName"`
+	// An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
+	TypeNameAlias *string `pulumi:"typeNameAlias"`
 }
 
 func LookupTypeActivationOutput(ctx *pulumi.Context, args LookupTypeActivationOutputArgs, opts ...pulumi.InvokeOption) LookupTypeActivationResultOutput {
@@ -79,19 +83,26 @@ func (o LookupTypeActivationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTypeActivationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
-func (o LookupTypeActivationResultOutput) AutoUpdate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupTypeActivationResult) *bool { return v.AutoUpdate }).(pulumi.BoolPtrOutput)
+// The Amazon Resource Number (ARN) assigned to the public extension upon publication
+func (o LookupTypeActivationResultOutput) PublicTypeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTypeActivationResult) *string { return v.PublicTypeArn }).(pulumi.StringPtrOutput)
 }
 
-// The Major Version of the type you want to enable
-func (o LookupTypeActivationResultOutput) MajorVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTypeActivationResult) *string { return v.MajorVersion }).(pulumi.StringPtrOutput)
+// The publisher id assigned by CloudFormation for publishing in this region.
+func (o LookupTypeActivationResultOutput) PublisherId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTypeActivationResult) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
 }
 
-// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
-func (o LookupTypeActivationResultOutput) VersionBump() TypeActivationVersionBumpPtrOutput {
-	return o.ApplyT(func(v LookupTypeActivationResult) *TypeActivationVersionBump { return v.VersionBump }).(TypeActivationVersionBumpPtrOutput)
+// The name of the type being registered.
+//
+// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+func (o LookupTypeActivationResultOutput) TypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTypeActivationResult) *string { return v.TypeName }).(pulumi.StringPtrOutput)
+}
+
+// An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
+func (o LookupTypeActivationResultOutput) TypeNameAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTypeActivationResult) *string { return v.TypeNameAlias }).(pulumi.StringPtrOutput)
 }
 
 func init() {

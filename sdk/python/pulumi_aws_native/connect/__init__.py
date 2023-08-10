@@ -25,6 +25,7 @@ from .get_routing_profile import *
 from .get_rule import *
 from .get_security_key import *
 from .get_task_template import *
+from .get_traffic_distribution_group import *
 from .get_user import *
 from .get_user_hierarchy_group import *
 from .hours_of_operation import *
@@ -39,6 +40,7 @@ from .routing_profile import *
 from .rule import *
 from .security_key import *
 from .task_template import *
+from .traffic_distribution_group import *
 from .user import *
 from .user_hierarchy_group import *
 from ._inputs import *

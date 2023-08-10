@@ -19689,6 +19689,194 @@ func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput)
 	}).(NetworkInterfaceInstanceIpv6AddressOutput)
 }
 
+type NetworkInterfaceIpv4PrefixSpecification struct {
+	Ipv4Prefix string `pulumi:"ipv4Prefix"`
+}
+
+// NetworkInterfaceIpv4PrefixSpecificationInput is an input type that accepts NetworkInterfaceIpv4PrefixSpecificationArgs and NetworkInterfaceIpv4PrefixSpecificationOutput values.
+// You can construct a concrete instance of `NetworkInterfaceIpv4PrefixSpecificationInput` via:
+//
+//	NetworkInterfaceIpv4PrefixSpecificationArgs{...}
+type NetworkInterfaceIpv4PrefixSpecificationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceIpv4PrefixSpecificationOutput() NetworkInterfaceIpv4PrefixSpecificationOutput
+	ToNetworkInterfaceIpv4PrefixSpecificationOutputWithContext(context.Context) NetworkInterfaceIpv4PrefixSpecificationOutput
+}
+
+type NetworkInterfaceIpv4PrefixSpecificationArgs struct {
+	Ipv4Prefix pulumi.StringInput `pulumi:"ipv4Prefix"`
+}
+
+func (NetworkInterfaceIpv4PrefixSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceIpv4PrefixSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfaceIpv4PrefixSpecificationArgs) ToNetworkInterfaceIpv4PrefixSpecificationOutput() NetworkInterfaceIpv4PrefixSpecificationOutput {
+	return i.ToNetworkInterfaceIpv4PrefixSpecificationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceIpv4PrefixSpecificationArgs) ToNetworkInterfaceIpv4PrefixSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceIpv4PrefixSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIpv4PrefixSpecificationOutput)
+}
+
+// NetworkInterfaceIpv4PrefixSpecificationArrayInput is an input type that accepts NetworkInterfaceIpv4PrefixSpecificationArray and NetworkInterfaceIpv4PrefixSpecificationArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceIpv4PrefixSpecificationArrayInput` via:
+//
+//	NetworkInterfaceIpv4PrefixSpecificationArray{ NetworkInterfaceIpv4PrefixSpecificationArgs{...} }
+type NetworkInterfaceIpv4PrefixSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceIpv4PrefixSpecificationArrayOutput() NetworkInterfaceIpv4PrefixSpecificationArrayOutput
+	ToNetworkInterfaceIpv4PrefixSpecificationArrayOutputWithContext(context.Context) NetworkInterfaceIpv4PrefixSpecificationArrayOutput
+}
+
+type NetworkInterfaceIpv4PrefixSpecificationArray []NetworkInterfaceIpv4PrefixSpecificationInput
+
+func (NetworkInterfaceIpv4PrefixSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceIpv4PrefixSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfaceIpv4PrefixSpecificationArray) ToNetworkInterfaceIpv4PrefixSpecificationArrayOutput() NetworkInterfaceIpv4PrefixSpecificationArrayOutput {
+	return i.ToNetworkInterfaceIpv4PrefixSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceIpv4PrefixSpecificationArray) ToNetworkInterfaceIpv4PrefixSpecificationArrayOutputWithContext(ctx context.Context) NetworkInterfaceIpv4PrefixSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIpv4PrefixSpecificationArrayOutput)
+}
+
+type NetworkInterfaceIpv4PrefixSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceIpv4PrefixSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceIpv4PrefixSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceIpv4PrefixSpecificationOutput) ToNetworkInterfaceIpv4PrefixSpecificationOutput() NetworkInterfaceIpv4PrefixSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceIpv4PrefixSpecificationOutput) ToNetworkInterfaceIpv4PrefixSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceIpv4PrefixSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceIpv4PrefixSpecificationOutput) Ipv4Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInterfaceIpv4PrefixSpecification) string { return v.Ipv4Prefix }).(pulumi.StringOutput)
+}
+
+type NetworkInterfaceIpv4PrefixSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceIpv4PrefixSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceIpv4PrefixSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceIpv4PrefixSpecificationArrayOutput) ToNetworkInterfaceIpv4PrefixSpecificationArrayOutput() NetworkInterfaceIpv4PrefixSpecificationArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceIpv4PrefixSpecificationArrayOutput) ToNetworkInterfaceIpv4PrefixSpecificationArrayOutputWithContext(ctx context.Context) NetworkInterfaceIpv4PrefixSpecificationArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceIpv4PrefixSpecificationArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceIpv4PrefixSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceIpv4PrefixSpecification {
+		return vs[0].([]NetworkInterfaceIpv4PrefixSpecification)[vs[1].(int)]
+	}).(NetworkInterfaceIpv4PrefixSpecificationOutput)
+}
+
+type NetworkInterfaceIpv6PrefixSpecification struct {
+	Ipv6Prefix string `pulumi:"ipv6Prefix"`
+}
+
+// NetworkInterfaceIpv6PrefixSpecificationInput is an input type that accepts NetworkInterfaceIpv6PrefixSpecificationArgs and NetworkInterfaceIpv6PrefixSpecificationOutput values.
+// You can construct a concrete instance of `NetworkInterfaceIpv6PrefixSpecificationInput` via:
+//
+//	NetworkInterfaceIpv6PrefixSpecificationArgs{...}
+type NetworkInterfaceIpv6PrefixSpecificationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceIpv6PrefixSpecificationOutput() NetworkInterfaceIpv6PrefixSpecificationOutput
+	ToNetworkInterfaceIpv6PrefixSpecificationOutputWithContext(context.Context) NetworkInterfaceIpv6PrefixSpecificationOutput
+}
+
+type NetworkInterfaceIpv6PrefixSpecificationArgs struct {
+	Ipv6Prefix pulumi.StringInput `pulumi:"ipv6Prefix"`
+}
+
+func (NetworkInterfaceIpv6PrefixSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceIpv6PrefixSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfaceIpv6PrefixSpecificationArgs) ToNetworkInterfaceIpv6PrefixSpecificationOutput() NetworkInterfaceIpv6PrefixSpecificationOutput {
+	return i.ToNetworkInterfaceIpv6PrefixSpecificationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceIpv6PrefixSpecificationArgs) ToNetworkInterfaceIpv6PrefixSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceIpv6PrefixSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIpv6PrefixSpecificationOutput)
+}
+
+// NetworkInterfaceIpv6PrefixSpecificationArrayInput is an input type that accepts NetworkInterfaceIpv6PrefixSpecificationArray and NetworkInterfaceIpv6PrefixSpecificationArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceIpv6PrefixSpecificationArrayInput` via:
+//
+//	NetworkInterfaceIpv6PrefixSpecificationArray{ NetworkInterfaceIpv6PrefixSpecificationArgs{...} }
+type NetworkInterfaceIpv6PrefixSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceIpv6PrefixSpecificationArrayOutput() NetworkInterfaceIpv6PrefixSpecificationArrayOutput
+	ToNetworkInterfaceIpv6PrefixSpecificationArrayOutputWithContext(context.Context) NetworkInterfaceIpv6PrefixSpecificationArrayOutput
+}
+
+type NetworkInterfaceIpv6PrefixSpecificationArray []NetworkInterfaceIpv6PrefixSpecificationInput
+
+func (NetworkInterfaceIpv6PrefixSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceIpv6PrefixSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfaceIpv6PrefixSpecificationArray) ToNetworkInterfaceIpv6PrefixSpecificationArrayOutput() NetworkInterfaceIpv6PrefixSpecificationArrayOutput {
+	return i.ToNetworkInterfaceIpv6PrefixSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceIpv6PrefixSpecificationArray) ToNetworkInterfaceIpv6PrefixSpecificationArrayOutputWithContext(ctx context.Context) NetworkInterfaceIpv6PrefixSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIpv6PrefixSpecificationArrayOutput)
+}
+
+type NetworkInterfaceIpv6PrefixSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceIpv6PrefixSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceIpv6PrefixSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceIpv6PrefixSpecificationOutput) ToNetworkInterfaceIpv6PrefixSpecificationOutput() NetworkInterfaceIpv6PrefixSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceIpv6PrefixSpecificationOutput) ToNetworkInterfaceIpv6PrefixSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceIpv6PrefixSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceIpv6PrefixSpecificationOutput) Ipv6Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInterfaceIpv6PrefixSpecification) string { return v.Ipv6Prefix }).(pulumi.StringOutput)
+}
+
+type NetworkInterfaceIpv6PrefixSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceIpv6PrefixSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceIpv6PrefixSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceIpv6PrefixSpecificationArrayOutput) ToNetworkInterfaceIpv6PrefixSpecificationArrayOutput() NetworkInterfaceIpv6PrefixSpecificationArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceIpv6PrefixSpecificationArrayOutput) ToNetworkInterfaceIpv6PrefixSpecificationArrayOutputWithContext(ctx context.Context) NetworkInterfaceIpv6PrefixSpecificationArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceIpv6PrefixSpecificationArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceIpv6PrefixSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceIpv6PrefixSpecification {
+		return vs[0].([]NetworkInterfaceIpv6PrefixSpecification)[vs[1].(int)]
+	}).(NetworkInterfaceIpv6PrefixSpecificationOutput)
+}
+
 type NetworkInterfacePrivateIpAddressSpecification struct {
 	Primary          bool   `pulumi:"primary"`
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
@@ -30606,6 +30794,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathTagArrayInput)(nil)).Elem(), NetworkInsightsPathTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceInstanceIpv6AddressInput)(nil)).Elem(), NetworkInterfaceInstanceIpv6AddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceInstanceIpv6AddressArrayInput)(nil)).Elem(), NetworkInterfaceInstanceIpv6AddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceIpv4PrefixSpecificationInput)(nil)).Elem(), NetworkInterfaceIpv4PrefixSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceIpv4PrefixSpecificationArrayInput)(nil)).Elem(), NetworkInterfaceIpv4PrefixSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceIpv6PrefixSpecificationInput)(nil)).Elem(), NetworkInterfaceIpv6PrefixSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceIpv6PrefixSpecificationArrayInput)(nil)).Elem(), NetworkInterfaceIpv6PrefixSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePrivateIpAddressSpecificationInput)(nil)).Elem(), NetworkInterfacePrivateIpAddressSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePrivateIpAddressSpecificationArrayInput)(nil)).Elem(), NetworkInterfacePrivateIpAddressSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceTagInput)(nil)).Elem(), NetworkInterfaceTagArgs{})
@@ -31039,6 +31231,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsPathTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceIpv4PrefixSpecificationOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceIpv4PrefixSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceIpv6PrefixSpecificationOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceIpv6PrefixSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePrivateIpAddressSpecificationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePrivateIpAddressSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceTagOutput{})

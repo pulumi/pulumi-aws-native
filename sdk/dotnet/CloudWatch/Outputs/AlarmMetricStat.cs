@@ -10,12 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Outputs
 {
 
+    /// <summary>
+    /// This structure defines the metric to be returned, along with the statistics, period, and units.
+    /// </summary>
     [OutputType]
     public sealed class AlarmMetricStat
     {
+        /// <summary>
+        /// The metric to return, including the metric name, namespace, and dimensions.
+        /// </summary>
         public readonly Outputs.AlarmMetric Metric;
+        /// <summary>
+        /// The granularity, in seconds, of the returned data points.
+        /// </summary>
         public readonly int Period;
+        /// <summary>
+        /// The statistic to return.
+        /// </summary>
         public readonly string Stat;
+        /// <summary>
+        /// The unit to use for the returned data points.
+        /// </summary>
         public readonly string? Unit;
 
         [OutputConstructor]

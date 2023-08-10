@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -34,13 +37,37 @@ export class Permission extends pulumi.CustomResource {
         return obj['__pulumiType'] === Permission.__pulumiType;
     }
 
+    /**
+     * The action that the principal can use on the function.
+     */
     public readonly action!: pulumi.Output<string>;
+    /**
+     * For Alexa Smart Home functions, a token that must be supplied by the invoker.
+     */
     public readonly eventSourceToken!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Lambda function, version, or alias.
+     */
     public readonly functionName!: pulumi.Output<string>;
-    public readonly functionUrlAuthType!: pulumi.Output<string | undefined>;
+    /**
+     * The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+     */
+    public readonly functionUrlAuthType!: pulumi.Output<enums.lambda.PermissionFunctionUrlAuthType | undefined>;
+    /**
+     * The AWS service or account that invokes the function. If you specify a service, use SourceArn or SourceAccount to limit who can invoke the function through that service.
+     */
     public readonly principal!: pulumi.Output<string>;
+    /**
+     * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+     */
     public readonly principalOrgId!: pulumi.Output<string | undefined>;
+    /**
+     * For Amazon S3, the ID of the account that owns the resource. Use this together with SourceArn to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+     */
     public readonly sourceAccount!: pulumi.Output<string | undefined>;
+    /**
+     * For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
+     */
     public readonly sourceArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -90,12 +117,36 @@ export class Permission extends pulumi.CustomResource {
  * The set of arguments for constructing a Permission resource.
  */
 export interface PermissionArgs {
+    /**
+     * The action that the principal can use on the function.
+     */
     action: pulumi.Input<string>;
+    /**
+     * For Alexa Smart Home functions, a token that must be supplied by the invoker.
+     */
     eventSourceToken?: pulumi.Input<string>;
+    /**
+     * The name of the Lambda function, version, or alias.
+     */
     functionName: pulumi.Input<string>;
-    functionUrlAuthType?: pulumi.Input<string>;
+    /**
+     * The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+     */
+    functionUrlAuthType?: pulumi.Input<enums.lambda.PermissionFunctionUrlAuthType>;
+    /**
+     * The AWS service or account that invokes the function. If you specify a service, use SourceArn or SourceAccount to limit who can invoke the function through that service.
+     */
     principal: pulumi.Input<string>;
+    /**
+     * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+     */
     principalOrgId?: pulumi.Input<string>;
+    /**
+     * For Amazon S3, the ID of the account that owns the resource. Use this together with SourceArn to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+     */
     sourceAccount?: pulumi.Input<string>;
+    /**
+     * For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
+     */
     sourceArn?: pulumi.Input<string>;
 }

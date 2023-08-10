@@ -52,15 +52,19 @@ namespace Pulumi.AwsNative.Glue
     public sealed class GetTableResult
     {
         public readonly string? Id;
+        public readonly Outputs.TableOpenTableFormatInput? OpenTableFormatInput;
         public readonly Outputs.TableInput? TableInput;
 
         [OutputConstructor]
         private GetTableResult(
             string? id,
 
+            Outputs.TableOpenTableFormatInput? openTableFormatInput,
+
             Outputs.TableInput? tableInput)
         {
             Id = id;
+            OpenTableFormatInput = openTableFormatInput;
             TableInput = tableInput;
         }
     }

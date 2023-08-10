@@ -28,6 +28,7 @@ export interface GetRunGroupResult {
     readonly id?: string;
     readonly maxCpus?: number;
     readonly maxDuration?: number;
+    readonly maxGpus?: number;
     readonly maxRuns?: number;
     readonly name?: string;
     readonly tags?: outputs.omics.RunGroupTagMap;

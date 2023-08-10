@@ -240,6 +240,33 @@ namespace Pulumi.AwsNative.Omics
     }
 
     [EnumType]
+    public readonly struct WorkflowAccelerators : IEquatable<WorkflowAccelerators>
+    {
+        private readonly string _value;
+
+        private WorkflowAccelerators(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowAccelerators Gpu { get; } = new WorkflowAccelerators("GPU");
+
+        public static bool operator ==(WorkflowAccelerators left, WorkflowAccelerators right) => left.Equals(right);
+        public static bool operator !=(WorkflowAccelerators left, WorkflowAccelerators right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowAccelerators value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowAccelerators other && Equals(other);
+        public bool Equals(WorkflowAccelerators other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct WorkflowEngine : IEquatable<WorkflowEngine>
     {
         private readonly string _value;
@@ -251,6 +278,7 @@ namespace Pulumi.AwsNative.Omics
 
         public static WorkflowEngine Wdl { get; } = new WorkflowEngine("WDL");
         public static WorkflowEngine Nextflow { get; } = new WorkflowEngine("NEXTFLOW");
+        public static WorkflowEngine Cwl { get; } = new WorkflowEngine("CWL");
 
         public static bool operator ==(WorkflowEngine left, WorkflowEngine right) => left.Equals(right);
         public static bool operator !=(WorkflowEngine left, WorkflowEngine right) => !left.Equals(right);

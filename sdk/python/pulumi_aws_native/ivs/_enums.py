@@ -8,8 +8,12 @@ __all__ = [
     'ChannelLatencyMode',
     'ChannelPreset',
     'ChannelType',
+    'RecordingConfigurationRenditionConfigurationRenditionSelection',
+    'RecordingConfigurationRenditionConfigurationRenditionsItem',
     'RecordingConfigurationState',
     'RecordingConfigurationThumbnailConfigurationRecordingMode',
+    'RecordingConfigurationThumbnailConfigurationResolution',
+    'RecordingConfigurationThumbnailConfigurationStorageItem',
 ]
 
 
@@ -39,6 +43,22 @@ class ChannelType(str, Enum):
     ADVANCED_HD = "ADVANCED_HD"
 
 
+class RecordingConfigurationRenditionConfigurationRenditionSelection(str, Enum):
+    """
+    Resolution Selection indicates which set of renditions are recorded for a stream.
+    """
+    ALL = "ALL"
+    NONE = "NONE"
+    CUSTOM = "CUSTOM"
+
+
+class RecordingConfigurationRenditionConfigurationRenditionsItem(str, Enum):
+    FULL_HD = "FULL_HD"
+    HD = "HD"
+    SD = "SD"
+    LOWEST_RESOLUTION = "LOWEST_RESOLUTION"
+
+
 class RecordingConfigurationState(str, Enum):
     """
     Recording Configuration State.
@@ -54,3 +74,18 @@ class RecordingConfigurationThumbnailConfigurationRecordingMode(str, Enum):
     """
     INTERVAL = "INTERVAL"
     DISABLED = "DISABLED"
+
+
+class RecordingConfigurationThumbnailConfigurationResolution(str, Enum):
+    """
+    Resolution indicates the desired resolution of recorded thumbnails.
+    """
+    FULL_HD = "FULL_HD"
+    HD = "HD"
+    SD = "SD"
+    LOWEST_RESOLUTION = "LOWEST_RESOLUTION"
+
+
+class RecordingConfigurationThumbnailConfigurationStorageItem(str, Enum):
+    SEQUENTIAL = "SEQUENTIAL"
+    LATEST = "LATEST"

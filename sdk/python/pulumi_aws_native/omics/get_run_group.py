@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRunGroupResult:
-    def __init__(__self__, arn=None, creation_time=None, id=None, max_cpus=None, max_duration=None, max_runs=None, name=None, tags=None):
+    def __init__(__self__, arn=None, creation_time=None, id=None, max_cpus=None, max_duration=None, max_gpus=None, max_runs=None, name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetRunGroupResult:
         if max_duration and not isinstance(max_duration, float):
             raise TypeError("Expected argument 'max_duration' to be a float")
         pulumi.set(__self__, "max_duration", max_duration)
+        if max_gpus and not isinstance(max_gpus, float):
+            raise TypeError("Expected argument 'max_gpus' to be a float")
+        pulumi.set(__self__, "max_gpus", max_gpus)
         if max_runs and not isinstance(max_runs, float):
             raise TypeError("Expected argument 'max_runs' to be a float")
         pulumi.set(__self__, "max_runs", max_runs)
@@ -71,6 +74,11 @@ class GetRunGroupResult:
         return pulumi.get(self, "max_duration")
 
     @property
+    @pulumi.getter(name="maxGpus")
+    def max_gpus(self) -> Optional[float]:
+        return pulumi.get(self, "max_gpus")
+
+    @property
     @pulumi.getter(name="maxRuns")
     def max_runs(self) -> Optional[float]:
         return pulumi.get(self, "max_runs")
@@ -97,6 +105,7 @@ class AwaitableGetRunGroupResult(GetRunGroupResult):
             id=self.id,
             max_cpus=self.max_cpus,
             max_duration=self.max_duration,
+            max_gpus=self.max_gpus,
             max_runs=self.max_runs,
             name=self.name,
             tags=self.tags)
@@ -118,6 +127,7 @@ def get_run_group(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         max_cpus=pulumi.get(__ret__, 'max_cpus'),
         max_duration=pulumi.get(__ret__, 'max_duration'),
+        max_gpus=pulumi.get(__ret__, 'max_gpus'),
         max_runs=pulumi.get(__ret__, 'max_runs'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))

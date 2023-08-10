@@ -100,6 +100,11 @@ export const getTaskTemplate: typeof import("./getTaskTemplate").getTaskTemplate
 export const getTaskTemplateOutput: typeof import("./getTaskTemplate").getTaskTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getTaskTemplate","getTaskTemplateOutput"], () => require("./getTaskTemplate"));
 
+export { GetTrafficDistributionGroupArgs, GetTrafficDistributionGroupResult, GetTrafficDistributionGroupOutputArgs } from "./getTrafficDistributionGroup";
+export const getTrafficDistributionGroup: typeof import("./getTrafficDistributionGroup").getTrafficDistributionGroup = null as any;
+export const getTrafficDistributionGroupOutput: typeof import("./getTrafficDistributionGroup").getTrafficDistributionGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getTrafficDistributionGroup","getTrafficDistributionGroupOutput"], () => require("./getTrafficDistributionGroup"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -170,6 +175,11 @@ export type TaskTemplate = import("./taskTemplate").TaskTemplate;
 export const TaskTemplate: typeof import("./taskTemplate").TaskTemplate = null as any;
 utilities.lazyLoad(exports, ["TaskTemplate"], () => require("./taskTemplate"));
 
+export { TrafficDistributionGroupArgs } from "./trafficDistributionGroup";
+export type TrafficDistributionGroup = import("./trafficDistributionGroup").TrafficDistributionGroup;
+export const TrafficDistributionGroup: typeof import("./trafficDistributionGroup").TrafficDistributionGroup = null as any;
+utilities.lazyLoad(exports, ["TrafficDistributionGroup"], () => require("./trafficDistributionGroup"));
+
 export { UserArgs } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -220,6 +230,8 @@ const _module = {
                 return new SecurityKey(name, <any>undefined, { urn })
             case "aws-native:connect:TaskTemplate":
                 return new TaskTemplate(name, <any>undefined, { urn })
+            case "aws-native:connect:TrafficDistributionGroup":
+                return new TrafficDistributionGroup(name, <any>undefined, { urn })
             case "aws-native:connect:User":
                 return new User(name, <any>undefined, { urn })
             case "aws-native:connect:UserHierarchyGroup":

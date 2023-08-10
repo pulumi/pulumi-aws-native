@@ -16,6 +16,7 @@ __all__ = [
     'FunctionSnapStartResponseApplyOn',
     'FunctionSnapStartResponseOptimizationStatus',
     'FunctionTracingConfigMode',
+    'PermissionFunctionUrlAuthType',
     'UrlAllowMethodsItem',
     'UrlAuthType',
     'UrlInvokeMode',
@@ -108,6 +109,14 @@ class FunctionTracingConfigMode(str, Enum):
     """
     ACTIVE = "Active"
     PASS_THROUGH = "PassThrough"
+
+
+class PermissionFunctionUrlAuthType(str, Enum):
+    """
+    The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+    """
+    AWS_IAM = "AWS_IAM"
+    NONE = "NONE"
 
 
 class UrlAllowMethodsItem(str, Enum):

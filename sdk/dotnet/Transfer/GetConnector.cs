@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public readonly string? AccessRole;
         /// <summary>
-        /// Specifies the unique Amazon Resource Name (ARN) for the workflow.
+        /// Specifies the unique Amazon Resource Name (ARN) for the connector.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
@@ -78,7 +78,11 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public readonly string? LoggingRole;
         /// <summary>
-        /// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+        /// Configuration for an SFTP connector.
+        /// </summary>
+        public readonly Outputs.SftpConfigProperties? SftpConfig;
+        /// <summary>
+        /// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConnectorTag> Tags;
         /// <summary>
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.Transfer
 
             string? loggingRole,
 
+            Outputs.SftpConfigProperties? sftpConfig,
+
             ImmutableArray<Outputs.ConnectorTag> tags,
 
             string? url)
@@ -107,6 +113,7 @@ namespace Pulumi.AwsNative.Transfer
             As2Config = as2Config;
             ConnectorId = connectorId;
             LoggingRole = loggingRole;
+            SftpConfig = sftpConfig;
             Tags = tags;
             Url = url;
         }

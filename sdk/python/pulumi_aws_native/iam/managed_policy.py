@@ -23,13 +23,6 @@ class ManagedPolicyArgs:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ManagedPolicy resource.
-        :param Any policy_document: The JSON policy document that you want to use as the content for the new policy.
-        :param pulumi.Input[str] description: A friendly description of the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The name (friendly name, not ARN) of the group to attach the policy to.
-        :param pulumi.Input[str] managed_policy_name: The friendly name of the policy.
-        :param pulumi.Input[str] path: The path for the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The name (friendly name, not ARN) of the role to attach the policy to.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The name (friendly name, not ARN) of the IAM user to attach the policy to.
         """
         pulumi.set(__self__, "policy_document", policy_document)
         if description is not None:
@@ -48,9 +41,6 @@ class ManagedPolicyArgs:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Any:
-        """
-        The JSON policy document that you want to use as the content for the new policy.
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -60,9 +50,6 @@ class ManagedPolicyArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A friendly description of the policy.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -72,9 +59,6 @@ class ManagedPolicyArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The name (friendly name, not ARN) of the group to attach the policy to.
-        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -84,9 +68,6 @@ class ManagedPolicyArgs:
     @property
     @pulumi.getter(name="managedPolicyName")
     def managed_policy_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The friendly name of the policy.
-        """
         return pulumi.get(self, "managed_policy_name")
 
     @managed_policy_name.setter
@@ -96,9 +77,6 @@ class ManagedPolicyArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path for the policy.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -108,9 +86,6 @@ class ManagedPolicyArgs:
     @property
     @pulumi.getter
     def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The name (friendly name, not ARN) of the role to attach the policy to.
-        """
         return pulumi.get(self, "roles")
 
     @roles.setter
@@ -120,9 +95,6 @@ class ManagedPolicyArgs:
     @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The name (friendly name, not ARN) of the IAM user to attach the policy to.
-        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -148,13 +120,6 @@ class ManagedPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A friendly description of the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The name (friendly name, not ARN) of the group to attach the policy to.
-        :param pulumi.Input[str] managed_policy_name: The friendly name of the policy.
-        :param pulumi.Input[str] path: The path for the policy.
-        :param Any policy_document: The JSON policy document that you want to use as the content for the new policy.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The name (friendly name, not ARN) of the role to attach the policy to.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The name (friendly name, not ARN) of the IAM user to attach the policy to.
         """
         ...
     @overload
@@ -205,14 +170,6 @@ class ManagedPolicy(pulumi.CustomResource):
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["roles"] = roles
             __props__.__dict__["users"] = users
-            __props__.__dict__["attachment_count"] = None
-            __props__.__dict__["create_date"] = None
-            __props__.__dict__["default_version_id"] = None
-            __props__.__dict__["is_attachable"] = None
-            __props__.__dict__["permissions_boundary_usage_count"] = None
-            __props__.__dict__["policy_arn"] = None
-            __props__.__dict__["policy_id"] = None
-            __props__.__dict__["update_date"] = None
         super(ManagedPolicy, __self__).__init__(
             'aws-native:iam:ManagedPolicy',
             resource_name,
@@ -235,140 +192,47 @@ class ManagedPolicy(pulumi.CustomResource):
 
         __props__ = ManagedPolicyArgs.__new__(ManagedPolicyArgs)
 
-        __props__.__dict__["attachment_count"] = None
-        __props__.__dict__["create_date"] = None
-        __props__.__dict__["default_version_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["groups"] = None
-        __props__.__dict__["is_attachable"] = None
         __props__.__dict__["managed_policy_name"] = None
         __props__.__dict__["path"] = None
-        __props__.__dict__["permissions_boundary_usage_count"] = None
-        __props__.__dict__["policy_arn"] = None
         __props__.__dict__["policy_document"] = None
-        __props__.__dict__["policy_id"] = None
         __props__.__dict__["roles"] = None
-        __props__.__dict__["update_date"] = None
         __props__.__dict__["users"] = None
         return ManagedPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="attachmentCount")
-    def attachment_count(self) -> pulumi.Output[int]:
-        """
-        The number of entities (users, groups, and roles) that the policy is attached to.
-        """
-        return pulumi.get(self, "attachment_count")
-
-    @property
-    @pulumi.getter(name="createDate")
-    def create_date(self) -> pulumi.Output[str]:
-        """
-        The date and time, in ISO 8601 date-time format, when the policy was created.
-        """
-        return pulumi.get(self, "create_date")
-
-    @property
-    @pulumi.getter(name="defaultVersionId")
-    def default_version_id(self) -> pulumi.Output[str]:
-        """
-        The identifier for the version of the policy that is set as the default version.
-        """
-        return pulumi.get(self, "default_version_id")
-
-    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A friendly description of the policy.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The name (friendly name, not ARN) of the group to attach the policy to.
-        """
         return pulumi.get(self, "groups")
-
-    @property
-    @pulumi.getter(name="isAttachable")
-    def is_attachable(self) -> pulumi.Output[bool]:
-        """
-        Specifies whether the policy can be attached to an IAM user, group, or role.
-        """
-        return pulumi.get(self, "is_attachable")
 
     @property
     @pulumi.getter(name="managedPolicyName")
     def managed_policy_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The friendly name of the policy.
-        """
         return pulumi.get(self, "managed_policy_name")
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
-        """
-        The path for the policy.
-        """
         return pulumi.get(self, "path")
-
-    @property
-    @pulumi.getter(name="permissionsBoundaryUsageCount")
-    def permissions_boundary_usage_count(self) -> pulumi.Output[int]:
-        """
-        The number of entities (users and roles) for which the policy is used to set the permissions boundary.
-        """
-        return pulumi.get(self, "permissions_boundary_usage_count")
-
-    @property
-    @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of the managed policy
-        """
-        return pulumi.get(self, "policy_arn")
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[Any]:
-        """
-        The JSON policy document that you want to use as the content for the new policy.
-        """
         return pulumi.get(self, "policy_document")
-
-    @property
-    @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Output[str]:
-        """
-        The stable and unique string identifying the policy.
-        """
-        return pulumi.get(self, "policy_id")
 
     @property
     @pulumi.getter
     def roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The name (friendly name, not ARN) of the role to attach the policy to.
-        """
         return pulumi.get(self, "roles")
-
-    @property
-    @pulumi.getter(name="updateDate")
-    def update_date(self) -> pulumi.Output[str]:
-        """
-        The date and time, in ISO 8601 date-time format, when the policy was last updated.
-        """
-        return pulumi.get(self, "update_date")
 
     @property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The name (friendly name, not ARN) of the IAM user to attach the policy to.
-        """
         return pulumi.get(self, "users")
 

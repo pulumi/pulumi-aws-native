@@ -24,6 +24,7 @@ export interface GetTableArgs {
 
 export interface GetTableResult {
     readonly id?: string;
+    readonly openTableFormatInput?: outputs.glue.TableOpenTableFormatInput;
     readonly tableInput?: outputs.glue.TableInput;
 }
 /**

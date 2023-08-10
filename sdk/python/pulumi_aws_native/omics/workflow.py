@@ -17,6 +17,7 @@ __all__ = ['WorkflowArgs', 'Workflow']
 @pulumi.input_type
 class WorkflowArgs:
     def __init__(__self__, *,
+                 accelerators: Optional[pulumi.Input['WorkflowAccelerators']] = None,
                  definition_uri: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input['WorkflowEngine']] = None,
@@ -28,6 +29,8 @@ class WorkflowArgs:
         """
         The set of arguments for constructing a Workflow resource.
         """
+        if accelerators is not None:
+            pulumi.set(__self__, "accelerators", accelerators)
         if definition_uri is not None:
             pulumi.set(__self__, "definition_uri", definition_uri)
         if description is not None:
@@ -44,6 +47,15 @@ class WorkflowArgs:
             pulumi.set(__self__, "storage_capacity", storage_capacity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def accelerators(self) -> Optional[pulumi.Input['WorkflowAccelerators']]:
+        return pulumi.get(self, "accelerators")
+
+    @accelerators.setter
+    def accelerators(self, value: Optional[pulumi.Input['WorkflowAccelerators']]):
+        pulumi.set(self, "accelerators", value)
 
     @property
     @pulumi.getter(name="definitionUri")
@@ -123,6 +135,7 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerators: Optional[pulumi.Input['WorkflowAccelerators']] = None,
                  definition_uri: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input['WorkflowEngine']] = None,
@@ -162,6 +175,7 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerators: Optional[pulumi.Input['WorkflowAccelerators']] = None,
                  definition_uri: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input['WorkflowEngine']] = None,
@@ -179,6 +193,7 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
+            __props__.__dict__["accelerators"] = accelerators
             __props__.__dict__["definition_uri"] = definition_uri
             __props__.__dict__["description"] = description
             __props__.__dict__["engine"] = engine
@@ -213,6 +228,7 @@ class Workflow(pulumi.CustomResource):
 
         __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
+        __props__.__dict__["accelerators"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["definition_uri"] = None
@@ -226,6 +242,11 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Workflow(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def accelerators(self) -> pulumi.Output[Optional['WorkflowAccelerators']]:
+        return pulumi.get(self, "accelerators")
 
     @property
     @pulumi.getter

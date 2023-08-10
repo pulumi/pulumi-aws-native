@@ -6,6 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AgentEndpointType',
+    'LocationAzureBlobAzureAccessTier',
+    'LocationAzureBlobAzureBlobAuthenticationType',
+    'LocationAzureBlobAzureBlobType',
     'LocationEfsInTransitEncryption',
     'LocationFSxOntapNfsMountOptionsVersion',
     'LocationFSxOntapSmbMountOptionsVersion',
@@ -45,6 +48,29 @@ class AgentEndpointType(str, Enum):
     FIPS = "FIPS"
     PUBLIC = "PUBLIC"
     PRIVATE_LINK = "PRIVATE_LINK"
+
+
+class LocationAzureBlobAzureAccessTier(str, Enum):
+    """
+    Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
+    """
+    HOT = "HOT"
+    COOL = "COOL"
+    ARCHIVE = "ARCHIVE"
+
+
+class LocationAzureBlobAzureBlobAuthenticationType(str, Enum):
+    """
+    The specific authentication type that you want DataSync to use to access your Azure Blob Container.
+    """
+    SAS = "SAS"
+
+
+class LocationAzureBlobAzureBlobType(str, Enum):
+    """
+    Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
+    """
+    BLOCK = "BLOCK"
 
 
 class LocationEfsInTransitEncryption(str, Enum):

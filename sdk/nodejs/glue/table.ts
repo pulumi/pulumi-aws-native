@@ -42,6 +42,7 @@ export class Table extends pulumi.CustomResource {
 
     public readonly catalogId!: pulumi.Output<string>;
     public readonly databaseName!: pulumi.Output<string>;
+    public readonly openTableFormatInput!: pulumi.Output<outputs.glue.TableOpenTableFormatInput | undefined>;
     public readonly tableInput!: pulumi.Output<outputs.glue.TableInput>;
 
     /**
@@ -68,10 +69,12 @@ export class Table extends pulumi.CustomResource {
             }
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["openTableFormatInput"] = args ? args.openTableFormatInput : undefined;
             resourceInputs["tableInput"] = args ? args.tableInput : undefined;
         } else {
             resourceInputs["catalogId"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["openTableFormatInput"] = undefined /*out*/;
             resourceInputs["tableInput"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -85,5 +88,6 @@ export class Table extends pulumi.CustomResource {
 export interface TableArgs {
     catalogId: pulumi.Input<string>;
     databaseName: pulumi.Input<string>;
+    openTableFormatInput?: pulumi.Input<inputs.glue.TableOpenTableFormatInputArgs>;
     tableInput: pulumi.Input<inputs.glue.TableInputArgs>;
 }

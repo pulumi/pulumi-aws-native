@@ -948,6 +948,41 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The status of the traffic distribution group.
+    /// </summary>
+    [EnumType]
+    public readonly struct TrafficDistributionGroupStatus : IEquatable<TrafficDistributionGroupStatus>
+    {
+        private readonly string _value;
+
+        private TrafficDistributionGroupStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrafficDistributionGroupStatus CreationInProgress { get; } = new TrafficDistributionGroupStatus("CREATION_IN_PROGRESS");
+        public static TrafficDistributionGroupStatus Active { get; } = new TrafficDistributionGroupStatus("ACTIVE");
+        public static TrafficDistributionGroupStatus CreationFailed { get; } = new TrafficDistributionGroupStatus("CREATION_FAILED");
+        public static TrafficDistributionGroupStatus PendingDeletion { get; } = new TrafficDistributionGroupStatus("PENDING_DELETION");
+        public static TrafficDistributionGroupStatus DeletionFailed { get; } = new TrafficDistributionGroupStatus("DELETION_FAILED");
+        public static TrafficDistributionGroupStatus UpdateInProgress { get; } = new TrafficDistributionGroupStatus("UPDATE_IN_PROGRESS");
+
+        public static bool operator ==(TrafficDistributionGroupStatus left, TrafficDistributionGroupStatus right) => left.Equals(right);
+        public static bool operator !=(TrafficDistributionGroupStatus left, TrafficDistributionGroupStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TrafficDistributionGroupStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrafficDistributionGroupStatus other && Equals(other);
+        public bool Equals(TrafficDistributionGroupStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The phone type.
     /// </summary>
     [EnumType]

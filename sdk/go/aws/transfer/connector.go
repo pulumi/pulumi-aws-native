@@ -18,15 +18,17 @@ type Connector struct {
 
 	// Specifies the access role for the connector.
 	AccessRole pulumi.StringOutput `pulumi:"accessRole"`
-	// Specifies the unique Amazon Resource Name (ARN) for the workflow.
+	// Specifies the unique Amazon Resource Name (ARN) for the connector.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration for an AS2 connector.
-	As2Config As2ConfigPropertiesOutput `pulumi:"as2Config"`
+	As2Config As2ConfigPropertiesPtrOutput `pulumi:"as2Config"`
 	// A unique identifier for the connector.
 	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
 	// Specifies the logging role for the connector.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
-	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+	// Configuration for an SFTP connector.
+	SftpConfig SftpConfigPropertiesPtrOutput `pulumi:"sftpConfig"`
+	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 	Tags ConnectorTagArrayOutput `pulumi:"tags"`
 	// URL for Connector
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -41,9 +43,6 @@ func NewConnector(ctx *pulumi.Context,
 
 	if args.AccessRole == nil {
 		return nil, errors.New("invalid value for required argument 'AccessRole'")
-	}
-	if args.As2Config == nil {
-		return nil, errors.New("invalid value for required argument 'As2Config'")
 	}
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
@@ -84,10 +83,12 @@ type connectorArgs struct {
 	// Specifies the access role for the connector.
 	AccessRole string `pulumi:"accessRole"`
 	// Configuration for an AS2 connector.
-	As2Config As2ConfigProperties `pulumi:"as2Config"`
+	As2Config *As2ConfigProperties `pulumi:"as2Config"`
 	// Specifies the logging role for the connector.
 	LoggingRole *string `pulumi:"loggingRole"`
-	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+	// Configuration for an SFTP connector.
+	SftpConfig *SftpConfigProperties `pulumi:"sftpConfig"`
+	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 	Tags []ConnectorTag `pulumi:"tags"`
 	// URL for Connector
 	Url string `pulumi:"url"`
@@ -98,10 +99,12 @@ type ConnectorArgs struct {
 	// Specifies the access role for the connector.
 	AccessRole pulumi.StringInput
 	// Configuration for an AS2 connector.
-	As2Config As2ConfigPropertiesInput
+	As2Config As2ConfigPropertiesPtrInput
 	// Specifies the logging role for the connector.
 	LoggingRole pulumi.StringPtrInput
-	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+	// Configuration for an SFTP connector.
+	SftpConfig SftpConfigPropertiesPtrInput
+	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 	Tags ConnectorTagArrayInput
 	// URL for Connector
 	Url pulumi.StringInput
@@ -149,14 +152,14 @@ func (o ConnectorOutput) AccessRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.AccessRole }).(pulumi.StringOutput)
 }
 
-// Specifies the unique Amazon Resource Name (ARN) for the workflow.
+// Specifies the unique Amazon Resource Name (ARN) for the connector.
 func (o ConnectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Configuration for an AS2 connector.
-func (o ConnectorOutput) As2Config() As2ConfigPropertiesOutput {
-	return o.ApplyT(func(v *Connector) As2ConfigPropertiesOutput { return v.As2Config }).(As2ConfigPropertiesOutput)
+func (o ConnectorOutput) As2Config() As2ConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *Connector) As2ConfigPropertiesPtrOutput { return v.As2Config }).(As2ConfigPropertiesPtrOutput)
 }
 
 // A unique identifier for the connector.
@@ -169,7 +172,12 @@ func (o ConnectorOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.LoggingRole }).(pulumi.StringPtrOutput)
 }
 
-// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+// Configuration for an SFTP connector.
+func (o ConnectorOutput) SftpConfig() SftpConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *Connector) SftpConfigPropertiesPtrOutput { return v.SftpConfig }).(SftpConfigPropertiesPtrOutput)
+}
+
+// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 func (o ConnectorOutput) Tags() ConnectorTagArrayOutput {
 	return o.ApplyT(func(v *Connector) ConnectorTagArrayOutput { return v.Tags }).(ConnectorTagArrayOutput)
 }

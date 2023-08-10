@@ -20,6 +20,10 @@ class LayerVersionPermissionArgs:
                  organization_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LayerVersionPermission resource.
+        :param pulumi.Input[str] action: The API action that grants access to the layer.
+        :param pulumi.Input[str] layer_version_arn: The name or Amazon Resource Name (ARN) of the layer.
+        :param pulumi.Input[str] principal: An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
+        :param pulumi.Input[str] organization_id: With the principal set to *, grant permission to all accounts in the specified organization.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "layer_version_arn", layer_version_arn)
@@ -30,6 +34,9 @@ class LayerVersionPermissionArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
+        """
+        The API action that grants access to the layer.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -39,6 +46,9 @@ class LayerVersionPermissionArgs:
     @property
     @pulumi.getter(name="layerVersionArn")
     def layer_version_arn(self) -> pulumi.Input[str]:
+        """
+        The name or Amazon Resource Name (ARN) of the layer.
+        """
         return pulumi.get(self, "layer_version_arn")
 
     @layer_version_arn.setter
@@ -48,6 +58,9 @@ class LayerVersionPermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
+        """
+        An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -57,6 +70,9 @@ class LayerVersionPermissionArgs:
     @property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        With the principal set to *, grant permission to all accounts in the specified organization.
+        """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
@@ -75,10 +91,14 @@ class LayerVersionPermission(pulumi.CustomResource):
                  principal: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Lambda::LayerVersionPermission
+        Schema for Lambda LayerVersionPermission
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: The API action that grants access to the layer.
+        :param pulumi.Input[str] layer_version_arn: The name or Amazon Resource Name (ARN) of the layer.
+        :param pulumi.Input[str] organization_id: With the principal set to *, grant permission to all accounts in the specified organization.
+        :param pulumi.Input[str] principal: An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
         """
         ...
     @overload
@@ -87,7 +107,7 @@ class LayerVersionPermission(pulumi.CustomResource):
                  args: LayerVersionPermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Lambda::LayerVersionPermission
+        Schema for Lambda LayerVersionPermission
 
         :param str resource_name: The name of the resource.
         :param LayerVersionPermissionArgs args: The arguments to use to populate this resource's properties.
@@ -158,20 +178,32 @@ class LayerVersionPermission(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[str]:
+        """
+        The API action that grants access to the layer.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="layerVersionArn")
     def layer_version_arn(self) -> pulumi.Output[str]:
+        """
+        The name or Amazon Resource Name (ARN) of the layer.
+        """
         return pulumi.get(self, "layer_version_arn")
 
     @property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        With the principal set to *, grant permission to all accounts in the specified organization.
+        """
         return pulumi.get(self, "organization_id")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
+        """
+        An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
+        """
         return pulumi.get(self, "principal")
 

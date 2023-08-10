@@ -34,6 +34,7 @@ __all__ = [
     'RuleTriggerEventSourceEventSourceName',
     'TaskTemplateFieldType',
     'TaskTemplateStatus',
+    'TrafficDistributionGroupStatus',
     'UserPhoneType',
 ]
 
@@ -309,6 +310,18 @@ class TaskTemplateStatus(str, Enum):
     """
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"
+
+
+class TrafficDistributionGroupStatus(str, Enum):
+    """
+    The status of the traffic distribution group.
+    """
+    CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
+    ACTIVE = "ACTIVE"
+    CREATION_FAILED = "CREATION_FAILED"
+    PENDING_DELETION = "PENDING_DELETION"
+    DELETION_FAILED = "DELETION_FAILED"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
 
 
 class UserPhoneType(str, Enum):

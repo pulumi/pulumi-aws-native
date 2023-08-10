@@ -53,6 +53,7 @@ __all__ = [
     'DataSourceSharePointConfiguration',
     'DataSourceSqlConfiguration',
     'DataSourceTag',
+    'DataSourceTemplateConfiguration',
     'DataSourceToIndexFieldMapping',
     'DataSourceVpcConfiguration',
     'DataSourceWebCrawlerAuthenticationConfiguration',
@@ -223,6 +224,8 @@ class DataSourceConfiguration(dict):
             suggest = "service_now_configuration"
         elif key == "sharePointConfiguration":
             suggest = "share_point_configuration"
+        elif key == "templateConfiguration":
+            suggest = "template_configuration"
         elif key == "webCrawlerConfiguration":
             suggest = "web_crawler_configuration"
         elif key == "workDocsConfiguration":
@@ -248,6 +251,7 @@ class DataSourceConfiguration(dict):
                  salesforce_configuration: Optional['outputs.DataSourceSalesforceConfiguration'] = None,
                  service_now_configuration: Optional['outputs.DataSourceServiceNowConfiguration'] = None,
                  share_point_configuration: Optional['outputs.DataSourceSharePointConfiguration'] = None,
+                 template_configuration: Optional['outputs.DataSourceTemplateConfiguration'] = None,
                  web_crawler_configuration: Optional['outputs.DataSourceWebCrawlerConfiguration'] = None,
                  work_docs_configuration: Optional['outputs.DataSourceWorkDocsConfiguration'] = None):
         if confluence_configuration is not None:
@@ -266,6 +270,8 @@ class DataSourceConfiguration(dict):
             pulumi.set(__self__, "service_now_configuration", service_now_configuration)
         if share_point_configuration is not None:
             pulumi.set(__self__, "share_point_configuration", share_point_configuration)
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
         if web_crawler_configuration is not None:
             pulumi.set(__self__, "web_crawler_configuration", web_crawler_configuration)
         if work_docs_configuration is not None:
@@ -310,6 +316,11 @@ class DataSourceConfiguration(dict):
     @pulumi.getter(name="sharePointConfiguration")
     def share_point_configuration(self) -> Optional['outputs.DataSourceSharePointConfiguration']:
         return pulumi.get(self, "share_point_configuration")
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional['outputs.DataSourceTemplateConfiguration']:
+        return pulumi.get(self, "template_configuration")
 
     @property
     @pulumi.getter(name="webCrawlerConfiguration")
@@ -2491,6 +2502,18 @@ class DataSourceTag(dict):
         A string containing the value for the tag
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DataSourceTemplateConfiguration(dict):
+    def __init__(__self__, *,
+                 template: str):
+        pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def template(self) -> str:
+        return pulumi.get(self, "template")
 
 
 @pulumi.output_type

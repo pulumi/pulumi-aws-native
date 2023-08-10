@@ -4614,6 +4614,101 @@ func (in *taskTemplateStatusPtr) ToTaskTemplateStatusPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(TaskTemplateStatusPtrOutput)
 }
 
+// The status of the traffic distribution group.
+type TrafficDistributionGroupStatus string
+
+const (
+	TrafficDistributionGroupStatusCreationInProgress = TrafficDistributionGroupStatus("CREATION_IN_PROGRESS")
+	TrafficDistributionGroupStatusActive             = TrafficDistributionGroupStatus("ACTIVE")
+	TrafficDistributionGroupStatusCreationFailed     = TrafficDistributionGroupStatus("CREATION_FAILED")
+	TrafficDistributionGroupStatusPendingDeletion    = TrafficDistributionGroupStatus("PENDING_DELETION")
+	TrafficDistributionGroupStatusDeletionFailed     = TrafficDistributionGroupStatus("DELETION_FAILED")
+	TrafficDistributionGroupStatusUpdateInProgress   = TrafficDistributionGroupStatus("UPDATE_IN_PROGRESS")
+)
+
+type TrafficDistributionGroupStatusOutput struct{ *pulumi.OutputState }
+
+func (TrafficDistributionGroupStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficDistributionGroupStatus)(nil)).Elem()
+}
+
+func (o TrafficDistributionGroupStatusOutput) ToTrafficDistributionGroupStatusOutput() TrafficDistributionGroupStatusOutput {
+	return o
+}
+
+func (o TrafficDistributionGroupStatusOutput) ToTrafficDistributionGroupStatusOutputWithContext(ctx context.Context) TrafficDistributionGroupStatusOutput {
+	return o
+}
+
+func (o TrafficDistributionGroupStatusOutput) ToTrafficDistributionGroupStatusPtrOutput() TrafficDistributionGroupStatusPtrOutput {
+	return o.ToTrafficDistributionGroupStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TrafficDistributionGroupStatusOutput) ToTrafficDistributionGroupStatusPtrOutputWithContext(ctx context.Context) TrafficDistributionGroupStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficDistributionGroupStatus) *TrafficDistributionGroupStatus {
+		return &v
+	}).(TrafficDistributionGroupStatusPtrOutput)
+}
+
+func (o TrafficDistributionGroupStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrafficDistributionGroupStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrafficDistributionGroupStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrafficDistributionGroupStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrafficDistributionGroupStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrafficDistributionGroupStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrafficDistributionGroupStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TrafficDistributionGroupStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficDistributionGroupStatus)(nil)).Elem()
+}
+
+func (o TrafficDistributionGroupStatusPtrOutput) ToTrafficDistributionGroupStatusPtrOutput() TrafficDistributionGroupStatusPtrOutput {
+	return o
+}
+
+func (o TrafficDistributionGroupStatusPtrOutput) ToTrafficDistributionGroupStatusPtrOutputWithContext(ctx context.Context) TrafficDistributionGroupStatusPtrOutput {
+	return o
+}
+
+func (o TrafficDistributionGroupStatusPtrOutput) Elem() TrafficDistributionGroupStatusOutput {
+	return o.ApplyT(func(v *TrafficDistributionGroupStatus) TrafficDistributionGroupStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficDistributionGroupStatus
+		return ret
+	}).(TrafficDistributionGroupStatusOutput)
+}
+
+func (o TrafficDistributionGroupStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrafficDistributionGroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrafficDistributionGroupStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The phone type.
 type UserPhoneType string
 
@@ -4892,6 +4987,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskTemplateFieldTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskTemplateStatusOutput{})
 	pulumi.RegisterOutputType(TaskTemplateStatusPtrOutput{})
+	pulumi.RegisterOutputType(TrafficDistributionGroupStatusOutput{})
+	pulumi.RegisterOutputType(TrafficDistributionGroupStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypeOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypePtrOutput{})
 }

@@ -20,6 +20,7 @@ class RecordingConfigurationArgs:
                  destination_configuration: pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'],
                  name: Optional[pulumi.Input[str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
+                 rendition_configuration: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
@@ -33,6 +34,8 @@ class RecordingConfigurationArgs:
             pulumi.set(__self__, "name", name)
         if recording_reconnect_window_seconds is not None:
             pulumi.set(__self__, "recording_reconnect_window_seconds", recording_reconnect_window_seconds)
+        if rendition_configuration is not None:
+            pulumi.set(__self__, "rendition_configuration", rendition_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if thumbnail_configuration is not None:
@@ -72,6 +75,15 @@ class RecordingConfigurationArgs:
         pulumi.set(self, "recording_reconnect_window_seconds", value)
 
     @property
+    @pulumi.getter(name="renditionConfiguration")
+    def rendition_configuration(self) -> Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']]:
+        return pulumi.get(self, "rendition_configuration")
+
+    @rendition_configuration.setter
+    def rendition_configuration(self, value: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']]):
+        pulumi.set(self, "rendition_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]]:
         """
@@ -101,6 +113,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  destination_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
+                 rendition_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationRenditionConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordingConfigurationTagArgs']]]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']]] = None,
                  __props__=None):
@@ -140,6 +153,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  destination_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
+                 rendition_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationRenditionConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordingConfigurationTagArgs']]]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']]] = None,
                  __props__=None):
@@ -156,6 +170,7 @@ class RecordingConfiguration(pulumi.CustomResource):
             __props__.__dict__["destination_configuration"] = destination_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["recording_reconnect_window_seconds"] = recording_reconnect_window_seconds
+            __props__.__dict__["rendition_configuration"] = rendition_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["thumbnail_configuration"] = thumbnail_configuration
             __props__.__dict__["arn"] = None
@@ -186,6 +201,7 @@ class RecordingConfiguration(pulumi.CustomResource):
         __props__.__dict__["destination_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["recording_reconnect_window_seconds"] = None
+        __props__.__dict__["rendition_configuration"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["thumbnail_configuration"] = None
@@ -219,6 +235,11 @@ class RecordingConfiguration(pulumi.CustomResource):
         Recording Reconnect Window Seconds. (0 means disabled)
         """
         return pulumi.get(self, "recording_reconnect_window_seconds")
+
+    @property
+    @pulumi.getter(name="renditionConfiguration")
+    def rendition_configuration(self) -> pulumi.Output[Optional['outputs.RecordingConfigurationRenditionConfiguration']]:
+        return pulumi.get(self, "rendition_configuration")
 
     @property
     @pulumi.getter

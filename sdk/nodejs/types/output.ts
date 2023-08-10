@@ -6265,31 +6265,91 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
+    /**
+     * Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
+     */
     export interface AlarmDimension {
+        /**
+         * The name of the dimension.
+         */
         name: string;
+        /**
+         * The value for the dimension.
+         */
         value: string;
     }
 
+    /**
+     * The Metric property type represents a specific metric.
+     */
     export interface AlarmMetric {
+        /**
+         * The dimensions for the metric.
+         */
         dimensions?: outputs.cloudwatch.AlarmDimension[];
+        /**
+         * The name of the metric.
+         */
         metricName?: string;
+        /**
+         * The namespace of the metric.
+         */
         namespace?: string;
     }
 
+    /**
+     * This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+     */
     export interface AlarmMetricDataQuery {
+        /**
+         * The ID of the account where the metrics are located, if this is a cross-account alarm.
+         */
         accountId?: string;
+        /**
+         * The math expression to be performed on the returned data.
+         */
         expression?: string;
+        /**
+         * A short name used to tie this object to the results in the response.
+         */
         id: string;
+        /**
+         * A human-readable label for this metric or expression.
+         */
         label?: string;
+        /**
+         * The metric to be returned, along with statistics, period, and units.
+         */
         metricStat?: outputs.cloudwatch.AlarmMetricStat;
+        /**
+         * The period in seconds, over which the statistic is applied.
+         */
         period?: number;
+        /**
+         * This option indicates whether to return the timestamps and raw data values of this metric.
+         */
         returnData?: boolean;
     }
 
+    /**
+     * This structure defines the metric to be returned, along with the statistics, period, and units.
+     */
     export interface AlarmMetricStat {
+        /**
+         * The metric to return, including the metric name, namespace, and dimensions.
+         */
         metric: outputs.cloudwatch.AlarmMetric;
+        /**
+         * The granularity, in seconds, of the returned data points.
+         */
         period: number;
+        /**
+         * The statistic to return.
+         */
         stat: string;
+        /**
+         * The unit to use for the returned data points.
+         */
         unit?: string;
     }
 
@@ -8969,6 +9029,20 @@ export namespace connect {
     }
 
     /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface TrafficDistributionGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
      * Contains information about the identity of a user.
      */
     export interface UserIdentityInfo {
@@ -9996,6 +10070,30 @@ export namespace datasync {
      * A key-value pair to associate with a resource.
      */
     export interface AgentTag {
+        /**
+         * The key for an AWS resource tag.
+         */
+        key: string;
+        /**
+         * The value for an AWS resource tag.
+         */
+        value: string;
+    }
+
+    /**
+     * Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
+     */
+    export interface LocationAzureBlobAzureBlobSasConfiguration {
+        /**
+         * Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
+         */
+        azureBlobSasToken: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LocationAzureBlobTag {
         /**
          * The key for an AWS resource tag.
          */
@@ -12797,6 +12895,14 @@ export namespace ec2 {
 
     export interface NetworkInterfaceInstanceIpv6Address {
         ipv6Address: string;
+    }
+
+    export interface NetworkInterfaceIpv4PrefixSpecification {
+        ipv4Prefix: string;
+    }
+
+    export interface NetworkInterfaceIpv6PrefixSpecification {
+        ipv6Prefix: string;
     }
 
     export interface NetworkInterfacePrivateIpAddressSpecification {
@@ -17218,7 +17324,9 @@ export namespace globalaccelerator {
 export namespace glue {
     export interface ClassifierCsvClassifier {
         allowSingleColumn?: boolean;
+        containsCustomDatatype?: string[];
         containsHeader?: string;
+        customDatatypeConfigured?: boolean;
         delimiter?: string;
         disableValueTrimming?: boolean;
         header?: string[];
@@ -17278,6 +17386,13 @@ export namespace glue {
         path?: string;
     }
 
+    export interface CrawlerIcebergTarget {
+        connectionName?: string;
+        exclusions?: string[];
+        maximumTraversalDepth?: number;
+        paths?: string[];
+    }
+
     export interface CrawlerJdbcTarget {
         connectionName?: string;
         exclusions?: string[];
@@ -17315,6 +17430,7 @@ export namespace glue {
         catalogTargets?: outputs.glue.CrawlerCatalogTarget[];
         deltaTargets?: outputs.glue.CrawlerDeltaTarget[];
         dynamoDbTargets?: outputs.glue.CrawlerDynamoDbTarget[];
+        icebergTargets?: outputs.glue.CrawlerIcebergTarget[];
         jdbcTargets?: outputs.glue.CrawlerJdbcTarget[];
         mongoDbTargets?: outputs.glue.CrawlerMongoDbTarget[];
         s3Targets?: outputs.glue.CrawlerS3Target[];
@@ -17352,6 +17468,7 @@ export namespace glue {
     export interface DatabaseIdentifier {
         catalogId?: string;
         databaseName?: string;
+        region?: string;
     }
 
     export interface DatabaseInput {
@@ -17571,10 +17688,16 @@ export namespace glue {
         type?: string;
     }
 
+    export interface TableIcebergInput {
+        metadataOperation?: outputs.glue.TableMetadataOperation;
+        version?: string;
+    }
+
     export interface TableIdentifier {
         catalogId?: string;
         databaseName?: string;
         name?: string;
+        region?: string;
     }
 
     export interface TableInput {
@@ -17589,6 +17712,13 @@ export namespace glue {
         targetTable?: outputs.glue.TableIdentifier;
         viewExpandedText?: string;
         viewOriginalText?: string;
+    }
+
+    export interface TableMetadataOperation {
+    }
+
+    export interface TableOpenTableFormatInput {
+        icebergInput?: outputs.glue.TableIcebergInput;
     }
 
     export interface TableOrder {
@@ -19290,12 +19420,20 @@ export namespace inspectorv2 {
 
 export namespace internetmonitor {
     export interface MonitorHealthEventsConfig {
+        availabilityLocalHealthEventsConfig?: outputs.internetmonitor.MonitorLocalHealthEventsConfig;
         availabilityScoreThreshold?: number;
+        performanceLocalHealthEventsConfig?: outputs.internetmonitor.MonitorLocalHealthEventsConfig;
         performanceScoreThreshold?: number;
     }
 
     export interface MonitorInternetMeasurementsLogDelivery {
         s3Config?: outputs.internetmonitor.MonitorS3Config;
+    }
+
+    export interface MonitorLocalHealthEventsConfig {
+        healthScoreThreshold?: number;
+        minTrafficImpact?: number;
+        status?: enums.internetmonitor.MonitorLocalHealthEventsConfigStatus;
     }
 
     export interface MonitorS3Config {
@@ -22176,7 +22314,21 @@ export namespace ivs {
      * Recording Destination Configuration.
      */
     export interface RecordingConfigurationDestinationConfiguration {
-        s3: outputs.ivs.RecordingConfigurationS3DestinationConfiguration;
+        s3?: outputs.ivs.RecordingConfigurationS3DestinationConfiguration;
+    }
+
+    /**
+     * Rendition Configuration describes which renditions should be recorded for a stream.
+     */
+    export interface RecordingConfigurationRenditionConfiguration {
+        /**
+         * Resolution Selection indicates which set of renditions are recorded for a stream.
+         */
+        renditionSelection?: enums.ivs.RecordingConfigurationRenditionConfigurationRenditionSelection;
+        /**
+         * Renditions indicates which renditions are recorded for a stream.
+         */
+        renditions?: enums.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem[];
     }
 
     /**
@@ -22198,9 +22350,17 @@ export namespace ivs {
         /**
          * Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
          */
-        recordingMode: enums.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode;
+        recordingMode?: enums.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode;
         /**
-         * Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+         * Resolution indicates the desired resolution of recorded thumbnails.
+         */
+        resolution?: enums.ivs.RecordingConfigurationThumbnailConfigurationResolution;
+        /**
+         * Storage indicates the format in which thumbnails are recorded.
+         */
+        storage?: enums.ivs.RecordingConfigurationThumbnailConfigurationStorageItem[];
+        /**
+         * Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
          */
         targetIntervalSeconds?: number;
     }
@@ -22530,6 +22690,7 @@ export namespace kendra {
         salesforceConfiguration?: outputs.kendra.DataSourceSalesforceConfiguration;
         serviceNowConfiguration?: outputs.kendra.DataSourceServiceNowConfiguration;
         sharePointConfiguration?: outputs.kendra.DataSourceSharePointConfiguration;
+        templateConfiguration?: outputs.kendra.DataSourceTemplateConfiguration;
         webCrawlerConfiguration?: outputs.kendra.DataSourceWebCrawlerConfiguration;
         workDocsConfiguration?: outputs.kendra.DataSourceWorkDocsConfiguration;
     }
@@ -22811,6 +22972,10 @@ export namespace kendra {
          * A string containing the value for the tag
          */
         value: string;
+    }
+
+    export interface DataSourceTemplateConfiguration {
+        template: string;
     }
 
     export interface DataSourceToIndexFieldMapping {
@@ -29433,6 +29598,103 @@ export namespace mediastore {
 
 export namespace mediatailor {
     /**
+     * <p>Dash manifest configuration parameters.</p>
+     */
+    export interface ChannelDashPlaylistSettings {
+        /**
+         * <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+         */
+        manifestWindowSeconds?: number;
+        /**
+         * <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+         */
+        minBufferTimeSeconds?: number;
+        /**
+         * <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+         */
+        minUpdatePeriodSeconds?: number;
+        /**
+         * <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+         */
+        suggestedPresentationDelaySeconds?: number;
+    }
+
+    /**
+     * <p>HLS playlist configuration parameters.</p>
+     */
+    export interface ChannelHlsPlaylistSettings {
+        /**
+         * <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+         */
+        manifestWindowSeconds?: number;
+    }
+
+    /**
+     * <p>The log configuration for the channel.</p>
+     */
+    export interface ChannelLogConfigurationForChannel {
+        /**
+         * <p>The log types.</p>
+         */
+        logTypes?: enums.mediatailor.ChannelLogType[];
+    }
+
+    /**
+     * <p>The output configuration for this channel.</p>
+     */
+    export interface ChannelRequestOutputItem {
+        dashPlaylistSettings?: outputs.mediatailor.ChannelDashPlaylistSettings;
+        hlsPlaylistSettings?: outputs.mediatailor.ChannelHlsPlaylistSettings;
+        /**
+         * <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+         */
+        manifestName: string;
+        /**
+         * <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+         */
+        sourceGroup: string;
+    }
+
+    /**
+     * <p>Slate VOD source configuration.</p>
+     */
+    export interface ChannelSlateSource {
+        /**
+         * <p>The name of the source location where the slate VOD source is stored.</p>
+         */
+        sourceLocationName?: string;
+        /**
+         * <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+         */
+        vodSourceName?: string;
+    }
+
+    export interface ChannelTag {
+        key: string;
+        value: string;
+    }
+
+    /**
+     * <p>The HTTP package configuration properties for the requested VOD source.</p>
+     */
+    export interface LiveSourceHttpPackageConfiguration {
+        /**
+         * <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+         */
+        path: string;
+        /**
+         * <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+         */
+        sourceGroup: string;
+        type: enums.mediatailor.LiveSourceType;
+    }
+
+    export interface LiveSourceTag {
+        key: string;
+        value: string;
+    }
+
+    /**
      * For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
      */
     export interface PlaybackConfigurationAdMarkerPassthrough {
@@ -29534,6 +29796,91 @@ export namespace mediatailor {
     }
 
     export interface PlaybackConfigurationTag {
+        key: string;
+        value: string;
+    }
+
+    /**
+     * <p>Access configuration parameters.</p>
+     */
+    export interface SourceLocationAccessConfiguration {
+        accessType?: enums.mediatailor.SourceLocationAccessType;
+        secretsManagerAccessTokenConfiguration?: outputs.mediatailor.SourceLocationSecretsManagerAccessTokenConfiguration;
+    }
+
+    /**
+     * <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+     */
+    export interface SourceLocationDefaultSegmentDeliveryConfiguration {
+        /**
+         * <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+         */
+        baseUrl?: string;
+    }
+
+    /**
+     * <p>The HTTP configuration for the source location.</p>
+     */
+    export interface SourceLocationHttpConfiguration {
+        /**
+         * <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+         */
+        baseUrl: string;
+    }
+
+    /**
+     * <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+     */
+    export interface SourceLocationSecretsManagerAccessTokenConfiguration {
+        /**
+         * <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+         */
+        headerName?: string;
+        /**
+         * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+         */
+        secretArn?: string;
+        /**
+         * <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+         */
+        secretStringKey?: string;
+    }
+
+    /**
+     * <p>The segment delivery configuration settings.</p>
+     */
+    export interface SourceLocationSegmentDeliveryConfiguration {
+        /**
+         * <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+         */
+        baseUrl?: string;
+        /**
+         * <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+         */
+        name?: string;
+    }
+
+    export interface SourceLocationTag {
+        key: string;
+        value: string;
+    }
+
+    /**
+     * <p>The HTTP package configuration properties for the requested VOD source.</p>
+     */
+    export interface VodSourceHttpPackageConfiguration {
+        /**
+         * <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+         */
+        path: string;
+        /**
+         * <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+         */
+        sourceGroup: string;
+        type: enums.mediatailor.VodSourceType;
+    }
+
+    export interface VodSourceTag {
         key: string;
         value: string;
     }
@@ -50642,6 +50989,10 @@ export namespace transfer {
      */
     export interface As2ConfigProperties {
         /**
+         * ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+         */
+        basicAuthSecretId?: string;
+        /**
          * Compression setting for this AS2 connector configuration.
          */
         compression?: enums.transfer.ConnectorAs2ConfigPropertiesCompression;
@@ -50762,6 +51113,20 @@ export namespace transfer {
     export interface ServerWorkflowDetails {
         onPartialUpload?: outputs.transfer.ServerWorkflowDetail[];
         onUpload?: outputs.transfer.ServerWorkflowDetail[];
+    }
+
+    /**
+     * Configuration for an SFTP connector.
+     */
+    export interface SftpConfigProperties {
+        /**
+         * List of public host keys, for the external server to which you are connecting.
+         */
+        trustedHostKeys?: string[];
+        /**
+         * ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+         */
+        userSecretId?: string;
     }
 
     export interface UserHomeDirectoryMapEntry {

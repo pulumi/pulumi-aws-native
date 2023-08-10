@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'MonitorConfigState',
+    'MonitorLocalHealthEventsConfigStatus',
     'MonitorProcessingStatusCode',
     'MonitorS3ConfigLogDeliveryStatus',
 ]
@@ -16,6 +17,11 @@ class MonitorConfigState(str, Enum):
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"
     ERROR = "ERROR"
+
+
+class MonitorLocalHealthEventsConfigStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class MonitorProcessingStatusCode(str, Enum):

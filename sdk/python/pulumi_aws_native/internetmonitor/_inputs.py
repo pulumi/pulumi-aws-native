@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'MonitorHealthEventsConfigArgs',
     'MonitorInternetMeasurementsLogDeliveryArgs',
+    'MonitorLocalHealthEventsConfigArgs',
     'MonitorS3ConfigArgs',
     'MonitorTagArgs',
 ]
@@ -20,12 +21,27 @@ __all__ = [
 @pulumi.input_type
 class MonitorHealthEventsConfigArgs:
     def __init__(__self__, *,
+                 availability_local_health_events_config: Optional[pulumi.Input['MonitorLocalHealthEventsConfigArgs']] = None,
                  availability_score_threshold: Optional[pulumi.Input[float]] = None,
+                 performance_local_health_events_config: Optional[pulumi.Input['MonitorLocalHealthEventsConfigArgs']] = None,
                  performance_score_threshold: Optional[pulumi.Input[float]] = None):
+        if availability_local_health_events_config is not None:
+            pulumi.set(__self__, "availability_local_health_events_config", availability_local_health_events_config)
         if availability_score_threshold is not None:
             pulumi.set(__self__, "availability_score_threshold", availability_score_threshold)
+        if performance_local_health_events_config is not None:
+            pulumi.set(__self__, "performance_local_health_events_config", performance_local_health_events_config)
         if performance_score_threshold is not None:
             pulumi.set(__self__, "performance_score_threshold", performance_score_threshold)
+
+    @property
+    @pulumi.getter(name="availabilityLocalHealthEventsConfig")
+    def availability_local_health_events_config(self) -> Optional[pulumi.Input['MonitorLocalHealthEventsConfigArgs']]:
+        return pulumi.get(self, "availability_local_health_events_config")
+
+    @availability_local_health_events_config.setter
+    def availability_local_health_events_config(self, value: Optional[pulumi.Input['MonitorLocalHealthEventsConfigArgs']]):
+        pulumi.set(self, "availability_local_health_events_config", value)
 
     @property
     @pulumi.getter(name="availabilityScoreThreshold")
@@ -35,6 +51,15 @@ class MonitorHealthEventsConfigArgs:
     @availability_score_threshold.setter
     def availability_score_threshold(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "availability_score_threshold", value)
+
+    @property
+    @pulumi.getter(name="performanceLocalHealthEventsConfig")
+    def performance_local_health_events_config(self) -> Optional[pulumi.Input['MonitorLocalHealthEventsConfigArgs']]:
+        return pulumi.get(self, "performance_local_health_events_config")
+
+    @performance_local_health_events_config.setter
+    def performance_local_health_events_config(self, value: Optional[pulumi.Input['MonitorLocalHealthEventsConfigArgs']]):
+        pulumi.set(self, "performance_local_health_events_config", value)
 
     @property
     @pulumi.getter(name="performanceScoreThreshold")
@@ -61,6 +86,47 @@ class MonitorInternetMeasurementsLogDeliveryArgs:
     @s3_config.setter
     def s3_config(self, value: Optional[pulumi.Input['MonitorS3ConfigArgs']]):
         pulumi.set(self, "s3_config", value)
+
+
+@pulumi.input_type
+class MonitorLocalHealthEventsConfigArgs:
+    def __init__(__self__, *,
+                 health_score_threshold: Optional[pulumi.Input[float]] = None,
+                 min_traffic_impact: Optional[pulumi.Input[float]] = None,
+                 status: Optional[pulumi.Input['MonitorLocalHealthEventsConfigStatus']] = None):
+        if health_score_threshold is not None:
+            pulumi.set(__self__, "health_score_threshold", health_score_threshold)
+        if min_traffic_impact is not None:
+            pulumi.set(__self__, "min_traffic_impact", min_traffic_impact)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="healthScoreThreshold")
+    def health_score_threshold(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "health_score_threshold")
+
+    @health_score_threshold.setter
+    def health_score_threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "health_score_threshold", value)
+
+    @property
+    @pulumi.getter(name="minTrafficImpact")
+    def min_traffic_impact(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "min_traffic_impact")
+
+    @min_traffic_impact.setter
+    def min_traffic_impact(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_traffic_impact", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['MonitorLocalHealthEventsConfigStatus']]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['MonitorLocalHealthEventsConfigStatus']]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

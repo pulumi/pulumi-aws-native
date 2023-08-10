@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:datasync:Agent":
 		r = &Agent{}
+	case "aws-native:datasync:LocationAzureBlob":
+		r = &LocationAzureBlob{}
 	case "aws-native:datasync:LocationEfs":
 		r = &LocationEfs{}
 	case "aws-native:datasync:LocationFSxLustre":

@@ -18,13 +18,16 @@ class TableArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  database_name: pulumi.Input[str],
-                 table_input: pulumi.Input['TableInputArgs']):
+                 table_input: pulumi.Input['TableInputArgs'],
+                 open_table_format_input: Optional[pulumi.Input['TableOpenTableFormatInputArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_input", table_input)
+        if open_table_format_input is not None:
+            pulumi.set(__self__, "open_table_format_input", open_table_format_input)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -53,6 +56,15 @@ class TableArgs:
     def table_input(self, value: pulumi.Input['TableInputArgs']):
         pulumi.set(self, "table_input", value)
 
+    @property
+    @pulumi.getter(name="openTableFormatInput")
+    def open_table_format_input(self) -> Optional[pulumi.Input['TableOpenTableFormatInputArgs']]:
+        return pulumi.get(self, "open_table_format_input")
+
+    @open_table_format_input.setter
+    def open_table_format_input(self, value: Optional[pulumi.Input['TableOpenTableFormatInputArgs']]):
+        pulumi.set(self, "open_table_format_input", value)
+
 
 warnings.warn("""Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -66,6 +78,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 open_table_format_input: Optional[pulumi.Input[pulumi.InputType['TableOpenTableFormatInputArgs']]] = None,
                  table_input: Optional[pulumi.Input[pulumi.InputType['TableInputArgs']]] = None,
                  __props__=None):
         """
@@ -100,6 +113,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 open_table_format_input: Optional[pulumi.Input[pulumi.InputType['TableOpenTableFormatInputArgs']]] = None,
                  table_input: Optional[pulumi.Input[pulumi.InputType['TableInputArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Table is deprecated: Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -117,6 +131,7 @@ class Table(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["open_table_format_input"] = open_table_format_input
             if table_input is None and not opts.urn:
                 raise TypeError("Missing required property 'table_input'")
             __props__.__dict__["table_input"] = table_input
@@ -144,6 +159,7 @@ class Table(pulumi.CustomResource):
 
         __props__.__dict__["catalog_id"] = None
         __props__.__dict__["database_name"] = None
+        __props__.__dict__["open_table_format_input"] = None
         __props__.__dict__["table_input"] = None
         return Table(resource_name, opts=opts, __props__=__props__)
 
@@ -156,6 +172,11 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="openTableFormatInput")
+    def open_table_format_input(self) -> pulumi.Output[Optional['outputs.TableOpenTableFormatInput']]:
+        return pulumi.get(self, "open_table_format_input")
 
     @property
     @pulumi.getter(name="tableInput")

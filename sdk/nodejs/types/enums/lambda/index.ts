@@ -112,6 +112,16 @@ export const FunctionTracingConfigMode = {
  */
 export type FunctionTracingConfigMode = (typeof FunctionTracingConfigMode)[keyof typeof FunctionTracingConfigMode];
 
+export const PermissionFunctionUrlAuthType = {
+    AwsIam: "AWS_IAM",
+    None: "NONE",
+} as const;
+
+/**
+ * The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+ */
+export type PermissionFunctionUrlAuthType = (typeof PermissionFunctionUrlAuthType)[keyof typeof PermissionFunctionUrlAuthType];
+
 export const UrlAllowMethodsItem = {
     Get: "GET",
     Put: "PUT",

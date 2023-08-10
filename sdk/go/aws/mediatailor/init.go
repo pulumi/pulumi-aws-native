@@ -21,8 +21,18 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:mediatailor:Channel":
+		r = &Channel{}
+	case "aws-native:mediatailor:ChannelPolicy":
+		r = &ChannelPolicy{}
+	case "aws-native:mediatailor:LiveSource":
+		r = &LiveSource{}
 	case "aws-native:mediatailor:PlaybackConfiguration":
 		r = &PlaybackConfiguration{}
+	case "aws-native:mediatailor:SourceLocation":
+		r = &SourceLocation{}
+	case "aws-native:mediatailor:VodSource":
+		r = &VodSource{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

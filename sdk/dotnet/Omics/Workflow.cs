@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Omics
     [AwsNativeResourceType("aws-native:omics:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
     {
+        [Output("accelerators")]
+        public Output<Pulumi.AwsNative.Omics.WorkflowAccelerators?> Accelerators { get; private set; } = null!;
+
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -96,6 +99,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accelerators")]
+        public Input<Pulumi.AwsNative.Omics.WorkflowAccelerators>? Accelerators { get; set; }
+
         [Input("definitionUri")]
         public Input<string>? DefinitionUri { get; set; }
 

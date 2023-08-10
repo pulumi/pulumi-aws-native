@@ -40,6 +40,98 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocationAzureBlobAzureAccessTier : IEquatable<LocationAzureBlobAzureAccessTier>
+    {
+        private readonly string _value;
+
+        private LocationAzureBlobAzureAccessTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationAzureBlobAzureAccessTier Hot { get; } = new LocationAzureBlobAzureAccessTier("HOT");
+        public static LocationAzureBlobAzureAccessTier Cool { get; } = new LocationAzureBlobAzureAccessTier("COOL");
+        public static LocationAzureBlobAzureAccessTier Archive { get; } = new LocationAzureBlobAzureAccessTier("ARCHIVE");
+
+        public static bool operator ==(LocationAzureBlobAzureAccessTier left, LocationAzureBlobAzureAccessTier right) => left.Equals(right);
+        public static bool operator !=(LocationAzureBlobAzureAccessTier left, LocationAzureBlobAzureAccessTier right) => !left.Equals(right);
+
+        public static explicit operator string(LocationAzureBlobAzureAccessTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationAzureBlobAzureAccessTier other && Equals(other);
+        public bool Equals(LocationAzureBlobAzureAccessTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The specific authentication type that you want DataSync to use to access your Azure Blob Container.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocationAzureBlobAzureBlobAuthenticationType : IEquatable<LocationAzureBlobAzureBlobAuthenticationType>
+    {
+        private readonly string _value;
+
+        private LocationAzureBlobAzureBlobAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationAzureBlobAzureBlobAuthenticationType Sas { get; } = new LocationAzureBlobAzureBlobAuthenticationType("SAS");
+
+        public static bool operator ==(LocationAzureBlobAzureBlobAuthenticationType left, LocationAzureBlobAzureBlobAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(LocationAzureBlobAzureBlobAuthenticationType left, LocationAzureBlobAzureBlobAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(LocationAzureBlobAzureBlobAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationAzureBlobAzureBlobAuthenticationType other && Equals(other);
+        public bool Equals(LocationAzureBlobAzureBlobAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocationAzureBlobAzureBlobType : IEquatable<LocationAzureBlobAzureBlobType>
+    {
+        private readonly string _value;
+
+        private LocationAzureBlobAzureBlobType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationAzureBlobAzureBlobType Block { get; } = new LocationAzureBlobAzureBlobType("BLOCK");
+
+        public static bool operator ==(LocationAzureBlobAzureBlobType left, LocationAzureBlobAzureBlobType right) => left.Equals(right);
+        public static bool operator !=(LocationAzureBlobAzureBlobType left, LocationAzureBlobAzureBlobType right) => !left.Equals(right);
+
+        public static explicit operator string(LocationAzureBlobAzureBlobType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationAzureBlobAzureBlobType other && Equals(other);
+        public bool Equals(LocationAzureBlobAzureBlobType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
     /// </summary>
     [EnumType]

@@ -20,10 +20,24 @@ __all__ = [
 
 @pulumi.output_type
 class GetFeatureGroupResult:
-    def __init__(__self__, feature_definitions=None):
+    def __init__(__self__, creation_time=None, feature_definitions=None, feature_group_status=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        pulumi.set(__self__, "creation_time", creation_time)
         if feature_definitions and not isinstance(feature_definitions, list):
             raise TypeError("Expected argument 'feature_definitions' to be a list")
         pulumi.set(__self__, "feature_definitions", feature_definitions)
+        if feature_group_status and not isinstance(feature_group_status, str):
+            raise TypeError("Expected argument 'feature_group_status' to be a str")
+        pulumi.set(__self__, "feature_group_status", feature_group_status)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        """
+        A timestamp of FeatureGroup creation time.
+        """
+        return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="featureDefinitions")
@@ -33,6 +47,14 @@ class GetFeatureGroupResult:
         """
         return pulumi.get(self, "feature_definitions")
 
+    @property
+    @pulumi.getter(name="featureGroupStatus")
+    def feature_group_status(self) -> Optional[str]:
+        """
+        The status of the feature group.
+        """
+        return pulumi.get(self, "feature_group_status")
+
 
 class AwaitableGetFeatureGroupResult(GetFeatureGroupResult):
     # pylint: disable=using-constant-test
@@ -40,7 +62,9 @@ class AwaitableGetFeatureGroupResult(GetFeatureGroupResult):
         if False:
             yield self
         return GetFeatureGroupResult(
-            feature_definitions=self.feature_definitions)
+            creation_time=self.creation_time,
+            feature_definitions=self.feature_definitions,
+            feature_group_status=self.feature_group_status)
 
 
 def get_feature_group(feature_group_name: Optional[str] = None,
@@ -57,7 +81,9 @@ def get_feature_group(feature_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getFeatureGroup', __args__, opts=opts, typ=GetFeatureGroupResult).value
 
     return AwaitableGetFeatureGroupResult(
-        feature_definitions=pulumi.get(__ret__, 'feature_definitions'))
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        feature_definitions=pulumi.get(__ret__, 'feature_definitions'),
+        feature_group_status=pulumi.get(__ret__, 'feature_group_status'))
 
 
 @_utilities.lift_output_func(get_feature_group)

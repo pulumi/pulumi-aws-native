@@ -11,6 +11,13 @@ export const MonitorConfigState = {
 
 export type MonitorConfigState = (typeof MonitorConfigState)[keyof typeof MonitorConfigState];
 
+export const MonitorLocalHealthEventsConfigStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type MonitorLocalHealthEventsConfigStatus = (typeof MonitorLocalHealthEventsConfigStatus)[keyof typeof MonitorLocalHealthEventsConfigStatus];
+
 export const MonitorProcessingStatusCode = {
     Ok: "OK",
     Inactive: "INACTIVE",

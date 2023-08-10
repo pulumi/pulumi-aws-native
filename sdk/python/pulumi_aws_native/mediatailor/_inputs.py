@@ -11,6 +11,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ChannelDashPlaylistSettingsArgs',
+    'ChannelHlsPlaylistSettingsArgs',
+    'ChannelLogConfigurationForChannelArgs',
+    'ChannelRequestOutputItemArgs',
+    'ChannelSlateSourceArgs',
+    'ChannelTagArgs',
+    'LiveSourceHttpPackageConfigurationArgs',
+    'LiveSourceTagArgs',
     'PlaybackConfigurationAdMarkerPassthroughArgs',
     'PlaybackConfigurationAvailSuppressionArgs',
     'PlaybackConfigurationBumperArgs',
@@ -20,7 +28,340 @@ __all__ = [
     'PlaybackConfigurationLivePreRollConfigurationArgs',
     'PlaybackConfigurationManifestProcessingRulesArgs',
     'PlaybackConfigurationTagArgs',
+    'SourceLocationAccessConfigurationArgs',
+    'SourceLocationDefaultSegmentDeliveryConfigurationArgs',
+    'SourceLocationHttpConfigurationArgs',
+    'SourceLocationSecretsManagerAccessTokenConfigurationArgs',
+    'SourceLocationSegmentDeliveryConfigurationArgs',
+    'SourceLocationTagArgs',
+    'VodSourceHttpPackageConfigurationArgs',
+    'VodSourceTagArgs',
 ]
+
+@pulumi.input_type
+class ChannelDashPlaylistSettingsArgs:
+    def __init__(__self__, *,
+                 manifest_window_seconds: Optional[pulumi.Input[float]] = None,
+                 min_buffer_time_seconds: Optional[pulumi.Input[float]] = None,
+                 min_update_period_seconds: Optional[pulumi.Input[float]] = None,
+                 suggested_presentation_delay_seconds: Optional[pulumi.Input[float]] = None):
+        """
+        <p>Dash manifest configuration parameters.</p>
+        :param pulumi.Input[float] manifest_window_seconds: <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+        :param pulumi.Input[float] min_buffer_time_seconds: <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        :param pulumi.Input[float] min_update_period_seconds: <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        :param pulumi.Input[float] suggested_presentation_delay_seconds: <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        """
+        if manifest_window_seconds is not None:
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
+        if min_buffer_time_seconds is not None:
+            pulumi.set(__self__, "min_buffer_time_seconds", min_buffer_time_seconds)
+        if min_update_period_seconds is not None:
+            pulumi.set(__self__, "min_update_period_seconds", min_update_period_seconds)
+        if suggested_presentation_delay_seconds is not None:
+            pulumi.set(__self__, "suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
+
+    @property
+    @pulumi.getter(name="manifestWindowSeconds")
+    def manifest_window_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+        """
+        return pulumi.get(self, "manifest_window_seconds")
+
+    @manifest_window_seconds.setter
+    def manifest_window_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "manifest_window_seconds", value)
+
+    @property
+    @pulumi.getter(name="minBufferTimeSeconds")
+    def min_buffer_time_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        """
+        return pulumi.get(self, "min_buffer_time_seconds")
+
+    @min_buffer_time_seconds.setter
+    def min_buffer_time_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_buffer_time_seconds", value)
+
+    @property
+    @pulumi.getter(name="minUpdatePeriodSeconds")
+    def min_update_period_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        """
+        return pulumi.get(self, "min_update_period_seconds")
+
+    @min_update_period_seconds.setter
+    def min_update_period_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_update_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="suggestedPresentationDelaySeconds")
+    def suggested_presentation_delay_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        """
+        return pulumi.get(self, "suggested_presentation_delay_seconds")
+
+    @suggested_presentation_delay_seconds.setter
+    def suggested_presentation_delay_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "suggested_presentation_delay_seconds", value)
+
+
+@pulumi.input_type
+class ChannelHlsPlaylistSettingsArgs:
+    def __init__(__self__, *,
+                 manifest_window_seconds: Optional[pulumi.Input[float]] = None):
+        """
+        <p>HLS playlist configuration parameters.</p>
+        :param pulumi.Input[float] manifest_window_seconds: <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+        """
+        if manifest_window_seconds is not None:
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
+
+    @property
+    @pulumi.getter(name="manifestWindowSeconds")
+    def manifest_window_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+        """
+        return pulumi.get(self, "manifest_window_seconds")
+
+    @manifest_window_seconds.setter
+    def manifest_window_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "manifest_window_seconds", value)
+
+
+@pulumi.input_type
+class ChannelLogConfigurationForChannelArgs:
+    def __init__(__self__, *,
+                 log_types: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLogType']]]] = None):
+        """
+        <p>The log configuration for the channel.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelLogType']]] log_types: <p>The log types.</p>
+        """
+        if log_types is not None:
+            pulumi.set(__self__, "log_types", log_types)
+
+    @property
+    @pulumi.getter(name="logTypes")
+    def log_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLogType']]]]:
+        """
+        <p>The log types.</p>
+        """
+        return pulumi.get(self, "log_types")
+
+    @log_types.setter
+    def log_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLogType']]]]):
+        pulumi.set(self, "log_types", value)
+
+
+@pulumi.input_type
+class ChannelRequestOutputItemArgs:
+    def __init__(__self__, *,
+                 manifest_name: pulumi.Input[str],
+                 source_group: pulumi.Input[str],
+                 dash_playlist_settings: Optional[pulumi.Input['ChannelDashPlaylistSettingsArgs']] = None,
+                 hls_playlist_settings: Optional[pulumi.Input['ChannelHlsPlaylistSettingsArgs']] = None):
+        """
+        <p>The output configuration for this channel.</p>
+        :param pulumi.Input[str] manifest_name: <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+        :param pulumi.Input[str] source_group: <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+        """
+        pulumi.set(__self__, "manifest_name", manifest_name)
+        pulumi.set(__self__, "source_group", source_group)
+        if dash_playlist_settings is not None:
+            pulumi.set(__self__, "dash_playlist_settings", dash_playlist_settings)
+        if hls_playlist_settings is not None:
+            pulumi.set(__self__, "hls_playlist_settings", hls_playlist_settings)
+
+    @property
+    @pulumi.getter(name="manifestName")
+    def manifest_name(self) -> pulumi.Input[str]:
+        """
+        <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+        """
+        return pulumi.get(self, "manifest_name")
+
+    @manifest_name.setter
+    def manifest_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "manifest_name", value)
+
+    @property
+    @pulumi.getter(name="sourceGroup")
+    def source_group(self) -> pulumi.Input[str]:
+        """
+        <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+        """
+        return pulumi.get(self, "source_group")
+
+    @source_group.setter
+    def source_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_group", value)
+
+    @property
+    @pulumi.getter(name="dashPlaylistSettings")
+    def dash_playlist_settings(self) -> Optional[pulumi.Input['ChannelDashPlaylistSettingsArgs']]:
+        return pulumi.get(self, "dash_playlist_settings")
+
+    @dash_playlist_settings.setter
+    def dash_playlist_settings(self, value: Optional[pulumi.Input['ChannelDashPlaylistSettingsArgs']]):
+        pulumi.set(self, "dash_playlist_settings", value)
+
+    @property
+    @pulumi.getter(name="hlsPlaylistSettings")
+    def hls_playlist_settings(self) -> Optional[pulumi.Input['ChannelHlsPlaylistSettingsArgs']]:
+        return pulumi.get(self, "hls_playlist_settings")
+
+    @hls_playlist_settings.setter
+    def hls_playlist_settings(self, value: Optional[pulumi.Input['ChannelHlsPlaylistSettingsArgs']]):
+        pulumi.set(self, "hls_playlist_settings", value)
+
+
+@pulumi.input_type
+class ChannelSlateSourceArgs:
+    def __init__(__self__, *,
+                 source_location_name: Optional[pulumi.Input[str]] = None,
+                 vod_source_name: Optional[pulumi.Input[str]] = None):
+        """
+        <p>Slate VOD source configuration.</p>
+        :param pulumi.Input[str] source_location_name: <p>The name of the source location where the slate VOD source is stored.</p>
+        :param pulumi.Input[str] vod_source_name: <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+        """
+        if source_location_name is not None:
+            pulumi.set(__self__, "source_location_name", source_location_name)
+        if vod_source_name is not None:
+            pulumi.set(__self__, "vod_source_name", vod_source_name)
+
+    @property
+    @pulumi.getter(name="sourceLocationName")
+    def source_location_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The name of the source location where the slate VOD source is stored.</p>
+        """
+        return pulumi.get(self, "source_location_name")
+
+    @source_location_name.setter
+    def source_location_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_location_name", value)
+
+    @property
+    @pulumi.getter(name="vodSourceName")
+    def vod_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+        """
+        return pulumi.get(self, "vod_source_name")
+
+    @vod_source_name.setter
+    def vod_source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vod_source_name", value)
+
+
+@pulumi.input_type
+class ChannelTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LiveSourceHttpPackageConfigurationArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 source_group: pulumi.Input[str],
+                 type: pulumi.Input['LiveSourceType']):
+        """
+        <p>The HTTP package configuration properties for the requested VOD source.</p>
+        :param pulumi.Input[str] path: <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+        :param pulumi.Input[str] source_group: <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "source_group", source_group)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="sourceGroup")
+    def source_group(self) -> pulumi.Input[str]:
+        """
+        <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+        """
+        return pulumi.get(self, "source_group")
+
+    @source_group.setter
+    def source_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_group", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['LiveSourceType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['LiveSourceType']):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class LiveSourceTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class PlaybackConfigurationAdMarkerPassthroughArgs:
@@ -311,6 +652,284 @@ class PlaybackConfigurationManifestProcessingRulesArgs:
 
 @pulumi.input_type
 class PlaybackConfigurationTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SourceLocationAccessConfigurationArgs:
+    def __init__(__self__, *,
+                 access_type: Optional[pulumi.Input['SourceLocationAccessType']] = None,
+                 secrets_manager_access_token_configuration: Optional[pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs']] = None):
+        """
+        <p>Access configuration parameters.</p>
+        """
+        if access_type is not None:
+            pulumi.set(__self__, "access_type", access_type)
+        if secrets_manager_access_token_configuration is not None:
+            pulumi.set(__self__, "secrets_manager_access_token_configuration", secrets_manager_access_token_configuration)
+
+    @property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> Optional[pulumi.Input['SourceLocationAccessType']]:
+        return pulumi.get(self, "access_type")
+
+    @access_type.setter
+    def access_type(self, value: Optional[pulumi.Input['SourceLocationAccessType']]):
+        pulumi.set(self, "access_type", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerAccessTokenConfiguration")
+    def secrets_manager_access_token_configuration(self) -> Optional[pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs']]:
+        return pulumi.get(self, "secrets_manager_access_token_configuration")
+
+    @secrets_manager_access_token_configuration.setter
+    def secrets_manager_access_token_configuration(self, value: Optional[pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs']]):
+        pulumi.set(self, "secrets_manager_access_token_configuration", value)
+
+
+@pulumi.input_type
+class SourceLocationDefaultSegmentDeliveryConfigurationArgs:
+    def __init__(__self__, *,
+                 base_url: Optional[pulumi.Input[str]] = None):
+        """
+        <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+        :param pulumi.Input[str] base_url: <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+        """
+        if base_url is not None:
+            pulumi.set(__self__, "base_url", base_url)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+        """
+        return pulumi.get(self, "base_url")
+
+    @base_url.setter
+    def base_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_url", value)
+
+
+@pulumi.input_type
+class SourceLocationHttpConfigurationArgs:
+    def __init__(__self__, *,
+                 base_url: pulumi.Input[str]):
+        """
+        <p>The HTTP configuration for the source location.</p>
+        :param pulumi.Input[str] base_url: <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+        """
+        pulumi.set(__self__, "base_url", base_url)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> pulumi.Input[str]:
+        """
+        <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+        """
+        return pulumi.get(self, "base_url")
+
+    @base_url.setter
+    def base_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base_url", value)
+
+
+@pulumi.input_type
+class SourceLocationSecretsManagerAccessTokenConfigurationArgs:
+    def __init__(__self__, *,
+                 header_name: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None,
+                 secret_string_key: Optional[pulumi.Input[str]] = None):
+        """
+        <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+        :param pulumi.Input[str] header_name: <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+        :param pulumi.Input[str] secret_arn: <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+        :param pulumi.Input[str] secret_string_key: <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+        """
+        if header_name is not None:
+            pulumi.set(__self__, "header_name", header_name)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if secret_string_key is not None:
+            pulumi.set(__self__, "secret_string_key", secret_string_key)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
+    @property
+    @pulumi.getter(name="secretStringKey")
+    def secret_string_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+        """
+        return pulumi.get(self, "secret_string_key")
+
+    @secret_string_key.setter
+    def secret_string_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_string_key", value)
+
+
+@pulumi.input_type
+class SourceLocationSegmentDeliveryConfigurationArgs:
+    def __init__(__self__, *,
+                 base_url: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        <p>The segment delivery configuration settings.</p>
+        :param pulumi.Input[str] base_url: <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+        :param pulumi.Input[str] name: <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+        """
+        if base_url is not None:
+            pulumi.set(__self__, "base_url", base_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+        """
+        return pulumi.get(self, "base_url")
+
+    @base_url.setter
+    def base_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_url", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class SourceLocationTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VodSourceHttpPackageConfigurationArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 source_group: pulumi.Input[str],
+                 type: pulumi.Input['VodSourceType']):
+        """
+        <p>The HTTP package configuration properties for the requested VOD source.</p>
+        :param pulumi.Input[str] path: <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+        :param pulumi.Input[str] source_group: <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "source_group", source_group)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="sourceGroup")
+    def source_group(self) -> pulumi.Input[str]:
+        """
+        <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+        """
+        return pulumi.get(self, "source_group")
+
+    @source_group.setter
+    def source_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_group", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['VodSourceType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['VodSourceType']):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class VodSourceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

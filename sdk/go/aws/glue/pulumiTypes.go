@@ -14,13 +14,15 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClassifierCsvClassifier struct {
-	AllowSingleColumn    *bool    `pulumi:"allowSingleColumn"`
-	ContainsHeader       *string  `pulumi:"containsHeader"`
-	Delimiter            *string  `pulumi:"delimiter"`
-	DisableValueTrimming *bool    `pulumi:"disableValueTrimming"`
-	Header               []string `pulumi:"header"`
-	Name                 *string  `pulumi:"name"`
-	QuoteSymbol          *string  `pulumi:"quoteSymbol"`
+	AllowSingleColumn        *bool    `pulumi:"allowSingleColumn"`
+	ContainsCustomDatatype   []string `pulumi:"containsCustomDatatype"`
+	ContainsHeader           *string  `pulumi:"containsHeader"`
+	CustomDatatypeConfigured *bool    `pulumi:"customDatatypeConfigured"`
+	Delimiter                *string  `pulumi:"delimiter"`
+	DisableValueTrimming     *bool    `pulumi:"disableValueTrimming"`
+	Header                   []string `pulumi:"header"`
+	Name                     *string  `pulumi:"name"`
+	QuoteSymbol              *string  `pulumi:"quoteSymbol"`
 }
 
 // ClassifierCsvClassifierInput is an input type that accepts ClassifierCsvClassifierArgs and ClassifierCsvClassifierOutput values.
@@ -35,13 +37,15 @@ type ClassifierCsvClassifierInput interface {
 }
 
 type ClassifierCsvClassifierArgs struct {
-	AllowSingleColumn    pulumi.BoolPtrInput     `pulumi:"allowSingleColumn"`
-	ContainsHeader       pulumi.StringPtrInput   `pulumi:"containsHeader"`
-	Delimiter            pulumi.StringPtrInput   `pulumi:"delimiter"`
-	DisableValueTrimming pulumi.BoolPtrInput     `pulumi:"disableValueTrimming"`
-	Header               pulumi.StringArrayInput `pulumi:"header"`
-	Name                 pulumi.StringPtrInput   `pulumi:"name"`
-	QuoteSymbol          pulumi.StringPtrInput   `pulumi:"quoteSymbol"`
+	AllowSingleColumn        pulumi.BoolPtrInput     `pulumi:"allowSingleColumn"`
+	ContainsCustomDatatype   pulumi.StringArrayInput `pulumi:"containsCustomDatatype"`
+	ContainsHeader           pulumi.StringPtrInput   `pulumi:"containsHeader"`
+	CustomDatatypeConfigured pulumi.BoolPtrInput     `pulumi:"customDatatypeConfigured"`
+	Delimiter                pulumi.StringPtrInput   `pulumi:"delimiter"`
+	DisableValueTrimming     pulumi.BoolPtrInput     `pulumi:"disableValueTrimming"`
+	Header                   pulumi.StringArrayInput `pulumi:"header"`
+	Name                     pulumi.StringPtrInput   `pulumi:"name"`
+	QuoteSymbol              pulumi.StringPtrInput   `pulumi:"quoteSymbol"`
 }
 
 func (ClassifierCsvClassifierArgs) ElementType() reflect.Type {
@@ -125,8 +129,16 @@ func (o ClassifierCsvClassifierOutput) AllowSingleColumn() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.AllowSingleColumn }).(pulumi.BoolPtrOutput)
 }
 
+func (o ClassifierCsvClassifierOutput) ContainsCustomDatatype() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) []string { return v.ContainsCustomDatatype }).(pulumi.StringArrayOutput)
+}
+
 func (o ClassifierCsvClassifierOutput) ContainsHeader() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.ContainsHeader }).(pulumi.StringPtrOutput)
+}
+
+func (o ClassifierCsvClassifierOutput) CustomDatatypeConfigured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.CustomDatatypeConfigured }).(pulumi.BoolPtrOutput)
 }
 
 func (o ClassifierCsvClassifierOutput) Delimiter() pulumi.StringPtrOutput {
@@ -182,6 +194,15 @@ func (o ClassifierCsvClassifierPtrOutput) AllowSingleColumn() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o ClassifierCsvClassifierPtrOutput) ContainsCustomDatatype() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainsCustomDatatype
+	}).(pulumi.StringArrayOutput)
+}
+
 func (o ClassifierCsvClassifierPtrOutput) ContainsHeader() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
 		if v == nil {
@@ -189,6 +210,15 @@ func (o ClassifierCsvClassifierPtrOutput) ContainsHeader() pulumi.StringPtrOutpu
 		}
 		return v.ContainsHeader
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClassifierCsvClassifierPtrOutput) CustomDatatypeConfigured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomDatatypeConfigured
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o ClassifierCsvClassifierPtrOutput) Delimiter() pulumi.StringPtrOutput {
@@ -1371,6 +1401,118 @@ func (o CrawlerDynamoDbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamo
 	}).(CrawlerDynamoDbTargetOutput)
 }
 
+type CrawlerIcebergTarget struct {
+	ConnectionName        *string  `pulumi:"connectionName"`
+	Exclusions            []string `pulumi:"exclusions"`
+	MaximumTraversalDepth *int     `pulumi:"maximumTraversalDepth"`
+	Paths                 []string `pulumi:"paths"`
+}
+
+// CrawlerIcebergTargetInput is an input type that accepts CrawlerIcebergTargetArgs and CrawlerIcebergTargetOutput values.
+// You can construct a concrete instance of `CrawlerIcebergTargetInput` via:
+//
+//	CrawlerIcebergTargetArgs{...}
+type CrawlerIcebergTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput
+	ToCrawlerIcebergTargetOutputWithContext(context.Context) CrawlerIcebergTargetOutput
+}
+
+type CrawlerIcebergTargetArgs struct {
+	ConnectionName        pulumi.StringPtrInput   `pulumi:"connectionName"`
+	Exclusions            pulumi.StringArrayInput `pulumi:"exclusions"`
+	MaximumTraversalDepth pulumi.IntPtrInput      `pulumi:"maximumTraversalDepth"`
+	Paths                 pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (CrawlerIcebergTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (i CrawlerIcebergTargetArgs) ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput {
+	return i.ToCrawlerIcebergTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerIcebergTargetArgs) ToCrawlerIcebergTargetOutputWithContext(ctx context.Context) CrawlerIcebergTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerIcebergTargetOutput)
+}
+
+// CrawlerIcebergTargetArrayInput is an input type that accepts CrawlerIcebergTargetArray and CrawlerIcebergTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerIcebergTargetArrayInput` via:
+//
+//	CrawlerIcebergTargetArray{ CrawlerIcebergTargetArgs{...} }
+type CrawlerIcebergTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput
+	ToCrawlerIcebergTargetArrayOutputWithContext(context.Context) CrawlerIcebergTargetArrayOutput
+}
+
+type CrawlerIcebergTargetArray []CrawlerIcebergTargetInput
+
+func (CrawlerIcebergTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (i CrawlerIcebergTargetArray) ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput {
+	return i.ToCrawlerIcebergTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerIcebergTargetArray) ToCrawlerIcebergTargetArrayOutputWithContext(ctx context.Context) CrawlerIcebergTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerIcebergTargetArrayOutput)
+}
+
+type CrawlerIcebergTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerIcebergTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (o CrawlerIcebergTargetOutput) ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetOutput) ToCrawlerIcebergTargetOutputWithContext(ctx context.Context) CrawlerIcebergTargetOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerIcebergTargetOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+func (o CrawlerIcebergTargetOutput) MaximumTraversalDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) *int { return v.MaximumTraversalDepth }).(pulumi.IntPtrOutput)
+}
+
+func (o CrawlerIcebergTargetOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+type CrawlerIcebergTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerIcebergTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (o CrawlerIcebergTargetArrayOutput) ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetArrayOutput) ToCrawlerIcebergTargetArrayOutputWithContext(ctx context.Context) CrawlerIcebergTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetArrayOutput) Index(i pulumi.IntInput) CrawlerIcebergTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerIcebergTarget {
+		return vs[0].([]CrawlerIcebergTarget)[vs[1].(int)]
+	}).(CrawlerIcebergTargetOutput)
+}
+
 type CrawlerJdbcTarget struct {
 	ConnectionName *string  `pulumi:"connectionName"`
 	Exclusions     []string `pulumi:"exclusions"`
@@ -2119,6 +2261,7 @@ type CrawlerTargets struct {
 	CatalogTargets  []CrawlerCatalogTarget  `pulumi:"catalogTargets"`
 	DeltaTargets    []CrawlerDeltaTarget    `pulumi:"deltaTargets"`
 	DynamoDbTargets []CrawlerDynamoDbTarget `pulumi:"dynamoDbTargets"`
+	IcebergTargets  []CrawlerIcebergTarget  `pulumi:"icebergTargets"`
 	JdbcTargets     []CrawlerJdbcTarget     `pulumi:"jdbcTargets"`
 	MongoDbTargets  []CrawlerMongoDbTarget  `pulumi:"mongoDbTargets"`
 	S3Targets       []CrawlerS3Target       `pulumi:"s3Targets"`
@@ -2139,6 +2282,7 @@ type CrawlerTargetsArgs struct {
 	CatalogTargets  CrawlerCatalogTargetArrayInput  `pulumi:"catalogTargets"`
 	DeltaTargets    CrawlerDeltaTargetArrayInput    `pulumi:"deltaTargets"`
 	DynamoDbTargets CrawlerDynamoDbTargetArrayInput `pulumi:"dynamoDbTargets"`
+	IcebergTargets  CrawlerIcebergTargetArrayInput  `pulumi:"icebergTargets"`
 	JdbcTargets     CrawlerJdbcTargetArrayInput     `pulumi:"jdbcTargets"`
 	MongoDbTargets  CrawlerMongoDbTargetArrayInput  `pulumi:"mongoDbTargets"`
 	S3Targets       CrawlerS3TargetArrayInput       `pulumi:"s3Targets"`
@@ -2180,6 +2324,10 @@ func (o CrawlerTargetsOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
 
 func (o CrawlerTargetsOutput) DynamoDbTargets() CrawlerDynamoDbTargetArrayOutput {
 	return o.ApplyT(func(v CrawlerTargets) []CrawlerDynamoDbTarget { return v.DynamoDbTargets }).(CrawlerDynamoDbTargetArrayOutput)
+}
+
+func (o CrawlerTargetsOutput) IcebergTargets() CrawlerIcebergTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerIcebergTarget { return v.IcebergTargets }).(CrawlerIcebergTargetArrayOutput)
 }
 
 func (o CrawlerTargetsOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
@@ -2243,6 +2391,15 @@ func (o CrawlerTargetsPtrOutput) DynamoDbTargets() CrawlerDynamoDbTargetArrayOut
 		}
 		return v.DynamoDbTargets
 	}).(CrawlerDynamoDbTargetArrayOutput)
+}
+
+func (o CrawlerTargetsPtrOutput) IcebergTargets() CrawlerIcebergTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerIcebergTarget {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergTargets
+	}).(CrawlerIcebergTargetArrayOutput)
 }
 
 func (o CrawlerTargetsPtrOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
@@ -3103,6 +3260,7 @@ func (o DatabaseFederatedDatabasePtrOutput) Identifier() pulumi.StringPtrOutput 
 type DatabaseIdentifier struct {
 	CatalogId    *string `pulumi:"catalogId"`
 	DatabaseName *string `pulumi:"databaseName"`
+	Region       *string `pulumi:"region"`
 }
 
 // DatabaseIdentifierInput is an input type that accepts DatabaseIdentifierArgs and DatabaseIdentifierOutput values.
@@ -3119,6 +3277,7 @@ type DatabaseIdentifierInput interface {
 type DatabaseIdentifierArgs struct {
 	CatalogId    pulumi.StringPtrInput `pulumi:"catalogId"`
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (DatabaseIdentifierArgs) ElementType() reflect.Type {
@@ -3206,6 +3365,10 @@ func (o DatabaseIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
+func (o DatabaseIdentifierOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseIdentifier) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
 type DatabaseIdentifierPtrOutput struct{ *pulumi.OutputState }
 
 func (DatabaseIdentifierPtrOutput) ElementType() reflect.Type {
@@ -3245,6 +3408,15 @@ func (o DatabaseIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseIdentifierPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7304,10 +7476,159 @@ func (o TableColumnArrayOutput) Index(i pulumi.IntInput) TableColumnOutput {
 	}).(TableColumnOutput)
 }
 
+type TableIcebergInput struct {
+	MetadataOperation *TableMetadataOperation `pulumi:"metadataOperation"`
+	Version           *string                 `pulumi:"version"`
+}
+
+// TableIcebergInputInput is an input type that accepts TableIcebergInputArgs and TableIcebergInputOutput values.
+// You can construct a concrete instance of `TableIcebergInputInput` via:
+//
+//	TableIcebergInputArgs{...}
+type TableIcebergInputInput interface {
+	pulumi.Input
+
+	ToTableIcebergInputOutput() TableIcebergInputOutput
+	ToTableIcebergInputOutputWithContext(context.Context) TableIcebergInputOutput
+}
+
+type TableIcebergInputArgs struct {
+	MetadataOperation TableMetadataOperationPtrInput `pulumi:"metadataOperation"`
+	Version           pulumi.StringPtrInput          `pulumi:"version"`
+}
+
+func (TableIcebergInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergInput)(nil)).Elem()
+}
+
+func (i TableIcebergInputArgs) ToTableIcebergInputOutput() TableIcebergInputOutput {
+	return i.ToTableIcebergInputOutputWithContext(context.Background())
+}
+
+func (i TableIcebergInputArgs) ToTableIcebergInputOutputWithContext(ctx context.Context) TableIcebergInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergInputOutput)
+}
+
+func (i TableIcebergInputArgs) ToTableIcebergInputPtrOutput() TableIcebergInputPtrOutput {
+	return i.ToTableIcebergInputPtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergInputArgs) ToTableIcebergInputPtrOutputWithContext(ctx context.Context) TableIcebergInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergInputOutput).ToTableIcebergInputPtrOutputWithContext(ctx)
+}
+
+// TableIcebergInputPtrInput is an input type that accepts TableIcebergInputArgs, TableIcebergInputPtr and TableIcebergInputPtrOutput values.
+// You can construct a concrete instance of `TableIcebergInputPtrInput` via:
+//
+//	        TableIcebergInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergInputPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergInputPtrOutput() TableIcebergInputPtrOutput
+	ToTableIcebergInputPtrOutputWithContext(context.Context) TableIcebergInputPtrOutput
+}
+
+type tableIcebergInputPtrType TableIcebergInputArgs
+
+func TableIcebergInputPtr(v *TableIcebergInputArgs) TableIcebergInputPtrInput {
+	return (*tableIcebergInputPtrType)(v)
+}
+
+func (*tableIcebergInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergInput)(nil)).Elem()
+}
+
+func (i *tableIcebergInputPtrType) ToTableIcebergInputPtrOutput() TableIcebergInputPtrOutput {
+	return i.ToTableIcebergInputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergInputPtrType) ToTableIcebergInputPtrOutputWithContext(ctx context.Context) TableIcebergInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergInputPtrOutput)
+}
+
+type TableIcebergInputOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergInput)(nil)).Elem()
+}
+
+func (o TableIcebergInputOutput) ToTableIcebergInputOutput() TableIcebergInputOutput {
+	return o
+}
+
+func (o TableIcebergInputOutput) ToTableIcebergInputOutputWithContext(ctx context.Context) TableIcebergInputOutput {
+	return o
+}
+
+func (o TableIcebergInputOutput) ToTableIcebergInputPtrOutput() TableIcebergInputPtrOutput {
+	return o.ToTableIcebergInputPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergInputOutput) ToTableIcebergInputPtrOutputWithContext(ctx context.Context) TableIcebergInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergInput) *TableIcebergInput {
+		return &v
+	}).(TableIcebergInputPtrOutput)
+}
+
+func (o TableIcebergInputOutput) MetadataOperation() TableMetadataOperationPtrOutput {
+	return o.ApplyT(func(v TableIcebergInput) *TableMetadataOperation { return v.MetadataOperation }).(TableMetadataOperationPtrOutput)
+}
+
+func (o TableIcebergInputOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIcebergInput) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type TableIcebergInputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergInput)(nil)).Elem()
+}
+
+func (o TableIcebergInputPtrOutput) ToTableIcebergInputPtrOutput() TableIcebergInputPtrOutput {
+	return o
+}
+
+func (o TableIcebergInputPtrOutput) ToTableIcebergInputPtrOutputWithContext(ctx context.Context) TableIcebergInputPtrOutput {
+	return o
+}
+
+func (o TableIcebergInputPtrOutput) Elem() TableIcebergInputOutput {
+	return o.ApplyT(func(v *TableIcebergInput) TableIcebergInput {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergInput
+		return ret
+	}).(TableIcebergInputOutput)
+}
+
+func (o TableIcebergInputPtrOutput) MetadataOperation() TableMetadataOperationPtrOutput {
+	return o.ApplyT(func(v *TableIcebergInput) *TableMetadataOperation {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataOperation
+	}).(TableMetadataOperationPtrOutput)
+}
+
+func (o TableIcebergInputPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIcebergInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type TableIdentifier struct {
 	CatalogId    *string `pulumi:"catalogId"`
 	DatabaseName *string `pulumi:"databaseName"`
 	Name         *string `pulumi:"name"`
+	Region       *string `pulumi:"region"`
 }
 
 // TableIdentifierInput is an input type that accepts TableIdentifierArgs and TableIdentifierOutput values.
@@ -7325,6 +7646,7 @@ type TableIdentifierArgs struct {
 	CatalogId    pulumi.StringPtrInput `pulumi:"catalogId"`
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
 	Name         pulumi.StringPtrInput `pulumi:"name"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (TableIdentifierArgs) ElementType() reflect.Type {
@@ -7416,6 +7738,10 @@ func (o TableIdentifierOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableIdentifier) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+func (o TableIdentifierOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIdentifier) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
 type TableIdentifierPtrOutput struct{ *pulumi.OutputState }
 
 func (TableIdentifierPtrOutput) ElementType() reflect.Type {
@@ -7464,6 +7790,15 @@ func (o TableIdentifierPtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableIdentifierPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7697,6 +8032,257 @@ func (o TableInputTypePtrOutput) ViewOriginalText() pulumi.StringPtrOutput {
 		}
 		return v.ViewOriginalText
 	}).(pulumi.StringPtrOutput)
+}
+
+type TableMetadataOperation struct {
+}
+
+// TableMetadataOperationInput is an input type that accepts TableMetadataOperationArgs and TableMetadataOperationOutput values.
+// You can construct a concrete instance of `TableMetadataOperationInput` via:
+//
+//	TableMetadataOperationArgs{...}
+type TableMetadataOperationInput interface {
+	pulumi.Input
+
+	ToTableMetadataOperationOutput() TableMetadataOperationOutput
+	ToTableMetadataOperationOutputWithContext(context.Context) TableMetadataOperationOutput
+}
+
+type TableMetadataOperationArgs struct {
+}
+
+func (TableMetadataOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableMetadataOperation)(nil)).Elem()
+}
+
+func (i TableMetadataOperationArgs) ToTableMetadataOperationOutput() TableMetadataOperationOutput {
+	return i.ToTableMetadataOperationOutputWithContext(context.Background())
+}
+
+func (i TableMetadataOperationArgs) ToTableMetadataOperationOutputWithContext(ctx context.Context) TableMetadataOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataOperationOutput)
+}
+
+func (i TableMetadataOperationArgs) ToTableMetadataOperationPtrOutput() TableMetadataOperationPtrOutput {
+	return i.ToTableMetadataOperationPtrOutputWithContext(context.Background())
+}
+
+func (i TableMetadataOperationArgs) ToTableMetadataOperationPtrOutputWithContext(ctx context.Context) TableMetadataOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataOperationOutput).ToTableMetadataOperationPtrOutputWithContext(ctx)
+}
+
+// TableMetadataOperationPtrInput is an input type that accepts TableMetadataOperationArgs, TableMetadataOperationPtr and TableMetadataOperationPtrOutput values.
+// You can construct a concrete instance of `TableMetadataOperationPtrInput` via:
+//
+//	        TableMetadataOperationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableMetadataOperationPtrInput interface {
+	pulumi.Input
+
+	ToTableMetadataOperationPtrOutput() TableMetadataOperationPtrOutput
+	ToTableMetadataOperationPtrOutputWithContext(context.Context) TableMetadataOperationPtrOutput
+}
+
+type tableMetadataOperationPtrType TableMetadataOperationArgs
+
+func TableMetadataOperationPtr(v *TableMetadataOperationArgs) TableMetadataOperationPtrInput {
+	return (*tableMetadataOperationPtrType)(v)
+}
+
+func (*tableMetadataOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableMetadataOperation)(nil)).Elem()
+}
+
+func (i *tableMetadataOperationPtrType) ToTableMetadataOperationPtrOutput() TableMetadataOperationPtrOutput {
+	return i.ToTableMetadataOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableMetadataOperationPtrType) ToTableMetadataOperationPtrOutputWithContext(ctx context.Context) TableMetadataOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataOperationPtrOutput)
+}
+
+type TableMetadataOperationOutput struct{ *pulumi.OutputState }
+
+func (TableMetadataOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableMetadataOperation)(nil)).Elem()
+}
+
+func (o TableMetadataOperationOutput) ToTableMetadataOperationOutput() TableMetadataOperationOutput {
+	return o
+}
+
+func (o TableMetadataOperationOutput) ToTableMetadataOperationOutputWithContext(ctx context.Context) TableMetadataOperationOutput {
+	return o
+}
+
+func (o TableMetadataOperationOutput) ToTableMetadataOperationPtrOutput() TableMetadataOperationPtrOutput {
+	return o.ToTableMetadataOperationPtrOutputWithContext(context.Background())
+}
+
+func (o TableMetadataOperationOutput) ToTableMetadataOperationPtrOutputWithContext(ctx context.Context) TableMetadataOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableMetadataOperation) *TableMetadataOperation {
+		return &v
+	}).(TableMetadataOperationPtrOutput)
+}
+
+type TableMetadataOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableMetadataOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableMetadataOperation)(nil)).Elem()
+}
+
+func (o TableMetadataOperationPtrOutput) ToTableMetadataOperationPtrOutput() TableMetadataOperationPtrOutput {
+	return o
+}
+
+func (o TableMetadataOperationPtrOutput) ToTableMetadataOperationPtrOutputWithContext(ctx context.Context) TableMetadataOperationPtrOutput {
+	return o
+}
+
+func (o TableMetadataOperationPtrOutput) Elem() TableMetadataOperationOutput {
+	return o.ApplyT(func(v *TableMetadataOperation) TableMetadataOperation {
+		if v != nil {
+			return *v
+		}
+		var ret TableMetadataOperation
+		return ret
+	}).(TableMetadataOperationOutput)
+}
+
+type TableOpenTableFormatInput struct {
+	IcebergInput *TableIcebergInput `pulumi:"icebergInput"`
+}
+
+// TableOpenTableFormatInputInput is an input type that accepts TableOpenTableFormatInputArgs and TableOpenTableFormatInputOutput values.
+// You can construct a concrete instance of `TableOpenTableFormatInputInput` via:
+//
+//	TableOpenTableFormatInputArgs{...}
+type TableOpenTableFormatInputInput interface {
+	pulumi.Input
+
+	ToTableOpenTableFormatInputOutput() TableOpenTableFormatInputOutput
+	ToTableOpenTableFormatInputOutputWithContext(context.Context) TableOpenTableFormatInputOutput
+}
+
+type TableOpenTableFormatInputArgs struct {
+	IcebergInput TableIcebergInputPtrInput `pulumi:"icebergInput"`
+}
+
+func (TableOpenTableFormatInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (i TableOpenTableFormatInputArgs) ToTableOpenTableFormatInputOutput() TableOpenTableFormatInputOutput {
+	return i.ToTableOpenTableFormatInputOutputWithContext(context.Background())
+}
+
+func (i TableOpenTableFormatInputArgs) ToTableOpenTableFormatInputOutputWithContext(ctx context.Context) TableOpenTableFormatInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOpenTableFormatInputOutput)
+}
+
+func (i TableOpenTableFormatInputArgs) ToTableOpenTableFormatInputPtrOutput() TableOpenTableFormatInputPtrOutput {
+	return i.ToTableOpenTableFormatInputPtrOutputWithContext(context.Background())
+}
+
+func (i TableOpenTableFormatInputArgs) ToTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) TableOpenTableFormatInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOpenTableFormatInputOutput).ToTableOpenTableFormatInputPtrOutputWithContext(ctx)
+}
+
+// TableOpenTableFormatInputPtrInput is an input type that accepts TableOpenTableFormatInputArgs, TableOpenTableFormatInputPtr and TableOpenTableFormatInputPtrOutput values.
+// You can construct a concrete instance of `TableOpenTableFormatInputPtrInput` via:
+//
+//	        TableOpenTableFormatInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableOpenTableFormatInputPtrInput interface {
+	pulumi.Input
+
+	ToTableOpenTableFormatInputPtrOutput() TableOpenTableFormatInputPtrOutput
+	ToTableOpenTableFormatInputPtrOutputWithContext(context.Context) TableOpenTableFormatInputPtrOutput
+}
+
+type tableOpenTableFormatInputPtrType TableOpenTableFormatInputArgs
+
+func TableOpenTableFormatInputPtr(v *TableOpenTableFormatInputArgs) TableOpenTableFormatInputPtrInput {
+	return (*tableOpenTableFormatInputPtrType)(v)
+}
+
+func (*tableOpenTableFormatInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (i *tableOpenTableFormatInputPtrType) ToTableOpenTableFormatInputPtrOutput() TableOpenTableFormatInputPtrOutput {
+	return i.ToTableOpenTableFormatInputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableOpenTableFormatInputPtrType) ToTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) TableOpenTableFormatInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOpenTableFormatInputPtrOutput)
+}
+
+type TableOpenTableFormatInputOutput struct{ *pulumi.OutputState }
+
+func (TableOpenTableFormatInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (o TableOpenTableFormatInputOutput) ToTableOpenTableFormatInputOutput() TableOpenTableFormatInputOutput {
+	return o
+}
+
+func (o TableOpenTableFormatInputOutput) ToTableOpenTableFormatInputOutputWithContext(ctx context.Context) TableOpenTableFormatInputOutput {
+	return o
+}
+
+func (o TableOpenTableFormatInputOutput) ToTableOpenTableFormatInputPtrOutput() TableOpenTableFormatInputPtrOutput {
+	return o.ToTableOpenTableFormatInputPtrOutputWithContext(context.Background())
+}
+
+func (o TableOpenTableFormatInputOutput) ToTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) TableOpenTableFormatInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOpenTableFormatInput) *TableOpenTableFormatInput {
+		return &v
+	}).(TableOpenTableFormatInputPtrOutput)
+}
+
+func (o TableOpenTableFormatInputOutput) IcebergInput() TableIcebergInputPtrOutput {
+	return o.ApplyT(func(v TableOpenTableFormatInput) *TableIcebergInput { return v.IcebergInput }).(TableIcebergInputPtrOutput)
+}
+
+type TableOpenTableFormatInputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOpenTableFormatInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (o TableOpenTableFormatInputPtrOutput) ToTableOpenTableFormatInputPtrOutput() TableOpenTableFormatInputPtrOutput {
+	return o
+}
+
+func (o TableOpenTableFormatInputPtrOutput) ToTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) TableOpenTableFormatInputPtrOutput {
+	return o
+}
+
+func (o TableOpenTableFormatInputPtrOutput) Elem() TableOpenTableFormatInputOutput {
+	return o.ApplyT(func(v *TableOpenTableFormatInput) TableOpenTableFormatInput {
+		if v != nil {
+			return *v
+		}
+		var ret TableOpenTableFormatInput
+		return ret
+	}).(TableOpenTableFormatInputOutput)
+}
+
+func (o TableOpenTableFormatInputPtrOutput) IcebergInput() TableIcebergInputPtrOutput {
+	return o.ApplyT(func(v *TableOpenTableFormatInput) *TableIcebergInput {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergInput
+	}).(TableIcebergInputPtrOutput)
 }
 
 type TableOrder struct {
@@ -9453,6 +10039,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetArrayInput)(nil)).Elem(), CrawlerDeltaTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDbTargetInput)(nil)).Elem(), CrawlerDynamoDbTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDbTargetArrayInput)(nil)).Elem(), CrawlerDynamoDbTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerIcebergTargetInput)(nil)).Elem(), CrawlerIcebergTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerIcebergTargetArrayInput)(nil)).Elem(), CrawlerIcebergTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetInput)(nil)).Elem(), CrawlerJdbcTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetArrayInput)(nil)).Elem(), CrawlerJdbcTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMongoDbTargetInput)(nil)).Elem(), CrawlerMongoDbTargetArgs{})
@@ -9532,9 +10120,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationS3EncryptionsPtrInput)(nil)).Elem(), SecurityConfigurationS3EncryptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnInput)(nil)).Elem(), TableColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnArrayInput)(nil)).Elem(), TableColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergInputInput)(nil)).Elem(), TableIcebergInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergInputPtrInput)(nil)).Elem(), TableIcebergInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIdentifierInput)(nil)).Elem(), TableIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIdentifierPtrInput)(nil)).Elem(), TableIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableInputTypeInput)(nil)).Elem(), TableInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataOperationInput)(nil)).Elem(), TableMetadataOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataOperationPtrInput)(nil)).Elem(), TableMetadataOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatInputInput)(nil)).Elem(), TableOpenTableFormatInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatInputPtrInput)(nil)).Elem(), TableOpenTableFormatInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOrderInput)(nil)).Elem(), TableOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOrderArrayInput)(nil)).Elem(), TableOrderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaIdInput)(nil)).Elem(), TableSchemaIdArgs{})
@@ -9575,6 +10169,8 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerDeltaTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamoDbTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamoDbTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerIcebergTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerIcebergTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerMongoDbTargetOutput{})
@@ -9661,10 +10257,16 @@ func init() {
 	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionsPtrOutput{})
 	pulumi.RegisterOutputType(TableColumnOutput{})
 	pulumi.RegisterOutputType(TableColumnArrayOutput{})
+	pulumi.RegisterOutputType(TableIcebergInputOutput{})
+	pulumi.RegisterOutputType(TableIcebergInputPtrOutput{})
 	pulumi.RegisterOutputType(TableIdentifierOutput{})
 	pulumi.RegisterOutputType(TableIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(TableInputTypeOutput{})
 	pulumi.RegisterOutputType(TableInputTypePtrOutput{})
+	pulumi.RegisterOutputType(TableMetadataOperationOutput{})
+	pulumi.RegisterOutputType(TableMetadataOperationPtrOutput{})
+	pulumi.RegisterOutputType(TableOpenTableFormatInputOutput{})
+	pulumi.RegisterOutputType(TableOpenTableFormatInputPtrOutput{})
 	pulumi.RegisterOutputType(TableOrderOutput{})
 	pulumi.RegisterOutputType(TableOrderArrayOutput{})
 	pulumi.RegisterOutputType(TableSchemaIdOutput{})

@@ -70,6 +70,14 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly dbInstanceParameterGroupName!: pulumi.Output<string | undefined>;
     /**
+     * The port number on which the DB instances in the DB cluster accept connections. 
+     *
+     * If not specified, the default port used is `8182`. 
+     *
+     * Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+     */
+    public readonly dbPort!: pulumi.Output<number | undefined>;
+    /**
      * Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
@@ -82,7 +90,7 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly enableCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
-     * The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+     * The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
@@ -98,7 +106,7 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the port that the database engine is listening on.
+     * The port number on which the DB cluster accepts connections. For example: `8182`.
      */
     public /*out*/ readonly port!: pulumi.Output<string>;
     /**
@@ -110,7 +118,7 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     /**
-     * The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+     * The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
      */
     public /*out*/ readonly readEndpoint!: pulumi.Output<string>;
     /**
@@ -192,6 +200,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             resourceInputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
             resourceInputs["dbInstanceParameterGroupName"] = args ? args.dbInstanceParameterGroupName : undefined;
+            resourceInputs["dbPort"] = args ? args.dbPort : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
@@ -222,6 +231,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["dbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["dbClusterParameterGroupName"] = undefined /*out*/;
             resourceInputs["dbInstanceParameterGroupName"] = undefined /*out*/;
+            resourceInputs["dbPort"] = undefined /*out*/;
             resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["enableCloudwatchLogsExports"] = undefined /*out*/;
@@ -280,6 +290,14 @@ export interface DbClusterArgs {
      * The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
      */
     dbInstanceParameterGroupName?: pulumi.Input<string>;
+    /**
+     * The port number on which the DB instances in the DB cluster accept connections. 
+     *
+     * If not specified, the default port used is `8182`. 
+     *
+     * Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+     */
+    dbPort?: pulumi.Input<number>;
     /**
      * Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
      */

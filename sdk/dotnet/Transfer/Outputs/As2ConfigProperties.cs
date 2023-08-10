@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     public sealed class As2ConfigProperties
     {
         /// <summary>
+        /// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+        /// </summary>
+        public readonly string? BasicAuthSecretId;
+        /// <summary>
         /// Compression setting for this AS2 connector configuration.
         /// </summary>
         public readonly Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesCompression? Compression;
@@ -51,6 +55,8 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
         [OutputConstructor]
         private As2ConfigProperties(
+            string? basicAuthSecretId,
+
             Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesCompression? compression,
 
             Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesEncryptionAlgorithm? encryptionAlgorithm,
@@ -67,6 +73,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
             Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesSigningAlgorithm? signingAlgorithm)
         {
+            BasicAuthSecretId = basicAuthSecretId;
             Compression = compression;
             EncryptionAlgorithm = encryptionAlgorithm;
             LocalProfileId = localProfileId;

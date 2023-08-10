@@ -90,7 +90,7 @@
   "createOnlyProperties" : [ "/properties/FsxFilesystemArn", "/properties/SecurityGroupArns", "/properties/Subdirectory" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateLocationFsxLustre", "datasync:DescribeLocationFsxLustre", "datasync:ListTagsForResource", "fsx:DescribeFileSystems", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
+      "permissions" : [ "datasync:CreateLocationFsxLustre", "datasync:DescribeLocationFsxLustre", "datasync:ListTagsForResource", "datasync:TagResource", "fsx:DescribeFileSystems", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeLocationFsxLustre", "datasync:ListTagsForResource" ]

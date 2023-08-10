@@ -18,6 +18,7 @@ class RunGroupArgs:
     def __init__(__self__, *,
                  max_cpus: Optional[pulumi.Input[float]] = None,
                  max_duration: Optional[pulumi.Input[float]] = None,
+                 max_gpus: Optional[pulumi.Input[float]] = None,
                  max_runs: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['RunGroupTagMapArgs']] = None):
@@ -28,6 +29,8 @@ class RunGroupArgs:
             pulumi.set(__self__, "max_cpus", max_cpus)
         if max_duration is not None:
             pulumi.set(__self__, "max_duration", max_duration)
+        if max_gpus is not None:
+            pulumi.set(__self__, "max_gpus", max_gpus)
         if max_runs is not None:
             pulumi.set(__self__, "max_runs", max_runs)
         if name is not None:
@@ -52,6 +55,15 @@ class RunGroupArgs:
     @max_duration.setter
     def max_duration(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_duration", value)
+
+    @property
+    @pulumi.getter(name="maxGpus")
+    def max_gpus(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max_gpus")
+
+    @max_gpus.setter
+    def max_gpus(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_gpus", value)
 
     @property
     @pulumi.getter(name="maxRuns")
@@ -88,6 +100,7 @@ class RunGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  max_cpus: Optional[pulumi.Input[float]] = None,
                  max_duration: Optional[pulumi.Input[float]] = None,
+                 max_gpus: Optional[pulumi.Input[float]] = None,
                  max_runs: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['RunGroupTagMapArgs']]] = None,
@@ -124,6 +137,7 @@ class RunGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  max_cpus: Optional[pulumi.Input[float]] = None,
                  max_duration: Optional[pulumi.Input[float]] = None,
+                 max_gpus: Optional[pulumi.Input[float]] = None,
                  max_runs: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['RunGroupTagMapArgs']]] = None,
@@ -138,6 +152,7 @@ class RunGroup(pulumi.CustomResource):
 
             __props__.__dict__["max_cpus"] = max_cpus
             __props__.__dict__["max_duration"] = max_duration
+            __props__.__dict__["max_gpus"] = max_gpus
             __props__.__dict__["max_runs"] = max_runs
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
@@ -169,6 +184,7 @@ class RunGroup(pulumi.CustomResource):
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["max_cpus"] = None
         __props__.__dict__["max_duration"] = None
+        __props__.__dict__["max_gpus"] = None
         __props__.__dict__["max_runs"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -193,6 +209,11 @@ class RunGroup(pulumi.CustomResource):
     @pulumi.getter(name="maxDuration")
     def max_duration(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "max_duration")
+
+    @property
+    @pulumi.getter(name="maxGpus")
+    def max_gpus(self) -> pulumi.Output[Optional[float]]:
+        return pulumi.get(self, "max_gpus")
 
     @property
     @pulumi.getter(name="maxRuns")

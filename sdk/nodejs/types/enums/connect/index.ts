@@ -333,6 +333,20 @@ export const TaskTemplateStatus = {
  */
 export type TaskTemplateStatus = (typeof TaskTemplateStatus)[keyof typeof TaskTemplateStatus];
 
+export const TrafficDistributionGroupStatus = {
+    CreationInProgress: "CREATION_IN_PROGRESS",
+    Active: "ACTIVE",
+    CreationFailed: "CREATION_FAILED",
+    PendingDeletion: "PENDING_DELETION",
+    DeletionFailed: "DELETION_FAILED",
+    UpdateInProgress: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * The status of the traffic distribution group.
+ */
+export type TrafficDistributionGroupStatus = (typeof TrafficDistributionGroupStatus)[keyof typeof TrafficDistributionGroupStatus];
+
 export const UserPhoneType = {
     SoftPhone: "SOFT_PHONE",
     DeskPhone: "DESK_PHONE",

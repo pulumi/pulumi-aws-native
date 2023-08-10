@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbClusterResult:
-    def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, db_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, engine_version=None, iam_auth_enabled=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, serverless_scaling_configuration=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, db_cluster_parameter_group_name=None, db_port=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, engine_version=None, iam_auth_enabled=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, serverless_scaling_configuration=None, tags=None, vpc_security_group_ids=None):
         if associated_roles and not isinstance(associated_roles, list):
             raise TypeError("Expected argument 'associated_roles' to be a list")
         pulumi.set(__self__, "associated_roles", associated_roles)
@@ -35,6 +35,9 @@ class GetDbClusterResult:
         if db_cluster_parameter_group_name and not isinstance(db_cluster_parameter_group_name, str):
             raise TypeError("Expected argument 'db_cluster_parameter_group_name' to be a str")
         pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+        if db_port and not isinstance(db_port, int):
+            raise TypeError("Expected argument 'db_port' to be a int")
+        pulumi.set(__self__, "db_port", db_port)
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -113,6 +116,18 @@ class GetDbClusterResult:
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @property
+    @pulumi.getter(name="dbPort")
+    def db_port(self) -> Optional[int]:
+        """
+        The port number on which the DB instances in the DB cluster accept connections. 
+
+        If not specified, the default port used is `8182`. 
+
+        Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+        """
+        return pulumi.get(self, "db_port")
+
+    @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[bool]:
         """
@@ -132,7 +147,7 @@ class GetDbClusterResult:
     @pulumi.getter
     def endpoint(self) -> Optional[str]:
         """
-        The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
         """
         return pulumi.get(self, "endpoint")
 
@@ -156,7 +171,7 @@ class GetDbClusterResult:
     @pulumi.getter
     def port(self) -> Optional[str]:
         """
-        Specifies the port that the database engine is listening on.
+        The port number on which the DB cluster accepts connections. For example: `8182`.
         """
         return pulumi.get(self, "port")
 
@@ -180,7 +195,7 @@ class GetDbClusterResult:
     @pulumi.getter(name="readEndpoint")
     def read_endpoint(self) -> Optional[str]:
         """
-        The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
         """
         return pulumi.get(self, "read_endpoint")
 
@@ -220,6 +235,7 @@ class AwaitableGetDbClusterResult(GetDbClusterResult):
             cluster_resource_id=self.cluster_resource_id,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
             db_cluster_parameter_group_name=self.db_cluster_parameter_group_name,
+            db_port=self.db_port,
             deletion_protection=self.deletion_protection,
             enable_cloudwatch_logs_exports=self.enable_cloudwatch_logs_exports,
             endpoint=self.endpoint,
@@ -253,6 +269,7 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
         cluster_resource_id=pulumi.get(__ret__, 'cluster_resource_id'),
         copy_tags_to_snapshot=pulumi.get(__ret__, 'copy_tags_to_snapshot'),
         db_cluster_parameter_group_name=pulumi.get(__ret__, 'db_cluster_parameter_group_name'),
+        db_port=pulumi.get(__ret__, 'db_port'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         enable_cloudwatch_logs_exports=pulumi.get(__ret__, 'enable_cloudwatch_logs_exports'),
         endpoint=pulumi.get(__ret__, 'endpoint'),

@@ -13,6 +13,8 @@ from ._enums import *
 
 __all__ = [
     'AgentTag',
+    'LocationAzureBlobAzureBlobSasConfiguration',
+    'LocationAzureBlobTag',
     'LocationEfsEc2Config',
     'LocationEfsTag',
     'LocationFSxLustreTag',
@@ -49,6 +51,78 @@ __all__ = [
 
 @pulumi.output_type
 class AgentTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LocationAzureBlobAzureBlobSasConfiguration(dict):
+    """
+    Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureBlobSasToken":
+            suggest = "azure_blob_sas_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationAzureBlobAzureBlobSasConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationAzureBlobAzureBlobSasConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationAzureBlobAzureBlobSasConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_blob_sas_token: str):
+        """
+        Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
+        :param str azure_blob_sas_token: Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
+        """
+        pulumi.set(__self__, "azure_blob_sas_token", azure_blob_sas_token)
+
+    @property
+    @pulumi.getter(name="azureBlobSasToken")
+    def azure_blob_sas_token(self) -> str:
+        """
+        Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
+        """
+        return pulumi.get(self, "azure_blob_sas_token")
+
+
+@pulumi.output_type
+class LocationAzureBlobTag(dict):
     """
     A key-value pair to associate with a resource.
     """

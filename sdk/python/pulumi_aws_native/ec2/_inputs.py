@@ -138,6 +138,8 @@ __all__ = [
     'NetworkInsightsPathPathFilterArgs',
     'NetworkInsightsPathTagArgs',
     'NetworkInterfaceInstanceIpv6AddressArgs',
+    'NetworkInterfaceIpv4PrefixSpecificationArgs',
+    'NetworkInterfaceIpv6PrefixSpecificationArgs',
     'NetworkInterfacePrivateIpAddressSpecificationArgs',
     'NetworkInterfaceTagArgs',
     'OptionsPropertiesArgs',
@@ -6255,6 +6257,38 @@ class NetworkInterfaceInstanceIpv6AddressArgs:
     @ipv6_address.setter
     def ipv6_address(self, value: pulumi.Input[str]):
         pulumi.set(self, "ipv6_address", value)
+
+
+@pulumi.input_type
+class NetworkInterfaceIpv4PrefixSpecificationArgs:
+    def __init__(__self__, *,
+                 ipv4_prefix: pulumi.Input[str]):
+        pulumi.set(__self__, "ipv4_prefix", ipv4_prefix)
+
+    @property
+    @pulumi.getter(name="ipv4Prefix")
+    def ipv4_prefix(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ipv4_prefix")
+
+    @ipv4_prefix.setter
+    def ipv4_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ipv4_prefix", value)
+
+
+@pulumi.input_type
+class NetworkInterfaceIpv6PrefixSpecificationArgs:
+    def __init__(__self__, *,
+                 ipv6_prefix: pulumi.Input[str]):
+        pulumi.set(__self__, "ipv6_prefix", ipv6_prefix)
+
+    @property
+    @pulumi.getter(name="ipv6Prefix")
+    def ipv6_prefix(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ipv6_prefix")
+
+    @ipv6_prefix.setter
+    def ipv6_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ipv6_prefix", value)
 
 
 @pulumi.input_type

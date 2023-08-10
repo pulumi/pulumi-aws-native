@@ -5,9 +5,34 @@
 from enum import Enum
 
 __all__ = [
+    'ChannelLogType',
+    'ChannelPlaybackMode',
+    'ChannelTier',
+    'LiveSourceType',
     'PlaybackConfigurationAvailSuppressionMode',
     'PlaybackConfigurationDashConfigurationOriginManifestType',
+    'SourceLocationAccessType',
+    'VodSourceType',
 ]
+
+
+class ChannelLogType(str, Enum):
+    AS_RUN = "AS_RUN"
+
+
+class ChannelPlaybackMode(str, Enum):
+    LOOP = "LOOP"
+    LINEAR = "LINEAR"
+
+
+class ChannelTier(str, Enum):
+    BASIC = "BASIC"
+    STANDARD = "STANDARD"
+
+
+class LiveSourceType(str, Enum):
+    DASH = "DASH"
+    HLS = "HLS"
 
 
 class PlaybackConfigurationAvailSuppressionMode(str, Enum):
@@ -24,3 +49,13 @@ class PlaybackConfigurationDashConfigurationOriginManifestType(str, Enum):
     """
     SINGLE_PERIOD = "SINGLE_PERIOD"
     MULTI_PERIOD = "MULTI_PERIOD"
+
+
+class SourceLocationAccessType(str, Enum):
+    S3_SIGV4 = "S3_SIGV4"
+    SECRETS_MANAGER_ACCESS_TOKEN = "SECRETS_MANAGER_ACCESS_TOKEN"
+
+
+class VodSourceType(str, Enum):
+    DASH = "DASH"
+    HLS = "HLS"

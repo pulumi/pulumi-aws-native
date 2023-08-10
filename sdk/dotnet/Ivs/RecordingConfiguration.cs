@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Ivs
         [Output("recordingReconnectWindowSeconds")]
         public Output<int?> RecordingReconnectWindowSeconds { get; private set; } = null!;
 
+        [Output("renditionConfiguration")]
+        public Output<Outputs.RecordingConfigurationRenditionConfiguration?> RenditionConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Recording Configuration State.
         /// </summary>
@@ -110,6 +113,9 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         [Input("recordingReconnectWindowSeconds")]
         public Input<int>? RecordingReconnectWindowSeconds { get; set; }
+
+        [Input("renditionConfiguration")]
+        public Input<Inputs.RecordingConfigurationRenditionConfigurationArgs>? RenditionConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.RecordingConfigurationTagArgs>? _tags;

@@ -215,7 +215,7 @@ func (o PlaybackKeyPairTagArrayOutput) Index(i pulumi.IntInput) PlaybackKeyPairT
 
 // Recording Destination Configuration.
 type RecordingConfigurationDestinationConfiguration struct {
-	S3 RecordingConfigurationS3DestinationConfiguration `pulumi:"s3"`
+	S3 *RecordingConfigurationS3DestinationConfiguration `pulumi:"s3"`
 }
 
 // RecordingConfigurationDestinationConfigurationInput is an input type that accepts RecordingConfigurationDestinationConfigurationArgs and RecordingConfigurationDestinationConfigurationOutput values.
@@ -231,7 +231,7 @@ type RecordingConfigurationDestinationConfigurationInput interface {
 
 // Recording Destination Configuration.
 type RecordingConfigurationDestinationConfigurationArgs struct {
-	S3 RecordingConfigurationS3DestinationConfigurationInput `pulumi:"s3"`
+	S3 RecordingConfigurationS3DestinationConfigurationPtrInput `pulumi:"s3"`
 }
 
 func (RecordingConfigurationDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -261,10 +261,173 @@ func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigu
 	return o
 }
 
-func (o RecordingConfigurationDestinationConfigurationOutput) S3() RecordingConfigurationS3DestinationConfigurationOutput {
-	return o.ApplyT(func(v RecordingConfigurationDestinationConfiguration) RecordingConfigurationS3DestinationConfiguration {
+func (o RecordingConfigurationDestinationConfigurationOutput) S3() RecordingConfigurationS3DestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v RecordingConfigurationDestinationConfiguration) *RecordingConfigurationS3DestinationConfiguration {
 		return v.S3
-	}).(RecordingConfigurationS3DestinationConfigurationOutput)
+	}).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
+}
+
+// Rendition Configuration describes which renditions should be recorded for a stream.
+type RecordingConfigurationRenditionConfiguration struct {
+	// Resolution Selection indicates which set of renditions are recorded for a stream.
+	RenditionSelection *RecordingConfigurationRenditionConfigurationRenditionSelection `pulumi:"renditionSelection"`
+	// Renditions indicates which renditions are recorded for a stream.
+	Renditions []RecordingConfigurationRenditionConfigurationRenditionsItem `pulumi:"renditions"`
+}
+
+// RecordingConfigurationRenditionConfigurationInput is an input type that accepts RecordingConfigurationRenditionConfigurationArgs and RecordingConfigurationRenditionConfigurationOutput values.
+// You can construct a concrete instance of `RecordingConfigurationRenditionConfigurationInput` via:
+//
+//	RecordingConfigurationRenditionConfigurationArgs{...}
+type RecordingConfigurationRenditionConfigurationInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationRenditionConfigurationOutput() RecordingConfigurationRenditionConfigurationOutput
+	ToRecordingConfigurationRenditionConfigurationOutputWithContext(context.Context) RecordingConfigurationRenditionConfigurationOutput
+}
+
+// Rendition Configuration describes which renditions should be recorded for a stream.
+type RecordingConfigurationRenditionConfigurationArgs struct {
+	// Resolution Selection indicates which set of renditions are recorded for a stream.
+	RenditionSelection RecordingConfigurationRenditionConfigurationRenditionSelectionPtrInput `pulumi:"renditionSelection"`
+	// Renditions indicates which renditions are recorded for a stream.
+	Renditions RecordingConfigurationRenditionConfigurationRenditionsItemArrayInput `pulumi:"renditions"`
+}
+
+func (RecordingConfigurationRenditionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationRenditionConfiguration)(nil)).Elem()
+}
+
+func (i RecordingConfigurationRenditionConfigurationArgs) ToRecordingConfigurationRenditionConfigurationOutput() RecordingConfigurationRenditionConfigurationOutput {
+	return i.ToRecordingConfigurationRenditionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RecordingConfigurationRenditionConfigurationArgs) ToRecordingConfigurationRenditionConfigurationOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationRenditionConfigurationOutput)
+}
+
+func (i RecordingConfigurationRenditionConfigurationArgs) ToRecordingConfigurationRenditionConfigurationPtrOutput() RecordingConfigurationRenditionConfigurationPtrOutput {
+	return i.ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RecordingConfigurationRenditionConfigurationArgs) ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationRenditionConfigurationOutput).ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(ctx)
+}
+
+// RecordingConfigurationRenditionConfigurationPtrInput is an input type that accepts RecordingConfigurationRenditionConfigurationArgs, RecordingConfigurationRenditionConfigurationPtr and RecordingConfigurationRenditionConfigurationPtrOutput values.
+// You can construct a concrete instance of `RecordingConfigurationRenditionConfigurationPtrInput` via:
+//
+//	        RecordingConfigurationRenditionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordingConfigurationRenditionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationRenditionConfigurationPtrOutput() RecordingConfigurationRenditionConfigurationPtrOutput
+	ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(context.Context) RecordingConfigurationRenditionConfigurationPtrOutput
+}
+
+type recordingConfigurationRenditionConfigurationPtrType RecordingConfigurationRenditionConfigurationArgs
+
+func RecordingConfigurationRenditionConfigurationPtr(v *RecordingConfigurationRenditionConfigurationArgs) RecordingConfigurationRenditionConfigurationPtrInput {
+	return (*recordingConfigurationRenditionConfigurationPtrType)(v)
+}
+
+func (*recordingConfigurationRenditionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordingConfigurationRenditionConfiguration)(nil)).Elem()
+}
+
+func (i *recordingConfigurationRenditionConfigurationPtrType) ToRecordingConfigurationRenditionConfigurationPtrOutput() RecordingConfigurationRenditionConfigurationPtrOutput {
+	return i.ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *recordingConfigurationRenditionConfigurationPtrType) ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationRenditionConfigurationPtrOutput)
+}
+
+// Rendition Configuration describes which renditions should be recorded for a stream.
+type RecordingConfigurationRenditionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationRenditionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationRenditionConfiguration)(nil)).Elem()
+}
+
+func (o RecordingConfigurationRenditionConfigurationOutput) ToRecordingConfigurationRenditionConfigurationOutput() RecordingConfigurationRenditionConfigurationOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationOutput) ToRecordingConfigurationRenditionConfigurationOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationOutput) ToRecordingConfigurationRenditionConfigurationPtrOutput() RecordingConfigurationRenditionConfigurationPtrOutput {
+	return o.ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationRenditionConfigurationOutput) ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationRenditionConfiguration) *RecordingConfigurationRenditionConfiguration {
+		return &v
+	}).(RecordingConfigurationRenditionConfigurationPtrOutput)
+}
+
+// Resolution Selection indicates which set of renditions are recorded for a stream.
+func (o RecordingConfigurationRenditionConfigurationOutput) RenditionSelection() RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput {
+	return o.ApplyT(func(v RecordingConfigurationRenditionConfiguration) *RecordingConfigurationRenditionConfigurationRenditionSelection {
+		return v.RenditionSelection
+	}).(RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput)
+}
+
+// Renditions indicates which renditions are recorded for a stream.
+func (o RecordingConfigurationRenditionConfigurationOutput) Renditions() RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput {
+	return o.ApplyT(func(v RecordingConfigurationRenditionConfiguration) []RecordingConfigurationRenditionConfigurationRenditionsItem {
+		return v.Renditions
+	}).(RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput)
+}
+
+type RecordingConfigurationRenditionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationRenditionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordingConfigurationRenditionConfiguration)(nil)).Elem()
+}
+
+func (o RecordingConfigurationRenditionConfigurationPtrOutput) ToRecordingConfigurationRenditionConfigurationPtrOutput() RecordingConfigurationRenditionConfigurationPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationPtrOutput) ToRecordingConfigurationRenditionConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationRenditionConfigurationPtrOutput) Elem() RecordingConfigurationRenditionConfigurationOutput {
+	return o.ApplyT(func(v *RecordingConfigurationRenditionConfiguration) RecordingConfigurationRenditionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RecordingConfigurationRenditionConfiguration
+		return ret
+	}).(RecordingConfigurationRenditionConfigurationOutput)
+}
+
+// Resolution Selection indicates which set of renditions are recorded for a stream.
+func (o RecordingConfigurationRenditionConfigurationPtrOutput) RenditionSelection() RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput {
+	return o.ApplyT(func(v *RecordingConfigurationRenditionConfiguration) *RecordingConfigurationRenditionConfigurationRenditionSelection {
+		if v == nil {
+			return nil
+		}
+		return v.RenditionSelection
+	}).(RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput)
+}
+
+// Renditions indicates which renditions are recorded for a stream.
+func (o RecordingConfigurationRenditionConfigurationPtrOutput) Renditions() RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput {
+	return o.ApplyT(func(v *RecordingConfigurationRenditionConfiguration) []RecordingConfigurationRenditionConfigurationRenditionsItem {
+		if v == nil {
+			return nil
+		}
+		return v.Renditions
+	}).(RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput)
 }
 
 // Recording S3 Destination Configuration.
@@ -300,6 +463,47 @@ func (i RecordingConfigurationS3DestinationConfigurationArgs) ToRecordingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationS3DestinationConfigurationOutput)
 }
 
+func (i RecordingConfigurationS3DestinationConfigurationArgs) ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput {
+	return i.ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RecordingConfigurationS3DestinationConfigurationArgs) ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationS3DestinationConfigurationOutput).ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// RecordingConfigurationS3DestinationConfigurationPtrInput is an input type that accepts RecordingConfigurationS3DestinationConfigurationArgs, RecordingConfigurationS3DestinationConfigurationPtr and RecordingConfigurationS3DestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `RecordingConfigurationS3DestinationConfigurationPtrInput` via:
+//
+//	        RecordingConfigurationS3DestinationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordingConfigurationS3DestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput
+	ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput
+}
+
+type recordingConfigurationS3DestinationConfigurationPtrType RecordingConfigurationS3DestinationConfigurationArgs
+
+func RecordingConfigurationS3DestinationConfigurationPtr(v *RecordingConfigurationS3DestinationConfigurationArgs) RecordingConfigurationS3DestinationConfigurationPtrInput {
+	return (*recordingConfigurationS3DestinationConfigurationPtrType)(v)
+}
+
+func (*recordingConfigurationS3DestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordingConfigurationS3DestinationConfiguration)(nil)).Elem()
+}
+
+func (i *recordingConfigurationS3DestinationConfigurationPtrType) ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput {
+	return i.ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *recordingConfigurationS3DestinationConfigurationPtrType) ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
+}
+
 // Recording S3 Destination Configuration.
 type RecordingConfigurationS3DestinationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -315,8 +519,51 @@ func (o RecordingConfigurationS3DestinationConfigurationOutput) ToRecordingConfi
 	return o
 }
 
+func (o RecordingConfigurationS3DestinationConfigurationOutput) ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput {
+	return o.ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationS3DestinationConfigurationOutput) ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationS3DestinationConfiguration) *RecordingConfigurationS3DestinationConfiguration {
+		return &v
+	}).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
+}
+
 func (o RecordingConfigurationS3DestinationConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordingConfigurationS3DestinationConfiguration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+type RecordingConfigurationS3DestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationS3DestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordingConfigurationS3DestinationConfiguration)(nil)).Elem()
+}
+
+func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) Elem() RecordingConfigurationS3DestinationConfigurationOutput {
+	return o.ApplyT(func(v *RecordingConfigurationS3DestinationConfiguration) RecordingConfigurationS3DestinationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RecordingConfigurationS3DestinationConfiguration
+		return ret
+	}).(RecordingConfigurationS3DestinationConfigurationOutput)
+}
+
+func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordingConfigurationS3DestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
 }
 
 type RecordingConfigurationTag struct {
@@ -422,8 +669,12 @@ func (o RecordingConfigurationTagArrayOutput) Index(i pulumi.IntInput) Recording
 // Recording Thumbnail Configuration.
 type RecordingConfigurationThumbnailConfiguration struct {
 	// Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
-	RecordingMode RecordingConfigurationThumbnailConfigurationRecordingMode `pulumi:"recordingMode"`
-	// Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+	RecordingMode *RecordingConfigurationThumbnailConfigurationRecordingMode `pulumi:"recordingMode"`
+	// Resolution indicates the desired resolution of recorded thumbnails.
+	Resolution *RecordingConfigurationThumbnailConfigurationResolution `pulumi:"resolution"`
+	// Storage indicates the format in which thumbnails are recorded.
+	Storage []RecordingConfigurationThumbnailConfigurationStorageItem `pulumi:"storage"`
+	// Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
 	TargetIntervalSeconds *int `pulumi:"targetIntervalSeconds"`
 }
 
@@ -441,8 +692,12 @@ type RecordingConfigurationThumbnailConfigurationInput interface {
 // Recording Thumbnail Configuration.
 type RecordingConfigurationThumbnailConfigurationArgs struct {
 	// Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
-	RecordingMode RecordingConfigurationThumbnailConfigurationRecordingModeInput `pulumi:"recordingMode"`
-	// Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+	RecordingMode RecordingConfigurationThumbnailConfigurationRecordingModePtrInput `pulumi:"recordingMode"`
+	// Resolution indicates the desired resolution of recorded thumbnails.
+	Resolution RecordingConfigurationThumbnailConfigurationResolutionPtrInput `pulumi:"resolution"`
+	// Storage indicates the format in which thumbnails are recorded.
+	Storage RecordingConfigurationThumbnailConfigurationStorageItemArrayInput `pulumi:"storage"`
+	// Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
 	TargetIntervalSeconds pulumi.IntPtrInput `pulumi:"targetIntervalSeconds"`
 }
 
@@ -525,13 +780,27 @@ func (o RecordingConfigurationThumbnailConfigurationOutput) ToRecordingConfigura
 }
 
 // Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
-func (o RecordingConfigurationThumbnailConfigurationOutput) RecordingMode() RecordingConfigurationThumbnailConfigurationRecordingModeOutput {
-	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) RecordingConfigurationThumbnailConfigurationRecordingMode {
+func (o RecordingConfigurationThumbnailConfigurationOutput) RecordingMode() RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput {
+	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) *RecordingConfigurationThumbnailConfigurationRecordingMode {
 		return v.RecordingMode
-	}).(RecordingConfigurationThumbnailConfigurationRecordingModeOutput)
+	}).(RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput)
 }
 
-// Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+// Resolution indicates the desired resolution of recorded thumbnails.
+func (o RecordingConfigurationThumbnailConfigurationOutput) Resolution() RecordingConfigurationThumbnailConfigurationResolutionPtrOutput {
+	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) *RecordingConfigurationThumbnailConfigurationResolution {
+		return v.Resolution
+	}).(RecordingConfigurationThumbnailConfigurationResolutionPtrOutput)
+}
+
+// Storage indicates the format in which thumbnails are recorded.
+func (o RecordingConfigurationThumbnailConfigurationOutput) Storage() RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput {
+	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) []RecordingConfigurationThumbnailConfigurationStorageItem {
+		return v.Storage
+	}).(RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput)
+}
+
+// Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
 func (o RecordingConfigurationThumbnailConfigurationOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) *int { return v.TargetIntervalSeconds }).(pulumi.IntPtrOutput)
 }
@@ -566,11 +835,31 @@ func (o RecordingConfigurationThumbnailConfigurationPtrOutput) RecordingMode() R
 		if v == nil {
 			return nil
 		}
-		return &v.RecordingMode
+		return v.RecordingMode
 	}).(RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput)
 }
 
-// Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+// Resolution indicates the desired resolution of recorded thumbnails.
+func (o RecordingConfigurationThumbnailConfigurationPtrOutput) Resolution() RecordingConfigurationThumbnailConfigurationResolutionPtrOutput {
+	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfiguration) *RecordingConfigurationThumbnailConfigurationResolution {
+		if v == nil {
+			return nil
+		}
+		return v.Resolution
+	}).(RecordingConfigurationThumbnailConfigurationResolutionPtrOutput)
+}
+
+// Storage indicates the format in which thumbnails are recorded.
+func (o RecordingConfigurationThumbnailConfigurationPtrOutput) Storage() RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput {
+	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfiguration) []RecordingConfigurationThumbnailConfigurationStorageItem {
+		if v == nil {
+			return nil
+		}
+		return v.Storage
+	}).(RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput)
+}
+
+// Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
 func (o RecordingConfigurationThumbnailConfigurationPtrOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfiguration) *int {
 		if v == nil {
@@ -686,7 +975,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackKeyPairTagInput)(nil)).Elem(), PlaybackKeyPairTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackKeyPairTagArrayInput)(nil)).Elem(), PlaybackKeyPairTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationDestinationConfigurationInput)(nil)).Elem(), RecordingConfigurationDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationS3DestinationConfigurationInput)(nil)).Elem(), RecordingConfigurationS3DestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationS3DestinationConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationS3DestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationTagInput)(nil)).Elem(), RecordingConfigurationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationTagArrayInput)(nil)).Elem(), RecordingConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationArgs{})
@@ -698,7 +990,10 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackKeyPairTagOutput{})
 	pulumi.RegisterOutputType(PlaybackKeyPairTagArrayOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationS3DestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationS3DestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationTagOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationOutput{})

@@ -481,6 +481,7 @@ type DataSourceConfiguration struct {
 	SalesforceConfiguration  *DataSourceSalesforceConfiguration   `pulumi:"salesforceConfiguration"`
 	ServiceNowConfiguration  *DataSourceServiceNowConfiguration   `pulumi:"serviceNowConfiguration"`
 	SharePointConfiguration  *DataSourceSharePointConfiguration   `pulumi:"sharePointConfiguration"`
+	TemplateConfiguration    *DataSourceTemplateConfiguration     `pulumi:"templateConfiguration"`
 	WebCrawlerConfiguration  *DataSourceWebCrawlerConfiguration   `pulumi:"webCrawlerConfiguration"`
 	WorkDocsConfiguration    *DataSourceWorkDocsConfiguration     `pulumi:"workDocsConfiguration"`
 }
@@ -505,6 +506,7 @@ type DataSourceConfigurationArgs struct {
 	SalesforceConfiguration  DataSourceSalesforceConfigurationPtrInput   `pulumi:"salesforceConfiguration"`
 	ServiceNowConfiguration  DataSourceServiceNowConfigurationPtrInput   `pulumi:"serviceNowConfiguration"`
 	SharePointConfiguration  DataSourceSharePointConfigurationPtrInput   `pulumi:"sharePointConfiguration"`
+	TemplateConfiguration    DataSourceTemplateConfigurationPtrInput     `pulumi:"templateConfiguration"`
 	WebCrawlerConfiguration  DataSourceWebCrawlerConfigurationPtrInput   `pulumi:"webCrawlerConfiguration"`
 	WorkDocsConfiguration    DataSourceWorkDocsConfigurationPtrInput     `pulumi:"workDocsConfiguration"`
 }
@@ -618,6 +620,10 @@ func (o DataSourceConfigurationOutput) SharePointConfiguration() DataSourceShare
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceSharePointConfiguration { return v.SharePointConfiguration }).(DataSourceSharePointConfigurationPtrOutput)
 }
 
+func (o DataSourceConfigurationOutput) TemplateConfiguration() DataSourceTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceTemplateConfiguration { return v.TemplateConfiguration }).(DataSourceTemplateConfigurationPtrOutput)
+}
+
 func (o DataSourceConfigurationOutput) WebCrawlerConfiguration() DataSourceWebCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceWebCrawlerConfiguration { return v.WebCrawlerConfiguration }).(DataSourceWebCrawlerConfigurationPtrOutput)
 }
@@ -720,6 +726,15 @@ func (o DataSourceConfigurationPtrOutput) SharePointConfiguration() DataSourceSh
 		}
 		return v.SharePointConfiguration
 	}).(DataSourceSharePointConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationPtrOutput) TemplateConfiguration() DataSourceTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceTemplateConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateConfiguration
+	}).(DataSourceTemplateConfigurationPtrOutput)
 }
 
 func (o DataSourceConfigurationPtrOutput) WebCrawlerConfiguration() DataSourceWebCrawlerConfigurationPtrOutput {
@@ -7059,6 +7074,139 @@ func (o DataSourceTagArrayOutput) Index(i pulumi.IntInput) DataSourceTagOutput {
 	}).(DataSourceTagOutput)
 }
 
+type DataSourceTemplateConfiguration struct {
+	Template string `pulumi:"template"`
+}
+
+// DataSourceTemplateConfigurationInput is an input type that accepts DataSourceTemplateConfigurationArgs and DataSourceTemplateConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceTemplateConfigurationInput` via:
+//
+//	DataSourceTemplateConfigurationArgs{...}
+type DataSourceTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceTemplateConfigurationOutput() DataSourceTemplateConfigurationOutput
+	ToDataSourceTemplateConfigurationOutputWithContext(context.Context) DataSourceTemplateConfigurationOutput
+}
+
+type DataSourceTemplateConfigurationArgs struct {
+	Template pulumi.StringInput `pulumi:"template"`
+}
+
+func (DataSourceTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTemplateConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceTemplateConfigurationArgs) ToDataSourceTemplateConfigurationOutput() DataSourceTemplateConfigurationOutput {
+	return i.ToDataSourceTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceTemplateConfigurationArgs) ToDataSourceTemplateConfigurationOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTemplateConfigurationOutput)
+}
+
+func (i DataSourceTemplateConfigurationArgs) ToDataSourceTemplateConfigurationPtrOutput() DataSourceTemplateConfigurationPtrOutput {
+	return i.ToDataSourceTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceTemplateConfigurationArgs) ToDataSourceTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTemplateConfigurationOutput).ToDataSourceTemplateConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceTemplateConfigurationPtrInput is an input type that accepts DataSourceTemplateConfigurationArgs, DataSourceTemplateConfigurationPtr and DataSourceTemplateConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceTemplateConfigurationPtrInput` via:
+//
+//	        DataSourceTemplateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceTemplateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceTemplateConfigurationPtrOutput() DataSourceTemplateConfigurationPtrOutput
+	ToDataSourceTemplateConfigurationPtrOutputWithContext(context.Context) DataSourceTemplateConfigurationPtrOutput
+}
+
+type dataSourceTemplateConfigurationPtrType DataSourceTemplateConfigurationArgs
+
+func DataSourceTemplateConfigurationPtr(v *DataSourceTemplateConfigurationArgs) DataSourceTemplateConfigurationPtrInput {
+	return (*dataSourceTemplateConfigurationPtrType)(v)
+}
+
+func (*dataSourceTemplateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceTemplateConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceTemplateConfigurationPtrType) ToDataSourceTemplateConfigurationPtrOutput() DataSourceTemplateConfigurationPtrOutput {
+	return i.ToDataSourceTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceTemplateConfigurationPtrType) ToDataSourceTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTemplateConfigurationPtrOutput)
+}
+
+type DataSourceTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTemplateConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceTemplateConfigurationOutput) ToDataSourceTemplateConfigurationOutput() DataSourceTemplateConfigurationOutput {
+	return o
+}
+
+func (o DataSourceTemplateConfigurationOutput) ToDataSourceTemplateConfigurationOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationOutput {
+	return o
+}
+
+func (o DataSourceTemplateConfigurationOutput) ToDataSourceTemplateConfigurationPtrOutput() DataSourceTemplateConfigurationPtrOutput {
+	return o.ToDataSourceTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceTemplateConfigurationOutput) ToDataSourceTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceTemplateConfiguration) *DataSourceTemplateConfiguration {
+		return &v
+	}).(DataSourceTemplateConfigurationPtrOutput)
+}
+
+func (o DataSourceTemplateConfigurationOutput) Template() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceTemplateConfiguration) string { return v.Template }).(pulumi.StringOutput)
+}
+
+type DataSourceTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTemplateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceTemplateConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceTemplateConfigurationPtrOutput) ToDataSourceTemplateConfigurationPtrOutput() DataSourceTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceTemplateConfigurationPtrOutput) ToDataSourceTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceTemplateConfigurationPtrOutput) Elem() DataSourceTemplateConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceTemplateConfiguration) DataSourceTemplateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceTemplateConfiguration
+		return ret
+	}).(DataSourceTemplateConfigurationOutput)
+}
+
+func (o DataSourceTemplateConfigurationPtrOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceTemplateConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Template
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataSourceToIndexFieldMapping struct {
 	DataSourceFieldName string  `pulumi:"dataSourceFieldName"`
 	DateFieldFormat     *string `pulumi:"dateFieldFormat"`
@@ -10147,6 +10295,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSqlConfigurationPtrInput)(nil)).Elem(), DataSourceSqlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTagInput)(nil)).Elem(), DataSourceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTagArrayInput)(nil)).Elem(), DataSourceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTemplateConfigurationInput)(nil)).Elem(), DataSourceTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTemplateConfigurationPtrInput)(nil)).Elem(), DataSourceTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceToIndexFieldMappingInput)(nil)).Elem(), DataSourceToIndexFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceToIndexFieldMappingArrayInput)(nil)).Elem(), DataSourceToIndexFieldMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConfigurationInput)(nil)).Elem(), DataSourceVpcConfigurationArgs{})
@@ -10270,6 +10420,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceSqlConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTagOutput{})
 	pulumi.RegisterOutputType(DataSourceTagArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceToIndexFieldMappingOutput{})
 	pulumi.RegisterOutputType(DataSourceToIndexFieldMappingArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConfigurationOutput{})

@@ -13,6 +13,1078 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// <p>Dash manifest configuration parameters.</p>
+type ChannelDashPlaylistSettings struct {
+	// <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+	ManifestWindowSeconds *float64 `pulumi:"manifestWindowSeconds"`
+	// <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+	MinBufferTimeSeconds *float64 `pulumi:"minBufferTimeSeconds"`
+	// <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+	MinUpdatePeriodSeconds *float64 `pulumi:"minUpdatePeriodSeconds"`
+	// <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+	SuggestedPresentationDelaySeconds *float64 `pulumi:"suggestedPresentationDelaySeconds"`
+}
+
+// ChannelDashPlaylistSettingsInput is an input type that accepts ChannelDashPlaylistSettingsArgs and ChannelDashPlaylistSettingsOutput values.
+// You can construct a concrete instance of `ChannelDashPlaylistSettingsInput` via:
+//
+//	ChannelDashPlaylistSettingsArgs{...}
+type ChannelDashPlaylistSettingsInput interface {
+	pulumi.Input
+
+	ToChannelDashPlaylistSettingsOutput() ChannelDashPlaylistSettingsOutput
+	ToChannelDashPlaylistSettingsOutputWithContext(context.Context) ChannelDashPlaylistSettingsOutput
+}
+
+// <p>Dash manifest configuration parameters.</p>
+type ChannelDashPlaylistSettingsArgs struct {
+	// <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+	ManifestWindowSeconds pulumi.Float64PtrInput `pulumi:"manifestWindowSeconds"`
+	// <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+	MinBufferTimeSeconds pulumi.Float64PtrInput `pulumi:"minBufferTimeSeconds"`
+	// <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+	MinUpdatePeriodSeconds pulumi.Float64PtrInput `pulumi:"minUpdatePeriodSeconds"`
+	// <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+	SuggestedPresentationDelaySeconds pulumi.Float64PtrInput `pulumi:"suggestedPresentationDelaySeconds"`
+}
+
+func (ChannelDashPlaylistSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelDashPlaylistSettings)(nil)).Elem()
+}
+
+func (i ChannelDashPlaylistSettingsArgs) ToChannelDashPlaylistSettingsOutput() ChannelDashPlaylistSettingsOutput {
+	return i.ToChannelDashPlaylistSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelDashPlaylistSettingsArgs) ToChannelDashPlaylistSettingsOutputWithContext(ctx context.Context) ChannelDashPlaylistSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelDashPlaylistSettingsOutput)
+}
+
+func (i ChannelDashPlaylistSettingsArgs) ToChannelDashPlaylistSettingsPtrOutput() ChannelDashPlaylistSettingsPtrOutput {
+	return i.ToChannelDashPlaylistSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelDashPlaylistSettingsArgs) ToChannelDashPlaylistSettingsPtrOutputWithContext(ctx context.Context) ChannelDashPlaylistSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelDashPlaylistSettingsOutput).ToChannelDashPlaylistSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelDashPlaylistSettingsPtrInput is an input type that accepts ChannelDashPlaylistSettingsArgs, ChannelDashPlaylistSettingsPtr and ChannelDashPlaylistSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelDashPlaylistSettingsPtrInput` via:
+//
+//	        ChannelDashPlaylistSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelDashPlaylistSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelDashPlaylistSettingsPtrOutput() ChannelDashPlaylistSettingsPtrOutput
+	ToChannelDashPlaylistSettingsPtrOutputWithContext(context.Context) ChannelDashPlaylistSettingsPtrOutput
+}
+
+type channelDashPlaylistSettingsPtrType ChannelDashPlaylistSettingsArgs
+
+func ChannelDashPlaylistSettingsPtr(v *ChannelDashPlaylistSettingsArgs) ChannelDashPlaylistSettingsPtrInput {
+	return (*channelDashPlaylistSettingsPtrType)(v)
+}
+
+func (*channelDashPlaylistSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelDashPlaylistSettings)(nil)).Elem()
+}
+
+func (i *channelDashPlaylistSettingsPtrType) ToChannelDashPlaylistSettingsPtrOutput() ChannelDashPlaylistSettingsPtrOutput {
+	return i.ToChannelDashPlaylistSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelDashPlaylistSettingsPtrType) ToChannelDashPlaylistSettingsPtrOutputWithContext(ctx context.Context) ChannelDashPlaylistSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelDashPlaylistSettingsPtrOutput)
+}
+
+// <p>Dash manifest configuration parameters.</p>
+type ChannelDashPlaylistSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelDashPlaylistSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelDashPlaylistSettings)(nil)).Elem()
+}
+
+func (o ChannelDashPlaylistSettingsOutput) ToChannelDashPlaylistSettingsOutput() ChannelDashPlaylistSettingsOutput {
+	return o
+}
+
+func (o ChannelDashPlaylistSettingsOutput) ToChannelDashPlaylistSettingsOutputWithContext(ctx context.Context) ChannelDashPlaylistSettingsOutput {
+	return o
+}
+
+func (o ChannelDashPlaylistSettingsOutput) ToChannelDashPlaylistSettingsPtrOutput() ChannelDashPlaylistSettingsPtrOutput {
+	return o.ToChannelDashPlaylistSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelDashPlaylistSettingsOutput) ToChannelDashPlaylistSettingsPtrOutputWithContext(ctx context.Context) ChannelDashPlaylistSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelDashPlaylistSettings) *ChannelDashPlaylistSettings {
+		return &v
+	}).(ChannelDashPlaylistSettingsPtrOutput)
+}
+
+// <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+func (o ChannelDashPlaylistSettingsOutput) ManifestWindowSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ChannelDashPlaylistSettings) *float64 { return v.ManifestWindowSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+func (o ChannelDashPlaylistSettingsOutput) MinBufferTimeSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ChannelDashPlaylistSettings) *float64 { return v.MinBufferTimeSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+func (o ChannelDashPlaylistSettingsOutput) MinUpdatePeriodSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ChannelDashPlaylistSettings) *float64 { return v.MinUpdatePeriodSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+func (o ChannelDashPlaylistSettingsOutput) SuggestedPresentationDelaySeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ChannelDashPlaylistSettings) *float64 { return v.SuggestedPresentationDelaySeconds }).(pulumi.Float64PtrOutput)
+}
+
+type ChannelDashPlaylistSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelDashPlaylistSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelDashPlaylistSettings)(nil)).Elem()
+}
+
+func (o ChannelDashPlaylistSettingsPtrOutput) ToChannelDashPlaylistSettingsPtrOutput() ChannelDashPlaylistSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelDashPlaylistSettingsPtrOutput) ToChannelDashPlaylistSettingsPtrOutputWithContext(ctx context.Context) ChannelDashPlaylistSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelDashPlaylistSettingsPtrOutput) Elem() ChannelDashPlaylistSettingsOutput {
+	return o.ApplyT(func(v *ChannelDashPlaylistSettings) ChannelDashPlaylistSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelDashPlaylistSettings
+		return ret
+	}).(ChannelDashPlaylistSettingsOutput)
+}
+
+// <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+func (o ChannelDashPlaylistSettingsPtrOutput) ManifestWindowSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ChannelDashPlaylistSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestWindowSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+func (o ChannelDashPlaylistSettingsPtrOutput) MinBufferTimeSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ChannelDashPlaylistSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinBufferTimeSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+func (o ChannelDashPlaylistSettingsPtrOutput) MinUpdatePeriodSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ChannelDashPlaylistSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinUpdatePeriodSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+func (o ChannelDashPlaylistSettingsPtrOutput) SuggestedPresentationDelaySeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ChannelDashPlaylistSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SuggestedPresentationDelaySeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>HLS playlist configuration parameters.</p>
+type ChannelHlsPlaylistSettings struct {
+	// <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+	ManifestWindowSeconds *float64 `pulumi:"manifestWindowSeconds"`
+}
+
+// ChannelHlsPlaylistSettingsInput is an input type that accepts ChannelHlsPlaylistSettingsArgs and ChannelHlsPlaylistSettingsOutput values.
+// You can construct a concrete instance of `ChannelHlsPlaylistSettingsInput` via:
+//
+//	ChannelHlsPlaylistSettingsArgs{...}
+type ChannelHlsPlaylistSettingsInput interface {
+	pulumi.Input
+
+	ToChannelHlsPlaylistSettingsOutput() ChannelHlsPlaylistSettingsOutput
+	ToChannelHlsPlaylistSettingsOutputWithContext(context.Context) ChannelHlsPlaylistSettingsOutput
+}
+
+// <p>HLS playlist configuration parameters.</p>
+type ChannelHlsPlaylistSettingsArgs struct {
+	// <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+	ManifestWindowSeconds pulumi.Float64PtrInput `pulumi:"manifestWindowSeconds"`
+}
+
+func (ChannelHlsPlaylistSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelHlsPlaylistSettings)(nil)).Elem()
+}
+
+func (i ChannelHlsPlaylistSettingsArgs) ToChannelHlsPlaylistSettingsOutput() ChannelHlsPlaylistSettingsOutput {
+	return i.ToChannelHlsPlaylistSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelHlsPlaylistSettingsArgs) ToChannelHlsPlaylistSettingsOutputWithContext(ctx context.Context) ChannelHlsPlaylistSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsPlaylistSettingsOutput)
+}
+
+func (i ChannelHlsPlaylistSettingsArgs) ToChannelHlsPlaylistSettingsPtrOutput() ChannelHlsPlaylistSettingsPtrOutput {
+	return i.ToChannelHlsPlaylistSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelHlsPlaylistSettingsArgs) ToChannelHlsPlaylistSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsPlaylistSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsPlaylistSettingsOutput).ToChannelHlsPlaylistSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelHlsPlaylistSettingsPtrInput is an input type that accepts ChannelHlsPlaylistSettingsArgs, ChannelHlsPlaylistSettingsPtr and ChannelHlsPlaylistSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelHlsPlaylistSettingsPtrInput` via:
+//
+//	        ChannelHlsPlaylistSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelHlsPlaylistSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelHlsPlaylistSettingsPtrOutput() ChannelHlsPlaylistSettingsPtrOutput
+	ToChannelHlsPlaylistSettingsPtrOutputWithContext(context.Context) ChannelHlsPlaylistSettingsPtrOutput
+}
+
+type channelHlsPlaylistSettingsPtrType ChannelHlsPlaylistSettingsArgs
+
+func ChannelHlsPlaylistSettingsPtr(v *ChannelHlsPlaylistSettingsArgs) ChannelHlsPlaylistSettingsPtrInput {
+	return (*channelHlsPlaylistSettingsPtrType)(v)
+}
+
+func (*channelHlsPlaylistSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelHlsPlaylistSettings)(nil)).Elem()
+}
+
+func (i *channelHlsPlaylistSettingsPtrType) ToChannelHlsPlaylistSettingsPtrOutput() ChannelHlsPlaylistSettingsPtrOutput {
+	return i.ToChannelHlsPlaylistSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelHlsPlaylistSettingsPtrType) ToChannelHlsPlaylistSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsPlaylistSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsPlaylistSettingsPtrOutput)
+}
+
+// <p>HLS playlist configuration parameters.</p>
+type ChannelHlsPlaylistSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelHlsPlaylistSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelHlsPlaylistSettings)(nil)).Elem()
+}
+
+func (o ChannelHlsPlaylistSettingsOutput) ToChannelHlsPlaylistSettingsOutput() ChannelHlsPlaylistSettingsOutput {
+	return o
+}
+
+func (o ChannelHlsPlaylistSettingsOutput) ToChannelHlsPlaylistSettingsOutputWithContext(ctx context.Context) ChannelHlsPlaylistSettingsOutput {
+	return o
+}
+
+func (o ChannelHlsPlaylistSettingsOutput) ToChannelHlsPlaylistSettingsPtrOutput() ChannelHlsPlaylistSettingsPtrOutput {
+	return o.ToChannelHlsPlaylistSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelHlsPlaylistSettingsOutput) ToChannelHlsPlaylistSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsPlaylistSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsPlaylistSettings) *ChannelHlsPlaylistSettings {
+		return &v
+	}).(ChannelHlsPlaylistSettingsPtrOutput)
+}
+
+// <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+func (o ChannelHlsPlaylistSettingsOutput) ManifestWindowSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ChannelHlsPlaylistSettings) *float64 { return v.ManifestWindowSeconds }).(pulumi.Float64PtrOutput)
+}
+
+type ChannelHlsPlaylistSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelHlsPlaylistSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelHlsPlaylistSettings)(nil)).Elem()
+}
+
+func (o ChannelHlsPlaylistSettingsPtrOutput) ToChannelHlsPlaylistSettingsPtrOutput() ChannelHlsPlaylistSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelHlsPlaylistSettingsPtrOutput) ToChannelHlsPlaylistSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsPlaylistSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelHlsPlaylistSettingsPtrOutput) Elem() ChannelHlsPlaylistSettingsOutput {
+	return o.ApplyT(func(v *ChannelHlsPlaylistSettings) ChannelHlsPlaylistSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelHlsPlaylistSettings
+		return ret
+	}).(ChannelHlsPlaylistSettingsOutput)
+}
+
+// <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+func (o ChannelHlsPlaylistSettingsPtrOutput) ManifestWindowSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ChannelHlsPlaylistSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestWindowSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>The log configuration for the channel.</p>
+type ChannelLogConfigurationForChannel struct {
+	// <p>The log types.</p>
+	LogTypes []ChannelLogType `pulumi:"logTypes"`
+}
+
+// ChannelLogConfigurationForChannelInput is an input type that accepts ChannelLogConfigurationForChannelArgs and ChannelLogConfigurationForChannelOutput values.
+// You can construct a concrete instance of `ChannelLogConfigurationForChannelInput` via:
+//
+//	ChannelLogConfigurationForChannelArgs{...}
+type ChannelLogConfigurationForChannelInput interface {
+	pulumi.Input
+
+	ToChannelLogConfigurationForChannelOutput() ChannelLogConfigurationForChannelOutput
+	ToChannelLogConfigurationForChannelOutputWithContext(context.Context) ChannelLogConfigurationForChannelOutput
+}
+
+// <p>The log configuration for the channel.</p>
+type ChannelLogConfigurationForChannelArgs struct {
+	// <p>The log types.</p>
+	LogTypes ChannelLogTypeArrayInput `pulumi:"logTypes"`
+}
+
+func (ChannelLogConfigurationForChannelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLogConfigurationForChannel)(nil)).Elem()
+}
+
+func (i ChannelLogConfigurationForChannelArgs) ToChannelLogConfigurationForChannelOutput() ChannelLogConfigurationForChannelOutput {
+	return i.ToChannelLogConfigurationForChannelOutputWithContext(context.Background())
+}
+
+func (i ChannelLogConfigurationForChannelArgs) ToChannelLogConfigurationForChannelOutputWithContext(ctx context.Context) ChannelLogConfigurationForChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationForChannelOutput)
+}
+
+func (i ChannelLogConfigurationForChannelArgs) ToChannelLogConfigurationForChannelPtrOutput() ChannelLogConfigurationForChannelPtrOutput {
+	return i.ToChannelLogConfigurationForChannelPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelLogConfigurationForChannelArgs) ToChannelLogConfigurationForChannelPtrOutputWithContext(ctx context.Context) ChannelLogConfigurationForChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationForChannelOutput).ToChannelLogConfigurationForChannelPtrOutputWithContext(ctx)
+}
+
+// ChannelLogConfigurationForChannelPtrInput is an input type that accepts ChannelLogConfigurationForChannelArgs, ChannelLogConfigurationForChannelPtr and ChannelLogConfigurationForChannelPtrOutput values.
+// You can construct a concrete instance of `ChannelLogConfigurationForChannelPtrInput` via:
+//
+//	        ChannelLogConfigurationForChannelArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelLogConfigurationForChannelPtrInput interface {
+	pulumi.Input
+
+	ToChannelLogConfigurationForChannelPtrOutput() ChannelLogConfigurationForChannelPtrOutput
+	ToChannelLogConfigurationForChannelPtrOutputWithContext(context.Context) ChannelLogConfigurationForChannelPtrOutput
+}
+
+type channelLogConfigurationForChannelPtrType ChannelLogConfigurationForChannelArgs
+
+func ChannelLogConfigurationForChannelPtr(v *ChannelLogConfigurationForChannelArgs) ChannelLogConfigurationForChannelPtrInput {
+	return (*channelLogConfigurationForChannelPtrType)(v)
+}
+
+func (*channelLogConfigurationForChannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLogConfigurationForChannel)(nil)).Elem()
+}
+
+func (i *channelLogConfigurationForChannelPtrType) ToChannelLogConfigurationForChannelPtrOutput() ChannelLogConfigurationForChannelPtrOutput {
+	return i.ToChannelLogConfigurationForChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *channelLogConfigurationForChannelPtrType) ToChannelLogConfigurationForChannelPtrOutputWithContext(ctx context.Context) ChannelLogConfigurationForChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationForChannelPtrOutput)
+}
+
+// <p>The log configuration for the channel.</p>
+type ChannelLogConfigurationForChannelOutput struct{ *pulumi.OutputState }
+
+func (ChannelLogConfigurationForChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLogConfigurationForChannel)(nil)).Elem()
+}
+
+func (o ChannelLogConfigurationForChannelOutput) ToChannelLogConfigurationForChannelOutput() ChannelLogConfigurationForChannelOutput {
+	return o
+}
+
+func (o ChannelLogConfigurationForChannelOutput) ToChannelLogConfigurationForChannelOutputWithContext(ctx context.Context) ChannelLogConfigurationForChannelOutput {
+	return o
+}
+
+func (o ChannelLogConfigurationForChannelOutput) ToChannelLogConfigurationForChannelPtrOutput() ChannelLogConfigurationForChannelPtrOutput {
+	return o.ToChannelLogConfigurationForChannelPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelLogConfigurationForChannelOutput) ToChannelLogConfigurationForChannelPtrOutputWithContext(ctx context.Context) ChannelLogConfigurationForChannelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelLogConfigurationForChannel) *ChannelLogConfigurationForChannel {
+		return &v
+	}).(ChannelLogConfigurationForChannelPtrOutput)
+}
+
+// <p>The log types.</p>
+func (o ChannelLogConfigurationForChannelOutput) LogTypes() ChannelLogTypeArrayOutput {
+	return o.ApplyT(func(v ChannelLogConfigurationForChannel) []ChannelLogType { return v.LogTypes }).(ChannelLogTypeArrayOutput)
+}
+
+type ChannelLogConfigurationForChannelPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelLogConfigurationForChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLogConfigurationForChannel)(nil)).Elem()
+}
+
+func (o ChannelLogConfigurationForChannelPtrOutput) ToChannelLogConfigurationForChannelPtrOutput() ChannelLogConfigurationForChannelPtrOutput {
+	return o
+}
+
+func (o ChannelLogConfigurationForChannelPtrOutput) ToChannelLogConfigurationForChannelPtrOutputWithContext(ctx context.Context) ChannelLogConfigurationForChannelPtrOutput {
+	return o
+}
+
+func (o ChannelLogConfigurationForChannelPtrOutput) Elem() ChannelLogConfigurationForChannelOutput {
+	return o.ApplyT(func(v *ChannelLogConfigurationForChannel) ChannelLogConfigurationForChannel {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelLogConfigurationForChannel
+		return ret
+	}).(ChannelLogConfigurationForChannelOutput)
+}
+
+// <p>The log types.</p>
+func (o ChannelLogConfigurationForChannelPtrOutput) LogTypes() ChannelLogTypeArrayOutput {
+	return o.ApplyT(func(v *ChannelLogConfigurationForChannel) []ChannelLogType {
+		if v == nil {
+			return nil
+		}
+		return v.LogTypes
+	}).(ChannelLogTypeArrayOutput)
+}
+
+// <p>The output configuration for this channel.</p>
+type ChannelRequestOutputItem struct {
+	DashPlaylistSettings *ChannelDashPlaylistSettings `pulumi:"dashPlaylistSettings"`
+	HlsPlaylistSettings  *ChannelHlsPlaylistSettings  `pulumi:"hlsPlaylistSettings"`
+	// <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+	ManifestName string `pulumi:"manifestName"`
+	// <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+	SourceGroup string `pulumi:"sourceGroup"`
+}
+
+// ChannelRequestOutputItemInput is an input type that accepts ChannelRequestOutputItemArgs and ChannelRequestOutputItemOutput values.
+// You can construct a concrete instance of `ChannelRequestOutputItemInput` via:
+//
+//	ChannelRequestOutputItemArgs{...}
+type ChannelRequestOutputItemInput interface {
+	pulumi.Input
+
+	ToChannelRequestOutputItemOutput() ChannelRequestOutputItemOutput
+	ToChannelRequestOutputItemOutputWithContext(context.Context) ChannelRequestOutputItemOutput
+}
+
+// <p>The output configuration for this channel.</p>
+type ChannelRequestOutputItemArgs struct {
+	DashPlaylistSettings ChannelDashPlaylistSettingsPtrInput `pulumi:"dashPlaylistSettings"`
+	HlsPlaylistSettings  ChannelHlsPlaylistSettingsPtrInput  `pulumi:"hlsPlaylistSettings"`
+	// <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+	ManifestName pulumi.StringInput `pulumi:"manifestName"`
+	// <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+	SourceGroup pulumi.StringInput `pulumi:"sourceGroup"`
+}
+
+func (ChannelRequestOutputItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelRequestOutputItem)(nil)).Elem()
+}
+
+func (i ChannelRequestOutputItemArgs) ToChannelRequestOutputItemOutput() ChannelRequestOutputItemOutput {
+	return i.ToChannelRequestOutputItemOutputWithContext(context.Background())
+}
+
+func (i ChannelRequestOutputItemArgs) ToChannelRequestOutputItemOutputWithContext(ctx context.Context) ChannelRequestOutputItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelRequestOutputItemOutput)
+}
+
+// ChannelRequestOutputItemArrayInput is an input type that accepts ChannelRequestOutputItemArray and ChannelRequestOutputItemArrayOutput values.
+// You can construct a concrete instance of `ChannelRequestOutputItemArrayInput` via:
+//
+//	ChannelRequestOutputItemArray{ ChannelRequestOutputItemArgs{...} }
+type ChannelRequestOutputItemArrayInput interface {
+	pulumi.Input
+
+	ToChannelRequestOutputItemArrayOutput() ChannelRequestOutputItemArrayOutput
+	ToChannelRequestOutputItemArrayOutputWithContext(context.Context) ChannelRequestOutputItemArrayOutput
+}
+
+type ChannelRequestOutputItemArray []ChannelRequestOutputItemInput
+
+func (ChannelRequestOutputItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelRequestOutputItem)(nil)).Elem()
+}
+
+func (i ChannelRequestOutputItemArray) ToChannelRequestOutputItemArrayOutput() ChannelRequestOutputItemArrayOutput {
+	return i.ToChannelRequestOutputItemArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelRequestOutputItemArray) ToChannelRequestOutputItemArrayOutputWithContext(ctx context.Context) ChannelRequestOutputItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelRequestOutputItemArrayOutput)
+}
+
+// <p>The output configuration for this channel.</p>
+type ChannelRequestOutputItemOutput struct{ *pulumi.OutputState }
+
+func (ChannelRequestOutputItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelRequestOutputItem)(nil)).Elem()
+}
+
+func (o ChannelRequestOutputItemOutput) ToChannelRequestOutputItemOutput() ChannelRequestOutputItemOutput {
+	return o
+}
+
+func (o ChannelRequestOutputItemOutput) ToChannelRequestOutputItemOutputWithContext(ctx context.Context) ChannelRequestOutputItemOutput {
+	return o
+}
+
+func (o ChannelRequestOutputItemOutput) DashPlaylistSettings() ChannelDashPlaylistSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelRequestOutputItem) *ChannelDashPlaylistSettings { return v.DashPlaylistSettings }).(ChannelDashPlaylistSettingsPtrOutput)
+}
+
+func (o ChannelRequestOutputItemOutput) HlsPlaylistSettings() ChannelHlsPlaylistSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelRequestOutputItem) *ChannelHlsPlaylistSettings { return v.HlsPlaylistSettings }).(ChannelHlsPlaylistSettingsPtrOutput)
+}
+
+// <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+func (o ChannelRequestOutputItemOutput) ManifestName() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelRequestOutputItem) string { return v.ManifestName }).(pulumi.StringOutput)
+}
+
+// <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+func (o ChannelRequestOutputItemOutput) SourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelRequestOutputItem) string { return v.SourceGroup }).(pulumi.StringOutput)
+}
+
+type ChannelRequestOutputItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelRequestOutputItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelRequestOutputItem)(nil)).Elem()
+}
+
+func (o ChannelRequestOutputItemArrayOutput) ToChannelRequestOutputItemArrayOutput() ChannelRequestOutputItemArrayOutput {
+	return o
+}
+
+func (o ChannelRequestOutputItemArrayOutput) ToChannelRequestOutputItemArrayOutputWithContext(ctx context.Context) ChannelRequestOutputItemArrayOutput {
+	return o
+}
+
+func (o ChannelRequestOutputItemArrayOutput) Index(i pulumi.IntInput) ChannelRequestOutputItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelRequestOutputItem {
+		return vs[0].([]ChannelRequestOutputItem)[vs[1].(int)]
+	}).(ChannelRequestOutputItemOutput)
+}
+
+// <p>Slate VOD source configuration.</p>
+type ChannelSlateSource struct {
+	// <p>The name of the source location where the slate VOD source is stored.</p>
+	SourceLocationName *string `pulumi:"sourceLocationName"`
+	// <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+	VodSourceName *string `pulumi:"vodSourceName"`
+}
+
+// ChannelSlateSourceInput is an input type that accepts ChannelSlateSourceArgs and ChannelSlateSourceOutput values.
+// You can construct a concrete instance of `ChannelSlateSourceInput` via:
+//
+//	ChannelSlateSourceArgs{...}
+type ChannelSlateSourceInput interface {
+	pulumi.Input
+
+	ToChannelSlateSourceOutput() ChannelSlateSourceOutput
+	ToChannelSlateSourceOutputWithContext(context.Context) ChannelSlateSourceOutput
+}
+
+// <p>Slate VOD source configuration.</p>
+type ChannelSlateSourceArgs struct {
+	// <p>The name of the source location where the slate VOD source is stored.</p>
+	SourceLocationName pulumi.StringPtrInput `pulumi:"sourceLocationName"`
+	// <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+	VodSourceName pulumi.StringPtrInput `pulumi:"vodSourceName"`
+}
+
+func (ChannelSlateSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelSlateSource)(nil)).Elem()
+}
+
+func (i ChannelSlateSourceArgs) ToChannelSlateSourceOutput() ChannelSlateSourceOutput {
+	return i.ToChannelSlateSourceOutputWithContext(context.Background())
+}
+
+func (i ChannelSlateSourceArgs) ToChannelSlateSourceOutputWithContext(ctx context.Context) ChannelSlateSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlateSourceOutput)
+}
+
+func (i ChannelSlateSourceArgs) ToChannelSlateSourcePtrOutput() ChannelSlateSourcePtrOutput {
+	return i.ToChannelSlateSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ChannelSlateSourceArgs) ToChannelSlateSourcePtrOutputWithContext(ctx context.Context) ChannelSlateSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlateSourceOutput).ToChannelSlateSourcePtrOutputWithContext(ctx)
+}
+
+// ChannelSlateSourcePtrInput is an input type that accepts ChannelSlateSourceArgs, ChannelSlateSourcePtr and ChannelSlateSourcePtrOutput values.
+// You can construct a concrete instance of `ChannelSlateSourcePtrInput` via:
+//
+//	        ChannelSlateSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelSlateSourcePtrInput interface {
+	pulumi.Input
+
+	ToChannelSlateSourcePtrOutput() ChannelSlateSourcePtrOutput
+	ToChannelSlateSourcePtrOutputWithContext(context.Context) ChannelSlateSourcePtrOutput
+}
+
+type channelSlateSourcePtrType ChannelSlateSourceArgs
+
+func ChannelSlateSourcePtr(v *ChannelSlateSourceArgs) ChannelSlateSourcePtrInput {
+	return (*channelSlateSourcePtrType)(v)
+}
+
+func (*channelSlateSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelSlateSource)(nil)).Elem()
+}
+
+func (i *channelSlateSourcePtrType) ToChannelSlateSourcePtrOutput() ChannelSlateSourcePtrOutput {
+	return i.ToChannelSlateSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *channelSlateSourcePtrType) ToChannelSlateSourcePtrOutputWithContext(ctx context.Context) ChannelSlateSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlateSourcePtrOutput)
+}
+
+// <p>Slate VOD source configuration.</p>
+type ChannelSlateSourceOutput struct{ *pulumi.OutputState }
+
+func (ChannelSlateSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelSlateSource)(nil)).Elem()
+}
+
+func (o ChannelSlateSourceOutput) ToChannelSlateSourceOutput() ChannelSlateSourceOutput {
+	return o
+}
+
+func (o ChannelSlateSourceOutput) ToChannelSlateSourceOutputWithContext(ctx context.Context) ChannelSlateSourceOutput {
+	return o
+}
+
+func (o ChannelSlateSourceOutput) ToChannelSlateSourcePtrOutput() ChannelSlateSourcePtrOutput {
+	return o.ToChannelSlateSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelSlateSourceOutput) ToChannelSlateSourcePtrOutputWithContext(ctx context.Context) ChannelSlateSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelSlateSource) *ChannelSlateSource {
+		return &v
+	}).(ChannelSlateSourcePtrOutput)
+}
+
+// <p>The name of the source location where the slate VOD source is stored.</p>
+func (o ChannelSlateSourceOutput) SourceLocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSlateSource) *string { return v.SourceLocationName }).(pulumi.StringPtrOutput)
+}
+
+// <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+func (o ChannelSlateSourceOutput) VodSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSlateSource) *string { return v.VodSourceName }).(pulumi.StringPtrOutput)
+}
+
+type ChannelSlateSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelSlateSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelSlateSource)(nil)).Elem()
+}
+
+func (o ChannelSlateSourcePtrOutput) ToChannelSlateSourcePtrOutput() ChannelSlateSourcePtrOutput {
+	return o
+}
+
+func (o ChannelSlateSourcePtrOutput) ToChannelSlateSourcePtrOutputWithContext(ctx context.Context) ChannelSlateSourcePtrOutput {
+	return o
+}
+
+func (o ChannelSlateSourcePtrOutput) Elem() ChannelSlateSourceOutput {
+	return o.ApplyT(func(v *ChannelSlateSource) ChannelSlateSource {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelSlateSource
+		return ret
+	}).(ChannelSlateSourceOutput)
+}
+
+// <p>The name of the source location where the slate VOD source is stored.</p>
+func (o ChannelSlateSourcePtrOutput) SourceLocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSlateSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceLocationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+func (o ChannelSlateSourcePtrOutput) VodSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSlateSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VodSourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
+// You can construct a concrete instance of `ChannelTagInput` via:
+//
+//	ChannelTagArgs{...}
+type ChannelTagInput interface {
+	pulumi.Input
+
+	ToChannelTagOutput() ChannelTagOutput
+	ToChannelTagOutputWithContext(context.Context) ChannelTagOutput
+}
+
+type ChannelTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ChannelTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
+}
+
+func (i ChannelTagArgs) ToChannelTagOutput() ChannelTagOutput {
+	return i.ToChannelTagOutputWithContext(context.Background())
+}
+
+func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
+}
+
+// ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
+// You can construct a concrete instance of `ChannelTagArrayInput` via:
+//
+//	ChannelTagArray{ ChannelTagArgs{...} }
+type ChannelTagArrayInput interface {
+	pulumi.Input
+
+	ToChannelTagArrayOutput() ChannelTagArrayOutput
+	ToChannelTagArrayOutputWithContext(context.Context) ChannelTagArrayOutput
+}
+
+type ChannelTagArray []ChannelTagInput
+
+func (ChannelTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
+}
+
+func (i ChannelTagArray) ToChannelTagArrayOutput() ChannelTagArrayOutput {
+	return i.ToChannelTagArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
+}
+
+type ChannelTagOutput struct{ *pulumi.OutputState }
+
+func (ChannelTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
+}
+
+func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
+	return o
+}
+
+func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
+	return o
+}
+
+func (o ChannelTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ChannelTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ChannelTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
+}
+
+func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
+	return o
+}
+
+func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
+	return o
+}
+
+func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTag {
+		return vs[0].([]ChannelTag)[vs[1].(int)]
+	}).(ChannelTagOutput)
+}
+
+// <p>The HTTP package configuration properties for the requested VOD source.</p>
+type LiveSourceHttpPackageConfiguration struct {
+	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+	Path string `pulumi:"path"`
+	// <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+	SourceGroup string         `pulumi:"sourceGroup"`
+	Type        LiveSourceType `pulumi:"type"`
+}
+
+// LiveSourceHttpPackageConfigurationInput is an input type that accepts LiveSourceHttpPackageConfigurationArgs and LiveSourceHttpPackageConfigurationOutput values.
+// You can construct a concrete instance of `LiveSourceHttpPackageConfigurationInput` via:
+//
+//	LiveSourceHttpPackageConfigurationArgs{...}
+type LiveSourceHttpPackageConfigurationInput interface {
+	pulumi.Input
+
+	ToLiveSourceHttpPackageConfigurationOutput() LiveSourceHttpPackageConfigurationOutput
+	ToLiveSourceHttpPackageConfigurationOutputWithContext(context.Context) LiveSourceHttpPackageConfigurationOutput
+}
+
+// <p>The HTTP package configuration properties for the requested VOD source.</p>
+type LiveSourceHttpPackageConfigurationArgs struct {
+	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+	Path pulumi.StringInput `pulumi:"path"`
+	// <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+	SourceGroup pulumi.StringInput  `pulumi:"sourceGroup"`
+	Type        LiveSourceTypeInput `pulumi:"type"`
+}
+
+func (LiveSourceHttpPackageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveSourceHttpPackageConfiguration)(nil)).Elem()
+}
+
+func (i LiveSourceHttpPackageConfigurationArgs) ToLiveSourceHttpPackageConfigurationOutput() LiveSourceHttpPackageConfigurationOutput {
+	return i.ToLiveSourceHttpPackageConfigurationOutputWithContext(context.Background())
+}
+
+func (i LiveSourceHttpPackageConfigurationArgs) ToLiveSourceHttpPackageConfigurationOutputWithContext(ctx context.Context) LiveSourceHttpPackageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceHttpPackageConfigurationOutput)
+}
+
+// LiveSourceHttpPackageConfigurationArrayInput is an input type that accepts LiveSourceHttpPackageConfigurationArray and LiveSourceHttpPackageConfigurationArrayOutput values.
+// You can construct a concrete instance of `LiveSourceHttpPackageConfigurationArrayInput` via:
+//
+//	LiveSourceHttpPackageConfigurationArray{ LiveSourceHttpPackageConfigurationArgs{...} }
+type LiveSourceHttpPackageConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToLiveSourceHttpPackageConfigurationArrayOutput() LiveSourceHttpPackageConfigurationArrayOutput
+	ToLiveSourceHttpPackageConfigurationArrayOutputWithContext(context.Context) LiveSourceHttpPackageConfigurationArrayOutput
+}
+
+type LiveSourceHttpPackageConfigurationArray []LiveSourceHttpPackageConfigurationInput
+
+func (LiveSourceHttpPackageConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveSourceHttpPackageConfiguration)(nil)).Elem()
+}
+
+func (i LiveSourceHttpPackageConfigurationArray) ToLiveSourceHttpPackageConfigurationArrayOutput() LiveSourceHttpPackageConfigurationArrayOutput {
+	return i.ToLiveSourceHttpPackageConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i LiveSourceHttpPackageConfigurationArray) ToLiveSourceHttpPackageConfigurationArrayOutputWithContext(ctx context.Context) LiveSourceHttpPackageConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceHttpPackageConfigurationArrayOutput)
+}
+
+// <p>The HTTP package configuration properties for the requested VOD source.</p>
+type LiveSourceHttpPackageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LiveSourceHttpPackageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveSourceHttpPackageConfiguration)(nil)).Elem()
+}
+
+func (o LiveSourceHttpPackageConfigurationOutput) ToLiveSourceHttpPackageConfigurationOutput() LiveSourceHttpPackageConfigurationOutput {
+	return o
+}
+
+func (o LiveSourceHttpPackageConfigurationOutput) ToLiveSourceHttpPackageConfigurationOutputWithContext(ctx context.Context) LiveSourceHttpPackageConfigurationOutput {
+	return o
+}
+
+// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+func (o LiveSourceHttpPackageConfigurationOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveSourceHttpPackageConfiguration) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+func (o LiveSourceHttpPackageConfigurationOutput) SourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveSourceHttpPackageConfiguration) string { return v.SourceGroup }).(pulumi.StringOutput)
+}
+
+func (o LiveSourceHttpPackageConfigurationOutput) Type() LiveSourceTypeOutput {
+	return o.ApplyT(func(v LiveSourceHttpPackageConfiguration) LiveSourceType { return v.Type }).(LiveSourceTypeOutput)
+}
+
+type LiveSourceHttpPackageConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveSourceHttpPackageConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveSourceHttpPackageConfiguration)(nil)).Elem()
+}
+
+func (o LiveSourceHttpPackageConfigurationArrayOutput) ToLiveSourceHttpPackageConfigurationArrayOutput() LiveSourceHttpPackageConfigurationArrayOutput {
+	return o
+}
+
+func (o LiveSourceHttpPackageConfigurationArrayOutput) ToLiveSourceHttpPackageConfigurationArrayOutputWithContext(ctx context.Context) LiveSourceHttpPackageConfigurationArrayOutput {
+	return o
+}
+
+func (o LiveSourceHttpPackageConfigurationArrayOutput) Index(i pulumi.IntInput) LiveSourceHttpPackageConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveSourceHttpPackageConfiguration {
+		return vs[0].([]LiveSourceHttpPackageConfiguration)[vs[1].(int)]
+	}).(LiveSourceHttpPackageConfigurationOutput)
+}
+
+type LiveSourceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// LiveSourceTagInput is an input type that accepts LiveSourceTagArgs and LiveSourceTagOutput values.
+// You can construct a concrete instance of `LiveSourceTagInput` via:
+//
+//	LiveSourceTagArgs{...}
+type LiveSourceTagInput interface {
+	pulumi.Input
+
+	ToLiveSourceTagOutput() LiveSourceTagOutput
+	ToLiveSourceTagOutputWithContext(context.Context) LiveSourceTagOutput
+}
+
+type LiveSourceTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LiveSourceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveSourceTag)(nil)).Elem()
+}
+
+func (i LiveSourceTagArgs) ToLiveSourceTagOutput() LiveSourceTagOutput {
+	return i.ToLiveSourceTagOutputWithContext(context.Background())
+}
+
+func (i LiveSourceTagArgs) ToLiveSourceTagOutputWithContext(ctx context.Context) LiveSourceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceTagOutput)
+}
+
+// LiveSourceTagArrayInput is an input type that accepts LiveSourceTagArray and LiveSourceTagArrayOutput values.
+// You can construct a concrete instance of `LiveSourceTagArrayInput` via:
+//
+//	LiveSourceTagArray{ LiveSourceTagArgs{...} }
+type LiveSourceTagArrayInput interface {
+	pulumi.Input
+
+	ToLiveSourceTagArrayOutput() LiveSourceTagArrayOutput
+	ToLiveSourceTagArrayOutputWithContext(context.Context) LiveSourceTagArrayOutput
+}
+
+type LiveSourceTagArray []LiveSourceTagInput
+
+func (LiveSourceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveSourceTag)(nil)).Elem()
+}
+
+func (i LiveSourceTagArray) ToLiveSourceTagArrayOutput() LiveSourceTagArrayOutput {
+	return i.ToLiveSourceTagArrayOutputWithContext(context.Background())
+}
+
+func (i LiveSourceTagArray) ToLiveSourceTagArrayOutputWithContext(ctx context.Context) LiveSourceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceTagArrayOutput)
+}
+
+type LiveSourceTagOutput struct{ *pulumi.OutputState }
+
+func (LiveSourceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveSourceTag)(nil)).Elem()
+}
+
+func (o LiveSourceTagOutput) ToLiveSourceTagOutput() LiveSourceTagOutput {
+	return o
+}
+
+func (o LiveSourceTagOutput) ToLiveSourceTagOutputWithContext(ctx context.Context) LiveSourceTagOutput {
+	return o
+}
+
+func (o LiveSourceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveSourceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o LiveSourceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveSourceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LiveSourceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveSourceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveSourceTag)(nil)).Elem()
+}
+
+func (o LiveSourceTagArrayOutput) ToLiveSourceTagArrayOutput() LiveSourceTagArrayOutput {
+	return o
+}
+
+func (o LiveSourceTagArrayOutput) ToLiveSourceTagArrayOutputWithContext(ctx context.Context) LiveSourceTagArrayOutput {
+	return o
+}
+
+func (o LiveSourceTagArrayOutput) Index(i pulumi.IntInput) LiveSourceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveSourceTag {
+		return vs[0].([]LiveSourceTag)[vs[1].(int)]
+	}).(LiveSourceTagOutput)
+}
+
 // For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
 type PlaybackConfigurationAdMarkerPassthrough struct {
 	// Enables ad marker passthrough for your configuration.
@@ -1350,7 +2422,1007 @@ func (o PlaybackConfigurationTagArrayOutput) Index(i pulumi.IntInput) PlaybackCo
 	}).(PlaybackConfigurationTagOutput)
 }
 
+// <p>Access configuration parameters.</p>
+type SourceLocationAccessConfiguration struct {
+	AccessType                             *SourceLocationAccessType                             `pulumi:"accessType"`
+	SecretsManagerAccessTokenConfiguration *SourceLocationSecretsManagerAccessTokenConfiguration `pulumi:"secretsManagerAccessTokenConfiguration"`
+}
+
+// SourceLocationAccessConfigurationInput is an input type that accepts SourceLocationAccessConfigurationArgs and SourceLocationAccessConfigurationOutput values.
+// You can construct a concrete instance of `SourceLocationAccessConfigurationInput` via:
+//
+//	SourceLocationAccessConfigurationArgs{...}
+type SourceLocationAccessConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceLocationAccessConfigurationOutput() SourceLocationAccessConfigurationOutput
+	ToSourceLocationAccessConfigurationOutputWithContext(context.Context) SourceLocationAccessConfigurationOutput
+}
+
+// <p>Access configuration parameters.</p>
+type SourceLocationAccessConfigurationArgs struct {
+	AccessType                             SourceLocationAccessTypePtrInput                             `pulumi:"accessType"`
+	SecretsManagerAccessTokenConfiguration SourceLocationSecretsManagerAccessTokenConfigurationPtrInput `pulumi:"secretsManagerAccessTokenConfiguration"`
+}
+
+func (SourceLocationAccessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationAccessConfiguration)(nil)).Elem()
+}
+
+func (i SourceLocationAccessConfigurationArgs) ToSourceLocationAccessConfigurationOutput() SourceLocationAccessConfigurationOutput {
+	return i.ToSourceLocationAccessConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceLocationAccessConfigurationArgs) ToSourceLocationAccessConfigurationOutputWithContext(ctx context.Context) SourceLocationAccessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationAccessConfigurationOutput)
+}
+
+func (i SourceLocationAccessConfigurationArgs) ToSourceLocationAccessConfigurationPtrOutput() SourceLocationAccessConfigurationPtrOutput {
+	return i.ToSourceLocationAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SourceLocationAccessConfigurationArgs) ToSourceLocationAccessConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationAccessConfigurationOutput).ToSourceLocationAccessConfigurationPtrOutputWithContext(ctx)
+}
+
+// SourceLocationAccessConfigurationPtrInput is an input type that accepts SourceLocationAccessConfigurationArgs, SourceLocationAccessConfigurationPtr and SourceLocationAccessConfigurationPtrOutput values.
+// You can construct a concrete instance of `SourceLocationAccessConfigurationPtrInput` via:
+//
+//	        SourceLocationAccessConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SourceLocationAccessConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSourceLocationAccessConfigurationPtrOutput() SourceLocationAccessConfigurationPtrOutput
+	ToSourceLocationAccessConfigurationPtrOutputWithContext(context.Context) SourceLocationAccessConfigurationPtrOutput
+}
+
+type sourceLocationAccessConfigurationPtrType SourceLocationAccessConfigurationArgs
+
+func SourceLocationAccessConfigurationPtr(v *SourceLocationAccessConfigurationArgs) SourceLocationAccessConfigurationPtrInput {
+	return (*sourceLocationAccessConfigurationPtrType)(v)
+}
+
+func (*sourceLocationAccessConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceLocationAccessConfiguration)(nil)).Elem()
+}
+
+func (i *sourceLocationAccessConfigurationPtrType) ToSourceLocationAccessConfigurationPtrOutput() SourceLocationAccessConfigurationPtrOutput {
+	return i.ToSourceLocationAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceLocationAccessConfigurationPtrType) ToSourceLocationAccessConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationAccessConfigurationPtrOutput)
+}
+
+// <p>Access configuration parameters.</p>
+type SourceLocationAccessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationAccessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationAccessConfiguration)(nil)).Elem()
+}
+
+func (o SourceLocationAccessConfigurationOutput) ToSourceLocationAccessConfigurationOutput() SourceLocationAccessConfigurationOutput {
+	return o
+}
+
+func (o SourceLocationAccessConfigurationOutput) ToSourceLocationAccessConfigurationOutputWithContext(ctx context.Context) SourceLocationAccessConfigurationOutput {
+	return o
+}
+
+func (o SourceLocationAccessConfigurationOutput) ToSourceLocationAccessConfigurationPtrOutput() SourceLocationAccessConfigurationPtrOutput {
+	return o.ToSourceLocationAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SourceLocationAccessConfigurationOutput) ToSourceLocationAccessConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationAccessConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceLocationAccessConfiguration) *SourceLocationAccessConfiguration {
+		return &v
+	}).(SourceLocationAccessConfigurationPtrOutput)
+}
+
+func (o SourceLocationAccessConfigurationOutput) AccessType() SourceLocationAccessTypePtrOutput {
+	return o.ApplyT(func(v SourceLocationAccessConfiguration) *SourceLocationAccessType { return v.AccessType }).(SourceLocationAccessTypePtrOutput)
+}
+
+func (o SourceLocationAccessConfigurationOutput) SecretsManagerAccessTokenConfiguration() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
+	return o.ApplyT(func(v SourceLocationAccessConfiguration) *SourceLocationSecretsManagerAccessTokenConfiguration {
+		return v.SecretsManagerAccessTokenConfiguration
+	}).(SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput)
+}
+
+type SourceLocationAccessConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationAccessConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceLocationAccessConfiguration)(nil)).Elem()
+}
+
+func (o SourceLocationAccessConfigurationPtrOutput) ToSourceLocationAccessConfigurationPtrOutput() SourceLocationAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceLocationAccessConfigurationPtrOutput) ToSourceLocationAccessConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceLocationAccessConfigurationPtrOutput) Elem() SourceLocationAccessConfigurationOutput {
+	return o.ApplyT(func(v *SourceLocationAccessConfiguration) SourceLocationAccessConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceLocationAccessConfiguration
+		return ret
+	}).(SourceLocationAccessConfigurationOutput)
+}
+
+func (o SourceLocationAccessConfigurationPtrOutput) AccessType() SourceLocationAccessTypePtrOutput {
+	return o.ApplyT(func(v *SourceLocationAccessConfiguration) *SourceLocationAccessType {
+		if v == nil {
+			return nil
+		}
+		return v.AccessType
+	}).(SourceLocationAccessTypePtrOutput)
+}
+
+func (o SourceLocationAccessConfigurationPtrOutput) SecretsManagerAccessTokenConfiguration() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceLocationAccessConfiguration) *SourceLocationSecretsManagerAccessTokenConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerAccessTokenConfiguration
+	}).(SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput)
+}
+
+// <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+type SourceLocationDefaultSegmentDeliveryConfiguration struct {
+	// <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+	BaseUrl *string `pulumi:"baseUrl"`
+}
+
+// SourceLocationDefaultSegmentDeliveryConfigurationInput is an input type that accepts SourceLocationDefaultSegmentDeliveryConfigurationArgs and SourceLocationDefaultSegmentDeliveryConfigurationOutput values.
+// You can construct a concrete instance of `SourceLocationDefaultSegmentDeliveryConfigurationInput` via:
+//
+//	SourceLocationDefaultSegmentDeliveryConfigurationArgs{...}
+type SourceLocationDefaultSegmentDeliveryConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceLocationDefaultSegmentDeliveryConfigurationOutput() SourceLocationDefaultSegmentDeliveryConfigurationOutput
+	ToSourceLocationDefaultSegmentDeliveryConfigurationOutputWithContext(context.Context) SourceLocationDefaultSegmentDeliveryConfigurationOutput
+}
+
+// <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+type SourceLocationDefaultSegmentDeliveryConfigurationArgs struct {
+	// <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+	BaseUrl pulumi.StringPtrInput `pulumi:"baseUrl"`
+}
+
+func (SourceLocationDefaultSegmentDeliveryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationDefaultSegmentDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i SourceLocationDefaultSegmentDeliveryConfigurationArgs) ToSourceLocationDefaultSegmentDeliveryConfigurationOutput() SourceLocationDefaultSegmentDeliveryConfigurationOutput {
+	return i.ToSourceLocationDefaultSegmentDeliveryConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceLocationDefaultSegmentDeliveryConfigurationArgs) ToSourceLocationDefaultSegmentDeliveryConfigurationOutputWithContext(ctx context.Context) SourceLocationDefaultSegmentDeliveryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationDefaultSegmentDeliveryConfigurationOutput)
+}
+
+func (i SourceLocationDefaultSegmentDeliveryConfigurationArgs) ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutput() SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
+	return i.ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SourceLocationDefaultSegmentDeliveryConfigurationArgs) ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationDefaultSegmentDeliveryConfigurationOutput).ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(ctx)
+}
+
+// SourceLocationDefaultSegmentDeliveryConfigurationPtrInput is an input type that accepts SourceLocationDefaultSegmentDeliveryConfigurationArgs, SourceLocationDefaultSegmentDeliveryConfigurationPtr and SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput values.
+// You can construct a concrete instance of `SourceLocationDefaultSegmentDeliveryConfigurationPtrInput` via:
+//
+//	        SourceLocationDefaultSegmentDeliveryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SourceLocationDefaultSegmentDeliveryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutput() SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput
+	ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(context.Context) SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput
+}
+
+type sourceLocationDefaultSegmentDeliveryConfigurationPtrType SourceLocationDefaultSegmentDeliveryConfigurationArgs
+
+func SourceLocationDefaultSegmentDeliveryConfigurationPtr(v *SourceLocationDefaultSegmentDeliveryConfigurationArgs) SourceLocationDefaultSegmentDeliveryConfigurationPtrInput {
+	return (*sourceLocationDefaultSegmentDeliveryConfigurationPtrType)(v)
+}
+
+func (*sourceLocationDefaultSegmentDeliveryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceLocationDefaultSegmentDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i *sourceLocationDefaultSegmentDeliveryConfigurationPtrType) ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutput() SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
+	return i.ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceLocationDefaultSegmentDeliveryConfigurationPtrType) ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput)
+}
+
+// <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+type SourceLocationDefaultSegmentDeliveryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationDefaultSegmentDeliveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationDefaultSegmentDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o SourceLocationDefaultSegmentDeliveryConfigurationOutput) ToSourceLocationDefaultSegmentDeliveryConfigurationOutput() SourceLocationDefaultSegmentDeliveryConfigurationOutput {
+	return o
+}
+
+func (o SourceLocationDefaultSegmentDeliveryConfigurationOutput) ToSourceLocationDefaultSegmentDeliveryConfigurationOutputWithContext(ctx context.Context) SourceLocationDefaultSegmentDeliveryConfigurationOutput {
+	return o
+}
+
+func (o SourceLocationDefaultSegmentDeliveryConfigurationOutput) ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutput() SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
+	return o.ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SourceLocationDefaultSegmentDeliveryConfigurationOutput) ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceLocationDefaultSegmentDeliveryConfiguration) *SourceLocationDefaultSegmentDeliveryConfiguration {
+		return &v
+	}).(SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput)
+}
+
+// <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+func (o SourceLocationDefaultSegmentDeliveryConfigurationOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceLocationDefaultSegmentDeliveryConfiguration) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
+}
+
+type SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceLocationDefaultSegmentDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput) ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutput() SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput) ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput) Elem() SourceLocationDefaultSegmentDeliveryConfigurationOutput {
+	return o.ApplyT(func(v *SourceLocationDefaultSegmentDeliveryConfiguration) SourceLocationDefaultSegmentDeliveryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceLocationDefaultSegmentDeliveryConfiguration
+		return ret
+	}).(SourceLocationDefaultSegmentDeliveryConfigurationOutput)
+}
+
+// <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+func (o SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceLocationDefaultSegmentDeliveryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The HTTP configuration for the source location.</p>
+type SourceLocationHttpConfiguration struct {
+	// <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+	BaseUrl string `pulumi:"baseUrl"`
+}
+
+// SourceLocationHttpConfigurationInput is an input type that accepts SourceLocationHttpConfigurationArgs and SourceLocationHttpConfigurationOutput values.
+// You can construct a concrete instance of `SourceLocationHttpConfigurationInput` via:
+//
+//	SourceLocationHttpConfigurationArgs{...}
+type SourceLocationHttpConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceLocationHttpConfigurationOutput() SourceLocationHttpConfigurationOutput
+	ToSourceLocationHttpConfigurationOutputWithContext(context.Context) SourceLocationHttpConfigurationOutput
+}
+
+// <p>The HTTP configuration for the source location.</p>
+type SourceLocationHttpConfigurationArgs struct {
+	// <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+	BaseUrl pulumi.StringInput `pulumi:"baseUrl"`
+}
+
+func (SourceLocationHttpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationHttpConfiguration)(nil)).Elem()
+}
+
+func (i SourceLocationHttpConfigurationArgs) ToSourceLocationHttpConfigurationOutput() SourceLocationHttpConfigurationOutput {
+	return i.ToSourceLocationHttpConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceLocationHttpConfigurationArgs) ToSourceLocationHttpConfigurationOutputWithContext(ctx context.Context) SourceLocationHttpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationHttpConfigurationOutput)
+}
+
+// <p>The HTTP configuration for the source location.</p>
+type SourceLocationHttpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationHttpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationHttpConfiguration)(nil)).Elem()
+}
+
+func (o SourceLocationHttpConfigurationOutput) ToSourceLocationHttpConfigurationOutput() SourceLocationHttpConfigurationOutput {
+	return o
+}
+
+func (o SourceLocationHttpConfigurationOutput) ToSourceLocationHttpConfigurationOutputWithContext(ctx context.Context) SourceLocationHttpConfigurationOutput {
+	return o
+}
+
+// <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+func (o SourceLocationHttpConfigurationOutput) BaseUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceLocationHttpConfiguration) string { return v.BaseUrl }).(pulumi.StringOutput)
+}
+
+type SourceLocationHttpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationHttpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceLocationHttpConfiguration)(nil)).Elem()
+}
+
+func (o SourceLocationHttpConfigurationPtrOutput) ToSourceLocationHttpConfigurationPtrOutput() SourceLocationHttpConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceLocationHttpConfigurationPtrOutput) ToSourceLocationHttpConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationHttpConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceLocationHttpConfigurationPtrOutput) Elem() SourceLocationHttpConfigurationOutput {
+	return o.ApplyT(func(v *SourceLocationHttpConfiguration) SourceLocationHttpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceLocationHttpConfiguration
+		return ret
+	}).(SourceLocationHttpConfigurationOutput)
+}
+
+// <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+func (o SourceLocationHttpConfigurationPtrOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceLocationHttpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+type SourceLocationSecretsManagerAccessTokenConfiguration struct {
+	// <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+	HeaderName *string `pulumi:"headerName"`
+	// <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+	SecretArn *string `pulumi:"secretArn"`
+	// <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+	SecretStringKey *string `pulumi:"secretStringKey"`
+}
+
+// SourceLocationSecretsManagerAccessTokenConfigurationInput is an input type that accepts SourceLocationSecretsManagerAccessTokenConfigurationArgs and SourceLocationSecretsManagerAccessTokenConfigurationOutput values.
+// You can construct a concrete instance of `SourceLocationSecretsManagerAccessTokenConfigurationInput` via:
+//
+//	SourceLocationSecretsManagerAccessTokenConfigurationArgs{...}
+type SourceLocationSecretsManagerAccessTokenConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceLocationSecretsManagerAccessTokenConfigurationOutput() SourceLocationSecretsManagerAccessTokenConfigurationOutput
+	ToSourceLocationSecretsManagerAccessTokenConfigurationOutputWithContext(context.Context) SourceLocationSecretsManagerAccessTokenConfigurationOutput
+}
+
+// <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+type SourceLocationSecretsManagerAccessTokenConfigurationArgs struct {
+	// <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+	HeaderName pulumi.StringPtrInput `pulumi:"headerName"`
+	// <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+	// <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+	SecretStringKey pulumi.StringPtrInput `pulumi:"secretStringKey"`
+}
+
+func (SourceLocationSecretsManagerAccessTokenConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationSecretsManagerAccessTokenConfiguration)(nil)).Elem()
+}
+
+func (i SourceLocationSecretsManagerAccessTokenConfigurationArgs) ToSourceLocationSecretsManagerAccessTokenConfigurationOutput() SourceLocationSecretsManagerAccessTokenConfigurationOutput {
+	return i.ToSourceLocationSecretsManagerAccessTokenConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceLocationSecretsManagerAccessTokenConfigurationArgs) ToSourceLocationSecretsManagerAccessTokenConfigurationOutputWithContext(ctx context.Context) SourceLocationSecretsManagerAccessTokenConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationSecretsManagerAccessTokenConfigurationOutput)
+}
+
+func (i SourceLocationSecretsManagerAccessTokenConfigurationArgs) ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutput() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
+	return i.ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SourceLocationSecretsManagerAccessTokenConfigurationArgs) ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationSecretsManagerAccessTokenConfigurationOutput).ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(ctx)
+}
+
+// SourceLocationSecretsManagerAccessTokenConfigurationPtrInput is an input type that accepts SourceLocationSecretsManagerAccessTokenConfigurationArgs, SourceLocationSecretsManagerAccessTokenConfigurationPtr and SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput values.
+// You can construct a concrete instance of `SourceLocationSecretsManagerAccessTokenConfigurationPtrInput` via:
+//
+//	        SourceLocationSecretsManagerAccessTokenConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SourceLocationSecretsManagerAccessTokenConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutput() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput
+	ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(context.Context) SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput
+}
+
+type sourceLocationSecretsManagerAccessTokenConfigurationPtrType SourceLocationSecretsManagerAccessTokenConfigurationArgs
+
+func SourceLocationSecretsManagerAccessTokenConfigurationPtr(v *SourceLocationSecretsManagerAccessTokenConfigurationArgs) SourceLocationSecretsManagerAccessTokenConfigurationPtrInput {
+	return (*sourceLocationSecretsManagerAccessTokenConfigurationPtrType)(v)
+}
+
+func (*sourceLocationSecretsManagerAccessTokenConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceLocationSecretsManagerAccessTokenConfiguration)(nil)).Elem()
+}
+
+func (i *sourceLocationSecretsManagerAccessTokenConfigurationPtrType) ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutput() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
+	return i.ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceLocationSecretsManagerAccessTokenConfigurationPtrType) ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput)
+}
+
+// <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+type SourceLocationSecretsManagerAccessTokenConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationSecretsManagerAccessTokenConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationSecretsManagerAccessTokenConfiguration)(nil)).Elem()
+}
+
+func (o SourceLocationSecretsManagerAccessTokenConfigurationOutput) ToSourceLocationSecretsManagerAccessTokenConfigurationOutput() SourceLocationSecretsManagerAccessTokenConfigurationOutput {
+	return o
+}
+
+func (o SourceLocationSecretsManagerAccessTokenConfigurationOutput) ToSourceLocationSecretsManagerAccessTokenConfigurationOutputWithContext(ctx context.Context) SourceLocationSecretsManagerAccessTokenConfigurationOutput {
+	return o
+}
+
+func (o SourceLocationSecretsManagerAccessTokenConfigurationOutput) ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutput() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
+	return o.ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SourceLocationSecretsManagerAccessTokenConfigurationOutput) ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceLocationSecretsManagerAccessTokenConfiguration) *SourceLocationSecretsManagerAccessTokenConfiguration {
+		return &v
+	}).(SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput)
+}
+
+// <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+func (o SourceLocationSecretsManagerAccessTokenConfigurationOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceLocationSecretsManagerAccessTokenConfiguration) *string { return v.HeaderName }).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+func (o SourceLocationSecretsManagerAccessTokenConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceLocationSecretsManagerAccessTokenConfiguration) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+// <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+func (o SourceLocationSecretsManagerAccessTokenConfigurationOutput) SecretStringKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceLocationSecretsManagerAccessTokenConfiguration) *string { return v.SecretStringKey }).(pulumi.StringPtrOutput)
+}
+
+type SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceLocationSecretsManagerAccessTokenConfiguration)(nil)).Elem()
+}
+
+func (o SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutput() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) Elem() SourceLocationSecretsManagerAccessTokenConfigurationOutput {
+	return o.ApplyT(func(v *SourceLocationSecretsManagerAccessTokenConfiguration) SourceLocationSecretsManagerAccessTokenConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceLocationSecretsManagerAccessTokenConfiguration
+		return ret
+	}).(SourceLocationSecretsManagerAccessTokenConfigurationOutput)
+}
+
+// <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+func (o SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceLocationSecretsManagerAccessTokenConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+func (o SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceLocationSecretsManagerAccessTokenConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+func (o SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) SecretStringKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceLocationSecretsManagerAccessTokenConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretStringKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The segment delivery configuration settings.</p>
+type SourceLocationSegmentDeliveryConfiguration struct {
+	// <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+	BaseUrl *string `pulumi:"baseUrl"`
+	// <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+	Name *string `pulumi:"name"`
+}
+
+// SourceLocationSegmentDeliveryConfigurationInput is an input type that accepts SourceLocationSegmentDeliveryConfigurationArgs and SourceLocationSegmentDeliveryConfigurationOutput values.
+// You can construct a concrete instance of `SourceLocationSegmentDeliveryConfigurationInput` via:
+//
+//	SourceLocationSegmentDeliveryConfigurationArgs{...}
+type SourceLocationSegmentDeliveryConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceLocationSegmentDeliveryConfigurationOutput() SourceLocationSegmentDeliveryConfigurationOutput
+	ToSourceLocationSegmentDeliveryConfigurationOutputWithContext(context.Context) SourceLocationSegmentDeliveryConfigurationOutput
+}
+
+// <p>The segment delivery configuration settings.</p>
+type SourceLocationSegmentDeliveryConfigurationArgs struct {
+	// <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+	BaseUrl pulumi.StringPtrInput `pulumi:"baseUrl"`
+	// <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SourceLocationSegmentDeliveryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationSegmentDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i SourceLocationSegmentDeliveryConfigurationArgs) ToSourceLocationSegmentDeliveryConfigurationOutput() SourceLocationSegmentDeliveryConfigurationOutput {
+	return i.ToSourceLocationSegmentDeliveryConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceLocationSegmentDeliveryConfigurationArgs) ToSourceLocationSegmentDeliveryConfigurationOutputWithContext(ctx context.Context) SourceLocationSegmentDeliveryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationSegmentDeliveryConfigurationOutput)
+}
+
+// SourceLocationSegmentDeliveryConfigurationArrayInput is an input type that accepts SourceLocationSegmentDeliveryConfigurationArray and SourceLocationSegmentDeliveryConfigurationArrayOutput values.
+// You can construct a concrete instance of `SourceLocationSegmentDeliveryConfigurationArrayInput` via:
+//
+//	SourceLocationSegmentDeliveryConfigurationArray{ SourceLocationSegmentDeliveryConfigurationArgs{...} }
+type SourceLocationSegmentDeliveryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToSourceLocationSegmentDeliveryConfigurationArrayOutput() SourceLocationSegmentDeliveryConfigurationArrayOutput
+	ToSourceLocationSegmentDeliveryConfigurationArrayOutputWithContext(context.Context) SourceLocationSegmentDeliveryConfigurationArrayOutput
+}
+
+type SourceLocationSegmentDeliveryConfigurationArray []SourceLocationSegmentDeliveryConfigurationInput
+
+func (SourceLocationSegmentDeliveryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceLocationSegmentDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i SourceLocationSegmentDeliveryConfigurationArray) ToSourceLocationSegmentDeliveryConfigurationArrayOutput() SourceLocationSegmentDeliveryConfigurationArrayOutput {
+	return i.ToSourceLocationSegmentDeliveryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i SourceLocationSegmentDeliveryConfigurationArray) ToSourceLocationSegmentDeliveryConfigurationArrayOutputWithContext(ctx context.Context) SourceLocationSegmentDeliveryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationSegmentDeliveryConfigurationArrayOutput)
+}
+
+// <p>The segment delivery configuration settings.</p>
+type SourceLocationSegmentDeliveryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationSegmentDeliveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationSegmentDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o SourceLocationSegmentDeliveryConfigurationOutput) ToSourceLocationSegmentDeliveryConfigurationOutput() SourceLocationSegmentDeliveryConfigurationOutput {
+	return o
+}
+
+func (o SourceLocationSegmentDeliveryConfigurationOutput) ToSourceLocationSegmentDeliveryConfigurationOutputWithContext(ctx context.Context) SourceLocationSegmentDeliveryConfigurationOutput {
+	return o
+}
+
+// <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+func (o SourceLocationSegmentDeliveryConfigurationOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceLocationSegmentDeliveryConfiguration) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
+}
+
+// <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+func (o SourceLocationSegmentDeliveryConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceLocationSegmentDeliveryConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type SourceLocationSegmentDeliveryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationSegmentDeliveryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceLocationSegmentDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o SourceLocationSegmentDeliveryConfigurationArrayOutput) ToSourceLocationSegmentDeliveryConfigurationArrayOutput() SourceLocationSegmentDeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o SourceLocationSegmentDeliveryConfigurationArrayOutput) ToSourceLocationSegmentDeliveryConfigurationArrayOutputWithContext(ctx context.Context) SourceLocationSegmentDeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o SourceLocationSegmentDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) SourceLocationSegmentDeliveryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceLocationSegmentDeliveryConfiguration {
+		return vs[0].([]SourceLocationSegmentDeliveryConfiguration)[vs[1].(int)]
+	}).(SourceLocationSegmentDeliveryConfigurationOutput)
+}
+
+type SourceLocationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// SourceLocationTagInput is an input type that accepts SourceLocationTagArgs and SourceLocationTagOutput values.
+// You can construct a concrete instance of `SourceLocationTagInput` via:
+//
+//	SourceLocationTagArgs{...}
+type SourceLocationTagInput interface {
+	pulumi.Input
+
+	ToSourceLocationTagOutput() SourceLocationTagOutput
+	ToSourceLocationTagOutputWithContext(context.Context) SourceLocationTagOutput
+}
+
+type SourceLocationTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SourceLocationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationTag)(nil)).Elem()
+}
+
+func (i SourceLocationTagArgs) ToSourceLocationTagOutput() SourceLocationTagOutput {
+	return i.ToSourceLocationTagOutputWithContext(context.Background())
+}
+
+func (i SourceLocationTagArgs) ToSourceLocationTagOutputWithContext(ctx context.Context) SourceLocationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationTagOutput)
+}
+
+// SourceLocationTagArrayInput is an input type that accepts SourceLocationTagArray and SourceLocationTagArrayOutput values.
+// You can construct a concrete instance of `SourceLocationTagArrayInput` via:
+//
+//	SourceLocationTagArray{ SourceLocationTagArgs{...} }
+type SourceLocationTagArrayInput interface {
+	pulumi.Input
+
+	ToSourceLocationTagArrayOutput() SourceLocationTagArrayOutput
+	ToSourceLocationTagArrayOutputWithContext(context.Context) SourceLocationTagArrayOutput
+}
+
+type SourceLocationTagArray []SourceLocationTagInput
+
+func (SourceLocationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceLocationTag)(nil)).Elem()
+}
+
+func (i SourceLocationTagArray) ToSourceLocationTagArrayOutput() SourceLocationTagArrayOutput {
+	return i.ToSourceLocationTagArrayOutputWithContext(context.Background())
+}
+
+func (i SourceLocationTagArray) ToSourceLocationTagArrayOutputWithContext(ctx context.Context) SourceLocationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationTagArrayOutput)
+}
+
+type SourceLocationTagOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationTag)(nil)).Elem()
+}
+
+func (o SourceLocationTagOutput) ToSourceLocationTagOutput() SourceLocationTagOutput {
+	return o
+}
+
+func (o SourceLocationTagOutput) ToSourceLocationTagOutputWithContext(ctx context.Context) SourceLocationTagOutput {
+	return o
+}
+
+func (o SourceLocationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceLocationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o SourceLocationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceLocationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SourceLocationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceLocationTag)(nil)).Elem()
+}
+
+func (o SourceLocationTagArrayOutput) ToSourceLocationTagArrayOutput() SourceLocationTagArrayOutput {
+	return o
+}
+
+func (o SourceLocationTagArrayOutput) ToSourceLocationTagArrayOutputWithContext(ctx context.Context) SourceLocationTagArrayOutput {
+	return o
+}
+
+func (o SourceLocationTagArrayOutput) Index(i pulumi.IntInput) SourceLocationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceLocationTag {
+		return vs[0].([]SourceLocationTag)[vs[1].(int)]
+	}).(SourceLocationTagOutput)
+}
+
+// <p>The HTTP package configuration properties for the requested VOD source.</p>
+type VodSourceHttpPackageConfiguration struct {
+	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+	Path string `pulumi:"path"`
+	// <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+	SourceGroup string        `pulumi:"sourceGroup"`
+	Type        VodSourceType `pulumi:"type"`
+}
+
+// VodSourceHttpPackageConfigurationInput is an input type that accepts VodSourceHttpPackageConfigurationArgs and VodSourceHttpPackageConfigurationOutput values.
+// You can construct a concrete instance of `VodSourceHttpPackageConfigurationInput` via:
+//
+//	VodSourceHttpPackageConfigurationArgs{...}
+type VodSourceHttpPackageConfigurationInput interface {
+	pulumi.Input
+
+	ToVodSourceHttpPackageConfigurationOutput() VodSourceHttpPackageConfigurationOutput
+	ToVodSourceHttpPackageConfigurationOutputWithContext(context.Context) VodSourceHttpPackageConfigurationOutput
+}
+
+// <p>The HTTP package configuration properties for the requested VOD source.</p>
+type VodSourceHttpPackageConfigurationArgs struct {
+	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+	Path pulumi.StringInput `pulumi:"path"`
+	// <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+	SourceGroup pulumi.StringInput `pulumi:"sourceGroup"`
+	Type        VodSourceTypeInput `pulumi:"type"`
+}
+
+func (VodSourceHttpPackageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VodSourceHttpPackageConfiguration)(nil)).Elem()
+}
+
+func (i VodSourceHttpPackageConfigurationArgs) ToVodSourceHttpPackageConfigurationOutput() VodSourceHttpPackageConfigurationOutput {
+	return i.ToVodSourceHttpPackageConfigurationOutputWithContext(context.Background())
+}
+
+func (i VodSourceHttpPackageConfigurationArgs) ToVodSourceHttpPackageConfigurationOutputWithContext(ctx context.Context) VodSourceHttpPackageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VodSourceHttpPackageConfigurationOutput)
+}
+
+// VodSourceHttpPackageConfigurationArrayInput is an input type that accepts VodSourceHttpPackageConfigurationArray and VodSourceHttpPackageConfigurationArrayOutput values.
+// You can construct a concrete instance of `VodSourceHttpPackageConfigurationArrayInput` via:
+//
+//	VodSourceHttpPackageConfigurationArray{ VodSourceHttpPackageConfigurationArgs{...} }
+type VodSourceHttpPackageConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToVodSourceHttpPackageConfigurationArrayOutput() VodSourceHttpPackageConfigurationArrayOutput
+	ToVodSourceHttpPackageConfigurationArrayOutputWithContext(context.Context) VodSourceHttpPackageConfigurationArrayOutput
+}
+
+type VodSourceHttpPackageConfigurationArray []VodSourceHttpPackageConfigurationInput
+
+func (VodSourceHttpPackageConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VodSourceHttpPackageConfiguration)(nil)).Elem()
+}
+
+func (i VodSourceHttpPackageConfigurationArray) ToVodSourceHttpPackageConfigurationArrayOutput() VodSourceHttpPackageConfigurationArrayOutput {
+	return i.ToVodSourceHttpPackageConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i VodSourceHttpPackageConfigurationArray) ToVodSourceHttpPackageConfigurationArrayOutputWithContext(ctx context.Context) VodSourceHttpPackageConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VodSourceHttpPackageConfigurationArrayOutput)
+}
+
+// <p>The HTTP package configuration properties for the requested VOD source.</p>
+type VodSourceHttpPackageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VodSourceHttpPackageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VodSourceHttpPackageConfiguration)(nil)).Elem()
+}
+
+func (o VodSourceHttpPackageConfigurationOutput) ToVodSourceHttpPackageConfigurationOutput() VodSourceHttpPackageConfigurationOutput {
+	return o
+}
+
+func (o VodSourceHttpPackageConfigurationOutput) ToVodSourceHttpPackageConfigurationOutputWithContext(ctx context.Context) VodSourceHttpPackageConfigurationOutput {
+	return o
+}
+
+// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+func (o VodSourceHttpPackageConfigurationOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v VodSourceHttpPackageConfiguration) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+func (o VodSourceHttpPackageConfigurationOutput) SourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v VodSourceHttpPackageConfiguration) string { return v.SourceGroup }).(pulumi.StringOutput)
+}
+
+func (o VodSourceHttpPackageConfigurationOutput) Type() VodSourceTypeOutput {
+	return o.ApplyT(func(v VodSourceHttpPackageConfiguration) VodSourceType { return v.Type }).(VodSourceTypeOutput)
+}
+
+type VodSourceHttpPackageConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (VodSourceHttpPackageConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VodSourceHttpPackageConfiguration)(nil)).Elem()
+}
+
+func (o VodSourceHttpPackageConfigurationArrayOutput) ToVodSourceHttpPackageConfigurationArrayOutput() VodSourceHttpPackageConfigurationArrayOutput {
+	return o
+}
+
+func (o VodSourceHttpPackageConfigurationArrayOutput) ToVodSourceHttpPackageConfigurationArrayOutputWithContext(ctx context.Context) VodSourceHttpPackageConfigurationArrayOutput {
+	return o
+}
+
+func (o VodSourceHttpPackageConfigurationArrayOutput) Index(i pulumi.IntInput) VodSourceHttpPackageConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VodSourceHttpPackageConfiguration {
+		return vs[0].([]VodSourceHttpPackageConfiguration)[vs[1].(int)]
+	}).(VodSourceHttpPackageConfigurationOutput)
+}
+
+type VodSourceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VodSourceTagInput is an input type that accepts VodSourceTagArgs and VodSourceTagOutput values.
+// You can construct a concrete instance of `VodSourceTagInput` via:
+//
+//	VodSourceTagArgs{...}
+type VodSourceTagInput interface {
+	pulumi.Input
+
+	ToVodSourceTagOutput() VodSourceTagOutput
+	ToVodSourceTagOutputWithContext(context.Context) VodSourceTagOutput
+}
+
+type VodSourceTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VodSourceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VodSourceTag)(nil)).Elem()
+}
+
+func (i VodSourceTagArgs) ToVodSourceTagOutput() VodSourceTagOutput {
+	return i.ToVodSourceTagOutputWithContext(context.Background())
+}
+
+func (i VodSourceTagArgs) ToVodSourceTagOutputWithContext(ctx context.Context) VodSourceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VodSourceTagOutput)
+}
+
+// VodSourceTagArrayInput is an input type that accepts VodSourceTagArray and VodSourceTagArrayOutput values.
+// You can construct a concrete instance of `VodSourceTagArrayInput` via:
+//
+//	VodSourceTagArray{ VodSourceTagArgs{...} }
+type VodSourceTagArrayInput interface {
+	pulumi.Input
+
+	ToVodSourceTagArrayOutput() VodSourceTagArrayOutput
+	ToVodSourceTagArrayOutputWithContext(context.Context) VodSourceTagArrayOutput
+}
+
+type VodSourceTagArray []VodSourceTagInput
+
+func (VodSourceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VodSourceTag)(nil)).Elem()
+}
+
+func (i VodSourceTagArray) ToVodSourceTagArrayOutput() VodSourceTagArrayOutput {
+	return i.ToVodSourceTagArrayOutputWithContext(context.Background())
+}
+
+func (i VodSourceTagArray) ToVodSourceTagArrayOutputWithContext(ctx context.Context) VodSourceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VodSourceTagArrayOutput)
+}
+
+type VodSourceTagOutput struct{ *pulumi.OutputState }
+
+func (VodSourceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VodSourceTag)(nil)).Elem()
+}
+
+func (o VodSourceTagOutput) ToVodSourceTagOutput() VodSourceTagOutput {
+	return o
+}
+
+func (o VodSourceTagOutput) ToVodSourceTagOutputWithContext(ctx context.Context) VodSourceTagOutput {
+	return o
+}
+
+func (o VodSourceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VodSourceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VodSourceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VodSourceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VodSourceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VodSourceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VodSourceTag)(nil)).Elem()
+}
+
+func (o VodSourceTagArrayOutput) ToVodSourceTagArrayOutput() VodSourceTagArrayOutput {
+	return o
+}
+
+func (o VodSourceTagArrayOutput) ToVodSourceTagArrayOutputWithContext(ctx context.Context) VodSourceTagArrayOutput {
+	return o
+}
+
+func (o VodSourceTagArrayOutput) Index(i pulumi.IntInput) VodSourceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VodSourceTag {
+		return vs[0].([]VodSourceTag)[vs[1].(int)]
+	}).(VodSourceTagOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDashPlaylistSettingsInput)(nil)).Elem(), ChannelDashPlaylistSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDashPlaylistSettingsPtrInput)(nil)).Elem(), ChannelDashPlaylistSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsPlaylistSettingsInput)(nil)).Elem(), ChannelHlsPlaylistSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsPlaylistSettingsPtrInput)(nil)).Elem(), ChannelHlsPlaylistSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogConfigurationForChannelInput)(nil)).Elem(), ChannelLogConfigurationForChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogConfigurationForChannelPtrInput)(nil)).Elem(), ChannelLogConfigurationForChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelRequestOutputItemInput)(nil)).Elem(), ChannelRequestOutputItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelRequestOutputItemArrayInput)(nil)).Elem(), ChannelRequestOutputItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlateSourceInput)(nil)).Elem(), ChannelSlateSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlateSourcePtrInput)(nil)).Elem(), ChannelSlateSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagInput)(nil)).Elem(), ChannelTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagArrayInput)(nil)).Elem(), ChannelTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationArrayInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTagInput)(nil)).Elem(), LiveSourceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTagArrayInput)(nil)).Elem(), LiveSourceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughPtrInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionArgs{})
@@ -1369,6 +3441,37 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationManifestProcessingRulesPtrInput)(nil)).Elem(), PlaybackConfigurationManifestProcessingRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationTagInput)(nil)).Elem(), PlaybackConfigurationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationTagArrayInput)(nil)).Elem(), PlaybackConfigurationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessConfigurationInput)(nil)).Elem(), SourceLocationAccessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessConfigurationPtrInput)(nil)).Elem(), SourceLocationAccessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationDefaultSegmentDeliveryConfigurationInput)(nil)).Elem(), SourceLocationDefaultSegmentDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationDefaultSegmentDeliveryConfigurationPtrInput)(nil)).Elem(), SourceLocationDefaultSegmentDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationHttpConfigurationInput)(nil)).Elem(), SourceLocationHttpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationSecretsManagerAccessTokenConfigurationInput)(nil)).Elem(), SourceLocationSecretsManagerAccessTokenConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationSecretsManagerAccessTokenConfigurationPtrInput)(nil)).Elem(), SourceLocationSecretsManagerAccessTokenConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationSegmentDeliveryConfigurationInput)(nil)).Elem(), SourceLocationSegmentDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationSegmentDeliveryConfigurationArrayInput)(nil)).Elem(), SourceLocationSegmentDeliveryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationTagInput)(nil)).Elem(), SourceLocationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationTagArrayInput)(nil)).Elem(), SourceLocationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceHttpPackageConfigurationInput)(nil)).Elem(), VodSourceHttpPackageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceHttpPackageConfigurationArrayInput)(nil)).Elem(), VodSourceHttpPackageConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTagInput)(nil)).Elem(), VodSourceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTagArrayInput)(nil)).Elem(), VodSourceTagArray{})
+	pulumi.RegisterOutputType(ChannelDashPlaylistSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelDashPlaylistSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelHlsPlaylistSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelHlsPlaylistSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelLogConfigurationForChannelOutput{})
+	pulumi.RegisterOutputType(ChannelLogConfigurationForChannelPtrOutput{})
+	pulumi.RegisterOutputType(ChannelRequestOutputItemOutput{})
+	pulumi.RegisterOutputType(ChannelRequestOutputItemArrayOutput{})
+	pulumi.RegisterOutputType(ChannelSlateSourceOutput{})
+	pulumi.RegisterOutputType(ChannelSlateSourcePtrOutput{})
+	pulumi.RegisterOutputType(ChannelTagOutput{})
+	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
+	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationOutput{})
+	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LiveSourceTagOutput{})
+	pulumi.RegisterOutputType(LiveSourceTagArrayOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionOutput{})
@@ -1387,4 +3490,20 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationManifestProcessingRulesPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationTagOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationTagArrayOutput{})
+	pulumi.RegisterOutputType(SourceLocationAccessConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceLocationAccessConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceLocationDefaultSegmentDeliveryConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceLocationHttpConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceLocationHttpConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceLocationSecretsManagerAccessTokenConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceLocationSegmentDeliveryConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceLocationSegmentDeliveryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(SourceLocationTagOutput{})
+	pulumi.RegisterOutputType(SourceLocationTagArrayOutput{})
+	pulumi.RegisterOutputType(VodSourceHttpPackageConfigurationOutput{})
+	pulumi.RegisterOutputType(VodSourceHttpPackageConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(VodSourceTagOutput{})
+	pulumi.RegisterOutputType(VodSourceTagArrayOutput{})
 }

@@ -124,6 +124,8 @@ func (o AgreementTagArrayOutput) Index(i pulumi.IntInput) AgreementTagOutput {
 
 // Configuration for an AS2 connector.
 type As2ConfigProperties struct {
+	// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+	BasicAuthSecretId *string `pulumi:"basicAuthSecretId"`
 	// Compression setting for this AS2 connector configuration.
 	Compression *ConnectorAs2ConfigPropertiesCompression `pulumi:"compression"`
 	// Encryption algorithm for this AS2 connector configuration.
@@ -155,6 +157,8 @@ type As2ConfigPropertiesInput interface {
 
 // Configuration for an AS2 connector.
 type As2ConfigPropertiesArgs struct {
+	// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+	BasicAuthSecretId pulumi.StringPtrInput `pulumi:"basicAuthSecretId"`
 	// Compression setting for this AS2 connector configuration.
 	Compression ConnectorAs2ConfigPropertiesCompressionPtrInput `pulumi:"compression"`
 	// Encryption algorithm for this AS2 connector configuration.
@@ -185,6 +189,47 @@ func (i As2ConfigPropertiesArgs) ToAs2ConfigPropertiesOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(As2ConfigPropertiesOutput)
 }
 
+func (i As2ConfigPropertiesArgs) ToAs2ConfigPropertiesPtrOutput() As2ConfigPropertiesPtrOutput {
+	return i.ToAs2ConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i As2ConfigPropertiesArgs) ToAs2ConfigPropertiesPtrOutputWithContext(ctx context.Context) As2ConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(As2ConfigPropertiesOutput).ToAs2ConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// As2ConfigPropertiesPtrInput is an input type that accepts As2ConfigPropertiesArgs, As2ConfigPropertiesPtr and As2ConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `As2ConfigPropertiesPtrInput` via:
+//
+//	        As2ConfigPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type As2ConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAs2ConfigPropertiesPtrOutput() As2ConfigPropertiesPtrOutput
+	ToAs2ConfigPropertiesPtrOutputWithContext(context.Context) As2ConfigPropertiesPtrOutput
+}
+
+type as2ConfigPropertiesPtrType As2ConfigPropertiesArgs
+
+func As2ConfigPropertiesPtr(v *As2ConfigPropertiesArgs) As2ConfigPropertiesPtrInput {
+	return (*as2ConfigPropertiesPtrType)(v)
+}
+
+func (*as2ConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**As2ConfigProperties)(nil)).Elem()
+}
+
+func (i *as2ConfigPropertiesPtrType) ToAs2ConfigPropertiesPtrOutput() As2ConfigPropertiesPtrOutput {
+	return i.ToAs2ConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *as2ConfigPropertiesPtrType) ToAs2ConfigPropertiesPtrOutputWithContext(ctx context.Context) As2ConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(As2ConfigPropertiesPtrOutput)
+}
+
 // Configuration for an AS2 connector.
 type As2ConfigPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -198,6 +243,21 @@ func (o As2ConfigPropertiesOutput) ToAs2ConfigPropertiesOutput() As2ConfigProper
 
 func (o As2ConfigPropertiesOutput) ToAs2ConfigPropertiesOutputWithContext(ctx context.Context) As2ConfigPropertiesOutput {
 	return o
+}
+
+func (o As2ConfigPropertiesOutput) ToAs2ConfigPropertiesPtrOutput() As2ConfigPropertiesPtrOutput {
+	return o.ToAs2ConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o As2ConfigPropertiesOutput) ToAs2ConfigPropertiesPtrOutputWithContext(ctx context.Context) As2ConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v As2ConfigProperties) *As2ConfigProperties {
+		return &v
+	}).(As2ConfigPropertiesPtrOutput)
+}
+
+// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+func (o As2ConfigPropertiesOutput) BasicAuthSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *string { return v.BasicAuthSecretId }).(pulumi.StringPtrOutput)
 }
 
 // Compression setting for this AS2 connector configuration.
@@ -266,6 +326,16 @@ func (o As2ConfigPropertiesPtrOutput) Elem() As2ConfigPropertiesOutput {
 		var ret As2ConfigProperties
 		return ret
 	}).(As2ConfigPropertiesOutput)
+}
+
+// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+func (o As2ConfigPropertiesPtrOutput) BasicAuthSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuthSecretId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Compression setting for this AS2 connector configuration.
@@ -1849,6 +1919,165 @@ func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailArrayOutp
 		}
 		return v.OnUpload
 	}).(ServerWorkflowDetailArrayOutput)
+}
+
+// Configuration for an SFTP connector.
+type SftpConfigProperties struct {
+	// List of public host keys, for the external server to which you are connecting.
+	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
+	// ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+	UserSecretId *string `pulumi:"userSecretId"`
+}
+
+// SftpConfigPropertiesInput is an input type that accepts SftpConfigPropertiesArgs and SftpConfigPropertiesOutput values.
+// You can construct a concrete instance of `SftpConfigPropertiesInput` via:
+//
+//	SftpConfigPropertiesArgs{...}
+type SftpConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToSftpConfigPropertiesOutput() SftpConfigPropertiesOutput
+	ToSftpConfigPropertiesOutputWithContext(context.Context) SftpConfigPropertiesOutput
+}
+
+// Configuration for an SFTP connector.
+type SftpConfigPropertiesArgs struct {
+	// List of public host keys, for the external server to which you are connecting.
+	TrustedHostKeys pulumi.StringArrayInput `pulumi:"trustedHostKeys"`
+	// ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+	UserSecretId pulumi.StringPtrInput `pulumi:"userSecretId"`
+}
+
+func (SftpConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SftpConfigProperties)(nil)).Elem()
+}
+
+func (i SftpConfigPropertiesArgs) ToSftpConfigPropertiesOutput() SftpConfigPropertiesOutput {
+	return i.ToSftpConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i SftpConfigPropertiesArgs) ToSftpConfigPropertiesOutputWithContext(ctx context.Context) SftpConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SftpConfigPropertiesOutput)
+}
+
+func (i SftpConfigPropertiesArgs) ToSftpConfigPropertiesPtrOutput() SftpConfigPropertiesPtrOutput {
+	return i.ToSftpConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SftpConfigPropertiesArgs) ToSftpConfigPropertiesPtrOutputWithContext(ctx context.Context) SftpConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SftpConfigPropertiesOutput).ToSftpConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// SftpConfigPropertiesPtrInput is an input type that accepts SftpConfigPropertiesArgs, SftpConfigPropertiesPtr and SftpConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `SftpConfigPropertiesPtrInput` via:
+//
+//	        SftpConfigPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SftpConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSftpConfigPropertiesPtrOutput() SftpConfigPropertiesPtrOutput
+	ToSftpConfigPropertiesPtrOutputWithContext(context.Context) SftpConfigPropertiesPtrOutput
+}
+
+type sftpConfigPropertiesPtrType SftpConfigPropertiesArgs
+
+func SftpConfigPropertiesPtr(v *SftpConfigPropertiesArgs) SftpConfigPropertiesPtrInput {
+	return (*sftpConfigPropertiesPtrType)(v)
+}
+
+func (*sftpConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SftpConfigProperties)(nil)).Elem()
+}
+
+func (i *sftpConfigPropertiesPtrType) ToSftpConfigPropertiesPtrOutput() SftpConfigPropertiesPtrOutput {
+	return i.ToSftpConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *sftpConfigPropertiesPtrType) ToSftpConfigPropertiesPtrOutputWithContext(ctx context.Context) SftpConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SftpConfigPropertiesPtrOutput)
+}
+
+// Configuration for an SFTP connector.
+type SftpConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SftpConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SftpConfigProperties)(nil)).Elem()
+}
+
+func (o SftpConfigPropertiesOutput) ToSftpConfigPropertiesOutput() SftpConfigPropertiesOutput {
+	return o
+}
+
+func (o SftpConfigPropertiesOutput) ToSftpConfigPropertiesOutputWithContext(ctx context.Context) SftpConfigPropertiesOutput {
+	return o
+}
+
+func (o SftpConfigPropertiesOutput) ToSftpConfigPropertiesPtrOutput() SftpConfigPropertiesPtrOutput {
+	return o.ToSftpConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SftpConfigPropertiesOutput) ToSftpConfigPropertiesPtrOutputWithContext(ctx context.Context) SftpConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SftpConfigProperties) *SftpConfigProperties {
+		return &v
+	}).(SftpConfigPropertiesPtrOutput)
+}
+
+// List of public host keys, for the external server to which you are connecting.
+func (o SftpConfigPropertiesOutput) TrustedHostKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SftpConfigProperties) []string { return v.TrustedHostKeys }).(pulumi.StringArrayOutput)
+}
+
+// ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+func (o SftpConfigPropertiesOutput) UserSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SftpConfigProperties) *string { return v.UserSecretId }).(pulumi.StringPtrOutput)
+}
+
+type SftpConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SftpConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SftpConfigProperties)(nil)).Elem()
+}
+
+func (o SftpConfigPropertiesPtrOutput) ToSftpConfigPropertiesPtrOutput() SftpConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o SftpConfigPropertiesPtrOutput) ToSftpConfigPropertiesPtrOutputWithContext(ctx context.Context) SftpConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o SftpConfigPropertiesPtrOutput) Elem() SftpConfigPropertiesOutput {
+	return o.ApplyT(func(v *SftpConfigProperties) SftpConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SftpConfigProperties
+		return ret
+	}).(SftpConfigPropertiesOutput)
+}
+
+// List of public host keys, for the external server to which you are connecting.
+func (o SftpConfigPropertiesPtrOutput) TrustedHostKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SftpConfigProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedHostKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+// ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+func (o SftpConfigPropertiesPtrOutput) UserSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SftpConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserSecretId
+	}).(pulumi.StringPtrOutput)
 }
 
 type UserHomeDirectoryMapEntry struct {
@@ -4220,6 +4449,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgreementTagInput)(nil)).Elem(), AgreementTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgreementTagArrayInput)(nil)).Elem(), AgreementTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesPtrInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagInput)(nil)).Elem(), CertificateTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagArrayInput)(nil)).Elem(), CertificateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorTagInput)(nil)).Elem(), ConnectorTagArgs{})
@@ -4244,6 +4474,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailArrayInput)(nil)).Elem(), ServerWorkflowDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsPtrInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SftpConfigPropertiesInput)(nil)).Elem(), SftpConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SftpConfigPropertiesPtrInput)(nil)).Elem(), SftpConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryMapEntryInput)(nil)).Elem(), UserHomeDirectoryMapEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryMapEntryArrayInput)(nil)).Elem(), UserHomeDirectoryMapEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfileInput)(nil)).Elem(), UserPosixProfileArgs{})
@@ -4304,6 +4536,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerWorkflowDetailArrayOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsPtrOutput{})
+	pulumi.RegisterOutputType(SftpConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(SftpConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserHomeDirectoryMapEntryOutput{})
 	pulumi.RegisterOutputType(UserHomeDirectoryMapEntryArrayOutput{})
 	pulumi.RegisterOutputType(UserPosixProfileOutput{})

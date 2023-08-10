@@ -168,6 +168,7 @@ export const DataSourceType = {
     Googledrive: "GOOGLEDRIVE",
     Webcrawler: "WEBCRAWLER",
     Workdocs: "WORKDOCS",
+    Template: "TEMPLATE",
 } as const;
 
 /**

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,6 +16,8 @@ type Key struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Skips ("bypasses") the key policy lockout safety check. The default value is false.
+	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrOutput `pulumi:"bypassPolicyLockoutSafetyCheck"`
 	// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
@@ -44,12 +45,9 @@ type Key struct {
 func NewKey(ctx *pulumi.Context,
 	name string, args *KeyArgs, opts ...pulumi.ResourceOption) (*Key, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &KeyArgs{}
 	}
 
-	if args.KeyPolicy == nil {
-		return nil, errors.New("invalid value for required argument 'KeyPolicy'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Key
 	err := ctx.RegisterResource("aws-native:kms:Key", name, args, &resource, opts...)
@@ -83,6 +81,8 @@ func (KeyState) ElementType() reflect.Type {
 }
 
 type keyArgs struct {
+	// Skips ("bypasses") the key policy lockout safety check. The default value is false.
+	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`
 	// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
 	Description *string `pulumi:"description"`
 	// Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
@@ -107,6 +107,8 @@ type keyArgs struct {
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
+	// Skips ("bypasses") the key policy lockout safety check. The default value is false.
+	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrInput
 	// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
 	Description pulumi.StringPtrInput
 	// Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
@@ -168,6 +170,11 @@ func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 
 func (o KeyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Skips ("bypasses") the key policy lockout safety check. The default value is false.
+func (o KeyOutput) BypassPolicyLockoutSafetyCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.BoolPtrOutput { return v.BypassPolicyLockoutSafetyCheck }).(pulumi.BoolPtrOutput)
 }
 
 // A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.

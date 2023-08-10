@@ -10,19 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
+    /// <summary>
+    /// The Metric property type represents a specific metric.
+    /// </summary>
     public sealed class AlarmMetricArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputList<Inputs.AlarmDimensionArgs>? _dimensions;
+
+        /// <summary>
+        /// The dimensions for the metric.
+        /// </summary>
         public InputList<Inputs.AlarmDimensionArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.AlarmDimensionArgs>());
             set => _dimensions = value;
         }
 
+        /// <summary>
+        /// The name of the metric.
+        /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
 
+        /// <summary>
+        /// The namespace of the metric.
+        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 

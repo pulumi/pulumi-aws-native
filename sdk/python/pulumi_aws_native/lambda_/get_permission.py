@@ -26,6 +26,9 @@ class GetPermissionResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        A statement identifier that differentiates the statement from others in the same policy.
+        """
         return pulumi.get(self, "id")
 
 
@@ -38,12 +41,18 @@ class AwaitableGetPermissionResult(GetPermissionResult):
             id=self.id)
 
 
-def get_permission(id: Optional[str] = None,
+def get_permission(function_name: Optional[str] = None,
+                   id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionResult:
     """
     Resource Type definition for AWS::Lambda::Permission
+
+
+    :param str function_name: The name of the Lambda function, version, or alias.
+    :param str id: A statement identifier that differentiates the statement from others in the same policy.
     """
     __args__ = dict()
+    __args__['functionName'] = function_name
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getPermission', __args__, opts=opts, typ=GetPermissionResult).value
@@ -53,9 +62,14 @@ def get_permission(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_permission)
-def get_permission_output(id: Optional[pulumi.Input[str]] = None,
+def get_permission_output(function_name: Optional[pulumi.Input[str]] = None,
+                          id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionResult]:
     """
     Resource Type definition for AWS::Lambda::Permission
+
+
+    :param str function_name: The name of the Lambda function, version, or alias.
+    :param str id: A statement identifier that differentiates the statement from others in the same policy.
     """
     ...

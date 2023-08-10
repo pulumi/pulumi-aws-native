@@ -18,9 +18,10 @@ import (
 type Table struct {
 	pulumi.CustomResourceState
 
-	CatalogId    pulumi.StringOutput  `pulumi:"catalogId"`
-	DatabaseName pulumi.StringOutput  `pulumi:"databaseName"`
-	TableInput   TableInputTypeOutput `pulumi:"tableInput"`
+	CatalogId            pulumi.StringOutput                `pulumi:"catalogId"`
+	DatabaseName         pulumi.StringOutput                `pulumi:"databaseName"`
+	OpenTableFormatInput TableOpenTableFormatInputPtrOutput `pulumi:"openTableFormatInput"`
+	TableInput           TableInputTypeOutput               `pulumi:"tableInput"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -72,16 +73,18 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	CatalogId    string         `pulumi:"catalogId"`
-	DatabaseName string         `pulumi:"databaseName"`
-	TableInput   TableInputType `pulumi:"tableInput"`
+	CatalogId            string                     `pulumi:"catalogId"`
+	DatabaseName         string                     `pulumi:"databaseName"`
+	OpenTableFormatInput *TableOpenTableFormatInput `pulumi:"openTableFormatInput"`
+	TableInput           TableInputType             `pulumi:"tableInput"`
 }
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	CatalogId    pulumi.StringInput
-	DatabaseName pulumi.StringInput
-	TableInput   TableInputTypeInput
+	CatalogId            pulumi.StringInput
+	DatabaseName         pulumi.StringInput
+	OpenTableFormatInput TableOpenTableFormatInputPtrInput
+	TableInput           TableInputTypeInput
 }
 
 func (TableArgs) ElementType() reflect.Type {
@@ -127,6 +130,10 @@ func (o TableOutput) CatalogId() pulumi.StringOutput {
 
 func (o TableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o TableOutput) OpenTableFormatInput() TableOpenTableFormatInputPtrOutput {
+	return o.ApplyT(func(v *Table) TableOpenTableFormatInputPtrOutput { return v.OpenTableFormatInput }).(TableOpenTableFormatInputPtrOutput)
 }
 
 func (o TableOutput) TableInput() TableInputTypeOutput {

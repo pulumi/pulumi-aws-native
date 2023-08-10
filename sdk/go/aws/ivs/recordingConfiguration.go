@@ -22,7 +22,8 @@ type RecordingConfiguration struct {
 	// Recording Configuration Name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Recording Reconnect Window Seconds. (0 means disabled)
-	RecordingReconnectWindowSeconds pulumi.IntPtrOutput `pulumi:"recordingReconnectWindowSeconds"`
+	RecordingReconnectWindowSeconds pulumi.IntPtrOutput                                   `pulumi:"recordingReconnectWindowSeconds"`
+	RenditionConfiguration          RecordingConfigurationRenditionConfigurationPtrOutput `pulumi:"renditionConfiguration"`
 	// Recording Configuration State.
 	State RecordingConfigurationStateEnumOutput `pulumi:"state"`
 	// A list of key-value pairs that contain metadata for the asset model.
@@ -77,7 +78,8 @@ type recordingConfigurationArgs struct {
 	// Recording Configuration Name.
 	Name *string `pulumi:"name"`
 	// Recording Reconnect Window Seconds. (0 means disabled)
-	RecordingReconnectWindowSeconds *int `pulumi:"recordingReconnectWindowSeconds"`
+	RecordingReconnectWindowSeconds *int                                          `pulumi:"recordingReconnectWindowSeconds"`
+	RenditionConfiguration          *RecordingConfigurationRenditionConfiguration `pulumi:"renditionConfiguration"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags                   []RecordingConfigurationTag                   `pulumi:"tags"`
 	ThumbnailConfiguration *RecordingConfigurationThumbnailConfiguration `pulumi:"thumbnailConfiguration"`
@@ -90,6 +92,7 @@ type RecordingConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// Recording Reconnect Window Seconds. (0 means disabled)
 	RecordingReconnectWindowSeconds pulumi.IntPtrInput
+	RenditionConfiguration          RecordingConfigurationRenditionConfigurationPtrInput
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags                   RecordingConfigurationTagArrayInput
 	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationPtrInput
@@ -151,6 +154,12 @@ func (o RecordingConfigurationOutput) Name() pulumi.StringPtrOutput {
 // Recording Reconnect Window Seconds. (0 means disabled)
 func (o RecordingConfigurationOutput) RecordingReconnectWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) pulumi.IntPtrOutput { return v.RecordingReconnectWindowSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o RecordingConfigurationOutput) RenditionConfiguration() RecordingConfigurationRenditionConfigurationPtrOutput {
+	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationRenditionConfigurationPtrOutput {
+		return v.RenditionConfiguration
+	}).(RecordingConfigurationRenditionConfigurationPtrOutput)
 }
 
 // Recording Configuration State.

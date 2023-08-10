@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     public sealed class As2ConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+        /// </summary>
+        [Input("basicAuthSecretId")]
+        public Input<string>? BasicAuthSecretId { get; set; }
+
+        /// <summary>
         /// Compression setting for this AS2 connector configuration.
         /// </summary>
         [Input("compression")]

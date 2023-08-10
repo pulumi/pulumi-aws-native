@@ -176,6 +176,170 @@ func (in *monitorConfigStatePtr) ToMonitorConfigStatePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(MonitorConfigStatePtrOutput)
 }
 
+type MonitorLocalHealthEventsConfigStatus string
+
+const (
+	MonitorLocalHealthEventsConfigStatusEnabled  = MonitorLocalHealthEventsConfigStatus("ENABLED")
+	MonitorLocalHealthEventsConfigStatusDisabled = MonitorLocalHealthEventsConfigStatus("DISABLED")
+)
+
+func (MonitorLocalHealthEventsConfigStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorLocalHealthEventsConfigStatus)(nil)).Elem()
+}
+
+func (e MonitorLocalHealthEventsConfigStatus) ToMonitorLocalHealthEventsConfigStatusOutput() MonitorLocalHealthEventsConfigStatusOutput {
+	return pulumi.ToOutput(e).(MonitorLocalHealthEventsConfigStatusOutput)
+}
+
+func (e MonitorLocalHealthEventsConfigStatus) ToMonitorLocalHealthEventsConfigStatusOutputWithContext(ctx context.Context) MonitorLocalHealthEventsConfigStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MonitorLocalHealthEventsConfigStatusOutput)
+}
+
+func (e MonitorLocalHealthEventsConfigStatus) ToMonitorLocalHealthEventsConfigStatusPtrOutput() MonitorLocalHealthEventsConfigStatusPtrOutput {
+	return e.ToMonitorLocalHealthEventsConfigStatusPtrOutputWithContext(context.Background())
+}
+
+func (e MonitorLocalHealthEventsConfigStatus) ToMonitorLocalHealthEventsConfigStatusPtrOutputWithContext(ctx context.Context) MonitorLocalHealthEventsConfigStatusPtrOutput {
+	return MonitorLocalHealthEventsConfigStatus(e).ToMonitorLocalHealthEventsConfigStatusOutputWithContext(ctx).ToMonitorLocalHealthEventsConfigStatusPtrOutputWithContext(ctx)
+}
+
+func (e MonitorLocalHealthEventsConfigStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MonitorLocalHealthEventsConfigStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MonitorLocalHealthEventsConfigStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MonitorLocalHealthEventsConfigStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MonitorLocalHealthEventsConfigStatusOutput struct{ *pulumi.OutputState }
+
+func (MonitorLocalHealthEventsConfigStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorLocalHealthEventsConfigStatus)(nil)).Elem()
+}
+
+func (o MonitorLocalHealthEventsConfigStatusOutput) ToMonitorLocalHealthEventsConfigStatusOutput() MonitorLocalHealthEventsConfigStatusOutput {
+	return o
+}
+
+func (o MonitorLocalHealthEventsConfigStatusOutput) ToMonitorLocalHealthEventsConfigStatusOutputWithContext(ctx context.Context) MonitorLocalHealthEventsConfigStatusOutput {
+	return o
+}
+
+func (o MonitorLocalHealthEventsConfigStatusOutput) ToMonitorLocalHealthEventsConfigStatusPtrOutput() MonitorLocalHealthEventsConfigStatusPtrOutput {
+	return o.ToMonitorLocalHealthEventsConfigStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorLocalHealthEventsConfigStatusOutput) ToMonitorLocalHealthEventsConfigStatusPtrOutputWithContext(ctx context.Context) MonitorLocalHealthEventsConfigStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorLocalHealthEventsConfigStatus) *MonitorLocalHealthEventsConfigStatus {
+		return &v
+	}).(MonitorLocalHealthEventsConfigStatusPtrOutput)
+}
+
+func (o MonitorLocalHealthEventsConfigStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MonitorLocalHealthEventsConfigStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitorLocalHealthEventsConfigStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MonitorLocalHealthEventsConfigStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorLocalHealthEventsConfigStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitorLocalHealthEventsConfigStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitorLocalHealthEventsConfigStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorLocalHealthEventsConfigStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorLocalHealthEventsConfigStatus)(nil)).Elem()
+}
+
+func (o MonitorLocalHealthEventsConfigStatusPtrOutput) ToMonitorLocalHealthEventsConfigStatusPtrOutput() MonitorLocalHealthEventsConfigStatusPtrOutput {
+	return o
+}
+
+func (o MonitorLocalHealthEventsConfigStatusPtrOutput) ToMonitorLocalHealthEventsConfigStatusPtrOutputWithContext(ctx context.Context) MonitorLocalHealthEventsConfigStatusPtrOutput {
+	return o
+}
+
+func (o MonitorLocalHealthEventsConfigStatusPtrOutput) Elem() MonitorLocalHealthEventsConfigStatusOutput {
+	return o.ApplyT(func(v *MonitorLocalHealthEventsConfigStatus) MonitorLocalHealthEventsConfigStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorLocalHealthEventsConfigStatus
+		return ret
+	}).(MonitorLocalHealthEventsConfigStatusOutput)
+}
+
+func (o MonitorLocalHealthEventsConfigStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorLocalHealthEventsConfigStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MonitorLocalHealthEventsConfigStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MonitorLocalHealthEventsConfigStatusInput is an input type that accepts MonitorLocalHealthEventsConfigStatusArgs and MonitorLocalHealthEventsConfigStatusOutput values.
+// You can construct a concrete instance of `MonitorLocalHealthEventsConfigStatusInput` via:
+//
+//	MonitorLocalHealthEventsConfigStatusArgs{...}
+type MonitorLocalHealthEventsConfigStatusInput interface {
+	pulumi.Input
+
+	ToMonitorLocalHealthEventsConfigStatusOutput() MonitorLocalHealthEventsConfigStatusOutput
+	ToMonitorLocalHealthEventsConfigStatusOutputWithContext(context.Context) MonitorLocalHealthEventsConfigStatusOutput
+}
+
+var monitorLocalHealthEventsConfigStatusPtrType = reflect.TypeOf((**MonitorLocalHealthEventsConfigStatus)(nil)).Elem()
+
+type MonitorLocalHealthEventsConfigStatusPtrInput interface {
+	pulumi.Input
+
+	ToMonitorLocalHealthEventsConfigStatusPtrOutput() MonitorLocalHealthEventsConfigStatusPtrOutput
+	ToMonitorLocalHealthEventsConfigStatusPtrOutputWithContext(context.Context) MonitorLocalHealthEventsConfigStatusPtrOutput
+}
+
+type monitorLocalHealthEventsConfigStatusPtr string
+
+func MonitorLocalHealthEventsConfigStatusPtr(v string) MonitorLocalHealthEventsConfigStatusPtrInput {
+	return (*monitorLocalHealthEventsConfigStatusPtr)(&v)
+}
+
+func (*monitorLocalHealthEventsConfigStatusPtr) ElementType() reflect.Type {
+	return monitorLocalHealthEventsConfigStatusPtrType
+}
+
+func (in *monitorLocalHealthEventsConfigStatusPtr) ToMonitorLocalHealthEventsConfigStatusPtrOutput() MonitorLocalHealthEventsConfigStatusPtrOutput {
+	return pulumi.ToOutput(in).(MonitorLocalHealthEventsConfigStatusPtrOutput)
+}
+
+func (in *monitorLocalHealthEventsConfigStatusPtr) ToMonitorLocalHealthEventsConfigStatusPtrOutputWithContext(ctx context.Context) MonitorLocalHealthEventsConfigStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MonitorLocalHealthEventsConfigStatusPtrOutput)
+}
+
 type MonitorProcessingStatusCode string
 
 const (
@@ -437,10 +601,14 @@ func (in *monitorS3ConfigLogDeliveryStatusPtr) ToMonitorS3ConfigLogDeliveryStatu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigStateInput)(nil)).Elem(), MonitorConfigState("PENDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigStatePtrInput)(nil)).Elem(), MonitorConfigState("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorLocalHealthEventsConfigStatusInput)(nil)).Elem(), MonitorLocalHealthEventsConfigStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorLocalHealthEventsConfigStatusPtrInput)(nil)).Elem(), MonitorLocalHealthEventsConfigStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorS3ConfigLogDeliveryStatusInput)(nil)).Elem(), MonitorS3ConfigLogDeliveryStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorS3ConfigLogDeliveryStatusPtrInput)(nil)).Elem(), MonitorS3ConfigLogDeliveryStatus("ENABLED"))
 	pulumi.RegisterOutputType(MonitorConfigStateOutput{})
 	pulumi.RegisterOutputType(MonitorConfigStatePtrOutput{})
+	pulumi.RegisterOutputType(MonitorLocalHealthEventsConfigStatusOutput{})
+	pulumi.RegisterOutputType(MonitorLocalHealthEventsConfigStatusPtrOutput{})
 	pulumi.RegisterOutputType(MonitorProcessingStatusCodeOutput{})
 	pulumi.RegisterOutputType(MonitorProcessingStatusCodePtrOutput{})
 	pulumi.RegisterOutputType(MonitorS3ConfigLogDeliveryStatusOutput{})

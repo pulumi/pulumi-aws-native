@@ -102,6 +102,500 @@ func (o AgentEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
+type LocationAzureBlobAzureAccessTier string
+
+const (
+	LocationAzureBlobAzureAccessTierHot     = LocationAzureBlobAzureAccessTier("HOT")
+	LocationAzureBlobAzureAccessTierCool    = LocationAzureBlobAzureAccessTier("COOL")
+	LocationAzureBlobAzureAccessTierArchive = LocationAzureBlobAzureAccessTier("ARCHIVE")
+)
+
+func (LocationAzureBlobAzureAccessTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureAccessTier)(nil)).Elem()
+}
+
+func (e LocationAzureBlobAzureAccessTier) ToLocationAzureBlobAzureAccessTierOutput() LocationAzureBlobAzureAccessTierOutput {
+	return pulumi.ToOutput(e).(LocationAzureBlobAzureAccessTierOutput)
+}
+
+func (e LocationAzureBlobAzureAccessTier) ToLocationAzureBlobAzureAccessTierOutputWithContext(ctx context.Context) LocationAzureBlobAzureAccessTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationAzureBlobAzureAccessTierOutput)
+}
+
+func (e LocationAzureBlobAzureAccessTier) ToLocationAzureBlobAzureAccessTierPtrOutput() LocationAzureBlobAzureAccessTierPtrOutput {
+	return e.ToLocationAzureBlobAzureAccessTierPtrOutputWithContext(context.Background())
+}
+
+func (e LocationAzureBlobAzureAccessTier) ToLocationAzureBlobAzureAccessTierPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureAccessTierPtrOutput {
+	return LocationAzureBlobAzureAccessTier(e).ToLocationAzureBlobAzureAccessTierOutputWithContext(ctx).ToLocationAzureBlobAzureAccessTierPtrOutputWithContext(ctx)
+}
+
+func (e LocationAzureBlobAzureAccessTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationAzureBlobAzureAccessTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationAzureBlobAzureAccessTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LocationAzureBlobAzureAccessTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LocationAzureBlobAzureAccessTierOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureAccessTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureAccessTier)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureAccessTierOutput) ToLocationAzureBlobAzureAccessTierOutput() LocationAzureBlobAzureAccessTierOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureAccessTierOutput) ToLocationAzureBlobAzureAccessTierOutputWithContext(ctx context.Context) LocationAzureBlobAzureAccessTierOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureAccessTierOutput) ToLocationAzureBlobAzureAccessTierPtrOutput() LocationAzureBlobAzureAccessTierPtrOutput {
+	return o.ToLocationAzureBlobAzureAccessTierPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureAccessTierOutput) ToLocationAzureBlobAzureAccessTierPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureAccessTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationAzureBlobAzureAccessTier) *LocationAzureBlobAzureAccessTier {
+		return &v
+	}).(LocationAzureBlobAzureAccessTierPtrOutput)
+}
+
+func (o LocationAzureBlobAzureAccessTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureAccessTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationAzureBlobAzureAccessTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LocationAzureBlobAzureAccessTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureAccessTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationAzureBlobAzureAccessTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationAzureBlobAzureAccessTierPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureAccessTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobAzureAccessTier)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureAccessTierPtrOutput) ToLocationAzureBlobAzureAccessTierPtrOutput() LocationAzureBlobAzureAccessTierPtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureAccessTierPtrOutput) ToLocationAzureBlobAzureAccessTierPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureAccessTierPtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureAccessTierPtrOutput) Elem() LocationAzureBlobAzureAccessTierOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureAccessTier) LocationAzureBlobAzureAccessTier {
+		if v != nil {
+			return *v
+		}
+		var ret LocationAzureBlobAzureAccessTier
+		return ret
+	}).(LocationAzureBlobAzureAccessTierOutput)
+}
+
+func (o LocationAzureBlobAzureAccessTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureAccessTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationAzureBlobAzureAccessTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LocationAzureBlobAzureAccessTierInput is an input type that accepts LocationAzureBlobAzureAccessTierArgs and LocationAzureBlobAzureAccessTierOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureAccessTierInput` via:
+//
+//	LocationAzureBlobAzureAccessTierArgs{...}
+type LocationAzureBlobAzureAccessTierInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureAccessTierOutput() LocationAzureBlobAzureAccessTierOutput
+	ToLocationAzureBlobAzureAccessTierOutputWithContext(context.Context) LocationAzureBlobAzureAccessTierOutput
+}
+
+var locationAzureBlobAzureAccessTierPtrType = reflect.TypeOf((**LocationAzureBlobAzureAccessTier)(nil)).Elem()
+
+type LocationAzureBlobAzureAccessTierPtrInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureAccessTierPtrOutput() LocationAzureBlobAzureAccessTierPtrOutput
+	ToLocationAzureBlobAzureAccessTierPtrOutputWithContext(context.Context) LocationAzureBlobAzureAccessTierPtrOutput
+}
+
+type locationAzureBlobAzureAccessTierPtr string
+
+func LocationAzureBlobAzureAccessTierPtr(v string) LocationAzureBlobAzureAccessTierPtrInput {
+	return (*locationAzureBlobAzureAccessTierPtr)(&v)
+}
+
+func (*locationAzureBlobAzureAccessTierPtr) ElementType() reflect.Type {
+	return locationAzureBlobAzureAccessTierPtrType
+}
+
+func (in *locationAzureBlobAzureAccessTierPtr) ToLocationAzureBlobAzureAccessTierPtrOutput() LocationAzureBlobAzureAccessTierPtrOutput {
+	return pulumi.ToOutput(in).(LocationAzureBlobAzureAccessTierPtrOutput)
+}
+
+func (in *locationAzureBlobAzureAccessTierPtr) ToLocationAzureBlobAzureAccessTierPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureAccessTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationAzureBlobAzureAccessTierPtrOutput)
+}
+
+// The specific authentication type that you want DataSync to use to access your Azure Blob Container.
+type LocationAzureBlobAzureBlobAuthenticationType string
+
+const (
+	LocationAzureBlobAzureBlobAuthenticationTypeSas = LocationAzureBlobAzureBlobAuthenticationType("SAS")
+)
+
+func (LocationAzureBlobAzureBlobAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureBlobAuthenticationType)(nil)).Elem()
+}
+
+func (e LocationAzureBlobAzureBlobAuthenticationType) ToLocationAzureBlobAzureBlobAuthenticationTypeOutput() LocationAzureBlobAzureBlobAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(LocationAzureBlobAzureBlobAuthenticationTypeOutput)
+}
+
+func (e LocationAzureBlobAzureBlobAuthenticationType) ToLocationAzureBlobAzureBlobAuthenticationTypeOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationAzureBlobAzureBlobAuthenticationTypeOutput)
+}
+
+func (e LocationAzureBlobAzureBlobAuthenticationType) ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutput() LocationAzureBlobAzureBlobAuthenticationTypePtrOutput {
+	return e.ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e LocationAzureBlobAzureBlobAuthenticationType) ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobAuthenticationTypePtrOutput {
+	return LocationAzureBlobAzureBlobAuthenticationType(e).ToLocationAzureBlobAzureBlobAuthenticationTypeOutputWithContext(ctx).ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e LocationAzureBlobAzureBlobAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationAzureBlobAzureBlobAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationAzureBlobAzureBlobAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LocationAzureBlobAzureBlobAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LocationAzureBlobAzureBlobAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureBlobAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureBlobAuthenticationType)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToLocationAzureBlobAzureBlobAuthenticationTypeOutput() LocationAzureBlobAzureBlobAuthenticationTypeOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToLocationAzureBlobAzureBlobAuthenticationTypeOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobAuthenticationTypeOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutput() LocationAzureBlobAzureBlobAuthenticationTypePtrOutput {
+	return o.ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationAzureBlobAzureBlobAuthenticationType) *LocationAzureBlobAzureBlobAuthenticationType {
+		return &v
+	}).(LocationAzureBlobAzureBlobAuthenticationTypePtrOutput)
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationAzureBlobAzureBlobAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationAzureBlobAzureBlobAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationAzureBlobAzureBlobAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobAzureBlobAuthenticationType)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutput() LocationAzureBlobAzureBlobAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) Elem() LocationAzureBlobAzureBlobAuthenticationTypeOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureBlobAuthenticationType) LocationAzureBlobAzureBlobAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret LocationAzureBlobAzureBlobAuthenticationType
+		return ret
+	}).(LocationAzureBlobAzureBlobAuthenticationTypeOutput)
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationAzureBlobAzureBlobAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LocationAzureBlobAzureBlobAuthenticationTypeInput is an input type that accepts LocationAzureBlobAzureBlobAuthenticationTypeArgs and LocationAzureBlobAzureBlobAuthenticationTypeOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureBlobAuthenticationTypeInput` via:
+//
+//	LocationAzureBlobAzureBlobAuthenticationTypeArgs{...}
+type LocationAzureBlobAzureBlobAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureBlobAuthenticationTypeOutput() LocationAzureBlobAzureBlobAuthenticationTypeOutput
+	ToLocationAzureBlobAzureBlobAuthenticationTypeOutputWithContext(context.Context) LocationAzureBlobAzureBlobAuthenticationTypeOutput
+}
+
+var locationAzureBlobAzureBlobAuthenticationTypePtrType = reflect.TypeOf((**LocationAzureBlobAzureBlobAuthenticationType)(nil)).Elem()
+
+type LocationAzureBlobAzureBlobAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutput() LocationAzureBlobAzureBlobAuthenticationTypePtrOutput
+	ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutputWithContext(context.Context) LocationAzureBlobAzureBlobAuthenticationTypePtrOutput
+}
+
+type locationAzureBlobAzureBlobAuthenticationTypePtr string
+
+func LocationAzureBlobAzureBlobAuthenticationTypePtr(v string) LocationAzureBlobAzureBlobAuthenticationTypePtrInput {
+	return (*locationAzureBlobAzureBlobAuthenticationTypePtr)(&v)
+}
+
+func (*locationAzureBlobAzureBlobAuthenticationTypePtr) ElementType() reflect.Type {
+	return locationAzureBlobAzureBlobAuthenticationTypePtrType
+}
+
+func (in *locationAzureBlobAzureBlobAuthenticationTypePtr) ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutput() LocationAzureBlobAzureBlobAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(LocationAzureBlobAzureBlobAuthenticationTypePtrOutput)
+}
+
+func (in *locationAzureBlobAzureBlobAuthenticationTypePtr) ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationAzureBlobAzureBlobAuthenticationTypePtrOutput)
+}
+
+// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
+type LocationAzureBlobAzureBlobType string
+
+const (
+	LocationAzureBlobAzureBlobTypeBlock = LocationAzureBlobAzureBlobType("BLOCK")
+)
+
+func (LocationAzureBlobAzureBlobType) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureBlobType)(nil)).Elem()
+}
+
+func (e LocationAzureBlobAzureBlobType) ToLocationAzureBlobAzureBlobTypeOutput() LocationAzureBlobAzureBlobTypeOutput {
+	return pulumi.ToOutput(e).(LocationAzureBlobAzureBlobTypeOutput)
+}
+
+func (e LocationAzureBlobAzureBlobType) ToLocationAzureBlobAzureBlobTypeOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationAzureBlobAzureBlobTypeOutput)
+}
+
+func (e LocationAzureBlobAzureBlobType) ToLocationAzureBlobAzureBlobTypePtrOutput() LocationAzureBlobAzureBlobTypePtrOutput {
+	return e.ToLocationAzureBlobAzureBlobTypePtrOutputWithContext(context.Background())
+}
+
+func (e LocationAzureBlobAzureBlobType) ToLocationAzureBlobAzureBlobTypePtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobTypePtrOutput {
+	return LocationAzureBlobAzureBlobType(e).ToLocationAzureBlobAzureBlobTypeOutputWithContext(ctx).ToLocationAzureBlobAzureBlobTypePtrOutputWithContext(ctx)
+}
+
+func (e LocationAzureBlobAzureBlobType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationAzureBlobAzureBlobType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationAzureBlobAzureBlobType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LocationAzureBlobAzureBlobType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LocationAzureBlobAzureBlobTypeOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureBlobTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureBlobType)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureBlobTypeOutput) ToLocationAzureBlobAzureBlobTypeOutput() LocationAzureBlobAzureBlobTypeOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobTypeOutput) ToLocationAzureBlobAzureBlobTypeOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobTypeOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobTypeOutput) ToLocationAzureBlobAzureBlobTypePtrOutput() LocationAzureBlobAzureBlobTypePtrOutput {
+	return o.ToLocationAzureBlobAzureBlobTypePtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureBlobTypeOutput) ToLocationAzureBlobAzureBlobTypePtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationAzureBlobAzureBlobType) *LocationAzureBlobAzureBlobType {
+		return &v
+	}).(LocationAzureBlobAzureBlobTypePtrOutput)
+}
+
+func (o LocationAzureBlobAzureBlobTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureBlobTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationAzureBlobAzureBlobType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LocationAzureBlobAzureBlobTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureBlobTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationAzureBlobAzureBlobType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationAzureBlobAzureBlobTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureBlobTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobAzureBlobType)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureBlobTypePtrOutput) ToLocationAzureBlobAzureBlobTypePtrOutput() LocationAzureBlobAzureBlobTypePtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobTypePtrOutput) ToLocationAzureBlobAzureBlobTypePtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobTypePtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobTypePtrOutput) Elem() LocationAzureBlobAzureBlobTypeOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureBlobType) LocationAzureBlobAzureBlobType {
+		if v != nil {
+			return *v
+		}
+		var ret LocationAzureBlobAzureBlobType
+		return ret
+	}).(LocationAzureBlobAzureBlobTypeOutput)
+}
+
+func (o LocationAzureBlobAzureBlobTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureBlobTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationAzureBlobAzureBlobType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LocationAzureBlobAzureBlobTypeInput is an input type that accepts LocationAzureBlobAzureBlobTypeArgs and LocationAzureBlobAzureBlobTypeOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureBlobTypeInput` via:
+//
+//	LocationAzureBlobAzureBlobTypeArgs{...}
+type LocationAzureBlobAzureBlobTypeInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureBlobTypeOutput() LocationAzureBlobAzureBlobTypeOutput
+	ToLocationAzureBlobAzureBlobTypeOutputWithContext(context.Context) LocationAzureBlobAzureBlobTypeOutput
+}
+
+var locationAzureBlobAzureBlobTypePtrType = reflect.TypeOf((**LocationAzureBlobAzureBlobType)(nil)).Elem()
+
+type LocationAzureBlobAzureBlobTypePtrInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureBlobTypePtrOutput() LocationAzureBlobAzureBlobTypePtrOutput
+	ToLocationAzureBlobAzureBlobTypePtrOutputWithContext(context.Context) LocationAzureBlobAzureBlobTypePtrOutput
+}
+
+type locationAzureBlobAzureBlobTypePtr string
+
+func LocationAzureBlobAzureBlobTypePtr(v string) LocationAzureBlobAzureBlobTypePtrInput {
+	return (*locationAzureBlobAzureBlobTypePtr)(&v)
+}
+
+func (*locationAzureBlobAzureBlobTypePtr) ElementType() reflect.Type {
+	return locationAzureBlobAzureBlobTypePtrType
+}
+
+func (in *locationAzureBlobAzureBlobTypePtr) ToLocationAzureBlobAzureBlobTypePtrOutput() LocationAzureBlobAzureBlobTypePtrOutput {
+	return pulumi.ToOutput(in).(LocationAzureBlobAzureBlobTypePtrOutput)
+}
+
+func (in *locationAzureBlobAzureBlobTypePtr) ToLocationAzureBlobAzureBlobTypePtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationAzureBlobAzureBlobTypePtrOutput)
+}
+
 // Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
 type LocationEfsInTransitEncryption string
 
@@ -4768,6 +5262,12 @@ func (o TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureAccessTierInput)(nil)).Elem(), LocationAzureBlobAzureAccessTier("HOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureAccessTierPtrInput)(nil)).Elem(), LocationAzureBlobAzureAccessTier("HOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureBlobAuthenticationTypeInput)(nil)).Elem(), LocationAzureBlobAzureBlobAuthenticationType("SAS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureBlobAuthenticationTypePtrInput)(nil)).Elem(), LocationAzureBlobAzureBlobAuthenticationType("SAS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureBlobTypeInput)(nil)).Elem(), LocationAzureBlobAzureBlobType("BLOCK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureBlobTypePtrInput)(nil)).Elem(), LocationAzureBlobAzureBlobType("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEfsInTransitEncryptionInput)(nil)).Elem(), LocationEfsInTransitEncryption("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEfsInTransitEncryptionPtrInput)(nil)).Elem(), LocationEfsInTransitEncryption("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapNfsMountOptionsVersionInput)(nil)).Elem(), LocationFSxOntapNfsMountOptionsVersion("AUTOMATIC"))
@@ -4824,6 +5324,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsVerifyModePtrInput)(nil)).Elem(), TaskOptionsVerifyMode("POINT_IN_TIME_CONSISTENT"))
 	pulumi.RegisterOutputType(AgentEndpointTypeOutput{})
 	pulumi.RegisterOutputType(AgentEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureAccessTierOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureAccessTierPtrOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureBlobAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureBlobAuthenticationTypePtrOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureBlobTypeOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureBlobTypePtrOutput{})
 	pulumi.RegisterOutputType(LocationEfsInTransitEncryptionOutput{})
 	pulumi.RegisterOutputType(LocationEfsInTransitEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxOntapNfsMountOptionsVersionOutput{})

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Glue.Inputs
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DatabaseIdentifierArgs()
         {
         }

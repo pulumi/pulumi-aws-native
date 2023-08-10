@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Omics
         [Output("maxDuration")]
         public Output<double?> MaxDuration { get; private set; } = null!;
 
+        [Output("maxGpus")]
+        public Output<double?> MaxGpus { get; private set; } = null!;
+
         [Output("maxRuns")]
         public Output<double?> MaxRuns { get; private set; } = null!;
 
@@ -86,6 +89,9 @@ namespace Pulumi.AwsNative.Omics
 
         [Input("maxDuration")]
         public Input<double>? MaxDuration { get; set; }
+
+        [Input("maxGpus")]
+        public Input<double>? MaxGpus { get; set; }
 
         [Input("maxRuns")]
         public Input<double>? MaxRuns { get; set; }

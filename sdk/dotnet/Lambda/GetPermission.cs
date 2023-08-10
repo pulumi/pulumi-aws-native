@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetPermissionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the Lambda function, version, or alias.
+        /// </summary>
+        [Input("functionName", required: true)]
+        public string FunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// A statement identifier that differentiates the statement from others in the same policy.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +47,15 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetPermissionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the Lambda function, version, or alias.
+        /// </summary>
+        [Input("functionName", required: true)]
+        public Input<string> FunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// A statement identifier that differentiates the statement from others in the same policy.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +69,9 @@ namespace Pulumi.AwsNative.Lambda
     [OutputType]
     public sealed class GetPermissionResult
     {
+        /// <summary>
+        /// A statement identifier that differentiates the statement from others in the same policy.
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

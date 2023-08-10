@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Glue.Outputs
         public readonly string? CatalogId;
         public readonly string? DatabaseName;
         public readonly string? Name;
+        public readonly string? Region;
 
         [OutputConstructor]
         private TableIdentifier(
@@ -23,11 +24,14 @@ namespace Pulumi.AwsNative.Glue.Outputs
 
             string? databaseName,
 
-            string? name)
+            string? name,
+
+            string? region)
         {
             CatalogId = catalogId;
             DatabaseName = databaseName;
             Name = name;
+            Region = region;
         }
     }
 }

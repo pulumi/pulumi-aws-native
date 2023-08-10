@@ -10,6 +10,706 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ChannelLogType string
+
+const (
+	ChannelLogTypeAsRun = ChannelLogType("AS_RUN")
+)
+
+func (ChannelLogType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLogType)(nil)).Elem()
+}
+
+func (e ChannelLogType) ToChannelLogTypeOutput() ChannelLogTypeOutput {
+	return pulumi.ToOutput(e).(ChannelLogTypeOutput)
+}
+
+func (e ChannelLogType) ToChannelLogTypeOutputWithContext(ctx context.Context) ChannelLogTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelLogTypeOutput)
+}
+
+func (e ChannelLogType) ToChannelLogTypePtrOutput() ChannelLogTypePtrOutput {
+	return e.ToChannelLogTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelLogType) ToChannelLogTypePtrOutputWithContext(ctx context.Context) ChannelLogTypePtrOutput {
+	return ChannelLogType(e).ToChannelLogTypeOutputWithContext(ctx).ToChannelLogTypePtrOutputWithContext(ctx)
+}
+
+func (e ChannelLogType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelLogType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelLogType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelLogType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelLogTypeOutput struct{ *pulumi.OutputState }
+
+func (ChannelLogTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLogType)(nil)).Elem()
+}
+
+func (o ChannelLogTypeOutput) ToChannelLogTypeOutput() ChannelLogTypeOutput {
+	return o
+}
+
+func (o ChannelLogTypeOutput) ToChannelLogTypeOutputWithContext(ctx context.Context) ChannelLogTypeOutput {
+	return o
+}
+
+func (o ChannelLogTypeOutput) ToChannelLogTypePtrOutput() ChannelLogTypePtrOutput {
+	return o.ToChannelLogTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelLogTypeOutput) ToChannelLogTypePtrOutputWithContext(ctx context.Context) ChannelLogTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelLogType) *ChannelLogType {
+		return &v
+	}).(ChannelLogTypePtrOutput)
+}
+
+func (o ChannelLogTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelLogTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelLogType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelLogTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelLogTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelLogType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelLogTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelLogTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLogType)(nil)).Elem()
+}
+
+func (o ChannelLogTypePtrOutput) ToChannelLogTypePtrOutput() ChannelLogTypePtrOutput {
+	return o
+}
+
+func (o ChannelLogTypePtrOutput) ToChannelLogTypePtrOutputWithContext(ctx context.Context) ChannelLogTypePtrOutput {
+	return o
+}
+
+func (o ChannelLogTypePtrOutput) Elem() ChannelLogTypeOutput {
+	return o.ApplyT(func(v *ChannelLogType) ChannelLogType {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelLogType
+		return ret
+	}).(ChannelLogTypeOutput)
+}
+
+func (o ChannelLogTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelLogType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelLogTypeInput is an input type that accepts ChannelLogTypeArgs and ChannelLogTypeOutput values.
+// You can construct a concrete instance of `ChannelLogTypeInput` via:
+//
+//	ChannelLogTypeArgs{...}
+type ChannelLogTypeInput interface {
+	pulumi.Input
+
+	ToChannelLogTypeOutput() ChannelLogTypeOutput
+	ToChannelLogTypeOutputWithContext(context.Context) ChannelLogTypeOutput
+}
+
+var channelLogTypePtrType = reflect.TypeOf((**ChannelLogType)(nil)).Elem()
+
+type ChannelLogTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelLogTypePtrOutput() ChannelLogTypePtrOutput
+	ToChannelLogTypePtrOutputWithContext(context.Context) ChannelLogTypePtrOutput
+}
+
+type channelLogTypePtr string
+
+func ChannelLogTypePtr(v string) ChannelLogTypePtrInput {
+	return (*channelLogTypePtr)(&v)
+}
+
+func (*channelLogTypePtr) ElementType() reflect.Type {
+	return channelLogTypePtrType
+}
+
+func (in *channelLogTypePtr) ToChannelLogTypePtrOutput() ChannelLogTypePtrOutput {
+	return pulumi.ToOutput(in).(ChannelLogTypePtrOutput)
+}
+
+func (in *channelLogTypePtr) ToChannelLogTypePtrOutputWithContext(ctx context.Context) ChannelLogTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelLogTypePtrOutput)
+}
+
+// ChannelLogTypeArrayInput is an input type that accepts ChannelLogTypeArray and ChannelLogTypeArrayOutput values.
+// You can construct a concrete instance of `ChannelLogTypeArrayInput` via:
+//
+//	ChannelLogTypeArray{ ChannelLogTypeArgs{...} }
+type ChannelLogTypeArrayInput interface {
+	pulumi.Input
+
+	ToChannelLogTypeArrayOutput() ChannelLogTypeArrayOutput
+	ToChannelLogTypeArrayOutputWithContext(context.Context) ChannelLogTypeArrayOutput
+}
+
+type ChannelLogTypeArray []ChannelLogType
+
+func (ChannelLogTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelLogType)(nil)).Elem()
+}
+
+func (i ChannelLogTypeArray) ToChannelLogTypeArrayOutput() ChannelLogTypeArrayOutput {
+	return i.ToChannelLogTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelLogTypeArray) ToChannelLogTypeArrayOutputWithContext(ctx context.Context) ChannelLogTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogTypeArrayOutput)
+}
+
+type ChannelLogTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelLogTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelLogType)(nil)).Elem()
+}
+
+func (o ChannelLogTypeArrayOutput) ToChannelLogTypeArrayOutput() ChannelLogTypeArrayOutput {
+	return o
+}
+
+func (o ChannelLogTypeArrayOutput) ToChannelLogTypeArrayOutputWithContext(ctx context.Context) ChannelLogTypeArrayOutput {
+	return o
+}
+
+func (o ChannelLogTypeArrayOutput) Index(i pulumi.IntInput) ChannelLogTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelLogType {
+		return vs[0].([]ChannelLogType)[vs[1].(int)]
+	}).(ChannelLogTypeOutput)
+}
+
+type ChannelPlaybackMode string
+
+const (
+	ChannelPlaybackModeLoop   = ChannelPlaybackMode("LOOP")
+	ChannelPlaybackModeLinear = ChannelPlaybackMode("LINEAR")
+)
+
+func (ChannelPlaybackMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPlaybackMode)(nil)).Elem()
+}
+
+func (e ChannelPlaybackMode) ToChannelPlaybackModeOutput() ChannelPlaybackModeOutput {
+	return pulumi.ToOutput(e).(ChannelPlaybackModeOutput)
+}
+
+func (e ChannelPlaybackMode) ToChannelPlaybackModeOutputWithContext(ctx context.Context) ChannelPlaybackModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelPlaybackModeOutput)
+}
+
+func (e ChannelPlaybackMode) ToChannelPlaybackModePtrOutput() ChannelPlaybackModePtrOutput {
+	return e.ToChannelPlaybackModePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelPlaybackMode) ToChannelPlaybackModePtrOutputWithContext(ctx context.Context) ChannelPlaybackModePtrOutput {
+	return ChannelPlaybackMode(e).ToChannelPlaybackModeOutputWithContext(ctx).ToChannelPlaybackModePtrOutputWithContext(ctx)
+}
+
+func (e ChannelPlaybackMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelPlaybackMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelPlaybackMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelPlaybackMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelPlaybackModeOutput struct{ *pulumi.OutputState }
+
+func (ChannelPlaybackModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPlaybackMode)(nil)).Elem()
+}
+
+func (o ChannelPlaybackModeOutput) ToChannelPlaybackModeOutput() ChannelPlaybackModeOutput {
+	return o
+}
+
+func (o ChannelPlaybackModeOutput) ToChannelPlaybackModeOutputWithContext(ctx context.Context) ChannelPlaybackModeOutput {
+	return o
+}
+
+func (o ChannelPlaybackModeOutput) ToChannelPlaybackModePtrOutput() ChannelPlaybackModePtrOutput {
+	return o.ToChannelPlaybackModePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPlaybackModeOutput) ToChannelPlaybackModePtrOutputWithContext(ctx context.Context) ChannelPlaybackModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelPlaybackMode) *ChannelPlaybackMode {
+		return &v
+	}).(ChannelPlaybackModePtrOutput)
+}
+
+func (o ChannelPlaybackModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelPlaybackModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelPlaybackMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelPlaybackModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPlaybackModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelPlaybackMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelPlaybackModePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelPlaybackModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelPlaybackMode)(nil)).Elem()
+}
+
+func (o ChannelPlaybackModePtrOutput) ToChannelPlaybackModePtrOutput() ChannelPlaybackModePtrOutput {
+	return o
+}
+
+func (o ChannelPlaybackModePtrOutput) ToChannelPlaybackModePtrOutputWithContext(ctx context.Context) ChannelPlaybackModePtrOutput {
+	return o
+}
+
+func (o ChannelPlaybackModePtrOutput) Elem() ChannelPlaybackModeOutput {
+	return o.ApplyT(func(v *ChannelPlaybackMode) ChannelPlaybackMode {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelPlaybackMode
+		return ret
+	}).(ChannelPlaybackModeOutput)
+}
+
+func (o ChannelPlaybackModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPlaybackModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelPlaybackMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelPlaybackModeInput is an input type that accepts ChannelPlaybackModeArgs and ChannelPlaybackModeOutput values.
+// You can construct a concrete instance of `ChannelPlaybackModeInput` via:
+//
+//	ChannelPlaybackModeArgs{...}
+type ChannelPlaybackModeInput interface {
+	pulumi.Input
+
+	ToChannelPlaybackModeOutput() ChannelPlaybackModeOutput
+	ToChannelPlaybackModeOutputWithContext(context.Context) ChannelPlaybackModeOutput
+}
+
+var channelPlaybackModePtrType = reflect.TypeOf((**ChannelPlaybackMode)(nil)).Elem()
+
+type ChannelPlaybackModePtrInput interface {
+	pulumi.Input
+
+	ToChannelPlaybackModePtrOutput() ChannelPlaybackModePtrOutput
+	ToChannelPlaybackModePtrOutputWithContext(context.Context) ChannelPlaybackModePtrOutput
+}
+
+type channelPlaybackModePtr string
+
+func ChannelPlaybackModePtr(v string) ChannelPlaybackModePtrInput {
+	return (*channelPlaybackModePtr)(&v)
+}
+
+func (*channelPlaybackModePtr) ElementType() reflect.Type {
+	return channelPlaybackModePtrType
+}
+
+func (in *channelPlaybackModePtr) ToChannelPlaybackModePtrOutput() ChannelPlaybackModePtrOutput {
+	return pulumi.ToOutput(in).(ChannelPlaybackModePtrOutput)
+}
+
+func (in *channelPlaybackModePtr) ToChannelPlaybackModePtrOutputWithContext(ctx context.Context) ChannelPlaybackModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelPlaybackModePtrOutput)
+}
+
+type ChannelTier string
+
+const (
+	ChannelTierBasic    = ChannelTier("BASIC")
+	ChannelTierStandard = ChannelTier("STANDARD")
+)
+
+func (ChannelTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTier)(nil)).Elem()
+}
+
+func (e ChannelTier) ToChannelTierOutput() ChannelTierOutput {
+	return pulumi.ToOutput(e).(ChannelTierOutput)
+}
+
+func (e ChannelTier) ToChannelTierOutputWithContext(ctx context.Context) ChannelTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelTierOutput)
+}
+
+func (e ChannelTier) ToChannelTierPtrOutput() ChannelTierPtrOutput {
+	return e.ToChannelTierPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelTier) ToChannelTierPtrOutputWithContext(ctx context.Context) ChannelTierPtrOutput {
+	return ChannelTier(e).ToChannelTierOutputWithContext(ctx).ToChannelTierPtrOutputWithContext(ctx)
+}
+
+func (e ChannelTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelTierOutput struct{ *pulumi.OutputState }
+
+func (ChannelTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTier)(nil)).Elem()
+}
+
+func (o ChannelTierOutput) ToChannelTierOutput() ChannelTierOutput {
+	return o
+}
+
+func (o ChannelTierOutput) ToChannelTierOutputWithContext(ctx context.Context) ChannelTierOutput {
+	return o
+}
+
+func (o ChannelTierOutput) ToChannelTierPtrOutput() ChannelTierPtrOutput {
+	return o.ToChannelTierPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelTierOutput) ToChannelTierPtrOutputWithContext(ctx context.Context) ChannelTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelTier) *ChannelTier {
+		return &v
+	}).(ChannelTierPtrOutput)
+}
+
+func (o ChannelTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelTierPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTier)(nil)).Elem()
+}
+
+func (o ChannelTierPtrOutput) ToChannelTierPtrOutput() ChannelTierPtrOutput {
+	return o
+}
+
+func (o ChannelTierPtrOutput) ToChannelTierPtrOutputWithContext(ctx context.Context) ChannelTierPtrOutput {
+	return o
+}
+
+func (o ChannelTierPtrOutput) Elem() ChannelTierOutput {
+	return o.ApplyT(func(v *ChannelTier) ChannelTier {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelTier
+		return ret
+	}).(ChannelTierOutput)
+}
+
+func (o ChannelTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelTierInput is an input type that accepts ChannelTierArgs and ChannelTierOutput values.
+// You can construct a concrete instance of `ChannelTierInput` via:
+//
+//	ChannelTierArgs{...}
+type ChannelTierInput interface {
+	pulumi.Input
+
+	ToChannelTierOutput() ChannelTierOutput
+	ToChannelTierOutputWithContext(context.Context) ChannelTierOutput
+}
+
+var channelTierPtrType = reflect.TypeOf((**ChannelTier)(nil)).Elem()
+
+type ChannelTierPtrInput interface {
+	pulumi.Input
+
+	ToChannelTierPtrOutput() ChannelTierPtrOutput
+	ToChannelTierPtrOutputWithContext(context.Context) ChannelTierPtrOutput
+}
+
+type channelTierPtr string
+
+func ChannelTierPtr(v string) ChannelTierPtrInput {
+	return (*channelTierPtr)(&v)
+}
+
+func (*channelTierPtr) ElementType() reflect.Type {
+	return channelTierPtrType
+}
+
+func (in *channelTierPtr) ToChannelTierPtrOutput() ChannelTierPtrOutput {
+	return pulumi.ToOutput(in).(ChannelTierPtrOutput)
+}
+
+func (in *channelTierPtr) ToChannelTierPtrOutputWithContext(ctx context.Context) ChannelTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelTierPtrOutput)
+}
+
+type LiveSourceType string
+
+const (
+	LiveSourceTypeDash = LiveSourceType("DASH")
+	LiveSourceTypeHls  = LiveSourceType("HLS")
+)
+
+func (LiveSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveSourceType)(nil)).Elem()
+}
+
+func (e LiveSourceType) ToLiveSourceTypeOutput() LiveSourceTypeOutput {
+	return pulumi.ToOutput(e).(LiveSourceTypeOutput)
+}
+
+func (e LiveSourceType) ToLiveSourceTypeOutputWithContext(ctx context.Context) LiveSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LiveSourceTypeOutput)
+}
+
+func (e LiveSourceType) ToLiveSourceTypePtrOutput() LiveSourceTypePtrOutput {
+	return e.ToLiveSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e LiveSourceType) ToLiveSourceTypePtrOutputWithContext(ctx context.Context) LiveSourceTypePtrOutput {
+	return LiveSourceType(e).ToLiveSourceTypeOutputWithContext(ctx).ToLiveSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e LiveSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LiveSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LiveSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LiveSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LiveSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (LiveSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveSourceType)(nil)).Elem()
+}
+
+func (o LiveSourceTypeOutput) ToLiveSourceTypeOutput() LiveSourceTypeOutput {
+	return o
+}
+
+func (o LiveSourceTypeOutput) ToLiveSourceTypeOutputWithContext(ctx context.Context) LiveSourceTypeOutput {
+	return o
+}
+
+func (o LiveSourceTypeOutput) ToLiveSourceTypePtrOutput() LiveSourceTypePtrOutput {
+	return o.ToLiveSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o LiveSourceTypeOutput) ToLiveSourceTypePtrOutputWithContext(ctx context.Context) LiveSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveSourceType) *LiveSourceType {
+		return &v
+	}).(LiveSourceTypePtrOutput)
+}
+
+func (o LiveSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LiveSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LiveSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LiveSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LiveSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LiveSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LiveSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LiveSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveSourceType)(nil)).Elem()
+}
+
+func (o LiveSourceTypePtrOutput) ToLiveSourceTypePtrOutput() LiveSourceTypePtrOutput {
+	return o
+}
+
+func (o LiveSourceTypePtrOutput) ToLiveSourceTypePtrOutputWithContext(ctx context.Context) LiveSourceTypePtrOutput {
+	return o
+}
+
+func (o LiveSourceTypePtrOutput) Elem() LiveSourceTypeOutput {
+	return o.ApplyT(func(v *LiveSourceType) LiveSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret LiveSourceType
+		return ret
+	}).(LiveSourceTypeOutput)
+}
+
+func (o LiveSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LiveSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LiveSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LiveSourceTypeInput is an input type that accepts LiveSourceTypeArgs and LiveSourceTypeOutput values.
+// You can construct a concrete instance of `LiveSourceTypeInput` via:
+//
+//	LiveSourceTypeArgs{...}
+type LiveSourceTypeInput interface {
+	pulumi.Input
+
+	ToLiveSourceTypeOutput() LiveSourceTypeOutput
+	ToLiveSourceTypeOutputWithContext(context.Context) LiveSourceTypeOutput
+}
+
+var liveSourceTypePtrType = reflect.TypeOf((**LiveSourceType)(nil)).Elem()
+
+type LiveSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToLiveSourceTypePtrOutput() LiveSourceTypePtrOutput
+	ToLiveSourceTypePtrOutputWithContext(context.Context) LiveSourceTypePtrOutput
+}
+
+type liveSourceTypePtr string
+
+func LiveSourceTypePtr(v string) LiveSourceTypePtrInput {
+	return (*liveSourceTypePtr)(&v)
+}
+
+func (*liveSourceTypePtr) ElementType() reflect.Type {
+	return liveSourceTypePtrType
+}
+
+func (in *liveSourceTypePtr) ToLiveSourceTypePtrOutput() LiveSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(LiveSourceTypePtrOutput)
+}
+
+func (in *liveSourceTypePtr) ToLiveSourceTypePtrOutputWithContext(ctx context.Context) LiveSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LiveSourceTypePtrOutput)
+}
+
 // Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
 type PlaybackConfigurationAvailSuppressionMode string
 
@@ -340,13 +1040,367 @@ func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToPlaybac
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
 }
 
+type SourceLocationAccessType string
+
+const (
+	SourceLocationAccessTypeS3Sigv4                   = SourceLocationAccessType("S3_SIGV4")
+	SourceLocationAccessTypeSecretsManagerAccessToken = SourceLocationAccessType("SECRETS_MANAGER_ACCESS_TOKEN")
+)
+
+func (SourceLocationAccessType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationAccessType)(nil)).Elem()
+}
+
+func (e SourceLocationAccessType) ToSourceLocationAccessTypeOutput() SourceLocationAccessTypeOutput {
+	return pulumi.ToOutput(e).(SourceLocationAccessTypeOutput)
+}
+
+func (e SourceLocationAccessType) ToSourceLocationAccessTypeOutputWithContext(ctx context.Context) SourceLocationAccessTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SourceLocationAccessTypeOutput)
+}
+
+func (e SourceLocationAccessType) ToSourceLocationAccessTypePtrOutput() SourceLocationAccessTypePtrOutput {
+	return e.ToSourceLocationAccessTypePtrOutputWithContext(context.Background())
+}
+
+func (e SourceLocationAccessType) ToSourceLocationAccessTypePtrOutputWithContext(ctx context.Context) SourceLocationAccessTypePtrOutput {
+	return SourceLocationAccessType(e).ToSourceLocationAccessTypeOutputWithContext(ctx).ToSourceLocationAccessTypePtrOutputWithContext(ctx)
+}
+
+func (e SourceLocationAccessType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceLocationAccessType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceLocationAccessType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SourceLocationAccessType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SourceLocationAccessTypeOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationAccessTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLocationAccessType)(nil)).Elem()
+}
+
+func (o SourceLocationAccessTypeOutput) ToSourceLocationAccessTypeOutput() SourceLocationAccessTypeOutput {
+	return o
+}
+
+func (o SourceLocationAccessTypeOutput) ToSourceLocationAccessTypeOutputWithContext(ctx context.Context) SourceLocationAccessTypeOutput {
+	return o
+}
+
+func (o SourceLocationAccessTypeOutput) ToSourceLocationAccessTypePtrOutput() SourceLocationAccessTypePtrOutput {
+	return o.ToSourceLocationAccessTypePtrOutputWithContext(context.Background())
+}
+
+func (o SourceLocationAccessTypeOutput) ToSourceLocationAccessTypePtrOutputWithContext(ctx context.Context) SourceLocationAccessTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceLocationAccessType) *SourceLocationAccessType {
+		return &v
+	}).(SourceLocationAccessTypePtrOutput)
+}
+
+func (o SourceLocationAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceLocationAccessTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceLocationAccessType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceLocationAccessTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceLocationAccessTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceLocationAccessType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceLocationAccessTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceLocationAccessTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceLocationAccessType)(nil)).Elem()
+}
+
+func (o SourceLocationAccessTypePtrOutput) ToSourceLocationAccessTypePtrOutput() SourceLocationAccessTypePtrOutput {
+	return o
+}
+
+func (o SourceLocationAccessTypePtrOutput) ToSourceLocationAccessTypePtrOutputWithContext(ctx context.Context) SourceLocationAccessTypePtrOutput {
+	return o
+}
+
+func (o SourceLocationAccessTypePtrOutput) Elem() SourceLocationAccessTypeOutput {
+	return o.ApplyT(func(v *SourceLocationAccessType) SourceLocationAccessType {
+		if v != nil {
+			return *v
+		}
+		var ret SourceLocationAccessType
+		return ret
+	}).(SourceLocationAccessTypeOutput)
+}
+
+func (o SourceLocationAccessTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceLocationAccessTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceLocationAccessType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SourceLocationAccessTypeInput is an input type that accepts SourceLocationAccessTypeArgs and SourceLocationAccessTypeOutput values.
+// You can construct a concrete instance of `SourceLocationAccessTypeInput` via:
+//
+//	SourceLocationAccessTypeArgs{...}
+type SourceLocationAccessTypeInput interface {
+	pulumi.Input
+
+	ToSourceLocationAccessTypeOutput() SourceLocationAccessTypeOutput
+	ToSourceLocationAccessTypeOutputWithContext(context.Context) SourceLocationAccessTypeOutput
+}
+
+var sourceLocationAccessTypePtrType = reflect.TypeOf((**SourceLocationAccessType)(nil)).Elem()
+
+type SourceLocationAccessTypePtrInput interface {
+	pulumi.Input
+
+	ToSourceLocationAccessTypePtrOutput() SourceLocationAccessTypePtrOutput
+	ToSourceLocationAccessTypePtrOutputWithContext(context.Context) SourceLocationAccessTypePtrOutput
+}
+
+type sourceLocationAccessTypePtr string
+
+func SourceLocationAccessTypePtr(v string) SourceLocationAccessTypePtrInput {
+	return (*sourceLocationAccessTypePtr)(&v)
+}
+
+func (*sourceLocationAccessTypePtr) ElementType() reflect.Type {
+	return sourceLocationAccessTypePtrType
+}
+
+func (in *sourceLocationAccessTypePtr) ToSourceLocationAccessTypePtrOutput() SourceLocationAccessTypePtrOutput {
+	return pulumi.ToOutput(in).(SourceLocationAccessTypePtrOutput)
+}
+
+func (in *sourceLocationAccessTypePtr) ToSourceLocationAccessTypePtrOutputWithContext(ctx context.Context) SourceLocationAccessTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SourceLocationAccessTypePtrOutput)
+}
+
+type VodSourceType string
+
+const (
+	VodSourceTypeDash = VodSourceType("DASH")
+	VodSourceTypeHls  = VodSourceType("HLS")
+)
+
+func (VodSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VodSourceType)(nil)).Elem()
+}
+
+func (e VodSourceType) ToVodSourceTypeOutput() VodSourceTypeOutput {
+	return pulumi.ToOutput(e).(VodSourceTypeOutput)
+}
+
+func (e VodSourceType) ToVodSourceTypeOutputWithContext(ctx context.Context) VodSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VodSourceTypeOutput)
+}
+
+func (e VodSourceType) ToVodSourceTypePtrOutput() VodSourceTypePtrOutput {
+	return e.ToVodSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e VodSourceType) ToVodSourceTypePtrOutputWithContext(ctx context.Context) VodSourceTypePtrOutput {
+	return VodSourceType(e).ToVodSourceTypeOutputWithContext(ctx).ToVodSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e VodSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VodSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VodSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VodSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VodSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (VodSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VodSourceType)(nil)).Elem()
+}
+
+func (o VodSourceTypeOutput) ToVodSourceTypeOutput() VodSourceTypeOutput {
+	return o
+}
+
+func (o VodSourceTypeOutput) ToVodSourceTypeOutputWithContext(ctx context.Context) VodSourceTypeOutput {
+	return o
+}
+
+func (o VodSourceTypeOutput) ToVodSourceTypePtrOutput() VodSourceTypePtrOutput {
+	return o.ToVodSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o VodSourceTypeOutput) ToVodSourceTypePtrOutputWithContext(ctx context.Context) VodSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VodSourceType) *VodSourceType {
+		return &v
+	}).(VodSourceTypePtrOutput)
+}
+
+func (o VodSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VodSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VodSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VodSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VodSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VodSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VodSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (VodSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VodSourceType)(nil)).Elem()
+}
+
+func (o VodSourceTypePtrOutput) ToVodSourceTypePtrOutput() VodSourceTypePtrOutput {
+	return o
+}
+
+func (o VodSourceTypePtrOutput) ToVodSourceTypePtrOutputWithContext(ctx context.Context) VodSourceTypePtrOutput {
+	return o
+}
+
+func (o VodSourceTypePtrOutput) Elem() VodSourceTypeOutput {
+	return o.ApplyT(func(v *VodSourceType) VodSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret VodSourceType
+		return ret
+	}).(VodSourceTypeOutput)
+}
+
+func (o VodSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VodSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VodSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VodSourceTypeInput is an input type that accepts VodSourceTypeArgs and VodSourceTypeOutput values.
+// You can construct a concrete instance of `VodSourceTypeInput` via:
+//
+//	VodSourceTypeArgs{...}
+type VodSourceTypeInput interface {
+	pulumi.Input
+
+	ToVodSourceTypeOutput() VodSourceTypeOutput
+	ToVodSourceTypeOutputWithContext(context.Context) VodSourceTypeOutput
+}
+
+var vodSourceTypePtrType = reflect.TypeOf((**VodSourceType)(nil)).Elem()
+
+type VodSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToVodSourceTypePtrOutput() VodSourceTypePtrOutput
+	ToVodSourceTypePtrOutputWithContext(context.Context) VodSourceTypePtrOutput
+}
+
+type vodSourceTypePtr string
+
+func VodSourceTypePtr(v string) VodSourceTypePtrInput {
+	return (*vodSourceTypePtr)(&v)
+}
+
+func (*vodSourceTypePtr) ElementType() reflect.Type {
+	return vodSourceTypePtrType
+}
+
+func (in *vodSourceTypePtr) ToVodSourceTypePtrOutput() VodSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(VodSourceTypePtrOutput)
+}
+
+func (in *vodSourceTypePtr) ToVodSourceTypePtrOutputWithContext(ctx context.Context) VodSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VodSourceTypePtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogTypeInput)(nil)).Elem(), ChannelLogType("AS_RUN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogTypePtrInput)(nil)).Elem(), ChannelLogType("AS_RUN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogTypeArrayInput)(nil)).Elem(), ChannelLogTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPlaybackModeInput)(nil)).Elem(), ChannelPlaybackMode("LOOP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPlaybackModePtrInput)(nil)).Elem(), ChannelPlaybackMode("LOOP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTierInput)(nil)).Elem(), ChannelTier("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTierPtrInput)(nil)).Elem(), ChannelTier("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTypeInput)(nil)).Elem(), LiveSourceType("DASH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTypePtrInput)(nil)).Elem(), LiveSourceType("DASH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModeInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModePtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypeInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypePtrInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessTypeInput)(nil)).Elem(), SourceLocationAccessType("S3_SIGV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessTypePtrInput)(nil)).Elem(), SourceLocationAccessType("S3_SIGV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTypeInput)(nil)).Elem(), VodSourceType("DASH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTypePtrInput)(nil)).Elem(), VodSourceType("DASH"))
+	pulumi.RegisterOutputType(ChannelLogTypeOutput{})
+	pulumi.RegisterOutputType(ChannelLogTypePtrOutput{})
+	pulumi.RegisterOutputType(ChannelLogTypeArrayOutput{})
+	pulumi.RegisterOutputType(ChannelPlaybackModeOutput{})
+	pulumi.RegisterOutputType(ChannelPlaybackModePtrOutput{})
+	pulumi.RegisterOutputType(ChannelTierOutput{})
+	pulumi.RegisterOutputType(ChannelTierPtrOutput{})
+	pulumi.RegisterOutputType(LiveSourceTypeOutput{})
+	pulumi.RegisterOutputType(LiveSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput{})
+	pulumi.RegisterOutputType(SourceLocationAccessTypeOutput{})
+	pulumi.RegisterOutputType(SourceLocationAccessTypePtrOutput{})
+	pulumi.RegisterOutputType(VodSourceTypeOutput{})
+	pulumi.RegisterOutputType(VodSourceTypePtrOutput{})
 }

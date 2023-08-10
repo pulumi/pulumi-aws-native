@@ -171,6 +171,7 @@ class DataSourceType(str, Enum):
     GOOGLEDRIVE = "GOOGLEDRIVE"
     WEBCRAWLER = "WEBCRAWLER"
     WORKDOCS = "WORKDOCS"
+    TEMPLATE = "TEMPLATE"
 
 
 class DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode(str, Enum):

@@ -18,47 +18,29 @@ __all__ = [
 
 @pulumi.output_type
 class GetNetworkInterfaceAttachmentResult:
-    def __init__(__self__, delete_on_termination=None, device_index=None, id=None, instance_id=None, network_interface_id=None):
+    def __init__(__self__, attachment_id=None, delete_on_termination=None):
+        if attachment_id and not isinstance(attachment_id, str):
+            raise TypeError("Expected argument 'attachment_id' to be a str")
+        pulumi.set(__self__, "attachment_id", attachment_id)
         if delete_on_termination and not isinstance(delete_on_termination, bool):
             raise TypeError("Expected argument 'delete_on_termination' to be a bool")
         pulumi.set(__self__, "delete_on_termination", delete_on_termination)
-        if device_index and not isinstance(device_index, str):
-            raise TypeError("Expected argument 'device_index' to be a str")
-        pulumi.set(__self__, "device_index", device_index)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
-        if instance_id and not isinstance(instance_id, str):
-            raise TypeError("Expected argument 'instance_id' to be a str")
-        pulumi.set(__self__, "instance_id", instance_id)
-        if network_interface_id and not isinstance(network_interface_id, str):
-            raise TypeError("Expected argument 'network_interface_id' to be a str")
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+
+    @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[str]:
+        """
+        The ID of the network interface attachment.
+        """
+        return pulumi.get(self, "attachment_id")
 
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[bool]:
+        """
+        Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        """
         return pulumi.get(self, "delete_on_termination")
-
-    @property
-    @pulumi.getter(name="deviceIndex")
-    def device_index(self) -> Optional[str]:
-        return pulumi.get(self, "device_index")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[str]:
-        return pulumi.get(self, "instance_id")
-
-    @property
-    @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[str]:
-        return pulumi.get(self, "network_interface_id")
 
 
 class AwaitableGetNetworkInterfaceAttachmentResult(GetNetworkInterfaceAttachmentResult):
@@ -67,35 +49,35 @@ class AwaitableGetNetworkInterfaceAttachmentResult(GetNetworkInterfaceAttachment
         if False:
             yield self
         return GetNetworkInterfaceAttachmentResult(
-            delete_on_termination=self.delete_on_termination,
-            device_index=self.device_index,
-            id=self.id,
-            instance_id=self.instance_id,
-            network_interface_id=self.network_interface_id)
+            attachment_id=self.attachment_id,
+            delete_on_termination=self.delete_on_termination)
 
 
-def get_network_interface_attachment(id: Optional[str] = None,
+def get_network_interface_attachment(attachment_id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceAttachmentResult:
     """
     Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+
+
+    :param str attachment_id: The ID of the network interface attachment.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['attachmentId'] = attachment_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkInterfaceAttachment', __args__, opts=opts, typ=GetNetworkInterfaceAttachmentResult).value
 
     return AwaitableGetNetworkInterfaceAttachmentResult(
-        delete_on_termination=pulumi.get(__ret__, 'delete_on_termination'),
-        device_index=pulumi.get(__ret__, 'device_index'),
-        id=pulumi.get(__ret__, 'id'),
-        instance_id=pulumi.get(__ret__, 'instance_id'),
-        network_interface_id=pulumi.get(__ret__, 'network_interface_id'))
+        attachment_id=pulumi.get(__ret__, 'attachment_id'),
+        delete_on_termination=pulumi.get(__ret__, 'delete_on_termination'))
 
 
 @_utilities.lift_output_func(get_network_interface_attachment)
-def get_network_interface_attachment_output(id: Optional[pulumi.Input[str]] = None,
+def get_network_interface_attachment_output(attachment_id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceAttachmentResult]:
     """
     Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+
+
+    :param str attachment_id: The ID of the network interface attachment.
     """
     ...

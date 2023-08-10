@@ -13,6 +13,7 @@ __all__ = [
     'SequenceStoreEncryptionType',
     'VariantStoreEncryptionType',
     'VariantStoreStoreStatus',
+    'WorkflowAccelerators',
     'WorkflowEngine',
     'WorkflowStatus',
     'WorkflowType',
@@ -67,9 +68,14 @@ class VariantStoreStoreStatus(str, Enum):
     FAILED = "FAILED"
 
 
+class WorkflowAccelerators(str, Enum):
+    GPU = "GPU"
+
+
 class WorkflowEngine(str, Enum):
     WDL = "WDL"
     NEXTFLOW = "NEXTFLOW"
+    CWL = "CWL"
 
 
 class WorkflowStatus(str, Enum):

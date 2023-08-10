@@ -38,23 +38,29 @@ type LookupDbClusterResult struct {
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// Provides the name of the DB cluster parameter group.
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
+	// The port number on which the DB instances in the DB cluster accept connections.
+	//
+	// If not specified, the default port used is `8182`.
+	//
+	// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+	DbPort *int `pulumi:"dbPort"`
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
-	// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+	// The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
 	Endpoint *string `pulumi:"endpoint"`
 	// Indicates the database engine version.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled *bool `pulumi:"iamAuthEnabled"`
-	// Specifies the port that the database engine is listening on.
+	// The port number on which the DB cluster accepts connections. For example: `8182`.
 	Port *string `pulumi:"port"`
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+	// The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
 	ReadEndpoint *string `pulumi:"readEndpoint"`
 	// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
 	ServerlessScalingConfiguration *DbClusterServerlessScalingConfiguration `pulumi:"serverlessScalingConfiguration"`
@@ -125,6 +131,15 @@ func (o LookupDbClusterResultOutput) DbClusterParameterGroupName() pulumi.String
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.DbClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The port number on which the DB instances in the DB cluster accept connections.
+//
+// If not specified, the default port used is `8182`.
+//
+// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+func (o LookupDbClusterResultOutput) DbPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) *int { return v.DbPort }).(pulumi.IntPtrOutput)
+}
+
 // Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
 func (o LookupDbClusterResultOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
@@ -135,7 +150,7 @@ func (o LookupDbClusterResultOutput) EnableCloudwatchLogsExports() pulumi.String
 	return o.ApplyT(func(v LookupDbClusterResult) []string { return v.EnableCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }
 
-// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+// The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
 func (o LookupDbClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
@@ -150,7 +165,7 @@ func (o LookupDbClusterResultOutput) IamAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.IamAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the port that the database engine is listening on.
+// The port number on which the DB cluster accepts connections. For example: `8182`.
 func (o LookupDbClusterResultOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -165,7 +180,7 @@ func (o LookupDbClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringP
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+// The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
 func (o LookupDbClusterResultOutput) ReadEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.ReadEndpoint }).(pulumi.StringPtrOutput)
 }

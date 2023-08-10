@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.SageMaker
     public partial class FeatureGroup : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// A timestamp of FeatureGroup creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
         /// Description about the FeatureGroup.
         /// </summary>
         [Output("description")]
@@ -38,6 +44,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Output("featureGroupName")]
         public Output<string> FeatureGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the feature group.
+        /// </summary>
+        [Output("featureGroupStatus")]
+        public Output<string> FeatureGroupStatus { get; private set; } = null!;
 
         [Output("offlineStoreConfig")]
         public Output<Outputs.OfflineStoreConfigProperties?> OfflineStoreConfig { get; private set; } = null!;

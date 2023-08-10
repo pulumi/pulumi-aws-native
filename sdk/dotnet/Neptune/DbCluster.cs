@@ -64,6 +64,16 @@ namespace Pulumi.AwsNative.Neptune
         public Output<string?> DbInstanceParameterGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The port number on which the DB instances in the DB cluster accept connections. 
+        /// 
+        /// If not specified, the default port used is `8182`. 
+        /// 
+        /// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+        /// </summary>
+        [Output("dbPort")]
+        public Output<int?> DbPort { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         /// </summary>
         [Output("dbSubnetGroupName")]
@@ -82,7 +92,7 @@ namespace Pulumi.AwsNative.Neptune
         public Output<ImmutableArray<string>> EnableCloudwatchLogsExports { get; private set; } = null!;
 
         /// <summary>
-        /// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        /// The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
@@ -106,7 +116,7 @@ namespace Pulumi.AwsNative.Neptune
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the port that the database engine is listening on.
+        /// The port number on which the DB cluster accepts connections. For example: `8182`.
         /// </summary>
         [Output("port")]
         public Output<string> Port { get; private set; } = null!;
@@ -124,7 +134,7 @@ namespace Pulumi.AwsNative.Neptune
         public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        /// The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
         /// </summary>
         [Output("readEndpoint")]
         public Output<string> ReadEndpoint { get; private set; } = null!;
@@ -305,6 +315,16 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         [Input("dbInstanceParameterGroupName")]
         public Input<string>? DbInstanceParameterGroupName { get; set; }
+
+        /// <summary>
+        /// The port number on which the DB instances in the DB cluster accept connections. 
+        /// 
+        /// If not specified, the default port used is `8182`. 
+        /// 
+        /// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+        /// </summary>
+        [Input("dbPort")]
+        public Input<int>? DbPort { get; set; }
 
         /// <summary>
         /// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.

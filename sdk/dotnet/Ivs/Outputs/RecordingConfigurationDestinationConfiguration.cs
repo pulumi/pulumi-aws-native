@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.Ivs.Outputs
     [OutputType]
     public sealed class RecordingConfigurationDestinationConfiguration
     {
-        public readonly Outputs.RecordingConfigurationS3DestinationConfiguration S3;
+        public readonly Outputs.RecordingConfigurationS3DestinationConfiguration? S3;
 
         [OutputConstructor]
-        private RecordingConfigurationDestinationConfiguration(Outputs.RecordingConfigurationS3DestinationConfiguration s3)
+        private RecordingConfigurationDestinationConfiguration(Outputs.RecordingConfigurationS3DestinationConfiguration? s3)
         {
             S3 = s3;
         }

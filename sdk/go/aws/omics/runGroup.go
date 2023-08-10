@@ -19,6 +19,7 @@ type RunGroup struct {
 	CreationTime pulumi.StringOutput     `pulumi:"creationTime"`
 	MaxCpus      pulumi.Float64PtrOutput `pulumi:"maxCpus"`
 	MaxDuration  pulumi.Float64PtrOutput `pulumi:"maxDuration"`
+	MaxGpus      pulumi.Float64PtrOutput `pulumi:"maxGpus"`
 	MaxRuns      pulumi.Float64PtrOutput `pulumi:"maxRuns"`
 	Name         pulumi.StringPtrOutput  `pulumi:"name"`
 	Tags         RunGroupTagMapPtrOutput `pulumi:"tags"`
@@ -66,6 +67,7 @@ func (RunGroupState) ElementType() reflect.Type {
 type runGroupArgs struct {
 	MaxCpus     *float64        `pulumi:"maxCpus"`
 	MaxDuration *float64        `pulumi:"maxDuration"`
+	MaxGpus     *float64        `pulumi:"maxGpus"`
 	MaxRuns     *float64        `pulumi:"maxRuns"`
 	Name        *string         `pulumi:"name"`
 	Tags        *RunGroupTagMap `pulumi:"tags"`
@@ -75,6 +77,7 @@ type runGroupArgs struct {
 type RunGroupArgs struct {
 	MaxCpus     pulumi.Float64PtrInput
 	MaxDuration pulumi.Float64PtrInput
+	MaxGpus     pulumi.Float64PtrInput
 	MaxRuns     pulumi.Float64PtrInput
 	Name        pulumi.StringPtrInput
 	Tags        RunGroupTagMapPtrInput
@@ -131,6 +134,10 @@ func (o RunGroupOutput) MaxCpus() pulumi.Float64PtrOutput {
 
 func (o RunGroupOutput) MaxDuration() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.Float64PtrOutput { return v.MaxDuration }).(pulumi.Float64PtrOutput)
+}
+
+func (o RunGroupOutput) MaxGpus() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RunGroup) pulumi.Float64PtrOutput { return v.MaxGpus }).(pulumi.Float64PtrOutput)
 }
 
 func (o RunGroupOutput) MaxRuns() pulumi.Float64PtrOutput {

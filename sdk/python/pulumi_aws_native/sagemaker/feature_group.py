@@ -240,6 +240,8 @@ class FeatureGroup(pulumi.CustomResource):
             __props__.__dict__["record_identifier_feature_name"] = record_identifier_feature_name
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["feature_group_status"] = None
         super(FeatureGroup, __self__).__init__(
             'aws-native:sagemaker:FeatureGroup',
             resource_name,
@@ -262,16 +264,26 @@ class FeatureGroup(pulumi.CustomResource):
 
         __props__ = FeatureGroupArgs.__new__(FeatureGroupArgs)
 
+        __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["event_time_feature_name"] = None
         __props__.__dict__["feature_definitions"] = None
         __props__.__dict__["feature_group_name"] = None
+        __props__.__dict__["feature_group_status"] = None
         __props__.__dict__["offline_store_config"] = None
         __props__.__dict__["online_store_config"] = None
         __props__.__dict__["record_identifier_feature_name"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
         return FeatureGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> pulumi.Output[str]:
+        """
+        A timestamp of FeatureGroup creation time.
+        """
+        return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
@@ -304,6 +316,14 @@ class FeatureGroup(pulumi.CustomResource):
         The Name of the FeatureGroup.
         """
         return pulumi.get(self, "feature_group_name")
+
+    @property
+    @pulumi.getter(name="featureGroupStatus")
+    def feature_group_status(self) -> pulumi.Output[str]:
+        """
+        The status of the feature group.
+        """
+        return pulumi.get(self, "feature_group_status")
 
     @property
     @pulumi.getter(name="offlineStoreConfig")

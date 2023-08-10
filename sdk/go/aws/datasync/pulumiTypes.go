@@ -122,6 +122,255 @@ func (o AgentTagArrayOutput) Index(i pulumi.IntInput) AgentTagOutput {
 	}).(AgentTagOutput)
 }
 
+// Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
+type LocationAzureBlobAzureBlobSasConfiguration struct {
+	// Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
+	AzureBlobSasToken string `pulumi:"azureBlobSasToken"`
+}
+
+// LocationAzureBlobAzureBlobSasConfigurationInput is an input type that accepts LocationAzureBlobAzureBlobSasConfigurationArgs and LocationAzureBlobAzureBlobSasConfigurationOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureBlobSasConfigurationInput` via:
+//
+//	LocationAzureBlobAzureBlobSasConfigurationArgs{...}
+type LocationAzureBlobAzureBlobSasConfigurationInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureBlobSasConfigurationOutput() LocationAzureBlobAzureBlobSasConfigurationOutput
+	ToLocationAzureBlobAzureBlobSasConfigurationOutputWithContext(context.Context) LocationAzureBlobAzureBlobSasConfigurationOutput
+}
+
+// Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
+type LocationAzureBlobAzureBlobSasConfigurationArgs struct {
+	// Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
+	AzureBlobSasToken pulumi.StringInput `pulumi:"azureBlobSasToken"`
+}
+
+func (LocationAzureBlobAzureBlobSasConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureBlobSasConfiguration)(nil)).Elem()
+}
+
+func (i LocationAzureBlobAzureBlobSasConfigurationArgs) ToLocationAzureBlobAzureBlobSasConfigurationOutput() LocationAzureBlobAzureBlobSasConfigurationOutput {
+	return i.ToLocationAzureBlobAzureBlobSasConfigurationOutputWithContext(context.Background())
+}
+
+func (i LocationAzureBlobAzureBlobSasConfigurationArgs) ToLocationAzureBlobAzureBlobSasConfigurationOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobSasConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureBlobSasConfigurationOutput)
+}
+
+func (i LocationAzureBlobAzureBlobSasConfigurationArgs) ToLocationAzureBlobAzureBlobSasConfigurationPtrOutput() LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
+	return i.ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LocationAzureBlobAzureBlobSasConfigurationArgs) ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureBlobSasConfigurationOutput).ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(ctx)
+}
+
+// LocationAzureBlobAzureBlobSasConfigurationPtrInput is an input type that accepts LocationAzureBlobAzureBlobSasConfigurationArgs, LocationAzureBlobAzureBlobSasConfigurationPtr and LocationAzureBlobAzureBlobSasConfigurationPtrOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureBlobSasConfigurationPtrInput` via:
+//
+//	        LocationAzureBlobAzureBlobSasConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationAzureBlobAzureBlobSasConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureBlobSasConfigurationPtrOutput() LocationAzureBlobAzureBlobSasConfigurationPtrOutput
+	ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(context.Context) LocationAzureBlobAzureBlobSasConfigurationPtrOutput
+}
+
+type locationAzureBlobAzureBlobSasConfigurationPtrType LocationAzureBlobAzureBlobSasConfigurationArgs
+
+func LocationAzureBlobAzureBlobSasConfigurationPtr(v *LocationAzureBlobAzureBlobSasConfigurationArgs) LocationAzureBlobAzureBlobSasConfigurationPtrInput {
+	return (*locationAzureBlobAzureBlobSasConfigurationPtrType)(v)
+}
+
+func (*locationAzureBlobAzureBlobSasConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobAzureBlobSasConfiguration)(nil)).Elem()
+}
+
+func (i *locationAzureBlobAzureBlobSasConfigurationPtrType) ToLocationAzureBlobAzureBlobSasConfigurationPtrOutput() LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
+	return i.ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *locationAzureBlobAzureBlobSasConfigurationPtrType) ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureBlobSasConfigurationPtrOutput)
+}
+
+// Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
+type LocationAzureBlobAzureBlobSasConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureBlobSasConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureBlobSasConfiguration)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureBlobSasConfigurationOutput) ToLocationAzureBlobAzureBlobSasConfigurationOutput() LocationAzureBlobAzureBlobSasConfigurationOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobSasConfigurationOutput) ToLocationAzureBlobAzureBlobSasConfigurationOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobSasConfigurationOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobSasConfigurationOutput) ToLocationAzureBlobAzureBlobSasConfigurationPtrOutput() LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
+	return o.ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureBlobSasConfigurationOutput) ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationAzureBlobAzureBlobSasConfiguration) *LocationAzureBlobAzureBlobSasConfiguration {
+		return &v
+	}).(LocationAzureBlobAzureBlobSasConfigurationPtrOutput)
+}
+
+// Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
+func (o LocationAzureBlobAzureBlobSasConfigurationOutput) AzureBlobSasToken() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationAzureBlobAzureBlobSasConfiguration) string { return v.AzureBlobSasToken }).(pulumi.StringOutput)
+}
+
+type LocationAzureBlobAzureBlobSasConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureBlobSasConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobAzureBlobSasConfiguration)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureBlobSasConfigurationPtrOutput) ToLocationAzureBlobAzureBlobSasConfigurationPtrOutput() LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobSasConfigurationPtrOutput) ToLocationAzureBlobAzureBlobSasConfigurationPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureBlobSasConfigurationPtrOutput) Elem() LocationAzureBlobAzureBlobSasConfigurationOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureBlobSasConfiguration) LocationAzureBlobAzureBlobSasConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LocationAzureBlobAzureBlobSasConfiguration
+		return ret
+	}).(LocationAzureBlobAzureBlobSasConfigurationOutput)
+}
+
+// Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
+func (o LocationAzureBlobAzureBlobSasConfigurationPtrOutput) AzureBlobSasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureBlobSasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AzureBlobSasToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationAzureBlobTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// LocationAzureBlobTagInput is an input type that accepts LocationAzureBlobTagArgs and LocationAzureBlobTagOutput values.
+// You can construct a concrete instance of `LocationAzureBlobTagInput` via:
+//
+//	LocationAzureBlobTagArgs{...}
+type LocationAzureBlobTagInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobTagOutput() LocationAzureBlobTagOutput
+	ToLocationAzureBlobTagOutputWithContext(context.Context) LocationAzureBlobTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationAzureBlobTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationAzureBlobTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobTag)(nil)).Elem()
+}
+
+func (i LocationAzureBlobTagArgs) ToLocationAzureBlobTagOutput() LocationAzureBlobTagOutput {
+	return i.ToLocationAzureBlobTagOutputWithContext(context.Background())
+}
+
+func (i LocationAzureBlobTagArgs) ToLocationAzureBlobTagOutputWithContext(ctx context.Context) LocationAzureBlobTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobTagOutput)
+}
+
+// LocationAzureBlobTagArrayInput is an input type that accepts LocationAzureBlobTagArray and LocationAzureBlobTagArrayOutput values.
+// You can construct a concrete instance of `LocationAzureBlobTagArrayInput` via:
+//
+//	LocationAzureBlobTagArray{ LocationAzureBlobTagArgs{...} }
+type LocationAzureBlobTagArrayInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobTagArrayOutput() LocationAzureBlobTagArrayOutput
+	ToLocationAzureBlobTagArrayOutputWithContext(context.Context) LocationAzureBlobTagArrayOutput
+}
+
+type LocationAzureBlobTagArray []LocationAzureBlobTagInput
+
+func (LocationAzureBlobTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationAzureBlobTag)(nil)).Elem()
+}
+
+func (i LocationAzureBlobTagArray) ToLocationAzureBlobTagArrayOutput() LocationAzureBlobTagArrayOutput {
+	return i.ToLocationAzureBlobTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationAzureBlobTagArray) ToLocationAzureBlobTagArrayOutputWithContext(ctx context.Context) LocationAzureBlobTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationAzureBlobTagOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobTag)(nil)).Elem()
+}
+
+func (o LocationAzureBlobTagOutput) ToLocationAzureBlobTagOutput() LocationAzureBlobTagOutput {
+	return o
+}
+
+func (o LocationAzureBlobTagOutput) ToLocationAzureBlobTagOutputWithContext(ctx context.Context) LocationAzureBlobTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o LocationAzureBlobTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationAzureBlobTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o LocationAzureBlobTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationAzureBlobTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationAzureBlobTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationAzureBlobTag)(nil)).Elem()
+}
+
+func (o LocationAzureBlobTagArrayOutput) ToLocationAzureBlobTagArrayOutput() LocationAzureBlobTagArrayOutput {
+	return o
+}
+
+func (o LocationAzureBlobTagArrayOutput) ToLocationAzureBlobTagArrayOutputWithContext(ctx context.Context) LocationAzureBlobTagArrayOutput {
+	return o
+}
+
+func (o LocationAzureBlobTagArrayOutput) Index(i pulumi.IntInput) LocationAzureBlobTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationAzureBlobTag {
+		return vs[0].([]LocationAzureBlobTag)[vs[1].(int)]
+	}).(LocationAzureBlobTagOutput)
+}
+
 // The subnet and security group that DataSync uses to access target EFS file system.
 type LocationEfsEc2Config struct {
 	// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
@@ -4203,6 +4452,10 @@ func (o TaskTagArrayOutput) Index(i pulumi.IntInput) TaskTagOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentTagInput)(nil)).Elem(), AgentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentTagArrayInput)(nil)).Elem(), AgentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureBlobSasConfigurationInput)(nil)).Elem(), LocationAzureBlobAzureBlobSasConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureBlobSasConfigurationPtrInput)(nil)).Elem(), LocationAzureBlobAzureBlobSasConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobTagInput)(nil)).Elem(), LocationAzureBlobTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobTagArrayInput)(nil)).Elem(), LocationAzureBlobTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEfsEc2ConfigInput)(nil)).Elem(), LocationEfsEc2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEfsTagInput)(nil)).Elem(), LocationEfsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEfsTagArrayInput)(nil)).Elem(), LocationEfsTagArray{})
@@ -4264,6 +4517,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTagArrayInput)(nil)).Elem(), TaskTagArray{})
 	pulumi.RegisterOutputType(AgentTagOutput{})
 	pulumi.RegisterOutputType(AgentTagArrayOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureBlobSasConfigurationOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureBlobSasConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobTagOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationEfsEc2ConfigOutput{})
 	pulumi.RegisterOutputType(LocationEfsTagOutput{})
 	pulumi.RegisterOutputType(LocationEfsTagArrayOutput{})

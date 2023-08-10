@@ -2467,6 +2467,7 @@ const (
 	DataSourceTypeGoogledrive = DataSourceType("GOOGLEDRIVE")
 	DataSourceTypeWebcrawler  = DataSourceType("WEBCRAWLER")
 	DataSourceTypeWorkdocs    = DataSourceType("WORKDOCS")
+	DataSourceTypeTemplate    = DataSourceType("TEMPLATE")
 )
 
 func (DataSourceType) ElementType() reflect.Type {

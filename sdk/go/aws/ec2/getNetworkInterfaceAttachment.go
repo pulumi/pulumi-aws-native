@@ -23,15 +23,15 @@ func LookupNetworkInterfaceAttachment(ctx *pulumi.Context, args *LookupNetworkIn
 }
 
 type LookupNetworkInterfaceAttachmentArgs struct {
-	Id string `pulumi:"id"`
+	// The ID of the network interface attachment.
+	AttachmentId string `pulumi:"attachmentId"`
 }
 
 type LookupNetworkInterfaceAttachmentResult struct {
-	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
-	DeviceIndex         *string `pulumi:"deviceIndex"`
-	Id                  *string `pulumi:"id"`
-	InstanceId          *string `pulumi:"instanceId"`
-	NetworkInterfaceId  *string `pulumi:"networkInterfaceId"`
+	// The ID of the network interface attachment.
+	AttachmentId *string `pulumi:"attachmentId"`
+	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 }
 
 func LookupNetworkInterfaceAttachmentOutput(ctx *pulumi.Context, args LookupNetworkInterfaceAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceAttachmentResultOutput {
@@ -48,7 +48,8 @@ func LookupNetworkInterfaceAttachmentOutput(ctx *pulumi.Context, args LookupNetw
 }
 
 type LookupNetworkInterfaceAttachmentOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The ID of the network interface attachment.
+	AttachmentId pulumi.StringInput `pulumi:"attachmentId"`
 }
 
 func (LookupNetworkInterfaceAttachmentOutputArgs) ElementType() reflect.Type {
@@ -69,24 +70,14 @@ func (o LookupNetworkInterfaceAttachmentResultOutput) ToLookupNetworkInterfaceAt
 	return o
 }
 
+// The ID of the network interface attachment.
+func (o LookupNetworkInterfaceAttachmentResultOutput) AttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *string { return v.AttachmentId }).(pulumi.StringPtrOutput)
+}
+
+// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
 func (o LookupNetworkInterfaceAttachmentResultOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
-}
-
-func (o LookupNetworkInterfaceAttachmentResultOutput) DeviceIndex() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *string { return v.DeviceIndex }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupNetworkInterfaceAttachmentResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupNetworkInterfaceAttachmentResultOutput) InstanceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupNetworkInterfaceAttachmentResultOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

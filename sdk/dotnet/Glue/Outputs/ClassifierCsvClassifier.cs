@@ -14,7 +14,9 @@ namespace Pulumi.AwsNative.Glue.Outputs
     public sealed class ClassifierCsvClassifier
     {
         public readonly bool? AllowSingleColumn;
+        public readonly ImmutableArray<string> ContainsCustomDatatype;
         public readonly string? ContainsHeader;
+        public readonly bool? CustomDatatypeConfigured;
         public readonly string? Delimiter;
         public readonly bool? DisableValueTrimming;
         public readonly ImmutableArray<string> Header;
@@ -25,7 +27,11 @@ namespace Pulumi.AwsNative.Glue.Outputs
         private ClassifierCsvClassifier(
             bool? allowSingleColumn,
 
+            ImmutableArray<string> containsCustomDatatype,
+
             string? containsHeader,
+
+            bool? customDatatypeConfigured,
 
             string? delimiter,
 
@@ -38,7 +44,9 @@ namespace Pulumi.AwsNative.Glue.Outputs
             string? quoteSymbol)
         {
             AllowSingleColumn = allowSingleColumn;
+            ContainsCustomDatatype = containsCustomDatatype;
             ContainsHeader = containsHeader;
+            CustomDatatypeConfigured = customDatatypeConfigured;
             Delimiter = delimiter;
             DisableValueTrimming = disableValueTrimming;
             Header = header;

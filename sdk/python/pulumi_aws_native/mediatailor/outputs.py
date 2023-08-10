@@ -12,6 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ChannelDashPlaylistSettings',
+    'ChannelHlsPlaylistSettings',
+    'ChannelLogConfigurationForChannel',
+    'ChannelRequestOutputItem',
+    'ChannelSlateSource',
+    'ChannelTag',
+    'LiveSourceHttpPackageConfiguration',
+    'LiveSourceTag',
     'PlaybackConfigurationAdMarkerPassthrough',
     'PlaybackConfigurationAvailSuppression',
     'PlaybackConfigurationBumper',
@@ -21,7 +29,398 @@ __all__ = [
     'PlaybackConfigurationLivePreRollConfiguration',
     'PlaybackConfigurationManifestProcessingRules',
     'PlaybackConfigurationTag',
+    'SourceLocationAccessConfiguration',
+    'SourceLocationDefaultSegmentDeliveryConfiguration',
+    'SourceLocationHttpConfiguration',
+    'SourceLocationSecretsManagerAccessTokenConfiguration',
+    'SourceLocationSegmentDeliveryConfiguration',
+    'SourceLocationTag',
+    'VodSourceHttpPackageConfiguration',
+    'VodSourceTag',
 ]
+
+@pulumi.output_type
+class ChannelDashPlaylistSettings(dict):
+    """
+    <p>Dash manifest configuration parameters.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manifestWindowSeconds":
+            suggest = "manifest_window_seconds"
+        elif key == "minBufferTimeSeconds":
+            suggest = "min_buffer_time_seconds"
+        elif key == "minUpdatePeriodSeconds":
+            suggest = "min_update_period_seconds"
+        elif key == "suggestedPresentationDelaySeconds":
+            suggest = "suggested_presentation_delay_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelDashPlaylistSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelDashPlaylistSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelDashPlaylistSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 manifest_window_seconds: Optional[float] = None,
+                 min_buffer_time_seconds: Optional[float] = None,
+                 min_update_period_seconds: Optional[float] = None,
+                 suggested_presentation_delay_seconds: Optional[float] = None):
+        """
+        <p>Dash manifest configuration parameters.</p>
+        :param float manifest_window_seconds: <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+        :param float min_buffer_time_seconds: <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        :param float min_update_period_seconds: <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        :param float suggested_presentation_delay_seconds: <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        """
+        if manifest_window_seconds is not None:
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
+        if min_buffer_time_seconds is not None:
+            pulumi.set(__self__, "min_buffer_time_seconds", min_buffer_time_seconds)
+        if min_update_period_seconds is not None:
+            pulumi.set(__self__, "min_update_period_seconds", min_update_period_seconds)
+        if suggested_presentation_delay_seconds is not None:
+            pulumi.set(__self__, "suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
+
+    @property
+    @pulumi.getter(name="manifestWindowSeconds")
+    def manifest_window_seconds(self) -> Optional[float]:
+        """
+        <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+        """
+        return pulumi.get(self, "manifest_window_seconds")
+
+    @property
+    @pulumi.getter(name="minBufferTimeSeconds")
+    def min_buffer_time_seconds(self) -> Optional[float]:
+        """
+        <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        """
+        return pulumi.get(self, "min_buffer_time_seconds")
+
+    @property
+    @pulumi.getter(name="minUpdatePeriodSeconds")
+    def min_update_period_seconds(self) -> Optional[float]:
+        """
+        <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        """
+        return pulumi.get(self, "min_update_period_seconds")
+
+    @property
+    @pulumi.getter(name="suggestedPresentationDelaySeconds")
+    def suggested_presentation_delay_seconds(self) -> Optional[float]:
+        """
+        <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+        """
+        return pulumi.get(self, "suggested_presentation_delay_seconds")
+
+
+@pulumi.output_type
+class ChannelHlsPlaylistSettings(dict):
+    """
+    <p>HLS playlist configuration parameters.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manifestWindowSeconds":
+            suggest = "manifest_window_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelHlsPlaylistSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelHlsPlaylistSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelHlsPlaylistSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 manifest_window_seconds: Optional[float] = None):
+        """
+        <p>HLS playlist configuration parameters.</p>
+        :param float manifest_window_seconds: <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+        """
+        if manifest_window_seconds is not None:
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
+
+    @property
+    @pulumi.getter(name="manifestWindowSeconds")
+    def manifest_window_seconds(self) -> Optional[float]:
+        """
+        <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+        """
+        return pulumi.get(self, "manifest_window_seconds")
+
+
+@pulumi.output_type
+class ChannelLogConfigurationForChannel(dict):
+    """
+    <p>The log configuration for the channel.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logTypes":
+            suggest = "log_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelLogConfigurationForChannel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelLogConfigurationForChannel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelLogConfigurationForChannel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_types: Optional[Sequence['ChannelLogType']] = None):
+        """
+        <p>The log configuration for the channel.</p>
+        :param Sequence['ChannelLogType'] log_types: <p>The log types.</p>
+        """
+        if log_types is not None:
+            pulumi.set(__self__, "log_types", log_types)
+
+    @property
+    @pulumi.getter(name="logTypes")
+    def log_types(self) -> Optional[Sequence['ChannelLogType']]:
+        """
+        <p>The log types.</p>
+        """
+        return pulumi.get(self, "log_types")
+
+
+@pulumi.output_type
+class ChannelRequestOutputItem(dict):
+    """
+    <p>The output configuration for this channel.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manifestName":
+            suggest = "manifest_name"
+        elif key == "sourceGroup":
+            suggest = "source_group"
+        elif key == "dashPlaylistSettings":
+            suggest = "dash_playlist_settings"
+        elif key == "hlsPlaylistSettings":
+            suggest = "hls_playlist_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelRequestOutputItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelRequestOutputItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelRequestOutputItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 manifest_name: str,
+                 source_group: str,
+                 dash_playlist_settings: Optional['outputs.ChannelDashPlaylistSettings'] = None,
+                 hls_playlist_settings: Optional['outputs.ChannelHlsPlaylistSettings'] = None):
+        """
+        <p>The output configuration for this channel.</p>
+        :param str manifest_name: <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+        :param str source_group: <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+        """
+        pulumi.set(__self__, "manifest_name", manifest_name)
+        pulumi.set(__self__, "source_group", source_group)
+        if dash_playlist_settings is not None:
+            pulumi.set(__self__, "dash_playlist_settings", dash_playlist_settings)
+        if hls_playlist_settings is not None:
+            pulumi.set(__self__, "hls_playlist_settings", hls_playlist_settings)
+
+    @property
+    @pulumi.getter(name="manifestName")
+    def manifest_name(self) -> str:
+        """
+        <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+        """
+        return pulumi.get(self, "manifest_name")
+
+    @property
+    @pulumi.getter(name="sourceGroup")
+    def source_group(self) -> str:
+        """
+        <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+        """
+        return pulumi.get(self, "source_group")
+
+    @property
+    @pulumi.getter(name="dashPlaylistSettings")
+    def dash_playlist_settings(self) -> Optional['outputs.ChannelDashPlaylistSettings']:
+        return pulumi.get(self, "dash_playlist_settings")
+
+    @property
+    @pulumi.getter(name="hlsPlaylistSettings")
+    def hls_playlist_settings(self) -> Optional['outputs.ChannelHlsPlaylistSettings']:
+        return pulumi.get(self, "hls_playlist_settings")
+
+
+@pulumi.output_type
+class ChannelSlateSource(dict):
+    """
+    <p>Slate VOD source configuration.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceLocationName":
+            suggest = "source_location_name"
+        elif key == "vodSourceName":
+            suggest = "vod_source_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelSlateSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelSlateSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelSlateSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_location_name: Optional[str] = None,
+                 vod_source_name: Optional[str] = None):
+        """
+        <p>Slate VOD source configuration.</p>
+        :param str source_location_name: <p>The name of the source location where the slate VOD source is stored.</p>
+        :param str vod_source_name: <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+        """
+        if source_location_name is not None:
+            pulumi.set(__self__, "source_location_name", source_location_name)
+        if vod_source_name is not None:
+            pulumi.set(__self__, "vod_source_name", vod_source_name)
+
+    @property
+    @pulumi.getter(name="sourceLocationName")
+    def source_location_name(self) -> Optional[str]:
+        """
+        <p>The name of the source location where the slate VOD source is stored.</p>
+        """
+        return pulumi.get(self, "source_location_name")
+
+    @property
+    @pulumi.getter(name="vodSourceName")
+    def vod_source_name(self) -> Optional[str]:
+        """
+        <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+        """
+        return pulumi.get(self, "vod_source_name")
+
+
+@pulumi.output_type
+class ChannelTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LiveSourceHttpPackageConfiguration(dict):
+    """
+    <p>The HTTP package configuration properties for the requested VOD source.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceGroup":
+            suggest = "source_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveSourceHttpPackageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveSourceHttpPackageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveSourceHttpPackageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path: str,
+                 source_group: str,
+                 type: 'LiveSourceType'):
+        """
+        <p>The HTTP package configuration properties for the requested VOD source.</p>
+        :param str path: <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+        :param str source_group: <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "source_group", source_group)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="sourceGroup")
+    def source_group(self) -> str:
+        """
+        <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+        """
+        return pulumi.get(self, "source_group")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'LiveSourceType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class LiveSourceTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class PlaybackConfigurationAdMarkerPassthrough(dict):
@@ -389,6 +788,346 @@ class PlaybackConfigurationManifestProcessingRules(dict):
 
 @pulumi.output_type
 class PlaybackConfigurationTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SourceLocationAccessConfiguration(dict):
+    """
+    <p>Access configuration parameters.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessType":
+            suggest = "access_type"
+        elif key == "secretsManagerAccessTokenConfiguration":
+            suggest = "secrets_manager_access_token_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceLocationAccessConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceLocationAccessConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceLocationAccessConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_type: Optional['SourceLocationAccessType'] = None,
+                 secrets_manager_access_token_configuration: Optional['outputs.SourceLocationSecretsManagerAccessTokenConfiguration'] = None):
+        """
+        <p>Access configuration parameters.</p>
+        """
+        if access_type is not None:
+            pulumi.set(__self__, "access_type", access_type)
+        if secrets_manager_access_token_configuration is not None:
+            pulumi.set(__self__, "secrets_manager_access_token_configuration", secrets_manager_access_token_configuration)
+
+    @property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> Optional['SourceLocationAccessType']:
+        return pulumi.get(self, "access_type")
+
+    @property
+    @pulumi.getter(name="secretsManagerAccessTokenConfiguration")
+    def secrets_manager_access_token_configuration(self) -> Optional['outputs.SourceLocationSecretsManagerAccessTokenConfiguration']:
+        return pulumi.get(self, "secrets_manager_access_token_configuration")
+
+
+@pulumi.output_type
+class SourceLocationDefaultSegmentDeliveryConfiguration(dict):
+    """
+    <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseUrl":
+            suggest = "base_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceLocationDefaultSegmentDeliveryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceLocationDefaultSegmentDeliveryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceLocationDefaultSegmentDeliveryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_url: Optional[str] = None):
+        """
+        <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+        :param str base_url: <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+        """
+        if base_url is not None:
+            pulumi.set(__self__, "base_url", base_url)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> Optional[str]:
+        """
+        <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+        """
+        return pulumi.get(self, "base_url")
+
+
+@pulumi.output_type
+class SourceLocationHttpConfiguration(dict):
+    """
+    <p>The HTTP configuration for the source location.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseUrl":
+            suggest = "base_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceLocationHttpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceLocationHttpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceLocationHttpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_url: str):
+        """
+        <p>The HTTP configuration for the source location.</p>
+        :param str base_url: <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+        """
+        pulumi.set(__self__, "base_url", base_url)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> str:
+        """
+        <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+        """
+        return pulumi.get(self, "base_url")
+
+
+@pulumi.output_type
+class SourceLocationSecretsManagerAccessTokenConfiguration(dict):
+    """
+    <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "secretStringKey":
+            suggest = "secret_string_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceLocationSecretsManagerAccessTokenConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceLocationSecretsManagerAccessTokenConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceLocationSecretsManagerAccessTokenConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: Optional[str] = None,
+                 secret_arn: Optional[str] = None,
+                 secret_string_key: Optional[str] = None):
+        """
+        <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+        :param str header_name: <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+        :param str secret_arn: <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+        :param str secret_string_key: <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+        """
+        if header_name is not None:
+            pulumi.set(__self__, "header_name", header_name)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if secret_string_key is not None:
+            pulumi.set(__self__, "secret_string_key", secret_string_key)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> Optional[str]:
+        """
+        <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+        """
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter(name="secretStringKey")
+    def secret_string_key(self) -> Optional[str]:
+        """
+        <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+        """
+        return pulumi.get(self, "secret_string_key")
+
+
+@pulumi.output_type
+class SourceLocationSegmentDeliveryConfiguration(dict):
+    """
+    <p>The segment delivery configuration settings.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseUrl":
+            suggest = "base_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceLocationSegmentDeliveryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceLocationSegmentDeliveryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceLocationSegmentDeliveryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_url: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        <p>The segment delivery configuration settings.</p>
+        :param str base_url: <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+        :param str name: <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+        """
+        if base_url is not None:
+            pulumi.set(__self__, "base_url", base_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> Optional[str]:
+        """
+        <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+        """
+        return pulumi.get(self, "base_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SourceLocationTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VodSourceHttpPackageConfiguration(dict):
+    """
+    <p>The HTTP package configuration properties for the requested VOD source.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceGroup":
+            suggest = "source_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VodSourceHttpPackageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VodSourceHttpPackageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VodSourceHttpPackageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path: str,
+                 source_group: str,
+                 type: 'VodSourceType'):
+        """
+        <p>The HTTP package configuration properties for the requested VOD source.</p>
+        :param str path: <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+        :param str source_group: <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "source_group", source_group)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="sourceGroup")
+    def source_group(self) -> str:
+        """
+        <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+        """
+        return pulumi.get(self, "source_group")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'VodSourceType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class VodSourceTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

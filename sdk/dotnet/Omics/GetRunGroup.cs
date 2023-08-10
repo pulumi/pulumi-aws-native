@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.Omics
         public readonly string? Id;
         public readonly double? MaxCpus;
         public readonly double? MaxDuration;
+        public readonly double? MaxGpus;
         public readonly double? MaxRuns;
         public readonly string? Name;
         public readonly Outputs.RunGroupTagMap? Tags;
@@ -72,6 +73,8 @@ namespace Pulumi.AwsNative.Omics
 
             double? maxDuration,
 
+            double? maxGpus,
+
             double? maxRuns,
 
             string? name,
@@ -83,6 +86,7 @@ namespace Pulumi.AwsNative.Omics
             Id = id;
             MaxCpus = maxCpus;
             MaxDuration = maxDuration;
+            MaxGpus = maxGpus;
             MaxRuns = maxRuns;
             Name = name;
             Tags = tags;

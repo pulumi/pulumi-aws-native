@@ -20,6 +20,10 @@ class NetworkInterfaceAttachmentArgs:
                  delete_on_termination: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a NetworkInterfaceAttachment resource.
+        :param pulumi.Input[str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        :param pulumi.Input[str] instance_id: The ID of the instance to which you will attach the ENI.
+        :param pulumi.Input[str] network_interface_id: The ID of the ENI that you want to attach.
+        :param pulumi.Input[bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to true.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -30,6 +34,9 @@ class NetworkInterfaceAttachmentArgs:
     @property
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> pulumi.Input[str]:
+        """
+        The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        """
         return pulumi.get(self, "device_index")
 
     @device_index.setter
@@ -39,6 +46,9 @@ class NetworkInterfaceAttachmentArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the instance to which you will attach the ENI.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -48,6 +58,9 @@ class NetworkInterfaceAttachmentArgs:
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the ENI that you want to attach.
+        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -57,6 +70,9 @@ class NetworkInterfaceAttachmentArgs:
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @delete_on_termination.setter
@@ -64,12 +80,7 @@ class NetworkInterfaceAttachmentArgs:
         pulumi.set(self, "delete_on_termination", value)
 
 
-warnings.warn("""NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class NetworkInterfaceAttachment(pulumi.CustomResource):
-    warnings.warn("""NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -84,6 +95,10 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        :param pulumi.Input[str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        :param pulumi.Input[str] instance_id: The ID of the instance to which you will attach the ENI.
+        :param pulumi.Input[str] network_interface_id: The ID of the ENI that you want to attach.
         """
         ...
     @overload
@@ -114,7 +129,6 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""NetworkInterfaceAttachment is deprecated: NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -133,6 +147,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")
             __props__.__dict__["network_interface_id"] = network_interface_id
+            __props__.__dict__["attachment_id"] = None
         super(NetworkInterfaceAttachment, __self__).__init__(
             'aws-native:ec2:NetworkInterfaceAttachment',
             resource_name,
@@ -155,6 +170,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
         __props__ = NetworkInterfaceAttachmentArgs.__new__(NetworkInterfaceAttachmentArgs)
 
+        __props__.__dict__["attachment_id"] = None
         __props__.__dict__["delete_on_termination"] = None
         __props__.__dict__["device_index"] = None
         __props__.__dict__["instance_id"] = None
@@ -162,22 +178,42 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         return NetworkInterfaceAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the network interface attachment.
+        """
+        return pulumi.get(self, "attachment_id")
+
+    @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @property
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> pulumi.Output[str]:
+        """
+        The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        """
         return pulumi.get(self, "device_index")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the instance to which you will attach the ENI.
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the ENI that you want to attach.
+        """
         return pulumi.get(self, "network_interface_id")
 

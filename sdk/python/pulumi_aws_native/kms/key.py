@@ -17,10 +17,11 @@ __all__ = ['KeyArgs', 'Key']
 @pulumi.input_type
 class KeyArgs:
     def __init__(__self__, *,
-                 key_policy: Any,
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 key_policy: Optional[Any] = None,
                  key_spec: Optional[pulumi.Input['KeySpec']] = None,
                  key_usage: Optional[pulumi.Input['KeyUsage']] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
@@ -29,10 +30,11 @@ class KeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Key resource.
-        :param Any key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Skips ("bypasses") the key policy lockout safety check. The default value is false.
         :param pulumi.Input[str] description: A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
         :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
         :param pulumi.Input[bool] enabled: Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
+        :param Any key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
         :param pulumi.Input['KeySpec'] key_spec: Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
         :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
         :param pulumi.Input[bool] multi_region: Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
@@ -40,13 +42,16 @@ class KeyArgs:
         :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         :param pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "key_policy", key_policy)
+        if bypass_policy_lockout_safety_check is not None:
+            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enable_key_rotation is not None:
             pulumi.set(__self__, "enable_key_rotation", enable_key_rotation)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if key_policy is not None:
+            pulumi.set(__self__, "key_policy", key_policy)
         if key_spec is not None:
             pulumi.set(__self__, "key_spec", key_spec)
         if key_usage is not None:
@@ -61,16 +66,16 @@ class KeyArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="keyPolicy")
-    def key_policy(self) -> Any:
+    @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
+    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[bool]]:
         """
-        The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+        Skips ("bypasses") the key policy lockout safety check. The default value is false.
         """
-        return pulumi.get(self, "key_policy")
+        return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
-    @key_policy.setter
-    def key_policy(self, value: Any):
-        pulumi.set(self, "key_policy", value)
+    @bypass_policy_lockout_safety_check.setter
+    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @property
     @pulumi.getter
@@ -107,6 +112,18 @@ class KeyArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="keyPolicy")
+    def key_policy(self) -> Optional[Any]:
+        """
+        The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+        """
+        return pulumi.get(self, "key_policy")
+
+    @key_policy.setter
+    def key_policy(self, value: Optional[Any]):
+        pulumi.set(self, "key_policy", value)
 
     @property
     @pulumi.getter(name="keySpec")
@@ -186,6 +203,7 @@ class Key(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -202,6 +220,7 @@ class Key(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Skips ("bypasses") the key policy lockout safety check. The default value is false.
         :param pulumi.Input[str] description: A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
         :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
         :param pulumi.Input[bool] enabled: Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
@@ -217,7 +236,7 @@ class Key(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: KeyArgs,
+                 args: Optional[KeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::KMS::Key resource specifies an AWS KMS key in AWS Key Management Service (AWS KMS). Authorized users can use the AWS KMS key to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use AWS KMS keys to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
@@ -237,6 +256,7 @@ class Key(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -256,11 +276,10 @@ class Key(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KeyArgs.__new__(KeyArgs)
 
+            __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_key_rotation"] = enable_key_rotation
             __props__.__dict__["enabled"] = enabled
-            if key_policy is None and not opts.urn:
-                raise TypeError("Missing required property 'key_policy'")
             __props__.__dict__["key_policy"] = key_policy
             __props__.__dict__["key_spec"] = key_spec
             __props__.__dict__["key_usage"] = key_usage
@@ -293,6 +312,7 @@ class Key(pulumi.CustomResource):
         __props__ = KeyArgs.__new__(KeyArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["bypass_policy_lockout_safety_check"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["enable_key_rotation"] = None
         __props__.__dict__["enabled"] = None
@@ -310,6 +330,14 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
+    def bypass_policy_lockout_safety_check(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Skips ("bypasses") the key policy lockout safety check. The default value is false.
+        """
+        return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @property
     @pulumi.getter
@@ -342,7 +370,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyPolicy")
-    def key_policy(self) -> pulumi.Output[Any]:
+    def key_policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
         """

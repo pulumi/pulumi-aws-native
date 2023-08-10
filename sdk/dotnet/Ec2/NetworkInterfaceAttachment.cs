@@ -12,19 +12,36 @@ namespace Pulumi.AwsNative.Ec2
     /// <summary>
     /// Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
     /// </summary>
-    [Obsolete(@"NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:NetworkInterfaceAttachment")]
     public partial class NetworkInterfaceAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the network interface attachment.
+        /// </summary>
+        [Output("attachmentId")]
+        public Output<string> AttachmentId { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        /// </summary>
         [Output("deleteOnTermination")]
         public Output<bool?> DeleteOnTermination { get; private set; } = null!;
 
+        /// <summary>
+        /// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        /// </summary>
         [Output("deviceIndex")]
         public Output<string> DeviceIndex { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the instance to which you will attach the ENI.
+        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the ENI that you want to attach.
+        /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
@@ -73,15 +90,27 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class NetworkInterfaceAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
+        /// <summary>
+        /// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        /// </summary>
         [Input("deviceIndex", required: true)]
         public Input<string> DeviceIndex { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the instance to which you will attach the ENI.
+        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the ENI that you want to attach.
+        /// </summary>
         [Input("networkInterfaceId", required: true)]
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 

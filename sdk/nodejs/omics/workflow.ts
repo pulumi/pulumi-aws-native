@@ -37,6 +37,7 @@ export class Workflow extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workflow.__pulumiType;
     }
 
+    public readonly accelerators!: pulumi.Output<enums.omics.WorkflowAccelerators | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public readonly definitionUri!: pulumi.Output<string | undefined>;
@@ -61,6 +62,7 @@ export class Workflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["accelerators"] = args ? args.accelerators : undefined;
             resourceInputs["definitionUri"] = args ? args.definitionUri : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
@@ -74,6 +76,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["accelerators"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["definitionUri"] = undefined /*out*/;
@@ -96,6 +99,7 @@ export class Workflow extends pulumi.CustomResource {
  * The set of arguments for constructing a Workflow resource.
  */
 export interface WorkflowArgs {
+    accelerators?: pulumi.Input<enums.omics.WorkflowAccelerators>;
     definitionUri?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     engine?: pulumi.Input<enums.omics.WorkflowEngine>;

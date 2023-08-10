@@ -10,26 +10,50 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
+    /// <summary>
+    /// This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+    /// </summary>
     public sealed class AlarmMetricDataQueryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the account where the metrics are located, if this is a cross-account alarm.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// The math expression to be performed on the returned data.
+        /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }
 
+        /// <summary>
+        /// A short name used to tie this object to the results in the response.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// A human-readable label for this metric or expression.
+        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// The metric to be returned, along with statistics, period, and units.
+        /// </summary>
         [Input("metricStat")]
         public Input<Inputs.AlarmMetricStatArgs>? MetricStat { get; set; }
 
+        /// <summary>
+        /// The period in seconds, over which the statistic is applied.
+        /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }
 
+        /// <summary>
+        /// This option indicates whether to return the timestamps and raw data values of this metric.
+        /// </summary>
         [Input("returnData")]
         public Input<bool>? ReturnData { get; set; }
 

@@ -23,6 +23,7 @@ class DbClusterArgs:
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_port: Optional[pulumi.Input[int]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -49,6 +50,11 @@ class DbClusterArgs:
         :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         :param pulumi.Input[str] db_cluster_parameter_group_name: Provides the name of the DB cluster parameter group.
         :param pulumi.Input[str] db_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+        :param pulumi.Input[int] db_port: The port number on which the DB instances in the DB cluster accept connections. 
+               
+               If not specified, the default port used is `8182`. 
+               
+               Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
         :param pulumi.Input[str] db_subnet_group_name: Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         :param pulumi.Input[bool] deletion_protection: Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: Specifies a list of log types that are enabled for export to CloudWatch Logs.
@@ -105,6 +111,8 @@ class DbClusterArgs:
             pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
         if db_instance_parameter_group_name is not None:
             pulumi.set(__self__, "db_instance_parameter_group_name", db_instance_parameter_group_name)
+        if db_port is not None:
+            pulumi.set(__self__, "db_port", db_port)
         if db_subnet_group_name is not None:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if deletion_protection is not None:
@@ -223,6 +231,22 @@ class DbClusterArgs:
     @db_instance_parameter_group_name.setter
     def db_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "db_instance_parameter_group_name", value)
+
+    @property
+    @pulumi.getter(name="dbPort")
+    def db_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port number on which the DB instances in the DB cluster accept connections. 
+
+        If not specified, the default port used is `8182`. 
+
+        Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+        """
+        return pulumi.get(self, "db_port")
+
+    @db_port.setter
+    def db_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "db_port", value)
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
@@ -465,6 +489,7 @@ class DbCluster(pulumi.CustomResource):
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_port: Optional[pulumi.Input[int]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -495,6 +520,11 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         :param pulumi.Input[str] db_cluster_parameter_group_name: Provides the name of the DB cluster parameter group.
         :param pulumi.Input[str] db_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+        :param pulumi.Input[int] db_port: The port number on which the DB instances in the DB cluster accept connections. 
+               
+               If not specified, the default port used is `8182`. 
+               
+               Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
         :param pulumi.Input[str] db_subnet_group_name: Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         :param pulumi.Input[bool] deletion_protection: Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: Specifies a list of log types that are enabled for export to CloudWatch Logs.
@@ -568,6 +598,7 @@ class DbCluster(pulumi.CustomResource):
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_port: Optional[pulumi.Input[int]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -601,6 +632,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
             __props__.__dict__["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
             __props__.__dict__["db_instance_parameter_group_name"] = db_instance_parameter_group_name
+            __props__.__dict__["db_port"] = db_port
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
@@ -652,6 +684,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["db_cluster_identifier"] = None
         __props__.__dict__["db_cluster_parameter_group_name"] = None
         __props__.__dict__["db_instance_parameter_group_name"] = None
+        __props__.__dict__["db_port"] = None
         __props__.__dict__["db_subnet_group_name"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["enable_cloudwatch_logs_exports"] = None
@@ -739,6 +772,18 @@ class DbCluster(pulumi.CustomResource):
         return pulumi.get(self, "db_instance_parameter_group_name")
 
     @property
+    @pulumi.getter(name="dbPort")
+    def db_port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The port number on which the DB instances in the DB cluster accept connections. 
+
+        If not specified, the default port used is `8182`. 
+
+        Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+        """
+        return pulumi.get(self, "db_port")
+
+    @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
@@ -766,7 +811,7 @@ class DbCluster(pulumi.CustomResource):
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         """
-        The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
         """
         return pulumi.get(self, "endpoint")
 
@@ -798,7 +843,7 @@ class DbCluster(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[str]:
         """
-        Specifies the port that the database engine is listening on.
+        The port number on which the DB cluster accepts connections. For example: `8182`.
         """
         return pulumi.get(self, "port")
 
@@ -822,7 +867,7 @@ class DbCluster(pulumi.CustomResource):
     @pulumi.getter(name="readEndpoint")
     def read_endpoint(self) -> pulumi.Output[str]:
         """
-        The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
         """
         return pulumi.get(self, "read_endpoint")
 

@@ -6933,31 +6933,91 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
+    /**
+     * Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
+     */
     export interface AlarmDimensionArgs {
+        /**
+         * The name of the dimension.
+         */
         name: pulumi.Input<string>;
+        /**
+         * The value for the dimension.
+         */
         value: pulumi.Input<string>;
     }
 
+    /**
+     * The Metric property type represents a specific metric.
+     */
     export interface AlarmMetricArgs {
+        /**
+         * The dimensions for the metric.
+         */
         dimensions?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AlarmDimensionArgs>[]>;
+        /**
+         * The name of the metric.
+         */
         metricName?: pulumi.Input<string>;
+        /**
+         * The namespace of the metric.
+         */
         namespace?: pulumi.Input<string>;
     }
 
+    /**
+     * This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+     */
     export interface AlarmMetricDataQueryArgs {
+        /**
+         * The ID of the account where the metrics are located, if this is a cross-account alarm.
+         */
         accountId?: pulumi.Input<string>;
+        /**
+         * The math expression to be performed on the returned data.
+         */
         expression?: pulumi.Input<string>;
+        /**
+         * A short name used to tie this object to the results in the response.
+         */
         id: pulumi.Input<string>;
+        /**
+         * A human-readable label for this metric or expression.
+         */
         label?: pulumi.Input<string>;
+        /**
+         * The metric to be returned, along with statistics, period, and units.
+         */
         metricStat?: pulumi.Input<inputs.cloudwatch.AlarmMetricStatArgs>;
+        /**
+         * The period in seconds, over which the statistic is applied.
+         */
         period?: pulumi.Input<number>;
+        /**
+         * This option indicates whether to return the timestamps and raw data values of this metric.
+         */
         returnData?: pulumi.Input<boolean>;
     }
 
+    /**
+     * This structure defines the metric to be returned, along with the statistics, period, and units.
+     */
     export interface AlarmMetricStatArgs {
+        /**
+         * The metric to return, including the metric name, namespace, and dimensions.
+         */
         metric: pulumi.Input<inputs.cloudwatch.AlarmMetricArgs>;
+        /**
+         * The granularity, in seconds, of the returned data points.
+         */
         period: pulumi.Input<number>;
+        /**
+         * The statistic to return.
+         */
         stat: pulumi.Input<string>;
+        /**
+         * The unit to use for the returned data points.
+         */
         unit?: pulumi.Input<string>;
     }
 
@@ -8919,6 +8979,20 @@ export namespace connect {
     }
 
     /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface TrafficDistributionGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * Contains information about the identity of a user.
      */
     export interface UserIdentityInfoArgs {
@@ -9933,6 +10007,30 @@ export namespace datasync {
      * A key-value pair to associate with a resource.
      */
     export interface AgentTagArgs {
+        /**
+         * The key for an AWS resource tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for an AWS resource tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
+     */
+    export interface LocationAzureBlobAzureBlobSasConfigurationArgs {
+        /**
+         * Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
+         */
+        azureBlobSasToken: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LocationAzureBlobTagArgs {
         /**
          * The key for an AWS resource tag.
          */
@@ -12565,6 +12663,14 @@ export namespace ec2 {
 
     export interface NetworkInterfaceInstanceIpv6AddressArgs {
         ipv6Address: pulumi.Input<string>;
+    }
+
+    export interface NetworkInterfaceIpv4PrefixSpecificationArgs {
+        ipv4Prefix: pulumi.Input<string>;
+    }
+
+    export interface NetworkInterfaceIpv6PrefixSpecificationArgs {
+        ipv6Prefix: pulumi.Input<string>;
     }
 
     export interface NetworkInterfacePrivateIpAddressSpecificationArgs {
@@ -16951,7 +17057,9 @@ export namespace globalaccelerator {
 export namespace glue {
     export interface ClassifierCsvClassifierArgs {
         allowSingleColumn?: pulumi.Input<boolean>;
+        containsCustomDatatype?: pulumi.Input<pulumi.Input<string>[]>;
         containsHeader?: pulumi.Input<string>;
+        customDatatypeConfigured?: pulumi.Input<boolean>;
         delimiter?: pulumi.Input<string>;
         disableValueTrimming?: pulumi.Input<boolean>;
         header?: pulumi.Input<pulumi.Input<string>[]>;
@@ -17011,6 +17119,13 @@ export namespace glue {
         path?: pulumi.Input<string>;
     }
 
+    export interface CrawlerIcebergTargetArgs {
+        connectionName?: pulumi.Input<string>;
+        exclusions?: pulumi.Input<pulumi.Input<string>[]>;
+        maximumTraversalDepth?: pulumi.Input<number>;
+        paths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface CrawlerJdbcTargetArgs {
         connectionName?: pulumi.Input<string>;
         exclusions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -17048,6 +17163,7 @@ export namespace glue {
         catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTargetArgs>[]>;
         deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTargetArgs>[]>;
         dynamoDbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamoDbTargetArgs>[]>;
+        icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTargetArgs>[]>;
         jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTargetArgs>[]>;
         mongoDbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongoDbTargetArgs>[]>;
         s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3TargetArgs>[]>;
@@ -17085,6 +17201,7 @@ export namespace glue {
     export interface DatabaseIdentifierArgs {
         catalogId?: pulumi.Input<string>;
         databaseName?: pulumi.Input<string>;
+        region?: pulumi.Input<string>;
     }
 
     export interface DatabaseInputArgs {
@@ -17304,10 +17421,16 @@ export namespace glue {
         type?: pulumi.Input<string>;
     }
 
+    export interface TableIcebergInputArgs {
+        metadataOperation?: pulumi.Input<inputs.glue.TableMetadataOperationArgs>;
+        version?: pulumi.Input<string>;
+    }
+
     export interface TableIdentifierArgs {
         catalogId?: pulumi.Input<string>;
         databaseName?: pulumi.Input<string>;
         name?: pulumi.Input<string>;
+        region?: pulumi.Input<string>;
     }
 
     export interface TableInputArgs {
@@ -17322,6 +17445,13 @@ export namespace glue {
         targetTable?: pulumi.Input<inputs.glue.TableIdentifierArgs>;
         viewExpandedText?: pulumi.Input<string>;
         viewOriginalText?: pulumi.Input<string>;
+    }
+
+    export interface TableMetadataOperationArgs {
+    }
+
+    export interface TableOpenTableFormatInputArgs {
+        icebergInput?: pulumi.Input<inputs.glue.TableIcebergInputArgs>;
     }
 
     export interface TableOrderArgs {
@@ -18997,12 +19127,20 @@ export namespace inspectorv2 {
 
 export namespace internetmonitor {
     export interface MonitorHealthEventsConfigArgs {
+        availabilityLocalHealthEventsConfig?: pulumi.Input<inputs.internetmonitor.MonitorLocalHealthEventsConfigArgs>;
         availabilityScoreThreshold?: pulumi.Input<number>;
+        performanceLocalHealthEventsConfig?: pulumi.Input<inputs.internetmonitor.MonitorLocalHealthEventsConfigArgs>;
         performanceScoreThreshold?: pulumi.Input<number>;
     }
 
     export interface MonitorInternetMeasurementsLogDeliveryArgs {
         s3Config?: pulumi.Input<inputs.internetmonitor.MonitorS3ConfigArgs>;
+    }
+
+    export interface MonitorLocalHealthEventsConfigArgs {
+        healthScoreThreshold?: pulumi.Input<number>;
+        minTrafficImpact?: pulumi.Input<number>;
+        status?: pulumi.Input<enums.internetmonitor.MonitorLocalHealthEventsConfigStatus>;
     }
 
     export interface MonitorS3ConfigArgs {
@@ -21840,7 +21978,21 @@ export namespace ivs {
      * Recording Destination Configuration.
      */
     export interface RecordingConfigurationDestinationConfigurationArgs {
-        s3: pulumi.Input<inputs.ivs.RecordingConfigurationS3DestinationConfigurationArgs>;
+        s3?: pulumi.Input<inputs.ivs.RecordingConfigurationS3DestinationConfigurationArgs>;
+    }
+
+    /**
+     * Rendition Configuration describes which renditions should be recorded for a stream.
+     */
+    export interface RecordingConfigurationRenditionConfigurationArgs {
+        /**
+         * Resolution Selection indicates which set of renditions are recorded for a stream.
+         */
+        renditionSelection?: pulumi.Input<enums.ivs.RecordingConfigurationRenditionConfigurationRenditionSelection>;
+        /**
+         * Renditions indicates which renditions are recorded for a stream.
+         */
+        renditions?: pulumi.Input<pulumi.Input<enums.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem>[]>;
     }
 
     /**
@@ -21862,9 +22014,17 @@ export namespace ivs {
         /**
          * Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
          */
-        recordingMode: pulumi.Input<enums.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode>;
+        recordingMode?: pulumi.Input<enums.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode>;
         /**
-         * Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+         * Resolution indicates the desired resolution of recorded thumbnails.
+         */
+        resolution?: pulumi.Input<enums.ivs.RecordingConfigurationThumbnailConfigurationResolution>;
+        /**
+         * Storage indicates the format in which thumbnails are recorded.
+         */
+        storage?: pulumi.Input<pulumi.Input<enums.ivs.RecordingConfigurationThumbnailConfigurationStorageItem>[]>;
+        /**
+         * Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
          */
         targetIntervalSeconds?: pulumi.Input<number>;
     }
@@ -22191,6 +22351,7 @@ export namespace kendra {
         salesforceConfiguration?: pulumi.Input<inputs.kendra.DataSourceSalesforceConfigurationArgs>;
         serviceNowConfiguration?: pulumi.Input<inputs.kendra.DataSourceServiceNowConfigurationArgs>;
         sharePointConfiguration?: pulumi.Input<inputs.kendra.DataSourceSharePointConfigurationArgs>;
+        templateConfiguration?: pulumi.Input<inputs.kendra.DataSourceTemplateConfigurationArgs>;
         webCrawlerConfiguration?: pulumi.Input<inputs.kendra.DataSourceWebCrawlerConfigurationArgs>;
         workDocsConfiguration?: pulumi.Input<inputs.kendra.DataSourceWorkDocsConfigurationArgs>;
     }
@@ -22472,6 +22633,10 @@ export namespace kendra {
          * A string containing the value for the tag
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface DataSourceTemplateConfigurationArgs {
+        template: pulumi.Input<string>;
     }
 
     export interface DataSourceToIndexFieldMappingArgs {
@@ -29055,6 +29220,103 @@ export namespace mediastore {
 
 export namespace mediatailor {
     /**
+     * <p>Dash manifest configuration parameters.</p>
+     */
+    export interface ChannelDashPlaylistSettingsArgs {
+        /**
+         * <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+         */
+        manifestWindowSeconds?: pulumi.Input<number>;
+        /**
+         * <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+         */
+        minBufferTimeSeconds?: pulumi.Input<number>;
+        /**
+         * <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+         */
+        minUpdatePeriodSeconds?: pulumi.Input<number>;
+        /**
+         * <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+         */
+        suggestedPresentationDelaySeconds?: pulumi.Input<number>;
+    }
+
+    /**
+     * <p>HLS playlist configuration parameters.</p>
+     */
+    export interface ChannelHlsPlaylistSettingsArgs {
+        /**
+         * <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+         */
+        manifestWindowSeconds?: pulumi.Input<number>;
+    }
+
+    /**
+     * <p>The log configuration for the channel.</p>
+     */
+    export interface ChannelLogConfigurationForChannelArgs {
+        /**
+         * <p>The log types.</p>
+         */
+        logTypes?: pulumi.Input<pulumi.Input<enums.mediatailor.ChannelLogType>[]>;
+    }
+
+    /**
+     * <p>The output configuration for this channel.</p>
+     */
+    export interface ChannelRequestOutputItemArgs {
+        dashPlaylistSettings?: pulumi.Input<inputs.mediatailor.ChannelDashPlaylistSettingsArgs>;
+        hlsPlaylistSettings?: pulumi.Input<inputs.mediatailor.ChannelHlsPlaylistSettingsArgs>;
+        /**
+         * <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+         */
+        manifestName: pulumi.Input<string>;
+        /**
+         * <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+         */
+        sourceGroup: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>Slate VOD source configuration.</p>
+     */
+    export interface ChannelSlateSourceArgs {
+        /**
+         * <p>The name of the source location where the slate VOD source is stored.</p>
+         */
+        sourceLocationName?: pulumi.Input<string>;
+        /**
+         * <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+         */
+        vodSourceName?: pulumi.Input<string>;
+    }
+
+    export interface ChannelTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>The HTTP package configuration properties for the requested VOD source.</p>
+     */
+    export interface LiveSourceHttpPackageConfigurationArgs {
+        /**
+         * <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+         */
+        path: pulumi.Input<string>;
+        /**
+         * <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+         */
+        sourceGroup: pulumi.Input<string>;
+        type: pulumi.Input<enums.mediatailor.LiveSourceType>;
+    }
+
+    export interface LiveSourceTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
      */
     export interface PlaybackConfigurationAdMarkerPassthroughArgs {
@@ -29156,6 +29418,91 @@ export namespace mediatailor {
     }
 
     export interface PlaybackConfigurationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>Access configuration parameters.</p>
+     */
+    export interface SourceLocationAccessConfigurationArgs {
+        accessType?: pulumi.Input<enums.mediatailor.SourceLocationAccessType>;
+        secretsManagerAccessTokenConfiguration?: pulumi.Input<inputs.mediatailor.SourceLocationSecretsManagerAccessTokenConfigurationArgs>;
+    }
+
+    /**
+     * <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+     */
+    export interface SourceLocationDefaultSegmentDeliveryConfigurationArgs {
+        /**
+         * <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+         */
+        baseUrl?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>The HTTP configuration for the source location.</p>
+     */
+    export interface SourceLocationHttpConfigurationArgs {
+        /**
+         * <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+         */
+        baseUrl: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+     */
+    export interface SourceLocationSecretsManagerAccessTokenConfigurationArgs {
+        /**
+         * <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+         */
+        headerName?: pulumi.Input<string>;
+        /**
+         * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+         */
+        secretArn?: pulumi.Input<string>;
+        /**
+         * <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+         */
+        secretStringKey?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>The segment delivery configuration settings.</p>
+     */
+    export interface SourceLocationSegmentDeliveryConfigurationArgs {
+        /**
+         * <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+         */
+        baseUrl?: pulumi.Input<string>;
+        /**
+         * <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface SourceLocationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>The HTTP package configuration properties for the requested VOD source.</p>
+     */
+    export interface VodSourceHttpPackageConfigurationArgs {
+        /**
+         * <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+         */
+        path: pulumi.Input<string>;
+        /**
+         * <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+         */
+        sourceGroup: pulumi.Input<string>;
+        type: pulumi.Input<enums.mediatailor.VodSourceType>;
+    }
+
+    export interface VodSourceTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -49802,6 +50149,10 @@ export namespace transfer {
      */
     export interface As2ConfigPropertiesArgs {
         /**
+         * ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+         */
+        basicAuthSecretId?: pulumi.Input<string>;
+        /**
          * Compression setting for this AS2 connector configuration.
          */
         compression?: pulumi.Input<enums.transfer.ConnectorAs2ConfigPropertiesCompression>;
@@ -49922,6 +50273,20 @@ export namespace transfer {
     export interface ServerWorkflowDetailsArgs {
         onPartialUpload?: pulumi.Input<pulumi.Input<inputs.transfer.ServerWorkflowDetailArgs>[]>;
         onUpload?: pulumi.Input<pulumi.Input<inputs.transfer.ServerWorkflowDetailArgs>[]>;
+    }
+
+    /**
+     * Configuration for an SFTP connector.
+     */
+    export interface SftpConfigPropertiesArgs {
+        /**
+         * List of public host keys, for the external server to which you are connecting.
+         */
+        trustedHostKeys?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+         */
+        userSecretId?: pulumi.Input<string>;
     }
 
     export interface UserHomeDirectoryMapEntryArgs {

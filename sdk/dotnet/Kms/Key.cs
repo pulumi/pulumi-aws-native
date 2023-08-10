@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.Kms
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Skips ("bypasses") the key policy lockout safety check. The default value is false.
+        /// </summary>
+        [Output("bypassPolicyLockoutSafetyCheck")]
+        public Output<bool?> BypassPolicyLockoutSafetyCheck { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
         /// </summary>
         [Output("description")]
@@ -43,7 +49,7 @@ namespace Pulumi.AwsNative.Kms
         /// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
         /// </summary>
         [Output("keyPolicy")]
-        public Output<object> KeyPolicy { get; private set; } = null!;
+        public Output<object?> KeyPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
@@ -89,7 +95,7 @@ namespace Pulumi.AwsNative.Kms
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Key(string name, KeyArgs args, CustomResourceOptions? options = null)
+        public Key(string name, KeyArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:kms:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -127,6 +133,12 @@ namespace Pulumi.AwsNative.Kms
     public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Skips ("bypasses") the key policy lockout safety check. The default value is false.
+        /// </summary>
+        [Input("bypassPolicyLockoutSafetyCheck")]
+        public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
+
+        /// <summary>
         /// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
         /// </summary>
         [Input("description")]
@@ -147,8 +159,8 @@ namespace Pulumi.AwsNative.Kms
         /// <summary>
         /// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
         /// </summary>
-        [Input("keyPolicy", required: true)]
-        public Input<object> KeyPolicy { get; set; } = null!;
+        [Input("keyPolicy")]
+        public Input<object>? KeyPolicy { get; set; }
 
         /// <summary>
         /// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.

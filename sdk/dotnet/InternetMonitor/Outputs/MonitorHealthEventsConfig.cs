@@ -13,16 +13,24 @@ namespace Pulumi.AwsNative.InternetMonitor.Outputs
     [OutputType]
     public sealed class MonitorHealthEventsConfig
     {
+        public readonly Outputs.MonitorLocalHealthEventsConfig? AvailabilityLocalHealthEventsConfig;
         public readonly double? AvailabilityScoreThreshold;
+        public readonly Outputs.MonitorLocalHealthEventsConfig? PerformanceLocalHealthEventsConfig;
         public readonly double? PerformanceScoreThreshold;
 
         [OutputConstructor]
         private MonitorHealthEventsConfig(
+            Outputs.MonitorLocalHealthEventsConfig? availabilityLocalHealthEventsConfig,
+
             double? availabilityScoreThreshold,
+
+            Outputs.MonitorLocalHealthEventsConfig? performanceLocalHealthEventsConfig,
 
             double? performanceScoreThreshold)
         {
+            AvailabilityLocalHealthEventsConfig = availabilityLocalHealthEventsConfig;
             AvailabilityScoreThreshold = availabilityScoreThreshold;
+            PerformanceLocalHealthEventsConfig = performanceLocalHealthEventsConfig;
             PerformanceScoreThreshold = performanceScoreThreshold;
         }
     }

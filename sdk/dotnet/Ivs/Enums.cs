@@ -103,6 +103,68 @@ namespace Pulumi.AwsNative.Ivs
     }
 
     /// <summary>
+    /// Resolution Selection indicates which set of renditions are recorded for a stream.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecordingConfigurationRenditionConfigurationRenditionSelection : IEquatable<RecordingConfigurationRenditionConfigurationRenditionSelection>
+    {
+        private readonly string _value;
+
+        private RecordingConfigurationRenditionConfigurationRenditionSelection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecordingConfigurationRenditionConfigurationRenditionSelection All { get; } = new RecordingConfigurationRenditionConfigurationRenditionSelection("ALL");
+        public static RecordingConfigurationRenditionConfigurationRenditionSelection None { get; } = new RecordingConfigurationRenditionConfigurationRenditionSelection("NONE");
+        public static RecordingConfigurationRenditionConfigurationRenditionSelection Custom { get; } = new RecordingConfigurationRenditionConfigurationRenditionSelection("CUSTOM");
+
+        public static bool operator ==(RecordingConfigurationRenditionConfigurationRenditionSelection left, RecordingConfigurationRenditionConfigurationRenditionSelection right) => left.Equals(right);
+        public static bool operator !=(RecordingConfigurationRenditionConfigurationRenditionSelection left, RecordingConfigurationRenditionConfigurationRenditionSelection right) => !left.Equals(right);
+
+        public static explicit operator string(RecordingConfigurationRenditionConfigurationRenditionSelection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecordingConfigurationRenditionConfigurationRenditionSelection other && Equals(other);
+        public bool Equals(RecordingConfigurationRenditionConfigurationRenditionSelection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RecordingConfigurationRenditionConfigurationRenditionsItem : IEquatable<RecordingConfigurationRenditionConfigurationRenditionsItem>
+    {
+        private readonly string _value;
+
+        private RecordingConfigurationRenditionConfigurationRenditionsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecordingConfigurationRenditionConfigurationRenditionsItem FullHd { get; } = new RecordingConfigurationRenditionConfigurationRenditionsItem("FULL_HD");
+        public static RecordingConfigurationRenditionConfigurationRenditionsItem Hd { get; } = new RecordingConfigurationRenditionConfigurationRenditionsItem("HD");
+        public static RecordingConfigurationRenditionConfigurationRenditionsItem Sd { get; } = new RecordingConfigurationRenditionConfigurationRenditionsItem("SD");
+        public static RecordingConfigurationRenditionConfigurationRenditionsItem LowestResolution { get; } = new RecordingConfigurationRenditionConfigurationRenditionsItem("LOWEST_RESOLUTION");
+
+        public static bool operator ==(RecordingConfigurationRenditionConfigurationRenditionsItem left, RecordingConfigurationRenditionConfigurationRenditionsItem right) => left.Equals(right);
+        public static bool operator !=(RecordingConfigurationRenditionConfigurationRenditionsItem left, RecordingConfigurationRenditionConfigurationRenditionsItem right) => !left.Equals(right);
+
+        public static explicit operator string(RecordingConfigurationRenditionConfigurationRenditionsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecordingConfigurationRenditionConfigurationRenditionsItem other && Equals(other);
+        public bool Equals(RecordingConfigurationRenditionConfigurationRenditionsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Recording Configuration State.
     /// </summary>
     [EnumType]
@@ -158,6 +220,67 @@ namespace Pulumi.AwsNative.Ivs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RecordingConfigurationThumbnailConfigurationRecordingMode other && Equals(other);
         public bool Equals(RecordingConfigurationThumbnailConfigurationRecordingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Resolution indicates the desired resolution of recorded thumbnails.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecordingConfigurationThumbnailConfigurationResolution : IEquatable<RecordingConfigurationThumbnailConfigurationResolution>
+    {
+        private readonly string _value;
+
+        private RecordingConfigurationThumbnailConfigurationResolution(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecordingConfigurationThumbnailConfigurationResolution FullHd { get; } = new RecordingConfigurationThumbnailConfigurationResolution("FULL_HD");
+        public static RecordingConfigurationThumbnailConfigurationResolution Hd { get; } = new RecordingConfigurationThumbnailConfigurationResolution("HD");
+        public static RecordingConfigurationThumbnailConfigurationResolution Sd { get; } = new RecordingConfigurationThumbnailConfigurationResolution("SD");
+        public static RecordingConfigurationThumbnailConfigurationResolution LowestResolution { get; } = new RecordingConfigurationThumbnailConfigurationResolution("LOWEST_RESOLUTION");
+
+        public static bool operator ==(RecordingConfigurationThumbnailConfigurationResolution left, RecordingConfigurationThumbnailConfigurationResolution right) => left.Equals(right);
+        public static bool operator !=(RecordingConfigurationThumbnailConfigurationResolution left, RecordingConfigurationThumbnailConfigurationResolution right) => !left.Equals(right);
+
+        public static explicit operator string(RecordingConfigurationThumbnailConfigurationResolution value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecordingConfigurationThumbnailConfigurationResolution other && Equals(other);
+        public bool Equals(RecordingConfigurationThumbnailConfigurationResolution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RecordingConfigurationThumbnailConfigurationStorageItem : IEquatable<RecordingConfigurationThumbnailConfigurationStorageItem>
+    {
+        private readonly string _value;
+
+        private RecordingConfigurationThumbnailConfigurationStorageItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecordingConfigurationThumbnailConfigurationStorageItem Sequential { get; } = new RecordingConfigurationThumbnailConfigurationStorageItem("SEQUENTIAL");
+        public static RecordingConfigurationThumbnailConfigurationStorageItem Latest { get; } = new RecordingConfigurationThumbnailConfigurationStorageItem("LATEST");
+
+        public static bool operator ==(RecordingConfigurationThumbnailConfigurationStorageItem left, RecordingConfigurationThumbnailConfigurationStorageItem right) => left.Equals(right);
+        public static bool operator !=(RecordingConfigurationThumbnailConfigurationStorageItem left, RecordingConfigurationThumbnailConfigurationStorageItem right) => !left.Equals(right);
+
+        public static explicit operator string(RecordingConfigurationThumbnailConfigurationStorageItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecordingConfigurationThumbnailConfigurationStorageItem other && Equals(other);
+        public bool Equals(RecordingConfigurationThumbnailConfigurationStorageItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

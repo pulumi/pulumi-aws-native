@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, id=None, table_input=None):
+    def __init__(__self__, id=None, open_table_format_input=None, table_input=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if open_table_format_input and not isinstance(open_table_format_input, dict):
+            raise TypeError("Expected argument 'open_table_format_input' to be a dict")
+        pulumi.set(__self__, "open_table_format_input", open_table_format_input)
         if table_input and not isinstance(table_input, dict):
             raise TypeError("Expected argument 'table_input' to be a dict")
         pulumi.set(__self__, "table_input", table_input)
@@ -31,6 +34,11 @@ class GetTableResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="openTableFormatInput")
+    def open_table_format_input(self) -> Optional['outputs.TableOpenTableFormatInput']:
+        return pulumi.get(self, "open_table_format_input")
 
     @property
     @pulumi.getter(name="tableInput")
@@ -45,6 +53,7 @@ class AwaitableGetTableResult(GetTableResult):
             yield self
         return GetTableResult(
             id=self.id,
+            open_table_format_input=self.open_table_format_input,
             table_input=self.table_input)
 
 
@@ -60,6 +69,7 @@ def get_table(id: Optional[str] = None,
 
     return AwaitableGetTableResult(
         id=pulumi.get(__ret__, 'id'),
+        open_table_format_input=pulumi.get(__ret__, 'open_table_format_input'),
         table_input=pulumi.get(__ret__, 'table_input'))
 
 

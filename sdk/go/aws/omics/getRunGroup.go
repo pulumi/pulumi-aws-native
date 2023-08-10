@@ -32,6 +32,7 @@ type LookupRunGroupResult struct {
 	Id           *string         `pulumi:"id"`
 	MaxCpus      *float64        `pulumi:"maxCpus"`
 	MaxDuration  *float64        `pulumi:"maxDuration"`
+	MaxGpus      *float64        `pulumi:"maxGpus"`
 	MaxRuns      *float64        `pulumi:"maxRuns"`
 	Name         *string         `pulumi:"name"`
 	Tags         *RunGroupTagMap `pulumi:"tags"`
@@ -90,6 +91,10 @@ func (o LookupRunGroupResultOutput) MaxCpus() pulumi.Float64PtrOutput {
 
 func (o LookupRunGroupResultOutput) MaxDuration() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) *float64 { return v.MaxDuration }).(pulumi.Float64PtrOutput)
+}
+
+func (o LookupRunGroupResultOutput) MaxGpus() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupRunGroupResult) *float64 { return v.MaxGpus }).(pulumi.Float64PtrOutput)
 }
 
 func (o LookupRunGroupResultOutput) MaxRuns() pulumi.Float64PtrOutput {

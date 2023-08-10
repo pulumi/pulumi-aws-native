@@ -36,6 +36,14 @@ namespace Pulumi.AwsNative.Glue.Inputs
             set => _dynamoDbTargets = value;
         }
 
+        [Input("icebergTargets")]
+        private InputList<Inputs.CrawlerIcebergTargetArgs>? _icebergTargets;
+        public InputList<Inputs.CrawlerIcebergTargetArgs> IcebergTargets
+        {
+            get => _icebergTargets ?? (_icebergTargets = new InputList<Inputs.CrawlerIcebergTargetArgs>());
+            set => _icebergTargets = value;
+        }
+
         [Input("jdbcTargets")]
         private InputList<Inputs.CrawlerJdbcTargetArgs>? _jdbcTargets;
         public InputList<Inputs.CrawlerJdbcTargetArgs> JdbcTargets

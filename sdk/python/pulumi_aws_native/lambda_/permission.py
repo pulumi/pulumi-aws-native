@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['PermissionArgs', 'Permission']
 
@@ -18,12 +19,20 @@ class PermissionArgs:
                  function_name: pulumi.Input[str],
                  principal: pulumi.Input[str],
                  event_source_token: Optional[pulumi.Input[str]] = None,
-                 function_url_auth_type: Optional[pulumi.Input[str]] = None,
+                 function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
                  principal_org_id: Optional[pulumi.Input[str]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Permission resource.
+        :param pulumi.Input[str] action: The action that the principal can use on the function.
+        :param pulumi.Input[str] function_name: The name of the Lambda function, version, or alias.
+        :param pulumi.Input[str] principal: The AWS service or account that invokes the function. If you specify a service, use SourceArn or SourceAccount to limit who can invoke the function through that service.
+        :param pulumi.Input[str] event_source_token: For Alexa Smart Home functions, a token that must be supplied by the invoker.
+        :param pulumi.Input['PermissionFunctionUrlAuthType'] function_url_auth_type: The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+        :param pulumi.Input[str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        :param pulumi.Input[str] source_account: For Amazon S3, the ID of the account that owns the resource. Use this together with SourceArn to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+        :param pulumi.Input[str] source_arn: For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "function_name", function_name)
@@ -42,6 +51,9 @@ class PermissionArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
+        """
+        The action that the principal can use on the function.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -51,6 +63,9 @@ class PermissionArgs:
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Lambda function, version, or alias.
+        """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
@@ -60,6 +75,9 @@ class PermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
+        """
+        The AWS service or account that invokes the function. If you specify a service, use SourceArn or SourceAccount to limit who can invoke the function through that service.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -69,6 +87,9 @@ class PermissionArgs:
     @property
     @pulumi.getter(name="eventSourceToken")
     def event_source_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        For Alexa Smart Home functions, a token that must be supplied by the invoker.
+        """
         return pulumi.get(self, "event_source_token")
 
     @event_source_token.setter
@@ -77,16 +98,22 @@ class PermissionArgs:
 
     @property
     @pulumi.getter(name="functionUrlAuthType")
-    def function_url_auth_type(self) -> Optional[pulumi.Input[str]]:
+    def function_url_auth_type(self) -> Optional[pulumi.Input['PermissionFunctionUrlAuthType']]:
+        """
+        The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+        """
         return pulumi.get(self, "function_url_auth_type")
 
     @function_url_auth_type.setter
-    def function_url_auth_type(self, value: Optional[pulumi.Input[str]]):
+    def function_url_auth_type(self, value: Optional[pulumi.Input['PermissionFunctionUrlAuthType']]):
         pulumi.set(self, "function_url_auth_type", value)
 
     @property
     @pulumi.getter(name="principalOrgId")
     def principal_org_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        """
         return pulumi.get(self, "principal_org_id")
 
     @principal_org_id.setter
@@ -96,6 +123,9 @@ class PermissionArgs:
     @property
     @pulumi.getter(name="sourceAccount")
     def source_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        For Amazon S3, the ID of the account that owns the resource. Use this together with SourceArn to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+        """
         return pulumi.get(self, "source_account")
 
     @source_account.setter
@@ -105,6 +135,9 @@ class PermissionArgs:
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
+        """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
@@ -120,7 +153,7 @@ class Permission(pulumi.CustomResource):
                  action: Optional[pulumi.Input[str]] = None,
                  event_source_token: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
-                 function_url_auth_type: Optional[pulumi.Input[str]] = None,
+                 function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  principal_org_id: Optional[pulumi.Input[str]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
@@ -131,6 +164,14 @@ class Permission(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: The action that the principal can use on the function.
+        :param pulumi.Input[str] event_source_token: For Alexa Smart Home functions, a token that must be supplied by the invoker.
+        :param pulumi.Input[str] function_name: The name of the Lambda function, version, or alias.
+        :param pulumi.Input['PermissionFunctionUrlAuthType'] function_url_auth_type: The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+        :param pulumi.Input[str] principal: The AWS service or account that invokes the function. If you specify a service, use SourceArn or SourceAccount to limit who can invoke the function through that service.
+        :param pulumi.Input[str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        :param pulumi.Input[str] source_account: For Amazon S3, the ID of the account that owns the resource. Use this together with SourceArn to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+        :param pulumi.Input[str] source_arn: For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
         """
         ...
     @overload
@@ -159,7 +200,7 @@ class Permission(pulumi.CustomResource):
                  action: Optional[pulumi.Input[str]] = None,
                  event_source_token: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
-                 function_url_auth_type: Optional[pulumi.Input[str]] = None,
+                 function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  principal_org_id: Optional[pulumi.Input[str]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
@@ -222,40 +263,64 @@ class Permission(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[str]:
+        """
+        The action that the principal can use on the function.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="eventSourceToken")
     def event_source_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        For Alexa Smart Home functions, a token that must be supplied by the invoker.
+        """
         return pulumi.get(self, "event_source_token")
 
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Lambda function, version, or alias.
+        """
         return pulumi.get(self, "function_name")
 
     @property
     @pulumi.getter(name="functionUrlAuthType")
-    def function_url_auth_type(self) -> pulumi.Output[Optional[str]]:
+    def function_url_auth_type(self) -> pulumi.Output[Optional['PermissionFunctionUrlAuthType']]:
+        """
+        The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+        """
         return pulumi.get(self, "function_url_auth_type")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
+        """
+        The AWS service or account that invokes the function. If you specify a service, use SourceArn or SourceAccount to limit who can invoke the function through that service.
+        """
         return pulumi.get(self, "principal")
 
     @property
     @pulumi.getter(name="principalOrgId")
     def principal_org_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        """
         return pulumi.get(self, "principal_org_id")
 
     @property
     @pulumi.getter(name="sourceAccount")
     def source_account(self) -> pulumi.Output[Optional[str]]:
+        """
+        For Amazon S3, the ID of the account that owns the resource. Use this together with SourceArn to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+        """
         return pulumi.get(self, "source_account")
 
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
+        """
         return pulumi.get(self, "source_arn")
 

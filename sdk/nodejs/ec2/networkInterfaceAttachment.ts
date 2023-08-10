@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
- *
- * @deprecated NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkInterfaceAttachment {
-        pulumi.log.warn("NetworkInterfaceAttachment is deprecated: NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new NetworkInterfaceAttachment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,9 +34,25 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInterfaceAttachment.__pulumiType;
     }
 
+    /**
+     * The ID of the network interface attachment.
+     */
+    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    /**
+     * Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+     */
     public readonly deleteOnTermination!: pulumi.Output<boolean | undefined>;
+    /**
+     * The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+     */
     public readonly deviceIndex!: pulumi.Output<string>;
+    /**
+     * The ID of the instance to which you will attach the ENI.
+     */
     public readonly instanceId!: pulumi.Output<string>;
+    /**
+     * The ID of the ENI that you want to attach.
+     */
     public readonly networkInterfaceId!: pulumi.Output<string>;
 
     /**
@@ -49,9 +62,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: NetworkInterfaceAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NetworkInterfaceAttachment is deprecated: NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -68,7 +79,9 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             resourceInputs["deviceIndex"] = args ? args.deviceIndex : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["attachmentId"] = undefined /*out*/;
         } else {
+            resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["deleteOnTermination"] = undefined /*out*/;
             resourceInputs["deviceIndex"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
@@ -83,8 +96,20 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkInterfaceAttachment resource.
  */
 export interface NetworkInterfaceAttachmentArgs {
+    /**
+     * Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+     */
     deleteOnTermination?: pulumi.Input<boolean>;
+    /**
+     * The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+     */
     deviceIndex: pulumi.Input<string>;
+    /**
+     * The ID of the instance to which you will attach the ENI.
+     */
     instanceId: pulumi.Input<string>;
+    /**
+     * The ID of the ENI that you want to attach.
+     */
     networkInterfaceId: pulumi.Input<string>;
 }

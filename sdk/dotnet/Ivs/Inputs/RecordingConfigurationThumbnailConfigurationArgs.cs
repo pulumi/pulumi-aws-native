@@ -18,11 +18,29 @@ namespace Pulumi.AwsNative.Ivs.Inputs
         /// <summary>
         /// Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
         /// </summary>
-        [Input("recordingMode", required: true)]
-        public Input<Pulumi.AwsNative.Ivs.RecordingConfigurationThumbnailConfigurationRecordingMode> RecordingMode { get; set; } = null!;
+        [Input("recordingMode")]
+        public Input<Pulumi.AwsNative.Ivs.RecordingConfigurationThumbnailConfigurationRecordingMode>? RecordingMode { get; set; }
 
         /// <summary>
-        /// Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+        /// Resolution indicates the desired resolution of recorded thumbnails.
+        /// </summary>
+        [Input("resolution")]
+        public Input<Pulumi.AwsNative.Ivs.RecordingConfigurationThumbnailConfigurationResolution>? Resolution { get; set; }
+
+        [Input("storage")]
+        private InputList<Pulumi.AwsNative.Ivs.RecordingConfigurationThumbnailConfigurationStorageItem>? _storage;
+
+        /// <summary>
+        /// Storage indicates the format in which thumbnails are recorded.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Ivs.RecordingConfigurationThumbnailConfigurationStorageItem> Storage
+        {
+            get => _storage ?? (_storage = new InputList<Pulumi.AwsNative.Ivs.RecordingConfigurationThumbnailConfigurationStorageItem>());
+            set => _storage = value;
+        }
+
+        /// <summary>
+        /// Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
         /// </summary>
         [Input("targetIntervalSeconds")]
         public Input<int>? TargetIntervalSeconds { get; set; }

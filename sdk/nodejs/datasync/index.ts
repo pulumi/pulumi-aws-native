@@ -15,6 +15,11 @@ export const getAgent: typeof import("./getAgent").getAgent = null as any;
 export const getAgentOutput: typeof import("./getAgent").getAgentOutput = null as any;
 utilities.lazyLoad(exports, ["getAgent","getAgentOutput"], () => require("./getAgent"));
 
+export { GetLocationAzureBlobArgs, GetLocationAzureBlobResult, GetLocationAzureBlobOutputArgs } from "./getLocationAzureBlob";
+export const getLocationAzureBlob: typeof import("./getLocationAzureBlob").getLocationAzureBlob = null as any;
+export const getLocationAzureBlobOutput: typeof import("./getLocationAzureBlob").getLocationAzureBlobOutput = null as any;
+utilities.lazyLoad(exports, ["getLocationAzureBlob","getLocationAzureBlobOutput"], () => require("./getLocationAzureBlob"));
+
 export { GetLocationEfsArgs, GetLocationEfsResult, GetLocationEfsOutputArgs } from "./getLocationEfs";
 export const getLocationEfs: typeof import("./getLocationEfs").getLocationEfs = null as any;
 export const getLocationEfsOutput: typeof import("./getLocationEfs").getLocationEfsOutput = null as any;
@@ -74,6 +79,11 @@ export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
 export const getTask: typeof import("./getTask").getTask = null as any;
 export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
 utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
+
+export { LocationAzureBlobArgs } from "./locationAzureBlob";
+export type LocationAzureBlob = import("./locationAzureBlob").LocationAzureBlob;
+export const LocationAzureBlob: typeof import("./locationAzureBlob").LocationAzureBlob = null as any;
+utilities.lazyLoad(exports, ["LocationAzureBlob"], () => require("./locationAzureBlob"));
 
 export { LocationEfsArgs } from "./locationEfs";
 export type LocationEfs = import("./locationEfs").LocationEfs;
@@ -145,6 +155,8 @@ const _module = {
         switch (type) {
             case "aws-native:datasync:Agent":
                 return new Agent(name, <any>undefined, { urn })
+            case "aws-native:datasync:LocationAzureBlob":
+                return new LocationAzureBlob(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationEfs":
                 return new LocationEfs(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationFSxLustre":

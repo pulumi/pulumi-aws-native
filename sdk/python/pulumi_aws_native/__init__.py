@@ -1287,6 +1287,7 @@ _utilities.register(
    "aws-native:connect:Rule": "Rule",
    "aws-native:connect:SecurityKey": "SecurityKey",
    "aws-native:connect:TaskTemplate": "TaskTemplate",
+   "aws-native:connect:TrafficDistributionGroup": "TrafficDistributionGroup",
    "aws-native:connect:User": "User",
    "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup"
   }
@@ -1354,6 +1355,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.datasync",
   "classes": {
    "aws-native:datasync:Agent": "Agent",
+   "aws-native:datasync:LocationAzureBlob": "LocationAzureBlob",
    "aws-native:datasync:LocationEfs": "LocationEfs",
    "aws-native:datasync:LocationFSxLustre": "LocationFSxLustre",
    "aws-native:datasync:LocationFSxOntap": "LocationFSxOntap",
@@ -2461,7 +2463,12 @@ _utilities.register(
   "mod": "mediatailor",
   "fqn": "pulumi_aws_native.mediatailor",
   "classes": {
-   "aws-native:mediatailor:PlaybackConfiguration": "PlaybackConfiguration"
+   "aws-native:mediatailor:Channel": "Channel",
+   "aws-native:mediatailor:ChannelPolicy": "ChannelPolicy",
+   "aws-native:mediatailor:LiveSource": "LiveSource",
+   "aws-native:mediatailor:PlaybackConfiguration": "PlaybackConfiguration",
+   "aws-native:mediatailor:SourceLocation": "SourceLocation",
+   "aws-native:mediatailor:VodSource": "VodSource"
   }
  },
  {

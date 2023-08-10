@@ -27,8 +27,9 @@ type LookupTableArgs struct {
 }
 
 type LookupTableResult struct {
-	Id         *string         `pulumi:"id"`
-	TableInput *TableInputType `pulumi:"tableInput"`
+	Id                   *string                    `pulumi:"id"`
+	OpenTableFormatInput *TableOpenTableFormatInput `pulumi:"openTableFormatInput"`
+	TableInput           *TableInputType            `pulumi:"tableInput"`
 }
 
 func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
@@ -68,6 +69,10 @@ func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx contex
 
 func (o LookupTableResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupTableResultOutput) OpenTableFormatInput() TableOpenTableFormatInputPtrOutput {
+	return o.ApplyT(func(v LookupTableResult) *TableOpenTableFormatInput { return v.OpenTableFormatInput }).(TableOpenTableFormatInputPtrOutput)
 }
 
 func (o LookupTableResultOutput) TableInput() TableInputTypePtrOutput {

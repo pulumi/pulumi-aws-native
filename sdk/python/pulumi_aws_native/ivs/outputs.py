@@ -15,6 +15,7 @@ __all__ = [
     'ChannelTag',
     'PlaybackKeyPairTag',
     'RecordingConfigurationDestinationConfiguration',
+    'RecordingConfigurationRenditionConfiguration',
     'RecordingConfigurationS3DestinationConfiguration',
     'RecordingConfigurationTag',
     'RecordingConfigurationThumbnailConfiguration',
@@ -65,16 +66,69 @@ class RecordingConfigurationDestinationConfiguration(dict):
     Recording Destination Configuration.
     """
     def __init__(__self__, *,
-                 s3: 'outputs.RecordingConfigurationS3DestinationConfiguration'):
+                 s3: Optional['outputs.RecordingConfigurationS3DestinationConfiguration'] = None):
         """
         Recording Destination Configuration.
         """
-        pulumi.set(__self__, "s3", s3)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
-    def s3(self) -> 'outputs.RecordingConfigurationS3DestinationConfiguration':
+    def s3(self) -> Optional['outputs.RecordingConfigurationS3DestinationConfiguration']:
         return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class RecordingConfigurationRenditionConfiguration(dict):
+    """
+    Rendition Configuration describes which renditions should be recorded for a stream.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "renditionSelection":
+            suggest = "rendition_selection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordingConfigurationRenditionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordingConfigurationRenditionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordingConfigurationRenditionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rendition_selection: Optional['RecordingConfigurationRenditionConfigurationRenditionSelection'] = None,
+                 renditions: Optional[Sequence['RecordingConfigurationRenditionConfigurationRenditionsItem']] = None):
+        """
+        Rendition Configuration describes which renditions should be recorded for a stream.
+        :param 'RecordingConfigurationRenditionConfigurationRenditionSelection' rendition_selection: Resolution Selection indicates which set of renditions are recorded for a stream.
+        :param Sequence['RecordingConfigurationRenditionConfigurationRenditionsItem'] renditions: Renditions indicates which renditions are recorded for a stream.
+        """
+        if rendition_selection is not None:
+            pulumi.set(__self__, "rendition_selection", rendition_selection)
+        if renditions is not None:
+            pulumi.set(__self__, "renditions", renditions)
+
+    @property
+    @pulumi.getter(name="renditionSelection")
+    def rendition_selection(self) -> Optional['RecordingConfigurationRenditionConfigurationRenditionSelection']:
+        """
+        Resolution Selection indicates which set of renditions are recorded for a stream.
+        """
+        return pulumi.get(self, "rendition_selection")
+
+    @property
+    @pulumi.getter
+    def renditions(self) -> Optional[Sequence['RecordingConfigurationRenditionConfigurationRenditionsItem']]:
+        """
+        Renditions indicates which renditions are recorded for a stream.
+        """
+        return pulumi.get(self, "renditions")
 
 
 @pulumi.output_type
@@ -156,30 +210,55 @@ class RecordingConfigurationThumbnailConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 recording_mode: 'RecordingConfigurationThumbnailConfigurationRecordingMode',
+                 recording_mode: Optional['RecordingConfigurationThumbnailConfigurationRecordingMode'] = None,
+                 resolution: Optional['RecordingConfigurationThumbnailConfigurationResolution'] = None,
+                 storage: Optional[Sequence['RecordingConfigurationThumbnailConfigurationStorageItem']] = None,
                  target_interval_seconds: Optional[int] = None):
         """
         Recording Thumbnail Configuration.
         :param 'RecordingConfigurationThumbnailConfigurationRecordingMode' recording_mode: Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
-        :param int target_interval_seconds: Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+        :param 'RecordingConfigurationThumbnailConfigurationResolution' resolution: Resolution indicates the desired resolution of recorded thumbnails.
+        :param Sequence['RecordingConfigurationThumbnailConfigurationStorageItem'] storage: Storage indicates the format in which thumbnails are recorded.
+        :param int target_interval_seconds: Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
         """
-        pulumi.set(__self__, "recording_mode", recording_mode)
+        if recording_mode is not None:
+            pulumi.set(__self__, "recording_mode", recording_mode)
+        if resolution is not None:
+            pulumi.set(__self__, "resolution", resolution)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
         if target_interval_seconds is not None:
             pulumi.set(__self__, "target_interval_seconds", target_interval_seconds)
 
     @property
     @pulumi.getter(name="recordingMode")
-    def recording_mode(self) -> 'RecordingConfigurationThumbnailConfigurationRecordingMode':
+    def recording_mode(self) -> Optional['RecordingConfigurationThumbnailConfigurationRecordingMode']:
         """
         Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
         """
         return pulumi.get(self, "recording_mode")
 
     @property
+    @pulumi.getter
+    def resolution(self) -> Optional['RecordingConfigurationThumbnailConfigurationResolution']:
+        """
+        Resolution indicates the desired resolution of recorded thumbnails.
+        """
+        return pulumi.get(self, "resolution")
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional[Sequence['RecordingConfigurationThumbnailConfigurationStorageItem']]:
+        """
+        Storage indicates the format in which thumbnails are recorded.
+        """
+        return pulumi.get(self, "storage")
+
+    @property
     @pulumi.getter(name="targetIntervalSeconds")
     def target_interval_seconds(self) -> Optional[int]:
         """
-        Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+        Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
         """
         return pulumi.get(self, "target_interval_seconds")
 

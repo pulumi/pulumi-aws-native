@@ -152,6 +152,8 @@ __all__ = [
     'NetworkInsightsPathPathFilter',
     'NetworkInsightsPathTag',
     'NetworkInterfaceInstanceIpv6Address',
+    'NetworkInterfaceIpv4PrefixSpecification',
+    'NetworkInterfaceIpv6PrefixSpecification',
     'NetworkInterfacePrivateIpAddressSpecification',
     'NetworkInterfaceTag',
     'OptionsProperties',
@@ -7699,6 +7701,64 @@ class NetworkInterfaceInstanceIpv6Address(dict):
     @pulumi.getter(name="ipv6Address")
     def ipv6_address(self) -> str:
         return pulumi.get(self, "ipv6_address")
+
+
+@pulumi.output_type
+class NetworkInterfaceIpv4PrefixSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Prefix":
+            suggest = "ipv4_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceIpv4PrefixSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceIpv4PrefixSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceIpv4PrefixSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv4_prefix: str):
+        pulumi.set(__self__, "ipv4_prefix", ipv4_prefix)
+
+    @property
+    @pulumi.getter(name="ipv4Prefix")
+    def ipv4_prefix(self) -> str:
+        return pulumi.get(self, "ipv4_prefix")
+
+
+@pulumi.output_type
+class NetworkInterfaceIpv6PrefixSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv6Prefix":
+            suggest = "ipv6_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceIpv6PrefixSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceIpv6PrefixSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceIpv6PrefixSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv6_prefix: str):
+        pulumi.set(__self__, "ipv6_prefix", ipv6_prefix)
+
+    @property
+    @pulumi.getter(name="ipv6Prefix")
+    def ipv6_prefix(self) -> str:
+        return pulumi.get(self, "ipv6_prefix")
 
 
 @pulumi.output_type

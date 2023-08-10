@@ -41,6 +41,7 @@ export class RunGroup extends pulumi.CustomResource {
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public readonly maxCpus!: pulumi.Output<number | undefined>;
     public readonly maxDuration!: pulumi.Output<number | undefined>;
+    public readonly maxGpus!: pulumi.Output<number | undefined>;
     public readonly maxRuns!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.omics.RunGroupTagMap | undefined>;
@@ -58,6 +59,7 @@ export class RunGroup extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["maxCpus"] = args ? args.maxCpus : undefined;
             resourceInputs["maxDuration"] = args ? args.maxDuration : undefined;
+            resourceInputs["maxGpus"] = args ? args.maxGpus : undefined;
             resourceInputs["maxRuns"] = args ? args.maxRuns : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -68,6 +70,7 @@ export class RunGroup extends pulumi.CustomResource {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["maxCpus"] = undefined /*out*/;
             resourceInputs["maxDuration"] = undefined /*out*/;
+            resourceInputs["maxGpus"] = undefined /*out*/;
             resourceInputs["maxRuns"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -83,6 +86,7 @@ export class RunGroup extends pulumi.CustomResource {
 export interface RunGroupArgs {
     maxCpus?: pulumi.Input<number>;
     maxDuration?: pulumi.Input<number>;
+    maxGpus?: pulumi.Input<number>;
     maxRuns?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<inputs.omics.RunGroupTagMapArgs>;

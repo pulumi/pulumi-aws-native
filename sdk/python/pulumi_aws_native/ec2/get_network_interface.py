@@ -19,25 +19,34 @@ __all__ = [
 
 @pulumi.output_type
 class GetNetworkInterfaceResult:
-    def __init__(__self__, description=None, enable_primary_ipv6=None, group_set=None, id=None, ipv6_address_count=None, ipv6_addresses=None, primary_private_ip_address=None, private_ip_addresses=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, source_dest_check=None, tags=None):
+    def __init__(__self__, description=None, group_set=None, id=None, ipv4_prefix_count=None, ipv4_prefixes=None, ipv6_address_count=None, ipv6_addresses=None, ipv6_prefix_count=None, ipv6_prefixes=None, primary_private_ip_address=None, private_ip_addresses=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, source_dest_check=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if enable_primary_ipv6 and not isinstance(enable_primary_ipv6, bool):
-            raise TypeError("Expected argument 'enable_primary_ipv6' to be a bool")
-        pulumi.set(__self__, "enable_primary_ipv6", enable_primary_ipv6)
         if group_set and not isinstance(group_set, list):
             raise TypeError("Expected argument 'group_set' to be a list")
         pulumi.set(__self__, "group_set", group_set)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ipv4_prefix_count and not isinstance(ipv4_prefix_count, int):
+            raise TypeError("Expected argument 'ipv4_prefix_count' to be a int")
+        pulumi.set(__self__, "ipv4_prefix_count", ipv4_prefix_count)
+        if ipv4_prefixes and not isinstance(ipv4_prefixes, list):
+            raise TypeError("Expected argument 'ipv4_prefixes' to be a list")
+        pulumi.set(__self__, "ipv4_prefixes", ipv4_prefixes)
         if ipv6_address_count and not isinstance(ipv6_address_count, int):
             raise TypeError("Expected argument 'ipv6_address_count' to be a int")
         pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if ipv6_addresses and not isinstance(ipv6_addresses, list):
             raise TypeError("Expected argument 'ipv6_addresses' to be a list")
         pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if ipv6_prefix_count and not isinstance(ipv6_prefix_count, int):
+            raise TypeError("Expected argument 'ipv6_prefix_count' to be a int")
+        pulumi.set(__self__, "ipv6_prefix_count", ipv6_prefix_count)
+        if ipv6_prefixes and not isinstance(ipv6_prefixes, list):
+            raise TypeError("Expected argument 'ipv6_prefixes' to be a list")
+        pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
         if primary_private_ip_address and not isinstance(primary_private_ip_address, str):
             raise TypeError("Expected argument 'primary_private_ip_address' to be a str")
         pulumi.set(__self__, "primary_private_ip_address", primary_private_ip_address)
@@ -66,14 +75,6 @@ class GetNetworkInterfaceResult:
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="enablePrimaryIpv6")
-    def enable_primary_ipv6(self) -> Optional[bool]:
-        """
-        If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
-        """
-        return pulumi.get(self, "enable_primary_ipv6")
-
-    @property
     @pulumi.getter(name="groupSet")
     def group_set(self) -> Optional[Sequence[str]]:
         """
@@ -90,6 +91,22 @@ class GetNetworkInterfaceResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="ipv4PrefixCount")
+    def ipv4_prefix_count(self) -> Optional[int]:
+        """
+        The number of IPv4 prefixes to assign to a network interface. When you specify a number of IPv4 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /28 prefixes. You can't specify a count of IPv4 prefixes if you've specified one of the following: specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
+        """
+        return pulumi.get(self, "ipv4_prefix_count")
+
+    @property
+    @pulumi.getter(name="ipv4Prefixes")
+    def ipv4_prefixes(self) -> Optional[Sequence['outputs.NetworkInterfaceIpv4PrefixSpecification']]:
+        """
+        Assigns a list of IPv4 prefixes to the network interface. If you want EC2 to automatically assign IPv4 prefixes, use the Ipv4PrefixCount property and do not specify this property. Presently, only /28 prefixes are supported. You can't specify IPv4 prefixes if you've specified one of the following: a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
+        """
+        return pulumi.get(self, "ipv4_prefixes")
+
+    @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[int]:
         """
@@ -104,6 +121,22 @@ class GetNetworkInterfaceResult:
         One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
         """
         return pulumi.get(self, "ipv6_addresses")
+
+    @property
+    @pulumi.getter(name="ipv6PrefixCount")
+    def ipv6_prefix_count(self) -> Optional[int]:
+        """
+        The number of IPv6 prefixes to assign to a network interface. When you specify a number of IPv6 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /80 prefixes. You can't specify a count of IPv6 prefixes if you've specified one of the following: specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
+        """
+        return pulumi.get(self, "ipv6_prefix_count")
+
+    @property
+    @pulumi.getter(name="ipv6Prefixes")
+    def ipv6_prefixes(self) -> Optional[Sequence['outputs.NetworkInterfaceIpv6PrefixSpecification']]:
+        """
+        Assigns a list of IPv6 prefixes to the network interface. If you want EC2 to automatically assign IPv6 prefixes, use the Ipv6PrefixCount property and do not specify this property. Presently, only /80 prefixes are supported. You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
+        """
+        return pulumi.get(self, "ipv6_prefixes")
 
     @property
     @pulumi.getter(name="primaryPrivateIpAddress")
@@ -161,11 +194,14 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             yield self
         return GetNetworkInterfaceResult(
             description=self.description,
-            enable_primary_ipv6=self.enable_primary_ipv6,
             group_set=self.group_set,
             id=self.id,
+            ipv4_prefix_count=self.ipv4_prefix_count,
+            ipv4_prefixes=self.ipv4_prefixes,
             ipv6_address_count=self.ipv6_address_count,
             ipv6_addresses=self.ipv6_addresses,
+            ipv6_prefix_count=self.ipv6_prefix_count,
+            ipv6_prefixes=self.ipv6_prefixes,
             primary_private_ip_address=self.primary_private_ip_address,
             private_ip_addresses=self.private_ip_addresses,
             secondary_private_ip_address_count=self.secondary_private_ip_address_count,
@@ -189,11 +225,14 @@ def get_network_interface(id: Optional[str] = None,
 
     return AwaitableGetNetworkInterfaceResult(
         description=pulumi.get(__ret__, 'description'),
-        enable_primary_ipv6=pulumi.get(__ret__, 'enable_primary_ipv6'),
         group_set=pulumi.get(__ret__, 'group_set'),
         id=pulumi.get(__ret__, 'id'),
+        ipv4_prefix_count=pulumi.get(__ret__, 'ipv4_prefix_count'),
+        ipv4_prefixes=pulumi.get(__ret__, 'ipv4_prefixes'),
         ipv6_address_count=pulumi.get(__ret__, 'ipv6_address_count'),
         ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
+        ipv6_prefix_count=pulumi.get(__ret__, 'ipv6_prefix_count'),
+        ipv6_prefixes=pulumi.get(__ret__, 'ipv6_prefixes'),
         primary_private_ip_address=pulumi.get(__ret__, 'primary_private_ip_address'),
         private_ip_addresses=pulumi.get(__ret__, 'private_ip_addresses'),
         secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),

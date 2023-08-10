@@ -23,10 +23,14 @@ func LookupPermission(ctx *pulumi.Context, args *LookupPermissionArgs, opts ...p
 }
 
 type LookupPermissionArgs struct {
+	// The name of the Lambda function, version, or alias.
+	FunctionName string `pulumi:"functionName"`
+	// A statement identifier that differentiates the statement from others in the same policy.
 	Id string `pulumi:"id"`
 }
 
 type LookupPermissionResult struct {
+	// A statement identifier that differentiates the statement from others in the same policy.
 	Id *string `pulumi:"id"`
 }
 
@@ -44,6 +48,9 @@ func LookupPermissionOutput(ctx *pulumi.Context, args LookupPermissionOutputArgs
 }
 
 type LookupPermissionOutputArgs struct {
+	// The name of the Lambda function, version, or alias.
+	FunctionName pulumi.StringInput `pulumi:"functionName"`
+	// A statement identifier that differentiates the statement from others in the same policy.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -65,6 +72,7 @@ func (o LookupPermissionResultOutput) ToLookupPermissionResultOutputWithContext(
 	return o
 }
 
+// A statement identifier that differentiates the statement from others in the same policy.
 func (o LookupPermissionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPermissionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

@@ -27,9 +27,17 @@ export interface GetFeatureGroupArgs {
 
 export interface GetFeatureGroupResult {
     /**
+     * A timestamp of FeatureGroup creation time.
+     */
+    readonly creationTime?: string;
+    /**
      * An Array of Feature Definition
      */
     readonly featureDefinitions?: outputs.sagemaker.FeatureGroupFeatureDefinition[];
+    /**
+     * The status of the feature group.
+     */
+    readonly featureGroupStatus?: string;
 }
 /**
  * Resource Type definition for AWS::SageMaker::FeatureGroup

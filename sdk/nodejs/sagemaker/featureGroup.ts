@@ -38,6 +38,10 @@ export class FeatureGroup extends pulumi.CustomResource {
     }
 
     /**
+     * A timestamp of FeatureGroup creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
      * Description about the FeatureGroup.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -53,6 +57,10 @@ export class FeatureGroup extends pulumi.CustomResource {
      * The Name of the FeatureGroup.
      */
     public readonly featureGroupName!: pulumi.Output<string>;
+    /**
+     * The status of the feature group.
+     */
+    public /*out*/ readonly featureGroupStatus!: pulumi.Output<string>;
     public readonly offlineStoreConfig!: pulumi.Output<outputs.sagemaker.OfflineStoreConfigProperties | undefined>;
     public readonly onlineStoreConfig!: pulumi.Output<outputs.sagemaker.OnlineStoreConfigProperties | undefined>;
     /**
@@ -97,11 +105,15 @@ export class FeatureGroup extends pulumi.CustomResource {
             resourceInputs["recordIdentifierFeatureName"] = args ? args.recordIdentifierFeatureName : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["featureGroupStatus"] = undefined /*out*/;
         } else {
+            resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["eventTimeFeatureName"] = undefined /*out*/;
             resourceInputs["featureDefinitions"] = undefined /*out*/;
             resourceInputs["featureGroupName"] = undefined /*out*/;
+            resourceInputs["featureGroupStatus"] = undefined /*out*/;
             resourceInputs["offlineStoreConfig"] = undefined /*out*/;
             resourceInputs["onlineStoreConfig"] = undefined /*out*/;
             resourceInputs["recordIdentifierFeatureName"] = undefined /*out*/;

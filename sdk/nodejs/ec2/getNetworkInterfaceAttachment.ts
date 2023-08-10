@@ -11,20 +11,26 @@ export function getNetworkInterfaceAttachment(args: GetNetworkInterfaceAttachmen
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getNetworkInterfaceAttachment", {
-        "id": args.id,
+        "attachmentId": args.attachmentId,
     }, opts);
 }
 
 export interface GetNetworkInterfaceAttachmentArgs {
-    id: string;
+    /**
+     * The ID of the network interface attachment.
+     */
+    attachmentId: string;
 }
 
 export interface GetNetworkInterfaceAttachmentResult {
+    /**
+     * The ID of the network interface attachment.
+     */
+    readonly attachmentId?: string;
+    /**
+     * Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+     */
     readonly deleteOnTermination?: boolean;
-    readonly deviceIndex?: string;
-    readonly id?: string;
-    readonly instanceId?: string;
-    readonly networkInterfaceId?: string;
 }
 /**
  * Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
@@ -34,5 +40,8 @@ export function getNetworkInterfaceAttachmentOutput(args: GetNetworkInterfaceAtt
 }
 
 export interface GetNetworkInterfaceAttachmentOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The ID of the network interface attachment.
+     */
+    attachmentId: pulumi.Input<string>;
 }

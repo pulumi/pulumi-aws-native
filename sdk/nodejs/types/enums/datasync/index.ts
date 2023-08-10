@@ -13,6 +13,35 @@ export const AgentEndpointType = {
  */
 export type AgentEndpointType = (typeof AgentEndpointType)[keyof typeof AgentEndpointType];
 
+export const LocationAzureBlobAzureAccessTier = {
+    Hot: "HOT",
+    Cool: "COOL",
+    Archive: "ARCHIVE",
+} as const;
+
+/**
+ * Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
+ */
+export type LocationAzureBlobAzureAccessTier = (typeof LocationAzureBlobAzureAccessTier)[keyof typeof LocationAzureBlobAzureAccessTier];
+
+export const LocationAzureBlobAzureBlobAuthenticationType = {
+    Sas: "SAS",
+} as const;
+
+/**
+ * The specific authentication type that you want DataSync to use to access your Azure Blob Container.
+ */
+export type LocationAzureBlobAzureBlobAuthenticationType = (typeof LocationAzureBlobAzureBlobAuthenticationType)[keyof typeof LocationAzureBlobAzureBlobAuthenticationType];
+
+export const LocationAzureBlobAzureBlobType = {
+    Block: "BLOCK",
+} as const;
+
+/**
+ * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
+ */
+export type LocationAzureBlobAzureBlobType = (typeof LocationAzureBlobAzureBlobType)[keyof typeof LocationAzureBlobAzureBlobType];
+
 export const LocationEfsInTransitEncryption = {
     None: "NONE",
     Tls12: "TLS1_2",

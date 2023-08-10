@@ -39,6 +39,10 @@ export class Key extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Skips ("bypasses") the key policy lockout safety check. The default value is false.
+     */
+    public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
+    /**
      * A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -54,7 +58,7 @@ export class Key extends pulumi.CustomResource {
     /**
      * The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
      */
-    public readonly keyPolicy!: pulumi.Output<any>;
+    public readonly keyPolicy!: pulumi.Output<any | undefined>;
     /**
      * Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
      */
@@ -87,13 +91,11 @@ export class Key extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: KeyArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyPolicy === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyPolicy'");
-            }
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
@@ -108,6 +110,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keyId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["enableKeyRotation"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
@@ -130,6 +133,10 @@ export class Key extends pulumi.CustomResource {
  */
 export interface KeyArgs {
     /**
+     * Skips ("bypasses") the key policy lockout safety check. The default value is false.
+     */
+    bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
+    /**
      * A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
      */
     description?: pulumi.Input<string>;
@@ -144,7 +151,7 @@ export interface KeyArgs {
     /**
      * The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
      */
-    keyPolicy: any;
+    keyPolicy?: any;
     /**
      * Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
      */

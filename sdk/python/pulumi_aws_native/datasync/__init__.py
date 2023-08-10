@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .agent import *
 from .get_agent import *
+from .get_location_azure_blob import *
 from .get_location_efs import *
 from .get_location_f_sx_lustre import *
 from .get_location_f_sx_ontap import *
@@ -20,6 +21,7 @@ from .get_location_s3 import *
 from .get_location_smb import *
 from .get_storage_system import *
 from .get_task import *
+from .location_azure_blob import *
 from .location_efs import *
 from .location_f_sx_lustre import *
 from .location_f_sx_ontap import *

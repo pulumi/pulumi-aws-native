@@ -28,8 +28,12 @@ type LookupFeatureGroupArgs struct {
 }
 
 type LookupFeatureGroupResult struct {
+	// A timestamp of FeatureGroup creation time.
+	CreationTime *string `pulumi:"creationTime"`
 	// An Array of Feature Definition
 	FeatureDefinitions []FeatureGroupFeatureDefinition `pulumi:"featureDefinitions"`
+	// The status of the feature group.
+	FeatureGroupStatus *string `pulumi:"featureGroupStatus"`
 }
 
 func LookupFeatureGroupOutput(ctx *pulumi.Context, args LookupFeatureGroupOutputArgs, opts ...pulumi.InvokeOption) LookupFeatureGroupResultOutput {
@@ -68,9 +72,19 @@ func (o LookupFeatureGroupResultOutput) ToLookupFeatureGroupResultOutputWithCont
 	return o
 }
 
+// A timestamp of FeatureGroup creation time.
+func (o LookupFeatureGroupResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFeatureGroupResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
 // An Array of Feature Definition
 func (o LookupFeatureGroupResultOutput) FeatureDefinitions() FeatureGroupFeatureDefinitionArrayOutput {
 	return o.ApplyT(func(v LookupFeatureGroupResult) []FeatureGroupFeatureDefinition { return v.FeatureDefinitions }).(FeatureGroupFeatureDefinitionArrayOutput)
+}
+
+// The status of the feature group.
+func (o LookupFeatureGroupResultOutput) FeatureGroupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFeatureGroupResult) *string { return v.FeatureGroupStatus }).(pulumi.StringPtrOutput)
 }
 
 func init() {

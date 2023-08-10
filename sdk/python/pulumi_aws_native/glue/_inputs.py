@@ -20,6 +20,7 @@ __all__ = [
     'CrawlerCatalogTargetArgs',
     'CrawlerDeltaTargetArgs',
     'CrawlerDynamoDbTargetArgs',
+    'CrawlerIcebergTargetArgs',
     'CrawlerJdbcTargetArgs',
     'CrawlerMongoDbTargetArgs',
     'CrawlerRecrawlPolicyArgs',
@@ -64,8 +65,11 @@ __all__ = [
     'SecurityConfigurationJobBookmarksEncryptionArgs',
     'SecurityConfigurationS3EncryptionsArgs',
     'TableColumnArgs',
+    'TableIcebergInputArgs',
     'TableIdentifierArgs',
     'TableInputArgs',
+    'TableMetadataOperationArgs',
+    'TableOpenTableFormatInputArgs',
     'TableOrderArgs',
     'TableSchemaIdArgs',
     'TableSchemaReferenceArgs',
@@ -83,7 +87,9 @@ __all__ = [
 class ClassifierCsvClassifierArgs:
     def __init__(__self__, *,
                  allow_single_column: Optional[pulumi.Input[bool]] = None,
+                 contains_custom_datatype: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  contains_header: Optional[pulumi.Input[str]] = None,
+                 custom_datatype_configured: Optional[pulumi.Input[bool]] = None,
                  delimiter: Optional[pulumi.Input[str]] = None,
                  disable_value_trimming: Optional[pulumi.Input[bool]] = None,
                  header: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -91,8 +97,12 @@ class ClassifierCsvClassifierArgs:
                  quote_symbol: Optional[pulumi.Input[str]] = None):
         if allow_single_column is not None:
             pulumi.set(__self__, "allow_single_column", allow_single_column)
+        if contains_custom_datatype is not None:
+            pulumi.set(__self__, "contains_custom_datatype", contains_custom_datatype)
         if contains_header is not None:
             pulumi.set(__self__, "contains_header", contains_header)
+        if custom_datatype_configured is not None:
+            pulumi.set(__self__, "custom_datatype_configured", custom_datatype_configured)
         if delimiter is not None:
             pulumi.set(__self__, "delimiter", delimiter)
         if disable_value_trimming is not None:
@@ -114,6 +124,15 @@ class ClassifierCsvClassifierArgs:
         pulumi.set(self, "allow_single_column", value)
 
     @property
+    @pulumi.getter(name="containsCustomDatatype")
+    def contains_custom_datatype(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "contains_custom_datatype")
+
+    @contains_custom_datatype.setter
+    def contains_custom_datatype(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "contains_custom_datatype", value)
+
+    @property
     @pulumi.getter(name="containsHeader")
     def contains_header(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "contains_header")
@@ -121,6 +140,15 @@ class ClassifierCsvClassifierArgs:
     @contains_header.setter
     def contains_header(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "contains_header", value)
+
+    @property
+    @pulumi.getter(name="customDatatypeConfigured")
+    def custom_datatype_configured(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "custom_datatype_configured")
+
+    @custom_datatype_configured.setter
+    def custom_datatype_configured(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_datatype_configured", value)
 
     @property
     @pulumi.getter
@@ -539,6 +567,59 @@ class CrawlerDynamoDbTargetArgs:
 
 
 @pulumi.input_type
+class CrawlerIcebergTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 maximum_traversal_depth: Optional[pulumi.Input[int]] = None,
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if maximum_traversal_depth is not None:
+            pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusions", value)
+
+    @property
+    @pulumi.getter(name="maximumTraversalDepth")
+    def maximum_traversal_depth(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "maximum_traversal_depth")
+
+    @maximum_traversal_depth.setter
+    def maximum_traversal_depth(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_traversal_depth", value)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "paths", value)
+
+
+@pulumi.input_type
 class CrawlerJdbcTargetArgs:
     def __init__(__self__, *,
                  connection_name: Optional[pulumi.Input[str]] = None,
@@ -754,6 +835,7 @@ class CrawlerTargetsArgs:
                  catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
                  delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
                  dynamo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]]] = None,
+                 iceberg_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
                  mongo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]]] = None,
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None):
@@ -763,6 +845,8 @@ class CrawlerTargetsArgs:
             pulumi.set(__self__, "delta_targets", delta_targets)
         if dynamo_db_targets is not None:
             pulumi.set(__self__, "dynamo_db_targets", dynamo_db_targets)
+        if iceberg_targets is not None:
+            pulumi.set(__self__, "iceberg_targets", iceberg_targets)
         if jdbc_targets is not None:
             pulumi.set(__self__, "jdbc_targets", jdbc_targets)
         if mongo_db_targets is not None:
@@ -796,6 +880,15 @@ class CrawlerTargetsArgs:
     @dynamo_db_targets.setter
     def dynamo_db_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]]]):
         pulumi.set(self, "dynamo_db_targets", value)
+
+    @property
+    @pulumi.getter(name="icebergTargets")
+    def iceberg_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]]:
+        return pulumi.get(self, "iceberg_targets")
+
+    @iceberg_targets.setter
+    def iceberg_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]]):
+        pulumi.set(self, "iceberg_targets", value)
 
     @property
     @pulumi.getter(name="jdbcTargets")
@@ -991,11 +1084,14 @@ class DatabaseFederatedDatabaseArgs:
 class DatabaseIdentifierArgs:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 database_name: Optional[pulumi.Input[str]] = None):
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None):
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -1014,6 +1110,15 @@ class DatabaseIdentifierArgs:
     @database_name.setter
     def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
@@ -2232,17 +2337,49 @@ class TableColumnArgs:
 
 
 @pulumi.input_type
+class TableIcebergInputArgs:
+    def __init__(__self__, *,
+                 metadata_operation: Optional[pulumi.Input['TableMetadataOperationArgs']] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        if metadata_operation is not None:
+            pulumi.set(__self__, "metadata_operation", metadata_operation)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="metadataOperation")
+    def metadata_operation(self) -> Optional[pulumi.Input['TableMetadataOperationArgs']]:
+        return pulumi.get(self, "metadata_operation")
+
+    @metadata_operation.setter
+    def metadata_operation(self, value: Optional[pulumi.Input['TableMetadataOperationArgs']]):
+        pulumi.set(self, "metadata_operation", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
 class TableIdentifierArgs:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None):
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -2270,6 +2407,15 @@ class TableIdentifierArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
@@ -2407,6 +2553,29 @@ class TableInputArgs:
     @view_original_text.setter
     def view_original_text(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "view_original_text", value)
+
+
+@pulumi.input_type
+class TableMetadataOperationArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class TableOpenTableFormatInputArgs:
+    def __init__(__self__, *,
+                 iceberg_input: Optional[pulumi.Input['TableIcebergInputArgs']] = None):
+        if iceberg_input is not None:
+            pulumi.set(__self__, "iceberg_input", iceberg_input)
+
+    @property
+    @pulumi.getter(name="icebergInput")
+    def iceberg_input(self) -> Optional[pulumi.Input['TableIcebergInputArgs']]:
+        return pulumi.get(self, "iceberg_input")
+
+    @iceberg_input.setter
+    def iceberg_input(self, value: Optional[pulumi.Input['TableIcebergInputArgs']]):
+        pulumi.set(self, "iceberg_input", value)
 
 
 @pulumi.input_type

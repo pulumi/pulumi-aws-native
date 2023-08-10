@@ -78,6 +78,14 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         public readonly string? DbClusterParameterGroupName;
         /// <summary>
+        /// The port number on which the DB instances in the DB cluster accept connections. 
+        /// 
+        /// If not specified, the default port used is `8182`. 
+        /// 
+        /// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
+        /// </summary>
+        public readonly int? DbPort;
+        /// <summary>
         /// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
         /// </summary>
         public readonly bool? DeletionProtection;
@@ -86,7 +94,7 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         public readonly ImmutableArray<string> EnableCloudwatchLogsExports;
         /// <summary>
-        /// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        /// The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
         /// </summary>
         public readonly string? Endpoint;
         /// <summary>
@@ -98,7 +106,7 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         public readonly bool? IamAuthEnabled;
         /// <summary>
-        /// Specifies the port that the database engine is listening on.
+        /// The port number on which the DB cluster accepts connections. For example: `8182`.
         /// </summary>
         public readonly string? Port;
         /// <summary>
@@ -110,7 +118,7 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         public readonly string? PreferredMaintenanceWindow;
         /// <summary>
-        /// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        /// The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
         /// </summary>
         public readonly string? ReadEndpoint;
         /// <summary>
@@ -137,6 +145,8 @@ namespace Pulumi.AwsNative.Neptune
             bool? copyTagsToSnapshot,
 
             string? dbClusterParameterGroupName,
+
+            int? dbPort,
 
             bool? deletionProtection,
 
@@ -167,6 +177,7 @@ namespace Pulumi.AwsNative.Neptune
             ClusterResourceId = clusterResourceId;
             CopyTagsToSnapshot = copyTagsToSnapshot;
             DbClusterParameterGroupName = dbClusterParameterGroupName;
+            DbPort = dbPort;
             DeletionProtection = deletionProtection;
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;
             Endpoint = endpoint;

@@ -30,7 +30,7 @@ type LookupConnectorArgs struct {
 type LookupConnectorResult struct {
 	// Specifies the access role for the connector.
 	AccessRole *string `pulumi:"accessRole"`
-	// Specifies the unique Amazon Resource Name (ARN) for the workflow.
+	// Specifies the unique Amazon Resource Name (ARN) for the connector.
 	Arn *string `pulumi:"arn"`
 	// Configuration for an AS2 connector.
 	As2Config *As2ConfigProperties `pulumi:"as2Config"`
@@ -38,7 +38,9 @@ type LookupConnectorResult struct {
 	ConnectorId *string `pulumi:"connectorId"`
 	// Specifies the logging role for the connector.
 	LoggingRole *string `pulumi:"loggingRole"`
-	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+	// Configuration for an SFTP connector.
+	SftpConfig *SftpConfigProperties `pulumi:"sftpConfig"`
+	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 	Tags []ConnectorTag `pulumi:"tags"`
 	// URL for Connector
 	Url *string `pulumi:"url"`
@@ -85,7 +87,7 @@ func (o LookupConnectorResultOutput) AccessRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.AccessRole }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the unique Amazon Resource Name (ARN) for the workflow.
+// Specifies the unique Amazon Resource Name (ARN) for the connector.
 func (o LookupConnectorResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -105,7 +107,12 @@ func (o LookupConnectorResultOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.LoggingRole }).(pulumi.StringPtrOutput)
 }
 
-// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+// Configuration for an SFTP connector.
+func (o LookupConnectorResultOutput) SftpConfig() SftpConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *SftpConfigProperties { return v.SftpConfig }).(SftpConfigPropertiesPtrOutput)
+}
+
+// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 func (o LookupConnectorResultOutput) Tags() ConnectorTagArrayOutput {
 	return o.ApplyT(func(v LookupConnectorResult) []ConnectorTag { return v.Tags }).(ConnectorTagArrayOutput)
 }
