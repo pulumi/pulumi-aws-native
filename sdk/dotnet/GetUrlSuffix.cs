@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative
     {
         public static Task<GetUrlSuffixResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUrlSuffixResult>("aws-native:index:getUrlSuffix", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<GetUrlSuffixResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUrlSuffixResult>("aws-native:index:getUrlSuffix", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
