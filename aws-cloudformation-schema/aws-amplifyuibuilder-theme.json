@@ -82,19 +82,19 @@
   "primaryIdentifier" : [ "/properties/AppId", "/properties/EnvironmentName", "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "amplifyuibuilder:CreateTheme", "amplify:GetApp" ]
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetTheme", "amplifyuibuilder:CreateTheme", "amplifyuibuilder:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "amplifyuibuilder:GetTheme", "amplify:GetApp" ]
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetTheme" ]
     },
     "update" : {
-      "permissions" : [ "amplifyuibuilder:UpdateTheme", "amplify:GetApp" ]
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetTheme", "amplifyuibuilder:UpdateTheme", "amplifyuibuilder:TagResource" ]
     },
     "delete" : {
-      "permissions" : [ "amplifyuibuilder:DeleteTheme", "amplify:GetApp" ]
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetTheme", "amplifyuibuilder:DeleteTheme", "amplifyuibuilder:UntagResource" ]
     },
     "list" : {
-      "permissions" : [ "amplifyuibuilder:ListThemes", "amplify:GetApp" ],
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetTheme", "amplifyuibuilder:ListThemes" ],
       "handlerSchema" : {
         "properties" : {
           "AppId" : {

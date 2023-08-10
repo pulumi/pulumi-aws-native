@@ -41,7 +41,8 @@
     },
     "KeyPolicy" : {
       "description" : "The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.",
-      "type" : [ "object", "string" ]
+      "type" : [ "object", "string" ],
+      "default" : "{\n    \"Version\": \"2012-10-17\",\n    \"Id\": \"key-default\",\n    \"Statement\": [\n        {\n            \"Sid\": \"Enable IAM User Permissions\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"AWS\": \"arn:<partition>:iam::<account-id>:root\"\n            },\n            \"Action\": \"kms:*\",\n            \"Resource\": \"*\"\n        }\n    ]\n}"
     },
     "KeyUsage" : {
       "description" : "Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.",
@@ -86,13 +87,17 @@
     },
     "KeyId" : {
       "type" : "string"
+    },
+    "BypassPolicyLockoutSafetyCheck" : {
+      "description" : "Skips (\"bypasses\") the key policy lockout safety check. The default value is false.",
+      "type" : "boolean",
+      "default" : false
     }
   },
   "additionalProperties" : false,
-  "required" : [ "KeyPolicy" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/KeyId" ],
   "primaryIdentifier" : [ "/properties/KeyId" ],
-  "writeOnlyProperties" : [ "/properties/PendingWindowInDays" ],
+  "writeOnlyProperties" : [ "/properties/PendingWindowInDays", "/properties/BypassPolicyLockoutSafetyCheck" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,

@@ -68,23 +68,38 @@
   },
   "additionalProperties" : false,
   "required" : [ "DomainName" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "readOnlyProperties" : [ "/properties/LastUpdatedAt", "/properties/CreatedAt" ],
   "createOnlyProperties" : [ "/properties/DomainName" ],
   "primaryIdentifier" : [ "/properties/DomainName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "profile:CreateDomain" ]
+      "permissions" : [ "profile:CreateDomain", "profile:TagResource" ]
     },
     "read" : {
       "permissions" : [ "profile:GetDomain" ]
     },
     "update" : {
-      "permissions" : [ "profile:UpdateDomain", "profile:UntagResource", "profile:TagResource" ]
+      "permissions" : [ "profile:GetDomain", "profile:UpdateDomain", "profile:UntagResource", "profile:TagResource" ]
     },
     "delete" : {
       "permissions" : [ "profile:DeleteDomain" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "DomainName" : {
+            "$ref" : "resource-schema.json#/properties/DomainName"
+          }
+        },
+        "required" : [ "DomainName" ]
+      },
       "permissions" : [ "profile:ListDomains" ]
     }
   }

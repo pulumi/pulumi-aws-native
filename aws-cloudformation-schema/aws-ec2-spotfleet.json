@@ -753,10 +753,11 @@
   "required" : [ "SpotFleetRequestConfigData" ],
   "createOnlyProperties" : [ "/properties/SpotFleetRequestConfigData/AllocationStrategy", "/properties/SpotFleetRequestConfigData/IamFleetRole", "/properties/SpotFleetRequestConfigData/InstanceInterruptionBehavior", "/properties/SpotFleetRequestConfigData/InstancePoolsToUseCount", "/properties/SpotFleetRequestConfigData/LaunchSpecifications", "/properties/SpotFleetRequestConfigData/LaunchTemplateConfigs", "/properties/SpotFleetRequestConfigData/LoadBalancersConfig", "/properties/SpotFleetRequestConfigData/OnDemandAllocationStrategy", "/properties/SpotFleetRequestConfigData/OnDemandMaxTotalPrice", "/properties/SpotFleetRequestConfigData/OnDemandTargetCapacity", "/properties/SpotFleetRequestConfigData/ReplaceUnhealthyInstances", "/properties/SpotFleetRequestConfigData/SpotMaintenanceStrategies", "/properties/SpotFleetRequestConfigData/SpotMaxTotalPrice", "/properties/SpotFleetRequestConfigData/SpotPrice", "/properties/SpotFleetRequestConfigData/TagSpecifications", "/properties/SpotFleetRequestConfigData/TerminateInstancesWithExpiration", "/properties/SpotFleetRequestConfigData/Type", "/properties/SpotFleetRequestConfigData/ValidFrom", "/properties/SpotFleetRequestConfigData/ValidUntil" ],
   "readOnlyProperties" : [ "/properties/Id" ],
+  "writeOnlyProperties" : [ "/properties/SpotFleetRequestConfigData/TagSpecifications", "/properties/SpotFleetRequestConfigData/LaunchSpecifications/*/NetworkInterfaces/*/Groups" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:RequestSpotFleet", "ec2:DescribeSpotFleetRequests" ]
+      "permissions" : [ "iam:PassRole", "ec2:CreateTags", "ec2:RequestSpotFleet", "ec2:DescribeSpotFleetRequests", "ec2:RunInstances" ]
     },
     "delete" : {
       "permissions" : [ "ec2:DescribeSpotFleetRequests", "ec2:CancelSpotFleetRequests" ]

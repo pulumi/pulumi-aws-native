@@ -115,13 +115,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "CloudTrail:CreateChannel", "CloudTrail:AddTags", "iam:PassRole", "iam:GetRole" ]
+      "permissions" : [ "CloudTrail:CreateChannel", "CloudTrail:AddTags" ]
     },
     "read" : {
       "permissions" : [ "CloudTrail:GetChannel", "CloudTrail:ListChannels" ]
     },
     "update" : {
-      "permissions" : [ "CloudTrail:UpdateChannel", "iam:PassRole", "iam:GetRole" ]
+      "permissions" : [ "CloudTrail:UpdateChannel", "CloudTrail:GetChannel", "CloudTrail:AddTags", "CloudTrail:RemoveTags" ]
     },
     "delete" : {
       "permissions" : [ "CloudTrail:DeleteChannel" ]

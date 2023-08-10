@@ -4,11 +4,11 @@
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-neptune",
   "properties" : {
     "Endpoint" : {
-      "description" : "The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com",
+      "description" : "The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`",
       "type" : "string"
     },
     "ReadEndpoint" : {
-      "description" : "The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com",
+      "description" : "The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`",
       "type" : "string"
     },
     "ClusterResourceId" : {
@@ -58,6 +58,10 @@
       "description" : "The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.",
       "type" : "string"
     },
+    "DBPort" : {
+      "description" : "The port number on which the DB instances in the DB cluster accept connections. \n\nIf not specified, the default port used is `8182`. \n\nNote: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.",
+      "type" : "integer"
+    },
     "DBSubnetGroupName" : {
       "description" : "Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.",
       "type" : "string"
@@ -88,7 +92,7 @@
       "type" : "string"
     },
     "Port" : {
-      "description" : "Specifies the port that the database engine is listening on.",
+      "description" : "The port number on which the DB cluster accepts connections. For example: `8182`.",
       "type" : "string"
     },
     "PreferredBackupWindow" : {
@@ -214,7 +218,7 @@
     "/properties/SnapshotIdentifier" : "$lowercase(SnapshotIdentifier)",
     "/properties/SourceDBClusterIdentifier" : "$lowercase(SourceDBClusterIdentifier)"
   },
-  "readOnlyProperties" : [ "/properties/Endpoint", "/properties/ReadEndpoint", "/properties/ClusterResourceId", "/properties/Port" ],
+  "readOnlyProperties" : [ "/properties/Endpoint", "/properties/ClusterResourceId", "/properties/Port", "/properties/ReadEndpoint" ],
   "createOnlyProperties" : [ "/properties/AvailabilityZones", "/properties/DBClusterIdentifier", "/properties/DBSubnetGroupName", "/properties/KmsKeyId", "/properties/RestoreToTime", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/StorageEncrypted", "/properties/UseLatestRestorableTime" ],
   "primaryIdentifier" : [ "/properties/DBClusterIdentifier" ],
   "writeOnlyProperties" : [ "/properties/DBInstanceParameterGroupName", "/properties/RestoreToTime", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/UseLatestRestorableTime" ],
@@ -227,23 +231,23 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:ListTagsForResource", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime" ],
+      "permissions" : [ "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:ListTagsForResource", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime", "kms:*" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {
-      "permissions" : [ "rds:DescribeDBClusters", "rds:ListTagsForResource" ],
+      "permissions" : [ "rds:DescribeDBClusters", "rds:ListTagsForResource", "kms:*" ],
       "timeoutInMinutes" : 2160
     },
     "update" : {
-      "permissions" : [ "ec2:DescribeSecurityGroups", "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:DescribeDBClusters", "rds:DescribeDBInstances", "rds:DescribeDBSubnetGroups", "rds:DescribeGlobalClusters", "rds:ListTagsForResource", "rds:ModifyDBCluster", "rds:ModifyDBInstance", "rds:RemoveFromGlobalCluster", "rds:RemoveRoleFromDBCluster", "rds:RemoveTagsFromResource" ],
+      "permissions" : [ "ec2:DescribeSecurityGroups", "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:DescribeDBClusters", "rds:DescribeDBInstances", "rds:DescribeDBSubnetGroups", "rds:DescribeGlobalClusters", "rds:ListTagsForResource", "rds:ModifyDBCluster", "rds:ModifyDBInstance", "rds:RemoveFromGlobalCluster", "rds:RemoveRoleFromDBCluster", "rds:RemoveTagsFromResource", "kms:*" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {
-      "permissions" : [ "rds:DeleteDBCluster", "rds:DeleteDBInstance", "rds:DescribeDBClusters", "rds:DescribeGlobalClusters", "rds:ListTagsForResource", "rds:RemoveFromGlobalCluster" ],
+      "permissions" : [ "rds:DeleteDBCluster", "rds:DeleteDBInstance", "rds:DescribeDBClusters", "rds:DescribeGlobalClusters", "rds:ListTagsForResource", "rds:RemoveFromGlobalCluster", "kms:*" ],
       "timeoutInMinutes" : 2160
     },
     "list" : {
-      "permissions" : [ "rds:DescribeDBClusters", "rds:ListTagsForResource" ],
+      "permissions" : [ "rds:DescribeDBClusters", "rds:ListTagsForResource", "kms:*" ],
       "timeoutInMinutes" : 2160
     }
   }

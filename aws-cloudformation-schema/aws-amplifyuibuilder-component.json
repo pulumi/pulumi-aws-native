@@ -469,19 +469,19 @@
   "primaryIdentifier" : [ "/properties/AppId", "/properties/EnvironmentName", "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:CreateComponent" ]
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent", "amplifyuibuilder:CreateComponent", "amplifyuibuilder:TagResource" ]
     },
     "read" : {
       "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent" ]
     },
     "update" : {
-      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:UpdateComponent" ]
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent", "amplifyuibuilder:UpdateComponent", "amplifyuibuilder:TagResource" ]
     },
     "delete" : {
-      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:DeleteComponent" ]
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent", "amplifyuibuilder:DeleteComponent", "amplifyuibuilder:UntagResource" ]
     },
     "list" : {
-      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:ListComponents" ],
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent", "amplifyuibuilder:ListComponents" ],
       "handlerSchema" : {
         "properties" : {
           "AppId" : {

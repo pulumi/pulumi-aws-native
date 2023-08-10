@@ -25,7 +25,7 @@
   "primaryIdentifier" : [ "/properties/RegistryId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ecr:PutRegistryPolicy" ]
+      "permissions" : [ "ecr:GetRegistryPolicy", "ecr:PutRegistryPolicy" ]
     },
     "read" : {
       "permissions" : [ "ecr:GetRegistryPolicy" ]
@@ -34,7 +34,7 @@
       "permissions" : [ "ecr:GetRegistryPolicy" ]
     },
     "update" : {
-      "permissions" : [ "ecr:PutRegistryPolicy" ]
+      "permissions" : [ "ecr:GetRegistryPolicy", "ecr:PutRegistryPolicy" ]
     },
     "delete" : {
       "permissions" : [ "ecr:DeleteRegistryPolicy" ]
