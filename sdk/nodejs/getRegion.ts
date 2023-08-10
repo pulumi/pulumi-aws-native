@@ -14,3 +14,6 @@ export function getRegion(opts?: pulumi.InvokeOptions): Promise<GetRegionResult>
 export interface GetRegionResult {
     readonly region: string;
 }
+export function getRegionOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRegionResult> {
+    return pulumi.output(getRegion(opts))
+}

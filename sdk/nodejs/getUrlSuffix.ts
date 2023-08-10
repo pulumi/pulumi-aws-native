@@ -14,3 +14,6 @@ export function getUrlSuffix(opts?: pulumi.InvokeOptions): Promise<GetUrlSuffixR
 export interface GetUrlSuffixResult {
     readonly urlSuffix: string;
 }
+export function getUrlSuffixOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetUrlSuffixResult> {
+    return pulumi.output(getUrlSuffix(opts))
+}
