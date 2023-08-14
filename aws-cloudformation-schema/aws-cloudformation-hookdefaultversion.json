@@ -31,6 +31,12 @@
   } ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "cloudformation:SetTypeDefaultVersion" ]
@@ -42,7 +48,7 @@
       "permissions" : [ "cloudformation:SetTypeDefaultVersion" ]
     },
     "delete" : {
-      "permissions" : [ "" ]
+      "permissions" : [ ]
     },
     "list" : {
       "permissions" : [ "cloudformation:ListTypeVersions" ]

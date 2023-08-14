@@ -87,7 +87,7 @@
   "primaryIdentifier" : [ "/properties/UserName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "memorydb:CreateUser", "memorydb:DescribeUsers", "memorydb:ListTags" ]
+      "permissions" : [ "memorydb:CreateUser", "memorydb:DescribeUsers", "memorydb:TagResource", "memorydb:ListTags" ]
     },
     "read" : {
       "permissions" : [ "memorydb:DescribeUsers", "memorydb:ListTags" ]

@@ -22,7 +22,7 @@
   "primaryIdentifier" : [ "/properties/AccountId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "devops-guru:UpdateServiceIntegration", "logs:TagLogGroup", "logs:UntagLogGroup" ]
+      "permissions" : [ "devops-guru:DescribeServiceIntegration", "devops-guru:UpdateServiceIntegration", "logs:TagLogGroup", "logs:UntagLogGroup" ]
     },
     "read" : {
       "permissions" : [ "devops-guru:DescribeServiceIntegration" ]
@@ -31,7 +31,7 @@
       "permissions" : [ "devops-guru:UpdateServiceIntegration", "logs:TagLogGroup", "logs:UntagLogGroup" ]
     },
     "delete" : {
-      "permissions" : [ "devops-guru:UpdateServiceIntegration", "logs:TagLogGroup", "logs:UntagLogGroup" ]
+      "permissions" : [ "devops-guru:DescribeServiceIntegration", "devops-guru:UpdateServiceIntegration", "logs:TagLogGroup", "logs:UntagLogGroup" ]
     },
     "list" : {
       "permissions" : [ "devops-guru:DescribeServiceIntegration" ]

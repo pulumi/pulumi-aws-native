@@ -179,7 +179,7 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "Database", "Sql" ]
+      "required" : [ "Database" ]
     },
     "Target" : {
       "type" : "object",
