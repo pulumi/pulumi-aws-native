@@ -37,7 +37,7 @@
     "FlowStatus" : {
       "description" : "Flow activation status for Scheduled- and Event-triggered flows",
       "type" : "string",
-      "enum" : [ "Active", "Suspended" ]
+      "enum" : [ "Active", "Suspended", "Draft" ]
     },
     "SourceFlowConfig" : {
       "description" : "Configurations of Source connector of the flow.",
@@ -1193,7 +1193,7 @@
       "permissions" : [ "appflow:DescribeFlow", "appflow:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "appflow:UpdateFlow", "appflow:StartFlow", "appflow:StopFlow", "appflow:TagResource", "appflow:UntagResource", "appflow:ListTagsForResource", "iam:PassRole", "s3:ListAllMyBuckets", "s3:GetBucketLocation", "s3:GetBucketPolicy", "kms:ListGrants", "secretsmanager:CreateSecret", "secretsmanager:PutResourcePolicy" ]
+      "permissions" : [ "appflow:UpdateFlow", "appflow:StartFlow", "appflow:StopFlow", "appflow:TagResource", "appflow:UntagResource", "appflow:ListTagsForResource", "appflow:UseConnectorProfile", "iam:PassRole", "s3:ListAllMyBuckets", "s3:GetBucketLocation", "s3:GetBucketPolicy", "kms:ListGrants", "secretsmanager:CreateSecret", "secretsmanager:PutResourcePolicy" ]
     },
     "delete" : {
       "permissions" : [ "appflow:DeleteFlow" ]
@@ -1201,5 +1201,11 @@
     "list" : {
       "permissions" : [ "appflow:ListFlows" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
   }
 }
