@@ -38,6 +38,9 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "KeyAlgorithm" : {
+      "type" : "string"
     }
   },
   "definitions" : {
@@ -72,7 +75,7 @@
     }
   },
   "required" : [ "DomainName" ],
-  "createOnlyProperties" : [ "/properties/SubjectAlternativeNames", "/properties/DomainValidationOptions", "/properties/ValidationMethod", "/properties/DomainName", "/properties/CertificateAuthorityArn" ],
+  "createOnlyProperties" : [ "/properties/SubjectAlternativeNames", "/properties/DomainValidationOptions", "/properties/ValidationMethod", "/properties/KeyAlgorithm", "/properties/DomainName", "/properties/CertificateAuthorityArn" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

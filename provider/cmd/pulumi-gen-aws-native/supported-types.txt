@@ -177,6 +177,7 @@ AWS::DataBrew::Ruleset
 AWS::DataBrew::Schedule
 AWS::DataPipeline::Pipeline
 AWS::DataSync::Agent
+AWS::DataSync::LocationAzureBlob
 AWS::DataSync::LocationEFS
 AWS::DataSync::LocationFSxLustre
 AWS::DataSync::LocationFSxONTAP
@@ -901,6 +902,7 @@ NewRelic::Alert::AlertsPolicy
 NewRelic::Alert::NrqlConditionStatic
 NewRelic::Observability::AINotificationsChannel
 NewRelic::Observability::AINotificationsDestination
+NewRelic::Observability::AIWorkflows
 NewRelic::Observability::AlertsMutingRule
 NewRelic::Observability::AlertsNrqlCondition
 NewRelic::Observability::AlertsPolicy
