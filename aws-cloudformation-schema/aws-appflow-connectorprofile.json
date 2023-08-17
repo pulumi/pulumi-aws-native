@@ -426,6 +426,10 @@
         },
         "OAuthProperties" : {
           "$ref" : "#/definitions/OAuthProperties"
+        },
+        "DisableSSO" : {
+          "description" : "If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.",
+          "type" : "boolean"
         }
       }
     },
@@ -1104,5 +1108,11 @@
     "update" : {
       "permissions" : [ "appflow:UpdateConnectorProfile", "kms:ListKeys", "kms:DescribeKey", "kms:ListAliases", "kms:CreateGrant", "kms:ListGrants", "iam:PassRole", "secretsmanager:CreateSecret", "secretsmanager:GetSecretValue", "secretsmanager:PutResourcePolicy" ]
     }
+  },
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
   }
 }
