@@ -188,7 +188,6 @@
     }
   },
   "required" : [ "Name", "AuthenticationType" ],
-  "createOnlyProperties" : [ "/properties/Visibility", "/properties/ApiType" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/ApiId", "/properties/Id", "/properties/GraphQLDns", "/properties/GraphQLUrl", "/properties/RealtimeDns", "/properties/RealtimeUrl", "/properties/Arn" ]
 }

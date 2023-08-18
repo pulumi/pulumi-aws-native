@@ -95,7 +95,7 @@
       "permissions" : [ "devops-guru:GetResourceCollection" ]
     },
     "delete" : {
-      "permissions" : [ "devops-guru:UpdateResourceCollection" ]
+      "permissions" : [ "devops-guru:UpdateResourceCollection", "devops-guru:GetResourceCollection" ]
     },
     "list" : {
       "permissions" : [ "devops-guru:GetResourceCollection" ]

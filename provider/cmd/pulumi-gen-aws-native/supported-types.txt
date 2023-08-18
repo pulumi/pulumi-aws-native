@@ -103,6 +103,7 @@ AWS::CloudFormation::PublicTypeVersion
 AWS::CloudFormation::Publisher
 AWS::CloudFormation::ResourceDefaultVersion
 AWS::CloudFormation::ResourceVersion
+AWS::CloudFormation::Stack
 AWS::CloudFormation::StackSet
 AWS::CloudFormation::TypeActivation
 AWS::CloudFront::CachePolicy
@@ -177,6 +178,7 @@ AWS::DataBrew::Ruleset
 AWS::DataBrew::Schedule
 AWS::DataPipeline::Pipeline
 AWS::DataSync::Agent
+AWS::DataSync::LocationAzureBlob
 AWS::DataSync::LocationEFS
 AWS::DataSync::LocationFSxLustre
 AWS::DataSync::LocationFSxONTAP
@@ -225,6 +227,7 @@ AWS::EC2::IPAMPoolCidr
 AWS::EC2::IPAMResourceDiscovery
 AWS::EC2::IPAMResourceDiscoveryAssociation
 AWS::EC2::IPAMScope
+AWS::EC2::InstanceConnectEndpoint
 AWS::EC2::InternetGateway
 AWS::EC2::KeyPair
 AWS::EC2::LaunchTemplate
@@ -309,6 +312,7 @@ AWS::ElasticBeanstalk::Environment
 AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
 AWS::ElasticLoadBalancingV2::TargetGroup
+AWS::EntityResolution::SchemaMapping
 AWS::EventSchemas::RegistryPolicy
 AWS::Events::ApiDestination
 AWS::Events::Archive
@@ -662,6 +666,7 @@ AWS::Route53RecoveryReadiness::ResourceSet
 AWS::Route53Resolver::FirewallDomainList
 AWS::Route53Resolver::FirewallRuleGroup
 AWS::Route53Resolver::FirewallRuleGroupAssociation
+AWS::Route53Resolver::OutpostResolver
 AWS::Route53Resolver::ResolverConfig
 AWS::Route53Resolver::ResolverDNSSECConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfig
@@ -901,6 +906,7 @@ NewRelic::Alert::AlertsPolicy
 NewRelic::Alert::NrqlConditionStatic
 NewRelic::Observability::AINotificationsChannel
 NewRelic::Observability::AINotificationsDestination
+NewRelic::Observability::AIWorkflows
 NewRelic::Observability::AlertsMutingRule
 NewRelic::Observability::AlertsNrqlCondition
 NewRelic::Observability::AlertsPolicy
