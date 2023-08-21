@@ -82,23 +82,11 @@
             "type" : "string"
           }
         },
-        "WeeklyMaintenanceStartTime" : {
-          "type" : "string"
-        },
-        "DiskIopsConfiguration" : {
-          "$ref" : "#/definitions/DiskIopsConfiguration"
-        },
         "CopyTagsToVolumes" : {
           "type" : "boolean"
         },
         "DeploymentType" : {
           "type" : "string"
-        },
-        "DailyAutomaticBackupStartTime" : {
-          "type" : "string"
-        },
-        "CopyTagsToBackups" : {
-          "type" : "boolean"
         },
         "ThroughputCapacity" : {
           "type" : "integer"
@@ -106,8 +94,33 @@
         "RootVolumeConfiguration" : {
           "$ref" : "#/definitions/RootVolumeConfiguration"
         },
+        "EndpointIpAddressRange" : {
+          "type" : "string"
+        },
+        "RouteTableIds" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "WeeklyMaintenanceStartTime" : {
+          "type" : "string"
+        },
+        "DiskIopsConfiguration" : {
+          "$ref" : "#/definitions/DiskIopsConfiguration"
+        },
+        "DailyAutomaticBackupStartTime" : {
+          "type" : "string"
+        },
+        "CopyTagsToBackups" : {
+          "type" : "boolean"
+        },
         "AutomaticBackupRetentionDays" : {
           "type" : "integer"
+        },
+        "PreferredSubnetId" : {
+          "type" : "string"
         }
       },
       "required" : [ "DeploymentType" ]
@@ -335,9 +348,6 @@
         "AuditLogConfiguration" : {
           "$ref" : "#/definitions/AuditLogConfiguration"
         },
-        "WeeklyMaintenanceStartTime" : {
-          "type" : "string"
-        },
         "ActiveDirectoryId" : {
           "type" : "string"
         },
@@ -353,6 +363,12 @@
         },
         "ThroughputCapacity" : {
           "type" : "integer"
+        },
+        "WeeklyMaintenanceStartTime" : {
+          "type" : "string"
+        },
+        "DiskIopsConfiguration" : {
+          "$ref" : "#/definitions/DiskIopsConfiguration"
         },
         "CopyTagsToBackups" : {
           "type" : "boolean"
@@ -386,7 +402,7 @@
     }
   },
   "required" : [ "FileSystemType", "SubnetIds" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/StorageType", "/properties/SecurityGroupIds", "/properties/FileSystemTypeVersion", "/properties/FileSystemType", "/properties/SubnetIds", "/properties/BackupId" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/SecurityGroupIds", "/properties/FileSystemTypeVersion", "/properties/FileSystemType", "/properties/SubnetIds", "/properties/BackupId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/ResourceARN", "/properties/Id", "/properties/LustreMountName", "/properties/RootVolumeId", "/properties/DNSName" ]
 }

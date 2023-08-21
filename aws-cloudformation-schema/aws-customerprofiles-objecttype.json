@@ -98,7 +98,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "enum" : [ "PROFILE", "UNIQUE", "SECONDARY", "LOOKUP_ONLY", "NEW_ONLY" ]
+            "enum" : [ "PROFILE", "UNIQUE", "SECONDARY", "LOOKUP_ONLY", "NEW_ONLY", "ASSET", "CASE", "ORDER" ]
           }
         }
       },

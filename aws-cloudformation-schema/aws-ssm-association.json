@@ -172,6 +172,9 @@
   "required" : [ "Name" ],
   "readOnlyProperties" : [ "/properties/AssociationId" ],
   "primaryIdentifier" : [ "/properties/AssociationId" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:DescribeInstanceStatus", "iam:PassRole", "ssm:CreateAssociation", "ssm:DescribeAssociation" ]
@@ -184,6 +187,9 @@
     },
     "read" : {
       "permissions" : [ "ssm:DescribeAssociation", "resource-groups:GetGroupQuery", "resource-groups:ListGroups", "resource-groups:ListGroupResources" ]
+    },
+    "list" : {
+      "permissions" : [ "ssm:ListAssociations" ]
     }
   },
   "additionalProperties" : false
