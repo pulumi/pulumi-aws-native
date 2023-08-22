@@ -2,6 +2,14 @@
 
 ### Breaking Changes
 
+### New resources
+
+### New functions
+
+## 0.74.0 (2023-08-22)
+
+### Breaking Changes
+
 Function "aws-native:lambda:getFunction" missing output "snapStart"
 Function "aws-native:quicksight:getAnalysis" missing output "status"
 Function "aws-native:ec2:getEipAssociation" missing output "networkInterfaceId"
