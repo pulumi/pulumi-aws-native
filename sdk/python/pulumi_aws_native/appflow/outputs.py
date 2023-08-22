@@ -2083,6 +2083,8 @@ class ConnectorProfileSapoDataConnectorProfileProperties(dict):
             suggest = "application_service_path"
         elif key == "clientNumber":
             suggest = "client_number"
+        elif key == "disableSso":
+            suggest = "disable_sso"
         elif key == "logonLanguage":
             suggest = "logon_language"
         elif key == "oAuthProperties":
@@ -2107,16 +2109,22 @@ class ConnectorProfileSapoDataConnectorProfileProperties(dict):
                  application_host_url: Optional[str] = None,
                  application_service_path: Optional[str] = None,
                  client_number: Optional[str] = None,
+                 disable_sso: Optional[bool] = None,
                  logon_language: Optional[str] = None,
                  o_auth_properties: Optional['outputs.ConnectorProfileOAuthProperties'] = None,
                  port_number: Optional[int] = None,
                  private_link_service_name: Optional[str] = None):
+        """
+        :param bool disable_sso: If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+        """
         if application_host_url is not None:
             pulumi.set(__self__, "application_host_url", application_host_url)
         if application_service_path is not None:
             pulumi.set(__self__, "application_service_path", application_service_path)
         if client_number is not None:
             pulumi.set(__self__, "client_number", client_number)
+        if disable_sso is not None:
+            pulumi.set(__self__, "disable_sso", disable_sso)
         if logon_language is not None:
             pulumi.set(__self__, "logon_language", logon_language)
         if o_auth_properties is not None:
@@ -2140,6 +2148,14 @@ class ConnectorProfileSapoDataConnectorProfileProperties(dict):
     @pulumi.getter(name="clientNumber")
     def client_number(self) -> Optional[str]:
         return pulumi.get(self, "client_number")
+
+    @property
+    @pulumi.getter(name="disableSso")
+    def disable_sso(self) -> Optional[bool]:
+        """
+        If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+        """
+        return pulumi.get(self, "disable_sso")
 
     @property
     @pulumi.getter(name="logonLanguage")

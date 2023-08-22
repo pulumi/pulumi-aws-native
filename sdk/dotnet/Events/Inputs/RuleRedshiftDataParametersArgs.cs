@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.Events.Inputs
         [Input("secretManagerArn")]
         public Input<string>? SecretManagerArn { get; set; }
 
-        [Input("sql", required: true)]
-        public Input<string> Sql { get; set; } = null!;
+        [Input("sql")]
+        public Input<string>? Sql { get; set; }
 
         [Input("statementName")]
         public Input<string>? StatementName { get; set; }

@@ -16,6 +16,10 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string? ApplicationHostUrl;
         public readonly string? ApplicationServicePath;
         public readonly string? ClientNumber;
+        /// <summary>
+        /// If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+        /// </summary>
+        public readonly bool? DisableSso;
         public readonly string? LogonLanguage;
         public readonly Outputs.ConnectorProfileOAuthProperties? OAuthProperties;
         public readonly int? PortNumber;
@@ -29,6 +33,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             string? clientNumber,
 
+            bool? disableSso,
+
             string? logonLanguage,
 
             Outputs.ConnectorProfileOAuthProperties? oAuthProperties,
@@ -40,6 +46,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             ApplicationHostUrl = applicationHostUrl;
             ApplicationServicePath = applicationServicePath;
             ClientNumber = clientNumber;
+            DisableSso = disableSso;
             LogonLanguage = logonLanguage;
             OAuthProperties = oAuthProperties;
             PortNumber = portNumber;

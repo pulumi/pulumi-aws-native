@@ -34,7 +34,6 @@ type LookupAnalysisResult struct {
 	Errors      []AnalysisError              `pulumi:"errors"`
 	Name        *string                      `pulumi:"name"`
 	Permissions []AnalysisResourcePermission `pulumi:"permissions"`
-	Status      *AnalysisResourceStatus      `pulumi:"status"`
 	Tags        []AnalysisTag                `pulumi:"tags"`
 	ThemeArn    *string                      `pulumi:"themeArn"`
 }
@@ -97,10 +96,6 @@ func (o LookupAnalysisResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupAnalysisResultOutput) Permissions() AnalysisResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisResourcePermission { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
-}
-
-func (o LookupAnalysisResultOutput) Status() AnalysisResourceStatusPtrOutput {
-	return o.ApplyT(func(v LookupAnalysisResult) *AnalysisResourceStatus { return v.Status }).(AnalysisResourceStatusPtrOutput)
 }
 
 func (o LookupAnalysisResultOutput) Tags() AnalysisTagArrayOutput {

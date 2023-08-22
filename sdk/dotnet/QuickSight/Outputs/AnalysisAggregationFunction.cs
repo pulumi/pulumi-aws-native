@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisAggregationFunction
     {
+        public readonly Outputs.AnalysisAttributeAggregationFunction? AttributeAggregationFunction;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisCategoricalAggregationFunction? CategoricalAggregationFunction;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisDateAggregationFunction? DateAggregationFunction;
         public readonly Outputs.AnalysisNumericalAggregationFunction? NumericalAggregationFunction;
 
         [OutputConstructor]
         private AnalysisAggregationFunction(
+            Outputs.AnalysisAttributeAggregationFunction? attributeAggregationFunction,
+
             Pulumi.AwsNative.QuickSight.AnalysisCategoricalAggregationFunction? categoricalAggregationFunction,
 
             Pulumi.AwsNative.QuickSight.AnalysisDateAggregationFunction? dateAggregationFunction,
 
             Outputs.AnalysisNumericalAggregationFunction? numericalAggregationFunction)
         {
+            AttributeAggregationFunction = attributeAggregationFunction;
             CategoricalAggregationFunction = categoricalAggregationFunction;
             DateAggregationFunction = dateAggregationFunction;
             NumericalAggregationFunction = numericalAggregationFunction;

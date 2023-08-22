@@ -601,6 +601,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public static ObjectTypeKeyStandardIdentifiersItem Secondary { get; } = new ObjectTypeKeyStandardIdentifiersItem("SECONDARY");
         public static ObjectTypeKeyStandardIdentifiersItem LookupOnly { get; } = new ObjectTypeKeyStandardIdentifiersItem("LOOKUP_ONLY");
         public static ObjectTypeKeyStandardIdentifiersItem NewOnly { get; } = new ObjectTypeKeyStandardIdentifiersItem("NEW_ONLY");
+        public static ObjectTypeKeyStandardIdentifiersItem Asset { get; } = new ObjectTypeKeyStandardIdentifiersItem("ASSET");
+        public static ObjectTypeKeyStandardIdentifiersItem Case { get; } = new ObjectTypeKeyStandardIdentifiersItem("CASE");
+        public static ObjectTypeKeyStandardIdentifiersItem Order { get; } = new ObjectTypeKeyStandardIdentifiersItem("ORDER");
 
         public static bool operator ==(ObjectTypeKeyStandardIdentifiersItem left, ObjectTypeKeyStandardIdentifiersItem right) => left.Equals(right);
         public static bool operator !=(ObjectTypeKeyStandardIdentifiersItem left, ObjectTypeKeyStandardIdentifiersItem right) => !left.Equals(right);

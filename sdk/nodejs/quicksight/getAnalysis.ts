@@ -31,7 +31,6 @@ export interface GetAnalysisResult {
     readonly errors?: outputs.quicksight.AnalysisError[];
     readonly name?: string;
     readonly permissions?: outputs.quicksight.AnalysisResourcePermission[];
-    readonly status?: enums.quicksight.AnalysisResourceStatus;
     readonly tags?: outputs.quicksight.AnalysisTag[];
     readonly themeArn?: string;
 }

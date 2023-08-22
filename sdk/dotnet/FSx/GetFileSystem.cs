@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.FSx
         public readonly string? ResourceArn;
         public readonly string? RootVolumeId;
         public readonly int? StorageCapacity;
+        public readonly string? StorageType;
         public readonly ImmutableArray<Outputs.FileSystemTag> Tags;
         public readonly Outputs.FileSystemWindowsConfiguration? WindowsConfiguration;
 
@@ -83,6 +84,8 @@ namespace Pulumi.AwsNative.FSx
 
             int? storageCapacity,
 
+            string? storageType,
+
             ImmutableArray<Outputs.FileSystemTag> tags,
 
             Outputs.FileSystemWindowsConfiguration? windowsConfiguration)
@@ -96,6 +99,7 @@ namespace Pulumi.AwsNative.FSx
             ResourceArn = resourceArn;
             RootVolumeId = rootVolumeId;
             StorageCapacity = storageCapacity;
+            StorageType = storageType;
             Tags = tags;
             WindowsConfiguration = windowsConfiguration;
         }

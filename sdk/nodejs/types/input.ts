@@ -2296,6 +2296,10 @@ export namespace appflow {
         applicationHostUrl?: pulumi.Input<string>;
         applicationServicePath?: pulumi.Input<string>;
         clientNumber?: pulumi.Input<string>;
+        /**
+         * If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+         */
+        disableSso?: pulumi.Input<boolean>;
         logonLanguage?: pulumi.Input<string>;
         oAuthProperties?: pulumi.Input<inputs.appflow.ConnectorProfileOAuthPropertiesArgs>;
         portNumber?: pulumi.Input<number>;
@@ -5298,6 +5302,7 @@ export namespace backup {
         recoveryPointTags?: any;
         ruleName: pulumi.Input<string>;
         scheduleExpression?: pulumi.Input<string>;
+        scheduleExpressionTimezone?: pulumi.Input<string>;
         startWindowMinutes?: pulumi.Input<number>;
         targetBackupVault: pulumi.Input<string>;
     }
@@ -6079,6 +6084,11 @@ export namespace cleanrooms {
         scalarFunctions: pulumi.Input<pulumi.Input<enums.cleanrooms.ConfiguredTableScalarFunctions>[]>;
     }
 
+    export interface ConfiguredTableAnalysisRuleCustomArgs {
+        allowedAnalyses: pulumi.Input<pulumi.Input<string>[]>;
+        allowedAnalysisProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ConfiguredTableAnalysisRuleListArgs {
         allowedJoinOperators?: pulumi.Input<pulumi.Input<enums.cleanrooms.ConfiguredTableJoinOperator>[]>;
         joinColumns: pulumi.Input<pulumi.Input<string>[]>;
@@ -6086,7 +6096,7 @@ export namespace cleanrooms {
     }
 
     export interface ConfiguredTableAnalysisRulePolicyArgs {
-        v1: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV10PropertiesArgs | inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV11PropertiesArgs>;
+        v1: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV10PropertiesArgs | inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV11PropertiesArgs | inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV12PropertiesArgs>;
     }
 
     export interface ConfiguredTableAnalysisRulePolicyV10PropertiesArgs {
@@ -6095,6 +6105,10 @@ export namespace cleanrooms {
 
     export interface ConfiguredTableAnalysisRulePolicyV11PropertiesArgs {
         aggregation: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRuleAggregationArgs>;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicyV12PropertiesArgs {
+        custom: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRuleCustomArgs>;
     }
 
     export interface ConfiguredTableAssociationTagArgs {
@@ -6187,6 +6201,10 @@ export namespace cloudformation {
          * AWS accounts that you want to create stack instances in the specified Region(s) for.
          */
         accounts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Returns the value of the AccountsUrl property.
+         */
+        accountsUrl?: pulumi.Input<string>;
         /**
          * The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
          */
@@ -8171,10 +8189,20 @@ export namespace configuration {
         value: pulumi.Input<string>;
     }
 
+    export interface ConfigurationRecorderExclusionByResourceTypesArgs {
+        resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ConfigurationRecorderRecordingGroupArgs {
         allSupported?: pulumi.Input<boolean>;
+        exclusionByResourceTypes?: pulumi.Input<inputs.configuration.ConfigurationRecorderExclusionByResourceTypesArgs>;
         includeGlobalResourceTypes?: pulumi.Input<boolean>;
+        recordingStrategy?: pulumi.Input<inputs.configuration.ConfigurationRecorderRecordingStrategyArgs>;
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ConfigurationRecorderRecordingStrategyArgs {
+        useOnly: pulumi.Input<string>;
     }
 
     /**
@@ -11621,6 +11649,14 @@ export namespace ec2 {
         ebs?: pulumi.Input<inputs.ec2.InstanceEbsArgs>;
         noDevice?: pulumi.Input<inputs.ec2.InstanceNoDeviceArgs>;
         virtualName?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface InstanceConnectEndpointTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface InstanceCpuOptionsArgs {
@@ -15257,6 +15293,7 @@ export namespace emr {
     export interface ClusterVolumeSpecificationArgs {
         iops?: pulumi.Input<number>;
         sizeInGb: pulumi.Input<number>;
+        throughput?: pulumi.Input<number>;
         volumeType: pulumi.Input<string>;
     }
 
@@ -15305,6 +15342,7 @@ export namespace emr {
     export interface InstanceFleetConfigVolumeSpecificationArgs {
         iops?: pulumi.Input<number>;
         sizeInGb: pulumi.Input<number>;
+        throughput?: pulumi.Input<number>;
         volumeType: pulumi.Input<string>;
     }
 
@@ -15376,6 +15414,7 @@ export namespace emr {
     export interface InstanceGroupConfigVolumeSpecificationArgs {
         iops?: pulumi.Input<number>;
         sizeInGb: pulumi.Input<number>;
+        throughput?: pulumi.Input<number>;
         volumeType: pulumi.Input<string>;
     }
 
@@ -15401,6 +15440,20 @@ export namespace emr {
         key: pulumi.Input<string>;
         /**
          * The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface WalWorkspaceTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
     }
@@ -15549,6 +15602,29 @@ export namespace emrserverless {
     }
 
     export interface ApplicationWorkerTypeSpecificationInputMapArgs {
+    }
+}
+
+export namespace entityresolution {
+    export interface SchemaMappingSchemaInputAttributeArgs {
+        fieldName: pulumi.Input<string>;
+        groupName?: pulumi.Input<string>;
+        matchKey?: pulumi.Input<string>;
+        type: pulumi.Input<enums.entityresolution.SchemaMappingSchemaAttributeType>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource
+     */
+    export interface SchemaMappingTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -15711,7 +15787,7 @@ export namespace events {
         database: pulumi.Input<string>;
         dbUser?: pulumi.Input<string>;
         secretManagerArn?: pulumi.Input<string>;
-        sql: pulumi.Input<string>;
+        sql?: pulumi.Input<string>;
         statementName?: pulumi.Input<string>;
         withEvent?: pulumi.Input<boolean>;
     }
@@ -16580,8 +16656,11 @@ export namespace fsx {
         dailyAutomaticBackupStartTime?: pulumi.Input<string>;
         deploymentType: pulumi.Input<string>;
         diskIopsConfiguration?: pulumi.Input<inputs.fsx.FileSystemDiskIopsConfigurationArgs>;
+        endpointIpAddressRange?: pulumi.Input<string>;
         options?: pulumi.Input<pulumi.Input<string>[]>;
+        preferredSubnetId?: pulumi.Input<string>;
         rootVolumeConfiguration?: pulumi.Input<inputs.fsx.FileSystemRootVolumeConfigurationArgs>;
+        routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
         throughputCapacity?: pulumi.Input<number>;
         weeklyMaintenanceStartTime?: pulumi.Input<string>;
     }
@@ -16623,6 +16702,7 @@ export namespace fsx {
         copyTagsToBackups?: pulumi.Input<boolean>;
         dailyAutomaticBackupStartTime?: pulumi.Input<string>;
         deploymentType?: pulumi.Input<string>;
+        diskIopsConfiguration?: pulumi.Input<inputs.fsx.FileSystemDiskIopsConfigurationArgs>;
         preferredSubnetId?: pulumi.Input<string>;
         selfManagedActiveDirectoryConfiguration?: pulumi.Input<inputs.fsx.FileSystemSelfManagedActiveDirectoryConfigurationArgs>;
         throughputCapacity: pulumi.Input<number>;
@@ -32264,6 +32344,7 @@ export namespace qldb {
 
 export namespace quicksight {
     export interface AnalysisAggregationFunctionArgs {
+        attributeAggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisAttributeAggregationFunctionArgs>;
         categoricalAggregationFunction?: pulumi.Input<enums.quicksight.AnalysisCategoricalAggregationFunction>;
         dateAggregationFunction?: pulumi.Input<enums.quicksight.AnalysisDateAggregationFunction>;
         numericalAggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisNumericalAggregationFunctionArgs>;
@@ -32273,6 +32354,9 @@ export namespace quicksight {
         aggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
         sortDirection: pulumi.Input<enums.quicksight.AnalysisSortDirection>;
+    }
+
+    export interface AnalysisAllSheetsFilterScopeConfigurationArgs {
     }
 
     export interface AnalysisAnchorDateConfigurationArgs {
@@ -32297,6 +32381,11 @@ export namespace quicksight {
 
     export interface AnalysisArcOptionsArgs {
         arcThickness?: pulumi.Input<enums.quicksight.AnalysisArcThickness>;
+    }
+
+    export interface AnalysisAttributeAggregationFunctionArgs {
+        simpleAttributeAggregation?: pulumi.Input<enums.quicksight.AnalysisSimpleAttributeAggregationFunction>;
+        valueForMultipleValues?: pulumi.Input<string>;
     }
 
     export interface AnalysisAxisDataOptionsArgs {
@@ -32898,6 +32987,7 @@ export namespace quicksight {
 
     export interface AnalysisDateTimePickerControlDisplayOptionsArgs {
         dateTimeFormat?: pulumi.Input<string>;
+        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
     }
 
@@ -33004,6 +33094,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisDropDownControlDisplayOptionsArgs {
+        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         selectAllOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlSelectAllOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
     }
@@ -33190,6 +33281,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterScopeConfigurationArgs {
+        allSheets?: pulumi.Input<inputs.quicksight.AnalysisAllSheetsFilterScopeConfigurationArgs>;
         selectedSheets?: pulumi.Input<inputs.quicksight.AnalysisSelectedSheetsFilterScopeConfigurationArgs>;
     }
 
@@ -33248,7 +33340,7 @@ export namespace quicksight {
         periodsForward?: pulumi.Input<number>;
         predictionInterval?: pulumi.Input<number>;
         seasonality?: pulumi.Input<enums.quicksight.AnalysisForecastComputationSeasonality>;
-        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         upperBoundary?: pulumi.Input<number>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
@@ -33525,7 +33617,7 @@ export namespace quicksight {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         periodSize?: pulumi.Input<number>;
-        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
 
@@ -33819,6 +33911,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisListControlDisplayOptionsArgs {
+        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         searchOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlSearchOptionsArgs>;
         selectAllOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlSelectAllOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
@@ -33857,7 +33950,7 @@ export namespace quicksight {
     export interface AnalysisMaximumMinimumComputationArgs {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
-        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         type: pulumi.Input<enums.quicksight.AnalysisMaximumMinimumComputationType>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
@@ -33871,10 +33964,10 @@ export namespace quicksight {
 
     export interface AnalysisMetricComparisonComputationArgs {
         computationId: pulumi.Input<string>;
-        fromValue: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+        fromValue?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
         name?: pulumi.Input<string>;
-        targetValue: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
-        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        targetValue?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
     }
 
     export interface AnalysisMinimumLabelTypeArgs {
@@ -34105,7 +34198,7 @@ export namespace quicksight {
     export interface AnalysisPeriodOverPeriodComputationArgs {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
-        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
 
@@ -34113,7 +34206,7 @@ export namespace quicksight {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         periodTimeGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
-        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
 
@@ -34239,10 +34332,16 @@ export namespace quicksight {
         collapsedRowDimensionsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         columnHeaderStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
         columnNamesVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        defaultCellWidth?: pulumi.Input<string>;
         metricPlacement?: pulumi.Input<enums.quicksight.AnalysisPivotTableMetricPlacement>;
         rowAlternateColorOptions?: pulumi.Input<inputs.quicksight.AnalysisRowAlternateColorOptionsArgs>;
         rowFieldNamesStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
         rowHeaderStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        rowsLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisPivotTableRowsLabelOptionsArgs>;
+        rowsLayout?: pulumi.Input<enums.quicksight.AnalysisPivotTableRowsLayout>;
         singleMetricVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         toggleButtonsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
     }
@@ -34250,6 +34349,11 @@ export namespace quicksight {
     export interface AnalysisPivotTablePaginatedReportOptionsArgs {
         overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         verticalOverflowVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisPivotTableRowsLabelOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
     }
 
     export interface AnalysisPivotTableSortByArgs {
@@ -34402,6 +34506,7 @@ export namespace quicksight {
 
     export interface AnalysisRelativeDateTimeControlDisplayOptionsArgs {
         dateTimeFormat?: pulumi.Input<string>;
+        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
     }
 
@@ -34432,6 +34537,7 @@ export namespace quicksight {
     export interface AnalysisRowAlternateColorOptionsArgs {
         rowAlternateColors?: pulumi.Input<pulumi.Input<string>[]>;
         status?: pulumi.Input<enums.quicksight.AnalysisWidgetStatus>;
+        usePrimaryBackgroundColor?: pulumi.Input<enums.quicksight.AnalysisWidgetStatus>;
     }
 
     export interface AnalysisSameSheetTargetVisualConfigurationArgs {
@@ -34575,6 +34681,11 @@ export namespace quicksight {
         backgroundColor: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
     }
 
+    export interface AnalysisSheetControlInfoIconLabelOptionsArgs {
+        infoIconText?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
     export interface AnalysisSheetControlLayoutArgs {
         configuration: pulumi.Input<inputs.quicksight.AnalysisSheetControlLayoutConfigurationArgs>;
     }
@@ -34627,13 +34738,21 @@ export namespace quicksight {
     }
 
     export interface AnalysisSliderControlDisplayOptionsArgs {
+        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
+    }
+
+    export interface AnalysisSmallMultiplesAxisPropertiesArgs {
+        placement?: pulumi.Input<enums.quicksight.AnalysisSmallMultiplesAxisPlacement>;
+        scale?: pulumi.Input<enums.quicksight.AnalysisSmallMultiplesAxisScale>;
     }
 
     export interface AnalysisSmallMultiplesOptionsArgs {
         maxVisibleColumns?: pulumi.Input<number>;
         maxVisibleRows?: pulumi.Input<number>;
         panelConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPanelConfigurationArgs>;
+        xAxis?: pulumi.Input<inputs.quicksight.AnalysisSmallMultiplesAxisPropertiesArgs>;
+        yAxis?: pulumi.Input<inputs.quicksight.AnalysisSmallMultiplesAxisPropertiesArgs>;
     }
 
     export interface AnalysisSourceEntityArgs {
@@ -34697,6 +34816,7 @@ export namespace quicksight {
         fieldLevel?: pulumi.Input<enums.quicksight.AnalysisPivotTableSubtotalLevel>;
         fieldLevelOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotTableFieldSubtotalOptionsArgs>[]>;
         metricHeaderCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        styleTargets?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTableStyleTargetArgs>[]>;
         totalCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
         totalsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         valueCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
@@ -34836,6 +34956,10 @@ export namespace quicksight {
         rowSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
     }
 
+    export interface AnalysisTableStyleTargetArgs {
+        cellType: pulumi.Input<enums.quicksight.AnalysisStyledCellType>;
+    }
+
     export interface AnalysisTableUnaggregatedFieldWellsArgs {
         values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisUnaggregatedFieldArgs>[]>;
     }
@@ -34855,6 +34979,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisTextAreaControlDisplayOptionsArgs {
+        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         placeholderOptions?: pulumi.Input<inputs.quicksight.AnalysisTextControlPlaceholderOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
     }
@@ -34870,6 +34995,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisTextFieldControlDisplayOptionsArgs {
+        infoIconLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisSheetControlInfoIconLabelOptionsArgs>;
         placeholderOptions?: pulumi.Input<inputs.quicksight.AnalysisTextControlPlaceholderOptionsArgs>;
         titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
     }
@@ -34942,18 +35068,18 @@ export namespace quicksight {
     }
 
     export interface AnalysisTopBottomMoversComputationArgs {
-        category: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        category?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         computationId: pulumi.Input<string>;
         moverSize?: pulumi.Input<number>;
         name?: pulumi.Input<string>;
         sortOrder?: pulumi.Input<enums.quicksight.AnalysisTopBottomSortOrder>;
-        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        time?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         type: pulumi.Input<enums.quicksight.AnalysisTopBottomComputationType>;
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
 
     export interface AnalysisTopBottomRankedComputationArgs {
-        category: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        category?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         resultSize?: pulumi.Input<number>;
@@ -34964,7 +35090,7 @@ export namespace quicksight {
     export interface AnalysisTotalAggregationComputationArgs {
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
-        value: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+        value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
     }
 
     export interface AnalysisTotalOptionsArgs {
@@ -35022,7 +35148,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisUniqueValuesComputationArgs {
-        category: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        category?: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
         computationId: pulumi.Input<string>;
         name?: pulumi.Input<string>;
     }
@@ -43460,6 +43586,20 @@ export namespace route53resolver {
         key: pulumi.Input<string>;
         /**
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface OutpostResolverTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
     }

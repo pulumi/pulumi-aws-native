@@ -492,6 +492,13 @@ export const AnalysisPivotTableMetricPlacement = {
 
 export type AnalysisPivotTableMetricPlacement = (typeof AnalysisPivotTableMetricPlacement)[keyof typeof AnalysisPivotTableMetricPlacement];
 
+export const AnalysisPivotTableRowsLayout = {
+    Tabular: "TABULAR",
+    Hierarchy: "HIERARCHY",
+} as const;
+
+export type AnalysisPivotTableRowsLayout = (typeof AnalysisPivotTableRowsLayout)[keyof typeof AnalysisPivotTableRowsLayout];
+
 export const AnalysisPivotTableSubtotalLevel = {
     All: "ALL",
     Custom: "CUSTOM",
@@ -646,6 +653,12 @@ export const AnalysisSheetControlSliderType = {
 
 export type AnalysisSheetControlSliderType = (typeof AnalysisSheetControlSliderType)[keyof typeof AnalysisSheetControlSliderType];
 
+export const AnalysisSimpleAttributeAggregationFunction = {
+    UniqueValue: "UNIQUE_VALUE",
+} as const;
+
+export type AnalysisSimpleAttributeAggregationFunction = (typeof AnalysisSimpleAttributeAggregationFunction)[keyof typeof AnalysisSimpleAttributeAggregationFunction];
+
 export const AnalysisSimpleNumericalAggregationFunction = {
     Sum: "SUM",
     Average: "AVERAGE",
@@ -662,6 +675,20 @@ export const AnalysisSimpleNumericalAggregationFunction = {
 
 export type AnalysisSimpleNumericalAggregationFunction = (typeof AnalysisSimpleNumericalAggregationFunction)[keyof typeof AnalysisSimpleNumericalAggregationFunction];
 
+export const AnalysisSmallMultiplesAxisPlacement = {
+    Outside: "OUTSIDE",
+    Inside: "INSIDE",
+} as const;
+
+export type AnalysisSmallMultiplesAxisPlacement = (typeof AnalysisSmallMultiplesAxisPlacement)[keyof typeof AnalysisSmallMultiplesAxisPlacement];
+
+export const AnalysisSmallMultiplesAxisScale = {
+    Shared: "SHARED",
+    Independent: "INDEPENDENT",
+} as const;
+
+export type AnalysisSmallMultiplesAxisScale = (typeof AnalysisSmallMultiplesAxisScale)[keyof typeof AnalysisSmallMultiplesAxisScale];
+
 export const AnalysisSortDirection = {
     Asc: "ASC",
     Desc: "DESC",
@@ -676,6 +703,14 @@ export const AnalysisSpecialValue = {
 } as const;
 
 export type AnalysisSpecialValue = (typeof AnalysisSpecialValue)[keyof typeof AnalysisSpecialValue];
+
+export const AnalysisStyledCellType = {
+    Total: "TOTAL",
+    MetricHeader: "METRIC_HEADER",
+    Value: "VALUE",
+} as const;
+
+export type AnalysisStyledCellType = (typeof AnalysisStyledCellType)[keyof typeof AnalysisStyledCellType];
 
 export const AnalysisTableBorderStyle = {
     None: "NONE",
@@ -786,6 +821,7 @@ export const AnalysisVerticalTextAlignment = {
     Top: "TOP",
     Middle: "MIDDLE",
     Bottom: "BOTTOM",
+    Auto: "AUTO",
 } as const;
 
 export type AnalysisVerticalTextAlignment = (typeof AnalysisVerticalTextAlignment)[keyof typeof AnalysisVerticalTextAlignment];

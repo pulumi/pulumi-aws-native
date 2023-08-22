@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly double? PeriodsForward;
         public readonly double? PredictionInterval;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisForecastComputationSeasonality? Seasonality;
-        public readonly Outputs.AnalysisDimensionField Time;
+        public readonly Outputs.AnalysisDimensionField? Time;
         public readonly double? UpperBoundary;
         public readonly Outputs.AnalysisMeasureField? Value;
 
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.AnalysisForecastComputationSeasonality? seasonality,
 
-            Outputs.AnalysisDimensionField time,
+            Outputs.AnalysisDimensionField? time,
 
             double? upperBoundary,
 

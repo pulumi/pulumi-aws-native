@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Lambda::Function
+// Resource Type definition for AWS::Lambda::Function in region
 type Function struct {
 	pulumi.CustomResourceState
 

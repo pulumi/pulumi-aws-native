@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class ConfiguredTableAnalysisRulePolicy
     {
-        public readonly Union<Outputs.ConfiguredTableAnalysisRulePolicyV10Properties, Outputs.ConfiguredTableAnalysisRulePolicyV11Properties> V1;
+        public readonly object V1;
 
         [OutputConstructor]
-        private ConfiguredTableAnalysisRulePolicy(Union<Outputs.ConfiguredTableAnalysisRulePolicyV10Properties, Outputs.ConfiguredTableAnalysisRulePolicyV11Properties> v1)
+        private ConfiguredTableAnalysisRulePolicy(object v1)
         {
             V1 = v1;
         }

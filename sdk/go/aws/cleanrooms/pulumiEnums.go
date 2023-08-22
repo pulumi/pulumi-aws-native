@@ -567,6 +567,7 @@ type ConfiguredTableAnalysisRuleType string
 const (
 	ConfiguredTableAnalysisRuleTypeAggregation = ConfiguredTableAnalysisRuleType("AGGREGATION")
 	ConfiguredTableAnalysisRuleTypeList        = ConfiguredTableAnalysisRuleType("LIST")
+	ConfiguredTableAnalysisRuleTypeCustom      = ConfiguredTableAnalysisRuleType("CUSTOM")
 )
 
 func (ConfiguredTableAnalysisRuleType) ElementType() reflect.Type {

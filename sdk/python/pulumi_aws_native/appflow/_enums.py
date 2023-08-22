@@ -442,6 +442,7 @@ class FlowStatus(str, Enum):
     """
     ACTIVE = "Active"
     SUSPENDED = "Suspended"
+    DRAFT = "Draft"
 
 
 class FlowTaskType(str, Enum):

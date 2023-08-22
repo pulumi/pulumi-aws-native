@@ -903,6 +903,216 @@ func (o ResourceVersionVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
+type StackCapabilitiesItem string
+
+const (
+	StackCapabilitiesItemCapabilityIam        = StackCapabilitiesItem("CAPABILITY_IAM")
+	StackCapabilitiesItemCapabilityNamedIam   = StackCapabilitiesItem("CAPABILITY_NAMED_IAM")
+	StackCapabilitiesItemCapabilityAutoExpand = StackCapabilitiesItem("CAPABILITY_AUTO_EXPAND")
+)
+
+func (StackCapabilitiesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackCapabilitiesItem)(nil)).Elem()
+}
+
+func (e StackCapabilitiesItem) ToStackCapabilitiesItemOutput() StackCapabilitiesItemOutput {
+	return pulumi.ToOutput(e).(StackCapabilitiesItemOutput)
+}
+
+func (e StackCapabilitiesItem) ToStackCapabilitiesItemOutputWithContext(ctx context.Context) StackCapabilitiesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StackCapabilitiesItemOutput)
+}
+
+func (e StackCapabilitiesItem) ToStackCapabilitiesItemPtrOutput() StackCapabilitiesItemPtrOutput {
+	return e.ToStackCapabilitiesItemPtrOutputWithContext(context.Background())
+}
+
+func (e StackCapabilitiesItem) ToStackCapabilitiesItemPtrOutputWithContext(ctx context.Context) StackCapabilitiesItemPtrOutput {
+	return StackCapabilitiesItem(e).ToStackCapabilitiesItemOutputWithContext(ctx).ToStackCapabilitiesItemPtrOutputWithContext(ctx)
+}
+
+func (e StackCapabilitiesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StackCapabilitiesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StackCapabilitiesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StackCapabilitiesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StackCapabilitiesItemOutput struct{ *pulumi.OutputState }
+
+func (StackCapabilitiesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackCapabilitiesItem)(nil)).Elem()
+}
+
+func (o StackCapabilitiesItemOutput) ToStackCapabilitiesItemOutput() StackCapabilitiesItemOutput {
+	return o
+}
+
+func (o StackCapabilitiesItemOutput) ToStackCapabilitiesItemOutputWithContext(ctx context.Context) StackCapabilitiesItemOutput {
+	return o
+}
+
+func (o StackCapabilitiesItemOutput) ToStackCapabilitiesItemPtrOutput() StackCapabilitiesItemPtrOutput {
+	return o.ToStackCapabilitiesItemPtrOutputWithContext(context.Background())
+}
+
+func (o StackCapabilitiesItemOutput) ToStackCapabilitiesItemPtrOutputWithContext(ctx context.Context) StackCapabilitiesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackCapabilitiesItem) *StackCapabilitiesItem {
+		return &v
+	}).(StackCapabilitiesItemPtrOutput)
+}
+
+func (o StackCapabilitiesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StackCapabilitiesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StackCapabilitiesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StackCapabilitiesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StackCapabilitiesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StackCapabilitiesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StackCapabilitiesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (StackCapabilitiesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackCapabilitiesItem)(nil)).Elem()
+}
+
+func (o StackCapabilitiesItemPtrOutput) ToStackCapabilitiesItemPtrOutput() StackCapabilitiesItemPtrOutput {
+	return o
+}
+
+func (o StackCapabilitiesItemPtrOutput) ToStackCapabilitiesItemPtrOutputWithContext(ctx context.Context) StackCapabilitiesItemPtrOutput {
+	return o
+}
+
+func (o StackCapabilitiesItemPtrOutput) Elem() StackCapabilitiesItemOutput {
+	return o.ApplyT(func(v *StackCapabilitiesItem) StackCapabilitiesItem {
+		if v != nil {
+			return *v
+		}
+		var ret StackCapabilitiesItem
+		return ret
+	}).(StackCapabilitiesItemOutput)
+}
+
+func (o StackCapabilitiesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StackCapabilitiesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StackCapabilitiesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StackCapabilitiesItemInput is an input type that accepts StackCapabilitiesItemArgs and StackCapabilitiesItemOutput values.
+// You can construct a concrete instance of `StackCapabilitiesItemInput` via:
+//
+//	StackCapabilitiesItemArgs{...}
+type StackCapabilitiesItemInput interface {
+	pulumi.Input
+
+	ToStackCapabilitiesItemOutput() StackCapabilitiesItemOutput
+	ToStackCapabilitiesItemOutputWithContext(context.Context) StackCapabilitiesItemOutput
+}
+
+var stackCapabilitiesItemPtrType = reflect.TypeOf((**StackCapabilitiesItem)(nil)).Elem()
+
+type StackCapabilitiesItemPtrInput interface {
+	pulumi.Input
+
+	ToStackCapabilitiesItemPtrOutput() StackCapabilitiesItemPtrOutput
+	ToStackCapabilitiesItemPtrOutputWithContext(context.Context) StackCapabilitiesItemPtrOutput
+}
+
+type stackCapabilitiesItemPtr string
+
+func StackCapabilitiesItemPtr(v string) StackCapabilitiesItemPtrInput {
+	return (*stackCapabilitiesItemPtr)(&v)
+}
+
+func (*stackCapabilitiesItemPtr) ElementType() reflect.Type {
+	return stackCapabilitiesItemPtrType
+}
+
+func (in *stackCapabilitiesItemPtr) ToStackCapabilitiesItemPtrOutput() StackCapabilitiesItemPtrOutput {
+	return pulumi.ToOutput(in).(StackCapabilitiesItemPtrOutput)
+}
+
+func (in *stackCapabilitiesItemPtr) ToStackCapabilitiesItemPtrOutputWithContext(ctx context.Context) StackCapabilitiesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StackCapabilitiesItemPtrOutput)
+}
+
+// StackCapabilitiesItemArrayInput is an input type that accepts StackCapabilitiesItemArray and StackCapabilitiesItemArrayOutput values.
+// You can construct a concrete instance of `StackCapabilitiesItemArrayInput` via:
+//
+//	StackCapabilitiesItemArray{ StackCapabilitiesItemArgs{...} }
+type StackCapabilitiesItemArrayInput interface {
+	pulumi.Input
+
+	ToStackCapabilitiesItemArrayOutput() StackCapabilitiesItemArrayOutput
+	ToStackCapabilitiesItemArrayOutputWithContext(context.Context) StackCapabilitiesItemArrayOutput
+}
+
+type StackCapabilitiesItemArray []StackCapabilitiesItem
+
+func (StackCapabilitiesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackCapabilitiesItem)(nil)).Elem()
+}
+
+func (i StackCapabilitiesItemArray) ToStackCapabilitiesItemArrayOutput() StackCapabilitiesItemArrayOutput {
+	return i.ToStackCapabilitiesItemArrayOutputWithContext(context.Background())
+}
+
+func (i StackCapabilitiesItemArray) ToStackCapabilitiesItemArrayOutputWithContext(ctx context.Context) StackCapabilitiesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackCapabilitiesItemArrayOutput)
+}
+
+type StackCapabilitiesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (StackCapabilitiesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackCapabilitiesItem)(nil)).Elem()
+}
+
+func (o StackCapabilitiesItemArrayOutput) ToStackCapabilitiesItemArrayOutput() StackCapabilitiesItemArrayOutput {
+	return o
+}
+
+func (o StackCapabilitiesItemArrayOutput) ToStackCapabilitiesItemArrayOutputWithContext(ctx context.Context) StackCapabilitiesItemArrayOutput {
+	return o
+}
+
+func (o StackCapabilitiesItemArrayOutput) Index(i pulumi.IntInput) StackCapabilitiesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackCapabilitiesItem {
+		return vs[0].([]StackCapabilitiesItem)[vs[1].(int)]
+	}).(StackCapabilitiesItemOutput)
+}
+
 // Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
 type StackSetCallAs string
 
@@ -1775,6 +1985,117 @@ func (in *stackSetRegionConcurrencyTypePtr) ToStackSetRegionConcurrencyTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(StackSetRegionConcurrencyTypePtrOutput)
 }
 
+type StackStatus string
+
+const (
+	StackStatusCreateInProgress                        = StackStatus("CREATE_IN_PROGRESS")
+	StackStatusCreateFailed                            = StackStatus("CREATE_FAILED")
+	StackStatusCreateComplete                          = StackStatus("CREATE_COMPLETE")
+	StackStatusRollbackInProgress                      = StackStatus("ROLLBACK_IN_PROGRESS")
+	StackStatusRollbackFailed                          = StackStatus("ROLLBACK_FAILED")
+	StackStatusRollbackComplete                        = StackStatus("ROLLBACK_COMPLETE")
+	StackStatusDeleteInProgress                        = StackStatus("DELETE_IN_PROGRESS")
+	StackStatusDeleteFailed                            = StackStatus("DELETE_FAILED")
+	StackStatusDeleteComplete                          = StackStatus("DELETE_COMPLETE")
+	StackStatusUpdateInProgress                        = StackStatus("UPDATE_IN_PROGRESS")
+	StackStatusUpdateCompleteCleanupInProgress         = StackStatus("UPDATE_COMPLETE_CLEANUP_IN_PROGRESS")
+	StackStatusUpdateComplete                          = StackStatus("UPDATE_COMPLETE")
+	StackStatusUpdateFailed                            = StackStatus("UPDATE_FAILED")
+	StackStatusUpdateRollbackInProgress                = StackStatus("UPDATE_ROLLBACK_IN_PROGRESS")
+	StackStatusUpdateRollbackFailed                    = StackStatus("UPDATE_ROLLBACK_FAILED")
+	StackStatusUpdateRollbackCompleteCleanupInProgress = StackStatus("UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS")
+	StackStatusUpdateRollbackComplete                  = StackStatus("UPDATE_ROLLBACK_COMPLETE")
+	StackStatusReviewInProgress                        = StackStatus("REVIEW_IN_PROGRESS")
+	StackStatusImportInProgress                        = StackStatus("IMPORT_IN_PROGRESS")
+	StackStatusImportComplete                          = StackStatus("IMPORT_COMPLETE")
+	StackStatusImportRollbackInProgress                = StackStatus("IMPORT_ROLLBACK_IN_PROGRESS")
+	StackStatusImportRollbackFailed                    = StackStatus("IMPORT_ROLLBACK_FAILED")
+	StackStatusImportRollbackComplete                  = StackStatus("IMPORT_ROLLBACK_COMPLETE")
+)
+
+type StackStatusOutput struct{ *pulumi.OutputState }
+
+func (StackStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackStatus)(nil)).Elem()
+}
+
+func (o StackStatusOutput) ToStackStatusOutput() StackStatusOutput {
+	return o
+}
+
+func (o StackStatusOutput) ToStackStatusOutputWithContext(ctx context.Context) StackStatusOutput {
+	return o
+}
+
+func (o StackStatusOutput) ToStackStatusPtrOutput() StackStatusPtrOutput {
+	return o.ToStackStatusPtrOutputWithContext(context.Background())
+}
+
+func (o StackStatusOutput) ToStackStatusPtrOutputWithContext(ctx context.Context) StackStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackStatus) *StackStatus {
+		return &v
+	}).(StackStatusPtrOutput)
+}
+
+func (o StackStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StackStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StackStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StackStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StackStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StackStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StackStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (StackStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackStatus)(nil)).Elem()
+}
+
+func (o StackStatusPtrOutput) ToStackStatusPtrOutput() StackStatusPtrOutput {
+	return o
+}
+
+func (o StackStatusPtrOutput) ToStackStatusPtrOutputWithContext(ctx context.Context) StackStatusPtrOutput {
+	return o
+}
+
+func (o StackStatusPtrOutput) Elem() StackStatusOutput {
+	return o.ApplyT(func(v *StackStatus) StackStatus {
+		if v != nil {
+			return *v
+		}
+		var ret StackStatus
+		return ret
+	}).(StackStatusOutput)
+}
+
+func (o StackStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StackStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StackStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The kind of extension
 type TypeActivationType string
 
@@ -2111,6 +2432,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HookTypeConfigConfigurationAliasPtrInput)(nil)).Elem(), HookTypeConfigConfigurationAlias("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicTypeVersionTypeInput)(nil)).Elem(), PublicTypeVersionType("RESOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicTypeVersionTypePtrInput)(nil)).Elem(), PublicTypeVersionType("RESOURCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StackCapabilitiesItemInput)(nil)).Elem(), StackCapabilitiesItem("CAPABILITY_IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StackCapabilitiesItemPtrInput)(nil)).Elem(), StackCapabilitiesItem("CAPABILITY_IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StackCapabilitiesItemArrayInput)(nil)).Elem(), StackCapabilitiesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCallAsInput)(nil)).Elem(), StackSetCallAs("SELF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCallAsPtrInput)(nil)).Elem(), StackSetCallAs("SELF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCapabilityInput)(nil)).Elem(), StackSetCapability("CAPABILITY_IAM"))
@@ -2142,6 +2466,9 @@ func init() {
 	pulumi.RegisterOutputType(ResourceVersionProvisioningTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceVersionVisibilityOutput{})
 	pulumi.RegisterOutputType(ResourceVersionVisibilityPtrOutput{})
+	pulumi.RegisterOutputType(StackCapabilitiesItemOutput{})
+	pulumi.RegisterOutputType(StackCapabilitiesItemPtrOutput{})
+	pulumi.RegisterOutputType(StackCapabilitiesItemArrayOutput{})
 	pulumi.RegisterOutputType(StackSetCallAsOutput{})
 	pulumi.RegisterOutputType(StackSetCallAsPtrOutput{})
 	pulumi.RegisterOutputType(StackSetCapabilityOutput{})
@@ -2153,6 +2480,8 @@ func init() {
 	pulumi.RegisterOutputType(StackSetPermissionModelPtrOutput{})
 	pulumi.RegisterOutputType(StackSetRegionConcurrencyTypeOutput{})
 	pulumi.RegisterOutputType(StackSetRegionConcurrencyTypePtrOutput{})
+	pulumi.RegisterOutputType(StackStatusOutput{})
+	pulumi.RegisterOutputType(StackStatusPtrOutput{})
 	pulumi.RegisterOutputType(TypeActivationTypeOutput{})
 	pulumi.RegisterOutputType(TypeActivationTypePtrOutput{})
 	pulumi.RegisterOutputType(TypeActivationVersionBumpOutput{})

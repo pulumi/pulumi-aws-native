@@ -57,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Host{}
 	case "aws-native:ec2:Instance":
 		r = &Instance{}
+	case "aws-native:ec2:InstanceConnectEndpoint":
+		r = &InstanceConnectEndpoint{}
 	case "aws-native:ec2:InternetGateway":
 		r = &InternetGateway{}
 	case "aws-native:ec2:Ipam":

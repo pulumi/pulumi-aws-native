@@ -83,13 +83,13 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "managedblockchain:CreateAccessor", "managedblockchain:TagResource" ]
+      "permissions" : [ "managedblockchain:CreateAccessor", "managedblockchain:TagResource", "managedblockchain:GetAccessor" ]
     },
     "read" : {
       "permissions" : [ "managedblockchain:GetAccessor" ]
     },
     "update" : {
-      "permissions" : [ "managedblockchain:CreateAccessor", "managedblockchain:TagResource", "managedblockchain:UntagResource" ]
+      "permissions" : [ "managedblockchain:GetAccessor", "managedblockchain:CreateAccessor", "managedblockchain:TagResource", "managedblockchain:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "managedblockchain:DeleteAccessor" ]

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Lambda::Function
+// Resource Type definition for AWS::Lambda::Function in region
 func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionResult
@@ -63,8 +63,6 @@ type LookupFunctionResult struct {
 	Runtime *string `pulumi:"runtime"`
 	// RuntimeManagementConfig
 	RuntimeManagementConfig *FunctionRuntimeManagementConfig `pulumi:"runtimeManagementConfig"`
-	// The SnapStart setting of your function
-	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// The SnapStart response of your function
 	SnapStartResponse *FunctionSnapStartResponse `pulumi:"snapStartResponse"`
 	// A list of tags to apply to the function.
@@ -200,11 +198,6 @@ func (o LookupFunctionResultOutput) Runtime() pulumi.StringPtrOutput {
 // RuntimeManagementConfig
 func (o LookupFunctionResultOutput) RuntimeManagementConfig() FunctionRuntimeManagementConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionRuntimeManagementConfig { return v.RuntimeManagementConfig }).(FunctionRuntimeManagementConfigPtrOutput)
-}
-
-// The SnapStart setting of your function
-func (o LookupFunctionResultOutput) SnapStart() FunctionSnapStartPtrOutput {
-	return o.ApplyT(func(v LookupFunctionResult) *FunctionSnapStart { return v.SnapStart }).(FunctionSnapStartPtrOutput)
 }
 
 // The SnapStart response of your function

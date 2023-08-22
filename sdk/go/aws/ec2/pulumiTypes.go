@@ -6248,6 +6248,109 @@ func (o InstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) Instance
 	}).(InstanceBlockDeviceMappingOutput)
 }
 
+// A key-value pair to associate with a resource.
+type InstanceConnectEndpointTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// InstanceConnectEndpointTagInput is an input type that accepts InstanceConnectEndpointTagArgs and InstanceConnectEndpointTagOutput values.
+// You can construct a concrete instance of `InstanceConnectEndpointTagInput` via:
+//
+//	InstanceConnectEndpointTagArgs{...}
+type InstanceConnectEndpointTagInput interface {
+	pulumi.Input
+
+	ToInstanceConnectEndpointTagOutput() InstanceConnectEndpointTagOutput
+	ToInstanceConnectEndpointTagOutputWithContext(context.Context) InstanceConnectEndpointTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type InstanceConnectEndpointTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (InstanceConnectEndpointTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceConnectEndpointTag)(nil)).Elem()
+}
+
+func (i InstanceConnectEndpointTagArgs) ToInstanceConnectEndpointTagOutput() InstanceConnectEndpointTagOutput {
+	return i.ToInstanceConnectEndpointTagOutputWithContext(context.Background())
+}
+
+func (i InstanceConnectEndpointTagArgs) ToInstanceConnectEndpointTagOutputWithContext(ctx context.Context) InstanceConnectEndpointTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointTagOutput)
+}
+
+// InstanceConnectEndpointTagArrayInput is an input type that accepts InstanceConnectEndpointTagArray and InstanceConnectEndpointTagArrayOutput values.
+// You can construct a concrete instance of `InstanceConnectEndpointTagArrayInput` via:
+//
+//	InstanceConnectEndpointTagArray{ InstanceConnectEndpointTagArgs{...} }
+type InstanceConnectEndpointTagArrayInput interface {
+	pulumi.Input
+
+	ToInstanceConnectEndpointTagArrayOutput() InstanceConnectEndpointTagArrayOutput
+	ToInstanceConnectEndpointTagArrayOutputWithContext(context.Context) InstanceConnectEndpointTagArrayOutput
+}
+
+type InstanceConnectEndpointTagArray []InstanceConnectEndpointTagInput
+
+func (InstanceConnectEndpointTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceConnectEndpointTag)(nil)).Elem()
+}
+
+func (i InstanceConnectEndpointTagArray) ToInstanceConnectEndpointTagArrayOutput() InstanceConnectEndpointTagArrayOutput {
+	return i.ToInstanceConnectEndpointTagArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceConnectEndpointTagArray) ToInstanceConnectEndpointTagArrayOutputWithContext(ctx context.Context) InstanceConnectEndpointTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type InstanceConnectEndpointTagOutput struct{ *pulumi.OutputState }
+
+func (InstanceConnectEndpointTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceConnectEndpointTag)(nil)).Elem()
+}
+
+func (o InstanceConnectEndpointTagOutput) ToInstanceConnectEndpointTagOutput() InstanceConnectEndpointTagOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointTagOutput) ToInstanceConnectEndpointTagOutputWithContext(ctx context.Context) InstanceConnectEndpointTagOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceConnectEndpointTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o InstanceConnectEndpointTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceConnectEndpointTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InstanceConnectEndpointTagArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceConnectEndpointTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceConnectEndpointTag)(nil)).Elem()
+}
+
+func (o InstanceConnectEndpointTagArrayOutput) ToInstanceConnectEndpointTagArrayOutput() InstanceConnectEndpointTagArrayOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointTagArrayOutput) ToInstanceConnectEndpointTagArrayOutputWithContext(ctx context.Context) InstanceConnectEndpointTagArrayOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointTagArrayOutput) Index(i pulumi.IntInput) InstanceConnectEndpointTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceConnectEndpointTag {
+		return vs[0].([]InstanceConnectEndpointTag)[vs[1].(int)]
+	}).(InstanceConnectEndpointTagOutput)
+}
+
 type InstanceCpuOptions struct {
 	CoreCount      *int `pulumi:"coreCount"`
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
@@ -30629,6 +30732,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAssociationParameterArrayInput)(nil)).Elem(), InstanceAssociationParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlockDeviceMappingInput)(nil)).Elem(), InstanceBlockDeviceMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlockDeviceMappingArrayInput)(nil)).Elem(), InstanceBlockDeviceMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectEndpointTagInput)(nil)).Elem(), InstanceConnectEndpointTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectEndpointTagArrayInput)(nil)).Elem(), InstanceConnectEndpointTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCpuOptionsInput)(nil)).Elem(), InstanceCpuOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCpuOptionsPtrInput)(nil)).Elem(), InstanceCpuOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCreditSpecificationInput)(nil)).Elem(), InstanceCreditSpecificationArgs{})
@@ -31038,6 +31143,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceAssociationParameterArrayOutput{})
 	pulumi.RegisterOutputType(InstanceBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(InstanceBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(InstanceConnectEndpointTagOutput{})
+	pulumi.RegisterOutputType(InstanceConnectEndpointTagArrayOutput{})
 	pulumi.RegisterOutputType(InstanceCpuOptionsOutput{})
 	pulumi.RegisterOutputType(InstanceCpuOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceCreditSpecificationOutput{})

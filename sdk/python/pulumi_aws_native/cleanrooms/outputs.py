@@ -19,10 +19,12 @@ __all__ = [
     'ConfiguredTableAggregationConstraint',
     'ConfiguredTableAnalysisRule',
     'ConfiguredTableAnalysisRuleAggregation',
+    'ConfiguredTableAnalysisRuleCustom',
     'ConfiguredTableAnalysisRuleList',
     'ConfiguredTableAnalysisRulePolicy',
     'ConfiguredTableAnalysisRulePolicyV10Properties',
     'ConfiguredTableAnalysisRulePolicyV11Properties',
+    'ConfiguredTableAnalysisRulePolicyV12Properties',
     'ConfiguredTableAssociationTag',
     'ConfiguredTableGlueTableReference',
     'ConfiguredTableTableReference',
@@ -336,6 +338,45 @@ class ConfiguredTableAnalysisRuleAggregation(dict):
 
 
 @pulumi.output_type
+class ConfiguredTableAnalysisRuleCustom(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAnalyses":
+            suggest = "allowed_analyses"
+        elif key == "allowedAnalysisProviders":
+            suggest = "allowed_analysis_providers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAnalysisRuleCustom. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableAnalysisRuleCustom.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableAnalysisRuleCustom.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_analyses: Sequence[str],
+                 allowed_analysis_providers: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "allowed_analyses", allowed_analyses)
+        if allowed_analysis_providers is not None:
+            pulumi.set(__self__, "allowed_analysis_providers", allowed_analysis_providers)
+
+    @property
+    @pulumi.getter(name="allowedAnalyses")
+    def allowed_analyses(self) -> Sequence[str]:
+        return pulumi.get(self, "allowed_analyses")
+
+    @property
+    @pulumi.getter(name="allowedAnalysisProviders")
+    def allowed_analysis_providers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_analysis_providers")
+
+
+@pulumi.output_type
 class ConfiguredTableAnalysisRuleList(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -417,6 +458,18 @@ class ConfiguredTableAnalysisRulePolicyV11Properties(dict):
     @pulumi.getter
     def aggregation(self) -> 'outputs.ConfiguredTableAnalysisRuleAggregation':
         return pulumi.get(self, "aggregation")
+
+
+@pulumi.output_type
+class ConfiguredTableAnalysisRulePolicyV12Properties(dict):
+    def __init__(__self__, *,
+                 custom: 'outputs.ConfiguredTableAnalysisRuleCustom'):
+        pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def custom(self) -> 'outputs.ConfiguredTableAnalysisRuleCustom':
+        return pulumi.get(self, "custom")
 
 
 @pulumi.output_type

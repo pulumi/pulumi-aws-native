@@ -12,6 +12,7 @@ from .firewall_rule_group_association import *
 from .get_firewall_domain_list import *
 from .get_firewall_rule_group import *
 from .get_firewall_rule_group_association import *
+from .get_outpost_resolver import *
 from .get_resolver_config import *
 from .get_resolver_dnssec_config import *
 from .get_resolver_endpoint import *
@@ -19,6 +20,7 @@ from .get_resolver_query_logging_config import *
 from .get_resolver_query_logging_config_association import *
 from .get_resolver_rule import *
 from .get_resolver_rule_association import *
+from .outpost_resolver import *
 from .resolver_config import *
 from .resolver_dnssec_config import *
 from .resolver_endpoint import *

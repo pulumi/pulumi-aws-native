@@ -36,6 +36,7 @@ type LookupFileSystemResult struct {
 	ResourceArn          *string                         `pulumi:"resourceArn"`
 	RootVolumeId         *string                         `pulumi:"rootVolumeId"`
 	StorageCapacity      *int                            `pulumi:"storageCapacity"`
+	StorageType          *string                         `pulumi:"storageType"`
 	Tags                 []FileSystemTag                 `pulumi:"tags"`
 	WindowsConfiguration *FileSystemWindowsConfiguration `pulumi:"windowsConfiguration"`
 }
@@ -109,6 +110,10 @@ func (o LookupFileSystemResultOutput) RootVolumeId() pulumi.StringPtrOutput {
 
 func (o LookupFileSystemResultOutput) StorageCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) *int { return v.StorageCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupFileSystemResultOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFileSystemResultOutput) Tags() FileSystemTagArrayOutput {

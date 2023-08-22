@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetGraphQlApiResult:
-    def __init__(__self__, additional_authentication_providers=None, api_id=None, arn=None, authentication_type=None, graph_ql_dns=None, graph_ql_url=None, id=None, lambda_authorizer_config=None, log_config=None, merged_api_execution_role_arn=None, name=None, open_id_connect_config=None, owner_contact=None, realtime_dns=None, realtime_url=None, tags=None, user_pool_config=None, xray_enabled=None):
+    def __init__(__self__, additional_authentication_providers=None, api_id=None, api_type=None, arn=None, authentication_type=None, graph_ql_dns=None, graph_ql_url=None, id=None, lambda_authorizer_config=None, log_config=None, merged_api_execution_role_arn=None, name=None, open_id_connect_config=None, owner_contact=None, realtime_dns=None, realtime_url=None, tags=None, user_pool_config=None, visibility=None, xray_enabled=None):
         if additional_authentication_providers and not isinstance(additional_authentication_providers, list):
             raise TypeError("Expected argument 'additional_authentication_providers' to be a list")
         pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
         if api_id and not isinstance(api_id, str):
             raise TypeError("Expected argument 'api_id' to be a str")
         pulumi.set(__self__, "api_id", api_id)
+        if api_type and not isinstance(api_type, str):
+            raise TypeError("Expected argument 'api_type' to be a str")
+        pulumi.set(__self__, "api_type", api_type)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -71,6 +74,9 @@ class GetGraphQlApiResult:
         if user_pool_config and not isinstance(user_pool_config, dict):
             raise TypeError("Expected argument 'user_pool_config' to be a dict")
         pulumi.set(__self__, "user_pool_config", user_pool_config)
+        if visibility and not isinstance(visibility, str):
+            raise TypeError("Expected argument 'visibility' to be a str")
+        pulumi.set(__self__, "visibility", visibility)
         if xray_enabled and not isinstance(xray_enabled, bool):
             raise TypeError("Expected argument 'xray_enabled' to be a bool")
         pulumi.set(__self__, "xray_enabled", xray_enabled)
@@ -84,6 +90,11 @@ class GetGraphQlApiResult:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[str]:
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[str]:
+        return pulumi.get(self, "api_type")
 
     @property
     @pulumi.getter
@@ -161,6 +172,11 @@ class GetGraphQlApiResult:
         return pulumi.get(self, "user_pool_config")
 
     @property
+    @pulumi.getter
+    def visibility(self) -> Optional[str]:
+        return pulumi.get(self, "visibility")
+
+    @property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "xray_enabled")
@@ -174,6 +190,7 @@ class AwaitableGetGraphQlApiResult(GetGraphQlApiResult):
         return GetGraphQlApiResult(
             additional_authentication_providers=self.additional_authentication_providers,
             api_id=self.api_id,
+            api_type=self.api_type,
             arn=self.arn,
             authentication_type=self.authentication_type,
             graph_ql_dns=self.graph_ql_dns,
@@ -189,6 +206,7 @@ class AwaitableGetGraphQlApiResult(GetGraphQlApiResult):
             realtime_url=self.realtime_url,
             tags=self.tags,
             user_pool_config=self.user_pool_config,
+            visibility=self.visibility,
             xray_enabled=self.xray_enabled)
 
 
@@ -205,6 +223,7 @@ def get_graph_ql_api(id: Optional[str] = None,
     return AwaitableGetGraphQlApiResult(
         additional_authentication_providers=pulumi.get(__ret__, 'additional_authentication_providers'),
         api_id=pulumi.get(__ret__, 'api_id'),
+        api_type=pulumi.get(__ret__, 'api_type'),
         arn=pulumi.get(__ret__, 'arn'),
         authentication_type=pulumi.get(__ret__, 'authentication_type'),
         graph_ql_dns=pulumi.get(__ret__, 'graph_ql_dns'),
@@ -220,6 +239,7 @@ def get_graph_ql_api(id: Optional[str] = None,
         realtime_url=pulumi.get(__ret__, 'realtime_url'),
         tags=pulumi.get(__ret__, 'tags'),
         user_pool_config=pulumi.get(__ret__, 'user_pool_config'),
+        visibility=pulumi.get(__ret__, 'visibility'),
         xray_enabled=pulumi.get(__ret__, 'xray_enabled'))
 
 

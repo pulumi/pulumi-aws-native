@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
         public readonly object? RecoveryPointTags;
         public readonly string RuleName;
         public readonly string? ScheduleExpression;
+        public readonly string? ScheduleExpressionTimezone;
         public readonly double? StartWindowMinutes;
         public readonly string TargetBackupVault;
 
@@ -39,6 +40,8 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
             string? scheduleExpression,
 
+            string? scheduleExpressionTimezone,
+
             double? startWindowMinutes,
 
             string targetBackupVault)
@@ -50,6 +53,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
             RecoveryPointTags = recoveryPointTags;
             RuleName = ruleName;
             ScheduleExpression = scheduleExpression;
+            ScheduleExpressionTimezone = scheduleExpressionTimezone;
             StartWindowMinutes = startWindowMinutes;
             TargetBackupVault = targetBackupVault;
         }

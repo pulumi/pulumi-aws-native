@@ -14,19 +14,27 @@ namespace Pulumi.AwsNative.Configuration.Outputs
     public sealed class ConfigurationRecorderRecordingGroup
     {
         public readonly bool? AllSupported;
+        public readonly Outputs.ConfigurationRecorderExclusionByResourceTypes? ExclusionByResourceTypes;
         public readonly bool? IncludeGlobalResourceTypes;
+        public readonly Outputs.ConfigurationRecorderRecordingStrategy? RecordingStrategy;
         public readonly ImmutableArray<string> ResourceTypes;
 
         [OutputConstructor]
         private ConfigurationRecorderRecordingGroup(
             bool? allSupported,
 
+            Outputs.ConfigurationRecorderExclusionByResourceTypes? exclusionByResourceTypes,
+
             bool? includeGlobalResourceTypes,
+
+            Outputs.ConfigurationRecorderRecordingStrategy? recordingStrategy,
 
             ImmutableArray<string> resourceTypes)
         {
             AllSupported = allSupported;
+            ExclusionByResourceTypes = exclusionByResourceTypes;
             IncludeGlobalResourceTypes = includeGlobalResourceTypes;
+            RecordingStrategy = recordingStrategy;
             ResourceTypes = resourceTypes;
         }
     }

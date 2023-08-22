@@ -9375,6 +9375,170 @@ func (in *analysisPivotTableMetricPlacementPtr) ToAnalysisPivotTableMetricPlacem
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableMetricPlacementPtrOutput)
 }
 
+type AnalysisPivotTableRowsLayout string
+
+const (
+	AnalysisPivotTableRowsLayoutTabular   = AnalysisPivotTableRowsLayout("TABULAR")
+	AnalysisPivotTableRowsLayoutHierarchy = AnalysisPivotTableRowsLayout("HIERARCHY")
+)
+
+func (AnalysisPivotTableRowsLayout) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisPivotTableRowsLayout)(nil)).Elem()
+}
+
+func (e AnalysisPivotTableRowsLayout) ToAnalysisPivotTableRowsLayoutOutput() AnalysisPivotTableRowsLayoutOutput {
+	return pulumi.ToOutput(e).(AnalysisPivotTableRowsLayoutOutput)
+}
+
+func (e AnalysisPivotTableRowsLayout) ToAnalysisPivotTableRowsLayoutOutputWithContext(ctx context.Context) AnalysisPivotTableRowsLayoutOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisPivotTableRowsLayoutOutput)
+}
+
+func (e AnalysisPivotTableRowsLayout) ToAnalysisPivotTableRowsLayoutPtrOutput() AnalysisPivotTableRowsLayoutPtrOutput {
+	return e.ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisPivotTableRowsLayout) ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(ctx context.Context) AnalysisPivotTableRowsLayoutPtrOutput {
+	return AnalysisPivotTableRowsLayout(e).ToAnalysisPivotTableRowsLayoutOutputWithContext(ctx).ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisPivotTableRowsLayout) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisPivotTableRowsLayout) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisPivotTableRowsLayout) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisPivotTableRowsLayout) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisPivotTableRowsLayoutOutput struct{ *pulumi.OutputState }
+
+func (AnalysisPivotTableRowsLayoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisPivotTableRowsLayout)(nil)).Elem()
+}
+
+func (o AnalysisPivotTableRowsLayoutOutput) ToAnalysisPivotTableRowsLayoutOutput() AnalysisPivotTableRowsLayoutOutput {
+	return o
+}
+
+func (o AnalysisPivotTableRowsLayoutOutput) ToAnalysisPivotTableRowsLayoutOutputWithContext(ctx context.Context) AnalysisPivotTableRowsLayoutOutput {
+	return o
+}
+
+func (o AnalysisPivotTableRowsLayoutOutput) ToAnalysisPivotTableRowsLayoutPtrOutput() AnalysisPivotTableRowsLayoutPtrOutput {
+	return o.ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisPivotTableRowsLayoutOutput) ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(ctx context.Context) AnalysisPivotTableRowsLayoutPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisPivotTableRowsLayout) *AnalysisPivotTableRowsLayout {
+		return &v
+	}).(AnalysisPivotTableRowsLayoutPtrOutput)
+}
+
+func (o AnalysisPivotTableRowsLayoutOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisPivotTableRowsLayoutOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisPivotTableRowsLayout) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisPivotTableRowsLayoutOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisPivotTableRowsLayoutOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisPivotTableRowsLayout) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisPivotTableRowsLayoutPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisPivotTableRowsLayoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisPivotTableRowsLayout)(nil)).Elem()
+}
+
+func (o AnalysisPivotTableRowsLayoutPtrOutput) ToAnalysisPivotTableRowsLayoutPtrOutput() AnalysisPivotTableRowsLayoutPtrOutput {
+	return o
+}
+
+func (o AnalysisPivotTableRowsLayoutPtrOutput) ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(ctx context.Context) AnalysisPivotTableRowsLayoutPtrOutput {
+	return o
+}
+
+func (o AnalysisPivotTableRowsLayoutPtrOutput) Elem() AnalysisPivotTableRowsLayoutOutput {
+	return o.ApplyT(func(v *AnalysisPivotTableRowsLayout) AnalysisPivotTableRowsLayout {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisPivotTableRowsLayout
+		return ret
+	}).(AnalysisPivotTableRowsLayoutOutput)
+}
+
+func (o AnalysisPivotTableRowsLayoutPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisPivotTableRowsLayoutPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisPivotTableRowsLayout) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisPivotTableRowsLayoutInput is an input type that accepts AnalysisPivotTableRowsLayoutArgs and AnalysisPivotTableRowsLayoutOutput values.
+// You can construct a concrete instance of `AnalysisPivotTableRowsLayoutInput` via:
+//
+//	AnalysisPivotTableRowsLayoutArgs{...}
+type AnalysisPivotTableRowsLayoutInput interface {
+	pulumi.Input
+
+	ToAnalysisPivotTableRowsLayoutOutput() AnalysisPivotTableRowsLayoutOutput
+	ToAnalysisPivotTableRowsLayoutOutputWithContext(context.Context) AnalysisPivotTableRowsLayoutOutput
+}
+
+var analysisPivotTableRowsLayoutPtrType = reflect.TypeOf((**AnalysisPivotTableRowsLayout)(nil)).Elem()
+
+type AnalysisPivotTableRowsLayoutPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisPivotTableRowsLayoutPtrOutput() AnalysisPivotTableRowsLayoutPtrOutput
+	ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(context.Context) AnalysisPivotTableRowsLayoutPtrOutput
+}
+
+type analysisPivotTableRowsLayoutPtr string
+
+func AnalysisPivotTableRowsLayoutPtr(v string) AnalysisPivotTableRowsLayoutPtrInput {
+	return (*analysisPivotTableRowsLayoutPtr)(&v)
+}
+
+func (*analysisPivotTableRowsLayoutPtr) ElementType() reflect.Type {
+	return analysisPivotTableRowsLayoutPtrType
+}
+
+func (in *analysisPivotTableRowsLayoutPtr) ToAnalysisPivotTableRowsLayoutPtrOutput() AnalysisPivotTableRowsLayoutPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisPivotTableRowsLayoutPtrOutput)
+}
+
+func (in *analysisPivotTableRowsLayoutPtr) ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(ctx context.Context) AnalysisPivotTableRowsLayoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableRowsLayoutPtrOutput)
+}
+
 type AnalysisPivotTableSubtotalLevel string
 
 const (
@@ -12669,6 +12833,169 @@ func (in *analysisSheetControlSliderTypePtr) ToAnalysisSheetControlSliderTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSheetControlSliderTypePtrOutput)
 }
 
+type AnalysisSimpleAttributeAggregationFunction string
+
+const (
+	AnalysisSimpleAttributeAggregationFunctionUniqueValue = AnalysisSimpleAttributeAggregationFunction("UNIQUE_VALUE")
+)
+
+func (AnalysisSimpleAttributeAggregationFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSimpleAttributeAggregationFunction)(nil)).Elem()
+}
+
+func (e AnalysisSimpleAttributeAggregationFunction) ToAnalysisSimpleAttributeAggregationFunctionOutput() AnalysisSimpleAttributeAggregationFunctionOutput {
+	return pulumi.ToOutput(e).(AnalysisSimpleAttributeAggregationFunctionOutput)
+}
+
+func (e AnalysisSimpleAttributeAggregationFunction) ToAnalysisSimpleAttributeAggregationFunctionOutputWithContext(ctx context.Context) AnalysisSimpleAttributeAggregationFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisSimpleAttributeAggregationFunctionOutput)
+}
+
+func (e AnalysisSimpleAttributeAggregationFunction) ToAnalysisSimpleAttributeAggregationFunctionPtrOutput() AnalysisSimpleAttributeAggregationFunctionPtrOutput {
+	return e.ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSimpleAttributeAggregationFunction) ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleAttributeAggregationFunctionPtrOutput {
+	return AnalysisSimpleAttributeAggregationFunction(e).ToAnalysisSimpleAttributeAggregationFunctionOutputWithContext(ctx).ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisSimpleAttributeAggregationFunction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSimpleAttributeAggregationFunction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSimpleAttributeAggregationFunction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSimpleAttributeAggregationFunction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisSimpleAttributeAggregationFunctionOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSimpleAttributeAggregationFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSimpleAttributeAggregationFunction)(nil)).Elem()
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToAnalysisSimpleAttributeAggregationFunctionOutput() AnalysisSimpleAttributeAggregationFunctionOutput {
+	return o
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToAnalysisSimpleAttributeAggregationFunctionOutputWithContext(ctx context.Context) AnalysisSimpleAttributeAggregationFunctionOutput {
+	return o
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToAnalysisSimpleAttributeAggregationFunctionPtrOutput() AnalysisSimpleAttributeAggregationFunctionPtrOutput {
+	return o.ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleAttributeAggregationFunctionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSimpleAttributeAggregationFunction) *AnalysisSimpleAttributeAggregationFunction {
+		return &v
+	}).(AnalysisSimpleAttributeAggregationFunctionPtrOutput)
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSimpleAttributeAggregationFunction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSimpleAttributeAggregationFunction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSimpleAttributeAggregationFunctionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSimpleAttributeAggregationFunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSimpleAttributeAggregationFunction)(nil)).Elem()
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) ToAnalysisSimpleAttributeAggregationFunctionPtrOutput() AnalysisSimpleAttributeAggregationFunctionPtrOutput {
+	return o
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleAttributeAggregationFunctionPtrOutput {
+	return o
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) Elem() AnalysisSimpleAttributeAggregationFunctionOutput {
+	return o.ApplyT(func(v *AnalysisSimpleAttributeAggregationFunction) AnalysisSimpleAttributeAggregationFunction {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSimpleAttributeAggregationFunction
+		return ret
+	}).(AnalysisSimpleAttributeAggregationFunctionOutput)
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisSimpleAttributeAggregationFunction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisSimpleAttributeAggregationFunctionInput is an input type that accepts AnalysisSimpleAttributeAggregationFunctionArgs and AnalysisSimpleAttributeAggregationFunctionOutput values.
+// You can construct a concrete instance of `AnalysisSimpleAttributeAggregationFunctionInput` via:
+//
+//	AnalysisSimpleAttributeAggregationFunctionArgs{...}
+type AnalysisSimpleAttributeAggregationFunctionInput interface {
+	pulumi.Input
+
+	ToAnalysisSimpleAttributeAggregationFunctionOutput() AnalysisSimpleAttributeAggregationFunctionOutput
+	ToAnalysisSimpleAttributeAggregationFunctionOutputWithContext(context.Context) AnalysisSimpleAttributeAggregationFunctionOutput
+}
+
+var analysisSimpleAttributeAggregationFunctionPtrType = reflect.TypeOf((**AnalysisSimpleAttributeAggregationFunction)(nil)).Elem()
+
+type AnalysisSimpleAttributeAggregationFunctionPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSimpleAttributeAggregationFunctionPtrOutput() AnalysisSimpleAttributeAggregationFunctionPtrOutput
+	ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(context.Context) AnalysisSimpleAttributeAggregationFunctionPtrOutput
+}
+
+type analysisSimpleAttributeAggregationFunctionPtr string
+
+func AnalysisSimpleAttributeAggregationFunctionPtr(v string) AnalysisSimpleAttributeAggregationFunctionPtrInput {
+	return (*analysisSimpleAttributeAggregationFunctionPtr)(&v)
+}
+
+func (*analysisSimpleAttributeAggregationFunctionPtr) ElementType() reflect.Type {
+	return analysisSimpleAttributeAggregationFunctionPtrType
+}
+
+func (in *analysisSimpleAttributeAggregationFunctionPtr) ToAnalysisSimpleAttributeAggregationFunctionPtrOutput() AnalysisSimpleAttributeAggregationFunctionPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisSimpleAttributeAggregationFunctionPtrOutput)
+}
+
+func (in *analysisSimpleAttributeAggregationFunctionPtr) ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleAttributeAggregationFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSimpleAttributeAggregationFunctionPtrOutput)
+}
+
 type AnalysisSimpleNumericalAggregationFunction string
 
 const (
@@ -12840,6 +13167,334 @@ func (in *analysisSimpleNumericalAggregationFunctionPtr) ToAnalysisSimpleNumeric
 
 func (in *analysisSimpleNumericalAggregationFunctionPtr) ToAnalysisSimpleNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleNumericalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSimpleNumericalAggregationFunctionPtrOutput)
+}
+
+type AnalysisSmallMultiplesAxisPlacement string
+
+const (
+	AnalysisSmallMultiplesAxisPlacementOutside = AnalysisSmallMultiplesAxisPlacement("OUTSIDE")
+	AnalysisSmallMultiplesAxisPlacementInside  = AnalysisSmallMultiplesAxisPlacement("INSIDE")
+)
+
+func (AnalysisSmallMultiplesAxisPlacement) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSmallMultiplesAxisPlacement)(nil)).Elem()
+}
+
+func (e AnalysisSmallMultiplesAxisPlacement) ToAnalysisSmallMultiplesAxisPlacementOutput() AnalysisSmallMultiplesAxisPlacementOutput {
+	return pulumi.ToOutput(e).(AnalysisSmallMultiplesAxisPlacementOutput)
+}
+
+func (e AnalysisSmallMultiplesAxisPlacement) ToAnalysisSmallMultiplesAxisPlacementOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisPlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisSmallMultiplesAxisPlacementOutput)
+}
+
+func (e AnalysisSmallMultiplesAxisPlacement) ToAnalysisSmallMultiplesAxisPlacementPtrOutput() AnalysisSmallMultiplesAxisPlacementPtrOutput {
+	return e.ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSmallMultiplesAxisPlacement) ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisPlacementPtrOutput {
+	return AnalysisSmallMultiplesAxisPlacement(e).ToAnalysisSmallMultiplesAxisPlacementOutputWithContext(ctx).ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisSmallMultiplesAxisPlacement) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSmallMultiplesAxisPlacement) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSmallMultiplesAxisPlacement) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSmallMultiplesAxisPlacement) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisSmallMultiplesAxisPlacementOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSmallMultiplesAxisPlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSmallMultiplesAxisPlacement)(nil)).Elem()
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementOutput) ToAnalysisSmallMultiplesAxisPlacementOutput() AnalysisSmallMultiplesAxisPlacementOutput {
+	return o
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementOutput) ToAnalysisSmallMultiplesAxisPlacementOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisPlacementOutput {
+	return o
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementOutput) ToAnalysisSmallMultiplesAxisPlacementPtrOutput() AnalysisSmallMultiplesAxisPlacementPtrOutput {
+	return o.ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementOutput) ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisPlacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSmallMultiplesAxisPlacement) *AnalysisSmallMultiplesAxisPlacement {
+		return &v
+	}).(AnalysisSmallMultiplesAxisPlacementPtrOutput)
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSmallMultiplesAxisPlacement) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSmallMultiplesAxisPlacement) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSmallMultiplesAxisPlacementPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSmallMultiplesAxisPlacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSmallMultiplesAxisPlacement)(nil)).Elem()
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) ToAnalysisSmallMultiplesAxisPlacementPtrOutput() AnalysisSmallMultiplesAxisPlacementPtrOutput {
+	return o
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisPlacementPtrOutput {
+	return o
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) Elem() AnalysisSmallMultiplesAxisPlacementOutput {
+	return o.ApplyT(func(v *AnalysisSmallMultiplesAxisPlacement) AnalysisSmallMultiplesAxisPlacement {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSmallMultiplesAxisPlacement
+		return ret
+	}).(AnalysisSmallMultiplesAxisPlacementOutput)
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisSmallMultiplesAxisPlacement) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisSmallMultiplesAxisPlacementInput is an input type that accepts AnalysisSmallMultiplesAxisPlacementArgs and AnalysisSmallMultiplesAxisPlacementOutput values.
+// You can construct a concrete instance of `AnalysisSmallMultiplesAxisPlacementInput` via:
+//
+//	AnalysisSmallMultiplesAxisPlacementArgs{...}
+type AnalysisSmallMultiplesAxisPlacementInput interface {
+	pulumi.Input
+
+	ToAnalysisSmallMultiplesAxisPlacementOutput() AnalysisSmallMultiplesAxisPlacementOutput
+	ToAnalysisSmallMultiplesAxisPlacementOutputWithContext(context.Context) AnalysisSmallMultiplesAxisPlacementOutput
+}
+
+var analysisSmallMultiplesAxisPlacementPtrType = reflect.TypeOf((**AnalysisSmallMultiplesAxisPlacement)(nil)).Elem()
+
+type AnalysisSmallMultiplesAxisPlacementPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSmallMultiplesAxisPlacementPtrOutput() AnalysisSmallMultiplesAxisPlacementPtrOutput
+	ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(context.Context) AnalysisSmallMultiplesAxisPlacementPtrOutput
+}
+
+type analysisSmallMultiplesAxisPlacementPtr string
+
+func AnalysisSmallMultiplesAxisPlacementPtr(v string) AnalysisSmallMultiplesAxisPlacementPtrInput {
+	return (*analysisSmallMultiplesAxisPlacementPtr)(&v)
+}
+
+func (*analysisSmallMultiplesAxisPlacementPtr) ElementType() reflect.Type {
+	return analysisSmallMultiplesAxisPlacementPtrType
+}
+
+func (in *analysisSmallMultiplesAxisPlacementPtr) ToAnalysisSmallMultiplesAxisPlacementPtrOutput() AnalysisSmallMultiplesAxisPlacementPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisSmallMultiplesAxisPlacementPtrOutput)
+}
+
+func (in *analysisSmallMultiplesAxisPlacementPtr) ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisPlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSmallMultiplesAxisPlacementPtrOutput)
+}
+
+type AnalysisSmallMultiplesAxisScale string
+
+const (
+	AnalysisSmallMultiplesAxisScaleShared      = AnalysisSmallMultiplesAxisScale("SHARED")
+	AnalysisSmallMultiplesAxisScaleIndependent = AnalysisSmallMultiplesAxisScale("INDEPENDENT")
+)
+
+func (AnalysisSmallMultiplesAxisScale) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSmallMultiplesAxisScale)(nil)).Elem()
+}
+
+func (e AnalysisSmallMultiplesAxisScale) ToAnalysisSmallMultiplesAxisScaleOutput() AnalysisSmallMultiplesAxisScaleOutput {
+	return pulumi.ToOutput(e).(AnalysisSmallMultiplesAxisScaleOutput)
+}
+
+func (e AnalysisSmallMultiplesAxisScale) ToAnalysisSmallMultiplesAxisScaleOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisSmallMultiplesAxisScaleOutput)
+}
+
+func (e AnalysisSmallMultiplesAxisScale) ToAnalysisSmallMultiplesAxisScalePtrOutput() AnalysisSmallMultiplesAxisScalePtrOutput {
+	return e.ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSmallMultiplesAxisScale) ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisScalePtrOutput {
+	return AnalysisSmallMultiplesAxisScale(e).ToAnalysisSmallMultiplesAxisScaleOutputWithContext(ctx).ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisSmallMultiplesAxisScale) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSmallMultiplesAxisScale) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSmallMultiplesAxisScale) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSmallMultiplesAxisScale) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisSmallMultiplesAxisScaleOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSmallMultiplesAxisScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSmallMultiplesAxisScale)(nil)).Elem()
+}
+
+func (o AnalysisSmallMultiplesAxisScaleOutput) ToAnalysisSmallMultiplesAxisScaleOutput() AnalysisSmallMultiplesAxisScaleOutput {
+	return o
+}
+
+func (o AnalysisSmallMultiplesAxisScaleOutput) ToAnalysisSmallMultiplesAxisScaleOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisScaleOutput {
+	return o
+}
+
+func (o AnalysisSmallMultiplesAxisScaleOutput) ToAnalysisSmallMultiplesAxisScalePtrOutput() AnalysisSmallMultiplesAxisScalePtrOutput {
+	return o.ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSmallMultiplesAxisScaleOutput) ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSmallMultiplesAxisScale) *AnalysisSmallMultiplesAxisScale {
+		return &v
+	}).(AnalysisSmallMultiplesAxisScalePtrOutput)
+}
+
+func (o AnalysisSmallMultiplesAxisScaleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisSmallMultiplesAxisScaleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSmallMultiplesAxisScale) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisSmallMultiplesAxisScaleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSmallMultiplesAxisScaleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSmallMultiplesAxisScale) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSmallMultiplesAxisScalePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSmallMultiplesAxisScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSmallMultiplesAxisScale)(nil)).Elem()
+}
+
+func (o AnalysisSmallMultiplesAxisScalePtrOutput) ToAnalysisSmallMultiplesAxisScalePtrOutput() AnalysisSmallMultiplesAxisScalePtrOutput {
+	return o
+}
+
+func (o AnalysisSmallMultiplesAxisScalePtrOutput) ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisScalePtrOutput {
+	return o
+}
+
+func (o AnalysisSmallMultiplesAxisScalePtrOutput) Elem() AnalysisSmallMultiplesAxisScaleOutput {
+	return o.ApplyT(func(v *AnalysisSmallMultiplesAxisScale) AnalysisSmallMultiplesAxisScale {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSmallMultiplesAxisScale
+		return ret
+	}).(AnalysisSmallMultiplesAxisScaleOutput)
+}
+
+func (o AnalysisSmallMultiplesAxisScalePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSmallMultiplesAxisScalePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisSmallMultiplesAxisScale) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisSmallMultiplesAxisScaleInput is an input type that accepts AnalysisSmallMultiplesAxisScaleArgs and AnalysisSmallMultiplesAxisScaleOutput values.
+// You can construct a concrete instance of `AnalysisSmallMultiplesAxisScaleInput` via:
+//
+//	AnalysisSmallMultiplesAxisScaleArgs{...}
+type AnalysisSmallMultiplesAxisScaleInput interface {
+	pulumi.Input
+
+	ToAnalysisSmallMultiplesAxisScaleOutput() AnalysisSmallMultiplesAxisScaleOutput
+	ToAnalysisSmallMultiplesAxisScaleOutputWithContext(context.Context) AnalysisSmallMultiplesAxisScaleOutput
+}
+
+var analysisSmallMultiplesAxisScalePtrType = reflect.TypeOf((**AnalysisSmallMultiplesAxisScale)(nil)).Elem()
+
+type AnalysisSmallMultiplesAxisScalePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSmallMultiplesAxisScalePtrOutput() AnalysisSmallMultiplesAxisScalePtrOutput
+	ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(context.Context) AnalysisSmallMultiplesAxisScalePtrOutput
+}
+
+type analysisSmallMultiplesAxisScalePtr string
+
+func AnalysisSmallMultiplesAxisScalePtr(v string) AnalysisSmallMultiplesAxisScalePtrInput {
+	return (*analysisSmallMultiplesAxisScalePtr)(&v)
+}
+
+func (*analysisSmallMultiplesAxisScalePtr) ElementType() reflect.Type {
+	return analysisSmallMultiplesAxisScalePtrType
+}
+
+func (in *analysisSmallMultiplesAxisScalePtr) ToAnalysisSmallMultiplesAxisScalePtrOutput() AnalysisSmallMultiplesAxisScalePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisSmallMultiplesAxisScalePtrOutput)
+}
+
+func (in *analysisSmallMultiplesAxisScalePtr) ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSmallMultiplesAxisScalePtrOutput)
 }
 
 type AnalysisSortDirection string
@@ -13169,6 +13824,171 @@ func (in *analysisSpecialValuePtr) ToAnalysisSpecialValuePtrOutput() AnalysisSpe
 
 func (in *analysisSpecialValuePtr) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSpecialValuePtrOutput)
+}
+
+type AnalysisStyledCellType string
+
+const (
+	AnalysisStyledCellTypeTotal        = AnalysisStyledCellType("TOTAL")
+	AnalysisStyledCellTypeMetricHeader = AnalysisStyledCellType("METRIC_HEADER")
+	AnalysisStyledCellTypeValue        = AnalysisStyledCellType("VALUE")
+)
+
+func (AnalysisStyledCellType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStyledCellType)(nil)).Elem()
+}
+
+func (e AnalysisStyledCellType) ToAnalysisStyledCellTypeOutput() AnalysisStyledCellTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisStyledCellTypeOutput)
+}
+
+func (e AnalysisStyledCellType) ToAnalysisStyledCellTypeOutputWithContext(ctx context.Context) AnalysisStyledCellTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisStyledCellTypeOutput)
+}
+
+func (e AnalysisStyledCellType) ToAnalysisStyledCellTypePtrOutput() AnalysisStyledCellTypePtrOutput {
+	return e.ToAnalysisStyledCellTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisStyledCellType) ToAnalysisStyledCellTypePtrOutputWithContext(ctx context.Context) AnalysisStyledCellTypePtrOutput {
+	return AnalysisStyledCellType(e).ToAnalysisStyledCellTypeOutputWithContext(ctx).ToAnalysisStyledCellTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisStyledCellType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisStyledCellType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisStyledCellType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisStyledCellType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisStyledCellTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStyledCellTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStyledCellType)(nil)).Elem()
+}
+
+func (o AnalysisStyledCellTypeOutput) ToAnalysisStyledCellTypeOutput() AnalysisStyledCellTypeOutput {
+	return o
+}
+
+func (o AnalysisStyledCellTypeOutput) ToAnalysisStyledCellTypeOutputWithContext(ctx context.Context) AnalysisStyledCellTypeOutput {
+	return o
+}
+
+func (o AnalysisStyledCellTypeOutput) ToAnalysisStyledCellTypePtrOutput() AnalysisStyledCellTypePtrOutput {
+	return o.ToAnalysisStyledCellTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisStyledCellTypeOutput) ToAnalysisStyledCellTypePtrOutputWithContext(ctx context.Context) AnalysisStyledCellTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisStyledCellType) *AnalysisStyledCellType {
+		return &v
+	}).(AnalysisStyledCellTypePtrOutput)
+}
+
+func (o AnalysisStyledCellTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisStyledCellTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisStyledCellType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisStyledCellTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisStyledCellTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisStyledCellType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisStyledCellTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStyledCellTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStyledCellType)(nil)).Elem()
+}
+
+func (o AnalysisStyledCellTypePtrOutput) ToAnalysisStyledCellTypePtrOutput() AnalysisStyledCellTypePtrOutput {
+	return o
+}
+
+func (o AnalysisStyledCellTypePtrOutput) ToAnalysisStyledCellTypePtrOutputWithContext(ctx context.Context) AnalysisStyledCellTypePtrOutput {
+	return o
+}
+
+func (o AnalysisStyledCellTypePtrOutput) Elem() AnalysisStyledCellTypeOutput {
+	return o.ApplyT(func(v *AnalysisStyledCellType) AnalysisStyledCellType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisStyledCellType
+		return ret
+	}).(AnalysisStyledCellTypeOutput)
+}
+
+func (o AnalysisStyledCellTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisStyledCellTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisStyledCellType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisStyledCellTypeInput is an input type that accepts AnalysisStyledCellTypeArgs and AnalysisStyledCellTypeOutput values.
+// You can construct a concrete instance of `AnalysisStyledCellTypeInput` via:
+//
+//	AnalysisStyledCellTypeArgs{...}
+type AnalysisStyledCellTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisStyledCellTypeOutput() AnalysisStyledCellTypeOutput
+	ToAnalysisStyledCellTypeOutputWithContext(context.Context) AnalysisStyledCellTypeOutput
+}
+
+var analysisStyledCellTypePtrType = reflect.TypeOf((**AnalysisStyledCellType)(nil)).Elem()
+
+type AnalysisStyledCellTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisStyledCellTypePtrOutput() AnalysisStyledCellTypePtrOutput
+	ToAnalysisStyledCellTypePtrOutputWithContext(context.Context) AnalysisStyledCellTypePtrOutput
+}
+
+type analysisStyledCellTypePtr string
+
+func AnalysisStyledCellTypePtr(v string) AnalysisStyledCellTypePtrInput {
+	return (*analysisStyledCellTypePtr)(&v)
+}
+
+func (*analysisStyledCellTypePtr) ElementType() reflect.Type {
+	return analysisStyledCellTypePtrType
+}
+
+func (in *analysisStyledCellTypePtr) ToAnalysisStyledCellTypePtrOutput() AnalysisStyledCellTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisStyledCellTypePtrOutput)
+}
+
+func (in *analysisStyledCellTypePtr) ToAnalysisStyledCellTypePtrOutputWithContext(ctx context.Context) AnalysisStyledCellTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisStyledCellTypePtrOutput)
 }
 
 type AnalysisTableBorderStyle string
@@ -15480,6 +16300,7 @@ const (
 	AnalysisVerticalTextAlignmentTop    = AnalysisVerticalTextAlignment("TOP")
 	AnalysisVerticalTextAlignmentMiddle = AnalysisVerticalTextAlignment("MIDDLE")
 	AnalysisVerticalTextAlignmentBottom = AnalysisVerticalTextAlignment("BOTTOM")
+	AnalysisVerticalTextAlignmentAuto   = AnalysisVerticalTextAlignment("AUTO")
 )
 
 func (AnalysisVerticalTextAlignment) ElementType() reflect.Type {
@@ -57347,6 +58168,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableFieldCollapseStatePtrInput)(nil)).Elem(), AnalysisPivotTableFieldCollapseState("COLLAPSED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableMetricPlacementInput)(nil)).Elem(), AnalysisPivotTableMetricPlacement("ROW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableMetricPlacementPtrInput)(nil)).Elem(), AnalysisPivotTableMetricPlacement("ROW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableRowsLayoutInput)(nil)).Elem(), AnalysisPivotTableRowsLayout("TABULAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableRowsLayoutPtrInput)(nil)).Elem(), AnalysisPivotTableRowsLayout("TABULAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableSubtotalLevelInput)(nil)).Elem(), AnalysisPivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableSubtotalLevelPtrInput)(nil)).Elem(), AnalysisPivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPrimaryValueDisplayTypeInput)(nil)).Elem(), AnalysisPrimaryValueDisplayType("HIDDEN"))
@@ -57387,12 +58210,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetControlListTypePtrInput)(nil)).Elem(), AnalysisSheetControlListType("MULTI_SELECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetControlSliderTypeInput)(nil)).Elem(), AnalysisSheetControlSliderType("SINGLE_POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetControlSliderTypePtrInput)(nil)).Elem(), AnalysisSheetControlSliderType("SINGLE_POINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleAttributeAggregationFunctionInput)(nil)).Elem(), AnalysisSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleAttributeAggregationFunctionPtrInput)(nil)).Elem(), AnalysisSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleNumericalAggregationFunctionInput)(nil)).Elem(), AnalysisSimpleNumericalAggregationFunction("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleNumericalAggregationFunctionPtrInput)(nil)).Elem(), AnalysisSimpleNumericalAggregationFunction("SUM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSmallMultiplesAxisPlacementInput)(nil)).Elem(), AnalysisSmallMultiplesAxisPlacement("OUTSIDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSmallMultiplesAxisPlacementPtrInput)(nil)).Elem(), AnalysisSmallMultiplesAxisPlacement("OUTSIDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSmallMultiplesAxisScaleInput)(nil)).Elem(), AnalysisSmallMultiplesAxisScale("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSmallMultiplesAxisScalePtrInput)(nil)).Elem(), AnalysisSmallMultiplesAxisScale("SHARED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSortDirectionInput)(nil)).Elem(), AnalysisSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSortDirectionPtrInput)(nil)).Elem(), AnalysisSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpecialValueInput)(nil)).Elem(), AnalysisSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpecialValuePtrInput)(nil)).Elem(), AnalysisSpecialValue("EMPTY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStyledCellTypeInput)(nil)).Elem(), AnalysisStyledCellType("TOTAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStyledCellTypePtrInput)(nil)).Elem(), AnalysisStyledCellType("TOTAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableBorderStyleInput)(nil)).Elem(), AnalysisTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableBorderStylePtrInput)(nil)).Elem(), AnalysisTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellImageScalingConfigurationInput)(nil)).Elem(), AnalysisTableCellImageScalingConfiguration("FIT_TO_CELL_HEIGHT"))
@@ -58028,6 +58859,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisPivotTableFieldCollapseStatePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableMetricPlacementOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableMetricPlacementPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisPivotTableRowsLayoutOutput{})
+	pulumi.RegisterOutputType(AnalysisPivotTableRowsLayoutPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableSubtotalLevelOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableSubtotalLevelPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPrimaryValueDisplayTypeOutput{})
@@ -58068,12 +58901,20 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisSheetControlListTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSheetControlSliderTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisSheetControlSliderTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSimpleAttributeAggregationFunctionOutput{})
+	pulumi.RegisterOutputType(AnalysisSimpleAttributeAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSimpleNumericalAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisSimpleNumericalAggregationFunctionPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSmallMultiplesAxisPlacementOutput{})
+	pulumi.RegisterOutputType(AnalysisSmallMultiplesAxisPlacementPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSmallMultiplesAxisScaleOutput{})
+	pulumi.RegisterOutputType(AnalysisSmallMultiplesAxisScalePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSortDirectionOutput{})
 	pulumi.RegisterOutputType(AnalysisSortDirectionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSpecialValueOutput{})
 	pulumi.RegisterOutputType(AnalysisSpecialValuePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisStyledCellTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisStyledCellTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableBorderStyleOutput{})
 	pulumi.RegisterOutputType(AnalysisTableBorderStylePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableCellImageScalingConfigurationOutput{})

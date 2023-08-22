@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.CloudFormation
     public static class GetStack
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFormation::Stack
+        /// The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
         /// </summary>
         public static Task<GetStackResult> InvokeAsync(GetStackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws-native:cloudformation:getStack", args ?? new GetStackArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFormation::Stack
+        /// The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
         /// </summary>
         public static Output<GetStackResult> Invoke(GetStackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws-native:cloudformation:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.CloudFormation
 
     public sealed class GetStackArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("stackId", required: true)]
+        public string StackId { get; set; } = null!;
 
         public GetStackArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.CloudFormation
 
     public sealed class GetStackInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("stackId", required: true)]
+        public Input<string> StackId { get; set; } = null!;
 
         public GetStackInvokeArgs()
         {
@@ -51,32 +51,88 @@ namespace Pulumi.AwsNative.CloudFormation
     [OutputType]
     public sealed class GetStackResult
     {
-        public readonly string? Id;
+        public readonly ImmutableArray<Pulumi.AwsNative.CloudFormation.StackCapabilitiesItem> Capabilities;
+        public readonly string? ChangeSetId;
+        public readonly string? CreationTime;
+        public readonly string? Description;
+        public readonly bool? DisableRollback;
+        public readonly bool? EnableTerminationProtection;
+        public readonly string? LastUpdateTime;
         public readonly ImmutableArray<string> NotificationArns;
+        public readonly ImmutableArray<Outputs.StackOutput> Outputs;
         public readonly object? Parameters;
+        public readonly string? ParentId;
+        public readonly string? RoleArn;
+        public readonly string? RootId;
+        public readonly string? StackId;
+        public readonly object? StackPolicyBody;
+        public readonly Pulumi.AwsNative.CloudFormation.StackStatus? StackStatus;
+        public readonly string? StackStatusReason;
         public readonly ImmutableArray<Outputs.StackTag> Tags;
-        public readonly string? TemplateUrl;
+        public readonly object? TemplateBody;
         public readonly int? TimeoutInMinutes;
 
         [OutputConstructor]
         private GetStackResult(
-            string? id,
+            ImmutableArray<Pulumi.AwsNative.CloudFormation.StackCapabilitiesItem> capabilities,
+
+            string? changeSetId,
+
+            string? creationTime,
+
+            string? description,
+
+            bool? disableRollback,
+
+            bool? enableTerminationProtection,
+
+            string? lastUpdateTime,
 
             ImmutableArray<string> notificationArns,
 
+            ImmutableArray<Outputs.StackOutput> outputs,
+
             object? parameters,
+
+            string? parentId,
+
+            string? roleArn,
+
+            string? rootId,
+
+            string? stackId,
+
+            object? stackPolicyBody,
+
+            Pulumi.AwsNative.CloudFormation.StackStatus? stackStatus,
+
+            string? stackStatusReason,
 
             ImmutableArray<Outputs.StackTag> tags,
 
-            string? templateUrl,
+            object? templateBody,
 
             int? timeoutInMinutes)
         {
-            Id = id;
+            Capabilities = capabilities;
+            ChangeSetId = changeSetId;
+            CreationTime = creationTime;
+            Description = description;
+            DisableRollback = disableRollback;
+            EnableTerminationProtection = enableTerminationProtection;
+            LastUpdateTime = lastUpdateTime;
             NotificationArns = notificationArns;
+            Outputs = outputs;
             Parameters = parameters;
+            ParentId = parentId;
+            RoleArn = roleArn;
+            RootId = rootId;
+            StackId = stackId;
+            StackPolicyBody = stackPolicyBody;
+            StackStatus = stackStatus;
+            StackStatusReason = stackStatusReason;
             Tags = tags;
-            TemplateUrl = templateUrl;
+            TemplateBody = templateBody;
             TimeoutInMinutes = timeoutInMinutes;
         }
     }

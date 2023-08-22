@@ -17,6 +17,7 @@ __all__ = ['RepositoryArgs', 'Repository']
 @pulumi.input_type
 class RepositoryArgs:
     def __init__(__self__, *,
+                 empty_on_delete: Optional[pulumi.Input[bool]] = None,
                  encryption_configuration: Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']] = None,
                  image_scanning_configuration: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
@@ -31,6 +32,8 @@ class RepositoryArgs:
         :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        if empty_on_delete is not None:
+            pulumi.set(__self__, "empty_on_delete", empty_on_delete)
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if image_scanning_configuration is not None:
@@ -45,6 +48,15 @@ class RepositoryArgs:
             pulumi.set(__self__, "repository_policy_text", repository_policy_text)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="emptyOnDelete")
+    def empty_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "empty_on_delete")
+
+    @empty_on_delete.setter
+    def empty_on_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "empty_on_delete", value)
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
@@ -127,6 +139,7 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 empty_on_delete: Optional[pulumi.Input[bool]] = None,
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
@@ -169,6 +182,7 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 empty_on_delete: Optional[pulumi.Input[bool]] = None,
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
@@ -185,6 +199,7 @@ class Repository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
+            __props__.__dict__["empty_on_delete"] = empty_on_delete
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tag_mutability"] = image_tag_mutability
@@ -217,6 +232,7 @@ class Repository(pulumi.CustomResource):
         __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["empty_on_delete"] = None
         __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["image_scanning_configuration"] = None
         __props__.__dict__["image_tag_mutability"] = None
@@ -231,6 +247,11 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="emptyOnDelete")
+    def empty_on_delete(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "empty_on_delete")
 
     @property
     @pulumi.getter(name="encryptionConfiguration")

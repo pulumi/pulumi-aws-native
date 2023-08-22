@@ -47,6 +47,7 @@ class ConfiguredTableAnalysisMethod(str, Enum):
 class ConfiguredTableAnalysisRuleType(str, Enum):
     AGGREGATION = "AGGREGATION"
     LIST = "LIST"
+    CUSTOM = "CUSTOM"
 
 
 class ConfiguredTableJoinOperator(str, Enum):

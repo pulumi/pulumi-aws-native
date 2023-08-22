@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Lambda
     public static class GetFunction
     {
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::Function
+        /// Resource Type definition for AWS::Lambda::Function in region
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws-native:lambda:getFunction", args ?? new GetFunctionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::Function
+        /// Resource Type definition for AWS::Lambda::Function in region
         /// </summary>
         public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws-native:lambda:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
@@ -127,10 +127,6 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly Outputs.FunctionRuntimeManagementConfig? RuntimeManagementConfig;
         /// <summary>
-        /// The SnapStart setting of your function
-        /// </summary>
-        public readonly Outputs.FunctionSnapStart? SnapStart;
-        /// <summary>
         /// The SnapStart response of your function
         /// </summary>
         public readonly Outputs.FunctionSnapStartResponse? SnapStartResponse;
@@ -189,8 +185,6 @@ namespace Pulumi.AwsNative.Lambda
 
             Outputs.FunctionRuntimeManagementConfig? runtimeManagementConfig,
 
-            Outputs.FunctionSnapStart? snapStart,
-
             Outputs.FunctionSnapStartResponse? snapStartResponse,
 
             ImmutableArray<Outputs.FunctionTag> tags,
@@ -219,7 +213,6 @@ namespace Pulumi.AwsNative.Lambda
             Role = role;
             Runtime = runtime;
             RuntimeManagementConfig = runtimeManagementConfig;
-            SnapStart = snapStart;
             SnapStartResponse = snapStartResponse;
             Tags = tags;
             Timeout = timeout;

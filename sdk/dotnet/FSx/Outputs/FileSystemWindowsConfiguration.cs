@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.FSx.Outputs
         public readonly bool? CopyTagsToBackups;
         public readonly string? DailyAutomaticBackupStartTime;
         public readonly string? DeploymentType;
+        public readonly Outputs.FileSystemDiskIopsConfiguration? DiskIopsConfiguration;
         public readonly string? PreferredSubnetId;
         public readonly Outputs.FileSystemSelfManagedActiveDirectoryConfiguration? SelfManagedActiveDirectoryConfiguration;
         public readonly int ThroughputCapacity;
@@ -41,6 +42,8 @@ namespace Pulumi.AwsNative.FSx.Outputs
 
             string? deploymentType,
 
+            Outputs.FileSystemDiskIopsConfiguration? diskIopsConfiguration,
+
             string? preferredSubnetId,
 
             Outputs.FileSystemSelfManagedActiveDirectoryConfiguration? selfManagedActiveDirectoryConfiguration,
@@ -56,6 +59,7 @@ namespace Pulumi.AwsNative.FSx.Outputs
             CopyTagsToBackups = copyTagsToBackups;
             DailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
             DeploymentType = deploymentType;
+            DiskIopsConfiguration = diskIopsConfiguration;
             PreferredSubnetId = preferredSubnetId;
             SelfManagedActiveDirectoryConfiguration = selfManagedActiveDirectoryConfiguration;
             ThroughputCapacity = throughputCapacity;

@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Studio{}
 	case "aws-native:emr:StudioSessionMapping":
 		r = &StudioSessionMapping{}
+	case "aws-native:emr:WalWorkspace":
+		r = &WalWorkspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

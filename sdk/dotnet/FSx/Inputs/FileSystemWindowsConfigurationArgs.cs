@@ -38,6 +38,9 @@ namespace Pulumi.AwsNative.FSx.Inputs
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
 
+        [Input("diskIopsConfiguration")]
+        public Input<Inputs.FileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
+
         [Input("preferredSubnetId")]
         public Input<string>? PreferredSubnetId { get; set; }
 

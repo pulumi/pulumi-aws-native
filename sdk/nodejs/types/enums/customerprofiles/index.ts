@@ -251,6 +251,9 @@ export const ObjectTypeKeyStandardIdentifiersItem = {
     Secondary: "SECONDARY",
     LookupOnly: "LOOKUP_ONLY",
     NewOnly: "NEW_ONLY",
+    Asset: "ASSET",
+    Case: "CASE",
+    Order: "ORDER",
 } as const;
 
 export type ObjectTypeKeyStandardIdentifiersItem = (typeof ObjectTypeKeyStandardIdentifiersItem)[keyof typeof ObjectTypeKeyStandardIdentifiersItem];

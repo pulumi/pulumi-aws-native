@@ -8,35 +8,49 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFormation::Stack
+ * The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
  */
 export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getStack", {
-        "id": args.id,
+        "stackId": args.stackId,
     }, opts);
 }
 
 export interface GetStackArgs {
-    id: string;
+    stackId: string;
 }
 
 export interface GetStackResult {
-    readonly id?: string;
+    readonly capabilities?: enums.cloudformation.StackCapabilitiesItem[];
+    readonly changeSetId?: string;
+    readonly creationTime?: string;
+    readonly description?: string;
+    readonly disableRollback?: boolean;
+    readonly enableTerminationProtection?: boolean;
+    readonly lastUpdateTime?: string;
     readonly notificationArns?: string[];
+    readonly outputs?: outputs.cloudformation.StackOutput[];
     readonly parameters?: any;
+    readonly parentId?: string;
+    readonly roleArn?: string;
+    readonly rootId?: string;
+    readonly stackId?: string;
+    readonly stackPolicyBody?: any;
+    readonly stackStatus?: enums.cloudformation.StackStatus;
+    readonly stackStatusReason?: string;
     readonly tags?: outputs.cloudformation.StackTag[];
-    readonly templateUrl?: string;
+    readonly templateBody?: any;
     readonly timeoutInMinutes?: number;
 }
 /**
- * Resource Type definition for AWS::CloudFormation::Stack
+ * The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
  */
 export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackResult> {
     return pulumi.output(args).apply((a: any) => getStack(a, opts))
 }
 
 export interface GetStackOutputArgs {
-    id: pulumi.Input<string>;
+    stackId: pulumi.Input<string>;
 }

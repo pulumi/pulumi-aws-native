@@ -2613,6 +2613,9 @@ const (
 	ObjectTypeKeyStandardIdentifiersItemSecondary  = ObjectTypeKeyStandardIdentifiersItem("SECONDARY")
 	ObjectTypeKeyStandardIdentifiersItemLookupOnly = ObjectTypeKeyStandardIdentifiersItem("LOOKUP_ONLY")
 	ObjectTypeKeyStandardIdentifiersItemNewOnly    = ObjectTypeKeyStandardIdentifiersItem("NEW_ONLY")
+	ObjectTypeKeyStandardIdentifiersItemAsset      = ObjectTypeKeyStandardIdentifiersItem("ASSET")
+	ObjectTypeKeyStandardIdentifiersItemCase       = ObjectTypeKeyStandardIdentifiersItem("CASE")
+	ObjectTypeKeyStandardIdentifiersItemOrder      = ObjectTypeKeyStandardIdentifiersItem("ORDER")
 )
 
 func (ObjectTypeKeyStandardIdentifiersItem) ElementType() reflect.Type {

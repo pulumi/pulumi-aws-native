@@ -1601,6 +1601,10 @@ export namespace appflow {
         applicationHostUrl?: string;
         applicationServicePath?: string;
         clientNumber?: string;
+        /**
+         * If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+         */
+        disableSso?: boolean;
         logonLanguage?: string;
         oAuthProperties?: outputs.appflow.ConnectorProfileOAuthProperties;
         portNumber?: number;
@@ -4617,6 +4621,7 @@ export namespace backup {
         recoveryPointTags?: any;
         ruleName: string;
         scheduleExpression?: string;
+        scheduleExpressionTimezone?: string;
         startWindowMinutes?: number;
         targetBackupVault: string;
     }
@@ -5406,6 +5411,11 @@ export namespace cleanrooms {
         scalarFunctions: enums.cleanrooms.ConfiguredTableScalarFunctions[];
     }
 
+    export interface ConfiguredTableAnalysisRuleCustom {
+        allowedAnalyses: string[];
+        allowedAnalysisProviders?: string[];
+    }
+
     export interface ConfiguredTableAnalysisRuleList {
         allowedJoinOperators?: enums.cleanrooms.ConfiguredTableJoinOperator[];
         joinColumns: string[];
@@ -5413,7 +5423,7 @@ export namespace cleanrooms {
     }
 
     export interface ConfiguredTableAnalysisRulePolicy {
-        v1: outputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV10Properties | outputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV11Properties;
+        v1: outputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV10Properties | outputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV11Properties | outputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV12Properties;
     }
 
     export interface ConfiguredTableAnalysisRulePolicyV10Properties {
@@ -5422,6 +5432,10 @@ export namespace cleanrooms {
 
     export interface ConfiguredTableAnalysisRulePolicyV11Properties {
         aggregation: outputs.cleanrooms.ConfiguredTableAnalysisRuleAggregation;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicyV12Properties {
+        custom: outputs.cleanrooms.ConfiguredTableAnalysisRuleCustom;
     }
 
     export interface ConfiguredTableAssociationTag {
@@ -5493,6 +5507,13 @@ export namespace cloudformation {
         logRoleArn?: string;
     }
 
+    export interface StackOutput {
+        description?: string;
+        exportName?: string;
+        outputKey?: string;
+        outputValue?: string;
+    }
+
     export interface StackSetAutoDeployment {
         /**
          * If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
@@ -5516,6 +5537,10 @@ export namespace cloudformation {
          * AWS accounts that you want to create stack instances in the specified Region(s) for.
          */
         accounts?: string[];
+        /**
+         * Returns the value of the AccountsUrl property.
+         */
+        accountsUrl?: string;
         /**
          * The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
          */
@@ -8220,10 +8245,20 @@ export namespace configuration {
         value: string;
     }
 
+    export interface ConfigurationRecorderExclusionByResourceTypes {
+        resourceTypes: string[];
+    }
+
     export interface ConfigurationRecorderRecordingGroup {
         allSupported?: boolean;
+        exclusionByResourceTypes?: outputs.configuration.ConfigurationRecorderExclusionByResourceTypes;
         includeGlobalResourceTypes?: boolean;
+        recordingStrategy?: outputs.configuration.ConfigurationRecorderRecordingStrategy;
         resourceTypes?: string[];
+    }
+
+    export interface ConfigurationRecorderRecordingStrategy {
+        useOnly: string;
     }
 
     /**
@@ -11695,6 +11730,14 @@ export namespace ec2 {
         ebs?: outputs.ec2.InstanceEbs;
         noDevice?: outputs.ec2.InstanceNoDevice;
         virtualName?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface InstanceConnectEndpointTag {
+        key: string;
+        value: string;
     }
 
     export interface InstanceCpuOptions {
@@ -15510,6 +15553,7 @@ export namespace emr {
     export interface ClusterVolumeSpecification {
         iops?: number;
         sizeInGb: number;
+        throughput?: number;
         volumeType: string;
     }
 
@@ -15558,6 +15602,7 @@ export namespace emr {
     export interface InstanceFleetConfigVolumeSpecification {
         iops?: number;
         sizeInGb: number;
+        throughput?: number;
         volumeType: string;
     }
 
@@ -15629,6 +15674,7 @@ export namespace emr {
     export interface InstanceGroupConfigVolumeSpecification {
         iops?: number;
         sizeInGb: number;
+        throughput?: number;
         volumeType: string;
     }
 
@@ -15654,6 +15700,20 @@ export namespace emr {
         key: string;
         /**
          * The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface WalWorkspaceTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: string;
     }
@@ -15804,6 +15864,30 @@ export namespace emrserverless {
     }
 
     export interface ApplicationWorkerTypeSpecificationInputMap {
+    }
+
+}
+
+export namespace entityresolution {
+    export interface SchemaMappingSchemaInputAttribute {
+        fieldName: string;
+        groupName?: string;
+        matchKey?: string;
+        type: enums.entityresolution.SchemaMappingSchemaAttributeType;
+    }
+
+    /**
+     * A key-value pair to associate with a resource
+     */
+    export interface SchemaMappingTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
 }
@@ -15967,7 +16051,7 @@ export namespace events {
         database: string;
         dbUser?: string;
         secretManagerArn?: string;
-        sql: string;
+        sql?: string;
         statementName?: string;
         withEvent?: boolean;
     }
@@ -16844,8 +16928,11 @@ export namespace fsx {
         dailyAutomaticBackupStartTime?: string;
         deploymentType: string;
         diskIopsConfiguration?: outputs.fsx.FileSystemDiskIopsConfiguration;
+        endpointIpAddressRange?: string;
         options?: string[];
+        preferredSubnetId?: string;
         rootVolumeConfiguration?: outputs.fsx.FileSystemRootVolumeConfiguration;
+        routeTableIds?: string[];
         throughputCapacity?: number;
         weeklyMaintenanceStartTime?: string;
     }
@@ -16887,6 +16974,7 @@ export namespace fsx {
         copyTagsToBackups?: boolean;
         dailyAutomaticBackupStartTime?: string;
         deploymentType?: string;
+        diskIopsConfiguration?: outputs.fsx.FileSystemDiskIopsConfiguration;
         preferredSubnetId?: string;
         selfManagedActiveDirectoryConfiguration?: outputs.fsx.FileSystemSelfManagedActiveDirectoryConfiguration;
         throughputCapacity: number;
@@ -32761,6 +32849,7 @@ export namespace qldb {
 
 export namespace quicksight {
     export interface AnalysisAggregationFunction {
+        attributeAggregationFunction?: outputs.quicksight.AnalysisAttributeAggregationFunction;
         categoricalAggregationFunction?: enums.quicksight.AnalysisCategoricalAggregationFunction;
         dateAggregationFunction?: enums.quicksight.AnalysisDateAggregationFunction;
         numericalAggregationFunction?: outputs.quicksight.AnalysisNumericalAggregationFunction;
@@ -32770,6 +32859,9 @@ export namespace quicksight {
         aggregationFunction?: outputs.quicksight.AnalysisAggregationFunction;
         column: outputs.quicksight.AnalysisColumnIdentifier;
         sortDirection: enums.quicksight.AnalysisSortDirection;
+    }
+
+    export interface AnalysisAllSheetsFilterScopeConfiguration {
     }
 
     export interface AnalysisAnchorDateConfiguration {
@@ -32794,6 +32886,11 @@ export namespace quicksight {
 
     export interface AnalysisArcOptions {
         arcThickness?: enums.quicksight.AnalysisArcThickness;
+    }
+
+    export interface AnalysisAttributeAggregationFunction {
+        simpleAttributeAggregation?: enums.quicksight.AnalysisSimpleAttributeAggregationFunction;
+        valueForMultipleValues?: string;
     }
 
     export interface AnalysisAxisDataOptions {
@@ -33395,6 +33492,7 @@ export namespace quicksight {
 
     export interface AnalysisDateTimePickerControlDisplayOptions {
         dateTimeFormat?: string;
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
 
@@ -33501,6 +33599,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisDropDownControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         selectAllOptions?: outputs.quicksight.AnalysisListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
@@ -33697,6 +33796,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterScopeConfiguration {
+        allSheets?: outputs.quicksight.AnalysisAllSheetsFilterScopeConfiguration;
         selectedSheets?: outputs.quicksight.AnalysisSelectedSheetsFilterScopeConfiguration;
     }
 
@@ -33755,7 +33855,7 @@ export namespace quicksight {
         periodsForward?: number;
         predictionInterval?: number;
         seasonality?: enums.quicksight.AnalysisForecastComputationSeasonality;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         upperBoundary?: number;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
@@ -34032,7 +34132,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodSize?: number;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
@@ -34326,6 +34426,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisListControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         searchOptions?: outputs.quicksight.AnalysisListControlSearchOptions;
         selectAllOptions?: outputs.quicksight.AnalysisListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
@@ -34364,7 +34465,7 @@ export namespace quicksight {
     export interface AnalysisMaximumMinimumComputation {
         computationId: string;
         name?: string;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         type: enums.quicksight.AnalysisMaximumMinimumComputationType;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
@@ -34378,10 +34479,10 @@ export namespace quicksight {
 
     export interface AnalysisMetricComparisonComputation {
         computationId: string;
-        fromValue: outputs.quicksight.AnalysisMeasureField;
+        fromValue?: outputs.quicksight.AnalysisMeasureField;
         name?: string;
-        targetValue: outputs.quicksight.AnalysisMeasureField;
-        time: outputs.quicksight.AnalysisDimensionField;
+        targetValue?: outputs.quicksight.AnalysisMeasureField;
+        time?: outputs.quicksight.AnalysisDimensionField;
     }
 
     export interface AnalysisMinimumLabelType {
@@ -34612,7 +34713,7 @@ export namespace quicksight {
     export interface AnalysisPeriodOverPeriodComputation {
         computationId: string;
         name?: string;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
@@ -34620,7 +34721,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodTimeGranularity?: enums.quicksight.AnalysisTimeGranularity;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
@@ -34746,10 +34847,16 @@ export namespace quicksight {
         collapsedRowDimensionsVisibility?: enums.quicksight.AnalysisVisibility;
         columnHeaderStyle?: outputs.quicksight.AnalysisTableCellStyle;
         columnNamesVisibility?: enums.quicksight.AnalysisVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        defaultCellWidth?: string;
         metricPlacement?: enums.quicksight.AnalysisPivotTableMetricPlacement;
         rowAlternateColorOptions?: outputs.quicksight.AnalysisRowAlternateColorOptions;
         rowFieldNamesStyle?: outputs.quicksight.AnalysisTableCellStyle;
         rowHeaderStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        rowsLabelOptions?: outputs.quicksight.AnalysisPivotTableRowsLabelOptions;
+        rowsLayout?: enums.quicksight.AnalysisPivotTableRowsLayout;
         singleMetricVisibility?: enums.quicksight.AnalysisVisibility;
         toggleButtonsVisibility?: enums.quicksight.AnalysisVisibility;
     }
@@ -34757,6 +34864,11 @@ export namespace quicksight {
     export interface AnalysisPivotTablePaginatedReportOptions {
         overflowColumnHeaderVisibility?: enums.quicksight.AnalysisVisibility;
         verticalOverflowVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisPivotTableRowsLabelOptions {
+        customLabel?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
     }
 
     export interface AnalysisPivotTableSortBy {
@@ -34909,6 +35021,7 @@ export namespace quicksight {
 
     export interface AnalysisRelativeDateTimeControlDisplayOptions {
         dateTimeFormat?: string;
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
 
@@ -34939,6 +35052,7 @@ export namespace quicksight {
     export interface AnalysisRowAlternateColorOptions {
         rowAlternateColors?: string[];
         status?: enums.quicksight.AnalysisWidgetStatus;
+        usePrimaryBackgroundColor?: enums.quicksight.AnalysisWidgetStatus;
     }
 
     export interface AnalysisSameSheetTargetVisualConfiguration {
@@ -35087,6 +35201,11 @@ export namespace quicksight {
         sheetId?: string;
     }
 
+    export interface AnalysisSheetControlInfoIconLabelOptions {
+        infoIconText?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
     export interface AnalysisSheetControlLayout {
         configuration: outputs.quicksight.AnalysisSheetControlLayoutConfiguration;
     }
@@ -35139,13 +35258,21 @@ export namespace quicksight {
     }
 
     export interface AnalysisSliderControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
+    }
+
+    export interface AnalysisSmallMultiplesAxisProperties {
+        placement?: enums.quicksight.AnalysisSmallMultiplesAxisPlacement;
+        scale?: enums.quicksight.AnalysisSmallMultiplesAxisScale;
     }
 
     export interface AnalysisSmallMultiplesOptions {
         maxVisibleColumns?: number;
         maxVisibleRows?: number;
         panelConfiguration?: outputs.quicksight.AnalysisPanelConfiguration;
+        xAxis?: outputs.quicksight.AnalysisSmallMultiplesAxisProperties;
+        yAxis?: outputs.quicksight.AnalysisSmallMultiplesAxisProperties;
     }
 
     export interface AnalysisSourceEntity {
@@ -35209,6 +35336,7 @@ export namespace quicksight {
         fieldLevel?: enums.quicksight.AnalysisPivotTableSubtotalLevel;
         fieldLevelOptions?: outputs.quicksight.AnalysisPivotTableFieldSubtotalOptions[];
         metricHeaderCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        styleTargets?: outputs.quicksight.AnalysisTableStyleTarget[];
         totalCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
         totalsVisibility?: enums.quicksight.AnalysisVisibility;
         valueCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
@@ -35348,6 +35476,10 @@ export namespace quicksight {
         rowSort?: outputs.quicksight.AnalysisFieldSortOptions[];
     }
 
+    export interface AnalysisTableStyleTarget {
+        cellType: enums.quicksight.AnalysisStyledCellType;
+    }
+
     export interface AnalysisTableUnaggregatedFieldWells {
         values?: outputs.quicksight.AnalysisUnaggregatedField[];
     }
@@ -35367,6 +35499,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisTextAreaControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.AnalysisTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
@@ -35382,6 +35515,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisTextFieldControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.AnalysisSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.AnalysisTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.AnalysisLabelOptions;
     }
@@ -35454,18 +35588,18 @@ export namespace quicksight {
     }
 
     export interface AnalysisTopBottomMoversComputation {
-        category: outputs.quicksight.AnalysisDimensionField;
+        category?: outputs.quicksight.AnalysisDimensionField;
         computationId: string;
         moverSize?: number;
         name?: string;
         sortOrder?: enums.quicksight.AnalysisTopBottomSortOrder;
-        time: outputs.quicksight.AnalysisDimensionField;
+        time?: outputs.quicksight.AnalysisDimensionField;
         type: enums.quicksight.AnalysisTopBottomComputationType;
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
     export interface AnalysisTopBottomRankedComputation {
-        category: outputs.quicksight.AnalysisDimensionField;
+        category?: outputs.quicksight.AnalysisDimensionField;
         computationId: string;
         name?: string;
         resultSize?: number;
@@ -35476,7 +35610,7 @@ export namespace quicksight {
     export interface AnalysisTotalAggregationComputation {
         computationId: string;
         name?: string;
-        value: outputs.quicksight.AnalysisMeasureField;
+        value?: outputs.quicksight.AnalysisMeasureField;
     }
 
     export interface AnalysisTotalOptions {
@@ -35534,7 +35668,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisUniqueValuesComputation {
-        category: outputs.quicksight.AnalysisDimensionField;
+        category?: outputs.quicksight.AnalysisDimensionField;
         computationId: string;
         name?: string;
     }
@@ -44198,6 +44332,20 @@ export namespace route53resolver {
         key: string;
         /**
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface OutpostResolverTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: string;
     }

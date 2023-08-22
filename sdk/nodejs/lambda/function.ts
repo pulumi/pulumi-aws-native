@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Lambda::Function
+ * Resource Type definition for AWS::Lambda::Function in region
  */
 export class Function extends pulumi.CustomResource {
     /**

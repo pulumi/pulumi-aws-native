@@ -1081,6 +1081,7 @@ namespace Pulumi.AwsNative.AppFlow
 
         public static FlowStatus Active { get; } = new FlowStatus("Active");
         public static FlowStatus Suspended { get; } = new FlowStatus("Suspended");
+        public static FlowStatus Draft { get; } = new FlowStatus("Draft");
 
         public static bool operator ==(FlowStatus left, FlowStatus right) => left.Equals(right);
         public static bool operator !=(FlowStatus left, FlowStatus right) => !left.Equals(right);

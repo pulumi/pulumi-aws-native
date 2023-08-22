@@ -20,7 +20,9 @@ __all__ = [
     'ConfigurationAggregatorAccountAggregationSourceArgs',
     'ConfigurationAggregatorOrganizationAggregationSourceArgs',
     'ConfigurationAggregatorTagArgs',
+    'ConfigurationRecorderExclusionByResourceTypesArgs',
     'ConfigurationRecorderRecordingGroupArgs',
+    'ConfigurationRecorderRecordingStrategyArgs',
     'ConformancePackInputParameterArgs',
     'DeliveryChannelConfigSnapshotDeliveryPropertiesArgs',
     'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs',
@@ -491,15 +493,37 @@ class ConfigurationAggregatorTagArgs:
 
 
 @pulumi.input_type
+class ConfigurationRecorderExclusionByResourceTypesArgs:
+    def __init__(__self__, *,
+                 resource_types: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "resource_types", resource_types)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "resource_types", value)
+
+
+@pulumi.input_type
 class ConfigurationRecorderRecordingGroupArgs:
     def __init__(__self__, *,
                  all_supported: Optional[pulumi.Input[bool]] = None,
+                 exclusion_by_resource_types: Optional[pulumi.Input['ConfigurationRecorderExclusionByResourceTypesArgs']] = None,
                  include_global_resource_types: Optional[pulumi.Input[bool]] = None,
+                 recording_strategy: Optional[pulumi.Input['ConfigurationRecorderRecordingStrategyArgs']] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         if all_supported is not None:
             pulumi.set(__self__, "all_supported", all_supported)
+        if exclusion_by_resource_types is not None:
+            pulumi.set(__self__, "exclusion_by_resource_types", exclusion_by_resource_types)
         if include_global_resource_types is not None:
             pulumi.set(__self__, "include_global_resource_types", include_global_resource_types)
+        if recording_strategy is not None:
+            pulumi.set(__self__, "recording_strategy", recording_strategy)
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
 
@@ -513,6 +537,15 @@ class ConfigurationRecorderRecordingGroupArgs:
         pulumi.set(self, "all_supported", value)
 
     @property
+    @pulumi.getter(name="exclusionByResourceTypes")
+    def exclusion_by_resource_types(self) -> Optional[pulumi.Input['ConfigurationRecorderExclusionByResourceTypesArgs']]:
+        return pulumi.get(self, "exclusion_by_resource_types")
+
+    @exclusion_by_resource_types.setter
+    def exclusion_by_resource_types(self, value: Optional[pulumi.Input['ConfigurationRecorderExclusionByResourceTypesArgs']]):
+        pulumi.set(self, "exclusion_by_resource_types", value)
+
+    @property
     @pulumi.getter(name="includeGlobalResourceTypes")
     def include_global_resource_types(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "include_global_resource_types")
@@ -522,6 +555,15 @@ class ConfigurationRecorderRecordingGroupArgs:
         pulumi.set(self, "include_global_resource_types", value)
 
     @property
+    @pulumi.getter(name="recordingStrategy")
+    def recording_strategy(self) -> Optional[pulumi.Input['ConfigurationRecorderRecordingStrategyArgs']]:
+        return pulumi.get(self, "recording_strategy")
+
+    @recording_strategy.setter
+    def recording_strategy(self, value: Optional[pulumi.Input['ConfigurationRecorderRecordingStrategyArgs']]):
+        pulumi.set(self, "recording_strategy", value)
+
+    @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "resource_types")
@@ -529,6 +571,22 @@ class ConfigurationRecorderRecordingGroupArgs:
     @resource_types.setter
     def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_types", value)
+
+
+@pulumi.input_type
+class ConfigurationRecorderRecordingStrategyArgs:
+    def __init__(__self__, *,
+                 use_only: pulumi.Input[str]):
+        pulumi.set(__self__, "use_only", use_only)
+
+    @property
+    @pulumi.getter(name="useOnly")
+    def use_only(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "use_only")
+
+    @use_only.setter
+    def use_only(self, value: pulumi.Input[str]):
+        pulumi.set(self, "use_only", value)
 
 
 @pulumi.input_type

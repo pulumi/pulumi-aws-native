@@ -63,7 +63,6 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly ImmutableArray<Outputs.AnalysisError> Errors;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.AnalysisResourcePermission> Permissions;
-        public readonly Pulumi.AwsNative.QuickSight.AnalysisResourceStatus? Status;
         public readonly ImmutableArray<Outputs.AnalysisTag> Tags;
         public readonly string? ThemeArn;
 
@@ -81,8 +80,6 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.AnalysisResourcePermission> permissions,
 
-            Pulumi.AwsNative.QuickSight.AnalysisResourceStatus? status,
-
             ImmutableArray<Outputs.AnalysisTag> tags,
 
             string? themeArn)
@@ -93,7 +90,6 @@ namespace Pulumi.AwsNative.QuickSight
             Errors = errors;
             Name = name;
             Permissions = permissions;
-            Status = status;
             Tags = tags;
             ThemeArn = themeArn;
         }

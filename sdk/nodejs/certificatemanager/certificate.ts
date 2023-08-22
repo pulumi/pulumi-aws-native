@@ -44,6 +44,7 @@ export class Certificate extends pulumi.CustomResource {
     public readonly certificateTransparencyLoggingPreference!: pulumi.Output<string | undefined>;
     public readonly domainName!: pulumi.Output<string>;
     public readonly domainValidationOptions!: pulumi.Output<outputs.certificatemanager.CertificateDomainValidationOption[] | undefined>;
+    public readonly keyAlgorithm!: pulumi.Output<string | undefined>;
     public readonly subjectAlternativeNames!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.certificatemanager.CertificateTag[] | undefined>;
     public readonly validationMethod!: pulumi.Output<string | undefined>;
@@ -68,6 +69,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateTransparencyLoggingPreference"] = args ? args.certificateTransparencyLoggingPreference : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainValidationOptions"] = args ? args.domainValidationOptions : undefined;
+            resourceInputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
             resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["validationMethod"] = args ? args.validationMethod : undefined;
@@ -76,6 +78,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateTransparencyLoggingPreference"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["domainValidationOptions"] = undefined /*out*/;
+            resourceInputs["keyAlgorithm"] = undefined /*out*/;
             resourceInputs["subjectAlternativeNames"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["validationMethod"] = undefined /*out*/;
@@ -93,6 +96,7 @@ export interface CertificateArgs {
     certificateTransparencyLoggingPreference?: pulumi.Input<string>;
     domainName: pulumi.Input<string>;
     domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.certificatemanager.CertificateDomainValidationOptionArgs>[]>;
+    keyAlgorithm?: pulumi.Input<string>;
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.certificatemanager.CertificateTagArgs>[]>;
     validationMethod?: pulumi.Input<string>;

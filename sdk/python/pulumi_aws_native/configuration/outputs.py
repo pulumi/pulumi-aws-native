@@ -21,7 +21,9 @@ __all__ = [
     'ConfigurationAggregatorAccountAggregationSource',
     'ConfigurationAggregatorOrganizationAggregationSource',
     'ConfigurationAggregatorTag',
+    'ConfigurationRecorderExclusionByResourceTypes',
     'ConfigurationRecorderRecordingGroup',
+    'ConfigurationRecorderRecordingStrategy',
     'ConformancePackInputParameter',
     'DeliveryChannelConfigSnapshotDeliveryProperties',
     'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata',
@@ -540,14 +542,47 @@ class ConfigurationAggregatorTag(dict):
 
 
 @pulumi.output_type
+class ConfigurationRecorderExclusionByResourceTypes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRecorderExclusionByResourceTypes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRecorderExclusionByResourceTypes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRecorderExclusionByResourceTypes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_types: Sequence[str]):
+        pulumi.set(__self__, "resource_types", resource_types)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Sequence[str]:
+        return pulumi.get(self, "resource_types")
+
+
+@pulumi.output_type
 class ConfigurationRecorderRecordingGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "allSupported":
             suggest = "all_supported"
+        elif key == "exclusionByResourceTypes":
+            suggest = "exclusion_by_resource_types"
         elif key == "includeGlobalResourceTypes":
             suggest = "include_global_resource_types"
+        elif key == "recordingStrategy":
+            suggest = "recording_strategy"
         elif key == "resourceTypes":
             suggest = "resource_types"
 
@@ -564,12 +599,18 @@ class ConfigurationRecorderRecordingGroup(dict):
 
     def __init__(__self__, *,
                  all_supported: Optional[bool] = None,
+                 exclusion_by_resource_types: Optional['outputs.ConfigurationRecorderExclusionByResourceTypes'] = None,
                  include_global_resource_types: Optional[bool] = None,
+                 recording_strategy: Optional['outputs.ConfigurationRecorderRecordingStrategy'] = None,
                  resource_types: Optional[Sequence[str]] = None):
         if all_supported is not None:
             pulumi.set(__self__, "all_supported", all_supported)
+        if exclusion_by_resource_types is not None:
+            pulumi.set(__self__, "exclusion_by_resource_types", exclusion_by_resource_types)
         if include_global_resource_types is not None:
             pulumi.set(__self__, "include_global_resource_types", include_global_resource_types)
+        if recording_strategy is not None:
+            pulumi.set(__self__, "recording_strategy", recording_strategy)
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
 
@@ -579,14 +620,53 @@ class ConfigurationRecorderRecordingGroup(dict):
         return pulumi.get(self, "all_supported")
 
     @property
+    @pulumi.getter(name="exclusionByResourceTypes")
+    def exclusion_by_resource_types(self) -> Optional['outputs.ConfigurationRecorderExclusionByResourceTypes']:
+        return pulumi.get(self, "exclusion_by_resource_types")
+
+    @property
     @pulumi.getter(name="includeGlobalResourceTypes")
     def include_global_resource_types(self) -> Optional[bool]:
         return pulumi.get(self, "include_global_resource_types")
 
     @property
+    @pulumi.getter(name="recordingStrategy")
+    def recording_strategy(self) -> Optional['outputs.ConfigurationRecorderRecordingStrategy']:
+        return pulumi.get(self, "recording_strategy")
+
+    @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "resource_types")
+
+
+@pulumi.output_type
+class ConfigurationRecorderRecordingStrategy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useOnly":
+            suggest = "use_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRecorderRecordingStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRecorderRecordingStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRecorderRecordingStrategy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 use_only: str):
+        pulumi.set(__self__, "use_only", use_only)
+
+    @property
+    @pulumi.getter(name="useOnly")
+    def use_only(self) -> str:
+        return pulumi.get(self, "use_only")
 
 
 @pulumi.output_type

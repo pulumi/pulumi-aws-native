@@ -185,6 +185,8 @@ if typing.TYPE_CHECKING:
     emrcontainers = __emrcontainers
     import pulumi_aws_native.emrserverless as __emrserverless
     emrserverless = __emrserverless
+    import pulumi_aws_native.entityresolution as __entityresolution
+    entityresolution = __entityresolution
     import pulumi_aws_native.events as __events
     events = __events
     import pulumi_aws_native.eventschemas as __eventschemas
@@ -548,6 +550,7 @@ else:
     emr = _utilities.lazy_import('pulumi_aws_native.emr')
     emrcontainers = _utilities.lazy_import('pulumi_aws_native.emrcontainers')
     emrserverless = _utilities.lazy_import('pulumi_aws_native.emrserverless')
+    entityresolution = _utilities.lazy_import('pulumi_aws_native.entityresolution')
     events = _utilities.lazy_import('pulumi_aws_native.events')
     eventschemas = _utilities.lazy_import('pulumi_aws_native.eventschemas')
     evidently = _utilities.lazy_import('pulumi_aws_native.evidently')
@@ -1495,6 +1498,7 @@ _utilities.register(
    "aws-native:ec2:GatewayRouteTableAssociation": "GatewayRouteTableAssociation",
    "aws-native:ec2:Host": "Host",
    "aws-native:ec2:Instance": "Instance",
+   "aws-native:ec2:InstanceConnectEndpoint": "InstanceConnectEndpoint",
    "aws-native:ec2:InternetGateway": "InternetGateway",
    "aws-native:ec2:Ipam": "Ipam",
    "aws-native:ec2:IpamAllocation": "IpamAllocation",
@@ -1684,7 +1688,8 @@ _utilities.register(
    "aws-native:emr:SecurityConfiguration": "SecurityConfiguration",
    "aws-native:emr:Step": "Step",
    "aws-native:emr:Studio": "Studio",
-   "aws-native:emr:StudioSessionMapping": "StudioSessionMapping"
+   "aws-native:emr:StudioSessionMapping": "StudioSessionMapping",
+   "aws-native:emr:WalWorkspace": "WalWorkspace"
   }
  },
  {
@@ -1701,6 +1706,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.emrserverless",
   "classes": {
    "aws-native:emrserverless:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "entityresolution",
+  "fqn": "pulumi_aws_native.entityresolution",
+  "classes": {
+   "aws-native:entityresolution:SchemaMapping": "SchemaMapping"
   }
  },
  {
@@ -2914,6 +2927,7 @@ _utilities.register(
    "aws-native:route53resolver:FirewallDomainList": "FirewallDomainList",
    "aws-native:route53resolver:FirewallRuleGroup": "FirewallRuleGroup",
    "aws-native:route53resolver:FirewallRuleGroupAssociation": "FirewallRuleGroupAssociation",
+   "aws-native:route53resolver:OutpostResolver": "OutpostResolver",
    "aws-native:route53resolver:ResolverConfig": "ResolverConfig",
    "aws-native:route53resolver:ResolverDnssecConfig": "ResolverDnssecConfig",
    "aws-native:route53resolver:ResolverEndpoint": "ResolverEndpoint",

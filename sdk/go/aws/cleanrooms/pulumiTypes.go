@@ -518,6 +518,11 @@ type ConfiguredTableAnalysisRuleAggregation struct {
 	ScalarFunctions      []ConfiguredTableScalarFunctions       `pulumi:"scalarFunctions"`
 }
 
+type ConfiguredTableAnalysisRuleCustom struct {
+	AllowedAnalyses          []string `pulumi:"allowedAnalyses"`
+	AllowedAnalysisProviders []string `pulumi:"allowedAnalysisProviders"`
+}
+
 type ConfiguredTableAnalysisRuleList struct {
 	AllowedJoinOperators []ConfiguredTableJoinOperator `pulumi:"allowedJoinOperators"`
 	JoinColumns          []string                      `pulumi:"joinColumns"`
@@ -579,6 +584,10 @@ type ConfiguredTableAnalysisRulePolicyV10Properties struct {
 
 type ConfiguredTableAnalysisRulePolicyV11Properties struct {
 	Aggregation ConfiguredTableAnalysisRuleAggregation `pulumi:"aggregation"`
+}
+
+type ConfiguredTableAnalysisRulePolicyV12Properties struct {
+	Custom ConfiguredTableAnalysisRuleCustom `pulumi:"custom"`
 }
 
 type ConfiguredTableAssociationTag struct {

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, memory_size=None, package_type=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, memory_size=None, package_type=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -75,9 +75,6 @@ class GetFunctionResult:
         if runtime_management_config and not isinstance(runtime_management_config, dict):
             raise TypeError("Expected argument 'runtime_management_config' to be a dict")
         pulumi.set(__self__, "runtime_management_config", runtime_management_config)
-        if snap_start and not isinstance(snap_start, dict):
-            raise TypeError("Expected argument 'snap_start' to be a dict")
-        pulumi.set(__self__, "snap_start", snap_start)
         if snap_start_response and not isinstance(snap_start_response, dict):
             raise TypeError("Expected argument 'snap_start_response' to be a dict")
         pulumi.set(__self__, "snap_start_response", snap_start_response)
@@ -236,14 +233,6 @@ class GetFunctionResult:
         return pulumi.get(self, "runtime_management_config")
 
     @property
-    @pulumi.getter(name="snapStart")
-    def snap_start(self) -> Optional['outputs.FunctionSnapStart']:
-        """
-        The SnapStart setting of your function
-        """
-        return pulumi.get(self, "snap_start")
-
-    @property
     @pulumi.getter(name="snapStartResponse")
     def snap_start_response(self) -> Optional['outputs.FunctionSnapStartResponse']:
         """
@@ -308,7 +297,6 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             role=self.role,
             runtime=self.runtime,
             runtime_management_config=self.runtime_management_config,
-            snap_start=self.snap_start,
             snap_start_response=self.snap_start_response,
             tags=self.tags,
             timeout=self.timeout,
@@ -319,7 +307,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
 def get_function(function_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionResult:
     """
-    Resource Type definition for AWS::Lambda::Function
+    Resource Type definition for AWS::Lambda::Function in region
 
 
     :param str function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
@@ -348,7 +336,6 @@ def get_function(function_name: Optional[str] = None,
         role=pulumi.get(__ret__, 'role'),
         runtime=pulumi.get(__ret__, 'runtime'),
         runtime_management_config=pulumi.get(__ret__, 'runtime_management_config'),
-        snap_start=pulumi.get(__ret__, 'snap_start'),
         snap_start_response=pulumi.get(__ret__, 'snap_start_response'),
         tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
@@ -360,7 +347,7 @@ def get_function(function_name: Optional[str] = None,
 def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
-    Resource Type definition for AWS::Lambda::Function
+    Resource Type definition for AWS::Lambda::Function in region
 
 
     :param str function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.

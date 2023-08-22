@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Accounts;
         /// <summary>
+        /// Returns the value of the AccountsUrl property.
+        /// </summary>
+        public readonly string? AccountsUrl;
+        /// <summary>
         /// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnitIds;
@@ -35,10 +39,13 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
             ImmutableArray<string> accounts,
 
+            string? accountsUrl,
+
             ImmutableArray<string> organizationalUnitIds)
         {
             AccountFilterType = accountFilterType;
             Accounts = accounts;
+            AccountsUrl = accountsUrl;
             OrganizationalUnitIds = organizationalUnitIds;
         }
     }

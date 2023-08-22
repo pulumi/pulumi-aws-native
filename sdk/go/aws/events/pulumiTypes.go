@@ -3759,7 +3759,7 @@ type RuleRedshiftDataParameters struct {
 	Database         string  `pulumi:"database"`
 	DbUser           *string `pulumi:"dbUser"`
 	SecretManagerArn *string `pulumi:"secretManagerArn"`
-	Sql              string  `pulumi:"sql"`
+	Sql              *string `pulumi:"sql"`
 	StatementName    *string `pulumi:"statementName"`
 	WithEvent        *bool   `pulumi:"withEvent"`
 }
@@ -3779,7 +3779,7 @@ type RuleRedshiftDataParametersArgs struct {
 	Database         pulumi.StringInput    `pulumi:"database"`
 	DbUser           pulumi.StringPtrInput `pulumi:"dbUser"`
 	SecretManagerArn pulumi.StringPtrInput `pulumi:"secretManagerArn"`
-	Sql              pulumi.StringInput    `pulumi:"sql"`
+	Sql              pulumi.StringPtrInput `pulumi:"sql"`
 	StatementName    pulumi.StringPtrInput `pulumi:"statementName"`
 	WithEvent        pulumi.BoolPtrInput   `pulumi:"withEvent"`
 }
@@ -3873,8 +3873,8 @@ func (o RuleRedshiftDataParametersOutput) SecretManagerArn() pulumi.StringPtrOut
 	return o.ApplyT(func(v RuleRedshiftDataParameters) *string { return v.SecretManagerArn }).(pulumi.StringPtrOutput)
 }
 
-func (o RuleRedshiftDataParametersOutput) Sql() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleRedshiftDataParameters) string { return v.Sql }).(pulumi.StringOutput)
+func (o RuleRedshiftDataParametersOutput) Sql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleRedshiftDataParameters) *string { return v.Sql }).(pulumi.StringPtrOutput)
 }
 
 func (o RuleRedshiftDataParametersOutput) StatementName() pulumi.StringPtrOutput {
@@ -3941,7 +3941,7 @@ func (o RuleRedshiftDataParametersPtrOutput) Sql() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Sql
+		return v.Sql
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -431,7 +431,7 @@ class Function(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Lambda::Function
+        Resource Type definition for AWS::Lambda::Function in region
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -466,7 +466,7 @@ class Function(pulumi.CustomResource):
                  args: FunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Lambda::Function
+        Resource Type definition for AWS::Lambda::Function in region
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.

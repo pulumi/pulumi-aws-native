@@ -1379,10 +1379,145 @@ func (o ConfigurationAggregatorTagArrayOutput) Index(i pulumi.IntInput) Configur
 	}).(ConfigurationAggregatorTagOutput)
 }
 
+type ConfigurationRecorderExclusionByResourceTypes struct {
+	ResourceTypes []string `pulumi:"resourceTypes"`
+}
+
+// ConfigurationRecorderExclusionByResourceTypesInput is an input type that accepts ConfigurationRecorderExclusionByResourceTypesArgs and ConfigurationRecorderExclusionByResourceTypesOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderExclusionByResourceTypesInput` via:
+//
+//	ConfigurationRecorderExclusionByResourceTypesArgs{...}
+type ConfigurationRecorderExclusionByResourceTypesInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderExclusionByResourceTypesOutput() ConfigurationRecorderExclusionByResourceTypesOutput
+	ToConfigurationRecorderExclusionByResourceTypesOutputWithContext(context.Context) ConfigurationRecorderExclusionByResourceTypesOutput
+}
+
+type ConfigurationRecorderExclusionByResourceTypesArgs struct {
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (ConfigurationRecorderExclusionByResourceTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypes)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecorderExclusionByResourceTypesOutput() ConfigurationRecorderExclusionByResourceTypesOutput {
+	return i.ToConfigurationRecorderExclusionByResourceTypesOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecorderExclusionByResourceTypesOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderExclusionByResourceTypesOutput)
+}
+
+func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return i.ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderExclusionByResourceTypesOutput).ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx)
+}
+
+// ConfigurationRecorderExclusionByResourceTypesPtrInput is an input type that accepts ConfigurationRecorderExclusionByResourceTypesArgs, ConfigurationRecorderExclusionByResourceTypesPtr and ConfigurationRecorderExclusionByResourceTypesPtrOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderExclusionByResourceTypesPtrInput` via:
+//
+//	        ConfigurationRecorderExclusionByResourceTypesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationRecorderExclusionByResourceTypesPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput
+	ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput
+}
+
+type configurationRecorderExclusionByResourceTypesPtrType ConfigurationRecorderExclusionByResourceTypesArgs
+
+func ConfigurationRecorderExclusionByResourceTypesPtr(v *ConfigurationRecorderExclusionByResourceTypesArgs) ConfigurationRecorderExclusionByResourceTypesPtrInput {
+	return (*configurationRecorderExclusionByResourceTypesPtrType)(v)
+}
+
+func (*configurationRecorderExclusionByResourceTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderExclusionByResourceTypes)(nil)).Elem()
+}
+
+func (i *configurationRecorderExclusionByResourceTypesPtrType) ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return i.ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationRecorderExclusionByResourceTypesPtrType) ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderExclusionByResourceTypesPtrOutput)
+}
+
+type ConfigurationRecorderExclusionByResourceTypesOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderExclusionByResourceTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypes)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ToConfigurationRecorderExclusionByResourceTypesOutput() ConfigurationRecorderExclusionByResourceTypesOutput {
+	return o
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ToConfigurationRecorderExclusionByResourceTypesOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesOutput {
+	return o
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o.ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationRecorderExclusionByResourceTypes) *ConfigurationRecorderExclusionByResourceTypes {
+		return &v
+	}).(ConfigurationRecorderExclusionByResourceTypesPtrOutput)
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationRecorderExclusionByResourceTypes) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationRecorderExclusionByResourceTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderExclusionByResourceTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderExclusionByResourceTypes)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) Elem() ConfigurationRecorderExclusionByResourceTypesOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderExclusionByResourceTypes) ConfigurationRecorderExclusionByResourceTypes {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationRecorderExclusionByResourceTypes
+		return ret
+	}).(ConfigurationRecorderExclusionByResourceTypesOutput)
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderExclusionByResourceTypes) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 type ConfigurationRecorderRecordingGroup struct {
-	AllSupported               *bool    `pulumi:"allSupported"`
-	IncludeGlobalResourceTypes *bool    `pulumi:"includeGlobalResourceTypes"`
-	ResourceTypes              []string `pulumi:"resourceTypes"`
+	AllSupported               *bool                                          `pulumi:"allSupported"`
+	ExclusionByResourceTypes   *ConfigurationRecorderExclusionByResourceTypes `pulumi:"exclusionByResourceTypes"`
+	IncludeGlobalResourceTypes *bool                                          `pulumi:"includeGlobalResourceTypes"`
+	RecordingStrategy          *ConfigurationRecorderRecordingStrategy        `pulumi:"recordingStrategy"`
+	ResourceTypes              []string                                       `pulumi:"resourceTypes"`
 }
 
 // ConfigurationRecorderRecordingGroupInput is an input type that accepts ConfigurationRecorderRecordingGroupArgs and ConfigurationRecorderRecordingGroupOutput values.
@@ -1397,9 +1532,11 @@ type ConfigurationRecorderRecordingGroupInput interface {
 }
 
 type ConfigurationRecorderRecordingGroupArgs struct {
-	AllSupported               pulumi.BoolPtrInput     `pulumi:"allSupported"`
-	IncludeGlobalResourceTypes pulumi.BoolPtrInput     `pulumi:"includeGlobalResourceTypes"`
-	ResourceTypes              pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	AllSupported               pulumi.BoolPtrInput                                   `pulumi:"allSupported"`
+	ExclusionByResourceTypes   ConfigurationRecorderExclusionByResourceTypesPtrInput `pulumi:"exclusionByResourceTypes"`
+	IncludeGlobalResourceTypes pulumi.BoolPtrInput                                   `pulumi:"includeGlobalResourceTypes"`
+	RecordingStrategy          ConfigurationRecorderRecordingStrategyPtrInput        `pulumi:"recordingStrategy"`
+	ResourceTypes              pulumi.StringArrayInput                               `pulumi:"resourceTypes"`
 }
 
 func (ConfigurationRecorderRecordingGroupArgs) ElementType() reflect.Type {
@@ -1483,8 +1620,20 @@ func (o ConfigurationRecorderRecordingGroupOutput) AllSupported() pulumi.BoolPtr
 	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) *bool { return v.AllSupported }).(pulumi.BoolPtrOutput)
 }
 
+func (o ConfigurationRecorderRecordingGroupOutput) ExclusionByResourceTypes() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) *ConfigurationRecorderExclusionByResourceTypes {
+		return v.ExclusionByResourceTypes
+	}).(ConfigurationRecorderExclusionByResourceTypesPtrOutput)
+}
+
 func (o ConfigurationRecorderRecordingGroupOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
+}
+
+func (o ConfigurationRecorderRecordingGroupOutput) RecordingStrategy() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) *ConfigurationRecorderRecordingStrategy {
+		return v.RecordingStrategy
+	}).(ConfigurationRecorderRecordingStrategyPtrOutput)
 }
 
 func (o ConfigurationRecorderRecordingGroupOutput) ResourceTypes() pulumi.StringArrayOutput {
@@ -1524,6 +1673,15 @@ func (o ConfigurationRecorderRecordingGroupPtrOutput) AllSupported() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o ConfigurationRecorderRecordingGroupPtrOutput) ExclusionByResourceTypes() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) *ConfigurationRecorderExclusionByResourceTypes {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusionByResourceTypes
+	}).(ConfigurationRecorderExclusionByResourceTypesPtrOutput)
+}
+
 func (o ConfigurationRecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) *bool {
 		if v == nil {
@@ -1533,6 +1691,15 @@ func (o ConfigurationRecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o ConfigurationRecorderRecordingGroupPtrOutput) RecordingStrategy() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) *ConfigurationRecorderRecordingStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.RecordingStrategy
+	}).(ConfigurationRecorderRecordingStrategyPtrOutput)
+}
+
 func (o ConfigurationRecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) []string {
 		if v == nil {
@@ -1540,6 +1707,139 @@ func (o ConfigurationRecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.Str
 		}
 		return v.ResourceTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationRecorderRecordingStrategy struct {
+	UseOnly string `pulumi:"useOnly"`
+}
+
+// ConfigurationRecorderRecordingStrategyInput is an input type that accepts ConfigurationRecorderRecordingStrategyArgs and ConfigurationRecorderRecordingStrategyOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingStrategyInput` via:
+//
+//	ConfigurationRecorderRecordingStrategyArgs{...}
+type ConfigurationRecorderRecordingStrategyInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingStrategyOutput() ConfigurationRecorderRecordingStrategyOutput
+	ToConfigurationRecorderRecordingStrategyOutputWithContext(context.Context) ConfigurationRecorderRecordingStrategyOutput
+}
+
+type ConfigurationRecorderRecordingStrategyArgs struct {
+	UseOnly pulumi.StringInput `pulumi:"useOnly"`
+}
+
+func (ConfigurationRecorderRecordingStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingStrategy)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecordingStrategyOutput() ConfigurationRecorderRecordingStrategyOutput {
+	return i.ToConfigurationRecorderRecordingStrategyOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecordingStrategyOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingStrategyOutput)
+}
+
+func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return i.ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingStrategyOutput).ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx)
+}
+
+// ConfigurationRecorderRecordingStrategyPtrInput is an input type that accepts ConfigurationRecorderRecordingStrategyArgs, ConfigurationRecorderRecordingStrategyPtr and ConfigurationRecorderRecordingStrategyPtrOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingStrategyPtrInput` via:
+//
+//	        ConfigurationRecorderRecordingStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationRecorderRecordingStrategyPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput
+	ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(context.Context) ConfigurationRecorderRecordingStrategyPtrOutput
+}
+
+type configurationRecorderRecordingStrategyPtrType ConfigurationRecorderRecordingStrategyArgs
+
+func ConfigurationRecorderRecordingStrategyPtr(v *ConfigurationRecorderRecordingStrategyArgs) ConfigurationRecorderRecordingStrategyPtrInput {
+	return (*configurationRecorderRecordingStrategyPtrType)(v)
+}
+
+func (*configurationRecorderRecordingStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingStrategy)(nil)).Elem()
+}
+
+func (i *configurationRecorderRecordingStrategyPtrType) ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return i.ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationRecorderRecordingStrategyPtrType) ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingStrategyPtrOutput)
+}
+
+type ConfigurationRecorderRecordingStrategyOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingStrategy)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingStrategyOutput) ToConfigurationRecorderRecordingStrategyOutput() ConfigurationRecorderRecordingStrategyOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingStrategyOutput) ToConfigurationRecorderRecordingStrategyOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingStrategyOutput) ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o.ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationRecorderRecordingStrategyOutput) ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationRecorderRecordingStrategy) *ConfigurationRecorderRecordingStrategy {
+		return &v
+	}).(ConfigurationRecorderRecordingStrategyPtrOutput)
+}
+
+func (o ConfigurationRecorderRecordingStrategyOutput) UseOnly() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingStrategy) string { return v.UseOnly }).(pulumi.StringOutput)
+}
+
+type ConfigurationRecorderRecordingStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingStrategy)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingStrategyPtrOutput) ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingStrategyPtrOutput) ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingStrategyPtrOutput) Elem() ConfigurationRecorderRecordingStrategyOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingStrategy) ConfigurationRecorderRecordingStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationRecorderRecordingStrategy
+		return ret
+	}).(ConfigurationRecorderRecordingStrategyOutput)
+}
+
+func (o ConfigurationRecorderRecordingStrategyPtrOutput) UseOnly() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UseOnly
+	}).(pulumi.StringPtrOutput)
 }
 
 // Input parameters in the form of key-value pairs for the conformance pack.
@@ -3232,8 +3532,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorOrganizationAggregationSourcePtrInput)(nil)).Elem(), ConfigurationAggregatorOrganizationAggregationSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorTagInput)(nil)).Elem(), ConfigurationAggregatorTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorTagArrayInput)(nil)).Elem(), ConfigurationAggregatorTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypesInput)(nil)).Elem(), ConfigurationRecorderExclusionByResourceTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypesPtrInput)(nil)).Elem(), ConfigurationRecorderExclusionByResourceTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingGroupInput)(nil)).Elem(), ConfigurationRecorderRecordingGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingGroupPtrInput)(nil)).Elem(), ConfigurationRecorderRecordingGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingStrategyInput)(nil)).Elem(), ConfigurationRecorderRecordingStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingStrategyPtrInput)(nil)).Elem(), ConfigurationRecorderRecordingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterInput)(nil)).Elem(), ConformancePackInputParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterArrayInput)(nil)).Elem(), ConformancePackInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{})
@@ -3274,8 +3578,12 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorTagOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorTagArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderExclusionByResourceTypesOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderExclusionByResourceTypesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingStrategyOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(ConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput{})

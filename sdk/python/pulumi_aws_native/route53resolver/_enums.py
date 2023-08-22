@@ -13,6 +13,7 @@ __all__ = [
     'FirewallRuleGroupFirewallRuleBlockResponse',
     'FirewallRuleGroupShareStatus',
     'FirewallRuleGroupStatus',
+    'OutpostResolverStatus',
     'ResolverConfigAutodefinedReverse',
     'ResolverConfigAutodefinedReverseFlag',
     'ResolverDnssecConfigValidationStatus',
@@ -96,6 +97,19 @@ class FirewallRuleGroupStatus(str, Enum):
     DELETING = "DELETING"
     UPDATING = "UPDATING"
     INACTIVE_OWNER_ACCOUNT_CLOSED = "INACTIVE_OWNER_ACCOUNT_CLOSED"
+
+
+class OutpostResolverStatus(str, Enum):
+    """
+    The OutpostResolver status, possible values are CREATING, OPERATIONAL, UPDATING, DELETING, ACTION_NEEDED, FAILED_CREATION and FAILED_DELETION.
+    """
+    CREATING = "CREATING"
+    OPERATIONAL = "OPERATIONAL"
+    DELETING = "DELETING"
+    UPDATING = "UPDATING"
+    ACTION_NEEDED = "ACTION_NEEDED"
+    FAILED_CREATION = "FAILED_CREATION"
+    FAILED_DELETION = "FAILED_DELETION"
 
 
 class ResolverConfigAutodefinedReverse(str, Enum):

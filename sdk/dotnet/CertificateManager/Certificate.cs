@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.CertificateManager
         [Output("domainValidationOptions")]
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
 
+        [Output("keyAlgorithm")]
+        public Output<string?> KeyAlgorithm { get; private set; } = null!;
+
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
@@ -98,6 +101,9 @@ namespace Pulumi.AwsNative.CertificateManager
             get => _domainValidationOptions ?? (_domainValidationOptions = new InputList<Inputs.CertificateDomainValidationOptionArgs>());
             set => _domainValidationOptions = value;
         }
+
+        [Input("keyAlgorithm")]
+        public Input<string>? KeyAlgorithm { get; set; }
 
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;

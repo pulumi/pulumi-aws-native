@@ -455,6 +455,7 @@ export type FlowSlackConnectorOperator = (typeof FlowSlackConnectorOperator)[key
 export const FlowStatus = {
     Active: "Active",
     Suspended: "Suspended",
+    Draft: "Draft",
 } as const;
 
 /**

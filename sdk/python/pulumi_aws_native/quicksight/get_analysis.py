@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAnalysisResult:
-    def __init__(__self__, arn=None, created_time=None, data_set_arns=None, errors=None, name=None, permissions=None, status=None, tags=None, theme_arn=None):
+    def __init__(__self__, arn=None, created_time=None, data_set_arns=None, errors=None, name=None, permissions=None, tags=None, theme_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,9 +39,6 @@ class GetAnalysisResult:
         if permissions and not isinstance(permissions, list):
             raise TypeError("Expected argument 'permissions' to be a list")
         pulumi.set(__self__, "permissions", permissions)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -81,11 +78,6 @@ class GetAnalysisResult:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['AnalysisResourceStatus']:
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.AnalysisTag']]:
         return pulumi.get(self, "tags")
 
@@ -107,7 +99,6 @@ class AwaitableGetAnalysisResult(GetAnalysisResult):
             errors=self.errors,
             name=self.name,
             permissions=self.permissions,
-            status=self.status,
             tags=self.tags,
             theme_arn=self.theme_arn)
 
@@ -131,7 +122,6 @@ def get_analysis(analysis_id: Optional[str] = None,
         errors=pulumi.get(__ret__, 'errors'),
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
-        status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         theme_arn=pulumi.get(__ret__, 'theme_arn'))
 

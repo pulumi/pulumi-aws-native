@@ -13,6 +13,899 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardCalculatedMeasureField struct {
+	Expression string `pulumi:"expression"`
+	FieldId    string `pulumi:"fieldId"`
+}
+
+// DashboardCalculatedMeasureFieldInput is an input type that accepts DashboardCalculatedMeasureFieldArgs and DashboardCalculatedMeasureFieldOutput values.
+// You can construct a concrete instance of `DashboardCalculatedMeasureFieldInput` via:
+//
+//	DashboardCalculatedMeasureFieldArgs{...}
+type DashboardCalculatedMeasureFieldInput interface {
+	pulumi.Input
+
+	ToDashboardCalculatedMeasureFieldOutput() DashboardCalculatedMeasureFieldOutput
+	ToDashboardCalculatedMeasureFieldOutputWithContext(context.Context) DashboardCalculatedMeasureFieldOutput
+}
+
+type DashboardCalculatedMeasureFieldArgs struct {
+	Expression pulumi.StringInput `pulumi:"expression"`
+	FieldId    pulumi.StringInput `pulumi:"fieldId"`
+}
+
+func (DashboardCalculatedMeasureFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCalculatedMeasureField)(nil)).Elem()
+}
+
+func (i DashboardCalculatedMeasureFieldArgs) ToDashboardCalculatedMeasureFieldOutput() DashboardCalculatedMeasureFieldOutput {
+	return i.ToDashboardCalculatedMeasureFieldOutputWithContext(context.Background())
+}
+
+func (i DashboardCalculatedMeasureFieldArgs) ToDashboardCalculatedMeasureFieldOutputWithContext(ctx context.Context) DashboardCalculatedMeasureFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCalculatedMeasureFieldOutput)
+}
+
+func (i DashboardCalculatedMeasureFieldArgs) ToDashboardCalculatedMeasureFieldPtrOutput() DashboardCalculatedMeasureFieldPtrOutput {
+	return i.ToDashboardCalculatedMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardCalculatedMeasureFieldArgs) ToDashboardCalculatedMeasureFieldPtrOutputWithContext(ctx context.Context) DashboardCalculatedMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCalculatedMeasureFieldOutput).ToDashboardCalculatedMeasureFieldPtrOutputWithContext(ctx)
+}
+
+// DashboardCalculatedMeasureFieldPtrInput is an input type that accepts DashboardCalculatedMeasureFieldArgs, DashboardCalculatedMeasureFieldPtr and DashboardCalculatedMeasureFieldPtrOutput values.
+// You can construct a concrete instance of `DashboardCalculatedMeasureFieldPtrInput` via:
+//
+//	        DashboardCalculatedMeasureFieldArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardCalculatedMeasureFieldPtrInput interface {
+	pulumi.Input
+
+	ToDashboardCalculatedMeasureFieldPtrOutput() DashboardCalculatedMeasureFieldPtrOutput
+	ToDashboardCalculatedMeasureFieldPtrOutputWithContext(context.Context) DashboardCalculatedMeasureFieldPtrOutput
+}
+
+type dashboardCalculatedMeasureFieldPtrType DashboardCalculatedMeasureFieldArgs
+
+func DashboardCalculatedMeasureFieldPtr(v *DashboardCalculatedMeasureFieldArgs) DashboardCalculatedMeasureFieldPtrInput {
+	return (*dashboardCalculatedMeasureFieldPtrType)(v)
+}
+
+func (*dashboardCalculatedMeasureFieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCalculatedMeasureField)(nil)).Elem()
+}
+
+func (i *dashboardCalculatedMeasureFieldPtrType) ToDashboardCalculatedMeasureFieldPtrOutput() DashboardCalculatedMeasureFieldPtrOutput {
+	return i.ToDashboardCalculatedMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardCalculatedMeasureFieldPtrType) ToDashboardCalculatedMeasureFieldPtrOutputWithContext(ctx context.Context) DashboardCalculatedMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCalculatedMeasureFieldPtrOutput)
+}
+
+type DashboardCalculatedMeasureFieldOutput struct{ *pulumi.OutputState }
+
+func (DashboardCalculatedMeasureFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCalculatedMeasureField)(nil)).Elem()
+}
+
+func (o DashboardCalculatedMeasureFieldOutput) ToDashboardCalculatedMeasureFieldOutput() DashboardCalculatedMeasureFieldOutput {
+	return o
+}
+
+func (o DashboardCalculatedMeasureFieldOutput) ToDashboardCalculatedMeasureFieldOutputWithContext(ctx context.Context) DashboardCalculatedMeasureFieldOutput {
+	return o
+}
+
+func (o DashboardCalculatedMeasureFieldOutput) ToDashboardCalculatedMeasureFieldPtrOutput() DashboardCalculatedMeasureFieldPtrOutput {
+	return o.ToDashboardCalculatedMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardCalculatedMeasureFieldOutput) ToDashboardCalculatedMeasureFieldPtrOutputWithContext(ctx context.Context) DashboardCalculatedMeasureFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardCalculatedMeasureField) *DashboardCalculatedMeasureField {
+		return &v
+	}).(DashboardCalculatedMeasureFieldPtrOutput)
+}
+
+func (o DashboardCalculatedMeasureFieldOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardCalculatedMeasureField) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o DashboardCalculatedMeasureFieldOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardCalculatedMeasureField) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+type DashboardCalculatedMeasureFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardCalculatedMeasureFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCalculatedMeasureField)(nil)).Elem()
+}
+
+func (o DashboardCalculatedMeasureFieldPtrOutput) ToDashboardCalculatedMeasureFieldPtrOutput() DashboardCalculatedMeasureFieldPtrOutput {
+	return o
+}
+
+func (o DashboardCalculatedMeasureFieldPtrOutput) ToDashboardCalculatedMeasureFieldPtrOutputWithContext(ctx context.Context) DashboardCalculatedMeasureFieldPtrOutput {
+	return o
+}
+
+func (o DashboardCalculatedMeasureFieldPtrOutput) Elem() DashboardCalculatedMeasureFieldOutput {
+	return o.ApplyT(func(v *DashboardCalculatedMeasureField) DashboardCalculatedMeasureField {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardCalculatedMeasureField
+		return ret
+	}).(DashboardCalculatedMeasureFieldOutput)
+}
+
+func (o DashboardCalculatedMeasureFieldPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardCalculatedMeasureField) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardCalculatedMeasureFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardCalculatedMeasureField) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldId
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardCascadingControlConfiguration struct {
+	SourceControls []DashboardCascadingControlSource `pulumi:"sourceControls"`
+}
+
+// DashboardCascadingControlConfigurationInput is an input type that accepts DashboardCascadingControlConfigurationArgs and DashboardCascadingControlConfigurationOutput values.
+// You can construct a concrete instance of `DashboardCascadingControlConfigurationInput` via:
+//
+//	DashboardCascadingControlConfigurationArgs{...}
+type DashboardCascadingControlConfigurationInput interface {
+	pulumi.Input
+
+	ToDashboardCascadingControlConfigurationOutput() DashboardCascadingControlConfigurationOutput
+	ToDashboardCascadingControlConfigurationOutputWithContext(context.Context) DashboardCascadingControlConfigurationOutput
+}
+
+type DashboardCascadingControlConfigurationArgs struct {
+	SourceControls DashboardCascadingControlSourceArrayInput `pulumi:"sourceControls"`
+}
+
+func (DashboardCascadingControlConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCascadingControlConfiguration)(nil)).Elem()
+}
+
+func (i DashboardCascadingControlConfigurationArgs) ToDashboardCascadingControlConfigurationOutput() DashboardCascadingControlConfigurationOutput {
+	return i.ToDashboardCascadingControlConfigurationOutputWithContext(context.Background())
+}
+
+func (i DashboardCascadingControlConfigurationArgs) ToDashboardCascadingControlConfigurationOutputWithContext(ctx context.Context) DashboardCascadingControlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCascadingControlConfigurationOutput)
+}
+
+func (i DashboardCascadingControlConfigurationArgs) ToDashboardCascadingControlConfigurationPtrOutput() DashboardCascadingControlConfigurationPtrOutput {
+	return i.ToDashboardCascadingControlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardCascadingControlConfigurationArgs) ToDashboardCascadingControlConfigurationPtrOutputWithContext(ctx context.Context) DashboardCascadingControlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCascadingControlConfigurationOutput).ToDashboardCascadingControlConfigurationPtrOutputWithContext(ctx)
+}
+
+// DashboardCascadingControlConfigurationPtrInput is an input type that accepts DashboardCascadingControlConfigurationArgs, DashboardCascadingControlConfigurationPtr and DashboardCascadingControlConfigurationPtrOutput values.
+// You can construct a concrete instance of `DashboardCascadingControlConfigurationPtrInput` via:
+//
+//	        DashboardCascadingControlConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardCascadingControlConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDashboardCascadingControlConfigurationPtrOutput() DashboardCascadingControlConfigurationPtrOutput
+	ToDashboardCascadingControlConfigurationPtrOutputWithContext(context.Context) DashboardCascadingControlConfigurationPtrOutput
+}
+
+type dashboardCascadingControlConfigurationPtrType DashboardCascadingControlConfigurationArgs
+
+func DashboardCascadingControlConfigurationPtr(v *DashboardCascadingControlConfigurationArgs) DashboardCascadingControlConfigurationPtrInput {
+	return (*dashboardCascadingControlConfigurationPtrType)(v)
+}
+
+func (*dashboardCascadingControlConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCascadingControlConfiguration)(nil)).Elem()
+}
+
+func (i *dashboardCascadingControlConfigurationPtrType) ToDashboardCascadingControlConfigurationPtrOutput() DashboardCascadingControlConfigurationPtrOutput {
+	return i.ToDashboardCascadingControlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardCascadingControlConfigurationPtrType) ToDashboardCascadingControlConfigurationPtrOutputWithContext(ctx context.Context) DashboardCascadingControlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCascadingControlConfigurationPtrOutput)
+}
+
+type DashboardCascadingControlConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DashboardCascadingControlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCascadingControlConfiguration)(nil)).Elem()
+}
+
+func (o DashboardCascadingControlConfigurationOutput) ToDashboardCascadingControlConfigurationOutput() DashboardCascadingControlConfigurationOutput {
+	return o
+}
+
+func (o DashboardCascadingControlConfigurationOutput) ToDashboardCascadingControlConfigurationOutputWithContext(ctx context.Context) DashboardCascadingControlConfigurationOutput {
+	return o
+}
+
+func (o DashboardCascadingControlConfigurationOutput) ToDashboardCascadingControlConfigurationPtrOutput() DashboardCascadingControlConfigurationPtrOutput {
+	return o.ToDashboardCascadingControlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardCascadingControlConfigurationOutput) ToDashboardCascadingControlConfigurationPtrOutputWithContext(ctx context.Context) DashboardCascadingControlConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardCascadingControlConfiguration) *DashboardCascadingControlConfiguration {
+		return &v
+	}).(DashboardCascadingControlConfigurationPtrOutput)
+}
+
+func (o DashboardCascadingControlConfigurationOutput) SourceControls() DashboardCascadingControlSourceArrayOutput {
+	return o.ApplyT(func(v DashboardCascadingControlConfiguration) []DashboardCascadingControlSource {
+		return v.SourceControls
+	}).(DashboardCascadingControlSourceArrayOutput)
+}
+
+type DashboardCascadingControlConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardCascadingControlConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCascadingControlConfiguration)(nil)).Elem()
+}
+
+func (o DashboardCascadingControlConfigurationPtrOutput) ToDashboardCascadingControlConfigurationPtrOutput() DashboardCascadingControlConfigurationPtrOutput {
+	return o
+}
+
+func (o DashboardCascadingControlConfigurationPtrOutput) ToDashboardCascadingControlConfigurationPtrOutputWithContext(ctx context.Context) DashboardCascadingControlConfigurationPtrOutput {
+	return o
+}
+
+func (o DashboardCascadingControlConfigurationPtrOutput) Elem() DashboardCascadingControlConfigurationOutput {
+	return o.ApplyT(func(v *DashboardCascadingControlConfiguration) DashboardCascadingControlConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardCascadingControlConfiguration
+		return ret
+	}).(DashboardCascadingControlConfigurationOutput)
+}
+
+func (o DashboardCascadingControlConfigurationPtrOutput) SourceControls() DashboardCascadingControlSourceArrayOutput {
+	return o.ApplyT(func(v *DashboardCascadingControlConfiguration) []DashboardCascadingControlSource {
+		if v == nil {
+			return nil
+		}
+		return v.SourceControls
+	}).(DashboardCascadingControlSourceArrayOutput)
+}
+
+type DashboardCascadingControlSource struct {
+	ColumnToMatch        *DashboardColumnIdentifier `pulumi:"columnToMatch"`
+	SourceSheetControlId *string                    `pulumi:"sourceSheetControlId"`
+}
+
+// DashboardCascadingControlSourceInput is an input type that accepts DashboardCascadingControlSourceArgs and DashboardCascadingControlSourceOutput values.
+// You can construct a concrete instance of `DashboardCascadingControlSourceInput` via:
+//
+//	DashboardCascadingControlSourceArgs{...}
+type DashboardCascadingControlSourceInput interface {
+	pulumi.Input
+
+	ToDashboardCascadingControlSourceOutput() DashboardCascadingControlSourceOutput
+	ToDashboardCascadingControlSourceOutputWithContext(context.Context) DashboardCascadingControlSourceOutput
+}
+
+type DashboardCascadingControlSourceArgs struct {
+	ColumnToMatch        DashboardColumnIdentifierPtrInput `pulumi:"columnToMatch"`
+	SourceSheetControlId pulumi.StringPtrInput             `pulumi:"sourceSheetControlId"`
+}
+
+func (DashboardCascadingControlSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCascadingControlSource)(nil)).Elem()
+}
+
+func (i DashboardCascadingControlSourceArgs) ToDashboardCascadingControlSourceOutput() DashboardCascadingControlSourceOutput {
+	return i.ToDashboardCascadingControlSourceOutputWithContext(context.Background())
+}
+
+func (i DashboardCascadingControlSourceArgs) ToDashboardCascadingControlSourceOutputWithContext(ctx context.Context) DashboardCascadingControlSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCascadingControlSourceOutput)
+}
+
+// DashboardCascadingControlSourceArrayInput is an input type that accepts DashboardCascadingControlSourceArray and DashboardCascadingControlSourceArrayOutput values.
+// You can construct a concrete instance of `DashboardCascadingControlSourceArrayInput` via:
+//
+//	DashboardCascadingControlSourceArray{ DashboardCascadingControlSourceArgs{...} }
+type DashboardCascadingControlSourceArrayInput interface {
+	pulumi.Input
+
+	ToDashboardCascadingControlSourceArrayOutput() DashboardCascadingControlSourceArrayOutput
+	ToDashboardCascadingControlSourceArrayOutputWithContext(context.Context) DashboardCascadingControlSourceArrayOutput
+}
+
+type DashboardCascadingControlSourceArray []DashboardCascadingControlSourceInput
+
+func (DashboardCascadingControlSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardCascadingControlSource)(nil)).Elem()
+}
+
+func (i DashboardCascadingControlSourceArray) ToDashboardCascadingControlSourceArrayOutput() DashboardCascadingControlSourceArrayOutput {
+	return i.ToDashboardCascadingControlSourceArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardCascadingControlSourceArray) ToDashboardCascadingControlSourceArrayOutputWithContext(ctx context.Context) DashboardCascadingControlSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCascadingControlSourceArrayOutput)
+}
+
+type DashboardCascadingControlSourceOutput struct{ *pulumi.OutputState }
+
+func (DashboardCascadingControlSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCascadingControlSource)(nil)).Elem()
+}
+
+func (o DashboardCascadingControlSourceOutput) ToDashboardCascadingControlSourceOutput() DashboardCascadingControlSourceOutput {
+	return o
+}
+
+func (o DashboardCascadingControlSourceOutput) ToDashboardCascadingControlSourceOutputWithContext(ctx context.Context) DashboardCascadingControlSourceOutput {
+	return o
+}
+
+func (o DashboardCascadingControlSourceOutput) ColumnToMatch() DashboardColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v DashboardCascadingControlSource) *DashboardColumnIdentifier { return v.ColumnToMatch }).(DashboardColumnIdentifierPtrOutput)
+}
+
+func (o DashboardCascadingControlSourceOutput) SourceSheetControlId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardCascadingControlSource) *string { return v.SourceSheetControlId }).(pulumi.StringPtrOutput)
+}
+
+type DashboardCascadingControlSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardCascadingControlSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardCascadingControlSource)(nil)).Elem()
+}
+
+func (o DashboardCascadingControlSourceArrayOutput) ToDashboardCascadingControlSourceArrayOutput() DashboardCascadingControlSourceArrayOutput {
+	return o
+}
+
+func (o DashboardCascadingControlSourceArrayOutput) ToDashboardCascadingControlSourceArrayOutputWithContext(ctx context.Context) DashboardCascadingControlSourceArrayOutput {
+	return o
+}
+
+func (o DashboardCascadingControlSourceArrayOutput) Index(i pulumi.IntInput) DashboardCascadingControlSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardCascadingControlSource {
+		return vs[0].([]DashboardCascadingControlSource)[vs[1].(int)]
+	}).(DashboardCascadingControlSourceOutput)
+}
+
+type DashboardCategoricalDimensionField struct {
+	Column              DashboardColumnIdentifier           `pulumi:"column"`
+	FieldId             string                              `pulumi:"fieldId"`
+	FormatConfiguration *DashboardStringFormatConfiguration `pulumi:"formatConfiguration"`
+	HierarchyId         *string                             `pulumi:"hierarchyId"`
+}
+
+// DashboardCategoricalDimensionFieldInput is an input type that accepts DashboardCategoricalDimensionFieldArgs and DashboardCategoricalDimensionFieldOutput values.
+// You can construct a concrete instance of `DashboardCategoricalDimensionFieldInput` via:
+//
+//	DashboardCategoricalDimensionFieldArgs{...}
+type DashboardCategoricalDimensionFieldInput interface {
+	pulumi.Input
+
+	ToDashboardCategoricalDimensionFieldOutput() DashboardCategoricalDimensionFieldOutput
+	ToDashboardCategoricalDimensionFieldOutputWithContext(context.Context) DashboardCategoricalDimensionFieldOutput
+}
+
+type DashboardCategoricalDimensionFieldArgs struct {
+	Column              DashboardColumnIdentifierInput             `pulumi:"column"`
+	FieldId             pulumi.StringInput                         `pulumi:"fieldId"`
+	FormatConfiguration DashboardStringFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
+	HierarchyId         pulumi.StringPtrInput                      `pulumi:"hierarchyId"`
+}
+
+func (DashboardCategoricalDimensionFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCategoricalDimensionField)(nil)).Elem()
+}
+
+func (i DashboardCategoricalDimensionFieldArgs) ToDashboardCategoricalDimensionFieldOutput() DashboardCategoricalDimensionFieldOutput {
+	return i.ToDashboardCategoricalDimensionFieldOutputWithContext(context.Background())
+}
+
+func (i DashboardCategoricalDimensionFieldArgs) ToDashboardCategoricalDimensionFieldOutputWithContext(ctx context.Context) DashboardCategoricalDimensionFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoricalDimensionFieldOutput)
+}
+
+func (i DashboardCategoricalDimensionFieldArgs) ToDashboardCategoricalDimensionFieldPtrOutput() DashboardCategoricalDimensionFieldPtrOutput {
+	return i.ToDashboardCategoricalDimensionFieldPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardCategoricalDimensionFieldArgs) ToDashboardCategoricalDimensionFieldPtrOutputWithContext(ctx context.Context) DashboardCategoricalDimensionFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoricalDimensionFieldOutput).ToDashboardCategoricalDimensionFieldPtrOutputWithContext(ctx)
+}
+
+// DashboardCategoricalDimensionFieldPtrInput is an input type that accepts DashboardCategoricalDimensionFieldArgs, DashboardCategoricalDimensionFieldPtr and DashboardCategoricalDimensionFieldPtrOutput values.
+// You can construct a concrete instance of `DashboardCategoricalDimensionFieldPtrInput` via:
+//
+//	        DashboardCategoricalDimensionFieldArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardCategoricalDimensionFieldPtrInput interface {
+	pulumi.Input
+
+	ToDashboardCategoricalDimensionFieldPtrOutput() DashboardCategoricalDimensionFieldPtrOutput
+	ToDashboardCategoricalDimensionFieldPtrOutputWithContext(context.Context) DashboardCategoricalDimensionFieldPtrOutput
+}
+
+type dashboardCategoricalDimensionFieldPtrType DashboardCategoricalDimensionFieldArgs
+
+func DashboardCategoricalDimensionFieldPtr(v *DashboardCategoricalDimensionFieldArgs) DashboardCategoricalDimensionFieldPtrInput {
+	return (*dashboardCategoricalDimensionFieldPtrType)(v)
+}
+
+func (*dashboardCategoricalDimensionFieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCategoricalDimensionField)(nil)).Elem()
+}
+
+func (i *dashboardCategoricalDimensionFieldPtrType) ToDashboardCategoricalDimensionFieldPtrOutput() DashboardCategoricalDimensionFieldPtrOutput {
+	return i.ToDashboardCategoricalDimensionFieldPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardCategoricalDimensionFieldPtrType) ToDashboardCategoricalDimensionFieldPtrOutputWithContext(ctx context.Context) DashboardCategoricalDimensionFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoricalDimensionFieldPtrOutput)
+}
+
+type DashboardCategoricalDimensionFieldOutput struct{ *pulumi.OutputState }
+
+func (DashboardCategoricalDimensionFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCategoricalDimensionField)(nil)).Elem()
+}
+
+func (o DashboardCategoricalDimensionFieldOutput) ToDashboardCategoricalDimensionFieldOutput() DashboardCategoricalDimensionFieldOutput {
+	return o
+}
+
+func (o DashboardCategoricalDimensionFieldOutput) ToDashboardCategoricalDimensionFieldOutputWithContext(ctx context.Context) DashboardCategoricalDimensionFieldOutput {
+	return o
+}
+
+func (o DashboardCategoricalDimensionFieldOutput) ToDashboardCategoricalDimensionFieldPtrOutput() DashboardCategoricalDimensionFieldPtrOutput {
+	return o.ToDashboardCategoricalDimensionFieldPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardCategoricalDimensionFieldOutput) ToDashboardCategoricalDimensionFieldPtrOutputWithContext(ctx context.Context) DashboardCategoricalDimensionFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardCategoricalDimensionField) *DashboardCategoricalDimensionField {
+		return &v
+	}).(DashboardCategoricalDimensionFieldPtrOutput)
+}
+
+func (o DashboardCategoricalDimensionFieldOutput) Column() DashboardColumnIdentifierOutput {
+	return o.ApplyT(func(v DashboardCategoricalDimensionField) DashboardColumnIdentifier { return v.Column }).(DashboardColumnIdentifierOutput)
+}
+
+func (o DashboardCategoricalDimensionFieldOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardCategoricalDimensionField) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+func (o DashboardCategoricalDimensionFieldOutput) FormatConfiguration() DashboardStringFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardCategoricalDimensionField) *DashboardStringFormatConfiguration {
+		return v.FormatConfiguration
+	}).(DashboardStringFormatConfigurationPtrOutput)
+}
+
+func (o DashboardCategoricalDimensionFieldOutput) HierarchyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardCategoricalDimensionField) *string { return v.HierarchyId }).(pulumi.StringPtrOutput)
+}
+
+type DashboardCategoricalDimensionFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardCategoricalDimensionFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCategoricalDimensionField)(nil)).Elem()
+}
+
+func (o DashboardCategoricalDimensionFieldPtrOutput) ToDashboardCategoricalDimensionFieldPtrOutput() DashboardCategoricalDimensionFieldPtrOutput {
+	return o
+}
+
+func (o DashboardCategoricalDimensionFieldPtrOutput) ToDashboardCategoricalDimensionFieldPtrOutputWithContext(ctx context.Context) DashboardCategoricalDimensionFieldPtrOutput {
+	return o
+}
+
+func (o DashboardCategoricalDimensionFieldPtrOutput) Elem() DashboardCategoricalDimensionFieldOutput {
+	return o.ApplyT(func(v *DashboardCategoricalDimensionField) DashboardCategoricalDimensionField {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardCategoricalDimensionField
+		return ret
+	}).(DashboardCategoricalDimensionFieldOutput)
+}
+
+func (o DashboardCategoricalDimensionFieldPtrOutput) Column() DashboardColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *DashboardCategoricalDimensionField) *DashboardColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(DashboardColumnIdentifierPtrOutput)
+}
+
+func (o DashboardCategoricalDimensionFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardCategoricalDimensionField) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardCategoricalDimensionFieldPtrOutput) FormatConfiguration() DashboardStringFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardCategoricalDimensionField) *DashboardStringFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FormatConfiguration
+	}).(DashboardStringFormatConfigurationPtrOutput)
+}
+
+func (o DashboardCategoricalDimensionFieldPtrOutput) HierarchyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardCategoricalDimensionField) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardCategoricalMeasureField struct {
+	AggregationFunction *DashboardCategoricalAggregationFunction `pulumi:"aggregationFunction"`
+	Column              DashboardColumnIdentifier                `pulumi:"column"`
+	FieldId             string                                   `pulumi:"fieldId"`
+	FormatConfiguration *DashboardStringFormatConfiguration      `pulumi:"formatConfiguration"`
+}
+
+// DashboardCategoricalMeasureFieldInput is an input type that accepts DashboardCategoricalMeasureFieldArgs and DashboardCategoricalMeasureFieldOutput values.
+// You can construct a concrete instance of `DashboardCategoricalMeasureFieldInput` via:
+//
+//	DashboardCategoricalMeasureFieldArgs{...}
+type DashboardCategoricalMeasureFieldInput interface {
+	pulumi.Input
+
+	ToDashboardCategoricalMeasureFieldOutput() DashboardCategoricalMeasureFieldOutput
+	ToDashboardCategoricalMeasureFieldOutputWithContext(context.Context) DashboardCategoricalMeasureFieldOutput
+}
+
+type DashboardCategoricalMeasureFieldArgs struct {
+	AggregationFunction DashboardCategoricalAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
+	Column              DashboardColumnIdentifierInput                  `pulumi:"column"`
+	FieldId             pulumi.StringInput                              `pulumi:"fieldId"`
+	FormatConfiguration DashboardStringFormatConfigurationPtrInput      `pulumi:"formatConfiguration"`
+}
+
+func (DashboardCategoricalMeasureFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCategoricalMeasureField)(nil)).Elem()
+}
+
+func (i DashboardCategoricalMeasureFieldArgs) ToDashboardCategoricalMeasureFieldOutput() DashboardCategoricalMeasureFieldOutput {
+	return i.ToDashboardCategoricalMeasureFieldOutputWithContext(context.Background())
+}
+
+func (i DashboardCategoricalMeasureFieldArgs) ToDashboardCategoricalMeasureFieldOutputWithContext(ctx context.Context) DashboardCategoricalMeasureFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoricalMeasureFieldOutput)
+}
+
+func (i DashboardCategoricalMeasureFieldArgs) ToDashboardCategoricalMeasureFieldPtrOutput() DashboardCategoricalMeasureFieldPtrOutput {
+	return i.ToDashboardCategoricalMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardCategoricalMeasureFieldArgs) ToDashboardCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) DashboardCategoricalMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoricalMeasureFieldOutput).ToDashboardCategoricalMeasureFieldPtrOutputWithContext(ctx)
+}
+
+// DashboardCategoricalMeasureFieldPtrInput is an input type that accepts DashboardCategoricalMeasureFieldArgs, DashboardCategoricalMeasureFieldPtr and DashboardCategoricalMeasureFieldPtrOutput values.
+// You can construct a concrete instance of `DashboardCategoricalMeasureFieldPtrInput` via:
+//
+//	        DashboardCategoricalMeasureFieldArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardCategoricalMeasureFieldPtrInput interface {
+	pulumi.Input
+
+	ToDashboardCategoricalMeasureFieldPtrOutput() DashboardCategoricalMeasureFieldPtrOutput
+	ToDashboardCategoricalMeasureFieldPtrOutputWithContext(context.Context) DashboardCategoricalMeasureFieldPtrOutput
+}
+
+type dashboardCategoricalMeasureFieldPtrType DashboardCategoricalMeasureFieldArgs
+
+func DashboardCategoricalMeasureFieldPtr(v *DashboardCategoricalMeasureFieldArgs) DashboardCategoricalMeasureFieldPtrInput {
+	return (*dashboardCategoricalMeasureFieldPtrType)(v)
+}
+
+func (*dashboardCategoricalMeasureFieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCategoricalMeasureField)(nil)).Elem()
+}
+
+func (i *dashboardCategoricalMeasureFieldPtrType) ToDashboardCategoricalMeasureFieldPtrOutput() DashboardCategoricalMeasureFieldPtrOutput {
+	return i.ToDashboardCategoricalMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardCategoricalMeasureFieldPtrType) ToDashboardCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) DashboardCategoricalMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoricalMeasureFieldPtrOutput)
+}
+
+type DashboardCategoricalMeasureFieldOutput struct{ *pulumi.OutputState }
+
+func (DashboardCategoricalMeasureFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCategoricalMeasureField)(nil)).Elem()
+}
+
+func (o DashboardCategoricalMeasureFieldOutput) ToDashboardCategoricalMeasureFieldOutput() DashboardCategoricalMeasureFieldOutput {
+	return o
+}
+
+func (o DashboardCategoricalMeasureFieldOutput) ToDashboardCategoricalMeasureFieldOutputWithContext(ctx context.Context) DashboardCategoricalMeasureFieldOutput {
+	return o
+}
+
+func (o DashboardCategoricalMeasureFieldOutput) ToDashboardCategoricalMeasureFieldPtrOutput() DashboardCategoricalMeasureFieldPtrOutput {
+	return o.ToDashboardCategoricalMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardCategoricalMeasureFieldOutput) ToDashboardCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) DashboardCategoricalMeasureFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardCategoricalMeasureField) *DashboardCategoricalMeasureField {
+		return &v
+	}).(DashboardCategoricalMeasureFieldPtrOutput)
+}
+
+func (o DashboardCategoricalMeasureFieldOutput) AggregationFunction() DashboardCategoricalAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v DashboardCategoricalMeasureField) *DashboardCategoricalAggregationFunction {
+		return v.AggregationFunction
+	}).(DashboardCategoricalAggregationFunctionPtrOutput)
+}
+
+func (o DashboardCategoricalMeasureFieldOutput) Column() DashboardColumnIdentifierOutput {
+	return o.ApplyT(func(v DashboardCategoricalMeasureField) DashboardColumnIdentifier { return v.Column }).(DashboardColumnIdentifierOutput)
+}
+
+func (o DashboardCategoricalMeasureFieldOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardCategoricalMeasureField) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+func (o DashboardCategoricalMeasureFieldOutput) FormatConfiguration() DashboardStringFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardCategoricalMeasureField) *DashboardStringFormatConfiguration {
+		return v.FormatConfiguration
+	}).(DashboardStringFormatConfigurationPtrOutput)
+}
+
+type DashboardCategoricalMeasureFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardCategoricalMeasureFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCategoricalMeasureField)(nil)).Elem()
+}
+
+func (o DashboardCategoricalMeasureFieldPtrOutput) ToDashboardCategoricalMeasureFieldPtrOutput() DashboardCategoricalMeasureFieldPtrOutput {
+	return o
+}
+
+func (o DashboardCategoricalMeasureFieldPtrOutput) ToDashboardCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) DashboardCategoricalMeasureFieldPtrOutput {
+	return o
+}
+
+func (o DashboardCategoricalMeasureFieldPtrOutput) Elem() DashboardCategoricalMeasureFieldOutput {
+	return o.ApplyT(func(v *DashboardCategoricalMeasureField) DashboardCategoricalMeasureField {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardCategoricalMeasureField
+		return ret
+	}).(DashboardCategoricalMeasureFieldOutput)
+}
+
+func (o DashboardCategoricalMeasureFieldPtrOutput) AggregationFunction() DashboardCategoricalAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v *DashboardCategoricalMeasureField) *DashboardCategoricalAggregationFunction {
+		if v == nil {
+			return nil
+		}
+		return v.AggregationFunction
+	}).(DashboardCategoricalAggregationFunctionPtrOutput)
+}
+
+func (o DashboardCategoricalMeasureFieldPtrOutput) Column() DashboardColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *DashboardCategoricalMeasureField) *DashboardColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(DashboardColumnIdentifierPtrOutput)
+}
+
+func (o DashboardCategoricalMeasureFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardCategoricalMeasureField) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardCategoricalMeasureFieldPtrOutput) FormatConfiguration() DashboardStringFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardCategoricalMeasureField) *DashboardStringFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FormatConfiguration
+	}).(DashboardStringFormatConfigurationPtrOutput)
+}
+
+type DashboardCategoryDrillDownFilter struct {
+	CategoryValues []string                  `pulumi:"categoryValues"`
+	Column         DashboardColumnIdentifier `pulumi:"column"`
+}
+
+// DashboardCategoryDrillDownFilterInput is an input type that accepts DashboardCategoryDrillDownFilterArgs and DashboardCategoryDrillDownFilterOutput values.
+// You can construct a concrete instance of `DashboardCategoryDrillDownFilterInput` via:
+//
+//	DashboardCategoryDrillDownFilterArgs{...}
+type DashboardCategoryDrillDownFilterInput interface {
+	pulumi.Input
+
+	ToDashboardCategoryDrillDownFilterOutput() DashboardCategoryDrillDownFilterOutput
+	ToDashboardCategoryDrillDownFilterOutputWithContext(context.Context) DashboardCategoryDrillDownFilterOutput
+}
+
+type DashboardCategoryDrillDownFilterArgs struct {
+	CategoryValues pulumi.StringArrayInput        `pulumi:"categoryValues"`
+	Column         DashboardColumnIdentifierInput `pulumi:"column"`
+}
+
+func (DashboardCategoryDrillDownFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCategoryDrillDownFilter)(nil)).Elem()
+}
+
+func (i DashboardCategoryDrillDownFilterArgs) ToDashboardCategoryDrillDownFilterOutput() DashboardCategoryDrillDownFilterOutput {
+	return i.ToDashboardCategoryDrillDownFilterOutputWithContext(context.Background())
+}
+
+func (i DashboardCategoryDrillDownFilterArgs) ToDashboardCategoryDrillDownFilterOutputWithContext(ctx context.Context) DashboardCategoryDrillDownFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoryDrillDownFilterOutput)
+}
+
+func (i DashboardCategoryDrillDownFilterArgs) ToDashboardCategoryDrillDownFilterPtrOutput() DashboardCategoryDrillDownFilterPtrOutput {
+	return i.ToDashboardCategoryDrillDownFilterPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardCategoryDrillDownFilterArgs) ToDashboardCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) DashboardCategoryDrillDownFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoryDrillDownFilterOutput).ToDashboardCategoryDrillDownFilterPtrOutputWithContext(ctx)
+}
+
+// DashboardCategoryDrillDownFilterPtrInput is an input type that accepts DashboardCategoryDrillDownFilterArgs, DashboardCategoryDrillDownFilterPtr and DashboardCategoryDrillDownFilterPtrOutput values.
+// You can construct a concrete instance of `DashboardCategoryDrillDownFilterPtrInput` via:
+//
+//	        DashboardCategoryDrillDownFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardCategoryDrillDownFilterPtrInput interface {
+	pulumi.Input
+
+	ToDashboardCategoryDrillDownFilterPtrOutput() DashboardCategoryDrillDownFilterPtrOutput
+	ToDashboardCategoryDrillDownFilterPtrOutputWithContext(context.Context) DashboardCategoryDrillDownFilterPtrOutput
+}
+
+type dashboardCategoryDrillDownFilterPtrType DashboardCategoryDrillDownFilterArgs
+
+func DashboardCategoryDrillDownFilterPtr(v *DashboardCategoryDrillDownFilterArgs) DashboardCategoryDrillDownFilterPtrInput {
+	return (*dashboardCategoryDrillDownFilterPtrType)(v)
+}
+
+func (*dashboardCategoryDrillDownFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCategoryDrillDownFilter)(nil)).Elem()
+}
+
+func (i *dashboardCategoryDrillDownFilterPtrType) ToDashboardCategoryDrillDownFilterPtrOutput() DashboardCategoryDrillDownFilterPtrOutput {
+	return i.ToDashboardCategoryDrillDownFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardCategoryDrillDownFilterPtrType) ToDashboardCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) DashboardCategoryDrillDownFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoryDrillDownFilterPtrOutput)
+}
+
+type DashboardCategoryDrillDownFilterOutput struct{ *pulumi.OutputState }
+
+func (DashboardCategoryDrillDownFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCategoryDrillDownFilter)(nil)).Elem()
+}
+
+func (o DashboardCategoryDrillDownFilterOutput) ToDashboardCategoryDrillDownFilterOutput() DashboardCategoryDrillDownFilterOutput {
+	return o
+}
+
+func (o DashboardCategoryDrillDownFilterOutput) ToDashboardCategoryDrillDownFilterOutputWithContext(ctx context.Context) DashboardCategoryDrillDownFilterOutput {
+	return o
+}
+
+func (o DashboardCategoryDrillDownFilterOutput) ToDashboardCategoryDrillDownFilterPtrOutput() DashboardCategoryDrillDownFilterPtrOutput {
+	return o.ToDashboardCategoryDrillDownFilterPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardCategoryDrillDownFilterOutput) ToDashboardCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) DashboardCategoryDrillDownFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardCategoryDrillDownFilter) *DashboardCategoryDrillDownFilter {
+		return &v
+	}).(DashboardCategoryDrillDownFilterPtrOutput)
+}
+
+func (o DashboardCategoryDrillDownFilterOutput) CategoryValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DashboardCategoryDrillDownFilter) []string { return v.CategoryValues }).(pulumi.StringArrayOutput)
+}
+
+func (o DashboardCategoryDrillDownFilterOutput) Column() DashboardColumnIdentifierOutput {
+	return o.ApplyT(func(v DashboardCategoryDrillDownFilter) DashboardColumnIdentifier { return v.Column }).(DashboardColumnIdentifierOutput)
+}
+
+type DashboardCategoryDrillDownFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardCategoryDrillDownFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCategoryDrillDownFilter)(nil)).Elem()
+}
+
+func (o DashboardCategoryDrillDownFilterPtrOutput) ToDashboardCategoryDrillDownFilterPtrOutput() DashboardCategoryDrillDownFilterPtrOutput {
+	return o
+}
+
+func (o DashboardCategoryDrillDownFilterPtrOutput) ToDashboardCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) DashboardCategoryDrillDownFilterPtrOutput {
+	return o
+}
+
+func (o DashboardCategoryDrillDownFilterPtrOutput) Elem() DashboardCategoryDrillDownFilterOutput {
+	return o.ApplyT(func(v *DashboardCategoryDrillDownFilter) DashboardCategoryDrillDownFilter {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardCategoryDrillDownFilter
+		return ret
+	}).(DashboardCategoryDrillDownFilterOutput)
+}
+
+func (o DashboardCategoryDrillDownFilterPtrOutput) CategoryValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DashboardCategoryDrillDownFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DashboardCategoryDrillDownFilterPtrOutput) Column() DashboardColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *DashboardCategoryDrillDownFilter) *DashboardColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(DashboardColumnIdentifierPtrOutput)
+}
+
 type DashboardCategoryFilter struct {
 	Column        DashboardColumnIdentifier            `pulumi:"column"`
 	Configuration DashboardCategoryFilterConfiguration `pulumi:"configuration"`
@@ -78207,887 +79100,19 @@ func (o TemplateAxisDataOptionsPtrOutput) NumericAxisOptions() TemplateNumericAx
 	}).(TemplateNumericAxisOptionsPtrOutput)
 }
 
-type TemplateAxisDisplayDataDrivenRange struct {
-}
-
-// TemplateAxisDisplayDataDrivenRangeInput is an input type that accepts TemplateAxisDisplayDataDrivenRangeArgs and TemplateAxisDisplayDataDrivenRangeOutput values.
-// You can construct a concrete instance of `TemplateAxisDisplayDataDrivenRangeInput` via:
-//
-//	TemplateAxisDisplayDataDrivenRangeArgs{...}
-type TemplateAxisDisplayDataDrivenRangeInput interface {
-	pulumi.Input
-
-	ToTemplateAxisDisplayDataDrivenRangeOutput() TemplateAxisDisplayDataDrivenRangeOutput
-	ToTemplateAxisDisplayDataDrivenRangeOutputWithContext(context.Context) TemplateAxisDisplayDataDrivenRangeOutput
-}
-
-type TemplateAxisDisplayDataDrivenRangeArgs struct {
-}
-
-func (TemplateAxisDisplayDataDrivenRangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisDisplayDataDrivenRange)(nil)).Elem()
-}
-
-func (i TemplateAxisDisplayDataDrivenRangeArgs) ToTemplateAxisDisplayDataDrivenRangeOutput() TemplateAxisDisplayDataDrivenRangeOutput {
-	return i.ToTemplateAxisDisplayDataDrivenRangeOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisDisplayDataDrivenRangeArgs) ToTemplateAxisDisplayDataDrivenRangeOutputWithContext(ctx context.Context) TemplateAxisDisplayDataDrivenRangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayDataDrivenRangeOutput)
-}
-
-func (i TemplateAxisDisplayDataDrivenRangeArgs) ToTemplateAxisDisplayDataDrivenRangePtrOutput() TemplateAxisDisplayDataDrivenRangePtrOutput {
-	return i.ToTemplateAxisDisplayDataDrivenRangePtrOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisDisplayDataDrivenRangeArgs) ToTemplateAxisDisplayDataDrivenRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayDataDrivenRangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayDataDrivenRangeOutput).ToTemplateAxisDisplayDataDrivenRangePtrOutputWithContext(ctx)
-}
-
-// TemplateAxisDisplayDataDrivenRangePtrInput is an input type that accepts TemplateAxisDisplayDataDrivenRangeArgs, TemplateAxisDisplayDataDrivenRangePtr and TemplateAxisDisplayDataDrivenRangePtrOutput values.
-// You can construct a concrete instance of `TemplateAxisDisplayDataDrivenRangePtrInput` via:
-//
-//	        TemplateAxisDisplayDataDrivenRangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateAxisDisplayDataDrivenRangePtrInput interface {
-	pulumi.Input
-
-	ToTemplateAxisDisplayDataDrivenRangePtrOutput() TemplateAxisDisplayDataDrivenRangePtrOutput
-	ToTemplateAxisDisplayDataDrivenRangePtrOutputWithContext(context.Context) TemplateAxisDisplayDataDrivenRangePtrOutput
-}
-
-type templateAxisDisplayDataDrivenRangePtrType TemplateAxisDisplayDataDrivenRangeArgs
-
-func TemplateAxisDisplayDataDrivenRangePtr(v *TemplateAxisDisplayDataDrivenRangeArgs) TemplateAxisDisplayDataDrivenRangePtrInput {
-	return (*templateAxisDisplayDataDrivenRangePtrType)(v)
-}
-
-func (*templateAxisDisplayDataDrivenRangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisDisplayDataDrivenRange)(nil)).Elem()
-}
-
-func (i *templateAxisDisplayDataDrivenRangePtrType) ToTemplateAxisDisplayDataDrivenRangePtrOutput() TemplateAxisDisplayDataDrivenRangePtrOutput {
-	return i.ToTemplateAxisDisplayDataDrivenRangePtrOutputWithContext(context.Background())
-}
-
-func (i *templateAxisDisplayDataDrivenRangePtrType) ToTemplateAxisDisplayDataDrivenRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayDataDrivenRangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayDataDrivenRangePtrOutput)
-}
-
-type TemplateAxisDisplayDataDrivenRangeOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisDisplayDataDrivenRangeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisDisplayDataDrivenRange)(nil)).Elem()
-}
-
-func (o TemplateAxisDisplayDataDrivenRangeOutput) ToTemplateAxisDisplayDataDrivenRangeOutput() TemplateAxisDisplayDataDrivenRangeOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayDataDrivenRangeOutput) ToTemplateAxisDisplayDataDrivenRangeOutputWithContext(ctx context.Context) TemplateAxisDisplayDataDrivenRangeOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayDataDrivenRangeOutput) ToTemplateAxisDisplayDataDrivenRangePtrOutput() TemplateAxisDisplayDataDrivenRangePtrOutput {
-	return o.ToTemplateAxisDisplayDataDrivenRangePtrOutputWithContext(context.Background())
-}
-
-func (o TemplateAxisDisplayDataDrivenRangeOutput) ToTemplateAxisDisplayDataDrivenRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayDataDrivenRangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAxisDisplayDataDrivenRange) *TemplateAxisDisplayDataDrivenRange {
-		return &v
-	}).(TemplateAxisDisplayDataDrivenRangePtrOutput)
-}
-
-type TemplateAxisDisplayDataDrivenRangePtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisDisplayDataDrivenRangePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisDisplayDataDrivenRange)(nil)).Elem()
-}
-
-func (o TemplateAxisDisplayDataDrivenRangePtrOutput) ToTemplateAxisDisplayDataDrivenRangePtrOutput() TemplateAxisDisplayDataDrivenRangePtrOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayDataDrivenRangePtrOutput) ToTemplateAxisDisplayDataDrivenRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayDataDrivenRangePtrOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayDataDrivenRangePtrOutput) Elem() TemplateAxisDisplayDataDrivenRangeOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayDataDrivenRange) TemplateAxisDisplayDataDrivenRange {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateAxisDisplayDataDrivenRange
-		return ret
-	}).(TemplateAxisDisplayDataDrivenRangeOutput)
-}
-
-type TemplateAxisDisplayMinMaxRange struct {
-	Maximum *float64 `pulumi:"maximum"`
-	Minimum *float64 `pulumi:"minimum"`
-}
-
-// TemplateAxisDisplayMinMaxRangeInput is an input type that accepts TemplateAxisDisplayMinMaxRangeArgs and TemplateAxisDisplayMinMaxRangeOutput values.
-// You can construct a concrete instance of `TemplateAxisDisplayMinMaxRangeInput` via:
-//
-//	TemplateAxisDisplayMinMaxRangeArgs{...}
-type TemplateAxisDisplayMinMaxRangeInput interface {
-	pulumi.Input
-
-	ToTemplateAxisDisplayMinMaxRangeOutput() TemplateAxisDisplayMinMaxRangeOutput
-	ToTemplateAxisDisplayMinMaxRangeOutputWithContext(context.Context) TemplateAxisDisplayMinMaxRangeOutput
-}
-
-type TemplateAxisDisplayMinMaxRangeArgs struct {
-	Maximum pulumi.Float64PtrInput `pulumi:"maximum"`
-	Minimum pulumi.Float64PtrInput `pulumi:"minimum"`
-}
-
-func (TemplateAxisDisplayMinMaxRangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisDisplayMinMaxRange)(nil)).Elem()
-}
-
-func (i TemplateAxisDisplayMinMaxRangeArgs) ToTemplateAxisDisplayMinMaxRangeOutput() TemplateAxisDisplayMinMaxRangeOutput {
-	return i.ToTemplateAxisDisplayMinMaxRangeOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisDisplayMinMaxRangeArgs) ToTemplateAxisDisplayMinMaxRangeOutputWithContext(ctx context.Context) TemplateAxisDisplayMinMaxRangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayMinMaxRangeOutput)
-}
-
-func (i TemplateAxisDisplayMinMaxRangeArgs) ToTemplateAxisDisplayMinMaxRangePtrOutput() TemplateAxisDisplayMinMaxRangePtrOutput {
-	return i.ToTemplateAxisDisplayMinMaxRangePtrOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisDisplayMinMaxRangeArgs) ToTemplateAxisDisplayMinMaxRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayMinMaxRangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayMinMaxRangeOutput).ToTemplateAxisDisplayMinMaxRangePtrOutputWithContext(ctx)
-}
-
-// TemplateAxisDisplayMinMaxRangePtrInput is an input type that accepts TemplateAxisDisplayMinMaxRangeArgs, TemplateAxisDisplayMinMaxRangePtr and TemplateAxisDisplayMinMaxRangePtrOutput values.
-// You can construct a concrete instance of `TemplateAxisDisplayMinMaxRangePtrInput` via:
-//
-//	        TemplateAxisDisplayMinMaxRangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateAxisDisplayMinMaxRangePtrInput interface {
-	pulumi.Input
-
-	ToTemplateAxisDisplayMinMaxRangePtrOutput() TemplateAxisDisplayMinMaxRangePtrOutput
-	ToTemplateAxisDisplayMinMaxRangePtrOutputWithContext(context.Context) TemplateAxisDisplayMinMaxRangePtrOutput
-}
-
-type templateAxisDisplayMinMaxRangePtrType TemplateAxisDisplayMinMaxRangeArgs
-
-func TemplateAxisDisplayMinMaxRangePtr(v *TemplateAxisDisplayMinMaxRangeArgs) TemplateAxisDisplayMinMaxRangePtrInput {
-	return (*templateAxisDisplayMinMaxRangePtrType)(v)
-}
-
-func (*templateAxisDisplayMinMaxRangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisDisplayMinMaxRange)(nil)).Elem()
-}
-
-func (i *templateAxisDisplayMinMaxRangePtrType) ToTemplateAxisDisplayMinMaxRangePtrOutput() TemplateAxisDisplayMinMaxRangePtrOutput {
-	return i.ToTemplateAxisDisplayMinMaxRangePtrOutputWithContext(context.Background())
-}
-
-func (i *templateAxisDisplayMinMaxRangePtrType) ToTemplateAxisDisplayMinMaxRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayMinMaxRangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayMinMaxRangePtrOutput)
-}
-
-type TemplateAxisDisplayMinMaxRangeOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisDisplayMinMaxRangeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisDisplayMinMaxRange)(nil)).Elem()
-}
-
-func (o TemplateAxisDisplayMinMaxRangeOutput) ToTemplateAxisDisplayMinMaxRangeOutput() TemplateAxisDisplayMinMaxRangeOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayMinMaxRangeOutput) ToTemplateAxisDisplayMinMaxRangeOutputWithContext(ctx context.Context) TemplateAxisDisplayMinMaxRangeOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayMinMaxRangeOutput) ToTemplateAxisDisplayMinMaxRangePtrOutput() TemplateAxisDisplayMinMaxRangePtrOutput {
-	return o.ToTemplateAxisDisplayMinMaxRangePtrOutputWithContext(context.Background())
-}
-
-func (o TemplateAxisDisplayMinMaxRangeOutput) ToTemplateAxisDisplayMinMaxRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayMinMaxRangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAxisDisplayMinMaxRange) *TemplateAxisDisplayMinMaxRange {
-		return &v
-	}).(TemplateAxisDisplayMinMaxRangePtrOutput)
-}
-
-func (o TemplateAxisDisplayMinMaxRangeOutput) Maximum() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v TemplateAxisDisplayMinMaxRange) *float64 { return v.Maximum }).(pulumi.Float64PtrOutput)
-}
-
-func (o TemplateAxisDisplayMinMaxRangeOutput) Minimum() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v TemplateAxisDisplayMinMaxRange) *float64 { return v.Minimum }).(pulumi.Float64PtrOutput)
-}
-
-type TemplateAxisDisplayMinMaxRangePtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisDisplayMinMaxRangePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisDisplayMinMaxRange)(nil)).Elem()
-}
-
-func (o TemplateAxisDisplayMinMaxRangePtrOutput) ToTemplateAxisDisplayMinMaxRangePtrOutput() TemplateAxisDisplayMinMaxRangePtrOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayMinMaxRangePtrOutput) ToTemplateAxisDisplayMinMaxRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayMinMaxRangePtrOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayMinMaxRangePtrOutput) Elem() TemplateAxisDisplayMinMaxRangeOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayMinMaxRange) TemplateAxisDisplayMinMaxRange {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateAxisDisplayMinMaxRange
-		return ret
-	}).(TemplateAxisDisplayMinMaxRangeOutput)
-}
-
-func (o TemplateAxisDisplayMinMaxRangePtrOutput) Maximum() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayMinMaxRange) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Maximum
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o TemplateAxisDisplayMinMaxRangePtrOutput) Minimum() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayMinMaxRange) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Minimum
-	}).(pulumi.Float64PtrOutput)
-}
-
-type TemplateAxisDisplayOptions struct {
-	AxisLineVisibility *TemplateVisibility `pulumi:"axisLineVisibility"`
-	// String based length that is composed of value and unit in px
-	AxisOffset         *string                       `pulumi:"axisOffset"`
-	DataOptions        *TemplateAxisDataOptions      `pulumi:"dataOptions"`
-	GridLineVisibility *TemplateVisibility           `pulumi:"gridLineVisibility"`
-	ScrollbarOptions   *TemplateScrollBarOptions     `pulumi:"scrollbarOptions"`
-	TickLabelOptions   *TemplateAxisTickLabelOptions `pulumi:"tickLabelOptions"`
-}
-
-// TemplateAxisDisplayOptionsInput is an input type that accepts TemplateAxisDisplayOptionsArgs and TemplateAxisDisplayOptionsOutput values.
-// You can construct a concrete instance of `TemplateAxisDisplayOptionsInput` via:
-//
-//	TemplateAxisDisplayOptionsArgs{...}
-type TemplateAxisDisplayOptionsInput interface {
-	pulumi.Input
-
-	ToTemplateAxisDisplayOptionsOutput() TemplateAxisDisplayOptionsOutput
-	ToTemplateAxisDisplayOptionsOutputWithContext(context.Context) TemplateAxisDisplayOptionsOutput
-}
-
-type TemplateAxisDisplayOptionsArgs struct {
-	AxisLineVisibility TemplateVisibilityPtrInput `pulumi:"axisLineVisibility"`
-	// String based length that is composed of value and unit in px
-	AxisOffset         pulumi.StringPtrInput                `pulumi:"axisOffset"`
-	DataOptions        TemplateAxisDataOptionsPtrInput      `pulumi:"dataOptions"`
-	GridLineVisibility TemplateVisibilityPtrInput           `pulumi:"gridLineVisibility"`
-	ScrollbarOptions   TemplateScrollBarOptionsPtrInput     `pulumi:"scrollbarOptions"`
-	TickLabelOptions   TemplateAxisTickLabelOptionsPtrInput `pulumi:"tickLabelOptions"`
-}
-
-func (TemplateAxisDisplayOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisDisplayOptions)(nil)).Elem()
-}
-
-func (i TemplateAxisDisplayOptionsArgs) ToTemplateAxisDisplayOptionsOutput() TemplateAxisDisplayOptionsOutput {
-	return i.ToTemplateAxisDisplayOptionsOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisDisplayOptionsArgs) ToTemplateAxisDisplayOptionsOutputWithContext(ctx context.Context) TemplateAxisDisplayOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayOptionsOutput)
-}
-
-func (i TemplateAxisDisplayOptionsArgs) ToTemplateAxisDisplayOptionsPtrOutput() TemplateAxisDisplayOptionsPtrOutput {
-	return i.ToTemplateAxisDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisDisplayOptionsArgs) ToTemplateAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisDisplayOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayOptionsOutput).ToTemplateAxisDisplayOptionsPtrOutputWithContext(ctx)
-}
-
-// TemplateAxisDisplayOptionsPtrInput is an input type that accepts TemplateAxisDisplayOptionsArgs, TemplateAxisDisplayOptionsPtr and TemplateAxisDisplayOptionsPtrOutput values.
-// You can construct a concrete instance of `TemplateAxisDisplayOptionsPtrInput` via:
-//
-//	        TemplateAxisDisplayOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateAxisDisplayOptionsPtrInput interface {
-	pulumi.Input
-
-	ToTemplateAxisDisplayOptionsPtrOutput() TemplateAxisDisplayOptionsPtrOutput
-	ToTemplateAxisDisplayOptionsPtrOutputWithContext(context.Context) TemplateAxisDisplayOptionsPtrOutput
-}
-
-type templateAxisDisplayOptionsPtrType TemplateAxisDisplayOptionsArgs
-
-func TemplateAxisDisplayOptionsPtr(v *TemplateAxisDisplayOptionsArgs) TemplateAxisDisplayOptionsPtrInput {
-	return (*templateAxisDisplayOptionsPtrType)(v)
-}
-
-func (*templateAxisDisplayOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisDisplayOptions)(nil)).Elem()
-}
-
-func (i *templateAxisDisplayOptionsPtrType) ToTemplateAxisDisplayOptionsPtrOutput() TemplateAxisDisplayOptionsPtrOutput {
-	return i.ToTemplateAxisDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *templateAxisDisplayOptionsPtrType) ToTemplateAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisDisplayOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayOptionsPtrOutput)
-}
-
-type TemplateAxisDisplayOptionsOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisDisplayOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisDisplayOptions)(nil)).Elem()
-}
-
-func (o TemplateAxisDisplayOptionsOutput) ToTemplateAxisDisplayOptionsOutput() TemplateAxisDisplayOptionsOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayOptionsOutput) ToTemplateAxisDisplayOptionsOutputWithContext(ctx context.Context) TemplateAxisDisplayOptionsOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayOptionsOutput) ToTemplateAxisDisplayOptionsPtrOutput() TemplateAxisDisplayOptionsPtrOutput {
-	return o.ToTemplateAxisDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateAxisDisplayOptionsOutput) ToTemplateAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisDisplayOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAxisDisplayOptions) *TemplateAxisDisplayOptions {
-		return &v
-	}).(TemplateAxisDisplayOptionsPtrOutput)
-}
-
-func (o TemplateAxisDisplayOptionsOutput) AxisLineVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateAxisDisplayOptions) *TemplateVisibility { return v.AxisLineVisibility }).(TemplateVisibilityPtrOutput)
-}
-
-// String based length that is composed of value and unit in px
-func (o TemplateAxisDisplayOptionsOutput) AxisOffset() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateAxisDisplayOptions) *string { return v.AxisOffset }).(pulumi.StringPtrOutput)
-}
-
-func (o TemplateAxisDisplayOptionsOutput) DataOptions() TemplateAxisDataOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateAxisDisplayOptions) *TemplateAxisDataOptions { return v.DataOptions }).(TemplateAxisDataOptionsPtrOutput)
-}
-
-func (o TemplateAxisDisplayOptionsOutput) GridLineVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateAxisDisplayOptions) *TemplateVisibility { return v.GridLineVisibility }).(TemplateVisibilityPtrOutput)
-}
-
-func (o TemplateAxisDisplayOptionsOutput) ScrollbarOptions() TemplateScrollBarOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateAxisDisplayOptions) *TemplateScrollBarOptions { return v.ScrollbarOptions }).(TemplateScrollBarOptionsPtrOutput)
-}
-
-func (o TemplateAxisDisplayOptionsOutput) TickLabelOptions() TemplateAxisTickLabelOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateAxisDisplayOptions) *TemplateAxisTickLabelOptions { return v.TickLabelOptions }).(TemplateAxisTickLabelOptionsPtrOutput)
-}
-
-type TemplateAxisDisplayOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisDisplayOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisDisplayOptions)(nil)).Elem()
-}
-
-func (o TemplateAxisDisplayOptionsPtrOutput) ToTemplateAxisDisplayOptionsPtrOutput() TemplateAxisDisplayOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayOptionsPtrOutput) ToTemplateAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisDisplayOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayOptionsPtrOutput) Elem() TemplateAxisDisplayOptionsOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayOptions) TemplateAxisDisplayOptions {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateAxisDisplayOptions
-		return ret
-	}).(TemplateAxisDisplayOptionsOutput)
-}
-
-func (o TemplateAxisDisplayOptionsPtrOutput) AxisLineVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayOptions) *TemplateVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.AxisLineVisibility
-	}).(TemplateVisibilityPtrOutput)
-}
-
-// String based length that is composed of value and unit in px
-func (o TemplateAxisDisplayOptionsPtrOutput) AxisOffset() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AxisOffset
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TemplateAxisDisplayOptionsPtrOutput) DataOptions() TemplateAxisDataOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayOptions) *TemplateAxisDataOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DataOptions
-	}).(TemplateAxisDataOptionsPtrOutput)
-}
-
-func (o TemplateAxisDisplayOptionsPtrOutput) GridLineVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayOptions) *TemplateVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.GridLineVisibility
-	}).(TemplateVisibilityPtrOutput)
-}
-
-func (o TemplateAxisDisplayOptionsPtrOutput) ScrollbarOptions() TemplateScrollBarOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayOptions) *TemplateScrollBarOptions {
-		if v == nil {
-			return nil
-		}
-		return v.ScrollbarOptions
-	}).(TemplateScrollBarOptionsPtrOutput)
-}
-
-func (o TemplateAxisDisplayOptionsPtrOutput) TickLabelOptions() TemplateAxisTickLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayOptions) *TemplateAxisTickLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.TickLabelOptions
-	}).(TemplateAxisTickLabelOptionsPtrOutput)
-}
-
-type TemplateAxisDisplayRange struct {
-	DataDriven *TemplateAxisDisplayDataDrivenRange `pulumi:"dataDriven"`
-	MinMax     *TemplateAxisDisplayMinMaxRange     `pulumi:"minMax"`
-}
-
-// TemplateAxisDisplayRangeInput is an input type that accepts TemplateAxisDisplayRangeArgs and TemplateAxisDisplayRangeOutput values.
-// You can construct a concrete instance of `TemplateAxisDisplayRangeInput` via:
-//
-//	TemplateAxisDisplayRangeArgs{...}
-type TemplateAxisDisplayRangeInput interface {
-	pulumi.Input
-
-	ToTemplateAxisDisplayRangeOutput() TemplateAxisDisplayRangeOutput
-	ToTemplateAxisDisplayRangeOutputWithContext(context.Context) TemplateAxisDisplayRangeOutput
-}
-
-type TemplateAxisDisplayRangeArgs struct {
-	DataDriven TemplateAxisDisplayDataDrivenRangePtrInput `pulumi:"dataDriven"`
-	MinMax     TemplateAxisDisplayMinMaxRangePtrInput     `pulumi:"minMax"`
-}
-
-func (TemplateAxisDisplayRangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisDisplayRange)(nil)).Elem()
-}
-
-func (i TemplateAxisDisplayRangeArgs) ToTemplateAxisDisplayRangeOutput() TemplateAxisDisplayRangeOutput {
-	return i.ToTemplateAxisDisplayRangeOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisDisplayRangeArgs) ToTemplateAxisDisplayRangeOutputWithContext(ctx context.Context) TemplateAxisDisplayRangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayRangeOutput)
-}
-
-func (i TemplateAxisDisplayRangeArgs) ToTemplateAxisDisplayRangePtrOutput() TemplateAxisDisplayRangePtrOutput {
-	return i.ToTemplateAxisDisplayRangePtrOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisDisplayRangeArgs) ToTemplateAxisDisplayRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayRangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayRangeOutput).ToTemplateAxisDisplayRangePtrOutputWithContext(ctx)
-}
-
-// TemplateAxisDisplayRangePtrInput is an input type that accepts TemplateAxisDisplayRangeArgs, TemplateAxisDisplayRangePtr and TemplateAxisDisplayRangePtrOutput values.
-// You can construct a concrete instance of `TemplateAxisDisplayRangePtrInput` via:
-//
-//	        TemplateAxisDisplayRangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateAxisDisplayRangePtrInput interface {
-	pulumi.Input
-
-	ToTemplateAxisDisplayRangePtrOutput() TemplateAxisDisplayRangePtrOutput
-	ToTemplateAxisDisplayRangePtrOutputWithContext(context.Context) TemplateAxisDisplayRangePtrOutput
-}
-
-type templateAxisDisplayRangePtrType TemplateAxisDisplayRangeArgs
-
-func TemplateAxisDisplayRangePtr(v *TemplateAxisDisplayRangeArgs) TemplateAxisDisplayRangePtrInput {
-	return (*templateAxisDisplayRangePtrType)(v)
-}
-
-func (*templateAxisDisplayRangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisDisplayRange)(nil)).Elem()
-}
-
-func (i *templateAxisDisplayRangePtrType) ToTemplateAxisDisplayRangePtrOutput() TemplateAxisDisplayRangePtrOutput {
-	return i.ToTemplateAxisDisplayRangePtrOutputWithContext(context.Background())
-}
-
-func (i *templateAxisDisplayRangePtrType) ToTemplateAxisDisplayRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayRangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDisplayRangePtrOutput)
-}
-
-type TemplateAxisDisplayRangeOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisDisplayRangeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisDisplayRange)(nil)).Elem()
-}
-
-func (o TemplateAxisDisplayRangeOutput) ToTemplateAxisDisplayRangeOutput() TemplateAxisDisplayRangeOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayRangeOutput) ToTemplateAxisDisplayRangeOutputWithContext(ctx context.Context) TemplateAxisDisplayRangeOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayRangeOutput) ToTemplateAxisDisplayRangePtrOutput() TemplateAxisDisplayRangePtrOutput {
-	return o.ToTemplateAxisDisplayRangePtrOutputWithContext(context.Background())
-}
-
-func (o TemplateAxisDisplayRangeOutput) ToTemplateAxisDisplayRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayRangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAxisDisplayRange) *TemplateAxisDisplayRange {
-		return &v
-	}).(TemplateAxisDisplayRangePtrOutput)
-}
-
-func (o TemplateAxisDisplayRangeOutput) DataDriven() TemplateAxisDisplayDataDrivenRangePtrOutput {
-	return o.ApplyT(func(v TemplateAxisDisplayRange) *TemplateAxisDisplayDataDrivenRange { return v.DataDriven }).(TemplateAxisDisplayDataDrivenRangePtrOutput)
-}
-
-func (o TemplateAxisDisplayRangeOutput) MinMax() TemplateAxisDisplayMinMaxRangePtrOutput {
-	return o.ApplyT(func(v TemplateAxisDisplayRange) *TemplateAxisDisplayMinMaxRange { return v.MinMax }).(TemplateAxisDisplayMinMaxRangePtrOutput)
-}
-
-type TemplateAxisDisplayRangePtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisDisplayRangePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisDisplayRange)(nil)).Elem()
-}
-
-func (o TemplateAxisDisplayRangePtrOutput) ToTemplateAxisDisplayRangePtrOutput() TemplateAxisDisplayRangePtrOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayRangePtrOutput) ToTemplateAxisDisplayRangePtrOutputWithContext(ctx context.Context) TemplateAxisDisplayRangePtrOutput {
-	return o
-}
-
-func (o TemplateAxisDisplayRangePtrOutput) Elem() TemplateAxisDisplayRangeOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayRange) TemplateAxisDisplayRange {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateAxisDisplayRange
-		return ret
-	}).(TemplateAxisDisplayRangeOutput)
-}
-
-func (o TemplateAxisDisplayRangePtrOutput) DataDriven() TemplateAxisDisplayDataDrivenRangePtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayRange) *TemplateAxisDisplayDataDrivenRange {
-		if v == nil {
-			return nil
-		}
-		return v.DataDriven
-	}).(TemplateAxisDisplayDataDrivenRangePtrOutput)
-}
-
-func (o TemplateAxisDisplayRangePtrOutput) MinMax() TemplateAxisDisplayMinMaxRangePtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDisplayRange) *TemplateAxisDisplayMinMaxRange {
-		if v == nil {
-			return nil
-		}
-		return v.MinMax
-	}).(TemplateAxisDisplayMinMaxRangePtrOutput)
-}
-
-type TemplateAxisLabelOptions struct {
-	ApplyTo           *TemplateAxisLabelReferenceOptions `pulumi:"applyTo"`
-	CustomLabel       *string                            `pulumi:"customLabel"`
-	FontConfiguration *TemplateFontConfiguration         `pulumi:"fontConfiguration"`
-}
-
-// TemplateAxisLabelOptionsInput is an input type that accepts TemplateAxisLabelOptionsArgs and TemplateAxisLabelOptionsOutput values.
-// You can construct a concrete instance of `TemplateAxisLabelOptionsInput` via:
-//
-//	TemplateAxisLabelOptionsArgs{...}
-type TemplateAxisLabelOptionsInput interface {
-	pulumi.Input
-
-	ToTemplateAxisLabelOptionsOutput() TemplateAxisLabelOptionsOutput
-	ToTemplateAxisLabelOptionsOutputWithContext(context.Context) TemplateAxisLabelOptionsOutput
-}
-
-type TemplateAxisLabelOptionsArgs struct {
-	ApplyTo           TemplateAxisLabelReferenceOptionsPtrInput `pulumi:"applyTo"`
-	CustomLabel       pulumi.StringPtrInput                     `pulumi:"customLabel"`
-	FontConfiguration TemplateFontConfigurationPtrInput         `pulumi:"fontConfiguration"`
-}
-
-func (TemplateAxisLabelOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisLabelOptions)(nil)).Elem()
-}
-
-func (i TemplateAxisLabelOptionsArgs) ToTemplateAxisLabelOptionsOutput() TemplateAxisLabelOptionsOutput {
-	return i.ToTemplateAxisLabelOptionsOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisLabelOptionsArgs) ToTemplateAxisLabelOptionsOutputWithContext(ctx context.Context) TemplateAxisLabelOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLabelOptionsOutput)
-}
-
-// TemplateAxisLabelOptionsArrayInput is an input type that accepts TemplateAxisLabelOptionsArray and TemplateAxisLabelOptionsArrayOutput values.
-// You can construct a concrete instance of `TemplateAxisLabelOptionsArrayInput` via:
-//
-//	TemplateAxisLabelOptionsArray{ TemplateAxisLabelOptionsArgs{...} }
-type TemplateAxisLabelOptionsArrayInput interface {
-	pulumi.Input
-
-	ToTemplateAxisLabelOptionsArrayOutput() TemplateAxisLabelOptionsArrayOutput
-	ToTemplateAxisLabelOptionsArrayOutputWithContext(context.Context) TemplateAxisLabelOptionsArrayOutput
-}
-
-type TemplateAxisLabelOptionsArray []TemplateAxisLabelOptionsInput
-
-func (TemplateAxisLabelOptionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateAxisLabelOptions)(nil)).Elem()
-}
-
-func (i TemplateAxisLabelOptionsArray) ToTemplateAxisLabelOptionsArrayOutput() TemplateAxisLabelOptionsArrayOutput {
-	return i.ToTemplateAxisLabelOptionsArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisLabelOptionsArray) ToTemplateAxisLabelOptionsArrayOutputWithContext(ctx context.Context) TemplateAxisLabelOptionsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLabelOptionsArrayOutput)
-}
-
-type TemplateAxisLabelOptionsOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisLabelOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisLabelOptions)(nil)).Elem()
-}
-
-func (o TemplateAxisLabelOptionsOutput) ToTemplateAxisLabelOptionsOutput() TemplateAxisLabelOptionsOutput {
-	return o
-}
-
-func (o TemplateAxisLabelOptionsOutput) ToTemplateAxisLabelOptionsOutputWithContext(ctx context.Context) TemplateAxisLabelOptionsOutput {
-	return o
-}
-
-func (o TemplateAxisLabelOptionsOutput) ApplyTo() TemplateAxisLabelReferenceOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateAxisLabelOptions) *TemplateAxisLabelReferenceOptions { return v.ApplyTo }).(TemplateAxisLabelReferenceOptionsPtrOutput)
-}
-
-func (o TemplateAxisLabelOptionsOutput) CustomLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateAxisLabelOptions) *string { return v.CustomLabel }).(pulumi.StringPtrOutput)
-}
-
-func (o TemplateAxisLabelOptionsOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateAxisLabelOptions) *TemplateFontConfiguration { return v.FontConfiguration }).(TemplateFontConfigurationPtrOutput)
-}
-
-type TemplateAxisLabelOptionsArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisLabelOptionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateAxisLabelOptions)(nil)).Elem()
-}
-
-func (o TemplateAxisLabelOptionsArrayOutput) ToTemplateAxisLabelOptionsArrayOutput() TemplateAxisLabelOptionsArrayOutput {
-	return o
-}
-
-func (o TemplateAxisLabelOptionsArrayOutput) ToTemplateAxisLabelOptionsArrayOutputWithContext(ctx context.Context) TemplateAxisLabelOptionsArrayOutput {
-	return o
-}
-
-func (o TemplateAxisLabelOptionsArrayOutput) Index(i pulumi.IntInput) TemplateAxisLabelOptionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateAxisLabelOptions {
-		return vs[0].([]TemplateAxisLabelOptions)[vs[1].(int)]
-	}).(TemplateAxisLabelOptionsOutput)
-}
-
-type TemplateAxisLabelReferenceOptions struct {
-	Column  TemplateColumnIdentifier `pulumi:"column"`
-	FieldId string                   `pulumi:"fieldId"`
-}
-
-// TemplateAxisLabelReferenceOptionsInput is an input type that accepts TemplateAxisLabelReferenceOptionsArgs and TemplateAxisLabelReferenceOptionsOutput values.
-// You can construct a concrete instance of `TemplateAxisLabelReferenceOptionsInput` via:
-//
-//	TemplateAxisLabelReferenceOptionsArgs{...}
-type TemplateAxisLabelReferenceOptionsInput interface {
-	pulumi.Input
-
-	ToTemplateAxisLabelReferenceOptionsOutput() TemplateAxisLabelReferenceOptionsOutput
-	ToTemplateAxisLabelReferenceOptionsOutputWithContext(context.Context) TemplateAxisLabelReferenceOptionsOutput
-}
-
-type TemplateAxisLabelReferenceOptionsArgs struct {
-	Column  TemplateColumnIdentifierInput `pulumi:"column"`
-	FieldId pulumi.StringInput            `pulumi:"fieldId"`
-}
-
-func (TemplateAxisLabelReferenceOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisLabelReferenceOptions)(nil)).Elem()
-}
-
-func (i TemplateAxisLabelReferenceOptionsArgs) ToTemplateAxisLabelReferenceOptionsOutput() TemplateAxisLabelReferenceOptionsOutput {
-	return i.ToTemplateAxisLabelReferenceOptionsOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisLabelReferenceOptionsArgs) ToTemplateAxisLabelReferenceOptionsOutputWithContext(ctx context.Context) TemplateAxisLabelReferenceOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLabelReferenceOptionsOutput)
-}
-
-func (i TemplateAxisLabelReferenceOptionsArgs) ToTemplateAxisLabelReferenceOptionsPtrOutput() TemplateAxisLabelReferenceOptionsPtrOutput {
-	return i.ToTemplateAxisLabelReferenceOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisLabelReferenceOptionsArgs) ToTemplateAxisLabelReferenceOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisLabelReferenceOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLabelReferenceOptionsOutput).ToTemplateAxisLabelReferenceOptionsPtrOutputWithContext(ctx)
-}
-
-// TemplateAxisLabelReferenceOptionsPtrInput is an input type that accepts TemplateAxisLabelReferenceOptionsArgs, TemplateAxisLabelReferenceOptionsPtr and TemplateAxisLabelReferenceOptionsPtrOutput values.
-// You can construct a concrete instance of `TemplateAxisLabelReferenceOptionsPtrInput` via:
-//
-//	        TemplateAxisLabelReferenceOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateAxisLabelReferenceOptionsPtrInput interface {
-	pulumi.Input
-
-	ToTemplateAxisLabelReferenceOptionsPtrOutput() TemplateAxisLabelReferenceOptionsPtrOutput
-	ToTemplateAxisLabelReferenceOptionsPtrOutputWithContext(context.Context) TemplateAxisLabelReferenceOptionsPtrOutput
-}
-
-type templateAxisLabelReferenceOptionsPtrType TemplateAxisLabelReferenceOptionsArgs
-
-func TemplateAxisLabelReferenceOptionsPtr(v *TemplateAxisLabelReferenceOptionsArgs) TemplateAxisLabelReferenceOptionsPtrInput {
-	return (*templateAxisLabelReferenceOptionsPtrType)(v)
-}
-
-func (*templateAxisLabelReferenceOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisLabelReferenceOptions)(nil)).Elem()
-}
-
-func (i *templateAxisLabelReferenceOptionsPtrType) ToTemplateAxisLabelReferenceOptionsPtrOutput() TemplateAxisLabelReferenceOptionsPtrOutput {
-	return i.ToTemplateAxisLabelReferenceOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *templateAxisLabelReferenceOptionsPtrType) ToTemplateAxisLabelReferenceOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisLabelReferenceOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLabelReferenceOptionsPtrOutput)
-}
-
-type TemplateAxisLabelReferenceOptionsOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisLabelReferenceOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisLabelReferenceOptions)(nil)).Elem()
-}
-
-func (o TemplateAxisLabelReferenceOptionsOutput) ToTemplateAxisLabelReferenceOptionsOutput() TemplateAxisLabelReferenceOptionsOutput {
-	return o
-}
-
-func (o TemplateAxisLabelReferenceOptionsOutput) ToTemplateAxisLabelReferenceOptionsOutputWithContext(ctx context.Context) TemplateAxisLabelReferenceOptionsOutput {
-	return o
-}
-
-func (o TemplateAxisLabelReferenceOptionsOutput) ToTemplateAxisLabelReferenceOptionsPtrOutput() TemplateAxisLabelReferenceOptionsPtrOutput {
-	return o.ToTemplateAxisLabelReferenceOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateAxisLabelReferenceOptionsOutput) ToTemplateAxisLabelReferenceOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisLabelReferenceOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAxisLabelReferenceOptions) *TemplateAxisLabelReferenceOptions {
-		return &v
-	}).(TemplateAxisLabelReferenceOptionsPtrOutput)
-}
-
-func (o TemplateAxisLabelReferenceOptionsOutput) Column() TemplateColumnIdentifierOutput {
-	return o.ApplyT(func(v TemplateAxisLabelReferenceOptions) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
-}
-
-func (o TemplateAxisLabelReferenceOptionsOutput) FieldId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateAxisLabelReferenceOptions) string { return v.FieldId }).(pulumi.StringOutput)
-}
-
-type TemplateAxisLabelReferenceOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisLabelReferenceOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisLabelReferenceOptions)(nil)).Elem()
-}
-
-func (o TemplateAxisLabelReferenceOptionsPtrOutput) ToTemplateAxisLabelReferenceOptionsPtrOutput() TemplateAxisLabelReferenceOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateAxisLabelReferenceOptionsPtrOutput) ToTemplateAxisLabelReferenceOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisLabelReferenceOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateAxisLabelReferenceOptionsPtrOutput) Elem() TemplateAxisLabelReferenceOptionsOutput {
-	return o.ApplyT(func(v *TemplateAxisLabelReferenceOptions) TemplateAxisLabelReferenceOptions {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateAxisLabelReferenceOptions
-		return ret
-	}).(TemplateAxisLabelReferenceOptionsOutput)
-}
-
-func (o TemplateAxisLabelReferenceOptionsPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
-	return o.ApplyT(func(v *TemplateAxisLabelReferenceOptions) *TemplateColumnIdentifier {
-		if v == nil {
-			return nil
-		}
-		return &v.Column
-	}).(TemplateColumnIdentifierPtrOutput)
-}
-
-func (o TemplateAxisLabelReferenceOptionsPtrOutput) FieldId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateAxisLabelReferenceOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FieldId
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCalculatedMeasureFieldInput)(nil)).Elem(), DashboardCalculatedMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCalculatedMeasureFieldPtrInput)(nil)).Elem(), DashboardCalculatedMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCascadingControlConfigurationInput)(nil)).Elem(), DashboardCascadingControlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCascadingControlConfigurationPtrInput)(nil)).Elem(), DashboardCascadingControlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCascadingControlSourceInput)(nil)).Elem(), DashboardCascadingControlSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCascadingControlSourceArrayInput)(nil)).Elem(), DashboardCascadingControlSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoricalDimensionFieldInput)(nil)).Elem(), DashboardCategoricalDimensionFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoricalDimensionFieldPtrInput)(nil)).Elem(), DashboardCategoricalDimensionFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoricalMeasureFieldInput)(nil)).Elem(), DashboardCategoricalMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoricalMeasureFieldPtrInput)(nil)).Elem(), DashboardCategoricalMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryDrillDownFilterInput)(nil)).Elem(), DashboardCategoryDrillDownFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryDrillDownFilterPtrInput)(nil)).Elem(), DashboardCategoryDrillDownFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryFilterInput)(nil)).Elem(), DashboardCategoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryFilterPtrInput)(nil)).Elem(), DashboardCategoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryFilterConfigurationInput)(nil)).Elem(), DashboardCategoryFilterConfigurationArgs{})
@@ -80063,18 +80088,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArcOptionsPtrInput)(nil)).Elem(), TemplateArcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDataOptionsInput)(nil)).Elem(), TemplateAxisDataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDataOptionsPtrInput)(nil)).Elem(), TemplateAxisDataOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDisplayDataDrivenRangeInput)(nil)).Elem(), TemplateAxisDisplayDataDrivenRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDisplayDataDrivenRangePtrInput)(nil)).Elem(), TemplateAxisDisplayDataDrivenRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDisplayMinMaxRangeInput)(nil)).Elem(), TemplateAxisDisplayMinMaxRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDisplayMinMaxRangePtrInput)(nil)).Elem(), TemplateAxisDisplayMinMaxRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDisplayOptionsInput)(nil)).Elem(), TemplateAxisDisplayOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDisplayOptionsPtrInput)(nil)).Elem(), TemplateAxisDisplayOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDisplayRangeInput)(nil)).Elem(), TemplateAxisDisplayRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDisplayRangePtrInput)(nil)).Elem(), TemplateAxisDisplayRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisLabelOptionsInput)(nil)).Elem(), TemplateAxisLabelOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisLabelOptionsArrayInput)(nil)).Elem(), TemplateAxisLabelOptionsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisLabelReferenceOptionsInput)(nil)).Elem(), TemplateAxisLabelReferenceOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisLabelReferenceOptionsPtrInput)(nil)).Elem(), TemplateAxisLabelReferenceOptionsArgs{})
+	pulumi.RegisterOutputType(DashboardCalculatedMeasureFieldOutput{})
+	pulumi.RegisterOutputType(DashboardCalculatedMeasureFieldPtrOutput{})
+	pulumi.RegisterOutputType(DashboardCascadingControlConfigurationOutput{})
+	pulumi.RegisterOutputType(DashboardCascadingControlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardCascadingControlSourceOutput{})
+	pulumi.RegisterOutputType(DashboardCascadingControlSourceArrayOutput{})
+	pulumi.RegisterOutputType(DashboardCategoricalDimensionFieldOutput{})
+	pulumi.RegisterOutputType(DashboardCategoricalDimensionFieldPtrOutput{})
+	pulumi.RegisterOutputType(DashboardCategoricalMeasureFieldOutput{})
+	pulumi.RegisterOutputType(DashboardCategoricalMeasureFieldPtrOutput{})
+	pulumi.RegisterOutputType(DashboardCategoryDrillDownFilterOutput{})
+	pulumi.RegisterOutputType(DashboardCategoryDrillDownFilterPtrOutput{})
 	pulumi.RegisterOutputType(DashboardCategoryFilterOutput{})
 	pulumi.RegisterOutputType(DashboardCategoryFilterPtrOutput{})
 	pulumi.RegisterOutputType(DashboardCategoryFilterConfigurationOutput{})
@@ -81060,16 +81085,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateArcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateAxisDataOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateAxisDataOptionsPtrOutput{})
-	pulumi.RegisterOutputType(TemplateAxisDisplayDataDrivenRangeOutput{})
-	pulumi.RegisterOutputType(TemplateAxisDisplayDataDrivenRangePtrOutput{})
-	pulumi.RegisterOutputType(TemplateAxisDisplayMinMaxRangeOutput{})
-	pulumi.RegisterOutputType(TemplateAxisDisplayMinMaxRangePtrOutput{})
-	pulumi.RegisterOutputType(TemplateAxisDisplayOptionsOutput{})
-	pulumi.RegisterOutputType(TemplateAxisDisplayOptionsPtrOutput{})
-	pulumi.RegisterOutputType(TemplateAxisDisplayRangeOutput{})
-	pulumi.RegisterOutputType(TemplateAxisDisplayRangePtrOutput{})
-	pulumi.RegisterOutputType(TemplateAxisLabelOptionsOutput{})
-	pulumi.RegisterOutputType(TemplateAxisLabelOptionsArrayOutput{})
-	pulumi.RegisterOutputType(TemplateAxisLabelReferenceOptionsOutput{})
-	pulumi.RegisterOutputType(TemplateAxisLabelReferenceOptionsPtrOutput{})
 }

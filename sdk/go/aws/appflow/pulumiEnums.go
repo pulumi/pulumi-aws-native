@@ -5062,6 +5062,7 @@ type FlowStatus string
 const (
 	FlowStatusActive    = FlowStatus("Active")
 	FlowStatusSuspended = FlowStatus("Suspended")
+	FlowStatusDraft     = FlowStatus("Draft")
 )
 
 func (FlowStatus) ElementType() reflect.Type {

@@ -1631,8 +1631,11 @@ type FileSystemOpenZfsConfiguration struct {
 	DailyAutomaticBackupStartTime *string                            `pulumi:"dailyAutomaticBackupStartTime"`
 	DeploymentType                string                             `pulumi:"deploymentType"`
 	DiskIopsConfiguration         *FileSystemDiskIopsConfiguration   `pulumi:"diskIopsConfiguration"`
+	EndpointIpAddressRange        *string                            `pulumi:"endpointIpAddressRange"`
 	Options                       []string                           `pulumi:"options"`
+	PreferredSubnetId             *string                            `pulumi:"preferredSubnetId"`
 	RootVolumeConfiguration       *FileSystemRootVolumeConfiguration `pulumi:"rootVolumeConfiguration"`
+	RouteTableIds                 []string                           `pulumi:"routeTableIds"`
 	ThroughputCapacity            *int                               `pulumi:"throughputCapacity"`
 	WeeklyMaintenanceStartTime    *string                            `pulumi:"weeklyMaintenanceStartTime"`
 }
@@ -1655,8 +1658,11 @@ type FileSystemOpenZfsConfigurationArgs struct {
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput                     `pulumi:"dailyAutomaticBackupStartTime"`
 	DeploymentType                pulumi.StringInput                        `pulumi:"deploymentType"`
 	DiskIopsConfiguration         FileSystemDiskIopsConfigurationPtrInput   `pulumi:"diskIopsConfiguration"`
+	EndpointIpAddressRange        pulumi.StringPtrInput                     `pulumi:"endpointIpAddressRange"`
 	Options                       pulumi.StringArrayInput                   `pulumi:"options"`
+	PreferredSubnetId             pulumi.StringPtrInput                     `pulumi:"preferredSubnetId"`
 	RootVolumeConfiguration       FileSystemRootVolumeConfigurationPtrInput `pulumi:"rootVolumeConfiguration"`
+	RouteTableIds                 pulumi.StringArrayInput                   `pulumi:"routeTableIds"`
 	ThroughputCapacity            pulumi.IntPtrInput                        `pulumi:"throughputCapacity"`
 	WeeklyMaintenanceStartTime    pulumi.StringPtrInput                     `pulumi:"weeklyMaintenanceStartTime"`
 }
@@ -1764,14 +1770,26 @@ func (o FileSystemOpenZfsConfigurationOutput) DiskIopsConfiguration() FileSystem
 	}).(FileSystemDiskIopsConfigurationPtrOutput)
 }
 
+func (o FileSystemOpenZfsConfigurationOutput) EndpointIpAddressRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *string { return v.EndpointIpAddressRange }).(pulumi.StringPtrOutput)
+}
+
 func (o FileSystemOpenZfsConfigurationOutput) Options() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+func (o FileSystemOpenZfsConfigurationOutput) PreferredSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *string { return v.PreferredSubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o FileSystemOpenZfsConfigurationOutput) RootVolumeConfiguration() FileSystemRootVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) *FileSystemRootVolumeConfiguration {
 		return v.RootVolumeConfiguration
 	}).(FileSystemRootVolumeConfigurationPtrOutput)
+}
+
+func (o FileSystemOpenZfsConfigurationOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FileSystemOpenZfsConfiguration) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
 }
 
 func (o FileSystemOpenZfsConfigurationOutput) ThroughputCapacity() pulumi.IntPtrOutput {
@@ -1860,6 +1878,15 @@ func (o FileSystemOpenZfsConfigurationPtrOutput) DiskIopsConfiguration() FileSys
 	}).(FileSystemDiskIopsConfigurationPtrOutput)
 }
 
+func (o FileSystemOpenZfsConfigurationPtrOutput) EndpointIpAddressRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointIpAddressRange
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o FileSystemOpenZfsConfigurationPtrOutput) Options() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) []string {
 		if v == nil {
@@ -1869,6 +1896,15 @@ func (o FileSystemOpenZfsConfigurationPtrOutput) Options() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+func (o FileSystemOpenZfsConfigurationPtrOutput) PreferredSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o FileSystemOpenZfsConfigurationPtrOutput) RootVolumeConfiguration() FileSystemRootVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) *FileSystemRootVolumeConfiguration {
 		if v == nil {
@@ -1876,6 +1912,15 @@ func (o FileSystemOpenZfsConfigurationPtrOutput) RootVolumeConfiguration() FileS
 		}
 		return v.RootVolumeConfiguration
 	}).(FileSystemRootVolumeConfigurationPtrOutput)
+}
+
+func (o FileSystemOpenZfsConfigurationPtrOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FileSystemOpenZfsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteTableIds
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o FileSystemOpenZfsConfigurationPtrOutput) ThroughputCapacity() pulumi.IntPtrOutput {
@@ -2530,6 +2575,7 @@ type FileSystemWindowsConfiguration struct {
 	CopyTagsToBackups                       *bool                                              `pulumi:"copyTagsToBackups"`
 	DailyAutomaticBackupStartTime           *string                                            `pulumi:"dailyAutomaticBackupStartTime"`
 	DeploymentType                          *string                                            `pulumi:"deploymentType"`
+	DiskIopsConfiguration                   *FileSystemDiskIopsConfiguration                   `pulumi:"diskIopsConfiguration"`
 	PreferredSubnetId                       *string                                            `pulumi:"preferredSubnetId"`
 	SelfManagedActiveDirectoryConfiguration *FileSystemSelfManagedActiveDirectoryConfiguration `pulumi:"selfManagedActiveDirectoryConfiguration"`
 	ThroughputCapacity                      int                                                `pulumi:"throughputCapacity"`
@@ -2555,6 +2601,7 @@ type FileSystemWindowsConfigurationArgs struct {
 	CopyTagsToBackups                       pulumi.BoolPtrInput                                       `pulumi:"copyTagsToBackups"`
 	DailyAutomaticBackupStartTime           pulumi.StringPtrInput                                     `pulumi:"dailyAutomaticBackupStartTime"`
 	DeploymentType                          pulumi.StringPtrInput                                     `pulumi:"deploymentType"`
+	DiskIopsConfiguration                   FileSystemDiskIopsConfigurationPtrInput                   `pulumi:"diskIopsConfiguration"`
 	PreferredSubnetId                       pulumi.StringPtrInput                                     `pulumi:"preferredSubnetId"`
 	SelfManagedActiveDirectoryConfiguration FileSystemSelfManagedActiveDirectoryConfigurationPtrInput `pulumi:"selfManagedActiveDirectoryConfiguration"`
 	ThroughputCapacity                      pulumi.IntInput                                           `pulumi:"throughputCapacity"`
@@ -2668,6 +2715,12 @@ func (o FileSystemWindowsConfigurationOutput) DeploymentType() pulumi.StringPtrO
 	return o.ApplyT(func(v FileSystemWindowsConfiguration) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
 }
 
+func (o FileSystemWindowsConfigurationOutput) DiskIopsConfiguration() FileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v FileSystemWindowsConfiguration) *FileSystemDiskIopsConfiguration {
+		return v.DiskIopsConfiguration
+	}).(FileSystemDiskIopsConfigurationPtrOutput)
+}
+
 func (o FileSystemWindowsConfigurationOutput) PreferredSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemWindowsConfiguration) *string { return v.PreferredSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -2771,6 +2824,15 @@ func (o FileSystemWindowsConfigurationPtrOutput) DeploymentType() pulumi.StringP
 		}
 		return v.DeploymentType
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemWindowsConfigurationPtrOutput) DiskIopsConfiguration() FileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystemWindowsConfiguration) *FileSystemDiskIopsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DiskIopsConfiguration
+	}).(FileSystemDiskIopsConfigurationPtrOutput)
 }
 
 func (o FileSystemWindowsConfigurationPtrOutput) PreferredSubnetId() pulumi.StringPtrOutput {

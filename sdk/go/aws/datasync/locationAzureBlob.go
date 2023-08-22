@@ -13,8 +13,6 @@ import (
 )
 
 // Resource schema for AWS::DataSync::LocationAzureBlob.
-//
-// Deprecated: LocationAzureBlob is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type LocationAzureBlob struct {
 	pulumi.CustomResourceState
 

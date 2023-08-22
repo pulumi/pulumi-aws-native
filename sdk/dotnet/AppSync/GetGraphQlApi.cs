@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.AppSync
     {
         public readonly ImmutableArray<Outputs.GraphQlApiAdditionalAuthenticationProvider> AdditionalAuthenticationProviders;
         public readonly string? ApiId;
+        public readonly string? ApiType;
         public readonly string? Arn;
         public readonly string? AuthenticationType;
         public readonly string? GraphQlDns;
@@ -68,6 +69,7 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? RealtimeUrl;
         public readonly ImmutableArray<Outputs.GraphQlApiTag> Tags;
         public readonly Outputs.GraphQlApiUserPoolConfig? UserPoolConfig;
+        public readonly string? Visibility;
         public readonly bool? XrayEnabled;
 
         [OutputConstructor]
@@ -75,6 +77,8 @@ namespace Pulumi.AwsNative.AppSync
             ImmutableArray<Outputs.GraphQlApiAdditionalAuthenticationProvider> additionalAuthenticationProviders,
 
             string? apiId,
+
+            string? apiType,
 
             string? arn,
 
@@ -106,10 +110,13 @@ namespace Pulumi.AwsNative.AppSync
 
             Outputs.GraphQlApiUserPoolConfig? userPoolConfig,
 
+            string? visibility,
+
             bool? xrayEnabled)
         {
             AdditionalAuthenticationProviders = additionalAuthenticationProviders;
             ApiId = apiId;
+            ApiType = apiType;
             Arn = arn;
             AuthenticationType = authenticationType;
             GraphQlDns = graphQlDns;
@@ -125,6 +132,7 @@ namespace Pulumi.AwsNative.AppSync
             RealtimeUrl = realtimeUrl;
             Tags = tags;
             UserPoolConfig = userPoolConfig;
+            Visibility = visibility;
             XrayEnabled = xrayEnabled;
         }
     }

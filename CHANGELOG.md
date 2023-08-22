@@ -1,5 +1,34 @@
 ## HEAD (Unreleased)
 
+### Breaking Changes
+
+Function "aws-native:lambda:getFunction" missing output "snapStart"
+Function "aws-native:quicksight:getAnalysis" missing output "status"
+Function "aws-native:ec2:getEipAssociation" missing output "networkInterfaceId"
+Function "aws-native:ec2:getEipAssociation" missing output "privateIpAddress"
+Function "aws-native:ec2:getEipAssociation" missing output "allocationId"
+Function "aws-native:ec2:getEipAssociation" missing output "eip"
+Function "aws-native:ec2:getEipAssociation" missing output "instanceId"
+Function "aws-native:iam:getManagedPolicy" missing input "id"
+Function "aws-native:iam:getManagedPolicy" missing output "id"
+
+### New resources
+
+cloudformation.Stack
+datasync.LocationAzureBlob
+ec2.InstanceConnectEndpoint
+emr.WalWorkspace
+entityresolution.SchemaMapping
+route53resolver.OutpostResolver
+
+### New functions
+
+cloudformation.getStack
+datasync.getLocationAzureBlob
+ec2.getInstanceConnectEndpoint
+emr.getWalWorkspace
+entityresolution.getSchemaMapping
+route53resolver.getOutpostResolver
 
 ## 0.72.0 (2023-08-04)
 
@@ -7,7 +36,7 @@ This release includes a large number of breaking changes as we now UPPERCASE ini
 to TitleCase in all property/type/module/resource names. 
 
 
-## Breaking Changes
+### Breaking Changes
 
 Resource "aws-native:wafv2:WebACLAssociation" missing
 Resource "aws-native:ec2:IPAMResourceDiscovery" missing

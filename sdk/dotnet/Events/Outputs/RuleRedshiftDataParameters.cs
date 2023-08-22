@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Events.Outputs
         public readonly string Database;
         public readonly string? DbUser;
         public readonly string? SecretManagerArn;
-        public readonly string Sql;
+        public readonly string? Sql;
         public readonly string? StatementName;
         public readonly bool? WithEvent;
 
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Events.Outputs
 
             string? secretManagerArn,
 
-            string sql,
+            string? sql,
 
             string? statementName,
 

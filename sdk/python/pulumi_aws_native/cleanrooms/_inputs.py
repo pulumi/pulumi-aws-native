@@ -17,9 +17,11 @@ __all__ = [
     'ConfiguredTableAggregateColumnArgs',
     'ConfiguredTableAggregationConstraintArgs',
     'ConfiguredTableAnalysisRuleAggregationArgs',
+    'ConfiguredTableAnalysisRuleCustomArgs',
     'ConfiguredTableAnalysisRuleListArgs',
     'ConfiguredTableAnalysisRulePolicyV10PropertiesArgs',
     'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs',
+    'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs',
     'ConfiguredTableAnalysisRulePolicyArgs',
     'ConfiguredTableAnalysisRuleArgs',
     'ConfiguredTableAssociationTagArgs',
@@ -293,6 +295,34 @@ class ConfiguredTableAnalysisRuleAggregationArgs:
 
 
 @pulumi.input_type
+class ConfiguredTableAnalysisRuleCustomArgs:
+    def __init__(__self__, *,
+                 allowed_analyses: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_analysis_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "allowed_analyses", allowed_analyses)
+        if allowed_analysis_providers is not None:
+            pulumi.set(__self__, "allowed_analysis_providers", allowed_analysis_providers)
+
+    @property
+    @pulumi.getter(name="allowedAnalyses")
+    def allowed_analyses(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "allowed_analyses")
+
+    @allowed_analyses.setter
+    def allowed_analyses(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_analyses", value)
+
+    @property
+    @pulumi.getter(name="allowedAnalysisProviders")
+    def allowed_analysis_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_analysis_providers")
+
+    @allowed_analysis_providers.setter
+    def allowed_analysis_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_analysis_providers", value)
+
+
+@pulumi.input_type
 class ConfiguredTableAnalysisRuleListArgs:
     def __init__(__self__, *,
                  join_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -364,18 +394,34 @@ class ConfiguredTableAnalysisRulePolicyV11PropertiesArgs:
 
 
 @pulumi.input_type
+class ConfiguredTableAnalysisRulePolicyV12PropertiesArgs:
+    def __init__(__self__, *,
+                 custom: pulumi.Input['ConfiguredTableAnalysisRuleCustomArgs']):
+        pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def custom(self) -> pulumi.Input['ConfiguredTableAnalysisRuleCustomArgs']:
+        return pulumi.get(self, "custom")
+
+    @custom.setter
+    def custom(self, value: pulumi.Input['ConfiguredTableAnalysisRuleCustomArgs']):
+        pulumi.set(self, "custom", value)
+
+
+@pulumi.input_type
 class ConfiguredTableAnalysisRulePolicyArgs:
     def __init__(__self__, *,
-                 v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs']]):
+                 v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]):
         pulumi.set(__self__, "v1", v1)
 
     @property
     @pulumi.getter
-    def v1(self) -> pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs']]:
+    def v1(self) -> pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]:
         return pulumi.get(self, "v1")
 
     @v1.setter
-    def v1(self, value: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs']]):
+    def v1(self, value: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]):
         pulumi.set(self, "v1", value)
 
 

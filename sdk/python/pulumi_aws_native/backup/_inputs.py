@@ -68,6 +68,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
                  lifecycle: Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']] = None,
                  recovery_point_tags: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
                  start_window_minutes: Optional[pulumi.Input[float]] = None):
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "target_backup_vault", target_backup_vault)
@@ -83,6 +84,8 @@ class BackupPlanBackupRuleResourceTypeArgs:
             pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if schedule_expression_timezone is not None:
+            pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
         if start_window_minutes is not None:
             pulumi.set(__self__, "start_window_minutes", start_window_minutes)
 
@@ -157,6 +160,15 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @schedule_expression.setter
     def schedule_expression(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schedule_expression", value)
+
+    @property
+    @pulumi.getter(name="scheduleExpressionTimezone")
+    def schedule_expression_timezone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schedule_expression_timezone")
+
+    @schedule_expression_timezone.setter
+    def schedule_expression_timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_expression_timezone", value)
 
     @property
     @pulumi.getter(name="startWindowMinutes")

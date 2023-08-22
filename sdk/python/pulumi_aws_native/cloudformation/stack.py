@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StackArgs', 'Stack']
@@ -16,32 +17,90 @@ __all__ = ['StackArgs', 'Stack']
 @pulumi.input_type
 class StackArgs:
     def __init__(__self__, *,
-                 template_url: pulumi.Input[str],
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disable_rollback: Optional[pulumi.Input[bool]] = None,
+                 enable_termination_protection: Optional[pulumi.Input[bool]] = None,
                  notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[Any] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 stack_name: Optional[pulumi.Input[str]] = None,
+                 stack_policy_body: Optional[Any] = None,
+                 stack_policy_url: Optional[pulumi.Input[str]] = None,
+                 stack_status_reason: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackTagArgs']]]] = None,
+                 template_body: Optional[Any] = None,
+                 template_url: Optional[pulumi.Input[str]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Stack resource.
         """
-        pulumi.set(__self__, "template_url", template_url)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_rollback is not None:
+            pulumi.set(__self__, "disable_rollback", disable_rollback)
+        if enable_termination_protection is not None:
+            pulumi.set(__self__, "enable_termination_protection", enable_termination_protection)
         if notification_arns is not None:
             pulumi.set(__self__, "notification_arns", notification_arns)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if stack_name is not None:
+            pulumi.set(__self__, "stack_name", stack_name)
+        if stack_policy_body is not None:
+            pulumi.set(__self__, "stack_policy_body", stack_policy_body)
+        if stack_policy_url is not None:
+            pulumi.set(__self__, "stack_policy_url", stack_policy_url)
+        if stack_status_reason is not None:
+            pulumi.set(__self__, "stack_status_reason", stack_status_reason)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if template_body is not None:
+            pulumi.set(__self__, "template_body", template_body)
+        if template_url is not None:
+            pulumi.set(__self__, "template_url", template_url)
         if timeout_in_minutes is not None:
             pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
 
     @property
-    @pulumi.getter(name="templateUrl")
-    def template_url(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "template_url")
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]]:
+        return pulumi.get(self, "capabilities")
 
-    @template_url.setter
-    def template_url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "template_url", value)
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableRollback")
+    def disable_rollback(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_rollback")
+
+    @disable_rollback.setter
+    def disable_rollback(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_rollback", value)
+
+    @property
+    @pulumi.getter(name="enableTerminationProtection")
+    def enable_termination_protection(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_termination_protection")
+
+    @enable_termination_protection.setter
+    def enable_termination_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_termination_protection", value)
 
     @property
     @pulumi.getter(name="notificationArns")
@@ -62,6 +121,51 @@ class StackArgs:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="stackName")
+    def stack_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "stack_name")
+
+    @stack_name.setter
+    def stack_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stack_name", value)
+
+    @property
+    @pulumi.getter(name="stackPolicyBody")
+    def stack_policy_body(self) -> Optional[Any]:
+        return pulumi.get(self, "stack_policy_body")
+
+    @stack_policy_body.setter
+    def stack_policy_body(self, value: Optional[Any]):
+        pulumi.set(self, "stack_policy_body", value)
+
+    @property
+    @pulumi.getter(name="stackPolicyUrl")
+    def stack_policy_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "stack_policy_url")
+
+    @stack_policy_url.setter
+    def stack_policy_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stack_policy_url", value)
+
+    @property
+    @pulumi.getter(name="stackStatusReason")
+    def stack_status_reason(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "stack_status_reason")
+
+    @stack_status_reason.setter
+    def stack_status_reason(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stack_status_reason", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -69,6 +173,24 @@ class StackArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="templateBody")
+    def template_body(self) -> Optional[Any]:
+        return pulumi.get(self, "template_body")
+
+    @template_body.setter
+    def template_body(self, value: Optional[Any]):
+        pulumi.set(self, "template_body", value)
+
+    @property
+    @pulumi.getter(name="templateUrl")
+    def template_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "template_url")
+
+    @template_url.setter
+    def template_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_url", value)
 
     @property
     @pulumi.getter(name="timeoutInMinutes")
@@ -80,24 +202,29 @@ class StackArgs:
         pulumi.set(self, "timeout_in_minutes", value)
 
 
-warnings.warn("""Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Stack(pulumi.CustomResource):
-    warnings.warn("""Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disable_rollback: Optional[pulumi.Input[bool]] = None,
+                 enable_termination_protection: Optional[pulumi.Input[bool]] = None,
                  notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[Any] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 stack_name: Optional[pulumi.Input[str]] = None,
+                 stack_policy_body: Optional[Any] = None,
+                 stack_policy_url: Optional[pulumi.Input[str]] = None,
+                 stack_status_reason: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackTagArgs']]]]] = None,
+                 template_body: Optional[Any] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFormation::Stack
+        The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,10 +233,10 @@ class Stack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StackArgs,
+                 args: Optional[StackArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFormation::Stack
+        The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
 
         :param str resource_name: The name of the resource.
         :param StackArgs args: The arguments to use to populate this resource's properties.
@@ -126,13 +253,22 @@ class Stack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disable_rollback: Optional[pulumi.Input[bool]] = None,
+                 enable_termination_protection: Optional[pulumi.Input[bool]] = None,
                  notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[Any] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 stack_name: Optional[pulumi.Input[str]] = None,
+                 stack_policy_body: Optional[Any] = None,
+                 stack_policy_url: Optional[pulumi.Input[str]] = None,
+                 stack_status_reason: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackTagArgs']]]]] = None,
+                 template_body: Optional[Any] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""Stack is deprecated: Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -141,13 +277,29 @@ class Stack(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StackArgs.__new__(StackArgs)
 
+            __props__.__dict__["capabilities"] = capabilities
+            __props__.__dict__["description"] = description
+            __props__.__dict__["disable_rollback"] = disable_rollback
+            __props__.__dict__["enable_termination_protection"] = enable_termination_protection
             __props__.__dict__["notification_arns"] = notification_arns
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["stack_name"] = stack_name
+            __props__.__dict__["stack_policy_body"] = stack_policy_body
+            __props__.__dict__["stack_policy_url"] = stack_policy_url
+            __props__.__dict__["stack_status_reason"] = stack_status_reason
             __props__.__dict__["tags"] = tags
-            if template_url is None and not opts.urn:
-                raise TypeError("Missing required property 'template_url'")
+            __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_url"] = template_url
             __props__.__dict__["timeout_in_minutes"] = timeout_in_minutes
+            __props__.__dict__["change_set_id"] = None
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["last_update_time"] = None
+            __props__.__dict__["outputs"] = None
+            __props__.__dict__["parent_id"] = None
+            __props__.__dict__["root_id"] = None
+            __props__.__dict__["stack_id"] = None
+            __props__.__dict__["stack_status"] = None
         super(Stack, __self__).__init__(
             'aws-native:cloudformation:Stack',
             resource_name,
@@ -170,12 +322,65 @@ class Stack(pulumi.CustomResource):
 
         __props__ = StackArgs.__new__(StackArgs)
 
+        __props__.__dict__["capabilities"] = None
+        __props__.__dict__["change_set_id"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["disable_rollback"] = None
+        __props__.__dict__["enable_termination_protection"] = None
+        __props__.__dict__["last_update_time"] = None
         __props__.__dict__["notification_arns"] = None
+        __props__.__dict__["outputs"] = None
         __props__.__dict__["parameters"] = None
+        __props__.__dict__["parent_id"] = None
+        __props__.__dict__["role_arn"] = None
+        __props__.__dict__["root_id"] = None
+        __props__.__dict__["stack_id"] = None
+        __props__.__dict__["stack_name"] = None
+        __props__.__dict__["stack_policy_body"] = None
+        __props__.__dict__["stack_policy_url"] = None
+        __props__.__dict__["stack_status"] = None
+        __props__.__dict__["stack_status_reason"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["template_body"] = None
         __props__.__dict__["template_url"] = None
         __props__.__dict__["timeout_in_minutes"] = None
         return Stack(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> pulumi.Output[Optional[Sequence['StackCapabilitiesItem']]]:
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="changeSetId")
+    def change_set_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "change_set_id")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableRollback")
+    def disable_rollback(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "disable_rollback")
+
+    @property
+    @pulumi.getter(name="enableTerminationProtection")
+    def enable_termination_protection(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_termination_protection")
+
+    @property
+    @pulumi.getter(name="lastUpdateTime")
+    def last_update_time(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "last_update_time")
 
     @property
     @pulumi.getter(name="notificationArns")
@@ -184,8 +389,58 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def outputs(self) -> pulumi.Output[Sequence['outputs.StackOutput']]:
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="parentId")
+    def parent_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "parent_id")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="rootId")
+    def root_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "root_id")
+
+    @property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "stack_id")
+
+    @property
+    @pulumi.getter(name="stackName")
+    def stack_name(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "stack_name")
+
+    @property
+    @pulumi.getter(name="stackPolicyBody")
+    def stack_policy_body(self) -> pulumi.Output[Optional[Any]]:
+        return pulumi.get(self, "stack_policy_body")
+
+    @property
+    @pulumi.getter(name="stackPolicyUrl")
+    def stack_policy_url(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "stack_policy_url")
+
+    @property
+    @pulumi.getter(name="stackStatus")
+    def stack_status(self) -> pulumi.Output['StackStatus']:
+        return pulumi.get(self, "stack_status")
+
+    @property
+    @pulumi.getter(name="stackStatusReason")
+    def stack_status_reason(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "stack_status_reason")
 
     @property
     @pulumi.getter
@@ -193,8 +448,13 @@ class Stack(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="templateBody")
+    def template_body(self) -> pulumi.Output[Optional[Any]]:
+        return pulumi.get(self, "template_body")
+
+    @property
     @pulumi.getter(name="templateUrl")
-    def template_url(self) -> pulumi.Output[str]:
+    def template_url(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "template_url")
 
     @property

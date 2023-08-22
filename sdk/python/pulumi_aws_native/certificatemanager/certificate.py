@@ -20,6 +20,7 @@ class CertificateArgs:
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  certificate_transparency_logging_preference: Optional[pulumi.Input[str]] = None,
                  domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]] = None,
+                 key_algorithm: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None):
@@ -33,6 +34,8 @@ class CertificateArgs:
             pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
         if domain_validation_options is not None:
             pulumi.set(__self__, "domain_validation_options", domain_validation_options)
+        if key_algorithm is not None:
+            pulumi.set(__self__, "key_algorithm", key_algorithm)
         if subject_alternative_names is not None:
             pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         if tags is not None:
@@ -77,6 +80,15 @@ class CertificateArgs:
         pulumi.set(self, "domain_validation_options", value)
 
     @property
+    @pulumi.getter(name="keyAlgorithm")
+    def key_algorithm(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key_algorithm")
+
+    @key_algorithm.setter
+    def key_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_algorithm", value)
+
+    @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "subject_alternative_names")
@@ -118,6 +130,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_transparency_logging_preference: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]]] = None,
+                 key_algorithm: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateTagArgs']]]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None,
@@ -156,6 +169,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_transparency_logging_preference: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]]] = None,
+                 key_algorithm: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateTagArgs']]]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None,
@@ -175,6 +189,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_validation_options"] = domain_validation_options
+            __props__.__dict__["key_algorithm"] = key_algorithm
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names
             __props__.__dict__["tags"] = tags
             __props__.__dict__["validation_method"] = validation_method
@@ -204,6 +219,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["certificate_transparency_logging_preference"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["domain_validation_options"] = None
+        __props__.__dict__["key_algorithm"] = None
         __props__.__dict__["subject_alternative_names"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["validation_method"] = None
@@ -228,6 +244,11 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="domainValidationOptions")
     def domain_validation_options(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateDomainValidationOption']]]:
         return pulumi.get(self, "domain_validation_options")
+
+    @property
+    @pulumi.getter(name="keyAlgorithm")
+    def key_algorithm(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "key_algorithm")
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")

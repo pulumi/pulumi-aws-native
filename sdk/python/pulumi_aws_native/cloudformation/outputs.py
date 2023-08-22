@@ -15,6 +15,7 @@ __all__ = [
     'HookVersionLoggingConfig',
     'ManagedExecutionProperties',
     'ResourceVersionLoggingConfig',
+    'StackOutput',
     'StackSetAutoDeployment',
     'StackSetDeploymentTargets',
     'StackSetOperationPreferences',
@@ -145,6 +146,64 @@ class ResourceVersionLoggingConfig(dict):
 
 
 @pulumi.output_type
+class StackOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exportName":
+            suggest = "export_name"
+        elif key == "outputKey":
+            suggest = "output_key"
+        elif key == "outputValue":
+            suggest = "output_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 export_name: Optional[str] = None,
+                 output_key: Optional[str] = None,
+                 output_value: Optional[str] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if export_name is not None:
+            pulumi.set(__self__, "export_name", export_name)
+        if output_key is not None:
+            pulumi.set(__self__, "output_key", output_key)
+        if output_value is not None:
+            pulumi.set(__self__, "output_value", output_value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="exportName")
+    def export_name(self) -> Optional[str]:
+        return pulumi.get(self, "export_name")
+
+    @property
+    @pulumi.getter(name="outputKey")
+    def output_key(self) -> Optional[str]:
+        return pulumi.get(self, "output_key")
+
+    @property
+    @pulumi.getter(name="outputValue")
+    def output_value(self) -> Optional[str]:
+        return pulumi.get(self, "output_value")
+
+
+@pulumi.output_type
 class StackSetAutoDeployment(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -202,6 +261,8 @@ class StackSetDeploymentTargets(dict):
         suggest = None
         if key == "accountFilterType":
             suggest = "account_filter_type"
+        elif key == "accountsUrl":
+            suggest = "accounts_url"
         elif key == "organizationalUnitIds":
             suggest = "organizational_unit_ids"
 
@@ -219,17 +280,21 @@ class StackSetDeploymentTargets(dict):
     def __init__(__self__, *,
                  account_filter_type: Optional['StackSetDeploymentTargetsAccountFilterType'] = None,
                  accounts: Optional[Sequence[str]] = None,
+                 accounts_url: Optional[str] = None,
                  organizational_unit_ids: Optional[Sequence[str]] = None):
         """
          The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
         :param 'StackSetDeploymentTargetsAccountFilterType' account_filter_type: The filter type you want to apply on organizational units and accounts.
         :param Sequence[str] accounts: AWS accounts that you want to create stack instances in the specified Region(s) for.
+        :param str accounts_url: Returns the value of the AccountsUrl property.
         :param Sequence[str] organizational_unit_ids: The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         """
         if account_filter_type is not None:
             pulumi.set(__self__, "account_filter_type", account_filter_type)
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
+        if accounts_url is not None:
+            pulumi.set(__self__, "accounts_url", accounts_url)
         if organizational_unit_ids is not None:
             pulumi.set(__self__, "organizational_unit_ids", organizational_unit_ids)
 
@@ -248,6 +313,14 @@ class StackSetDeploymentTargets(dict):
         AWS accounts that you want to create stack instances in the specified Region(s) for.
         """
         return pulumi.get(self, "accounts")
+
+    @property
+    @pulumi.getter(name="accountsUrl")
+    def accounts_url(self) -> Optional[str]:
+        """
+        Returns the value of the AccountsUrl property.
+        """
+        return pulumi.get(self, "accounts_url")
 
     @property
     @pulumi.getter(name="organizationalUnitIds")

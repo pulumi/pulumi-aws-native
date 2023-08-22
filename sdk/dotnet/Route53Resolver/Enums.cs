@@ -266,6 +266,42 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
     /// <summary>
+    /// The OutpostResolver status, possible values are CREATING, OPERATIONAL, UPDATING, DELETING, ACTION_NEEDED, FAILED_CREATION and FAILED_DELETION.
+    /// </summary>
+    [EnumType]
+    public readonly struct OutpostResolverStatus : IEquatable<OutpostResolverStatus>
+    {
+        private readonly string _value;
+
+        private OutpostResolverStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutpostResolverStatus Creating { get; } = new OutpostResolverStatus("CREATING");
+        public static OutpostResolverStatus Operational { get; } = new OutpostResolverStatus("OPERATIONAL");
+        public static OutpostResolverStatus Deleting { get; } = new OutpostResolverStatus("DELETING");
+        public static OutpostResolverStatus Updating { get; } = new OutpostResolverStatus("UPDATING");
+        public static OutpostResolverStatus ActionNeeded { get; } = new OutpostResolverStatus("ACTION_NEEDED");
+        public static OutpostResolverStatus FailedCreation { get; } = new OutpostResolverStatus("FAILED_CREATION");
+        public static OutpostResolverStatus FailedDeletion { get; } = new OutpostResolverStatus("FAILED_DELETION");
+
+        public static bool operator ==(OutpostResolverStatus left, OutpostResolverStatus right) => left.Equals(right);
+        public static bool operator !=(OutpostResolverStatus left, OutpostResolverStatus right) => !left.Equals(right);
+
+        public static explicit operator string(OutpostResolverStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutpostResolverStatus other && Equals(other);
+        public bool Equals(OutpostResolverStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
     /// </summary>
     [EnumType]

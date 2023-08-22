@@ -66,6 +66,7 @@ __all__ = [
     'StepHadoopJarStepConfig',
     'StepKeyValue',
     'StudioTag',
+    'WalWorkspaceTag',
 ]
 
 @pulumi.output_type
@@ -1591,11 +1592,14 @@ class ClusterVolumeSpecification(dict):
     def __init__(__self__, *,
                  size_in_gb: int,
                  volume_type: str,
-                 iops: Optional[int] = None):
+                 iops: Optional[int] = None,
+                 throughput: Optional[int] = None):
         pulumi.set(__self__, "size_in_gb", size_in_gb)
         pulumi.set(__self__, "volume_type", volume_type)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
 
     @property
     @pulumi.getter(name="sizeInGb")
@@ -1611,6 +1615,11 @@ class ClusterVolumeSpecification(dict):
     @pulumi.getter
     def iops(self) -> Optional[int]:
         return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        return pulumi.get(self, "throughput")
 
 
 @pulumi.output_type
@@ -1976,11 +1985,14 @@ class InstanceFleetConfigVolumeSpecification(dict):
     def __init__(__self__, *,
                  size_in_gb: int,
                  volume_type: str,
-                 iops: Optional[int] = None):
+                 iops: Optional[int] = None,
+                 throughput: Optional[int] = None):
         pulumi.set(__self__, "size_in_gb", size_in_gb)
         pulumi.set(__self__, "volume_type", volume_type)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
 
     @property
     @pulumi.getter(name="sizeInGb")
@@ -1996,6 +2008,11 @@ class InstanceFleetConfigVolumeSpecification(dict):
     @pulumi.getter
     def iops(self) -> Optional[int]:
         return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        return pulumi.get(self, "throughput")
 
 
 @pulumi.output_type
@@ -2466,11 +2483,14 @@ class InstanceGroupConfigVolumeSpecification(dict):
     def __init__(__self__, *,
                  size_in_gb: int,
                  volume_type: str,
-                 iops: Optional[int] = None):
+                 iops: Optional[int] = None,
+                 throughput: Optional[int] = None):
         pulumi.set(__self__, "size_in_gb", size_in_gb)
         pulumi.set(__self__, "volume_type", volume_type)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
 
     @property
     @pulumi.getter(name="sizeInGb")
@@ -2486,6 +2506,11 @@ class InstanceGroupConfigVolumeSpecification(dict):
     @pulumi.getter
     def iops(self) -> Optional[int]:
         return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        return pulumi.get(self, "throughput")
 
 
 @pulumi.output_type
@@ -2593,6 +2618,39 @@ class StudioTag(dict):
     def value(self) -> str:
         """
         The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WalWorkspaceTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
 

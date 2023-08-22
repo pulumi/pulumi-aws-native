@@ -16,6 +16,7 @@ type Repository struct {
 	pulumi.CustomResourceState
 
 	Arn                        pulumi.StringOutput                           `pulumi:"arn"`
+	EmptyOnDelete              pulumi.BoolPtrOutput                          `pulumi:"emptyOnDelete"`
 	EncryptionConfiguration    RepositoryEncryptionConfigurationPtrOutput    `pulumi:"encryptionConfiguration"`
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
 	// The image tag mutability setting for the repository.
@@ -70,6 +71,7 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
+	EmptyOnDelete              *bool                                 `pulumi:"emptyOnDelete"`
 	EncryptionConfiguration    *RepositoryEncryptionConfiguration    `pulumi:"encryptionConfiguration"`
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The image tag mutability setting for the repository.
@@ -85,6 +87,7 @@ type repositoryArgs struct {
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
+	EmptyOnDelete              pulumi.BoolPtrInput
 	EncryptionConfiguration    RepositoryEncryptionConfigurationPtrInput
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
 	// The image tag mutability setting for the repository.
@@ -137,6 +140,10 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 
 func (o RepositoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RepositoryOutput) EmptyOnDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.EmptyOnDelete }).(pulumi.BoolPtrOutput)
 }
 
 func (o RepositoryOutput) EncryptionConfiguration() RepositoryEncryptionConfigurationPtrOutput {

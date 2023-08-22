@@ -4037,6 +4037,7 @@ func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
 type ClusterVolumeSpecification struct {
 	Iops       *int   `pulumi:"iops"`
 	SizeInGb   int    `pulumi:"sizeInGb"`
+	Throughput *int   `pulumi:"throughput"`
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -4054,6 +4055,7 @@ type ClusterVolumeSpecificationInput interface {
 type ClusterVolumeSpecificationArgs struct {
 	Iops       pulumi.IntPtrInput `pulumi:"iops"`
 	SizeInGb   pulumi.IntInput    `pulumi:"sizeInGb"`
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -4089,6 +4091,10 @@ func (o ClusterVolumeSpecificationOutput) Iops() pulumi.IntPtrOutput {
 
 func (o ClusterVolumeSpecificationOutput) SizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterVolumeSpecification) int { return v.SizeInGb }).(pulumi.IntOutput)
+}
+
+func (o ClusterVolumeSpecificationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterVolumeSpecification) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
 func (o ClusterVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {
@@ -5053,6 +5059,7 @@ func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) TimeoutDurati
 type InstanceFleetConfigVolumeSpecification struct {
 	Iops       *int   `pulumi:"iops"`
 	SizeInGb   int    `pulumi:"sizeInGb"`
+	Throughput *int   `pulumi:"throughput"`
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -5070,6 +5077,7 @@ type InstanceFleetConfigVolumeSpecificationInput interface {
 type InstanceFleetConfigVolumeSpecificationArgs struct {
 	Iops       pulumi.IntPtrInput `pulumi:"iops"`
 	SizeInGb   pulumi.IntInput    `pulumi:"sizeInGb"`
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -5105,6 +5113,10 @@ func (o InstanceFleetConfigVolumeSpecificationOutput) Iops() pulumi.IntPtrOutput
 
 func (o InstanceFleetConfigVolumeSpecificationOutput) SizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v InstanceFleetConfigVolumeSpecification) int { return v.SizeInGb }).(pulumi.IntOutput)
+}
+
+func (o InstanceFleetConfigVolumeSpecificationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigVolumeSpecification) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
 func (o InstanceFleetConfigVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {
@@ -6250,6 +6262,7 @@ func (o InstanceGroupConfigSimpleScalingPolicyConfigurationOutput) ScalingAdjust
 type InstanceGroupConfigVolumeSpecification struct {
 	Iops       *int   `pulumi:"iops"`
 	SizeInGb   int    `pulumi:"sizeInGb"`
+	Throughput *int   `pulumi:"throughput"`
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -6267,6 +6280,7 @@ type InstanceGroupConfigVolumeSpecificationInput interface {
 type InstanceGroupConfigVolumeSpecificationArgs struct {
 	Iops       pulumi.IntPtrInput `pulumi:"iops"`
 	SizeInGb   pulumi.IntInput    `pulumi:"sizeInGb"`
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -6302,6 +6316,10 @@ func (o InstanceGroupConfigVolumeSpecificationOutput) Iops() pulumi.IntPtrOutput
 
 func (o InstanceGroupConfigVolumeSpecificationOutput) SizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v InstanceGroupConfigVolumeSpecification) int { return v.SizeInGb }).(pulumi.IntOutput)
+}
+
+func (o InstanceGroupConfigVolumeSpecificationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigVolumeSpecification) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
 func (o InstanceGroupConfigVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {
@@ -6584,6 +6602,115 @@ func (o StudioTagArrayOutput) Index(i pulumi.IntInput) StudioTagOutput {
 	}).(StudioTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type WalWorkspaceTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// WalWorkspaceTagInput is an input type that accepts WalWorkspaceTagArgs and WalWorkspaceTagOutput values.
+// You can construct a concrete instance of `WalWorkspaceTagInput` via:
+//
+//	WalWorkspaceTagArgs{...}
+type WalWorkspaceTagInput interface {
+	pulumi.Input
+
+	ToWalWorkspaceTagOutput() WalWorkspaceTagOutput
+	ToWalWorkspaceTagOutputWithContext(context.Context) WalWorkspaceTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type WalWorkspaceTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WalWorkspaceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WalWorkspaceTag)(nil)).Elem()
+}
+
+func (i WalWorkspaceTagArgs) ToWalWorkspaceTagOutput() WalWorkspaceTagOutput {
+	return i.ToWalWorkspaceTagOutputWithContext(context.Background())
+}
+
+func (i WalWorkspaceTagArgs) ToWalWorkspaceTagOutputWithContext(ctx context.Context) WalWorkspaceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WalWorkspaceTagOutput)
+}
+
+// WalWorkspaceTagArrayInput is an input type that accepts WalWorkspaceTagArray and WalWorkspaceTagArrayOutput values.
+// You can construct a concrete instance of `WalWorkspaceTagArrayInput` via:
+//
+//	WalWorkspaceTagArray{ WalWorkspaceTagArgs{...} }
+type WalWorkspaceTagArrayInput interface {
+	pulumi.Input
+
+	ToWalWorkspaceTagArrayOutput() WalWorkspaceTagArrayOutput
+	ToWalWorkspaceTagArrayOutputWithContext(context.Context) WalWorkspaceTagArrayOutput
+}
+
+type WalWorkspaceTagArray []WalWorkspaceTagInput
+
+func (WalWorkspaceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WalWorkspaceTag)(nil)).Elem()
+}
+
+func (i WalWorkspaceTagArray) ToWalWorkspaceTagArrayOutput() WalWorkspaceTagArrayOutput {
+	return i.ToWalWorkspaceTagArrayOutputWithContext(context.Background())
+}
+
+func (i WalWorkspaceTagArray) ToWalWorkspaceTagArrayOutputWithContext(ctx context.Context) WalWorkspaceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WalWorkspaceTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type WalWorkspaceTagOutput struct{ *pulumi.OutputState }
+
+func (WalWorkspaceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WalWorkspaceTag)(nil)).Elem()
+}
+
+func (o WalWorkspaceTagOutput) ToWalWorkspaceTagOutput() WalWorkspaceTagOutput {
+	return o
+}
+
+func (o WalWorkspaceTagOutput) ToWalWorkspaceTagOutputWithContext(ctx context.Context) WalWorkspaceTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o WalWorkspaceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WalWorkspaceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o WalWorkspaceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WalWorkspaceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WalWorkspaceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (WalWorkspaceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WalWorkspaceTag)(nil)).Elem()
+}
+
+func (o WalWorkspaceTagArrayOutput) ToWalWorkspaceTagArrayOutput() WalWorkspaceTagArrayOutput {
+	return o
+}
+
+func (o WalWorkspaceTagArrayOutput) ToWalWorkspaceTagArrayOutputWithContext(ctx context.Context) WalWorkspaceTagArrayOutput {
+	return o
+}
+
+func (o WalWorkspaceTagArrayOutput) Index(i pulumi.IntInput) WalWorkspaceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WalWorkspaceTag {
+		return vs[0].([]WalWorkspaceTag)[vs[1].(int)]
+	}).(WalWorkspaceTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterApplicationInput)(nil)).Elem(), ClusterApplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterApplicationArrayInput)(nil)).Elem(), ClusterApplicationArray{})
@@ -6680,6 +6807,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueArrayInput)(nil)).Elem(), StepKeyValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioTagInput)(nil)).Elem(), StudioTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioTagArrayInput)(nil)).Elem(), StudioTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WalWorkspaceTagInput)(nil)).Elem(), WalWorkspaceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WalWorkspaceTagArrayInput)(nil)).Elem(), WalWorkspaceTagArray{})
 	pulumi.RegisterOutputType(ClusterApplicationOutput{})
 	pulumi.RegisterOutputType(ClusterApplicationArrayOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingPolicyOutput{})
@@ -6776,4 +6905,6 @@ func init() {
 	pulumi.RegisterOutputType(StepKeyValueArrayOutput{})
 	pulumi.RegisterOutputType(StudioTagOutput{})
 	pulumi.RegisterOutputType(StudioTagArrayOutput{})
+	pulumi.RegisterOutputType(WalWorkspaceTagOutput{})
+	pulumi.RegisterOutputType(WalWorkspaceTagArrayOutput{})
 }

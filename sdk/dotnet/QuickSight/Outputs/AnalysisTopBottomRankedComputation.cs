@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTopBottomRankedComputation
     {
-        public readonly Outputs.AnalysisDimensionField Category;
+        public readonly Outputs.AnalysisDimensionField? Category;
         public readonly string ComputationId;
         public readonly string? Name;
         public readonly double? ResultSize;
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private AnalysisTopBottomRankedComputation(
-            Outputs.AnalysisDimensionField category,
+            Outputs.AnalysisDimensionField? category,
 
             string computationId,
 

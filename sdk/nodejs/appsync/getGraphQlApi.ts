@@ -25,6 +25,7 @@ export interface GetGraphQlApiArgs {
 export interface GetGraphQlApiResult {
     readonly additionalAuthenticationProviders?: outputs.appsync.GraphQlApiAdditionalAuthenticationProvider[];
     readonly apiId?: string;
+    readonly apiType?: string;
     readonly arn?: string;
     readonly authenticationType?: string;
     readonly graphQlDns?: string;
@@ -40,6 +41,7 @@ export interface GetGraphQlApiResult {
     readonly realtimeUrl?: string;
     readonly tags?: outputs.appsync.GraphQlApiTag[];
     readonly userPoolConfig?: outputs.appsync.GraphQlApiUserPoolConfig;
+    readonly visibility?: string;
     readonly xrayEnabled?: boolean;
 }
 /**

@@ -1920,16 +1920,22 @@ class ConnectorProfileSapoDataConnectorProfilePropertiesArgs:
                  application_host_url: Optional[pulumi.Input[str]] = None,
                  application_service_path: Optional[pulumi.Input[str]] = None,
                  client_number: Optional[pulumi.Input[str]] = None,
+                 disable_sso: Optional[pulumi.Input[bool]] = None,
                  logon_language: Optional[pulumi.Input[str]] = None,
                  o_auth_properties: Optional[pulumi.Input['ConnectorProfileOAuthPropertiesArgs']] = None,
                  port_number: Optional[pulumi.Input[int]] = None,
                  private_link_service_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] disable_sso: If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+        """
         if application_host_url is not None:
             pulumi.set(__self__, "application_host_url", application_host_url)
         if application_service_path is not None:
             pulumi.set(__self__, "application_service_path", application_service_path)
         if client_number is not None:
             pulumi.set(__self__, "client_number", client_number)
+        if disable_sso is not None:
+            pulumi.set(__self__, "disable_sso", disable_sso)
         if logon_language is not None:
             pulumi.set(__self__, "logon_language", logon_language)
         if o_auth_properties is not None:
@@ -1965,6 +1971,18 @@ class ConnectorProfileSapoDataConnectorProfilePropertiesArgs:
     @client_number.setter
     def client_number(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_number", value)
+
+    @property
+    @pulumi.getter(name="disableSso")
+    def disable_sso(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+        """
+        return pulumi.get(self, "disable_sso")
+
+    @disable_sso.setter
+    def disable_sso(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_sso", value)
 
     @property
     @pulumi.getter(name="logonLanguage")

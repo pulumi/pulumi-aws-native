@@ -33,6 +33,12 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
             set => _accounts = value;
         }
 
+        /// <summary>
+        /// Returns the value of the AccountsUrl property.
+        /// </summary>
+        [Input("accountsUrl")]
+        public Input<string>? AccountsUrl { get; set; }
+
         [Input("organizationalUnitIds")]
         private InputList<string>? _organizationalUnitIds;
 

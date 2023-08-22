@@ -29,6 +29,7 @@ type LookupGraphQlApiArgs struct {
 type LookupGraphQlApiResult struct {
 	AdditionalAuthenticationProviders []GraphQlApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
 	ApiId                             *string                                      `pulumi:"apiId"`
+	ApiType                           *string                                      `pulumi:"apiType"`
 	Arn                               *string                                      `pulumi:"arn"`
 	AuthenticationType                *string                                      `pulumi:"authenticationType"`
 	GraphQlDns                        *string                                      `pulumi:"graphQlDns"`
@@ -44,6 +45,7 @@ type LookupGraphQlApiResult struct {
 	RealtimeUrl                       *string                                      `pulumi:"realtimeUrl"`
 	Tags                              []GraphQlApiTag                              `pulumi:"tags"`
 	UserPoolConfig                    *GraphQlApiUserPoolConfig                    `pulumi:"userPoolConfig"`
+	Visibility                        *string                                      `pulumi:"visibility"`
 	XrayEnabled                       *bool                                        `pulumi:"xrayEnabled"`
 }
 
@@ -90,6 +92,10 @@ func (o LookupGraphQlApiResultOutput) AdditionalAuthenticationProviders() GraphQ
 
 func (o LookupGraphQlApiResultOutput) ApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.ApiId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGraphQlApiResultOutput) ApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.ApiType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGraphQlApiResultOutput) Arn() pulumi.StringPtrOutput {
@@ -150,6 +156,10 @@ func (o LookupGraphQlApiResultOutput) Tags() GraphQlApiTagArrayOutput {
 
 func (o LookupGraphQlApiResultOutput) UserPoolConfig() GraphQlApiUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *GraphQlApiUserPoolConfig { return v.UserPoolConfig }).(GraphQlApiUserPoolConfigPtrOutput)
+}
+
+func (o LookupGraphQlApiResultOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.Visibility }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGraphQlApiResultOutput) XrayEnabled() pulumi.BoolPtrOutput {

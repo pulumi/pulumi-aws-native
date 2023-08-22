@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFormation::Stack
- *
- * @deprecated Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
  */
 export class Stack extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Stack extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Stack {
-        pulumi.log.warn("Stack is deprecated: Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Stack(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,10 +37,28 @@ export class Stack extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stack.__pulumiType;
     }
 
+    public readonly capabilities!: pulumi.Output<enums.cloudformation.StackCapabilitiesItem[] | undefined>;
+    public /*out*/ readonly changeSetId!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly disableRollback!: pulumi.Output<boolean | undefined>;
+    public readonly enableTerminationProtection!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly lastUpdateTime!: pulumi.Output<string>;
     public readonly notificationArns!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly outputs!: pulumi.Output<outputs.cloudformation.StackOutput[]>;
     public readonly parameters!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly parentId!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly rootId!: pulumi.Output<string>;
+    public /*out*/ readonly stackId!: pulumi.Output<string>;
+    public readonly stackName!: pulumi.Output<string>;
+    public readonly stackPolicyBody!: pulumi.Output<any | undefined>;
+    public readonly stackPolicyUrl!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly stackStatus!: pulumi.Output<enums.cloudformation.StackStatus>;
+    public readonly stackStatusReason!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.cloudformation.StackTag[] | undefined>;
-    public readonly templateUrl!: pulumi.Output<string>;
+    public readonly templateBody!: pulumi.Output<any | undefined>;
+    public readonly templateUrl!: pulumi.Output<string | undefined>;
     public readonly timeoutInMinutes!: pulumi.Output<number | undefined>;
 
     /**
@@ -53,24 +68,55 @@ export class Stack extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: StackArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Stack is deprecated: Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+    constructor(name: string, args?: StackArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.templateUrl === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'templateUrl'");
-            }
+            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disableRollback"] = args ? args.disableRollback : undefined;
+            resourceInputs["enableTerminationProtection"] = args ? args.enableTerminationProtection : undefined;
             resourceInputs["notificationArns"] = args ? args.notificationArns : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["stackPolicyBody"] = args ? args.stackPolicyBody : undefined;
+            resourceInputs["stackPolicyUrl"] = args ? args.stackPolicyUrl : undefined;
+            resourceInputs["stackStatusReason"] = args ? args.stackStatusReason : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
             resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
             resourceInputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
+            resourceInputs["changeSetId"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["lastUpdateTime"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["parentId"] = undefined /*out*/;
+            resourceInputs["rootId"] = undefined /*out*/;
+            resourceInputs["stackId"] = undefined /*out*/;
+            resourceInputs["stackStatus"] = undefined /*out*/;
         } else {
+            resourceInputs["capabilities"] = undefined /*out*/;
+            resourceInputs["changeSetId"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["disableRollback"] = undefined /*out*/;
+            resourceInputs["enableTerminationProtection"] = undefined /*out*/;
+            resourceInputs["lastUpdateTime"] = undefined /*out*/;
             resourceInputs["notificationArns"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["parentId"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["rootId"] = undefined /*out*/;
+            resourceInputs["stackId"] = undefined /*out*/;
+            resourceInputs["stackName"] = undefined /*out*/;
+            resourceInputs["stackPolicyBody"] = undefined /*out*/;
+            resourceInputs["stackPolicyUrl"] = undefined /*out*/;
+            resourceInputs["stackStatus"] = undefined /*out*/;
+            resourceInputs["stackStatusReason"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateBody"] = undefined /*out*/;
             resourceInputs["templateUrl"] = undefined /*out*/;
             resourceInputs["timeoutInMinutes"] = undefined /*out*/;
         }
@@ -83,9 +129,19 @@ export class Stack extends pulumi.CustomResource {
  * The set of arguments for constructing a Stack resource.
  */
 export interface StackArgs {
+    capabilities?: pulumi.Input<pulumi.Input<enums.cloudformation.StackCapabilitiesItem>[]>;
+    description?: pulumi.Input<string>;
+    disableRollback?: pulumi.Input<boolean>;
+    enableTerminationProtection?: pulumi.Input<boolean>;
     notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
     parameters?: any;
+    roleArn?: pulumi.Input<string>;
+    stackName?: pulumi.Input<string>;
+    stackPolicyBody?: any;
+    stackPolicyUrl?: pulumi.Input<string>;
+    stackStatusReason?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackTagArgs>[]>;
-    templateUrl: pulumi.Input<string>;
+    templateBody?: any;
+    templateUrl?: pulumi.Input<string>;
     timeoutInMinutes?: pulumi.Input<number>;
 }

@@ -38,6 +38,10 @@ export interface GetClusterResult {
     readonly numberOfBrokerNodes?: number;
     readonly openMonitoring?: outputs.msk.ClusterOpenMonitoring;
     readonly storageMode?: enums.msk.ClusterStorageMode;
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    readonly tags?: any;
 }
 /**
  * Resource Type definition for AWS::MSK::Cluster

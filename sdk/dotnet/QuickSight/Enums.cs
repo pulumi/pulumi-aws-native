@@ -1695,6 +1695,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisPivotTableRowsLayout : IEquatable<AnalysisPivotTableRowsLayout>
+    {
+        private readonly string _value;
+
+        private AnalysisPivotTableRowsLayout(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisPivotTableRowsLayout Tabular { get; } = new AnalysisPivotTableRowsLayout("TABULAR");
+        public static AnalysisPivotTableRowsLayout Hierarchy { get; } = new AnalysisPivotTableRowsLayout("HIERARCHY");
+
+        public static bool operator ==(AnalysisPivotTableRowsLayout left, AnalysisPivotTableRowsLayout right) => left.Equals(right);
+        public static bool operator !=(AnalysisPivotTableRowsLayout left, AnalysisPivotTableRowsLayout right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisPivotTableRowsLayout value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisPivotTableRowsLayout other && Equals(other);
+        public bool Equals(AnalysisPivotTableRowsLayout other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisPivotTableSubtotalLevel : IEquatable<AnalysisPivotTableSubtotalLevel>
     {
         private readonly string _value;
@@ -2269,6 +2297,33 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisSimpleAttributeAggregationFunction : IEquatable<AnalysisSimpleAttributeAggregationFunction>
+    {
+        private readonly string _value;
+
+        private AnalysisSimpleAttributeAggregationFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisSimpleAttributeAggregationFunction UniqueValue { get; } = new AnalysisSimpleAttributeAggregationFunction("UNIQUE_VALUE");
+
+        public static bool operator ==(AnalysisSimpleAttributeAggregationFunction left, AnalysisSimpleAttributeAggregationFunction right) => left.Equals(right);
+        public static bool operator !=(AnalysisSimpleAttributeAggregationFunction left, AnalysisSimpleAttributeAggregationFunction right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisSimpleAttributeAggregationFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisSimpleAttributeAggregationFunction other && Equals(other);
+        public bool Equals(AnalysisSimpleAttributeAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisSimpleNumericalAggregationFunction : IEquatable<AnalysisSimpleNumericalAggregationFunction>
     {
         private readonly string _value;
@@ -2298,6 +2353,62 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisSimpleNumericalAggregationFunction other && Equals(other);
         public bool Equals(AnalysisSimpleNumericalAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisSmallMultiplesAxisPlacement : IEquatable<AnalysisSmallMultiplesAxisPlacement>
+    {
+        private readonly string _value;
+
+        private AnalysisSmallMultiplesAxisPlacement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisSmallMultiplesAxisPlacement Outside { get; } = new AnalysisSmallMultiplesAxisPlacement("OUTSIDE");
+        public static AnalysisSmallMultiplesAxisPlacement Inside { get; } = new AnalysisSmallMultiplesAxisPlacement("INSIDE");
+
+        public static bool operator ==(AnalysisSmallMultiplesAxisPlacement left, AnalysisSmallMultiplesAxisPlacement right) => left.Equals(right);
+        public static bool operator !=(AnalysisSmallMultiplesAxisPlacement left, AnalysisSmallMultiplesAxisPlacement right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisSmallMultiplesAxisPlacement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisSmallMultiplesAxisPlacement other && Equals(other);
+        public bool Equals(AnalysisSmallMultiplesAxisPlacement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisSmallMultiplesAxisScale : IEquatable<AnalysisSmallMultiplesAxisScale>
+    {
+        private readonly string _value;
+
+        private AnalysisSmallMultiplesAxisScale(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisSmallMultiplesAxisScale Shared { get; } = new AnalysisSmallMultiplesAxisScale("SHARED");
+        public static AnalysisSmallMultiplesAxisScale Independent { get; } = new AnalysisSmallMultiplesAxisScale("INDEPENDENT");
+
+        public static bool operator ==(AnalysisSmallMultiplesAxisScale left, AnalysisSmallMultiplesAxisScale right) => left.Equals(right);
+        public static bool operator !=(AnalysisSmallMultiplesAxisScale left, AnalysisSmallMultiplesAxisScale right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisSmallMultiplesAxisScale value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisSmallMultiplesAxisScale other && Equals(other);
+        public bool Equals(AnalysisSmallMultiplesAxisScale other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2355,6 +2466,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisSpecialValue other && Equals(other);
         public bool Equals(AnalysisSpecialValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisStyledCellType : IEquatable<AnalysisStyledCellType>
+    {
+        private readonly string _value;
+
+        private AnalysisStyledCellType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisStyledCellType Total { get; } = new AnalysisStyledCellType("TOTAL");
+        public static AnalysisStyledCellType MetricHeader { get; } = new AnalysisStyledCellType("METRIC_HEADER");
+        public static AnalysisStyledCellType Value { get; } = new AnalysisStyledCellType("VALUE");
+
+        public static bool operator ==(AnalysisStyledCellType left, AnalysisStyledCellType right) => left.Equals(right);
+        public static bool operator !=(AnalysisStyledCellType left, AnalysisStyledCellType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisStyledCellType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisStyledCellType other && Equals(other);
+        public bool Equals(AnalysisStyledCellType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2774,6 +2914,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static AnalysisVerticalTextAlignment Top { get; } = new AnalysisVerticalTextAlignment("TOP");
         public static AnalysisVerticalTextAlignment Middle { get; } = new AnalysisVerticalTextAlignment("MIDDLE");
         public static AnalysisVerticalTextAlignment Bottom { get; } = new AnalysisVerticalTextAlignment("BOTTOM");
+        public static AnalysisVerticalTextAlignment Auto { get; } = new AnalysisVerticalTextAlignment("AUTO");
 
         public static bool operator ==(AnalysisVerticalTextAlignment left, AnalysisVerticalTextAlignment right) => left.Equals(right);
         public static bool operator !=(AnalysisVerticalTextAlignment left, AnalysisVerticalTextAlignment right) => !left.Equals(right);

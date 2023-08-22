@@ -143,6 +143,7 @@ import * as elasticsearch from "./elasticsearch";
 import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
+import * as entityresolution from "./entityresolution";
 import * as events from "./events";
 import * as eventschemas from "./eventschemas";
 import * as evidently from "./evidently";
@@ -368,6 +369,7 @@ export {
     emr,
     emrcontainers,
     emrserverless,
+    entityresolution,
     events,
     eventschemas,
     evidently,

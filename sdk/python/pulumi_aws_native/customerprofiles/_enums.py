@@ -242,3 +242,6 @@ class ObjectTypeKeyStandardIdentifiersItem(str, Enum):
     SECONDARY = "SECONDARY"
     LOOKUP_ONLY = "LOOKUP_ONLY"
     NEW_ONLY = "NEW_ONLY"
+    ASSET = "ASSET"
+    CASE = "CASE"
+    ORDER = "ORDER"

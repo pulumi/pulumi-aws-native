@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.Emr.Outputs
     {
         public readonly int? Iops;
         public readonly int SizeInGb;
+        public readonly int? Throughput;
         public readonly string VolumeType;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.Emr.Outputs
 
             int sizeInGb,
 
+            int? throughput,
+
             string volumeType)
         {
             Iops = iops;
             SizeInGb = sizeInGb;
+            Throughput = throughput;
             VolumeType = volumeType;
         }
     }

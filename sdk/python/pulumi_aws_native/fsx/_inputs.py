@@ -549,8 +549,11 @@ class FileSystemOpenZfsConfigurationArgs:
                  copy_tags_to_volumes: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  disk_iops_configuration: Optional[pulumi.Input['FileSystemDiskIopsConfigurationArgs']] = None,
+                 endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 preferred_subnet_id: Optional[pulumi.Input[str]] = None,
                  root_volume_configuration: Optional[pulumi.Input['FileSystemRootVolumeConfigurationArgs']] = None,
+                 route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "deployment_type", deployment_type)
@@ -564,10 +567,16 @@ class FileSystemOpenZfsConfigurationArgs:
             pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if disk_iops_configuration is not None:
             pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
+        if endpoint_ip_address_range is not None:
+            pulumi.set(__self__, "endpoint_ip_address_range", endpoint_ip_address_range)
         if options is not None:
             pulumi.set(__self__, "options", options)
+        if preferred_subnet_id is not None:
+            pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if root_volume_configuration is not None:
             pulumi.set(__self__, "root_volume_configuration", root_volume_configuration)
+        if route_table_ids is not None:
+            pulumi.set(__self__, "route_table_ids", route_table_ids)
         if throughput_capacity is not None:
             pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if weekly_maintenance_start_time is not None:
@@ -628,6 +637,15 @@ class FileSystemOpenZfsConfigurationArgs:
         pulumi.set(self, "disk_iops_configuration", value)
 
     @property
+    @pulumi.getter(name="endpointIpAddressRange")
+    def endpoint_ip_address_range(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "endpoint_ip_address_range")
+
+    @endpoint_ip_address_range.setter
+    def endpoint_ip_address_range(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_ip_address_range", value)
+
+    @property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "options")
@@ -637,6 +655,15 @@ class FileSystemOpenZfsConfigurationArgs:
         pulumi.set(self, "options", value)
 
     @property
+    @pulumi.getter(name="preferredSubnetId")
+    def preferred_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "preferred_subnet_id")
+
+    @preferred_subnet_id.setter
+    def preferred_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_subnet_id", value)
+
+    @property
     @pulumi.getter(name="rootVolumeConfiguration")
     def root_volume_configuration(self) -> Optional[pulumi.Input['FileSystemRootVolumeConfigurationArgs']]:
         return pulumi.get(self, "root_volume_configuration")
@@ -644,6 +671,15 @@ class FileSystemOpenZfsConfigurationArgs:
     @root_volume_configuration.setter
     def root_volume_configuration(self, value: Optional[pulumi.Input['FileSystemRootVolumeConfigurationArgs']]):
         pulumi.set(self, "root_volume_configuration", value)
+
+    @property
+    @pulumi.getter(name="routeTableIds")
+    def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "route_table_ids")
+
+    @route_table_ids.setter
+    def route_table_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "route_table_ids", value)
 
     @property
     @pulumi.getter(name="throughputCapacity")
@@ -897,6 +933,7 @@ class FileSystemWindowsConfigurationArgs:
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
+                 disk_iops_configuration: Optional[pulumi.Input['FileSystemDiskIopsConfigurationArgs']] = None,
                  preferred_subnet_id: Optional[pulumi.Input[str]] = None,
                  self_managed_active_directory_configuration: Optional[pulumi.Input['FileSystemSelfManagedActiveDirectoryConfigurationArgs']] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
@@ -915,6 +952,8 @@ class FileSystemWindowsConfigurationArgs:
             pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if deployment_type is not None:
             pulumi.set(__self__, "deployment_type", deployment_type)
+        if disk_iops_configuration is not None:
+            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
         if preferred_subnet_id is not None:
             pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if self_managed_active_directory_configuration is not None:
@@ -993,6 +1032,15 @@ class FileSystemWindowsConfigurationArgs:
     @deployment_type.setter
     def deployment_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "deployment_type", value)
+
+    @property
+    @pulumi.getter(name="diskIopsConfiguration")
+    def disk_iops_configuration(self) -> Optional[pulumi.Input['FileSystemDiskIopsConfigurationArgs']]:
+        return pulumi.get(self, "disk_iops_configuration")
+
+    @disk_iops_configuration.setter
+    def disk_iops_configuration(self, value: Optional[pulumi.Input['FileSystemDiskIopsConfigurationArgs']]):
+        pulumi.set(self, "disk_iops_configuration", value)
 
     @property
     @pulumi.getter(name="preferredSubnetId")

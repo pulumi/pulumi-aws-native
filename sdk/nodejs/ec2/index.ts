@@ -175,6 +175,11 @@ export const getInstance: typeof import("./getInstance").getInstance = null as a
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
 
+export { GetInstanceConnectEndpointArgs, GetInstanceConnectEndpointResult, GetInstanceConnectEndpointOutputArgs } from "./getInstanceConnectEndpoint";
+export const getInstanceConnectEndpoint: typeof import("./getInstanceConnectEndpoint").getInstanceConnectEndpoint = null as any;
+export const getInstanceConnectEndpointOutput: typeof import("./getInstanceConnectEndpoint").getInstanceConnectEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceConnectEndpoint","getInstanceConnectEndpointOutput"], () => require("./getInstanceConnectEndpoint"));
+
 export { GetInternetGatewayArgs, GetInternetGatewayResult, GetInternetGatewayOutputArgs } from "./getInternetGateway";
 export const getInternetGateway: typeof import("./getInternetGateway").getInternetGateway = null as any;
 export const getInternetGatewayOutput: typeof import("./getInternetGateway").getInternetGatewayOutput = null as any;
@@ -529,6 +534,11 @@ export { InstanceArgs } from "./instance";
 export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+
+export { InstanceConnectEndpointArgs } from "./instanceConnectEndpoint";
+export type InstanceConnectEndpoint = import("./instanceConnectEndpoint").InstanceConnectEndpoint;
+export const InstanceConnectEndpoint: typeof import("./instanceConnectEndpoint").InstanceConnectEndpoint = null as any;
+utilities.lazyLoad(exports, ["InstanceConnectEndpoint"], () => require("./instanceConnectEndpoint"));
 
 export { InternetGatewayArgs } from "./internetGateway";
 export type InternetGateway = import("./internetGateway").InternetGateway;
@@ -939,6 +949,8 @@ const _module = {
                 return new Host(name, <any>undefined, { urn })
             case "aws-native:ec2:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws-native:ec2:InstanceConnectEndpoint":
+                return new InstanceConnectEndpoint(name, <any>undefined, { urn })
             case "aws-native:ec2:InternetGateway":
                 return new InternetGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:Ipam":

@@ -40,6 +40,7 @@ from .get_flow_log import *
 from .get_gateway_route_table_association import *
 from .get_host import *
 from .get_instance import *
+from .get_instance_connect_endpoint import *
 from .get_internet_gateway import *
 from .get_ipam import *
 from .get_ipam_allocation import *
@@ -111,6 +112,7 @@ from .get_vpn_gateway import *
 from .get_vpn_gateway_route_propagation import *
 from .host import *
 from .instance import *
+from .instance_connect_endpoint import *
 from .internet_gateway import *
 from .ipam import *
 from .ipam_allocation import *

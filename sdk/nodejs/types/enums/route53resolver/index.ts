@@ -92,6 +92,21 @@ export const FirewallRuleGroupStatus = {
  */
 export type FirewallRuleGroupStatus = (typeof FirewallRuleGroupStatus)[keyof typeof FirewallRuleGroupStatus];
 
+export const OutpostResolverStatus = {
+    Creating: "CREATING",
+    Operational: "OPERATIONAL",
+    Deleting: "DELETING",
+    Updating: "UPDATING",
+    ActionNeeded: "ACTION_NEEDED",
+    FailedCreation: "FAILED_CREATION",
+    FailedDeletion: "FAILED_DELETION",
+} as const;
+
+/**
+ * The OutpostResolver status, possible values are CREATING, OPERATIONAL, UPDATING, DELETING, ACTION_NEEDED, FAILED_CREATION and FAILED_DELETION.
+ */
+export type OutpostResolverStatus = (typeof OutpostResolverStatus)[keyof typeof OutpostResolverStatus];
+
 export const ResolverConfigAutodefinedReverse = {
     Enabling: "ENABLING",
     Enabled: "ENABLED",

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFormation::Stack
+// The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
 func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.InvokeOption) (*LookupStackResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStackResult
@@ -23,16 +23,30 @@ func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.Invo
 }
 
 type LookupStackArgs struct {
-	Id string `pulumi:"id"`
+	StackId string `pulumi:"stackId"`
 }
 
 type LookupStackResult struct {
-	Id               *string     `pulumi:"id"`
-	NotificationArns []string    `pulumi:"notificationArns"`
-	Parameters       interface{} `pulumi:"parameters"`
-	Tags             []StackTag  `pulumi:"tags"`
-	TemplateUrl      *string     `pulumi:"templateUrl"`
-	TimeoutInMinutes *int        `pulumi:"timeoutInMinutes"`
+	Capabilities                []StackCapabilitiesItem `pulumi:"capabilities"`
+	ChangeSetId                 *string                 `pulumi:"changeSetId"`
+	CreationTime                *string                 `pulumi:"creationTime"`
+	Description                 *string                 `pulumi:"description"`
+	DisableRollback             *bool                   `pulumi:"disableRollback"`
+	EnableTerminationProtection *bool                   `pulumi:"enableTerminationProtection"`
+	LastUpdateTime              *string                 `pulumi:"lastUpdateTime"`
+	NotificationArns            []string                `pulumi:"notificationArns"`
+	Outputs                     []StackOutputType       `pulumi:"outputs"`
+	Parameters                  interface{}             `pulumi:"parameters"`
+	ParentId                    *string                 `pulumi:"parentId"`
+	RoleArn                     *string                 `pulumi:"roleArn"`
+	RootId                      *string                 `pulumi:"rootId"`
+	StackId                     *string                 `pulumi:"stackId"`
+	StackPolicyBody             interface{}             `pulumi:"stackPolicyBody"`
+	StackStatus                 *StackStatus            `pulumi:"stackStatus"`
+	StackStatusReason           *string                 `pulumi:"stackStatusReason"`
+	Tags                        []StackTag              `pulumi:"tags"`
+	TemplateBody                interface{}             `pulumi:"templateBody"`
+	TimeoutInMinutes            *int                    `pulumi:"timeoutInMinutes"`
 }
 
 func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...pulumi.InvokeOption) LookupStackResultOutput {
@@ -49,7 +63,7 @@ func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...
 }
 
 type LookupStackOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	StackId pulumi.StringInput `pulumi:"stackId"`
 }
 
 func (LookupStackOutputArgs) ElementType() reflect.Type {
@@ -70,24 +84,80 @@ func (o LookupStackResultOutput) ToLookupStackResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o LookupStackResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupStackResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupStackResultOutput) Capabilities() StackCapabilitiesItemArrayOutput {
+	return o.ApplyT(func(v LookupStackResult) []StackCapabilitiesItem { return v.Capabilities }).(StackCapabilitiesItemArrayOutput)
+}
+
+func (o LookupStackResultOutput) ChangeSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.ChangeSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStackResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStackResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStackResultOutput) DisableRollback() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *bool { return v.DisableRollback }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupStackResultOutput) EnableTerminationProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *bool { return v.EnableTerminationProtection }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupStackResultOutput) LastUpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.LastUpdateTime }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStackResultOutput) NotificationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []string { return v.NotificationArns }).(pulumi.StringArrayOutput)
 }
 
+func (o LookupStackResultOutput) Outputs() StackOutputTypeArrayOutput {
+	return o.ApplyT(func(v LookupStackResult) []StackOutputType { return v.Outputs }).(StackOutputTypeArrayOutput)
+}
+
 func (o LookupStackResultOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupStackResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o LookupStackResultOutput) ParentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.ParentId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStackResultOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStackResultOutput) RootId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.RootId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStackResultOutput) StackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.StackId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStackResultOutput) StackPolicyBody() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupStackResult) interface{} { return v.StackPolicyBody }).(pulumi.AnyOutput)
+}
+
+func (o LookupStackResultOutput) StackStatus() StackStatusPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *StackStatus { return v.StackStatus }).(StackStatusPtrOutput)
+}
+
+func (o LookupStackResultOutput) StackStatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.StackStatusReason }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStackResultOutput) Tags() StackTagArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []StackTag { return v.Tags }).(StackTagArrayOutput)
 }
 
-func (o LookupStackResultOutput) TemplateUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupStackResult) *string { return v.TemplateUrl }).(pulumi.StringPtrOutput)
+func (o LookupStackResultOutput) TemplateBody() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupStackResult) interface{} { return v.TemplateBody }).(pulumi.AnyOutput)
 }
 
 func (o LookupStackResultOutput) TimeoutInMinutes() pulumi.IntPtrOutput {

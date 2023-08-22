@@ -88,6 +88,8 @@ class BackupPlanBackupRuleResourceType(dict):
             suggest = "recovery_point_tags"
         elif key == "scheduleExpression":
             suggest = "schedule_expression"
+        elif key == "scheduleExpressionTimezone":
+            suggest = "schedule_expression_timezone"
         elif key == "startWindowMinutes":
             suggest = "start_window_minutes"
 
@@ -111,6 +113,7 @@ class BackupPlanBackupRuleResourceType(dict):
                  lifecycle: Optional['outputs.BackupPlanLifecycleResourceType'] = None,
                  recovery_point_tags: Optional[Any] = None,
                  schedule_expression: Optional[str] = None,
+                 schedule_expression_timezone: Optional[str] = None,
                  start_window_minutes: Optional[float] = None):
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "target_backup_vault", target_backup_vault)
@@ -126,6 +129,8 @@ class BackupPlanBackupRuleResourceType(dict):
             pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if schedule_expression_timezone is not None:
+            pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
         if start_window_minutes is not None:
             pulumi.set(__self__, "start_window_minutes", start_window_minutes)
 
@@ -168,6 +173,11 @@ class BackupPlanBackupRuleResourceType(dict):
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[str]:
         return pulumi.get(self, "schedule_expression")
+
+    @property
+    @pulumi.getter(name="scheduleExpressionTimezone")
+    def schedule_expression_timezone(self) -> Optional[str]:
+        return pulumi.get(self, "schedule_expression_timezone")
 
     @property
     @pulumi.getter(name="startWindowMinutes")

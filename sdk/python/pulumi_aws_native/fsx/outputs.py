@@ -557,8 +557,14 @@ class FileSystemOpenZfsConfiguration(dict):
             suggest = "daily_automatic_backup_start_time"
         elif key == "diskIopsConfiguration":
             suggest = "disk_iops_configuration"
+        elif key == "endpointIpAddressRange":
+            suggest = "endpoint_ip_address_range"
+        elif key == "preferredSubnetId":
+            suggest = "preferred_subnet_id"
         elif key == "rootVolumeConfiguration":
             suggest = "root_volume_configuration"
+        elif key == "routeTableIds":
+            suggest = "route_table_ids"
         elif key == "throughputCapacity":
             suggest = "throughput_capacity"
         elif key == "weeklyMaintenanceStartTime":
@@ -582,8 +588,11 @@ class FileSystemOpenZfsConfiguration(dict):
                  copy_tags_to_volumes: Optional[bool] = None,
                  daily_automatic_backup_start_time: Optional[str] = None,
                  disk_iops_configuration: Optional['outputs.FileSystemDiskIopsConfiguration'] = None,
+                 endpoint_ip_address_range: Optional[str] = None,
                  options: Optional[Sequence[str]] = None,
+                 preferred_subnet_id: Optional[str] = None,
                  root_volume_configuration: Optional['outputs.FileSystemRootVolumeConfiguration'] = None,
+                 route_table_ids: Optional[Sequence[str]] = None,
                  throughput_capacity: Optional[int] = None,
                  weekly_maintenance_start_time: Optional[str] = None):
         pulumi.set(__self__, "deployment_type", deployment_type)
@@ -597,10 +606,16 @@ class FileSystemOpenZfsConfiguration(dict):
             pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if disk_iops_configuration is not None:
             pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
+        if endpoint_ip_address_range is not None:
+            pulumi.set(__self__, "endpoint_ip_address_range", endpoint_ip_address_range)
         if options is not None:
             pulumi.set(__self__, "options", options)
+        if preferred_subnet_id is not None:
+            pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if root_volume_configuration is not None:
             pulumi.set(__self__, "root_volume_configuration", root_volume_configuration)
+        if route_table_ids is not None:
+            pulumi.set(__self__, "route_table_ids", route_table_ids)
         if throughput_capacity is not None:
             pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if weekly_maintenance_start_time is not None:
@@ -637,14 +652,29 @@ class FileSystemOpenZfsConfiguration(dict):
         return pulumi.get(self, "disk_iops_configuration")
 
     @property
+    @pulumi.getter(name="endpointIpAddressRange")
+    def endpoint_ip_address_range(self) -> Optional[str]:
+        return pulumi.get(self, "endpoint_ip_address_range")
+
+    @property
     @pulumi.getter
     def options(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "options")
 
     @property
+    @pulumi.getter(name="preferredSubnetId")
+    def preferred_subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "preferred_subnet_id")
+
+    @property
     @pulumi.getter(name="rootVolumeConfiguration")
     def root_volume_configuration(self) -> Optional['outputs.FileSystemRootVolumeConfiguration']:
         return pulumi.get(self, "root_volume_configuration")
+
+    @property
+    @pulumi.getter(name="routeTableIds")
+    def route_table_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "route_table_ids")
 
     @property
     @pulumi.getter(name="throughputCapacity")
@@ -899,6 +929,8 @@ class FileSystemWindowsConfiguration(dict):
             suggest = "daily_automatic_backup_start_time"
         elif key == "deploymentType":
             suggest = "deployment_type"
+        elif key == "diskIopsConfiguration":
+            suggest = "disk_iops_configuration"
         elif key == "preferredSubnetId":
             suggest = "preferred_subnet_id"
         elif key == "selfManagedActiveDirectoryConfiguration":
@@ -926,6 +958,7 @@ class FileSystemWindowsConfiguration(dict):
                  copy_tags_to_backups: Optional[bool] = None,
                  daily_automatic_backup_start_time: Optional[str] = None,
                  deployment_type: Optional[str] = None,
+                 disk_iops_configuration: Optional['outputs.FileSystemDiskIopsConfiguration'] = None,
                  preferred_subnet_id: Optional[str] = None,
                  self_managed_active_directory_configuration: Optional['outputs.FileSystemSelfManagedActiveDirectoryConfiguration'] = None,
                  weekly_maintenance_start_time: Optional[str] = None):
@@ -944,6 +977,8 @@ class FileSystemWindowsConfiguration(dict):
             pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if deployment_type is not None:
             pulumi.set(__self__, "deployment_type", deployment_type)
+        if disk_iops_configuration is not None:
+            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
         if preferred_subnet_id is not None:
             pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if self_managed_active_directory_configuration is not None:
@@ -990,6 +1025,11 @@ class FileSystemWindowsConfiguration(dict):
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> Optional[str]:
         return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter(name="diskIopsConfiguration")
+    def disk_iops_configuration(self) -> Optional['outputs.FileSystemDiskIopsConfiguration']:
+        return pulumi.get(self, "disk_iops_configuration")
 
     @property
     @pulumi.getter(name="preferredSubnetId")

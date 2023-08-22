@@ -114,15 +114,16 @@ func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) Index(i pulumi.I
 }
 
 type BackupPlanBackupRuleResourceType struct {
-	CompletionWindowMinutes *float64                           `pulumi:"completionWindowMinutes"`
-	CopyActions             []BackupPlanCopyActionResourceType `pulumi:"copyActions"`
-	EnableContinuousBackup  *bool                              `pulumi:"enableContinuousBackup"`
-	Lifecycle               *BackupPlanLifecycleResourceType   `pulumi:"lifecycle"`
-	RecoveryPointTags       interface{}                        `pulumi:"recoveryPointTags"`
-	RuleName                string                             `pulumi:"ruleName"`
-	ScheduleExpression      *string                            `pulumi:"scheduleExpression"`
-	StartWindowMinutes      *float64                           `pulumi:"startWindowMinutes"`
-	TargetBackupVault       string                             `pulumi:"targetBackupVault"`
+	CompletionWindowMinutes    *float64                           `pulumi:"completionWindowMinutes"`
+	CopyActions                []BackupPlanCopyActionResourceType `pulumi:"copyActions"`
+	EnableContinuousBackup     *bool                              `pulumi:"enableContinuousBackup"`
+	Lifecycle                  *BackupPlanLifecycleResourceType   `pulumi:"lifecycle"`
+	RecoveryPointTags          interface{}                        `pulumi:"recoveryPointTags"`
+	RuleName                   string                             `pulumi:"ruleName"`
+	ScheduleExpression         *string                            `pulumi:"scheduleExpression"`
+	ScheduleExpressionTimezone *string                            `pulumi:"scheduleExpressionTimezone"`
+	StartWindowMinutes         *float64                           `pulumi:"startWindowMinutes"`
+	TargetBackupVault          string                             `pulumi:"targetBackupVault"`
 }
 
 // BackupPlanBackupRuleResourceTypeInput is an input type that accepts BackupPlanBackupRuleResourceTypeArgs and BackupPlanBackupRuleResourceTypeOutput values.
@@ -137,15 +138,16 @@ type BackupPlanBackupRuleResourceTypeInput interface {
 }
 
 type BackupPlanBackupRuleResourceTypeArgs struct {
-	CompletionWindowMinutes pulumi.Float64PtrInput                     `pulumi:"completionWindowMinutes"`
-	CopyActions             BackupPlanCopyActionResourceTypeArrayInput `pulumi:"copyActions"`
-	EnableContinuousBackup  pulumi.BoolPtrInput                        `pulumi:"enableContinuousBackup"`
-	Lifecycle               BackupPlanLifecycleResourceTypePtrInput    `pulumi:"lifecycle"`
-	RecoveryPointTags       pulumi.Input                               `pulumi:"recoveryPointTags"`
-	RuleName                pulumi.StringInput                         `pulumi:"ruleName"`
-	ScheduleExpression      pulumi.StringPtrInput                      `pulumi:"scheduleExpression"`
-	StartWindowMinutes      pulumi.Float64PtrInput                     `pulumi:"startWindowMinutes"`
-	TargetBackupVault       pulumi.StringInput                         `pulumi:"targetBackupVault"`
+	CompletionWindowMinutes    pulumi.Float64PtrInput                     `pulumi:"completionWindowMinutes"`
+	CopyActions                BackupPlanCopyActionResourceTypeArrayInput `pulumi:"copyActions"`
+	EnableContinuousBackup     pulumi.BoolPtrInput                        `pulumi:"enableContinuousBackup"`
+	Lifecycle                  BackupPlanLifecycleResourceTypePtrInput    `pulumi:"lifecycle"`
+	RecoveryPointTags          pulumi.Input                               `pulumi:"recoveryPointTags"`
+	RuleName                   pulumi.StringInput                         `pulumi:"ruleName"`
+	ScheduleExpression         pulumi.StringPtrInput                      `pulumi:"scheduleExpression"`
+	ScheduleExpressionTimezone pulumi.StringPtrInput                      `pulumi:"scheduleExpressionTimezone"`
+	StartWindowMinutes         pulumi.Float64PtrInput                     `pulumi:"startWindowMinutes"`
+	TargetBackupVault          pulumi.StringInput                         `pulumi:"targetBackupVault"`
 }
 
 func (BackupPlanBackupRuleResourceTypeArgs) ElementType() reflect.Type {
@@ -225,6 +227,10 @@ func (o BackupPlanBackupRuleResourceTypeOutput) RuleName() pulumi.StringOutput {
 
 func (o BackupPlanBackupRuleResourceTypeOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPlanBackupRuleResourceTypeOutput) ScheduleExpressionTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *string { return v.ScheduleExpressionTimezone }).(pulumi.StringPtrOutput)
 }
 
 func (o BackupPlanBackupRuleResourceTypeOutput) StartWindowMinutes() pulumi.Float64PtrOutput {

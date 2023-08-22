@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFileSystemResult:
-    def __init__(__self__, dns_name=None, id=None, lustre_configuration=None, lustre_mount_name=None, ontap_configuration=None, open_zfs_configuration=None, resource_arn=None, root_volume_id=None, storage_capacity=None, tags=None, windows_configuration=None):
+    def __init__(__self__, dns_name=None, id=None, lustre_configuration=None, lustre_mount_name=None, ontap_configuration=None, open_zfs_configuration=None, resource_arn=None, root_volume_id=None, storage_capacity=None, storage_type=None, tags=None, windows_configuration=None):
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
@@ -47,6 +47,9 @@ class GetFileSystemResult:
         if storage_capacity and not isinstance(storage_capacity, int):
             raise TypeError("Expected argument 'storage_capacity' to be a int")
         pulumi.set(__self__, "storage_capacity", storage_capacity)
+        if storage_type and not isinstance(storage_type, str):
+            raise TypeError("Expected argument 'storage_type' to be a str")
+        pulumi.set(__self__, "storage_type", storage_type)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -100,6 +103,11 @@ class GetFileSystemResult:
         return pulumi.get(self, "storage_capacity")
 
     @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[str]:
+        return pulumi.get(self, "storage_type")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.FileSystemTag']]:
         return pulumi.get(self, "tags")
@@ -125,6 +133,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             resource_arn=self.resource_arn,
             root_volume_id=self.root_volume_id,
             storage_capacity=self.storage_capacity,
+            storage_type=self.storage_type,
             tags=self.tags,
             windows_configuration=self.windows_configuration)
 
@@ -149,6 +158,7 @@ def get_file_system(id: Optional[str] = None,
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         root_volume_id=pulumi.get(__ret__, 'root_volume_id'),
         storage_capacity=pulumi.get(__ret__, 'storage_capacity'),
+        storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
         windows_configuration=pulumi.get(__ret__, 'windows_configuration'))
 

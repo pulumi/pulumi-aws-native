@@ -15,8 +15,14 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         [Input("allSupported")]
         public Input<bool>? AllSupported { get; set; }
 
+        [Input("exclusionByResourceTypes")]
+        public Input<Inputs.ConfigurationRecorderExclusionByResourceTypesArgs>? ExclusionByResourceTypes { get; set; }
+
         [Input("includeGlobalResourceTypes")]
         public Input<bool>? IncludeGlobalResourceTypes { get; set; }
+
+        [Input("recordingStrategy")]
+        public Input<Inputs.ConfigurationRecorderRecordingStrategyArgs>? RecordingStrategy { get; set; }
 
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;

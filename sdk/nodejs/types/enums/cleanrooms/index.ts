@@ -41,6 +41,7 @@ export type ConfiguredTableAnalysisMethod = (typeof ConfiguredTableAnalysisMetho
 export const ConfiguredTableAnalysisRuleType = {
     Aggregation: "AGGREGATION",
     List: "LIST",
+    Custom: "CUSTOM",
 } as const;
 
 export type ConfiguredTableAnalysisRuleType = (typeof ConfiguredTableAnalysisRuleType)[keyof typeof ConfiguredTableAnalysisRuleType];

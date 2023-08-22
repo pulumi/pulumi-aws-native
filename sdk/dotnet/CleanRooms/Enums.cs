@@ -160,6 +160,7 @@ namespace Pulumi.AwsNative.CleanRooms
 
         public static ConfiguredTableAnalysisRuleType Aggregation { get; } = new ConfiguredTableAnalysisRuleType("AGGREGATION");
         public static ConfiguredTableAnalysisRuleType List { get; } = new ConfiguredTableAnalysisRuleType("LIST");
+        public static ConfiguredTableAnalysisRuleType Custom { get; } = new ConfiguredTableAnalysisRuleType("CUSTOM");
 
         public static bool operator ==(ConfiguredTableAnalysisRuleType left, ConfiguredTableAnalysisRuleType right) => left.Equals(right);
         public static bool operator !=(ConfiguredTableAnalysisRuleType left, ConfiguredTableAnalysisRuleType right) => !left.Equals(right);

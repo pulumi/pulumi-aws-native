@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Emr.Inputs
         [Input("sizeInGb", required: true)]
         public Input<int> SizeInGb { get; set; } = null!;
 
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
+
         [Input("volumeType", required: true)]
         public Input<string> VolumeType { get; set; } = null!;
 

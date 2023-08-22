@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, arn=None, broker_node_group_info=None, client_authentication=None, configuration_info=None, current_version=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None, storage_mode=None):
+    def __init__(__self__, arn=None, broker_node_group_info=None, client_authentication=None, configuration_info=None, current_version=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None, storage_mode=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -57,6 +57,9 @@ class GetClusterResult:
         if storage_mode and not isinstance(storage_mode, str):
             raise TypeError("Expected argument 'storage_mode' to be a str")
         pulumi.set(__self__, "storage_mode", storage_mode)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -121,6 +124,14 @@ class GetClusterResult:
     def storage_mode(self) -> Optional['ClusterStorageMode']:
         return pulumi.get(self, "storage_mode")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Any]:
+        """
+        A key-value pair to associate with a resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
@@ -139,7 +150,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             logging_info=self.logging_info,
             number_of_broker_nodes=self.number_of_broker_nodes,
             open_monitoring=self.open_monitoring,
-            storage_mode=self.storage_mode)
+            storage_mode=self.storage_mode,
+            tags=self.tags)
 
 
 def get_cluster(arn: Optional[str] = None,
@@ -164,7 +176,8 @@ def get_cluster(arn: Optional[str] = None,
         logging_info=pulumi.get(__ret__, 'logging_info'),
         number_of_broker_nodes=pulumi.get(__ret__, 'number_of_broker_nodes'),
         open_monitoring=pulumi.get(__ret__, 'open_monitoring'),
-        storage_mode=pulumi.get(__ret__, 'storage_mode'))
+        storage_mode=pulumi.get(__ret__, 'storage_mode'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_cluster)

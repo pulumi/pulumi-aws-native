@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Ecr
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("emptyOnDelete")]
+        public Output<bool?> EmptyOnDelete { get; private set; } = null!;
+
         [Output("encryptionConfiguration")]
         public Output<Outputs.RepositoryEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
@@ -99,6 +102,9 @@ namespace Pulumi.AwsNative.Ecr
 
     public sealed class RepositoryArgs : global::Pulumi.ResourceArgs
     {
+        [Input("emptyOnDelete")]
+        public Input<bool>? EmptyOnDelete { get; set; }
+
         [Input("encryptionConfiguration")]
         public Input<Inputs.RepositoryEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 

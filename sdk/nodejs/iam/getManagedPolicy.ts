@@ -11,19 +11,65 @@ export function getManagedPolicy(args: GetManagedPolicyArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getManagedPolicy", {
-        "id": args.id,
+        "policyArn": args.policyArn,
     }, opts);
 }
 
 export interface GetManagedPolicyArgs {
-    id: string;
+    /**
+     * Amazon Resource Name (ARN) of the managed policy
+     */
+    policyArn: string;
 }
 
 export interface GetManagedPolicyResult {
+    /**
+     * The number of entities (users, groups, and roles) that the policy is attached to.
+     */
+    readonly attachmentCount?: number;
+    /**
+     * The date and time, in ISO 8601 date-time format, when the policy was created.
+     */
+    readonly createDate?: string;
+    /**
+     * The identifier for the version of the policy that is set as the default version.
+     */
+    readonly defaultVersionId?: string;
+    /**
+     * The name (friendly name, not ARN) of the group to attach the policy to.
+     */
     readonly groups?: string[];
-    readonly id?: string;
+    /**
+     * Specifies whether the policy can be attached to an IAM user, group, or role.
+     */
+    readonly isAttachable?: boolean;
+    /**
+     * The number of entities (users and roles) for which the policy is used to set the permissions boundary.
+     */
+    readonly permissionsBoundaryUsageCount?: number;
+    /**
+     * Amazon Resource Name (ARN) of the managed policy
+     */
+    readonly policyArn?: string;
+    /**
+     * The JSON policy document that you want to use as the content for the new policy.
+     */
     readonly policyDocument?: any;
+    /**
+     * The stable and unique string identifying the policy.
+     */
+    readonly policyId?: string;
+    /**
+     * The name (friendly name, not ARN) of the role to attach the policy to.
+     */
     readonly roles?: string[];
+    /**
+     * The date and time, in ISO 8601 date-time format, when the policy was last updated.
+     */
+    readonly updateDate?: string;
+    /**
+     * The name (friendly name, not ARN) of the IAM user to attach the policy to.
+     */
     readonly users?: string[];
 }
 /**
@@ -34,5 +80,8 @@ export function getManagedPolicyOutput(args: GetManagedPolicyOutputArgs, opts?: 
 }
 
 export interface GetManagedPolicyOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the managed policy
+     */
+    policyArn: pulumi.Input<string>;
 }

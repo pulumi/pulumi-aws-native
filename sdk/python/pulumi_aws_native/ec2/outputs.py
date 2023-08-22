@@ -56,6 +56,7 @@ __all__ = [
     'FlowLogTag',
     'InstanceAssociationParameter',
     'InstanceBlockDeviceMapping',
+    'InstanceConnectEndpointTag',
     'InstanceCpuOptions',
     'InstanceCreditSpecification',
     'InstanceEbs',
@@ -2104,6 +2105,31 @@ class InstanceBlockDeviceMapping(dict):
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class InstanceConnectEndpointTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

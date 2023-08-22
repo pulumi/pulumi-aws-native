@@ -62,6 +62,7 @@ __all__ = [
     'AnalysisPivotTableConditionalFormattingScopeRole',
     'AnalysisPivotTableFieldCollapseState',
     'AnalysisPivotTableMetricPlacement',
+    'AnalysisPivotTableRowsLayout',
     'AnalysisPivotTableSubtotalLevel',
     'AnalysisPrimaryValueDisplayType',
     'AnalysisRadarChartAxesRangeScale',
@@ -82,9 +83,13 @@ __all__ = [
     'AnalysisSheetControlDateTimePickerType',
     'AnalysisSheetControlListType',
     'AnalysisSheetControlSliderType',
+    'AnalysisSimpleAttributeAggregationFunction',
     'AnalysisSimpleNumericalAggregationFunction',
+    'AnalysisSmallMultiplesAxisPlacement',
+    'AnalysisSmallMultiplesAxisScale',
     'AnalysisSortDirection',
     'AnalysisSpecialValue',
+    'AnalysisStyledCellType',
     'AnalysisTableBorderStyle',
     'AnalysisTableCellImageScalingConfiguration',
     'AnalysisTableFieldIconSetType',
@@ -735,6 +740,11 @@ class AnalysisPivotTableMetricPlacement(str, Enum):
     COLUMN = "COLUMN"
 
 
+class AnalysisPivotTableRowsLayout(str, Enum):
+    TABULAR = "TABULAR"
+    HIERARCHY = "HIERARCHY"
+
+
 class AnalysisPivotTableSubtotalLevel(str, Enum):
     ALL = "ALL"
     CUSTOM = "CUSTOM"
@@ -849,6 +859,10 @@ class AnalysisSheetControlSliderType(str, Enum):
     RANGE = "RANGE"
 
 
+class AnalysisSimpleAttributeAggregationFunction(str, Enum):
+    UNIQUE_VALUE = "UNIQUE_VALUE"
+
+
 class AnalysisSimpleNumericalAggregationFunction(str, Enum):
     SUM = "SUM"
     AVERAGE = "AVERAGE"
@@ -863,6 +877,16 @@ class AnalysisSimpleNumericalAggregationFunction(str, Enum):
     MEDIAN = "MEDIAN"
 
 
+class AnalysisSmallMultiplesAxisPlacement(str, Enum):
+    OUTSIDE = "OUTSIDE"
+    INSIDE = "INSIDE"
+
+
+class AnalysisSmallMultiplesAxisScale(str, Enum):
+    SHARED = "SHARED"
+    INDEPENDENT = "INDEPENDENT"
+
+
 class AnalysisSortDirection(str, Enum):
     ASC = "ASC"
     DESC = "DESC"
@@ -872,6 +896,12 @@ class AnalysisSpecialValue(str, Enum):
     EMPTY = "EMPTY"
     NULL = "NULL"
     OTHER = "OTHER"
+
+
+class AnalysisStyledCellType(str, Enum):
+    TOTAL = "TOTAL"
+    METRIC_HEADER = "METRIC_HEADER"
+    VALUE = "VALUE"
 
 
 class AnalysisTableBorderStyle(str, Enum):
@@ -955,6 +985,7 @@ class AnalysisVerticalTextAlignment(str, Enum):
     TOP = "TOP"
     MIDDLE = "MIDDLE"
     BOTTOM = "BOTTOM"
+    AUTO = "AUTO"
 
 
 class AnalysisVisibility(str, Enum):

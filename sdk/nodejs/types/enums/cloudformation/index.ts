@@ -99,6 +99,14 @@ export const ResourceVersionVisibility = {
  */
 export type ResourceVersionVisibility = (typeof ResourceVersionVisibility)[keyof typeof ResourceVersionVisibility];
 
+export const StackCapabilitiesItem = {
+    CapabilityIam: "CAPABILITY_IAM",
+    CapabilityNamedIam: "CAPABILITY_NAMED_IAM",
+    CapabilityAutoExpand: "CAPABILITY_AUTO_EXPAND",
+} as const;
+
+export type StackCapabilitiesItem = (typeof StackCapabilitiesItem)[keyof typeof StackCapabilitiesItem];
+
 export const StackSetCallAs = {
     Self: "SELF",
     DelegatedAdmin: "DELEGATED_ADMIN",
@@ -148,6 +156,34 @@ export const StackSetRegionConcurrencyType = {
  * The concurrency type of deploying StackSets operations in regions, could be in parallel or one region at a time
  */
 export type StackSetRegionConcurrencyType = (typeof StackSetRegionConcurrencyType)[keyof typeof StackSetRegionConcurrencyType];
+
+export const StackStatus = {
+    CreateInProgress: "CREATE_IN_PROGRESS",
+    CreateFailed: "CREATE_FAILED",
+    CreateComplete: "CREATE_COMPLETE",
+    RollbackInProgress: "ROLLBACK_IN_PROGRESS",
+    RollbackFailed: "ROLLBACK_FAILED",
+    RollbackComplete: "ROLLBACK_COMPLETE",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    DeleteFailed: "DELETE_FAILED",
+    DeleteComplete: "DELETE_COMPLETE",
+    UpdateInProgress: "UPDATE_IN_PROGRESS",
+    UpdateCompleteCleanupInProgress: "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
+    UpdateComplete: "UPDATE_COMPLETE",
+    UpdateFailed: "UPDATE_FAILED",
+    UpdateRollbackInProgress: "UPDATE_ROLLBACK_IN_PROGRESS",
+    UpdateRollbackFailed: "UPDATE_ROLLBACK_FAILED",
+    UpdateRollbackCompleteCleanupInProgress: "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
+    UpdateRollbackComplete: "UPDATE_ROLLBACK_COMPLETE",
+    ReviewInProgress: "REVIEW_IN_PROGRESS",
+    ImportInProgress: "IMPORT_IN_PROGRESS",
+    ImportComplete: "IMPORT_COMPLETE",
+    ImportRollbackInProgress: "IMPORT_ROLLBACK_IN_PROGRESS",
+    ImportRollbackFailed: "IMPORT_ROLLBACK_FAILED",
+    ImportRollbackComplete: "IMPORT_ROLLBACK_COMPLETE",
+} as const;
+
+export type StackStatus = (typeof StackStatus)[keyof typeof StackStatus];
 
 export const TypeActivationType = {
     Resource: "RESOURCE",

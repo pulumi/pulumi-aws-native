@@ -13,11 +13,13 @@ from ._enums import *
 __all__ = [
     'AnalysisAggregationFunctionArgs',
     'AnalysisAggregationSortConfigurationArgs',
+    'AnalysisAllSheetsFilterScopeConfigurationArgs',
     'AnalysisAnchorDateConfigurationArgs',
     'AnalysisArcAxisConfigurationArgs',
     'AnalysisArcAxisDisplayRangeArgs',
     'AnalysisArcConfigurationArgs',
     'AnalysisArcOptionsArgs',
+    'AnalysisAttributeAggregationFunctionArgs',
     'AnalysisAxisDataOptionsArgs',
     'AnalysisAxisDisplayDataDrivenRangeArgs',
     'AnalysisAxisDisplayMinMaxRangeArgs',
@@ -321,6 +323,7 @@ __all__ = [
     'AnalysisPivotTableFieldWellsArgs',
     'AnalysisPivotTableOptionsArgs',
     'AnalysisPivotTablePaginatedReportOptionsArgs',
+    'AnalysisPivotTableRowsLabelOptionsArgs',
     'AnalysisPivotTableSortByArgs',
     'AnalysisPivotTableSortConfigurationArgs',
     'AnalysisPivotTableTotalOptionsArgs',
@@ -373,6 +376,7 @@ __all__ = [
     'AnalysisSeriesItemArgs',
     'AnalysisSetParameterValueConfigurationArgs',
     'AnalysisShapeConditionalFormatArgs',
+    'AnalysisSheetControlInfoIconLabelOptionsArgs',
     'AnalysisSheetControlLayoutConfigurationArgs',
     'AnalysisSheetControlLayoutArgs',
     'AnalysisSheetDefinitionArgs',
@@ -383,6 +387,7 @@ __all__ = [
     'AnalysisShortFormatTextArgs',
     'AnalysisSimpleClusterMarkerArgs',
     'AnalysisSliderControlDisplayOptionsArgs',
+    'AnalysisSmallMultiplesAxisPropertiesArgs',
     'AnalysisSmallMultiplesOptionsArgs',
     'AnalysisSourceEntityArgs',
     'AnalysisSourceTemplateArgs',
@@ -416,6 +421,7 @@ __all__ = [
     'AnalysisTableRowConditionalFormattingArgs',
     'AnalysisTableSideBorderOptionsArgs',
     'AnalysisTableSortConfigurationArgs',
+    'AnalysisTableStyleTargetArgs',
     'AnalysisTableUnaggregatedFieldWellsArgs',
     'AnalysisTableVisualArgs',
     'AnalysisTagArgs',
@@ -1488,15 +1494,27 @@ __all__ = [
 @pulumi.input_type
 class AnalysisAggregationFunctionArgs:
     def __init__(__self__, *,
+                 attribute_aggregation_function: Optional[pulumi.Input['AnalysisAttributeAggregationFunctionArgs']] = None,
                  categorical_aggregation_function: Optional[pulumi.Input['AnalysisCategoricalAggregationFunction']] = None,
                  date_aggregation_function: Optional[pulumi.Input['AnalysisDateAggregationFunction']] = None,
                  numerical_aggregation_function: Optional[pulumi.Input['AnalysisNumericalAggregationFunctionArgs']] = None):
+        if attribute_aggregation_function is not None:
+            pulumi.set(__self__, "attribute_aggregation_function", attribute_aggregation_function)
         if categorical_aggregation_function is not None:
             pulumi.set(__self__, "categorical_aggregation_function", categorical_aggregation_function)
         if date_aggregation_function is not None:
             pulumi.set(__self__, "date_aggregation_function", date_aggregation_function)
         if numerical_aggregation_function is not None:
             pulumi.set(__self__, "numerical_aggregation_function", numerical_aggregation_function)
+
+    @property
+    @pulumi.getter(name="attributeAggregationFunction")
+    def attribute_aggregation_function(self) -> Optional[pulumi.Input['AnalysisAttributeAggregationFunctionArgs']]:
+        return pulumi.get(self, "attribute_aggregation_function")
+
+    @attribute_aggregation_function.setter
+    def attribute_aggregation_function(self, value: Optional[pulumi.Input['AnalysisAttributeAggregationFunctionArgs']]):
+        pulumi.set(self, "attribute_aggregation_function", value)
 
     @property
     @pulumi.getter(name="categoricalAggregationFunction")
@@ -1563,6 +1581,12 @@ class AnalysisAggregationSortConfigurationArgs:
     @aggregation_function.setter
     def aggregation_function(self, value: Optional[pulumi.Input['AnalysisAggregationFunctionArgs']]):
         pulumi.set(self, "aggregation_function", value)
+
+
+@pulumi.input_type
+class AnalysisAllSheetsFilterScopeConfigurationArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
@@ -1696,6 +1720,35 @@ class AnalysisArcOptionsArgs:
     @arc_thickness.setter
     def arc_thickness(self, value: Optional[pulumi.Input['AnalysisArcThickness']]):
         pulumi.set(self, "arc_thickness", value)
+
+
+@pulumi.input_type
+class AnalysisAttributeAggregationFunctionArgs:
+    def __init__(__self__, *,
+                 simple_attribute_aggregation: Optional[pulumi.Input['AnalysisSimpleAttributeAggregationFunction']] = None,
+                 value_for_multiple_values: Optional[pulumi.Input[str]] = None):
+        if simple_attribute_aggregation is not None:
+            pulumi.set(__self__, "simple_attribute_aggregation", simple_attribute_aggregation)
+        if value_for_multiple_values is not None:
+            pulumi.set(__self__, "value_for_multiple_values", value_for_multiple_values)
+
+    @property
+    @pulumi.getter(name="simpleAttributeAggregation")
+    def simple_attribute_aggregation(self) -> Optional[pulumi.Input['AnalysisSimpleAttributeAggregationFunction']]:
+        return pulumi.get(self, "simple_attribute_aggregation")
+
+    @simple_attribute_aggregation.setter
+    def simple_attribute_aggregation(self, value: Optional[pulumi.Input['AnalysisSimpleAttributeAggregationFunction']]):
+        pulumi.set(self, "simple_attribute_aggregation", value)
+
+    @property
+    @pulumi.getter(name="valueForMultipleValues")
+    def value_for_multiple_values(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value_for_multiple_values")
+
+    @value_for_multiple_values.setter
+    def value_for_multiple_values(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value_for_multiple_values", value)
 
 
 @pulumi.input_type
@@ -5820,9 +5873,12 @@ class AnalysisDateTimeParameterArgs:
 class AnalysisDateTimePickerControlDisplayOptionsArgs:
     def __init__(__self__, *,
                  date_time_format: Optional[pulumi.Input[str]] = None,
+                 info_icon_label_options: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['AnalysisLabelOptionsArgs']] = None):
         if date_time_format is not None:
             pulumi.set(__self__, "date_time_format", date_time_format)
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
 
@@ -5834,6 +5890,15 @@ class AnalysisDateTimePickerControlDisplayOptionsArgs:
     @date_time_format.setter
     def date_time_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "date_time_format", value)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="titleOptions")
@@ -6473,12 +6538,24 @@ class AnalysisDrillDownFilterArgs:
 @pulumi.input_type
 class AnalysisDropDownControlDisplayOptionsArgs:
     def __init__(__self__, *,
+                 info_icon_label_options: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']] = None,
                  select_all_options: Optional[pulumi.Input['AnalysisListControlSelectAllOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['AnalysisLabelOptionsArgs']] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if select_all_options is not None:
             pulumi.set(__self__, "select_all_options", select_all_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="selectAllOptions")
@@ -7684,9 +7761,21 @@ class AnalysisFilterRelativeDateTimeControlArgs:
 @pulumi.input_type
 class AnalysisFilterScopeConfigurationArgs:
     def __init__(__self__, *,
+                 all_sheets: Optional[pulumi.Input['AnalysisAllSheetsFilterScopeConfigurationArgs']] = None,
                  selected_sheets: Optional[pulumi.Input['AnalysisSelectedSheetsFilterScopeConfigurationArgs']] = None):
+        if all_sheets is not None:
+            pulumi.set(__self__, "all_sheets", all_sheets)
         if selected_sheets is not None:
             pulumi.set(__self__, "selected_sheets", selected_sheets)
+
+    @property
+    @pulumi.getter(name="allSheets")
+    def all_sheets(self) -> Optional[pulumi.Input['AnalysisAllSheetsFilterScopeConfigurationArgs']]:
+        return pulumi.get(self, "all_sheets")
+
+    @all_sheets.setter
+    def all_sheets(self, value: Optional[pulumi.Input['AnalysisAllSheetsFilterScopeConfigurationArgs']]):
+        pulumi.set(self, "all_sheets", value)
 
     @property
     @pulumi.getter(name="selectedSheets")
@@ -8114,7 +8203,6 @@ class AnalysisFontWeightArgs:
 class AnalysisForecastComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['AnalysisDimensionFieldArgs'],
                  custom_seasonality_value: Optional[pulumi.Input[float]] = None,
                  lower_boundary: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -8122,10 +8210,10 @@ class AnalysisForecastComputationArgs:
                  periods_forward: Optional[pulumi.Input[float]] = None,
                  prediction_interval: Optional[pulumi.Input[float]] = None,
                  seasonality: Optional[pulumi.Input['AnalysisForecastComputationSeasonality']] = None,
+                 time: Optional[pulumi.Input['AnalysisDimensionFieldArgs']] = None,
                  upper_boundary: Optional[pulumi.Input[float]] = None,
                  value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if custom_seasonality_value is not None:
             pulumi.set(__self__, "custom_seasonality_value", custom_seasonality_value)
         if lower_boundary is not None:
@@ -8140,6 +8228,8 @@ class AnalysisForecastComputationArgs:
             pulumi.set(__self__, "prediction_interval", prediction_interval)
         if seasonality is not None:
             pulumi.set(__self__, "seasonality", seasonality)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if upper_boundary is not None:
             pulumi.set(__self__, "upper_boundary", upper_boundary)
         if value is not None:
@@ -8153,15 +8243,6 @@ class AnalysisForecastComputationArgs:
     @computation_id.setter
     def computation_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "computation_id", value)
-
-    @property
-    @pulumi.getter
-    def time(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter(name="customSeasonalityValue")
@@ -8225,6 +8306,15 @@ class AnalysisForecastComputationArgs:
     @seasonality.setter
     def seasonality(self, value: Optional[pulumi.Input['AnalysisForecastComputationSeasonality']]):
         pulumi.set(self, "seasonality", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['AnalysisDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['AnalysisDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter(name="upperBoundary")
@@ -9953,16 +10043,17 @@ class AnalysisGridLayoutScreenCanvasSizeOptionsArgs:
 class AnalysisGrowthRateComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['AnalysisDimensionFieldArgs'],
                  name: Optional[pulumi.Input[str]] = None,
                  period_size: Optional[pulumi.Input[float]] = None,
+                 time: Optional[pulumi.Input['AnalysisDimensionFieldArgs']] = None,
                  value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if period_size is not None:
             pulumi.set(__self__, "period_size", period_size)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -9974,15 +10065,6 @@ class AnalysisGrowthRateComputationArgs:
     @computation_id.setter
     def computation_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "computation_id", value)
-
-    @property
-    @pulumi.getter
-    def time(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -10001,6 +10083,15 @@ class AnalysisGrowthRateComputationArgs:
     @period_size.setter
     def period_size(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "period_size", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['AnalysisDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['AnalysisDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -12077,15 +12168,27 @@ class AnalysisLineSeriesAxisDisplayOptionsArgs:
 @pulumi.input_type
 class AnalysisListControlDisplayOptionsArgs:
     def __init__(__self__, *,
+                 info_icon_label_options: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']] = None,
                  search_options: Optional[pulumi.Input['AnalysisListControlSearchOptionsArgs']] = None,
                  select_all_options: Optional[pulumi.Input['AnalysisListControlSelectAllOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['AnalysisLabelOptionsArgs']] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if search_options is not None:
             pulumi.set(__self__, "search_options", search_options)
         if select_all_options is not None:
             pulumi.set(__self__, "select_all_options", select_all_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="searchOptions")
@@ -12259,15 +12362,16 @@ class AnalysisMaximumLabelTypeArgs:
 class AnalysisMaximumMinimumComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['AnalysisDimensionFieldArgs'],
                  type: pulumi.Input['AnalysisMaximumMinimumComputationType'],
                  name: Optional[pulumi.Input[str]] = None,
+                 time: Optional[pulumi.Input['AnalysisDimensionFieldArgs']] = None,
                  value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         pulumi.set(__self__, "type", type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -12279,15 +12383,6 @@ class AnalysisMaximumMinimumComputationArgs:
     @computation_id.setter
     def computation_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "computation_id", value)
-
-    @property
-    @pulumi.getter
-    def time(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -12306,6 +12401,15 @@ class AnalysisMaximumMinimumComputationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['AnalysisDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['AnalysisDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -12374,16 +12478,19 @@ class AnalysisMeasureFieldArgs:
 class AnalysisMetricComparisonComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 from_value: pulumi.Input['AnalysisMeasureFieldArgs'],
-                 target_value: pulumi.Input['AnalysisMeasureFieldArgs'],
-                 time: pulumi.Input['AnalysisDimensionFieldArgs'],
-                 name: Optional[pulumi.Input[str]] = None):
+                 from_value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 target_value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']] = None,
+                 time: Optional[pulumi.Input['AnalysisDimensionFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "from_value", from_value)
-        pulumi.set(__self__, "target_value", target_value)
-        pulumi.set(__self__, "time", time)
+        if from_value is not None:
+            pulumi.set(__self__, "from_value", from_value)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if target_value is not None:
+            pulumi.set(__self__, "target_value", target_value)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter(name="computationId")
@@ -12396,30 +12503,12 @@ class AnalysisMetricComparisonComputationArgs:
 
     @property
     @pulumi.getter(name="fromValue")
-    def from_value(self) -> pulumi.Input['AnalysisMeasureFieldArgs']:
+    def from_value(self) -> Optional[pulumi.Input['AnalysisMeasureFieldArgs']]:
         return pulumi.get(self, "from_value")
 
     @from_value.setter
-    def from_value(self, value: pulumi.Input['AnalysisMeasureFieldArgs']):
+    def from_value(self, value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']]):
         pulumi.set(self, "from_value", value)
-
-    @property
-    @pulumi.getter(name="targetValue")
-    def target_value(self) -> pulumi.Input['AnalysisMeasureFieldArgs']:
-        return pulumi.get(self, "target_value")
-
-    @target_value.setter
-    def target_value(self, value: pulumi.Input['AnalysisMeasureFieldArgs']):
-        pulumi.set(self, "target_value", value)
-
-    @property
-    @pulumi.getter
-    def time(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -12429,6 +12518,24 @@ class AnalysisMetricComparisonComputationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> Optional[pulumi.Input['AnalysisMeasureFieldArgs']]:
+        return pulumi.get(self, "target_value")
+
+    @target_value.setter
+    def target_value(self, value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']]):
+        pulumi.set(self, "target_value", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['AnalysisDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['AnalysisDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
 
 @pulumi.input_type
@@ -14043,13 +14150,14 @@ class AnalysisPercentileAggregationArgs:
 class AnalysisPeriodOverPeriodComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['AnalysisDimensionFieldArgs'],
                  name: Optional[pulumi.Input[str]] = None,
+                 time: Optional[pulumi.Input['AnalysisDimensionFieldArgs']] = None,
                  value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -14064,21 +14172,21 @@ class AnalysisPeriodOverPeriodComputationArgs:
 
     @property
     @pulumi.getter
-    def time(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['AnalysisDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['AnalysisDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -14094,16 +14202,17 @@ class AnalysisPeriodOverPeriodComputationArgs:
 class AnalysisPeriodToDateComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['AnalysisDimensionFieldArgs'],
                  name: Optional[pulumi.Input[str]] = None,
                  period_time_granularity: Optional[pulumi.Input['AnalysisTimeGranularity']] = None,
+                 time: Optional[pulumi.Input['AnalysisDimensionFieldArgs']] = None,
                  value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if period_time_granularity is not None:
             pulumi.set(__self__, "period_time_granularity", period_time_granularity)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -14115,15 +14224,6 @@ class AnalysisPeriodToDateComputationArgs:
     @computation_id.setter
     def computation_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "computation_id", value)
-
-    @property
-    @pulumi.getter
-    def time(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -14142,6 +14242,15 @@ class AnalysisPeriodToDateComputationArgs:
     @period_time_granularity.setter
     def period_time_granularity(self, value: Optional[pulumi.Input['AnalysisTimeGranularity']]):
         pulumi.set(self, "period_time_granularity", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['AnalysisDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['AnalysisDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -14938,12 +15047,18 @@ class AnalysisPivotTableOptionsArgs:
                  collapsed_row_dimensions_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
                  column_header_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None,
                  column_names_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
+                 default_cell_width: Optional[pulumi.Input[str]] = None,
                  metric_placement: Optional[pulumi.Input['AnalysisPivotTableMetricPlacement']] = None,
                  row_alternate_color_options: Optional[pulumi.Input['AnalysisRowAlternateColorOptionsArgs']] = None,
                  row_field_names_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None,
                  row_header_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None,
+                 rows_label_options: Optional[pulumi.Input['AnalysisPivotTableRowsLabelOptionsArgs']] = None,
+                 rows_layout: Optional[pulumi.Input['AnalysisPivotTableRowsLayout']] = None,
                  single_metric_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
                  toggle_buttons_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None):
+        """
+        :param pulumi.Input[str] default_cell_width: String based length that is composed of value and unit in px
+        """
         if cell_style is not None:
             pulumi.set(__self__, "cell_style", cell_style)
         if collapsed_row_dimensions_visibility is not None:
@@ -14952,6 +15067,8 @@ class AnalysisPivotTableOptionsArgs:
             pulumi.set(__self__, "column_header_style", column_header_style)
         if column_names_visibility is not None:
             pulumi.set(__self__, "column_names_visibility", column_names_visibility)
+        if default_cell_width is not None:
+            pulumi.set(__self__, "default_cell_width", default_cell_width)
         if metric_placement is not None:
             pulumi.set(__self__, "metric_placement", metric_placement)
         if row_alternate_color_options is not None:
@@ -14960,6 +15077,10 @@ class AnalysisPivotTableOptionsArgs:
             pulumi.set(__self__, "row_field_names_style", row_field_names_style)
         if row_header_style is not None:
             pulumi.set(__self__, "row_header_style", row_header_style)
+        if rows_label_options is not None:
+            pulumi.set(__self__, "rows_label_options", rows_label_options)
+        if rows_layout is not None:
+            pulumi.set(__self__, "rows_layout", rows_layout)
         if single_metric_visibility is not None:
             pulumi.set(__self__, "single_metric_visibility", single_metric_visibility)
         if toggle_buttons_visibility is not None:
@@ -15002,6 +15123,18 @@ class AnalysisPivotTableOptionsArgs:
         pulumi.set(self, "column_names_visibility", value)
 
     @property
+    @pulumi.getter(name="defaultCellWidth")
+    def default_cell_width(self) -> Optional[pulumi.Input[str]]:
+        """
+        String based length that is composed of value and unit in px
+        """
+        return pulumi.get(self, "default_cell_width")
+
+    @default_cell_width.setter
+    def default_cell_width(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_cell_width", value)
+
+    @property
     @pulumi.getter(name="metricPlacement")
     def metric_placement(self) -> Optional[pulumi.Input['AnalysisPivotTableMetricPlacement']]:
         return pulumi.get(self, "metric_placement")
@@ -15036,6 +15169,24 @@ class AnalysisPivotTableOptionsArgs:
     @row_header_style.setter
     def row_header_style(self, value: Optional[pulumi.Input['AnalysisTableCellStyleArgs']]):
         pulumi.set(self, "row_header_style", value)
+
+    @property
+    @pulumi.getter(name="rowsLabelOptions")
+    def rows_label_options(self) -> Optional[pulumi.Input['AnalysisPivotTableRowsLabelOptionsArgs']]:
+        return pulumi.get(self, "rows_label_options")
+
+    @rows_label_options.setter
+    def rows_label_options(self, value: Optional[pulumi.Input['AnalysisPivotTableRowsLabelOptionsArgs']]):
+        pulumi.set(self, "rows_label_options", value)
+
+    @property
+    @pulumi.getter(name="rowsLayout")
+    def rows_layout(self) -> Optional[pulumi.Input['AnalysisPivotTableRowsLayout']]:
+        return pulumi.get(self, "rows_layout")
+
+    @rows_layout.setter
+    def rows_layout(self, value: Optional[pulumi.Input['AnalysisPivotTableRowsLayout']]):
+        pulumi.set(self, "rows_layout", value)
 
     @property
     @pulumi.getter(name="singleMetricVisibility")
@@ -15083,6 +15234,35 @@ class AnalysisPivotTablePaginatedReportOptionsArgs:
     @vertical_overflow_visibility.setter
     def vertical_overflow_visibility(self, value: Optional[pulumi.Input['AnalysisVisibility']]):
         pulumi.set(self, "vertical_overflow_visibility", value)
+
+
+@pulumi.input_type
+class AnalysisPivotTableRowsLabelOptionsArgs:
+    def __init__(__self__, *,
+                 custom_label: Optional[pulumi.Input[str]] = None,
+                 visibility: Optional[pulumi.Input['AnalysisVisibility']] = None):
+        if custom_label is not None:
+            pulumi.set(__self__, "custom_label", custom_label)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="customLabel")
+    def custom_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_label")
+
+    @custom_label.setter
+    def custom_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_label", value)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input['AnalysisVisibility']]:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input['AnalysisVisibility']]):
+        pulumi.set(self, "visibility", value)
 
 
 @pulumi.input_type
@@ -16143,9 +16323,12 @@ class AnalysisReferenceLineArgs:
 class AnalysisRelativeDateTimeControlDisplayOptionsArgs:
     def __init__(__self__, *,
                  date_time_format: Optional[pulumi.Input[str]] = None,
+                 info_icon_label_options: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['AnalysisLabelOptionsArgs']] = None):
         if date_time_format is not None:
             pulumi.set(__self__, "date_time_format", date_time_format)
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
 
@@ -16157,6 +16340,15 @@ class AnalysisRelativeDateTimeControlDisplayOptionsArgs:
     @date_time_format.setter
     def date_time_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "date_time_format", value)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="titleOptions")
@@ -16358,11 +16550,14 @@ class AnalysisRollingDateConfigurationArgs:
 class AnalysisRowAlternateColorOptionsArgs:
     def __init__(__self__, *,
                  row_alternate_colors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 status: Optional[pulumi.Input['AnalysisWidgetStatus']] = None):
+                 status: Optional[pulumi.Input['AnalysisWidgetStatus']] = None,
+                 use_primary_background_color: Optional[pulumi.Input['AnalysisWidgetStatus']] = None):
         if row_alternate_colors is not None:
             pulumi.set(__self__, "row_alternate_colors", row_alternate_colors)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if use_primary_background_color is not None:
+            pulumi.set(__self__, "use_primary_background_color", use_primary_background_color)
 
     @property
     @pulumi.getter(name="rowAlternateColors")
@@ -16381,6 +16576,15 @@ class AnalysisRowAlternateColorOptionsArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input['AnalysisWidgetStatus']]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="usePrimaryBackgroundColor")
+    def use_primary_background_color(self) -> Optional[pulumi.Input['AnalysisWidgetStatus']]:
+        return pulumi.get(self, "use_primary_background_color")
+
+    @use_primary_background_color.setter
+    def use_primary_background_color(self, value: Optional[pulumi.Input['AnalysisWidgetStatus']]):
+        pulumi.set(self, "use_primary_background_color", value)
 
 
 @pulumi.input_type
@@ -17292,6 +17496,35 @@ class AnalysisShapeConditionalFormatArgs:
 
 
 @pulumi.input_type
+class AnalysisSheetControlInfoIconLabelOptionsArgs:
+    def __init__(__self__, *,
+                 info_icon_text: Optional[pulumi.Input[str]] = None,
+                 visibility: Optional[pulumi.Input['AnalysisVisibility']] = None):
+        if info_icon_text is not None:
+            pulumi.set(__self__, "info_icon_text", info_icon_text)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="infoIconText")
+    def info_icon_text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "info_icon_text")
+
+    @info_icon_text.setter
+    def info_icon_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "info_icon_text", value)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input['AnalysisVisibility']]:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input['AnalysisVisibility']]):
+        pulumi.set(self, "visibility", value)
+
+
+@pulumi.input_type
 class AnalysisSheetControlLayoutConfigurationArgs:
     def __init__(__self__, *,
                  grid_layout: Optional[pulumi.Input['AnalysisGridLayoutConfigurationArgs']] = None):
@@ -17620,9 +17853,21 @@ class AnalysisSimpleClusterMarkerArgs:
 @pulumi.input_type
 class AnalysisSliderControlDisplayOptionsArgs:
     def __init__(__self__, *,
+                 info_icon_label_options: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['AnalysisLabelOptionsArgs']] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="titleOptions")
@@ -17635,17 +17880,52 @@ class AnalysisSliderControlDisplayOptionsArgs:
 
 
 @pulumi.input_type
+class AnalysisSmallMultiplesAxisPropertiesArgs:
+    def __init__(__self__, *,
+                 placement: Optional[pulumi.Input['AnalysisSmallMultiplesAxisPlacement']] = None,
+                 scale: Optional[pulumi.Input['AnalysisSmallMultiplesAxisScale']] = None):
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input['AnalysisSmallMultiplesAxisPlacement']]:
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input['AnalysisSmallMultiplesAxisPlacement']]):
+        pulumi.set(self, "placement", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['AnalysisSmallMultiplesAxisScale']]:
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['AnalysisSmallMultiplesAxisScale']]):
+        pulumi.set(self, "scale", value)
+
+
+@pulumi.input_type
 class AnalysisSmallMultiplesOptionsArgs:
     def __init__(__self__, *,
                  max_visible_columns: Optional[pulumi.Input[float]] = None,
                  max_visible_rows: Optional[pulumi.Input[float]] = None,
-                 panel_configuration: Optional[pulumi.Input['AnalysisPanelConfigurationArgs']] = None):
+                 panel_configuration: Optional[pulumi.Input['AnalysisPanelConfigurationArgs']] = None,
+                 x_axis: Optional[pulumi.Input['AnalysisSmallMultiplesAxisPropertiesArgs']] = None,
+                 y_axis: Optional[pulumi.Input['AnalysisSmallMultiplesAxisPropertiesArgs']] = None):
         if max_visible_columns is not None:
             pulumi.set(__self__, "max_visible_columns", max_visible_columns)
         if max_visible_rows is not None:
             pulumi.set(__self__, "max_visible_rows", max_visible_rows)
         if panel_configuration is not None:
             pulumi.set(__self__, "panel_configuration", panel_configuration)
+        if x_axis is not None:
+            pulumi.set(__self__, "x_axis", x_axis)
+        if y_axis is not None:
+            pulumi.set(__self__, "y_axis", y_axis)
 
     @property
     @pulumi.getter(name="maxVisibleColumns")
@@ -17673,6 +17953,24 @@ class AnalysisSmallMultiplesOptionsArgs:
     @panel_configuration.setter
     def panel_configuration(self, value: Optional[pulumi.Input['AnalysisPanelConfigurationArgs']]):
         pulumi.set(self, "panel_configuration", value)
+
+    @property
+    @pulumi.getter(name="xAxis")
+    def x_axis(self) -> Optional[pulumi.Input['AnalysisSmallMultiplesAxisPropertiesArgs']]:
+        return pulumi.get(self, "x_axis")
+
+    @x_axis.setter
+    def x_axis(self, value: Optional[pulumi.Input['AnalysisSmallMultiplesAxisPropertiesArgs']]):
+        pulumi.set(self, "x_axis", value)
+
+    @property
+    @pulumi.getter(name="yAxis")
+    def y_axis(self) -> Optional[pulumi.Input['AnalysisSmallMultiplesAxisPropertiesArgs']]:
+        return pulumi.get(self, "y_axis")
+
+    @y_axis.setter
+    def y_axis(self, value: Optional[pulumi.Input['AnalysisSmallMultiplesAxisPropertiesArgs']]):
+        pulumi.set(self, "y_axis", value)
 
 
 @pulumi.input_type
@@ -17974,6 +18272,7 @@ class AnalysisSubtotalOptionsArgs:
                  field_level: Optional[pulumi.Input['AnalysisPivotTableSubtotalLevel']] = None,
                  field_level_options: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPivotTableFieldSubtotalOptionsArgs']]]] = None,
                  metric_header_cell_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None,
+                 style_targets: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTableStyleTargetArgs']]]] = None,
                  total_cell_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None,
                  totals_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
                  value_cell_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None):
@@ -17985,6 +18284,8 @@ class AnalysisSubtotalOptionsArgs:
             pulumi.set(__self__, "field_level_options", field_level_options)
         if metric_header_cell_style is not None:
             pulumi.set(__self__, "metric_header_cell_style", metric_header_cell_style)
+        if style_targets is not None:
+            pulumi.set(__self__, "style_targets", style_targets)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -18027,6 +18328,15 @@ class AnalysisSubtotalOptionsArgs:
     @metric_header_cell_style.setter
     def metric_header_cell_style(self, value: Optional[pulumi.Input['AnalysisTableCellStyleArgs']]):
         pulumi.set(self, "metric_header_cell_style", value)
+
+    @property
+    @pulumi.getter(name="styleTargets")
+    def style_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTableStyleTargetArgs']]]]:
+        return pulumi.get(self, "style_targets")
+
+    @style_targets.setter
+    def style_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTableStyleTargetArgs']]]]):
+        pulumi.set(self, "style_targets", value)
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -18917,6 +19227,22 @@ class AnalysisTableSortConfigurationArgs:
 
 
 @pulumi.input_type
+class AnalysisTableStyleTargetArgs:
+    def __init__(__self__, *,
+                 cell_type: pulumi.Input['AnalysisStyledCellType']):
+        pulumi.set(__self__, "cell_type", cell_type)
+
+    @property
+    @pulumi.getter(name="cellType")
+    def cell_type(self) -> pulumi.Input['AnalysisStyledCellType']:
+        return pulumi.get(self, "cell_type")
+
+    @cell_type.setter
+    def cell_type(self, value: pulumi.Input['AnalysisStyledCellType']):
+        pulumi.set(self, "cell_type", value)
+
+
+@pulumi.input_type
 class AnalysisTableUnaggregatedFieldWellsArgs:
     def __init__(__self__, *,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisUnaggregatedFieldArgs']]]] = None):
@@ -19039,12 +19365,24 @@ class AnalysisTagArgs:
 @pulumi.input_type
 class AnalysisTextAreaControlDisplayOptionsArgs:
     def __init__(__self__, *,
+                 info_icon_label_options: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']] = None,
                  placeholder_options: Optional[pulumi.Input['AnalysisTextControlPlaceholderOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['AnalysisLabelOptionsArgs']] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if placeholder_options is not None:
             pulumi.set(__self__, "placeholder_options", placeholder_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="placeholderOptions")
@@ -19126,12 +19464,24 @@ class AnalysisTextControlPlaceholderOptionsArgs:
 @pulumi.input_type
 class AnalysisTextFieldControlDisplayOptionsArgs:
     def __init__(__self__, *,
+                 info_icon_label_options: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']] = None,
                  placeholder_options: Optional[pulumi.Input['AnalysisTextControlPlaceholderOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['AnalysisLabelOptionsArgs']] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if placeholder_options is not None:
             pulumi.set(__self__, "placeholder_options", placeholder_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['AnalysisSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="placeholderOptions")
@@ -19668,35 +20018,28 @@ class AnalysisTopBottomFilterArgs:
 @pulumi.input_type
 class AnalysisTopBottomMoversComputationArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input['AnalysisDimensionFieldArgs'],
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['AnalysisDimensionFieldArgs'],
                  type: pulumi.Input['AnalysisTopBottomComputationType'],
+                 category: Optional[pulumi.Input['AnalysisDimensionFieldArgs']] = None,
                  mover_size: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sort_order: Optional[pulumi.Input['AnalysisTopBottomSortOrder']] = None,
+                 time: Optional[pulumi.Input['AnalysisDimensionFieldArgs']] = None,
                  value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']] = None):
-        pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         pulumi.set(__self__, "type", type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
         if mover_size is not None:
             pulumi.set(__self__, "mover_size", mover_size)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sort_order is not None:
             pulumi.set(__self__, "sort_order", sort_order)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def category(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
-        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter(name="computationId")
@@ -19709,21 +20052,21 @@ class AnalysisTopBottomMoversComputationArgs:
 
     @property
     @pulumi.getter
-    def time(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
-
-    @property
-    @pulumi.getter
     def type(self) -> pulumi.Input['AnalysisTopBottomComputationType']:
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input['AnalysisTopBottomComputationType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input['AnalysisDimensionFieldArgs']]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input['AnalysisDimensionFieldArgs']]):
+        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter(name="moverSize")
@@ -19754,6 +20097,15 @@ class AnalysisTopBottomMoversComputationArgs:
 
     @property
     @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['AnalysisDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['AnalysisDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
+
+    @property
+    @pulumi.getter
     def value(self) -> Optional[pulumi.Input['AnalysisMeasureFieldArgs']]:
         return pulumi.get(self, "value")
 
@@ -19765,30 +20117,22 @@ class AnalysisTopBottomMoversComputationArgs:
 @pulumi.input_type
 class AnalysisTopBottomRankedComputationArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input['AnalysisDimensionFieldArgs'],
                  computation_id: pulumi.Input[str],
                  type: pulumi.Input['AnalysisTopBottomComputationType'],
+                 category: Optional[pulumi.Input['AnalysisDimensionFieldArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  result_size: Optional[pulumi.Input[float]] = None,
                  value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']] = None):
-        pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "computation_id", computation_id)
         pulumi.set(__self__, "type", type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if result_size is not None:
             pulumi.set(__self__, "result_size", result_size)
         if value is not None:
             pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def category(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
-        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter(name="computationId")
@@ -19807,6 +20151,15 @@ class AnalysisTopBottomRankedComputationArgs:
     @type.setter
     def type(self, value: pulumi.Input['AnalysisTopBottomComputationType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input['AnalysisDimensionFieldArgs']]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input['AnalysisDimensionFieldArgs']]):
+        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter
@@ -19840,12 +20193,13 @@ class AnalysisTopBottomRankedComputationArgs:
 class AnalysisTotalAggregationComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 value: pulumi.Input['AnalysisMeasureFieldArgs'],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "value", value)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="computationId")
@@ -19858,21 +20212,21 @@ class AnalysisTotalAggregationComputationArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input['AnalysisMeasureFieldArgs']:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input['AnalysisMeasureFieldArgs']):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input['AnalysisMeasureFieldArgs']]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input['AnalysisMeasureFieldArgs']]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -20275,22 +20629,14 @@ class AnalysisUnaggregatedFieldArgs:
 @pulumi.input_type
 class AnalysisUniqueValuesComputationArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input['AnalysisDimensionFieldArgs'],
                  computation_id: pulumi.Input[str],
+                 category: Optional[pulumi.Input['AnalysisDimensionFieldArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "computation_id", computation_id)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def category(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
-        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter(name="computationId")
@@ -20300,6 +20646,15 @@ class AnalysisUniqueValuesComputationArgs:
     @computation_id.setter
     def computation_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "computation_id", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input['AnalysisDimensionFieldArgs']]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input['AnalysisDimensionFieldArgs']]):
+        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter

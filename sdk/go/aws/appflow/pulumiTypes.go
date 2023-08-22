@@ -5987,9 +5987,11 @@ func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPrope
 }
 
 type ConnectorProfileSapoDataConnectorProfileProperties struct {
-	ApplicationHostUrl     *string                          `pulumi:"applicationHostUrl"`
-	ApplicationServicePath *string                          `pulumi:"applicationServicePath"`
-	ClientNumber           *string                          `pulumi:"clientNumber"`
+	ApplicationHostUrl     *string `pulumi:"applicationHostUrl"`
+	ApplicationServicePath *string `pulumi:"applicationServicePath"`
+	ClientNumber           *string `pulumi:"clientNumber"`
+	// If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+	DisableSso             *bool                            `pulumi:"disableSso"`
 	LogonLanguage          *string                          `pulumi:"logonLanguage"`
 	OAuthProperties        *ConnectorProfileOAuthProperties `pulumi:"oAuthProperties"`
 	PortNumber             *int                             `pulumi:"portNumber"`
@@ -6008,9 +6010,11 @@ type ConnectorProfileSapoDataConnectorProfilePropertiesInput interface {
 }
 
 type ConnectorProfileSapoDataConnectorProfilePropertiesArgs struct {
-	ApplicationHostUrl     pulumi.StringPtrInput                   `pulumi:"applicationHostUrl"`
-	ApplicationServicePath pulumi.StringPtrInput                   `pulumi:"applicationServicePath"`
-	ClientNumber           pulumi.StringPtrInput                   `pulumi:"clientNumber"`
+	ApplicationHostUrl     pulumi.StringPtrInput `pulumi:"applicationHostUrl"`
+	ApplicationServicePath pulumi.StringPtrInput `pulumi:"applicationServicePath"`
+	ClientNumber           pulumi.StringPtrInput `pulumi:"clientNumber"`
+	// If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+	DisableSso             pulumi.BoolPtrInput                     `pulumi:"disableSso"`
 	LogonLanguage          pulumi.StringPtrInput                   `pulumi:"logonLanguage"`
 	OAuthProperties        ConnectorProfileOAuthPropertiesPtrInput `pulumi:"oAuthProperties"`
 	PortNumber             pulumi.IntPtrInput                      `pulumi:"portNumber"`
@@ -6106,6 +6110,11 @@ func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) ClientNumber()
 	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *string { return v.ClientNumber }).(pulumi.StringPtrOutput)
 }
 
+// If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) DisableSso() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *bool { return v.DisableSso }).(pulumi.BoolPtrOutput)
+}
+
 func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) LogonLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *string { return v.LogonLanguage }).(pulumi.StringPtrOutput)
 }
@@ -6173,6 +6182,16 @@ func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) ClientNumbe
 		}
 		return v.ClientNumber
 	}).(pulumi.StringPtrOutput)
+}
+
+// If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) DisableSso() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableSso
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) LogonLanguage() pulumi.StringPtrOutput {

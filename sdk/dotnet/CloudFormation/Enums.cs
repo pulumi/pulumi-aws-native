@@ -272,6 +272,35 @@ namespace Pulumi.AwsNative.CloudFormation
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct StackCapabilitiesItem : IEquatable<StackCapabilitiesItem>
+    {
+        private readonly string _value;
+
+        private StackCapabilitiesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StackCapabilitiesItem CapabilityIam { get; } = new StackCapabilitiesItem("CAPABILITY_IAM");
+        public static StackCapabilitiesItem CapabilityNamedIam { get; } = new StackCapabilitiesItem("CAPABILITY_NAMED_IAM");
+        public static StackCapabilitiesItem CapabilityAutoExpand { get; } = new StackCapabilitiesItem("CAPABILITY_AUTO_EXPAND");
+
+        public static bool operator ==(StackCapabilitiesItem left, StackCapabilitiesItem right) => left.Equals(right);
+        public static bool operator !=(StackCapabilitiesItem left, StackCapabilitiesItem right) => !left.Equals(right);
+
+        public static explicit operator string(StackCapabilitiesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StackCapabilitiesItem other && Equals(other);
+        public bool Equals(StackCapabilitiesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
     /// </summary>
@@ -420,6 +449,55 @@ namespace Pulumi.AwsNative.CloudFormation
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StackSetRegionConcurrencyType other && Equals(other);
         public bool Equals(StackSetRegionConcurrencyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct StackStatus : IEquatable<StackStatus>
+    {
+        private readonly string _value;
+
+        private StackStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StackStatus CreateInProgress { get; } = new StackStatus("CREATE_IN_PROGRESS");
+        public static StackStatus CreateFailed { get; } = new StackStatus("CREATE_FAILED");
+        public static StackStatus CreateComplete { get; } = new StackStatus("CREATE_COMPLETE");
+        public static StackStatus RollbackInProgress { get; } = new StackStatus("ROLLBACK_IN_PROGRESS");
+        public static StackStatus RollbackFailed { get; } = new StackStatus("ROLLBACK_FAILED");
+        public static StackStatus RollbackComplete { get; } = new StackStatus("ROLLBACK_COMPLETE");
+        public static StackStatus DeleteInProgress { get; } = new StackStatus("DELETE_IN_PROGRESS");
+        public static StackStatus DeleteFailed { get; } = new StackStatus("DELETE_FAILED");
+        public static StackStatus DeleteComplete { get; } = new StackStatus("DELETE_COMPLETE");
+        public static StackStatus UpdateInProgress { get; } = new StackStatus("UPDATE_IN_PROGRESS");
+        public static StackStatus UpdateCompleteCleanupInProgress { get; } = new StackStatus("UPDATE_COMPLETE_CLEANUP_IN_PROGRESS");
+        public static StackStatus UpdateComplete { get; } = new StackStatus("UPDATE_COMPLETE");
+        public static StackStatus UpdateFailed { get; } = new StackStatus("UPDATE_FAILED");
+        public static StackStatus UpdateRollbackInProgress { get; } = new StackStatus("UPDATE_ROLLBACK_IN_PROGRESS");
+        public static StackStatus UpdateRollbackFailed { get; } = new StackStatus("UPDATE_ROLLBACK_FAILED");
+        public static StackStatus UpdateRollbackCompleteCleanupInProgress { get; } = new StackStatus("UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS");
+        public static StackStatus UpdateRollbackComplete { get; } = new StackStatus("UPDATE_ROLLBACK_COMPLETE");
+        public static StackStatus ReviewInProgress { get; } = new StackStatus("REVIEW_IN_PROGRESS");
+        public static StackStatus ImportInProgress { get; } = new StackStatus("IMPORT_IN_PROGRESS");
+        public static StackStatus ImportComplete { get; } = new StackStatus("IMPORT_COMPLETE");
+        public static StackStatus ImportRollbackInProgress { get; } = new StackStatus("IMPORT_ROLLBACK_IN_PROGRESS");
+        public static StackStatus ImportRollbackFailed { get; } = new StackStatus("IMPORT_ROLLBACK_FAILED");
+        public static StackStatus ImportRollbackComplete { get; } = new StackStatus("IMPORT_ROLLBACK_COMPLETE");
+
+        public static bool operator ==(StackStatus left, StackStatus right) => left.Equals(right);
+        public static bool operator !=(StackStatus left, StackStatus right) => !left.Equals(right);
+
+        public static explicit operator string(StackStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StackStatus other && Equals(other);
+        public bool Equals(StackStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

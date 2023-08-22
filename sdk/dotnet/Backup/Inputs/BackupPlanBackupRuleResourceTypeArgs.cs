@@ -38,6 +38,9 @@ namespace Pulumi.AwsNative.Backup.Inputs
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
+        [Input("scheduleExpressionTimezone")]
+        public Input<string>? ScheduleExpressionTimezone { get; set; }
+
         [Input("startWindowMinutes")]
         public Input<double>? StartWindowMinutes { get; set; }
 

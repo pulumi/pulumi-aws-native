@@ -17,6 +17,30 @@
     }
   },
   "definitions" : {
+    "RecordingStrategy" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "UseOnly" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "UseOnly" ]
+    },
+    "ExclusionByResourceTypes" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ResourceTypes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "ResourceTypes" ]
+    },
     "RecordingGroup" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -30,6 +54,12 @@
           "items" : {
             "type" : "string"
           }
+        },
+        "RecordingStrategy" : {
+          "$ref" : "#/definitions/RecordingStrategy"
+        },
+        "ExclusionByResourceTypes" : {
+          "$ref" : "#/definitions/ExclusionByResourceTypes"
         },
         "AllSupported" : {
           "type" : "boolean"

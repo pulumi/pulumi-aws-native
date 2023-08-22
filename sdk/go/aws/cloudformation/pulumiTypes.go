@@ -461,6 +461,63 @@ func (o ResourceVersionLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type StackOutputType struct {
+	Description *string `pulumi:"description"`
+	ExportName  *string `pulumi:"exportName"`
+	OutputKey   *string `pulumi:"outputKey"`
+	OutputValue *string `pulumi:"outputValue"`
+}
+
+type StackOutputTypeOutput struct{ *pulumi.OutputState }
+
+func (StackOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackOutputType)(nil)).Elem()
+}
+
+func (o StackOutputTypeOutput) ToStackOutputTypeOutput() StackOutputTypeOutput {
+	return o
+}
+
+func (o StackOutputTypeOutput) ToStackOutputTypeOutputWithContext(ctx context.Context) StackOutputTypeOutput {
+	return o
+}
+
+func (o StackOutputTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackOutputType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutputTypeOutput) ExportName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackOutputType) *string { return v.ExportName }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutputTypeOutput) OutputKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackOutputType) *string { return v.OutputKey }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutputTypeOutput) OutputValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackOutputType) *string { return v.OutputValue }).(pulumi.StringPtrOutput)
+}
+
+type StackOutputTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (StackOutputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackOutputType)(nil)).Elem()
+}
+
+func (o StackOutputTypeArrayOutput) ToStackOutputTypeArrayOutput() StackOutputTypeArrayOutput {
+	return o
+}
+
+func (o StackOutputTypeArrayOutput) ToStackOutputTypeArrayOutputWithContext(ctx context.Context) StackOutputTypeArrayOutput {
+	return o
+}
+
+func (o StackOutputTypeArrayOutput) Index(i pulumi.IntInput) StackOutputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackOutputType {
+		return vs[0].([]StackOutputType)[vs[1].(int)]
+	}).(StackOutputTypeOutput)
+}
+
 type StackSetAutoDeployment struct {
 	// If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
 	Enabled *bool `pulumi:"enabled"`
@@ -623,6 +680,8 @@ type StackSetDeploymentTargets struct {
 	AccountFilterType *StackSetDeploymentTargetsAccountFilterType `pulumi:"accountFilterType"`
 	// AWS accounts that you want to create stack instances in the specified Region(s) for.
 	Accounts []string `pulumi:"accounts"`
+	// Returns the value of the AccountsUrl property.
+	AccountsUrl *string `pulumi:"accountsUrl"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	OrganizationalUnitIds []string `pulumi:"organizationalUnitIds"`
 }
@@ -644,6 +703,8 @@ type StackSetDeploymentTargetsArgs struct {
 	AccountFilterType StackSetDeploymentTargetsAccountFilterTypePtrInput `pulumi:"accountFilterType"`
 	// AWS accounts that you want to create stack instances in the specified Region(s) for.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
+	// Returns the value of the AccountsUrl property.
+	AccountsUrl pulumi.StringPtrInput `pulumi:"accountsUrl"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	OrganizationalUnitIds pulumi.StringArrayInput `pulumi:"organizationalUnitIds"`
 }
@@ -685,6 +746,11 @@ func (o StackSetDeploymentTargetsOutput) AccountFilterType() StackSetDeploymentT
 // AWS accounts that you want to create stack instances in the specified Region(s) for.
 func (o StackSetDeploymentTargetsOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetDeploymentTargets) []string { return v.Accounts }).(pulumi.StringArrayOutput)
+}
+
+// Returns the value of the AccountsUrl property.
+func (o StackSetDeploymentTargetsOutput) AccountsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetDeploymentTargets) *string { return v.AccountsUrl }).(pulumi.StringPtrOutput)
 }
 
 // The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
@@ -1517,6 +1583,8 @@ func init() {
 	pulumi.RegisterOutputType(ManagedExecutionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourceVersionLoggingConfigOutput{})
 	pulumi.RegisterOutputType(ResourceVersionLoggingConfigPtrOutput{})
+	pulumi.RegisterOutputType(StackOutputTypeOutput{})
+	pulumi.RegisterOutputType(StackOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(StackSetDeploymentTargetsOutput{})

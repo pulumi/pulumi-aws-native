@@ -498,6 +498,115 @@ func (o FirewallRuleGroupTagArrayOutput) Index(i pulumi.IntInput) FirewallRuleGr
 	}).(FirewallRuleGroupTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type OutpostResolverTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// OutpostResolverTagInput is an input type that accepts OutpostResolverTagArgs and OutpostResolverTagOutput values.
+// You can construct a concrete instance of `OutpostResolverTagInput` via:
+//
+//	OutpostResolverTagArgs{...}
+type OutpostResolverTagInput interface {
+	pulumi.Input
+
+	ToOutpostResolverTagOutput() OutpostResolverTagOutput
+	ToOutpostResolverTagOutputWithContext(context.Context) OutpostResolverTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type OutpostResolverTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (OutpostResolverTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutpostResolverTag)(nil)).Elem()
+}
+
+func (i OutpostResolverTagArgs) ToOutpostResolverTagOutput() OutpostResolverTagOutput {
+	return i.ToOutpostResolverTagOutputWithContext(context.Background())
+}
+
+func (i OutpostResolverTagArgs) ToOutpostResolverTagOutputWithContext(ctx context.Context) OutpostResolverTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutpostResolverTagOutput)
+}
+
+// OutpostResolverTagArrayInput is an input type that accepts OutpostResolverTagArray and OutpostResolverTagArrayOutput values.
+// You can construct a concrete instance of `OutpostResolverTagArrayInput` via:
+//
+//	OutpostResolverTagArray{ OutpostResolverTagArgs{...} }
+type OutpostResolverTagArrayInput interface {
+	pulumi.Input
+
+	ToOutpostResolverTagArrayOutput() OutpostResolverTagArrayOutput
+	ToOutpostResolverTagArrayOutputWithContext(context.Context) OutpostResolverTagArrayOutput
+}
+
+type OutpostResolverTagArray []OutpostResolverTagInput
+
+func (OutpostResolverTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutpostResolverTag)(nil)).Elem()
+}
+
+func (i OutpostResolverTagArray) ToOutpostResolverTagArrayOutput() OutpostResolverTagArrayOutput {
+	return i.ToOutpostResolverTagArrayOutputWithContext(context.Background())
+}
+
+func (i OutpostResolverTagArray) ToOutpostResolverTagArrayOutputWithContext(ctx context.Context) OutpostResolverTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutpostResolverTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type OutpostResolverTagOutput struct{ *pulumi.OutputState }
+
+func (OutpostResolverTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutpostResolverTag)(nil)).Elem()
+}
+
+func (o OutpostResolverTagOutput) ToOutpostResolverTagOutput() OutpostResolverTagOutput {
+	return o
+}
+
+func (o OutpostResolverTagOutput) ToOutpostResolverTagOutputWithContext(ctx context.Context) OutpostResolverTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o OutpostResolverTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v OutpostResolverTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o OutpostResolverTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v OutpostResolverTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type OutpostResolverTagArrayOutput struct{ *pulumi.OutputState }
+
+func (OutpostResolverTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutpostResolverTag)(nil)).Elem()
+}
+
+func (o OutpostResolverTagArrayOutput) ToOutpostResolverTagArrayOutput() OutpostResolverTagArrayOutput {
+	return o
+}
+
+func (o OutpostResolverTagArrayOutput) ToOutpostResolverTagArrayOutputWithContext(ctx context.Context) OutpostResolverTagArrayOutput {
+	return o
+}
+
+func (o OutpostResolverTagArrayOutput) Index(i pulumi.IntInput) OutpostResolverTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutpostResolverTag {
+		return vs[0].([]OutpostResolverTag)[vs[1].(int)]
+	}).(OutpostResolverTagOutput)
+}
+
 type ResolverEndpointIpAddressRequest struct {
 	Ip       *string `pulumi:"ip"`
 	Ipv6     *string `pulumi:"ipv6"`
@@ -934,6 +1043,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleArrayInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupTagInput)(nil)).Elem(), FirewallRuleGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupTagArrayInput)(nil)).Elem(), FirewallRuleGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutpostResolverTagInput)(nil)).Elem(), OutpostResolverTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutpostResolverTagArrayInput)(nil)).Elem(), OutpostResolverTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressRequestInput)(nil)).Elem(), ResolverEndpointIpAddressRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressRequestArrayInput)(nil)).Elem(), ResolverEndpointIpAddressRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointTagInput)(nil)).Elem(), ResolverEndpointTagArgs{})
@@ -950,6 +1061,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupTagOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(OutpostResolverTagOutput{})
+	pulumi.RegisterOutputType(OutpostResolverTagArrayOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestArrayOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointTagOutput{})

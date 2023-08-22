@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Lambda::Function
+ * Resource Type definition for AWS::Lambda::Function in region
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
 
@@ -96,10 +96,6 @@ export interface GetFunctionResult {
      */
     readonly runtimeManagementConfig?: outputs.lambda.FunctionRuntimeManagementConfig;
     /**
-     * The SnapStart setting of your function
-     */
-    readonly snapStart?: outputs.lambda.FunctionSnapStart;
-    /**
      * The SnapStart response of your function
      */
     readonly snapStartResponse?: outputs.lambda.FunctionSnapStartResponse;
@@ -121,7 +117,7 @@ export interface GetFunctionResult {
     readonly vpcConfig?: outputs.lambda.FunctionVpcConfig;
 }
 /**
- * Resource Type definition for AWS::Lambda::Function
+ * Resource Type definition for AWS::Lambda::Function in region
  */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
     return pulumi.output(args).apply((a: any) => getFunction(a, opts))

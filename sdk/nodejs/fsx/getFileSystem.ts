@@ -32,6 +32,7 @@ export interface GetFileSystemResult {
     readonly resourceArn?: string;
     readonly rootVolumeId?: string;
     readonly storageCapacity?: number;
+    readonly storageType?: string;
     readonly tags?: outputs.fsx.FileSystemTag[];
     readonly windowsConfiguration?: outputs.fsx.FileSystemWindowsConfiguration;
 }

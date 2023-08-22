@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
-    /// Resource Type definition for AWS::Lambda::Function
+    /// Resource Type definition for AWS::Lambda::Function in region
     /// </summary>
     [AwsNativeResourceType("aws-native:lambda:Function")]
     public partial class Function : global::Pulumi.CustomResource

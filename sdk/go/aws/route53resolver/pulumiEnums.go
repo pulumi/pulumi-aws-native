@@ -1044,6 +1044,102 @@ func (o FirewallRuleGroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OutpostResolver status, possible values are CREATING, OPERATIONAL, UPDATING, DELETING, ACTION_NEEDED, FAILED_CREATION and FAILED_DELETION.
+type OutpostResolverStatus string
+
+const (
+	OutpostResolverStatusCreating       = OutpostResolverStatus("CREATING")
+	OutpostResolverStatusOperational    = OutpostResolverStatus("OPERATIONAL")
+	OutpostResolverStatusDeleting       = OutpostResolverStatus("DELETING")
+	OutpostResolverStatusUpdating       = OutpostResolverStatus("UPDATING")
+	OutpostResolverStatusActionNeeded   = OutpostResolverStatus("ACTION_NEEDED")
+	OutpostResolverStatusFailedCreation = OutpostResolverStatus("FAILED_CREATION")
+	OutpostResolverStatusFailedDeletion = OutpostResolverStatus("FAILED_DELETION")
+)
+
+type OutpostResolverStatusOutput struct{ *pulumi.OutputState }
+
+func (OutpostResolverStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutpostResolverStatus)(nil)).Elem()
+}
+
+func (o OutpostResolverStatusOutput) ToOutpostResolverStatusOutput() OutpostResolverStatusOutput {
+	return o
+}
+
+func (o OutpostResolverStatusOutput) ToOutpostResolverStatusOutputWithContext(ctx context.Context) OutpostResolverStatusOutput {
+	return o
+}
+
+func (o OutpostResolverStatusOutput) ToOutpostResolverStatusPtrOutput() OutpostResolverStatusPtrOutput {
+	return o.ToOutpostResolverStatusPtrOutputWithContext(context.Background())
+}
+
+func (o OutpostResolverStatusOutput) ToOutpostResolverStatusPtrOutputWithContext(ctx context.Context) OutpostResolverStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutpostResolverStatus) *OutpostResolverStatus {
+		return &v
+	}).(OutpostResolverStatusPtrOutput)
+}
+
+func (o OutpostResolverStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OutpostResolverStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutpostResolverStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OutpostResolverStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OutpostResolverStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutpostResolverStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OutpostResolverStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (OutpostResolverStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutpostResolverStatus)(nil)).Elem()
+}
+
+func (o OutpostResolverStatusPtrOutput) ToOutpostResolverStatusPtrOutput() OutpostResolverStatusPtrOutput {
+	return o
+}
+
+func (o OutpostResolverStatusPtrOutput) ToOutpostResolverStatusPtrOutputWithContext(ctx context.Context) OutpostResolverStatusPtrOutput {
+	return o
+}
+
+func (o OutpostResolverStatusPtrOutput) Elem() OutpostResolverStatusOutput {
+	return o.ApplyT(func(v *OutpostResolverStatus) OutpostResolverStatus {
+		if v != nil {
+			return *v
+		}
+		var ret OutpostResolverStatus
+		return ret
+	}).(OutpostResolverStatusOutput)
+}
+
+func (o OutpostResolverStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OutpostResolverStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OutpostResolverStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
 type ResolverConfigAutodefinedReverse string
 
@@ -1961,6 +2057,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRuleGroupShareStatusPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupStatusOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupStatusPtrOutput{})
+	pulumi.RegisterOutputType(OutpostResolverStatusOutput{})
+	pulumi.RegisterOutputType(OutpostResolverStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResolverConfigAutodefinedReverseOutput{})
 	pulumi.RegisterOutputType(ResolverConfigAutodefinedReversePtrOutput{})
 	pulumi.RegisterOutputType(ResolverConfigAutodefinedReverseFlagOutput{})

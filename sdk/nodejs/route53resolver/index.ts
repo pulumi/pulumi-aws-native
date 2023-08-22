@@ -35,6 +35,11 @@ export const getFirewallRuleGroupAssociation: typeof import("./getFirewallRuleGr
 export const getFirewallRuleGroupAssociationOutput: typeof import("./getFirewallRuleGroupAssociation").getFirewallRuleGroupAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getFirewallRuleGroupAssociation","getFirewallRuleGroupAssociationOutput"], () => require("./getFirewallRuleGroupAssociation"));
 
+export { GetOutpostResolverArgs, GetOutpostResolverResult, GetOutpostResolverOutputArgs } from "./getOutpostResolver";
+export const getOutpostResolver: typeof import("./getOutpostResolver").getOutpostResolver = null as any;
+export const getOutpostResolverOutput: typeof import("./getOutpostResolver").getOutpostResolverOutput = null as any;
+utilities.lazyLoad(exports, ["getOutpostResolver","getOutpostResolverOutput"], () => require("./getOutpostResolver"));
+
 export { GetResolverConfigArgs, GetResolverConfigResult, GetResolverConfigOutputArgs } from "./getResolverConfig";
 export const getResolverConfig: typeof import("./getResolverConfig").getResolverConfig = null as any;
 export const getResolverConfigOutput: typeof import("./getResolverConfig").getResolverConfigOutput = null as any;
@@ -69,6 +74,11 @@ export { GetResolverRuleAssociationArgs, GetResolverRuleAssociationResult, GetRe
 export const getResolverRuleAssociation: typeof import("./getResolverRuleAssociation").getResolverRuleAssociation = null as any;
 export const getResolverRuleAssociationOutput: typeof import("./getResolverRuleAssociation").getResolverRuleAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getResolverRuleAssociation","getResolverRuleAssociationOutput"], () => require("./getResolverRuleAssociation"));
+
+export { OutpostResolverArgs } from "./outpostResolver";
+export type OutpostResolver = import("./outpostResolver").OutpostResolver;
+export const OutpostResolver: typeof import("./outpostResolver").OutpostResolver = null as any;
+utilities.lazyLoad(exports, ["OutpostResolver"], () => require("./outpostResolver"));
 
 export { ResolverConfigArgs } from "./resolverConfig";
 export type ResolverConfig = import("./resolverConfig").ResolverConfig;
@@ -119,6 +129,8 @@ const _module = {
                 return new FirewallRuleGroup(name, <any>undefined, { urn })
             case "aws-native:route53resolver:FirewallRuleGroupAssociation":
                 return new FirewallRuleGroupAssociation(name, <any>undefined, { urn })
+            case "aws-native:route53resolver:OutpostResolver":
+                return new OutpostResolver(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverConfig":
                 return new ResolverConfig(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverDnssecConfig":

@@ -10,23 +10,76 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
-    /// Resource Type definition for AWS::CloudFormation::Stack
+    /// The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
     /// </summary>
-    [Obsolete(@"Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudformation:Stack")]
     public partial class Stack : global::Pulumi.CustomResource
     {
+        [Output("capabilities")]
+        public Output<ImmutableArray<Pulumi.AwsNative.CloudFormation.StackCapabilitiesItem>> Capabilities { get; private set; } = null!;
+
+        [Output("changeSetId")]
+        public Output<string> ChangeSetId { get; private set; } = null!;
+
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        [Output("disableRollback")]
+        public Output<bool?> DisableRollback { get; private set; } = null!;
+
+        [Output("enableTerminationProtection")]
+        public Output<bool?> EnableTerminationProtection { get; private set; } = null!;
+
+        [Output("lastUpdateTime")]
+        public Output<string> LastUpdateTime { get; private set; } = null!;
+
         [Output("notificationArns")]
         public Output<ImmutableArray<string>> NotificationArns { get; private set; } = null!;
+
+        [Output("outputs")]
+        public Output<ImmutableArray<Outputs.StackOutput>> Outputs { get; private set; } = null!;
 
         [Output("parameters")]
         public Output<object?> Parameters { get; private set; } = null!;
 
+        [Output("parentId")]
+        public Output<string> ParentId { get; private set; } = null!;
+
+        [Output("roleArn")]
+        public Output<string?> RoleArn { get; private set; } = null!;
+
+        [Output("rootId")]
+        public Output<string> RootId { get; private set; } = null!;
+
+        [Output("stackId")]
+        public Output<string> StackId { get; private set; } = null!;
+
+        [Output("stackName")]
+        public Output<string> StackName { get; private set; } = null!;
+
+        [Output("stackPolicyBody")]
+        public Output<object?> StackPolicyBody { get; private set; } = null!;
+
+        [Output("stackPolicyUrl")]
+        public Output<string?> StackPolicyUrl { get; private set; } = null!;
+
+        [Output("stackStatus")]
+        public Output<Pulumi.AwsNative.CloudFormation.StackStatus> StackStatus { get; private set; } = null!;
+
+        [Output("stackStatusReason")]
+        public Output<string?> StackStatusReason { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.StackTag>> Tags { get; private set; } = null!;
 
+        [Output("templateBody")]
+        public Output<object?> TemplateBody { get; private set; } = null!;
+
         [Output("templateUrl")]
-        public Output<string> TemplateUrl { get; private set; } = null!;
+        public Output<string?> TemplateUrl { get; private set; } = null!;
 
         [Output("timeoutInMinutes")]
         public Output<int?> TimeoutInMinutes { get; private set; } = null!;
@@ -39,7 +92,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Stack(string name, StackArgs args, CustomResourceOptions? options = null)
+        public Stack(string name, StackArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:cloudformation:Stack", name, args ?? new StackArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -76,6 +129,23 @@ namespace Pulumi.AwsNative.CloudFormation
 
     public sealed class StackArgs : global::Pulumi.ResourceArgs
     {
+        [Input("capabilities")]
+        private InputList<Pulumi.AwsNative.CloudFormation.StackCapabilitiesItem>? _capabilities;
+        public InputList<Pulumi.AwsNative.CloudFormation.StackCapabilitiesItem> Capabilities
+        {
+            get => _capabilities ?? (_capabilities = new InputList<Pulumi.AwsNative.CloudFormation.StackCapabilitiesItem>());
+            set => _capabilities = value;
+        }
+
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        [Input("disableRollback")]
+        public Input<bool>? DisableRollback { get; set; }
+
+        [Input("enableTerminationProtection")]
+        public Input<bool>? EnableTerminationProtection { get; set; }
+
         [Input("notificationArns")]
         private InputList<string>? _notificationArns;
         public InputList<string> NotificationArns
@@ -87,6 +157,21 @@ namespace Pulumi.AwsNative.CloudFormation
         [Input("parameters")]
         public Input<object>? Parameters { get; set; }
 
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
+
+        [Input("stackName")]
+        public Input<string>? StackName { get; set; }
+
+        [Input("stackPolicyBody")]
+        public Input<object>? StackPolicyBody { get; set; }
+
+        [Input("stackPolicyUrl")]
+        public Input<string>? StackPolicyUrl { get; set; }
+
+        [Input("stackStatusReason")]
+        public Input<string>? StackStatusReason { get; set; }
+
         [Input("tags")]
         private InputList<Inputs.StackTagArgs>? _tags;
         public InputList<Inputs.StackTagArgs> Tags
@@ -95,8 +180,11 @@ namespace Pulumi.AwsNative.CloudFormation
             set => _tags = value;
         }
 
-        [Input("templateUrl", required: true)]
-        public Input<string> TemplateUrl { get; set; } = null!;
+        [Input("templateBody")]
+        public Input<object>? TemplateBody { get; set; }
+
+        [Input("templateUrl")]
+        public Input<string>? TemplateUrl { get; set; }
 
         [Input("timeoutInMinutes")]
         public Input<int>? TimeoutInMinutes { get; set; }

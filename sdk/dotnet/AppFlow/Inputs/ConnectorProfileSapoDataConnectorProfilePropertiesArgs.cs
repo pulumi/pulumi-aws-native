@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("clientNumber")]
         public Input<string>? ClientNumber { get; set; }
 
+        /// <summary>
+        /// If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
+        /// </summary>
+        [Input("disableSso")]
+        public Input<bool>? DisableSso { get; set; }
+
         [Input("logonLanguage")]
         public Input<string>? LogonLanguage { get; set; }
 

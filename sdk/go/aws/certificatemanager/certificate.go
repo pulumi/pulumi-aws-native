@@ -22,6 +22,7 @@ type Certificate struct {
 	CertificateTransparencyLoggingPreference pulumi.StringPtrOutput                       `pulumi:"certificateTransparencyLoggingPreference"`
 	DomainName                               pulumi.StringOutput                          `pulumi:"domainName"`
 	DomainValidationOptions                  CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
+	KeyAlgorithm                             pulumi.StringPtrOutput                       `pulumi:"keyAlgorithm"`
 	SubjectAlternativeNames                  pulumi.StringArrayOutput                     `pulumi:"subjectAlternativeNames"`
 	Tags                                     CertificateTagArrayOutput                    `pulumi:"tags"`
 	ValidationMethod                         pulumi.StringPtrOutput                       `pulumi:"validationMethod"`
@@ -74,6 +75,7 @@ type certificateArgs struct {
 	CertificateTransparencyLoggingPreference *string                             `pulumi:"certificateTransparencyLoggingPreference"`
 	DomainName                               string                              `pulumi:"domainName"`
 	DomainValidationOptions                  []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
+	KeyAlgorithm                             *string                             `pulumi:"keyAlgorithm"`
 	SubjectAlternativeNames                  []string                            `pulumi:"subjectAlternativeNames"`
 	Tags                                     []CertificateTag                    `pulumi:"tags"`
 	ValidationMethod                         *string                             `pulumi:"validationMethod"`
@@ -85,6 +87,7 @@ type CertificateArgs struct {
 	CertificateTransparencyLoggingPreference pulumi.StringPtrInput
 	DomainName                               pulumi.StringInput
 	DomainValidationOptions                  CertificateDomainValidationOptionArrayInput
+	KeyAlgorithm                             pulumi.StringPtrInput
 	SubjectAlternativeNames                  pulumi.StringArrayInput
 	Tags                                     CertificateTagArrayInput
 	ValidationMethod                         pulumi.StringPtrInput
@@ -141,6 +144,10 @@ func (o CertificateOutput) DomainName() pulumi.StringOutput {
 
 func (o CertificateOutput) DomainValidationOptions() CertificateDomainValidationOptionArrayOutput {
 	return o.ApplyT(func(v *Certificate) CertificateDomainValidationOptionArrayOutput { return v.DomainValidationOptions }).(CertificateDomainValidationOptionArrayOutput)
+}
+
+func (o CertificateOutput) KeyAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyAlgorithm }).(pulumi.StringPtrOutput)
 }
 
 func (o CertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {

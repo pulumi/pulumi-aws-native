@@ -38,6 +38,7 @@ export class Repository extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly emptyOnDelete!: pulumi.Output<boolean | undefined>;
     public readonly encryptionConfiguration!: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration | undefined>;
     public readonly imageScanningConfiguration!: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
     /**
@@ -70,6 +71,7 @@ export class Repository extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["emptyOnDelete"] = args ? args.emptyOnDelete : undefined;
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
@@ -81,6 +83,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["repositoryUri"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["emptyOnDelete"] = undefined /*out*/;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["imageScanningConfiguration"] = undefined /*out*/;
             resourceInputs["imageTagMutability"] = undefined /*out*/;
@@ -99,6 +102,7 @@ export class Repository extends pulumi.CustomResource {
  * The set of arguments for constructing a Repository resource.
  */
 export interface RepositoryArgs {
+    emptyOnDelete?: pulumi.Input<boolean>;
     encryptionConfiguration?: pulumi.Input<inputs.ecr.RepositoryEncryptionConfigurationArgs>;
     imageScanningConfiguration?: pulumi.Input<inputs.ecr.RepositoryImageScanningConfigurationArgs>;
     /**

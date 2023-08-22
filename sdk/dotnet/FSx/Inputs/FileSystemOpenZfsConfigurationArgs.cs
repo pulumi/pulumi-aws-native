@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.FSx.Inputs
         [Input("diskIopsConfiguration")]
         public Input<Inputs.FileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
 
+        [Input("endpointIpAddressRange")]
+        public Input<string>? EndpointIpAddressRange { get; set; }
+
         [Input("options")]
         private InputList<string>? _options;
         public InputList<string> Options
@@ -38,8 +41,19 @@ namespace Pulumi.AwsNative.FSx.Inputs
             set => _options = value;
         }
 
+        [Input("preferredSubnetId")]
+        public Input<string>? PreferredSubnetId { get; set; }
+
         [Input("rootVolumeConfiguration")]
         public Input<Inputs.FileSystemRootVolumeConfigurationArgs>? RootVolumeConfiguration { get; set; }
+
+        [Input("routeTableIds")]
+        private InputList<string>? _routeTableIds;
+        public InputList<string> RouteTableIds
+        {
+            get => _routeTableIds ?? (_routeTableIds = new InputList<string>());
+            set => _routeTableIds = value;
+        }
 
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }

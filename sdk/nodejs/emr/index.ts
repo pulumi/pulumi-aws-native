@@ -40,6 +40,11 @@ export const getStudioSessionMapping: typeof import("./getStudioSessionMapping")
 export const getStudioSessionMappingOutput: typeof import("./getStudioSessionMapping").getStudioSessionMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getStudioSessionMapping","getStudioSessionMappingOutput"], () => require("./getStudioSessionMapping"));
 
+export { GetWalWorkspaceArgs, GetWalWorkspaceResult, GetWalWorkspaceOutputArgs } from "./getWalWorkspace";
+export const getWalWorkspace: typeof import("./getWalWorkspace").getWalWorkspace = null as any;
+export const getWalWorkspaceOutput: typeof import("./getWalWorkspace").getWalWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWalWorkspace","getWalWorkspaceOutput"], () => require("./getWalWorkspace"));
+
 export { InstanceFleetConfigArgs } from "./instanceFleetConfig";
 export type InstanceFleetConfig = import("./instanceFleetConfig").InstanceFleetConfig;
 export const InstanceFleetConfig: typeof import("./instanceFleetConfig").InstanceFleetConfig = null as any;
@@ -70,6 +75,11 @@ export type StudioSessionMapping = import("./studioSessionMapping").StudioSessio
 export const StudioSessionMapping: typeof import("./studioSessionMapping").StudioSessionMapping = null as any;
 utilities.lazyLoad(exports, ["StudioSessionMapping"], () => require("./studioSessionMapping"));
 
+export { WalWorkspaceArgs } from "./walWorkspace";
+export type WalWorkspace = import("./walWorkspace").WalWorkspace;
+export const WalWorkspace: typeof import("./walWorkspace").WalWorkspace = null as any;
+utilities.lazyLoad(exports, ["WalWorkspace"], () => require("./walWorkspace"));
+
 
 // Export enums:
 export * from "../types/enums/emr";
@@ -92,6 +102,8 @@ const _module = {
                 return new Studio(name, <any>undefined, { urn })
             case "aws-native:emr:StudioSessionMapping":
                 return new StudioSessionMapping(name, <any>undefined, { urn })
+            case "aws-native:emr:WalWorkspace":
+                return new WalWorkspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
