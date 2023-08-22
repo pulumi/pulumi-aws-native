@@ -31,7 +31,7 @@
   "required" : [ "StatementName", "WorkGroup", "QueryStatement" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "athena:CreatePreparedStatement" ]
+      "permissions" : [ "athena:CreatePreparedStatement", "athena:GetPreparedStatement" ]
     },
     "read" : {
       "permissions" : [ "athena:GetPreparedStatement" ]
@@ -40,9 +40,17 @@
       "permissions" : [ "athena:UpdatePreparedStatement" ]
     },
     "delete" : {
-      "permissions" : [ "athena:DeletePreparedStatement" ]
+      "permissions" : [ "athena:DeletePreparedStatement", "athena:GetPreparedStatement" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "WorkGroup" : {
+            "$ref" : "resource-schema.json#/properties/WorkGroup"
+          }
+        },
+        "required" : [ "WorkGroup" ]
+      },
       "permissions" : [ "athena:ListPreparedStatements" ]
     }
   },

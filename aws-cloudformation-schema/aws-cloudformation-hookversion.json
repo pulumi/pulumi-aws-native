@@ -74,6 +74,12 @@
   "readOnlyProperties" : [ "/properties/Arn", "/properties/IsDefaultVersion", "/properties/Visibility", "/properties/VersionId", "/properties/TypeArn" ],
   "createOnlyProperties" : [ "/properties/ExecutionRoleArn", "/properties/LoggingConfig", "/properties/SchemaHandlerPackage", "/properties/TypeName" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "cloudformation:DescribeType", "cloudformation:DescribeTypeRegistration", "cloudformation:RegisterType", "iam:PassRole", "s3:GetObject", "s3:ListBucket", "kms:Decrypt" ]

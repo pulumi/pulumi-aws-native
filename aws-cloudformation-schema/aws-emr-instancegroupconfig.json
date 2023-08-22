@@ -69,6 +69,9 @@
         "SizeInGB" : {
           "type" : "integer"
         },
+        "Throughput" : {
+          "type" : "integer"
+        },
         "VolumeType" : {
           "type" : "string"
         },
