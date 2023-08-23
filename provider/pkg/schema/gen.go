@@ -4,6 +4,7 @@ package schema
 
 import (
 	"encoding/json"
+	goerrors "errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -608,6 +609,79 @@ type context struct {
 	semantics     *SemanticsSpecDocument
 }
 
+func (ctx *context) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
+	errs := []error{}
+	for propPath, _ := range createOnlyProperties {
+		// each path in createOnlyProperties is delimited with "/"
+		path := strings.Split(propPath, "/")
+		prop, ok := resource.Properties[path[0]]
+		if !ok {
+			errs = append(errs, errors.Errorf("Could not mark createOnlyProperty %s in %s as replaceOnChanges: property not found on Resource", propPath, ctx.cfTypeName))
+			continue
+		}
+		err := ctx.markCreateOnlyProperty(path[1:], &prop)
+		if err != nil {
+			errs = append(errs, errors.Wrapf(err, "Could not mark createOnlyProperty %s in %s as replaceOnChanges", propPath, ctx.cfTypeName))
+		}
+		resource.Properties[path[0]] = prop
+	}
+	if len(errs) > 0 {
+		return goerrors.Join(errs...)
+	}
+	return nil
+}
+
+func (ctx *context) markCreateOnlyProperty(propPath []string, property *pschema.PropertySpec) error {
+	// base case, just set the flag
+	if len(propPath) == 0 {
+		property.ReplaceOnChanges = true
+		return nil
+	}
+
+	// Strip explicit traversal of array from the path
+	if propPath[0] == "*" {
+		return ctx.markCreateOnlyProperty(propPath[1:], property)
+	}
+
+	// Default to next path component is ref to object
+	if len(property.Ref) != 0 {
+		return ctx.markCreateOnlyPropertyOnType(propPath[0], property.Ref, propPath[1:])
+	}
+
+	// Next try looking at it as an array of objects
+	if property.Items != nil && len(property.Items.Ref) != 0 {
+		typeRef := property.Items.Ref
+		if len(typeRef) == 0 {
+			return errors.Errorf("Property does not reference an array: %v", property)
+		}
+		return ctx.markCreateOnlyPropertyOnType(propPath[0], typeRef, propPath[1:])
+	}
+
+	// Give up
+	return errors.Errorf("Property is not a Ref or Array[Ref], can't traverse: %v", property)
+}
+
+func (ctx *context) markCreateOnlyPropertyOnType(propName, typeRef string, remainingPath []string) error {
+	ref := strings.TrimPrefix(typeRef, "#/types/")
+	propType, ok := ctx.pkg.Types[ref]
+	if !ok {
+		return errors.Errorf("Could not find referencedType: " + typeRef)
+	}
+
+	propertyName := ToSdkName(propName)
+	innerProperty, ok := propType.Properties[propertyName]
+	if !ok {
+		return errors.Errorf("Type %s does not have property named '%s'", typeRef, propertyName)
+	}
+	err := ctx.markCreateOnlyProperty(remainingPath, &innerProperty)
+	if err != nil {
+		return err
+	}
+	propType.Properties[propertyName] = innerProperty
+	ctx.pkg.Types[ref] = propType
+	return nil
+}
+
 func (ctx *context) gatherInvoke() error {
 	resourceTypeName := typeName(ctx.cfTypeName)
 	_, getterToken := getterToken(ctx.cfTypeName)
@@ -765,7 +839,7 @@ func (ctx *context) gatherResourceType() error {
 	if !ctx.isSupported {
 		deprecationMessage = fmt.Sprintf("%s is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.", resourceTypeName)
 	}
-	ctx.pkg.Resources[ctx.resourceToken] = pschema.ResourceSpec{
+	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Description: ctx.resourceSpec.Description,
 			Properties:  properties,
@@ -776,6 +850,13 @@ func (ctx *context) gatherResourceType() error {
 		RequiredInputs:     requiredInputs.SortedValues(),
 		DeprecationMessage: deprecationMessage,
 	}
+
+	err := ctx.markCreateOnlyProperties(createOnlyProperties, &resourceSpec)
+	if err != nil {
+		fmt.Printf("%v\n", err)
+	}
+
+	ctx.pkg.Resources[ctx.resourceToken] = resourceSpec
 
 	ctx.metadata.Resources[ctx.resourceToken] = CloudAPIResource{
 		CfType:            ctx.cfTypeName,
@@ -847,6 +928,7 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 			}),
 		}
 	}
+
 	return &propertySpec, nil
 }
 
