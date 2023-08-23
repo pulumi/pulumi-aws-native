@@ -793,6 +793,14 @@ AWS::Wisdom::Assistant
 AWS::Wisdom::AssistantAssociation
 AWS::Wisdom::KnowledgeBase
 AWS::WorkSpaces::ConnectionAlias
+AWS::WorkSpacesWeb::BrowserSettings
+AWS::WorkSpacesWeb::IdentityProvider
+AWS::WorkSpacesWeb::IpAccessSettings
+AWS::WorkSpacesWeb::NetworkSettings
+AWS::WorkSpacesWeb::Portal
+AWS::WorkSpacesWeb::TrustStore
+AWS::WorkSpacesWeb::UserAccessLoggingSettings
+AWS::WorkSpacesWeb::UserSettings
 AWS::XRay::Group
 AWS::XRay::ResourcePolicy
 AWS::XRay::SamplingRule

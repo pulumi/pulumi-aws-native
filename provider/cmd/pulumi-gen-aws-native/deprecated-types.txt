@@ -1,3 +1,4 @@
+AWS::EC2::EIPAssociation
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::Lambda::EventInvokeConfig
