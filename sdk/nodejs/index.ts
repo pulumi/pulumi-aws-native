@@ -17,7 +17,8 @@ utilities.lazyLoad(exports, ["ExtensionResource"], () => require("./extensionRes
 
 export { GetAccountIdResult } from "./getAccountId";
 export const getAccountId: typeof import("./getAccountId").getAccountId = null as any;
-utilities.lazyLoad(exports, ["getAccountId"], () => require("./getAccountId"));
+export const getAccountIdOutput: typeof import("./getAccountId").getAccountIdOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountId","getAccountIdOutput"], () => require("./getAccountId"));
 
 export { GetAzsArgs, GetAzsResult, GetAzsOutputArgs } from "./getAzs";
 export const getAzs: typeof import("./getAzs").getAzs = null as any;
@@ -26,11 +27,13 @@ utilities.lazyLoad(exports, ["getAzs","getAzsOutput"], () => require("./getAzs")
 
 export { GetPartitionResult } from "./getPartition";
 export const getPartition: typeof import("./getPartition").getPartition = null as any;
-utilities.lazyLoad(exports, ["getPartition"], () => require("./getPartition"));
+export const getPartitionOutput: typeof import("./getPartition").getPartitionOutput = null as any;
+utilities.lazyLoad(exports, ["getPartition","getPartitionOutput"], () => require("./getPartition"));
 
 export { GetRegionResult } from "./getRegion";
 export const getRegion: typeof import("./getRegion").getRegion = null as any;
-utilities.lazyLoad(exports, ["getRegion"], () => require("./getRegion"));
+export const getRegionOutput: typeof import("./getRegion").getRegionOutput = null as any;
+utilities.lazyLoad(exports, ["getRegion","getRegionOutput"], () => require("./getRegion"));
 
 export { GetSsmParameterListArgs, GetSsmParameterListResult, GetSsmParameterListOutputArgs } from "./getSsmParameterList";
 export const getSsmParameterList: typeof import("./getSsmParameterList").getSsmParameterList = null as any;
@@ -44,7 +47,8 @@ utilities.lazyLoad(exports, ["getSsmParameterString","getSsmParameterStringOutpu
 
 export { GetUrlSuffixResult } from "./getUrlSuffix";
 export const getUrlSuffix: typeof import("./getUrlSuffix").getUrlSuffix = null as any;
-utilities.lazyLoad(exports, ["getUrlSuffix"], () => require("./getUrlSuffix"));
+export const getUrlSuffixOutput: typeof import("./getUrlSuffix").getUrlSuffixOutput = null as any;
+utilities.lazyLoad(exports, ["getUrlSuffix","getUrlSuffixOutput"], () => require("./getUrlSuffix"));
 
 export { ImportValueArgs, ImportValueResult, ImportValueOutputArgs } from "./importValue";
 export const importValue: typeof import("./importValue").importValue = null as any;

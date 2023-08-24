@@ -14,3 +14,6 @@ export function getAccountId(opts?: pulumi.InvokeOptions): Promise<GetAccountIdR
 export interface GetAccountIdResult {
     readonly accountId: string;
 }
+export function getAccountIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountIdResult> {
+    return pulumi.output(getAccountId(opts))
+}
