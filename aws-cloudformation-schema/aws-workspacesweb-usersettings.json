@@ -1,0 +1,111 @@
+{
+  "typeName" : "AWS::WorkSpacesWeb::UserSettings",
+  "description" : "Definition of AWS::WorkSpacesWeb::UserSettings Resource Type",
+  "definitions" : {
+    "EnabledType" : {
+      "type" : "string",
+      "enum" : [ "Disabled", "Enabled" ]
+    },
+    "Tag" : {
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "maxLength" : 128,
+          "minLength" : 1,
+          "pattern" : "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+        },
+        "Value" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 0,
+          "pattern" : "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    }
+  },
+  "properties" : {
+    "AssociatedPortalArns" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string",
+        "maxLength" : 2048,
+        "minLength" : 20,
+        "pattern" : "^arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\\/[a-fA-F0-9\\-]{36})+$"
+      },
+      "insertionOrder" : false
+    },
+    "CopyAllowed" : {
+      "$ref" : "#/definitions/EnabledType"
+    },
+    "DisconnectTimeoutInMinutes" : {
+      "type" : "number",
+      "default" : null,
+      "maximum" : 600,
+      "minimum" : 1
+    },
+    "DownloadAllowed" : {
+      "$ref" : "#/definitions/EnabledType"
+    },
+    "IdleDisconnectTimeoutInMinutes" : {
+      "type" : "number",
+      "default" : null,
+      "maximum" : 60,
+      "minimum" : 0
+    },
+    "PasteAllowed" : {
+      "$ref" : "#/definitions/EnabledType"
+    },
+    "PrintAllowed" : {
+      "$ref" : "#/definitions/EnabledType"
+    },
+    "Tags" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      },
+      "maxItems" : 200,
+      "minItems" : 0,
+      "insertionOrder" : false
+    },
+    "UploadAllowed" : {
+      "$ref" : "#/definitions/EnabledType"
+    },
+    "UserSettingsArn" : {
+      "type" : "string",
+      "maxLength" : 2048,
+      "minLength" : 20,
+      "pattern" : "^arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\\/[a-fA-F0-9\\-]{36})+$"
+    }
+  },
+  "required" : [ "CopyAllowed", "DownloadAllowed", "PasteAllowed", "PrintAllowed", "UploadAllowed" ],
+  "readOnlyProperties" : [ "/properties/AssociatedPortalArns", "/properties/UserSettingsArn" ],
+  "primaryIdentifier" : [ "/properties/UserSettingsArn" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "workspaces-web:CreateUserSettings", "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource" ]
+    },
+    "read" : {
+      "permissions" : [ "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource" ]
+    },
+    "update" : {
+      "permissions" : [ "workspaces-web:UpdateUserSettings", "workspaces-web:TagResource", "workspaces-web:UntagResource", "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "workspaces-web:GetUserSettings", "workspaces-web:DeleteUserSettings" ]
+    },
+    "list" : {
+      "permissions" : [ "workspaces-web:ListUserSettings" ]
+    }
+  },
+  "tagging" : {
+    "cloudFormationSystemTags" : false,
+    "tagOnCreate" : true,
+    "tagProperty" : "/properties/Tags",
+    "tagUpdatable" : true,
+    "taggable" : true
+  },
+  "additionalProperties" : false
+}

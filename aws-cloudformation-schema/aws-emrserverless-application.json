@@ -308,7 +308,8 @@
   },
   "additionalProperties" : false,
   "required" : [ "ReleaseLabel", "Type" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/ReleaseLabel", "/properties/Type" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Type" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/Architecture", "/properties/ReleaseLabel", "/properties/WorkerTypeSpecifications", "/properties/MaximumCapacity", "/properties/InitialCapacity", "/properties/AutoStartConfiguration", "/properties/AutoStopConfiguration", "/properties/NetworkConfiguration" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/ApplicationId" ],
   "primaryIdentifier" : [ "/properties/ApplicationId" ],
   "tagging" : {
@@ -318,13 +319,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "emr-serverless:CreateApplication", "emr-serverless:TagResource", "emr-serverless:GetApplication", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "emr-serverless:CreateApplication", "emr-serverless:TagResource", "emr-serverless:GetApplication", "iam:CreateServiceLinkedRole", "ec2:CreateNetworkInterface", "ecr:BatchGetImage", "ecr:DescribeImages", "ecr:GetDownloadUrlForLayer" ]
     },
     "read" : {
       "permissions" : [ "emr-serverless:GetApplication" ]
     },
     "update" : {
-      "permissions" : [ "emr-serverless:UpdateApplication", "emr-serverless:TagResource", "emr-serverless:UntagResource", "emr-serverless:GetApplication" ]
+      "permissions" : [ "emr-serverless:UpdateApplication", "emr-serverless:TagResource", "emr-serverless:UntagResource", "emr-serverless:GetApplication", "ec2:CreateNetworkInterface", "ecr:BatchGetImage", "ecr:DescribeImages", "ecr:GetDownloadUrlForLayer" ]
     },
     "delete" : {
       "permissions" : [ "emr-serverless:DeleteApplication", "emr-serverless:GetApplication" ]
