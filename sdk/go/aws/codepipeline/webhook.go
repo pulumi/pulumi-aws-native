@@ -54,6 +54,10 @@ func NewWebhook(ctx *pulumi.Context,
 	if args.TargetPipelineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'TargetPipelineVersion'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Webhook
 	err := ctx.RegisterResource("aws-native:codepipeline:Webhook", name, args, &resource, opts...)

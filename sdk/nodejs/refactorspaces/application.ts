@@ -106,6 +106,8 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["vpcLinkId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiGatewayProxy", "environmentIdentifier", "name", "proxyType", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }

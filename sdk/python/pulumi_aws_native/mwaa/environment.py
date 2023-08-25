@@ -433,6 +433,8 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
             __props__.__dict__["arn"] = None
             __props__.__dict__["webserver_url"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key", "name", "network_configuration.subnet_ids[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:mwaa:Environment',
             resource_name,

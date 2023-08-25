@@ -276,6 +276,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["storage_mode"] = storage_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["broker_node_group_info.broker_az_distribution", "broker_node_group_info.client_subnets[*]", "broker_node_group_info.security_groups[*]", "cluster_name", "encryption_info.encryption_at_rest", "encryption_info.encryption_in_transit.in_cluster"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:msk:Cluster',
             resource_name,

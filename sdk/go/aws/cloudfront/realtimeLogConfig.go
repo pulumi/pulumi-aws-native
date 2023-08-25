@@ -39,6 +39,10 @@ func NewRealtimeLogConfig(ctx *pulumi.Context,
 	if args.SamplingRate == nil {
 		return nil, errors.New("invalid value for required argument 'SamplingRate'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RealtimeLogConfig
 	err := ctx.RegisterResource("aws-native:cloudfront:RealtimeLogConfig", name, args, &resource, opts...)

@@ -106,6 +106,8 @@ class BucketPolicy(pulumi.CustomResource):
             if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BucketPolicy, __self__).__init__(
             'aws-native:s3outposts:BucketPolicy',
             resource_name,

@@ -116,6 +116,8 @@ class SubnetGroup(pulumi.CustomResource):
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["subnet_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubnetGroup, __self__).__init__(
             'aws-native:dax:SubnetGroup',
             resource_name,

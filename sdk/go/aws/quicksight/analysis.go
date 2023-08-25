@@ -47,6 +47,11 @@ func NewAnalysis(ctx *pulumi.Context,
 	if args.AwsAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AwsAccountId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"analysisId",
+		"awsAccountId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Analysis
 	err := ctx.RegisterResource("aws-native:quicksight:Analysis", name, args, &resource, opts...)

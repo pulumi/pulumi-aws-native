@@ -118,6 +118,8 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dataQualityAppSpecification", "dataQualityBaselineConfig", "dataQualityJobInput", "dataQualityJobOutputConfig", "endpointName", "jobDefinitionName", "jobResources", "networkConfig", "roleArn", "stoppingCondition", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataQualityJobDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }

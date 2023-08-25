@@ -34,6 +34,11 @@ func NewArchive(ctx *pulumi.Context,
 	if args.SourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"archiveName",
+		"sourceArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Archive
 	err := ctx.RegisterResource("aws-native:events:Archive", name, args, &resource, opts...)

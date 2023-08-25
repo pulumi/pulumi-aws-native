@@ -63,6 +63,12 @@ namespace Pulumi.AwsNative.AppConfig
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "applicationId",
+                    "locationUri",
+                    "type",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

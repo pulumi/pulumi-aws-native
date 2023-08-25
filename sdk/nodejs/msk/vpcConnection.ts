@@ -91,6 +91,8 @@ export class VpcConnection extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["authentication", "clientSubnets[*]", "securityGroups[*]", "targetClusterArn", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

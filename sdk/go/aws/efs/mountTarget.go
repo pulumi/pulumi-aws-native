@@ -38,6 +38,12 @@ func NewMountTarget(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"fileSystemId",
+		"ipAddress",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MountTarget
 	err := ctx.RegisterResource("aws-native:efs:MountTarget", name, args, &resource, opts...)

@@ -314,6 +314,8 @@ class NotebookInstance(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["volume_size_in_gb"] = volume_size_in_gb
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["direct_internet_access", "kms_key_id", "notebook_instance_name", "platform_identifier", "security_group_ids[*]", "subnet_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NotebookInstance, __self__).__init__(
             'aws-native:sagemaker:NotebookInstance',
             resource_name,

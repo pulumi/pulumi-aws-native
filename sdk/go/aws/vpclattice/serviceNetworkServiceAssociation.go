@@ -37,6 +37,11 @@ func NewServiceNetworkServiceAssociation(ctx *pulumi.Context,
 		args = &ServiceNetworkServiceAssociationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serviceIdentifier",
+		"serviceNetworkIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceNetworkServiceAssociation
 	err := ctx.RegisterResource("aws-native:vpclattice:ServiceNetworkServiceAssociation", name, args, &resource, opts...)

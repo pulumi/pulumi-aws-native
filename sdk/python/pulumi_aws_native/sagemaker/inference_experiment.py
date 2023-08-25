@@ -316,6 +316,8 @@ class InferenceExperiment(pulumi.CustomResource):
             __props__.__dict__["endpoint_metadata"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint_name", "kms_key", "name", "role_arn", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InferenceExperiment, __self__).__init__(
             'aws-native:sagemaker:InferenceExperiment',
             resource_name,

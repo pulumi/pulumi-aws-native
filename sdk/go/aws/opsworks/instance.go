@@ -61,6 +61,19 @@ func NewInstance(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"autoScalingType",
+		"availabilityZone",
+		"blockDeviceMappings[*]",
+		"ebsOptimized",
+		"rootDeviceType",
+		"stackId",
+		"subnetId",
+		"tenancy",
+		"timeBasedAutoScaling",
+		"virtualizationType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws-native:opsworks:Instance", name, args, &resource, opts...)

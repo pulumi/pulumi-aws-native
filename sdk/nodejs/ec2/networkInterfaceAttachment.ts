@@ -88,6 +88,8 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["deviceIndex", "instanceId", "networkInterfaceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkInterfaceAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

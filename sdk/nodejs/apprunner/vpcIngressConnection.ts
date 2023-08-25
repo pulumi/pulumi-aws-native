@@ -94,6 +94,8 @@ export class VpcIngressConnection extends pulumi.CustomResource {
             resourceInputs["vpcIngressConnectionName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["serviceArn", "tags[*]", "vpcIngressConnectionName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcIngressConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

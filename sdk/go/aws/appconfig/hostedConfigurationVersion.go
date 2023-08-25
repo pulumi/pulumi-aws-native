@@ -46,6 +46,16 @@ func NewHostedConfigurationVersion(ctx *pulumi.Context,
 	if args.ContentType == nil {
 		return nil, errors.New("invalid value for required argument 'ContentType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationId",
+		"configurationProfileId",
+		"content",
+		"contentType",
+		"description",
+		"latestVersionNumber",
+		"versionLabel",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HostedConfigurationVersion
 	err := ctx.RegisterResource("aws-native:appconfig:HostedConfigurationVersion", name, args, &resource, opts...)

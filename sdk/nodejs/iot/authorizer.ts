@@ -82,6 +82,8 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["tokenSigningPublicKeys"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["authorizerName", "signingDisabled"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Authorizer.__pulumiType, name, resourceInputs, opts);
     }
 }

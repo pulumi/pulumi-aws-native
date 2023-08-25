@@ -67,6 +67,8 @@ export class IdentityPoolPrincipalTag extends pulumi.CustomResource {
             resourceInputs["useDefaults"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["identityPoolId", "identityProviderName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IdentityPoolPrincipalTag.__pulumiType, name, resourceInputs, opts);
     }
 }

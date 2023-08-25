@@ -36,6 +36,14 @@ func NewDomainConfiguration(ctx *pulumi.Context,
 		args = &DomainConfigurationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainConfigurationName",
+		"domainName",
+		"serverCertificateArns[*]",
+		"serviceType",
+		"validationCertificateArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainConfiguration
 	err := ctx.RegisterResource("aws-native:iot:DomainConfiguration", name, args, &resource, opts...)

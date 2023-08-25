@@ -76,6 +76,8 @@ export class ServerCertificate extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["certificateBody", "certificateChain", "privateKey", "serverCertificateName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServerCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }

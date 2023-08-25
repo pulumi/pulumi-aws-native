@@ -149,6 +149,8 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["outpost_id"] = outpost_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket_name", "outpost_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Bucket, __self__).__init__(
             'aws-native:s3outposts:Bucket',
             resource_name,

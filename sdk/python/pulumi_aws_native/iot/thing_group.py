@@ -147,6 +147,8 @@ class ThingGroup(pulumi.CustomResource):
             __props__.__dict__["thing_group_name"] = thing_group_name
             __props__.__dict__["thing_group_properties"] = thing_group_properties
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["parent_group_name", "thing_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ThingGroup, __self__).__init__(
             'aws-native:iot:ThingGroup',
             resource_name,

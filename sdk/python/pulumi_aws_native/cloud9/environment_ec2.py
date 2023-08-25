@@ -224,6 +224,8 @@ class EnvironmentEc2(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["automatic_stop_time_minutes", "connection_type", "image_id", "instance_type", "owner_arn", "repositories[*]", "subnet_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EnvironmentEc2, __self__).__init__(
             'aws-native:cloud9:EnvironmentEc2',
             resource_name,

@@ -75,6 +75,8 @@ export class GatewayResponse extends pulumi.CustomResource {
             resourceInputs["statusCode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["responseType", "restApiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GatewayResponse.__pulumiType, name, resourceInputs, opts);
     }
 }

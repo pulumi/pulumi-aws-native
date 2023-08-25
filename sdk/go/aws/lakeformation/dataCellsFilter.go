@@ -48,6 +48,16 @@ func NewDataCellsFilter(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"columnNames[*]",
+		"columnWildcard",
+		"databaseName",
+		"name",
+		"rowFilter",
+		"tableCatalogId",
+		"tableName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataCellsFilter
 	err := ctx.RegisterResource("aws-native:lakeformation:DataCellsFilter", name, args, &resource, opts...)

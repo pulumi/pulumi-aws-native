@@ -164,6 +164,8 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["endpoint_url"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["state_reason"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Endpoint, __self__).__init__(
             'aws-native:events:Endpoint',
             resource_name,

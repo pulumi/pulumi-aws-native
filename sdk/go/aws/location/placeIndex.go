@@ -40,6 +40,14 @@ func NewPlaceIndex(ctx *pulumi.Context,
 	if args.IndexName == nil {
 		return nil, errors.New("invalid value for required argument 'IndexName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dataSource",
+		"dataSourceConfiguration",
+		"description",
+		"indexName",
+		"pricingPlan",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlaceIndex
 	err := ctx.RegisterResource("aws-native:location:PlaceIndex", name, args, &resource, opts...)

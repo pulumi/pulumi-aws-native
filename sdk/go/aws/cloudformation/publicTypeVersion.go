@@ -42,6 +42,14 @@ func NewPublicTypeVersion(ctx *pulumi.Context,
 		args = &PublicTypeVersionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"arn",
+		"logDeliveryBucket",
+		"publicVersionNumber",
+		"type",
+		"typeName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PublicTypeVersion
 	err := ctx.RegisterResource("aws-native:cloudformation:PublicTypeVersion", name, args, &resource, opts...)

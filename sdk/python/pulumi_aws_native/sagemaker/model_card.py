@@ -204,6 +204,8 @@ class ModelCard(pulumi.CustomResource):
             __props__.__dict__["model_card_arn"] = None
             __props__.__dict__["model_card_processing_status"] = None
             __props__.__dict__["model_card_version"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["model_card_name", "security_config"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ModelCard, __self__).__init__(
             'aws-native:sagemaker:ModelCard',
             resource_name,

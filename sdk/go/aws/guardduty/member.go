@@ -42,6 +42,12 @@ func NewMember(ctx *pulumi.Context,
 	if args.MemberId == nil {
 		return nil, errors.New("invalid value for required argument 'MemberId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"detectorId",
+		"email",
+		"memberId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Member
 	err := ctx.RegisterResource("aws-native:guardduty:Member", name, args, &resource, opts...)

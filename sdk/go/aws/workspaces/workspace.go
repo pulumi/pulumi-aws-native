@@ -44,6 +44,10 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"userName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws-native:workspaces:Workspace", name, args, &resource, opts...)

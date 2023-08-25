@@ -170,6 +170,8 @@ class Alert(pulumi.CustomResource):
                 raise TypeError("Missing required property 'anomaly_detector_arn'")
             __props__.__dict__["anomaly_detector_arn"] = anomaly_detector_arn
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action", "alert_description", "alert_name", "alert_sensitivity_threshold", "anomaly_detector_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Alert, __self__).__init__(
             'aws-native:lookoutmetrics:Alert',
             resource_name,

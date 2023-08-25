@@ -170,6 +170,8 @@ class CustomerGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["customer_gateway_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgp_asn", "device_name", "ip_address", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomerGateway, __self__).__init__(
             'aws-native:ec2:CustomerGateway',
             resource_name,

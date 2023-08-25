@@ -91,6 +91,8 @@ export class AnomalyDetector extends pulumi.CustomResource {
             resourceInputs["metricSetList"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["anomalyDetectorName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AnomalyDetector.__pulumiType, name, resourceInputs, opts);
     }
 }

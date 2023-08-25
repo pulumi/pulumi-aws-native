@@ -169,6 +169,8 @@ class EventIntegration(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["event_integration_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["event_bridge_bus", "event_filter", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventIntegration, __self__).__init__(
             'aws-native:appintegrations:EventIntegration',
             resource_name,

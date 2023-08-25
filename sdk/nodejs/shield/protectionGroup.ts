@@ -106,6 +106,8 @@ export class ProtectionGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["protectionGroupId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ProtectionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

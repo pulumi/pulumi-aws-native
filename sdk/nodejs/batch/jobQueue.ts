@@ -82,6 +82,8 @@ export class JobQueue extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["jobQueueName", "tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(JobQueue.__pulumiType, name, resourceInputs, opts);
     }
 }

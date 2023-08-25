@@ -117,6 +117,8 @@ class BillingGroup(pulumi.CustomResource):
             __props__.__dict__["billing_group_properties"] = billing_group_properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["billing_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BillingGroup, __self__).__init__(
             'aws-native:iot:BillingGroup',
             resource_name,

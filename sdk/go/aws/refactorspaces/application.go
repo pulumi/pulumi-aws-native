@@ -49,6 +49,14 @@ func NewApplication(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiGatewayProxy",
+		"environmentIdentifier",
+		"name",
+		"proxyType",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws-native:refactorspaces:Application", name, args, &resource, opts...)

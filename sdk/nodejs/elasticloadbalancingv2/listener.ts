@@ -82,6 +82,8 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["sslPolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["loadBalancerArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Listener.__pulumiType, name, resourceInputs, opts);
     }
 }

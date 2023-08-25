@@ -82,6 +82,8 @@ export class GeofenceCollection extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["collectionName", "description", "kmsKeyId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GeofenceCollection.__pulumiType, name, resourceInputs, opts);
     }
 }

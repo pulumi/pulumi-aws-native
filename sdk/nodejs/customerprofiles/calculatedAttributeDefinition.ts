@@ -100,6 +100,8 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["calculatedAttributeName", "domainName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CalculatedAttributeDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }

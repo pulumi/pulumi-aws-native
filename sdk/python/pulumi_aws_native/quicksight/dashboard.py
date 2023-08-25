@@ -239,6 +239,8 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["last_published_time"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["version"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aws_account_id", "dashboard_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dashboard, __self__).__init__(
             'aws-native:quicksight:Dashboard',
             resource_name,

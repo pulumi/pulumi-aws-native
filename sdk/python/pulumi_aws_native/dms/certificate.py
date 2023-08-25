@@ -115,6 +115,8 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate_identifier"] = certificate_identifier
             __props__.__dict__["certificate_pem"] = certificate_pem
             __props__.__dict__["certificate_wallet"] = certificate_wallet
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_identifier", "certificate_pem", "certificate_wallet"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Certificate, __self__).__init__(
             'aws-native:dms:Certificate',
             resource_name,

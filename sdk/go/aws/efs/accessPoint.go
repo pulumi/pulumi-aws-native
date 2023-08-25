@@ -39,6 +39,13 @@ func NewAccessPoint(ctx *pulumi.Context,
 	if args.FileSystemId == nil {
 		return nil, errors.New("invalid value for required argument 'FileSystemId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clientToken",
+		"fileSystemId",
+		"posixUser",
+		"rootDirectory",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessPoint
 	err := ctx.RegisterResource("aws-native:efs:AccessPoint", name, args, &resource, opts...)

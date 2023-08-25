@@ -52,6 +52,11 @@ func NewEntity(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"entityId",
+		"workspaceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Entity
 	err := ctx.RegisterResource("aws-native:iottwinmaker:Entity", name, args, &resource, opts...)

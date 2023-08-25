@@ -52,6 +52,11 @@ func NewLink(ctx *pulumi.Context,
 	if args.SiteId == nil {
 		return nil, errors.New("invalid value for required argument 'SiteId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"globalNetworkId",
+		"siteId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Link
 	err := ctx.RegisterResource("aws-native:networkmanager:Link", name, args, &resource, opts...)

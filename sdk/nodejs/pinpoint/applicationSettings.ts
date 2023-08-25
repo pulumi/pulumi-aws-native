@@ -75,6 +75,8 @@ export class ApplicationSettings extends pulumi.CustomResource {
             resourceInputs["quietTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApplicationSettings.__pulumiType, name, resourceInputs, opts);
     }
 }

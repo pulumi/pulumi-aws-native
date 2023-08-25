@@ -70,6 +70,8 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
             resourceInputs["virtualMfaDeviceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["path", "virtualMfaDeviceName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VirtualMfaDevice.__pulumiType, name, resourceInputs, opts);
     }
 }

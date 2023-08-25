@@ -32,6 +32,11 @@ func NewAppImageConfig(ctx *pulumi.Context,
 		args = &AppImageConfigArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"appImageConfigName",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppImageConfig
 	err := ctx.RegisterResource("aws-native:sagemaker:AppImageConfig", name, args, &resource, opts...)

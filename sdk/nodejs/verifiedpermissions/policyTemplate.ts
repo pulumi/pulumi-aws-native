@@ -64,6 +64,8 @@ export class PolicyTemplate extends pulumi.CustomResource {
             resourceInputs["statement"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["policyStoreId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PolicyTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

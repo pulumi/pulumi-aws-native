@@ -52,6 +52,10 @@ func NewMatchmakingConfiguration(ctx *pulumi.Context,
 	if args.RuleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MatchmakingConfiguration
 	err := ctx.RegisterResource("aws-native:gamelift:MatchmakingConfiguration", name, args, &resource, opts...)

@@ -34,6 +34,11 @@ func NewSecurityKey(ctx *pulumi.Context,
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instanceId",
+		"key",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityKey
 	err := ctx.RegisterResource("aws-native:connect:SecurityKey", name, args, &resource, opts...)

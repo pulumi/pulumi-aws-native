@@ -44,6 +44,11 @@ func NewMemberInvitation(ctx *pulumi.Context,
 	if args.MemberId == nil {
 		return nil, errors.New("invalid value for required argument 'MemberId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"graphArn",
+		"memberId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MemberInvitation
 	err := ctx.RegisterResource("aws-native:detective:MemberInvitation", name, args, &resource, opts...)

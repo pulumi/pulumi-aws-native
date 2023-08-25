@@ -134,6 +134,8 @@ class DbSecurityGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_description'")
             __props__.__dict__["group_description"] = group_description
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_vpc_id", "group_description"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbSecurityGroup, __self__).__init__(
             'aws-native:rds:DbSecurityGroup',
             resource_name,

@@ -93,6 +93,8 @@ export class Filter extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["detectorId", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Filter.__pulumiType, name, resourceInputs, opts);
     }
 }

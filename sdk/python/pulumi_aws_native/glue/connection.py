@@ -104,6 +104,8 @@ class Connection(pulumi.CustomResource):
             if connection_input is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_input'")
             __props__.__dict__["connection_input"] = connection_input
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connection, __self__).__init__(
             'aws-native:glue:Connection',
             resource_name,

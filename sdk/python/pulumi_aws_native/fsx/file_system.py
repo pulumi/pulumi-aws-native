@@ -273,6 +273,8 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["lustre_mount_name"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["root_volume_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backup_id", "file_system_type", "file_system_type_version", "kms_key_id", "security_group_ids[*]", "subnet_ids[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FileSystem, __self__).__init__(
             'aws-native:fsx:FileSystem',
             resource_name,

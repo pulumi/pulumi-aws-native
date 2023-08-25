@@ -40,6 +40,13 @@ func NewPortfolioPrincipalAssociation(ctx *pulumi.Context,
 	if args.PrincipalType == nil {
 		return nil, errors.New("invalid value for required argument 'PrincipalType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"acceptLanguage",
+		"portfolioId",
+		"principalArn",
+		"principalType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PortfolioPrincipalAssociation
 	err := ctx.RegisterResource("aws-native:servicecatalog:PortfolioPrincipalAssociation", name, args, &resource, opts...)

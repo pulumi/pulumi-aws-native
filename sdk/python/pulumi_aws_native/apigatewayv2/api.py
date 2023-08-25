@@ -328,6 +328,8 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["api_endpoint"] = None
             __props__.__dict__["api_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["protocol_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Api, __self__).__init__(
             'aws-native:apigatewayv2:Api',
             resource_name,

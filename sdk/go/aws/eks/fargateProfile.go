@@ -45,6 +45,14 @@ func NewFargateProfile(ctx *pulumi.Context,
 	if args.Selectors == nil {
 		return nil, errors.New("invalid value for required argument 'Selectors'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clusterName",
+		"fargateProfileName",
+		"podExecutionRoleArn",
+		"selectors[*]",
+		"subnets[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FargateProfile
 	err := ctx.RegisterResource("aws-native:eks:FargateProfile", name, args, &resource, opts...)

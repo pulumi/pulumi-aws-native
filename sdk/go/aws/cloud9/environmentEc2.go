@@ -41,6 +41,16 @@ func NewEnvironmentEc2(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"automaticStopTimeMinutes",
+		"connectionType",
+		"imageId",
+		"instanceType",
+		"ownerArn",
+		"repositories[*]",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnvironmentEc2
 	err := ctx.RegisterResource("aws-native:cloud9:EnvironmentEc2", name, args, &resource, opts...)

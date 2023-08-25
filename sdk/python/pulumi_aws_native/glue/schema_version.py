@@ -104,6 +104,8 @@ class SchemaVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schema_definition'")
             __props__.__dict__["schema_definition"] = schema_definition
             __props__.__dict__["version_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["schema", "schema_definition"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SchemaVersion, __self__).__init__(
             'aws-native:glue:SchemaVersion',
             resource_name,

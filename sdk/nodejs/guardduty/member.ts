@@ -81,6 +81,8 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["detectorId", "email", "memberId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Member.__pulumiType, name, resourceInputs, opts);
     }
 }

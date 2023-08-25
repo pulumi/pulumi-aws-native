@@ -104,6 +104,8 @@ class ConfigurationAssociation(pulumi.CustomResource):
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["broker"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationAssociation, __self__).__init__(
             'aws-native:amazonmq:ConfigurationAssociation',
             resource_name,

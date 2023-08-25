@@ -33,6 +33,11 @@ func NewSubnetRouteTableAssociation(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"routeTableId",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetRouteTableAssociation
 	err := ctx.RegisterResource("aws-native:ec2:SubnetRouteTableAssociation", name, args, &resource, opts...)

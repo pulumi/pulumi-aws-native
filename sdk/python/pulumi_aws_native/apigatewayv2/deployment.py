@@ -111,6 +111,8 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["stage_name"] = stage_name
             __props__.__dict__["deployment_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Deployment, __self__).__init__(
             'aws-native:apigatewayv2:Deployment',
             resource_name,

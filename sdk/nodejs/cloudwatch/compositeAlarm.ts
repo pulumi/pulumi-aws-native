@@ -118,6 +118,8 @@ export class CompositeAlarm extends pulumi.CustomResource {
             resourceInputs["okActions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["alarmName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CompositeAlarm.__pulumiType, name, resourceInputs, opts);
     }
 }

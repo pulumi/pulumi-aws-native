@@ -111,6 +111,8 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyId", "publiclyAccessible", "replicationSubnetGroupIdentifier", "resourceIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReplicationInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

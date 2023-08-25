@@ -37,6 +37,10 @@ func NewGatewayRouteTableAssociation(ctx *pulumi.Context,
 	if args.RouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'RouteTableId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"gatewayId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayRouteTableAssociation
 	err := ctx.RegisterResource("aws-native:ec2:GatewayRouteTableAssociation", name, args, &resource, opts...)

@@ -32,6 +32,10 @@ func NewReadinessCheck(ctx *pulumi.Context,
 		args = &ReadinessCheckArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"readinessCheckName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReadinessCheck
 	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:ReadinessCheck", name, args, &resource, opts...)

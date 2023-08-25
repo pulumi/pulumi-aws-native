@@ -102,6 +102,8 @@ class PolicyPrincipalAttachment(pulumi.CustomResource):
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_name", "principal"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PolicyPrincipalAttachment, __self__).__init__(
             'aws-native:iot:PolicyPrincipalAttachment',
             resource_name,

@@ -79,6 +79,8 @@ export class UsagePlanKey extends pulumi.CustomResource {
             resourceInputs["usagePlanId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["keyId", "keyType", "usagePlanId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UsagePlanKey.__pulumiType, name, resourceInputs, opts);
     }
 }

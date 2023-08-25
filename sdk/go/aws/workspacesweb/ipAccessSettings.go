@@ -37,6 +37,11 @@ func NewIpAccessSettings(ctx *pulumi.Context,
 	if args.IpRules == nil {
 		return nil, errors.New("invalid value for required argument 'IpRules'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"additionalEncryptionContext",
+		"customerManagedKey",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpAccessSettings
 	err := ctx.RegisterResource("aws-native:workspacesweb:IpAccessSettings", name, args, &resource, opts...)

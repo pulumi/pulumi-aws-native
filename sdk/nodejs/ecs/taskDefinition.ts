@@ -109,6 +109,8 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["containerDefinitions[*]", "cpu", "ephemeralStorage", "executionRoleArn", "family", "inferenceAccelerators[*]", "ipcMode", "memory", "networkMode", "pidMode", "placementConstraints[*]", "proxyConfiguration", "requiresCompatibilities[*]", "runtimePlatform", "taskRoleArn", "volumes[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TaskDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }

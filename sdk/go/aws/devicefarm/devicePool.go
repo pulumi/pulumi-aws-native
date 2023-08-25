@@ -38,6 +38,10 @@ func NewDevicePool(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"projectArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DevicePool
 	err := ctx.RegisterResource("aws-native:devicefarm:DevicePool", name, args, &resource, opts...)

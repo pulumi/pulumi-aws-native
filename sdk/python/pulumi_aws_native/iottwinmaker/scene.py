@@ -211,6 +211,8 @@ class Scene(pulumi.CustomResource):
             __props__.__dict__["creation_date_time"] = None
             __props__.__dict__["generated_scene_metadata"] = None
             __props__.__dict__["update_date_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["scene_id", "workspace_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Scene, __self__).__init__(
             'aws-native:iottwinmaker:Scene',
             resource_name,

@@ -33,6 +33,11 @@ func NewTrackerConsumer(ctx *pulumi.Context,
 	if args.TrackerName == nil {
 		return nil, errors.New("invalid value for required argument 'TrackerName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"consumerArn",
+		"trackerName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrackerConsumer
 	err := ctx.RegisterResource("aws-native:location:TrackerConsumer", name, args, &resource, opts...)

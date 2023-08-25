@@ -72,6 +72,8 @@ export class ApiGatewayManagedOverrides extends pulumi.CustomResource {
             resourceInputs["stage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApiGatewayManagedOverrides.__pulumiType, name, resourceInputs, opts);
     }
 }

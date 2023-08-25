@@ -90,6 +90,8 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["topicArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["endpoint", "protocol", "topicArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Subscription.__pulumiType, name, resourceInputs, opts);
     }
 }

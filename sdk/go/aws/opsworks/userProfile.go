@@ -34,6 +34,10 @@ func NewUserProfile(ctx *pulumi.Context,
 	if args.IamUserArn == nil {
 		return nil, errors.New("invalid value for required argument 'IamUserArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"iamUserArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserProfile
 	err := ctx.RegisterResource("aws-native:opsworks:UserProfile", name, args, &resource, opts...)

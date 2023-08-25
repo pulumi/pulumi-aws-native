@@ -47,6 +47,10 @@ func NewSimulationApplication(ctx *pulumi.Context,
 	if args.SimulationSoftwareSuite == nil {
 		return nil, errors.New("invalid value for required argument 'SimulationSoftwareSuite'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SimulationApplication
 	err := ctx.RegisterResource("aws-native:robomaker:SimulationApplication", name, args, &resource, opts...)

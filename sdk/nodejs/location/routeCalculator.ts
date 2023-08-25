@@ -82,6 +82,8 @@ export class RouteCalculator extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["calculatorName", "dataSource", "description", "pricingPlan"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RouteCalculator.__pulumiType, name, resourceInputs, opts);
     }
 }

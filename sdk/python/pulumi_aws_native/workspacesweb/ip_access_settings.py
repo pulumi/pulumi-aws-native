@@ -160,6 +160,8 @@ class IpAccessSettings(pulumi.CustomResource):
             __props__.__dict__["associated_portal_arns"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["ip_access_settings_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_encryption_context", "customer_managed_key"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpAccessSettings, __self__).__init__(
             'aws-native:workspacesweb:IpAccessSettings',
             resource_name,

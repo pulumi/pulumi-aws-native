@@ -41,6 +41,10 @@ func NewConnector(ctx *pulumi.Context,
 	if args.ConnectorProvisioningType == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectorProvisioningType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"connectorLabel",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connector
 	err := ctx.RegisterResource("aws-native:appflow:Connector", name, args, &resource, opts...)

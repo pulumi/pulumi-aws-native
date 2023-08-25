@@ -63,6 +63,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateWallet"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["certificateIdentifier", "certificatePem", "certificateWallet"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -55,6 +55,13 @@ func NewClientVpnEndpoint(ctx *pulumi.Context,
 	if args.ServerCertificateArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServerCertificateArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"authenticationOptions[*]",
+		"clientCidrBlock",
+		"tagSpecifications[*]",
+		"transportProtocol",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClientVpnEndpoint
 	err := ctx.RegisterResource("aws-native:ec2:ClientVpnEndpoint", name, args, &resource, opts...)

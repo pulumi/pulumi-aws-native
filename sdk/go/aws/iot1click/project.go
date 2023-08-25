@@ -34,6 +34,10 @@ func NewProject(ctx *pulumi.Context,
 	if args.PlacementTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'PlacementTemplate'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"projectName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Project
 	err := ctx.RegisterResource("aws-native:iot1click:Project", name, args, &resource, opts...)

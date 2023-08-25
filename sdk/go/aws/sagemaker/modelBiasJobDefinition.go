@@ -57,6 +57,20 @@ func NewModelBiasJobDefinition(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"endpointName",
+		"jobDefinitionName",
+		"jobResources",
+		"modelBiasAppSpecification",
+		"modelBiasBaselineConfig",
+		"modelBiasJobInput",
+		"modelBiasJobOutputConfig",
+		"networkConfig",
+		"roleArn",
+		"stoppingCondition",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelBiasJobDefinition
 	err := ctx.RegisterResource("aws-native:sagemaker:ModelBiasJobDefinition", name, args, &resource, opts...)

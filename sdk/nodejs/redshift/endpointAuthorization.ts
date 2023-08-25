@@ -127,6 +127,8 @@ export class EndpointAuthorization extends pulumi.CustomResource {
             resourceInputs["vpcIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["account", "clusterIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EndpointAuthorization.__pulumiType, name, resourceInputs, opts);
     }
 }

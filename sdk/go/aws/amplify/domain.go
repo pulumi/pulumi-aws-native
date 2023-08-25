@@ -41,6 +41,11 @@ func NewDomain(ctx *pulumi.Context,
 	if args.SubDomainSettings == nil {
 		return nil, errors.New("invalid value for required argument 'SubDomainSettings'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"appId",
+		"domainName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws-native:amplify:Domain", name, args, &resource, opts...)

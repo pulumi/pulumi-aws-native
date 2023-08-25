@@ -88,6 +88,8 @@ export class StudioSessionMapping extends pulumi.CustomResource {
             resourceInputs["studioId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["identityName", "identityType", "studioId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StudioSessionMapping.__pulumiType, name, resourceInputs, opts);
     }
 }

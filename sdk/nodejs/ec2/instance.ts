@@ -189,6 +189,8 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "cpuOptions", "elasticGpuSpecifications[*]", "elasticInferenceAccelerators[*]", "enclaveOptions", "hibernationOptions", "hostResourceGroupArn", "imageId", "ipv6AddressCount", "ipv6Addresses[*]", "keyName", "launchTemplate", "licenseSpecifications[*]", "networkInterfaces[*]", "placementGroupName", "privateIpAddress", "securityGroups[*]", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }

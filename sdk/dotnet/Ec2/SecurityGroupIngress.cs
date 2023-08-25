@@ -75,6 +75,20 @@ namespace Pulumi.AwsNative.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "cidrIp",
+                    "cidrIpv6",
+                    "fromPort",
+                    "groupId",
+                    "groupName",
+                    "ipProtocol",
+                    "sourcePrefixListId",
+                    "sourceSecurityGroupId",
+                    "sourceSecurityGroupName",
+                    "sourceSecurityGroupOwnerId",
+                    "toPort",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -95,6 +95,25 @@ namespace Pulumi.AwsNative.Ecs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "containerDefinitions[*]",
+                    "cpu",
+                    "ephemeralStorage",
+                    "executionRoleArn",
+                    "family",
+                    "inferenceAccelerators[*]",
+                    "ipcMode",
+                    "memory",
+                    "networkMode",
+                    "pidMode",
+                    "placementConstraints[*]",
+                    "proxyConfiguration",
+                    "requiresCompatibilities[*]",
+                    "runtimePlatform",
+                    "taskRoleArn",
+                    "volumes[*]",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

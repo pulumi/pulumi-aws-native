@@ -72,6 +72,8 @@ export class ResourceDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["initialVersion"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourceDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }

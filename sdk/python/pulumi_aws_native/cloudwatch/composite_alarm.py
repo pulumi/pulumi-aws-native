@@ -266,6 +266,8 @@ class CompositeAlarm(pulumi.CustomResource):
             __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
             __props__.__dict__["ok_actions"] = ok_actions
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["alarm_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CompositeAlarm, __self__).__init__(
             'aws-native:cloudwatch:CompositeAlarm',
             resource_name,

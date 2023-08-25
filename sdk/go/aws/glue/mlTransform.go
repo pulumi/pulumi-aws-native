@@ -49,6 +49,10 @@ func NewMlTransform(ctx *pulumi.Context,
 	if args.TransformParameters == nil {
 		return nil, errors.New("invalid value for required argument 'TransformParameters'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"inputRecordTables",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MlTransform
 	err := ctx.RegisterResource("aws-native:glue:MlTransform", name, args, &resource, opts...)

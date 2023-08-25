@@ -103,6 +103,8 @@ export class LocationFSxOntap extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["protocol", "securityGroupArns[*]", "storageVirtualMachineArn", "subdirectory"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocationFSxOntap.__pulumiType, name, resourceInputs, opts);
     }
 }

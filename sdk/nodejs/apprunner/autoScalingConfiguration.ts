@@ -100,6 +100,8 @@ export class AutoScalingConfiguration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["autoScalingConfigurationName", "maxConcurrency", "maxSize", "minSize", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AutoScalingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

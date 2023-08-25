@@ -38,6 +38,10 @@ func NewConformancePack(ctx *pulumi.Context,
 		args = &ConformancePackArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"conformancePackName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConformancePack
 	err := ctx.RegisterResource("aws-native:configuration:ConformancePack", name, args, &resource, opts...)

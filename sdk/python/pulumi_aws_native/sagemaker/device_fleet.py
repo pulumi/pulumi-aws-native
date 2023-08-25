@@ -168,6 +168,8 @@ class DeviceFleet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device_fleet_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeviceFleet, __self__).__init__(
             'aws-native:sagemaker:DeviceFleet',
             resource_name,

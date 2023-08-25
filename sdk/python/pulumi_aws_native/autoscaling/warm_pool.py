@@ -142,6 +142,8 @@ class WarmPool(pulumi.CustomResource):
             __props__.__dict__["max_group_prepared_capacity"] = max_group_prepared_capacity
             __props__.__dict__["min_size"] = min_size
             __props__.__dict__["pool_state"] = pool_state
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auto_scaling_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(WarmPool, __self__).__init__(
             'aws-native:autoscaling:WarmPool',
             resource_name,

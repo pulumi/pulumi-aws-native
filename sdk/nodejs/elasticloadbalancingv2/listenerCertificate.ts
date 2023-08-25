@@ -69,6 +69,8 @@ export class ListenerCertificate extends pulumi.CustomResource {
             resourceInputs["listenerArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["listenerArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ListenerCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }

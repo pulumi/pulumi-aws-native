@@ -366,6 +366,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clusterIdentifier", "clusterSubnetGroupName", "dbName", "masterUsername", "ownerAccount", "snapshotClusterIdentifier", "snapshotIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

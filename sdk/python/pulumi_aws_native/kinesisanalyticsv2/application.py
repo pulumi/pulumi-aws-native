@@ -249,6 +249,8 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_execution_role'")
             __props__.__dict__["service_execution_role"] = service_execution_role
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_mode", "application_name", "runtime_environment"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:kinesisanalyticsv2:Application',
             resource_name,

@@ -30,6 +30,10 @@ func NewDatastore(ctx *pulumi.Context,
 		args = &DatastoreArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"datastoreName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Datastore
 	err := ctx.RegisterResource("aws-native:iotanalytics:Datastore", name, args, &resource, opts...)

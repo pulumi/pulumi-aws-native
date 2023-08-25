@@ -130,6 +130,8 @@ class ObservabilityConfiguration(pulumi.CustomResource):
             __props__.__dict__["latest"] = None
             __props__.__dict__["observability_configuration_arn"] = None
             __props__.__dict__["observability_configuration_revision"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["observability_configuration_name", "tags[*]", "trace_configuration"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ObservabilityConfiguration, __self__).__init__(
             'aws-native:apprunner:ObservabilityConfiguration',
             resource_name,

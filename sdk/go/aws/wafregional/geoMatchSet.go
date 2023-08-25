@@ -28,6 +28,10 @@ func NewGeoMatchSet(ctx *pulumi.Context,
 		args = &GeoMatchSetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GeoMatchSet
 	err := ctx.RegisterResource("aws-native:wafregional:GeoMatchSet", name, args, &resource, opts...)

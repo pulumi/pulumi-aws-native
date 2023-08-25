@@ -190,6 +190,8 @@ class ScheduledAudit(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_check_names'")
             __props__.__dict__["target_check_names"] = target_check_names
             __props__.__dict__["scheduled_audit_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["scheduled_audit_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ScheduledAudit, __self__).__init__(
             'aws-native:iot:ScheduledAudit',
             resource_name,

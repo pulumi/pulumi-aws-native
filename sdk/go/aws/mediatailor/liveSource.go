@@ -39,6 +39,11 @@ func NewLiveSource(ctx *pulumi.Context,
 	if args.SourceLocationName == nil {
 		return nil, errors.New("invalid value for required argument 'SourceLocationName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"liveSourceName",
+		"sourceLocationName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LiveSource
 	err := ctx.RegisterResource("aws-native:mediatailor:LiveSource", name, args, &resource, opts...)

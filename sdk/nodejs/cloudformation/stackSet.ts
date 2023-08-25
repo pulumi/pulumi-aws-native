@@ -148,6 +148,8 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["templateUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["permissionModel", "stackSetName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StackSet.__pulumiType, name, resourceInputs, opts);
     }
 }

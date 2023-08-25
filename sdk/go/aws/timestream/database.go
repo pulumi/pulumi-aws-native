@@ -31,6 +31,10 @@ func NewDatabase(ctx *pulumi.Context,
 		args = &DatabaseArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"databaseName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Database
 	err := ctx.RegisterResource("aws-native:timestream:Database", name, args, &resource, opts...)

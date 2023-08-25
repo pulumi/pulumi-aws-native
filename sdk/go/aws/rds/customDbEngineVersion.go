@@ -54,6 +54,15 @@ func NewCustomDbEngineVersion(ctx *pulumi.Context,
 	if args.EngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'EngineVersion'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"databaseInstallationFilesS3BucketName",
+		"databaseInstallationFilesS3Prefix",
+		"engine",
+		"engineVersion",
+		"kmsKeyId",
+		"manifest",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomDbEngineVersion
 	err := ctx.RegisterResource("aws-native:rds:CustomDbEngineVersion", name, args, &resource, opts...)

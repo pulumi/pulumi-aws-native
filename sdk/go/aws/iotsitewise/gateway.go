@@ -38,6 +38,10 @@ func NewGateway(ctx *pulumi.Context,
 	if args.GatewayPlatform == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayPlatform'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"gatewayPlatform",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Gateway
 	err := ctx.RegisterResource("aws-native:iotsitewise:Gateway", name, args, &resource, opts...)

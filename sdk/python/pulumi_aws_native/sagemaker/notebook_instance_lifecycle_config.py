@@ -117,6 +117,8 @@ class NotebookInstanceLifecycleConfig(pulumi.CustomResource):
             __props__.__dict__["notebook_instance_lifecycle_config_name"] = notebook_instance_lifecycle_config_name
             __props__.__dict__["on_create"] = on_create
             __props__.__dict__["on_start"] = on_start
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["notebook_instance_lifecycle_config_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NotebookInstanceLifecycleConfig, __self__).__init__(
             'aws-native:sagemaker:NotebookInstanceLifecycleConfig',
             resource_name,

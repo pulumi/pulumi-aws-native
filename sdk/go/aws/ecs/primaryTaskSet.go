@@ -40,6 +40,11 @@ func NewPrimaryTaskSet(ctx *pulumi.Context,
 	if args.TaskSetId == nil {
 		return nil, errors.New("invalid value for required argument 'TaskSetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cluster",
+		"service",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrimaryTaskSet
 	err := ctx.RegisterResource("aws-native:ecs:PrimaryTaskSet", name, args, &resource, opts...)

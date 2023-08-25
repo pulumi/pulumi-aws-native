@@ -281,6 +281,8 @@ class Component(pulumi.CustomResource):
             if variants is None and not opts.urn:
                 raise TypeError("Missing required property 'variants'")
             __props__.__dict__["variants"] = variants
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Component, __self__).__init__(
             'aws-native:amplifyuibuilder:Component',
             resource_name,

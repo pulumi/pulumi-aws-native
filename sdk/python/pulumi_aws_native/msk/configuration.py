@@ -126,6 +126,8 @@ class Configuration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_properties'")
             __props__.__dict__["server_properties"] = server_properties
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kafka_versions_list[*]", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Configuration, __self__).__init__(
             'aws-native:msk:Configuration',
             resource_name,

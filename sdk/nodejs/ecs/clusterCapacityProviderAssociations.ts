@@ -70,6 +70,8 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
             resourceInputs["defaultCapacityProviderStrategy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cluster"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ClusterCapacityProviderAssociations.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -44,6 +44,12 @@ func NewNetworkInterfaceAttachment(ctx *pulumi.Context,
 	if args.NetworkInterfaceId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInterfaceId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"deviceIndex",
+		"instanceId",
+		"networkInterfaceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInterfaceAttachment
 	err := ctx.RegisterResource("aws-native:ec2:NetworkInterfaceAttachment", name, args, &resource, opts...)

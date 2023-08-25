@@ -138,6 +138,8 @@ class BridgeSource(pulumi.CustomResource):
             __props__.__dict__["flow_source"] = flow_source
             __props__.__dict__["name"] = name
             __props__.__dict__["network_source"] = network_source
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bridge_arn", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BridgeSource, __self__).__init__(
             'aws-native:mediaconnect:BridgeSource',
             resource_name,

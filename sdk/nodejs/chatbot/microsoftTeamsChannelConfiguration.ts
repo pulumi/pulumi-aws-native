@@ -124,6 +124,8 @@ export class MicrosoftTeamsChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["userRoleRequired"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["configurationName", "teamId", "teamsTenantId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MicrosoftTeamsChannelConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

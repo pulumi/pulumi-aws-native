@@ -175,6 +175,8 @@ class CustomLineItem(pulumi.CustomResource):
             __props__.__dict__["currency_code"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["product_code"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["billing_group_arn", "billing_period_range.exclusive_end_billing_period", "billing_period_range.inclusive_start_billing_period", "custom_line_item_charge_details.type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomLineItem, __self__).__init__(
             'aws-native:billingconductor:CustomLineItem',
             resource_name,

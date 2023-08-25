@@ -34,6 +34,13 @@ func NewTransitGatewayRoute(ctx *pulumi.Context,
 	if args.TransitGatewayRouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayRouteTableId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"blackhole",
+		"destinationCidrBlock",
+		"transitGatewayAttachmentId",
+		"transitGatewayRouteTableId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayRoute
 	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayRoute", name, args, &resource, opts...)

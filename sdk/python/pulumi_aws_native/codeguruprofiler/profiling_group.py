@@ -168,6 +168,8 @@ class ProfilingGroup(pulumi.CustomResource):
             __props__.__dict__["profiling_group_name"] = profiling_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compute_platform", "profiling_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ProfilingGroup, __self__).__init__(
             'aws-native:codeguruprofiler:ProfilingGroup',
             resource_name,

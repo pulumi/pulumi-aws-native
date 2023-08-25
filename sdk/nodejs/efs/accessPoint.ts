@@ -88,6 +88,8 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["rootDirectory"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clientToken", "fileSystemId", "posixUser", "rootDirectory"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AccessPoint.__pulumiType, name, resourceInputs, opts);
     }
 }

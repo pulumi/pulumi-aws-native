@@ -31,6 +31,10 @@ func NewLoggerDefinition(ctx *pulumi.Context,
 		args = &LoggerDefinitionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"initialVersion",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoggerDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:LoggerDefinition", name, args, &resource, opts...)

@@ -271,6 +271,8 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Schedule, __self__).__init__(
             'aws-native:scheduler:Schedule',
             resource_name,

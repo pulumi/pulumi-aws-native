@@ -150,6 +150,8 @@ class DbParameterGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'parameters'")
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "family", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbParameterGroup, __self__).__init__(
             'aws-native:neptune:DbParameterGroup',
             resource_name,

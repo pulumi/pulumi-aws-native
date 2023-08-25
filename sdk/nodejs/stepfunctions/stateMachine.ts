@@ -94,6 +94,8 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["tracingConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["stateMachineName", "stateMachineType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StateMachine.__pulumiType, name, resourceInputs, opts);
     }
 }

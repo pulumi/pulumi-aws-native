@@ -154,6 +154,8 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["trailName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["trailName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Trail.__pulumiType, name, resourceInputs, opts);
     }
 }

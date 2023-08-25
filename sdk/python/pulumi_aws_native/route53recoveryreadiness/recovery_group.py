@@ -127,6 +127,8 @@ class RecoveryGroup(pulumi.CustomResource):
             __props__.__dict__["recovery_group_name"] = recovery_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["recovery_group_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["recovery_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RecoveryGroup, __self__).__init__(
             'aws-native:route53recoveryreadiness:RecoveryGroup',
             resource_name,

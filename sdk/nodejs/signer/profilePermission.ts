@@ -76,6 +76,8 @@ export class ProfilePermission extends pulumi.CustomResource {
             resourceInputs["statementId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["action", "principal", "profileName", "profileVersion", "statementId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ProfilePermission.__pulumiType, name, resourceInputs, opts);
     }
 }

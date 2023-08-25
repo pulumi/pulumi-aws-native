@@ -40,6 +40,11 @@ func NewPublisher(ctx *pulumi.Context,
 	if args.AcceptTermsAndConditions == nil {
 		return nil, errors.New("invalid value for required argument 'AcceptTermsAndConditions'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"acceptTermsAndConditions",
+		"connectionArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Publisher
 	err := ctx.RegisterResource("aws-native:cloudformation:Publisher", name, args, &resource, opts...)

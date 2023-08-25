@@ -167,6 +167,8 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_token", "preserve_client_ip", "security_group_ids[*]", "subnet_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceConnectEndpoint, __self__).__init__(
             'aws-native:ec2:InstanceConnectEndpoint',
             resource_name,

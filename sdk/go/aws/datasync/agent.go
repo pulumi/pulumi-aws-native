@@ -40,6 +40,13 @@ func NewAgent(ctx *pulumi.Context,
 		args = &AgentArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"activationKey",
+		"securityGroupArns[*]",
+		"subnetArns[*]",
+		"vpcEndpointId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Agent
 	err := ctx.RegisterResource("aws-native:datasync:Agent", name, args, &resource, opts...)

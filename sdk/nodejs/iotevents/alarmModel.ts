@@ -109,6 +109,8 @@ export class AlarmModel extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["alarmModelName", "key"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AlarmModel.__pulumiType, name, resourceInputs, opts);
     }
 }

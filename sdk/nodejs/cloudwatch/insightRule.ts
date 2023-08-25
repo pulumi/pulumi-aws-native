@@ -81,6 +81,8 @@ export class InsightRule extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ruleName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InsightRule.__pulumiType, name, resourceInputs, opts);
     }
 }

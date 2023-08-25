@@ -167,6 +167,8 @@ class MemberInvitation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'member_id'")
             __props__.__dict__["member_id"] = member_id
             __props__.__dict__["message"] = message
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["graph_arn", "member_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MemberInvitation, __self__).__init__(
             'aws-native:detective:MemberInvitation',
             resource_name,

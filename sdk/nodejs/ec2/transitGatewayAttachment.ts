@@ -79,6 +79,8 @@ export class TransitGatewayAttachment extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["transitGatewayId", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

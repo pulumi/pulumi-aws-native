@@ -37,6 +37,12 @@ func NewSecurityGroup(ctx *pulumi.Context,
 	if args.GroupDescription == nil {
 		return nil, errors.New("invalid value for required argument 'GroupDescription'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"groupDescription",
+		"groupName",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroup
 	err := ctx.RegisterResource("aws-native:ec2:SecurityGroup", name, args, &resource, opts...)

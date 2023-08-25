@@ -97,6 +97,8 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["snsTopicArn", "subscriptionName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }

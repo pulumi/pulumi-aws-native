@@ -30,6 +30,12 @@ func NewModuleDefaultVersion(ctx *pulumi.Context,
 		args = &ModuleDefaultVersionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"arn",
+		"moduleName",
+		"versionId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModuleDefaultVersion
 	err := ctx.RegisterResource("aws-native:cloudformation:ModuleDefaultVersion", name, args, &resource, opts...)

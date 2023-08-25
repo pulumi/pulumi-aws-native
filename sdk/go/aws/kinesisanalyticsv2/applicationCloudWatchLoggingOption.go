@@ -35,6 +35,10 @@ func NewApplicationCloudWatchLoggingOption(ctx *pulumi.Context,
 	if args.CloudWatchLoggingOption == nil {
 		return nil, errors.New("invalid value for required argument 'CloudWatchLoggingOption'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationCloudWatchLoggingOption
 	err := ctx.RegisterResource("aws-native:kinesisanalyticsv2:ApplicationCloudWatchLoggingOption", name, args, &resource, opts...)

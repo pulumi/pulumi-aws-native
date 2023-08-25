@@ -151,6 +151,8 @@ class SyncJob(pulumi.CustomResource):
             __props__.__dict__["creation_date_time"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["update_date_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["sync_role", "sync_source", "tags", "workspace_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SyncJob, __self__).__init__(
             'aws-native:iottwinmaker:SyncJob',
             resource_name,

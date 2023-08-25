@@ -47,6 +47,10 @@ func NewTrafficMirrorSession(ctx *pulumi.Context,
 	if args.TrafficMirrorTargetId == nil {
 		return nil, errors.New("invalid value for required argument 'TrafficMirrorTargetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"networkInterfaceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficMirrorSession
 	err := ctx.RegisterResource("aws-native:ec2:TrafficMirrorSession", name, args, &resource, opts...)

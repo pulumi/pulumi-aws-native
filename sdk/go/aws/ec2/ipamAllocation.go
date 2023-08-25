@@ -36,6 +36,13 @@ func NewIpamAllocation(ctx *pulumi.Context,
 	if args.IpamPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamPoolId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cidr",
+		"description",
+		"ipamPoolId",
+		"netmaskLength",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpamAllocation
 	err := ctx.RegisterResource("aws-native:ec2:IpamAllocation", name, args, &resource, opts...)

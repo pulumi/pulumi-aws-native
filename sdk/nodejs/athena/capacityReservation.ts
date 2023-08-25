@@ -103,6 +103,8 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["targetDpus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CapacityReservation.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -29,6 +29,10 @@ func NewParameterGroup(ctx *pulumi.Context,
 		args = &ParameterGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"parameterGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws-native:dax:ParameterGroup", name, args, &resource, opts...)

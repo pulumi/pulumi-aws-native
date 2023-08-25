@@ -115,6 +115,8 @@ export class Link extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["globalNetworkId", "siteId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Link.__pulumiType, name, resourceInputs, opts);
     }
 }

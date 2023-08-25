@@ -38,6 +38,10 @@ func NewOrganizationConformancePack(ctx *pulumi.Context,
 		args = &OrganizationConformancePackArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"organizationConformancePackName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationConformancePack
 	err := ctx.RegisterResource("aws-native:configuration:OrganizationConformancePack", name, args, &resource, opts...)

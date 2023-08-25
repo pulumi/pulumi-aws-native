@@ -61,6 +61,27 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ServiceRole == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRole'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"additionalInfo",
+		"applications[*]",
+		"autoScalingRole",
+		"bootstrapActions[*]",
+		"configurations[*]",
+		"customAmiId",
+		"ebsRootVolumeSize",
+		"jobFlowRole",
+		"kerberosAttributes",
+		"logEncryptionKmsKeyId",
+		"logUri",
+		"name",
+		"osReleaseLabel",
+		"releaseLabel",
+		"scaleDownBehavior",
+		"securityConfiguration",
+		"serviceRole",
+		"steps[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws-native:emr:Cluster", name, args, &resource, opts...)

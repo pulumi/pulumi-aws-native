@@ -102,6 +102,8 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["direction", "outpostArn", "preferredInstanceType", "securityGroupIds[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResolverEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

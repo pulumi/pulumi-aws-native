@@ -28,6 +28,11 @@ func NewPullThroughCacheRule(ctx *pulumi.Context,
 		args = &PullThroughCacheRuleArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ecrRepositoryPrefix",
+		"upstreamRegistryUrl",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PullThroughCacheRule
 	err := ctx.RegisterResource("aws-native:ecr:PullThroughCacheRule", name, args, &resource, opts...)

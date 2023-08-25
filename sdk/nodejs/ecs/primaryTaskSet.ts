@@ -76,6 +76,8 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
             resourceInputs["taskSetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cluster", "service"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PrimaryTaskSet.__pulumiType, name, resourceInputs, opts);
     }
 }

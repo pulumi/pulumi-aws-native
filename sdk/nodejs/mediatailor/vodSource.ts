@@ -82,6 +82,8 @@ export class VodSource extends pulumi.CustomResource {
             resourceInputs["vodSourceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["sourceLocationName", "vodSourceName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VodSource.__pulumiType, name, resourceInputs, opts);
     }
 }

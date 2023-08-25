@@ -69,6 +69,8 @@ export class ClusterSecurityGroupIngress extends pulumi.CustomResource {
             resourceInputs["ec2SecurityGroupOwnerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cidrip", "clusterSecurityGroupName", "ec2SecurityGroupName", "ec2SecurityGroupOwnerId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ClusterSecurityGroupIngress.__pulumiType, name, resourceInputs, opts);
     }
 }

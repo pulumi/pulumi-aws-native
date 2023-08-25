@@ -76,6 +76,8 @@ export class InAppTemplate extends pulumi.CustomResource {
             resourceInputs["templateName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["templateName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InAppTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

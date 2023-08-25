@@ -121,6 +121,8 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_modification_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["signal_catalog_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Fleet, __self__).__init__(
             'aws-native:iotfleetwise:Fleet',
             resource_name,

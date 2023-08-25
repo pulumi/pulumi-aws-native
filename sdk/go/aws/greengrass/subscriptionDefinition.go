@@ -31,6 +31,10 @@ func NewSubscriptionDefinition(ctx *pulumi.Context,
 		args = &SubscriptionDefinitionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"initialVersion",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubscriptionDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:SubscriptionDefinition", name, args, &resource, opts...)

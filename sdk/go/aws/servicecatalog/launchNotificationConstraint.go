@@ -41,6 +41,11 @@ func NewLaunchNotificationConstraint(ctx *pulumi.Context,
 	if args.ProductId == nil {
 		return nil, errors.New("invalid value for required argument 'ProductId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"portfolioId",
+		"productId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LaunchNotificationConstraint
 	err := ctx.RegisterResource("aws-native:servicecatalog:LaunchNotificationConstraint", name, args, &resource, opts...)

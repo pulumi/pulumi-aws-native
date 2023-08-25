@@ -32,6 +32,10 @@ func NewRecoveryGroup(ctx *pulumi.Context,
 		args = &RecoveryGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"recoveryGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecoveryGroup
 	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:RecoveryGroup", name, args, &resource, opts...)

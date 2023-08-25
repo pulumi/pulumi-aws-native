@@ -149,6 +149,8 @@ class AccessPoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_configuration'")
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket", "name", "vpc_configuration"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessPoint, __self__).__init__(
             'aws-native:s3outposts:AccessPoint',
             resource_name,

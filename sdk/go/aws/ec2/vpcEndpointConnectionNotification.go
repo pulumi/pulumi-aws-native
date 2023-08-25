@@ -37,6 +37,11 @@ func NewVpcEndpointConnectionNotification(ctx *pulumi.Context,
 	if args.ConnectionNotificationArn == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionNotificationArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serviceId",
+		"vpcEndpointId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointConnectionNotification
 	err := ctx.RegisterResource("aws-native:ec2:VpcEndpointConnectionNotification", name, args, &resource, opts...)

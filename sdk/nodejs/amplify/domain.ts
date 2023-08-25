@@ -88,6 +88,8 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["subDomainSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["appId", "domainName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }

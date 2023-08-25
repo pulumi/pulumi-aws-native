@@ -100,6 +100,8 @@ export class WorkGroup extends pulumi.CustomResource {
             resourceInputs["workGroupConfigurationUpdates"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(WorkGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

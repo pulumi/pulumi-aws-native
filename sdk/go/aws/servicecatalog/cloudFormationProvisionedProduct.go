@@ -41,6 +41,11 @@ func NewCloudFormationProvisionedProduct(ctx *pulumi.Context,
 		args = &CloudFormationProvisionedProductArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"notificationArns[*]",
+		"provisionedProductName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudFormationProvisionedProduct
 	err := ctx.RegisterResource("aws-native:servicecatalog:CloudFormationProvisionedProduct", name, args, &resource, opts...)

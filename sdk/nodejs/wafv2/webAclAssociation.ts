@@ -61,6 +61,8 @@ export class WebAclAssociation extends pulumi.CustomResource {
             resourceInputs["webAclArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceArn", "webAclArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(WebAclAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

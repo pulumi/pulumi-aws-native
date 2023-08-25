@@ -34,6 +34,10 @@ func NewOidcProvider(ctx *pulumi.Context,
 	if args.ThumbprintList == nil {
 		return nil, errors.New("invalid value for required argument 'ThumbprintList'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"url",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OidcProvider
 	err := ctx.RegisterResource("aws-native:iam:OidcProvider", name, args, &resource, opts...)

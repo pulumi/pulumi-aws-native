@@ -73,6 +73,8 @@ export class DirectoryConfig extends pulumi.CustomResource {
             resourceInputs["serviceAccountCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["directoryName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DirectoryConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

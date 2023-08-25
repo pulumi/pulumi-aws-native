@@ -57,6 +57,11 @@ func NewModuleVersion(ctx *pulumi.Context,
 	if args.ModulePackage == nil {
 		return nil, errors.New("invalid value for required argument 'ModulePackage'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"moduleName",
+		"modulePackage",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModuleVersion
 	err := ctx.RegisterResource("aws-native:cloudformation:ModuleVersion", name, args, &resource, opts...)

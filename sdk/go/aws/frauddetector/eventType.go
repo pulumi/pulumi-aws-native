@@ -49,6 +49,10 @@ func NewEventType(ctx *pulumi.Context,
 	if args.Labels == nil {
 		return nil, errors.New("invalid value for required argument 'Labels'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventType
 	err := ctx.RegisterResource("aws-native:frauddetector:EventType", name, args, &resource, opts...)

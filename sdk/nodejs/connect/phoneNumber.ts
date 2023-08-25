@@ -109,6 +109,8 @@ export class PhoneNumber extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["countryCode", "description", "prefix", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PhoneNumber.__pulumiType, name, resourceInputs, opts);
     }
 }

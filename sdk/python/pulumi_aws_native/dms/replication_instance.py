@@ -300,6 +300,8 @@ class ReplicationInstance(pulumi.CustomResource):
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["replication_instance_private_ip_addresses"] = None
             __props__.__dict__["replication_instance_public_ip_addresses"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key_id", "publicly_accessible", "replication_subnet_group_identifier", "resource_identifier"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReplicationInstance, __self__).__init__(
             'aws-native:dms:ReplicationInstance',
             resource_name,

@@ -124,6 +124,8 @@ export class IpamResourceDiscoveryAssociation extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ipamId", "ipamResourceDiscoveryId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IpamResourceDiscoveryAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

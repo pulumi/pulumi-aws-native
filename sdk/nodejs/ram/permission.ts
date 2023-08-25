@@ -97,6 +97,8 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "policyTemplate", "resourceType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Permission.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -70,6 +70,16 @@ func NewTargetGroup(ctx *pulumi.Context,
 		args = &TargetGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ipAddressType",
+		"name",
+		"port",
+		"protocol",
+		"protocolVersion",
+		"targetType",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TargetGroup
 	err := ctx.RegisterResource("aws-native:elasticloadbalancingv2:TargetGroup", name, args, &resource, opts...)

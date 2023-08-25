@@ -43,6 +43,12 @@ func NewPartition(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"catalogId",
+		"databaseName",
+		"tableName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Partition
 	err := ctx.RegisterResource("aws-native:glue:Partition", name, args, &resource, opts...)

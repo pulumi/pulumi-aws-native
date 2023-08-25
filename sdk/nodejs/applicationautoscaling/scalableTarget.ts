@@ -115,6 +115,8 @@ export class ScalableTarget extends pulumi.CustomResource {
             resourceInputs["suspendedState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceId", "scalableDimension", "serviceNamespace"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ScalableTarget.__pulumiType, name, resourceInputs, opts);
     }
 }

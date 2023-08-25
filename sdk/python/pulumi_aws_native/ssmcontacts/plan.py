@@ -127,6 +127,8 @@ class Plan(pulumi.CustomResource):
             __props__.__dict__["rotation_ids"] = rotation_ids
             __props__.__dict__["stages"] = stages
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["contact_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Plan, __self__).__init__(
             'aws-native:ssmcontacts:Plan',
             resource_name,

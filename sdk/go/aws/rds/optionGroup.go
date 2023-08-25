@@ -46,6 +46,13 @@ func NewOptionGroup(ctx *pulumi.Context,
 	if args.OptionGroupDescription == nil {
 		return nil, errors.New("invalid value for required argument 'OptionGroupDescription'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"engineName",
+		"majorEngineVersion",
+		"optionGroupDescription",
+		"optionGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OptionGroup
 	err := ctx.RegisterResource("aws-native:rds:OptionGroup", name, args, &resource, opts...)

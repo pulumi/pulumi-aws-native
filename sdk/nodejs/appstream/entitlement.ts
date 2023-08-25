@@ -82,6 +82,8 @@ export class Entitlement extends pulumi.CustomResource {
             resourceInputs["stackName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "stackName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Entitlement.__pulumiType, name, resourceInputs, opts);
     }
 }

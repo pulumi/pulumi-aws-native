@@ -148,6 +148,8 @@ class ApplicationSettings(pulumi.CustomResource):
             __props__.__dict__["cloud_watch_metrics_enabled"] = cloud_watch_metrics_enabled
             __props__.__dict__["limits"] = limits
             __props__.__dict__["quiet_time"] = quiet_time
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationSettings, __self__).__init__(
             'aws-native:pinpoint:ApplicationSettings',
             resource_name,

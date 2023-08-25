@@ -90,6 +90,13 @@ namespace Pulumi.AwsNative.Ce
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "monitorDimension",
+                    "monitorSpecification",
+                    "monitorType",
+                    "resourceTags[*]",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

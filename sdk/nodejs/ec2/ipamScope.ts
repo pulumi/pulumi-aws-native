@@ -106,6 +106,8 @@ export class IpamScope extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ipamId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IpamScope.__pulumiType, name, resourceInputs, opts);
     }
 }

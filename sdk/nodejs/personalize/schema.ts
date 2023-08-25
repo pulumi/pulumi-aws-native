@@ -79,6 +79,8 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["schemaArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domain", "name", "schema"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Schema.__pulumiType, name, resourceInputs, opts);
     }
 }

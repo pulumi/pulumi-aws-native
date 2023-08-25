@@ -112,6 +112,8 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["userRoleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["studioName", "tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Studio.__pulumiType, name, resourceInputs, opts);
     }
 }

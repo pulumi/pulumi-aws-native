@@ -115,6 +115,8 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["triggerEventSource"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instanceArn", "triggerEventSource"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -46,6 +46,12 @@ func NewTransitGatewayMulticastDomainAssociation(ctx *pulumi.Context,
 	if args.TransitGatewayMulticastDomainId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayMulticastDomainId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"subnetId",
+		"transitGatewayAttachmentId",
+		"transitGatewayMulticastDomainId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayMulticastDomainAssociation
 	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayMulticastDomainAssociation", name, args, &resource, opts...)

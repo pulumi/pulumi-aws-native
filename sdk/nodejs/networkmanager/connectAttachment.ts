@@ -160,6 +160,8 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "edgeLocation", "options", "transportAttachmentId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConnectAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

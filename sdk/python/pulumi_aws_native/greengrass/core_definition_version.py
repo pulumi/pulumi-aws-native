@@ -104,6 +104,8 @@ class CoreDefinitionVersion(pulumi.CustomResource):
             if cores is None and not opts.urn:
                 raise TypeError("Missing required property 'cores'")
             __props__.__dict__["cores"] = cores
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["core_definition_id", "cores[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CoreDefinitionVersion, __self__).__init__(
             'aws-native:greengrass:CoreDefinitionVersion',
             resource_name,

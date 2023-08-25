@@ -42,6 +42,10 @@ func NewLogGroup(ctx *pulumi.Context,
 		args = &LogGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"logGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogGroup
 	err := ctx.RegisterResource("aws-native:logs:LogGroup", name, args, &resource, opts...)

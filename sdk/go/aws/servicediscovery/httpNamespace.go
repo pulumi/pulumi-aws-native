@@ -30,6 +30,10 @@ func NewHttpNamespace(ctx *pulumi.Context,
 		args = &HttpNamespaceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HttpNamespace
 	err := ctx.RegisterResource("aws-native:servicediscovery:HttpNamespace", name, args, &resource, opts...)

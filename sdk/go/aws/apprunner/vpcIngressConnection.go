@@ -43,6 +43,12 @@ func NewVpcIngressConnection(ctx *pulumi.Context,
 	if args.ServiceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serviceArn",
+		"tags[*]",
+		"vpcIngressConnectionName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIngressConnection
 	err := ctx.RegisterResource("aws-native:apprunner:VpcIngressConnection", name, args, &resource, opts...)

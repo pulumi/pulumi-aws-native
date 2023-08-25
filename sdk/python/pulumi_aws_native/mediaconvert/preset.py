@@ -147,6 +147,8 @@ class Preset(pulumi.CustomResource):
             __props__.__dict__["settings_json"] = settings_json
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Preset, __self__).__init__(
             'aws-native:mediaconvert:Preset',
             resource_name,

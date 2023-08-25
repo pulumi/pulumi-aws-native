@@ -109,6 +109,8 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["targetParameters"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "source", "sourceParameters.activeMqBrokerParameters.queueName", "sourceParameters.dynamoDbStreamParameters.startingPosition", "sourceParameters.kinesisStreamParameters.startingPosition", "sourceParameters.kinesisStreamParameters.startingPositionTimestamp", "sourceParameters.managedStreamingKafkaParameters.consumerGroupId", "sourceParameters.managedStreamingKafkaParameters.startingPosition", "sourceParameters.managedStreamingKafkaParameters.topicName", "sourceParameters.rabbitMqBrokerParameters.queueName", "sourceParameters.rabbitMqBrokerParameters.virtualHost"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Pipe.__pulumiType, name, resourceInputs, opts);
     }
 }

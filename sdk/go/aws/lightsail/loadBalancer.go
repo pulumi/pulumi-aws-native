@@ -47,6 +47,12 @@ func NewLoadBalancer(ctx *pulumi.Context,
 	if args.InstancePort == nil {
 		return nil, errors.New("invalid value for required argument 'InstancePort'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instancePort",
+		"ipAddressType",
+		"loadBalancerName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws-native:lightsail:LoadBalancer", name, args, &resource, opts...)

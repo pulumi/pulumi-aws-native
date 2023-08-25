@@ -33,6 +33,10 @@ func NewMonitoringSubscription(ctx *pulumi.Context,
 	if args.MonitoringSubscription == nil {
 		return nil, errors.New("invalid value for required argument 'MonitoringSubscription'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"distributionId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitoringSubscription
 	err := ctx.RegisterResource("aws-native:cloudfront:MonitoringSubscription", name, args, &resource, opts...)

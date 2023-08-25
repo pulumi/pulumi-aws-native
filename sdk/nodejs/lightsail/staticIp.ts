@@ -76,6 +76,8 @@ export class StaticIp extends pulumi.CustomResource {
             resourceInputs["staticIpName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["staticIpName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StaticIp.__pulumiType, name, resourceInputs, opts);
     }
 }

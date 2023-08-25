@@ -72,6 +72,8 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "gatewayLoadBalancerEndpointId", "networkInterfaceId", "networkLoadBalancerArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TrafficMirrorTarget.__pulumiType, name, resourceInputs, opts);
     }
 }

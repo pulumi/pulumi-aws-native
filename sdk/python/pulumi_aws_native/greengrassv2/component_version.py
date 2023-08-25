@@ -115,6 +115,8 @@ class ComponentVersion(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["component_name"] = None
             __props__.__dict__["component_version"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["inline_recipe", "lambda_function"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ComponentVersion, __self__).__init__(
             'aws-native:greengrassv2:ComponentVersion',
             resource_name,

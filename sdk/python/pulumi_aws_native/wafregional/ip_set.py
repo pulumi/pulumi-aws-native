@@ -102,6 +102,8 @@ class IpSet(pulumi.CustomResource):
 
             __props__.__dict__["ip_set_descriptors"] = ip_set_descriptors
             __props__.__dict__["name"] = name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpSet, __self__).__init__(
             'aws-native:wafregional:IpSet',
             resource_name,

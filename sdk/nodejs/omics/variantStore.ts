@@ -88,6 +88,8 @@ export class VariantStore extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "reference", "sseConfig", "tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VariantStore.__pulumiType, name, resourceInputs, opts);
     }
 }

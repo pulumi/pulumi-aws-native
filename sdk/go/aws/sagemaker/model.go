@@ -38,6 +38,16 @@ func NewModel(ctx *pulumi.Context,
 	if args.ExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ExecutionRoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"containers[*]",
+		"enableNetworkIsolation",
+		"executionRoleArn",
+		"inferenceExecutionConfig",
+		"modelName",
+		"primaryContainer",
+		"vpcConfig",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Model
 	err := ctx.RegisterResource("aws-native:sagemaker:Model", name, args, &resource, opts...)

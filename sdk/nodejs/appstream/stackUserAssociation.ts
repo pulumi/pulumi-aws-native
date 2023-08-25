@@ -75,6 +75,8 @@ export class StackUserAssociation extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["authenticationType", "sendEmailNotification", "stackName", "userName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StackUserAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

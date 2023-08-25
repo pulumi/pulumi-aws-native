@@ -82,6 +82,8 @@ export class TopicRuleDestination extends pulumi.CustomResource {
             resourceInputs["vpcProperties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["httpUrlProperties", "vpcProperties"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TopicRuleDestination.__pulumiType, name, resourceInputs, opts);
     }
 }

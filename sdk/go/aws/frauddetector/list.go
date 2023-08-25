@@ -40,6 +40,10 @@ func NewList(ctx *pulumi.Context,
 		args = &ListArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource List
 	err := ctx.RegisterResource("aws-native:frauddetector:List", name, args, &resource, opts...)

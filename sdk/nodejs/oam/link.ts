@@ -79,6 +79,8 @@ export class Link extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["labelTemplate", "sinkIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Link.__pulumiType, name, resourceInputs, opts);
     }
 }

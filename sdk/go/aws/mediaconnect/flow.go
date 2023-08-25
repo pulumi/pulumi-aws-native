@@ -40,6 +40,12 @@ func NewFlow(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"availabilityZone",
+		"name",
+		"source.name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Flow
 	err := ctx.RegisterResource("aws-native:mediaconnect:Flow", name, args, &resource, opts...)

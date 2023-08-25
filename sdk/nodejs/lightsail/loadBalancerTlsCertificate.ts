@@ -103,6 +103,8 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["certificateAlternativeNames[*]", "certificateDomainName", "certificateName", "loadBalancerName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LoadBalancerTlsCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }

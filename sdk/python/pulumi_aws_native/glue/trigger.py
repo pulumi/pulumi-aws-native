@@ -224,6 +224,8 @@ class Trigger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["workflow_name"] = workflow_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type", "workflow_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Trigger, __self__).__init__(
             'aws-native:glue:Trigger',
             resource_name,

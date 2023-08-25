@@ -222,6 +222,8 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["initial_schema_version_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_format", "name", "registry", "schema_definition"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Schema, __self__).__init__(
             'aws-native:glue:Schema',
             resource_name,

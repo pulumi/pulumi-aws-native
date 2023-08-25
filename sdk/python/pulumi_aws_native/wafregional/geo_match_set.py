@@ -102,6 +102,8 @@ class GeoMatchSet(pulumi.CustomResource):
 
             __props__.__dict__["geo_match_constraints"] = geo_match_constraints
             __props__.__dict__["name"] = name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GeoMatchSet, __self__).__init__(
             'aws-native:wafregional:GeoMatchSet',
             resource_name,

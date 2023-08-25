@@ -91,6 +91,8 @@ export class LocationFSxLustre extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["fsxFilesystemArn", "securityGroupArns[*]", "subdirectory"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocationFSxLustre.__pulumiType, name, resourceInputs, opts);
     }
 }

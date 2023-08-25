@@ -126,6 +126,17 @@ namespace Pulumi.AwsNative.AmazonMq
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "authenticationStrategy",
+                    "brokerName",
+                    "deploymentMode",
+                    "encryptionOptions",
+                    "engineType",
+                    "publiclyAccessible",
+                    "storageType",
+                    "subnetIds[*]",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

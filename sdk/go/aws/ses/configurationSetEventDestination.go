@@ -35,6 +35,10 @@ func NewConfigurationSetEventDestination(ctx *pulumi.Context,
 	if args.EventDestination == nil {
 		return nil, errors.New("invalid value for required argument 'EventDestination'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"configurationSetName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationSetEventDestination
 	err := ctx.RegisterResource("aws-native:ses:ConfigurationSetEventDestination", name, args, &resource, opts...)

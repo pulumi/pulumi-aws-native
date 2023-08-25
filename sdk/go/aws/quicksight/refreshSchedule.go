@@ -29,6 +29,12 @@ func NewRefreshSchedule(ctx *pulumi.Context,
 		args = &RefreshScheduleArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"awsAccountId",
+		"dataSetId",
+		"schedule.scheduleId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RefreshSchedule
 	err := ctx.RegisterResource("aws-native:quicksight:RefreshSchedule", name, args, &resource, opts...)

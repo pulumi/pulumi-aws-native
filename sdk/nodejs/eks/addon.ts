@@ -109,6 +109,8 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["addonName", "clusterName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Addon.__pulumiType, name, resourceInputs, opts);
     }
 }

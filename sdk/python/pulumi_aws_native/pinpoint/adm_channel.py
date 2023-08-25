@@ -133,6 +133,8 @@ class AdmChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = client_secret
             __props__.__dict__["enabled"] = enabled
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AdmChannel, __self__).__init__(
             'aws-native:pinpoint:AdmChannel',
             resource_name,

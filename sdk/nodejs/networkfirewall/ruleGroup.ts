@@ -82,6 +82,8 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["capacity", "ruleGroupName", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RuleGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

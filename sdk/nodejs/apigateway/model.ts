@@ -82,6 +82,8 @@ export class Model extends pulumi.CustomResource {
             resourceInputs["schema"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["contentType", "name", "restApiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Model.__pulumiType, name, resourceInputs, opts);
     }
 }

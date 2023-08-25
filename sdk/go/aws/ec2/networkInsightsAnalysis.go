@@ -43,6 +43,11 @@ func NewNetworkInsightsAnalysis(ctx *pulumi.Context,
 	if args.NetworkInsightsPathId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInsightsPathId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"filterInArns[*]",
+		"networkInsightsPathId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInsightsAnalysis
 	err := ctx.RegisterResource("aws-native:ec2:NetworkInsightsAnalysis", name, args, &resource, opts...)

@@ -229,6 +229,8 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["upstreams"] = upstreams
             __props__.__dict__["arn"] = None
             __props__.__dict__["name"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name", "domain_owner", "repository_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Repository, __self__).__init__(
             'aws-native:codeartifact:Repository',
             resource_name,

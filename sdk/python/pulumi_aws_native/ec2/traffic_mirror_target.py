@@ -147,6 +147,8 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             __props__.__dict__["network_interface_id"] = network_interface_id
             __props__.__dict__["network_load_balancer_arn"] = network_load_balancer_arn
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "gateway_load_balancer_endpoint_id", "network_interface_id", "network_load_balancer_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrafficMirrorTarget, __self__).__init__(
             'aws-native:ec2:TrafficMirrorTarget',
             resource_name,

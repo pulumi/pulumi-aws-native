@@ -43,6 +43,25 @@ func NewTaskDefinition(ctx *pulumi.Context,
 		args = &TaskDefinitionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"containerDefinitions[*]",
+		"cpu",
+		"ephemeralStorage",
+		"executionRoleArn",
+		"family",
+		"inferenceAccelerators[*]",
+		"ipcMode",
+		"memory",
+		"networkMode",
+		"pidMode",
+		"placementConstraints[*]",
+		"proxyConfiguration",
+		"requiresCompatibilities[*]",
+		"runtimePlatform",
+		"taskRoleArn",
+		"volumes[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TaskDefinition
 	err := ctx.RegisterResource("aws-native:ecs:TaskDefinition", name, args, &resource, opts...)

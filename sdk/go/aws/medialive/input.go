@@ -37,6 +37,11 @@ func NewInput(ctx *pulumi.Context,
 		args = &InputArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"type",
+		"vpc",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Input
 	err := ctx.RegisterResource("aws-native:medialive:Input", name, args, &resource, opts...)

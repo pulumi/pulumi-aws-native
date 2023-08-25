@@ -91,6 +91,8 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["peerOwnerId", "peerRegion", "peerRoleArn", "peerVpcId", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcPeeringConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

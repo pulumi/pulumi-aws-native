@@ -57,6 +57,20 @@ func NewDataQualityJobDefinition(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dataQualityAppSpecification",
+		"dataQualityBaselineConfig",
+		"dataQualityJobInput",
+		"dataQualityJobOutputConfig",
+		"endpointName",
+		"jobDefinitionName",
+		"jobResources",
+		"networkConfig",
+		"roleArn",
+		"stoppingCondition",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataQualityJobDefinition
 	err := ctx.RegisterResource("aws-native:sagemaker:DataQualityJobDefinition", name, args, &resource, opts...)

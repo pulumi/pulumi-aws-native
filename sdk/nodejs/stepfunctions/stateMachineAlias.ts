@@ -76,6 +76,8 @@ export class StateMachineAlias extends pulumi.CustomResource {
             resourceInputs["routingConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StateMachineAlias.__pulumiType, name, resourceInputs, opts);
     }
 }

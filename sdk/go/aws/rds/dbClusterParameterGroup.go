@@ -43,6 +43,12 @@ func NewDbClusterParameterGroup(ctx *pulumi.Context,
 	if args.Parameters == nil {
 		return nil, errors.New("invalid value for required argument 'Parameters'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dbClusterParameterGroupName",
+		"description",
+		"family",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbClusterParameterGroup
 	err := ctx.RegisterResource("aws-native:rds:DbClusterParameterGroup", name, args, &resource, opts...)

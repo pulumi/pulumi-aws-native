@@ -267,6 +267,8 @@ class PatchBaseline(pulumi.CustomResource):
             __props__.__dict__["rejected_patches_action"] = rejected_patches_action
             __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["operating_system"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PatchBaseline, __self__).__init__(
             'aws-native:ssm:PatchBaseline',
             resource_name,

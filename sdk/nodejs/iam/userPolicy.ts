@@ -73,6 +73,8 @@ export class UserPolicy extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["policyName", "userName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

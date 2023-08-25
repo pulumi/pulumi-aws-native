@@ -48,6 +48,11 @@ func NewDetectorModel(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"detectorModelName",
+		"key",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DetectorModel
 	err := ctx.RegisterResource("aws-native:iotevents:DetectorModel", name, args, &resource, opts...)

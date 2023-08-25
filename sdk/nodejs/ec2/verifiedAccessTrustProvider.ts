@@ -118,6 +118,8 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
             resourceInputs["verifiedAccessTrustProviderId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["deviceOptions", "deviceTrustProviderType", "policyReferenceName", "trustProviderType", "userTrustProviderType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VerifiedAccessTrustProvider.__pulumiType, name, resourceInputs, opts);
     }
 }

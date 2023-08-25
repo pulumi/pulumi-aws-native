@@ -36,6 +36,10 @@ func NewDbSubnetGroup(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dbSubnetGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbSubnetGroup
 	err := ctx.RegisterResource("aws-native:rds:DbSubnetGroup", name, args, &resource, opts...)

@@ -254,6 +254,8 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
             __props__.__dict__["inputs"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["vpc"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Channel, __self__).__init__(
             'aws-native:medialive:Channel',
             resource_name,

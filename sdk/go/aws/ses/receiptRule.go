@@ -36,6 +36,10 @@ func NewReceiptRule(ctx *pulumi.Context,
 	if args.RuleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ruleSetName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReceiptRule
 	err := ctx.RegisterResource("aws-native:ses:ReceiptRule", name, args, &resource, opts...)

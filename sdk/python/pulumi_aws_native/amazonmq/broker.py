@@ -388,6 +388,8 @@ class Broker(pulumi.CustomResource):
             __props__.__dict__["open_wire_endpoints"] = None
             __props__.__dict__["stomp_endpoints"] = None
             __props__.__dict__["wss_endpoints"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authentication_strategy", "broker_name", "deployment_mode", "encryption_options", "engine_type", "publicly_accessible", "storage_type", "subnet_ids[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Broker, __self__).__init__(
             'aws-native:amazonmq:Broker',
             resource_name,

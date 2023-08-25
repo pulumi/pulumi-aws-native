@@ -69,6 +69,8 @@ export class ConfigurationAssociation extends pulumi.CustomResource {
             resourceInputs["configuration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["broker"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfigurationAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

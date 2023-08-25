@@ -55,6 +55,11 @@ func NewEndpointAuthorization(ctx *pulumi.Context,
 	if args.ClusterIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterIdentifier'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"account",
+		"clusterIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointAuthorization
 	err := ctx.RegisterResource("aws-native:redshift:EndpointAuthorization", name, args, &resource, opts...)

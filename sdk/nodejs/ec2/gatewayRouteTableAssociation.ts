@@ -73,6 +73,8 @@ export class GatewayRouteTableAssociation extends pulumi.CustomResource {
             resourceInputs["routeTableId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["gatewayId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GatewayRouteTableAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

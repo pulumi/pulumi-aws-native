@@ -130,6 +130,8 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["triggerConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["flowName", "kmsArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Flow.__pulumiType, name, resourceInputs, opts);
     }
 }

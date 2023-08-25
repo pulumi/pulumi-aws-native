@@ -129,6 +129,8 @@ class AggregationAuthorization(pulumi.CustomResource):
             __props__.__dict__["authorized_aws_region"] = authorized_aws_region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["aggregation_authorization_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authorized_account_id", "authorized_aws_region"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AggregationAuthorization, __self__).__init__(
             'aws-native:configuration:AggregationAuthorization',
             resource_name,

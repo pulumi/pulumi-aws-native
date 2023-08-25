@@ -34,6 +34,13 @@ func NewDatasetGroup(ctx *pulumi.Context,
 		args = &DatasetGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domain",
+		"kmsKeyArn",
+		"name",
+		"roleArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DatasetGroup
 	err := ctx.RegisterResource("aws-native:personalize:DatasetGroup", name, args, &resource, opts...)

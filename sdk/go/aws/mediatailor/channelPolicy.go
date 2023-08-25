@@ -34,6 +34,10 @@ func NewChannelPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"channelName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ChannelPolicy
 	err := ctx.RegisterResource("aws-native:mediatailor:ChannelPolicy", name, args, &resource, opts...)

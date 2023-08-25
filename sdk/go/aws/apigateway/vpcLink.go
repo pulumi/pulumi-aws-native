@@ -38,6 +38,10 @@ func NewVpcLink(ctx *pulumi.Context,
 	if args.TargetArns == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArns'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"targetArns[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcLink
 	err := ctx.RegisterResource("aws-native:apigateway:VpcLink", name, args, &resource, opts...)

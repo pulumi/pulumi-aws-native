@@ -40,6 +40,10 @@ func NewSecurityProfile(ctx *pulumi.Context,
 		args = &SecurityProfileArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"securityProfileName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityProfile
 	err := ctx.RegisterResource("aws-native:iot:SecurityProfile", name, args, &resource, opts...)

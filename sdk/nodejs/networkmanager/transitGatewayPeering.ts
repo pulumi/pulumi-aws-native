@@ -130,6 +130,8 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
             resourceInputs["transitGatewayPeeringAttachmentId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "transitGatewayArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayPeering.__pulumiType, name, resourceInputs, opts);
     }
 }

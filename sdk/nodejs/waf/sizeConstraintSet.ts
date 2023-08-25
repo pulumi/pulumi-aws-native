@@ -66,6 +66,8 @@ export class SizeConstraintSet extends pulumi.CustomResource {
             resourceInputs["sizeConstraints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SizeConstraintSet.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -82,6 +82,8 @@ export class LiveSource extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["liveSourceName", "sourceLocationName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LiveSource.__pulumiType, name, resourceInputs, opts);
     }
 }

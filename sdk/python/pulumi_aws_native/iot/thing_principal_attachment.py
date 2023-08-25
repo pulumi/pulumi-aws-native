@@ -102,6 +102,8 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             if thing_name is None and not opts.urn:
                 raise TypeError("Missing required property 'thing_name'")
             __props__.__dict__["thing_name"] = thing_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["principal", "thing_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ThingPrincipalAttachment, __self__).__init__(
             'aws-native:iot:ThingPrincipalAttachment',
             resource_name,

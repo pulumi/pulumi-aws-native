@@ -101,6 +101,8 @@ export class DetectorModel extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["detectorModelName", "key"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DetectorModel.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -32,6 +32,13 @@ func NewDeploymentConfig(ctx *pulumi.Context,
 		args = &DeploymentConfigArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"computePlatform",
+		"deploymentConfigName",
+		"minimumHealthyHosts",
+		"trafficRoutingConfig",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeploymentConfig
 	err := ctx.RegisterResource("aws-native:codedeploy:DeploymentConfig", name, args, &resource, opts...)

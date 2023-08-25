@@ -135,6 +135,8 @@ class ServerlessCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_configs'")
             __props__.__dict__["vpc_configs"] = vpc_configs
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_authentication", "cluster_name", "tags", "vpc_configs[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServerlessCluster, __self__).__init__(
             'aws-native:msk:ServerlessCluster',
             resource_name,

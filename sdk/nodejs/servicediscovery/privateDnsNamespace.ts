@@ -81,6 +81,8 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
             resourceInputs["vpc"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "vpc"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PrivateDnsNamespace.__pulumiType, name, resourceInputs, opts);
     }
 }

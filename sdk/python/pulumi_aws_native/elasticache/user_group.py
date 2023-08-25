@@ -152,6 +152,8 @@ class UserGroup(pulumi.CustomResource):
             __props__.__dict__["user_ids"] = user_ids
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["engine", "user_group_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserGroup, __self__).__init__(
             'aws-native:elasticache:UserGroup',
             resource_name,

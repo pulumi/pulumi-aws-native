@@ -41,6 +41,14 @@ func NewScalingPolicy(ctx *pulumi.Context,
 	if args.PolicyType == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"policyName",
+		"resourceId",
+		"scalableDimension",
+		"scalingTargetId",
+		"serviceNamespace",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScalingPolicy
 	err := ctx.RegisterResource("aws-native:applicationautoscaling:ScalingPolicy", name, args, &resource, opts...)

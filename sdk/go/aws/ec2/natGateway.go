@@ -38,6 +38,13 @@ func NewNatGateway(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"allocationId",
+		"connectivityType",
+		"privateIpAddress",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NatGateway
 	err := ctx.RegisterResource("aws-native:ec2:NatGateway", name, args, &resource, opts...)

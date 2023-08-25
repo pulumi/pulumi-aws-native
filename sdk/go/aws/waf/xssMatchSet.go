@@ -32,6 +32,10 @@ func NewXssMatchSet(ctx *pulumi.Context,
 	if args.XssMatchTuples == nil {
 		return nil, errors.New("invalid value for required argument 'XssMatchTuples'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource XssMatchSet
 	err := ctx.RegisterResource("aws-native:waf:XssMatchSet", name, args, &resource, opts...)

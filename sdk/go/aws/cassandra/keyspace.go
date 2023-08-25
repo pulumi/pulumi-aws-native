@@ -28,6 +28,11 @@ func NewKeyspace(ctx *pulumi.Context,
 		args = &KeyspaceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"keyspaceName",
+		"replicationSpecification",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Keyspace
 	err := ctx.RegisterResource("aws-native:cassandra:Keyspace", name, args, &resource, opts...)

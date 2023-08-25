@@ -43,6 +43,10 @@ func NewProfile(ctx *pulumi.Context,
 	if args.ProfileType == nil {
 		return nil, errors.New("invalid value for required argument 'ProfileType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"profileType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Profile
 	err := ctx.RegisterResource("aws-native:transfer:Profile", name, args, &resource, opts...)

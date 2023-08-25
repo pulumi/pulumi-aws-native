@@ -40,6 +40,10 @@ func NewWorkGroup(ctx *pulumi.Context,
 		args = &WorkGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WorkGroup
 	err := ctx.RegisterResource("aws-native:athena:WorkGroup", name, args, &resource, opts...)

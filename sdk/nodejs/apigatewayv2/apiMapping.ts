@@ -88,6 +88,8 @@ export class ApiMapping extends pulumi.CustomResource {
             resourceInputs["stage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domainName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApiMapping.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -139,6 +139,8 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["terminateInstanceOnFailure"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InfrastructureConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -96,6 +96,8 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationId", "configurationProfileId", "configurationVersion", "deploymentStrategyId", "description", "environmentId", "kmsKeyIdentifier", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Deployment.__pulumiType, name, resourceInputs, opts);
     }
 }

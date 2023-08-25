@@ -51,6 +51,14 @@ func NewCollaboration(ctx *pulumi.Context,
 	if args.QueryLogStatus == nil {
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"creatorDisplayName",
+		"creatorMemberAbilities[*]",
+		"dataEncryptionMetadata",
+		"members[*]",
+		"queryLogStatus",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Collaboration
 	err := ctx.RegisterResource("aws-native:cleanrooms:Collaboration", name, args, &resource, opts...)

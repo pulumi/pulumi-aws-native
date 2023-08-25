@@ -38,6 +38,12 @@ func NewIntegrationAssociation(ctx *pulumi.Context,
 	if args.IntegrationType == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instanceId",
+		"integrationArn",
+		"integrationType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationAssociation
 	err := ctx.RegisterResource("aws-native:connect:IntegrationAssociation", name, args, &resource, opts...)

@@ -133,6 +133,8 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["vendor"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["globalNetworkId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Device.__pulumiType, name, resourceInputs, opts);
     }
 }

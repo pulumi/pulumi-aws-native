@@ -129,6 +129,8 @@ class BridgeOutputResource(pulumi.CustomResource):
             if network_output is None and not opts.urn:
                 raise TypeError("Missing required property 'network_output'")
             __props__.__dict__["network_output"] = network_output
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bridge_arn", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BridgeOutputResource, __self__).__init__(
             'aws-native:mediaconnect:BridgeOutputResource',
             resource_name,

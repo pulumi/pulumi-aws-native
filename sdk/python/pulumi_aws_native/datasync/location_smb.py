@@ -226,6 +226,8 @@ class LocationSmb(pulumi.CustomResource):
             __props__.__dict__["user"] = user
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["server_hostname"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LocationSmb, __self__).__init__(
             'aws-native:datasync:LocationSmb',
             resource_name,

@@ -52,6 +52,19 @@ func NewCapacityReservation(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"availabilityZone",
+		"ebsOptimized",
+		"ephemeralStorage",
+		"instanceMatchCriteria",
+		"instancePlatform",
+		"instanceType",
+		"outPostArn",
+		"placementGroupArn",
+		"tagSpecifications[*]",
+		"tenancy",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CapacityReservation
 	err := ctx.RegisterResource("aws-native:ec2:CapacityReservation", name, args, &resource, opts...)

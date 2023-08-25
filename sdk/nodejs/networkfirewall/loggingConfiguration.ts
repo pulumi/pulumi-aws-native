@@ -67,6 +67,8 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["firewallArn", "firewallName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LoggingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

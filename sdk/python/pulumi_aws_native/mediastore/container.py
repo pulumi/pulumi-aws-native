@@ -178,6 +178,8 @@ class Container(pulumi.CustomResource):
             __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["endpoint"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["container_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Container, __self__).__init__(
             'aws-native:mediastore:Container',
             resource_name,

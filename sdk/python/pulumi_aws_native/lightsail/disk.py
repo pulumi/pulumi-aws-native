@@ -192,6 +192,8 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["resource_type"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["support_code"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone", "disk_name", "size_in_gb"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Disk, __self__).__init__(
             'aws-native:lightsail:Disk',
             resource_name,

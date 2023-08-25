@@ -28,6 +28,10 @@ func NewXssMatchSet(ctx *pulumi.Context,
 		args = &XssMatchSetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource XssMatchSet
 	err := ctx.RegisterResource("aws-native:wafregional:XssMatchSet", name, args, &resource, opts...)

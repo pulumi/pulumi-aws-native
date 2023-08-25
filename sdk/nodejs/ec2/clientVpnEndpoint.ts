@@ -117,6 +117,8 @@ export class ClientVpnEndpoint extends pulumi.CustomResource {
             resourceInputs["vpnPort"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["authenticationOptions[*]", "clientCidrBlock", "tagSpecifications[*]", "transportProtocol"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ClientVpnEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

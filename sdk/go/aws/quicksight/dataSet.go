@@ -58,6 +58,11 @@ func NewDataSet(ctx *pulumi.Context,
 		args = &DataSetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"awsAccountId",
+		"dataSetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataSet
 	err := ctx.RegisterResource("aws-native:quicksight:DataSet", name, args, &resource, opts...)

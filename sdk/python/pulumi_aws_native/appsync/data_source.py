@@ -255,6 +255,8 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["data_source_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataSource, __self__).__init__(
             'aws-native:appsync:DataSource',
             resource_name,

@@ -36,6 +36,10 @@ func NewDevice(ctx *pulumi.Context,
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"deviceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Device
 	err := ctx.RegisterResource("aws-native:iot1click:Device", name, args, &resource, opts...)

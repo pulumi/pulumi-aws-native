@@ -67,6 +67,8 @@ export class RobotApplicationVersion extends pulumi.CustomResource {
             resourceInputs["currentRevisionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["application", "currentRevisionId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RobotApplicationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

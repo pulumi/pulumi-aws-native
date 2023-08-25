@@ -76,6 +76,8 @@ export class Hypervisor extends pulumi.CustomResource {
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Hypervisor.__pulumiType, name, resourceInputs, opts);
     }
 }

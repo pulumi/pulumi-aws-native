@@ -280,6 +280,8 @@ class StudioComponent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["studio_component_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["studio_id", "subtype", "tags"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StudioComponent, __self__).__init__(
             'aws-native:nimblestudio:StudioComponent',
             resource_name,

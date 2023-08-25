@@ -34,6 +34,12 @@ func NewPlacement(ctx *pulumi.Context,
 	if args.ProjectName == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"associatedDevices",
+		"placementName",
+		"projectName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Placement
 	err := ctx.RegisterResource("aws-native:iot1click:Placement", name, args, &resource, opts...)

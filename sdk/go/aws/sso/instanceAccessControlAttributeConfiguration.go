@@ -33,6 +33,10 @@ func NewInstanceAccessControlAttributeConfiguration(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instanceArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceAccessControlAttributeConfiguration
 	err := ctx.RegisterResource("aws-native:sso:InstanceAccessControlAttributeConfiguration", name, args, &resource, opts...)

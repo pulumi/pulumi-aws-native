@@ -59,6 +59,11 @@ func NewFlow(ctx *pulumi.Context,
 	if args.TriggerConfig == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerConfig'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"flowName",
+		"kmsArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Flow
 	err := ctx.RegisterResource("aws-native:appflow:Flow", name, args, &resource, opts...)

@@ -114,6 +114,8 @@ class Package(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["package_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["package_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Package, __self__).__init__(
             'aws-native:panorama:Package',
             resource_name,

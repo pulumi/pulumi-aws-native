@@ -61,6 +61,8 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
             resourceInputs["upstreamRegistryUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ecrRepositoryPrefix", "upstreamRegistryUrl"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PullThroughCacheRule.__pulumiType, name, resourceInputs, opts);
     }
 }

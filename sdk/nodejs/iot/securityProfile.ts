@@ -100,6 +100,8 @@ export class SecurityProfile extends pulumi.CustomResource {
             resourceInputs["targetArns"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["securityProfileName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SecurityProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

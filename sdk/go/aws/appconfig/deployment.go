@@ -50,6 +50,17 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.EnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationId",
+		"configurationProfileId",
+		"configurationVersion",
+		"deploymentStrategyId",
+		"description",
+		"environmentId",
+		"kmsKeyIdentifier",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Deployment
 	err := ctx.RegisterResource("aws-native:appconfig:Deployment", name, args, &resource, opts...)

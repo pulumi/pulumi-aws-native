@@ -102,6 +102,8 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiId", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataSource.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -169,6 +169,8 @@ class HostedZone(pulumi.CustomResource):
             __props__.__dict__["query_logging_config"] = query_logging_config
             __props__.__dict__["vpcs"] = vpcs
             __props__.__dict__["name_servers"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(HostedZone, __self__).__init__(
             'aws-native:route53:HostedZone',
             resource_name,

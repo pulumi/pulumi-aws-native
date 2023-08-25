@@ -88,6 +88,8 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["vpcConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["bucket", "name", "vpcConfiguration"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AccessPoint.__pulumiType, name, resourceInputs, opts);
     }
 }

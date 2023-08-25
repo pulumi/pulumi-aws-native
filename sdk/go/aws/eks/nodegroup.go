@@ -71,6 +71,18 @@ func NewNodegroup(ctx *pulumi.Context,
 	if args.Subnets == nil {
 		return nil, errors.New("invalid value for required argument 'Subnets'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"amiType",
+		"capacityType",
+		"clusterName",
+		"diskSize",
+		"instanceTypes[*]",
+		"nodeRole",
+		"nodegroupName",
+		"remoteAccess",
+		"subnets[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Nodegroup
 	err := ctx.RegisterResource("aws-native:eks:Nodegroup", name, args, &resource, opts...)

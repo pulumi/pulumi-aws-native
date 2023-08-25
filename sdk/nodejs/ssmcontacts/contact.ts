@@ -91,6 +91,8 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["alias", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Contact.__pulumiType, name, resourceInputs, opts);
     }
 }

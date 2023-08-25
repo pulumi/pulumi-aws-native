@@ -47,6 +47,10 @@ func NewAppBlockBuilder(ctx *pulumi.Context,
 	if args.VpcConfig == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfig'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppBlockBuilder
 	err := ctx.RegisterResource("aws-native:appstream:AppBlockBuilder", name, args, &resource, opts...)

@@ -84,6 +84,8 @@ export class VpcCidrBlock extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["amazonProvidedIpv6CidrBlock", "cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength", "ipv6CidrBlock", "ipv6IpamPoolId", "ipv6NetmaskLength", "ipv6Pool", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcCidrBlock.__pulumiType, name, resourceInputs, opts);
     }
 }

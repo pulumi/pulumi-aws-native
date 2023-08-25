@@ -45,6 +45,15 @@ func NewLocationEfs(ctx *pulumi.Context,
 	if args.Ec2Config == nil {
 		return nil, errors.New("invalid value for required argument 'Ec2Config'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accessPointArn",
+		"ec2Config",
+		"efsFilesystemArn",
+		"fileSystemAccessRoleArn",
+		"inTransitEncryption",
+		"subdirectory",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationEfs
 	err := ctx.RegisterResource("aws-native:datasync:LocationEfs", name, args, &resource, opts...)

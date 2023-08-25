@@ -229,6 +229,8 @@ class ScheduledAction(pulumi.CustomResource):
             __props__.__dict__["target_action"] = target_action
             __props__.__dict__["next_invocations"] = None
             __props__.__dict__["state"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["scheduled_action_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ScheduledAction, __self__).__init__(
             'aws-native:redshift:ScheduledAction',
             resource_name,

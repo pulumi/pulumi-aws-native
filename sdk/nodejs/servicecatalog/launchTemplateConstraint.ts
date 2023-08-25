@@ -78,6 +78,8 @@ export class LaunchTemplateConstraint extends pulumi.CustomResource {
             resourceInputs["rules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["portfolioId", "productId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LaunchTemplateConstraint.__pulumiType, name, resourceInputs, opts);
     }
 }

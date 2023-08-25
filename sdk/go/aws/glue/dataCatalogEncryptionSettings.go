@@ -35,6 +35,10 @@ func NewDataCatalogEncryptionSettings(ctx *pulumi.Context,
 	if args.DataCatalogEncryptionSettings == nil {
 		return nil, errors.New("invalid value for required argument 'DataCatalogEncryptionSettings'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"catalogId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataCatalogEncryptionSettings
 	err := ctx.RegisterResource("aws-native:glue:DataCatalogEncryptionSettings", name, args, &resource, opts...)

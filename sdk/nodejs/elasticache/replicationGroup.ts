@@ -207,6 +207,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["userGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["atRestEncryptionEnabled", "cacheSubnetGroupName", "dataTieringEnabled", "engine", "globalReplicationGroupId", "kmsKeyId", "networkType", "port", "preferredCacheClusterAzs[*]", "replicasPerNodeGroup", "replicationGroupId", "snapshotArns[*]", "snapshotName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -50,6 +50,10 @@ func NewLocationAzureBlob(ctx *pulumi.Context,
 	if args.AzureBlobAuthenticationType == nil {
 		return nil, errors.New("invalid value for required argument 'AzureBlobAuthenticationType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"azureBlobContainerUrl",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationAzureBlob
 	err := ctx.RegisterResource("aws-native:datasync:LocationAzureBlob", name, args, &resource, opts...)

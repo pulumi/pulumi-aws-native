@@ -107,6 +107,8 @@ class CidrCollection(pulumi.CustomResource):
             __props__.__dict__["locations"] = locations
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CidrCollection, __self__).__init__(
             'aws-native:route53:CidrCollection',
             resource_name,

@@ -40,6 +40,12 @@ func NewUsagePlanKey(ctx *pulumi.Context,
 	if args.UsagePlanId == nil {
 		return nil, errors.New("invalid value for required argument 'UsagePlanId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"keyId",
+		"keyType",
+		"usagePlanId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UsagePlanKey
 	err := ctx.RegisterResource("aws-native:apigateway:UsagePlanKey", name, args, &resource, opts...)

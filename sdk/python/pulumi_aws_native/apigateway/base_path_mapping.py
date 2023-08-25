@@ -145,6 +145,8 @@ class BasePathMapping(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["rest_api_id"] = rest_api_id
             __props__.__dict__["stage"] = stage
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["base_path", "domain_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BasePathMapping, __self__).__init__(
             'aws-native:apigateway:BasePathMapping',
             resource_name,

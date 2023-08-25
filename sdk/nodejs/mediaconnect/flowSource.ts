@@ -181,6 +181,8 @@ export class FlowSource extends pulumi.CustomResource {
             resourceInputs["whitelistCidr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FlowSource.__pulumiType, name, resourceInputs, opts);
     }
 }

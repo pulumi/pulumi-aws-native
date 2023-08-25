@@ -35,6 +35,11 @@ func NewRule(ctx *pulumi.Context,
 		args = &RuleArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"eventBusName",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws-native:events:Rule", name, args, &resource, opts...)

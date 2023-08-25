@@ -126,6 +126,8 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
             __props__.__dict__["identity_provider_name"] = identity_provider_name
             __props__.__dict__["principal_tags"] = principal_tags
             __props__.__dict__["use_defaults"] = use_defaults
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identity_pool_id", "identity_provider_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IdentityPoolPrincipalTag, __self__).__init__(
             'aws-native:cognito:IdentityPoolPrincipalTag',
             resource_name,

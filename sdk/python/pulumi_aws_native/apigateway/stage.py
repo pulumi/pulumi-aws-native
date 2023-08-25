@@ -347,6 +347,8 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tracing_enabled"] = tracing_enabled
             __props__.__dict__["variables"] = variables
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["rest_api_id", "stage_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stage, __self__).__init__(
             'aws-native:apigateway:Stage',
             resource_name,

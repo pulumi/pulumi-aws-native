@@ -150,6 +150,8 @@ class ReportGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReportGroup, __self__).__init__(
             'aws-native:codebuild:ReportGroup',
             resource_name,

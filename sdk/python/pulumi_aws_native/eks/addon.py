@@ -229,6 +229,8 @@ class Addon(pulumi.CustomResource):
             __props__.__dict__["service_account_role_arn"] = service_account_role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["addon_name", "cluster_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Addon, __self__).__init__(
             'aws-native:eks:Addon',
             resource_name,

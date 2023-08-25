@@ -42,6 +42,16 @@ func NewUserProfile(ctx *pulumi.Context,
 	if args.DomainId == nil {
 		return nil, errors.New("invalid value for required argument 'DomainId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainId",
+		"singleSignOnUserIdentifier",
+		"singleSignOnUserValue",
+		"tags[*]",
+		"userProfileName",
+		"userSettings.rStudioServerProAppSettings.accessStatus",
+		"userSettings.rStudioServerProAppSettings.userGroup",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserProfile
 	err := ctx.RegisterResource("aws-native:sagemaker:UserProfile", name, args, &resource, opts...)

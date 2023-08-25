@@ -43,6 +43,11 @@ func NewPortal(ctx *pulumi.Context,
 		args = &PortalArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"additionalEncryptionContext",
+		"customerManagedKey",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Portal
 	err := ctx.RegisterResource("aws-native:workspacesweb:Portal", name, args, &resource, opts...)

@@ -91,6 +91,8 @@ export class CaCertificate extends pulumi.CustomResource {
             resourceInputs["verificationCertificatePem"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["caCertificatePem", "certificateMode", "verificationCertificatePem"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CaCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -61,6 +61,8 @@ export class TrackerConsumer extends pulumi.CustomResource {
             resourceInputs["trackerName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["consumerArn", "trackerName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TrackerConsumer.__pulumiType, name, resourceInputs, opts);
     }
 }

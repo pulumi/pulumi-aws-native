@@ -106,6 +106,8 @@ export class IntegrationResponse extends pulumi.CustomResource {
             resourceInputs["templateSelectionExpression"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiId", "integrationId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IntegrationResponse.__pulumiType, name, resourceInputs, opts);
     }
 }

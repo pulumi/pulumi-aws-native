@@ -106,6 +106,8 @@ export class Form extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Form.__pulumiType, name, resourceInputs, opts);
     }
 }

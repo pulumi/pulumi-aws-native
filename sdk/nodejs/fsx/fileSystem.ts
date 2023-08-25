@@ -114,6 +114,8 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["windowsConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["backupId", "fileSystemType", "fileSystemTypeVersion", "kmsKeyId", "securityGroupIds[*]", "subnetIds[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }

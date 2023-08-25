@@ -150,6 +150,8 @@ class FirewallDomainList(pulumi.CustomResource):
             __props__.__dict__["modification_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FirewallDomainList, __self__).__init__(
             'aws-native:route53resolver:FirewallDomainList',
             resource_name,

@@ -46,6 +46,10 @@ func NewBucket(ctx *pulumi.Context,
 	if args.BundleId == nil {
 		return nil, errors.New("invalid value for required argument 'BundleId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bucketName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bucket
 	err := ctx.RegisterResource("aws-native:lightsail:Bucket", name, args, &resource, opts...)

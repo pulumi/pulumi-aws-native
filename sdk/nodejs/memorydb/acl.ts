@@ -82,6 +82,8 @@ export class Acl extends pulumi.CustomResource {
             resourceInputs["userNames"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["aclName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Acl.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -97,6 +97,8 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineTags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }

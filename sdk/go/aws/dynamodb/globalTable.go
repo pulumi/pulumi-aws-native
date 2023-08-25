@@ -48,6 +48,12 @@ func NewGlobalTable(ctx *pulumi.Context,
 	if args.Replicas == nil {
 		return nil, errors.New("invalid value for required argument 'Replicas'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"keySchema[*]",
+		"localSecondaryIndexes[*]",
+		"tableName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalTable
 	err := ctx.RegisterResource("aws-native:dynamodb:GlobalTable", name, args, &resource, opts...)

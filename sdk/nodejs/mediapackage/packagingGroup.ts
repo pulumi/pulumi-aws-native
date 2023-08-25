@@ -82,6 +82,8 @@ export class PackagingGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PackagingGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

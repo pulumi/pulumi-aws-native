@@ -76,6 +76,8 @@ export class Assistant extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "name", "serverSideEncryptionConfiguration", "tags[*]", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Assistant.__pulumiType, name, resourceInputs, opts);
     }
 }

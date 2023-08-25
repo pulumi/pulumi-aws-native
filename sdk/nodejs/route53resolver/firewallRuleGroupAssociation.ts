@@ -139,6 +139,8 @@ export class FirewallRuleGroupAssociation extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["firewallRuleGroupId", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FirewallRuleGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

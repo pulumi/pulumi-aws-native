@@ -149,6 +149,8 @@ class TransitGatewayAttachment(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["transit_gateway_id", "vpc_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayAttachment, __self__).__init__(
             'aws-native:ec2:TransitGatewayAttachment',
             resource_name,

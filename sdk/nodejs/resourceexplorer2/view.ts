@@ -67,6 +67,8 @@ export class View extends pulumi.CustomResource {
             resourceInputs["viewName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["viewName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(View.__pulumiType, name, resourceInputs, opts);
     }
 }

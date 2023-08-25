@@ -54,6 +54,17 @@ func NewFeatureGroup(ctx *pulumi.Context,
 	if args.RecordIdentifierFeatureName == nil {
 		return nil, errors.New("invalid value for required argument 'RecordIdentifierFeatureName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"eventTimeFeatureName",
+		"featureGroupName",
+		"offlineStoreConfig",
+		"onlineStoreConfig",
+		"recordIdentifierFeatureName",
+		"roleArn",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FeatureGroup
 	err := ctx.RegisterResource("aws-native:sagemaker:FeatureGroup", name, args, &resource, opts...)

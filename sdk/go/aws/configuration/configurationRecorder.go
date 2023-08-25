@@ -33,6 +33,10 @@ func NewConfigurationRecorder(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationRecorder
 	err := ctx.RegisterResource("aws-native:configuration:ConfigurationRecorder", name, args, &resource, opts...)

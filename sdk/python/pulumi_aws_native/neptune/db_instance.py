@@ -240,6 +240,8 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["port"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone", "db_cluster_identifier", "db_instance_identifier", "db_snapshot_identifier", "db_subnet_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbInstance, __self__).__init__(
             'aws-native:neptune:DbInstance',
             resource_name,

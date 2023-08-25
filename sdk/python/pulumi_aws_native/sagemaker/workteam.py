@@ -162,6 +162,8 @@ class Workteam(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workforce_name"] = workforce_name
             __props__.__dict__["workteam_name"] = workteam_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["workforce_name", "workteam_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workteam, __self__).__init__(
             'aws-native:sagemaker:Workteam',
             resource_name,

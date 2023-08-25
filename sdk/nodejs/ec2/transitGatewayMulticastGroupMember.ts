@@ -124,6 +124,8 @@ export class TransitGatewayMulticastGroupMember extends pulumi.CustomResource {
             resourceInputs["transitGatewayMulticastDomainId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["groupIpAddress", "networkInterfaceId", "transitGatewayMulticastDomainId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayMulticastGroupMember.__pulumiType, name, resourceInputs, opts);
     }
 }

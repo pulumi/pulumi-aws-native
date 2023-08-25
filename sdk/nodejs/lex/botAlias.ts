@@ -94,6 +94,8 @@ export class BotAlias extends pulumi.CustomResource {
             resourceInputs["sentimentAnalysisSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["botId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BotAlias.__pulumiType, name, resourceInputs, opts);
     }
 }

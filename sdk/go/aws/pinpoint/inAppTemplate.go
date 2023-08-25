@@ -35,6 +35,10 @@ func NewInAppTemplate(ctx *pulumi.Context,
 	if args.TemplateName == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"templateName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InAppTemplate
 	err := ctx.RegisterResource("aws-native:pinpoint:InAppTemplate", name, args, &resource, opts...)

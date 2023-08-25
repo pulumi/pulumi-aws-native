@@ -35,6 +35,10 @@ func NewApplicationSettings(ctx *pulumi.Context,
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationSettings
 	err := ctx.RegisterResource("aws-native:pinpoint:ApplicationSettings", name, args, &resource, opts...)

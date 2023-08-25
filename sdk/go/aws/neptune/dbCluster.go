@@ -110,6 +110,19 @@ func NewDbCluster(ctx *pulumi.Context,
 		args = &DbClusterArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"availabilityZones[*]",
+		"dbClusterIdentifier",
+		"dbSubnetGroupName",
+		"kmsKeyId",
+		"restoreToTime",
+		"restoreType",
+		"snapshotIdentifier",
+		"sourceDbClusterIdentifier",
+		"storageEncrypted",
+		"useLatestRestorableTime",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbCluster
 	err := ctx.RegisterResource("aws-native:neptune:DbCluster", name, args, &resource, opts...)

@@ -34,6 +34,10 @@ func NewAuthPolicy(ctx *pulumi.Context,
 	if args.ResourceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceIdentifier'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AuthPolicy
 	err := ctx.RegisterResource("aws-native:vpclattice:AuthPolicy", name, args, &resource, opts...)

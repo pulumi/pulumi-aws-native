@@ -106,6 +106,8 @@ export class LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends pulu
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["localGatewayRouteTableId", "localGatewayVirtualInterfaceGroupId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocalGatewayRouteTableVirtualInterfaceGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

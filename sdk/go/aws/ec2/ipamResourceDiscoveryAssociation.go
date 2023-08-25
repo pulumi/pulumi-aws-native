@@ -53,6 +53,11 @@ func NewIpamResourceDiscoveryAssociation(ctx *pulumi.Context,
 	if args.IpamResourceDiscoveryId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamResourceDiscoveryId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ipamId",
+		"ipamResourceDiscoveryId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpamResourceDiscoveryAssociation
 	err := ctx.RegisterResource("aws-native:ec2:IpamResourceDiscoveryAssociation", name, args, &resource, opts...)

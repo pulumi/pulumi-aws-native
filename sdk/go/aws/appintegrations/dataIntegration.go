@@ -52,6 +52,12 @@ func NewDataIntegration(ctx *pulumi.Context,
 	if args.SourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'SourceUri'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"kmsKey",
+		"scheduleConfig",
+		"sourceUri",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataIntegration
 	err := ctx.RegisterResource("aws-native:appintegrations:DataIntegration", name, args, &resource, opts...)

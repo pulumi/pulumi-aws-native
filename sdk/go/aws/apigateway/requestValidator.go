@@ -38,6 +38,11 @@ func NewRequestValidator(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"restApiId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RequestValidator
 	err := ctx.RegisterResource("aws-native:apigateway:RequestValidator", name, args, &resource, opts...)

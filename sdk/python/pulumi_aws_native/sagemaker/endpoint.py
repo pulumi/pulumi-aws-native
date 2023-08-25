@@ -178,6 +178,8 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["retain_all_variant_properties"] = retain_all_variant_properties
             __props__.__dict__["retain_deployment_config"] = retain_deployment_config
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Endpoint, __self__).__init__(
             'aws-native:sagemaker:Endpoint',
             resource_name,

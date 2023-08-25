@@ -84,6 +84,8 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
             resourceInputs["windowId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["windowId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MaintenanceWindowTarget.__pulumiType, name, resourceInputs, opts);
     }
 }

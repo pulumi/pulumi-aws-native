@@ -38,6 +38,11 @@ func NewBucket(ctx *pulumi.Context,
 	if args.OutpostId == nil {
 		return nil, errors.New("invalid value for required argument 'OutpostId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bucketName",
+		"outpostId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bucket
 	err := ctx.RegisterResource("aws-native:s3outposts:Bucket", name, args, &resource, opts...)

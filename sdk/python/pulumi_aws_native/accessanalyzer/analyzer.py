@@ -143,6 +143,8 @@ class Analyzer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analyzer_name", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Analyzer, __self__).__init__(
             'aws-native:accessanalyzer:Analyzer',
             resource_name,

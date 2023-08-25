@@ -76,6 +76,8 @@ export class RecoveryGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["recoveryGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RecoveryGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

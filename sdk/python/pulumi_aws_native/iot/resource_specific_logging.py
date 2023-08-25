@@ -129,6 +129,8 @@ class ResourceSpecificLogging(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_type'")
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["target_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["target_name", "target_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourceSpecificLogging, __self__).__init__(
             'aws-native:iot:ResourceSpecificLogging',
             resource_name,

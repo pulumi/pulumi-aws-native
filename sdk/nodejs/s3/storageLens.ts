@@ -64,6 +64,8 @@ export class StorageLens extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["storageLensConfiguration.id"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StorageLens.__pulumiType, name, resourceInputs, opts);
     }
 }

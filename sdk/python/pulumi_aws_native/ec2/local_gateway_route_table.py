@@ -132,6 +132,8 @@ class LocalGatewayRouteTable(pulumi.CustomResource):
             __props__.__dict__["outpost_arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["state"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["local_gateway_id", "mode"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LocalGatewayRouteTable, __self__).__init__(
             'aws-native:ec2:LocalGatewayRouteTable',
             resource_name,

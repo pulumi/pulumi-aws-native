@@ -121,6 +121,8 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["databaseInstallationFilesS3BucketName", "databaseInstallationFilesS3Prefix", "engine", "engineVersion", "kmsKeyId", "manifest"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomDbEngineVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

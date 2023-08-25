@@ -85,6 +85,8 @@ export class PlaceIndex extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dataSource", "dataSourceConfiguration", "description", "indexName", "pricingPlan"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PlaceIndex.__pulumiType, name, resourceInputs, opts);
     }
 }

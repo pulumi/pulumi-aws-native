@@ -241,6 +241,8 @@ class InstanceGroupConfig(pulumi.CustomResource):
             __props__.__dict__["job_flow_id"] = job_flow_id
             __props__.__dict__["market"] = market
             __props__.__dict__["name"] = name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bid_price", "configurations[*]", "custom_ami_id", "ebs_configuration", "instance_role", "instance_type", "job_flow_id", "market", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceGroupConfig, __self__).__init__(
             'aws-native:emr:InstanceGroupConfig',
             resource_name,

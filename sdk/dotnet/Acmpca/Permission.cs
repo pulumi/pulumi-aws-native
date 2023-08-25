@@ -62,6 +62,13 @@ namespace Pulumi.AwsNative.Acmpca
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "actions[*]",
+                    "certificateAuthorityArn",
+                    "principal",
+                    "sourceAccount",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

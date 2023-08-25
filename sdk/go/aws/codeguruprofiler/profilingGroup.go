@@ -36,6 +36,11 @@ func NewProfilingGroup(ctx *pulumi.Context,
 		args = &ProfilingGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"computePlatform",
+		"profilingGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProfilingGroup
 	err := ctx.RegisterResource("aws-native:codeguruprofiler:ProfilingGroup", name, args, &resource, opts...)

@@ -76,6 +76,8 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["configurationAggregatorName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfigurationAggregator.__pulumiType, name, resourceInputs, opts);
     }
 }

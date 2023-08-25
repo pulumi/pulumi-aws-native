@@ -115,6 +115,8 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["batchImportMetaDataOnCreate", "dataRepositoryPath", "fileSystemId", "fileSystemPath"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataRepositoryAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

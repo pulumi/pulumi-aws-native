@@ -197,6 +197,8 @@ class ApplicationInstance(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_description"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_instance_id_to_replace", "default_runtime_context_device", "description", "manifest_overrides_payload", "manifest_payload", "name", "runtime_role_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationInstance, __self__).__init__(
             'aws-native:panorama:ApplicationInstance',
             resource_name,

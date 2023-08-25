@@ -60,6 +60,12 @@ func NewMethod(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"httpMethod",
+		"resourceId",
+		"restApiId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Method
 	err := ctx.RegisterResource("aws-native:apigateway:Method", name, args, &resource, opts...)

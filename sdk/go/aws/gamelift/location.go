@@ -28,6 +28,10 @@ func NewLocation(ctx *pulumi.Context,
 		args = &LocationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"locationName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Location
 	err := ctx.RegisterResource("aws-native:gamelift:Location", name, args, &resource, opts...)

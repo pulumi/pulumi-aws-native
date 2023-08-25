@@ -37,6 +37,10 @@ func NewAccessor(ctx *pulumi.Context,
 	if args.AccessorType == nil {
 		return nil, errors.New("invalid value for required argument 'AccessorType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accessorType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Accessor
 	err := ctx.RegisterResource("aws-native:managedblockchain:Accessor", name, args, &resource, opts...)

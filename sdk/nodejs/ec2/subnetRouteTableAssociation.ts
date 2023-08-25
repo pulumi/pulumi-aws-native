@@ -61,6 +61,8 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
             resourceInputs["subnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["routeTableId", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SubnetRouteTableAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -84,6 +84,8 @@ export class EndpointConfig extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["asyncInferenceConfig", "dataCaptureConfig", "endpointConfigName", "explainerConfig", "kmsKeyId", "productionVariants[*]", "shadowProductionVariants[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EndpointConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

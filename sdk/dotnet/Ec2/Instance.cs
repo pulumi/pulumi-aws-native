@@ -171,6 +171,27 @@ namespace Pulumi.AwsNative.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "availabilityZone",
+                    "cpuOptions",
+                    "elasticGpuSpecifications[*]",
+                    "elasticInferenceAccelerators[*]",
+                    "enclaveOptions",
+                    "hibernationOptions",
+                    "hostResourceGroupArn",
+                    "imageId",
+                    "ipv6AddressCount",
+                    "ipv6Addresses[*]",
+                    "keyName",
+                    "launchTemplate",
+                    "licenseSpecifications[*]",
+                    "networkInterfaces[*]",
+                    "placementGroupName",
+                    "privateIpAddress",
+                    "securityGroups[*]",
+                    "subnetId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

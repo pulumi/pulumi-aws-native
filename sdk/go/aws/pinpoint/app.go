@@ -29,6 +29,10 @@ func NewApp(ctx *pulumi.Context,
 		args = &AppArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws-native:pinpoint:App", name, args, &resource, opts...)

@@ -106,6 +106,8 @@ export class MonitoringSchedule extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["monitoringScheduleName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MonitoringSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -40,6 +40,14 @@ func NewAssessmentTemplate(ctx *pulumi.Context,
 	if args.RulesPackageArns == nil {
 		return nil, errors.New("invalid value for required argument 'RulesPackageArns'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"assessmentTargetArn",
+		"assessmentTemplateName",
+		"durationInSeconds",
+		"rulesPackageArns[*]",
+		"userAttributesForFindings[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssessmentTemplate
 	err := ctx.RegisterResource("aws-native:inspector:AssessmentTemplate", name, args, &resource, opts...)

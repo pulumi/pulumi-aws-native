@@ -41,6 +41,10 @@ func NewCertificateAuthorityActivation(ctx *pulumi.Context,
 	if args.CertificateAuthorityArn == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateAuthorityArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"certificateAuthorityArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CertificateAuthorityActivation
 	err := ctx.RegisterResource("aws-native:acmpca:CertificateAuthorityActivation", name, args, &resource, opts...)

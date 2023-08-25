@@ -253,6 +253,8 @@ class Form(pulumi.CustomResource):
                 raise TypeError("Missing required property 'style'")
             __props__.__dict__["style"] = style
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Form, __self__).__init__(
             'aws-native:amplifyuibuilder:Form',
             resource_name,

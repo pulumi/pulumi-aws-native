@@ -82,6 +82,8 @@ export class Destination extends pulumi.CustomResource {
             resourceInputs["targetArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["destinationName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Destination.__pulumiType, name, resourceInputs, opts);
     }
 }

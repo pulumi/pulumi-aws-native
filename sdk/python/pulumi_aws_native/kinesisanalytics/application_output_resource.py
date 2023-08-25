@@ -104,6 +104,8 @@ class ApplicationOutputResource(pulumi.CustomResource):
             if output is None and not opts.urn:
                 raise TypeError("Missing required property 'output'")
             __props__.__dict__["output"] = output
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationOutputResource, __self__).__init__(
             'aws-native:kinesisanalytics:ApplicationOutputResource',
             resource_name,

@@ -88,6 +88,8 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
             resourceInputs["traceConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["observabilityConfigurationName", "tags[*]", "traceConfiguration"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ObservabilityConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

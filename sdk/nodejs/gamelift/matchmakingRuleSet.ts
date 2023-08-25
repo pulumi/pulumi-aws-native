@@ -72,6 +72,8 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "ruleSetBody"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MatchmakingRuleSet.__pulumiType, name, resourceInputs, opts);
     }
 }

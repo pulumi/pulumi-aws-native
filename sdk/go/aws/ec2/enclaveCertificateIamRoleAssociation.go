@@ -41,6 +41,11 @@ func NewEnclaveCertificateIamRoleAssociation(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"certificateArn",
+		"roleArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnclaveCertificateIamRoleAssociation
 	err := ctx.RegisterResource("aws-native:ec2:EnclaveCertificateIamRoleAssociation", name, args, &resource, opts...)

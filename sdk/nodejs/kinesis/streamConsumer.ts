@@ -75,6 +75,8 @@ export class StreamConsumer extends pulumi.CustomResource {
             resourceInputs["streamArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["consumerName", "streamArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StreamConsumer.__pulumiType, name, resourceInputs, opts);
     }
 }

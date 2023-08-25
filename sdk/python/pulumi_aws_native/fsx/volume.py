@@ -165,6 +165,8 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["uuid"] = None
             __props__.__dict__["volume_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backup_id", "volume_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Volume, __self__).__init__(
             'aws-native:fsx:Volume',
             resource_name,

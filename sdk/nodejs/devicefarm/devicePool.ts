@@ -79,6 +79,8 @@ export class DevicePool extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["projectArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DevicePool.__pulumiType, name, resourceInputs, opts);
     }
 }

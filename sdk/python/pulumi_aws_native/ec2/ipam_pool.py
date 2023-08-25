@@ -372,6 +372,8 @@ class IpamPool(pulumi.CustomResource):
             __props__.__dict__["pool_depth"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["state_message"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["address_family", "aws_service", "ipam_scope_id", "locale", "public_ip_source", "publicly_advertisable", "source_ipam_pool_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpamPool, __self__).__init__(
             'aws-native:ec2:IpamPool',
             resource_name,

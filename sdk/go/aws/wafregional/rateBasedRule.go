@@ -41,6 +41,12 @@ func NewRateBasedRule(ctx *pulumi.Context,
 	if args.RateLimit == nil {
 		return nil, errors.New("invalid value for required argument 'RateLimit'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"metricName",
+		"name",
+		"rateKey",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RateBasedRule
 	err := ctx.RegisterResource("aws-native:wafregional:RateBasedRule", name, args, &resource, opts...)

@@ -32,6 +32,10 @@ func NewClusterSecurityGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterSecurityGroup
 	err := ctx.RegisterResource("aws-native:redshift:ClusterSecurityGroup", name, args, &resource, opts...)

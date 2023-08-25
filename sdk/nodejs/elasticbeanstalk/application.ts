@@ -70,6 +70,8 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["resourceLifecycleConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }

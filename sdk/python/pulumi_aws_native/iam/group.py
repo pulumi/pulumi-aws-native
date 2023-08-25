@@ -133,6 +133,8 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["path"] = path
             __props__.__dict__["policies"] = policies
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Group, __self__).__init__(
             'aws-native:iam:Group',
             resource_name,

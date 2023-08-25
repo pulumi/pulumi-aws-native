@@ -88,6 +88,8 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
             resourceInputs["storageType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instanceArn", "resourceType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InstanceStorageConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

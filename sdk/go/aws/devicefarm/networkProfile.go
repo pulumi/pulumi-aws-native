@@ -41,6 +41,10 @@ func NewNetworkProfile(ctx *pulumi.Context,
 	if args.ProjectArn == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"projectArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkProfile
 	err := ctx.RegisterResource("aws-native:devicefarm:NetworkProfile", name, args, &resource, opts...)

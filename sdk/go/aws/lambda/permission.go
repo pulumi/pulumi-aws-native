@@ -50,6 +50,17 @@ func NewPermission(ctx *pulumi.Context,
 	if args.Principal == nil {
 		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"action",
+		"eventSourceToken",
+		"functionName",
+		"functionUrlAuthType",
+		"principal",
+		"principalOrgId",
+		"sourceAccount",
+		"sourceArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Permission
 	err := ctx.RegisterResource("aws-native:lambda:Permission", name, args, &resource, opts...)

@@ -126,6 +126,8 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["treatmentName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Campaign.__pulumiType, name, resourceInputs, opts);
     }
 }

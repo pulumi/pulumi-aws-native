@@ -81,6 +81,8 @@ class Template(pulumi.CustomResource):
             __props__ = TemplateInitArgs.__new__(TemplateInitArgs)
 
             __props__.__dict__["template"] = template
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["template.template_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Template, __self__).__init__(
             'aws-native:ses:Template',
             resource_name,

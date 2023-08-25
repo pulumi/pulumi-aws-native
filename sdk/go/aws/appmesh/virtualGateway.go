@@ -41,6 +41,12 @@ func NewVirtualGateway(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"meshName",
+		"meshOwner",
+		"virtualGatewayName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualGateway
 	err := ctx.RegisterResource("aws-native:appmesh:VirtualGateway", name, args, &resource, opts...)

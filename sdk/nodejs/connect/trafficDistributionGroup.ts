@@ -97,6 +97,8 @@ export class TrafficDistributionGroup extends pulumi.CustomResource {
             resourceInputs["trafficDistributionGroupArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TrafficDistributionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

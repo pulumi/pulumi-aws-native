@@ -37,6 +37,15 @@ func NewKnowledgeBase(ctx *pulumi.Context,
 	if args.KnowledgeBaseType == nil {
 		return nil, errors.New("invalid value for required argument 'KnowledgeBaseType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"knowledgeBaseType",
+		"name",
+		"serverSideEncryptionConfiguration",
+		"sourceConfiguration",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KnowledgeBase
 	err := ctx.RegisterResource("aws-native:wisdom:KnowledgeBase", name, args, &resource, opts...)

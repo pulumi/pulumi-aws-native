@@ -34,6 +34,10 @@ func NewSignalingChannel(ctx *pulumi.Context,
 		args = &SignalingChannelArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SignalingChannel
 	err := ctx.RegisterResource("aws-native:kinesisvideo:SignalingChannel", name, args, &resource, opts...)

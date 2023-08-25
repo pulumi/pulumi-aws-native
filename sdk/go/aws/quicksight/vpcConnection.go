@@ -39,6 +39,11 @@ func NewVpcConnection(ctx *pulumi.Context,
 		args = &VpcConnectionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"awsAccountId",
+		"vpcConnectionId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnection
 	err := ctx.RegisterResource("aws-native:quicksight:VpcConnection", name, args, &resource, opts...)

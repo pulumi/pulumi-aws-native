@@ -137,6 +137,8 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["job_names"] = job_names
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Schedule, __self__).__init__(
             'aws-native:databrew:Schedule',
             resource_name,

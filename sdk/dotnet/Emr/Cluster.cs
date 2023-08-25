@@ -114,6 +114,27 @@ namespace Pulumi.AwsNative.Emr
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "additionalInfo",
+                    "applications[*]",
+                    "autoScalingRole",
+                    "bootstrapActions[*]",
+                    "configurations[*]",
+                    "customAmiId",
+                    "ebsRootVolumeSize",
+                    "jobFlowRole",
+                    "kerberosAttributes",
+                    "logEncryptionKmsKeyId",
+                    "logUri",
+                    "name",
+                    "osReleaseLabel",
+                    "releaseLabel",
+                    "scaleDownBehavior",
+                    "securityConfiguration",
+                    "serviceRole",
+                    "steps[*]",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

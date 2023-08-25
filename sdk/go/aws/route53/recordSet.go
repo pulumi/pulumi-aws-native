@@ -46,6 +46,12 @@ func NewRecordSet(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"hostedZoneId",
+		"hostedZoneName",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecordSet
 	err := ctx.RegisterResource("aws-native:route53:RecordSet", name, args, &resource, opts...)

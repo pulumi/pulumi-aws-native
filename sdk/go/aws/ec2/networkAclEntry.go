@@ -48,6 +48,12 @@ func NewNetworkAclEntry(ctx *pulumi.Context,
 	if args.RuleNumber == nil {
 		return nil, errors.New("invalid value for required argument 'RuleNumber'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"egress",
+		"networkAclId",
+		"ruleNumber",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkAclEntry
 	err := ctx.RegisterResource("aws-native:ec2:NetworkAclEntry", name, args, &resource, opts...)

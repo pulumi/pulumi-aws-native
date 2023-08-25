@@ -44,6 +44,14 @@ func NewPrincipalPermissions(ctx *pulumi.Context,
 	if args.Resource == nil {
 		return nil, errors.New("invalid value for required argument 'Resource'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"catalog",
+		"permissions[*]",
+		"permissionsWithGrantOption[*]",
+		"principal",
+		"resource",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrincipalPermissions
 	err := ctx.RegisterResource("aws-native:lakeformation:PrincipalPermissions", name, args, &resource, opts...)

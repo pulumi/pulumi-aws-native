@@ -91,6 +91,8 @@ export class VpcConnector extends pulumi.CustomResource {
             resourceInputs["vpcConnectorRevision"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["securityGroups[*]", "subnets[*]", "tags[*]", "vpcConnectorName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcConnector.__pulumiType, name, resourceInputs, opts);
     }
 }

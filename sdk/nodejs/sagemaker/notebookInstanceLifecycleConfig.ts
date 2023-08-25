@@ -66,6 +66,8 @@ export class NotebookInstanceLifecycleConfig extends pulumi.CustomResource {
             resourceInputs["onStart"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["notebookInstanceLifecycleConfigName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NotebookInstanceLifecycleConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

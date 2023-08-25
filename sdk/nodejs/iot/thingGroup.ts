@@ -73,6 +73,8 @@ export class ThingGroup extends pulumi.CustomResource {
             resourceInputs["thingGroupProperties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["parentGroupName", "thingGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ThingGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

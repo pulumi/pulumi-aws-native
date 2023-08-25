@@ -195,6 +195,8 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["stages"] = stages
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Pipeline, __self__).__init__(
             'aws-native:codepipeline:Pipeline',
             resource_name,

@@ -39,6 +39,12 @@ func NewStorageVirtualMachine(ctx *pulumi.Context,
 	if args.FileSystemId == nil {
 		return nil, errors.New("invalid value for required argument 'FileSystemId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"fileSystemId",
+		"name",
+		"rootVolumeSecurityStyle",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StorageVirtualMachine
 	err := ctx.RegisterResource("aws-native:fsx:StorageVirtualMachine", name, args, &resource, opts...)

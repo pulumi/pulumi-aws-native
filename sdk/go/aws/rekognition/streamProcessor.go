@@ -55,6 +55,21 @@ func NewStreamProcessor(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"boundingBoxRegionsOfInterest[*]",
+		"connectedHomeSettings",
+		"dataSharingPreference",
+		"faceSearchSettings",
+		"kinesisDataStream",
+		"kinesisVideoStream",
+		"kmsKeyId",
+		"name",
+		"notificationChannel",
+		"polygonRegionsOfInterest[*]",
+		"roleArn",
+		"s3Destination",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StreamProcessor
 	err := ctx.RegisterResource("aws-native:rekognition:StreamProcessor", name, args, &resource, opts...)

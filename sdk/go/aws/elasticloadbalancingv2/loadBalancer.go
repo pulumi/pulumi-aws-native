@@ -39,6 +39,12 @@ func NewLoadBalancer(ctx *pulumi.Context,
 		args = &LoadBalancerArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"scheme",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws-native:elasticloadbalancingv2:LoadBalancer", name, args, &resource, opts...)

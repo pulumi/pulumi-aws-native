@@ -36,6 +36,12 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.NetworkFabricType == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkFabricType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"name",
+		"networkFabricType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Environment
 	err := ctx.RegisterResource("aws-native:refactorspaces:Environment", name, args, &resource, opts...)

@@ -31,6 +31,13 @@ func NewTrafficMirrorTarget(ctx *pulumi.Context,
 		args = &TrafficMirrorTargetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"gatewayLoadBalancerEndpointId",
+		"networkInterfaceId",
+		"networkLoadBalancerArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficMirrorTarget
 	err := ctx.RegisterResource("aws-native:ec2:TrafficMirrorTarget", name, args, &resource, opts...)

@@ -169,6 +169,8 @@ class ReportPlan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'report_setting'")
             __props__.__dict__["report_setting"] = report_setting
             __props__.__dict__["report_plan_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["report_plan_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReportPlan, __self__).__init__(
             'aws-native:backup:ReportPlan',
             resource_name,

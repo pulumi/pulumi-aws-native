@@ -177,6 +177,8 @@ class AnomalyDetector(pulumi.CustomResource):
             __props__.__dict__["namespace"] = namespace
             __props__.__dict__["single_metric_anomaly_detector"] = single_metric_anomaly_detector
             __props__.__dict__["stat"] = stat
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dimensions[*]", "metric_math_anomaly_detector", "metric_name", "namespace", "single_metric_anomaly_detector", "stat"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AnomalyDetector, __self__).__init__(
             'aws-native:cloudwatch:AnomalyDetector',
             resource_name,

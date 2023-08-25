@@ -78,6 +78,8 @@ export class Mesh extends pulumi.CustomResource {
             resourceInputs["uid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["meshName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Mesh.__pulumiType, name, resourceInputs, opts);
     }
 }

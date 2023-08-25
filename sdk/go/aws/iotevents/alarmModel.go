@@ -52,6 +52,11 @@ func NewAlarmModel(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"alarmModelName",
+		"key",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AlarmModel
 	err := ctx.RegisterResource("aws-native:iotevents:AlarmModel", name, args, &resource, opts...)

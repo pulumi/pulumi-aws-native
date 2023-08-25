@@ -75,6 +75,8 @@ export class AdmChannel extends pulumi.CustomResource {
             resourceInputs["enabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AdmChannel.__pulumiType, name, resourceInputs, opts);
     }
 }

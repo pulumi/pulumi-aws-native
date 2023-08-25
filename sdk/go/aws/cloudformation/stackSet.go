@@ -59,6 +59,11 @@ func NewStackSet(ctx *pulumi.Context,
 	if args.PermissionModel == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionModel'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"permissionModel",
+		"stackSetName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StackSet
 	err := ctx.RegisterResource("aws-native:cloudformation:StackSet", name, args, &resource, opts...)

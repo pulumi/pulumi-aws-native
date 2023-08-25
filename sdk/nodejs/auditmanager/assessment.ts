@@ -100,6 +100,8 @@ export class Assessment extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["awsAccount", "frameworkId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Assessment.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -51,6 +51,11 @@ func NewStudio(ctx *pulumi.Context,
 	if args.UserRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'UserRoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"studioName",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Studio
 	err := ctx.RegisterResource("aws-native:nimblestudio:Studio", name, args, &resource, opts...)

@@ -104,6 +104,8 @@ class Database(pulumi.CustomResource):
             if database_input is None and not opts.urn:
                 raise TypeError("Missing required property 'database_input'")
             __props__.__dict__["database_input"] = database_input
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Database, __self__).__init__(
             'aws-native:glue:Database',
             resource_name,

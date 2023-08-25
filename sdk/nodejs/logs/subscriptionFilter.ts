@@ -97,6 +97,8 @@ export class SubscriptionFilter extends pulumi.CustomResource {
             resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["filterName", "logGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SubscriptionFilter.__pulumiType, name, resourceInputs, opts);
     }
 }

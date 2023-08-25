@@ -63,6 +63,8 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["parameterNameValues"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["parameterGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

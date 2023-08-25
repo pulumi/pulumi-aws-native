@@ -32,6 +32,11 @@ func NewLogStream(ctx *pulumi.Context,
 	if args.LogGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'LogGroupName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"logGroupName",
+		"logStreamName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogStream
 	err := ctx.RegisterResource("aws-native:logs:LogStream", name, args, &resource, opts...)

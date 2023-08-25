@@ -30,6 +30,10 @@ func NewDnssec(ctx *pulumi.Context,
 	if args.HostedZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'HostedZoneId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"hostedZoneId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dnssec
 	err := ctx.RegisterResource("aws-native:route53:Dnssec", name, args, &resource, opts...)

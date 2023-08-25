@@ -60,6 +60,10 @@ func NewMetricStream(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricStream
 	err := ctx.RegisterResource("aws-native:cloudwatch:MetricStream", name, args, &resource, opts...)

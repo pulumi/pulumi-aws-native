@@ -131,6 +131,8 @@ class Placement(pulumi.CustomResource):
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["associated_devices", "placement_name", "project_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Placement, __self__).__init__(
             'aws-native:iot1click:Placement',
             resource_name,

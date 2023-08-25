@@ -91,6 +91,8 @@ export class NamedQuery extends pulumi.CustomResource {
             resourceInputs["workGroup"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["database", "description", "name", "queryString", "workGroup"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NamedQuery.__pulumiType, name, resourceInputs, opts);
     }
 }

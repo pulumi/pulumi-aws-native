@@ -237,6 +237,8 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
             __props__.__dict__["table_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["key_schema[*]", "local_secondary_indexes[*]", "table_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GlobalTable, __self__).__init__(
             'aws-native:dynamodb:GlobalTable',
             resource_name,

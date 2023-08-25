@@ -100,6 +100,8 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domainName", "uri"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }

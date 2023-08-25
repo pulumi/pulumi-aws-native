@@ -30,6 +30,10 @@ func NewVpcEndpointServicePermissions(ctx *pulumi.Context,
 	if args.ServiceId == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serviceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointServicePermissions
 	err := ctx.RegisterResource("aws-native:ec2:VpcEndpointServicePermissions", name, args, &resource, opts...)

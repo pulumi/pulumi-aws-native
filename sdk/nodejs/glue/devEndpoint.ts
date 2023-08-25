@@ -102,6 +102,8 @@ export class DevEndpoint extends pulumi.CustomResource {
             resourceInputs["workerType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["endpointName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DevEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

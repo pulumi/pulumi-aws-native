@@ -49,6 +49,13 @@ func NewLoadBalancerTlsCertificate(ctx *pulumi.Context,
 	if args.LoadBalancerName == nil {
 		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"certificateAlternativeNames[*]",
+		"certificateDomainName",
+		"certificateName",
+		"loadBalancerName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancerTlsCertificate
 	err := ctx.RegisterResource("aws-native:lightsail:LoadBalancerTlsCertificate", name, args, &resource, opts...)

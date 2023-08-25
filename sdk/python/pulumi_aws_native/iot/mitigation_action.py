@@ -141,6 +141,8 @@ class MitigationAction(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["mitigation_action_arn"] = None
             __props__.__dict__["mitigation_action_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MitigationAction, __self__).__init__(
             'aws-native:iot:MitigationAction',
             resource_name,

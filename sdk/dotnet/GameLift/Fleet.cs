@@ -189,6 +189,21 @@ namespace Pulumi.AwsNative.GameLift
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "buildId",
+                    "certificateConfiguration",
+                    "computeType",
+                    "ec2InstanceType",
+                    "fleetType",
+                    "instanceRoleArn",
+                    "logPaths[*]",
+                    "peerVpcAwsAccountId",
+                    "peerVpcId",
+                    "scriptId",
+                    "serverLaunchParameters",
+                    "serverLaunchPath",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

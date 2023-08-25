@@ -119,6 +119,8 @@ class FunctionDefinitionVersion(pulumi.CustomResource):
             if functions is None and not opts.urn:
                 raise TypeError("Missing required property 'functions'")
             __props__.__dict__["functions"] = functions
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["default_config", "function_definition_id", "functions[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FunctionDefinitionVersion, __self__).__init__(
             'aws-native:greengrass:FunctionDefinitionVersion',
             resource_name,

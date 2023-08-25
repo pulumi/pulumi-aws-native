@@ -50,6 +50,18 @@ func NewInstanceGroupConfig(ctx *pulumi.Context,
 	if args.JobFlowId == nil {
 		return nil, errors.New("invalid value for required argument 'JobFlowId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bidPrice",
+		"configurations[*]",
+		"customAmiId",
+		"ebsConfiguration",
+		"instanceRole",
+		"instanceType",
+		"jobFlowId",
+		"market",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceGroupConfig
 	err := ctx.RegisterResource("aws-native:emr:InstanceGroupConfig", name, args, &resource, opts...)

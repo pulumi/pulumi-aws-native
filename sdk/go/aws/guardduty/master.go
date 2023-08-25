@@ -36,6 +36,12 @@ func NewMaster(ctx *pulumi.Context,
 	if args.MasterId == nil {
 		return nil, errors.New("invalid value for required argument 'MasterId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"detectorId",
+		"invitationId",
+		"masterId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Master
 	err := ctx.RegisterResource("aws-native:guardduty:Master", name, args, &resource, opts...)

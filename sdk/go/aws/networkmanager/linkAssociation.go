@@ -40,6 +40,12 @@ func NewLinkAssociation(ctx *pulumi.Context,
 	if args.LinkId == nil {
 		return nil, errors.New("invalid value for required argument 'LinkId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"deviceId",
+		"globalNetworkId",
+		"linkId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkAssociation
 	err := ctx.RegisterResource("aws-native:networkmanager:LinkAssociation", name, args, &resource, opts...)

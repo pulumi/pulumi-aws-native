@@ -32,6 +32,10 @@ func NewStateMachineAlias(ctx *pulumi.Context,
 		args = &StateMachineAliasArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StateMachineAlias
 	err := ctx.RegisterResource("aws-native:stepfunctions:StateMachineAlias", name, args, &resource, opts...)

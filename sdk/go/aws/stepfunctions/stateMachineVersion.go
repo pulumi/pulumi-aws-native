@@ -32,6 +32,11 @@ func NewStateMachineVersion(ctx *pulumi.Context,
 	if args.StateMachineArn == nil {
 		return nil, errors.New("invalid value for required argument 'StateMachineArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"stateMachineArn",
+		"stateMachineRevisionId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StateMachineVersion
 	err := ctx.RegisterResource("aws-native:stepfunctions:StateMachineVersion", name, args, &resource, opts...)

@@ -111,6 +111,8 @@ export class Framework extends pulumi.CustomResource {
             resourceInputs["frameworkTags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["frameworkName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Framework.__pulumiType, name, resourceInputs, opts);
     }
 }

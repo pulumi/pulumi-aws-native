@@ -64,6 +64,8 @@ export class OrganizationAdmin extends pulumi.CustomResource {
             resourceInputs["graphArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["accountId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(OrganizationAdmin.__pulumiType, name, resourceInputs, opts);
     }
 }

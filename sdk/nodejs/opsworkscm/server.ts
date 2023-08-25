@@ -130,6 +130,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["associatePublicIpAddress", "backupId", "customCertificate", "customDomain", "customPrivateKey", "engine", "engineModel", "engineVersion", "instanceProfileArn", "instanceType", "keyPair", "securityGroupIds[*]", "serverName", "serviceRoleArn", "subnetIds[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }

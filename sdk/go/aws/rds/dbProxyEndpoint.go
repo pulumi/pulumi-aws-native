@@ -51,6 +51,12 @@ func NewDbProxyEndpoint(ctx *pulumi.Context,
 	if args.VpcSubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSubnetIds'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dbProxyEndpointName",
+		"dbProxyName",
+		"vpcSubnetIds[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbProxyEndpoint
 	err := ctx.RegisterResource("aws-native:rds:DbProxyEndpoint", name, args, &resource, opts...)

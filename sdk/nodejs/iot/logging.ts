@@ -79,6 +79,8 @@ export class Logging extends pulumi.CustomResource {
             resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["accountId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Logging.__pulumiType, name, resourceInputs, opts);
     }
 }

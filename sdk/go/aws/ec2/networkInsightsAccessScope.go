@@ -31,6 +31,11 @@ func NewNetworkInsightsAccessScope(ctx *pulumi.Context,
 		args = &NetworkInsightsAccessScopeArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"excludePaths[*]",
+		"matchPaths[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInsightsAccessScope
 	err := ctx.RegisterResource("aws-native:ec2:NetworkInsightsAccessScope", name, args, &resource, opts...)

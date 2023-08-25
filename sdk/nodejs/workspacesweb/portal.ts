@@ -109,6 +109,8 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["userSettingsArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext", "customerManagedKey"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Portal.__pulumiType, name, resourceInputs, opts);
     }
 }

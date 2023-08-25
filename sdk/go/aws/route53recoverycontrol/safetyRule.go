@@ -36,6 +36,12 @@ func NewSafetyRule(ctx *pulumi.Context,
 		args = &SafetyRuleArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"controlPanelArn",
+		"ruleConfig",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SafetyRule
 	err := ctx.RegisterResource("aws-native:route53recoverycontrol:SafetyRule", name, args, &resource, opts...)

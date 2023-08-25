@@ -109,6 +109,8 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["visibilityConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "scope"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(WebAcl.__pulumiType, name, resourceInputs, opts);
     }
 }

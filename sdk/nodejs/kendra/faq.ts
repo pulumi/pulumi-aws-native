@@ -106,6 +106,8 @@ export class Faq extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "fileFormat", "indexId", "name", "roleArn", "s3Path"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Faq.__pulumiType, name, resourceInputs, opts);
     }
 }

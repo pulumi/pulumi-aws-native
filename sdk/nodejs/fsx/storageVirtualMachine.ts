@@ -87,6 +87,8 @@ export class StorageVirtualMachine extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["fileSystemId", "name", "rootVolumeSecurityStyle"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StorageVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }

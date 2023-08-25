@@ -359,6 +359,8 @@ class DeploymentGroup(pulumi.CustomResource):
             __props__.__dict__["service_role_arn"] = service_role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trigger_configurations"] = trigger_configurations
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name", "deployment_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeploymentGroup, __self__).__init__(
             'aws-native:codedeploy:DeploymentGroup',
             resource_name,

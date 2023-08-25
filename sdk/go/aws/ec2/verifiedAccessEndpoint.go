@@ -83,6 +83,17 @@ func NewVerifiedAccessEndpoint(ctx *pulumi.Context,
 	if args.VerifiedAccessGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'VerifiedAccessGroupId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationDomain",
+		"attachmentType",
+		"domainCertificateArn",
+		"endpointDomainPrefix",
+		"endpointType",
+		"loadBalancerOptions.loadBalancerArn",
+		"networkInterfaceOptions.networkInterfaceId",
+		"securityGroupIds[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VerifiedAccessEndpoint
 	err := ctx.RegisterResource("aws-native:ec2:VerifiedAccessEndpoint", name, args, &resource, opts...)

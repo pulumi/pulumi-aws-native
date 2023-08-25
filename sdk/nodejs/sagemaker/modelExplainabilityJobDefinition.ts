@@ -118,6 +118,8 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["endpointName", "jobDefinitionName", "jobResources", "modelExplainabilityAppSpecification", "modelExplainabilityBaselineConfig", "modelExplainabilityJobInput", "modelExplainabilityJobOutputConfig", "networkConfig", "roleArn", "stoppingCondition", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ModelExplainabilityJobDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }

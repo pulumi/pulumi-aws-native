@@ -52,6 +52,11 @@ func NewLocationObjectStorage(ctx *pulumi.Context,
 	if args.AgentArns == nil {
 		return nil, errors.New("invalid value for required argument 'AgentArns'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bucketName",
+		"serverHostname",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationObjectStorage
 	err := ctx.RegisterResource("aws-native:datasync:LocationObjectStorage", name, args, &resource, opts...)

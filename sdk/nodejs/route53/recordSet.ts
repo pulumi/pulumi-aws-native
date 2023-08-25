@@ -108,6 +108,8 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["weight"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["hostedZoneId", "hostedZoneName", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RecordSet.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -150,6 +150,8 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["workflow_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "on_exception_steps[*]", "steps[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workflow, __self__).__init__(
             'aws-native:transfer:Workflow',
             resource_name,

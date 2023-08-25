@@ -38,6 +38,13 @@ func NewFileSystem(ctx *pulumi.Context,
 		args = &FileSystemArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"availabilityZoneName",
+		"encrypted",
+		"kmsKeyId",
+		"performanceMode",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileSystem
 	err := ctx.RegisterResource("aws-native:efs:FileSystem", name, args, &resource, opts...)

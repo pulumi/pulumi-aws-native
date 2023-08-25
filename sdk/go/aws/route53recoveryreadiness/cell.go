@@ -34,6 +34,10 @@ func NewCell(ctx *pulumi.Context,
 		args = &CellArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cellName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cell
 	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:Cell", name, args, &resource, opts...)

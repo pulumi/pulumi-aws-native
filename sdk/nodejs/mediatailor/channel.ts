@@ -91,6 +91,8 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["tier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["channelName", "tier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }

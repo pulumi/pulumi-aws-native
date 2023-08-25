@@ -148,6 +148,8 @@ class VpcLink(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_arns'")
             __props__.__dict__["target_arns"] = target_arns
             __props__.__dict__["vpc_link_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["target_arns[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcLink, __self__).__init__(
             'aws-native:apigateway:VpcLink',
             resource_name,

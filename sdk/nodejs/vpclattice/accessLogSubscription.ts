@@ -73,6 +73,8 @@ export class AccessLogSubscription extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AccessLogSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }

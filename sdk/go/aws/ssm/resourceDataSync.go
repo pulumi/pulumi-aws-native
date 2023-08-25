@@ -37,6 +37,17 @@ func NewResourceDataSync(ctx *pulumi.Context,
 	if args.SyncName == nil {
 		return nil, errors.New("invalid value for required argument 'SyncName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bucketName",
+		"bucketPrefix",
+		"bucketRegion",
+		"kmsKeyArn",
+		"s3Destination",
+		"syncFormat",
+		"syncName",
+		"syncType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceDataSync
 	err := ctx.RegisterResource("aws-native:ssm:ResourceDataSync", name, args, &resource, opts...)

@@ -47,6 +47,10 @@ func NewExperimentTemplate(ctx *pulumi.Context,
 	if args.Targets == nil {
 		return nil, errors.New("invalid value for required argument 'Targets'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExperimentTemplate
 	err := ctx.RegisterResource("aws-native:fis:ExperimentTemplate", name, args, &resource, opts...)

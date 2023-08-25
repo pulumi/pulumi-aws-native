@@ -104,6 +104,16 @@ namespace Pulumi.AwsNative.DirectoryService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "createAlias",
+                    "description",
+                    "name",
+                    "password",
+                    "shortName",
+                    "size",
+                    "vpcSettings",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

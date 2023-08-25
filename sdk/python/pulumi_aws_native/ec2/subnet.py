@@ -250,6 +250,8 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["ipv6_cidr_blocks"] = None
             __props__.__dict__["network_acl_association_id"] = None
             __props__.__dict__["subnet_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone", "availability_zone_id", "cidr_block", "ipv6_native", "outpost_arn", "vpc_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Subnet, __self__).__init__(
             'aws-native:ec2:Subnet',
             resource_name,

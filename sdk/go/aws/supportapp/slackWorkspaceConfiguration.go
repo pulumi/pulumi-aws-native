@@ -32,6 +32,10 @@ func NewSlackWorkspaceConfiguration(ctx *pulumi.Context,
 	if args.TeamId == nil {
 		return nil, errors.New("invalid value for required argument 'TeamId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"teamId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SlackWorkspaceConfiguration
 	err := ctx.RegisterResource("aws-native:supportapp:SlackWorkspaceConfiguration", name, args, &resource, opts...)

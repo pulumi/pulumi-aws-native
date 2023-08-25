@@ -33,6 +33,11 @@ func NewConfiguration(ctx *pulumi.Context,
 	if args.ServerProperties == nil {
 		return nil, errors.New("invalid value for required argument 'ServerProperties'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"kafkaVersionsList[*]",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Configuration
 	err := ctx.RegisterResource("aws-native:msk:Configuration", name, args, &resource, opts...)

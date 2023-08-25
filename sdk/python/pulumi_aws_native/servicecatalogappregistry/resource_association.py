@@ -130,6 +130,8 @@ class ResourceAssociation(pulumi.CustomResource):
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["application_arn"] = None
             __props__.__dict__["resource_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application", "resource", "resource_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourceAssociation, __self__).__init__(
             'aws-native:servicecatalogappregistry:ResourceAssociation',
             resource_name,

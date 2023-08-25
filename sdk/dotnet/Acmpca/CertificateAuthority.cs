@@ -101,6 +101,16 @@ namespace Pulumi.AwsNative.Acmpca
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "csrExtensions",
+                    "keyAlgorithm",
+                    "keyStorageSecurityStandard",
+                    "signingAlgorithm",
+                    "subject",
+                    "type",
+                    "usageMode",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

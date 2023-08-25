@@ -67,6 +67,8 @@ export class ApplicationEntitlementAssociation extends pulumi.CustomResource {
             resourceInputs["stackName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationIdentifier", "entitlementName", "stackName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApplicationEntitlementAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -82,6 +82,8 @@ export class ResourceDataSync extends pulumi.CustomResource {
             resourceInputs["syncType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["bucketName", "bucketPrefix", "bucketRegion", "kmsKeyArn", "s3Destination", "syncFormat", "syncName", "syncType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourceDataSync.__pulumiType, name, resourceInputs, opts);
     }
 }

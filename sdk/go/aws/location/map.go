@@ -37,6 +37,13 @@ func NewMap(ctx *pulumi.Context,
 	if args.Configuration == nil {
 		return nil, errors.New("invalid value for required argument 'Configuration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"configuration",
+		"description",
+		"mapName",
+		"pricingPlan",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Map
 	err := ctx.RegisterResource("aws-native:location:Map", name, args, &resource, opts...)

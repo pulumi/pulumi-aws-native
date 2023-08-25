@@ -42,6 +42,11 @@ func NewPreparedStatement(ctx *pulumi.Context,
 	if args.WorkGroup == nil {
 		return nil, errors.New("invalid value for required argument 'WorkGroup'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"statementName",
+		"workGroup",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PreparedStatement
 	err := ctx.RegisterResource("aws-native:athena:PreparedStatement", name, args, &resource, opts...)

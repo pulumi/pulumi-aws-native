@@ -36,6 +36,11 @@ func NewEventBusPolicy(ctx *pulumi.Context,
 	if args.StatementId == nil {
 		return nil, errors.New("invalid value for required argument 'StatementId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"eventBusName",
+		"statementId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventBusPolicy
 	err := ctx.RegisterResource("aws-native:events:EventBusPolicy", name, args, &resource, opts...)

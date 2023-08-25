@@ -35,6 +35,10 @@ func NewUser(ctx *pulumi.Context,
 		args = &UserArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"userName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws-native:iam:User", name, args, &resource, opts...)

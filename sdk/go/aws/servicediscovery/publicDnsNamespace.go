@@ -32,6 +32,10 @@ func NewPublicDnsNamespace(ctx *pulumi.Context,
 		args = &PublicDnsNamespaceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PublicDnsNamespace
 	err := ctx.RegisterResource("aws-native:servicediscovery:PublicDnsNamespace", name, args, &resource, opts...)

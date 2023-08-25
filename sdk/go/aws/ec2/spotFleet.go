@@ -29,6 +29,28 @@ func NewSpotFleet(ctx *pulumi.Context,
 	if args.SpotFleetRequestConfigData == nil {
 		return nil, errors.New("invalid value for required argument 'SpotFleetRequestConfigData'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"spotFleetRequestConfigData.allocationStrategy",
+		"spotFleetRequestConfigData.iamFleetRole",
+		"spotFleetRequestConfigData.instanceInterruptionBehavior",
+		"spotFleetRequestConfigData.instancePoolsToUseCount",
+		"spotFleetRequestConfigData.launchSpecifications[*]",
+		"spotFleetRequestConfigData.launchTemplateConfigs[*]",
+		"spotFleetRequestConfigData.loadBalancersConfig",
+		"spotFleetRequestConfigData.onDemandAllocationStrategy",
+		"spotFleetRequestConfigData.onDemandMaxTotalPrice",
+		"spotFleetRequestConfigData.onDemandTargetCapacity",
+		"spotFleetRequestConfigData.replaceUnhealthyInstances",
+		"spotFleetRequestConfigData.spotMaintenanceStrategies",
+		"spotFleetRequestConfigData.spotMaxTotalPrice",
+		"spotFleetRequestConfigData.spotPrice",
+		"spotFleetRequestConfigData.tagSpecifications[*]",
+		"spotFleetRequestConfigData.terminateInstancesWithExpiration",
+		"spotFleetRequestConfigData.type",
+		"spotFleetRequestConfigData.validFrom",
+		"spotFleetRequestConfigData.validUntil",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpotFleet
 	err := ctx.RegisterResource("aws-native:ec2:SpotFleet", name, args, &resource, opts...)

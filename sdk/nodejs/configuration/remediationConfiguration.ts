@@ -96,6 +96,8 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             resourceInputs["targetVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["configRuleName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RemediationConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

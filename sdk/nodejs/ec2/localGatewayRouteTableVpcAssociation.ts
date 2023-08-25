@@ -94,6 +94,8 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["localGatewayRouteTableId", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocalGatewayRouteTableVpcAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

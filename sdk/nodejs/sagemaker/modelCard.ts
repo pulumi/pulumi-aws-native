@@ -124,6 +124,8 @@ export class ModelCard extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["modelCardName", "securityConfig"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ModelCard.__pulumiType, name, resourceInputs, opts);
     }
 }

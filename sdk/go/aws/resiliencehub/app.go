@@ -51,6 +51,10 @@ func NewApp(ctx *pulumi.Context,
 	if args.ResourceMappings == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceMappings'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws-native:resiliencehub:App", name, args, &resource, opts...)

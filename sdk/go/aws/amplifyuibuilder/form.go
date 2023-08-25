@@ -55,6 +55,10 @@ func NewForm(ctx *pulumi.Context,
 	if args.Style == nil {
 		return nil, errors.New("invalid value for required argument 'Style'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Form
 	err := ctx.RegisterResource("aws-native:amplifyuibuilder:Form", name, args, &resource, opts...)

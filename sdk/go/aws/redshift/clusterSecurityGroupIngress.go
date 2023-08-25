@@ -34,6 +34,13 @@ func NewClusterSecurityGroupIngress(ctx *pulumi.Context,
 	if args.ClusterSecurityGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterSecurityGroupName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cidrip",
+		"clusterSecurityGroupName",
+		"ec2SecurityGroupName",
+		"ec2SecurityGroupOwnerId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterSecurityGroupIngress
 	err := ctx.RegisterResource("aws-native:redshift:ClusterSecurityGroupIngress", name, args, &resource, opts...)

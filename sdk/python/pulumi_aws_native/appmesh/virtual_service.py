@@ -152,6 +152,8 @@ class VirtualService(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["uid"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["mesh_name", "mesh_owner", "virtual_service_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VirtualService, __self__).__init__(
             'aws-native:appmesh:VirtualService',
             resource_name,

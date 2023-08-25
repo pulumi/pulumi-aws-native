@@ -82,6 +82,8 @@ export class Map extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["configuration", "description", "mapName", "pricingPlan"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Map.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -103,6 +103,8 @@ class SizeConstraintSet(pulumi.CustomResource):
             if size_constraints is None and not opts.urn:
                 raise TypeError("Missing required property 'size_constraints'")
             __props__.__dict__["size_constraints"] = size_constraints
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SizeConstraintSet, __self__).__init__(
             'aws-native:waf:SizeConstraintSet',
             resource_name,

@@ -212,6 +212,8 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["association_id"] = None
             __props__.__dict__["resource_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["batch_import_meta_data_on_create", "data_repository_path", "file_system_id", "file_system_path"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataRepositoryAssociation, __self__).__init__(
             'aws-native:fsx:DataRepositoryAssociation',
             resource_name,

@@ -85,6 +85,8 @@ export class SourceLocation extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["sourceLocationName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SourceLocation.__pulumiType, name, resourceInputs, opts);
     }
 }

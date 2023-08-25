@@ -37,6 +37,12 @@ func NewApplicationEntitlementAssociation(ctx *pulumi.Context,
 	if args.StackName == nil {
 		return nil, errors.New("invalid value for required argument 'StackName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationIdentifier",
+		"entitlementName",
+		"stackName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationEntitlementAssociation
 	err := ctx.RegisterResource("aws-native:appstream:ApplicationEntitlementAssociation", name, args, &resource, opts...)

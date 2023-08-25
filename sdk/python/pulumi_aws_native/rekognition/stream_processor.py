@@ -296,6 +296,8 @@ class StreamProcessor(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bounding_box_regions_of_interest[*]", "connected_home_settings", "data_sharing_preference", "face_search_settings", "kinesis_data_stream", "kinesis_video_stream", "kms_key_id", "name", "notification_channel", "polygon_regions_of_interest[*]", "role_arn", "s3_destination"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StreamProcessor, __self__).__init__(
             'aws-native:rekognition:StreamProcessor',
             resource_name,

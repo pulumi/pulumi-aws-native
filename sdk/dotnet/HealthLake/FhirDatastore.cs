@@ -71,6 +71,14 @@ namespace Pulumi.AwsNative.HealthLake
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "datastoreName",
+                    "datastoreTypeVersion",
+                    "identityProviderConfiguration",
+                    "preloadDataConfig",
+                    "sseConfiguration",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

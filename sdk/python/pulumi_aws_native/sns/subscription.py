@@ -222,6 +222,8 @@ class Subscription(pulumi.CustomResource):
             if topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_arn'")
             __props__.__dict__["topic_arn"] = topic_arn
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint", "protocol", "topic_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Subscription, __self__).__init__(
             'aws-native:sns:Subscription',
             resource_name,

@@ -88,6 +88,8 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LoggingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

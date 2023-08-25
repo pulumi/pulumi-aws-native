@@ -35,6 +35,11 @@ func NewVpnConnectionRoute(ctx *pulumi.Context,
 	if args.VpnConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'VpnConnectionId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"destinationCidrBlock",
+		"vpnConnectionId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpnConnectionRoute
 	err := ctx.RegisterResource("aws-native:ec2:VpnConnectionRoute", name, args, &resource, opts...)

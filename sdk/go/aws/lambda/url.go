@@ -44,6 +44,11 @@ func NewUrl(ctx *pulumi.Context,
 	if args.TargetFunctionArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetFunctionArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"qualifier",
+		"targetFunctionArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Url
 	err := ctx.RegisterResource("aws-native:lambda:Url", name, args, &resource, opts...)

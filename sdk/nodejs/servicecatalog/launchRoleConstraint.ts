@@ -78,6 +78,8 @@ export class LaunchRoleConstraint extends pulumi.CustomResource {
             resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["portfolioId", "productId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LaunchRoleConstraint.__pulumiType, name, resourceInputs, opts);
     }
 }

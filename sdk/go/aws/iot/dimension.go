@@ -41,6 +41,11 @@ func NewDimension(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dimension
 	err := ctx.RegisterResource("aws-native:iot:Dimension", name, args, &resource, opts...)

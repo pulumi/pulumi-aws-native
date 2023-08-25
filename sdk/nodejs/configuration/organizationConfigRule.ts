@@ -72,6 +72,8 @@ export class OrganizationConfigRule extends pulumi.CustomResource {
             resourceInputs["organizationManagedRuleMetadata"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["organizationConfigRuleName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(OrganizationConfigRule.__pulumiType, name, resourceInputs, opts);
     }
 }

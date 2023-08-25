@@ -111,6 +111,8 @@ export class FunctionConfiguration extends pulumi.CustomResource {
             resourceInputs["syncConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FunctionConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

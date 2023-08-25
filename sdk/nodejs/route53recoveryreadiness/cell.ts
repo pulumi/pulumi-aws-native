@@ -82,6 +82,8 @@ export class Cell extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cellName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cell.__pulumiType, name, resourceInputs, opts);
     }
 }

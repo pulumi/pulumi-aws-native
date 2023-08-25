@@ -140,6 +140,8 @@ class VodSource(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vod_source_name"] = vod_source_name
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["source_location_name", "vod_source_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VodSource, __self__).__init__(
             'aws-native:mediatailor:VodSource',
             resource_name,

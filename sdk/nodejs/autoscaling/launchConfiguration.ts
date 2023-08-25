@@ -172,6 +172,8 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             resourceInputs["userData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["associatePublicIpAddress", "blockDeviceMappings[*]", "classicLinkVpcId", "classicLinkVpcSecurityGroups[*]", "ebsOptimized", "iamInstanceProfile", "imageId", "instanceId", "instanceMonitoring", "instanceType", "kernelId", "keyName", "launchConfigurationName", "metadataOptions", "placementTenancy", "ramDiskId", "securityGroups[*]", "spotPrice", "userData"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LaunchConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

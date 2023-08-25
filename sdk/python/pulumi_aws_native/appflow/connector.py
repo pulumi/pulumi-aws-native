@@ -149,6 +149,8 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["connector_provisioning_type"] = connector_provisioning_type
             __props__.__dict__["description"] = description
             __props__.__dict__["connector_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_label"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connector, __self__).__init__(
             'aws-native:appflow:Connector',
             resource_name,

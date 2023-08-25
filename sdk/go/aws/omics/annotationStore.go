@@ -41,6 +41,15 @@ func NewAnnotationStore(ctx *pulumi.Context,
 	if args.StoreFormat == nil {
 		return nil, errors.New("invalid value for required argument 'StoreFormat'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"reference",
+		"sseConfig",
+		"storeFormat",
+		"storeOptions",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnnotationStore
 	err := ctx.RegisterResource("aws-native:omics:AnnotationStore", name, args, &resource, opts...)

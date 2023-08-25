@@ -148,6 +148,8 @@ class CapacityReservation(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_successful_allocation_time"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CapacityReservation, __self__).__init__(
             'aws-native:athena:CapacityReservation',
             resource_name,

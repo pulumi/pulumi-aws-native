@@ -132,6 +132,8 @@ class Resource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'use_service_linked_role'")
             __props__.__dict__["use_service_linked_role"] = use_service_linked_role
             __props__.__dict__["with_federation"] = with_federation
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Resource, __self__).__init__(
             'aws-native:lakeformation:Resource',
             resource_name,

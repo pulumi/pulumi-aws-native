@@ -29,6 +29,10 @@ func NewBillingGroup(ctx *pulumi.Context,
 		args = &BillingGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"billingGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BillingGroup
 	err := ctx.RegisterResource("aws-native:iot:BillingGroup", name, args, &resource, opts...)

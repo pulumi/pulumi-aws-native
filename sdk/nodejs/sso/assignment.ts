@@ -106,6 +106,8 @@ export class Assignment extends pulumi.CustomResource {
             resourceInputs["targetType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instanceArn", "permissionSetArn", "principalId", "principalType", "targetId", "targetType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Assignment.__pulumiType, name, resourceInputs, opts);
     }
 }

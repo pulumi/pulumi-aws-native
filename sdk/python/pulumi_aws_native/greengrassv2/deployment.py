@@ -174,6 +174,8 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_arn'")
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["deployment_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["components", "deployment_name", "deployment_policies", "iot_job_configuration", "parent_target_arn", "target_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Deployment, __self__).__init__(
             'aws-native:greengrassv2:Deployment',
             resource_name,

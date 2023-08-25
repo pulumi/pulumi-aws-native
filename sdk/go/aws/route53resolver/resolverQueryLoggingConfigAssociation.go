@@ -36,6 +36,11 @@ func NewResolverQueryLoggingConfigAssociation(ctx *pulumi.Context,
 		args = &ResolverQueryLoggingConfigAssociationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resolverQueryLogConfigId",
+		"resourceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverQueryLoggingConfigAssociation
 	err := ctx.RegisterResource("aws-native:route53resolver:ResolverQueryLoggingConfigAssociation", name, args, &resource, opts...)

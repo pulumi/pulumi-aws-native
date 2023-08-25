@@ -38,6 +38,10 @@ func NewStream(ctx *pulumi.Context,
 		args = &StreamArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stream
 	err := ctx.RegisterResource("aws-native:kinesis:Stream", name, args, &resource, opts...)

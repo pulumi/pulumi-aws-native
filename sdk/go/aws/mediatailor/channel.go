@@ -42,6 +42,11 @@ func NewChannel(ctx *pulumi.Context,
 	if args.PlaybackMode == nil {
 		return nil, errors.New("invalid value for required argument 'PlaybackMode'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"channelName",
+		"tier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws-native:mediatailor:Channel", name, args, &resource, opts...)

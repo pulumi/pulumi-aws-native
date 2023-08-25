@@ -102,6 +102,8 @@ class Location(pulumi.CustomResource):
             __props__.__dict__["location_name"] = location_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["location_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Location, __self__).__init__(
             'aws-native:gamelift:Location',
             resource_name,

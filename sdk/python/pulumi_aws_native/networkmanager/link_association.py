@@ -127,6 +127,8 @@ class LinkAssociation(pulumi.CustomResource):
             if link_id is None and not opts.urn:
                 raise TypeError("Missing required property 'link_id'")
             __props__.__dict__["link_id"] = link_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device_id", "global_network_id", "link_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LinkAssociation, __self__).__init__(
             'aws-native:networkmanager:LinkAssociation',
             resource_name,

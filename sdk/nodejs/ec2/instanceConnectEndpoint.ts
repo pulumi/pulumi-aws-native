@@ -85,6 +85,8 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clientToken", "preserveClientIp", "securityGroupIds[*]", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InstanceConnectEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

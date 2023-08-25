@@ -76,6 +76,8 @@ export class InstanceProfile extends pulumi.CustomResource {
             resourceInputs["roles"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instanceProfileName", "path"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InstanceProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

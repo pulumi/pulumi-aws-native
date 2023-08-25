@@ -73,6 +73,8 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
             resourceInputs["attributeGroupArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["application", "attributeGroup"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AttributeGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

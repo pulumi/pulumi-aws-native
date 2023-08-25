@@ -34,6 +34,10 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 	if args.FirewallPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'FirewallPolicy'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"firewallPolicyName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallPolicy
 	err := ctx.RegisterResource("aws-native:networkfirewall:FirewallPolicy", name, args, &resource, opts...)

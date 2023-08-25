@@ -75,6 +75,10 @@ func NewAlarm(ctx *pulumi.Context,
 	if args.EvaluationPeriods == nil {
 		return nil, errors.New("invalid value for required argument 'EvaluationPeriods'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"alarmName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alarm
 	err := ctx.RegisterResource("aws-native:cloudwatch:Alarm", name, args, &resource, opts...)

@@ -67,6 +67,8 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["serverProperties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["kafkaVersionsList[*]", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Configuration.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -72,6 +72,8 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["policies"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["groupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }

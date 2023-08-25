@@ -313,6 +313,8 @@ class RecordSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["weight"] = weight
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["hosted_zone_id", "hosted_zone_name", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RecordSet, __self__).__init__(
             'aws-native:route53:RecordSet',
             resource_name,

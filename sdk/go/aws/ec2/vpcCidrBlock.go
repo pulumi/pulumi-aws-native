@@ -39,6 +39,18 @@ func NewVpcCidrBlock(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"amazonProvidedIpv6CidrBlock",
+		"cidrBlock",
+		"ipv4IpamPoolId",
+		"ipv4NetmaskLength",
+		"ipv6CidrBlock",
+		"ipv6IpamPoolId",
+		"ipv6NetmaskLength",
+		"ipv6Pool",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcCidrBlock
 	err := ctx.RegisterResource("aws-native:ec2:VpcCidrBlock", name, args, &resource, opts...)

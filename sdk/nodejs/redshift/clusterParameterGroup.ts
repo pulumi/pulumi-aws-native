@@ -88,6 +88,8 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "parameterGroupFamily", "parameterGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ClusterParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

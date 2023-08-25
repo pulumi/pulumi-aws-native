@@ -39,6 +39,10 @@ func NewPatchBaseline(ctx *pulumi.Context,
 		args = &PatchBaselineArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"operatingSystem",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PatchBaseline
 	err := ctx.RegisterResource("aws-native:ssm:PatchBaseline", name, args, &resource, opts...)

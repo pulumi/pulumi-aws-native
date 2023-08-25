@@ -52,6 +52,19 @@ func NewFlowLog(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"deliverLogsPermissionArn",
+		"destinationOptions",
+		"logDestination",
+		"logDestinationType",
+		"logFormat",
+		"logGroupName",
+		"maxAggregationInterval",
+		"resourceId",
+		"resourceType",
+		"trafficType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlowLog
 	err := ctx.RegisterResource("aws-native:ec2:FlowLog", name, args, &resource, opts...)

@@ -42,6 +42,12 @@ func NewTransitGatewayVpcAttachment(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"subnetIds[*]",
+		"transitGatewayId",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayVpcAttachment
 	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayVpcAttachment", name, args, &resource, opts...)

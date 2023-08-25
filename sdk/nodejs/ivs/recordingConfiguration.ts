@@ -94,6 +94,8 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["thumbnailConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["destinationConfiguration", "name", "recordingReconnectWindowSeconds", "renditionConfiguration", "thumbnailConfiguration"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RecordingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

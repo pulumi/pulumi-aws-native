@@ -75,6 +75,8 @@ export class Skill extends pulumi.CustomResource {
             resourceInputs["vendorId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["vendorId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Skill.__pulumiType, name, resourceInputs, opts);
     }
 }

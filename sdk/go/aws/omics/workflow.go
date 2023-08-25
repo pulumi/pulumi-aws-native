@@ -37,6 +37,15 @@ func NewWorkflow(ctx *pulumi.Context,
 		args = &WorkflowArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accelerators",
+		"definitionUri",
+		"engine",
+		"main",
+		"parameterTemplate",
+		"storageCapacity",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workflow
 	err := ctx.RegisterResource("aws-native:omics:Workflow", name, args, &resource, opts...)

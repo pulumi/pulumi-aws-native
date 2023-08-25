@@ -152,6 +152,28 @@ namespace Pulumi.AwsNative.AutoScaling
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "associatePublicIpAddress",
+                    "blockDeviceMappings[*]",
+                    "classicLinkVpcId",
+                    "classicLinkVpcSecurityGroups[*]",
+                    "ebsOptimized",
+                    "iamInstanceProfile",
+                    "imageId",
+                    "instanceId",
+                    "instanceMonitoring",
+                    "instanceType",
+                    "kernelId",
+                    "keyName",
+                    "launchConfigurationName",
+                    "metadataOptions",
+                    "placementTenancy",
+                    "ramDiskId",
+                    "securityGroups[*]",
+                    "spotPrice",
+                    "userData",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

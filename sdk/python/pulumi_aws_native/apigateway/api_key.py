@@ -227,6 +227,8 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["value"] = value
             __props__.__dict__["api_key_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["generate_distinct_id", "name", "value"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApiKey, __self__).__init__(
             'aws-native:apigateway:ApiKey',
             resource_name,

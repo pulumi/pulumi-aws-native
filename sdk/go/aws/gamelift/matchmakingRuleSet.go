@@ -34,6 +34,11 @@ func NewMatchmakingRuleSet(ctx *pulumi.Context,
 	if args.RuleSetBody == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetBody'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"ruleSetBody",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MatchmakingRuleSet
 	err := ctx.RegisterResource("aws-native:gamelift:MatchmakingRuleSet", name, args, &resource, opts...)

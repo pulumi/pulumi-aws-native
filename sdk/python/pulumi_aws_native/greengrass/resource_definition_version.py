@@ -104,6 +104,8 @@ class ResourceDefinitionVersion(pulumi.CustomResource):
             if resources is None and not opts.urn:
                 raise TypeError("Missing required property 'resources'")
             __props__.__dict__["resources"] = resources
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_definition_id", "resources[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourceDefinitionVersion, __self__).__init__(
             'aws-native:greengrass:ResourceDefinitionVersion',
             resource_name,

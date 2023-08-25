@@ -169,6 +169,8 @@ class FlowVpcInterface(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["network_interface_ids"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["flow_arn", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FlowVpcInterface, __self__).__init__(
             'aws-native:mediaconnect:FlowVpcInterface',
             resource_name,

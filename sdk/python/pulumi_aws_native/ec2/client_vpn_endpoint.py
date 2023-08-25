@@ -316,6 +316,8 @@ class ClientVpnEndpoint(pulumi.CustomResource):
             __props__.__dict__["transport_protocol"] = transport_protocol
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["vpn_port"] = vpn_port
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authentication_options[*]", "client_cidr_block", "tag_specifications[*]", "transport_protocol"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClientVpnEndpoint, __self__).__init__(
             'aws-native:ec2:ClientVpnEndpoint',
             resource_name,

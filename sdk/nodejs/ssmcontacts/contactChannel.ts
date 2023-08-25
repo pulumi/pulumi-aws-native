@@ -88,6 +88,8 @@ export class ContactChannel extends pulumi.CustomResource {
             resourceInputs["deferActivation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["channelType", "contactId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ContactChannel.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -204,6 +204,8 @@ class Solution(pulumi.CustomResource):
             __props__.__dict__["recipe_arn"] = recipe_arn
             __props__.__dict__["solution_config"] = solution_config
             __props__.__dict__["solution_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataset_group_arn", "event_type", "name", "perform_auto_ml", "perform_hpo", "recipe_arn", "solution_config"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Solution, __self__).__init__(
             'aws-native:personalize:Solution',
             resource_name,

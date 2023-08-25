@@ -139,6 +139,8 @@ export class Method extends pulumi.CustomResource {
             resourceInputs["restApiId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["httpMethod", "resourceId", "restApiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Method.__pulumiType, name, resourceInputs, opts);
     }
 }

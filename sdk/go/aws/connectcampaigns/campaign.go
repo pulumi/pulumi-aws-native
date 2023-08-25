@@ -44,6 +44,10 @@ func NewCampaign(ctx *pulumi.Context,
 	if args.OutboundCallConfig == nil {
 		return nil, errors.New("invalid value for required argument 'OutboundCallConfig'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"connectInstanceArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Campaign
 	err := ctx.RegisterResource("aws-native:connectcampaigns:Campaign", name, args, &resource, opts...)

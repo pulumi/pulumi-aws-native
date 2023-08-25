@@ -87,6 +87,8 @@ export class GameSessionQueue extends pulumi.CustomResource {
             resourceInputs["timeoutInSeconds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GameSessionQueue.__pulumiType, name, resourceInputs, opts);
     }
 }

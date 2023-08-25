@@ -103,6 +103,8 @@ class StorageLens(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_lens_configuration'")
             __props__.__dict__["storage_lens_configuration"] = storage_lens_configuration
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["storage_lens_configuration.id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StorageLens, __self__).__init__(
             'aws-native:s3:StorageLens',
             resource_name,

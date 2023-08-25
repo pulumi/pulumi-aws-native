@@ -46,6 +46,11 @@ func NewAddon(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"addonName",
+		"clusterName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Addon
 	err := ctx.RegisterResource("aws-native:eks:Addon", name, args, &resource, opts...)

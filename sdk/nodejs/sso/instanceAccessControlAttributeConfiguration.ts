@@ -70,6 +70,8 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
             resourceInputs["instanceArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instanceArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InstanceAccessControlAttributeConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

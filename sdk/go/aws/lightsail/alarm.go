@@ -65,6 +65,12 @@ func NewAlarm(ctx *pulumi.Context,
 	if args.Threshold == nil {
 		return nil, errors.New("invalid value for required argument 'Threshold'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"alarmName",
+		"metricName",
+		"monitoredResourceName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alarm
 	err := ctx.RegisterResource("aws-native:lightsail:Alarm", name, args, &resource, opts...)

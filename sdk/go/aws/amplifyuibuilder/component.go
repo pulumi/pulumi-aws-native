@@ -54,6 +54,10 @@ func NewComponent(ctx *pulumi.Context,
 	if args.Variants == nil {
 		return nil, errors.New("invalid value for required argument 'Variants'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Component
 	err := ctx.RegisterResource("aws-native:amplifyuibuilder:Component", name, args, &resource, opts...)

@@ -177,6 +177,8 @@ class BillingGroup(pulumi.CustomResource):
             __props__.__dict__["size"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_reason"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["primary_account_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BillingGroup, __self__).__init__(
             'aws-native:billingconductor:BillingGroup',
             resource_name,

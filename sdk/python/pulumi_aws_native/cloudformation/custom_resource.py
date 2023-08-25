@@ -86,6 +86,8 @@ class CustomResource(pulumi.CustomResource):
             if service_token is None and not opts.urn:
                 raise TypeError("Missing required property 'service_token'")
             __props__.__dict__["service_token"] = service_token
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["service_token"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomResource, __self__).__init__(
             'aws-native:cloudformation:CustomResource',
             resource_name,

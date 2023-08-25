@@ -104,6 +104,8 @@ class LoggerDefinitionVersion(pulumi.CustomResource):
             if loggers is None and not opts.urn:
                 raise TypeError("Missing required property 'loggers'")
             __props__.__dict__["loggers"] = loggers
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["logger_definition_id", "loggers[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LoggerDefinitionVersion, __self__).__init__(
             'aws-native:greengrass:LoggerDefinitionVersion',
             resource_name,

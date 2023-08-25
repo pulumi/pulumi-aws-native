@@ -37,6 +37,16 @@ func NewTargetGroup(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"config.ipAddressType",
+		"config.port",
+		"config.protocol",
+		"config.protocolVersion",
+		"config.vpcIdentifier",
+		"name",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TargetGroup
 	err := ctx.RegisterResource("aws-native:vpclattice:TargetGroup", name, args, &resource, opts...)

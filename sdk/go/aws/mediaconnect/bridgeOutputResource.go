@@ -37,6 +37,11 @@ func NewBridgeOutputResource(ctx *pulumi.Context,
 	if args.NetworkOutput == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkOutput'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bridgeArn",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BridgeOutputResource
 	err := ctx.RegisterResource("aws-native:mediaconnect:BridgeOutputResource", name, args, &resource, opts...)

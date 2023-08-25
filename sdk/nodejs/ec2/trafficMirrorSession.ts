@@ -93,6 +93,8 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             resourceInputs["virtualNetworkId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["networkInterfaceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TrafficMirrorSession.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -132,6 +132,8 @@ export class InferenceScheduler extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["inferenceSchedulerName", "modelName", "serverSideKmsKeyId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InferenceScheduler.__pulumiType, name, resourceInputs, opts);
     }
 }

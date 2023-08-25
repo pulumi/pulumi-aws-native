@@ -119,6 +119,8 @@ class EventBus(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["policy"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["event_source_name", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventBus, __self__).__init__(
             'aws-native:events:EventBus',
             resource_name,

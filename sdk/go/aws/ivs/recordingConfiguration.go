@@ -41,6 +41,14 @@ func NewRecordingConfiguration(ctx *pulumi.Context,
 	if args.DestinationConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationConfiguration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"destinationConfiguration",
+		"name",
+		"recordingReconnectWindowSeconds",
+		"renditionConfiguration",
+		"thumbnailConfiguration",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecordingConfiguration
 	err := ctx.RegisterResource("aws-native:ivs:RecordingConfiguration", name, args, &resource, opts...)

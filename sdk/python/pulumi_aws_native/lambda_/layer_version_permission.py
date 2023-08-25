@@ -147,6 +147,8 @@ class LayerVersionPermission(pulumi.CustomResource):
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action", "layer_version_arn", "organization_id", "principal"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LayerVersionPermission, __self__).__init__(
             'aws-native:lambda:LayerVersionPermission',
             resource_name,

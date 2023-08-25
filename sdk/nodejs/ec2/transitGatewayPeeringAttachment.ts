@@ -118,6 +118,8 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
             resourceInputs["transitGatewayId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["peerAccountId", "peerRegion", "peerTransitGatewayId", "transitGatewayId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayPeeringAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

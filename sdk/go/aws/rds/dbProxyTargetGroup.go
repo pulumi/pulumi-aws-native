@@ -40,6 +40,11 @@ func NewDbProxyTargetGroup(ctx *pulumi.Context,
 	if args.TargetGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'TargetGroupName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dbProxyName",
+		"targetGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbProxyTargetGroup
 	err := ctx.RegisterResource("aws-native:rds:DbProxyTargetGroup", name, args, &resource, opts...)

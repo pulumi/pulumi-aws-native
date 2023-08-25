@@ -82,6 +82,8 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "publicKeyMaterial"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PlaybackKeyPair.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -330,6 +330,8 @@ class Method(pulumi.CustomResource):
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["http_method", "resource_id", "rest_api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Method, __self__).__init__(
             'aws-native:apigateway:Method',
             resource_name,

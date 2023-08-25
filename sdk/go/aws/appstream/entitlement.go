@@ -41,6 +41,11 @@ func NewEntitlement(ctx *pulumi.Context,
 	if args.StackName == nil {
 		return nil, errors.New("invalid value for required argument 'StackName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"stackName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Entitlement
 	err := ctx.RegisterResource("aws-native:appstream:Entitlement", name, args, &resource, opts...)

@@ -153,6 +153,8 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["instance_status"] = None
             __props__.__dict__["service_role"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["directory_id", "identity_management_type", "instance_alias"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Instance, __self__).__init__(
             'aws-native:connect:Instance',
             resource_name,

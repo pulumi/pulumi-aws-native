@@ -108,6 +108,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["workflowDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domain", "identityProviderType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -30,6 +30,11 @@ func NewRecordSetGroup(ctx *pulumi.Context,
 		args = &RecordSetGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"hostedZoneId",
+		"hostedZoneName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecordSetGroup
 	err := ctx.RegisterResource("aws-native:route53:RecordSetGroup", name, args, &resource, opts...)

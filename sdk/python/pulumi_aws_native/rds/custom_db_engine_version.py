@@ -251,6 +251,8 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["db_engine_version_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["database_installation_files_s3_bucket_name", "database_installation_files_s3_prefix", "engine", "engine_version", "kms_key_id", "manifest"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomDbEngineVersion, __self__).__init__(
             'aws-native:rds:CustomDbEngineVersion',
             resource_name,

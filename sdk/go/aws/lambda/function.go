@@ -82,6 +82,10 @@ func NewFunction(ctx *pulumi.Context,
 	if args.Role == nil {
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"functionName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Function
 	err := ctx.RegisterResource("aws-native:lambda:Function", name, args, &resource, opts...)

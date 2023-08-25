@@ -31,6 +31,10 @@ func NewOrganizationConfigRule(ctx *pulumi.Context,
 		args = &OrganizationConfigRuleArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"organizationConfigRuleName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationConfigRule
 	err := ctx.RegisterResource("aws-native:configuration:OrganizationConfigRule", name, args, &resource, opts...)

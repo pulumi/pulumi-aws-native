@@ -88,6 +88,8 @@ export class SchemaMapping extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "mappedInputFields[*]", "schemaName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SchemaMapping.__pulumiType, name, resourceInputs, opts);
     }
 }

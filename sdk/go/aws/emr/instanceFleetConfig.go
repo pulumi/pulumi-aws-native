@@ -40,6 +40,14 @@ func NewInstanceFleetConfig(ctx *pulumi.Context,
 	if args.InstanceFleetType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceFleetType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clusterId",
+		"instanceFleetType",
+		"instanceTypeConfigs[*]",
+		"launchSpecifications",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceFleetConfig
 	err := ctx.RegisterResource("aws-native:emr:InstanceFleetConfig", name, args, &resource, opts...)

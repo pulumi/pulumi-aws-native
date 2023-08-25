@@ -79,6 +79,22 @@ func NewReplicationGroup(ctx *pulumi.Context,
 	if args.ReplicationGroupDescription == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationGroupDescription'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"atRestEncryptionEnabled",
+		"cacheSubnetGroupName",
+		"dataTieringEnabled",
+		"engine",
+		"globalReplicationGroupId",
+		"kmsKeyId",
+		"networkType",
+		"port",
+		"preferredCacheClusterAzs[*]",
+		"replicasPerNodeGroup",
+		"replicationGroupId",
+		"snapshotArns[*]",
+		"snapshotName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationGroup
 	err := ctx.RegisterResource("aws-native:elasticache:ReplicationGroup", name, args, &resource, opts...)

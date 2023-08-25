@@ -75,6 +75,8 @@ export class Workteam extends pulumi.CustomResource {
             resourceInputs["workteamName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["workforceName", "workteamName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Workteam.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -50,6 +50,11 @@ func NewSourceApiAssociation(ctx *pulumi.Context,
 		args = &SourceApiAssociationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"mergedApiIdentifier",
+		"sourceApiIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SourceApiAssociation
 	err := ctx.RegisterResource("aws-native:appsync:SourceApiAssociation", name, args, &resource, opts...)

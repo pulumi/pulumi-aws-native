@@ -38,6 +38,10 @@ func NewDirectoryConfig(ctx *pulumi.Context,
 	if args.ServiceAccountCredentials == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceAccountCredentials'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"directoryName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DirectoryConfig
 	err := ctx.RegisterResource("aws-native:appstream:DirectoryConfig", name, args, &resource, opts...)

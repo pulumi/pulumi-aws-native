@@ -148,6 +148,8 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["gateway_platform"] = gateway_platform
             __props__.__dict__["tags"] = tags
             __props__.__dict__["gateway_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["gateway_platform"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Gateway, __self__).__init__(
             'aws-native:iotsitewise:Gateway',
             resource_name,

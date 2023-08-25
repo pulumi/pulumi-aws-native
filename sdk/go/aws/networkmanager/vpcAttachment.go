@@ -68,6 +68,11 @@ func NewVpcAttachment(ctx *pulumi.Context,
 	if args.VpcArn == nil {
 		return nil, errors.New("invalid value for required argument 'VpcArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"coreNetworkId",
+		"vpcArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAttachment
 	err := ctx.RegisterResource("aws-native:networkmanager:VpcAttachment", name, args, &resource, opts...)

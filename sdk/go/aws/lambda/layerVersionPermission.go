@@ -42,6 +42,13 @@ func NewLayerVersionPermission(ctx *pulumi.Context,
 	if args.Principal == nil {
 		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"action",
+		"layerVersionArn",
+		"organizationId",
+		"principal",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LayerVersionPermission
 	err := ctx.RegisterResource("aws-native:lambda:LayerVersionPermission", name, args, &resource, opts...)

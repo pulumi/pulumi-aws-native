@@ -251,6 +251,8 @@ class DocumentClassifier(pulumi.CustomResource):
             __props__.__dict__["volume_kms_key_id"] = volume_kms_key_id
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_access_role_arn", "document_classifier_name", "input_data_config", "language_code", "mode", "model_kms_key_id", "output_data_config", "version_name", "volume_kms_key_id", "vpc_config"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DocumentClassifier, __self__).__init__(
             'aws-native:comprehend:DocumentClassifier',
             resource_name,

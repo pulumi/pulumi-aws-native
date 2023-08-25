@@ -109,6 +109,8 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["variants"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Component.__pulumiType, name, resourceInputs, opts);
     }
 }

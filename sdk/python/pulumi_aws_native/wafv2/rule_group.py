@@ -237,6 +237,8 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["visibility_config"] = visibility_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["label_namespace"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "scope"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RuleGroup, __self__).__init__(
             'aws-native:wafv2:RuleGroup',
             resource_name,

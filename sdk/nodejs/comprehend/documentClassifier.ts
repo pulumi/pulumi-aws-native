@@ -100,6 +100,8 @@ export class DocumentClassifier extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dataAccessRoleArn", "documentClassifierName", "inputDataConfig", "languageCode", "mode", "modelKmsKeyId", "outputDataConfig", "versionName", "volumeKmsKeyId", "vpcConfig"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DocumentClassifier.__pulumiType, name, resourceInputs, opts);
     }
 }

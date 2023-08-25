@@ -75,6 +75,8 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
             resourceInputs["userPoolId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["identifier", "userPoolId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserPoolResourceServer.__pulumiType, name, resourceInputs, opts);
     }
 }

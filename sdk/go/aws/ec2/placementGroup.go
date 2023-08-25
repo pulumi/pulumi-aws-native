@@ -34,6 +34,13 @@ func NewPlacementGroup(ctx *pulumi.Context,
 		args = &PlacementGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"partitionCount",
+		"spreadLevel",
+		"strategy",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlacementGroup
 	err := ctx.RegisterResource("aws-native:ec2:PlacementGroup", name, args, &resource, opts...)

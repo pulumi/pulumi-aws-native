@@ -69,6 +69,8 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
             resourceInputs["dataCatalogEncryptionSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["catalogId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataCatalogEncryptionSettings.__pulumiType, name, resourceInputs, opts);
     }
 }

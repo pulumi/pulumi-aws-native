@@ -90,6 +90,8 @@ export class MicrosoftAd extends pulumi.CustomResource {
             resourceInputs["vpcSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["createAlias", "edition", "name", "password", "shortName", "vpcSettings"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MicrosoftAd.__pulumiType, name, resourceInputs, opts);
     }
 }

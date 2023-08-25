@@ -88,6 +88,8 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resolverQueryLogConfigId", "resourceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResolverQueryLoggingConfigAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

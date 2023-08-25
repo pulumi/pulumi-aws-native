@@ -225,6 +225,8 @@ class Analysis(pulumi.CustomResource):
             __props__.__dict__["errors"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["sheets"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analysis_id", "aws_account_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Analysis, __self__).__init__(
             'aws-native:quicksight:Analysis',
             resource_name,

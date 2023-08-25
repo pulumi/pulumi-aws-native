@@ -147,6 +147,8 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'global_network_id'")
             __props__.__dict__["global_network_id"] = global_network_id
             __props__.__dict__["link_id"] = link_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customer_gateway_arn", "device_id", "global_network_id", "link_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomerGatewayAssociation, __self__).__init__(
             'aws-native:networkmanager:CustomerGatewayAssociation',
             resource_name,

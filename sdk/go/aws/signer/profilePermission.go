@@ -42,6 +42,14 @@ func NewProfilePermission(ctx *pulumi.Context,
 	if args.StatementId == nil {
 		return nil, errors.New("invalid value for required argument 'StatementId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"action",
+		"principal",
+		"profileName",
+		"profileVersion",
+		"statementId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProfilePermission
 	err := ctx.RegisterResource("aws-native:signer:ProfilePermission", name, args, &resource, opts...)

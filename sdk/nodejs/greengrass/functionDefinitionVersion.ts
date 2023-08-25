@@ -72,6 +72,8 @@ export class FunctionDefinitionVersion extends pulumi.CustomResource {
             resourceInputs["functions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["defaultConfig", "functionDefinitionId", "functions[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FunctionDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

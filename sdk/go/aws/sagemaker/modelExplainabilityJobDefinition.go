@@ -57,6 +57,20 @@ func NewModelExplainabilityJobDefinition(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"endpointName",
+		"jobDefinitionName",
+		"jobResources",
+		"modelExplainabilityAppSpecification",
+		"modelExplainabilityBaselineConfig",
+		"modelExplainabilityJobInput",
+		"modelExplainabilityJobOutputConfig",
+		"networkConfig",
+		"roleArn",
+		"stoppingCondition",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelExplainabilityJobDefinition
 	err := ctx.RegisterResource("aws-native:sagemaker:ModelExplainabilityJobDefinition", name, args, &resource, opts...)

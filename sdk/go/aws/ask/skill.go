@@ -39,6 +39,10 @@ func NewSkill(ctx *pulumi.Context,
 	if args.VendorId == nil {
 		return nil, errors.New("invalid value for required argument 'VendorId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"vendorId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Skill
 	err := ctx.RegisterResource("aws-native:ask:Skill", name, args, &resource, opts...)

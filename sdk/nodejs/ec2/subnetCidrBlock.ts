@@ -67,6 +67,8 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
             resourceInputs["subnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ipv6CidrBlock", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SubnetCidrBlock.__pulumiType, name, resourceInputs, opts);
     }
 }

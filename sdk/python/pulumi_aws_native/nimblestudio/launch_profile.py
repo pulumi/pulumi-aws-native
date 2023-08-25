@@ -232,6 +232,8 @@ class LaunchProfile(pulumi.CustomResource):
             __props__.__dict__["studio_id"] = studio_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["launch_profile_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_subnet_ids[*]", "studio_id", "tags"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LaunchProfile, __self__).__init__(
             'aws-native:nimblestudio:LaunchProfile',
             resource_name,

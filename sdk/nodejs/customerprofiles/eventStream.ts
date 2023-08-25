@@ -103,6 +103,8 @@ export class EventStream extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domainName", "eventStreamName", "uri"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EventStream.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -128,6 +128,8 @@ class VirtualMfaDevice(pulumi.CustomResource):
             __props__.__dict__["users"] = users
             __props__.__dict__["virtual_mfa_device_name"] = virtual_mfa_device_name
             __props__.__dict__["serial_number"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["path", "virtual_mfa_device_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VirtualMfaDevice, __self__).__init__(
             'aws-native:iam:VirtualMfaDevice',
             resource_name,

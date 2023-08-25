@@ -77,6 +77,17 @@ func NewBroker(ctx *pulumi.Context,
 	if args.Users == nil {
 		return nil, errors.New("invalid value for required argument 'Users'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"authenticationStrategy",
+		"brokerName",
+		"deploymentMode",
+		"encryptionOptions",
+		"engineType",
+		"publiclyAccessible",
+		"storageType",
+		"subnetIds[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Broker
 	err := ctx.RegisterResource("aws-native:amazonmq:Broker", name, args, &resource, opts...)

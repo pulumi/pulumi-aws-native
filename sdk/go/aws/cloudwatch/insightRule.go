@@ -41,6 +41,10 @@ func NewInsightRule(ctx *pulumi.Context,
 	if args.RuleState == nil {
 		return nil, errors.New("invalid value for required argument 'RuleState'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ruleName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InsightRule
 	err := ctx.RegisterResource("aws-native:cloudwatch:InsightRule", name, args, &resource, opts...)

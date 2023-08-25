@@ -79,6 +79,8 @@ export class ServerlessCluster extends pulumi.CustomResource {
             resourceInputs["vpcConfigs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clientAuthentication", "clusterName", "tags", "vpcConfigs[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServerlessCluster.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -42,6 +42,10 @@ func NewProject(ctx *pulumi.Context,
 	if args.PortalId == nil {
 		return nil, errors.New("invalid value for required argument 'PortalId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"portalId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Project
 	err := ctx.RegisterResource("aws-native:iotsitewise:Project", name, args, &resource, opts...)

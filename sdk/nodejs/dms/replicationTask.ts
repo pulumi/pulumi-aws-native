@@ -111,6 +111,8 @@ export class ReplicationTask extends pulumi.CustomResource {
             resourceInputs["taskData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["replicationInstanceArn", "resourceIdentifier", "sourceEndpointArn", "targetEndpointArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReplicationTask.__pulumiType, name, resourceInputs, opts);
     }
 }

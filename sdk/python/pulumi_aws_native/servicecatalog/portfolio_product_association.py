@@ -132,6 +132,8 @@ class PortfolioProductAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'product_id'")
             __props__.__dict__["product_id"] = product_id
             __props__.__dict__["source_portfolio_id"] = source_portfolio_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accept_language", "portfolio_id", "product_id", "source_portfolio_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PortfolioProductAssociation, __self__).__init__(
             'aws-native:servicecatalog:PortfolioProductAssociation',
             resource_name,

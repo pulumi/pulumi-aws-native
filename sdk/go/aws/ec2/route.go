@@ -56,6 +56,12 @@ func NewRoute(ctx *pulumi.Context,
 	if args.RouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'RouteTableId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"destinationCidrBlock",
+		"destinationIpv6CidrBlock",
+		"routeTableId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws-native:ec2:Route", name, args, &resource, opts...)

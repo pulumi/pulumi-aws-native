@@ -41,6 +41,10 @@ func NewJobTemplate(ctx *pulumi.Context,
 	if args.SettingsJson == nil {
 		return nil, errors.New("invalid value for required argument 'SettingsJson'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JobTemplate
 	err := ctx.RegisterResource("aws-native:mediaconvert:JobTemplate", name, args, &resource, opts...)

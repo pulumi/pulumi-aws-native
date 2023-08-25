@@ -126,6 +126,8 @@ class RolePolicy(pulumi.CustomResource):
             if role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_name'")
             __props__.__dict__["role_name"] = role_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_name", "role_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RolePolicy, __self__).__init__(
             'aws-native:iam:RolePolicy',
             resource_name,

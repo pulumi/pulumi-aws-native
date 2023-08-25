@@ -72,6 +72,8 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["volumeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["volumeId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
 }

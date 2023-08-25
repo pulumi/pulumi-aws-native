@@ -169,6 +169,8 @@ class List(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_updated_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(List, __self__).__init__(
             'aws-native:frauddetector:List',
             resource_name,

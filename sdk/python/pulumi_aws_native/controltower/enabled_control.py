@@ -106,6 +106,8 @@ class EnabledControl(pulumi.CustomResource):
             if target_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'target_identifier'")
             __props__.__dict__["target_identifier"] = target_identifier
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["control_identifier", "target_identifier"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EnabledControl, __self__).__init__(
             'aws-native:controltower:EnabledControl',
             resource_name,

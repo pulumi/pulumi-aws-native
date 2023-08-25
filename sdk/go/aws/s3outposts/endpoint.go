@@ -55,6 +55,14 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accessType",
+		"customerOwnedIpv4Pool",
+		"outpostId",
+		"securityGroupId",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws-native:s3outposts:Endpoint", name, args, &resource, opts...)

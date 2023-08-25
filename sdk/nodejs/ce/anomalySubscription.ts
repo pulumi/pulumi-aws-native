@@ -120,6 +120,8 @@ export class AnomalySubscription extends pulumi.CustomResource {
             resourceInputs["thresholdExpression"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceTags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AnomalySubscription.__pulumiType, name, resourceInputs, opts);
     }
 }

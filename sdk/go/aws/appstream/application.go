@@ -54,6 +54,12 @@ func NewApplication(ctx *pulumi.Context,
 	if args.Platforms == nil {
 		return nil, errors.New("invalid value for required argument 'Platforms'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instanceFamilies[*]",
+		"name",
+		"platforms[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws-native:appstream:Application", name, args, &resource, opts...)

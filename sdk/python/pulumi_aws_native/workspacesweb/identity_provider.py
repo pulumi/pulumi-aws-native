@@ -130,6 +130,8 @@ class IdentityProvider(pulumi.CustomResource):
             __props__.__dict__["identity_provider_type"] = identity_provider_type
             __props__.__dict__["portal_arn"] = portal_arn
             __props__.__dict__["identity_provider_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portal_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IdentityProvider, __self__).__init__(
             'aws-native:workspacesweb:IdentityProvider',
             resource_name,

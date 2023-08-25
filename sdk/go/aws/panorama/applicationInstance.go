@@ -47,6 +47,16 @@ func NewApplicationInstance(ctx *pulumi.Context,
 	if args.ManifestPayload == nil {
 		return nil, errors.New("invalid value for required argument 'ManifestPayload'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationInstanceIdToReplace",
+		"defaultRuntimeContextDevice",
+		"description",
+		"manifestOverridesPayload",
+		"manifestPayload",
+		"name",
+		"runtimeRoleArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationInstance
 	err := ctx.RegisterResource("aws-native:panorama:ApplicationInstance", name, args, &resource, opts...)

@@ -94,6 +94,8 @@ export class LayerVersion extends pulumi.CustomResource {
             resourceInputs["licenseInfo"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["compatibleArchitectures[*]", "compatibleRuntimes[*]", "content", "description", "layerName", "licenseInfo"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LayerVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -66,6 +66,8 @@ export class PolicyPrincipalAttachment extends pulumi.CustomResource {
             resourceInputs["principal"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["policyName", "principal"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PolicyPrincipalAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

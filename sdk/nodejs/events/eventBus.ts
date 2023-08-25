@@ -72,6 +72,8 @@ export class EventBus extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["eventSourceName", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EventBus.__pulumiType, name, resourceInputs, opts);
     }
 }

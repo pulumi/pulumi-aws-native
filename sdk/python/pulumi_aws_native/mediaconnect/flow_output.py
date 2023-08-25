@@ -350,6 +350,8 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["stream_id"] = stream_id
             __props__.__dict__["vpc_interface_attachment"] = vpc_interface_attachment
             __props__.__dict__["output_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FlowOutput, __self__).__init__(
             'aws-native:mediaconnect:FlowOutput',
             resource_name,

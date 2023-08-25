@@ -34,6 +34,11 @@ func NewBackupSelection(ctx *pulumi.Context,
 	if args.BackupSelection == nil {
 		return nil, errors.New("invalid value for required argument 'BackupSelection'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"backupPlanId",
+		"backupSelection",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BackupSelection
 	err := ctx.RegisterResource("aws-native:backup:BackupSelection", name, args, &resource, opts...)

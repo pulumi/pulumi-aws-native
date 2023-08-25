@@ -240,6 +240,8 @@ class Portal(pulumi.CustomResource):
             __props__.__dict__["renderer_type"] = None
             __props__.__dict__["service_provider_saml_metadata"] = None
             __props__.__dict__["status_reason"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_encryption_context", "customer_managed_key"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Portal, __self__).__init__(
             'aws-native:workspacesweb:Portal',
             resource_name,

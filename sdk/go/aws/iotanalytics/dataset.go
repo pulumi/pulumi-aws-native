@@ -36,6 +36,10 @@ func NewDataset(ctx *pulumi.Context,
 	if args.Actions == nil {
 		return nil, errors.New("invalid value for required argument 'Actions'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"datasetName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dataset
 	err := ctx.RegisterResource("aws-native:iotanalytics:Dataset", name, args, &resource, opts...)

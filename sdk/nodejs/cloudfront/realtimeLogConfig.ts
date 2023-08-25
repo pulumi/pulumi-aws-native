@@ -76,6 +76,8 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
             resourceInputs["samplingRate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RealtimeLogConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

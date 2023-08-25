@@ -181,6 +181,8 @@ class MicrosoftAd(pulumi.CustomResource):
             __props__.__dict__["vpc_settings"] = vpc_settings
             __props__.__dict__["alias"] = None
             __props__.__dict__["dns_ip_addresses"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["create_alias", "edition", "name", "password", "short_name", "vpc_settings"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MicrosoftAd, __self__).__init__(
             'aws-native:directoryservice:MicrosoftAd',
             resource_name,

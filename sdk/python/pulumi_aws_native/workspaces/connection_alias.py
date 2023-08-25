@@ -101,6 +101,8 @@ class ConnectionAlias(pulumi.CustomResource):
             __props__.__dict__["alias_id"] = None
             __props__.__dict__["associations"] = None
             __props__.__dict__["connection_alias_state"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connection_string", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConnectionAlias, __self__).__init__(
             'aws-native:workspaces:ConnectionAlias',
             resource_name,

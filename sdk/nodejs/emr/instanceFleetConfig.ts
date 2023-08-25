@@ -84,6 +84,8 @@ export class InstanceFleetConfig extends pulumi.CustomResource {
             resourceInputs["targetSpotCapacity"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clusterId", "instanceFleetType", "instanceTypeConfigs[*]", "launchSpecifications", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InstanceFleetConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

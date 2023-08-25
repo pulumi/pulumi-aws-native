@@ -145,6 +145,8 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["max_concurrent_runs"] = max_concurrent_runs
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workflow, __self__).__init__(
             'aws-native:glue:Workflow',
             resource_name,

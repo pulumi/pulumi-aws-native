@@ -42,6 +42,11 @@ func NewMetricFilter(ctx *pulumi.Context,
 	if args.MetricTransformations == nil {
 		return nil, errors.New("invalid value for required argument 'MetricTransformations'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"filterName",
+		"logGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricFilter
 	err := ctx.RegisterResource("aws-native:logs:MetricFilter", name, args, &resource, opts...)

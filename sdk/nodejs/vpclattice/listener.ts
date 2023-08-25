@@ -85,6 +85,8 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "port", "protocol", "serviceIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Listener.__pulumiType, name, resourceInputs, opts);
     }
 }

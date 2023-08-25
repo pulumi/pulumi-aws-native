@@ -69,6 +69,8 @@ export class Master extends pulumi.CustomResource {
             resourceInputs["masterId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["detectorId", "invitationId", "masterId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Master.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -119,6 +119,8 @@ class ReceiptRule(pulumi.CustomResource):
             if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
             __props__.__dict__["rule_set_name"] = rule_set_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["rule_set_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReceiptRule, __self__).__init__(
             'aws-native:ses:ReceiptRule',
             resource_name,

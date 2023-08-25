@@ -66,6 +66,8 @@ export class BucketPolicy extends pulumi.CustomResource {
             resourceInputs["policyDocument"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["bucket"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BucketPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

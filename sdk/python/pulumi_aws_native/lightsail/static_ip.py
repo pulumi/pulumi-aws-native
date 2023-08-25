@@ -107,6 +107,8 @@ class StaticIp(pulumi.CustomResource):
             __props__.__dict__["ip_address"] = None
             __props__.__dict__["is_attached"] = None
             __props__.__dict__["static_ip_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["static_ip_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StaticIp, __self__).__init__(
             'aws-native:lightsail:StaticIp',
             resource_name,

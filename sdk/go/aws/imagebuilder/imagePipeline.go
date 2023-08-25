@@ -50,6 +50,10 @@ func NewImagePipeline(ctx *pulumi.Context,
 		args = &ImagePipelineArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImagePipeline
 	err := ctx.RegisterResource("aws-native:imagebuilder:ImagePipeline", name, args, &resource, opts...)

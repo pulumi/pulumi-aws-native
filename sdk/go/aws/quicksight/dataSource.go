@@ -55,6 +55,12 @@ func NewDataSource(ctx *pulumi.Context,
 		args = &DataSourceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"awsAccountId",
+		"dataSourceId",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataSource
 	err := ctx.RegisterResource("aws-native:quicksight:DataSource", name, args, &resource, opts...)

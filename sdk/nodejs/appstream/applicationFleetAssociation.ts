@@ -61,6 +61,8 @@ export class ApplicationFleetAssociation extends pulumi.CustomResource {
             resourceInputs["fleetName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationArn", "fleetName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApplicationFleetAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

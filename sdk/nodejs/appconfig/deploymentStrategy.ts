@@ -90,6 +90,8 @@ export class DeploymentStrategy extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "replicateTo"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeploymentStrategy.__pulumiType, name, resourceInputs, opts);
     }
 }

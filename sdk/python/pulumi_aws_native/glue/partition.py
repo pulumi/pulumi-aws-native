@@ -136,6 +136,8 @@ class Partition(pulumi.CustomResource):
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog_id", "database_name", "table_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Partition, __self__).__init__(
             'aws-native:glue:Partition',
             resource_name,

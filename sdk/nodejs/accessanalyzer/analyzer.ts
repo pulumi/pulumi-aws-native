@@ -82,6 +82,8 @@ export class Analyzer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["analyzerName", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Analyzer.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -97,6 +97,8 @@ export class LocationFSxOpenZfs extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["fsxFilesystemArn", "protocol", "securityGroupArns[*]", "subdirectory"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocationFSxOpenZfs.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -90,6 +90,8 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["vpc"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["type", "vpc"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Input.__pulumiType, name, resourceInputs, opts);
     }
 }

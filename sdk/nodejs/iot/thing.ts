@@ -61,6 +61,8 @@ export class Thing extends pulumi.CustomResource {
             resourceInputs["thingName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["thingName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Thing.__pulumiType, name, resourceInputs, opts);
     }
 }

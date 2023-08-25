@@ -139,6 +139,8 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "diskName", "sizeInGb"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Disk.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -47,6 +47,11 @@ func NewLifecycleHook(ctx *pulumi.Context,
 	if args.LifecycleTransition == nil {
 		return nil, errors.New("invalid value for required argument 'LifecycleTransition'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"autoScalingGroupName",
+		"lifecycleHookName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecycleHook
 	err := ctx.RegisterResource("aws-native:autoscaling:LifecycleHook", name, args, &resource, opts...)

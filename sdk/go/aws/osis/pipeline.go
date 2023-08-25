@@ -52,6 +52,10 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.PipelineConfigurationBody == nil {
 		return nil, errors.New("invalid value for required argument 'PipelineConfigurationBody'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"pipelineName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipeline
 	err := ctx.RegisterResource("aws-native:osis:Pipeline", name, args, &resource, opts...)

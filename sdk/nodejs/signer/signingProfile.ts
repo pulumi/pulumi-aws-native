@@ -97,6 +97,8 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["platformId", "signatureValidityPeriod"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SigningProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

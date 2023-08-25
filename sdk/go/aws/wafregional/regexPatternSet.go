@@ -32,6 +32,10 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 	if args.RegexPatternStrings == nil {
 		return nil, errors.New("invalid value for required argument 'RegexPatternStrings'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegexPatternSet
 	err := ctx.RegisterResource("aws-native:wafregional:RegexPatternSet", name, args, &resource, opts...)

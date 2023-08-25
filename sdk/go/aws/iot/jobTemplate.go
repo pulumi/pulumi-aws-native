@@ -53,6 +53,19 @@ func NewJobTemplate(ctx *pulumi.Context,
 	if args.JobTemplateId == nil {
 		return nil, errors.New("invalid value for required argument 'JobTemplateId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"abortConfig",
+		"description",
+		"document",
+		"documentSource",
+		"jobArn",
+		"jobExecutionsRolloutConfig",
+		"jobTemplateId",
+		"presignedUrlConfig",
+		"tags[*]",
+		"timeoutConfig",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JobTemplate
 	err := ctx.RegisterResource("aws-native:iot:JobTemplate", name, args, &resource, opts...)

@@ -142,6 +142,8 @@ export class ManagedPolicy extends pulumi.CustomResource {
             resourceInputs["users"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "managedPolicyName", "path"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ManagedPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

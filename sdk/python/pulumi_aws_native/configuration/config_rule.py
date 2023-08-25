@@ -229,6 +229,8 @@ class ConfigRule(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["arn"] = None
             __props__.__dict__["config_rule_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["config_rule_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigRule, __self__).__init__(
             'aws-native:configuration:ConfigRule',
             resource_name,

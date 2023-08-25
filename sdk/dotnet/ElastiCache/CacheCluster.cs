@@ -126,6 +126,16 @@ namespace Pulumi.AwsNative.ElastiCache
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "cacheSubnetGroupName",
+                    "clusterName",
+                    "engine",
+                    "networkType",
+                    "port",
+                    "snapshotArns[*]",
+                    "snapshotName",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

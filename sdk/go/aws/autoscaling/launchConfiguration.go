@@ -69,6 +69,28 @@ func NewLaunchConfiguration(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"associatePublicIpAddress",
+		"blockDeviceMappings[*]",
+		"classicLinkVpcId",
+		"classicLinkVpcSecurityGroups[*]",
+		"ebsOptimized",
+		"iamInstanceProfile",
+		"imageId",
+		"instanceId",
+		"instanceMonitoring",
+		"instanceType",
+		"kernelId",
+		"keyName",
+		"launchConfigurationName",
+		"metadataOptions",
+		"placementTenancy",
+		"ramDiskId",
+		"securityGroups[*]",
+		"spotPrice",
+		"userData",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LaunchConfiguration
 	err := ctx.RegisterResource("aws-native:autoscaling:LaunchConfiguration", name, args, &resource, opts...)

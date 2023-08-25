@@ -211,6 +211,8 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["load_balancer_full_name"] = None
             __props__.__dict__["load_balancer_name"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "scheme", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LoadBalancer, __self__).__init__(
             'aws-native:elasticloadbalancingv2:LoadBalancer',
             resource_name,

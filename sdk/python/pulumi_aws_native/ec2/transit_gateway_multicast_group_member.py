@@ -135,6 +135,8 @@ class TransitGatewayMulticastGroupMember(pulumi.CustomResource):
             __props__.__dict__["source_type"] = None
             __props__.__dict__["subnet_id"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["group_ip_address", "network_interface_id", "transit_gateway_multicast_domain_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayMulticastGroupMember, __self__).__init__(
             'aws-native:ec2:TransitGatewayMulticastGroupMember',
             resource_name,

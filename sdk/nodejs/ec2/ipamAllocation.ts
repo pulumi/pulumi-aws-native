@@ -76,6 +76,8 @@ export class IpamAllocation extends pulumi.CustomResource {
             resourceInputs["netmaskLength"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cidr", "description", "ipamPoolId", "netmaskLength"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IpamAllocation.__pulumiType, name, resourceInputs, opts);
     }
 }

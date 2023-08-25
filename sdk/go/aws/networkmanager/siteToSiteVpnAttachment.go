@@ -61,6 +61,11 @@ func NewSiteToSiteVpnAttachment(ctx *pulumi.Context,
 	if args.VpnConnectionArn == nil {
 		return nil, errors.New("invalid value for required argument 'VpnConnectionArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"coreNetworkId",
+		"vpnConnectionArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SiteToSiteVpnAttachment
 	err := ctx.RegisterResource("aws-native:networkmanager:SiteToSiteVpnAttachment", name, args, &resource, opts...)

@@ -55,6 +55,13 @@ func NewReplicationTask(ctx *pulumi.Context,
 	if args.TargetEndpointArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetEndpointArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"replicationInstanceArn",
+		"resourceIdentifier",
+		"sourceEndpointArn",
+		"targetEndpointArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationTask
 	err := ctx.RegisterResource("aws-native:dms:ReplicationTask", name, args, &resource, opts...)

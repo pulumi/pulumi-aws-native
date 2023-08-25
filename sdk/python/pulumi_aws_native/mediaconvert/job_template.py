@@ -224,6 +224,8 @@ class JobTemplate(pulumi.CustomResource):
             __props__.__dict__["status_update_interval"] = status_update_interval
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(JobTemplate, __self__).__init__(
             'aws-native:mediaconvert:JobTemplate',
             resource_name,

@@ -38,6 +38,11 @@ func NewStreamConsumer(ctx *pulumi.Context,
 	if args.StreamArn == nil {
 		return nil, errors.New("invalid value for required argument 'StreamArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"consumerName",
+		"streamArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StreamConsumer
 	err := ctx.RegisterResource("aws-native:kinesis:StreamConsumer", name, args, &resource, opts...)

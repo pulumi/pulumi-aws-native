@@ -31,6 +31,10 @@ func NewConnectorDefinition(ctx *pulumi.Context,
 		args = &ConnectorDefinitionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"initialVersion",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectorDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:ConnectorDefinition", name, args, &resource, opts...)

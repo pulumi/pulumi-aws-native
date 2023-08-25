@@ -44,6 +44,10 @@ func NewCapacityReservation(ctx *pulumi.Context,
 	if args.TargetDpus == nil {
 		return nil, errors.New("invalid value for required argument 'TargetDpus'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CapacityReservation
 	err := ctx.RegisterResource("aws-native:athena:CapacityReservation", name, args, &resource, opts...)

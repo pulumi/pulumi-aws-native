@@ -102,6 +102,8 @@ class SizeConstraintSet(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["size_constraints"] = size_constraints
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SizeConstraintSet, __self__).__init__(
             'aws-native:wafregional:SizeConstraintSet',
             resource_name,

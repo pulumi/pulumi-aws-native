@@ -39,6 +39,11 @@ func NewResolverConfig(ctx *pulumi.Context,
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"autodefinedReverseFlag",
+		"resourceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverConfig
 	err := ctx.RegisterResource("aws-native:route53resolver:ResolverConfig", name, args, &resource, opts...)

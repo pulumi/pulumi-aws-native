@@ -81,6 +81,8 @@ export class GroupVersion extends pulumi.CustomResource {
             resourceInputs["subscriptionDefinitionVersionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["connectorDefinitionVersionArn", "coreDefinitionVersionArn", "deviceDefinitionVersionArn", "functionDefinitionVersionArn", "groupId", "loggerDefinitionVersionArn", "resourceDefinitionVersionArn", "subscriptionDefinitionVersionArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GroupVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

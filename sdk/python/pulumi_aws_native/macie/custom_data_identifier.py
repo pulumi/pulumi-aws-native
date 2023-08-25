@@ -186,6 +186,8 @@ class CustomDataIdentifier(pulumi.CustomResource):
                 raise TypeError("Missing required property 'regex'")
             __props__.__dict__["regex"] = regex
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "ignore_words[*]", "keywords[*]", "maximum_match_distance", "name", "regex"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomDataIdentifier, __self__).__init__(
             'aws-native:macie:CustomDataIdentifier',
             resource_name,

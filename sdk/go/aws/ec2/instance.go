@@ -70,6 +70,27 @@ func NewInstance(ctx *pulumi.Context,
 		args = &InstanceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"availabilityZone",
+		"cpuOptions",
+		"elasticGpuSpecifications[*]",
+		"elasticInferenceAccelerators[*]",
+		"enclaveOptions",
+		"hibernationOptions",
+		"hostResourceGroupArn",
+		"imageId",
+		"ipv6AddressCount",
+		"ipv6Addresses[*]",
+		"keyName",
+		"launchTemplate",
+		"licenseSpecifications[*]",
+		"networkInterfaces[*]",
+		"placementGroupName",
+		"privateIpAddress",
+		"securityGroups[*]",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws-native:ec2:Instance", name, args, &resource, opts...)

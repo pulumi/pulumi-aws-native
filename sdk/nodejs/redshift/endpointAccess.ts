@@ -130,6 +130,8 @@ export class EndpointAccess extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroups"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clusterIdentifier", "endpointName", "resourceOwner", "subnetGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EndpointAccess.__pulumiType, name, resourceInputs, opts);
     }
 }

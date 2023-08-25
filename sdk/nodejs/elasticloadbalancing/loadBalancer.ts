@@ -123,6 +123,8 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["loadBalancerName", "scheme"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }

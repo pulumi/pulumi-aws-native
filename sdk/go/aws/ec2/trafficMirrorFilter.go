@@ -29,6 +29,10 @@ func NewTrafficMirrorFilter(ctx *pulumi.Context,
 		args = &TrafficMirrorFilterArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficMirrorFilter
 	err := ctx.RegisterResource("aws-native:ec2:TrafficMirrorFilter", name, args, &resource, opts...)

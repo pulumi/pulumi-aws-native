@@ -104,6 +104,8 @@ class ApplicationReferenceDataSource(pulumi.CustomResource):
             if reference_data_source is None and not opts.urn:
                 raise TypeError("Missing required property 'reference_data_source'")
             __props__.__dict__["reference_data_source"] = reference_data_source
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationReferenceDataSource, __self__).__init__(
             'aws-native:kinesisanalytics:ApplicationReferenceDataSource',
             resource_name,

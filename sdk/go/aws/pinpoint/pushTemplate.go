@@ -40,6 +40,10 @@ func NewPushTemplate(ctx *pulumi.Context,
 	if args.TemplateName == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"templateName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PushTemplate
 	err := ctx.RegisterResource("aws-native:pinpoint:PushTemplate", name, args, &resource, opts...)

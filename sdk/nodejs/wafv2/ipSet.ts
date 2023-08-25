@@ -85,6 +85,8 @@ export class IpSet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "scope"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IpSet.__pulumiType, name, resourceInputs, opts);
     }
 }

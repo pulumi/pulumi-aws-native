@@ -48,6 +48,10 @@ func NewTypeActivation(ctx *pulumi.Context,
 		args = &TypeActivationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"loggingConfig",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TypeActivation
 	err := ctx.RegisterResource("aws-native:cloudformation:TypeActivation", name, args, &resource, opts...)

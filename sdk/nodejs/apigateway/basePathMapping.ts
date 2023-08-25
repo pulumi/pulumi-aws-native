@@ -76,6 +76,8 @@ export class BasePathMapping extends pulumi.CustomResource {
             resourceInputs["stage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["basePath", "domainName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BasePathMapping.__pulumiType, name, resourceInputs, opts);
     }
 }

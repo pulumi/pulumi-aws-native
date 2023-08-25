@@ -67,6 +67,8 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
             resourceInputs["transitGatewayArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["globalNetworkId", "transitGatewayArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayRegistration.__pulumiType, name, resourceInputs, opts);
     }
 }

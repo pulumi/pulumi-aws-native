@@ -540,6 +540,8 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["username"] = username
             __props__.__dict__["external_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key_id", "resource_identifier"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Endpoint, __self__).__init__(
             'aws-native:dms:Endpoint',
             resource_name,

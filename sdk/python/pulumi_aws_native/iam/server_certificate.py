@@ -157,6 +157,8 @@ class ServerCertificate(pulumi.CustomResource):
             __props__.__dict__["server_certificate_name"] = server_certificate_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_body", "certificate_chain", "private_key", "server_certificate_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServerCertificate, __self__).__init__(
             'aws-native:iam:ServerCertificate',
             resource_name,

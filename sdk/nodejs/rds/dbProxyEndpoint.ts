@@ -118,6 +118,8 @@ export class DbProxyEndpoint extends pulumi.CustomResource {
             resourceInputs["vpcSubnetIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dbProxyEndpointName", "dbProxyName", "vpcSubnetIds[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbProxyEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

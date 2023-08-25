@@ -34,6 +34,10 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.VolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"volumeId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snapshot
 	err := ctx.RegisterResource("aws-native:fsx:Snapshot", name, args, &resource, opts...)

@@ -84,6 +84,8 @@ export class Model extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["containers[*]", "enableNetworkIsolation", "executionRoleArn", "inferenceExecutionConfig", "modelName", "primaryContainer", "vpcConfig"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Model.__pulumiType, name, resourceInputs, opts);
     }
 }

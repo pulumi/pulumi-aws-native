@@ -34,6 +34,13 @@ func NewTracker(ctx *pulumi.Context,
 		args = &TrackerArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"kmsKeyId",
+		"positionFiltering",
+		"trackerName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Tracker
 	err := ctx.RegisterResource("aws-native:location:Tracker", name, args, &resource, opts...)

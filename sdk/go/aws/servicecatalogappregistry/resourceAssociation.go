@@ -42,6 +42,12 @@ func NewResourceAssociation(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"application",
+		"resource",
+		"resourceType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceAssociation
 	err := ctx.RegisterResource("aws-native:servicecatalogappregistry:ResourceAssociation", name, args, &resource, opts...)

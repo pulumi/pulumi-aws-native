@@ -112,6 +112,8 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["timeToLiveSpecification"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["importSourceSpecification", "tableName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Table.__pulumiType, name, resourceInputs, opts);
     }
 }

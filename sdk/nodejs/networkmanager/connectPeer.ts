@@ -130,6 +130,8 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["bgpOptions", "connectAttachmentId", "coreNetworkAddress", "insideCidrBlocks[*]", "peerAddress"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConnectPeer.__pulumiType, name, resourceInputs, opts);
     }
 }

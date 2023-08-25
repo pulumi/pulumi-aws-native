@@ -147,6 +147,8 @@ class Permission(pulumi.CustomResource):
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
             __props__.__dict__["source_account"] = source_account
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["actions[*]", "certificate_authority_arn", "principal", "source_account"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Permission, __self__).__init__(
             'aws-native:acmpca:Permission',
             resource_name,

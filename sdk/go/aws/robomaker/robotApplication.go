@@ -39,6 +39,10 @@ func NewRobotApplication(ctx *pulumi.Context,
 	if args.RobotSoftwareSuite == nil {
 		return nil, errors.New("invalid value for required argument 'RobotSoftwareSuite'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RobotApplication
 	err := ctx.RegisterResource("aws-native:robomaker:RobotApplication", name, args, &resource, opts...)

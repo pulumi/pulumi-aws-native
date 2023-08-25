@@ -89,6 +89,12 @@ namespace Pulumi.AwsNative.NimbleStudio
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "ec2ImageId",
+                    "studioId",
+                    "tags",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

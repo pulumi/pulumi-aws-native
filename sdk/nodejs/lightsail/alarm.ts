@@ -139,6 +139,8 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["treatMissingData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["alarmName", "metricName", "monitoredResourceName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Alarm.__pulumiType, name, resourceInputs, opts);
     }
 }

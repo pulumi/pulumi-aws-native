@@ -94,6 +94,8 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["throughputMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZoneName", "encrypted", "kmsKeyId", "performanceMode"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -43,6 +43,12 @@ func NewConfiguredTableAssociation(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"configuredTableIdentifier",
+		"membershipIdentifier",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfiguredTableAssociation
 	err := ctx.RegisterResource("aws-native:cleanrooms:ConfiguredTableAssociation", name, args, &resource, opts...)

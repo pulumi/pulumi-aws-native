@@ -42,6 +42,13 @@ func NewCustomerGatewayAssociation(ctx *pulumi.Context,
 	if args.GlobalNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"customerGatewayArn",
+		"deviceId",
+		"globalNetworkId",
+		"linkId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomerGatewayAssociation
 	err := ctx.RegisterResource("aws-native:networkmanager:CustomerGatewayAssociation", name, args, &resource, opts...)

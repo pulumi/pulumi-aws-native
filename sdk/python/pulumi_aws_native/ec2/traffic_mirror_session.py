@@ -196,6 +196,8 @@ class TrafficMirrorSession(pulumi.CustomResource):
                 raise TypeError("Missing required property 'traffic_mirror_target_id'")
             __props__.__dict__["traffic_mirror_target_id"] = traffic_mirror_target_id
             __props__.__dict__["virtual_network_id"] = virtual_network_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["network_interface_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrafficMirrorSession, __self__).__init__(
             'aws-native:ec2:TrafficMirrorSession',
             resource_name,

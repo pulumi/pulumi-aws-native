@@ -128,6 +128,8 @@ class ApplicationVersion(pulumi.CustomResource):
             if source_bundle is None and not opts.urn:
                 raise TypeError("Missing required property 'source_bundle'")
             __props__.__dict__["source_bundle"] = source_bundle
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name", "source_bundle"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationVersion, __self__).__init__(
             'aws-native:elasticbeanstalk:ApplicationVersion',
             resource_name,

@@ -60,6 +60,10 @@ func NewAgreement(ctx *pulumi.Context,
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serverId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Agreement
 	err := ctx.RegisterResource("aws-native:transfer:Agreement", name, args, &resource, opts...)

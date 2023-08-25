@@ -88,6 +88,8 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["networks"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["egressCidrBlocks[*]", "name", "networks[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
 }

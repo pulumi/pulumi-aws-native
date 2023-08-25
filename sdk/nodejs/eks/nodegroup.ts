@@ -172,6 +172,8 @@ export class Nodegroup extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["amiType", "capacityType", "clusterName", "diskSize", "instanceTypes[*]", "nodeRole", "nodegroupName", "remoteAccess", "subnets[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Nodegroup.__pulumiType, name, resourceInputs, opts);
     }
 }

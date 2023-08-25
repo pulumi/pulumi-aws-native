@@ -35,6 +35,11 @@ func NewCoreDefinitionVersion(ctx *pulumi.Context,
 	if args.Cores == nil {
 		return nil, errors.New("invalid value for required argument 'Cores'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"coreDefinitionId",
+		"cores[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CoreDefinitionVersion
 	err := ctx.RegisterResource("aws-native:greengrass:CoreDefinitionVersion", name, args, &resource, opts...)

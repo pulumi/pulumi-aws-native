@@ -70,6 +70,8 @@ export class ThingType extends pulumi.CustomResource {
             resourceInputs["thingTypeProperties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["thingTypeName", "thingTypeProperties"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ThingType.__pulumiType, name, resourceInputs, opts);
     }
 }

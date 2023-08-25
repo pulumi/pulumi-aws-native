@@ -43,6 +43,12 @@ func NewSubscription(ctx *pulumi.Context,
 	if args.TopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'TopicArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"endpoint",
+		"protocol",
+		"topicArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Subscription
 	err := ctx.RegisterResource("aws-native:sns:Subscription", name, args, &resource, opts...)

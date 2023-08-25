@@ -200,6 +200,8 @@ class ConnectAttachment(pulumi.CustomResource):
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["updated_at"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["core_network_id", "edge_location", "options", "transport_attachment_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConnectAttachment, __self__).__init__(
             'aws-native:networkmanager:ConnectAttachment',
             resource_name,

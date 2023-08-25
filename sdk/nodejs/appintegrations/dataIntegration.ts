@@ -115,6 +115,8 @@ export class DataIntegration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["kmsKey", "scheduleConfig", "sourceUri"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }

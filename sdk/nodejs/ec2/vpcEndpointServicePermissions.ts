@@ -58,6 +58,8 @@ export class VpcEndpointServicePermissions extends pulumi.CustomResource {
             resourceInputs["serviceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["serviceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcEndpointServicePermissions.__pulumiType, name, resourceInputs, opts);
     }
 }

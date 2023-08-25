@@ -344,6 +344,8 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["template_selection_expression"] = template_selection_expression
             __props__.__dict__["timeout_in_millis"] = timeout_in_millis
             __props__.__dict__["tls_config"] = tls_config
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Integration, __self__).__init__(
             'aws-native:apigatewayv2:Integration',
             resource_name,

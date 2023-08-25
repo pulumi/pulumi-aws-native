@@ -43,6 +43,11 @@ func NewServer(ctx *pulumi.Context,
 		args = &ServerArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domain",
+		"identityProviderType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Server
 	err := ctx.RegisterResource("aws-native:transfer:Server", name, args, &resource, opts...)

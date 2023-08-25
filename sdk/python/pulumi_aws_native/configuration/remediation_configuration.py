@@ -225,6 +225,8 @@ class RemediationConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_type'")
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["target_version"] = target_version
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["config_rule_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RemediationConfiguration, __self__).__init__(
             'aws-native:configuration:RemediationConfiguration',
             resource_name,

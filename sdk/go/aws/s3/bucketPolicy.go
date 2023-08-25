@@ -35,6 +35,10 @@ func NewBucketPolicy(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bucket",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketPolicy
 	err := ctx.RegisterResource("aws-native:s3:BucketPolicy", name, args, &resource, opts...)

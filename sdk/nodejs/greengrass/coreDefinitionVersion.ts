@@ -69,6 +69,8 @@ export class CoreDefinitionVersion extends pulumi.CustomResource {
             resourceInputs["cores"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["coreDefinitionId", "cores[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CoreDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

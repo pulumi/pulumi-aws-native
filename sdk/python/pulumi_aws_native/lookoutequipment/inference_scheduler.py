@@ -259,6 +259,8 @@ class InferenceScheduler(pulumi.CustomResource):
             __props__.__dict__["server_side_kms_key_id"] = server_side_kms_key_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["inference_scheduler_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["inference_scheduler_name", "model_name", "server_side_kms_key_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InferenceScheduler, __self__).__init__(
             'aws-native:lookoutequipment:InferenceScheduler',
             resource_name,

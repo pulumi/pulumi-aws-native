@@ -91,6 +91,8 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["serviceIdentifier", "serviceNetworkIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServiceNetworkServiceAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

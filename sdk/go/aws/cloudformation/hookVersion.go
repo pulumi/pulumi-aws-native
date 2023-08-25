@@ -59,6 +59,13 @@ func NewHookVersion(ctx *pulumi.Context,
 	if args.TypeName == nil {
 		return nil, errors.New("invalid value for required argument 'TypeName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"executionRoleArn",
+		"loggingConfig",
+		"schemaHandlerPackage",
+		"typeName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HookVersion
 	err := ctx.RegisterResource("aws-native:cloudformation:HookVersion", name, args, &resource, opts...)

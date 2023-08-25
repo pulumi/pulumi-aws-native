@@ -53,6 +53,15 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.ApplicationName == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationName",
+		"cnamePrefix",
+		"environmentName",
+		"solutionStackName",
+		"tier.name",
+		"tier.type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Environment
 	err := ctx.RegisterResource("aws-native:elasticbeanstalk:Environment", name, args, &resource, opts...)

@@ -35,6 +35,14 @@ func NewAssistant(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"name",
+		"serverSideEncryptionConfiguration",
+		"tags[*]",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Assistant
 	err := ctx.RegisterResource("aws-native:wisdom:Assistant", name, args, &resource, opts...)

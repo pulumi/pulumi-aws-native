@@ -116,6 +116,8 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["resource_arns"] = resource_arns
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Group, __self__).__init__(
             'aws-native:synthetics:Group',
             resource_name,

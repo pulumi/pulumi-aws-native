@@ -79,6 +79,8 @@ export class AccountAuditConfiguration extends pulumi.CustomResource {
             resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["accountId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AccountAuditConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

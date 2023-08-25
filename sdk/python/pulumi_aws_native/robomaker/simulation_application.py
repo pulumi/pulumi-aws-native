@@ -225,6 +225,8 @@ class SimulationApplication(pulumi.CustomResource):
             __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SimulationApplication, __self__).__init__(
             'aws-native:robomaker:SimulationApplication',
             resource_name,

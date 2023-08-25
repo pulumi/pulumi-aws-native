@@ -84,6 +84,8 @@ export class UserPoolUser extends pulumi.CustomResource {
             resourceInputs["validationData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clientMetadata", "desiredDeliveryMediums[*]", "forceAliasCreation", "messageAction", "userAttributes[*]", "userPoolId", "username", "validationData[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserPoolUser.__pulumiType, name, resourceInputs, opts);
     }
 }

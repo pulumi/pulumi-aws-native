@@ -47,6 +47,11 @@ func NewLocalGatewayRouteTableVirtualInterfaceGroupAssociation(ctx *pulumi.Conte
 	if args.LocalGatewayVirtualInterfaceGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'LocalGatewayVirtualInterfaceGroupId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"localGatewayRouteTableId",
+		"localGatewayVirtualInterfaceGroupId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocalGatewayRouteTableVirtualInterfaceGroupAssociation
 	err := ctx.RegisterResource("aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation", name, args, &resource, opts...)

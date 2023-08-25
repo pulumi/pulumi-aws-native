@@ -46,6 +46,11 @@ func NewImageVersion(ctx *pulumi.Context,
 	if args.ImageName == nil {
 		return nil, errors.New("invalid value for required argument 'ImageName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"baseImage",
+		"imageName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImageVersion
 	err := ctx.RegisterResource("aws-native:sagemaker:ImageVersion", name, args, &resource, opts...)

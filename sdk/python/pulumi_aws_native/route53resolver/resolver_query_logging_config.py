@@ -112,6 +112,8 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["share_status"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination_arn", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResolverQueryLoggingConfig, __self__).__init__(
             'aws-native:route53resolver:ResolverQueryLoggingConfig',
             resource_name,

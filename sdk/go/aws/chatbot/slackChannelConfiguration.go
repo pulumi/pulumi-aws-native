@@ -55,6 +55,11 @@ func NewSlackChannelConfiguration(ctx *pulumi.Context,
 	if args.SlackWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'SlackWorkspaceId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"configurationName",
+		"slackWorkspaceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SlackChannelConfiguration
 	err := ctx.RegisterResource("aws-native:chatbot:SlackChannelConfiguration", name, args, &resource, opts...)

@@ -27,6 +27,10 @@ func NewThing(ctx *pulumi.Context,
 		args = &ThingArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"thingName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Thing
 	err := ctx.RegisterResource("aws-native:iot:Thing", name, args, &resource, opts...)

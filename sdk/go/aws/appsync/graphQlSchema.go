@@ -33,6 +33,10 @@ func NewGraphQlSchema(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GraphQlSchema
 	err := ctx.RegisterResource("aws-native:appsync:GraphQlSchema", name, args, &resource, opts...)

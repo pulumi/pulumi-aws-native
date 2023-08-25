@@ -38,6 +38,11 @@ func NewSecurityPolicy(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityPolicy
 	err := ctx.RegisterResource("aws-native:opensearchserverless:SecurityPolicy", name, args, &resource, opts...)

@@ -133,6 +133,8 @@ class Application(pulumi.CustomResource):
             if inputs is None and not opts.urn:
                 raise TypeError("Missing required property 'inputs'")
             __props__.__dict__["inputs"] = inputs
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:kinesisanalytics:Application',
             resource_name,

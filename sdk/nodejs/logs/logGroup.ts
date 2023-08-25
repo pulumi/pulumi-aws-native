@@ -94,6 +94,8 @@ export class LogGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["logGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LogGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

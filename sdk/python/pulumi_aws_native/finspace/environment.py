@@ -224,6 +224,8 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["environment_url"] = None
             __props__.__dict__["sage_maker_studio_domain_url"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_bundles[*]", "federation_parameters", "kms_key_id", "superuser_parameters", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:finspace:Environment',
             resource_name,

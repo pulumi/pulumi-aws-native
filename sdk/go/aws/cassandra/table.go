@@ -51,6 +51,14 @@ func NewTable(ctx *pulumi.Context,
 	if args.PartitionKeyColumns == nil {
 		return nil, errors.New("invalid value for required argument 'PartitionKeyColumns'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clientSideTimestampsEnabled",
+		"clusteringKeyColumns[*]",
+		"keyspaceName",
+		"partitionKeyColumns[*]",
+		"tableName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws-native:cassandra:Table", name, args, &resource, opts...)

@@ -111,6 +111,8 @@ class StateMachineVersion(pulumi.CustomResource):
             __props__.__dict__["state_machine_arn"] = state_machine_arn
             __props__.__dict__["state_machine_revision_id"] = state_machine_revision_id
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["state_machine_arn", "state_machine_revision_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StateMachineVersion, __self__).__init__(
             'aws-native:stepfunctions:StateMachineVersion',
             resource_name,

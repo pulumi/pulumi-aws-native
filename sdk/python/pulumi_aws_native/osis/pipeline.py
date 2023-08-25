@@ -202,6 +202,8 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["ingest_endpoint_urls"] = None
             __props__.__dict__["pipeline_arn"] = None
             __props__.__dict__["vpc_endpoints"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["pipeline_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Pipeline, __self__).__init__(
             'aws-native:osis:Pipeline',
             resource_name,

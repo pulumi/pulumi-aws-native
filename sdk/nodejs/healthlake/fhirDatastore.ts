@@ -88,6 +88,8 @@ export class FhirDatastore extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["datastoreName", "datastoreTypeVersion", "identityProviderConfiguration", "preloadDataConfig", "sseConfiguration"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FhirDatastore.__pulumiType, name, resourceInputs, opts);
     }
 }

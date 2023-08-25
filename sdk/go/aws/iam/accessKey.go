@@ -34,6 +34,11 @@ func NewAccessKey(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serial",
+		"userName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessKey
 	err := ctx.RegisterResource("aws-native:iam:AccessKey", name, args, &resource, opts...)

@@ -212,6 +212,8 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["service_identifier"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_identifier", "description", "endpoint_type", "environment_identifier", "lambda_endpoint", "name", "url_endpoint", "vpc_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Service, __self__).__init__(
             'aws-native:refactorspaces:Service',
             resource_name,

@@ -50,6 +50,11 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"groupingType",
+		"resourceGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws-native:applicationinsights:Application", name, args, &resource, opts...)

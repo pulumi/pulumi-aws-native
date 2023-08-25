@@ -121,6 +121,8 @@ export class CoreNetwork extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["globalNetworkId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CoreNetwork.__pulumiType, name, resourceInputs, opts);
     }
 }

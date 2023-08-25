@@ -46,6 +46,11 @@ func NewSubscriptionFilter(ctx *pulumi.Context,
 	if args.LogGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'LogGroupName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"filterName",
+		"logGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubscriptionFilter
 	err := ctx.RegisterResource("aws-native:logs:SubscriptionFilter", name, args, &resource, opts...)

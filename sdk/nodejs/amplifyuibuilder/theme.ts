@@ -73,6 +73,8 @@ export class Theme extends pulumi.CustomResource {
             resourceInputs["values"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Theme.__pulumiType, name, resourceInputs, opts);
     }
 }

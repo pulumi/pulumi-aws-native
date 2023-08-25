@@ -91,6 +91,17 @@ func NewCluster(ctx *pulumi.Context,
 	if args.NodeType == nil {
 		return nil, errors.New("invalid value for required argument 'NodeType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clusterName",
+		"dataTiering",
+		"kmsKeyId",
+		"port",
+		"snapshotArns[*]",
+		"snapshotName",
+		"subnetGroupName",
+		"tlsEnabled",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws-native:memorydb:Cluster", name, args, &resource, opts...)

@@ -50,6 +50,11 @@ func NewRole(ctx *pulumi.Context,
 	if args.AssumeRolePolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'AssumeRolePolicyDocument'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"path",
+		"roleName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Role
 	err := ctx.RegisterResource("aws-native:iam:Role", name, args, &resource, opts...)

@@ -320,6 +320,8 @@ class ReportDefinition(pulumi.CustomResource):
             if time_unit is None and not opts.urn:
                 raise TypeError("Missing required property 'time_unit'")
             __props__.__dict__["time_unit"] = time_unit
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_schema_elements[*]", "billing_view_arn", "report_name", "report_versioning", "time_unit"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReportDefinition, __self__).__init__(
             'aws-native:cur:ReportDefinition',
             resource_name,

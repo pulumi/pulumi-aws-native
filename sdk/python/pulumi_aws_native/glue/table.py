@@ -135,6 +135,8 @@ class Table(pulumi.CustomResource):
             if table_input is None and not opts.urn:
                 raise TypeError("Missing required property 'table_input'")
             __props__.__dict__["table_input"] = table_input
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog_id", "database_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Table, __self__).__init__(
             'aws-native:glue:Table',
             resource_name,

@@ -127,6 +127,8 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["usageMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["csrExtensions", "keyAlgorithm", "keyStorageSecurityStandard", "signingAlgorithm", "subject", "type", "usageMode"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CertificateAuthority.__pulumiType, name, resourceInputs, opts);
     }
 }

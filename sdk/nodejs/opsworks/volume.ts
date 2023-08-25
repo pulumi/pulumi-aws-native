@@ -72,6 +72,8 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["stackId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ec2VolumeId", "stackId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }
 }

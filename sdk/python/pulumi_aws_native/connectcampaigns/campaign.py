@@ -160,6 +160,8 @@ class Campaign(pulumi.CustomResource):
             __props__.__dict__["outbound_call_config"] = outbound_call_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connect_instance_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Campaign, __self__).__init__(
             'aws-native:connectcampaigns:Campaign',
             resource_name,

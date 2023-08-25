@@ -234,6 +234,8 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["source_ids_list"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["subscription_creation_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["subscription_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventSubscription, __self__).__init__(
             'aws-native:redshift:EventSubscription',
             resource_name,

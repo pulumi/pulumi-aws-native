@@ -35,6 +35,10 @@ func NewApplicationReferenceDataSource(ctx *pulumi.Context,
 	if args.ReferenceDataSource == nil {
 		return nil, errors.New("invalid value for required argument 'ReferenceDataSource'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationReferenceDataSource
 	err := ctx.RegisterResource("aws-native:kinesisanalyticsv2:ApplicationReferenceDataSource", name, args, &resource, opts...)

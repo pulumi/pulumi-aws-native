@@ -46,6 +46,14 @@ func NewHost(ctx *pulumi.Context,
 	if args.AvailabilityZone == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZone'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"assetId",
+		"availabilityZone",
+		"instanceFamily",
+		"instanceType",
+		"outpostArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Host
 	err := ctx.RegisterResource("aws-native:ec2:Host", name, args, &resource, opts...)

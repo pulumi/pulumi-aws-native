@@ -133,6 +133,8 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["validationSpecification"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clientToken", "domain", "driftCheckBaselines", "inferenceSpecification", "metadataProperties", "modelMetrics", "modelPackageDescription", "modelPackageGroupName", "samplePayloadUrl", "sourceAlgorithmSpecification", "task", "validationSpecification"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ModelPackage.__pulumiType, name, resourceInputs, opts);
     }
 }

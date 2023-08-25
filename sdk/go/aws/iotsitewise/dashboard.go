@@ -45,6 +45,10 @@ func NewDashboard(ctx *pulumi.Context,
 	if args.DashboardDescription == nil {
 		return nil, errors.New("invalid value for required argument 'DashboardDescription'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"projectId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dashboard
 	err := ctx.RegisterResource("aws-native:iotsitewise:Dashboard", name, args, &resource, opts...)

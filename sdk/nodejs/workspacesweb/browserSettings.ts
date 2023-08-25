@@ -70,6 +70,8 @@ export class BrowserSettings extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext", "customerManagedKey"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BrowserSettings.__pulumiType, name, resourceInputs, opts);
     }
 }

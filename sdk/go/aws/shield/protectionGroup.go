@@ -51,6 +51,10 @@ func NewProtectionGroup(ctx *pulumi.Context,
 	if args.ProtectionGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ProtectionGroupId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"protectionGroupId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProtectionGroup
 	err := ctx.RegisterResource("aws-native:shield:ProtectionGroup", name, args, &resource, opts...)

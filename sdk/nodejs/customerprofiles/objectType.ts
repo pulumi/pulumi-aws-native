@@ -127,6 +127,8 @@ export class ObjectType extends pulumi.CustomResource {
             resourceInputs["templateId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domainName", "objectTypeName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ObjectType.__pulumiType, name, resourceInputs, opts);
     }
 }

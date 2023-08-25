@@ -64,6 +64,8 @@ export class ChannelPolicy extends pulumi.CustomResource {
             resourceInputs["policy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["channelName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ChannelPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

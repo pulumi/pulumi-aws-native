@@ -34,6 +34,11 @@ func NewBridgeSource(ctx *pulumi.Context,
 	if args.BridgeArn == nil {
 		return nil, errors.New("invalid value for required argument 'BridgeArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bridgeArn",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BridgeSource
 	err := ctx.RegisterResource("aws-native:mediaconnect:BridgeSource", name, args, &resource, opts...)

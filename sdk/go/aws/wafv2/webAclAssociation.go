@@ -33,6 +33,11 @@ func NewWebAclAssociation(ctx *pulumi.Context,
 	if args.WebAclArn == nil {
 		return nil, errors.New("invalid value for required argument 'WebAclArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceArn",
+		"webAclArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebAclAssociation
 	err := ctx.RegisterResource("aws-native:wafv2:WebAclAssociation", name, args, &resource, opts...)

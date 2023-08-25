@@ -38,6 +38,12 @@ func NewIpamPoolCidr(ctx *pulumi.Context,
 	if args.IpamPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamPoolId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cidr",
+		"ipamPoolId",
+		"netmaskLength",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpamPoolCidr
 	err := ctx.RegisterResource("aws-native:ec2:IpamPoolCidr", name, args, &resource, opts...)

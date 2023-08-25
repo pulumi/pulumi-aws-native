@@ -73,6 +73,8 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
             resourceInputs["roleName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["awsServiceName", "customSuffix"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServiceLinkedRole.__pulumiType, name, resourceInputs, opts);
     }
 }

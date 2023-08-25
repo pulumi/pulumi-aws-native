@@ -55,6 +55,8 @@ export class Template extends pulumi.CustomResource {
             resourceInputs["template"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["template.templateName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Template.__pulumiType, name, resourceInputs, opts);
     }
 }

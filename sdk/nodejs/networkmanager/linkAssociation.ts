@@ -76,6 +76,8 @@ export class LinkAssociation extends pulumi.CustomResource {
             resourceInputs["linkId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["deviceId", "globalNetworkId", "linkId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LinkAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

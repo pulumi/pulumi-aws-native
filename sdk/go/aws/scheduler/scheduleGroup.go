@@ -34,6 +34,10 @@ func NewScheduleGroup(ctx *pulumi.Context,
 		args = &ScheduleGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduleGroup
 	err := ctx.RegisterResource("aws-native:scheduler:ScheduleGroup", name, args, &resource, opts...)

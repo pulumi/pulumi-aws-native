@@ -71,6 +71,17 @@ namespace Pulumi.AwsNative.RefactorSpaces
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "applicationIdentifier",
+                    "environmentIdentifier",
+                    "routeType",
+                    "serviceIdentifier",
+                    "uriPathRoute.appendSourcePath",
+                    "uriPathRoute.includeChildPaths",
+                    "uriPathRoute.methods[*]",
+                    "uriPathRoute.sourcePath",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -117,6 +117,8 @@ export class Resolver extends pulumi.CustomResource {
             resourceInputs["typeName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiId", "fieldName", "typeName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Resolver.__pulumiType, name, resourceInputs, opts);
     }
 }

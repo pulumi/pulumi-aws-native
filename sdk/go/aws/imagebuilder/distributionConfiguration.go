@@ -38,6 +38,10 @@ func NewDistributionConfiguration(ctx *pulumi.Context,
 	if args.Distributions == nil {
 		return nil, errors.New("invalid value for required argument 'Distributions'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DistributionConfiguration
 	err := ctx.RegisterResource("aws-native:imagebuilder:DistributionConfiguration", name, args, &resource, opts...)

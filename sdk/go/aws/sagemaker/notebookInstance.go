@@ -49,6 +49,15 @@ func NewNotebookInstance(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"directInternetAccess",
+		"kmsKeyId",
+		"notebookInstanceName",
+		"platformIdentifier",
+		"securityGroupIds[*]",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotebookInstance
 	err := ctx.RegisterResource("aws-native:sagemaker:NotebookInstance", name, args, &resource, opts...)

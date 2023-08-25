@@ -45,6 +45,10 @@ func NewApiDestination(ctx *pulumi.Context,
 	if args.InvocationEndpoint == nil {
 		return nil, errors.New("invalid value for required argument 'InvocationEndpoint'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiDestination
 	err := ctx.RegisterResource("aws-native:events:ApiDestination", name, args, &resource, opts...)

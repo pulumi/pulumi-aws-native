@@ -97,6 +97,8 @@ class DomainNameApiAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["api_association_identifier"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DomainNameApiAssociation, __self__).__init__(
             'aws-native:appsync:DomainNameApiAssociation',
             resource_name,

@@ -47,6 +47,19 @@ func NewDocumentClassifier(ctx *pulumi.Context,
 	if args.LanguageCode == nil {
 		return nil, errors.New("invalid value for required argument 'LanguageCode'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dataAccessRoleArn",
+		"documentClassifierName",
+		"inputDataConfig",
+		"languageCode",
+		"mode",
+		"modelKmsKeyId",
+		"outputDataConfig",
+		"versionName",
+		"volumeKmsKeyId",
+		"vpcConfig",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DocumentClassifier
 	err := ctx.RegisterResource("aws-native:comprehend:DocumentClassifier", name, args, &resource, opts...)

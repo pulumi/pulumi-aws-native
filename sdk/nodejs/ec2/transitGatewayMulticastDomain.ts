@@ -97,6 +97,8 @@ export class TransitGatewayMulticastDomain extends pulumi.CustomResource {
             resourceInputs["transitGatewayMulticastDomainId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["transitGatewayId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayMulticastDomain.__pulumiType, name, resourceInputs, opts);
     }
 }

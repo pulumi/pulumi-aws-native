@@ -30,6 +30,10 @@ func NewCidrCollection(ctx *pulumi.Context,
 		args = &CidrCollectionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CidrCollection
 	err := ctx.RegisterResource("aws-native:route53:CidrCollection", name, args, &resource, opts...)

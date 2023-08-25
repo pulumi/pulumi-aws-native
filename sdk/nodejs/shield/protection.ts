@@ -94,6 +94,8 @@ export class Protection extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "resourceArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Protection.__pulumiType, name, resourceInputs, opts);
     }
 }

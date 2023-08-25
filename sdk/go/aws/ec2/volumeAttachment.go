@@ -34,6 +34,12 @@ func NewVolumeAttachment(ctx *pulumi.Context,
 	if args.VolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"device",
+		"instanceId",
+		"volumeId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VolumeAttachment
 	err := ctx.RegisterResource("aws-native:ec2:VolumeAttachment", name, args, &resource, opts...)

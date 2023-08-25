@@ -58,6 +58,14 @@ func NewStack(ctx *pulumi.Context,
 	if args.ServiceRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cloneAppIds[*]",
+		"clonePermissions",
+		"serviceRoleArn",
+		"sourceStackId",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stack
 	err := ctx.RegisterResource("aws-native:opsworks:Stack", name, args, &resource, opts...)

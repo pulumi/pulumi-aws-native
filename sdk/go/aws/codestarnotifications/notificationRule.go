@@ -48,6 +48,10 @@ func NewNotificationRule(ctx *pulumi.Context,
 	if args.Targets == nil {
 		return nil, errors.New("invalid value for required argument 'Targets'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resource",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotificationRule
 	err := ctx.RegisterResource("aws-native:codestarnotifications:NotificationRule", name, args, &resource, opts...)

@@ -39,6 +39,11 @@ func NewAggregationAuthorization(ctx *pulumi.Context,
 	if args.AuthorizedAwsRegion == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizedAwsRegion'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"authorizedAccountId",
+		"authorizedAwsRegion",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AggregationAuthorization
 	err := ctx.RegisterResource("aws-native:configuration:AggregationAuthorization", name, args, &resource, opts...)

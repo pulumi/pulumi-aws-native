@@ -111,6 +111,8 @@ class VolumeAttachment(pulumi.CustomResource):
             if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
             __props__.__dict__["volume_id"] = volume_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device", "instance_id", "volume_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VolumeAttachment, __self__).__init__(
             'aws-native:ec2:VolumeAttachment',
             resource_name,

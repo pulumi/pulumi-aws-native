@@ -100,6 +100,8 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["vpcEndpointId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["activationKey", "securityGroupArns[*]", "subnetArns[*]", "vpcEndpointId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Agent.__pulumiType, name, resourceInputs, opts);
     }
 }

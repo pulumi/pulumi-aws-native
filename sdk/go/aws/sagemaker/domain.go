@@ -70,6 +70,17 @@ func NewDomain(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"appNetworkAccessType",
+		"authMode",
+		"domainName",
+		"domainSettings.rStudioServerProDomainSettings.defaultResourceSpec",
+		"kmsKeyId",
+		"subnetIds[*]",
+		"tags[*]",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws-native:sagemaker:Domain", name, args, &resource, opts...)

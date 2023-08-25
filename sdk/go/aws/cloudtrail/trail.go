@@ -63,6 +63,10 @@ func NewTrail(ctx *pulumi.Context,
 	if args.S3BucketName == nil {
 		return nil, errors.New("invalid value for required argument 'S3BucketName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"trailName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Trail
 	err := ctx.RegisterResource("aws-native:cloudtrail:Trail", name, args, &resource, opts...)

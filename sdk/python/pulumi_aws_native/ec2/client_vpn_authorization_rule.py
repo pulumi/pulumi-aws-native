@@ -147,6 +147,8 @@ class ClientVpnAuthorizationRule(pulumi.CustomResource):
             if target_network_cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'target_network_cidr'")
             __props__.__dict__["target_network_cidr"] = target_network_cidr
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["access_group_id", "authorize_all_groups", "client_vpn_endpoint_id", "description", "target_network_cidr"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClientVpnAuthorizationRule, __self__).__init__(
             'aws-native:ec2:ClientVpnAuthorizationRule',
             resource_name,

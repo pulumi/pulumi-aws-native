@@ -65,6 +65,16 @@ func NewCacheCluster(ctx *pulumi.Context,
 	if args.NumCacheNodes == nil {
 		return nil, errors.New("invalid value for required argument 'NumCacheNodes'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cacheSubnetGroupName",
+		"clusterName",
+		"engine",
+		"networkType",
+		"port",
+		"snapshotArns[*]",
+		"snapshotName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CacheCluster
 	err := ctx.RegisterResource("aws-native:elasticache:CacheCluster", name, args, &resource, opts...)

@@ -50,6 +50,13 @@ func NewSyncJob(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"syncRole",
+		"syncSource",
+		"tags",
+		"workspaceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SyncJob
 	err := ctx.RegisterResource("aws-native:iottwinmaker:SyncJob", name, args, &resource, opts...)

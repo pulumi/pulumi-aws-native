@@ -188,6 +188,8 @@ class SubscriptionFilter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'log_group_name'")
             __props__.__dict__["log_group_name"] = log_group_name
             __props__.__dict__["role_arn"] = role_arn
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["filter_name", "log_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubscriptionFilter, __self__).__init__(
             'aws-native:logs:SubscriptionFilter',
             resource_name,

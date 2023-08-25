@@ -38,6 +38,10 @@ func NewNetworkInsightsAccessScopeAnalysis(ctx *pulumi.Context,
 	if args.NetworkInsightsAccessScopeId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInsightsAccessScopeId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"networkInsightsAccessScopeId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInsightsAccessScopeAnalysis
 	err := ctx.RegisterResource("aws-native:ec2:NetworkInsightsAccessScopeAnalysis", name, args, &resource, opts...)

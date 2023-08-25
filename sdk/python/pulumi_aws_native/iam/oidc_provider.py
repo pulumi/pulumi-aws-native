@@ -128,6 +128,8 @@ class OidcProvider(pulumi.CustomResource):
             __props__.__dict__["thumbprint_list"] = thumbprint_list
             __props__.__dict__["url"] = url
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["url"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OidcProvider, __self__).__init__(
             'aws-native:iam:OidcProvider',
             resource_name,

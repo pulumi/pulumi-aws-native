@@ -66,6 +66,8 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["notificationsWithSubscribers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["notificationsWithSubscribers[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Budget.__pulumiType, name, resourceInputs, opts);
     }
 }

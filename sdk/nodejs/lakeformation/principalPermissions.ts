@@ -85,6 +85,8 @@ export class PrincipalPermissions extends pulumi.CustomResource {
             resourceInputs["resourceIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["catalog", "permissions[*]", "permissionsWithGrantOption[*]", "principal", "resource"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PrincipalPermissions.__pulumiType, name, resourceInputs, opts);
     }
 }

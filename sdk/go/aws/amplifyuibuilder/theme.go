@@ -34,6 +34,10 @@ func NewTheme(ctx *pulumi.Context,
 	if args.Values == nil {
 		return nil, errors.New("invalid value for required argument 'Values'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Theme
 	err := ctx.RegisterResource("aws-native:amplifyuibuilder:Theme", name, args, &resource, opts...)

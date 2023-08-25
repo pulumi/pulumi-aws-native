@@ -67,6 +67,18 @@ func NewScheduledQuery(ctx *pulumi.Context,
 	if args.ScheduledQueryExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduledQueryExecutionRoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clientToken",
+		"errorReportConfiguration",
+		"kmsKeyId",
+		"notificationConfiguration",
+		"queryString",
+		"scheduleConfiguration",
+		"scheduledQueryExecutionRoleArn",
+		"scheduledQueryName",
+		"targetConfiguration",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledQuery
 	err := ctx.RegisterResource("aws-native:timestream:ScheduledQuery", name, args, &resource, opts...)

@@ -84,6 +84,8 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["backupId", "volumeType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }
 }

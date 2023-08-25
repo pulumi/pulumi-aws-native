@@ -58,6 +58,12 @@ func NewManagedPolicy(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"managedPolicyName",
+		"path",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedPolicy
 	err := ctx.RegisterResource("aws-native:iam:ManagedPolicy", name, args, &resource, opts...)

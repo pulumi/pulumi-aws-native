@@ -82,6 +82,8 @@ export class PlacementGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["partitionCount", "spreadLevel", "strategy", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PlacementGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

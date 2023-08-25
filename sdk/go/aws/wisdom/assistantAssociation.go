@@ -41,6 +41,13 @@ func NewAssistantAssociation(ctx *pulumi.Context,
 	if args.AssociationType == nil {
 		return nil, errors.New("invalid value for required argument 'AssociationType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"assistantId",
+		"association",
+		"associationType",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssistantAssociation
 	err := ctx.RegisterResource("aws-native:wisdom:AssistantAssociation", name, args, &resource, opts...)

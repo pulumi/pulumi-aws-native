@@ -38,6 +38,10 @@ func NewStoredQuery(ctx *pulumi.Context,
 	if args.QueryName == nil {
 		return nil, errors.New("invalid value for required argument 'QueryName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"queryName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StoredQuery
 	err := ctx.RegisterResource("aws-native:configuration:StoredQuery", name, args, &resource, opts...)

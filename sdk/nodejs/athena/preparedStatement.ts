@@ -82,6 +82,8 @@ export class PreparedStatement extends pulumi.CustomResource {
             resourceInputs["workGroup"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["statementName", "workGroup"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PreparedStatement.__pulumiType, name, resourceInputs, opts);
     }
 }

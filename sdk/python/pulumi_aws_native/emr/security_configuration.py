@@ -105,6 +105,8 @@ class SecurityConfiguration(pulumi.CustomResource):
             if security_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'security_configuration'")
             __props__.__dict__["security_configuration"] = security_configuration
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "security_configuration"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityConfiguration, __self__).__init__(
             'aws-native:emr:SecurityConfiguration',
             resource_name,

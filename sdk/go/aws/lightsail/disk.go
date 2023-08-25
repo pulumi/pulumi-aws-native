@@ -56,6 +56,12 @@ func NewDisk(ctx *pulumi.Context,
 	if args.SizeInGb == nil {
 		return nil, errors.New("invalid value for required argument 'SizeInGb'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"availabilityZone",
+		"diskName",
+		"sizeInGb",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Disk
 	err := ctx.RegisterResource("aws-native:lightsail:Disk", name, args, &resource, opts...)

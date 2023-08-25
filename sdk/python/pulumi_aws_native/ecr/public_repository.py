@@ -153,6 +153,8 @@ class PublicRepository(pulumi.CustomResource):
             __props__.__dict__["repository_policy_text"] = repository_policy_text
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["repository_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PublicRepository, __self__).__init__(
             'aws-native:ecr:PublicRepository',
             resource_name,

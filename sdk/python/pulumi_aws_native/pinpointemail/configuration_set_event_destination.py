@@ -119,6 +119,8 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             if event_destination_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_destination_name'")
             __props__.__dict__["event_destination_name"] = event_destination_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration_set_name", "event_destination_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationSetEventDestination, __self__).__init__(
             'aws-native:pinpointemail:ConfigurationSetEventDestination',
             resource_name,

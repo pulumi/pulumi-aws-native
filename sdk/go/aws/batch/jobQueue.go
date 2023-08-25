@@ -39,6 +39,11 @@ func NewJobQueue(ctx *pulumi.Context,
 	if args.Priority == nil {
 		return nil, errors.New("invalid value for required argument 'Priority'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"jobQueueName",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JobQueue
 	err := ctx.RegisterResource("aws-native:batch:JobQueue", name, args, &resource, opts...)

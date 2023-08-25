@@ -41,6 +41,10 @@ func NewConnection(ctx *pulumi.Context,
 	if args.AuthorizationType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizationType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws-native:events:Connection", name, args, &resource, opts...)

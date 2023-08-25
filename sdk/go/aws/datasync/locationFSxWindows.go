@@ -49,6 +49,15 @@ func NewLocationFSxWindows(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domain",
+		"fsxFilesystemArn",
+		"password",
+		"securityGroupArns[*]",
+		"subdirectory",
+		"user",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationFSxWindows
 	err := ctx.RegisterResource("aws-native:datasync:LocationFSxWindows", name, args, &resource, opts...)

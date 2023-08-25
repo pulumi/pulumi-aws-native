@@ -35,6 +35,10 @@ func NewLedger(ctx *pulumi.Context,
 	if args.PermissionsMode == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionsMode'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Ledger
 	err := ctx.RegisterResource("aws-native:qldb:Ledger", name, args, &resource, opts...)

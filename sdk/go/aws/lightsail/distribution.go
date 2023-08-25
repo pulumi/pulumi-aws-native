@@ -61,6 +61,11 @@ func NewDistribution(ctx *pulumi.Context,
 	if args.Origin == nil {
 		return nil, errors.New("invalid value for required argument 'Origin'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"distributionName",
+		"ipAddressType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Distribution
 	err := ctx.RegisterResource("aws-native:lightsail:Distribution", name, args, &resource, opts...)

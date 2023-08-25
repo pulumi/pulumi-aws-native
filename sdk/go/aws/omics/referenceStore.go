@@ -35,6 +35,13 @@ func NewReferenceStore(ctx *pulumi.Context,
 		args = &ReferenceStoreArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"name",
+		"sseConfig",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReferenceStore
 	err := ctx.RegisterResource("aws-native:omics:ReferenceStore", name, args, &resource, opts...)

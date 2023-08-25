@@ -115,6 +115,8 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["userRoleRequired"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["configurationName", "slackWorkspaceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SlackChannelConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

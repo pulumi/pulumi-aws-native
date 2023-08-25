@@ -81,6 +81,8 @@ export class Partition extends pulumi.CustomResource {
             resourceInputs["tableName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["catalogId", "databaseName", "tableName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Partition.__pulumiType, name, resourceInputs, opts);
     }
 }

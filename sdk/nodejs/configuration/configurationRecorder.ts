@@ -69,6 +69,8 @@ export class ConfigurationRecorder extends pulumi.CustomResource {
             resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfigurationRecorder.__pulumiType, name, resourceInputs, opts);
     }
 }

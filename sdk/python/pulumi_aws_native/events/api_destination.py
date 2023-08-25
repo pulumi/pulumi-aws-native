@@ -174,6 +174,8 @@ class ApiDestination(pulumi.CustomResource):
             __props__.__dict__["invocation_rate_limit_per_second"] = invocation_rate_limit_per_second
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApiDestination, __self__).__init__(
             'aws-native:events:ApiDestination',
             resource_name,

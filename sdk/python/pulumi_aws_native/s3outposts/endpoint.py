@@ -195,6 +195,8 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["access_type", "customer_owned_ipv4_pool", "outpost_id", "security_group_id", "subnet_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Endpoint, __self__).__init__(
             'aws-native:s3outposts:Endpoint',
             resource_name,

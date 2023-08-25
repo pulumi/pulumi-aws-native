@@ -33,6 +33,10 @@ func NewSamlProvider(ctx *pulumi.Context,
 	if args.SamlMetadataDocument == nil {
 		return nil, errors.New("invalid value for required argument 'SamlMetadataDocument'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SamlProvider
 	err := ctx.RegisterResource("aws-native:iam:SamlProvider", name, args, &resource, opts...)

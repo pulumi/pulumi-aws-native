@@ -107,6 +107,8 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'route_table_id'")
             __props__.__dict__["route_table_id"] = route_table_id
             __props__.__dict__["association_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["gateway_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GatewayRouteTableAssociation, __self__).__init__(
             'aws-native:ec2:GatewayRouteTableAssociation',
             resource_name,

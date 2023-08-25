@@ -38,6 +38,13 @@ func NewGlobalCluster(ctx *pulumi.Context,
 		args = &GlobalClusterArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"engine",
+		"globalClusterIdentifier",
+		"sourceDbClusterIdentifier",
+		"storageEncrypted",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalCluster
 	err := ctx.RegisterResource("aws-native:rds:GlobalCluster", name, args, &resource, opts...)

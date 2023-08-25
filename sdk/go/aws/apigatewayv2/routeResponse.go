@@ -41,6 +41,11 @@ func NewRouteResponse(ctx *pulumi.Context,
 	if args.RouteResponseKey == nil {
 		return nil, errors.New("invalid value for required argument 'RouteResponseKey'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiId",
+		"routeId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteResponse
 	err := ctx.RegisterResource("aws-native:apigatewayv2:RouteResponse", name, args, &resource, opts...)

@@ -56,6 +56,10 @@ func NewCampaign(ctx *pulumi.Context,
 	if args.SegmentId == nil {
 		return nil, errors.New("invalid value for required argument 'SegmentId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Campaign
 	err := ctx.RegisterResource("aws-native:pinpoint:Campaign", name, args, &resource, opts...)

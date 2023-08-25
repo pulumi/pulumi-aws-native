@@ -93,6 +93,8 @@ export class GatewayRoute extends pulumi.CustomResource {
             resourceInputs["virtualGatewayName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["gatewayRouteName", "meshName", "meshOwner", "virtualGatewayName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GatewayRoute.__pulumiType, name, resourceInputs, opts);
     }
 }

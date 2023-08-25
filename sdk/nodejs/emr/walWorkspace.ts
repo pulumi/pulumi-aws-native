@@ -64,6 +64,8 @@ export class WalWorkspace extends pulumi.CustomResource {
             resourceInputs["walWorkspaceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["walWorkspaceName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(WalWorkspace.__pulumiType, name, resourceInputs, opts);
     }
 }

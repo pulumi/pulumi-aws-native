@@ -82,6 +82,8 @@ export class RouteResponse extends pulumi.CustomResource {
             resourceInputs["routeResponseKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiId", "routeId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RouteResponse.__pulumiType, name, resourceInputs, opts);
     }
 }

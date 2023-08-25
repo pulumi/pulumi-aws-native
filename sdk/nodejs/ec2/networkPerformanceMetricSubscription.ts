@@ -85,6 +85,8 @@ export class NetworkPerformanceMetricSubscription extends pulumi.CustomResource 
             resourceInputs["statistic"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["destination", "metric", "source", "statistic"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkPerformanceMetricSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }

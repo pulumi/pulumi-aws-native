@@ -47,6 +47,10 @@ func NewResolverRule(ctx *pulumi.Context,
 	if args.RuleType == nil {
 		return nil, errors.New("invalid value for required argument 'RuleType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ruleType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverRule
 	err := ctx.RegisterResource("aws-native:route53resolver:ResolverRule", name, args, &resource, opts...)

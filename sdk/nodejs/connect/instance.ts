@@ -106,6 +106,8 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["serviceRole"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["directoryId", "identityManagementType", "instanceAlias"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }

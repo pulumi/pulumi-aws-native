@@ -64,6 +64,8 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
             resourceInputs["domainName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domainName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DomainNameApiAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

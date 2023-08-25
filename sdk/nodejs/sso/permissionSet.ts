@@ -109,6 +109,8 @@ export class PermissionSet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instanceArn", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PermissionSet.__pulumiType, name, resourceInputs, opts);
     }
 }

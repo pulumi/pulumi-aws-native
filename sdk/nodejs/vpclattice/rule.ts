@@ -85,6 +85,8 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["listenerIdentifier", "name", "serviceIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -42,6 +42,12 @@ func NewKeySigningKey(ctx *pulumi.Context,
 	if args.Status == nil {
 		return nil, errors.New("invalid value for required argument 'Status'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"hostedZoneId",
+		"keyManagementServiceArn",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeySigningKey
 	err := ctx.RegisterResource("aws-native:route53:KeySigningKey", name, args, &resource, opts...)

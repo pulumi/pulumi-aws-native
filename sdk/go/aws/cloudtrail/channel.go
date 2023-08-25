@@ -32,6 +32,10 @@ func NewChannel(ctx *pulumi.Context,
 		args = &ChannelArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"source",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws-native:cloudtrail:Channel", name, args, &resource, opts...)

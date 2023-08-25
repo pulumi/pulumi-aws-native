@@ -103,6 +103,8 @@ export class MatchingWorkflow extends pulumi.CustomResource {
             resourceInputs["workflowName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["workflowName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MatchingWorkflow.__pulumiType, name, resourceInputs, opts);
     }
 }

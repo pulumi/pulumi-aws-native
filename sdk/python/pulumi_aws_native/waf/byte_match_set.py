@@ -102,6 +102,8 @@ class ByteMatchSet(pulumi.CustomResource):
 
             __props__.__dict__["byte_match_tuples"] = byte_match_tuples
             __props__.__dict__["name"] = name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ByteMatchSet, __self__).__init__(
             'aws-native:waf:ByteMatchSet',
             resource_name,

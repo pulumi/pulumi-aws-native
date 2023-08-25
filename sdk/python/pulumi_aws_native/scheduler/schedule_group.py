@@ -106,6 +106,8 @@ class ScheduleGroup(pulumi.CustomResource):
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["last_modification_date"] = None
             __props__.__dict__["state"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ScheduleGroup, __self__).__init__(
             'aws-native:scheduler:ScheduleGroup',
             resource_name,

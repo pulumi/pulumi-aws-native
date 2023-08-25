@@ -129,6 +129,8 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
             __props__.__dict__["regions"] = regions
             __props__.__dict__["alias"] = None
             __props__.__dict__["created_at"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "public_access_block_configuration", "regions[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MultiRegionAccessPoint, __self__).__init__(
             'aws-native:s3:MultiRegionAccessPoint',
             resource_name,

@@ -169,6 +169,8 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["workspaceSecurityGroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["authMode", "engineSecurityGroupId", "serviceRole", "userRole", "vpcId", "workspaceSecurityGroupId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Studio.__pulumiType, name, resourceInputs, opts);
     }
 }

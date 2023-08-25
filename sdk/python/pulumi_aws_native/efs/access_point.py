@@ -164,6 +164,8 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["root_directory"] = root_directory
             __props__.__dict__["access_point_id"] = None
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_token", "file_system_id", "posix_user", "root_directory"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessPoint, __self__).__init__(
             'aws-native:efs:AccessPoint',
             resource_name,

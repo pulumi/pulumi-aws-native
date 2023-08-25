@@ -106,6 +106,8 @@ class AccessPointPolicy(pulumi.CustomResource):
             if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["object_lambda_access_point"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessPointPolicy, __self__).__init__(
             'aws-native:s3objectlambda:AccessPointPolicy',
             resource_name,

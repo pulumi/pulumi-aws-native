@@ -584,6 +584,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["parameter_group_status"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_name", "data_tiering", "kms_key_id", "port", "snapshot_arns[*]", "snapshot_name", "subnet_group_name", "tls_enabled"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:memorydb:Cluster',
             resource_name,

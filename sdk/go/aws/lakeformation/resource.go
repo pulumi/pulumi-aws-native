@@ -37,6 +37,10 @@ func NewResource(ctx *pulumi.Context,
 	if args.UseServiceLinkedRole == nil {
 		return nil, errors.New("invalid value for required argument 'UseServiceLinkedRole'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Resource
 	err := ctx.RegisterResource("aws-native:lakeformation:Resource", name, args, &resource, opts...)

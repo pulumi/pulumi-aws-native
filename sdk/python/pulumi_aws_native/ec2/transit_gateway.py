@@ -246,6 +246,8 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_cidr_blocks"] = transit_gateway_cidr_blocks
             __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_side_asn", "multicast_support"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGateway, __self__).__init__(
             'aws-native:ec2:TransitGateway',
             resource_name,

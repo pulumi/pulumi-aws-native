@@ -45,6 +45,11 @@ func NewIpSet(ctx *pulumi.Context,
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"detectorId",
+		"format",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpSet
 	err := ctx.RegisterResource("aws-native:guardduty:IpSet", name, args, &resource, opts...)

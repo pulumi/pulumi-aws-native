@@ -50,6 +50,10 @@ func NewContactFlow(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactFlow
 	err := ctx.RegisterResource("aws-native:connect:ContactFlow", name, args, &resource, opts...)

@@ -72,6 +72,16 @@ namespace Pulumi.AwsNative.Cloud9
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "automaticStopTimeMinutes",
+                    "connectionType",
+                    "imageId",
+                    "instanceType",
+                    "ownerArn",
+                    "repositories[*]",
+                    "subnetId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

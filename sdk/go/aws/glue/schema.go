@@ -52,6 +52,13 @@ func NewSchema(ctx *pulumi.Context,
 	if args.SchemaDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaDefinition'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dataFormat",
+		"name",
+		"registry",
+		"schemaDefinition",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schema
 	err := ctx.RegisterResource("aws-native:glue:Schema", name, args, &resource, opts...)

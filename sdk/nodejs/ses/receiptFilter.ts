@@ -63,6 +63,8 @@ export class ReceiptFilter extends pulumi.CustomResource {
             resourceInputs["filter"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["filter"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReceiptFilter.__pulumiType, name, resourceInputs, opts);
     }
 }

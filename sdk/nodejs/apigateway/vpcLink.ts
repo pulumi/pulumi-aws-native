@@ -85,6 +85,8 @@ export class VpcLink extends pulumi.CustomResource {
             resourceInputs["vpcLinkId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["targetArns[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcLink.__pulumiType, name, resourceInputs, opts);
     }
 }

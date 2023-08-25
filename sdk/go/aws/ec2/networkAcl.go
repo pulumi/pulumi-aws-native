@@ -32,6 +32,10 @@ func NewNetworkAcl(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkAcl
 	err := ctx.RegisterResource("aws-native:ec2:NetworkAcl", name, args, &resource, opts...)

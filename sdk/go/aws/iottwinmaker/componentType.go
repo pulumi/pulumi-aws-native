@@ -61,6 +61,11 @@ func NewComponentType(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"componentTypeId",
+		"workspaceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ComponentType
 	err := ctx.RegisterResource("aws-native:iottwinmaker:ComponentType", name, args, &resource, opts...)

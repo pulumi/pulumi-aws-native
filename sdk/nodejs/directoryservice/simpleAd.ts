@@ -124,6 +124,8 @@ export class SimpleAd extends pulumi.CustomResource {
             resourceInputs["vpcSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["createAlias", "description", "name", "password", "shortName", "size", "vpcSettings"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SimpleAd.__pulumiType, name, resourceInputs, opts);
     }
 }

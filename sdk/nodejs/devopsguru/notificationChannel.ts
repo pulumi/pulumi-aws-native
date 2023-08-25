@@ -58,6 +58,8 @@ export class NotificationChannel extends pulumi.CustomResource {
             resourceInputs["config"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["config"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NotificationChannel.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -41,6 +41,12 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 	if args.LocationUri == nil {
 		return nil, errors.New("invalid value for required argument 'LocationUri'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationId",
+		"locationUri",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationProfile
 	err := ctx.RegisterResource("aws-native:appconfig:ConfigurationProfile", name, args, &resource, opts...)

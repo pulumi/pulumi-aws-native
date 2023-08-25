@@ -124,6 +124,8 @@ export class Scene extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["sceneId", "workspaceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Scene.__pulumiType, name, resourceInputs, opts);
     }
 }

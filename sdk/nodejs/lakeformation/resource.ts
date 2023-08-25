@@ -72,6 +72,8 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["withFederation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Resource.__pulumiType, name, resourceInputs, opts);
     }
 }

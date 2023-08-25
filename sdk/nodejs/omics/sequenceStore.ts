@@ -91,6 +91,8 @@ export class SequenceStore extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "fallbackLocation", "name", "sseConfig", "tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SequenceStore.__pulumiType, name, resourceInputs, opts);
     }
 }

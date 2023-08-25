@@ -267,6 +267,8 @@ class Authorizer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["authorizer_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["rest_api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Authorizer, __self__).__init__(
             'aws-native:apigateway:Authorizer',
             resource_name,

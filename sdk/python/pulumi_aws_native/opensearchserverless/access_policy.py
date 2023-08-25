@@ -142,6 +142,8 @@ class AccessPolicy(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessPolicy, __self__).__init__(
             'aws-native:opensearchserverless:AccessPolicy',
             resource_name,

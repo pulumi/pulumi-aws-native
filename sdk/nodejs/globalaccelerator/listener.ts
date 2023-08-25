@@ -88,6 +88,8 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["protocol"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["acceleratorArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Listener.__pulumiType, name, resourceInputs, opts);
     }
 }

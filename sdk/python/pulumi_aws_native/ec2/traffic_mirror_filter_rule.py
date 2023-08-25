@@ -228,6 +228,8 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             if traffic_mirror_filter_id is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_mirror_filter_id'")
             __props__.__dict__["traffic_mirror_filter_id"] = traffic_mirror_filter_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["traffic_mirror_filter_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrafficMirrorFilterRule, __self__).__init__(
             'aws-native:ec2:TrafficMirrorFilterRule',
             resource_name,

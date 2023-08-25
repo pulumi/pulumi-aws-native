@@ -104,6 +104,8 @@ class PullThroughCacheRule(pulumi.CustomResource):
 
             __props__.__dict__["ecr_repository_prefix"] = ecr_repository_prefix
             __props__.__dict__["upstream_registry_url"] = upstream_registry_url
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ecr_repository_prefix", "upstream_registry_url"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PullThroughCacheRule, __self__).__init__(
             'aws-native:ecr:PullThroughCacheRule',
             resource_name,

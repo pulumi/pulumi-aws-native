@@ -97,6 +97,8 @@ export class PackageVersion extends pulumi.CustomResource {
             resourceInputs["updatedLatestPatchVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ownerAccount", "packageId", "packageVersion", "patchVersion"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PackageVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

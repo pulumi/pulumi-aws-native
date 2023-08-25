@@ -46,6 +46,13 @@ func NewLocationFSxOntap(ctx *pulumi.Context,
 	if args.StorageVirtualMachineArn == nil {
 		return nil, errors.New("invalid value for required argument 'StorageVirtualMachineArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"protocol",
+		"securityGroupArns[*]",
+		"storageVirtualMachineArn",
+		"subdirectory",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationFSxOntap
 	err := ctx.RegisterResource("aws-native:datasync:LocationFSxOntap", name, args, &resource, opts...)

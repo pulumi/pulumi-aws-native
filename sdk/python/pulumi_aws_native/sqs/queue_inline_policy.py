@@ -106,6 +106,8 @@ class QueueInlinePolicy(pulumi.CustomResource):
             if queue is None and not opts.urn:
                 raise TypeError("Missing required property 'queue'")
             __props__.__dict__["queue"] = queue
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["queue"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(QueueInlinePolicy, __self__).__init__(
             'aws-native:sqs:QueueInlinePolicy',
             resource_name,

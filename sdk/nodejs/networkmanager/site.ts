@@ -97,6 +97,8 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["globalNetworkId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Site.__pulumiType, name, resourceInputs, opts);
     }
 }

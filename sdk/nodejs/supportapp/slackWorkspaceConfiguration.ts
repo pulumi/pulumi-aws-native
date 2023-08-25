@@ -64,6 +64,8 @@ export class SlackWorkspaceConfiguration extends pulumi.CustomResource {
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["teamId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SlackWorkspaceConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -97,6 +97,8 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["uriPathRoute"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationIdentifier", "environmentIdentifier", "routeType", "serviceIdentifier", "uriPathRoute.appendSourcePath", "uriPathRoute.includeChildPaths", "uriPathRoute.methods[*]", "uriPathRoute.sourcePath"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }

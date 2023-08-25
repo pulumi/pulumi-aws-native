@@ -38,6 +38,10 @@ func NewDataCatalog(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataCatalog
 	err := ctx.RegisterResource("aws-native:athena:DataCatalog", name, args, &resource, opts...)

@@ -94,6 +94,8 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["versionDescription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["launchTemplateName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LaunchTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -42,6 +42,15 @@ func NewRepositoryAssociation(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bucketName",
+		"connectionArn",
+		"name",
+		"owner",
+		"tags[*]",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RepositoryAssociation
 	err := ctx.RegisterResource("aws-native:codegurureviewer:RepositoryAssociation", name, args, &resource, opts...)

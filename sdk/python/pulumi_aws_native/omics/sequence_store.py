@@ -160,6 +160,8 @@ class SequenceStore(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["sequence_store_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "fallback_location", "name", "sse_config", "tags"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SequenceStore, __self__).__init__(
             'aws-native:omics:SequenceStore',
             resource_name,

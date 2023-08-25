@@ -102,6 +102,8 @@ export class PublicTypeVersion extends pulumi.CustomResource {
             resourceInputs["typeVersionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["arn", "logDeliveryBucket", "publicVersionNumber", "type", "typeName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PublicTypeVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

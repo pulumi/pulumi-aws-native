@@ -48,6 +48,15 @@ func NewApp(ctx *pulumi.Context,
 	if args.UserProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'UserProfileName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"appName",
+		"appType",
+		"domainId",
+		"resourceSpec",
+		"tags[*]",
+		"userProfileName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws-native:sagemaker:App", name, args, &resource, opts...)

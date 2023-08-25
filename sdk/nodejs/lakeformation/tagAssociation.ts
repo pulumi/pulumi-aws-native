@@ -82,6 +82,8 @@ export class TagAssociation extends pulumi.CustomResource {
             resourceInputs["tagsIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["lfTags[*]", "resource"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TagAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -37,6 +37,10 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cacheParameterGroupFamily",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws-native:elasticache:ParameterGroup", name, args, &resource, opts...)

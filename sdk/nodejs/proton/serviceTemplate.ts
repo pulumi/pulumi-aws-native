@@ -90,6 +90,8 @@ export class ServiceTemplate extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["encryptionKey", "name", "pipelineProvisioning"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServiceTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

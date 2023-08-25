@@ -35,6 +35,10 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.DatabaseInput == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseInput'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"catalogId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Database
 	err := ctx.RegisterResource("aws-native:glue:Database", name, args, &resource, opts...)

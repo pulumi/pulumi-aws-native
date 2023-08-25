@@ -82,6 +82,8 @@ export class MitigationAction extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["actionName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MitigationAction.__pulumiType, name, resourceInputs, opts);
     }
 }

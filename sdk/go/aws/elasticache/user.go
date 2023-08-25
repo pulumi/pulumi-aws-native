@@ -50,6 +50,12 @@ func NewUser(ctx *pulumi.Context,
 	if args.UserId == nil {
 		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"engine",
+		"userId",
+		"userName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws-native:elasticache:User", name, args, &resource, opts...)

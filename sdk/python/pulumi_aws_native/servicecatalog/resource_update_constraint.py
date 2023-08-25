@@ -148,6 +148,8 @@ class ResourceUpdateConstraint(pulumi.CustomResource):
             if tag_update_on_provisioned_product is None and not opts.urn:
                 raise TypeError("Missing required property 'tag_update_on_provisioned_product'")
             __props__.__dict__["tag_update_on_provisioned_product"] = tag_update_on_provisioned_product
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portfolio_id", "product_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourceUpdateConstraint, __self__).__init__(
             'aws-native:servicecatalog:ResourceUpdateConstraint',
             resource_name,

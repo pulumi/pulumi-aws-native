@@ -165,6 +165,8 @@ class Model(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
             __props__.__dict__["schema"] = schema
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["content_type", "name", "rest_api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Model, __self__).__init__(
             'aws-native:apigateway:Model',
             resource_name,

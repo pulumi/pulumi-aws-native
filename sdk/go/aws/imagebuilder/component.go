@@ -57,6 +57,19 @@ func NewComponent(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"changeDescription",
+		"data",
+		"description",
+		"kmsKeyId",
+		"name",
+		"platform",
+		"supportedOsVersions[*]",
+		"tags",
+		"uri",
+		"version",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Component
 	err := ctx.RegisterResource("aws-native:imagebuilder:Component", name, args, &resource, opts...)

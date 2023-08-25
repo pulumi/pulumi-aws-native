@@ -69,6 +69,20 @@ func NewConnector(ctx *pulumi.Context,
 	if args.ServiceExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceExecutionRoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"connectorConfiguration",
+		"connectorDescription",
+		"connectorName",
+		"kafkaCluster",
+		"kafkaClusterClientAuthentication",
+		"kafkaClusterEncryptionInTransit",
+		"kafkaConnectVersion",
+		"logDelivery",
+		"plugins[*]",
+		"serviceExecutionRoleArn",
+		"workerConfiguration",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connector
 	err := ctx.RegisterResource("aws-native:kafkaconnect:Connector", name, args, &resource, opts...)

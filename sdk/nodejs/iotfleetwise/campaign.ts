@@ -132,6 +132,8 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["targetArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["collectionScheme", "compression", "diagnosticsMode", "expiryTime", "name", "postTriggerCollectionDuration", "priority", "signalCatalogArn", "spoolingMode", "startTime", "targetArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Campaign.__pulumiType, name, resourceInputs, opts);
     }
 }

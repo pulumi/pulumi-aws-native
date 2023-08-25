@@ -52,6 +52,10 @@ func NewFramework(ctx *pulumi.Context,
 	if args.FrameworkControls == nil {
 		return nil, errors.New("invalid value for required argument 'FrameworkControls'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"frameworkName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Framework
 	err := ctx.RegisterResource("aws-native:backup:Framework", name, args, &resource, opts...)

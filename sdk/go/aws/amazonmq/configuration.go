@@ -45,6 +45,13 @@ func NewConfiguration(ctx *pulumi.Context,
 	if args.EngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'EngineVersion'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"authenticationStrategy",
+		"engineType",
+		"engineVersion",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Configuration
 	err := ctx.RegisterResource("aws-native:amazonmq:Configuration", name, args, &resource, opts...)

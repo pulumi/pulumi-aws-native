@@ -64,6 +64,8 @@ export class SecurityKey extends pulumi.CustomResource {
             resourceInputs["key"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instanceId", "key"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SecurityKey.__pulumiType, name, resourceInputs, opts);
     }
 }

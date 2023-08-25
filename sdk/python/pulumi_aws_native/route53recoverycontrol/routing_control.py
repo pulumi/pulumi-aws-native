@@ -127,6 +127,8 @@ class RoutingControl(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["routing_control_arn"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_arn", "control_panel_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RoutingControl, __self__).__init__(
             'aws-native:route53recoverycontrol:RoutingControl',
             resource_name,

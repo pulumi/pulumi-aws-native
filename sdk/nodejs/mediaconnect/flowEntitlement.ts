@@ -109,6 +109,8 @@ export class FlowEntitlement extends pulumi.CustomResource {
             resourceInputs["subscribers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dataTransferSubscriberFeePercent", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FlowEntitlement.__pulumiType, name, resourceInputs, opts);
     }
 }

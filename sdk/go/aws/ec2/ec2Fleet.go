@@ -44,6 +44,18 @@ func NewEc2Fleet(ctx *pulumi.Context,
 	if args.TargetCapacitySpecification == nil {
 		return nil, errors.New("invalid value for required argument 'TargetCapacitySpecification'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"launchTemplateConfigs[*]",
+		"onDemandOptions",
+		"replaceUnhealthyInstances",
+		"spotOptions",
+		"tagSpecifications[*]",
+		"terminateInstancesWithExpiration",
+		"type",
+		"validFrom",
+		"validUntil",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Ec2Fleet
 	err := ctx.RegisterResource("aws-native:ec2:Ec2Fleet", name, args, &resource, opts...)

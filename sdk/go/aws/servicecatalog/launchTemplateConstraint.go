@@ -41,6 +41,11 @@ func NewLaunchTemplateConstraint(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"portfolioId",
+		"productId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LaunchTemplateConstraint
 	err := ctx.RegisterResource("aws-native:servicecatalog:LaunchTemplateConstraint", name, args, &resource, opts...)

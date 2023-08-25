@@ -134,6 +134,8 @@ class Version(pulumi.CustomResource):
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
             __props__.__dict__["version"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["function_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Version, __self__).__init__(
             'aws-native:lambda:Version',
             resource_name,

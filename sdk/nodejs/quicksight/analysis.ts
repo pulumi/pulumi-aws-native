@@ -106,6 +106,8 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["themeArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["analysisId", "awsAccountId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Analysis.__pulumiType, name, resourceInputs, opts);
     }
 }

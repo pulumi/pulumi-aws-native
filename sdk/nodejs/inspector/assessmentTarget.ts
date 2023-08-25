@@ -58,6 +58,8 @@ export class AssessmentTarget extends pulumi.CustomResource {
             resourceInputs["resourceGroupArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["assessmentTargetName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AssessmentTarget.__pulumiType, name, resourceInputs, opts);
     }
 }

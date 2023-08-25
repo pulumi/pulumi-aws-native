@@ -130,6 +130,8 @@ export class Vpc extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Vpc.__pulumiType, name, resourceInputs, opts);
     }
 }

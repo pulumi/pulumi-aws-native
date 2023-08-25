@@ -41,6 +41,11 @@ func NewResourceUpdateConstraint(ctx *pulumi.Context,
 	if args.TagUpdateOnProvisionedProduct == nil {
 		return nil, errors.New("invalid value for required argument 'TagUpdateOnProvisionedProduct'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"portfolioId",
+		"productId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceUpdateConstraint
 	err := ctx.RegisterResource("aws-native:servicecatalog:ResourceUpdateConstraint", name, args, &resource, opts...)

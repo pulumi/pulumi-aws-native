@@ -85,6 +85,8 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["allocationId", "connectivityType", "privateIpAddress", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NatGateway.__pulumiType, name, resourceInputs, opts);
     }
 }

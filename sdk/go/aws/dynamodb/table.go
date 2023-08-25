@@ -47,6 +47,11 @@ func NewTable(ctx *pulumi.Context,
 	if args.KeySchema == nil {
 		return nil, errors.New("invalid value for required argument 'KeySchema'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"importSourceSpecification",
+		"tableName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws-native:dynamodb:Table", name, args, &resource, opts...)

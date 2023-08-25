@@ -50,6 +50,11 @@ func NewFlowEntitlement(ctx *pulumi.Context,
 	if args.Subscribers == nil {
 		return nil, errors.New("invalid value for required argument 'Subscribers'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dataTransferSubscriberFeePercent",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlowEntitlement
 	err := ctx.RegisterResource("aws-native:mediaconnect:FlowEntitlement", name, args, &resource, opts...)

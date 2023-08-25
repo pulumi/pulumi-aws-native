@@ -127,6 +127,8 @@ class PrimaryTaskSet(pulumi.CustomResource):
             if task_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'task_set_id'")
             __props__.__dict__["task_set_id"] = task_set_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "service"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PrimaryTaskSet, __self__).__init__(
             'aws-native:ecs:PrimaryTaskSet',
             resource_name,

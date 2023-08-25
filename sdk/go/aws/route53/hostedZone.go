@@ -37,6 +37,10 @@ func NewHostedZone(ctx *pulumi.Context,
 		args = &HostedZoneArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HostedZone
 	err := ctx.RegisterResource("aws-native:route53:HostedZone", name, args, &resource, opts...)

@@ -109,6 +109,8 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
             __props__.__dict__["error"] = None
             __props__.__dict__["error_message"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resolver_query_log_config_id", "resource_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResolverQueryLoggingConfigAssociation, __self__).__init__(
             'aws-native:route53resolver:ResolverQueryLoggingConfigAssociation',
             resource_name,

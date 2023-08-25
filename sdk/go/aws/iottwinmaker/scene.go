@@ -56,6 +56,11 @@ func NewScene(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"sceneId",
+		"workspaceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Scene
 	err := ctx.RegisterResource("aws-native:iottwinmaker:Scene", name, args, &resource, opts...)

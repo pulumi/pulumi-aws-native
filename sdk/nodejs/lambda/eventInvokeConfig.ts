@@ -73,6 +73,8 @@ export class EventInvokeConfig extends pulumi.CustomResource {
             resourceInputs["qualifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["functionName", "qualifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EventInvokeConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

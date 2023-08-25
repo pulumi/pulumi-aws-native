@@ -99,6 +99,8 @@ export class App extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["shortname", "stackId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(App.__pulumiType, name, resourceInputs, opts);
     }
 }

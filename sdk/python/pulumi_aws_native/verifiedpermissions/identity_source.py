@@ -115,6 +115,8 @@ class IdentitySource(pulumi.CustomResource):
             __props__.__dict__["principal_entity_type"] = principal_entity_type
             __props__.__dict__["details"] = None
             __props__.__dict__["identity_source_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_store_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IdentitySource, __self__).__init__(
             'aws-native:verifiedpermissions:IdentitySource',
             resource_name,

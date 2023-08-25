@@ -31,6 +31,11 @@ func NewEventBus(ctx *pulumi.Context,
 		args = &EventBusArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"eventSourceName",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventBus
 	err := ctx.RegisterResource("aws-native:events:EventBus", name, args, &resource, opts...)

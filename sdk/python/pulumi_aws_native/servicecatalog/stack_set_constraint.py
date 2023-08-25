@@ -213,6 +213,8 @@ class StackSetConstraint(pulumi.CustomResource):
             if stack_instance_control is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_instance_control'")
             __props__.__dict__["stack_instance_control"] = stack_instance_control
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portfolio_id", "product_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StackSetConstraint, __self__).__init__(
             'aws-native:servicecatalog:StackSetConstraint',
             resource_name,

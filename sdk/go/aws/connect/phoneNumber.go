@@ -50,6 +50,13 @@ func NewPhoneNumber(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"countryCode",
+		"description",
+		"prefix",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PhoneNumber
 	err := ctx.RegisterResource("aws-native:connect:PhoneNumber", name, args, &resource, opts...)

@@ -160,6 +160,8 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "masterDatabaseName", "masterUsername", "relationalDatabaseBlueprintId", "relationalDatabaseBundleId", "relationalDatabaseName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }

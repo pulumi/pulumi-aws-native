@@ -103,6 +103,8 @@ export class Theme extends pulumi.CustomResource {
             resourceInputs["versionDescription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "themeId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Theme.__pulumiType, name, resourceInputs, opts);
     }
 }

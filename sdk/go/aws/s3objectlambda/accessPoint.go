@@ -39,6 +39,10 @@ func NewAccessPoint(ctx *pulumi.Context,
 	if args.ObjectLambdaConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ObjectLambdaConfiguration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessPoint
 	err := ctx.RegisterResource("aws-native:s3objectlambda:AccessPoint", name, args, &resource, opts...)

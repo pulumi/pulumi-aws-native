@@ -61,6 +61,12 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.Usage == nil {
 		return nil, errors.New("invalid value for required argument 'Usage'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"certificate",
+		"certificateChain",
+		"privateKey",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws-native:transfer:Certificate", name, args, &resource, opts...)

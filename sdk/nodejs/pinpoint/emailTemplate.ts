@@ -84,6 +84,8 @@ export class EmailTemplate extends pulumi.CustomResource {
             resourceInputs["textPart"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["templateName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EmailTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

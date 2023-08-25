@@ -108,6 +108,8 @@ class Standard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'standards_arn'")
             __props__.__dict__["standards_arn"] = standards_arn
             __props__.__dict__["standards_subscription_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["standards_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Standard, __self__).__init__(
             'aws-native:securityhub:Standard',
             resource_name,

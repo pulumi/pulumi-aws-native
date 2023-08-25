@@ -42,6 +42,10 @@ func NewParameter(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Parameter
 	err := ctx.RegisterResource("aws-native:ssm:Parameter", name, args, &resource, opts...)

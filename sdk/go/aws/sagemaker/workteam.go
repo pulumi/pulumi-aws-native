@@ -32,6 +32,11 @@ func NewWorkteam(ctx *pulumi.Context,
 		args = &WorkteamArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"workforceName",
+		"workteamName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workteam
 	err := ctx.RegisterResource("aws-native:sagemaker:Workteam", name, args, &resource, opts...)

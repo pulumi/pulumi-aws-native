@@ -35,6 +35,11 @@ func NewVirtualCluster(ctx *pulumi.Context,
 	if args.ContainerProvider == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerProvider'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"containerProvider",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualCluster
 	err := ctx.RegisterResource("aws-native:emrcontainers:VirtualCluster", name, args, &resource, opts...)

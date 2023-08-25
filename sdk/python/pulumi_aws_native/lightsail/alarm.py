@@ -291,6 +291,8 @@ class Alarm(pulumi.CustomResource):
             __props__.__dict__["treat_missing_data"] = treat_missing_data
             __props__.__dict__["alarm_arn"] = None
             __props__.__dict__["state"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["alarm_name", "metric_name", "monitored_resource_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Alarm, __self__).__init__(
             'aws-native:lightsail:Alarm',
             resource_name,

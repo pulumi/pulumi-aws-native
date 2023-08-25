@@ -72,6 +72,8 @@ export class ReceiptRule extends pulumi.CustomResource {
             resourceInputs["ruleSetName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ruleSetName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReceiptRule.__pulumiType, name, resourceInputs, opts);
     }
 }

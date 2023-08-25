@@ -64,6 +64,8 @@ export class LogStream extends pulumi.CustomResource {
             resourceInputs["logStreamName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["logGroupName", "logStreamName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LogStream.__pulumiType, name, resourceInputs, opts);
     }
 }

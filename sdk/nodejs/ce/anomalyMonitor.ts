@@ -114,6 +114,8 @@ export class AnomalyMonitor extends pulumi.CustomResource {
             resourceInputs["resourceTags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["monitorDimension", "monitorSpecification", "monitorType", "resourceTags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AnomalyMonitor.__pulumiType, name, resourceInputs, opts);
     }
 }

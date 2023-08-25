@@ -32,6 +32,13 @@ func NewServerCertificate(ctx *pulumi.Context,
 		args = &ServerCertificateArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"certificateBody",
+		"certificateChain",
+		"privateKey",
+		"serverCertificateName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerCertificate
 	err := ctx.RegisterResource("aws-native:iam:ServerCertificate", name, args, &resource, opts...)

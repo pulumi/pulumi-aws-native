@@ -444,6 +444,8 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["validation_configurations"] = validation_configurations
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Job, __self__).__init__(
             'aws-native:databrew:Job',
             resource_name,

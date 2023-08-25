@@ -33,6 +33,10 @@ func NewIdentityPoolRoleAttachment(ctx *pulumi.Context,
 	if args.IdentityPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityPoolId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"identityPoolId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityPoolRoleAttachment
 	err := ctx.RegisterResource("aws-native:cognito:IdentityPoolRoleAttachment", name, args, &resource, opts...)

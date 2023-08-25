@@ -40,6 +40,14 @@ func NewComputeEnvironment(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"computeEnvironmentName",
+		"computeResources.spotIamFleetRole",
+		"eksConfiguration",
+		"tags",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ComputeEnvironment
 	err := ctx.RegisterResource("aws-native:batch:ComputeEnvironment", name, args, &resource, opts...)

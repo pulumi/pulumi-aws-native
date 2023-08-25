@@ -50,6 +50,13 @@ func NewAnomalyMonitor(ctx *pulumi.Context,
 	if args.MonitorType == nil {
 		return nil, errors.New("invalid value for required argument 'MonitorType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"monitorDimension",
+		"monitorSpecification",
+		"monitorType",
+		"resourceTags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnomalyMonitor
 	err := ctx.RegisterResource("aws-native:ce:AnomalyMonitor", name, args, &resource, opts...)

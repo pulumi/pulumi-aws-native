@@ -34,6 +34,10 @@ func NewApplication(ctx *pulumi.Context,
 	if args.Inputs == nil {
 		return nil, errors.New("invalid value for required argument 'Inputs'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws-native:kinesisanalytics:Application", name, args, &resource, opts...)

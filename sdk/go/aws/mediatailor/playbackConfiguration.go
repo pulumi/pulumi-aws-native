@@ -67,6 +67,10 @@ func NewPlaybackConfiguration(ctx *pulumi.Context,
 	if args.VideoContentSourceUrl == nil {
 		return nil, errors.New("invalid value for required argument 'VideoContentSourceUrl'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlaybackConfiguration
 	err := ctx.RegisterResource("aws-native:mediatailor:PlaybackConfiguration", name, args, &resource, opts...)

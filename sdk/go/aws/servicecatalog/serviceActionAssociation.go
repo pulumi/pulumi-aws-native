@@ -37,6 +37,12 @@ func NewServiceActionAssociation(ctx *pulumi.Context,
 	if args.ServiceActionId == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceActionId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"productId",
+		"provisioningArtifactId",
+		"serviceActionId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceActionAssociation
 	err := ctx.RegisterResource("aws-native:servicecatalog:ServiceActionAssociation", name, args, &resource, opts...)
