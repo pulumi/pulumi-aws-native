@@ -58,6 +58,9 @@
     "IamRoleArn" : {
       "type" : "string"
     },
+    "MaxSessionsPerInstance" : {
+      "type" : "integer"
+    },
     "Id" : {
       "type" : "string"
     },
@@ -85,9 +88,11 @@
       "properties" : {
         "DesiredInstances" : {
           "type" : "integer"
+        },
+        "DesiredSessions" : {
+          "type" : "integer"
         }
-      },
-      "required" : [ "DesiredInstances" ]
+      }
     },
     "VpcConfig" : {
       "type" : "object",

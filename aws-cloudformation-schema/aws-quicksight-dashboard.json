@@ -22,6 +22,9 @@
         },
         "DateAggregationFunction" : {
           "$ref" : "#/definitions/DateAggregationFunction"
+        },
+        "AttributeAggregationFunction" : {
+          "$ref" : "#/definitions/AttributeAggregationFunction"
         }
       },
       "additionalProperties" : false
@@ -127,6 +130,18 @@
     "ArcThicknessOptions" : {
       "type" : "string",
       "enum" : [ "SMALL", "MEDIUM", "LARGE" ]
+    },
+    "AttributeAggregationFunction" : {
+      "type" : "object",
+      "properties" : {
+        "SimpleAttributeAggregation" : {
+          "$ref" : "#/definitions/SimpleAttributeAggregationFunction"
+        },
+        "ValueForMultipleValues" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
     },
     "AxisBinding" : {
       "type" : "string",
@@ -8020,6 +8035,10 @@
         }
       },
       "additionalProperties" : false
+    },
+    "SimpleAttributeAggregationFunction" : {
+      "type" : "string",
+      "enum" : [ "UNIQUE_VALUE" ]
     },
     "SimpleClusterMarker" : {
       "type" : "object",

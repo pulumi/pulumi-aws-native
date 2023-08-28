@@ -90,16 +90,19 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "config:PutOrganizationConformancePack", "config:DescribeOrganizationConformancePackStatuses", "config:GetOrganizationConformancePackDetailedStatus", "s3:GetObject", "s3:GetBucketAcl", "iam:CreateServiceLinkedRole", "iam:PassRole", "organizations:ListDelegatedAdministrators", "organizations:EnableAWSServiceAccess" ]
+      "permissions" : [ "config:PutOrganizationConformancePack", "config:DescribeOrganizationConformancePackStatuses", "config:GetOrganizationConformancePackDetailedStatus", "config:DescribeOrganizationConformancePacks", "s3:GetObject", "s3:GetBucketAcl", "iam:CreateServiceLinkedRole", "iam:PassRole", "organizations:ListDelegatedAdministrators", "organizations:EnableAWSServiceAccess" ],
+      "timeoutInMinutes" : 706
     },
     "read" : {
       "permissions" : [ "config:DescribeOrganizationConformancePacks" ]
     },
     "delete" : {
-      "permissions" : [ "config:DeleteOrganizationConformancePack", "config:DescribeOrganizationConformancePackStatuses", "config:GetOrganizationConformancePackDetailedStatus", "organizations:ListDelegatedAdministrators" ]
+      "permissions" : [ "config:DeleteOrganizationConformancePack", "config:DescribeOrganizationConformancePackStatuses", "config:GetOrganizationConformancePackDetailedStatus", "organizations:ListDelegatedAdministrators" ],
+      "timeoutInMinutes" : 706
     },
     "update" : {
-      "permissions" : [ "config:PutOrganizationConformancePack", "config:DescribeOrganizationConformancePackStatuses", "config:GetOrganizationConformancePackDetailedStatus", "s3:GetObject", "s3:GetBucketAcl", "iam:CreateServiceLinkedRole", "iam:PassRole", "organizations:ListDelegatedAdministrators", "organizations:EnableAWSServiceAccess" ]
+      "permissions" : [ "config:PutOrganizationConformancePack", "config:DescribeOrganizationConformancePackStatuses", "config:GetOrganizationConformancePackDetailedStatus", "s3:GetObject", "s3:GetBucketAcl", "iam:CreateServiceLinkedRole", "iam:PassRole", "organizations:ListDelegatedAdministrators", "organizations:EnableAWSServiceAccess" ],
+      "timeoutInMinutes" : 706
     },
     "list" : {
       "permissions" : [ "config:DescribeOrganizationConformancePacks" ]
