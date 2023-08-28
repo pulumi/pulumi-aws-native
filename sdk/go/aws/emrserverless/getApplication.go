@@ -44,6 +44,8 @@ type LookupApplicationResult struct {
 	MaximumCapacity *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
 	// Network Configuration for customer VPC connectivity.
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
+	// EMR release label.
+	ReleaseLabel *string `pulumi:"releaseLabel"`
 	// Tag map with key and value
 	Tags                     []ApplicationTag                            `pulumi:"tags"`
 	WorkerTypeSpecifications *ApplicationWorkerTypeSpecificationInputMap `pulumi:"workerTypeSpecifications"`
@@ -128,6 +130,11 @@ func (o LookupApplicationResultOutput) MaximumCapacity() ApplicationMaximumAllow
 // Network Configuration for customer VPC connectivity.
 func (o LookupApplicationResultOutput) NetworkConfiguration() ApplicationNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationNetworkConfiguration { return v.NetworkConfiguration }).(ApplicationNetworkConfigurationPtrOutput)
+}
+
+// EMR release label.
+func (o LookupApplicationResultOutput) ReleaseLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ReleaseLabel }).(pulumi.StringPtrOutput)
 }
 
 // Tag map with key and value

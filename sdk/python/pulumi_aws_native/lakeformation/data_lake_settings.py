@@ -18,10 +18,12 @@ class DataLakeSettingsArgs:
     def __init__(__self__, *,
                  admins: Optional[pulumi.Input['DataLakeSettingsAdminsArgs']] = None,
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+                 allow_full_table_external_data_access: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  create_database_default_permissions: Optional[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionsArgs']] = None,
                  create_table_default_permissions: Optional[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionsArgs']] = None,
                  external_data_filtering_allow_list: Optional[pulumi.Input['DataLakeSettingsExternalDataFilteringAllowListArgs']] = None,
+                 mutation_type: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -31,6 +33,8 @@ class DataLakeSettingsArgs:
             pulumi.set(__self__, "admins", admins)
         if allow_external_data_filtering is not None:
             pulumi.set(__self__, "allow_external_data_filtering", allow_external_data_filtering)
+        if allow_full_table_external_data_access is not None:
+            pulumi.set(__self__, "allow_full_table_external_data_access", allow_full_table_external_data_access)
         if authorized_session_tag_value_list is not None:
             pulumi.set(__self__, "authorized_session_tag_value_list", authorized_session_tag_value_list)
         if create_database_default_permissions is not None:
@@ -39,6 +43,8 @@ class DataLakeSettingsArgs:
             pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if external_data_filtering_allow_list is not None:
             pulumi.set(__self__, "external_data_filtering_allow_list", external_data_filtering_allow_list)
+        if mutation_type is not None:
+            pulumi.set(__self__, "mutation_type", mutation_type)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if trusted_resource_owners is not None:
@@ -61,6 +67,15 @@ class DataLakeSettingsArgs:
     @allow_external_data_filtering.setter
     def allow_external_data_filtering(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_external_data_filtering", value)
+
+    @property
+    @pulumi.getter(name="allowFullTableExternalDataAccess")
+    def allow_full_table_external_data_access(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_full_table_external_data_access")
+
+    @allow_full_table_external_data_access.setter
+    def allow_full_table_external_data_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_full_table_external_data_access", value)
 
     @property
     @pulumi.getter(name="authorizedSessionTagValueList")
@@ -99,6 +114,15 @@ class DataLakeSettingsArgs:
         pulumi.set(self, "external_data_filtering_allow_list", value)
 
     @property
+    @pulumi.getter(name="mutationType")
+    def mutation_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mutation_type")
+
+    @mutation_type.setter
+    def mutation_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mutation_type", value)
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[Any]:
         return pulumi.get(self, "parameters")
@@ -129,10 +153,12 @@ class DataLakeSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admins: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsAdminsArgs']]] = None,
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+                 allow_full_table_external_data_access: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  create_database_default_permissions: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionsArgs']]] = None,
                  create_table_default_permissions: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionsArgs']]] = None,
                  external_data_filtering_allow_list: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsExternalDataFilteringAllowListArgs']]] = None,
+                 mutation_type: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -168,10 +194,12 @@ class DataLakeSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admins: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsAdminsArgs']]] = None,
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+                 allow_full_table_external_data_access: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  create_database_default_permissions: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionsArgs']]] = None,
                  create_table_default_permissions: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionsArgs']]] = None,
                  external_data_filtering_allow_list: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsExternalDataFilteringAllowListArgs']]] = None,
+                 mutation_type: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -186,10 +214,12 @@ class DataLakeSettings(pulumi.CustomResource):
 
             __props__.__dict__["admins"] = admins
             __props__.__dict__["allow_external_data_filtering"] = allow_external_data_filtering
+            __props__.__dict__["allow_full_table_external_data_access"] = allow_full_table_external_data_access
             __props__.__dict__["authorized_session_tag_value_list"] = authorized_session_tag_value_list
             __props__.__dict__["create_database_default_permissions"] = create_database_default_permissions
             __props__.__dict__["create_table_default_permissions"] = create_table_default_permissions
             __props__.__dict__["external_data_filtering_allow_list"] = external_data_filtering_allow_list
+            __props__.__dict__["mutation_type"] = mutation_type
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["trusted_resource_owners"] = trusted_resource_owners
         super(DataLakeSettings, __self__).__init__(
@@ -216,10 +246,12 @@ class DataLakeSettings(pulumi.CustomResource):
 
         __props__.__dict__["admins"] = None
         __props__.__dict__["allow_external_data_filtering"] = None
+        __props__.__dict__["allow_full_table_external_data_access"] = None
         __props__.__dict__["authorized_session_tag_value_list"] = None
         __props__.__dict__["create_database_default_permissions"] = None
         __props__.__dict__["create_table_default_permissions"] = None
         __props__.__dict__["external_data_filtering_allow_list"] = None
+        __props__.__dict__["mutation_type"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["trusted_resource_owners"] = None
         return DataLakeSettings(resource_name, opts=opts, __props__=__props__)
@@ -233,6 +265,11 @@ class DataLakeSettings(pulumi.CustomResource):
     @pulumi.getter(name="allowExternalDataFiltering")
     def allow_external_data_filtering(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "allow_external_data_filtering")
+
+    @property
+    @pulumi.getter(name="allowFullTableExternalDataAccess")
+    def allow_full_table_external_data_access(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "allow_full_table_external_data_access")
 
     @property
     @pulumi.getter(name="authorizedSessionTagValueList")
@@ -253,6 +290,11 @@ class DataLakeSettings(pulumi.CustomResource):
     @pulumi.getter(name="externalDataFilteringAllowList")
     def external_data_filtering_allow_list(self) -> pulumi.Output[Optional['outputs.DataLakeSettingsExternalDataFilteringAllowList']]:
         return pulumi.get(self, "external_data_filtering_allow_list")
+
+    @property
+    @pulumi.getter(name="mutationType")
+    def mutation_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "mutation_type")
 
     @property
     @pulumi.getter

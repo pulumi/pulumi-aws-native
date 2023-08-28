@@ -42,6 +42,8 @@ type LookupFindingsFilterResult struct {
 	Name *string `pulumi:"name"`
 	// Findings filter position.
 	Position *int `pulumi:"position"`
+	// A collection of tags associated with a resource
+	Tags []FindingsFilterTag `pulumi:"tags"`
 }
 
 func LookupFindingsFilterOutput(ctx *pulumi.Context, args LookupFindingsFilterOutputArgs, opts ...pulumi.InvokeOption) LookupFindingsFilterResultOutput {
@@ -113,6 +115,11 @@ func (o LookupFindingsFilterResultOutput) Name() pulumi.StringPtrOutput {
 // Findings filter position.
 func (o LookupFindingsFilterResultOutput) Position() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFindingsFilterResult) *int { return v.Position }).(pulumi.IntPtrOutput)
+}
+
+// A collection of tags associated with a resource
+func (o LookupFindingsFilterResultOutput) Tags() FindingsFilterTagArrayOutput {
+	return o.ApplyT(func(v LookupFindingsFilterResult) []FindingsFilterTag { return v.Tags }).(FindingsFilterTagArrayOutput)
 }
 
 func init() {

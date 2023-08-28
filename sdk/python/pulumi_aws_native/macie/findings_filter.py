@@ -21,7 +21,8 @@ class FindingsFilterArgs:
                  action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 position: Optional[pulumi.Input[int]] = None):
+                 position: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterTagArgs']]]] = None):
         """
         The set of arguments for constructing a FindingsFilter resource.
         :param pulumi.Input['FindingsFilterFindingCriteriaArgs'] finding_criteria: Findings filter criteria.
@@ -29,6 +30,7 @@ class FindingsFilterArgs:
         :param pulumi.Input[str] description: Findings filter description
         :param pulumi.Input[str] name: Findings filter name
         :param pulumi.Input[int] position: Findings filter position.
+        :param pulumi.Input[Sequence[pulumi.Input['FindingsFilterTagArgs']]] tags: A collection of tags associated with a resource
         """
         pulumi.set(__self__, "finding_criteria", finding_criteria)
         if action is not None:
@@ -39,6 +41,8 @@ class FindingsFilterArgs:
             pulumi.set(__self__, "name", name)
         if position is not None:
             pulumi.set(__self__, "position", position)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="findingCriteria")
@@ -100,6 +104,18 @@ class FindingsFilterArgs:
     def position(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "position", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterTagArgs']]]]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class FindingsFilter(pulumi.CustomResource):
     @overload
@@ -111,6 +127,7 @@ class FindingsFilter(pulumi.CustomResource):
                  finding_criteria: Optional[pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FindingsFilterTagArgs']]]]] = None,
                  __props__=None):
         """
         Macie FindingsFilter resource schema.
@@ -122,6 +139,7 @@ class FindingsFilter(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']] finding_criteria: Findings filter criteria.
         :param pulumi.Input[str] name: Findings filter name
         :param pulumi.Input[int] position: Findings filter position.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FindingsFilterTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -152,6 +170,7 @@ class FindingsFilter(pulumi.CustomResource):
                  finding_criteria: Optional[pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FindingsFilterTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -168,6 +187,7 @@ class FindingsFilter(pulumi.CustomResource):
             __props__.__dict__["finding_criteria"] = finding_criteria
             __props__.__dict__["name"] = name
             __props__.__dict__["position"] = position
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(FindingsFilter, __self__).__init__(
             'aws-native:macie:FindingsFilter',
@@ -197,6 +217,7 @@ class FindingsFilter(pulumi.CustomResource):
         __props__.__dict__["finding_criteria"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["position"] = None
+        __props__.__dict__["tags"] = None
         return FindingsFilter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -246,4 +267,12 @@ class FindingsFilter(pulumi.CustomResource):
         Findings filter position.
         """
         return pulumi.get(self, "position")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FindingsFilterTag']]]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
 

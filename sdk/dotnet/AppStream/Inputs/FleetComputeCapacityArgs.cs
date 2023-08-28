@@ -12,8 +12,11 @@ namespace Pulumi.AwsNative.AppStream.Inputs
 
     public sealed class FleetComputeCapacityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("desiredInstances", required: true)]
-        public Input<int> DesiredInstances { get; set; } = null!;
+        [Input("desiredInstances")]
+        public Input<int>? DesiredInstances { get; set; }
+
+        [Input("desiredSessions")]
+        public Input<int>? DesiredSessions { get; set; }
 
         public FleetComputeCapacityArgs()
         {

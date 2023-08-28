@@ -484,6 +484,7 @@ __all__ = [
     'DashboardArcAxisDisplayRange',
     'DashboardArcConfiguration',
     'DashboardArcOptions',
+    'DashboardAttributeAggregationFunction',
     'DashboardAxisDataOptions',
     'DashboardAxisDisplayDataDrivenRange',
     'DashboardAxisDisplayMinMaxRange',
@@ -1005,12 +1006,14 @@ __all__ = [
     'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties',
     'TemplateAggregationFunction',
     'TemplateAggregationSortConfiguration',
+    'TemplateAllSheetsFilterScopeConfiguration',
     'TemplateAnalysisDefaults',
     'TemplateAnchorDateConfiguration',
     'TemplateArcAxisConfiguration',
     'TemplateArcAxisDisplayRange',
     'TemplateArcConfiguration',
     'TemplateArcOptions',
+    'TemplateAttributeAggregationFunction',
     'TemplateAxisDataOptions',
     'TemplateAxisDisplayDataDrivenRange',
     'TemplateAxisDisplayMinMaxRange',
@@ -1314,6 +1317,7 @@ __all__ = [
     'TemplatePivotTableFieldWells',
     'TemplatePivotTableOptions',
     'TemplatePivotTablePaginatedReportOptions',
+    'TemplatePivotTableRowsLabelOptions',
     'TemplatePivotTableSortBy',
     'TemplatePivotTableSortConfiguration',
     'TemplatePivotTableTotalOptions',
@@ -1367,6 +1371,7 @@ __all__ = [
     'TemplateSetParameterValueConfiguration',
     'TemplateShapeConditionalFormat',
     'TemplateSheet',
+    'TemplateSheetControlInfoIconLabelOptions',
     'TemplateSheetControlLayout',
     'TemplateSheetControlLayoutConfiguration',
     'TemplateSheetDefinition',
@@ -1377,6 +1382,7 @@ __all__ = [
     'TemplateShortFormatText',
     'TemplateSimpleClusterMarker',
     'TemplateSliderControlDisplayOptions',
+    'TemplateSmallMultiplesAxisProperties',
     'TemplateSmallMultiplesOptions',
     'TemplateSourceAnalysis',
     'TemplateSourceEntity',
@@ -1410,6 +1416,7 @@ __all__ = [
     'TemplateTableRowConditionalFormatting',
     'TemplateTableSideBorderOptions',
     'TemplateTableSortConfiguration',
+    'TemplateTableStyleTarget',
     'TemplateTableUnaggregatedFieldWells',
     'TemplateTableVisual',
     'TemplateTag',
@@ -23784,7 +23791,9 @@ class DashboardAggregationFunction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "categoricalAggregationFunction":
+        if key == "attributeAggregationFunction":
+            suggest = "attribute_aggregation_function"
+        elif key == "categoricalAggregationFunction":
             suggest = "categorical_aggregation_function"
         elif key == "dateAggregationFunction":
             suggest = "date_aggregation_function"
@@ -23803,15 +23812,23 @@ class DashboardAggregationFunction(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 attribute_aggregation_function: Optional['outputs.DashboardAttributeAggregationFunction'] = None,
                  categorical_aggregation_function: Optional['DashboardCategoricalAggregationFunction'] = None,
                  date_aggregation_function: Optional['DashboardDateAggregationFunction'] = None,
                  numerical_aggregation_function: Optional['outputs.DashboardNumericalAggregationFunction'] = None):
+        if attribute_aggregation_function is not None:
+            pulumi.set(__self__, "attribute_aggregation_function", attribute_aggregation_function)
         if categorical_aggregation_function is not None:
             pulumi.set(__self__, "categorical_aggregation_function", categorical_aggregation_function)
         if date_aggregation_function is not None:
             pulumi.set(__self__, "date_aggregation_function", date_aggregation_function)
         if numerical_aggregation_function is not None:
             pulumi.set(__self__, "numerical_aggregation_function", numerical_aggregation_function)
+
+    @property
+    @pulumi.getter(name="attributeAggregationFunction")
+    def attribute_aggregation_function(self) -> Optional['outputs.DashboardAttributeAggregationFunction']:
+        return pulumi.get(self, "attribute_aggregation_function")
 
     @property
     @pulumi.getter(name="categoricalAggregationFunction")
@@ -24071,6 +24088,46 @@ class DashboardArcOptions(dict):
     @pulumi.getter(name="arcThickness")
     def arc_thickness(self) -> Optional['DashboardArcThickness']:
         return pulumi.get(self, "arc_thickness")
+
+
+@pulumi.output_type
+class DashboardAttributeAggregationFunction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "simpleAttributeAggregation":
+            suggest = "simple_attribute_aggregation"
+        elif key == "valueForMultipleValues":
+            suggest = "value_for_multiple_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardAttributeAggregationFunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardAttributeAggregationFunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardAttributeAggregationFunction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 simple_attribute_aggregation: Optional['DashboardSimpleAttributeAggregationFunction'] = None,
+                 value_for_multiple_values: Optional[str] = None):
+        if simple_attribute_aggregation is not None:
+            pulumi.set(__self__, "simple_attribute_aggregation", simple_attribute_aggregation)
+        if value_for_multiple_values is not None:
+            pulumi.set(__self__, "value_for_multiple_values", value_for_multiple_values)
+
+    @property
+    @pulumi.getter(name="simpleAttributeAggregation")
+    def simple_attribute_aggregation(self) -> Optional['DashboardSimpleAttributeAggregationFunction']:
+        return pulumi.get(self, "simple_attribute_aggregation")
+
+    @property
+    @pulumi.getter(name="valueForMultipleValues")
+    def value_for_multiple_values(self) -> Optional[str]:
+        return pulumi.get(self, "value_for_multiple_values")
 
 
 @pulumi.output_type
@@ -49092,7 +49149,9 @@ class TemplateAggregationFunction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "categoricalAggregationFunction":
+        if key == "attributeAggregationFunction":
+            suggest = "attribute_aggregation_function"
+        elif key == "categoricalAggregationFunction":
             suggest = "categorical_aggregation_function"
         elif key == "dateAggregationFunction":
             suggest = "date_aggregation_function"
@@ -49111,15 +49170,23 @@ class TemplateAggregationFunction(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 attribute_aggregation_function: Optional['outputs.TemplateAttributeAggregationFunction'] = None,
                  categorical_aggregation_function: Optional['TemplateCategoricalAggregationFunction'] = None,
                  date_aggregation_function: Optional['TemplateDateAggregationFunction'] = None,
                  numerical_aggregation_function: Optional['outputs.TemplateNumericalAggregationFunction'] = None):
+        if attribute_aggregation_function is not None:
+            pulumi.set(__self__, "attribute_aggregation_function", attribute_aggregation_function)
         if categorical_aggregation_function is not None:
             pulumi.set(__self__, "categorical_aggregation_function", categorical_aggregation_function)
         if date_aggregation_function is not None:
             pulumi.set(__self__, "date_aggregation_function", date_aggregation_function)
         if numerical_aggregation_function is not None:
             pulumi.set(__self__, "numerical_aggregation_function", numerical_aggregation_function)
+
+    @property
+    @pulumi.getter(name="attributeAggregationFunction")
+    def attribute_aggregation_function(self) -> Optional['outputs.TemplateAttributeAggregationFunction']:
+        return pulumi.get(self, "attribute_aggregation_function")
 
     @property
     @pulumi.getter(name="categoricalAggregationFunction")
@@ -49181,6 +49248,12 @@ class TemplateAggregationSortConfiguration(dict):
     @pulumi.getter(name="aggregationFunction")
     def aggregation_function(self) -> Optional['outputs.TemplateAggregationFunction']:
         return pulumi.get(self, "aggregation_function")
+
+
+@pulumi.output_type
+class TemplateAllSheetsFilterScopeConfiguration(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -49379,6 +49452,46 @@ class TemplateArcOptions(dict):
     @pulumi.getter(name="arcThickness")
     def arc_thickness(self) -> Optional['TemplateArcThickness']:
         return pulumi.get(self, "arc_thickness")
+
+
+@pulumi.output_type
+class TemplateAttributeAggregationFunction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "simpleAttributeAggregation":
+            suggest = "simple_attribute_aggregation"
+        elif key == "valueForMultipleValues":
+            suggest = "value_for_multiple_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateAttributeAggregationFunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateAttributeAggregationFunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateAttributeAggregationFunction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 simple_attribute_aggregation: Optional['TemplateSimpleAttributeAggregationFunction'] = None,
+                 value_for_multiple_values: Optional[str] = None):
+        if simple_attribute_aggregation is not None:
+            pulumi.set(__self__, "simple_attribute_aggregation", simple_attribute_aggregation)
+        if value_for_multiple_values is not None:
+            pulumi.set(__self__, "value_for_multiple_values", value_for_multiple_values)
+
+    @property
+    @pulumi.getter(name="simpleAttributeAggregation")
+    def simple_attribute_aggregation(self) -> Optional['TemplateSimpleAttributeAggregationFunction']:
+        return pulumi.get(self, "simple_attribute_aggregation")
+
+    @property
+    @pulumi.getter(name="valueForMultipleValues")
+    def value_for_multiple_values(self) -> Optional[str]:
+        return pulumi.get(self, "value_for_multiple_values")
 
 
 @pulumi.output_type
@@ -54087,6 +54200,8 @@ class TemplateDateTimePickerControlDisplayOptions(dict):
         suggest = None
         if key == "dateTimeFormat":
             suggest = "date_time_format"
+        elif key == "infoIconLabelOptions":
+            suggest = "info_icon_label_options"
         elif key == "titleOptions":
             suggest = "title_options"
 
@@ -54103,9 +54218,12 @@ class TemplateDateTimePickerControlDisplayOptions(dict):
 
     def __init__(__self__, *,
                  date_time_format: Optional[str] = None,
+                 info_icon_label_options: Optional['outputs.TemplateSheetControlInfoIconLabelOptions'] = None,
                  title_options: Optional['outputs.TemplateLabelOptions'] = None):
         if date_time_format is not None:
             pulumi.set(__self__, "date_time_format", date_time_format)
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
 
@@ -54113,6 +54231,11 @@ class TemplateDateTimePickerControlDisplayOptions(dict):
     @pulumi.getter(name="dateTimeFormat")
     def date_time_format(self) -> Optional[str]:
         return pulumi.get(self, "date_time_format")
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional['outputs.TemplateSheetControlInfoIconLabelOptions']:
+        return pulumi.get(self, "info_icon_label_options")
 
     @property
     @pulumi.getter(name="titleOptions")
@@ -54785,7 +54908,9 @@ class TemplateDropDownControlDisplayOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "selectAllOptions":
+        if key == "infoIconLabelOptions":
+            suggest = "info_icon_label_options"
+        elif key == "selectAllOptions":
             suggest = "select_all_options"
         elif key == "titleOptions":
             suggest = "title_options"
@@ -54802,12 +54927,20 @@ class TemplateDropDownControlDisplayOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 info_icon_label_options: Optional['outputs.TemplateSheetControlInfoIconLabelOptions'] = None,
                  select_all_options: Optional['outputs.TemplateListControlSelectAllOptions'] = None,
                  title_options: Optional['outputs.TemplateLabelOptions'] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if select_all_options is not None:
             pulumi.set(__self__, "select_all_options", select_all_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional['outputs.TemplateSheetControlInfoIconLabelOptions']:
+        return pulumi.get(self, "info_icon_label_options")
 
     @property
     @pulumi.getter(name="selectAllOptions")
@@ -56274,7 +56407,9 @@ class TemplateFilterScopeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "selectedSheets":
+        if key == "allSheets":
+            suggest = "all_sheets"
+        elif key == "selectedSheets":
             suggest = "selected_sheets"
 
         if suggest:
@@ -56289,9 +56424,17 @@ class TemplateFilterScopeConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 all_sheets: Optional['outputs.TemplateAllSheetsFilterScopeConfiguration'] = None,
                  selected_sheets: Optional['outputs.TemplateSelectedSheetsFilterScopeConfiguration'] = None):
+        if all_sheets is not None:
+            pulumi.set(__self__, "all_sheets", all_sheets)
         if selected_sheets is not None:
             pulumi.set(__self__, "selected_sheets", selected_sheets)
+
+    @property
+    @pulumi.getter(name="allSheets")
+    def all_sheets(self) -> Optional['outputs.TemplateAllSheetsFilterScopeConfiguration']:
+        return pulumi.get(self, "all_sheets")
 
     @property
     @pulumi.getter(name="selectedSheets")
@@ -56649,7 +56792,6 @@ class TemplateForecastComputation(dict):
 
     def __init__(__self__, *,
                  computation_id: str,
-                 time: 'outputs.TemplateDimensionField',
                  custom_seasonality_value: Optional[float] = None,
                  lower_boundary: Optional[float] = None,
                  name: Optional[str] = None,
@@ -56657,10 +56799,10 @@ class TemplateForecastComputation(dict):
                  periods_forward: Optional[float] = None,
                  prediction_interval: Optional[float] = None,
                  seasonality: Optional['TemplateForecastComputationSeasonality'] = None,
+                 time: Optional['outputs.TemplateDimensionField'] = None,
                  upper_boundary: Optional[float] = None,
                  value: Optional['outputs.TemplateMeasureField'] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if custom_seasonality_value is not None:
             pulumi.set(__self__, "custom_seasonality_value", custom_seasonality_value)
         if lower_boundary is not None:
@@ -56675,6 +56817,8 @@ class TemplateForecastComputation(dict):
             pulumi.set(__self__, "prediction_interval", prediction_interval)
         if seasonality is not None:
             pulumi.set(__self__, "seasonality", seasonality)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if upper_boundary is not None:
             pulumi.set(__self__, "upper_boundary", upper_boundary)
         if value is not None:
@@ -56684,11 +56828,6 @@ class TemplateForecastComputation(dict):
     @pulumi.getter(name="computationId")
     def computation_id(self) -> str:
         return pulumi.get(self, "computation_id")
-
-    @property
-    @pulumi.getter
-    def time(self) -> 'outputs.TemplateDimensionField':
-        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter(name="customSeasonalityValue")
@@ -56724,6 +56863,11 @@ class TemplateForecastComputation(dict):
     @pulumi.getter
     def seasonality(self) -> Optional['TemplateForecastComputationSeasonality']:
         return pulumi.get(self, "seasonality")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional['outputs.TemplateDimensionField']:
+        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter(name="upperBoundary")
@@ -58622,16 +58766,17 @@ class TemplateGrowthRateComputation(dict):
 
     def __init__(__self__, *,
                  computation_id: str,
-                 time: 'outputs.TemplateDimensionField',
                  name: Optional[str] = None,
                  period_size: Optional[float] = None,
+                 time: Optional['outputs.TemplateDimensionField'] = None,
                  value: Optional['outputs.TemplateMeasureField'] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if period_size is not None:
             pulumi.set(__self__, "period_size", period_size)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -58642,11 +58787,6 @@ class TemplateGrowthRateComputation(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> 'outputs.TemplateDimensionField':
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
@@ -58654,6 +58794,11 @@ class TemplateGrowthRateComputation(dict):
     @pulumi.getter(name="periodSize")
     def period_size(self) -> Optional[float]:
         return pulumi.get(self, "period_size")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional['outputs.TemplateDimensionField']:
+        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter
@@ -60851,7 +60996,9 @@ class TemplateListControlDisplayOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "searchOptions":
+        if key == "infoIconLabelOptions":
+            suggest = "info_icon_label_options"
+        elif key == "searchOptions":
             suggest = "search_options"
         elif key == "selectAllOptions":
             suggest = "select_all_options"
@@ -60870,15 +61017,23 @@ class TemplateListControlDisplayOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 info_icon_label_options: Optional['outputs.TemplateSheetControlInfoIconLabelOptions'] = None,
                  search_options: Optional['outputs.TemplateListControlSearchOptions'] = None,
                  select_all_options: Optional['outputs.TemplateListControlSelectAllOptions'] = None,
                  title_options: Optional['outputs.TemplateLabelOptions'] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if search_options is not None:
             pulumi.set(__self__, "search_options", search_options)
         if select_all_options is not None:
             pulumi.set(__self__, "select_all_options", select_all_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional['outputs.TemplateSheetControlInfoIconLabelOptions']:
+        return pulumi.get(self, "info_icon_label_options")
 
     @property
     @pulumi.getter(name="searchOptions")
@@ -61076,15 +61231,16 @@ class TemplateMaximumMinimumComputation(dict):
 
     def __init__(__self__, *,
                  computation_id: str,
-                 time: 'outputs.TemplateDimensionField',
                  type: 'TemplateMaximumMinimumComputationType',
                  name: Optional[str] = None,
+                 time: Optional['outputs.TemplateDimensionField'] = None,
                  value: Optional['outputs.TemplateMeasureField'] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         pulumi.set(__self__, "type", type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -61095,11 +61251,6 @@ class TemplateMaximumMinimumComputation(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> 'outputs.TemplateDimensionField':
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def type(self) -> 'TemplateMaximumMinimumComputationType':
         return pulumi.get(self, "type")
 
@@ -61107,6 +61258,11 @@ class TemplateMaximumMinimumComputation(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional['outputs.TemplateDimensionField']:
+        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter
@@ -61199,16 +61355,19 @@ class TemplateMetricComparisonComputation(dict):
 
     def __init__(__self__, *,
                  computation_id: str,
-                 from_value: 'outputs.TemplateMeasureField',
-                 target_value: 'outputs.TemplateMeasureField',
-                 time: 'outputs.TemplateDimensionField',
-                 name: Optional[str] = None):
+                 from_value: Optional['outputs.TemplateMeasureField'] = None,
+                 name: Optional[str] = None,
+                 target_value: Optional['outputs.TemplateMeasureField'] = None,
+                 time: Optional['outputs.TemplateDimensionField'] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "from_value", from_value)
-        pulumi.set(__self__, "target_value", target_value)
-        pulumi.set(__self__, "time", time)
+        if from_value is not None:
+            pulumi.set(__self__, "from_value", from_value)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if target_value is not None:
+            pulumi.set(__self__, "target_value", target_value)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter(name="computationId")
@@ -61217,23 +61376,23 @@ class TemplateMetricComparisonComputation(dict):
 
     @property
     @pulumi.getter(name="fromValue")
-    def from_value(self) -> 'outputs.TemplateMeasureField':
+    def from_value(self) -> Optional['outputs.TemplateMeasureField']:
         return pulumi.get(self, "from_value")
-
-    @property
-    @pulumi.getter(name="targetValue")
-    def target_value(self) -> 'outputs.TemplateMeasureField':
-        return pulumi.get(self, "target_value")
-
-    @property
-    @pulumi.getter
-    def time(self) -> 'outputs.TemplateDimensionField':
-        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> Optional['outputs.TemplateMeasureField']:
+        return pulumi.get(self, "target_value")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional['outputs.TemplateDimensionField']:
+        return pulumi.get(self, "time")
 
 
 @pulumi.output_type
@@ -62932,13 +63091,14 @@ class TemplatePeriodOverPeriodComputation(dict):
 
     def __init__(__self__, *,
                  computation_id: str,
-                 time: 'outputs.TemplateDimensionField',
                  name: Optional[str] = None,
+                 time: Optional['outputs.TemplateDimensionField'] = None,
                  value: Optional['outputs.TemplateMeasureField'] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -62949,13 +63109,13 @@ class TemplatePeriodOverPeriodComputation(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> 'outputs.TemplateDimensionField':
-        return pulumi.get(self, "time")
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
+    def time(self) -> Optional['outputs.TemplateDimensionField']:
+        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter
@@ -62986,16 +63146,17 @@ class TemplatePeriodToDateComputation(dict):
 
     def __init__(__self__, *,
                  computation_id: str,
-                 time: 'outputs.TemplateDimensionField',
                  name: Optional[str] = None,
                  period_time_granularity: Optional['TemplateTimeGranularity'] = None,
+                 time: Optional['outputs.TemplateDimensionField'] = None,
                  value: Optional['outputs.TemplateMeasureField'] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if period_time_granularity is not None:
             pulumi.set(__self__, "period_time_granularity", period_time_granularity)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -63006,11 +63167,6 @@ class TemplatePeriodToDateComputation(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> 'outputs.TemplateDimensionField':
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
@@ -63018,6 +63174,11 @@ class TemplatePeriodToDateComputation(dict):
     @pulumi.getter(name="periodTimeGranularity")
     def period_time_granularity(self) -> Optional['TemplateTimeGranularity']:
         return pulumi.get(self, "period_time_granularity")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional['outputs.TemplateDimensionField']:
+        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter
@@ -63891,6 +64052,8 @@ class TemplatePivotTableOptions(dict):
             suggest = "column_header_style"
         elif key == "columnNamesVisibility":
             suggest = "column_names_visibility"
+        elif key == "defaultCellWidth":
+            suggest = "default_cell_width"
         elif key == "metricPlacement":
             suggest = "metric_placement"
         elif key == "rowAlternateColorOptions":
@@ -63899,6 +64062,10 @@ class TemplatePivotTableOptions(dict):
             suggest = "row_field_names_style"
         elif key == "rowHeaderStyle":
             suggest = "row_header_style"
+        elif key == "rowsLabelOptions":
+            suggest = "rows_label_options"
+        elif key == "rowsLayout":
+            suggest = "rows_layout"
         elif key == "singleMetricVisibility":
             suggest = "single_metric_visibility"
         elif key == "toggleButtonsVisibility":
@@ -63920,12 +64087,18 @@ class TemplatePivotTableOptions(dict):
                  collapsed_row_dimensions_visibility: Optional['TemplateVisibility'] = None,
                  column_header_style: Optional['outputs.TemplateTableCellStyle'] = None,
                  column_names_visibility: Optional['TemplateVisibility'] = None,
+                 default_cell_width: Optional[str] = None,
                  metric_placement: Optional['TemplatePivotTableMetricPlacement'] = None,
                  row_alternate_color_options: Optional['outputs.TemplateRowAlternateColorOptions'] = None,
                  row_field_names_style: Optional['outputs.TemplateTableCellStyle'] = None,
                  row_header_style: Optional['outputs.TemplateTableCellStyle'] = None,
+                 rows_label_options: Optional['outputs.TemplatePivotTableRowsLabelOptions'] = None,
+                 rows_layout: Optional['TemplatePivotTableRowsLayout'] = None,
                  single_metric_visibility: Optional['TemplateVisibility'] = None,
                  toggle_buttons_visibility: Optional['TemplateVisibility'] = None):
+        """
+        :param str default_cell_width: String based length that is composed of value and unit in px
+        """
         if cell_style is not None:
             pulumi.set(__self__, "cell_style", cell_style)
         if collapsed_row_dimensions_visibility is not None:
@@ -63934,6 +64107,8 @@ class TemplatePivotTableOptions(dict):
             pulumi.set(__self__, "column_header_style", column_header_style)
         if column_names_visibility is not None:
             pulumi.set(__self__, "column_names_visibility", column_names_visibility)
+        if default_cell_width is not None:
+            pulumi.set(__self__, "default_cell_width", default_cell_width)
         if metric_placement is not None:
             pulumi.set(__self__, "metric_placement", metric_placement)
         if row_alternate_color_options is not None:
@@ -63942,6 +64117,10 @@ class TemplatePivotTableOptions(dict):
             pulumi.set(__self__, "row_field_names_style", row_field_names_style)
         if row_header_style is not None:
             pulumi.set(__self__, "row_header_style", row_header_style)
+        if rows_label_options is not None:
+            pulumi.set(__self__, "rows_label_options", rows_label_options)
+        if rows_layout is not None:
+            pulumi.set(__self__, "rows_layout", rows_layout)
         if single_metric_visibility is not None:
             pulumi.set(__self__, "single_metric_visibility", single_metric_visibility)
         if toggle_buttons_visibility is not None:
@@ -63968,6 +64147,14 @@ class TemplatePivotTableOptions(dict):
         return pulumi.get(self, "column_names_visibility")
 
     @property
+    @pulumi.getter(name="defaultCellWidth")
+    def default_cell_width(self) -> Optional[str]:
+        """
+        String based length that is composed of value and unit in px
+        """
+        return pulumi.get(self, "default_cell_width")
+
+    @property
     @pulumi.getter(name="metricPlacement")
     def metric_placement(self) -> Optional['TemplatePivotTableMetricPlacement']:
         return pulumi.get(self, "metric_placement")
@@ -63986,6 +64173,16 @@ class TemplatePivotTableOptions(dict):
     @pulumi.getter(name="rowHeaderStyle")
     def row_header_style(self) -> Optional['outputs.TemplateTableCellStyle']:
         return pulumi.get(self, "row_header_style")
+
+    @property
+    @pulumi.getter(name="rowsLabelOptions")
+    def rows_label_options(self) -> Optional['outputs.TemplatePivotTableRowsLabelOptions']:
+        return pulumi.get(self, "rows_label_options")
+
+    @property
+    @pulumi.getter(name="rowsLayout")
+    def rows_layout(self) -> Optional['TemplatePivotTableRowsLayout']:
+        return pulumi.get(self, "rows_layout")
 
     @property
     @pulumi.getter(name="singleMetricVisibility")
@@ -64036,6 +64233,44 @@ class TemplatePivotTablePaginatedReportOptions(dict):
     @pulumi.getter(name="verticalOverflowVisibility")
     def vertical_overflow_visibility(self) -> Optional['TemplateVisibility']:
         return pulumi.get(self, "vertical_overflow_visibility")
+
+
+@pulumi.output_type
+class TemplatePivotTableRowsLabelOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLabel":
+            suggest = "custom_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplatePivotTableRowsLabelOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplatePivotTableRowsLabelOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplatePivotTableRowsLabelOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_label: Optional[str] = None,
+                 visibility: Optional['TemplateVisibility'] = None):
+        if custom_label is not None:
+            pulumi.set(__self__, "custom_label", custom_label)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="customLabel")
+    def custom_label(self) -> Optional[str]:
+        return pulumi.get(self, "custom_label")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "visibility")
 
 
 @pulumi.output_type
@@ -65148,6 +65383,8 @@ class TemplateRelativeDateTimeControlDisplayOptions(dict):
         suggest = None
         if key == "dateTimeFormat":
             suggest = "date_time_format"
+        elif key == "infoIconLabelOptions":
+            suggest = "info_icon_label_options"
         elif key == "titleOptions":
             suggest = "title_options"
 
@@ -65164,9 +65401,12 @@ class TemplateRelativeDateTimeControlDisplayOptions(dict):
 
     def __init__(__self__, *,
                  date_time_format: Optional[str] = None,
+                 info_icon_label_options: Optional['outputs.TemplateSheetControlInfoIconLabelOptions'] = None,
                  title_options: Optional['outputs.TemplateLabelOptions'] = None):
         if date_time_format is not None:
             pulumi.set(__self__, "date_time_format", date_time_format)
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
 
@@ -65174,6 +65414,11 @@ class TemplateRelativeDateTimeControlDisplayOptions(dict):
     @pulumi.getter(name="dateTimeFormat")
     def date_time_format(self) -> Optional[str]:
         return pulumi.get(self, "date_time_format")
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional['outputs.TemplateSheetControlInfoIconLabelOptions']:
+        return pulumi.get(self, "info_icon_label_options")
 
     @property
     @pulumi.getter(name="titleOptions")
@@ -65364,6 +65609,8 @@ class TemplateRowAlternateColorOptions(dict):
         suggest = None
         if key == "rowAlternateColors":
             suggest = "row_alternate_colors"
+        elif key == "usePrimaryBackgroundColor":
+            suggest = "use_primary_background_color"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateRowAlternateColorOptions. Access the value via the '{suggest}' property getter instead.")
@@ -65378,11 +65625,14 @@ class TemplateRowAlternateColorOptions(dict):
 
     def __init__(__self__, *,
                  row_alternate_colors: Optional[Sequence[str]] = None,
-                 status: Optional['TemplateWidgetStatus'] = None):
+                 status: Optional['TemplateWidgetStatus'] = None,
+                 use_primary_background_color: Optional['TemplateWidgetStatus'] = None):
         if row_alternate_colors is not None:
             pulumi.set(__self__, "row_alternate_colors", row_alternate_colors)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if use_primary_background_color is not None:
+            pulumi.set(__self__, "use_primary_background_color", use_primary_background_color)
 
     @property
     @pulumi.getter(name="rowAlternateColors")
@@ -65393,6 +65643,11 @@ class TemplateRowAlternateColorOptions(dict):
     @pulumi.getter
     def status(self) -> Optional['TemplateWidgetStatus']:
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="usePrimaryBackgroundColor")
+    def use_primary_background_color(self) -> Optional['TemplateWidgetStatus']:
+        return pulumi.get(self, "use_primary_background_color")
 
 
 @pulumi.output_type
@@ -66447,6 +66702,44 @@ class TemplateSheet(dict):
 
 
 @pulumi.output_type
+class TemplateSheetControlInfoIconLabelOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "infoIconText":
+            suggest = "info_icon_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSheetControlInfoIconLabelOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSheetControlInfoIconLabelOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSheetControlInfoIconLabelOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 info_icon_text: Optional[str] = None,
+                 visibility: Optional['TemplateVisibility'] = None):
+        if info_icon_text is not None:
+            pulumi.set(__self__, "info_icon_text", info_icon_text)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="infoIconText")
+    def info_icon_text(self) -> Optional[str]:
+        return pulumi.get(self, "info_icon_text")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
 class TemplateSheetControlLayout(dict):
     def __init__(__self__, *,
                  configuration: 'outputs.TemplateSheetControlLayoutConfiguration'):
@@ -66797,7 +67090,9 @@ class TemplateSliderControlDisplayOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "titleOptions":
+        if key == "infoIconLabelOptions":
+            suggest = "info_icon_label_options"
+        elif key == "titleOptions":
             suggest = "title_options"
 
         if suggest:
@@ -66812,14 +67107,43 @@ class TemplateSliderControlDisplayOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 info_icon_label_options: Optional['outputs.TemplateSheetControlInfoIconLabelOptions'] = None,
                  title_options: Optional['outputs.TemplateLabelOptions'] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional['outputs.TemplateSheetControlInfoIconLabelOptions']:
+        return pulumi.get(self, "info_icon_label_options")
 
     @property
     @pulumi.getter(name="titleOptions")
     def title_options(self) -> Optional['outputs.TemplateLabelOptions']:
         return pulumi.get(self, "title_options")
+
+
+@pulumi.output_type
+class TemplateSmallMultiplesAxisProperties(dict):
+    def __init__(__self__, *,
+                 placement: Optional['TemplateSmallMultiplesAxisPlacement'] = None,
+                 scale: Optional['TemplateSmallMultiplesAxisScale'] = None):
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional['TemplateSmallMultiplesAxisPlacement']:
+        return pulumi.get(self, "placement")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional['TemplateSmallMultiplesAxisScale']:
+        return pulumi.get(self, "scale")
 
 
 @pulumi.output_type
@@ -66833,6 +67157,10 @@ class TemplateSmallMultiplesOptions(dict):
             suggest = "max_visible_rows"
         elif key == "panelConfiguration":
             suggest = "panel_configuration"
+        elif key == "xAxis":
+            suggest = "x_axis"
+        elif key == "yAxis":
+            suggest = "y_axis"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateSmallMultiplesOptions. Access the value via the '{suggest}' property getter instead.")
@@ -66848,13 +67176,19 @@ class TemplateSmallMultiplesOptions(dict):
     def __init__(__self__, *,
                  max_visible_columns: Optional[float] = None,
                  max_visible_rows: Optional[float] = None,
-                 panel_configuration: Optional['outputs.TemplatePanelConfiguration'] = None):
+                 panel_configuration: Optional['outputs.TemplatePanelConfiguration'] = None,
+                 x_axis: Optional['outputs.TemplateSmallMultiplesAxisProperties'] = None,
+                 y_axis: Optional['outputs.TemplateSmallMultiplesAxisProperties'] = None):
         if max_visible_columns is not None:
             pulumi.set(__self__, "max_visible_columns", max_visible_columns)
         if max_visible_rows is not None:
             pulumi.set(__self__, "max_visible_rows", max_visible_rows)
         if panel_configuration is not None:
             pulumi.set(__self__, "panel_configuration", panel_configuration)
+        if x_axis is not None:
+            pulumi.set(__self__, "x_axis", x_axis)
+        if y_axis is not None:
+            pulumi.set(__self__, "y_axis", y_axis)
 
     @property
     @pulumi.getter(name="maxVisibleColumns")
@@ -66870,6 +67204,16 @@ class TemplateSmallMultiplesOptions(dict):
     @pulumi.getter(name="panelConfiguration")
     def panel_configuration(self) -> Optional['outputs.TemplatePanelConfiguration']:
         return pulumi.get(self, "panel_configuration")
+
+    @property
+    @pulumi.getter(name="xAxis")
+    def x_axis(self) -> Optional['outputs.TemplateSmallMultiplesAxisProperties']:
+        return pulumi.get(self, "x_axis")
+
+    @property
+    @pulumi.getter(name="yAxis")
+    def y_axis(self) -> Optional['outputs.TemplateSmallMultiplesAxisProperties']:
+        return pulumi.get(self, "y_axis")
 
 
 @pulumi.output_type
@@ -67214,6 +67558,8 @@ class TemplateSubtotalOptions(dict):
             suggest = "field_level_options"
         elif key == "metricHeaderCellStyle":
             suggest = "metric_header_cell_style"
+        elif key == "styleTargets":
+            suggest = "style_targets"
         elif key == "totalCellStyle":
             suggest = "total_cell_style"
         elif key == "totalsVisibility":
@@ -67237,6 +67583,7 @@ class TemplateSubtotalOptions(dict):
                  field_level: Optional['TemplatePivotTableSubtotalLevel'] = None,
                  field_level_options: Optional[Sequence['outputs.TemplatePivotTableFieldSubtotalOptions']] = None,
                  metric_header_cell_style: Optional['outputs.TemplateTableCellStyle'] = None,
+                 style_targets: Optional[Sequence['outputs.TemplateTableStyleTarget']] = None,
                  total_cell_style: Optional['outputs.TemplateTableCellStyle'] = None,
                  totals_visibility: Optional['TemplateVisibility'] = None,
                  value_cell_style: Optional['outputs.TemplateTableCellStyle'] = None):
@@ -67248,6 +67595,8 @@ class TemplateSubtotalOptions(dict):
             pulumi.set(__self__, "field_level_options", field_level_options)
         if metric_header_cell_style is not None:
             pulumi.set(__self__, "metric_header_cell_style", metric_header_cell_style)
+        if style_targets is not None:
+            pulumi.set(__self__, "style_targets", style_targets)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -67274,6 +67623,11 @@ class TemplateSubtotalOptions(dict):
     @pulumi.getter(name="metricHeaderCellStyle")
     def metric_header_cell_style(self) -> Optional['outputs.TemplateTableCellStyle']:
         return pulumi.get(self, "metric_header_cell_style")
+
+    @property
+    @pulumi.getter(name="styleTargets")
+    def style_targets(self) -> Optional[Sequence['outputs.TemplateTableStyleTarget']]:
+        return pulumi.get(self, "style_targets")
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -68271,6 +68625,35 @@ class TemplateTableSortConfiguration(dict):
 
 
 @pulumi.output_type
+class TemplateTableStyleTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cellType":
+            suggest = "cell_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateTableStyleTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateTableStyleTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateTableStyleTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cell_type: 'TemplateStyledCellType'):
+        pulumi.set(__self__, "cell_type", cell_type)
+
+    @property
+    @pulumi.getter(name="cellType")
+    def cell_type(self) -> 'TemplateStyledCellType':
+        return pulumi.get(self, "cell_type")
+
+
+@pulumi.output_type
 class TemplateTableUnaggregatedFieldWells(dict):
     def __init__(__self__, *,
                  values: Optional[Sequence['outputs.TemplateUnaggregatedField']] = None):
@@ -68380,7 +68763,9 @@ class TemplateTextAreaControlDisplayOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "placeholderOptions":
+        if key == "infoIconLabelOptions":
+            suggest = "info_icon_label_options"
+        elif key == "placeholderOptions":
             suggest = "placeholder_options"
         elif key == "titleOptions":
             suggest = "title_options"
@@ -68397,12 +68782,20 @@ class TemplateTextAreaControlDisplayOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 info_icon_label_options: Optional['outputs.TemplateSheetControlInfoIconLabelOptions'] = None,
                  placeholder_options: Optional['outputs.TemplateTextControlPlaceholderOptions'] = None,
                  title_options: Optional['outputs.TemplateLabelOptions'] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if placeholder_options is not None:
             pulumi.set(__self__, "placeholder_options", placeholder_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional['outputs.TemplateSheetControlInfoIconLabelOptions']:
+        return pulumi.get(self, "info_icon_label_options")
 
     @property
     @pulumi.getter(name="placeholderOptions")
@@ -68481,7 +68874,9 @@ class TemplateTextFieldControlDisplayOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "placeholderOptions":
+        if key == "infoIconLabelOptions":
+            suggest = "info_icon_label_options"
+        elif key == "placeholderOptions":
             suggest = "placeholder_options"
         elif key == "titleOptions":
             suggest = "title_options"
@@ -68498,12 +68893,20 @@ class TemplateTextFieldControlDisplayOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 info_icon_label_options: Optional['outputs.TemplateSheetControlInfoIconLabelOptions'] = None,
                  placeholder_options: Optional['outputs.TemplateTextControlPlaceholderOptions'] = None,
                  title_options: Optional['outputs.TemplateLabelOptions'] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if placeholder_options is not None:
             pulumi.set(__self__, "placeholder_options", placeholder_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional['outputs.TemplateSheetControlInfoIconLabelOptions']:
+        return pulumi.get(self, "info_icon_label_options")
 
     @property
     @pulumi.getter(name="placeholderOptions")
@@ -69073,31 +69476,28 @@ class TemplateTopBottomMoversComputation(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 category: 'outputs.TemplateDimensionField',
                  computation_id: str,
-                 time: 'outputs.TemplateDimensionField',
                  type: 'TemplateTopBottomComputationType',
+                 category: Optional['outputs.TemplateDimensionField'] = None,
                  mover_size: Optional[float] = None,
                  name: Optional[str] = None,
                  sort_order: Optional['TemplateTopBottomSortOrder'] = None,
+                 time: Optional['outputs.TemplateDimensionField'] = None,
                  value: Optional['outputs.TemplateMeasureField'] = None):
-        pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         pulumi.set(__self__, "type", type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
         if mover_size is not None:
             pulumi.set(__self__, "mover_size", mover_size)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sort_order is not None:
             pulumi.set(__self__, "sort_order", sort_order)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def category(self) -> 'outputs.TemplateDimensionField':
-        return pulumi.get(self, "category")
 
     @property
     @pulumi.getter(name="computationId")
@@ -69106,13 +69506,13 @@ class TemplateTopBottomMoversComputation(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> 'outputs.TemplateDimensionField':
-        return pulumi.get(self, "time")
+    def type(self) -> 'TemplateTopBottomComputationType':
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
-    def type(self) -> 'TemplateTopBottomComputationType':
-        return pulumi.get(self, "type")
+    def category(self) -> Optional['outputs.TemplateDimensionField']:
+        return pulumi.get(self, "category")
 
     @property
     @pulumi.getter(name="moverSize")
@@ -69128,6 +69528,11 @@ class TemplateTopBottomMoversComputation(dict):
     @pulumi.getter(name="sortOrder")
     def sort_order(self) -> Optional['TemplateTopBottomSortOrder']:
         return pulumi.get(self, "sort_order")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional['outputs.TemplateDimensionField']:
+        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter
@@ -69157,26 +69562,22 @@ class TemplateTopBottomRankedComputation(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 category: 'outputs.TemplateDimensionField',
                  computation_id: str,
                  type: 'TemplateTopBottomComputationType',
+                 category: Optional['outputs.TemplateDimensionField'] = None,
                  name: Optional[str] = None,
                  result_size: Optional[float] = None,
                  value: Optional['outputs.TemplateMeasureField'] = None):
-        pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "computation_id", computation_id)
         pulumi.set(__self__, "type", type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if result_size is not None:
             pulumi.set(__self__, "result_size", result_size)
         if value is not None:
             pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def category(self) -> 'outputs.TemplateDimensionField':
-        return pulumi.get(self, "category")
 
     @property
     @pulumi.getter(name="computationId")
@@ -69187,6 +69588,11 @@ class TemplateTopBottomRankedComputation(dict):
     @pulumi.getter
     def type(self) -> 'TemplateTopBottomComputationType':
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional['outputs.TemplateDimensionField']:
+        return pulumi.get(self, "category")
 
     @property
     @pulumi.getter
@@ -69225,12 +69631,13 @@ class TemplateTotalAggregationComputation(dict):
 
     def __init__(__self__, *,
                  computation_id: str,
-                 value: 'outputs.TemplateMeasureField',
-                 name: Optional[str] = None):
+                 name: Optional[str] = None,
+                 value: Optional['outputs.TemplateMeasureField'] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "value", value)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="computationId")
@@ -69239,13 +69646,13 @@ class TemplateTotalAggregationComputation(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> 'outputs.TemplateMeasureField':
-        return pulumi.get(self, "value")
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
+    def value(self) -> Optional['outputs.TemplateMeasureField']:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -69673,23 +70080,24 @@ class TemplateUniqueValuesComputation(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 category: 'outputs.TemplateDimensionField',
                  computation_id: str,
+                 category: Optional['outputs.TemplateDimensionField'] = None,
                  name: Optional[str] = None):
-        pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "computation_id", computation_id)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def category(self) -> 'outputs.TemplateDimensionField':
-        return pulumi.get(self, "category")
 
     @property
     @pulumi.getter(name="computationId")
     def computation_id(self) -> str:
         return pulumi.get(self, "computation_id")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional['outputs.TemplateDimensionField']:
+        return pulumi.get(self, "category")
 
     @property
     @pulumi.getter

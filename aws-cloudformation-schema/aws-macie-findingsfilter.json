@@ -71,6 +71,22 @@
           "type" : "string"
         }
       }
+    },
+    "Tag" : {
+      "description" : "A key-value pair to associate with a resource.",
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "description" : "The tag's key."
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The tag's value."
+        }
+      },
+      "required" : [ "Value", "Key" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -101,7 +117,22 @@
     "Arn" : {
       "description" : "Findings filter ARN.",
       "type" : "string"
+    },
+    "Tags" : {
+      "description" : "A collection of tags associated with a resource",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
   },
   "required" : [ "Name", "FindingCriteria" ],
   "additionalProperties" : false,
@@ -110,13 +141,13 @@
   "additionalIdentifiers" : [ [ "/properties/Arn" ], [ "/properties/Name" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "macie2:GetFindingsFilter", "macie2:CreateFindingsFilter" ]
+      "permissions" : [ "macie2:GetFindingsFilter", "macie2:CreateFindingsFilter", "macie2:TagResource" ]
     },
     "read" : {
       "permissions" : [ "macie2:GetFindingsFilter" ]
     },
     "update" : {
-      "permissions" : [ "macie2:GetFindingsFilter", "macie2:UpdateFindingsFilter" ]
+      "permissions" : [ "macie2:GetFindingsFilter", "macie2:UpdateFindingsFilter", "macie2:TagResource", "macie2:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "macie2:DeleteFindingsFilter" ]

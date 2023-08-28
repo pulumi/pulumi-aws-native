@@ -78,6 +78,13 @@
     }
   },
   "required" : [ "InstanceArn", "Content", "Name", "Type" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "connect:CreateContactFlow", "connect:TagResource" ]
@@ -90,10 +97,21 @@
     },
     "update" : {
       "permissions" : [ "connect:UpdateContactFlowMetadata", "connect:UpdateContactFlowContent", "connect:TagResource", "connect:UntagResource" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "InstanceArn" : {
+            "$ref" : "resource-schema.json#/properties/InstanceArn"
+          }
+        },
+        "required" : [ "InstanceArn" ]
+      },
+      "permissions" : [ "connect:ListContactFlows" ]
     }
   },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/ContactFlowArn" ],
-  "readOnlyProperties" : [ "/properties/ContactFlowArn", "/properties/Status" ],
+  "readOnlyProperties" : [ "/properties/ContactFlowArn" ],
   "createOnlyProperties" : [ "/properties/Type" ]
 }

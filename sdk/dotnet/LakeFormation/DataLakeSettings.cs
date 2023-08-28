@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.LakeFormation
         [Output("allowExternalDataFiltering")]
         public Output<bool?> AllowExternalDataFiltering { get; private set; } = null!;
 
+        [Output("allowFullTableExternalDataAccess")]
+        public Output<bool?> AllowFullTableExternalDataAccess { get; private set; } = null!;
+
         [Output("authorizedSessionTagValueList")]
         public Output<ImmutableArray<string>> AuthorizedSessionTagValueList { get; private set; } = null!;
 
@@ -33,6 +36,9 @@ namespace Pulumi.AwsNative.LakeFormation
 
         [Output("externalDataFilteringAllowList")]
         public Output<Outputs.DataLakeSettingsExternalDataFilteringAllowList?> ExternalDataFilteringAllowList { get; private set; } = null!;
+
+        [Output("mutationType")]
+        public Output<string?> MutationType { get; private set; } = null!;
 
         [Output("parameters")]
         public Output<object?> Parameters { get; private set; } = null!;
@@ -91,6 +97,9 @@ namespace Pulumi.AwsNative.LakeFormation
         [Input("allowExternalDataFiltering")]
         public Input<bool>? AllowExternalDataFiltering { get; set; }
 
+        [Input("allowFullTableExternalDataAccess")]
+        public Input<bool>? AllowFullTableExternalDataAccess { get; set; }
+
         [Input("authorizedSessionTagValueList")]
         private InputList<string>? _authorizedSessionTagValueList;
         public InputList<string> AuthorizedSessionTagValueList
@@ -107,6 +116,9 @@ namespace Pulumi.AwsNative.LakeFormation
 
         [Input("externalDataFilteringAllowList")]
         public Input<Inputs.DataLakeSettingsExternalDataFilteringAllowListArgs>? ExternalDataFilteringAllowList { get; set; }
+
+        [Input("mutationType")]
+        public Input<string>? MutationType { get; set; }
 
         [Input("parameters")]
         public Input<object>? Parameters { get; set; }

@@ -25,11 +25,13 @@ export interface GetDataLakeSettingsArgs {
 export interface GetDataLakeSettingsResult {
     readonly admins?: outputs.lakeformation.DataLakeSettingsAdmins;
     readonly allowExternalDataFiltering?: boolean;
+    readonly allowFullTableExternalDataAccess?: boolean;
     readonly authorizedSessionTagValueList?: string[];
     readonly createDatabaseDefaultPermissions?: outputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissions;
     readonly createTableDefaultPermissions?: outputs.lakeformation.DataLakeSettingsCreateTableDefaultPermissions;
     readonly externalDataFilteringAllowList?: outputs.lakeformation.DataLakeSettingsExternalDataFilteringAllowList;
     readonly id?: string;
+    readonly mutationType?: string;
     readonly parameters?: any;
     readonly trustedResourceOwners?: string[];
 }

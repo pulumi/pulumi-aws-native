@@ -422,17 +422,30 @@ class EntitlementAttributeArgs:
 @pulumi.input_type
 class FleetComputeCapacityArgs:
     def __init__(__self__, *,
-                 desired_instances: pulumi.Input[int]):
-        pulumi.set(__self__, "desired_instances", desired_instances)
+                 desired_instances: Optional[pulumi.Input[int]] = None,
+                 desired_sessions: Optional[pulumi.Input[int]] = None):
+        if desired_instances is not None:
+            pulumi.set(__self__, "desired_instances", desired_instances)
+        if desired_sessions is not None:
+            pulumi.set(__self__, "desired_sessions", desired_sessions)
 
     @property
     @pulumi.getter(name="desiredInstances")
-    def desired_instances(self) -> pulumi.Input[int]:
+    def desired_instances(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "desired_instances")
 
     @desired_instances.setter
-    def desired_instances(self, value: pulumi.Input[int]):
+    def desired_instances(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "desired_instances", value)
+
+    @property
+    @pulumi.getter(name="desiredSessions")
+    def desired_sessions(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "desired_sessions")
+
+    @desired_sessions.setter
+    def desired_sessions(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "desired_sessions", value)
 
 
 @pulumi.input_type

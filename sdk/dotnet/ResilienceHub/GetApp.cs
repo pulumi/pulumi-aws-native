@@ -74,6 +74,15 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ResilienceHub.AppDriftStatus? DriftStatus;
+        /// <summary>
+        /// The list of events you would like to subscribe and get notification for.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AppEventSubscription> EventSubscriptions;
+        public readonly Outputs.AppPermissionModel? PermissionModel;
+        /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
         /// </summary>
         public readonly string? ResiliencyPolicyArn;
@@ -93,6 +102,12 @@ namespace Pulumi.AwsNative.ResilienceHub
 
             string? description,
 
+            Pulumi.AwsNative.ResilienceHub.AppDriftStatus? driftStatus,
+
+            ImmutableArray<Outputs.AppEventSubscription> eventSubscriptions,
+
+            Outputs.AppPermissionModel? permissionModel,
+
             string? resiliencyPolicyArn,
 
             ImmutableArray<Outputs.AppResourceMapping> resourceMappings,
@@ -103,6 +118,9 @@ namespace Pulumi.AwsNative.ResilienceHub
             AppAssessmentSchedule = appAssessmentSchedule;
             AppTemplateBody = appTemplateBody;
             Description = description;
+            DriftStatus = driftStatus;
+            EventSubscriptions = eventSubscriptions;
+            PermissionModel = permissionModel;
             ResiliencyPolicyArn = resiliencyPolicyArn;
             ResourceMappings = resourceMappings;
             Tags = tags;

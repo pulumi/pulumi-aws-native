@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateAggregationFunctionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("attributeAggregationFunction")]
+        public Input<Inputs.TemplateAttributeAggregationFunctionArgs>? AttributeAggregationFunction { get; set; }
+
         [Input("categoricalAggregationFunction")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateCategoricalAggregationFunction>? CategoricalAggregationFunction { get; set; }
 

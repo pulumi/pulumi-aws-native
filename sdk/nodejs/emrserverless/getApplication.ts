@@ -57,6 +57,10 @@ export interface GetApplicationResult {
      */
     readonly networkConfiguration?: outputs.emrserverless.ApplicationNetworkConfiguration;
     /**
+     * EMR release label.
+     */
+    readonly releaseLabel?: string;
+    /**
      * Tag map with key and value
      */
     readonly tags?: outputs.emrserverless.ApplicationTag[];

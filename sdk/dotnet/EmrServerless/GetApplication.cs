@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.EmrServerless
         /// </summary>
         public readonly Outputs.ApplicationNetworkConfiguration? NetworkConfiguration;
         /// <summary>
+        /// EMR release label.
+        /// </summary>
+        public readonly string? ReleaseLabel;
+        /// <summary>
         /// Tag map with key and value
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationTag> Tags;
@@ -113,6 +117,8 @@ namespace Pulumi.AwsNative.EmrServerless
 
             Outputs.ApplicationNetworkConfiguration? networkConfiguration,
 
+            string? releaseLabel,
+
             ImmutableArray<Outputs.ApplicationTag> tags,
 
             Outputs.ApplicationWorkerTypeSpecificationInputMap? workerTypeSpecifications)
@@ -126,6 +132,7 @@ namespace Pulumi.AwsNative.EmrServerless
             InitialCapacity = initialCapacity;
             MaximumCapacity = maximumCapacity;
             NetworkConfiguration = networkConfiguration;
+            ReleaseLabel = releaseLabel;
             Tags = tags;
             WorkerTypeSpecifications = workerTypeSpecifications;
         }

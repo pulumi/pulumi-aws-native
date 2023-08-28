@@ -29,6 +29,7 @@ class FleetArgs:
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  max_concurrent_sessions: Optional[pulumi.Input[int]] = None,
+                 max_sessions_per_instance: Optional[pulumi.Input[int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
@@ -65,6 +66,8 @@ class FleetArgs:
             pulumi.set(__self__, "image_name", image_name)
         if max_concurrent_sessions is not None:
             pulumi.set(__self__, "max_concurrent_sessions", max_concurrent_sessions)
+        if max_sessions_per_instance is not None:
+            pulumi.set(__self__, "max_sessions_per_instance", max_sessions_per_instance)
         if max_user_duration_in_seconds is not None:
             pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
         if name is not None:
@@ -200,6 +203,15 @@ class FleetArgs:
         pulumi.set(self, "max_concurrent_sessions", value)
 
     @property
+    @pulumi.getter(name="maxSessionsPerInstance")
+    def max_sessions_per_instance(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_sessions_per_instance")
+
+    @max_sessions_per_instance.setter
+    def max_sessions_per_instance(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_sessions_per_instance", value)
+
+    @property
     @pulumi.getter(name="maxUserDurationInSeconds")
     def max_user_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "max_user_duration_in_seconds")
@@ -295,6 +307,7 @@ class Fleet(pulumi.CustomResource):
                  image_name: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  max_concurrent_sessions: Optional[pulumi.Input[int]] = None,
+                 max_sessions_per_instance: Optional[pulumi.Input[int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
@@ -347,6 +360,7 @@ class Fleet(pulumi.CustomResource):
                  image_name: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  max_concurrent_sessions: Optional[pulumi.Input[int]] = None,
+                 max_sessions_per_instance: Optional[pulumi.Input[int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
@@ -380,6 +394,7 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["max_concurrent_sessions"] = max_concurrent_sessions
+            __props__.__dict__["max_sessions_per_instance"] = max_sessions_per_instance
             __props__.__dict__["max_user_duration_in_seconds"] = max_user_duration_in_seconds
             __props__.__dict__["name"] = name
             __props__.__dict__["platform"] = platform
@@ -423,6 +438,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["image_name"] = None
         __props__.__dict__["instance_type"] = None
         __props__.__dict__["max_concurrent_sessions"] = None
+        __props__.__dict__["max_sessions_per_instance"] = None
         __props__.__dict__["max_user_duration_in_seconds"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["platform"] = None
@@ -497,6 +513,11 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="maxConcurrentSessions")
     def max_concurrent_sessions(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "max_concurrent_sessions")
+
+    @property
+    @pulumi.getter(name="maxSessionsPerInstance")
+    def max_sessions_per_instance(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "max_sessions_per_instance")
 
     @property
     @pulumi.getter(name="maxUserDurationInSeconds")

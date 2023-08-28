@@ -1099,7 +1099,8 @@ func (o EntitlementAttributeArrayOutput) Index(i pulumi.IntInput) EntitlementAtt
 }
 
 type FleetComputeCapacity struct {
-	DesiredInstances int `pulumi:"desiredInstances"`
+	DesiredInstances *int `pulumi:"desiredInstances"`
+	DesiredSessions  *int `pulumi:"desiredSessions"`
 }
 
 // FleetComputeCapacityInput is an input type that accepts FleetComputeCapacityArgs and FleetComputeCapacityOutput values.
@@ -1114,7 +1115,8 @@ type FleetComputeCapacityInput interface {
 }
 
 type FleetComputeCapacityArgs struct {
-	DesiredInstances pulumi.IntInput `pulumi:"desiredInstances"`
+	DesiredInstances pulumi.IntPtrInput `pulumi:"desiredInstances"`
+	DesiredSessions  pulumi.IntPtrInput `pulumi:"desiredSessions"`
 }
 
 func (FleetComputeCapacityArgs) ElementType() reflect.Type {
@@ -1194,8 +1196,12 @@ func (o FleetComputeCapacityOutput) ToFleetComputeCapacityPtrOutputWithContext(c
 	}).(FleetComputeCapacityPtrOutput)
 }
 
-func (o FleetComputeCapacityOutput) DesiredInstances() pulumi.IntOutput {
-	return o.ApplyT(func(v FleetComputeCapacity) int { return v.DesiredInstances }).(pulumi.IntOutput)
+func (o FleetComputeCapacityOutput) DesiredInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.DesiredInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetComputeCapacityOutput) DesiredSessions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.DesiredSessions }).(pulumi.IntPtrOutput)
 }
 
 type FleetComputeCapacityPtrOutput struct{ *pulumi.OutputState }
@@ -1227,7 +1233,16 @@ func (o FleetComputeCapacityPtrOutput) DesiredInstances() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.DesiredInstances
+		return v.DesiredInstances
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FleetComputeCapacityPtrOutput) DesiredSessions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetComputeCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DesiredSessions
 	}).(pulumi.IntPtrOutput)
 }
 

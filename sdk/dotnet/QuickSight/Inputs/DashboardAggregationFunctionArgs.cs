@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAggregationFunctionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("attributeAggregationFunction")]
+        public Input<Inputs.DashboardAttributeAggregationFunctionArgs>? AttributeAggregationFunction { get; set; }
+
         [Input("categoricalAggregationFunction")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardCategoricalAggregationFunction>? CategoricalAggregationFunction { get; set; }
 

@@ -51,6 +51,12 @@ namespace Pulumi.AwsNative.Macie
         [Output("position")]
         public Output<int?> Position { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.FindingsFilterTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a FindingsFilter resource with the given unique name, arguments, and options.
@@ -125,6 +131,18 @@ namespace Pulumi.AwsNative.Macie
         /// </summary>
         [Input("position")]
         public Input<int>? Position { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.FindingsFilterTagArgs>? _tags;
+
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        public InputList<Inputs.FindingsFilterTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.FindingsFilterTagArgs>());
+            set => _tags = value;
+        }
 
         public FindingsFilterArgs()
         {

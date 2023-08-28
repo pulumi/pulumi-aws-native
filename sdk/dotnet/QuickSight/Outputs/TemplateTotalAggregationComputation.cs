@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly string ComputationId;
         public readonly string? Name;
-        public readonly Outputs.TemplateMeasureField Value;
+        public readonly Outputs.TemplateMeasureField? Value;
 
         [OutputConstructor]
         private TemplateTotalAggregationComputation(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? name,
 
-            Outputs.TemplateMeasureField value)
+            Outputs.TemplateMeasureField? value)
         {
             ComputationId = computationId;
             Name = name;

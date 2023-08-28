@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("periodTimeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTimeGranularity>? PeriodTimeGranularity { get; set; }
 
-        [Input("time", required: true)]
-        public Input<Inputs.TemplateDimensionFieldArgs> Time { get; set; } = null!;
+        [Input("time")]
+        public Input<Inputs.TemplateDimensionFieldArgs>? Time { get; set; }
 
         [Input("value")]
         public Input<Inputs.TemplateMeasureFieldArgs>? Value { get; set; }

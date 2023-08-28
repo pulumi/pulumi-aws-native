@@ -480,6 +480,7 @@ __all__ = [
     'DashboardArcAxisDisplayRangeArgs',
     'DashboardArcConfigurationArgs',
     'DashboardArcOptionsArgs',
+    'DashboardAttributeAggregationFunctionArgs',
     'DashboardAxisDataOptionsArgs',
     'DashboardAxisDisplayDataDrivenRangeArgs',
     'DashboardAxisDisplayMinMaxRangeArgs',
@@ -996,12 +997,14 @@ __all__ = [
     'RefreshScheduleMapArgs',
     'TemplateAggregationFunctionArgs',
     'TemplateAggregationSortConfigurationArgs',
+    'TemplateAllSheetsFilterScopeConfigurationArgs',
     'TemplateAnalysisDefaultsArgs',
     'TemplateAnchorDateConfigurationArgs',
     'TemplateArcAxisConfigurationArgs',
     'TemplateArcAxisDisplayRangeArgs',
     'TemplateArcConfigurationArgs',
     'TemplateArcOptionsArgs',
+    'TemplateAttributeAggregationFunctionArgs',
     'TemplateAxisDataOptionsArgs',
     'TemplateAxisDisplayDataDrivenRangeArgs',
     'TemplateAxisDisplayMinMaxRangeArgs',
@@ -1303,6 +1306,7 @@ __all__ = [
     'TemplatePivotTableFieldWellsArgs',
     'TemplatePivotTableOptionsArgs',
     'TemplatePivotTablePaginatedReportOptionsArgs',
+    'TemplatePivotTableRowsLabelOptionsArgs',
     'TemplatePivotTableSortByArgs',
     'TemplatePivotTableSortConfigurationArgs',
     'TemplatePivotTableTotalOptionsArgs',
@@ -1355,6 +1359,7 @@ __all__ = [
     'TemplateSeriesItemArgs',
     'TemplateSetParameterValueConfigurationArgs',
     'TemplateShapeConditionalFormatArgs',
+    'TemplateSheetControlInfoIconLabelOptionsArgs',
     'TemplateSheetControlLayoutConfigurationArgs',
     'TemplateSheetControlLayoutArgs',
     'TemplateSheetDefinitionArgs',
@@ -1365,6 +1370,7 @@ __all__ = [
     'TemplateShortFormatTextArgs',
     'TemplateSimpleClusterMarkerArgs',
     'TemplateSliderControlDisplayOptionsArgs',
+    'TemplateSmallMultiplesAxisPropertiesArgs',
     'TemplateSmallMultiplesOptionsArgs',
     'TemplateSourceAnalysisArgs',
     'TemplateSourceEntityArgs',
@@ -1398,6 +1404,7 @@ __all__ = [
     'TemplateTableRowConditionalFormattingArgs',
     'TemplateTableSideBorderOptionsArgs',
     'TemplateTableSortConfigurationArgs',
+    'TemplateTableStyleTargetArgs',
     'TemplateTableUnaggregatedFieldWellsArgs',
     'TemplateTableVisualArgs',
     'TemplateTagArgs',
@@ -21836,15 +21843,27 @@ class DashboardAdHocFilteringOptionArgs:
 @pulumi.input_type
 class DashboardAggregationFunctionArgs:
     def __init__(__self__, *,
+                 attribute_aggregation_function: Optional[pulumi.Input['DashboardAttributeAggregationFunctionArgs']] = None,
                  categorical_aggregation_function: Optional[pulumi.Input['DashboardCategoricalAggregationFunction']] = None,
                  date_aggregation_function: Optional[pulumi.Input['DashboardDateAggregationFunction']] = None,
                  numerical_aggregation_function: Optional[pulumi.Input['DashboardNumericalAggregationFunctionArgs']] = None):
+        if attribute_aggregation_function is not None:
+            pulumi.set(__self__, "attribute_aggregation_function", attribute_aggregation_function)
         if categorical_aggregation_function is not None:
             pulumi.set(__self__, "categorical_aggregation_function", categorical_aggregation_function)
         if date_aggregation_function is not None:
             pulumi.set(__self__, "date_aggregation_function", date_aggregation_function)
         if numerical_aggregation_function is not None:
             pulumi.set(__self__, "numerical_aggregation_function", numerical_aggregation_function)
+
+    @property
+    @pulumi.getter(name="attributeAggregationFunction")
+    def attribute_aggregation_function(self) -> Optional[pulumi.Input['DashboardAttributeAggregationFunctionArgs']]:
+        return pulumi.get(self, "attribute_aggregation_function")
+
+    @attribute_aggregation_function.setter
+    def attribute_aggregation_function(self, value: Optional[pulumi.Input['DashboardAttributeAggregationFunctionArgs']]):
+        pulumi.set(self, "attribute_aggregation_function", value)
 
     @property
     @pulumi.getter(name="categoricalAggregationFunction")
@@ -22060,6 +22079,35 @@ class DashboardArcOptionsArgs:
     @arc_thickness.setter
     def arc_thickness(self, value: Optional[pulumi.Input['DashboardArcThickness']]):
         pulumi.set(self, "arc_thickness", value)
+
+
+@pulumi.input_type
+class DashboardAttributeAggregationFunctionArgs:
+    def __init__(__self__, *,
+                 simple_attribute_aggregation: Optional[pulumi.Input['DashboardSimpleAttributeAggregationFunction']] = None,
+                 value_for_multiple_values: Optional[pulumi.Input[str]] = None):
+        if simple_attribute_aggregation is not None:
+            pulumi.set(__self__, "simple_attribute_aggregation", simple_attribute_aggregation)
+        if value_for_multiple_values is not None:
+            pulumi.set(__self__, "value_for_multiple_values", value_for_multiple_values)
+
+    @property
+    @pulumi.getter(name="simpleAttributeAggregation")
+    def simple_attribute_aggregation(self) -> Optional[pulumi.Input['DashboardSimpleAttributeAggregationFunction']]:
+        return pulumi.get(self, "simple_attribute_aggregation")
+
+    @simple_attribute_aggregation.setter
+    def simple_attribute_aggregation(self, value: Optional[pulumi.Input['DashboardSimpleAttributeAggregationFunction']]):
+        pulumi.set(self, "simple_attribute_aggregation", value)
+
+    @property
+    @pulumi.getter(name="valueForMultipleValues")
+    def value_for_multiple_values(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value_for_multiple_values")
+
+    @value_for_multiple_values.setter
+    def value_for_multiple_values(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value_for_multiple_values", value)
 
 
 @pulumi.input_type
@@ -44711,15 +44759,27 @@ class RefreshScheduleMapArgs:
 @pulumi.input_type
 class TemplateAggregationFunctionArgs:
     def __init__(__self__, *,
+                 attribute_aggregation_function: Optional[pulumi.Input['TemplateAttributeAggregationFunctionArgs']] = None,
                  categorical_aggregation_function: Optional[pulumi.Input['TemplateCategoricalAggregationFunction']] = None,
                  date_aggregation_function: Optional[pulumi.Input['TemplateDateAggregationFunction']] = None,
                  numerical_aggregation_function: Optional[pulumi.Input['TemplateNumericalAggregationFunctionArgs']] = None):
+        if attribute_aggregation_function is not None:
+            pulumi.set(__self__, "attribute_aggregation_function", attribute_aggregation_function)
         if categorical_aggregation_function is not None:
             pulumi.set(__self__, "categorical_aggregation_function", categorical_aggregation_function)
         if date_aggregation_function is not None:
             pulumi.set(__self__, "date_aggregation_function", date_aggregation_function)
         if numerical_aggregation_function is not None:
             pulumi.set(__self__, "numerical_aggregation_function", numerical_aggregation_function)
+
+    @property
+    @pulumi.getter(name="attributeAggregationFunction")
+    def attribute_aggregation_function(self) -> Optional[pulumi.Input['TemplateAttributeAggregationFunctionArgs']]:
+        return pulumi.get(self, "attribute_aggregation_function")
+
+    @attribute_aggregation_function.setter
+    def attribute_aggregation_function(self, value: Optional[pulumi.Input['TemplateAttributeAggregationFunctionArgs']]):
+        pulumi.set(self, "attribute_aggregation_function", value)
 
     @property
     @pulumi.getter(name="categoricalAggregationFunction")
@@ -44786,6 +44846,12 @@ class TemplateAggregationSortConfigurationArgs:
     @aggregation_function.setter
     def aggregation_function(self, value: Optional[pulumi.Input['TemplateAggregationFunctionArgs']]):
         pulumi.set(self, "aggregation_function", value)
+
+
+@pulumi.input_type
+class TemplateAllSheetsFilterScopeConfigurationArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
@@ -44935,6 +45001,35 @@ class TemplateArcOptionsArgs:
     @arc_thickness.setter
     def arc_thickness(self, value: Optional[pulumi.Input['TemplateArcThickness']]):
         pulumi.set(self, "arc_thickness", value)
+
+
+@pulumi.input_type
+class TemplateAttributeAggregationFunctionArgs:
+    def __init__(__self__, *,
+                 simple_attribute_aggregation: Optional[pulumi.Input['TemplateSimpleAttributeAggregationFunction']] = None,
+                 value_for_multiple_values: Optional[pulumi.Input[str]] = None):
+        if simple_attribute_aggregation is not None:
+            pulumi.set(__self__, "simple_attribute_aggregation", simple_attribute_aggregation)
+        if value_for_multiple_values is not None:
+            pulumi.set(__self__, "value_for_multiple_values", value_for_multiple_values)
+
+    @property
+    @pulumi.getter(name="simpleAttributeAggregation")
+    def simple_attribute_aggregation(self) -> Optional[pulumi.Input['TemplateSimpleAttributeAggregationFunction']]:
+        return pulumi.get(self, "simple_attribute_aggregation")
+
+    @simple_attribute_aggregation.setter
+    def simple_attribute_aggregation(self, value: Optional[pulumi.Input['TemplateSimpleAttributeAggregationFunction']]):
+        pulumi.set(self, "simple_attribute_aggregation", value)
+
+    @property
+    @pulumi.getter(name="valueForMultipleValues")
+    def value_for_multiple_values(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value_for_multiple_values")
+
+    @value_for_multiple_values.setter
+    def value_for_multiple_values(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value_for_multiple_values", value)
 
 
 @pulumi.input_type
@@ -49150,9 +49245,12 @@ class TemplateDateTimeParameterDeclarationArgs:
 class TemplateDateTimePickerControlDisplayOptionsArgs:
     def __init__(__self__, *,
                  date_time_format: Optional[pulumi.Input[str]] = None,
+                 info_icon_label_options: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['TemplateLabelOptionsArgs']] = None):
         if date_time_format is not None:
             pulumi.set(__self__, "date_time_format", date_time_format)
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
 
@@ -49164,6 +49262,15 @@ class TemplateDateTimePickerControlDisplayOptionsArgs:
     @date_time_format.setter
     def date_time_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "date_time_format", value)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="titleOptions")
@@ -49672,12 +49779,24 @@ class TemplateDrillDownFilterArgs:
 @pulumi.input_type
 class TemplateDropDownControlDisplayOptionsArgs:
     def __init__(__self__, *,
+                 info_icon_label_options: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']] = None,
                  select_all_options: Optional[pulumi.Input['TemplateListControlSelectAllOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['TemplateLabelOptionsArgs']] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if select_all_options is not None:
             pulumi.set(__self__, "select_all_options", select_all_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="selectAllOptions")
@@ -50883,9 +51002,21 @@ class TemplateFilterRelativeDateTimeControlArgs:
 @pulumi.input_type
 class TemplateFilterScopeConfigurationArgs:
     def __init__(__self__, *,
+                 all_sheets: Optional[pulumi.Input['TemplateAllSheetsFilterScopeConfigurationArgs']] = None,
                  selected_sheets: Optional[pulumi.Input['TemplateSelectedSheetsFilterScopeConfigurationArgs']] = None):
+        if all_sheets is not None:
+            pulumi.set(__self__, "all_sheets", all_sheets)
         if selected_sheets is not None:
             pulumi.set(__self__, "selected_sheets", selected_sheets)
+
+    @property
+    @pulumi.getter(name="allSheets")
+    def all_sheets(self) -> Optional[pulumi.Input['TemplateAllSheetsFilterScopeConfigurationArgs']]:
+        return pulumi.get(self, "all_sheets")
+
+    @all_sheets.setter
+    def all_sheets(self, value: Optional[pulumi.Input['TemplateAllSheetsFilterScopeConfigurationArgs']]):
+        pulumi.set(self, "all_sheets", value)
 
     @property
     @pulumi.getter(name="selectedSheets")
@@ -51313,7 +51444,6 @@ class TemplateFontWeightArgs:
 class TemplateForecastComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['TemplateDimensionFieldArgs'],
                  custom_seasonality_value: Optional[pulumi.Input[float]] = None,
                  lower_boundary: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -51321,10 +51451,10 @@ class TemplateForecastComputationArgs:
                  periods_forward: Optional[pulumi.Input[float]] = None,
                  prediction_interval: Optional[pulumi.Input[float]] = None,
                  seasonality: Optional[pulumi.Input['TemplateForecastComputationSeasonality']] = None,
+                 time: Optional[pulumi.Input['TemplateDimensionFieldArgs']] = None,
                  upper_boundary: Optional[pulumi.Input[float]] = None,
                  value: Optional[pulumi.Input['TemplateMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if custom_seasonality_value is not None:
             pulumi.set(__self__, "custom_seasonality_value", custom_seasonality_value)
         if lower_boundary is not None:
@@ -51339,6 +51469,8 @@ class TemplateForecastComputationArgs:
             pulumi.set(__self__, "prediction_interval", prediction_interval)
         if seasonality is not None:
             pulumi.set(__self__, "seasonality", seasonality)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if upper_boundary is not None:
             pulumi.set(__self__, "upper_boundary", upper_boundary)
         if value is not None:
@@ -51352,15 +51484,6 @@ class TemplateForecastComputationArgs:
     @computation_id.setter
     def computation_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "computation_id", value)
-
-    @property
-    @pulumi.getter
-    def time(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter(name="customSeasonalityValue")
@@ -51424,6 +51547,15 @@ class TemplateForecastComputationArgs:
     @seasonality.setter
     def seasonality(self, value: Optional[pulumi.Input['TemplateForecastComputationSeasonality']]):
         pulumi.set(self, "seasonality", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['TemplateDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['TemplateDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter(name="upperBoundary")
@@ -53152,16 +53284,17 @@ class TemplateGridLayoutScreenCanvasSizeOptionsArgs:
 class TemplateGrowthRateComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['TemplateDimensionFieldArgs'],
                  name: Optional[pulumi.Input[str]] = None,
                  period_size: Optional[pulumi.Input[float]] = None,
+                 time: Optional[pulumi.Input['TemplateDimensionFieldArgs']] = None,
                  value: Optional[pulumi.Input['TemplateMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if period_size is not None:
             pulumi.set(__self__, "period_size", period_size)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -53173,15 +53306,6 @@ class TemplateGrowthRateComputationArgs:
     @computation_id.setter
     def computation_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "computation_id", value)
-
-    @property
-    @pulumi.getter
-    def time(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -53200,6 +53324,15 @@ class TemplateGrowthRateComputationArgs:
     @period_size.setter
     def period_size(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "period_size", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['TemplateDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['TemplateDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -55249,15 +55382,27 @@ class TemplateLineSeriesAxisDisplayOptionsArgs:
 @pulumi.input_type
 class TemplateListControlDisplayOptionsArgs:
     def __init__(__self__, *,
+                 info_icon_label_options: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']] = None,
                  search_options: Optional[pulumi.Input['TemplateListControlSearchOptionsArgs']] = None,
                  select_all_options: Optional[pulumi.Input['TemplateListControlSelectAllOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['TemplateLabelOptionsArgs']] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if search_options is not None:
             pulumi.set(__self__, "search_options", search_options)
         if select_all_options is not None:
             pulumi.set(__self__, "select_all_options", select_all_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="searchOptions")
@@ -55431,15 +55576,16 @@ class TemplateMaximumLabelTypeArgs:
 class TemplateMaximumMinimumComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['TemplateDimensionFieldArgs'],
                  type: pulumi.Input['TemplateMaximumMinimumComputationType'],
                  name: Optional[pulumi.Input[str]] = None,
+                 time: Optional[pulumi.Input['TemplateDimensionFieldArgs']] = None,
                  value: Optional[pulumi.Input['TemplateMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         pulumi.set(__self__, "type", type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -55451,15 +55597,6 @@ class TemplateMaximumMinimumComputationArgs:
     @computation_id.setter
     def computation_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "computation_id", value)
-
-    @property
-    @pulumi.getter
-    def time(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -55478,6 +55615,15 @@ class TemplateMaximumMinimumComputationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['TemplateDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['TemplateDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -55546,16 +55692,19 @@ class TemplateMeasureFieldArgs:
 class TemplateMetricComparisonComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 from_value: pulumi.Input['TemplateMeasureFieldArgs'],
-                 target_value: pulumi.Input['TemplateMeasureFieldArgs'],
-                 time: pulumi.Input['TemplateDimensionFieldArgs'],
-                 name: Optional[pulumi.Input[str]] = None):
+                 from_value: Optional[pulumi.Input['TemplateMeasureFieldArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 target_value: Optional[pulumi.Input['TemplateMeasureFieldArgs']] = None,
+                 time: Optional[pulumi.Input['TemplateDimensionFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "from_value", from_value)
-        pulumi.set(__self__, "target_value", target_value)
-        pulumi.set(__self__, "time", time)
+        if from_value is not None:
+            pulumi.set(__self__, "from_value", from_value)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if target_value is not None:
+            pulumi.set(__self__, "target_value", target_value)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter(name="computationId")
@@ -55568,30 +55717,12 @@ class TemplateMetricComparisonComputationArgs:
 
     @property
     @pulumi.getter(name="fromValue")
-    def from_value(self) -> pulumi.Input['TemplateMeasureFieldArgs']:
+    def from_value(self) -> Optional[pulumi.Input['TemplateMeasureFieldArgs']]:
         return pulumi.get(self, "from_value")
 
     @from_value.setter
-    def from_value(self, value: pulumi.Input['TemplateMeasureFieldArgs']):
+    def from_value(self, value: Optional[pulumi.Input['TemplateMeasureFieldArgs']]):
         pulumi.set(self, "from_value", value)
-
-    @property
-    @pulumi.getter(name="targetValue")
-    def target_value(self) -> pulumi.Input['TemplateMeasureFieldArgs']:
-        return pulumi.get(self, "target_value")
-
-    @target_value.setter
-    def target_value(self, value: pulumi.Input['TemplateMeasureFieldArgs']):
-        pulumi.set(self, "target_value", value)
-
-    @property
-    @pulumi.getter
-    def time(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -55601,6 +55732,24 @@ class TemplateMetricComparisonComputationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> Optional[pulumi.Input['TemplateMeasureFieldArgs']]:
+        return pulumi.get(self, "target_value")
+
+    @target_value.setter
+    def target_value(self, value: Optional[pulumi.Input['TemplateMeasureFieldArgs']]):
+        pulumi.set(self, "target_value", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['TemplateDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['TemplateDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
 
 @pulumi.input_type
@@ -57162,13 +57311,14 @@ class TemplatePercentileAggregationArgs:
 class TemplatePeriodOverPeriodComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['TemplateDimensionFieldArgs'],
                  name: Optional[pulumi.Input[str]] = None,
+                 time: Optional[pulumi.Input['TemplateDimensionFieldArgs']] = None,
                  value: Optional[pulumi.Input['TemplateMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -57183,21 +57333,21 @@ class TemplatePeriodOverPeriodComputationArgs:
 
     @property
     @pulumi.getter
-    def time(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['TemplateDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['TemplateDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -57213,16 +57363,17 @@ class TemplatePeriodOverPeriodComputationArgs:
 class TemplatePeriodToDateComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['TemplateDimensionFieldArgs'],
                  name: Optional[pulumi.Input[str]] = None,
                  period_time_granularity: Optional[pulumi.Input['TemplateTimeGranularity']] = None,
+                 time: Optional[pulumi.Input['TemplateDimensionFieldArgs']] = None,
                  value: Optional[pulumi.Input['TemplateMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if period_time_granularity is not None:
             pulumi.set(__self__, "period_time_granularity", period_time_granularity)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -57234,15 +57385,6 @@ class TemplatePeriodToDateComputationArgs:
     @computation_id.setter
     def computation_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "computation_id", value)
-
-    @property
-    @pulumi.getter
-    def time(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -57261,6 +57403,15 @@ class TemplatePeriodToDateComputationArgs:
     @period_time_granularity.setter
     def period_time_granularity(self, value: Optional[pulumi.Input['TemplateTimeGranularity']]):
         pulumi.set(self, "period_time_granularity", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['TemplateDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['TemplateDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
 
     @property
     @pulumi.getter
@@ -58057,12 +58208,18 @@ class TemplatePivotTableOptionsArgs:
                  collapsed_row_dimensions_visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
                  column_header_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None,
                  column_names_visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
+                 default_cell_width: Optional[pulumi.Input[str]] = None,
                  metric_placement: Optional[pulumi.Input['TemplatePivotTableMetricPlacement']] = None,
                  row_alternate_color_options: Optional[pulumi.Input['TemplateRowAlternateColorOptionsArgs']] = None,
                  row_field_names_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None,
                  row_header_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None,
+                 rows_label_options: Optional[pulumi.Input['TemplatePivotTableRowsLabelOptionsArgs']] = None,
+                 rows_layout: Optional[pulumi.Input['TemplatePivotTableRowsLayout']] = None,
                  single_metric_visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
                  toggle_buttons_visibility: Optional[pulumi.Input['TemplateVisibility']] = None):
+        """
+        :param pulumi.Input[str] default_cell_width: String based length that is composed of value and unit in px
+        """
         if cell_style is not None:
             pulumi.set(__self__, "cell_style", cell_style)
         if collapsed_row_dimensions_visibility is not None:
@@ -58071,6 +58228,8 @@ class TemplatePivotTableOptionsArgs:
             pulumi.set(__self__, "column_header_style", column_header_style)
         if column_names_visibility is not None:
             pulumi.set(__self__, "column_names_visibility", column_names_visibility)
+        if default_cell_width is not None:
+            pulumi.set(__self__, "default_cell_width", default_cell_width)
         if metric_placement is not None:
             pulumi.set(__self__, "metric_placement", metric_placement)
         if row_alternate_color_options is not None:
@@ -58079,6 +58238,10 @@ class TemplatePivotTableOptionsArgs:
             pulumi.set(__self__, "row_field_names_style", row_field_names_style)
         if row_header_style is not None:
             pulumi.set(__self__, "row_header_style", row_header_style)
+        if rows_label_options is not None:
+            pulumi.set(__self__, "rows_label_options", rows_label_options)
+        if rows_layout is not None:
+            pulumi.set(__self__, "rows_layout", rows_layout)
         if single_metric_visibility is not None:
             pulumi.set(__self__, "single_metric_visibility", single_metric_visibility)
         if toggle_buttons_visibility is not None:
@@ -58121,6 +58284,18 @@ class TemplatePivotTableOptionsArgs:
         pulumi.set(self, "column_names_visibility", value)
 
     @property
+    @pulumi.getter(name="defaultCellWidth")
+    def default_cell_width(self) -> Optional[pulumi.Input[str]]:
+        """
+        String based length that is composed of value and unit in px
+        """
+        return pulumi.get(self, "default_cell_width")
+
+    @default_cell_width.setter
+    def default_cell_width(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_cell_width", value)
+
+    @property
     @pulumi.getter(name="metricPlacement")
     def metric_placement(self) -> Optional[pulumi.Input['TemplatePivotTableMetricPlacement']]:
         return pulumi.get(self, "metric_placement")
@@ -58155,6 +58330,24 @@ class TemplatePivotTableOptionsArgs:
     @row_header_style.setter
     def row_header_style(self, value: Optional[pulumi.Input['TemplateTableCellStyleArgs']]):
         pulumi.set(self, "row_header_style", value)
+
+    @property
+    @pulumi.getter(name="rowsLabelOptions")
+    def rows_label_options(self) -> Optional[pulumi.Input['TemplatePivotTableRowsLabelOptionsArgs']]:
+        return pulumi.get(self, "rows_label_options")
+
+    @rows_label_options.setter
+    def rows_label_options(self, value: Optional[pulumi.Input['TemplatePivotTableRowsLabelOptionsArgs']]):
+        pulumi.set(self, "rows_label_options", value)
+
+    @property
+    @pulumi.getter(name="rowsLayout")
+    def rows_layout(self) -> Optional[pulumi.Input['TemplatePivotTableRowsLayout']]:
+        return pulumi.get(self, "rows_layout")
+
+    @rows_layout.setter
+    def rows_layout(self, value: Optional[pulumi.Input['TemplatePivotTableRowsLayout']]):
+        pulumi.set(self, "rows_layout", value)
 
     @property
     @pulumi.getter(name="singleMetricVisibility")
@@ -58202,6 +58395,35 @@ class TemplatePivotTablePaginatedReportOptionsArgs:
     @vertical_overflow_visibility.setter
     def vertical_overflow_visibility(self, value: Optional[pulumi.Input['TemplateVisibility']]):
         pulumi.set(self, "vertical_overflow_visibility", value)
+
+
+@pulumi.input_type
+class TemplatePivotTableRowsLabelOptionsArgs:
+    def __init__(__self__, *,
+                 custom_label: Optional[pulumi.Input[str]] = None,
+                 visibility: Optional[pulumi.Input['TemplateVisibility']] = None):
+        if custom_label is not None:
+            pulumi.set(__self__, "custom_label", custom_label)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="customLabel")
+    def custom_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_label")
+
+    @custom_label.setter
+    def custom_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_label", value)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input['TemplateVisibility']]:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input['TemplateVisibility']]):
+        pulumi.set(self, "visibility", value)
 
 
 @pulumi.input_type
@@ -59262,9 +59484,12 @@ class TemplateReferenceLineArgs:
 class TemplateRelativeDateTimeControlDisplayOptionsArgs:
     def __init__(__self__, *,
                  date_time_format: Optional[pulumi.Input[str]] = None,
+                 info_icon_label_options: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['TemplateLabelOptionsArgs']] = None):
         if date_time_format is not None:
             pulumi.set(__self__, "date_time_format", date_time_format)
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
 
@@ -59276,6 +59501,15 @@ class TemplateRelativeDateTimeControlDisplayOptionsArgs:
     @date_time_format.setter
     def date_time_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "date_time_format", value)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="titleOptions")
@@ -59477,11 +59711,14 @@ class TemplateRollingDateConfigurationArgs:
 class TemplateRowAlternateColorOptionsArgs:
     def __init__(__self__, *,
                  row_alternate_colors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 status: Optional[pulumi.Input['TemplateWidgetStatus']] = None):
+                 status: Optional[pulumi.Input['TemplateWidgetStatus']] = None,
+                 use_primary_background_color: Optional[pulumi.Input['TemplateWidgetStatus']] = None):
         if row_alternate_colors is not None:
             pulumi.set(__self__, "row_alternate_colors", row_alternate_colors)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if use_primary_background_color is not None:
+            pulumi.set(__self__, "use_primary_background_color", use_primary_background_color)
 
     @property
     @pulumi.getter(name="rowAlternateColors")
@@ -59500,6 +59737,15 @@ class TemplateRowAlternateColorOptionsArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input['TemplateWidgetStatus']]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="usePrimaryBackgroundColor")
+    def use_primary_background_color(self) -> Optional[pulumi.Input['TemplateWidgetStatus']]:
+        return pulumi.get(self, "use_primary_background_color")
+
+    @use_primary_background_color.setter
+    def use_primary_background_color(self, value: Optional[pulumi.Input['TemplateWidgetStatus']]):
+        pulumi.set(self, "use_primary_background_color", value)
 
 
 @pulumi.input_type
@@ -60411,6 +60657,35 @@ class TemplateShapeConditionalFormatArgs:
 
 
 @pulumi.input_type
+class TemplateSheetControlInfoIconLabelOptionsArgs:
+    def __init__(__self__, *,
+                 info_icon_text: Optional[pulumi.Input[str]] = None,
+                 visibility: Optional[pulumi.Input['TemplateVisibility']] = None):
+        if info_icon_text is not None:
+            pulumi.set(__self__, "info_icon_text", info_icon_text)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="infoIconText")
+    def info_icon_text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "info_icon_text")
+
+    @info_icon_text.setter
+    def info_icon_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "info_icon_text", value)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input['TemplateVisibility']]:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input['TemplateVisibility']]):
+        pulumi.set(self, "visibility", value)
+
+
+@pulumi.input_type
 class TemplateSheetControlLayoutConfigurationArgs:
     def __init__(__self__, *,
                  grid_layout: Optional[pulumi.Input['TemplateGridLayoutConfigurationArgs']] = None):
@@ -60739,9 +61014,21 @@ class TemplateSimpleClusterMarkerArgs:
 @pulumi.input_type
 class TemplateSliderControlDisplayOptionsArgs:
     def __init__(__self__, *,
+                 info_icon_label_options: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['TemplateLabelOptionsArgs']] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="titleOptions")
@@ -60754,17 +61041,52 @@ class TemplateSliderControlDisplayOptionsArgs:
 
 
 @pulumi.input_type
+class TemplateSmallMultiplesAxisPropertiesArgs:
+    def __init__(__self__, *,
+                 placement: Optional[pulumi.Input['TemplateSmallMultiplesAxisPlacement']] = None,
+                 scale: Optional[pulumi.Input['TemplateSmallMultiplesAxisScale']] = None):
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input['TemplateSmallMultiplesAxisPlacement']]:
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input['TemplateSmallMultiplesAxisPlacement']]):
+        pulumi.set(self, "placement", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['TemplateSmallMultiplesAxisScale']]:
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['TemplateSmallMultiplesAxisScale']]):
+        pulumi.set(self, "scale", value)
+
+
+@pulumi.input_type
 class TemplateSmallMultiplesOptionsArgs:
     def __init__(__self__, *,
                  max_visible_columns: Optional[pulumi.Input[float]] = None,
                  max_visible_rows: Optional[pulumi.Input[float]] = None,
-                 panel_configuration: Optional[pulumi.Input['TemplatePanelConfigurationArgs']] = None):
+                 panel_configuration: Optional[pulumi.Input['TemplatePanelConfigurationArgs']] = None,
+                 x_axis: Optional[pulumi.Input['TemplateSmallMultiplesAxisPropertiesArgs']] = None,
+                 y_axis: Optional[pulumi.Input['TemplateSmallMultiplesAxisPropertiesArgs']] = None):
         if max_visible_columns is not None:
             pulumi.set(__self__, "max_visible_columns", max_visible_columns)
         if max_visible_rows is not None:
             pulumi.set(__self__, "max_visible_rows", max_visible_rows)
         if panel_configuration is not None:
             pulumi.set(__self__, "panel_configuration", panel_configuration)
+        if x_axis is not None:
+            pulumi.set(__self__, "x_axis", x_axis)
+        if y_axis is not None:
+            pulumi.set(__self__, "y_axis", y_axis)
 
     @property
     @pulumi.getter(name="maxVisibleColumns")
@@ -60792,6 +61114,24 @@ class TemplateSmallMultiplesOptionsArgs:
     @panel_configuration.setter
     def panel_configuration(self, value: Optional[pulumi.Input['TemplatePanelConfigurationArgs']]):
         pulumi.set(self, "panel_configuration", value)
+
+    @property
+    @pulumi.getter(name="xAxis")
+    def x_axis(self) -> Optional[pulumi.Input['TemplateSmallMultiplesAxisPropertiesArgs']]:
+        return pulumi.get(self, "x_axis")
+
+    @x_axis.setter
+    def x_axis(self, value: Optional[pulumi.Input['TemplateSmallMultiplesAxisPropertiesArgs']]):
+        pulumi.set(self, "x_axis", value)
+
+    @property
+    @pulumi.getter(name="yAxis")
+    def y_axis(self) -> Optional[pulumi.Input['TemplateSmallMultiplesAxisPropertiesArgs']]:
+        return pulumi.get(self, "y_axis")
+
+    @y_axis.setter
+    def y_axis(self, value: Optional[pulumi.Input['TemplateSmallMultiplesAxisPropertiesArgs']]):
+        pulumi.set(self, "y_axis", value)
 
 
 @pulumi.input_type
@@ -61094,6 +61434,7 @@ class TemplateSubtotalOptionsArgs:
                  field_level: Optional[pulumi.Input['TemplatePivotTableSubtotalLevel']] = None,
                  field_level_options: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePivotTableFieldSubtotalOptionsArgs']]]] = None,
                  metric_header_cell_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None,
+                 style_targets: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTableStyleTargetArgs']]]] = None,
                  total_cell_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None,
                  totals_visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
                  value_cell_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None):
@@ -61105,6 +61446,8 @@ class TemplateSubtotalOptionsArgs:
             pulumi.set(__self__, "field_level_options", field_level_options)
         if metric_header_cell_style is not None:
             pulumi.set(__self__, "metric_header_cell_style", metric_header_cell_style)
+        if style_targets is not None:
+            pulumi.set(__self__, "style_targets", style_targets)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -61147,6 +61490,15 @@ class TemplateSubtotalOptionsArgs:
     @metric_header_cell_style.setter
     def metric_header_cell_style(self, value: Optional[pulumi.Input['TemplateTableCellStyleArgs']]):
         pulumi.set(self, "metric_header_cell_style", value)
+
+    @property
+    @pulumi.getter(name="styleTargets")
+    def style_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTableStyleTargetArgs']]]]:
+        return pulumi.get(self, "style_targets")
+
+    @style_targets.setter
+    def style_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTableStyleTargetArgs']]]]):
+        pulumi.set(self, "style_targets", value)
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -62037,6 +62389,22 @@ class TemplateTableSortConfigurationArgs:
 
 
 @pulumi.input_type
+class TemplateTableStyleTargetArgs:
+    def __init__(__self__, *,
+                 cell_type: pulumi.Input['TemplateStyledCellType']):
+        pulumi.set(__self__, "cell_type", cell_type)
+
+    @property
+    @pulumi.getter(name="cellType")
+    def cell_type(self) -> pulumi.Input['TemplateStyledCellType']:
+        return pulumi.get(self, "cell_type")
+
+    @cell_type.setter
+    def cell_type(self, value: pulumi.Input['TemplateStyledCellType']):
+        pulumi.set(self, "cell_type", value)
+
+
+@pulumi.input_type
 class TemplateTableUnaggregatedFieldWellsArgs:
     def __init__(__self__, *,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateUnaggregatedFieldArgs']]]] = None):
@@ -62159,12 +62527,24 @@ class TemplateTagArgs:
 @pulumi.input_type
 class TemplateTextAreaControlDisplayOptionsArgs:
     def __init__(__self__, *,
+                 info_icon_label_options: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']] = None,
                  placeholder_options: Optional[pulumi.Input['TemplateTextControlPlaceholderOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['TemplateLabelOptionsArgs']] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if placeholder_options is not None:
             pulumi.set(__self__, "placeholder_options", placeholder_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="placeholderOptions")
@@ -62246,12 +62626,24 @@ class TemplateTextControlPlaceholderOptionsArgs:
 @pulumi.input_type
 class TemplateTextFieldControlDisplayOptionsArgs:
     def __init__(__self__, *,
+                 info_icon_label_options: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']] = None,
                  placeholder_options: Optional[pulumi.Input['TemplateTextControlPlaceholderOptionsArgs']] = None,
                  title_options: Optional[pulumi.Input['TemplateLabelOptionsArgs']] = None):
+        if info_icon_label_options is not None:
+            pulumi.set(__self__, "info_icon_label_options", info_icon_label_options)
         if placeholder_options is not None:
             pulumi.set(__self__, "placeholder_options", placeholder_options)
         if title_options is not None:
             pulumi.set(__self__, "title_options", title_options)
+
+    @property
+    @pulumi.getter(name="infoIconLabelOptions")
+    def info_icon_label_options(self) -> Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]:
+        return pulumi.get(self, "info_icon_label_options")
+
+    @info_icon_label_options.setter
+    def info_icon_label_options(self, value: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']]):
+        pulumi.set(self, "info_icon_label_options", value)
 
     @property
     @pulumi.getter(name="placeholderOptions")
@@ -62788,35 +63180,28 @@ class TemplateTopBottomFilterArgs:
 @pulumi.input_type
 class TemplateTopBottomMoversComputationArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input['TemplateDimensionFieldArgs'],
                  computation_id: pulumi.Input[str],
-                 time: pulumi.Input['TemplateDimensionFieldArgs'],
                  type: pulumi.Input['TemplateTopBottomComputationType'],
+                 category: Optional[pulumi.Input['TemplateDimensionFieldArgs']] = None,
                  mover_size: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sort_order: Optional[pulumi.Input['TemplateTopBottomSortOrder']] = None,
+                 time: Optional[pulumi.Input['TemplateDimensionFieldArgs']] = None,
                  value: Optional[pulumi.Input['TemplateMeasureFieldArgs']] = None):
-        pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "time", time)
         pulumi.set(__self__, "type", type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
         if mover_size is not None:
             pulumi.set(__self__, "mover_size", mover_size)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sort_order is not None:
             pulumi.set(__self__, "sort_order", sort_order)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if value is not None:
             pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def category(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
-        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter(name="computationId")
@@ -62829,21 +63214,21 @@ class TemplateTopBottomMoversComputationArgs:
 
     @property
     @pulumi.getter
-    def time(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
-        return pulumi.get(self, "time")
-
-    @time.setter
-    def time(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
-        pulumi.set(self, "time", value)
-
-    @property
-    @pulumi.getter
     def type(self) -> pulumi.Input['TemplateTopBottomComputationType']:
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input['TemplateTopBottomComputationType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input['TemplateDimensionFieldArgs']]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input['TemplateDimensionFieldArgs']]):
+        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter(name="moverSize")
@@ -62874,6 +63259,15 @@ class TemplateTopBottomMoversComputationArgs:
 
     @property
     @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['TemplateDimensionFieldArgs']]:
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['TemplateDimensionFieldArgs']]):
+        pulumi.set(self, "time", value)
+
+    @property
+    @pulumi.getter
     def value(self) -> Optional[pulumi.Input['TemplateMeasureFieldArgs']]:
         return pulumi.get(self, "value")
 
@@ -62885,30 +63279,22 @@ class TemplateTopBottomMoversComputationArgs:
 @pulumi.input_type
 class TemplateTopBottomRankedComputationArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input['TemplateDimensionFieldArgs'],
                  computation_id: pulumi.Input[str],
                  type: pulumi.Input['TemplateTopBottomComputationType'],
+                 category: Optional[pulumi.Input['TemplateDimensionFieldArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  result_size: Optional[pulumi.Input[float]] = None,
                  value: Optional[pulumi.Input['TemplateMeasureFieldArgs']] = None):
-        pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "computation_id", computation_id)
         pulumi.set(__self__, "type", type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if result_size is not None:
             pulumi.set(__self__, "result_size", result_size)
         if value is not None:
             pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def category(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
-        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter(name="computationId")
@@ -62927,6 +63313,15 @@ class TemplateTopBottomRankedComputationArgs:
     @type.setter
     def type(self, value: pulumi.Input['TemplateTopBottomComputationType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input['TemplateDimensionFieldArgs']]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input['TemplateDimensionFieldArgs']]):
+        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter
@@ -62960,12 +63355,13 @@ class TemplateTopBottomRankedComputationArgs:
 class TemplateTotalAggregationComputationArgs:
     def __init__(__self__, *,
                  computation_id: pulumi.Input[str],
-                 value: pulumi.Input['TemplateMeasureFieldArgs'],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input['TemplateMeasureFieldArgs']] = None):
         pulumi.set(__self__, "computation_id", computation_id)
-        pulumi.set(__self__, "value", value)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="computationId")
@@ -62978,21 +63374,21 @@ class TemplateTotalAggregationComputationArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input['TemplateMeasureFieldArgs']:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input['TemplateMeasureFieldArgs']):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input['TemplateMeasureFieldArgs']]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input['TemplateMeasureFieldArgs']]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -63395,22 +63791,14 @@ class TemplateUnaggregatedFieldArgs:
 @pulumi.input_type
 class TemplateUniqueValuesComputationArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input['TemplateDimensionFieldArgs'],
                  computation_id: pulumi.Input[str],
+                 category: Optional[pulumi.Input['TemplateDimensionFieldArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "computation_id", computation_id)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def category(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
-        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter(name="computationId")
@@ -63420,6 +63808,15 @@ class TemplateUniqueValuesComputationArgs:
     @computation_id.setter
     def computation_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "computation_id", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input['TemplateDimensionFieldArgs']]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input['TemplateDimensionFieldArgs']]):
+        pulumi.set(self, "category", value)
 
     @property
     @pulumi.getter

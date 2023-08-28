@@ -87,7 +87,7 @@
       "permissions" : [ "chatbot:UpdateMicrosoftTeamsChannelConfiguration", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "chatbot:DeleteMicrosoftTeamsChannelConfiguration" ]
+      "permissions" : [ "chatbot:GetMicrosoftTeamsChannelConfiguration", "chatbot:DeleteMicrosoftTeamsChannelConfiguration" ]
     },
     "list" : {
       "permissions" : [ "chatbot:ListMicrosoftTeamsChannelConfigurations" ]

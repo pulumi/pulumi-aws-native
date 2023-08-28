@@ -53,6 +53,7 @@ export class Fleet extends pulumi.CustomResource {
     public readonly imageName!: pulumi.Output<string | undefined>;
     public readonly instanceType!: pulumi.Output<string>;
     public readonly maxConcurrentSessions!: pulumi.Output<number | undefined>;
+    public readonly maxSessionsPerInstance!: pulumi.Output<number | undefined>;
     public readonly maxUserDurationInSeconds!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly platform!: pulumi.Output<string | undefined>;
@@ -91,6 +92,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["imageName"] = args ? args.imageName : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["maxConcurrentSessions"] = args ? args.maxConcurrentSessions : undefined;
+            resourceInputs["maxSessionsPerInstance"] = args ? args.maxSessionsPerInstance : undefined;
             resourceInputs["maxUserDurationInSeconds"] = args ? args.maxUserDurationInSeconds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
@@ -113,6 +115,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["imageName"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["maxConcurrentSessions"] = undefined /*out*/;
+            resourceInputs["maxSessionsPerInstance"] = undefined /*out*/;
             resourceInputs["maxUserDurationInSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["platform"] = undefined /*out*/;
@@ -144,6 +147,7 @@ export interface FleetArgs {
     imageName?: pulumi.Input<string>;
     instanceType: pulumi.Input<string>;
     maxConcurrentSessions?: pulumi.Input<number>;
+    maxSessionsPerInstance?: pulumi.Input<number>;
     maxUserDurationInSeconds?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     platform?: pulumi.Input<string>;

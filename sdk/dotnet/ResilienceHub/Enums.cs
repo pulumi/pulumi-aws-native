@@ -39,6 +39,100 @@ namespace Pulumi.AwsNative.ResilienceHub
     }
 
     /// <summary>
+    /// Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppDriftStatus : IEquatable<AppDriftStatus>
+    {
+        private readonly string _value;
+
+        private AppDriftStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppDriftStatus NotChecked { get; } = new AppDriftStatus("NotChecked");
+        public static AppDriftStatus NotDetected { get; } = new AppDriftStatus("NotDetected");
+        public static AppDriftStatus Detected { get; } = new AppDriftStatus("Detected");
+
+        public static bool operator ==(AppDriftStatus left, AppDriftStatus right) => left.Equals(right);
+        public static bool operator !=(AppDriftStatus left, AppDriftStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AppDriftStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppDriftStatus other && Equals(other);
+        public bool Equals(AppDriftStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of event you would like to subscribe and get notification for.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppEventSubscriptionEventType : IEquatable<AppEventSubscriptionEventType>
+    {
+        private readonly string _value;
+
+        private AppEventSubscriptionEventType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppEventSubscriptionEventType ScheduledAssessmentFailure { get; } = new AppEventSubscriptionEventType("ScheduledAssessmentFailure");
+        public static AppEventSubscriptionEventType DriftDetected { get; } = new AppEventSubscriptionEventType("DriftDetected");
+
+        public static bool operator ==(AppEventSubscriptionEventType left, AppEventSubscriptionEventType right) => left.Equals(right);
+        public static bool operator !=(AppEventSubscriptionEventType left, AppEventSubscriptionEventType right) => !left.Equals(right);
+
+        public static explicit operator string(AppEventSubscriptionEventType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppEventSubscriptionEventType other && Equals(other);
+        public bool Equals(AppEventSubscriptionEventType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppPermissionModelType : IEquatable<AppPermissionModelType>
+    {
+        private readonly string _value;
+
+        private AppPermissionModelType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppPermissionModelType LegacyIamUser { get; } = new AppPermissionModelType("LegacyIAMUser");
+        public static AppPermissionModelType RoleBased { get; } = new AppPermissionModelType("RoleBased");
+
+        public static bool operator ==(AppPermissionModelType left, AppPermissionModelType right) => left.Equals(right);
+        public static bool operator !=(AppPermissionModelType left, AppPermissionModelType right) => !left.Equals(right);
+
+        public static explicit operator string(AppPermissionModelType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppPermissionModelType other && Equals(other);
+        public bool Equals(AppPermissionModelType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Data Location Constraint of the Policy.
     /// </summary>
     [EnumType]

@@ -21,7 +21,9 @@ class AppArgs:
                  resource_mappings: pulumi.Input[Sequence[pulumi.Input['AppResourceMappingArgs']]],
                  app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 permission_model: Optional[pulumi.Input['AppPermissionModelArgs']] = None,
                  resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['AppTagMapArgs']] = None):
         """
@@ -30,6 +32,7 @@ class AppArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AppResourceMappingArgs']]] resource_mappings: An array of ResourceMapping objects.
         :param pulumi.Input['AppAssessmentSchedule'] app_assessment_schedule: Assessment execution schedule.
         :param pulumi.Input[str] description: App description.
+        :param pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]] event_subscriptions: The list of events you would like to subscribe and get notification for.
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resiliency_policy_arn: Amazon Resource Name (ARN) of the Resiliency Policy.
         """
@@ -39,8 +42,12 @@ class AppArgs:
             pulumi.set(__self__, "app_assessment_schedule", app_assessment_schedule)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if event_subscriptions is not None:
+            pulumi.set(__self__, "event_subscriptions", event_subscriptions)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if permission_model is not None:
+            pulumi.set(__self__, "permission_model", permission_model)
         if resiliency_policy_arn is not None:
             pulumi.set(__self__, "resiliency_policy_arn", resiliency_policy_arn)
         if tags is not None:
@@ -95,6 +102,18 @@ class AppArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="eventSubscriptions")
+    def event_subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]]:
+        """
+        The list of events you would like to subscribe and get notification for.
+        """
+        return pulumi.get(self, "event_subscriptions")
+
+    @event_subscriptions.setter
+    def event_subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]]):
+        pulumi.set(self, "event_subscriptions", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -105,6 +124,15 @@ class AppArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="permissionModel")
+    def permission_model(self) -> Optional[pulumi.Input['AppPermissionModelArgs']]:
+        return pulumi.get(self, "permission_model")
+
+    @permission_model.setter
+    def permission_model(self, value: Optional[pulumi.Input['AppPermissionModelArgs']]):
+        pulumi.set(self, "permission_model", value)
 
     @property
     @pulumi.getter(name="resiliencyPolicyArn")
@@ -136,7 +164,9 @@ class App(pulumi.CustomResource):
                  app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
                  app_template_body: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppEventSubscriptionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 permission_model: Optional[pulumi.Input[pulumi.InputType['AppPermissionModelArgs']]] = None,
                  resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
                  resource_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppResourceMappingArgs']]]]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['AppTagMapArgs']]] = None,
@@ -149,6 +179,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input['AppAssessmentSchedule'] app_assessment_schedule: Assessment execution schedule.
         :param pulumi.Input[str] app_template_body: A string containing full ResilienceHub app template body.
         :param pulumi.Input[str] description: App description.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppEventSubscriptionArgs']]]] event_subscriptions: The list of events you would like to subscribe and get notification for.
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resiliency_policy_arn: Amazon Resource Name (ARN) of the Resiliency Policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppResourceMappingArgs']]]] resource_mappings: An array of ResourceMapping objects.
@@ -180,7 +211,9 @@ class App(pulumi.CustomResource):
                  app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
                  app_template_body: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppEventSubscriptionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 permission_model: Optional[pulumi.Input[pulumi.InputType['AppPermissionModelArgs']]] = None,
                  resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
                  resource_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppResourceMappingArgs']]]]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['AppTagMapArgs']]] = None,
@@ -198,13 +231,16 @@ class App(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_template_body'")
             __props__.__dict__["app_template_body"] = app_template_body
             __props__.__dict__["description"] = description
+            __props__.__dict__["event_subscriptions"] = event_subscriptions
             __props__.__dict__["name"] = name
+            __props__.__dict__["permission_model"] = permission_model
             __props__.__dict__["resiliency_policy_arn"] = resiliency_policy_arn
             if resource_mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_mappings'")
             __props__.__dict__["resource_mappings"] = resource_mappings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["app_arn"] = None
+            __props__.__dict__["drift_status"] = None
         super(App, __self__).__init__(
             'aws-native:resiliencehub:App',
             resource_name,
@@ -231,7 +267,10 @@ class App(pulumi.CustomResource):
         __props__.__dict__["app_assessment_schedule"] = None
         __props__.__dict__["app_template_body"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["drift_status"] = None
+        __props__.__dict__["event_subscriptions"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["permission_model"] = None
         __props__.__dict__["resiliency_policy_arn"] = None
         __props__.__dict__["resource_mappings"] = None
         __props__.__dict__["tags"] = None
@@ -270,12 +309,33 @@ class App(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="driftStatus")
+    def drift_status(self) -> pulumi.Output['AppDriftStatus']:
+        """
+        Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+        """
+        return pulumi.get(self, "drift_status")
+
+    @property
+    @pulumi.getter(name="eventSubscriptions")
+    def event_subscriptions(self) -> pulumi.Output[Optional[Sequence['outputs.AppEventSubscription']]]:
+        """
+        The list of events you would like to subscribe and get notification for.
+        """
+        return pulumi.get(self, "event_subscriptions")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Name of the app.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="permissionModel")
+    def permission_model(self) -> pulumi.Output[Optional['outputs.AppPermissionModel']]:
+        return pulumi.get(self, "permission_model")
 
     @property
     @pulumi.getter(name="resiliencyPolicyArn")

@@ -31,6 +31,7 @@ type Fleet struct {
 	ImageName                      pulumi.StringPtrOutput        `pulumi:"imageName"`
 	InstanceType                   pulumi.StringOutput           `pulumi:"instanceType"`
 	MaxConcurrentSessions          pulumi.IntPtrOutput           `pulumi:"maxConcurrentSessions"`
+	MaxSessionsPerInstance         pulumi.IntPtrOutput           `pulumi:"maxSessionsPerInstance"`
 	MaxUserDurationInSeconds       pulumi.IntPtrOutput           `pulumi:"maxUserDurationInSeconds"`
 	Name                           pulumi.StringOutput           `pulumi:"name"`
 	Platform                       pulumi.StringPtrOutput        `pulumi:"platform"`
@@ -97,6 +98,7 @@ type fleetArgs struct {
 	ImageName                      *string               `pulumi:"imageName"`
 	InstanceType                   string                `pulumi:"instanceType"`
 	MaxConcurrentSessions          *int                  `pulumi:"maxConcurrentSessions"`
+	MaxSessionsPerInstance         *int                  `pulumi:"maxSessionsPerInstance"`
 	MaxUserDurationInSeconds       *int                  `pulumi:"maxUserDurationInSeconds"`
 	Name                           *string               `pulumi:"name"`
 	Platform                       *string               `pulumi:"platform"`
@@ -122,6 +124,7 @@ type FleetArgs struct {
 	ImageName                      pulumi.StringPtrInput
 	InstanceType                   pulumi.StringInput
 	MaxConcurrentSessions          pulumi.IntPtrInput
+	MaxSessionsPerInstance         pulumi.IntPtrInput
 	MaxUserDurationInSeconds       pulumi.IntPtrInput
 	Name                           pulumi.StringPtrInput
 	Platform                       pulumi.StringPtrInput
@@ -219,6 +222,10 @@ func (o FleetOutput) InstanceType() pulumi.StringOutput {
 
 func (o FleetOutput) MaxConcurrentSessions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.MaxConcurrentSessions }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetOutput) MaxSessionsPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.MaxSessionsPerInstance }).(pulumi.IntPtrOutput)
 }
 
 func (o FleetOutput) MaxUserDurationInSeconds() pulumi.IntPtrOutput {

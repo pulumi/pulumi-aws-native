@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetEipAssociation
     {
         /// <summary>
-        /// Resource schema for EC2 EIP association.
+        /// Resource Type definition for AWS::EC2::EIPAssociation
         /// </summary>
         public static Task<GetEipAssociationResult> InvokeAsync(GetEipAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEipAssociationResult>("aws-native:ec2:getEipAssociation", args ?? new GetEipAssociationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for EC2 EIP association.
+        /// Resource Type definition for AWS::EC2::EIPAssociation
         /// </summary>
         public static Output<GetEipAssociationResult> Invoke(GetEipAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEipAssociationResult>("aws-native:ec2:getEipAssociation", args ?? new GetEipAssociationInvokeArgs(), options.WithDefaults());
@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetEipAssociationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Composite ID of non-empty properties, to determine the identification.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -41,9 +38,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetEipAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Composite ID of non-empty properties, to determine the identification.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -57,15 +51,33 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetEipAssociationResult
     {
-        /// <summary>
-        /// Composite ID of non-empty properties, to determine the identification.
-        /// </summary>
+        public readonly string? AllocationId;
+        public readonly string? Eip;
         public readonly string? Id;
+        public readonly string? InstanceId;
+        public readonly string? NetworkInterfaceId;
+        public readonly string? PrivateIpAddress;
 
         [OutputConstructor]
-        private GetEipAssociationResult(string? id)
+        private GetEipAssociationResult(
+            string? allocationId,
+
+            string? eip,
+
+            string? id,
+
+            string? instanceId,
+
+            string? networkInterfaceId,
+
+            string? privateIpAddress)
         {
+            AllocationId = allocationId;
+            Eip = eip;
             Id = id;
+            InstanceId = instanceId;
+            NetworkInterfaceId = networkInterfaceId;
+            PrivateIpAddress = privateIpAddress;
         }
     }
 }

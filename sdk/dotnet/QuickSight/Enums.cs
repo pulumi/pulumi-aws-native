@@ -5447,6 +5447,33 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DashboardSimpleAttributeAggregationFunction : IEquatable<DashboardSimpleAttributeAggregationFunction>
+    {
+        private readonly string _value;
+
+        private DashboardSimpleAttributeAggregationFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardSimpleAttributeAggregationFunction UniqueValue { get; } = new DashboardSimpleAttributeAggregationFunction("UNIQUE_VALUE");
+
+        public static bool operator ==(DashboardSimpleAttributeAggregationFunction left, DashboardSimpleAttributeAggregationFunction right) => left.Equals(right);
+        public static bool operator !=(DashboardSimpleAttributeAggregationFunction left, DashboardSimpleAttributeAggregationFunction right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardSimpleAttributeAggregationFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardSimpleAttributeAggregationFunction other && Equals(other);
+        public bool Equals(DashboardSimpleAttributeAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DashboardSimpleNumericalAggregationFunction : IEquatable<DashboardSimpleNumericalAggregationFunction>
     {
         private readonly string _value;
@@ -8379,6 +8406,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TemplatePivotTableRowsLayout : IEquatable<TemplatePivotTableRowsLayout>
+    {
+        private readonly string _value;
+
+        private TemplatePivotTableRowsLayout(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplatePivotTableRowsLayout Tabular { get; } = new TemplatePivotTableRowsLayout("TABULAR");
+        public static TemplatePivotTableRowsLayout Hierarchy { get; } = new TemplatePivotTableRowsLayout("HIERARCHY");
+
+        public static bool operator ==(TemplatePivotTableRowsLayout left, TemplatePivotTableRowsLayout right) => left.Equals(right);
+        public static bool operator !=(TemplatePivotTableRowsLayout left, TemplatePivotTableRowsLayout right) => !left.Equals(right);
+
+        public static explicit operator string(TemplatePivotTableRowsLayout value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplatePivotTableRowsLayout other && Equals(other);
+        public bool Equals(TemplatePivotTableRowsLayout other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplatePivotTableSubtotalLevel : IEquatable<TemplatePivotTableSubtotalLevel>
     {
         private readonly string _value;
@@ -8953,6 +9008,33 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TemplateSimpleAttributeAggregationFunction : IEquatable<TemplateSimpleAttributeAggregationFunction>
+    {
+        private readonly string _value;
+
+        private TemplateSimpleAttributeAggregationFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateSimpleAttributeAggregationFunction UniqueValue { get; } = new TemplateSimpleAttributeAggregationFunction("UNIQUE_VALUE");
+
+        public static bool operator ==(TemplateSimpleAttributeAggregationFunction left, TemplateSimpleAttributeAggregationFunction right) => left.Equals(right);
+        public static bool operator !=(TemplateSimpleAttributeAggregationFunction left, TemplateSimpleAttributeAggregationFunction right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateSimpleAttributeAggregationFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateSimpleAttributeAggregationFunction other && Equals(other);
+        public bool Equals(TemplateSimpleAttributeAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplateSimpleNumericalAggregationFunction : IEquatable<TemplateSimpleNumericalAggregationFunction>
     {
         private readonly string _value;
@@ -8982,6 +9064,62 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateSimpleNumericalAggregationFunction other && Equals(other);
         public bool Equals(TemplateSimpleNumericalAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateSmallMultiplesAxisPlacement : IEquatable<TemplateSmallMultiplesAxisPlacement>
+    {
+        private readonly string _value;
+
+        private TemplateSmallMultiplesAxisPlacement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateSmallMultiplesAxisPlacement Outside { get; } = new TemplateSmallMultiplesAxisPlacement("OUTSIDE");
+        public static TemplateSmallMultiplesAxisPlacement Inside { get; } = new TemplateSmallMultiplesAxisPlacement("INSIDE");
+
+        public static bool operator ==(TemplateSmallMultiplesAxisPlacement left, TemplateSmallMultiplesAxisPlacement right) => left.Equals(right);
+        public static bool operator !=(TemplateSmallMultiplesAxisPlacement left, TemplateSmallMultiplesAxisPlacement right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateSmallMultiplesAxisPlacement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateSmallMultiplesAxisPlacement other && Equals(other);
+        public bool Equals(TemplateSmallMultiplesAxisPlacement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateSmallMultiplesAxisScale : IEquatable<TemplateSmallMultiplesAxisScale>
+    {
+        private readonly string _value;
+
+        private TemplateSmallMultiplesAxisScale(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateSmallMultiplesAxisScale Shared { get; } = new TemplateSmallMultiplesAxisScale("SHARED");
+        public static TemplateSmallMultiplesAxisScale Independent { get; } = new TemplateSmallMultiplesAxisScale("INDEPENDENT");
+
+        public static bool operator ==(TemplateSmallMultiplesAxisScale left, TemplateSmallMultiplesAxisScale right) => left.Equals(right);
+        public static bool operator !=(TemplateSmallMultiplesAxisScale left, TemplateSmallMultiplesAxisScale right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateSmallMultiplesAxisScale value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateSmallMultiplesAxisScale other && Equals(other);
+        public bool Equals(TemplateSmallMultiplesAxisScale other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -9039,6 +9177,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateSpecialValue other && Equals(other);
         public bool Equals(TemplateSpecialValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateStyledCellType : IEquatable<TemplateStyledCellType>
+    {
+        private readonly string _value;
+
+        private TemplateStyledCellType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateStyledCellType Total { get; } = new TemplateStyledCellType("TOTAL");
+        public static TemplateStyledCellType MetricHeader { get; } = new TemplateStyledCellType("METRIC_HEADER");
+        public static TemplateStyledCellType Value { get; } = new TemplateStyledCellType("VALUE");
+
+        public static bool operator ==(TemplateStyledCellType left, TemplateStyledCellType right) => left.Equals(right);
+        public static bool operator !=(TemplateStyledCellType left, TemplateStyledCellType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateStyledCellType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateStyledCellType other && Equals(other);
+        public bool Equals(TemplateStyledCellType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -9458,6 +9625,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static TemplateVerticalTextAlignment Top { get; } = new TemplateVerticalTextAlignment("TOP");
         public static TemplateVerticalTextAlignment Middle { get; } = new TemplateVerticalTextAlignment("MIDDLE");
         public static TemplateVerticalTextAlignment Bottom { get; } = new TemplateVerticalTextAlignment("BOTTOM");
+        public static TemplateVerticalTextAlignment Auto { get; } = new TemplateVerticalTextAlignment("AUTO");
 
         public static bool operator ==(TemplateVerticalTextAlignment left, TemplateVerticalTextAlignment right) => left.Equals(right);
         public static bool operator !=(TemplateVerticalTextAlignment left, TemplateVerticalTextAlignment right) => !left.Equals(right);

@@ -54,9 +54,18 @@ export class App extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+     */
+    public /*out*/ readonly driftStatus!: pulumi.Output<enums.resiliencehub.AppDriftStatus>;
+    /**
+     * The list of events you would like to subscribe and get notification for.
+     */
+    public readonly eventSubscriptions!: pulumi.Output<outputs.resiliencehub.AppEventSubscription[] | undefined>;
+    /**
      * Name of the app.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly permissionModel!: pulumi.Output<outputs.resiliencehub.AppPermissionModel | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
@@ -87,17 +96,23 @@ export class App extends pulumi.CustomResource {
             resourceInputs["appAssessmentSchedule"] = args ? args.appAssessmentSchedule : undefined;
             resourceInputs["appTemplateBody"] = args ? args.appTemplateBody : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventSubscriptions"] = args ? args.eventSubscriptions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissionModel"] = args ? args.permissionModel : undefined;
             resourceInputs["resiliencyPolicyArn"] = args ? args.resiliencyPolicyArn : undefined;
             resourceInputs["resourceMappings"] = args ? args.resourceMappings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["appArn"] = undefined /*out*/;
+            resourceInputs["driftStatus"] = undefined /*out*/;
         } else {
             resourceInputs["appArn"] = undefined /*out*/;
             resourceInputs["appAssessmentSchedule"] = undefined /*out*/;
             resourceInputs["appTemplateBody"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["driftStatus"] = undefined /*out*/;
+            resourceInputs["eventSubscriptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["permissionModel"] = undefined /*out*/;
             resourceInputs["resiliencyPolicyArn"] = undefined /*out*/;
             resourceInputs["resourceMappings"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -124,9 +139,14 @@ export interface AppArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * The list of events you would like to subscribe and get notification for.
+     */
+    eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.resiliencehub.AppEventSubscriptionArgs>[]>;
+    /**
      * Name of the app.
      */
     name?: pulumi.Input<string>;
+    permissionModel?: pulumi.Input<inputs.resiliencehub.AppPermissionModelArgs>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */

@@ -2,9 +2,31 @@
 
 ### Breaking Changes
 
-### New resources
+Function "aws-native:ec2:getPlacementGroup" missing output "tags"
 
-### New functions
+### New resources:
+
+entityresolution.MatchingWorkflow
+workspacesweb.BrowserSettings
+workspacesweb.IdentityProvider
+workspacesweb.IpAccessSettings
+workspacesweb.NetworkSettings
+workspacesweb.Portal
+workspacesweb.TrustStore
+workspacesweb.UserAccessLoggingSettings
+workspacesweb.UserSettings
+
+### New functions:
+
+entityresolution.getMatchingWorkflow
+workspacesweb.getBrowserSettings
+workspacesweb.getIdentityProvider
+workspacesweb.getIpAccessSettings
+workspacesweb.getNetworkSettings
+workspacesweb.getPortal
+workspacesweb.getTrustStore
+workspacesweb.getUserAccessLoggingSettings
+workspacesweb.getUserSettings
 
 ## 0.74.0 (2023-08-22)
 

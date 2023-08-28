@@ -54,6 +54,10 @@ export interface GetFindingsFilterResult {
      * Findings filter position.
      */
     readonly position?: number;
+    /**
+     * A collection of tags associated with a resource
+     */
+    readonly tags?: outputs.macie.FindingsFilterTag[];
 }
 /**
  * Macie FindingsFilter resource schema.

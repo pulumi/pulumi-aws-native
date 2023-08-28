@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for EC2 EIP association.
+ * Resource Type definition for AWS::EC2::EIPAssociation
  */
 export class EipAssociation extends pulumi.CustomResource {
     /**
@@ -34,25 +34,10 @@ export class EipAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === EipAssociation.__pulumiType;
     }
 
-    /**
-     * The allocation ID. This is required for EC2-VPC.
-     */
     public readonly allocationId!: pulumi.Output<string | undefined>;
-    /**
-     * The Elastic IP address to associate with the instance.
-     */
     public readonly eip!: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the instance.
-     */
     public readonly instanceId!: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the network interface.
-     */
     public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
-    /**
-     * The primary or secondary private IP address to associate with the Elastic IP address.
-     */
     public readonly privateIpAddress!: pulumi.Output<string | undefined>;
 
     /**
@@ -87,24 +72,9 @@ export class EipAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a EipAssociation resource.
  */
 export interface EipAssociationArgs {
-    /**
-     * The allocation ID. This is required for EC2-VPC.
-     */
     allocationId?: pulumi.Input<string>;
-    /**
-     * The Elastic IP address to associate with the instance.
-     */
     eip?: pulumi.Input<string>;
-    /**
-     * The ID of the instance.
-     */
     instanceId?: pulumi.Input<string>;
-    /**
-     * The ID of the network interface.
-     */
     networkInterfaceId?: pulumi.Input<string>;
-    /**
-     * The primary or secondary private IP address to associate with the Elastic IP address.
-     */
     privateIpAddress?: pulumi.Input<string>;
 }

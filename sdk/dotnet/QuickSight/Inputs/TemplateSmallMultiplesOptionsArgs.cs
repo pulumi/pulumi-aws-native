@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("panelConfiguration")]
         public Input<Inputs.TemplatePanelConfigurationArgs>? PanelConfiguration { get; set; }
 
+        [Input("xAxis")]
+        public Input<Inputs.TemplateSmallMultiplesAxisPropertiesArgs>? XAxis { get; set; }
+
+        [Input("yAxis")]
+        public Input<Inputs.TemplateSmallMultiplesAxisPropertiesArgs>? YAxis { get; set; }
+
         public TemplateSmallMultiplesOptionsArgs()
         {
         }

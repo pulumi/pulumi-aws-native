@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardCalculatedField struct {
+	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
+	Expression        string `pulumi:"expression"`
+	Name              string `pulumi:"name"`
+}
+
+// DashboardCalculatedFieldInput is an input type that accepts DashboardCalculatedFieldArgs and DashboardCalculatedFieldOutput values.
+// You can construct a concrete instance of `DashboardCalculatedFieldInput` via:
+//
+//	DashboardCalculatedFieldArgs{...}
+type DashboardCalculatedFieldInput interface {
+	pulumi.Input
+
+	ToDashboardCalculatedFieldOutput() DashboardCalculatedFieldOutput
+	ToDashboardCalculatedFieldOutputWithContext(context.Context) DashboardCalculatedFieldOutput
+}
+
+type DashboardCalculatedFieldArgs struct {
+	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
+	Expression        pulumi.StringInput `pulumi:"expression"`
+	Name              pulumi.StringInput `pulumi:"name"`
+}
+
+func (DashboardCalculatedFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCalculatedField)(nil)).Elem()
+}
+
+func (i DashboardCalculatedFieldArgs) ToDashboardCalculatedFieldOutput() DashboardCalculatedFieldOutput {
+	return i.ToDashboardCalculatedFieldOutputWithContext(context.Background())
+}
+
+func (i DashboardCalculatedFieldArgs) ToDashboardCalculatedFieldOutputWithContext(ctx context.Context) DashboardCalculatedFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCalculatedFieldOutput)
+}
+
+// DashboardCalculatedFieldArrayInput is an input type that accepts DashboardCalculatedFieldArray and DashboardCalculatedFieldArrayOutput values.
+// You can construct a concrete instance of `DashboardCalculatedFieldArrayInput` via:
+//
+//	DashboardCalculatedFieldArray{ DashboardCalculatedFieldArgs{...} }
+type DashboardCalculatedFieldArrayInput interface {
+	pulumi.Input
+
+	ToDashboardCalculatedFieldArrayOutput() DashboardCalculatedFieldArrayOutput
+	ToDashboardCalculatedFieldArrayOutputWithContext(context.Context) DashboardCalculatedFieldArrayOutput
+}
+
+type DashboardCalculatedFieldArray []DashboardCalculatedFieldInput
+
+func (DashboardCalculatedFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardCalculatedField)(nil)).Elem()
+}
+
+func (i DashboardCalculatedFieldArray) ToDashboardCalculatedFieldArrayOutput() DashboardCalculatedFieldArrayOutput {
+	return i.ToDashboardCalculatedFieldArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardCalculatedFieldArray) ToDashboardCalculatedFieldArrayOutputWithContext(ctx context.Context) DashboardCalculatedFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardCalculatedFieldArrayOutput)
+}
+
+type DashboardCalculatedFieldOutput struct{ *pulumi.OutputState }
+
+func (DashboardCalculatedFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCalculatedField)(nil)).Elem()
+}
+
+func (o DashboardCalculatedFieldOutput) ToDashboardCalculatedFieldOutput() DashboardCalculatedFieldOutput {
+	return o
+}
+
+func (o DashboardCalculatedFieldOutput) ToDashboardCalculatedFieldOutputWithContext(ctx context.Context) DashboardCalculatedFieldOutput {
+	return o
+}
+
+func (o DashboardCalculatedFieldOutput) DataSetIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardCalculatedField) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
+}
+
+func (o DashboardCalculatedFieldOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardCalculatedField) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o DashboardCalculatedFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardCalculatedField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DashboardCalculatedFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardCalculatedFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardCalculatedField)(nil)).Elem()
+}
+
+func (o DashboardCalculatedFieldArrayOutput) ToDashboardCalculatedFieldArrayOutput() DashboardCalculatedFieldArrayOutput {
+	return o
+}
+
+func (o DashboardCalculatedFieldArrayOutput) ToDashboardCalculatedFieldArrayOutputWithContext(ctx context.Context) DashboardCalculatedFieldArrayOutput {
+	return o
+}
+
+func (o DashboardCalculatedFieldArrayOutput) Index(i pulumi.IntInput) DashboardCalculatedFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardCalculatedField {
+		return vs[0].([]DashboardCalculatedField)[vs[1].(int)]
+	}).(DashboardCalculatedFieldOutput)
+}
+
 type DashboardCalculatedMeasureField struct {
 	Expression string `pulumi:"expression"`
 	FieldId    string `pulumi:"fieldId"`
@@ -77818,6 +77924,7 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOu
 }
 
 type TemplateAggregationFunction struct {
+	AttributeAggregationFunction   *TemplateAttributeAggregationFunction   `pulumi:"attributeAggregationFunction"`
 	CategoricalAggregationFunction *TemplateCategoricalAggregationFunction `pulumi:"categoricalAggregationFunction"`
 	DateAggregationFunction        *TemplateDateAggregationFunction        `pulumi:"dateAggregationFunction"`
 	NumericalAggregationFunction   *TemplateNumericalAggregationFunction   `pulumi:"numericalAggregationFunction"`
@@ -77835,6 +77942,7 @@ type TemplateAggregationFunctionInput interface {
 }
 
 type TemplateAggregationFunctionArgs struct {
+	AttributeAggregationFunction   TemplateAttributeAggregationFunctionPtrInput   `pulumi:"attributeAggregationFunction"`
 	CategoricalAggregationFunction TemplateCategoricalAggregationFunctionPtrInput `pulumi:"categoricalAggregationFunction"`
 	DateAggregationFunction        TemplateDateAggregationFunctionPtrInput        `pulumi:"dateAggregationFunction"`
 	NumericalAggregationFunction   TemplateNumericalAggregationFunctionPtrInput   `pulumi:"numericalAggregationFunction"`
@@ -77917,6 +78025,12 @@ func (o TemplateAggregationFunctionOutput) ToTemplateAggregationFunctionPtrOutpu
 	}).(TemplateAggregationFunctionPtrOutput)
 }
 
+func (o TemplateAggregationFunctionOutput) AttributeAggregationFunction() TemplateAttributeAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v TemplateAggregationFunction) *TemplateAttributeAggregationFunction {
+		return v.AttributeAggregationFunction
+	}).(TemplateAttributeAggregationFunctionPtrOutput)
+}
+
 func (o TemplateAggregationFunctionOutput) CategoricalAggregationFunction() TemplateCategoricalAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v TemplateAggregationFunction) *TemplateCategoricalAggregationFunction {
 		return v.CategoricalAggregationFunction
@@ -77955,6 +78069,15 @@ func (o TemplateAggregationFunctionPtrOutput) Elem() TemplateAggregationFunction
 		var ret TemplateAggregationFunction
 		return ret
 	}).(TemplateAggregationFunctionOutput)
+}
+
+func (o TemplateAggregationFunctionPtrOutput) AttributeAggregationFunction() TemplateAttributeAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v *TemplateAggregationFunction) *TemplateAttributeAggregationFunction {
+		if v == nil {
+			return nil
+		}
+		return v.AttributeAggregationFunction
+	}).(TemplateAttributeAggregationFunctionPtrOutput)
 }
 
 func (o TemplateAggregationFunctionPtrOutput) CategoricalAggregationFunction() TemplateCategoricalAggregationFunctionPtrOutput {
@@ -78090,6 +78213,124 @@ func (o TemplateAggregationSortConfigurationArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateAggregationSortConfiguration {
 		return vs[0].([]TemplateAggregationSortConfiguration)[vs[1].(int)]
 	}).(TemplateAggregationSortConfigurationOutput)
+}
+
+type TemplateAllSheetsFilterScopeConfiguration struct {
+}
+
+// TemplateAllSheetsFilterScopeConfigurationInput is an input type that accepts TemplateAllSheetsFilterScopeConfigurationArgs and TemplateAllSheetsFilterScopeConfigurationOutput values.
+// You can construct a concrete instance of `TemplateAllSheetsFilterScopeConfigurationInput` via:
+//
+//	TemplateAllSheetsFilterScopeConfigurationArgs{...}
+type TemplateAllSheetsFilterScopeConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateAllSheetsFilterScopeConfigurationOutput() TemplateAllSheetsFilterScopeConfigurationOutput
+	ToTemplateAllSheetsFilterScopeConfigurationOutputWithContext(context.Context) TemplateAllSheetsFilterScopeConfigurationOutput
+}
+
+type TemplateAllSheetsFilterScopeConfigurationArgs struct {
+}
+
+func (TemplateAllSheetsFilterScopeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateAllSheetsFilterScopeConfiguration)(nil)).Elem()
+}
+
+func (i TemplateAllSheetsFilterScopeConfigurationArgs) ToTemplateAllSheetsFilterScopeConfigurationOutput() TemplateAllSheetsFilterScopeConfigurationOutput {
+	return i.ToTemplateAllSheetsFilterScopeConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateAllSheetsFilterScopeConfigurationArgs) ToTemplateAllSheetsFilterScopeConfigurationOutputWithContext(ctx context.Context) TemplateAllSheetsFilterScopeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAllSheetsFilterScopeConfigurationOutput)
+}
+
+func (i TemplateAllSheetsFilterScopeConfigurationArgs) ToTemplateAllSheetsFilterScopeConfigurationPtrOutput() TemplateAllSheetsFilterScopeConfigurationPtrOutput {
+	return i.ToTemplateAllSheetsFilterScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateAllSheetsFilterScopeConfigurationArgs) ToTemplateAllSheetsFilterScopeConfigurationPtrOutputWithContext(ctx context.Context) TemplateAllSheetsFilterScopeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAllSheetsFilterScopeConfigurationOutput).ToTemplateAllSheetsFilterScopeConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateAllSheetsFilterScopeConfigurationPtrInput is an input type that accepts TemplateAllSheetsFilterScopeConfigurationArgs, TemplateAllSheetsFilterScopeConfigurationPtr and TemplateAllSheetsFilterScopeConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateAllSheetsFilterScopeConfigurationPtrInput` via:
+//
+//	        TemplateAllSheetsFilterScopeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateAllSheetsFilterScopeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateAllSheetsFilterScopeConfigurationPtrOutput() TemplateAllSheetsFilterScopeConfigurationPtrOutput
+	ToTemplateAllSheetsFilterScopeConfigurationPtrOutputWithContext(context.Context) TemplateAllSheetsFilterScopeConfigurationPtrOutput
+}
+
+type templateAllSheetsFilterScopeConfigurationPtrType TemplateAllSheetsFilterScopeConfigurationArgs
+
+func TemplateAllSheetsFilterScopeConfigurationPtr(v *TemplateAllSheetsFilterScopeConfigurationArgs) TemplateAllSheetsFilterScopeConfigurationPtrInput {
+	return (*templateAllSheetsFilterScopeConfigurationPtrType)(v)
+}
+
+func (*templateAllSheetsFilterScopeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateAllSheetsFilterScopeConfiguration)(nil)).Elem()
+}
+
+func (i *templateAllSheetsFilterScopeConfigurationPtrType) ToTemplateAllSheetsFilterScopeConfigurationPtrOutput() TemplateAllSheetsFilterScopeConfigurationPtrOutput {
+	return i.ToTemplateAllSheetsFilterScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateAllSheetsFilterScopeConfigurationPtrType) ToTemplateAllSheetsFilterScopeConfigurationPtrOutputWithContext(ctx context.Context) TemplateAllSheetsFilterScopeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAllSheetsFilterScopeConfigurationPtrOutput)
+}
+
+type TemplateAllSheetsFilterScopeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateAllSheetsFilterScopeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateAllSheetsFilterScopeConfiguration)(nil)).Elem()
+}
+
+func (o TemplateAllSheetsFilterScopeConfigurationOutput) ToTemplateAllSheetsFilterScopeConfigurationOutput() TemplateAllSheetsFilterScopeConfigurationOutput {
+	return o
+}
+
+func (o TemplateAllSheetsFilterScopeConfigurationOutput) ToTemplateAllSheetsFilterScopeConfigurationOutputWithContext(ctx context.Context) TemplateAllSheetsFilterScopeConfigurationOutput {
+	return o
+}
+
+func (o TemplateAllSheetsFilterScopeConfigurationOutput) ToTemplateAllSheetsFilterScopeConfigurationPtrOutput() TemplateAllSheetsFilterScopeConfigurationPtrOutput {
+	return o.ToTemplateAllSheetsFilterScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateAllSheetsFilterScopeConfigurationOutput) ToTemplateAllSheetsFilterScopeConfigurationPtrOutputWithContext(ctx context.Context) TemplateAllSheetsFilterScopeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAllSheetsFilterScopeConfiguration) *TemplateAllSheetsFilterScopeConfiguration {
+		return &v
+	}).(TemplateAllSheetsFilterScopeConfigurationPtrOutput)
+}
+
+type TemplateAllSheetsFilterScopeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateAllSheetsFilterScopeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateAllSheetsFilterScopeConfiguration)(nil)).Elem()
+}
+
+func (o TemplateAllSheetsFilterScopeConfigurationPtrOutput) ToTemplateAllSheetsFilterScopeConfigurationPtrOutput() TemplateAllSheetsFilterScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateAllSheetsFilterScopeConfigurationPtrOutput) ToTemplateAllSheetsFilterScopeConfigurationPtrOutputWithContext(ctx context.Context) TemplateAllSheetsFilterScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateAllSheetsFilterScopeConfigurationPtrOutput) Elem() TemplateAllSheetsFilterScopeConfigurationOutput {
+	return o.ApplyT(func(v *TemplateAllSheetsFilterScopeConfiguration) TemplateAllSheetsFilterScopeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateAllSheetsFilterScopeConfiguration
+		return ret
+	}).(TemplateAllSheetsFilterScopeConfigurationOutput)
 }
 
 type TemplateAnalysisDefaults struct {
@@ -78819,288 +79060,9 @@ func (o TemplateArcConfigurationPtrOutput) ArcThickness() TemplateArcThicknessOp
 	}).(TemplateArcThicknessOptionsPtrOutput)
 }
 
-type TemplateArcOptions struct {
-	ArcThickness *TemplateArcThickness `pulumi:"arcThickness"`
-}
-
-// TemplateArcOptionsInput is an input type that accepts TemplateArcOptionsArgs and TemplateArcOptionsOutput values.
-// You can construct a concrete instance of `TemplateArcOptionsInput` via:
-//
-//	TemplateArcOptionsArgs{...}
-type TemplateArcOptionsInput interface {
-	pulumi.Input
-
-	ToTemplateArcOptionsOutput() TemplateArcOptionsOutput
-	ToTemplateArcOptionsOutputWithContext(context.Context) TemplateArcOptionsOutput
-}
-
-type TemplateArcOptionsArgs struct {
-	ArcThickness TemplateArcThicknessPtrInput `pulumi:"arcThickness"`
-}
-
-func (TemplateArcOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateArcOptions)(nil)).Elem()
-}
-
-func (i TemplateArcOptionsArgs) ToTemplateArcOptionsOutput() TemplateArcOptionsOutput {
-	return i.ToTemplateArcOptionsOutputWithContext(context.Background())
-}
-
-func (i TemplateArcOptionsArgs) ToTemplateArcOptionsOutputWithContext(ctx context.Context) TemplateArcOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateArcOptionsOutput)
-}
-
-func (i TemplateArcOptionsArgs) ToTemplateArcOptionsPtrOutput() TemplateArcOptionsPtrOutput {
-	return i.ToTemplateArcOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateArcOptionsArgs) ToTemplateArcOptionsPtrOutputWithContext(ctx context.Context) TemplateArcOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateArcOptionsOutput).ToTemplateArcOptionsPtrOutputWithContext(ctx)
-}
-
-// TemplateArcOptionsPtrInput is an input type that accepts TemplateArcOptionsArgs, TemplateArcOptionsPtr and TemplateArcOptionsPtrOutput values.
-// You can construct a concrete instance of `TemplateArcOptionsPtrInput` via:
-//
-//	        TemplateArcOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateArcOptionsPtrInput interface {
-	pulumi.Input
-
-	ToTemplateArcOptionsPtrOutput() TemplateArcOptionsPtrOutput
-	ToTemplateArcOptionsPtrOutputWithContext(context.Context) TemplateArcOptionsPtrOutput
-}
-
-type templateArcOptionsPtrType TemplateArcOptionsArgs
-
-func TemplateArcOptionsPtr(v *TemplateArcOptionsArgs) TemplateArcOptionsPtrInput {
-	return (*templateArcOptionsPtrType)(v)
-}
-
-func (*templateArcOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateArcOptions)(nil)).Elem()
-}
-
-func (i *templateArcOptionsPtrType) ToTemplateArcOptionsPtrOutput() TemplateArcOptionsPtrOutput {
-	return i.ToTemplateArcOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *templateArcOptionsPtrType) ToTemplateArcOptionsPtrOutputWithContext(ctx context.Context) TemplateArcOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateArcOptionsPtrOutput)
-}
-
-type TemplateArcOptionsOutput struct{ *pulumi.OutputState }
-
-func (TemplateArcOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateArcOptions)(nil)).Elem()
-}
-
-func (o TemplateArcOptionsOutput) ToTemplateArcOptionsOutput() TemplateArcOptionsOutput {
-	return o
-}
-
-func (o TemplateArcOptionsOutput) ToTemplateArcOptionsOutputWithContext(ctx context.Context) TemplateArcOptionsOutput {
-	return o
-}
-
-func (o TemplateArcOptionsOutput) ToTemplateArcOptionsPtrOutput() TemplateArcOptionsPtrOutput {
-	return o.ToTemplateArcOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateArcOptionsOutput) ToTemplateArcOptionsPtrOutputWithContext(ctx context.Context) TemplateArcOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateArcOptions) *TemplateArcOptions {
-		return &v
-	}).(TemplateArcOptionsPtrOutput)
-}
-
-func (o TemplateArcOptionsOutput) ArcThickness() TemplateArcThicknessPtrOutput {
-	return o.ApplyT(func(v TemplateArcOptions) *TemplateArcThickness { return v.ArcThickness }).(TemplateArcThicknessPtrOutput)
-}
-
-type TemplateArcOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateArcOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateArcOptions)(nil)).Elem()
-}
-
-func (o TemplateArcOptionsPtrOutput) ToTemplateArcOptionsPtrOutput() TemplateArcOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateArcOptionsPtrOutput) ToTemplateArcOptionsPtrOutputWithContext(ctx context.Context) TemplateArcOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateArcOptionsPtrOutput) Elem() TemplateArcOptionsOutput {
-	return o.ApplyT(func(v *TemplateArcOptions) TemplateArcOptions {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateArcOptions
-		return ret
-	}).(TemplateArcOptionsOutput)
-}
-
-func (o TemplateArcOptionsPtrOutput) ArcThickness() TemplateArcThicknessPtrOutput {
-	return o.ApplyT(func(v *TemplateArcOptions) *TemplateArcThickness {
-		if v == nil {
-			return nil
-		}
-		return v.ArcThickness
-	}).(TemplateArcThicknessPtrOutput)
-}
-
-type TemplateAxisDataOptions struct {
-	DateAxisOptions    *TemplateDateAxisOptions    `pulumi:"dateAxisOptions"`
-	NumericAxisOptions *TemplateNumericAxisOptions `pulumi:"numericAxisOptions"`
-}
-
-// TemplateAxisDataOptionsInput is an input type that accepts TemplateAxisDataOptionsArgs and TemplateAxisDataOptionsOutput values.
-// You can construct a concrete instance of `TemplateAxisDataOptionsInput` via:
-//
-//	TemplateAxisDataOptionsArgs{...}
-type TemplateAxisDataOptionsInput interface {
-	pulumi.Input
-
-	ToTemplateAxisDataOptionsOutput() TemplateAxisDataOptionsOutput
-	ToTemplateAxisDataOptionsOutputWithContext(context.Context) TemplateAxisDataOptionsOutput
-}
-
-type TemplateAxisDataOptionsArgs struct {
-	DateAxisOptions    TemplateDateAxisOptionsPtrInput    `pulumi:"dateAxisOptions"`
-	NumericAxisOptions TemplateNumericAxisOptionsPtrInput `pulumi:"numericAxisOptions"`
-}
-
-func (TemplateAxisDataOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisDataOptions)(nil)).Elem()
-}
-
-func (i TemplateAxisDataOptionsArgs) ToTemplateAxisDataOptionsOutput() TemplateAxisDataOptionsOutput {
-	return i.ToTemplateAxisDataOptionsOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisDataOptionsArgs) ToTemplateAxisDataOptionsOutputWithContext(ctx context.Context) TemplateAxisDataOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDataOptionsOutput)
-}
-
-func (i TemplateAxisDataOptionsArgs) ToTemplateAxisDataOptionsPtrOutput() TemplateAxisDataOptionsPtrOutput {
-	return i.ToTemplateAxisDataOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateAxisDataOptionsArgs) ToTemplateAxisDataOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisDataOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDataOptionsOutput).ToTemplateAxisDataOptionsPtrOutputWithContext(ctx)
-}
-
-// TemplateAxisDataOptionsPtrInput is an input type that accepts TemplateAxisDataOptionsArgs, TemplateAxisDataOptionsPtr and TemplateAxisDataOptionsPtrOutput values.
-// You can construct a concrete instance of `TemplateAxisDataOptionsPtrInput` via:
-//
-//	        TemplateAxisDataOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateAxisDataOptionsPtrInput interface {
-	pulumi.Input
-
-	ToTemplateAxisDataOptionsPtrOutput() TemplateAxisDataOptionsPtrOutput
-	ToTemplateAxisDataOptionsPtrOutputWithContext(context.Context) TemplateAxisDataOptionsPtrOutput
-}
-
-type templateAxisDataOptionsPtrType TemplateAxisDataOptionsArgs
-
-func TemplateAxisDataOptionsPtr(v *TemplateAxisDataOptionsArgs) TemplateAxisDataOptionsPtrInput {
-	return (*templateAxisDataOptionsPtrType)(v)
-}
-
-func (*templateAxisDataOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisDataOptions)(nil)).Elem()
-}
-
-func (i *templateAxisDataOptionsPtrType) ToTemplateAxisDataOptionsPtrOutput() TemplateAxisDataOptionsPtrOutput {
-	return i.ToTemplateAxisDataOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *templateAxisDataOptionsPtrType) ToTemplateAxisDataOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisDataOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisDataOptionsPtrOutput)
-}
-
-type TemplateAxisDataOptionsOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisDataOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateAxisDataOptions)(nil)).Elem()
-}
-
-func (o TemplateAxisDataOptionsOutput) ToTemplateAxisDataOptionsOutput() TemplateAxisDataOptionsOutput {
-	return o
-}
-
-func (o TemplateAxisDataOptionsOutput) ToTemplateAxisDataOptionsOutputWithContext(ctx context.Context) TemplateAxisDataOptionsOutput {
-	return o
-}
-
-func (o TemplateAxisDataOptionsOutput) ToTemplateAxisDataOptionsPtrOutput() TemplateAxisDataOptionsPtrOutput {
-	return o.ToTemplateAxisDataOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateAxisDataOptionsOutput) ToTemplateAxisDataOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisDataOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAxisDataOptions) *TemplateAxisDataOptions {
-		return &v
-	}).(TemplateAxisDataOptionsPtrOutput)
-}
-
-func (o TemplateAxisDataOptionsOutput) DateAxisOptions() TemplateDateAxisOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateAxisDataOptions) *TemplateDateAxisOptions { return v.DateAxisOptions }).(TemplateDateAxisOptionsPtrOutput)
-}
-
-func (o TemplateAxisDataOptionsOutput) NumericAxisOptions() TemplateNumericAxisOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateAxisDataOptions) *TemplateNumericAxisOptions { return v.NumericAxisOptions }).(TemplateNumericAxisOptionsPtrOutput)
-}
-
-type TemplateAxisDataOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateAxisDataOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateAxisDataOptions)(nil)).Elem()
-}
-
-func (o TemplateAxisDataOptionsPtrOutput) ToTemplateAxisDataOptionsPtrOutput() TemplateAxisDataOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateAxisDataOptionsPtrOutput) ToTemplateAxisDataOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisDataOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateAxisDataOptionsPtrOutput) Elem() TemplateAxisDataOptionsOutput {
-	return o.ApplyT(func(v *TemplateAxisDataOptions) TemplateAxisDataOptions {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateAxisDataOptions
-		return ret
-	}).(TemplateAxisDataOptionsOutput)
-}
-
-func (o TemplateAxisDataOptionsPtrOutput) DateAxisOptions() TemplateDateAxisOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDataOptions) *TemplateDateAxisOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DateAxisOptions
-	}).(TemplateDateAxisOptionsPtrOutput)
-}
-
-func (o TemplateAxisDataOptionsPtrOutput) NumericAxisOptions() TemplateNumericAxisOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateAxisDataOptions) *TemplateNumericAxisOptions {
-		if v == nil {
-			return nil
-		}
-		return v.NumericAxisOptions
-	}).(TemplateNumericAxisOptionsPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCalculatedFieldInput)(nil)).Elem(), DashboardCalculatedFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCalculatedFieldArrayInput)(nil)).Elem(), DashboardCalculatedFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCalculatedMeasureFieldInput)(nil)).Elem(), DashboardCalculatedMeasureFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCalculatedMeasureFieldPtrInput)(nil)).Elem(), DashboardCalculatedMeasureFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCascadingControlConfigurationInput)(nil)).Elem(), DashboardCascadingControlConfigurationArgs{})
@@ -80074,6 +80036,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAggregationFunctionPtrInput)(nil)).Elem(), TemplateAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAggregationSortConfigurationInput)(nil)).Elem(), TemplateAggregationSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAggregationSortConfigurationArrayInput)(nil)).Elem(), TemplateAggregationSortConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAllSheetsFilterScopeConfigurationInput)(nil)).Elem(), TemplateAllSheetsFilterScopeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAllSheetsFilterScopeConfigurationPtrInput)(nil)).Elem(), TemplateAllSheetsFilterScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAnalysisDefaultsInput)(nil)).Elem(), TemplateAnalysisDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAnalysisDefaultsPtrInput)(nil)).Elem(), TemplateAnalysisDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAnchorDateConfigurationInput)(nil)).Elem(), TemplateAnchorDateConfigurationArgs{})
@@ -80084,10 +80048,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArcAxisDisplayRangePtrInput)(nil)).Elem(), TemplateArcAxisDisplayRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArcConfigurationInput)(nil)).Elem(), TemplateArcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArcConfigurationPtrInput)(nil)).Elem(), TemplateArcConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArcOptionsInput)(nil)).Elem(), TemplateArcOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArcOptionsPtrInput)(nil)).Elem(), TemplateArcOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDataOptionsInput)(nil)).Elem(), TemplateAxisDataOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisDataOptionsPtrInput)(nil)).Elem(), TemplateAxisDataOptionsArgs{})
+	pulumi.RegisterOutputType(DashboardCalculatedFieldOutput{})
+	pulumi.RegisterOutputType(DashboardCalculatedFieldArrayOutput{})
 	pulumi.RegisterOutputType(DashboardCalculatedMeasureFieldOutput{})
 	pulumi.RegisterOutputType(DashboardCalculatedMeasureFieldPtrOutput{})
 	pulumi.RegisterOutputType(DashboardCascadingControlConfigurationOutput{})
@@ -81071,6 +81033,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateAggregationSortConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateAggregationSortConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(TemplateAllSheetsFilterScopeConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateAllSheetsFilterScopeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateAnalysisDefaultsOutput{})
 	pulumi.RegisterOutputType(TemplateAnalysisDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateAnchorDateConfigurationOutput{})
@@ -81081,8 +81045,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateArcAxisDisplayRangePtrOutput{})
 	pulumi.RegisterOutputType(TemplateArcConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateArcConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateArcOptionsOutput{})
-	pulumi.RegisterOutputType(TemplateArcOptionsPtrOutput{})
-	pulumi.RegisterOutputType(TemplateAxisDataOptionsOutput{})
-	pulumi.RegisterOutputType(TemplateAxisDataOptionsPtrOutput{})
 }

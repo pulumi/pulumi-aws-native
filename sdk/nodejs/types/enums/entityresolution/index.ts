@@ -2,6 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const MatchingWorkflowResolutionTechniquesResolutionType = {
+    RuleMatching: "RULE_MATCHING",
+    MlMatching: "ML_MATCHING",
+} as const;
+
+export type MatchingWorkflowResolutionTechniquesResolutionType = (typeof MatchingWorkflowResolutionTechniquesResolutionType)[keyof typeof MatchingWorkflowResolutionTechniquesResolutionType];
+
+export const MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = {
+    OneToOne: "ONE_TO_ONE",
+    ManyToMany: "MANY_TO_MANY",
+} as const;
+
+export type MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = (typeof MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel)[keyof typeof MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel];
+
 export const SchemaMappingSchemaAttributeType = {
     Name: "NAME",
     NameFirst: "NAME_FIRST",

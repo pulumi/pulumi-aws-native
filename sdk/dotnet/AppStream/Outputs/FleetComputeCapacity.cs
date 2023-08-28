@@ -13,12 +13,17 @@ namespace Pulumi.AwsNative.AppStream.Outputs
     [OutputType]
     public sealed class FleetComputeCapacity
     {
-        public readonly int DesiredInstances;
+        public readonly int? DesiredInstances;
+        public readonly int? DesiredSessions;
 
         [OutputConstructor]
-        private FleetComputeCapacity(int desiredInstances)
+        private FleetComputeCapacity(
+            int? desiredInstances,
+
+            int? desiredSessions)
         {
             DesiredInstances = desiredInstances;
+            DesiredSessions = desiredSessions;
         }
     }
 }

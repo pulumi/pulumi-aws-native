@@ -28,6 +28,8 @@ type FindingsFilter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Findings filter position.
 	Position pulumi.IntPtrOutput `pulumi:"position"`
+	// A collection of tags associated with a resource
+	Tags FindingsFilterTagArrayOutput `pulumi:"tags"`
 }
 
 // NewFindingsFilter registers a new resource with the given unique name, arguments, and options.
@@ -83,6 +85,8 @@ type findingsFilterArgs struct {
 	Name *string `pulumi:"name"`
 	// Findings filter position.
 	Position *int `pulumi:"position"`
+	// A collection of tags associated with a resource
+	Tags []FindingsFilterTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FindingsFilter resource.
@@ -97,6 +101,8 @@ type FindingsFilterArgs struct {
 	Name pulumi.StringPtrInput
 	// Findings filter position.
 	Position pulumi.IntPtrInput
+	// A collection of tags associated with a resource
+	Tags FindingsFilterTagArrayInput
 }
 
 func (FindingsFilterArgs) ElementType() reflect.Type {
@@ -164,6 +170,11 @@ func (o FindingsFilterOutput) Name() pulumi.StringOutput {
 // Findings filter position.
 func (o FindingsFilterOutput) Position() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.IntPtrOutput { return v.Position }).(pulumi.IntPtrOutput)
+}
+
+// A collection of tags associated with a resource
+func (o FindingsFilterOutput) Tags() FindingsFilterTagArrayOutput {
+	return o.ApplyT(func(v *FindingsFilter) FindingsFilterTagArrayOutput { return v.Tags }).(FindingsFilterTagArrayOutput)
 }
 
 func init() {

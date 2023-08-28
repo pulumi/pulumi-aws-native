@@ -284,6 +284,7 @@ import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
 import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
+import * as workspacesweb from "./workspacesweb";
 import * as xray from "./xray";
 
 export {
@@ -510,6 +511,7 @@ export {
     wafv2,
     wisdom,
     workspaces,
+    workspacesweb,
     xray,
 };
 

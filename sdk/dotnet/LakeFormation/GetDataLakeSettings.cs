@@ -53,11 +53,13 @@ namespace Pulumi.AwsNative.LakeFormation
     {
         public readonly Outputs.DataLakeSettingsAdmins? Admins;
         public readonly bool? AllowExternalDataFiltering;
+        public readonly bool? AllowFullTableExternalDataAccess;
         public readonly ImmutableArray<string> AuthorizedSessionTagValueList;
         public readonly Outputs.DataLakeSettingsCreateDatabaseDefaultPermissions? CreateDatabaseDefaultPermissions;
         public readonly Outputs.DataLakeSettingsCreateTableDefaultPermissions? CreateTableDefaultPermissions;
         public readonly Outputs.DataLakeSettingsExternalDataFilteringAllowList? ExternalDataFilteringAllowList;
         public readonly string? Id;
+        public readonly string? MutationType;
         public readonly object? Parameters;
         public readonly ImmutableArray<string> TrustedResourceOwners;
 
@@ -66,6 +68,8 @@ namespace Pulumi.AwsNative.LakeFormation
             Outputs.DataLakeSettingsAdmins? admins,
 
             bool? allowExternalDataFiltering,
+
+            bool? allowFullTableExternalDataAccess,
 
             ImmutableArray<string> authorizedSessionTagValueList,
 
@@ -77,17 +81,21 @@ namespace Pulumi.AwsNative.LakeFormation
 
             string? id,
 
+            string? mutationType,
+
             object? parameters,
 
             ImmutableArray<string> trustedResourceOwners)
         {
             Admins = admins;
             AllowExternalDataFiltering = allowExternalDataFiltering;
+            AllowFullTableExternalDataAccess = allowFullTableExternalDataAccess;
             AuthorizedSessionTagValueList = authorizedSessionTagValueList;
             CreateDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
             CreateTableDefaultPermissions = createTableDefaultPermissions;
             ExternalDataFilteringAllowList = externalDataFilteringAllowList;
             Id = id;
+            MutationType = mutationType;
             Parameters = parameters;
             TrustedResourceOwners = trustedResourceOwners;
         }

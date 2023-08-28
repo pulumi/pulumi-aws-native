@@ -8,6 +8,62 @@ using Pulumi;
 namespace Pulumi.AwsNative.EntityResolution
 {
     [EnumType]
+    public readonly struct MatchingWorkflowResolutionTechniquesResolutionType : IEquatable<MatchingWorkflowResolutionTechniquesResolutionType>
+    {
+        private readonly string _value;
+
+        private MatchingWorkflowResolutionTechniquesResolutionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MatchingWorkflowResolutionTechniquesResolutionType RuleMatching { get; } = new MatchingWorkflowResolutionTechniquesResolutionType("RULE_MATCHING");
+        public static MatchingWorkflowResolutionTechniquesResolutionType MlMatching { get; } = new MatchingWorkflowResolutionTechniquesResolutionType("ML_MATCHING");
+
+        public static bool operator ==(MatchingWorkflowResolutionTechniquesResolutionType left, MatchingWorkflowResolutionTechniquesResolutionType right) => left.Equals(right);
+        public static bool operator !=(MatchingWorkflowResolutionTechniquesResolutionType left, MatchingWorkflowResolutionTechniquesResolutionType right) => !left.Equals(right);
+
+        public static explicit operator string(MatchingWorkflowResolutionTechniquesResolutionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MatchingWorkflowResolutionTechniquesResolutionType other && Equals(other);
+        public bool Equals(MatchingWorkflowResolutionTechniquesResolutionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel : IEquatable<MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel>
+    {
+        private readonly string _value;
+
+        private MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel OneToOne { get; } = new MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel("ONE_TO_ONE");
+        public static MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel ManyToMany { get; } = new MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel("MANY_TO_MANY");
+
+        public static bool operator ==(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel left, MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel right) => left.Equals(right);
+        public static bool operator !=(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel left, MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel right) => !left.Equals(right);
+
+        public static explicit operator string(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel other && Equals(other);
+        public bool Equals(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct SchemaMappingSchemaAttributeType : IEquatable<SchemaMappingSchemaAttributeType>
     {
         private readonly string _value;

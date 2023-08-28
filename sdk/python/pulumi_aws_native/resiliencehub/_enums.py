@@ -6,6 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AppAssessmentSchedule',
+    'AppDriftStatus',
+    'AppEventSubscriptionEventType',
+    'AppPermissionModelType',
     'ResiliencyPolicyDataLocationConstraint',
     'ResiliencyPolicyTier',
 ]
@@ -17,6 +20,31 @@ class AppAssessmentSchedule(str, Enum):
     """
     DISABLED = "Disabled"
     DAILY = "Daily"
+
+
+class AppDriftStatus(str, Enum):
+    """
+    Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+    """
+    NOT_CHECKED = "NotChecked"
+    NOT_DETECTED = "NotDetected"
+    DETECTED = "Detected"
+
+
+class AppEventSubscriptionEventType(str, Enum):
+    """
+    The type of event you would like to subscribe and get notification for.
+    """
+    SCHEDULED_ASSESSMENT_FAILURE = "ScheduledAssessmentFailure"
+    DRIFT_DETECTED = "DriftDetected"
+
+
+class AppPermissionModelType(str, Enum):
+    """
+    Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+    """
+    LEGACY_IAM_USER = "LegacyIAMUser"
+    ROLE_BASED = "RoleBased"
 
 
 class ResiliencyPolicyDataLocationConstraint(str, Enum):

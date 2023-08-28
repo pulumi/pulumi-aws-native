@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.AppStream
         [Output("maxConcurrentSessions")]
         public Output<int?> MaxConcurrentSessions { get; private set; } = null!;
 
+        [Output("maxSessionsPerInstance")]
+        public Output<int?> MaxSessionsPerInstance { get; private set; } = null!;
+
         [Output("maxUserDurationInSeconds")]
         public Output<int?> MaxUserDurationInSeconds { get; private set; } = null!;
 
@@ -162,6 +165,9 @@ namespace Pulumi.AwsNative.AppStream
 
         [Input("maxConcurrentSessions")]
         public Input<int>? MaxConcurrentSessions { get; set; }
+
+        [Input("maxSessionsPerInstance")]
+        public Input<int>? MaxSessionsPerInstance { get; set; }
 
         [Input("maxUserDurationInSeconds")]
         public Input<int>? MaxUserDurationInSeconds { get; set; }

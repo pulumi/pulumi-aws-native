@@ -24,8 +24,13 @@ type App struct {
 	AppTemplateBody pulumi.StringOutput `pulumi:"appTemplateBody"`
 	// App description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+	DriftStatus AppDriftStatusOutput `pulumi:"driftStatus"`
+	// The list of events you would like to subscribe and get notification for.
+	EventSubscriptions AppEventSubscriptionArrayOutput `pulumi:"eventSubscriptions"`
 	// Name of the app.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name            pulumi.StringOutput         `pulumi:"name"`
+	PermissionModel AppPermissionModelPtrOutput `pulumi:"permissionModel"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn pulumi.StringPtrOutput `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
@@ -85,8 +90,11 @@ type appArgs struct {
 	AppTemplateBody string `pulumi:"appTemplateBody"`
 	// App description.
 	Description *string `pulumi:"description"`
+	// The list of events you would like to subscribe and get notification for.
+	EventSubscriptions []AppEventSubscription `pulumi:"eventSubscriptions"`
 	// Name of the app.
-	Name *string `pulumi:"name"`
+	Name            *string             `pulumi:"name"`
+	PermissionModel *AppPermissionModel `pulumi:"permissionModel"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn *string `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
@@ -102,8 +110,11 @@ type AppArgs struct {
 	AppTemplateBody pulumi.StringInput
 	// App description.
 	Description pulumi.StringPtrInput
+	// The list of events you would like to subscribe and get notification for.
+	EventSubscriptions AppEventSubscriptionArrayInput
 	// Name of the app.
-	Name pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	PermissionModel AppPermissionModelPtrInput
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn pulumi.StringPtrInput
 	// An array of ResourceMapping objects.
@@ -168,9 +179,23 @@ func (o AppOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+func (o AppOutput) DriftStatus() AppDriftStatusOutput {
+	return o.ApplyT(func(v *App) AppDriftStatusOutput { return v.DriftStatus }).(AppDriftStatusOutput)
+}
+
+// The list of events you would like to subscribe and get notification for.
+func (o AppOutput) EventSubscriptions() AppEventSubscriptionArrayOutput {
+	return o.ApplyT(func(v *App) AppEventSubscriptionArrayOutput { return v.EventSubscriptions }).(AppEventSubscriptionArrayOutput)
+}
+
 // Name of the app.
 func (o AppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AppOutput) PermissionModel() AppPermissionModelPtrOutput {
+	return o.ApplyT(func(v *App) AppPermissionModelPtrOutput { return v.PermissionModel }).(AppPermissionModelPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the Resiliency Policy.

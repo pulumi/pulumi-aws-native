@@ -488,6 +488,8 @@ class FleetComputeCapacity(dict):
         suggest = None
         if key == "desiredInstances":
             suggest = "desired_instances"
+        elif key == "desiredSessions":
+            suggest = "desired_sessions"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FleetComputeCapacity. Access the value via the '{suggest}' property getter instead.")
@@ -501,13 +503,22 @@ class FleetComputeCapacity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 desired_instances: int):
-        pulumi.set(__self__, "desired_instances", desired_instances)
+                 desired_instances: Optional[int] = None,
+                 desired_sessions: Optional[int] = None):
+        if desired_instances is not None:
+            pulumi.set(__self__, "desired_instances", desired_instances)
+        if desired_sessions is not None:
+            pulumi.set(__self__, "desired_sessions", desired_sessions)
 
     @property
     @pulumi.getter(name="desiredInstances")
-    def desired_instances(self) -> int:
+    def desired_instances(self) -> Optional[int]:
         return pulumi.get(self, "desired_instances")
+
+    @property
+    @pulumi.getter(name="desiredSessions")
+    def desired_sessions(self) -> Optional[int]:
+        return pulumi.get(self, "desired_sessions")
 
 
 @pulumi.output_type

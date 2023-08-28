@@ -13,6 +13,302 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Indicates an event you would like to subscribe and get notification for.
+type AppEventSubscription struct {
+	// The type of event you would like to subscribe and get notification for.
+	EventType AppEventSubscriptionEventType `pulumi:"eventType"`
+	// Unique name to identify an event subscription.
+	Name string `pulumi:"name"`
+	// Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
+	SnsTopicArn *string `pulumi:"snsTopicArn"`
+}
+
+// AppEventSubscriptionInput is an input type that accepts AppEventSubscriptionArgs and AppEventSubscriptionOutput values.
+// You can construct a concrete instance of `AppEventSubscriptionInput` via:
+//
+//	AppEventSubscriptionArgs{...}
+type AppEventSubscriptionInput interface {
+	pulumi.Input
+
+	ToAppEventSubscriptionOutput() AppEventSubscriptionOutput
+	ToAppEventSubscriptionOutputWithContext(context.Context) AppEventSubscriptionOutput
+}
+
+// Indicates an event you would like to subscribe and get notification for.
+type AppEventSubscriptionArgs struct {
+	// The type of event you would like to subscribe and get notification for.
+	EventType AppEventSubscriptionEventTypeInput `pulumi:"eventType"`
+	// Unique name to identify an event subscription.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
+	SnsTopicArn pulumi.StringPtrInput `pulumi:"snsTopicArn"`
+}
+
+func (AppEventSubscriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppEventSubscription)(nil)).Elem()
+}
+
+func (i AppEventSubscriptionArgs) ToAppEventSubscriptionOutput() AppEventSubscriptionOutput {
+	return i.ToAppEventSubscriptionOutputWithContext(context.Background())
+}
+
+func (i AppEventSubscriptionArgs) ToAppEventSubscriptionOutputWithContext(ctx context.Context) AppEventSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppEventSubscriptionOutput)
+}
+
+// AppEventSubscriptionArrayInput is an input type that accepts AppEventSubscriptionArray and AppEventSubscriptionArrayOutput values.
+// You can construct a concrete instance of `AppEventSubscriptionArrayInput` via:
+//
+//	AppEventSubscriptionArray{ AppEventSubscriptionArgs{...} }
+type AppEventSubscriptionArrayInput interface {
+	pulumi.Input
+
+	ToAppEventSubscriptionArrayOutput() AppEventSubscriptionArrayOutput
+	ToAppEventSubscriptionArrayOutputWithContext(context.Context) AppEventSubscriptionArrayOutput
+}
+
+type AppEventSubscriptionArray []AppEventSubscriptionInput
+
+func (AppEventSubscriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppEventSubscription)(nil)).Elem()
+}
+
+func (i AppEventSubscriptionArray) ToAppEventSubscriptionArrayOutput() AppEventSubscriptionArrayOutput {
+	return i.ToAppEventSubscriptionArrayOutputWithContext(context.Background())
+}
+
+func (i AppEventSubscriptionArray) ToAppEventSubscriptionArrayOutputWithContext(ctx context.Context) AppEventSubscriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppEventSubscriptionArrayOutput)
+}
+
+// Indicates an event you would like to subscribe and get notification for.
+type AppEventSubscriptionOutput struct{ *pulumi.OutputState }
+
+func (AppEventSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppEventSubscription)(nil)).Elem()
+}
+
+func (o AppEventSubscriptionOutput) ToAppEventSubscriptionOutput() AppEventSubscriptionOutput {
+	return o
+}
+
+func (o AppEventSubscriptionOutput) ToAppEventSubscriptionOutputWithContext(ctx context.Context) AppEventSubscriptionOutput {
+	return o
+}
+
+// The type of event you would like to subscribe and get notification for.
+func (o AppEventSubscriptionOutput) EventType() AppEventSubscriptionEventTypeOutput {
+	return o.ApplyT(func(v AppEventSubscription) AppEventSubscriptionEventType { return v.EventType }).(AppEventSubscriptionEventTypeOutput)
+}
+
+// Unique name to identify an event subscription.
+func (o AppEventSubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppEventSubscription) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
+func (o AppEventSubscriptionOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppEventSubscription) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
+}
+
+type AppEventSubscriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (AppEventSubscriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppEventSubscription)(nil)).Elem()
+}
+
+func (o AppEventSubscriptionArrayOutput) ToAppEventSubscriptionArrayOutput() AppEventSubscriptionArrayOutput {
+	return o
+}
+
+func (o AppEventSubscriptionArrayOutput) ToAppEventSubscriptionArrayOutputWithContext(ctx context.Context) AppEventSubscriptionArrayOutput {
+	return o
+}
+
+func (o AppEventSubscriptionArrayOutput) Index(i pulumi.IntInput) AppEventSubscriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppEventSubscription {
+		return vs[0].([]AppEventSubscription)[vs[1].(int)]
+	}).(AppEventSubscriptionOutput)
+}
+
+// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+type AppPermissionModel struct {
+	// Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
+	CrossAccountRoleArns []string `pulumi:"crossAccountRoleArns"`
+	// Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
+	InvokerRoleName *string `pulumi:"invokerRoleName"`
+	// Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+	Type AppPermissionModelType `pulumi:"type"`
+}
+
+// AppPermissionModelInput is an input type that accepts AppPermissionModelArgs and AppPermissionModelOutput values.
+// You can construct a concrete instance of `AppPermissionModelInput` via:
+//
+//	AppPermissionModelArgs{...}
+type AppPermissionModelInput interface {
+	pulumi.Input
+
+	ToAppPermissionModelOutput() AppPermissionModelOutput
+	ToAppPermissionModelOutputWithContext(context.Context) AppPermissionModelOutput
+}
+
+// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+type AppPermissionModelArgs struct {
+	// Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
+	CrossAccountRoleArns pulumi.StringArrayInput `pulumi:"crossAccountRoleArns"`
+	// Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
+	InvokerRoleName pulumi.StringPtrInput `pulumi:"invokerRoleName"`
+	// Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+	Type AppPermissionModelTypeInput `pulumi:"type"`
+}
+
+func (AppPermissionModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppPermissionModel)(nil)).Elem()
+}
+
+func (i AppPermissionModelArgs) ToAppPermissionModelOutput() AppPermissionModelOutput {
+	return i.ToAppPermissionModelOutputWithContext(context.Background())
+}
+
+func (i AppPermissionModelArgs) ToAppPermissionModelOutputWithContext(ctx context.Context) AppPermissionModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppPermissionModelOutput)
+}
+
+func (i AppPermissionModelArgs) ToAppPermissionModelPtrOutput() AppPermissionModelPtrOutput {
+	return i.ToAppPermissionModelPtrOutputWithContext(context.Background())
+}
+
+func (i AppPermissionModelArgs) ToAppPermissionModelPtrOutputWithContext(ctx context.Context) AppPermissionModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppPermissionModelOutput).ToAppPermissionModelPtrOutputWithContext(ctx)
+}
+
+// AppPermissionModelPtrInput is an input type that accepts AppPermissionModelArgs, AppPermissionModelPtr and AppPermissionModelPtrOutput values.
+// You can construct a concrete instance of `AppPermissionModelPtrInput` via:
+//
+//	        AppPermissionModelArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppPermissionModelPtrInput interface {
+	pulumi.Input
+
+	ToAppPermissionModelPtrOutput() AppPermissionModelPtrOutput
+	ToAppPermissionModelPtrOutputWithContext(context.Context) AppPermissionModelPtrOutput
+}
+
+type appPermissionModelPtrType AppPermissionModelArgs
+
+func AppPermissionModelPtr(v *AppPermissionModelArgs) AppPermissionModelPtrInput {
+	return (*appPermissionModelPtrType)(v)
+}
+
+func (*appPermissionModelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppPermissionModel)(nil)).Elem()
+}
+
+func (i *appPermissionModelPtrType) ToAppPermissionModelPtrOutput() AppPermissionModelPtrOutput {
+	return i.ToAppPermissionModelPtrOutputWithContext(context.Background())
+}
+
+func (i *appPermissionModelPtrType) ToAppPermissionModelPtrOutputWithContext(ctx context.Context) AppPermissionModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppPermissionModelPtrOutput)
+}
+
+// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+type AppPermissionModelOutput struct{ *pulumi.OutputState }
+
+func (AppPermissionModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppPermissionModel)(nil)).Elem()
+}
+
+func (o AppPermissionModelOutput) ToAppPermissionModelOutput() AppPermissionModelOutput {
+	return o
+}
+
+func (o AppPermissionModelOutput) ToAppPermissionModelOutputWithContext(ctx context.Context) AppPermissionModelOutput {
+	return o
+}
+
+func (o AppPermissionModelOutput) ToAppPermissionModelPtrOutput() AppPermissionModelPtrOutput {
+	return o.ToAppPermissionModelPtrOutputWithContext(context.Background())
+}
+
+func (o AppPermissionModelOutput) ToAppPermissionModelPtrOutputWithContext(ctx context.Context) AppPermissionModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppPermissionModel) *AppPermissionModel {
+		return &v
+	}).(AppPermissionModelPtrOutput)
+}
+
+// Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
+func (o AppPermissionModelOutput) CrossAccountRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppPermissionModel) []string { return v.CrossAccountRoleArns }).(pulumi.StringArrayOutput)
+}
+
+// Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
+func (o AppPermissionModelOutput) InvokerRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppPermissionModel) *string { return v.InvokerRoleName }).(pulumi.StringPtrOutput)
+}
+
+// Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+func (o AppPermissionModelOutput) Type() AppPermissionModelTypeOutput {
+	return o.ApplyT(func(v AppPermissionModel) AppPermissionModelType { return v.Type }).(AppPermissionModelTypeOutput)
+}
+
+type AppPermissionModelPtrOutput struct{ *pulumi.OutputState }
+
+func (AppPermissionModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppPermissionModel)(nil)).Elem()
+}
+
+func (o AppPermissionModelPtrOutput) ToAppPermissionModelPtrOutput() AppPermissionModelPtrOutput {
+	return o
+}
+
+func (o AppPermissionModelPtrOutput) ToAppPermissionModelPtrOutputWithContext(ctx context.Context) AppPermissionModelPtrOutput {
+	return o
+}
+
+func (o AppPermissionModelPtrOutput) Elem() AppPermissionModelOutput {
+	return o.ApplyT(func(v *AppPermissionModel) AppPermissionModel {
+		if v != nil {
+			return *v
+		}
+		var ret AppPermissionModel
+		return ret
+	}).(AppPermissionModelOutput)
+}
+
+// Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
+func (o AppPermissionModelPtrOutput) CrossAccountRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppPermissionModel) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossAccountRoleArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
+func (o AppPermissionModelPtrOutput) InvokerRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppPermissionModel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InvokerRoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+func (o AppPermissionModelPtrOutput) Type() AppPermissionModelTypePtrOutput {
+	return o.ApplyT(func(v *AppPermissionModel) *AppPermissionModelType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(AppPermissionModelTypePtrOutput)
+}
+
 type AppPhysicalResourceId struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	AwsRegion    *string `pulumi:"awsRegion"`
@@ -511,6 +807,10 @@ func (o ResiliencyPolicyTagMapPtrOutput) Elem() ResiliencyPolicyTagMapOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppEventSubscriptionInput)(nil)).Elem(), AppEventSubscriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppEventSubscriptionArrayInput)(nil)).Elem(), AppEventSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppPermissionModelInput)(nil)).Elem(), AppPermissionModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppPermissionModelPtrInput)(nil)).Elem(), AppPermissionModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppPhysicalResourceIdInput)(nil)).Elem(), AppPhysicalResourceIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceMappingInput)(nil)).Elem(), AppResourceMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceMappingArrayInput)(nil)).Elem(), AppResourceMappingArray{})
@@ -519,6 +819,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyPolicyMapInput)(nil)).Elem(), ResiliencyPolicyPolicyMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTagMapInput)(nil)).Elem(), ResiliencyPolicyTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTagMapPtrInput)(nil)).Elem(), ResiliencyPolicyTagMapArgs{})
+	pulumi.RegisterOutputType(AppEventSubscriptionOutput{})
+	pulumi.RegisterOutputType(AppEventSubscriptionArrayOutput{})
+	pulumi.RegisterOutputType(AppPermissionModelOutput{})
+	pulumi.RegisterOutputType(AppPermissionModelPtrOutput{})
 	pulumi.RegisterOutputType(AppPhysicalResourceIdOutput{})
 	pulumi.RegisterOutputType(AppResourceMappingOutput{})
 	pulumi.RegisterOutputType(AppResourceMappingArrayOutput{})

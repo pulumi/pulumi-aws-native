@@ -64,6 +64,7 @@ namespace Pulumi.AwsNative.AppStream
         public readonly string? ImageName;
         public readonly string? InstanceType;
         public readonly int? MaxConcurrentSessions;
+        public readonly int? MaxSessionsPerInstance;
         public readonly int? MaxUserDurationInSeconds;
         public readonly string? Platform;
         public readonly Outputs.FleetS3Location? SessionScriptS3Location;
@@ -100,6 +101,8 @@ namespace Pulumi.AwsNative.AppStream
 
             int? maxConcurrentSessions,
 
+            int? maxSessionsPerInstance,
+
             int? maxUserDurationInSeconds,
 
             string? platform,
@@ -127,6 +130,7 @@ namespace Pulumi.AwsNative.AppStream
             ImageName = imageName;
             InstanceType = instanceType;
             MaxConcurrentSessions = maxConcurrentSessions;
+            MaxSessionsPerInstance = maxSessionsPerInstance;
             MaxUserDurationInSeconds = maxUserDurationInSeconds;
             Platform = platform;
             SessionScriptS3Location = sessionScriptS3Location;

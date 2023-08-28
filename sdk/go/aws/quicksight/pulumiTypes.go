@@ -73390,6 +73390,7 @@ func (o DashboardAdHocFilteringOptionPtrOutput) AvailabilityStatus() DashboardBe
 }
 
 type DashboardAggregationFunction struct {
+	AttributeAggregationFunction   *DashboardAttributeAggregationFunction   `pulumi:"attributeAggregationFunction"`
 	CategoricalAggregationFunction *DashboardCategoricalAggregationFunction `pulumi:"categoricalAggregationFunction"`
 	DateAggregationFunction        *DashboardDateAggregationFunction        `pulumi:"dateAggregationFunction"`
 	NumericalAggregationFunction   *DashboardNumericalAggregationFunction   `pulumi:"numericalAggregationFunction"`
@@ -73407,6 +73408,7 @@ type DashboardAggregationFunctionInput interface {
 }
 
 type DashboardAggregationFunctionArgs struct {
+	AttributeAggregationFunction   DashboardAttributeAggregationFunctionPtrInput   `pulumi:"attributeAggregationFunction"`
 	CategoricalAggregationFunction DashboardCategoricalAggregationFunctionPtrInput `pulumi:"categoricalAggregationFunction"`
 	DateAggregationFunction        DashboardDateAggregationFunctionPtrInput        `pulumi:"dateAggregationFunction"`
 	NumericalAggregationFunction   DashboardNumericalAggregationFunctionPtrInput   `pulumi:"numericalAggregationFunction"`
@@ -73489,6 +73491,12 @@ func (o DashboardAggregationFunctionOutput) ToDashboardAggregationFunctionPtrOut
 	}).(DashboardAggregationFunctionPtrOutput)
 }
 
+func (o DashboardAggregationFunctionOutput) AttributeAggregationFunction() DashboardAttributeAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v DashboardAggregationFunction) *DashboardAttributeAggregationFunction {
+		return v.AttributeAggregationFunction
+	}).(DashboardAttributeAggregationFunctionPtrOutput)
+}
+
 func (o DashboardAggregationFunctionOutput) CategoricalAggregationFunction() DashboardCategoricalAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v DashboardAggregationFunction) *DashboardCategoricalAggregationFunction {
 		return v.CategoricalAggregationFunction
@@ -73529,6 +73537,15 @@ func (o DashboardAggregationFunctionPtrOutput) Elem() DashboardAggregationFuncti
 		var ret DashboardAggregationFunction
 		return ret
 	}).(DashboardAggregationFunctionOutput)
+}
+
+func (o DashboardAggregationFunctionPtrOutput) AttributeAggregationFunction() DashboardAttributeAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v *DashboardAggregationFunction) *DashboardAttributeAggregationFunction {
+		if v == nil {
+			return nil
+		}
+		return v.AttributeAggregationFunction
+	}).(DashboardAttributeAggregationFunctionPtrOutput)
 }
 
 func (o DashboardAggregationFunctionPtrOutput) CategoricalAggregationFunction() DashboardCategoricalAggregationFunctionPtrOutput {
@@ -74524,6 +74541,156 @@ func (o DashboardArcOptionsPtrOutput) ArcThickness() DashboardArcThicknessPtrOut
 		}
 		return v.ArcThickness
 	}).(DashboardArcThicknessPtrOutput)
+}
+
+type DashboardAttributeAggregationFunction struct {
+	SimpleAttributeAggregation *DashboardSimpleAttributeAggregationFunction `pulumi:"simpleAttributeAggregation"`
+	ValueForMultipleValues     *string                                      `pulumi:"valueForMultipleValues"`
+}
+
+// DashboardAttributeAggregationFunctionInput is an input type that accepts DashboardAttributeAggregationFunctionArgs and DashboardAttributeAggregationFunctionOutput values.
+// You can construct a concrete instance of `DashboardAttributeAggregationFunctionInput` via:
+//
+//	DashboardAttributeAggregationFunctionArgs{...}
+type DashboardAttributeAggregationFunctionInput interface {
+	pulumi.Input
+
+	ToDashboardAttributeAggregationFunctionOutput() DashboardAttributeAggregationFunctionOutput
+	ToDashboardAttributeAggregationFunctionOutputWithContext(context.Context) DashboardAttributeAggregationFunctionOutput
+}
+
+type DashboardAttributeAggregationFunctionArgs struct {
+	SimpleAttributeAggregation DashboardSimpleAttributeAggregationFunctionPtrInput `pulumi:"simpleAttributeAggregation"`
+	ValueForMultipleValues     pulumi.StringPtrInput                               `pulumi:"valueForMultipleValues"`
+}
+
+func (DashboardAttributeAggregationFunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardAttributeAggregationFunction)(nil)).Elem()
+}
+
+func (i DashboardAttributeAggregationFunctionArgs) ToDashboardAttributeAggregationFunctionOutput() DashboardAttributeAggregationFunctionOutput {
+	return i.ToDashboardAttributeAggregationFunctionOutputWithContext(context.Background())
+}
+
+func (i DashboardAttributeAggregationFunctionArgs) ToDashboardAttributeAggregationFunctionOutputWithContext(ctx context.Context) DashboardAttributeAggregationFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardAttributeAggregationFunctionOutput)
+}
+
+func (i DashboardAttributeAggregationFunctionArgs) ToDashboardAttributeAggregationFunctionPtrOutput() DashboardAttributeAggregationFunctionPtrOutput {
+	return i.ToDashboardAttributeAggregationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardAttributeAggregationFunctionArgs) ToDashboardAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardAttributeAggregationFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardAttributeAggregationFunctionOutput).ToDashboardAttributeAggregationFunctionPtrOutputWithContext(ctx)
+}
+
+// DashboardAttributeAggregationFunctionPtrInput is an input type that accepts DashboardAttributeAggregationFunctionArgs, DashboardAttributeAggregationFunctionPtr and DashboardAttributeAggregationFunctionPtrOutput values.
+// You can construct a concrete instance of `DashboardAttributeAggregationFunctionPtrInput` via:
+//
+//	        DashboardAttributeAggregationFunctionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardAttributeAggregationFunctionPtrInput interface {
+	pulumi.Input
+
+	ToDashboardAttributeAggregationFunctionPtrOutput() DashboardAttributeAggregationFunctionPtrOutput
+	ToDashboardAttributeAggregationFunctionPtrOutputWithContext(context.Context) DashboardAttributeAggregationFunctionPtrOutput
+}
+
+type dashboardAttributeAggregationFunctionPtrType DashboardAttributeAggregationFunctionArgs
+
+func DashboardAttributeAggregationFunctionPtr(v *DashboardAttributeAggregationFunctionArgs) DashboardAttributeAggregationFunctionPtrInput {
+	return (*dashboardAttributeAggregationFunctionPtrType)(v)
+}
+
+func (*dashboardAttributeAggregationFunctionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardAttributeAggregationFunction)(nil)).Elem()
+}
+
+func (i *dashboardAttributeAggregationFunctionPtrType) ToDashboardAttributeAggregationFunctionPtrOutput() DashboardAttributeAggregationFunctionPtrOutput {
+	return i.ToDashboardAttributeAggregationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardAttributeAggregationFunctionPtrType) ToDashboardAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardAttributeAggregationFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardAttributeAggregationFunctionPtrOutput)
+}
+
+type DashboardAttributeAggregationFunctionOutput struct{ *pulumi.OutputState }
+
+func (DashboardAttributeAggregationFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardAttributeAggregationFunction)(nil)).Elem()
+}
+
+func (o DashboardAttributeAggregationFunctionOutput) ToDashboardAttributeAggregationFunctionOutput() DashboardAttributeAggregationFunctionOutput {
+	return o
+}
+
+func (o DashboardAttributeAggregationFunctionOutput) ToDashboardAttributeAggregationFunctionOutputWithContext(ctx context.Context) DashboardAttributeAggregationFunctionOutput {
+	return o
+}
+
+func (o DashboardAttributeAggregationFunctionOutput) ToDashboardAttributeAggregationFunctionPtrOutput() DashboardAttributeAggregationFunctionPtrOutput {
+	return o.ToDashboardAttributeAggregationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardAttributeAggregationFunctionOutput) ToDashboardAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardAttributeAggregationFunctionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardAttributeAggregationFunction) *DashboardAttributeAggregationFunction {
+		return &v
+	}).(DashboardAttributeAggregationFunctionPtrOutput)
+}
+
+func (o DashboardAttributeAggregationFunctionOutput) SimpleAttributeAggregation() DashboardSimpleAttributeAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v DashboardAttributeAggregationFunction) *DashboardSimpleAttributeAggregationFunction {
+		return v.SimpleAttributeAggregation
+	}).(DashboardSimpleAttributeAggregationFunctionPtrOutput)
+}
+
+func (o DashboardAttributeAggregationFunctionOutput) ValueForMultipleValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardAttributeAggregationFunction) *string { return v.ValueForMultipleValues }).(pulumi.StringPtrOutput)
+}
+
+type DashboardAttributeAggregationFunctionPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardAttributeAggregationFunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardAttributeAggregationFunction)(nil)).Elem()
+}
+
+func (o DashboardAttributeAggregationFunctionPtrOutput) ToDashboardAttributeAggregationFunctionPtrOutput() DashboardAttributeAggregationFunctionPtrOutput {
+	return o
+}
+
+func (o DashboardAttributeAggregationFunctionPtrOutput) ToDashboardAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardAttributeAggregationFunctionPtrOutput {
+	return o
+}
+
+func (o DashboardAttributeAggregationFunctionPtrOutput) Elem() DashboardAttributeAggregationFunctionOutput {
+	return o.ApplyT(func(v *DashboardAttributeAggregationFunction) DashboardAttributeAggregationFunction {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardAttributeAggregationFunction
+		return ret
+	}).(DashboardAttributeAggregationFunctionOutput)
+}
+
+func (o DashboardAttributeAggregationFunctionPtrOutput) SimpleAttributeAggregation() DashboardSimpleAttributeAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v *DashboardAttributeAggregationFunction) *DashboardSimpleAttributeAggregationFunction {
+		if v == nil {
+			return nil
+		}
+		return v.SimpleAttributeAggregation
+	}).(DashboardSimpleAttributeAggregationFunctionPtrOutput)
+}
+
+func (o DashboardAttributeAggregationFunctionPtrOutput) ValueForMultipleValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardAttributeAggregationFunction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValueForMultipleValues
+	}).(pulumi.StringPtrOutput)
 }
 
 type DashboardAxisDataOptions struct {
@@ -78896,112 +79063,6 @@ func (o DashboardBoxPlotVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type DashboardCalculatedField struct {
-	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
-	Expression        string `pulumi:"expression"`
-	Name              string `pulumi:"name"`
-}
-
-// DashboardCalculatedFieldInput is an input type that accepts DashboardCalculatedFieldArgs and DashboardCalculatedFieldOutput values.
-// You can construct a concrete instance of `DashboardCalculatedFieldInput` via:
-//
-//	DashboardCalculatedFieldArgs{...}
-type DashboardCalculatedFieldInput interface {
-	pulumi.Input
-
-	ToDashboardCalculatedFieldOutput() DashboardCalculatedFieldOutput
-	ToDashboardCalculatedFieldOutputWithContext(context.Context) DashboardCalculatedFieldOutput
-}
-
-type DashboardCalculatedFieldArgs struct {
-	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
-	Expression        pulumi.StringInput `pulumi:"expression"`
-	Name              pulumi.StringInput `pulumi:"name"`
-}
-
-func (DashboardCalculatedFieldArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardCalculatedField)(nil)).Elem()
-}
-
-func (i DashboardCalculatedFieldArgs) ToDashboardCalculatedFieldOutput() DashboardCalculatedFieldOutput {
-	return i.ToDashboardCalculatedFieldOutputWithContext(context.Background())
-}
-
-func (i DashboardCalculatedFieldArgs) ToDashboardCalculatedFieldOutputWithContext(ctx context.Context) DashboardCalculatedFieldOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCalculatedFieldOutput)
-}
-
-// DashboardCalculatedFieldArrayInput is an input type that accepts DashboardCalculatedFieldArray and DashboardCalculatedFieldArrayOutput values.
-// You can construct a concrete instance of `DashboardCalculatedFieldArrayInput` via:
-//
-//	DashboardCalculatedFieldArray{ DashboardCalculatedFieldArgs{...} }
-type DashboardCalculatedFieldArrayInput interface {
-	pulumi.Input
-
-	ToDashboardCalculatedFieldArrayOutput() DashboardCalculatedFieldArrayOutput
-	ToDashboardCalculatedFieldArrayOutputWithContext(context.Context) DashboardCalculatedFieldArrayOutput
-}
-
-type DashboardCalculatedFieldArray []DashboardCalculatedFieldInput
-
-func (DashboardCalculatedFieldArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardCalculatedField)(nil)).Elem()
-}
-
-func (i DashboardCalculatedFieldArray) ToDashboardCalculatedFieldArrayOutput() DashboardCalculatedFieldArrayOutput {
-	return i.ToDashboardCalculatedFieldArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardCalculatedFieldArray) ToDashboardCalculatedFieldArrayOutputWithContext(ctx context.Context) DashboardCalculatedFieldArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCalculatedFieldArrayOutput)
-}
-
-type DashboardCalculatedFieldOutput struct{ *pulumi.OutputState }
-
-func (DashboardCalculatedFieldOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardCalculatedField)(nil)).Elem()
-}
-
-func (o DashboardCalculatedFieldOutput) ToDashboardCalculatedFieldOutput() DashboardCalculatedFieldOutput {
-	return o
-}
-
-func (o DashboardCalculatedFieldOutput) ToDashboardCalculatedFieldOutputWithContext(ctx context.Context) DashboardCalculatedFieldOutput {
-	return o
-}
-
-func (o DashboardCalculatedFieldOutput) DataSetIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardCalculatedField) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
-}
-
-func (o DashboardCalculatedFieldOutput) Expression() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardCalculatedField) string { return v.Expression }).(pulumi.StringOutput)
-}
-
-func (o DashboardCalculatedFieldOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardCalculatedField) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type DashboardCalculatedFieldArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardCalculatedFieldArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardCalculatedField)(nil)).Elem()
-}
-
-func (o DashboardCalculatedFieldArrayOutput) ToDashboardCalculatedFieldArrayOutput() DashboardCalculatedFieldArrayOutput {
-	return o
-}
-
-func (o DashboardCalculatedFieldArrayOutput) ToDashboardCalculatedFieldArrayOutputWithContext(ctx context.Context) DashboardCalculatedFieldArrayOutput {
-	return o
-}
-
-func (o DashboardCalculatedFieldArrayOutput) Index(i pulumi.IntInput) DashboardCalculatedFieldOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardCalculatedField {
-		return vs[0].([]DashboardCalculatedField)[vs[1].(int)]
-	}).(DashboardCalculatedFieldOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionPtrInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
@@ -79936,6 +79997,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardArcConfigurationPtrInput)(nil)).Elem(), DashboardArcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardArcOptionsInput)(nil)).Elem(), DashboardArcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardArcOptionsPtrInput)(nil)).Elem(), DashboardArcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAttributeAggregationFunctionInput)(nil)).Elem(), DashboardAttributeAggregationFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAttributeAggregationFunctionPtrInput)(nil)).Elem(), DashboardAttributeAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAxisDataOptionsInput)(nil)).Elem(), DashboardAxisDataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAxisDataOptionsPtrInput)(nil)).Elem(), DashboardAxisDataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAxisDisplayDataDrivenRangeInput)(nil)).Elem(), DashboardAxisDisplayDataDrivenRangeArgs{})
@@ -79989,8 +80052,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBoxPlotStyleOptionsPtrInput)(nil)).Elem(), DashboardBoxPlotStyleOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBoxPlotVisualInput)(nil)).Elem(), DashboardBoxPlotVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBoxPlotVisualPtrInput)(nil)).Elem(), DashboardBoxPlotVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCalculatedFieldInput)(nil)).Elem(), DashboardCalculatedFieldArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCalculatedFieldArrayInput)(nil)).Elem(), DashboardCalculatedFieldArray{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationSortConfigurationOutput{})
@@ -80930,6 +80991,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardArcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardArcOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardArcOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DashboardAttributeAggregationFunctionOutput{})
+	pulumi.RegisterOutputType(DashboardAttributeAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardAxisDataOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardAxisDataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardAxisDisplayDataDrivenRangeOutput{})
@@ -80983,6 +81046,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardBoxPlotStyleOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardBoxPlotVisualOutput{})
 	pulumi.RegisterOutputType(DashboardBoxPlotVisualPtrOutput{})
-	pulumi.RegisterOutputType(DashboardCalculatedFieldOutput{})
-	pulumi.RegisterOutputType(DashboardCalculatedFieldArrayOutput{})
 }

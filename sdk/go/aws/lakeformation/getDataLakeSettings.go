@@ -29,11 +29,13 @@ type LookupDataLakeSettingsArgs struct {
 type LookupDataLakeSettingsResult struct {
 	Admins                           *DataLakeSettingsAdmins                           `pulumi:"admins"`
 	AllowExternalDataFiltering       *bool                                             `pulumi:"allowExternalDataFiltering"`
+	AllowFullTableExternalDataAccess *bool                                             `pulumi:"allowFullTableExternalDataAccess"`
 	AuthorizedSessionTagValueList    []string                                          `pulumi:"authorizedSessionTagValueList"`
 	CreateDatabaseDefaultPermissions *DataLakeSettingsCreateDatabaseDefaultPermissions `pulumi:"createDatabaseDefaultPermissions"`
 	CreateTableDefaultPermissions    *DataLakeSettingsCreateTableDefaultPermissions    `pulumi:"createTableDefaultPermissions"`
 	ExternalDataFilteringAllowList   *DataLakeSettingsExternalDataFilteringAllowList   `pulumi:"externalDataFilteringAllowList"`
 	Id                               *string                                           `pulumi:"id"`
+	MutationType                     *string                                           `pulumi:"mutationType"`
 	Parameters                       interface{}                                       `pulumi:"parameters"`
 	TrustedResourceOwners            []string                                          `pulumi:"trustedResourceOwners"`
 }
@@ -81,6 +83,10 @@ func (o LookupDataLakeSettingsResultOutput) AllowExternalDataFiltering() pulumi.
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) *bool { return v.AllowExternalDataFiltering }).(pulumi.BoolPtrOutput)
 }
 
+func (o LookupDataLakeSettingsResultOutput) AllowFullTableExternalDataAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) *bool { return v.AllowFullTableExternalDataAccess }).(pulumi.BoolPtrOutput)
+}
+
 func (o LookupDataLakeSettingsResultOutput) AuthorizedSessionTagValueList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) []string { return v.AuthorizedSessionTagValueList }).(pulumi.StringArrayOutput)
 }
@@ -105,6 +111,10 @@ func (o LookupDataLakeSettingsResultOutput) ExternalDataFilteringAllowList() Dat
 
 func (o LookupDataLakeSettingsResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDataLakeSettingsResultOutput) MutationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) *string { return v.MutationType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDataLakeSettingsResultOutput) Parameters() pulumi.AnyOutput {

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dateTimeFormat")]
         public Input<string>? DateTimeFormat { get; set; }
 
+        [Input("infoIconLabelOptions")]
+        public Input<Inputs.TemplateSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
+
         [Input("titleOptions")]
         public Input<Inputs.TemplateLabelOptionsArgs>? TitleOptions { get; set; }
 

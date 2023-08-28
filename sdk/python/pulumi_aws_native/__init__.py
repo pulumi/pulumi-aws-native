@@ -465,6 +465,8 @@ if typing.TYPE_CHECKING:
     wisdom = __wisdom
     import pulumi_aws_native.workspaces as __workspaces
     workspaces = __workspaces
+    import pulumi_aws_native.workspacesweb as __workspacesweb
+    workspacesweb = __workspacesweb
     import pulumi_aws_native.xray as __xray
     xray = __xray
 else:
@@ -690,6 +692,7 @@ else:
     wafv2 = _utilities.lazy_import('pulumi_aws_native.wafv2')
     wisdom = _utilities.lazy_import('pulumi_aws_native.wisdom')
     workspaces = _utilities.lazy_import('pulumi_aws_native.workspaces')
+    workspacesweb = _utilities.lazy_import('pulumi_aws_native.workspacesweb')
     xray = _utilities.lazy_import('pulumi_aws_native.xray')
 
 _utilities.register(
@@ -1713,6 +1716,7 @@ _utilities.register(
   "mod": "entityresolution",
   "fqn": "pulumi_aws_native.entityresolution",
   "classes": {
+   "aws-native:entityresolution:MatchingWorkflow": "MatchingWorkflow",
    "aws-native:entityresolution:SchemaMapping": "SchemaMapping"
   }
  },
@@ -3369,6 +3373,21 @@ _utilities.register(
   "classes": {
    "aws-native:workspaces:ConnectionAlias": "ConnectionAlias",
    "aws-native:workspaces:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "workspacesweb",
+  "fqn": "pulumi_aws_native.workspacesweb",
+  "classes": {
+   "aws-native:workspacesweb:BrowserSettings": "BrowserSettings",
+   "aws-native:workspacesweb:IdentityProvider": "IdentityProvider",
+   "aws-native:workspacesweb:IpAccessSettings": "IpAccessSettings",
+   "aws-native:workspacesweb:NetworkSettings": "NetworkSettings",
+   "aws-native:workspacesweb:Portal": "Portal",
+   "aws-native:workspacesweb:TrustStore": "TrustStore",
+   "aws-native:workspacesweb:UserAccessLoggingSettings": "UserAccessLoggingSettings",
+   "aws-native:workspacesweb:UserSettings": "UserSettings"
   }
  },
  {

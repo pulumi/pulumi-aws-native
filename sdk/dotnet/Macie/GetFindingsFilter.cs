@@ -85,6 +85,10 @@ namespace Pulumi.AwsNative.Macie
         /// Findings filter position.
         /// </summary>
         public readonly int? Position;
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FindingsFilterTag> Tags;
 
         [OutputConstructor]
         private GetFindingsFilterResult(
@@ -100,7 +104,9 @@ namespace Pulumi.AwsNative.Macie
 
             string? name,
 
-            int? position)
+            int? position,
+
+            ImmutableArray<Outputs.FindingsFilterTag> tags)
         {
             Action = action;
             Arn = arn;
@@ -109,6 +115,7 @@ namespace Pulumi.AwsNative.Macie
             Id = id;
             Name = name;
             Position = position;
+            Tags = tags;
         }
     }
 }

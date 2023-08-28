@@ -52,7 +52,7 @@
     }
   },
   "additionalProperties" : false,
-  "createOnlyProperties" : [ "/properties/Strategy", "/properties/SpreadLevel", "/properties/PartitionCount" ],
+  "createOnlyProperties" : [ "/properties/Tags", "/properties/Strategy", "/properties/SpreadLevel", "/properties/PartitionCount" ],
   "primaryIdentifier" : [ "/properties/GroupName" ],
   "readOnlyProperties" : [ "/properties/GroupName" ],
   "tagging" : {

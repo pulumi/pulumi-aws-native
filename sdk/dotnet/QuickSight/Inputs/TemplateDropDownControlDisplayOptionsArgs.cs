@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDropDownControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("infoIconLabelOptions")]
+        public Input<Inputs.TemplateSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
+
         [Input("selectAllOptions")]
         public Input<Inputs.TemplateListControlSelectAllOptionsArgs>? SelectAllOptions { get; set; }
 

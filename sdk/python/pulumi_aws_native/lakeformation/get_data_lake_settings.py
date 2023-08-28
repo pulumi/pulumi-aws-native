@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataLakeSettingsResult:
-    def __init__(__self__, admins=None, allow_external_data_filtering=None, authorized_session_tag_value_list=None, create_database_default_permissions=None, create_table_default_permissions=None, external_data_filtering_allow_list=None, id=None, parameters=None, trusted_resource_owners=None):
+    def __init__(__self__, admins=None, allow_external_data_filtering=None, allow_full_table_external_data_access=None, authorized_session_tag_value_list=None, create_database_default_permissions=None, create_table_default_permissions=None, external_data_filtering_allow_list=None, id=None, mutation_type=None, parameters=None, trusted_resource_owners=None):
         if admins and not isinstance(admins, dict):
             raise TypeError("Expected argument 'admins' to be a dict")
         pulumi.set(__self__, "admins", admins)
         if allow_external_data_filtering and not isinstance(allow_external_data_filtering, bool):
             raise TypeError("Expected argument 'allow_external_data_filtering' to be a bool")
         pulumi.set(__self__, "allow_external_data_filtering", allow_external_data_filtering)
+        if allow_full_table_external_data_access and not isinstance(allow_full_table_external_data_access, bool):
+            raise TypeError("Expected argument 'allow_full_table_external_data_access' to be a bool")
+        pulumi.set(__self__, "allow_full_table_external_data_access", allow_full_table_external_data_access)
         if authorized_session_tag_value_list and not isinstance(authorized_session_tag_value_list, list):
             raise TypeError("Expected argument 'authorized_session_tag_value_list' to be a list")
         pulumi.set(__self__, "authorized_session_tag_value_list", authorized_session_tag_value_list)
@@ -41,6 +44,9 @@ class GetDataLakeSettingsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if mutation_type and not isinstance(mutation_type, str):
+            raise TypeError("Expected argument 'mutation_type' to be a str")
+        pulumi.set(__self__, "mutation_type", mutation_type)
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
         pulumi.set(__self__, "parameters", parameters)
@@ -57,6 +63,11 @@ class GetDataLakeSettingsResult:
     @pulumi.getter(name="allowExternalDataFiltering")
     def allow_external_data_filtering(self) -> Optional[bool]:
         return pulumi.get(self, "allow_external_data_filtering")
+
+    @property
+    @pulumi.getter(name="allowFullTableExternalDataAccess")
+    def allow_full_table_external_data_access(self) -> Optional[bool]:
+        return pulumi.get(self, "allow_full_table_external_data_access")
 
     @property
     @pulumi.getter(name="authorizedSessionTagValueList")
@@ -84,6 +95,11 @@ class GetDataLakeSettingsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="mutationType")
+    def mutation_type(self) -> Optional[str]:
+        return pulumi.get(self, "mutation_type")
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[Any]:
         return pulumi.get(self, "parameters")
@@ -102,11 +118,13 @@ class AwaitableGetDataLakeSettingsResult(GetDataLakeSettingsResult):
         return GetDataLakeSettingsResult(
             admins=self.admins,
             allow_external_data_filtering=self.allow_external_data_filtering,
+            allow_full_table_external_data_access=self.allow_full_table_external_data_access,
             authorized_session_tag_value_list=self.authorized_session_tag_value_list,
             create_database_default_permissions=self.create_database_default_permissions,
             create_table_default_permissions=self.create_table_default_permissions,
             external_data_filtering_allow_list=self.external_data_filtering_allow_list,
             id=self.id,
+            mutation_type=self.mutation_type,
             parameters=self.parameters,
             trusted_resource_owners=self.trusted_resource_owners)
 
@@ -124,11 +142,13 @@ def get_data_lake_settings(id: Optional[str] = None,
     return AwaitableGetDataLakeSettingsResult(
         admins=pulumi.get(__ret__, 'admins'),
         allow_external_data_filtering=pulumi.get(__ret__, 'allow_external_data_filtering'),
+        allow_full_table_external_data_access=pulumi.get(__ret__, 'allow_full_table_external_data_access'),
         authorized_session_tag_value_list=pulumi.get(__ret__, 'authorized_session_tag_value_list'),
         create_database_default_permissions=pulumi.get(__ret__, 'create_database_default_permissions'),
         create_table_default_permissions=pulumi.get(__ret__, 'create_table_default_permissions'),
         external_data_filtering_allow_list=pulumi.get(__ret__, 'external_data_filtering_allow_list'),
         id=pulumi.get(__ret__, 'id'),
+        mutation_type=pulumi.get(__ret__, 'mutation_type'),
         parameters=pulumi.get(__ret__, 'parameters'),
         trusted_resource_owners=pulumi.get(__ret__, 'trusted_resource_owners'))
 

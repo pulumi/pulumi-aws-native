@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetMatchingWorkflowArgs, GetMatchingWorkflowResult, GetMatchingWorkflowOutputArgs } from "./getMatchingWorkflow";
+export const getMatchingWorkflow: typeof import("./getMatchingWorkflow").getMatchingWorkflow = null as any;
+export const getMatchingWorkflowOutput: typeof import("./getMatchingWorkflow").getMatchingWorkflowOutput = null as any;
+utilities.lazyLoad(exports, ["getMatchingWorkflow","getMatchingWorkflowOutput"], () => require("./getMatchingWorkflow"));
+
 export { GetSchemaMappingArgs, GetSchemaMappingResult, GetSchemaMappingOutputArgs } from "./getSchemaMapping";
 export const getSchemaMapping: typeof import("./getSchemaMapping").getSchemaMapping = null as any;
 export const getSchemaMappingOutput: typeof import("./getSchemaMapping").getSchemaMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaMapping","getSchemaMappingOutput"], () => require("./getSchemaMapping"));
+
+export { MatchingWorkflowArgs } from "./matchingWorkflow";
+export type MatchingWorkflow = import("./matchingWorkflow").MatchingWorkflow;
+export const MatchingWorkflow: typeof import("./matchingWorkflow").MatchingWorkflow = null as any;
+utilities.lazyLoad(exports, ["MatchingWorkflow"], () => require("./matchingWorkflow"));
 
 export { SchemaMappingArgs } from "./schemaMapping";
 export type SchemaMapping = import("./schemaMapping").SchemaMapping;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:entityresolution:MatchingWorkflow":
+                return new MatchingWorkflow(name, <any>undefined, { urn })
             case "aws-native:entityresolution:SchemaMapping":
                 return new SchemaMapping(name, <any>undefined, { urn })
             default:

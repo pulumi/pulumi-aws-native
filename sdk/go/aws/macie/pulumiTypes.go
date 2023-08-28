@@ -395,6 +395,115 @@ func (o FindingsFilterFindingCriteriaPtrOutput) Criterion() FindingsFilterCriter
 	}).(FindingsFilterCriterionPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type FindingsFilterTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
+// FindingsFilterTagInput is an input type that accepts FindingsFilterTagArgs and FindingsFilterTagOutput values.
+// You can construct a concrete instance of `FindingsFilterTagInput` via:
+//
+//	FindingsFilterTagArgs{...}
+type FindingsFilterTagInput interface {
+	pulumi.Input
+
+	ToFindingsFilterTagOutput() FindingsFilterTagOutput
+	ToFindingsFilterTagOutputWithContext(context.Context) FindingsFilterTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type FindingsFilterTagArgs struct {
+	// The tag's key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag's value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FindingsFilterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FindingsFilterTag)(nil)).Elem()
+}
+
+func (i FindingsFilterTagArgs) ToFindingsFilterTagOutput() FindingsFilterTagOutput {
+	return i.ToFindingsFilterTagOutputWithContext(context.Background())
+}
+
+func (i FindingsFilterTagArgs) ToFindingsFilterTagOutputWithContext(ctx context.Context) FindingsFilterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterTagOutput)
+}
+
+// FindingsFilterTagArrayInput is an input type that accepts FindingsFilterTagArray and FindingsFilterTagArrayOutput values.
+// You can construct a concrete instance of `FindingsFilterTagArrayInput` via:
+//
+//	FindingsFilterTagArray{ FindingsFilterTagArgs{...} }
+type FindingsFilterTagArrayInput interface {
+	pulumi.Input
+
+	ToFindingsFilterTagArrayOutput() FindingsFilterTagArrayOutput
+	ToFindingsFilterTagArrayOutputWithContext(context.Context) FindingsFilterTagArrayOutput
+}
+
+type FindingsFilterTagArray []FindingsFilterTagInput
+
+func (FindingsFilterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FindingsFilterTag)(nil)).Elem()
+}
+
+func (i FindingsFilterTagArray) ToFindingsFilterTagArrayOutput() FindingsFilterTagArrayOutput {
+	return i.ToFindingsFilterTagArrayOutputWithContext(context.Background())
+}
+
+func (i FindingsFilterTagArray) ToFindingsFilterTagArrayOutputWithContext(ctx context.Context) FindingsFilterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type FindingsFilterTagOutput struct{ *pulumi.OutputState }
+
+func (FindingsFilterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FindingsFilterTag)(nil)).Elem()
+}
+
+func (o FindingsFilterTagOutput) ToFindingsFilterTagOutput() FindingsFilterTagOutput {
+	return o
+}
+
+func (o FindingsFilterTagOutput) ToFindingsFilterTagOutputWithContext(ctx context.Context) FindingsFilterTagOutput {
+	return o
+}
+
+// The tag's key.
+func (o FindingsFilterTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FindingsFilterTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag's value.
+func (o FindingsFilterTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FindingsFilterTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FindingsFilterTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FindingsFilterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FindingsFilterTag)(nil)).Elem()
+}
+
+func (o FindingsFilterTagArrayOutput) ToFindingsFilterTagArrayOutput() FindingsFilterTagArrayOutput {
+	return o
+}
+
+func (o FindingsFilterTagArrayOutput) ToFindingsFilterTagArrayOutputWithContext(ctx context.Context) FindingsFilterTagArrayOutput {
+	return o
+}
+
+func (o FindingsFilterTagArrayOutput) Index(i pulumi.IntInput) FindingsFilterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FindingsFilterTag {
+		return vs[0].([]FindingsFilterTag)[vs[1].(int)]
+	}).(FindingsFilterTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListCriteriaInput)(nil)).Elem(), AllowListCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListTagInput)(nil)).Elem(), AllowListTagArgs{})
@@ -402,6 +511,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionPtrInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterTagInput)(nil)).Elem(), FindingsFilterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterTagArrayInput)(nil)).Elem(), FindingsFilterTagArray{})
 	pulumi.RegisterOutputType(AllowListCriteriaOutput{})
 	pulumi.RegisterOutputType(AllowListCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(AllowListTagOutput{})
@@ -410,4 +521,6 @@ func init() {
 	pulumi.RegisterOutputType(FindingsFilterCriterionPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(FindingsFilterTagOutput{})
+	pulumi.RegisterOutputType(FindingsFilterTagArrayOutput{})
 }

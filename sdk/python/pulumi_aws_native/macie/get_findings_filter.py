@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFindingsFilterResult:
-    def __init__(__self__, action=None, arn=None, description=None, finding_criteria=None, id=None, name=None, position=None):
+    def __init__(__self__, action=None, arn=None, description=None, finding_criteria=None, id=None, name=None, position=None, tags=None):
         if action and not isinstance(action, str):
             raise TypeError("Expected argument 'action' to be a str")
         pulumi.set(__self__, "action", action)
@@ -42,6 +42,9 @@ class GetFindingsFilterResult:
         if position and not isinstance(position, int):
             raise TypeError("Expected argument 'position' to be a int")
         pulumi.set(__self__, "position", position)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -99,6 +102,14 @@ class GetFindingsFilterResult:
         """
         return pulumi.get(self, "position")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.FindingsFilterTag']]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetFindingsFilterResult(GetFindingsFilterResult):
     # pylint: disable=using-constant-test
@@ -112,7 +123,8 @@ class AwaitableGetFindingsFilterResult(GetFindingsFilterResult):
             finding_criteria=self.finding_criteria,
             id=self.id,
             name=self.name,
-            position=self.position)
+            position=self.position,
+            tags=self.tags)
 
 
 def get_findings_filter(id: Optional[str] = None,
@@ -135,7 +147,8 @@ def get_findings_filter(id: Optional[str] = None,
         finding_criteria=pulumi.get(__ret__, 'finding_criteria'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        position=pulumi.get(__ret__, 'position'))
+        position=pulumi.get(__ret__, 'position'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_findings_filter)

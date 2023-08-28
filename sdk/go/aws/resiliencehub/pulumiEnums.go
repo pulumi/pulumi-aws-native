@@ -175,6 +175,428 @@ func (in *appAssessmentSchedulePtr) ToAppAssessmentSchedulePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(AppAssessmentSchedulePtrOutput)
 }
 
+// Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+type AppDriftStatus string
+
+const (
+	AppDriftStatusNotChecked  = AppDriftStatus("NotChecked")
+	AppDriftStatusNotDetected = AppDriftStatus("NotDetected")
+	AppDriftStatusDetected    = AppDriftStatus("Detected")
+)
+
+type AppDriftStatusOutput struct{ *pulumi.OutputState }
+
+func (AppDriftStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppDriftStatus)(nil)).Elem()
+}
+
+func (o AppDriftStatusOutput) ToAppDriftStatusOutput() AppDriftStatusOutput {
+	return o
+}
+
+func (o AppDriftStatusOutput) ToAppDriftStatusOutputWithContext(ctx context.Context) AppDriftStatusOutput {
+	return o
+}
+
+func (o AppDriftStatusOutput) ToAppDriftStatusPtrOutput() AppDriftStatusPtrOutput {
+	return o.ToAppDriftStatusPtrOutputWithContext(context.Background())
+}
+
+func (o AppDriftStatusOutput) ToAppDriftStatusPtrOutputWithContext(ctx context.Context) AppDriftStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppDriftStatus) *AppDriftStatus {
+		return &v
+	}).(AppDriftStatusPtrOutput)
+}
+
+func (o AppDriftStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppDriftStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppDriftStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppDriftStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppDriftStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppDriftStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppDriftStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AppDriftStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppDriftStatus)(nil)).Elem()
+}
+
+func (o AppDriftStatusPtrOutput) ToAppDriftStatusPtrOutput() AppDriftStatusPtrOutput {
+	return o
+}
+
+func (o AppDriftStatusPtrOutput) ToAppDriftStatusPtrOutputWithContext(ctx context.Context) AppDriftStatusPtrOutput {
+	return o
+}
+
+func (o AppDriftStatusPtrOutput) Elem() AppDriftStatusOutput {
+	return o.ApplyT(func(v *AppDriftStatus) AppDriftStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AppDriftStatus
+		return ret
+	}).(AppDriftStatusOutput)
+}
+
+func (o AppDriftStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppDriftStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppDriftStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of event you would like to subscribe and get notification for.
+type AppEventSubscriptionEventType string
+
+const (
+	AppEventSubscriptionEventTypeScheduledAssessmentFailure = AppEventSubscriptionEventType("ScheduledAssessmentFailure")
+	AppEventSubscriptionEventTypeDriftDetected              = AppEventSubscriptionEventType("DriftDetected")
+)
+
+func (AppEventSubscriptionEventType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppEventSubscriptionEventType)(nil)).Elem()
+}
+
+func (e AppEventSubscriptionEventType) ToAppEventSubscriptionEventTypeOutput() AppEventSubscriptionEventTypeOutput {
+	return pulumi.ToOutput(e).(AppEventSubscriptionEventTypeOutput)
+}
+
+func (e AppEventSubscriptionEventType) ToAppEventSubscriptionEventTypeOutputWithContext(ctx context.Context) AppEventSubscriptionEventTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppEventSubscriptionEventTypeOutput)
+}
+
+func (e AppEventSubscriptionEventType) ToAppEventSubscriptionEventTypePtrOutput() AppEventSubscriptionEventTypePtrOutput {
+	return e.ToAppEventSubscriptionEventTypePtrOutputWithContext(context.Background())
+}
+
+func (e AppEventSubscriptionEventType) ToAppEventSubscriptionEventTypePtrOutputWithContext(ctx context.Context) AppEventSubscriptionEventTypePtrOutput {
+	return AppEventSubscriptionEventType(e).ToAppEventSubscriptionEventTypeOutputWithContext(ctx).ToAppEventSubscriptionEventTypePtrOutputWithContext(ctx)
+}
+
+func (e AppEventSubscriptionEventType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppEventSubscriptionEventType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppEventSubscriptionEventType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppEventSubscriptionEventType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppEventSubscriptionEventTypeOutput struct{ *pulumi.OutputState }
+
+func (AppEventSubscriptionEventTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppEventSubscriptionEventType)(nil)).Elem()
+}
+
+func (o AppEventSubscriptionEventTypeOutput) ToAppEventSubscriptionEventTypeOutput() AppEventSubscriptionEventTypeOutput {
+	return o
+}
+
+func (o AppEventSubscriptionEventTypeOutput) ToAppEventSubscriptionEventTypeOutputWithContext(ctx context.Context) AppEventSubscriptionEventTypeOutput {
+	return o
+}
+
+func (o AppEventSubscriptionEventTypeOutput) ToAppEventSubscriptionEventTypePtrOutput() AppEventSubscriptionEventTypePtrOutput {
+	return o.ToAppEventSubscriptionEventTypePtrOutputWithContext(context.Background())
+}
+
+func (o AppEventSubscriptionEventTypeOutput) ToAppEventSubscriptionEventTypePtrOutputWithContext(ctx context.Context) AppEventSubscriptionEventTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppEventSubscriptionEventType) *AppEventSubscriptionEventType {
+		return &v
+	}).(AppEventSubscriptionEventTypePtrOutput)
+}
+
+func (o AppEventSubscriptionEventTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppEventSubscriptionEventTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppEventSubscriptionEventType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppEventSubscriptionEventTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppEventSubscriptionEventTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppEventSubscriptionEventType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppEventSubscriptionEventTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AppEventSubscriptionEventTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppEventSubscriptionEventType)(nil)).Elem()
+}
+
+func (o AppEventSubscriptionEventTypePtrOutput) ToAppEventSubscriptionEventTypePtrOutput() AppEventSubscriptionEventTypePtrOutput {
+	return o
+}
+
+func (o AppEventSubscriptionEventTypePtrOutput) ToAppEventSubscriptionEventTypePtrOutputWithContext(ctx context.Context) AppEventSubscriptionEventTypePtrOutput {
+	return o
+}
+
+func (o AppEventSubscriptionEventTypePtrOutput) Elem() AppEventSubscriptionEventTypeOutput {
+	return o.ApplyT(func(v *AppEventSubscriptionEventType) AppEventSubscriptionEventType {
+		if v != nil {
+			return *v
+		}
+		var ret AppEventSubscriptionEventType
+		return ret
+	}).(AppEventSubscriptionEventTypeOutput)
+}
+
+func (o AppEventSubscriptionEventTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppEventSubscriptionEventTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppEventSubscriptionEventType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppEventSubscriptionEventTypeInput is an input type that accepts AppEventSubscriptionEventTypeArgs and AppEventSubscriptionEventTypeOutput values.
+// You can construct a concrete instance of `AppEventSubscriptionEventTypeInput` via:
+//
+//	AppEventSubscriptionEventTypeArgs{...}
+type AppEventSubscriptionEventTypeInput interface {
+	pulumi.Input
+
+	ToAppEventSubscriptionEventTypeOutput() AppEventSubscriptionEventTypeOutput
+	ToAppEventSubscriptionEventTypeOutputWithContext(context.Context) AppEventSubscriptionEventTypeOutput
+}
+
+var appEventSubscriptionEventTypePtrType = reflect.TypeOf((**AppEventSubscriptionEventType)(nil)).Elem()
+
+type AppEventSubscriptionEventTypePtrInput interface {
+	pulumi.Input
+
+	ToAppEventSubscriptionEventTypePtrOutput() AppEventSubscriptionEventTypePtrOutput
+	ToAppEventSubscriptionEventTypePtrOutputWithContext(context.Context) AppEventSubscriptionEventTypePtrOutput
+}
+
+type appEventSubscriptionEventTypePtr string
+
+func AppEventSubscriptionEventTypePtr(v string) AppEventSubscriptionEventTypePtrInput {
+	return (*appEventSubscriptionEventTypePtr)(&v)
+}
+
+func (*appEventSubscriptionEventTypePtr) ElementType() reflect.Type {
+	return appEventSubscriptionEventTypePtrType
+}
+
+func (in *appEventSubscriptionEventTypePtr) ToAppEventSubscriptionEventTypePtrOutput() AppEventSubscriptionEventTypePtrOutput {
+	return pulumi.ToOutput(in).(AppEventSubscriptionEventTypePtrOutput)
+}
+
+func (in *appEventSubscriptionEventTypePtr) ToAppEventSubscriptionEventTypePtrOutputWithContext(ctx context.Context) AppEventSubscriptionEventTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppEventSubscriptionEventTypePtrOutput)
+}
+
+// Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+type AppPermissionModelType string
+
+const (
+	AppPermissionModelTypeLegacyIamUser = AppPermissionModelType("LegacyIAMUser")
+	AppPermissionModelTypeRoleBased     = AppPermissionModelType("RoleBased")
+)
+
+func (AppPermissionModelType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppPermissionModelType)(nil)).Elem()
+}
+
+func (e AppPermissionModelType) ToAppPermissionModelTypeOutput() AppPermissionModelTypeOutput {
+	return pulumi.ToOutput(e).(AppPermissionModelTypeOutput)
+}
+
+func (e AppPermissionModelType) ToAppPermissionModelTypeOutputWithContext(ctx context.Context) AppPermissionModelTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppPermissionModelTypeOutput)
+}
+
+func (e AppPermissionModelType) ToAppPermissionModelTypePtrOutput() AppPermissionModelTypePtrOutput {
+	return e.ToAppPermissionModelTypePtrOutputWithContext(context.Background())
+}
+
+func (e AppPermissionModelType) ToAppPermissionModelTypePtrOutputWithContext(ctx context.Context) AppPermissionModelTypePtrOutput {
+	return AppPermissionModelType(e).ToAppPermissionModelTypeOutputWithContext(ctx).ToAppPermissionModelTypePtrOutputWithContext(ctx)
+}
+
+func (e AppPermissionModelType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppPermissionModelType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppPermissionModelType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppPermissionModelType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppPermissionModelTypeOutput struct{ *pulumi.OutputState }
+
+func (AppPermissionModelTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppPermissionModelType)(nil)).Elem()
+}
+
+func (o AppPermissionModelTypeOutput) ToAppPermissionModelTypeOutput() AppPermissionModelTypeOutput {
+	return o
+}
+
+func (o AppPermissionModelTypeOutput) ToAppPermissionModelTypeOutputWithContext(ctx context.Context) AppPermissionModelTypeOutput {
+	return o
+}
+
+func (o AppPermissionModelTypeOutput) ToAppPermissionModelTypePtrOutput() AppPermissionModelTypePtrOutput {
+	return o.ToAppPermissionModelTypePtrOutputWithContext(context.Background())
+}
+
+func (o AppPermissionModelTypeOutput) ToAppPermissionModelTypePtrOutputWithContext(ctx context.Context) AppPermissionModelTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppPermissionModelType) *AppPermissionModelType {
+		return &v
+	}).(AppPermissionModelTypePtrOutput)
+}
+
+func (o AppPermissionModelTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppPermissionModelTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppPermissionModelType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppPermissionModelTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppPermissionModelTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppPermissionModelType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppPermissionModelTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AppPermissionModelTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppPermissionModelType)(nil)).Elem()
+}
+
+func (o AppPermissionModelTypePtrOutput) ToAppPermissionModelTypePtrOutput() AppPermissionModelTypePtrOutput {
+	return o
+}
+
+func (o AppPermissionModelTypePtrOutput) ToAppPermissionModelTypePtrOutputWithContext(ctx context.Context) AppPermissionModelTypePtrOutput {
+	return o
+}
+
+func (o AppPermissionModelTypePtrOutput) Elem() AppPermissionModelTypeOutput {
+	return o.ApplyT(func(v *AppPermissionModelType) AppPermissionModelType {
+		if v != nil {
+			return *v
+		}
+		var ret AppPermissionModelType
+		return ret
+	}).(AppPermissionModelTypeOutput)
+}
+
+func (o AppPermissionModelTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppPermissionModelTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppPermissionModelType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppPermissionModelTypeInput is an input type that accepts AppPermissionModelTypeArgs and AppPermissionModelTypeOutput values.
+// You can construct a concrete instance of `AppPermissionModelTypeInput` via:
+//
+//	AppPermissionModelTypeArgs{...}
+type AppPermissionModelTypeInput interface {
+	pulumi.Input
+
+	ToAppPermissionModelTypeOutput() AppPermissionModelTypeOutput
+	ToAppPermissionModelTypeOutputWithContext(context.Context) AppPermissionModelTypeOutput
+}
+
+var appPermissionModelTypePtrType = reflect.TypeOf((**AppPermissionModelType)(nil)).Elem()
+
+type AppPermissionModelTypePtrInput interface {
+	pulumi.Input
+
+	ToAppPermissionModelTypePtrOutput() AppPermissionModelTypePtrOutput
+	ToAppPermissionModelTypePtrOutputWithContext(context.Context) AppPermissionModelTypePtrOutput
+}
+
+type appPermissionModelTypePtr string
+
+func AppPermissionModelTypePtr(v string) AppPermissionModelTypePtrInput {
+	return (*appPermissionModelTypePtr)(&v)
+}
+
+func (*appPermissionModelTypePtr) ElementType() reflect.Type {
+	return appPermissionModelTypePtrType
+}
+
+func (in *appPermissionModelTypePtr) ToAppPermissionModelTypePtrOutput() AppPermissionModelTypePtrOutput {
+	return pulumi.ToOutput(in).(AppPermissionModelTypePtrOutput)
+}
+
+func (in *appPermissionModelTypePtr) ToAppPermissionModelTypePtrOutputWithContext(ctx context.Context) AppPermissionModelTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppPermissionModelTypePtrOutput)
+}
+
 // Data Location Constraint of the Policy.
 type ResiliencyPolicyDataLocationConstraint string
 
@@ -512,12 +934,22 @@ func (in *resiliencyPolicyTierPtr) ToResiliencyPolicyTierPtrOutputWithContext(ct
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAssessmentScheduleInput)(nil)).Elem(), AppAssessmentSchedule("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAssessmentSchedulePtrInput)(nil)).Elem(), AppAssessmentSchedule("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppEventSubscriptionEventTypeInput)(nil)).Elem(), AppEventSubscriptionEventType("ScheduledAssessmentFailure"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppEventSubscriptionEventTypePtrInput)(nil)).Elem(), AppEventSubscriptionEventType("ScheduledAssessmentFailure"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppPermissionModelTypeInput)(nil)).Elem(), AppPermissionModelType("LegacyIAMUser"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppPermissionModelTypePtrInput)(nil)).Elem(), AppPermissionModelType("LegacyIAMUser"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyDataLocationConstraintInput)(nil)).Elem(), ResiliencyPolicyDataLocationConstraint("AnyLocation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyDataLocationConstraintPtrInput)(nil)).Elem(), ResiliencyPolicyDataLocationConstraint("AnyLocation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTierInput)(nil)).Elem(), ResiliencyPolicyTier("MissionCritical"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTierPtrInput)(nil)).Elem(), ResiliencyPolicyTier("MissionCritical"))
 	pulumi.RegisterOutputType(AppAssessmentScheduleOutput{})
 	pulumi.RegisterOutputType(AppAssessmentSchedulePtrOutput{})
+	pulumi.RegisterOutputType(AppDriftStatusOutput{})
+	pulumi.RegisterOutputType(AppDriftStatusPtrOutput{})
+	pulumi.RegisterOutputType(AppEventSubscriptionEventTypeOutput{})
+	pulumi.RegisterOutputType(AppEventSubscriptionEventTypePtrOutput{})
+	pulumi.RegisterOutputType(AppPermissionModelTypeOutput{})
+	pulumi.RegisterOutputType(AppPermissionModelTypePtrOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyDataLocationConstraintOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyDataLocationConstraintPtrOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyTierOutput{})

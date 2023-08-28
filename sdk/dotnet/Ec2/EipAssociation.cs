@@ -10,38 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource schema for EC2 EIP association.
+    /// Resource Type definition for AWS::EC2::EIPAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:EipAssociation")]
     public partial class EipAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The allocation ID. This is required for EC2-VPC.
-        /// </summary>
         [Output("allocationId")]
         public Output<string?> AllocationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Elastic IP address to associate with the instance.
-        /// </summary>
         [Output("eip")]
         public Output<string?> Eip { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the instance.
-        /// </summary>
         [Output("instanceId")]
         public Output<string?> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the network interface.
-        /// </summary>
         [Output("networkInterfaceId")]
         public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The primary or secondary private IP address to associate with the Elastic IP address.
-        /// </summary>
         [Output("privateIpAddress")]
         public Output<string?> PrivateIpAddress { get; private set; } = null!;
 
@@ -90,33 +75,18 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class EipAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The allocation ID. This is required for EC2-VPC.
-        /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
-        /// <summary>
-        /// The Elastic IP address to associate with the instance.
-        /// </summary>
         [Input("eip")]
         public Input<string>? Eip { get; set; }
 
-        /// <summary>
-        /// The ID of the instance.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// The ID of the network interface.
-        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
-        /// <summary>
-        /// The primary or secondary private IP address to associate with the Elastic IP address.
-        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 

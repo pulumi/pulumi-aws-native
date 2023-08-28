@@ -12,12 +12,143 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AppEventSubscription',
+    'AppPermissionModel',
     'AppPhysicalResourceId',
     'AppResourceMapping',
     'AppTagMap',
     'ResiliencyPolicyPolicyMap',
     'ResiliencyPolicyTagMap',
 ]
+
+@pulumi.output_type
+class AppEventSubscription(dict):
+    """
+    Indicates an event you would like to subscribe and get notification for.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "snsTopicArn":
+            suggest = "sns_topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppEventSubscription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppEventSubscription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppEventSubscription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_type: 'AppEventSubscriptionEventType',
+                 name: str,
+                 sns_topic_arn: Optional[str] = None):
+        """
+        Indicates an event you would like to subscribe and get notification for.
+        :param 'AppEventSubscriptionEventType' event_type: The type of event you would like to subscribe and get notification for.
+        :param str name: Unique name to identify an event subscription.
+        :param str sns_topic_arn: Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "name", name)
+        if sns_topic_arn is not None:
+            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> 'AppEventSubscriptionEventType':
+        """
+        The type of event you would like to subscribe and get notification for.
+        """
+        return pulumi.get(self, "event_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Unique name to identify an event subscription.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
+        """
+        return pulumi.get(self, "sns_topic_arn")
+
+
+@pulumi.output_type
+class AppPermissionModel(dict):
+    """
+    Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossAccountRoleArns":
+            suggest = "cross_account_role_arns"
+        elif key == "invokerRoleName":
+            suggest = "invoker_role_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppPermissionModel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppPermissionModel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppPermissionModel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'AppPermissionModelType',
+                 cross_account_role_arns: Optional[Sequence[str]] = None,
+                 invoker_role_name: Optional[str] = None):
+        """
+        Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+        :param 'AppPermissionModelType' type: Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+        :param Sequence[str] cross_account_role_arns: Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
+        :param str invoker_role_name: Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
+        """
+        pulumi.set(__self__, "type", type)
+        if cross_account_role_arns is not None:
+            pulumi.set(__self__, "cross_account_role_arns", cross_account_role_arns)
+        if invoker_role_name is not None:
+            pulumi.set(__self__, "invoker_role_name", invoker_role_name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AppPermissionModelType':
+        """
+        Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="crossAccountRoleArns")
+    def cross_account_role_arns(self) -> Optional[Sequence[str]]:
+        """
+        Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
+        """
+        return pulumi.get(self, "cross_account_role_arns")
+
+    @property
+    @pulumi.getter(name="invokerRoleName")
+    def invoker_role_name(self) -> Optional[str]:
+        """
+        Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
+        """
+        return pulumi.get(self, "invoker_role_name")
+
 
 @pulumi.output_type
 class AppPhysicalResourceId(dict):

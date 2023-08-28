@@ -36,6 +36,7 @@ export interface GetFleetResult {
     readonly imageName?: string;
     readonly instanceType?: string;
     readonly maxConcurrentSessions?: number;
+    readonly maxSessionsPerInstance?: number;
     readonly maxUserDurationInSeconds?: number;
     readonly platform?: string;
     readonly sessionScriptS3Location?: outputs.appstream.FleetS3Location;

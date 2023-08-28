@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, compute_capacity=None, description=None, disconnect_timeout_in_seconds=None, display_name=None, domain_join_info=None, enable_default_internet_access=None, iam_role_arn=None, id=None, idle_disconnect_timeout_in_seconds=None, image_arn=None, image_name=None, instance_type=None, max_concurrent_sessions=None, max_user_duration_in_seconds=None, platform=None, session_script_s3_location=None, stream_view=None, tags=None, usb_device_filter_strings=None, vpc_config=None):
+    def __init__(__self__, compute_capacity=None, description=None, disconnect_timeout_in_seconds=None, display_name=None, domain_join_info=None, enable_default_internet_access=None, iam_role_arn=None, id=None, idle_disconnect_timeout_in_seconds=None, image_arn=None, image_name=None, instance_type=None, max_concurrent_sessions=None, max_sessions_per_instance=None, max_user_duration_in_seconds=None, platform=None, session_script_s3_location=None, stream_view=None, tags=None, usb_device_filter_strings=None, vpc_config=None):
         if compute_capacity and not isinstance(compute_capacity, dict):
             raise TypeError("Expected argument 'compute_capacity' to be a dict")
         pulumi.set(__self__, "compute_capacity", compute_capacity)
@@ -59,6 +59,9 @@ class GetFleetResult:
         if max_concurrent_sessions and not isinstance(max_concurrent_sessions, int):
             raise TypeError("Expected argument 'max_concurrent_sessions' to be a int")
         pulumi.set(__self__, "max_concurrent_sessions", max_concurrent_sessions)
+        if max_sessions_per_instance and not isinstance(max_sessions_per_instance, int):
+            raise TypeError("Expected argument 'max_sessions_per_instance' to be a int")
+        pulumi.set(__self__, "max_sessions_per_instance", max_sessions_per_instance)
         if max_user_duration_in_seconds and not isinstance(max_user_duration_in_seconds, int):
             raise TypeError("Expected argument 'max_user_duration_in_seconds' to be a int")
         pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
@@ -147,6 +150,11 @@ class GetFleetResult:
         return pulumi.get(self, "max_concurrent_sessions")
 
     @property
+    @pulumi.getter(name="maxSessionsPerInstance")
+    def max_sessions_per_instance(self) -> Optional[int]:
+        return pulumi.get(self, "max_sessions_per_instance")
+
+    @property
     @pulumi.getter(name="maxUserDurationInSeconds")
     def max_user_duration_in_seconds(self) -> Optional[int]:
         return pulumi.get(self, "max_user_duration_in_seconds")
@@ -201,6 +209,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             image_name=self.image_name,
             instance_type=self.instance_type,
             max_concurrent_sessions=self.max_concurrent_sessions,
+            max_sessions_per_instance=self.max_sessions_per_instance,
             max_user_duration_in_seconds=self.max_user_duration_in_seconds,
             platform=self.platform,
             session_script_s3_location=self.session_script_s3_location,
@@ -234,6 +243,7 @@ def get_fleet(id: Optional[str] = None,
         image_name=pulumi.get(__ret__, 'image_name'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         max_concurrent_sessions=pulumi.get(__ret__, 'max_concurrent_sessions'),
+        max_sessions_per_instance=pulumi.get(__ret__, 'max_sessions_per_instance'),
         max_user_duration_in_seconds=pulumi.get(__ret__, 'max_user_duration_in_seconds'),
         platform=pulumi.get(__ret__, 'platform'),
         session_script_s3_location=pulumi.get(__ret__, 'session_script_s3_location'),

@@ -43,6 +43,15 @@ export interface GetAppResult {
      */
     readonly description?: string;
     /**
+     * Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+     */
+    readonly driftStatus?: enums.resiliencehub.AppDriftStatus;
+    /**
+     * The list of events you would like to subscribe and get notification for.
+     */
+    readonly eventSubscriptions?: outputs.resiliencehub.AppEventSubscription[];
+    readonly permissionModel?: outputs.resiliencehub.AppPermissionModel;
+    /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
     readonly resiliencyPolicyArn?: string;

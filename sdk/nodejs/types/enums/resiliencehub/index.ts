@@ -12,6 +12,37 @@ export const AppAssessmentSchedule = {
  */
 export type AppAssessmentSchedule = (typeof AppAssessmentSchedule)[keyof typeof AppAssessmentSchedule];
 
+export const AppDriftStatus = {
+    NotChecked: "NotChecked",
+    NotDetected: "NotDetected",
+    Detected: "Detected",
+} as const;
+
+/**
+ * Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+ */
+export type AppDriftStatus = (typeof AppDriftStatus)[keyof typeof AppDriftStatus];
+
+export const AppEventSubscriptionEventType = {
+    ScheduledAssessmentFailure: "ScheduledAssessmentFailure",
+    DriftDetected: "DriftDetected",
+} as const;
+
+/**
+ * The type of event you would like to subscribe and get notification for.
+ */
+export type AppEventSubscriptionEventType = (typeof AppEventSubscriptionEventType)[keyof typeof AppEventSubscriptionEventType];
+
+export const AppPermissionModelType = {
+    LegacyIamUser: "LegacyIAMUser",
+    RoleBased: "RoleBased",
+} as const;
+
+/**
+ * Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+ */
+export type AppPermissionModelType = (typeof AppPermissionModelType)[keyof typeof AppPermissionModelType];
+
 export const ResiliencyPolicyDataLocationConstraint = {
     AnyLocation: "AnyLocation",
     SameContinent: "SameContinent",

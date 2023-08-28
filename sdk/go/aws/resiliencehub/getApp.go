@@ -36,6 +36,11 @@ type LookupAppResult struct {
 	AppTemplateBody *string `pulumi:"appTemplateBody"`
 	// App description.
 	Description *string `pulumi:"description"`
+	// Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+	DriftStatus *AppDriftStatus `pulumi:"driftStatus"`
+	// The list of events you would like to subscribe and get notification for.
+	EventSubscriptions []AppEventSubscription `pulumi:"eventSubscriptions"`
+	PermissionModel    *AppPermissionModel    `pulumi:"permissionModel"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn *string `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
@@ -97,6 +102,20 @@ func (o LookupAppResultOutput) AppTemplateBody() pulumi.StringPtrOutput {
 // App description.
 func (o LookupAppResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+func (o LookupAppResultOutput) DriftStatus() AppDriftStatusPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *AppDriftStatus { return v.DriftStatus }).(AppDriftStatusPtrOutput)
+}
+
+// The list of events you would like to subscribe and get notification for.
+func (o LookupAppResultOutput) EventSubscriptions() AppEventSubscriptionArrayOutput {
+	return o.ApplyT(func(v LookupAppResult) []AppEventSubscription { return v.EventSubscriptions }).(AppEventSubscriptionArrayOutput)
+}
+
+func (o LookupAppResultOutput) PermissionModel() AppPermissionModelPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *AppPermissionModel { return v.PermissionModel }).(AppPermissionModelPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the Resiliency Policy.

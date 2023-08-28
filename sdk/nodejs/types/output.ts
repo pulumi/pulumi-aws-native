@@ -3748,7 +3748,8 @@ export namespace appstream {
     }
 
     export interface FleetComputeCapacity {
-        desiredInstances: number;
+        desiredInstances?: number;
+        desiredSessions?: number;
     }
 
     export interface FleetDomainJoinInfo {
@@ -15869,6 +15870,59 @@ export namespace emrserverless {
 }
 
 export namespace entityresolution {
+    export interface MatchingWorkflowInputSource {
+        applyNormalization?: boolean;
+        /**
+         * An Glue table ARN for the input source table
+         */
+        inputSourceArn: string;
+        schemaArn: string;
+    }
+
+    export interface MatchingWorkflowOutputAttribute {
+        hashed?: boolean;
+        name: string;
+    }
+
+    export interface MatchingWorkflowOutputSource {
+        applyNormalization?: boolean;
+        kmsArn?: string;
+        output: outputs.entityresolution.MatchingWorkflowOutputAttribute[];
+        /**
+         * The S3 path to which Entity Resolution will write the output table
+         */
+        outputS3Path: string;
+    }
+
+    export interface MatchingWorkflowResolutionTechniques {
+        resolutionType?: enums.entityresolution.MatchingWorkflowResolutionTechniquesResolutionType;
+        ruleBasedProperties?: outputs.entityresolution.MatchingWorkflowRuleBasedProperties;
+    }
+
+    export interface MatchingWorkflowRule {
+        matchingKeys: string[];
+        ruleName: string;
+    }
+
+    export interface MatchingWorkflowRuleBasedProperties {
+        attributeMatchingModel: enums.entityresolution.MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel;
+        rules: outputs.entityresolution.MatchingWorkflowRule[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource
+     */
+    export interface MatchingWorkflowTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
     export interface SchemaMappingSchemaInputAttribute {
         fieldName: string;
         groupName?: string;
@@ -27215,6 +27269,20 @@ export namespace macie {
         criterion?: outputs.macie.FindingsFilterCriterion;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface FindingsFilterTag {
+        /**
+         * The tag's key.
+         */
+        key: string;
+        /**
+         * The tag's value.
+         */
+        value: string;
+    }
+
 }
 
 export namespace managedblockchain {
@@ -35829,6 +35897,7 @@ export namespace quicksight {
     }
 
     export interface DashboardAggregationFunction {
+        attributeAggregationFunction?: outputs.quicksight.DashboardAttributeAggregationFunction;
         categoricalAggregationFunction?: enums.quicksight.DashboardCategoricalAggregationFunction;
         dateAggregationFunction?: enums.quicksight.DashboardDateAggregationFunction;
         numericalAggregationFunction?: outputs.quicksight.DashboardNumericalAggregationFunction;
@@ -35866,6 +35935,11 @@ export namespace quicksight {
 
     export interface DashboardArcOptions {
         arcThickness?: enums.quicksight.DashboardArcThickness;
+    }
+
+    export interface DashboardAttributeAggregationFunction {
+        simpleAttributeAggregation?: enums.quicksight.DashboardSimpleAttributeAggregationFunction;
+        valueForMultipleValues?: string;
     }
 
     export interface DashboardAxisDataOptions {
@@ -39618,6 +39692,7 @@ export namespace quicksight {
     }
 
     export interface TemplateAggregationFunction {
+        attributeAggregationFunction?: outputs.quicksight.TemplateAttributeAggregationFunction;
         categoricalAggregationFunction?: enums.quicksight.TemplateCategoricalAggregationFunction;
         dateAggregationFunction?: enums.quicksight.TemplateDateAggregationFunction;
         numericalAggregationFunction?: outputs.quicksight.TemplateNumericalAggregationFunction;
@@ -39627,6 +39702,9 @@ export namespace quicksight {
         aggregationFunction?: outputs.quicksight.TemplateAggregationFunction;
         column: outputs.quicksight.TemplateColumnIdentifier;
         sortDirection: enums.quicksight.TemplateSortDirection;
+    }
+
+    export interface TemplateAllSheetsFilterScopeConfiguration {
     }
 
     export interface TemplateAnalysisDefaults {
@@ -39655,6 +39733,11 @@ export namespace quicksight {
 
     export interface TemplateArcOptions {
         arcThickness?: enums.quicksight.TemplateArcThickness;
+    }
+
+    export interface TemplateAttributeAggregationFunction {
+        simpleAttributeAggregation?: enums.quicksight.TemplateSimpleAttributeAggregationFunction;
+        valueForMultipleValues?: string;
     }
 
     export interface TemplateAxisDataOptions {
@@ -40271,6 +40354,7 @@ export namespace quicksight {
 
     export interface TemplateDateTimePickerControlDisplayOptions {
         dateTimeFormat?: string;
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
 
@@ -40358,6 +40442,7 @@ export namespace quicksight {
     }
 
     export interface TemplateDropDownControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         selectAllOptions?: outputs.quicksight.TemplateListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
@@ -40554,6 +40639,7 @@ export namespace quicksight {
     }
 
     export interface TemplateFilterScopeConfiguration {
+        allSheets?: outputs.quicksight.TemplateAllSheetsFilterScopeConfiguration;
         selectedSheets?: outputs.quicksight.TemplateSelectedSheetsFilterScopeConfiguration;
     }
 
@@ -40612,7 +40698,7 @@ export namespace quicksight {
         periodsForward?: number;
         predictionInterval?: number;
         seasonality?: enums.quicksight.TemplateForecastComputationSeasonality;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         upperBoundary?: number;
         value?: outputs.quicksight.TemplateMeasureField;
     }
@@ -40889,7 +40975,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodSize?: number;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
@@ -41178,6 +41264,7 @@ export namespace quicksight {
     }
 
     export interface TemplateListControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         searchOptions?: outputs.quicksight.TemplateListControlSearchOptions;
         selectAllOptions?: outputs.quicksight.TemplateListControlSelectAllOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
@@ -41216,7 +41303,7 @@ export namespace quicksight {
     export interface TemplateMaximumMinimumComputation {
         computationId: string;
         name?: string;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         type: enums.quicksight.TemplateMaximumMinimumComputationType;
         value?: outputs.quicksight.TemplateMeasureField;
     }
@@ -41230,10 +41317,10 @@ export namespace quicksight {
 
     export interface TemplateMetricComparisonComputation {
         computationId: string;
-        fromValue: outputs.quicksight.TemplateMeasureField;
+        fromValue?: outputs.quicksight.TemplateMeasureField;
         name?: string;
-        targetValue: outputs.quicksight.TemplateMeasureField;
-        time: outputs.quicksight.TemplateDimensionField;
+        targetValue?: outputs.quicksight.TemplateMeasureField;
+        time?: outputs.quicksight.TemplateDimensionField;
     }
 
     export interface TemplateMinimumLabelType {
@@ -41457,7 +41544,7 @@ export namespace quicksight {
     export interface TemplatePeriodOverPeriodComputation {
         computationId: string;
         name?: string;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
@@ -41465,7 +41552,7 @@ export namespace quicksight {
         computationId: string;
         name?: string;
         periodTimeGranularity?: enums.quicksight.TemplateTimeGranularity;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
@@ -41591,10 +41678,16 @@ export namespace quicksight {
         collapsedRowDimensionsVisibility?: enums.quicksight.TemplateVisibility;
         columnHeaderStyle?: outputs.quicksight.TemplateTableCellStyle;
         columnNamesVisibility?: enums.quicksight.TemplateVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        defaultCellWidth?: string;
         metricPlacement?: enums.quicksight.TemplatePivotTableMetricPlacement;
         rowAlternateColorOptions?: outputs.quicksight.TemplateRowAlternateColorOptions;
         rowFieldNamesStyle?: outputs.quicksight.TemplateTableCellStyle;
         rowHeaderStyle?: outputs.quicksight.TemplateTableCellStyle;
+        rowsLabelOptions?: outputs.quicksight.TemplatePivotTableRowsLabelOptions;
+        rowsLayout?: enums.quicksight.TemplatePivotTableRowsLayout;
         singleMetricVisibility?: enums.quicksight.TemplateVisibility;
         toggleButtonsVisibility?: enums.quicksight.TemplateVisibility;
     }
@@ -41602,6 +41695,11 @@ export namespace quicksight {
     export interface TemplatePivotTablePaginatedReportOptions {
         overflowColumnHeaderVisibility?: enums.quicksight.TemplateVisibility;
         verticalOverflowVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplatePivotTableRowsLabelOptions {
+        customLabel?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
     }
 
     export interface TemplatePivotTableSortBy {
@@ -41754,6 +41852,7 @@ export namespace quicksight {
 
     export interface TemplateRelativeDateTimeControlDisplayOptions {
         dateTimeFormat?: string;
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
 
@@ -41784,6 +41883,7 @@ export namespace quicksight {
     export interface TemplateRowAlternateColorOptions {
         rowAlternateColors?: string[];
         status?: enums.quicksight.TemplateWidgetStatus;
+        usePrimaryBackgroundColor?: enums.quicksight.TemplateWidgetStatus;
     }
 
     export interface TemplateSameSheetTargetVisualConfiguration {
@@ -41932,6 +42032,11 @@ export namespace quicksight {
         sheetId?: string;
     }
 
+    export interface TemplateSheetControlInfoIconLabelOptions {
+        infoIconText?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
     export interface TemplateSheetControlLayout {
         configuration: outputs.quicksight.TemplateSheetControlLayoutConfiguration;
     }
@@ -41984,13 +42089,21 @@ export namespace quicksight {
     }
 
     export interface TemplateSliderControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
+    }
+
+    export interface TemplateSmallMultiplesAxisProperties {
+        placement?: enums.quicksight.TemplateSmallMultiplesAxisPlacement;
+        scale?: enums.quicksight.TemplateSmallMultiplesAxisScale;
     }
 
     export interface TemplateSmallMultiplesOptions {
         maxVisibleColumns?: number;
         maxVisibleRows?: number;
         panelConfiguration?: outputs.quicksight.TemplatePanelConfiguration;
+        xAxis?: outputs.quicksight.TemplateSmallMultiplesAxisProperties;
+        yAxis?: outputs.quicksight.TemplateSmallMultiplesAxisProperties;
     }
 
     export interface TemplateSourceAnalysis {
@@ -42054,6 +42167,7 @@ export namespace quicksight {
         fieldLevel?: enums.quicksight.TemplatePivotTableSubtotalLevel;
         fieldLevelOptions?: outputs.quicksight.TemplatePivotTableFieldSubtotalOptions[];
         metricHeaderCellStyle?: outputs.quicksight.TemplateTableCellStyle;
+        styleTargets?: outputs.quicksight.TemplateTableStyleTarget[];
         totalCellStyle?: outputs.quicksight.TemplateTableCellStyle;
         totalsVisibility?: enums.quicksight.TemplateVisibility;
         valueCellStyle?: outputs.quicksight.TemplateTableCellStyle;
@@ -42193,6 +42307,10 @@ export namespace quicksight {
         rowSort?: outputs.quicksight.TemplateFieldSortOptions[];
     }
 
+    export interface TemplateTableStyleTarget {
+        cellType: enums.quicksight.TemplateStyledCellType;
+    }
+
     export interface TemplateTableUnaggregatedFieldWells {
         values?: outputs.quicksight.TemplateUnaggregatedField[];
     }
@@ -42212,6 +42330,7 @@ export namespace quicksight {
     }
 
     export interface TemplateTextAreaControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.TemplateTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
@@ -42227,6 +42346,7 @@ export namespace quicksight {
     }
 
     export interface TemplateTextFieldControlDisplayOptions {
+        infoIconLabelOptions?: outputs.quicksight.TemplateSheetControlInfoIconLabelOptions;
         placeholderOptions?: outputs.quicksight.TemplateTextControlPlaceholderOptions;
         titleOptions?: outputs.quicksight.TemplateLabelOptions;
     }
@@ -42299,18 +42419,18 @@ export namespace quicksight {
     }
 
     export interface TemplateTopBottomMoversComputation {
-        category: outputs.quicksight.TemplateDimensionField;
+        category?: outputs.quicksight.TemplateDimensionField;
         computationId: string;
         moverSize?: number;
         name?: string;
         sortOrder?: enums.quicksight.TemplateTopBottomSortOrder;
-        time: outputs.quicksight.TemplateDimensionField;
+        time?: outputs.quicksight.TemplateDimensionField;
         type: enums.quicksight.TemplateTopBottomComputationType;
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
     export interface TemplateTopBottomRankedComputation {
-        category: outputs.quicksight.TemplateDimensionField;
+        category?: outputs.quicksight.TemplateDimensionField;
         computationId: string;
         name?: string;
         resultSize?: number;
@@ -42321,7 +42441,7 @@ export namespace quicksight {
     export interface TemplateTotalAggregationComputation {
         computationId: string;
         name?: string;
-        value: outputs.quicksight.TemplateMeasureField;
+        value?: outputs.quicksight.TemplateMeasureField;
     }
 
     export interface TemplateTotalOptions {
@@ -42379,7 +42499,7 @@ export namespace quicksight {
     }
 
     export interface TemplateUniqueValuesComputation {
-        category: outputs.quicksight.TemplateDimensionField;
+        category?: outputs.quicksight.TemplateDimensionField;
         computationId: string;
         name?: string;
     }
@@ -43696,6 +43816,42 @@ export namespace rekognition {
 }
 
 export namespace resiliencehub {
+    /**
+     * Indicates an event you would like to subscribe and get notification for.
+     */
+    export interface AppEventSubscription {
+        /**
+         * The type of event you would like to subscribe and get notification for.
+         */
+        eventType: enums.resiliencehub.AppEventSubscriptionEventType;
+        /**
+         * Unique name to identify an event subscription.
+         */
+        name: string;
+        /**
+         * Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
+         */
+        snsTopicArn?: string;
+    }
+
+    /**
+     * Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+     */
+    export interface AppPermissionModel {
+        /**
+         * Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
+         */
+        crossAccountRoleArns?: string[];
+        /**
+         * Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
+         */
+        invokerRoleName?: string;
+        /**
+         * Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
+         */
+        type: enums.resiliencehub.AppPermissionModelType;
+    }
+
     export interface AppPhysicalResourceId {
         awsAccountId?: string;
         awsRegion?: string;
@@ -53174,6 +53330,64 @@ export namespace workspaces {
     }
 
     export interface WorkspaceTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace workspacesweb {
+    export interface BrowserSettingsEncryptionContextMap {
+    }
+
+    export interface BrowserSettingsTag {
+        key: string;
+        value: string;
+    }
+
+    export interface IdentityProviderDetails {
+    }
+
+    export interface IpAccessSettingsEncryptionContextMap {
+    }
+
+    export interface IpAccessSettingsIpRule {
+        description?: string;
+        /**
+         * A single IP address or an IP address range in CIDR notation
+         */
+        ipRange: string;
+    }
+
+    export interface IpAccessSettingsTag {
+        key: string;
+        value: string;
+    }
+
+    export interface NetworkSettingsTag {
+        key: string;
+        value: string;
+    }
+
+    export interface PortalEncryptionContextMap {
+    }
+
+    export interface PortalTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TrustStoreTag {
+        key: string;
+        value: string;
+    }
+
+    export interface UserAccessLoggingSettingsTag {
+        key: string;
+        value: string;
+    }
+
+    export interface UserSettingsTag {
         key: string;
         value: string;
     }

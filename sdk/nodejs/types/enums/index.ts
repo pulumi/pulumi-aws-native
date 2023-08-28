@@ -138,6 +138,7 @@ import * as vpclattice from "./vpclattice";
 import * as wafv2 from "./wafv2";
 import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
+import * as workspacesweb from "./workspacesweb";
 
 export {
     amplify,
@@ -276,6 +277,7 @@ export {
     wafv2,
     wisdom,
     workspaces,
+    workspacesweb,
 };
 
 export const Region = {

@@ -61,6 +61,10 @@ export class FindingsFilter extends pulumi.CustomResource {
      * Findings filter position.
      */
     public readonly position!: pulumi.Output<number | undefined>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    public readonly tags!: pulumi.Output<outputs.macie.FindingsFilterTag[] | undefined>;
 
     /**
      * Create a FindingsFilter resource with the given unique name, arguments, and options.
@@ -81,6 +85,7 @@ export class FindingsFilter extends pulumi.CustomResource {
             resourceInputs["findingCriteria"] = args ? args.findingCriteria : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["position"] = args ? args.position : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
@@ -89,6 +94,7 @@ export class FindingsFilter extends pulumi.CustomResource {
             resourceInputs["findingCriteria"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["position"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FindingsFilter.__pulumiType, name, resourceInputs, opts);
@@ -119,4 +125,8 @@ export interface FindingsFilterArgs {
      * Findings filter position.
      */
     position?: pulumi.Input<number>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.macie.FindingsFilterTagArgs>[]>;
 }

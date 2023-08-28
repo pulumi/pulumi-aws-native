@@ -1535,6 +1535,12 @@ export const DashboardSheetControlSliderType = {
 
 export type DashboardSheetControlSliderType = (typeof DashboardSheetControlSliderType)[keyof typeof DashboardSheetControlSliderType];
 
+export const DashboardSimpleAttributeAggregationFunction = {
+    UniqueValue: "UNIQUE_VALUE",
+} as const;
+
+export type DashboardSimpleAttributeAggregationFunction = (typeof DashboardSimpleAttributeAggregationFunction)[keyof typeof DashboardSimpleAttributeAggregationFunction];
+
 export const DashboardSimpleNumericalAggregationFunction = {
     Sum: "SUM",
     Average: "AVERAGE",
@@ -2388,6 +2394,13 @@ export const TemplatePivotTableMetricPlacement = {
 
 export type TemplatePivotTableMetricPlacement = (typeof TemplatePivotTableMetricPlacement)[keyof typeof TemplatePivotTableMetricPlacement];
 
+export const TemplatePivotTableRowsLayout = {
+    Tabular: "TABULAR",
+    Hierarchy: "HIERARCHY",
+} as const;
+
+export type TemplatePivotTableRowsLayout = (typeof TemplatePivotTableRowsLayout)[keyof typeof TemplatePivotTableRowsLayout];
+
 export const TemplatePivotTableSubtotalLevel = {
     All: "ALL",
     Custom: "CUSTOM",
@@ -2542,6 +2555,12 @@ export const TemplateSheetControlSliderType = {
 
 export type TemplateSheetControlSliderType = (typeof TemplateSheetControlSliderType)[keyof typeof TemplateSheetControlSliderType];
 
+export const TemplateSimpleAttributeAggregationFunction = {
+    UniqueValue: "UNIQUE_VALUE",
+} as const;
+
+export type TemplateSimpleAttributeAggregationFunction = (typeof TemplateSimpleAttributeAggregationFunction)[keyof typeof TemplateSimpleAttributeAggregationFunction];
+
 export const TemplateSimpleNumericalAggregationFunction = {
     Sum: "SUM",
     Average: "AVERAGE",
@@ -2558,6 +2577,20 @@ export const TemplateSimpleNumericalAggregationFunction = {
 
 export type TemplateSimpleNumericalAggregationFunction = (typeof TemplateSimpleNumericalAggregationFunction)[keyof typeof TemplateSimpleNumericalAggregationFunction];
 
+export const TemplateSmallMultiplesAxisPlacement = {
+    Outside: "OUTSIDE",
+    Inside: "INSIDE",
+} as const;
+
+export type TemplateSmallMultiplesAxisPlacement = (typeof TemplateSmallMultiplesAxisPlacement)[keyof typeof TemplateSmallMultiplesAxisPlacement];
+
+export const TemplateSmallMultiplesAxisScale = {
+    Shared: "SHARED",
+    Independent: "INDEPENDENT",
+} as const;
+
+export type TemplateSmallMultiplesAxisScale = (typeof TemplateSmallMultiplesAxisScale)[keyof typeof TemplateSmallMultiplesAxisScale];
+
 export const TemplateSortDirection = {
     Asc: "ASC",
     Desc: "DESC",
@@ -2572,6 +2605,14 @@ export const TemplateSpecialValue = {
 } as const;
 
 export type TemplateSpecialValue = (typeof TemplateSpecialValue)[keyof typeof TemplateSpecialValue];
+
+export const TemplateStyledCellType = {
+    Total: "TOTAL",
+    MetricHeader: "METRIC_HEADER",
+    Value: "VALUE",
+} as const;
+
+export type TemplateStyledCellType = (typeof TemplateStyledCellType)[keyof typeof TemplateStyledCellType];
 
 export const TemplateTableBorderStyle = {
     None: "NONE",
@@ -2682,6 +2723,7 @@ export const TemplateVerticalTextAlignment = {
     Top: "TOP",
     Middle: "MIDDLE",
     Bottom: "BOTTOM",
+    Auto: "AUTO",
 } as const;
 
 export type TemplateVerticalTextAlignment = (typeof TemplateVerticalTextAlignment)[keyof typeof TemplateVerticalTextAlignment];

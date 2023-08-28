@@ -19,10 +19,12 @@ type DataLakeSettings struct {
 
 	Admins                           DataLakeSettingsAdminsPtrOutput                           `pulumi:"admins"`
 	AllowExternalDataFiltering       pulumi.BoolPtrOutput                                      `pulumi:"allowExternalDataFiltering"`
+	AllowFullTableExternalDataAccess pulumi.BoolPtrOutput                                      `pulumi:"allowFullTableExternalDataAccess"`
 	AuthorizedSessionTagValueList    pulumi.StringArrayOutput                                  `pulumi:"authorizedSessionTagValueList"`
 	CreateDatabaseDefaultPermissions DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput `pulumi:"createDatabaseDefaultPermissions"`
 	CreateTableDefaultPermissions    DataLakeSettingsCreateTableDefaultPermissionsPtrOutput    `pulumi:"createTableDefaultPermissions"`
 	ExternalDataFilteringAllowList   DataLakeSettingsExternalDataFilteringAllowListPtrOutput   `pulumi:"externalDataFilteringAllowList"`
+	MutationType                     pulumi.StringPtrOutput                                    `pulumi:"mutationType"`
 	Parameters                       pulumi.AnyOutput                                          `pulumi:"parameters"`
 	TrustedResourceOwners            pulumi.StringArrayOutput                                  `pulumi:"trustedResourceOwners"`
 }
@@ -69,10 +71,12 @@ func (DataLakeSettingsState) ElementType() reflect.Type {
 type dataLakeSettingsArgs struct {
 	Admins                           *DataLakeSettingsAdmins                           `pulumi:"admins"`
 	AllowExternalDataFiltering       *bool                                             `pulumi:"allowExternalDataFiltering"`
+	AllowFullTableExternalDataAccess *bool                                             `pulumi:"allowFullTableExternalDataAccess"`
 	AuthorizedSessionTagValueList    []string                                          `pulumi:"authorizedSessionTagValueList"`
 	CreateDatabaseDefaultPermissions *DataLakeSettingsCreateDatabaseDefaultPermissions `pulumi:"createDatabaseDefaultPermissions"`
 	CreateTableDefaultPermissions    *DataLakeSettingsCreateTableDefaultPermissions    `pulumi:"createTableDefaultPermissions"`
 	ExternalDataFilteringAllowList   *DataLakeSettingsExternalDataFilteringAllowList   `pulumi:"externalDataFilteringAllowList"`
+	MutationType                     *string                                           `pulumi:"mutationType"`
 	Parameters                       interface{}                                       `pulumi:"parameters"`
 	TrustedResourceOwners            []string                                          `pulumi:"trustedResourceOwners"`
 }
@@ -81,10 +85,12 @@ type dataLakeSettingsArgs struct {
 type DataLakeSettingsArgs struct {
 	Admins                           DataLakeSettingsAdminsPtrInput
 	AllowExternalDataFiltering       pulumi.BoolPtrInput
+	AllowFullTableExternalDataAccess pulumi.BoolPtrInput
 	AuthorizedSessionTagValueList    pulumi.StringArrayInput
 	CreateDatabaseDefaultPermissions DataLakeSettingsCreateDatabaseDefaultPermissionsPtrInput
 	CreateTableDefaultPermissions    DataLakeSettingsCreateTableDefaultPermissionsPtrInput
 	ExternalDataFilteringAllowList   DataLakeSettingsExternalDataFilteringAllowListPtrInput
+	MutationType                     pulumi.StringPtrInput
 	Parameters                       pulumi.Input
 	TrustedResourceOwners            pulumi.StringArrayInput
 }
@@ -134,6 +140,10 @@ func (o DataLakeSettingsOutput) AllowExternalDataFiltering() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.BoolPtrOutput { return v.AllowExternalDataFiltering }).(pulumi.BoolPtrOutput)
 }
 
+func (o DataLakeSettingsOutput) AllowFullTableExternalDataAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataLakeSettings) pulumi.BoolPtrOutput { return v.AllowFullTableExternalDataAccess }).(pulumi.BoolPtrOutput)
+}
+
 func (o DataLakeSettingsOutput) AuthorizedSessionTagValueList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.AuthorizedSessionTagValueList }).(pulumi.StringArrayOutput)
 }
@@ -154,6 +164,10 @@ func (o DataLakeSettingsOutput) ExternalDataFilteringAllowList() DataLakeSetting
 	return o.ApplyT(func(v *DataLakeSettings) DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
 		return v.ExternalDataFilteringAllowList
 	}).(DataLakeSettingsExternalDataFilteringAllowListPtrOutput)
+}
+
+func (o DataLakeSettingsOutput) MutationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringPtrOutput { return v.MutationType }).(pulumi.StringPtrOutput)
 }
 
 func (o DataLakeSettingsOutput) Parameters() pulumi.AnyOutput {

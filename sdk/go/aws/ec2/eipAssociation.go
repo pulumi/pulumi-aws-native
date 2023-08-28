@@ -11,20 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for EC2 EIP association.
+// Resource Type definition for AWS::EC2::EIPAssociation
 type EipAssociation struct {
 	pulumi.CustomResourceState
 
-	// The allocation ID. This is required for EC2-VPC.
-	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
-	// The Elastic IP address to associate with the instance.
-	Eip pulumi.StringPtrOutput `pulumi:"eip"`
-	// The ID of the instance.
-	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
-	// The ID of the network interface.
+	AllocationId       pulumi.StringPtrOutput `pulumi:"allocationId"`
+	Eip                pulumi.StringPtrOutput `pulumi:"eip"`
+	InstanceId         pulumi.StringPtrOutput `pulumi:"instanceId"`
 	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
-	// The primary or secondary private IP address to associate with the Elastic IP address.
-	PrivateIpAddress pulumi.StringPtrOutput `pulumi:"privateIpAddress"`
+	PrivateIpAddress   pulumi.StringPtrOutput `pulumi:"privateIpAddress"`
 }
 
 // NewEipAssociation registers a new resource with the given unique name, arguments, and options.
@@ -67,30 +62,20 @@ func (EipAssociationState) ElementType() reflect.Type {
 }
 
 type eipAssociationArgs struct {
-	// The allocation ID. This is required for EC2-VPC.
-	AllocationId *string `pulumi:"allocationId"`
-	// The Elastic IP address to associate with the instance.
-	Eip *string `pulumi:"eip"`
-	// The ID of the instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// The ID of the network interface.
+	AllocationId       *string `pulumi:"allocationId"`
+	Eip                *string `pulumi:"eip"`
+	InstanceId         *string `pulumi:"instanceId"`
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The primary or secondary private IP address to associate with the Elastic IP address.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	PrivateIpAddress   *string `pulumi:"privateIpAddress"`
 }
 
 // The set of arguments for constructing a EipAssociation resource.
 type EipAssociationArgs struct {
-	// The allocation ID. This is required for EC2-VPC.
-	AllocationId pulumi.StringPtrInput
-	// The Elastic IP address to associate with the instance.
-	Eip pulumi.StringPtrInput
-	// The ID of the instance.
-	InstanceId pulumi.StringPtrInput
-	// The ID of the network interface.
+	AllocationId       pulumi.StringPtrInput
+	Eip                pulumi.StringPtrInput
+	InstanceId         pulumi.StringPtrInput
 	NetworkInterfaceId pulumi.StringPtrInput
-	// The primary or secondary private IP address to associate with the Elastic IP address.
-	PrivateIpAddress pulumi.StringPtrInput
+	PrivateIpAddress   pulumi.StringPtrInput
 }
 
 func (EipAssociationArgs) ElementType() reflect.Type {
@@ -130,27 +115,22 @@ func (o EipAssociationOutput) ToEipAssociationOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The allocation ID. This is required for EC2-VPC.
 func (o EipAssociationOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
-// The Elastic IP address to associate with the instance.
 func (o EipAssociationOutput) Eip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.Eip }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the instance.
 func (o EipAssociationOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the network interface.
 func (o EipAssociationOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
-// The primary or secondary private IP address to associate with the Elastic IP address.
 func (o EipAssociationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }

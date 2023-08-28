@@ -40,6 +40,7 @@ type LookupFleetResult struct {
 	ImageName                      *string               `pulumi:"imageName"`
 	InstanceType                   *string               `pulumi:"instanceType"`
 	MaxConcurrentSessions          *int                  `pulumi:"maxConcurrentSessions"`
+	MaxSessionsPerInstance         *int                  `pulumi:"maxSessionsPerInstance"`
 	MaxUserDurationInSeconds       *int                  `pulumi:"maxUserDurationInSeconds"`
 	Platform                       *string               `pulumi:"platform"`
 	SessionScriptS3Location        *FleetS3Location      `pulumi:"sessionScriptS3Location"`
@@ -134,6 +135,10 @@ func (o LookupFleetResultOutput) InstanceType() pulumi.StringPtrOutput {
 
 func (o LookupFleetResultOutput) MaxConcurrentSessions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *int { return v.MaxConcurrentSessions }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupFleetResultOutput) MaxSessionsPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFleetResult) *int { return v.MaxSessionsPerInstance }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupFleetResultOutput) MaxUserDurationInSeconds() pulumi.IntPtrOutput {

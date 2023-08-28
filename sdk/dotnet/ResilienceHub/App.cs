@@ -40,10 +40,25 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
+        /// </summary>
+        [Output("driftStatus")]
+        public Output<Pulumi.AwsNative.ResilienceHub.AppDriftStatus> DriftStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of events you would like to subscribe and get notification for.
+        /// </summary>
+        [Output("eventSubscriptions")]
+        public Output<ImmutableArray<Outputs.AppEventSubscription>> EventSubscriptions { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the app.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("permissionModel")]
+        public Output<Outputs.AppPermissionModel?> PermissionModel { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -123,11 +138,26 @@ namespace Pulumi.AwsNative.ResilienceHub
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("eventSubscriptions")]
+        private InputList<Inputs.AppEventSubscriptionArgs>? _eventSubscriptions;
+
+        /// <summary>
+        /// The list of events you would like to subscribe and get notification for.
+        /// </summary>
+        public InputList<Inputs.AppEventSubscriptionArgs> EventSubscriptions
+        {
+            get => _eventSubscriptions ?? (_eventSubscriptions = new InputList<Inputs.AppEventSubscriptionArgs>());
+            set => _eventSubscriptions = value;
+        }
+
         /// <summary>
         /// Name of the app.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("permissionModel")]
+        public Input<Inputs.AppPermissionModelArgs>? PermissionModel { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.

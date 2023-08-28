@@ -191,6 +191,7 @@ __all__ = [
     'DashboardSheetControlDateTimePickerType',
     'DashboardSheetControlListType',
     'DashboardSheetControlSliderType',
+    'DashboardSimpleAttributeAggregationFunction',
     'DashboardSimpleNumericalAggregationFunction',
     'DashboardSortDirection',
     'DashboardSpecialValue',
@@ -290,6 +291,7 @@ __all__ = [
     'TemplatePivotTableConditionalFormattingScopeRole',
     'TemplatePivotTableFieldCollapseState',
     'TemplatePivotTableMetricPlacement',
+    'TemplatePivotTableRowsLayout',
     'TemplatePivotTableSubtotalLevel',
     'TemplatePrimaryValueDisplayType',
     'TemplateRadarChartAxesRangeScale',
@@ -310,9 +312,13 @@ __all__ = [
     'TemplateSheetControlDateTimePickerType',
     'TemplateSheetControlListType',
     'TemplateSheetControlSliderType',
+    'TemplateSimpleAttributeAggregationFunction',
     'TemplateSimpleNumericalAggregationFunction',
+    'TemplateSmallMultiplesAxisPlacement',
+    'TemplateSmallMultiplesAxisScale',
     'TemplateSortDirection',
     'TemplateSpecialValue',
+    'TemplateStyledCellType',
     'TemplateTableBorderStyle',
     'TemplateTableCellImageScalingConfiguration',
     'TemplateTableFieldIconSetType',
@@ -1525,6 +1531,10 @@ class DashboardSheetControlSliderType(str, Enum):
     RANGE = "RANGE"
 
 
+class DashboardSimpleAttributeAggregationFunction(str, Enum):
+    UNIQUE_VALUE = "UNIQUE_VALUE"
+
+
 class DashboardSimpleNumericalAggregationFunction(str, Enum):
     SUM = "SUM"
     AVERAGE = "AVERAGE"
@@ -2180,6 +2190,11 @@ class TemplatePivotTableMetricPlacement(str, Enum):
     COLUMN = "COLUMN"
 
 
+class TemplatePivotTableRowsLayout(str, Enum):
+    TABULAR = "TABULAR"
+    HIERARCHY = "HIERARCHY"
+
+
 class TemplatePivotTableSubtotalLevel(str, Enum):
     ALL = "ALL"
     CUSTOM = "CUSTOM"
@@ -2294,6 +2309,10 @@ class TemplateSheetControlSliderType(str, Enum):
     RANGE = "RANGE"
 
 
+class TemplateSimpleAttributeAggregationFunction(str, Enum):
+    UNIQUE_VALUE = "UNIQUE_VALUE"
+
+
 class TemplateSimpleNumericalAggregationFunction(str, Enum):
     SUM = "SUM"
     AVERAGE = "AVERAGE"
@@ -2308,6 +2327,16 @@ class TemplateSimpleNumericalAggregationFunction(str, Enum):
     MEDIAN = "MEDIAN"
 
 
+class TemplateSmallMultiplesAxisPlacement(str, Enum):
+    OUTSIDE = "OUTSIDE"
+    INSIDE = "INSIDE"
+
+
+class TemplateSmallMultiplesAxisScale(str, Enum):
+    SHARED = "SHARED"
+    INDEPENDENT = "INDEPENDENT"
+
+
 class TemplateSortDirection(str, Enum):
     ASC = "ASC"
     DESC = "DESC"
@@ -2317,6 +2346,12 @@ class TemplateSpecialValue(str, Enum):
     EMPTY = "EMPTY"
     NULL = "NULL"
     OTHER = "OTHER"
+
+
+class TemplateStyledCellType(str, Enum):
+    TOTAL = "TOTAL"
+    METRIC_HEADER = "METRIC_HEADER"
+    VALUE = "VALUE"
 
 
 class TemplateTableBorderStyle(str, Enum):
@@ -2400,6 +2435,7 @@ class TemplateVerticalTextAlignment(str, Enum):
     TOP = "TOP"
     MIDDLE = "MIDDLE"
     BOTTOM = "BOTTOM"
+    AUTO = "AUTO"
 
 
 class TemplateVisibility(str, Enum):
