@@ -21,3 +21,6 @@ export interface GetPartitionResult {
      */
     readonly partition: string;
 }
+export function getPartitionOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
+    return pulumi.output(getPartition(opts))
+}
