@@ -2,6 +2,10 @@
 
 ### Breaking Changes
 
+## 0.75.0 (2023-08-28)
+
+### Breaking Changes
+
 Function "aws-native:ec2:getPlacementGroup" missing output "tags"
 
 ### New resources:
