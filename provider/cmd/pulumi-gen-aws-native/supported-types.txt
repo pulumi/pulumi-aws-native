@@ -585,6 +585,11 @@ AWS::Organizations::Organization
 AWS::Organizations::OrganizationalUnit
 AWS::Organizations::Policy
 AWS::Organizations::ResourcePolicy
+AWS::PCAConnectorAD::Connector
+AWS::PCAConnectorAD::DirectoryRegistration
+AWS::PCAConnectorAD::ServicePrincipalName
+AWS::PCAConnectorAD::Template
+AWS::PCAConnectorAD::TemplateGroupAccessControlEntry
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
@@ -677,6 +682,7 @@ AWS::Route53Resolver::ResolverRule
 AWS::Route53Resolver::ResolverRuleAssociation
 AWS::S3::AccessPoint
 AWS::S3::Bucket
+AWS::S3::BucketPolicy
 AWS::S3::MultiRegionAccessPoint
 AWS::S3::MultiRegionAccessPointPolicy
 AWS::S3::StorageLens
