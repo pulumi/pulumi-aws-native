@@ -63,7 +63,7 @@ cf2pulumi::
 	(cd provider && go build -o $(WORKING_DIR)/bin/cf2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/cf2pulumi)
 
 test_provider::
-	(cd provider && go test -v $(PROVIDER_PKGS))
+	(cd provider && go test -v -coverprofile=coverage.txt $(PROVIDER_PKGS))
 
 lint_provider:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
