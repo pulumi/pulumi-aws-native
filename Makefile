@@ -140,7 +140,7 @@ install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
 test::
-	cd examples && go test -v -tags=all -timeout 2h
+	cd examples && go test -coverprofile=coverage.txt -coverpkg="github.com/pulumi/pulumi-aws-native/** -v -tags=all -timeout 2h
 
 build:: clean codegen local_generate provider build_sdks install_sdks
 build_sdks: build_nodejs build_dotnet build_python build_go build_java

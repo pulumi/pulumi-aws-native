@@ -1,0 +1,22 @@
+mode: set
+github.com/pulumi/pulumi-aws-native/foo/bar.go:35.35,39.54 2 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:39.54,41.3 1 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:44.2,44.54 1 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:44.54,46.3 1 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:49.2,50.16 2 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:50.16,52.3 1 0
+github.com/pulumi/pulumi-aws-native/foo/bar.go:55.2,58.77 4 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:58.77,60.3 1 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:62.2,63.34 2 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:63.34,66.16 2 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:66.16,67.33 1 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:67.33,72.5 1 0
+github.com/pulumi/pulumi-aws-native/foo/bar.go:72.10,76.5 1 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:78.3,78.24 1 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:78.24,80.4 1 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:81.3,81.33 1 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:85.2,86.16 2 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:86.16,88.3 1 0
+github.com/pulumi/pulumi-aws-native/foo/bar.go:91.2,91.25 1 1
+github.com/pulumi/pulumi-aws-native/foo/bar.go:91.25,93.3 1 0
+github.com/pulumi/pulumi-aws-native/foo/bar.go:95.2,95.48 1 1
