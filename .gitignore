@@ -9,6 +9,7 @@ Pulumi.*.yaml
 yarn.lock
 /sdk/dotnet/version.txt
 **/dist
+provider/coverage.txt
 provider/cmd/pulumi-resource-aws-native/metadata.go
 provider/cmd/pulumi-resource-aws-native/schema.go
 provider/cmd/cf2pulumi/schema.go
