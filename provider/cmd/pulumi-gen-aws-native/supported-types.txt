@@ -360,6 +360,7 @@ AWS::GreengrassV2::Deployment
 AWS::GroundStation::Config
 AWS::GroundStation::DataflowEndpointGroup
 AWS::GroundStation::MissionProfile
+AWS::GuardDuty::Detector
 AWS::HealthLake::FHIRDatastore
 AWS::IAM::GroupPolicy
 AWS::IAM::InstanceProfile
@@ -585,6 +586,11 @@ AWS::Organizations::Organization
 AWS::Organizations::OrganizationalUnit
 AWS::Organizations::Policy
 AWS::Organizations::ResourcePolicy
+AWS::PCAConnectorAD::Connector
+AWS::PCAConnectorAD::DirectoryRegistration
+AWS::PCAConnectorAD::ServicePrincipalName
+AWS::PCAConnectorAD::Template
+AWS::PCAConnectorAD::TemplateGroupAccessControlEntry
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
