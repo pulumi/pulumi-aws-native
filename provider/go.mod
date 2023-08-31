@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-aws-native/provider
 
-go 1.20
+go 1.21
 
 require (
 	github.com/apparentlymart/go-cidr v1.1.0
