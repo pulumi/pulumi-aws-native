@@ -104,6 +104,8 @@ class DeviceDefinitionVersion(pulumi.CustomResource):
             if devices is None and not opts.urn:
                 raise TypeError("Missing required property 'devices'")
             __props__.__dict__["devices"] = devices
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device_definition_id", "devices[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeviceDefinitionVersion, __self__).__init__(
             'aws-native:greengrass:DeviceDefinitionVersion',
             resource_name,

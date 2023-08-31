@@ -115,6 +115,8 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dataFormat", "name", "registry", "schemaDefinition"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Schema.__pulumiType, name, resourceInputs, opts);
     }
 }

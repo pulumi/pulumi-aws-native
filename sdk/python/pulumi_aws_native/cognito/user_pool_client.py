@@ -405,6 +405,8 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["write_attributes"] = write_attributes
             __props__.__dict__["client_secret"] = None
             __props__.__dict__["name"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["generate_secret", "user_pool_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserPoolClient, __self__).__init__(
             'aws-native:cognito:UserPoolClient',
             resource_name,

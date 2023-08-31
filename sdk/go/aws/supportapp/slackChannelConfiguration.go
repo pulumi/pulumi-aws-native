@@ -53,6 +53,11 @@ func NewSlackChannelConfiguration(ctx *pulumi.Context,
 	if args.TeamId == nil {
 		return nil, errors.New("invalid value for required argument 'TeamId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"channelId",
+		"teamId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SlackChannelConfiguration
 	err := ctx.RegisterResource("aws-native:supportapp:SlackChannelConfiguration", name, args, &resource, opts...)

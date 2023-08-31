@@ -85,6 +85,8 @@ export class Space extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domainId", "spaceName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Space.__pulumiType, name, resourceInputs, opts);
     }
 }

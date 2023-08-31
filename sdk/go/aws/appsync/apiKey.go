@@ -36,6 +36,10 @@ func NewApiKey(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiKey
 	err := ctx.RegisterResource("aws-native:appsync:ApiKey", name, args, &resource, opts...)

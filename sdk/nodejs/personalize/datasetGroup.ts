@@ -82,6 +82,8 @@ export class DatasetGroup extends pulumi.CustomResource {
             resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domain", "kmsKeyArn", "name", "roleArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DatasetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

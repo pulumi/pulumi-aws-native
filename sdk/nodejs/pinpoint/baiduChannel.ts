@@ -75,6 +75,8 @@ export class BaiduChannel extends pulumi.CustomResource {
             resourceInputs["secretKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BaiduChannel.__pulumiType, name, resourceInputs, opts);
     }
 }

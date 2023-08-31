@@ -50,6 +50,15 @@ func NewFileSystem(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"backupId",
+		"fileSystemType",
+		"fileSystemTypeVersion",
+		"kmsKeyId",
+		"securityGroupIds[*]",
+		"subnetIds[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileSystem
 	err := ctx.RegisterResource("aws-native:fsx:FileSystem", name, args, &resource, opts...)

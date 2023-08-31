@@ -54,6 +54,10 @@ func NewVariable(ctx *pulumi.Context,
 	if args.DefaultValue == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultValue'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Variable
 	err := ctx.RegisterResource("aws-native:frauddetector:Variable", name, args, &resource, opts...)

@@ -49,6 +49,11 @@ func NewFilter(ctx *pulumi.Context,
 	if args.Rank == nil {
 		return nil, errors.New("invalid value for required argument 'Rank'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"detectorId",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Filter
 	err := ctx.RegisterResource("aws-native:guardduty:Filter", name, args, &resource, opts...)

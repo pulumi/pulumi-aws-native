@@ -85,6 +85,8 @@ export class ReferenceStore extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "name", "sseConfig", "tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReferenceStore.__pulumiType, name, resourceInputs, opts);
     }
 }

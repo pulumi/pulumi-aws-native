@@ -36,6 +36,11 @@ func NewTagOption(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"key",
+		"value",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TagOption
 	err := ctx.RegisterResource("aws-native:servicecatalog:TagOption", name, args, &resource, opts...)

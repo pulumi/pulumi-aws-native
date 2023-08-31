@@ -211,6 +211,8 @@ class Faq(pulumi.CustomResource):
             __props__.__dict__["s3_path"] = s3_path
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "file_format", "index_id", "name", "role_arn", "s3_path"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Faq, __self__).__init__(
             'aws-native:kendra:Faq',
             resource_name,

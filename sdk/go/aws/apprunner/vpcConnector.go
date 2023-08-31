@@ -40,6 +40,13 @@ func NewVpcConnector(ctx *pulumi.Context,
 	if args.Subnets == nil {
 		return nil, errors.New("invalid value for required argument 'Subnets'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"securityGroups[*]",
+		"subnets[*]",
+		"tags[*]",
+		"vpcConnectorName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnector
 	err := ctx.RegisterResource("aws-native:apprunner:VpcConnector", name, args, &resource, opts...)

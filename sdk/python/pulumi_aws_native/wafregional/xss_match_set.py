@@ -102,6 +102,8 @@ class XssMatchSet(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["xss_match_tuples"] = xss_match_tuples
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(XssMatchSet, __self__).__init__(
             'aws-native:wafregional:XssMatchSet',
             resource_name,

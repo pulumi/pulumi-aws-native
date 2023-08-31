@@ -39,6 +39,13 @@ func NewRouteCalculator(ctx *pulumi.Context,
 	if args.DataSource == nil {
 		return nil, errors.New("invalid value for required argument 'DataSource'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"calculatorName",
+		"dataSource",
+		"description",
+		"pricingPlan",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteCalculator
 	err := ctx.RegisterResource("aws-native:location:RouteCalculator", name, args, &resource, opts...)

@@ -118,6 +118,8 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["registry_name"] = registry_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["registry_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["registry_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Registry, __self__).__init__(
             'aws-native:eventschemas:Registry',
             resource_name,

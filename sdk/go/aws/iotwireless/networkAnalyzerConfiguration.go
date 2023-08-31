@@ -38,6 +38,11 @@ func NewNetworkAnalyzerConfiguration(ctx *pulumi.Context,
 		args = &NetworkAnalyzerConfigurationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkAnalyzerConfiguration
 	err := ctx.RegisterResource("aws-native:iotwireless:NetworkAnalyzerConfiguration", name, args, &resource, opts...)

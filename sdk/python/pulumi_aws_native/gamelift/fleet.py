@@ -555,6 +555,8 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["server_launch_parameters"] = server_launch_parameters
             __props__.__dict__["server_launch_path"] = server_launch_path
             __props__.__dict__["fleet_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["build_id", "certificate_configuration", "compute_type", "ec2_instance_type", "fleet_type", "instance_role_arn", "log_paths[*]", "peer_vpc_aws_account_id", "peer_vpc_id", "script_id", "server_launch_parameters", "server_launch_path"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Fleet, __self__).__init__(
             'aws-native:gamelift:Fleet',
             resource_name,

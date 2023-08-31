@@ -48,6 +48,12 @@ func NewStreamingImage(ctx *pulumi.Context,
 	if args.StudioId == nil {
 		return nil, errors.New("invalid value for required argument 'StudioId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ec2ImageId",
+		"studioId",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StreamingImage
 	err := ctx.RegisterResource("aws-native:nimblestudio:StreamingImage", name, args, &resource, opts...)

@@ -73,6 +73,8 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["standardsSubscriptionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["standardsArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Standard.__pulumiType, name, resourceInputs, opts);
     }
 }

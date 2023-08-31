@@ -39,6 +39,12 @@ func NewNetworkInterfacePermission(ctx *pulumi.Context,
 	if args.Permission == nil {
 		return nil, errors.New("invalid value for required argument 'Permission'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"awsAccountId",
+		"networkInterfaceId",
+		"permission",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInterfacePermission
 	err := ctx.RegisterResource("aws-native:ec2:NetworkInterfacePermission", name, args, &resource, opts...)

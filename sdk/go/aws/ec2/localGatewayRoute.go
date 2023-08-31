@@ -36,6 +36,11 @@ func NewLocalGatewayRoute(ctx *pulumi.Context,
 		args = &LocalGatewayRouteArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"destinationCidrBlock",
+		"localGatewayRouteTableId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocalGatewayRoute
 	err := ctx.RegisterResource("aws-native:ec2:LocalGatewayRoute", name, args, &resource, opts...)

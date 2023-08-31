@@ -62,6 +62,11 @@ func NewAutoScalingGroup(ctx *pulumi.Context,
 	if args.MinSize == nil {
 		return nil, errors.New("invalid value for required argument 'MinSize'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"autoScalingGroupName",
+		"instanceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutoScalingGroup
 	err := ctx.RegisterResource("aws-native:autoscaling:AutoScalingGroup", name, args, &resource, opts...)

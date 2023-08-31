@@ -142,6 +142,8 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "engineType", "kmsKeyId", "name", "publiclyAccessible", "securityGroupIds[*]", "storageConfigurations[*]", "subnetIds[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }

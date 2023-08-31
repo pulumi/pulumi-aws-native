@@ -69,6 +69,8 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["enabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["deviceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Device.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -41,6 +41,28 @@ namespace Pulumi.AwsNative.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "spotFleetRequestConfigData.allocationStrategy",
+                    "spotFleetRequestConfigData.iamFleetRole",
+                    "spotFleetRequestConfigData.instanceInterruptionBehavior",
+                    "spotFleetRequestConfigData.instancePoolsToUseCount",
+                    "spotFleetRequestConfigData.launchSpecifications[*]",
+                    "spotFleetRequestConfigData.launchTemplateConfigs[*]",
+                    "spotFleetRequestConfigData.loadBalancersConfig",
+                    "spotFleetRequestConfigData.onDemandAllocationStrategy",
+                    "spotFleetRequestConfigData.onDemandMaxTotalPrice",
+                    "spotFleetRequestConfigData.onDemandTargetCapacity",
+                    "spotFleetRequestConfigData.replaceUnhealthyInstances",
+                    "spotFleetRequestConfigData.spotMaintenanceStrategies",
+                    "spotFleetRequestConfigData.spotMaxTotalPrice",
+                    "spotFleetRequestConfigData.spotPrice",
+                    "spotFleetRequestConfigData.tagSpecifications[*]",
+                    "spotFleetRequestConfigData.terminateInstancesWithExpiration",
+                    "spotFleetRequestConfigData.type",
+                    "spotFleetRequestConfigData.validFrom",
+                    "spotFleetRequestConfigData.validUntil",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

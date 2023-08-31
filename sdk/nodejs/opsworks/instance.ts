@@ -141,6 +141,8 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["autoScalingType", "availabilityZone", "blockDeviceMappings[*]", "ebsOptimized", "rootDeviceType", "stackId", "subnetId", "tenancy", "timeBasedAutoScaling", "virtualizationType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }

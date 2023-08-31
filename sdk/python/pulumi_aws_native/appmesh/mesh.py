@@ -121,6 +121,8 @@ class Mesh(pulumi.CustomResource):
             __props__.__dict__["mesh_owner"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["uid"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["mesh_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Mesh, __self__).__init__(
             'aws-native:appmesh:Mesh',
             resource_name,

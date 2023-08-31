@@ -41,6 +41,13 @@ func NewLocationS3(ctx *pulumi.Context,
 	if args.S3Config == nil {
 		return nil, errors.New("invalid value for required argument 'S3Config'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"s3BucketArn",
+		"s3Config",
+		"s3StorageClass",
+		"subdirectory",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationS3
 	err := ctx.RegisterResource("aws-native:datasync:LocationS3", name, args, &resource, opts...)

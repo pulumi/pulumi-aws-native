@@ -187,6 +187,22 @@ func NewDbInstance(ctx *pulumi.Context,
 		args = &DbInstanceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"characterSetName",
+		"customIamInstanceProfile",
+		"dbClusterIdentifier",
+		"dbInstanceIdentifier",
+		"dbName",
+		"dbSubnetGroupName",
+		"kmsKeyId",
+		"masterUsername",
+		"ncharCharacterSetName",
+		"port",
+		"sourceRegion",
+		"storageEncrypted",
+		"timezone",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbInstance
 	err := ctx.RegisterResource("aws-native:rds:DbInstance", name, args, &resource, opts...)

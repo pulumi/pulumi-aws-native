@@ -73,6 +73,8 @@ export class BackupVault extends pulumi.CustomResource {
             resourceInputs["notifications"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["backupVaultName", "encryptionKeyArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BackupVault.__pulumiType, name, resourceInputs, opts);
     }
 }

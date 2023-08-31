@@ -165,6 +165,8 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["wssEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["authenticationStrategy", "brokerName", "deploymentMode", "encryptionOptions", "engineType", "publiclyAccessible", "storageType", "subnetIds[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Broker.__pulumiType, name, resourceInputs, opts);
     }
 }

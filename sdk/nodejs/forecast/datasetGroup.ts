@@ -85,6 +85,8 @@ export class DatasetGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["datasetGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DatasetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

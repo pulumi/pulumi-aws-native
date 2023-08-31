@@ -51,6 +51,11 @@ func NewLoadBalancer(ctx *pulumi.Context,
 	if args.Listeners == nil {
 		return nil, errors.New("invalid value for required argument 'Listeners'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"loadBalancerName",
+		"scheme",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws-native:elasticloadbalancing:LoadBalancer", name, args, &resource, opts...)

@@ -76,6 +76,16 @@ func NewIpamPool(ctx *pulumi.Context,
 	if args.IpamScopeId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamScopeId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"addressFamily",
+		"awsService",
+		"ipamScopeId",
+		"locale",
+		"publicIpSource",
+		"publiclyAdvertisable",
+		"sourceIpamPoolId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpamPool
 	err := ctx.RegisterResource("aws-native:ec2:IpamPool", name, args, &resource, opts...)

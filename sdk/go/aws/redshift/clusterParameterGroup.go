@@ -41,6 +41,12 @@ func NewClusterParameterGroup(ctx *pulumi.Context,
 	if args.ParameterGroupFamily == nil {
 		return nil, errors.New("invalid value for required argument 'ParameterGroupFamily'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"parameterGroupFamily",
+		"parameterGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterParameterGroup
 	err := ctx.RegisterResource("aws-native:redshift:ClusterParameterGroup", name, args, &resource, opts...)

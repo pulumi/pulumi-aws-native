@@ -32,6 +32,10 @@ func NewBudget(ctx *pulumi.Context,
 	if args.Budget == nil {
 		return nil, errors.New("invalid value for required argument 'Budget'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"notificationsWithSubscribers[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Budget
 	err := ctx.RegisterResource("aws-native:budgets:Budget", name, args, &resource, opts...)

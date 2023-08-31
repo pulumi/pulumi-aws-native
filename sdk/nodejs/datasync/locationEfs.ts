@@ -106,6 +106,8 @@ export class LocationEfs extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["accessPointArn", "ec2Config", "efsFilesystemArn", "fileSystemAccessRoleArn", "inTransitEncryption", "subdirectory"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocationEfs.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -115,6 +115,8 @@ export class CustomActionType extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["category", "configurationProperties[*]", "inputArtifactDetails", "outputArtifactDetails", "provider", "settings", "version"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomActionType.__pulumiType, name, resourceInputs, opts);
     }
 }

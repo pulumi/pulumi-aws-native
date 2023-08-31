@@ -31,6 +31,10 @@ func NewReceiptFilter(ctx *pulumi.Context,
 	if args.Filter == nil {
 		return nil, errors.New("invalid value for required argument 'Filter'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"filter",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReceiptFilter
 	err := ctx.RegisterResource("aws-native:ses:ReceiptFilter", name, args, &resource, opts...)

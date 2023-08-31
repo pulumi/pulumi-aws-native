@@ -40,6 +40,12 @@ func NewWorkflow(ctx *pulumi.Context,
 	if args.Steps == nil {
 		return nil, errors.New("invalid value for required argument 'Steps'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"onExceptionSteps[*]",
+		"steps[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workflow
 	err := ctx.RegisterResource("aws-native:transfer:Workflow", name, args, &resource, opts...)

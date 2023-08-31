@@ -45,6 +45,17 @@ func NewNetworkInsightsPath(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"destination",
+		"destinationIp",
+		"destinationPort",
+		"filterAtDestination",
+		"filterAtSource",
+		"protocol",
+		"source",
+		"sourceIp",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInsightsPath
 	err := ctx.RegisterResource("aws-native:ec2:NetworkInsightsPath", name, args, &resource, opts...)

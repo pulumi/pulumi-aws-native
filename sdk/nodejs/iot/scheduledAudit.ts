@@ -100,6 +100,8 @@ export class ScheduledAudit extends pulumi.CustomResource {
             resourceInputs["targetCheckNames"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["scheduledAuditName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ScheduledAudit.__pulumiType, name, resourceInputs, opts);
     }
 }

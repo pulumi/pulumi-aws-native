@@ -174,6 +174,8 @@ class PublicTypeVersion(pulumi.CustomResource):
             __props__.__dict__["public_type_arn"] = None
             __props__.__dict__["publisher_id"] = None
             __props__.__dict__["type_version_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["arn", "log_delivery_bucket", "public_version_number", "type", "type_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PublicTypeVersion, __self__).__init__(
             'aws-native:cloudformation:PublicTypeVersion',
             resource_name,

@@ -70,6 +70,8 @@ export class SubnetNetworkAclAssociation extends pulumi.CustomResource {
             resourceInputs["subnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["networkAclId", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SubnetNetworkAclAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

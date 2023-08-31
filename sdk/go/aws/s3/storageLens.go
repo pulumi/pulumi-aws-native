@@ -31,6 +31,10 @@ func NewStorageLens(ctx *pulumi.Context,
 	if args.StorageLensConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLensConfiguration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"storageLensConfiguration.id",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StorageLens
 	err := ctx.RegisterResource("aws-native:s3:StorageLens", name, args, &resource, opts...)

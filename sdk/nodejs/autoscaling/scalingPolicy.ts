@@ -130,6 +130,8 @@ export class ScalingPolicy extends pulumi.CustomResource {
             resourceInputs["targetTrackingConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["autoScalingGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ScalingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

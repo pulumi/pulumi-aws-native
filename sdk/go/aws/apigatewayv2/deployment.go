@@ -32,6 +32,10 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Deployment
 	err := ctx.RegisterResource("aws-native:apigatewayv2:Deployment", name, args, &resource, opts...)

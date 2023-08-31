@@ -118,6 +118,8 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["taskArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["destinationLocationArn", "sourceLocationArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Task.__pulumiType, name, resourceInputs, opts);
     }
 }

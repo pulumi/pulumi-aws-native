@@ -42,6 +42,13 @@ func NewProject(ctx *pulumi.Context,
 	if args.ServiceCatalogProvisioningDetails == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceCatalogProvisioningDetails'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"projectDescription",
+		"projectName",
+		"serviceCatalogProvisioningDetails",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Project
 	err := ctx.RegisterResource("aws-native:sagemaker:Project", name, args, &resource, opts...)

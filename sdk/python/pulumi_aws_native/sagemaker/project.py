@@ -162,6 +162,8 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["project_arn"] = None
             __props__.__dict__["project_id"] = None
             __props__.__dict__["project_status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["project_description", "project_name", "service_catalog_provisioning_details", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Project, __self__).__init__(
             'aws-native:sagemaker:Project',
             resource_name,

@@ -195,6 +195,8 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["user_volume_encryption_enabled"] = user_volume_encryption_enabled
             __props__.__dict__["volume_encryption_key"] = volume_encryption_key
             __props__.__dict__["workspace_properties"] = workspace_properties
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["user_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workspace, __self__).__init__(
             'aws-native:workspaces:Workspace',
             resource_name,

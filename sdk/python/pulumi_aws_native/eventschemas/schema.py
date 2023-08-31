@@ -167,6 +167,8 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["schema_arn"] = None
             __props__.__dict__["schema_version"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["registry_name", "schema_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Schema, __self__).__init__(
             'aws-native:eventschemas:Schema',
             resource_name,

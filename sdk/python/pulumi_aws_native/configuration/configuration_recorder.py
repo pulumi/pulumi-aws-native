@@ -118,6 +118,8 @@ class ConfigurationRecorder(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationRecorder, __self__).__init__(
             'aws-native:configuration:ConfigurationRecorder',
             resource_name,

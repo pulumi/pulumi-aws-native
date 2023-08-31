@@ -278,6 +278,8 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["able_to_update_bundle"] = None
             __props__.__dict__["distribution_arn"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["distribution_name", "ip_address_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Distribution, __self__).__init__(
             'aws-native:lightsail:Distribution',
             resource_name,

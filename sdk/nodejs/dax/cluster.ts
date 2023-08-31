@@ -117,6 +117,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clusterEndpointEncryptionType", "clusterName", "iamRoleArn", "nodeType", "sseSpecification", "subnetGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

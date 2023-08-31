@@ -188,6 +188,8 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
             __props__.__dict__["wireless_devices"] = wireless_devices
             __props__.__dict__["wireless_gateways"] = wireless_gateways
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkAnalyzerConfiguration, __self__).__init__(
             'aws-native:iotwireless:NetworkAnalyzerConfiguration',
             resource_name,

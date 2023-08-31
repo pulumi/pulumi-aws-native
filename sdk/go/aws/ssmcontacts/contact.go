@@ -44,6 +44,11 @@ func NewContact(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"alias",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Contact
 	err := ctx.RegisterResource("aws-native:ssmcontacts:Contact", name, args, &resource, opts...)

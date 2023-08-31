@@ -38,6 +38,11 @@ func NewRepository(ctx *pulumi.Context,
 		args = &RepositoryArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"encryptionConfiguration",
+		"repositoryName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Repository
 	err := ctx.RegisterResource("aws-native:ecr:Repository", name, args, &resource, opts...)

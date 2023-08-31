@@ -73,6 +73,8 @@ export class RolePolicy extends pulumi.CustomResource {
             resourceInputs["roleName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["policyName", "roleName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RolePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

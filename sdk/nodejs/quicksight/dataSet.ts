@@ -150,6 +150,8 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "dataSetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataSet.__pulumiType, name, resourceInputs, opts);
     }
 }

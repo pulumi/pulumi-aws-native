@@ -153,6 +153,8 @@ class Identity(pulumi.CustomResource):
             __props__.__dict__["identity_dns_record_value1"] = None
             __props__.__dict__["identity_dns_record_value2"] = None
             __props__.__dict__["identity_dns_record_value3"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Identity, __self__).__init__(
             'aws-native:pinpointemail:Identity',
             resource_name,

@@ -82,6 +82,8 @@ export class RoutingControl extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clusterArn", "controlPanelArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RoutingControl.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -34,6 +34,10 @@ func NewAccessLogSubscription(ctx *pulumi.Context,
 	if args.DestinationArn == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessLogSubscription
 	err := ctx.RegisterResource("aws-native:vpclattice:AccessLogSubscription", name, args, &resource, opts...)

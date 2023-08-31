@@ -36,6 +36,11 @@ func NewEventInvokeConfig(ctx *pulumi.Context,
 	if args.Qualifier == nil {
 		return nil, errors.New("invalid value for required argument 'Qualifier'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"functionName",
+		"qualifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventInvokeConfig
 	err := ctx.RegisterResource("aws-native:lambda:EventInvokeConfig", name, args, &resource, opts...)

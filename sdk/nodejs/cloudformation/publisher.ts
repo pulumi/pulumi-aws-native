@@ -91,6 +91,8 @@ export class Publisher extends pulumi.CustomResource {
             resourceInputs["publisherStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["acceptTermsAndConditions", "connectionArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Publisher.__pulumiType, name, resourceInputs, opts);
     }
 }

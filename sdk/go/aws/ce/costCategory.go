@@ -42,6 +42,10 @@ func NewCostCategory(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CostCategory
 	err := ctx.RegisterResource("aws-native:ce:CostCategory", name, args, &resource, opts...)

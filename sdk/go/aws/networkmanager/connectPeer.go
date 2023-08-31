@@ -55,6 +55,14 @@ func NewConnectPeer(ctx *pulumi.Context,
 	if args.PeerAddress == nil {
 		return nil, errors.New("invalid value for required argument 'PeerAddress'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bgpOptions",
+		"connectAttachmentId",
+		"coreNetworkAddress",
+		"insideCidrBlocks[*]",
+		"peerAddress",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectPeer
 	err := ctx.RegisterResource("aws-native:networkmanager:ConnectPeer", name, args, &resource, opts...)

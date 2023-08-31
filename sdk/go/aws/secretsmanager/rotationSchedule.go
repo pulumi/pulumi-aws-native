@@ -35,6 +35,10 @@ func NewRotationSchedule(ctx *pulumi.Context,
 	if args.SecretId == nil {
 		return nil, errors.New("invalid value for required argument 'SecretId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"secretId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RotationSchedule
 	err := ctx.RegisterResource("aws-native:secretsmanager:RotationSchedule", name, args, &resource, opts...)

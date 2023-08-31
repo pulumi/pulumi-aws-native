@@ -78,6 +78,8 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
             resourceInputs["userPoolId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clientId", "userPoolId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserPoolRiskConfigurationAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

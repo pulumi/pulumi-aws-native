@@ -152,6 +152,8 @@ class HookTypeConfig(pulumi.CustomResource):
             __props__.__dict__["type_arn"] = type_arn
             __props__.__dict__["type_name"] = type_name
             __props__.__dict__["configuration_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration_alias"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(HookTypeConfig, __self__).__init__(
             'aws-native:cloudformation:HookTypeConfig',
             resource_name,

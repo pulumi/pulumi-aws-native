@@ -117,6 +117,8 @@ class Master(pulumi.CustomResource):
             if master_id is None and not opts.urn:
                 raise TypeError("Missing required property 'master_id'")
             __props__.__dict__["master_id"] = master_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detector_id", "invitation_id", "master_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Master, __self__).__init__(
             'aws-native:guardduty:Master',
             resource_name,

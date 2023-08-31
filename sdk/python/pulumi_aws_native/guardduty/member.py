@@ -163,6 +163,8 @@ class Member(pulumi.CustomResource):
             __props__.__dict__["member_id"] = member_id
             __props__.__dict__["message"] = message
             __props__.__dict__["status"] = status
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detector_id", "email", "member_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Member, __self__).__init__(
             'aws-native:guardduty:Member',
             resource_name,

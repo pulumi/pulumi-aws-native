@@ -39,6 +39,11 @@ func NewPipeline(ctx *pulumi.Context,
 		args = &PipelineArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipeline
 	err := ctx.RegisterResource("aws-native:datapipeline:Pipeline", name, args, &resource, opts...)

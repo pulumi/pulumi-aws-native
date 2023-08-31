@@ -105,6 +105,8 @@ export class StackSetConstraint extends pulumi.CustomResource {
             resourceInputs["stackInstanceControl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["portfolioId", "productId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StackSetConstraint.__pulumiType, name, resourceInputs, opts);
     }
 }

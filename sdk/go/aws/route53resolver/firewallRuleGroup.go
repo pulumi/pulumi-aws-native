@@ -48,6 +48,10 @@ func NewFirewallRuleGroup(ctx *pulumi.Context,
 		args = &FirewallRuleGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallRuleGroup
 	err := ctx.RegisterResource("aws-native:route53resolver:FirewallRuleGroup", name, args, &resource, opts...)

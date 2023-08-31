@@ -90,6 +90,8 @@ export class EnvironmentTemplate extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["encryptionKey", "name", "provisioning"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EnvironmentTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

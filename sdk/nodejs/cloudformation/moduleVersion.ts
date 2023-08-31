@@ -124,6 +124,8 @@ export class ModuleVersion extends pulumi.CustomResource {
             resourceInputs["visibility"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["moduleName", "modulePackage"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ModuleVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -35,6 +35,11 @@ func NewWorkgroup(ctx *pulumi.Context,
 		args = &WorkgroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"namespaceName",
+		"workgroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workgroup
 	err := ctx.RegisterResource("aws-native:redshiftserverless:Workgroup", name, args, &resource, opts...)

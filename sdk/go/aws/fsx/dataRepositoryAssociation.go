@@ -52,6 +52,13 @@ func NewDataRepositoryAssociation(ctx *pulumi.Context,
 	if args.FileSystemPath == nil {
 		return nil, errors.New("invalid value for required argument 'FileSystemPath'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"batchImportMetaDataOnCreate",
+		"dataRepositoryPath",
+		"fileSystemId",
+		"fileSystemPath",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataRepositoryAssociation
 	err := ctx.RegisterResource("aws-native:fsx:DataRepositoryAssociation", name, args, &resource, opts...)

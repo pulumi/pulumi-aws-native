@@ -264,6 +264,8 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["stage"] = stage
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_id", "branch_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Branch, __self__).__init__(
             'aws-native:amplify:Branch',
             resource_name,

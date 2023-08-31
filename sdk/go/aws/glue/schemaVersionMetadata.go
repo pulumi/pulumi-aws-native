@@ -40,6 +40,12 @@ func NewSchemaVersionMetadata(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"key",
+		"schemaVersionId",
+		"value",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SchemaVersionMetadata
 	err := ctx.RegisterResource("aws-native:glue:SchemaVersionMetadata", name, args, &resource, opts...)

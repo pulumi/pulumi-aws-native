@@ -148,6 +148,8 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["image_role_arn"] = image_role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["image_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["image_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Image, __self__).__init__(
             'aws-native:sagemaker:Image',
             resource_name,

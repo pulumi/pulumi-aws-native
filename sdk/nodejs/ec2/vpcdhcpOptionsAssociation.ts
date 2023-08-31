@@ -67,6 +67,8 @@ export class VpcdhcpOptionsAssociation extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dhcpOptionsId", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcdhcpOptionsAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

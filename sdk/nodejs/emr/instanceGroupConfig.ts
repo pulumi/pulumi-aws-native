@@ -102,6 +102,8 @@ export class InstanceGroupConfig extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["bidPrice", "configurations[*]", "customAmiId", "ebsConfiguration", "instanceRole", "instanceType", "jobFlowId", "market", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InstanceGroupConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

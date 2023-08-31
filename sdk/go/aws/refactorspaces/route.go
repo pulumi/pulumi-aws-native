@@ -48,6 +48,17 @@ func NewRoute(ctx *pulumi.Context,
 	if args.ServiceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceIdentifier'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationIdentifier",
+		"environmentIdentifier",
+		"routeType",
+		"serviceIdentifier",
+		"uriPathRoute.appendSourcePath",
+		"uriPathRoute.includeChildPaths",
+		"uriPathRoute.methods[*]",
+		"uriPathRoute.sourcePath",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws-native:refactorspaces:Route", name, args, &resource, opts...)

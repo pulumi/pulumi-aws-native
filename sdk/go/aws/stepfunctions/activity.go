@@ -27,6 +27,10 @@ func NewActivity(ctx *pulumi.Context,
 		args = &ActivityArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Activity
 	err := ctx.RegisterResource("aws-native:stepfunctions:Activity", name, args, &resource, opts...)

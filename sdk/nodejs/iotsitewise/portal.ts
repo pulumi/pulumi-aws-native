@@ -130,6 +130,8 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["portalAuthMode"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Portal.__pulumiType, name, resourceInputs, opts);
     }
 }

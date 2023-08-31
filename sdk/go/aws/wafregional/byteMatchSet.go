@@ -28,6 +28,10 @@ func NewByteMatchSet(ctx *pulumi.Context,
 		args = &ByteMatchSetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ByteMatchSet
 	err := ctx.RegisterResource("aws-native:wafregional:ByteMatchSet", name, args, &resource, opts...)

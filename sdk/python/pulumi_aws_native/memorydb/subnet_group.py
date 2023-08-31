@@ -148,6 +148,8 @@ class SubnetGroup(pulumi.CustomResource):
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["subnet_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubnetGroup, __self__).__init__(
             'aws-native:memorydb:SubnetGroup',
             resource_name,

@@ -38,6 +38,16 @@ func NewEndpointConfig(ctx *pulumi.Context,
 	if args.ProductionVariants == nil {
 		return nil, errors.New("invalid value for required argument 'ProductionVariants'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"asyncInferenceConfig",
+		"dataCaptureConfig",
+		"endpointConfigName",
+		"explainerConfig",
+		"kmsKeyId",
+		"productionVariants[*]",
+		"shadowProductionVariants[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointConfig
 	err := ctx.RegisterResource("aws-native:sagemaker:EndpointConfig", name, args, &resource, opts...)

@@ -82,6 +82,8 @@ export class RequestValidator extends pulumi.CustomResource {
             resourceInputs["validateRequestParameters"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "restApiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RequestValidator.__pulumiType, name, resourceInputs, opts);
     }
 }

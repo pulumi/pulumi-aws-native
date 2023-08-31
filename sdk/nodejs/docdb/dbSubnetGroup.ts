@@ -75,6 +75,8 @@ export class DbSubnetGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dbSubnetGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbSubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

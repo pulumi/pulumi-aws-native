@@ -130,6 +130,8 @@ export class SourceApiAssociation extends pulumi.CustomResource {
             resourceInputs["sourceApiIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["mergedApiIdentifier", "sourceApiIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SourceApiAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

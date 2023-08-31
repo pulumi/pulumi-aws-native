@@ -37,6 +37,13 @@ func NewPortfolioProductAssociation(ctx *pulumi.Context,
 	if args.ProductId == nil {
 		return nil, errors.New("invalid value for required argument 'ProductId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"acceptLanguage",
+		"portfolioId",
+		"productId",
+		"sourcePortfolioId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PortfolioProductAssociation
 	err := ctx.RegisterResource("aws-native:servicecatalog:PortfolioProductAssociation", name, args, &resource, opts...)

@@ -100,6 +100,8 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["transferAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domain", "networkBorderGroup", "transferAddress"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Eip.__pulumiType, name, resourceInputs, opts);
     }
 }

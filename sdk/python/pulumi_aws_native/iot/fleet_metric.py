@@ -266,6 +266,8 @@ class FleetMetric(pulumi.CustomResource):
             __props__.__dict__["last_modified_date"] = None
             __props__.__dict__["metric_arn"] = None
             __props__.__dict__["version"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["metric_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FleetMetric, __self__).__init__(
             'aws-native:iot:FleetMetric',
             resource_name,

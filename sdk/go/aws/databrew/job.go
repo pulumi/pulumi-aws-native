@@ -66,6 +66,12 @@ func NewJob(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"tags[*]",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Job
 	err := ctx.RegisterResource("aws-native:databrew:Job", name, args, &resource, opts...)

@@ -41,6 +41,13 @@ func NewRobot(ctx *pulumi.Context,
 	if args.GreengrassGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'GreengrassGroupId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"architecture",
+		"fleet",
+		"greengrassGroupId",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Robot
 	err := ctx.RegisterResource("aws-native:robomaker:Robot", name, args, &resource, opts...)

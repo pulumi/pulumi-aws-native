@@ -45,6 +45,13 @@ func NewNetworkPerformanceMetricSubscription(ctx *pulumi.Context,
 	if args.Statistic == nil {
 		return nil, errors.New("invalid value for required argument 'Statistic'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"destination",
+		"metric",
+		"source",
+		"statistic",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkPerformanceMetricSubscription
 	err := ctx.RegisterResource("aws-native:ec2:NetworkPerformanceMetricSubscription", name, args, &resource, opts...)

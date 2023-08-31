@@ -85,6 +85,8 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["subnetGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -46,6 +46,17 @@ func NewService(ctx *pulumi.Context,
 	if args.EnvironmentIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentIdentifier'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationIdentifier",
+		"description",
+		"endpointType",
+		"environmentIdentifier",
+		"lambdaEndpoint",
+		"name",
+		"urlEndpoint",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws-native:refactorspaces:Service", name, args, &resource, opts...)

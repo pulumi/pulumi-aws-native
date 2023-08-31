@@ -73,6 +73,8 @@ export class Tag extends pulumi.CustomResource {
             resourceInputs["tagValues"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["catalogId", "tagKey"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Tag.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -33,6 +33,10 @@ func NewStaticIp(ctx *pulumi.Context,
 		args = &StaticIpArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"staticIpName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StaticIp
 	err := ctx.RegisterResource("aws-native:lightsail:StaticIp", name, args, &resource, opts...)

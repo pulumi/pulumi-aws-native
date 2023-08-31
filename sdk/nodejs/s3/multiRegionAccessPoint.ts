@@ -85,6 +85,8 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
             resourceInputs["regions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "publicAccessBlockConfiguration", "regions[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MultiRegionAccessPoint.__pulumiType, name, resourceInputs, opts);
     }
 }

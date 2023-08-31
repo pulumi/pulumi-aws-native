@@ -133,6 +133,8 @@ class ClientVpnRoute(pulumi.CustomResource):
             if target_vpc_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_vpc_subnet_id'")
             __props__.__dict__["target_vpc_subnet_id"] = target_vpc_subnet_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_vpn_endpoint_id", "description", "destination_cidr_block", "target_vpc_subnet_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClientVpnRoute, __self__).__init__(
             'aws-native:ec2:ClientVpnRoute',
             resource_name,

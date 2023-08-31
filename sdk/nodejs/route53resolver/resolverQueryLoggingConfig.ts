@@ -106,6 +106,8 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["destinationArn", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResolverQueryLoggingConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

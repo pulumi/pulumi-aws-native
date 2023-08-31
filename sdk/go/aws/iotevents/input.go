@@ -37,6 +37,10 @@ func NewInput(ctx *pulumi.Context,
 	if args.InputDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'InputDefinition'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"inputName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Input
 	err := ctx.RegisterResource("aws-native:iotevents:Input", name, args, &resource, opts...)

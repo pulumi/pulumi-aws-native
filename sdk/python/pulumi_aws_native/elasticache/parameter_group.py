@@ -134,6 +134,8 @@ class ParameterGroup(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cache_parameter_group_family"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ParameterGroup, __self__).__init__(
             'aws-native:elasticache:ParameterGroup',
             resource_name,

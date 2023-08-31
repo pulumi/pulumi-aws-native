@@ -47,6 +47,10 @@ func NewFirewallDomainList(ctx *pulumi.Context,
 		args = &FirewallDomainListArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallDomainList
 	err := ctx.RegisterResource("aws-native:route53resolver:FirewallDomainList", name, args, &resource, opts...)

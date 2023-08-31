@@ -34,6 +34,11 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.CronExpression == nil {
 		return nil, errors.New("invalid value for required argument 'CronExpression'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schedule
 	err := ctx.RegisterResource("aws-native:databrew:Schedule", name, args, &resource, opts...)

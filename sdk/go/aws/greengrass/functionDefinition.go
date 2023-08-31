@@ -31,6 +31,10 @@ func NewFunctionDefinition(ctx *pulumi.Context,
 		args = &FunctionDefinitionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"initialVersion",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FunctionDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:FunctionDefinition", name, args, &resource, opts...)

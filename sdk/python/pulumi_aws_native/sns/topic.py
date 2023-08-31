@@ -304,6 +304,8 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["tracing_config"] = tracing_config
             __props__.__dict__["topic_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fifo_topic", "topic_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Topic, __self__).__init__(
             'aws-native:sns:Topic',
             resource_name,

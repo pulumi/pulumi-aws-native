@@ -85,6 +85,8 @@ export class Simulation extends pulumi.CustomResource {
             resourceInputs["snapshotS3Location"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["maximumDuration", "name", "roleArn", "schemaS3Location", "snapshotS3Location"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Simulation.__pulumiType, name, resourceInputs, opts);
     }
 }

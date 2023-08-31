@@ -53,6 +53,15 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ReplicationFactor == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationFactor'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clusterEndpointEncryptionType",
+		"clusterName",
+		"iamRoleArn",
+		"nodeType",
+		"sseSpecification",
+		"subnetGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws-native:dax:Cluster", name, args, &resource, opts...)

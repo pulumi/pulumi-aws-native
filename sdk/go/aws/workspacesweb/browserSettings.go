@@ -30,6 +30,11 @@ func NewBrowserSettings(ctx *pulumi.Context,
 		args = &BrowserSettingsArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"additionalEncryptionContext",
+		"customerManagedKey",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BrowserSettings
 	err := ctx.RegisterResource("aws-native:workspacesweb:BrowserSettings", name, args, &resource, opts...)

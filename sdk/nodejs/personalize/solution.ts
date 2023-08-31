@@ -97,6 +97,8 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["solutionConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["datasetGroupArn", "eventType", "name", "performAutoMl", "performHpo", "recipeArn", "solutionConfig"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Solution.__pulumiType, name, resourceInputs, opts);
     }
 }

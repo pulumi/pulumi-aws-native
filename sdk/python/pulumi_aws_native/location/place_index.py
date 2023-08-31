@@ -148,6 +148,8 @@ class PlaceIndex(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["index_arn"] = None
             __props__.__dict__["update_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_source", "data_source_configuration", "description", "index_name", "pricing_plan"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PlaceIndex, __self__).__init__(
             'aws-native:location:PlaceIndex',
             resource_name,

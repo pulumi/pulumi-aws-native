@@ -212,6 +212,8 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["validity_not_before"] = validity_not_before
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_passthrough", "certificate_authority_arn", "certificate_signing_request", "signing_algorithm", "template_arn", "validity", "validity_not_before"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Certificate, __self__).__init__(
             'aws-native:acmpca:Certificate',
             resource_name,

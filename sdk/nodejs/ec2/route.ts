@@ -136,6 +136,8 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["vpcPeeringConnectionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["destinationCidrBlock", "destinationIpv6CidrBlock", "routeTableId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }

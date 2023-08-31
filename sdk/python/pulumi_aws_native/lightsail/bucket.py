@@ -205,6 +205,8 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["able_to_update_bundle"] = None
             __props__.__dict__["bucket_arn"] = None
             __props__.__dict__["url"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Bucket, __self__).__init__(
             'aws-native:lightsail:Bucket',
             resource_name,

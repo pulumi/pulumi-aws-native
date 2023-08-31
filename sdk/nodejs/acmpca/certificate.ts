@@ -118,6 +118,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["validityNotBefore"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiPassthrough", "certificateAuthorityArn", "certificateSigningRequest", "signingAlgorithm", "templateArn", "validity", "validityNotBefore"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

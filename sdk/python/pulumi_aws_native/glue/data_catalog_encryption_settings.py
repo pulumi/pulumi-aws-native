@@ -104,6 +104,8 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             if data_catalog_encryption_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'data_catalog_encryption_settings'")
             __props__.__dict__["data_catalog_encryption_settings"] = data_catalog_encryption_settings
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataCatalogEncryptionSettings, __self__).__init__(
             'aws-native:glue:DataCatalogEncryptionSettings',
             resource_name,

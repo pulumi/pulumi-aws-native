@@ -42,6 +42,15 @@ func NewMicrosoftAd(ctx *pulumi.Context,
 	if args.VpcSettings == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSettings'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"createAlias",
+		"edition",
+		"name",
+		"password",
+		"shortName",
+		"vpcSettings",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MicrosoftAd
 	err := ctx.RegisterResource("aws-native:directoryservice:MicrosoftAd", name, args, &resource, opts...)

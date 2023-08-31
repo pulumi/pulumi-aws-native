@@ -31,6 +31,10 @@ func NewWorkflow(ctx *pulumi.Context,
 		args = &WorkflowArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workflow
 	err := ctx.RegisterResource("aws-native:glue:Workflow", name, args, &resource, opts...)

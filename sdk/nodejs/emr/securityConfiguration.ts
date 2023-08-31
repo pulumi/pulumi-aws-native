@@ -64,6 +64,8 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             resourceInputs["securityConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "securityConfiguration"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SecurityConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

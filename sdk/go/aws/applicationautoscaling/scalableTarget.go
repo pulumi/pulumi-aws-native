@@ -56,6 +56,12 @@ func NewScalableTarget(ctx *pulumi.Context,
 	if args.ServiceNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceNamespace'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceId",
+		"scalableDimension",
+		"serviceNamespace",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScalableTarget
 	err := ctx.RegisterResource("aws-native:applicationautoscaling:ScalableTarget", name, args, &resource, opts...)

@@ -38,6 +38,11 @@ func NewGatewayResponse(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"responseType",
+		"restApiId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayResponse
 	err := ctx.RegisterResource("aws-native:apigateway:GatewayResponse", name, args, &resource, opts...)

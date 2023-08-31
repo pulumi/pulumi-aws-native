@@ -50,6 +50,10 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"workspaceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws-native:iottwinmaker:Workspace", name, args, &resource, opts...)

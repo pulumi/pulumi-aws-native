@@ -528,6 +528,8 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["starting_position_timestamp"] = starting_position_timestamp
             __props__.__dict__["topics"] = topics
             __props__.__dict__["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_managed_kafka_event_source_config", "event_source_arn", "self_managed_event_source", "self_managed_kafka_event_source_config", "starting_position", "starting_position_timestamp"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventSourceMapping, __self__).__init__(
             'aws-native:lambda:EventSourceMapping',
             resource_name,

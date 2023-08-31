@@ -63,6 +63,11 @@ func NewTransitGatewayRouteTableAttachment(ctx *pulumi.Context,
 	if args.TransitGatewayRouteTableArn == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayRouteTableArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"peeringId",
+		"transitGatewayRouteTableArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayRouteTableAttachment
 	err := ctx.RegisterResource("aws-native:networkmanager:TransitGatewayRouteTableAttachment", name, args, &resource, opts...)

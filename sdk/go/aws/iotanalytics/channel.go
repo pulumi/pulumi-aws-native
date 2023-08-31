@@ -28,6 +28,10 @@ func NewChannel(ctx *pulumi.Context,
 		args = &ChannelArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"channelName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws-native:iotanalytics:Channel", name, args, &resource, opts...)

@@ -96,6 +96,8 @@ export class NetworkAclEntry extends pulumi.CustomResource {
             resourceInputs["ruleNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["egress", "networkAclId", "ruleNumber"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkAclEntry.__pulumiType, name, resourceInputs, opts);
     }
 }

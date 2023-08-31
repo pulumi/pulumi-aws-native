@@ -167,6 +167,8 @@ class AccountPolicy(pulumi.CustomResource):
             __props__.__dict__["policy_type"] = policy_type
             __props__.__dict__["scope"] = scope
             __props__.__dict__["account_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_name", "policy_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccountPolicy, __self__).__init__(
             'aws-native:logs:AccountPolicy',
             resource_name,

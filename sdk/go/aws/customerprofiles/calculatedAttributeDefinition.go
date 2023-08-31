@@ -49,6 +49,11 @@ func NewCalculatedAttributeDefinition(ctx *pulumi.Context,
 	if args.Statistic == nil {
 		return nil, errors.New("invalid value for required argument 'Statistic'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"calculatedAttributeName",
+		"domainName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CalculatedAttributeDefinition
 	err := ctx.RegisterResource("aws-native:customerprofiles:CalculatedAttributeDefinition", name, args, &resource, opts...)

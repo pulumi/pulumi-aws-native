@@ -56,6 +56,16 @@ func NewCluster(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"encryptionConfig[*]",
+		"kubernetesNetworkConfig",
+		"name",
+		"outpostConfig",
+		"resourcesVpcConfig.securityGroupIds[*]",
+		"resourcesVpcConfig.subnetIds[*]",
+		"roleArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws-native:eks:Cluster", name, args, &resource, opts...)

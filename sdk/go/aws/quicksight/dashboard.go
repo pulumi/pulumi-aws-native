@@ -47,6 +47,11 @@ func NewDashboard(ctx *pulumi.Context,
 	if args.DashboardId == nil {
 		return nil, errors.New("invalid value for required argument 'DashboardId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"awsAccountId",
+		"dashboardId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dashboard
 	err := ctx.RegisterResource("aws-native:quicksight:Dashboard", name, args, &resource, opts...)

@@ -69,6 +69,8 @@ export class Placement extends pulumi.CustomResource {
             resourceInputs["projectName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["associatedDevices", "placementName", "projectName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Placement.__pulumiType, name, resourceInputs, opts);
     }
 }

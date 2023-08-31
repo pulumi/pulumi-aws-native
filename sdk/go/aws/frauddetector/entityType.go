@@ -36,6 +36,10 @@ func NewEntityType(ctx *pulumi.Context,
 		args = &EntityTypeArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EntityType
 	err := ctx.RegisterResource("aws-native:frauddetector:EntityType", name, args, &resource, opts...)

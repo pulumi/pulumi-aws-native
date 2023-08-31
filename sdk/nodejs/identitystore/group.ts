@@ -79,6 +79,8 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["identityStoreId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["identityStoreId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }

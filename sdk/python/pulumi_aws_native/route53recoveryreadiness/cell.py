@@ -128,6 +128,8 @@ class Cell(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cell_arn"] = None
             __props__.__dict__["parent_readiness_scopes"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cell_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cell, __self__).__init__(
             'aws-native:route53recoveryreadiness:Cell',
             resource_name,

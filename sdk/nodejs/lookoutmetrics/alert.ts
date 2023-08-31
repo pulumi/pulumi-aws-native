@@ -97,6 +97,8 @@ export class Alert extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["action", "alertDescription", "alertName", "alertSensitivityThreshold", "anomalyDetectorArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Alert.__pulumiType, name, resourceInputs, opts);
     }
 }

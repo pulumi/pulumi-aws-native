@@ -76,6 +76,8 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["stages"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["contactId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Plan.__pulumiType, name, resourceInputs, opts);
     }
 }

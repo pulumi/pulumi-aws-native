@@ -40,6 +40,11 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"deploymentCanarySettings",
+		"restApiId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Deployment
 	err := ctx.RegisterResource("aws-native:apigateway:Deployment", name, args, &resource, opts...)

@@ -82,6 +82,8 @@ export class ScheduleGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ScheduleGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -41,6 +41,13 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ApplicationType == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"credentials[*]",
+		"instances[*]",
+		"sapInstanceNumber",
+		"sid",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws-native:systemsmanagersap:Application", name, args, &resource, opts...)

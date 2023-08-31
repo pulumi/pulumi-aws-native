@@ -56,6 +56,10 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.SubscriptionName == nil {
 		return nil, errors.New("invalid value for required argument 'SubscriptionName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"subscriptionName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws-native:redshift:EventSubscription", name, args, &resource, opts...)

@@ -168,6 +168,8 @@ class DataCatalog(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataCatalog, __self__).__init__(
             'aws-native:athena:DataCatalog',
             resource_name,

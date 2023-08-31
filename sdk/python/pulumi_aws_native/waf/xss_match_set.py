@@ -103,6 +103,8 @@ class XssMatchSet(pulumi.CustomResource):
             if xss_match_tuples is None and not opts.urn:
                 raise TypeError("Missing required property 'xss_match_tuples'")
             __props__.__dict__["xss_match_tuples"] = xss_match_tuples
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(XssMatchSet, __self__).__init__(
             'aws-native:waf:XssMatchSet',
             resource_name,

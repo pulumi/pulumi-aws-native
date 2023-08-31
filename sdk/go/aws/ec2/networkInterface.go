@@ -62,6 +62,12 @@ func NewNetworkInterface(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"interfaceType",
+		"privateIpAddress",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInterface
 	err := ctx.RegisterResource("aws-native:ec2:NetworkInterface", name, args, &resource, opts...)

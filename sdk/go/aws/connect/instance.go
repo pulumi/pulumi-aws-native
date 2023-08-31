@@ -47,6 +47,12 @@ func NewInstance(ctx *pulumi.Context,
 	if args.IdentityManagementType == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityManagementType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"directoryId",
+		"identityManagementType",
+		"instanceAlias",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws-native:connect:Instance", name, args, &resource, opts...)

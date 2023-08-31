@@ -94,6 +94,8 @@ export class EmailIdentity extends pulumi.CustomResource {
             resourceInputs["mailFromAttributes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["emailIdentity"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EmailIdentity.__pulumiType, name, resourceInputs, opts);
     }
 }

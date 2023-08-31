@@ -159,6 +159,8 @@ class CostCategory(pulumi.CustomResource):
             __props__.__dict__["split_charge_rules"] = split_charge_rules
             __props__.__dict__["arn"] = None
             __props__.__dict__["effective_start"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CostCategory, __self__).__init__(
             'aws-native:ce:CostCategory',
             resource_name,

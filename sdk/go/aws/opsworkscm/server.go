@@ -57,6 +57,24 @@ func NewServer(ctx *pulumi.Context,
 	if args.ServiceRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"associatePublicIpAddress",
+		"backupId",
+		"customCertificate",
+		"customDomain",
+		"customPrivateKey",
+		"engine",
+		"engineModel",
+		"engineVersion",
+		"instanceProfileArn",
+		"instanceType",
+		"keyPair",
+		"securityGroupIds[*]",
+		"serverName",
+		"serviceRoleArn",
+		"subnetIds[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Server
 	err := ctx.RegisterResource("aws-native:opsworkscm:Server", name, args, &resource, opts...)

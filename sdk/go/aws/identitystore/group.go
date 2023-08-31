@@ -39,6 +39,10 @@ func NewGroup(ctx *pulumi.Context,
 	if args.IdentityStoreId == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityStoreId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"identityStoreId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws-native:identitystore:Group", name, args, &resource, opts...)

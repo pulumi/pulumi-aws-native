@@ -510,6 +510,8 @@ class CacheCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cache_subnet_group_name", "cluster_name", "engine", "network_type", "port", "snapshot_arns[*]", "snapshot_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CacheCluster, __self__).__init__(
             'aws-native:elasticache:CacheCluster',
             resource_name,

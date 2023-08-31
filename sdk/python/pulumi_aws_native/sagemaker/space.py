@@ -149,6 +149,8 @@ class Space(pulumi.CustomResource):
             __props__.__dict__["space_settings"] = space_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["space_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_id", "space_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Space, __self__).__init__(
             'aws-native:sagemaker:Space',
             resource_name,

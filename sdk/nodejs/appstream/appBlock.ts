@@ -85,6 +85,8 @@ export class AppBlock extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "displayName", "name", "packagingType", "postSetupScriptDetails", "setupScriptDetails", "sourceS3Location"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AppBlock.__pulumiType, name, resourceInputs, opts);
     }
 }

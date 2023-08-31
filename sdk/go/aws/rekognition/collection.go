@@ -32,6 +32,10 @@ func NewCollection(ctx *pulumi.Context,
 	if args.CollectionId == nil {
 		return nil, errors.New("invalid value for required argument 'CollectionId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"collectionId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Collection
 	err := ctx.RegisterResource("aws-native:rekognition:Collection", name, args, &resource, opts...)

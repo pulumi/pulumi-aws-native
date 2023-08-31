@@ -85,6 +85,8 @@ export class Flywheel extends pulumi.CustomResource {
             resourceInputs["taskConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dataLakeS3Uri", "flywheelName", "modelType", "taskConfig"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Flywheel.__pulumiType, name, resourceInputs, opts);
     }
 }

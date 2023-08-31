@@ -98,6 +98,15 @@ namespace Pulumi.AwsNative.Rds
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "databaseInstallationFilesS3BucketName",
+                    "databaseInstallationFilesS3Prefix",
+                    "engine",
+                    "engineVersion",
+                    "kmsKeyId",
+                    "manifest",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

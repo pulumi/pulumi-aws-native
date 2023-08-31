@@ -37,6 +37,11 @@ func NewWebAcl(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"metricName",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebAcl
 	err := ctx.RegisterResource("aws-native:wafregional:WebAcl", name, args, &resource, opts...)

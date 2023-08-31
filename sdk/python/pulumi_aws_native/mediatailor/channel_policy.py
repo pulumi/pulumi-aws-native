@@ -101,6 +101,8 @@ class ChannelPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ChannelPolicy, __self__).__init__(
             'aws-native:mediatailor:ChannelPolicy',
             resource_name,

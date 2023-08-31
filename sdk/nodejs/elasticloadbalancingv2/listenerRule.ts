@@ -79,6 +79,8 @@ export class ListenerRule extends pulumi.CustomResource {
             resourceInputs["ruleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["listenerArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ListenerRule.__pulumiType, name, resourceInputs, opts);
     }
 }

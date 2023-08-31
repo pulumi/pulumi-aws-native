@@ -37,6 +37,11 @@ func NewPrivateDnsNamespace(ctx *pulumi.Context,
 	if args.Vpc == nil {
 		return nil, errors.New("invalid value for required argument 'Vpc'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"vpc",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrivateDnsNamespace
 	err := ctx.RegisterResource("aws-native:servicediscovery:PrivateDnsNamespace", name, args, &resource, opts...)

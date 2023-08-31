@@ -36,6 +36,10 @@ func NewDiscoverer(ctx *pulumi.Context,
 	if args.SourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"sourceArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Discoverer
 	err := ctx.RegisterResource("aws-native:eventschemas:Discoverer", name, args, &resource, opts...)

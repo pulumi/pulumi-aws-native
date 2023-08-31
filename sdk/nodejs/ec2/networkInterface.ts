@@ -157,6 +157,8 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["interfaceType", "privateIpAddress", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkInterface.__pulumiType, name, resourceInputs, opts);
     }
 }

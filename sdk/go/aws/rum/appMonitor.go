@@ -37,6 +37,10 @@ func NewAppMonitor(ctx *pulumi.Context,
 	if args.Domain == nil {
 		return nil, errors.New("invalid value for required argument 'Domain'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppMonitor
 	err := ctx.RegisterResource("aws-native:rum:AppMonitor", name, args, &resource, opts...)

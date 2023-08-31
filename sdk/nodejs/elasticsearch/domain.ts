@@ -111,6 +111,8 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["vpcOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domainName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }

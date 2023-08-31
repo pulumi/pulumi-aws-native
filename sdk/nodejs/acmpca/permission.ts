@@ -82,6 +82,8 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["sourceAccount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["actions[*]", "certificateAuthorityArn", "principal", "sourceAccount"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Permission.__pulumiType, name, resourceInputs, opts);
     }
 }

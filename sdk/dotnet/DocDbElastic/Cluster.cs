@@ -77,6 +77,13 @@ namespace Pulumi.AwsNative.DocDbElastic
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "adminUserName",
+                    "authType",
+                    "clusterName",
+                    "kmsKeyId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -181,6 +181,8 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["stream_name"] = stream_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["exclusive_end_time", "inclusive_start_time", "kinesis_configuration", "ledger_name", "role_arn", "stream_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stream, __self__).__init__(
             'aws-native:qldb:Stream',
             resource_name,

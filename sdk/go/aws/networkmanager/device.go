@@ -54,6 +54,10 @@ func NewDevice(ctx *pulumi.Context,
 	if args.GlobalNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"globalNetworkId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Device
 	err := ctx.RegisterResource("aws-native:networkmanager:Device", name, args, &resource, opts...)

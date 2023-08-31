@@ -148,6 +148,8 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'network_interface_id'")
             __props__.__dict__["network_interface_id"] = network_interface_id
             __props__.__dict__["attachment_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device_index", "instance_id", "network_interface_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkInterfaceAttachment, __self__).__init__(
             'aws-native:ec2:NetworkInterfaceAttachment',
             resource_name,

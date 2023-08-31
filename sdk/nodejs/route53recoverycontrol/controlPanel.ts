@@ -94,6 +94,8 @@ export class ControlPanel extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clusterArn", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ControlPanel.__pulumiType, name, resourceInputs, opts);
     }
 }

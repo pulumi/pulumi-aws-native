@@ -39,6 +39,11 @@ func NewVpcEndpoint(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpoint
 	err := ctx.RegisterResource("aws-native:opensearchserverless:VpcEndpoint", name, args, &resource, opts...)

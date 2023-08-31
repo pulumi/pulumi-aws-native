@@ -87,6 +87,15 @@ namespace Pulumi.AwsNative.SageMaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "directInternetAccess",
+                    "kmsKeyId",
+                    "notebookInstanceName",
+                    "platformIdentifier",
+                    "securityGroupIds[*]",
+                    "subnetId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

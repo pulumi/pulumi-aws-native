@@ -40,6 +40,10 @@ func NewStack(ctx *pulumi.Context,
 		args = &StackArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stack
 	err := ctx.RegisterResource("aws-native:appstream:Stack", name, args, &resource, opts...)

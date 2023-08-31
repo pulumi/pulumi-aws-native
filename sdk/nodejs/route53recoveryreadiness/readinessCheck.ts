@@ -76,6 +76,8 @@ export class ReadinessCheck extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["readinessCheckName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReadinessCheck.__pulumiType, name, resourceInputs, opts);
     }
 }

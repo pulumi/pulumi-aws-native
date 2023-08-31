@@ -48,6 +48,17 @@ func NewImage(ctx *pulumi.Context,
 		args = &ImageArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"containerRecipeArn",
+		"distributionConfigurationArn",
+		"enhancedImageMetadataEnabled",
+		"imageRecipeArn",
+		"imageScanningConfiguration",
+		"imageTestsConfiguration",
+		"infrastructureConfigurationArn",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Image
 	err := ctx.RegisterResource("aws-native:imagebuilder:Image", name, args, &resource, opts...)

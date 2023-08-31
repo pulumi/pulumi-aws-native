@@ -129,6 +129,8 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["vpcConnectionProperties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "dataSourceId", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataSource.__pulumiType, name, resourceInputs, opts);
     }
 }

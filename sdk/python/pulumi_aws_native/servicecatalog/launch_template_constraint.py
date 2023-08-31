@@ -148,6 +148,8 @@ class LaunchTemplateConstraint(pulumi.CustomResource):
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portfolio_id", "product_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LaunchTemplateConstraint, __self__).__init__(
             'aws-native:servicecatalog:LaunchTemplateConstraint',
             resource_name,

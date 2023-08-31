@@ -91,6 +91,8 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["accelerators", "definitionUri", "engine", "main", "parameterTemplate", "storageCapacity"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Workflow.__pulumiType, name, resourceInputs, opts);
     }
 }

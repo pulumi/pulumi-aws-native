@@ -93,6 +93,8 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["workflowName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "type", "workflowName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Trigger.__pulumiType, name, resourceInputs, opts);
     }
 }

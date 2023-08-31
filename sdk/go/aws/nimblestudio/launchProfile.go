@@ -58,6 +58,12 @@ func NewLaunchProfile(ctx *pulumi.Context,
 	if args.StudioId == nil {
 		return nil, errors.New("invalid value for required argument 'StudioId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ec2SubnetIds[*]",
+		"studioId",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LaunchProfile
 	err := ctx.RegisterResource("aws-native:nimblestudio:LaunchProfile", name, args, &resource, opts...)

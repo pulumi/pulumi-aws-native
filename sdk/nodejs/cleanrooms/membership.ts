@@ -82,6 +82,8 @@ export class Membership extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["collaborationIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Membership.__pulumiType, name, resourceInputs, opts);
     }
 }

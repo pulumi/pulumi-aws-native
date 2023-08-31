@@ -37,6 +37,14 @@ func NewSequenceStore(ctx *pulumi.Context,
 		args = &SequenceStoreArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"fallbackLocation",
+		"name",
+		"sseConfig",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SequenceStore
 	err := ctx.RegisterResource("aws-native:omics:SequenceStore", name, args, &resource, opts...)

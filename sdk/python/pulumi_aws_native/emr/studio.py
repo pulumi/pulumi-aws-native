@@ -337,6 +337,8 @@ class Studio(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["studio_id"] = None
             __props__.__dict__["url"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auth_mode", "engine_security_group_id", "service_role", "user_role", "vpc_id", "workspace_security_group_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Studio, __self__).__init__(
             'aws-native:emr:Studio',
             resource_name,

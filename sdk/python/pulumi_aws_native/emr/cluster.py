@@ -436,6 +436,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visible_to_all_users"] = visible_to_all_users
             __props__.__dict__["master_public_dns"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_info", "applications[*]", "auto_scaling_role", "bootstrap_actions[*]", "configurations[*]", "custom_ami_id", "ebs_root_volume_size", "job_flow_role", "kerberos_attributes", "log_encryption_kms_key_id", "log_uri", "name", "os_release_label", "release_label", "scale_down_behavior", "security_configuration", "service_role", "steps[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:emr:Cluster',
             resource_name,

@@ -75,6 +75,8 @@ export class Permissions extends pulumi.CustomResource {
             resourceInputs["resource"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dataLakePrincipal", "resource"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Permissions.__pulumiType, name, resourceInputs, opts);
     }
 }

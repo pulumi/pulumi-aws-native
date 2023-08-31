@@ -55,6 +55,15 @@ func NewAssignment(ctx *pulumi.Context,
 	if args.TargetType == nil {
 		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instanceArn",
+		"permissionSetArn",
+		"principalId",
+		"principalType",
+		"targetId",
+		"targetType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Assignment
 	err := ctx.RegisterResource("aws-native:sso:Assignment", name, args, &resource, opts...)

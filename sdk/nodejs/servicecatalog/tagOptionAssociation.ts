@@ -66,6 +66,8 @@ export class TagOptionAssociation extends pulumi.CustomResource {
             resourceInputs["tagOptionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceId", "tagOptionId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TagOptionAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

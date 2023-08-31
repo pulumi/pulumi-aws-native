@@ -118,6 +118,8 @@ export class ModelBiasJobDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["endpointName", "jobDefinitionName", "jobResources", "modelBiasAppSpecification", "modelBiasBaselineConfig", "modelBiasJobInput", "modelBiasJobOutputConfig", "networkConfig", "roleArn", "stoppingCondition", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ModelBiasJobDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -97,6 +97,8 @@ export class RepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["bucketName", "connectionArn", "name", "owner", "tags[*]", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RepositoryAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

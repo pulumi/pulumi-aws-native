@@ -94,6 +94,8 @@ export class Dataset extends pulumi.CustomResource {
             resourceInputs["schemaArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["datasetGroupArn", "datasetType", "name", "schemaArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Dataset.__pulumiType, name, resourceInputs, opts);
     }
 }

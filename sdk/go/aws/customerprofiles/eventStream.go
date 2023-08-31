@@ -46,6 +46,12 @@ func NewEventStream(ctx *pulumi.Context,
 	if args.Uri == nil {
 		return nil, errors.New("invalid value for required argument 'Uri'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainName",
+		"eventStreamName",
+		"uri",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventStream
 	err := ctx.RegisterResource("aws-native:customerprofiles:EventStream", name, args, &resource, opts...)

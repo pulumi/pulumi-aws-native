@@ -38,6 +38,10 @@ func NewSourceLocation(ctx *pulumi.Context,
 	if args.HttpConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'HttpConfiguration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"sourceLocationName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SourceLocation
 	err := ctx.RegisterResource("aws-native:mediatailor:SourceLocation", name, args, &resource, opts...)

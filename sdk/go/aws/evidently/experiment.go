@@ -52,6 +52,11 @@ func NewExperiment(ctx *pulumi.Context,
 	if args.Treatments == nil {
 		return nil, errors.New("invalid value for required argument 'Treatments'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"project",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Experiment
 	err := ctx.RegisterResource("aws-native:evidently:Experiment", name, args, &resource, opts...)

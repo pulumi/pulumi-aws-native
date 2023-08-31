@@ -139,6 +139,8 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["variables"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["restApiId", "stageName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Stage.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -103,6 +103,8 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["writeProvisionedThroughputSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["keySchema[*]", "localSecondaryIndexes[*]", "tableName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GlobalTable.__pulumiType, name, resourceInputs, opts);
     }
 }

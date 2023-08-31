@@ -66,6 +66,18 @@ namespace Pulumi.AwsNative.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "amazonProvidedIpv6CidrBlock",
+                    "cidrBlock",
+                    "ipv4IpamPoolId",
+                    "ipv4NetmaskLength",
+                    "ipv6CidrBlock",
+                    "ipv6IpamPoolId",
+                    "ipv6NetmaskLength",
+                    "ipv6Pool",
+                    "vpcId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

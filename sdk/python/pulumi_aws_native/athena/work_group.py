@@ -208,6 +208,8 @@ class WorkGroup(pulumi.CustomResource):
             __props__.__dict__["work_group_configuration"] = work_group_configuration
             __props__.__dict__["work_group_configuration_updates"] = work_group_configuration_updates
             __props__.__dict__["creation_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(WorkGroup, __self__).__init__(
             'aws-native:athena:WorkGroup',
             resource_name,

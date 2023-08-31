@@ -39,6 +39,11 @@ func NewExtension(ctx *pulumi.Context,
 	if args.Actions == nil {
 		return nil, errors.New("invalid value for required argument 'Actions'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Extension
 	err := ctx.RegisterResource("aws-native:appconfig:Extension", name, args, &resource, opts...)

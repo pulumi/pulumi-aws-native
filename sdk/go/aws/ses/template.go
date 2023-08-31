@@ -25,6 +25,10 @@ func NewTemplate(ctx *pulumi.Context,
 		args = &TemplateArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"template.templateName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Template
 	err := ctx.RegisterResource("aws-native:ses:Template", name, args, &resource, opts...)

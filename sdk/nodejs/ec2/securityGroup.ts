@@ -81,6 +81,8 @@ export class SecurityGroup extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["groupDescription", "groupName", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

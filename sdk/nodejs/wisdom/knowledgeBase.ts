@@ -82,6 +82,8 @@ export class KnowledgeBase extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "knowledgeBaseType", "name", "serverSideEncryptionConfiguration", "sourceConfiguration", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(KnowledgeBase.__pulumiType, name, resourceInputs, opts);
     }
 }

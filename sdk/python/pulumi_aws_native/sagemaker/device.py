@@ -127,6 +127,8 @@ class Device(pulumi.CustomResource):
                 raise TypeError("Missing required property 'device_fleet_name'")
             __props__.__dict__["device_fleet_name"] = device_fleet_name
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device.device_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Device, __self__).__init__(
             'aws-native:sagemaker:Device',
             resource_name,

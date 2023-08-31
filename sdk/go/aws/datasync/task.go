@@ -51,6 +51,11 @@ func NewTask(ctx *pulumi.Context,
 	if args.SourceLocationArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceLocationArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"destinationLocationArn",
+		"sourceLocationArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Task
 	err := ctx.RegisterResource("aws-native:datasync:Task", name, args, &resource, opts...)

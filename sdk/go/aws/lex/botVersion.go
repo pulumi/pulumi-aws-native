@@ -35,6 +35,10 @@ func NewBotVersion(ctx *pulumi.Context,
 	if args.BotVersionLocaleSpecification == nil {
 		return nil, errors.New("invalid value for required argument 'BotVersionLocaleSpecification'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"botId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BotVersion
 	err := ctx.RegisterResource("aws-native:lex:BotVersion", name, args, &resource, opts...)

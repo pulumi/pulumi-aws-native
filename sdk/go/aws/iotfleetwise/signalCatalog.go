@@ -34,6 +34,10 @@ func NewSignalCatalog(ctx *pulumi.Context,
 		args = &SignalCatalogArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SignalCatalog
 	err := ctx.RegisterResource("aws-native:iotfleetwise:SignalCatalog", name, args, &resource, opts...)

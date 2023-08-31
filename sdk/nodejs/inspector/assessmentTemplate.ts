@@ -79,6 +79,8 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             resourceInputs["userAttributesForFindings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["assessmentTargetArn", "assessmentTemplateName", "durationInSeconds", "rulesPackageArns[*]", "userAttributesForFindings[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AssessmentTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

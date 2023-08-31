@@ -73,6 +73,8 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
             resourceInputs["updatedDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["excludePaths[*]", "matchPaths[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkInsightsAccessScope.__pulumiType, name, resourceInputs, opts);
     }
 }

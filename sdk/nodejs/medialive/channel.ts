@@ -99,6 +99,8 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["vpc"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["vpc"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }

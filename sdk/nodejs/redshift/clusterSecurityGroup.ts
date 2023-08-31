@@ -66,6 +66,8 @@ export class ClusterSecurityGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ClusterSecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

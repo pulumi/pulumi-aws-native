@@ -148,6 +148,8 @@ class EventStream(pulumi.CustomResource):
             __props__.__dict__["destination_details"] = None
             __props__.__dict__["event_stream_arn"] = None
             __props__.__dict__["state"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name", "event_stream_name", "uri"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventStream, __self__).__init__(
             'aws-native:customerprofiles:EventStream',
             resource_name,

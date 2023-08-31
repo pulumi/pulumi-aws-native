@@ -40,6 +40,10 @@ func NewLogging(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accountId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Logging
 	err := ctx.RegisterResource("aws-native:iot:Logging", name, args, &resource, opts...)

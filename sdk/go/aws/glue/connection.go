@@ -35,6 +35,10 @@ func NewConnection(ctx *pulumi.Context,
 	if args.ConnectionInput == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionInput'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"catalogId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws-native:glue:Connection", name, args, &resource, opts...)

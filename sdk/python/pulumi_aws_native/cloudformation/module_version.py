@@ -121,6 +121,8 @@ class ModuleVersion(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["version_id"] = None
             __props__.__dict__["visibility"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["module_name", "module_package"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ModuleVersion, __self__).__init__(
             'aws-native:cloudformation:ModuleVersion',
             resource_name,

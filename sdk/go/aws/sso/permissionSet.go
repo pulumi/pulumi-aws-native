@@ -46,6 +46,11 @@ func NewPermissionSet(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instanceArn",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PermissionSet
 	err := ctx.RegisterResource("aws-native:sso:PermissionSet", name, args, &resource, opts...)

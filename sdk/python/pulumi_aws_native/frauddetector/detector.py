@@ -224,6 +224,8 @@ class Detector(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["detector_version_id"] = None
             __props__.__dict__["last_updated_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detector_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Detector, __self__).__init__(
             'aws-native:frauddetector:Detector',
             resource_name,

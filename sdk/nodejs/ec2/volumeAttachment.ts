@@ -64,6 +64,8 @@ export class VolumeAttachment extends pulumi.CustomResource {
             resourceInputs["volumeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["device", "instanceId", "volumeId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VolumeAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -38,6 +38,14 @@ func NewClientVpnAuthorizationRule(ctx *pulumi.Context,
 	if args.TargetNetworkCidr == nil {
 		return nil, errors.New("invalid value for required argument 'TargetNetworkCidr'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accessGroupId",
+		"authorizeAllGroups",
+		"clientVpnEndpointId",
+		"description",
+		"targetNetworkCidr",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClientVpnAuthorizationRule
 	err := ctx.RegisterResource("aws-native:ec2:ClientVpnAuthorizationRule", name, args, &resource, opts...)

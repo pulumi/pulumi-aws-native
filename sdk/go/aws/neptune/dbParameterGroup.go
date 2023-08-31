@@ -41,6 +41,12 @@ func NewDbParameterGroup(ctx *pulumi.Context,
 	if args.Parameters == nil {
 		return nil, errors.New("invalid value for required argument 'Parameters'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"family",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbParameterGroup
 	err := ctx.RegisterResource("aws-native:neptune:DbParameterGroup", name, args, &resource, opts...)

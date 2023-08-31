@@ -35,6 +35,10 @@ func NewAccessPointPolicy(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"objectLambdaAccessPoint",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessPointPolicy
 	err := ctx.RegisterResource("aws-native:s3objectlambda:AccessPointPolicy", name, args, &resource, opts...)

@@ -88,6 +88,8 @@ class ReceiptFilter(pulumi.CustomResource):
             if filter is None and not opts.urn:
                 raise TypeError("Missing required property 'filter'")
             __props__.__dict__["filter"] = filter
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["filter"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReceiptFilter, __self__).__init__(
             'aws-native:ses:ReceiptFilter',
             resource_name,

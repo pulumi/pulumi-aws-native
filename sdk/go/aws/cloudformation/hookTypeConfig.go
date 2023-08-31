@@ -36,6 +36,10 @@ func NewHookTypeConfig(ctx *pulumi.Context,
 		args = &HookTypeConfigArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"configurationAlias",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HookTypeConfig
 	err := ctx.RegisterResource("aws-native:cloudformation:HookTypeConfig", name, args, &resource, opts...)

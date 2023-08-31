@@ -34,6 +34,11 @@ func NewLoggingConfiguration(ctx *pulumi.Context,
 	if args.LoggingConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'LoggingConfiguration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"firewallArn",
+		"firewallName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoggingConfiguration
 	err := ctx.RegisterResource("aws-native:networkfirewall:LoggingConfiguration", name, args, &resource, opts...)

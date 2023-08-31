@@ -36,6 +36,10 @@ func NewDomainName(ctx *pulumi.Context,
 		args = &DomainNameArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainName
 	err := ctx.RegisterResource("aws-native:apigateway:DomainName", name, args, &resource, opts...)

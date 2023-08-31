@@ -94,6 +94,8 @@ export class ReportPlan extends pulumi.CustomResource {
             resourceInputs["reportSetting"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["reportPlanName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReportPlan.__pulumiType, name, resourceInputs, opts);
     }
 }

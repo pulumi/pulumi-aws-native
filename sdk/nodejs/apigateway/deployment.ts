@@ -91,6 +91,8 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["stageName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["deploymentCanarySettings", "restApiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Deployment.__pulumiType, name, resourceInputs, opts);
     }
 }

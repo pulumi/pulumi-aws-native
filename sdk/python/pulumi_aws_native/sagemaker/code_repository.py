@@ -118,6 +118,8 @@ class CodeRepository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'git_config'")
             __props__.__dict__["git_config"] = git_config
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["code_repository_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CodeRepository, __self__).__init__(
             'aws-native:sagemaker:CodeRepository',
             resource_name,

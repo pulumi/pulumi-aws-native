@@ -118,6 +118,8 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["restApiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Authorizer.__pulumiType, name, resourceInputs, opts);
     }
 }

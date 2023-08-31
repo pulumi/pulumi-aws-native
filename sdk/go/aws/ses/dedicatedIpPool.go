@@ -28,6 +28,10 @@ func NewDedicatedIpPool(ctx *pulumi.Context,
 		args = &DedicatedIpPoolArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"poolName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DedicatedIpPool
 	err := ctx.RegisterResource("aws-native:ses:DedicatedIpPool", name, args, &resource, opts...)

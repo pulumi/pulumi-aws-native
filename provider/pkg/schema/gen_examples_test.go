@@ -3,6 +3,8 @@
 package schema
 
 import (
+	"encoding/json"
+	"fmt"
 	"regexp"
 	"testing"
 
@@ -261,5 +263,180 @@ func TestTypeName(t *testing.T) {
 
 	for input, expected := range cases {
 		assert.Equal(t, expected, typeName(input))
+	}
+}
+
+type MarkCreateOnlyPropertiesTestCase struct {
+	createOnlyProperties codegen.StringSet
+	resourceSpec         pschema.ResourceSpec
+	types                map[string]pschema.ComplexTypeSpec
+
+	expectedErr      string
+	expectedResource pschema.ResourceSpec
+	expectedTypes    map[string]pschema.ComplexTypeSpec
+}
+
+func TestMarkCreateOnlyProperties(t *testing.T) {
+
+	baseResourceSpec := pschema.ResourceSpec{
+		ObjectTypeSpec: pschema.ObjectTypeSpec{
+			Properties: map[string]pschema.PropertySpec{
+				"foo": pschema.PropertySpec{},
+				"obj": pschema.PropertySpec{TypeSpec: pschema.TypeSpec{Ref: "#/types/obj"}},
+				"arr": pschema.PropertySpec{TypeSpec: pschema.TypeSpec{
+					Items: &pschema.TypeSpec{Ref: "#/types/obj"},
+				}},
+			},
+		},
+	}
+	baseTypes := map[string]pschema.ComplexTypeSpec{
+		"obj": pschema.ComplexTypeSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"bar": pschema.PropertySpec{},
+					"baz": pschema.PropertySpec{TypeSpec: pschema.TypeSpec{Ref: "#/types/obj2"}},
+				},
+			},
+		},
+		"obj2": pschema.ComplexTypeSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"zz": pschema.PropertySpec{},
+				},
+			},
+		},
+	}
+
+	baseResourceSpecJson, _ := json.Marshal(baseResourceSpec)
+	baseTypesJson, _ := json.Marshal(baseTypes)
+
+	newBaseResourceSpec := func() pschema.ResourceSpec {
+		r := pschema.ResourceSpec{}
+		_ = json.Unmarshal(baseResourceSpecJson, &r)
+		return r
+	}
+	newBaseTypes := func() map[string]pschema.ComplexTypeSpec {
+		r := map[string]pschema.ComplexTypeSpec{}
+		_ = json.Unmarshal(baseTypesJson, &r)
+		return r
+	}
+
+	resourceWithReplaceOnChangesFoo := newBaseResourceSpec()
+	resourceWithReplaceOnChangesFoo.Properties["foo"] = pschema.PropertySpec{ReplaceOnChanges: true}
+
+	resourceWithReplaceOnChangesObj := newBaseResourceSpec()
+	modifiedObj := resourceWithReplaceOnChangesObj.Properties["obj"]
+	modifiedObj.ReplaceOnChanges = true
+	resourceWithReplaceOnChangesObj.Properties["obj"] = modifiedObj
+
+	resourceWithReplaceOnChangesArr := newBaseResourceSpec()
+	modifiedArr := resourceWithReplaceOnChangesObj.Properties["arr"]
+	modifiedArr.ReplaceOnChanges = true
+	resourceWithReplaceOnChangesArr.Properties["arr"] = modifiedArr
+
+	typesWithReplaceOnChangesBar := newBaseTypes()
+	modifedObjT := typesWithReplaceOnChangesBar["obj"]
+	modifedObjT.ObjectTypeSpec.Properties["bar"] = pschema.PropertySpec{ReplaceOnChanges: true}
+	typesWithReplaceOnChangesBar["obj"] = modifedObjT
+
+	typesWithReplaceOnChangesZZ := newBaseTypes()
+	modifedObj2T := typesWithReplaceOnChangesZZ["obj2"]
+	modifedObj2T.ObjectTypeSpec.Properties["zz"] = pschema.PropertySpec{ReplaceOnChanges: true}
+	typesWithReplaceOnChangesZZ["obj2"] = modifedObj2T
+
+	cases := []MarkCreateOnlyPropertiesTestCase{
+		{
+			createOnlyProperties: codegen.NewStringSet("a"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedErr:          "Could not mark createOnlyProperty a in  as replaceOnChanges: property not found on Resource",
+		},
+		{
+			createOnlyProperties: codegen.NewStringSet("obj/quxx"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedErr:          "Could not mark createOnlyProperty obj/quxx in  as replaceOnChanges: Type #/types/obj does not have property named 'quxx'",
+		},
+		{
+			createOnlyProperties: codegen.NewStringSet("foo/quxx"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedErr:          "Could not mark createOnlyProperty foo/quxx in  as replaceOnChanges: Property is not a Ref or Array[Ref], can't traverse",
+		},
+		{
+			createOnlyProperties: codegen.NewStringSet("foo"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedResource:     resourceWithReplaceOnChangesFoo,
+			expectedTypes:        newBaseTypes(),
+		},
+		{
+			createOnlyProperties: codegen.NewStringSet("obj"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedResource:     resourceWithReplaceOnChangesObj,
+			expectedTypes:        newBaseTypes(),
+		},
+		{
+			createOnlyProperties: codegen.NewStringSet("obj/bar"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedResource:     newBaseResourceSpec(),
+			expectedTypes:        typesWithReplaceOnChangesBar,
+		},
+		{
+			createOnlyProperties: codegen.NewStringSet("obj/baz/zz"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedResource:     newBaseResourceSpec(),
+			expectedTypes:        typesWithReplaceOnChangesZZ,
+		},
+		{
+			createOnlyProperties: codegen.NewStringSet("arr/bar"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedResource:     newBaseResourceSpec(),
+			expectedTypes:        typesWithReplaceOnChangesBar,
+		},
+		{
+			createOnlyProperties: codegen.NewStringSet("arr/*/bar"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedResource:     newBaseResourceSpec(),
+			expectedTypes:        typesWithReplaceOnChangesBar,
+		},
+		{
+			createOnlyProperties: codegen.NewStringSet("arr"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedResource:     resourceWithReplaceOnChangesArr,
+			expectedTypes:        newBaseTypes(),
+		},
+		{
+			createOnlyProperties: codegen.NewStringSet("arr/*"),
+			resourceSpec:         newBaseResourceSpec(),
+			types:                newBaseTypes(),
+			expectedResource:     resourceWithReplaceOnChangesArr,
+			expectedTypes:        newBaseTypes(),
+		},
+	}
+
+	for _, tt := range cases {
+		ctx := context{
+			pkg: &pschema.PackageSpec{
+				Types: tt.types,
+			},
+		}
+
+		err := ctx.markCreateOnlyProperties(tt.createOnlyProperties, &tt.resourceSpec)
+
+		testCaseInfo := fmt.Sprintf("Testpaths: %v", tt.createOnlyProperties)
+
+		if len(tt.expectedErr) > 0 {
+			assert.ErrorContains(t, err, tt.expectedErr, testCaseInfo)
+		} else if assert.NoError(t, err, testCaseInfo) {
+			assert.Equal(t, tt.expectedResource, tt.resourceSpec, testCaseInfo)
+			assert.Equal(t, tt.expectedTypes, tt.types, testCaseInfo)
+		}
 	}
 }

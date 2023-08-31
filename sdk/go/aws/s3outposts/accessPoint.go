@@ -41,6 +41,12 @@ func NewAccessPoint(ctx *pulumi.Context,
 	if args.VpcConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfiguration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bucket",
+		"name",
+		"vpcConfiguration",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessPoint
 	err := ctx.RegisterResource("aws-native:s3outposts:AccessPoint", name, args, &resource, opts...)

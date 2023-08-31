@@ -52,6 +52,14 @@ func NewEnvironment(ctx *pulumi.Context,
 		args = &EnvironmentArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dataBundles[*]",
+		"federationParameters",
+		"kmsKeyId",
+		"superuserParameters",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Environment
 	err := ctx.RegisterResource("aws-native:finspace:Environment", name, args, &resource, opts...)

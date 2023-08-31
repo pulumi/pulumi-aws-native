@@ -93,6 +93,8 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "dbClusterIdentifier", "dbInstanceIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

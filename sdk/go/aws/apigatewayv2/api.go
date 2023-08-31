@@ -44,6 +44,10 @@ func NewApi(ctx *pulumi.Context,
 		args = &ApiArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"protocolType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Api
 	err := ctx.RegisterResource("aws-native:apigatewayv2:Api", name, args, &resource, opts...)

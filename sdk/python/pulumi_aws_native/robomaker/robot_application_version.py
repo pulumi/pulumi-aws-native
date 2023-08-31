@@ -102,6 +102,8 @@ class RobotApplicationVersion(pulumi.CustomResource):
             __props__.__dict__["current_revision_id"] = current_revision_id
             __props__.__dict__["application_version"] = None
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application", "current_revision_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RobotApplicationVersion, __self__).__init__(
             'aws-native:robomaker:RobotApplicationVersion',
             resource_name,

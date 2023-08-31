@@ -85,6 +85,8 @@ export class KeySigningKey extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["hostedZoneId", "keyManagementServiceArn", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(KeySigningKey.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -35,6 +35,11 @@ func NewPolicyPrincipalAttachment(ctx *pulumi.Context,
 	if args.Principal == nil {
 		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"policyName",
+		"principal",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyPrincipalAttachment
 	err := ctx.RegisterResource("aws-native:iot:PolicyPrincipalAttachment", name, args, &resource, opts...)

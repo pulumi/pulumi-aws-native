@@ -120,6 +120,8 @@ class Skill(pulumi.CustomResource):
             if vendor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vendor_id'")
             __props__.__dict__["vendor_id"] = vendor_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["vendor_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Skill, __self__).__init__(
             'aws-native:ask:Skill',
             resource_name,

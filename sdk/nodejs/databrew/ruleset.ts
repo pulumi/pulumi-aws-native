@@ -85,6 +85,8 @@ export class Ruleset extends pulumi.CustomResource {
             resourceInputs["targetArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "targetArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Ruleset.__pulumiType, name, resourceInputs, opts);
     }
 }

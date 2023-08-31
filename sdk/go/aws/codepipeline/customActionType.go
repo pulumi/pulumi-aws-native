@@ -56,6 +56,16 @@ func NewCustomActionType(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"category",
+		"configurationProperties[*]",
+		"inputArtifactDetails",
+		"outputArtifactDetails",
+		"provider",
+		"settings",
+		"version",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomActionType
 	err := ctx.RegisterResource("aws-native:codepipeline:CustomActionType", name, args, &resource, opts...)

@@ -41,6 +41,11 @@ func NewFeature(ctx *pulumi.Context,
 	if args.Variations == nil {
 		return nil, errors.New("invalid value for required argument 'Variations'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"project",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Feature
 	err := ctx.RegisterResource("aws-native:evidently:Feature", name, args, &resource, opts...)

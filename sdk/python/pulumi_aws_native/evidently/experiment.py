@@ -262,6 +262,8 @@ class Experiment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'treatments'")
             __props__.__dict__["treatments"] = treatments
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "project"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Experiment, __self__).__init__(
             'aws-native:evidently:Experiment',
             resource_name,

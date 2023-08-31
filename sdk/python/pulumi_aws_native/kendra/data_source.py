@@ -210,6 +210,8 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataSource, __self__).__init__(
             'aws-native:kendra:DataSource',
             resource_name,

@@ -100,6 +100,8 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["policy_store_id"] = policy_store_id
             __props__.__dict__["policy_id"] = None
             __props__.__dict__["policy_type"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_store_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Policy, __self__).__init__(
             'aws-native:verifiedpermissions:Policy',
             resource_name,

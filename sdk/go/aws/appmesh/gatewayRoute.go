@@ -45,6 +45,13 @@ func NewGatewayRoute(ctx *pulumi.Context,
 	if args.VirtualGatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualGatewayName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"gatewayRouteName",
+		"meshName",
+		"meshOwner",
+		"virtualGatewayName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayRoute
 	err := ctx.RegisterResource("aws-native:appmesh:GatewayRoute", name, args, &resource, opts...)

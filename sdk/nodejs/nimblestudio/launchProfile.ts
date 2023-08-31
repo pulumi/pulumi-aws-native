@@ -115,6 +115,8 @@ export class LaunchProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ec2SubnetIds[*]", "studioId", "tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LaunchProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

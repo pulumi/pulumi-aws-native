@@ -41,6 +41,12 @@ func NewVirtualService(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"meshName",
+		"meshOwner",
+		"virtualServiceName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualService
 	err := ctx.RegisterResource("aws-native:appmesh:VirtualService", name, args, &resource, opts...)

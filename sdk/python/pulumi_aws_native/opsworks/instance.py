@@ -394,6 +394,8 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["private_ip"] = None
             __props__.__dict__["public_dns_name"] = None
             __props__.__dict__["public_ip"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auto_scaling_type", "availability_zone", "block_device_mappings[*]", "ebs_optimized", "root_device_type", "stack_id", "subnet_id", "tenancy", "time_based_auto_scaling", "virtualization_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Instance, __self__).__init__(
             'aws-native:opsworks:Instance',
             resource_name,

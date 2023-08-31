@@ -41,6 +41,10 @@ func NewEmailTemplate(ctx *pulumi.Context,
 	if args.TemplateName == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"templateName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailTemplate
 	err := ctx.RegisterResource("aws-native:pinpoint:EmailTemplate", name, args, &resource, opts...)

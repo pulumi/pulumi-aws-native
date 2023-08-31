@@ -55,6 +55,16 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.Validity == nil {
 		return nil, errors.New("invalid value for required argument 'Validity'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiPassthrough",
+		"certificateAuthorityArn",
+		"certificateSigningRequest",
+		"signingAlgorithm",
+		"templateArn",
+		"validity",
+		"validityNotBefore",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws-native:acmpca:Certificate", name, args, &resource, opts...)

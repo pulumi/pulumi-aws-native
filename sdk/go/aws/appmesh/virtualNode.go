@@ -41,6 +41,12 @@ func NewVirtualNode(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"meshName",
+		"meshOwner",
+		"virtualNodeName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualNode
 	err := ctx.RegisterResource("aws-native:appmesh:VirtualNode", name, args, &resource, opts...)

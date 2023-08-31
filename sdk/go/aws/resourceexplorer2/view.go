@@ -29,6 +29,10 @@ func NewView(ctx *pulumi.Context,
 		args = &ViewArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"viewName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource View
 	err := ctx.RegisterResource("aws-native:resourceexplorer2:View", name, args, &resource, opts...)

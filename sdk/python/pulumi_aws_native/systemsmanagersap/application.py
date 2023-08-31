@@ -180,6 +180,8 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["sid"] = sid
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["credentials[*]", "instances[*]", "sap_instance_number", "sid"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:systemsmanagersap:Application',
             resource_name,

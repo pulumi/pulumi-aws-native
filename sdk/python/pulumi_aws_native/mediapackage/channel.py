@@ -167,6 +167,8 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["ingress_access_logs"] = ingress_access_logs
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Channel, __self__).__init__(
             'aws-native:mediapackage:Channel',
             resource_name,

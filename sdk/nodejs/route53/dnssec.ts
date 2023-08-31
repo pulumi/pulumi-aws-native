@@ -58,6 +58,8 @@ export class Dnssec extends pulumi.CustomResource {
             resourceInputs["hostedZoneId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["hostedZoneId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Dnssec.__pulumiType, name, resourceInputs, opts);
     }
 }

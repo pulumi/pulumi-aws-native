@@ -72,6 +72,8 @@ export class PortfolioProductAssociation extends pulumi.CustomResource {
             resourceInputs["sourcePortfolioId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["acceptLanguage", "portfolioId", "productId", "sourcePortfolioId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PortfolioProductAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

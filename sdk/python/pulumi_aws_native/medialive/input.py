@@ -223,6 +223,8 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["type", "vpc"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Input, __self__).__init__(
             'aws-native:medialive:Input',
             resource_name,

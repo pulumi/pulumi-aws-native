@@ -364,6 +364,8 @@ class StackSet(pulumi.CustomResource):
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_url"] = template_url
             __props__.__dict__["stack_set_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["permission_model", "stack_set_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StackSet, __self__).__init__(
             'aws-native:cloudformation:StackSet',
             resource_name,

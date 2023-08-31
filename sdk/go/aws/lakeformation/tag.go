@@ -37,6 +37,11 @@ func NewTag(ctx *pulumi.Context,
 	if args.TagValues == nil {
 		return nil, errors.New("invalid value for required argument 'TagValues'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"catalogId",
+		"tagKey",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Tag
 	err := ctx.RegisterResource("aws-native:lakeformation:Tag", name, args, &resource, opts...)

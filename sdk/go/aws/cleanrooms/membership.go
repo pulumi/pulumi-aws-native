@@ -39,6 +39,10 @@ func NewMembership(ctx *pulumi.Context,
 	if args.QueryLogStatus == nil {
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"collaborationIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Membership
 	err := ctx.RegisterResource("aws-native:cleanrooms:Membership", name, args, &resource, opts...)

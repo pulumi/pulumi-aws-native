@@ -156,6 +156,8 @@ export class ReportDefinition extends pulumi.CustomResource {
             resourceInputs["timeUnit"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["additionalSchemaElements[*]", "billingViewArn", "reportName", "reportVersioning", "timeUnit"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReportDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }

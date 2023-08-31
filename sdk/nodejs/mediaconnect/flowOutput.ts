@@ -148,6 +148,8 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["vpcInterfaceAttachment"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FlowOutput.__pulumiType, name, resourceInputs, opts);
     }
 }

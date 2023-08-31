@@ -36,6 +36,12 @@ func NewSchema(ctx *pulumi.Context,
 	if args.Schema == nil {
 		return nil, errors.New("invalid value for required argument 'Schema'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domain",
+		"name",
+		"schema",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schema
 	err := ctx.RegisterResource("aws-native:personalize:Schema", name, args, &resource, opts...)

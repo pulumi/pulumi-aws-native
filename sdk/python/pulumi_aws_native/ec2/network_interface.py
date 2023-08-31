@@ -369,6 +369,8 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["primary_private_ip_address"] = None
             __props__.__dict__["secondary_private_ip_addresses"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["interface_type", "private_ip_address", "subnet_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkInterface, __self__).__init__(
             'aws-native:ec2:NetworkInterface',
             resource_name,

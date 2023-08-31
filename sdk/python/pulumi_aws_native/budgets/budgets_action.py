@@ -195,6 +195,8 @@ class BudgetsAction(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
             __props__.__dict__["action_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action_type", "budget_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BudgetsAction, __self__).__init__(
             'aws-native:budgets:BudgetsAction',
             resource_name,

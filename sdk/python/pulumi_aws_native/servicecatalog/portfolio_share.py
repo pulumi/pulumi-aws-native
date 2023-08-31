@@ -132,6 +132,8 @@ class PortfolioShare(pulumi.CustomResource):
                 raise TypeError("Missing required property 'portfolio_id'")
             __props__.__dict__["portfolio_id"] = portfolio_id
             __props__.__dict__["share_tag_options"] = share_tag_options
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accept_language", "account_id", "portfolio_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PortfolioShare, __self__).__init__(
             'aws-native:servicecatalog:PortfolioShare',
             resource_name,

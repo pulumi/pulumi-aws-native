@@ -67,6 +67,8 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
             resourceInputs["vpnConnectionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["destinationCidrBlock", "vpnConnectionId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpnConnectionRoute.__pulumiType, name, resourceInputs, opts);
     }
 }

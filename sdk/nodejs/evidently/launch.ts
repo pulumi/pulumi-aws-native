@@ -97,6 +97,8 @@ export class Launch extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "project"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Launch.__pulumiType, name, resourceInputs, opts);
     }
 }

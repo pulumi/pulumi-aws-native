@@ -88,6 +88,8 @@ export class Build extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["operatingSystem", "serverSdkVersion", "storageLocation"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Build.__pulumiType, name, resourceInputs, opts);
     }
 }

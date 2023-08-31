@@ -163,6 +163,8 @@ class DeliveryChannel(pulumi.CustomResource):
             __props__.__dict__["s3_key_prefix"] = s3_key_prefix
             __props__.__dict__["s3_kms_key_arn"] = s3_kms_key_arn
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryChannel, __self__).__init__(
             'aws-native:configuration:DeliveryChannel',
             resource_name,

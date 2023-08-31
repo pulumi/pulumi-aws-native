@@ -32,6 +32,11 @@ func NewServiceLinkedRole(ctx *pulumi.Context,
 		args = &ServiceLinkedRoleArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"awsServiceName",
+		"customSuffix",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceLinkedRole
 	err := ctx.RegisterResource("aws-native:iam:ServiceLinkedRole", name, args, &resource, opts...)

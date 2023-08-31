@@ -39,6 +39,11 @@ func NewDataset(ctx *pulumi.Context,
 	if args.Input == nil {
 		return nil, errors.New("invalid value for required argument 'Input'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dataset
 	err := ctx.RegisterResource("aws-native:databrew:Dataset", name, args, &resource, opts...)

@@ -93,6 +93,8 @@ export class EnvironmentEc2 extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["automaticStopTimeMinutes", "connectionType", "imageId", "instanceType", "ownerArn", "repositories[*]", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EnvironmentEc2.__pulumiType, name, resourceInputs, opts);
     }
 }

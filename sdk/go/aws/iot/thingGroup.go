@@ -31,6 +31,11 @@ func NewThingGroup(ctx *pulumi.Context,
 		args = &ThingGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"parentGroupName",
+		"thingGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingGroup
 	err := ctx.RegisterResource("aws-native:iot:ThingGroup", name, args, &resource, opts...)

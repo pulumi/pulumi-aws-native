@@ -93,6 +93,8 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
             resourceInputs["toPort"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cidrIp", "cidrIpv6", "fromPort", "groupId", "groupName", "ipProtocol", "sourcePrefixListId", "sourceSecurityGroupId", "sourceSecurityGroupName", "sourceSecurityGroupOwnerId", "toPort"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SecurityGroupIngress.__pulumiType, name, resourceInputs, opts);
     }
 }

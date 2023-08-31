@@ -37,6 +37,10 @@ func NewClusterCapacityProviderAssociations(ctx *pulumi.Context,
 	if args.DefaultCapacityProviderStrategy == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultCapacityProviderStrategy'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cluster",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterCapacityProviderAssociations
 	err := ctx.RegisterResource("aws-native:ecs:ClusterCapacityProviderAssociations", name, args, &resource, opts...)

@@ -43,6 +43,11 @@ func NewTemplate(ctx *pulumi.Context,
 	if args.TemplateId == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"awsAccountId",
+		"templateId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Template
 	err := ctx.RegisterResource("aws-native:quicksight:Template", name, args, &resource, opts...)

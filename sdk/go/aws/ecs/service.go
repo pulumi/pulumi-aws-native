@@ -48,6 +48,15 @@ func NewService(ctx *pulumi.Context,
 		args = &ServiceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cluster",
+		"deploymentController",
+		"launchType",
+		"role",
+		"schedulingStrategy",
+		"serviceName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws-native:ecs:Service", name, args, &resource, opts...)

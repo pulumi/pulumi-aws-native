@@ -76,6 +76,8 @@ export class ContactList extends pulumi.CustomResource {
             resourceInputs["topics"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["contactListName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ContactList.__pulumiType, name, resourceInputs, opts);
     }
 }

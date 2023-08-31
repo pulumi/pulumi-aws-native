@@ -35,6 +35,11 @@ func NewEnabledControl(ctx *pulumi.Context,
 	if args.TargetIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'TargetIdentifier'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"controlIdentifier",
+		"targetIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnabledControl
 	err := ctx.RegisterResource("aws-native:controltower:EnabledControl", name, args, &resource, opts...)

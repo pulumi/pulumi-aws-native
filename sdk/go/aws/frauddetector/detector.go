@@ -56,6 +56,10 @@ func NewDetector(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"detectorId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Detector
 	err := ctx.RegisterResource("aws-native:frauddetector:Detector", name, args, &resource, opts...)

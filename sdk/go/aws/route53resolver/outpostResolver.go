@@ -53,6 +53,10 @@ func NewOutpostResolver(ctx *pulumi.Context,
 	if args.PreferredInstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'PreferredInstanceType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"outpostArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OutpostResolver
 	err := ctx.RegisterResource("aws-native:route53resolver:OutpostResolver", name, args, &resource, opts...)

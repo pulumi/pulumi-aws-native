@@ -77,6 +77,21 @@ func NewFleet(ctx *pulumi.Context,
 		args = &FleetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"buildId",
+		"certificateConfiguration",
+		"computeType",
+		"ec2InstanceType",
+		"fleetType",
+		"instanceRoleArn",
+		"logPaths[*]",
+		"peerVpcAwsAccountId",
+		"peerVpcId",
+		"scriptId",
+		"serverLaunchParameters",
+		"serverLaunchPath",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws-native:gamelift:Fleet", name, args, &resource, opts...)

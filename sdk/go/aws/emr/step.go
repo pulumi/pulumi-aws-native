@@ -40,6 +40,13 @@ func NewStep(ctx *pulumi.Context,
 	if args.JobFlowId == nil {
 		return nil, errors.New("invalid value for required argument 'JobFlowId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"actionOnFailure",
+		"hadoopJarStep",
+		"jobFlowId",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Step
 	err := ctx.RegisterResource("aws-native:emr:Step", name, args, &resource, opts...)

@@ -99,6 +99,8 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["userSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Stack.__pulumiType, name, resourceInputs, opts);
     }
 }

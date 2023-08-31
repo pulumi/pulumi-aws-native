@@ -100,6 +100,8 @@ export class ReplicaKey extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["primaryKeyArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReplicaKey.__pulumiType, name, resourceInputs, opts);
     }
 }

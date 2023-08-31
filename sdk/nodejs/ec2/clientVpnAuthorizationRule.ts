@@ -75,6 +75,8 @@ export class ClientVpnAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["targetNetworkCidr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["accessGroupId", "authorizeAllGroups", "clientVpnEndpointId", "description", "targetNetworkCidr"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ClientVpnAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }

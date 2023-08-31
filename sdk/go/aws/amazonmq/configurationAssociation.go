@@ -35,6 +35,10 @@ func NewConfigurationAssociation(ctx *pulumi.Context,
 	if args.Configuration == nil {
 		return nil, errors.New("invalid value for required argument 'Configuration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"broker",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationAssociation
 	err := ctx.RegisterResource("aws-native:amazonmq:ConfigurationAssociation", name, args, &resource, opts...)

@@ -206,6 +206,8 @@ class ApnsSandboxChannel(pulumi.CustomResource):
             __props__.__dict__["team_id"] = team_id
             __props__.__dict__["token_key"] = token_key
             __props__.__dict__["token_key_id"] = token_key_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApnsSandboxChannel, __self__).__init__(
             'aws-native:pinpoint:ApnsSandboxChannel',
             resource_name,

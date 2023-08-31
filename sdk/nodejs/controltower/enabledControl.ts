@@ -67,6 +67,8 @@ export class EnabledControl extends pulumi.CustomResource {
             resourceInputs["targetIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["controlIdentifier", "targetIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EnabledControl.__pulumiType, name, resourceInputs, opts);
     }
 }

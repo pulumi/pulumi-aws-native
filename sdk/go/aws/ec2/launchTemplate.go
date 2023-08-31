@@ -41,6 +41,10 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 	if args.LaunchTemplateData == nil {
 		return nil, errors.New("invalid value for required argument 'LaunchTemplateData'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"launchTemplateName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LaunchTemplate
 	err := ctx.RegisterResource("aws-native:ec2:LaunchTemplate", name, args, &resource, opts...)

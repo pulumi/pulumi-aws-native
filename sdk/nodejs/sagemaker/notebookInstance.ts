@@ -111,6 +111,8 @@ export class NotebookInstance extends pulumi.CustomResource {
             resourceInputs["volumeSizeInGb"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["directInternetAccess", "kmsKeyId", "notebookInstanceName", "platformIdentifier", "securityGroupIds[*]", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NotebookInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

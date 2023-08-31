@@ -85,6 +85,8 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["subnetIds[*]", "transitGatewayId", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayVpcAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

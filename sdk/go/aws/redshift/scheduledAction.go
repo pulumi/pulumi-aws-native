@@ -44,6 +44,10 @@ func NewScheduledAction(ctx *pulumi.Context,
 		args = &ScheduledActionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"scheduledActionName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledAction
 	err := ctx.RegisterResource("aws-native:redshift:ScheduledAction", name, args, &resource, opts...)

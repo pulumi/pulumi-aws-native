@@ -67,6 +67,8 @@ export class RefreshSchedule extends pulumi.CustomResource {
             resourceInputs["schedule"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "dataSetId", "schedule.scheduleId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RefreshSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }

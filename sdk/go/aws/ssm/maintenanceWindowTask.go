@@ -53,6 +53,11 @@ func NewMaintenanceWindowTask(ctx *pulumi.Context,
 	if args.WindowId == nil {
 		return nil, errors.New("invalid value for required argument 'WindowId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"taskType",
+		"windowId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MaintenanceWindowTask
 	err := ctx.RegisterResource("aws-native:ssm:MaintenanceWindowTask", name, args, &resource, opts...)

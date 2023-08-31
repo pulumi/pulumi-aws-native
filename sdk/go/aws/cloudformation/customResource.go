@@ -31,6 +31,10 @@ func NewCustomResource(ctx *pulumi.Context,
 	if args.ServiceToken == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceToken'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serviceToken",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomResource
 	err := ctx.RegisterResource("aws-native:cloudformation:CustomResource", name, args, &resource, opts...)

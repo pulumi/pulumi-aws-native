@@ -35,6 +35,10 @@ func NewQueueInlinePolicy(ctx *pulumi.Context,
 	if args.Queue == nil {
 		return nil, errors.New("invalid value for required argument 'Queue'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"queue",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource QueueInlinePolicy
 	err := ctx.RegisterResource("aws-native:sqs:QueueInlinePolicy", name, args, &resource, opts...)

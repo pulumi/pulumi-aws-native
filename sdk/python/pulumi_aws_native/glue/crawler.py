@@ -269,6 +269,8 @@ class Crawler(pulumi.CustomResource):
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Crawler, __self__).__init__(
             'aws-native:glue:Crawler',
             resource_name,

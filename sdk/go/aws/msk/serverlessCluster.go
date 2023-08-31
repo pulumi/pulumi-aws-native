@@ -40,6 +40,13 @@ func NewServerlessCluster(ctx *pulumi.Context,
 	if args.VpcConfigs == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfigs'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clientAuthentication",
+		"clusterName",
+		"tags",
+		"vpcConfigs[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerlessCluster
 	err := ctx.RegisterResource("aws-native:msk:ServerlessCluster", name, args, &resource, opts...)

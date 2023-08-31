@@ -50,6 +50,15 @@ func NewCluster(ctx *pulumi.Context,
 	if args.NumberOfBrokerNodes == nil {
 		return nil, errors.New("invalid value for required argument 'NumberOfBrokerNodes'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"brokerNodeGroupInfo.brokerAzDistribution",
+		"brokerNodeGroupInfo.clientSubnets[*]",
+		"brokerNodeGroupInfo.securityGroups[*]",
+		"clusterName",
+		"encryptionInfo.encryptionAtRest",
+		"encryptionInfo.encryptionInTransit.inCluster",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws-native:msk:Cluster", name, args, &resource, opts...)

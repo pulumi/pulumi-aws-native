@@ -106,6 +106,8 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["timeZone"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["autoScalingGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ScheduledAction.__pulumiType, name, resourceInputs, opts);
     }
 }

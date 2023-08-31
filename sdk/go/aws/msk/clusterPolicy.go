@@ -37,6 +37,10 @@ func NewClusterPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clusterArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterPolicy
 	err := ctx.RegisterResource("aws-native:msk:ClusterPolicy", name, args, &resource, opts...)

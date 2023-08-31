@@ -149,6 +149,8 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["connection_arn"] = None
             __props__.__dict__["connection_status"] = None
             __props__.__dict__["owner_account_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connection_name", "host_arn", "provider_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connection, __self__).__init__(
             'aws-native:codestarconnections:Connection',
             resource_name,

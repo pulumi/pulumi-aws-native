@@ -35,6 +35,11 @@ func NewVolume(ctx *pulumi.Context,
 		args = &VolumeArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"backupId",
+		"volumeType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Volume
 	err := ctx.RegisterResource("aws-native:fsx:Volume", name, args, &resource, opts...)

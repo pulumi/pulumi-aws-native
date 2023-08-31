@@ -32,6 +32,10 @@ workspacesweb.getTrustStore
 workspacesweb.getUserAccessLoggingSettings
 workspacesweb.getUserSettings
 
+## Misc
+
+Began marking createOnlyProperties with the replaceOnChanges flag
+
 ## 0.74.0 (2023-08-22)
 
 ### Breaking Changes

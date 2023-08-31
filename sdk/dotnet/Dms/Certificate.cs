@@ -48,6 +48,12 @@ namespace Pulumi.AwsNative.Dms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "certificateIdentifier",
+                    "certificatePem",
+                    "certificateWallet",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

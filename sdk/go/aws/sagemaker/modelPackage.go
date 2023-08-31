@@ -51,6 +51,21 @@ func NewModelPackage(ctx *pulumi.Context,
 		args = &ModelPackageArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clientToken",
+		"domain",
+		"driftCheckBaselines",
+		"inferenceSpecification",
+		"metadataProperties",
+		"modelMetrics",
+		"modelPackageDescription",
+		"modelPackageGroupName",
+		"samplePayloadUrl",
+		"sourceAlgorithmSpecification",
+		"task",
+		"validationSpecification",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelPackage
 	err := ctx.RegisterResource("aws-native:sagemaker:ModelPackage", name, args, &resource, opts...)

@@ -32,6 +32,10 @@ func NewSecurityConfiguration(ctx *pulumi.Context,
 	if args.EncryptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'EncryptionConfiguration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityConfiguration
 	err := ctx.RegisterResource("aws-native:glue:SecurityConfiguration", name, args, &resource, opts...)

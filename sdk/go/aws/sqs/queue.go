@@ -60,6 +60,11 @@ func NewQueue(ctx *pulumi.Context,
 		args = &QueueArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"fifoQueue",
+		"queueName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("aws-native:sqs:Queue", name, args, &resource, opts...)

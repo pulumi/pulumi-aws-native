@@ -42,6 +42,20 @@ func NewSecurityGroupIngress(ctx *pulumi.Context,
 	if args.IpProtocol == nil {
 		return nil, errors.New("invalid value for required argument 'IpProtocol'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cidrIp",
+		"cidrIpv6",
+		"fromPort",
+		"groupId",
+		"groupName",
+		"ipProtocol",
+		"sourcePrefixListId",
+		"sourceSecurityGroupId",
+		"sourceSecurityGroupName",
+		"sourceSecurityGroupOwnerId",
+		"toPort",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroupIngress
 	err := ctx.RegisterResource("aws-native:ec2:SecurityGroupIngress", name, args, &resource, opts...)

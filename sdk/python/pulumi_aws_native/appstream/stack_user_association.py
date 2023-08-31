@@ -133,6 +133,8 @@ class StackUserAssociation(pulumi.CustomResource):
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authentication_type", "send_email_notification", "stack_name", "user_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StackUserAssociation, __self__).__init__(
             'aws-native:appstream:StackUserAssociation',
             resource_name,

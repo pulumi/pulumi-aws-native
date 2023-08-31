@@ -75,6 +75,8 @@ export class PortfolioPrincipalAssociation extends pulumi.CustomResource {
             resourceInputs["principalType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["acceptLanguage", "portfolioId", "principalArn", "principalType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PortfolioPrincipalAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

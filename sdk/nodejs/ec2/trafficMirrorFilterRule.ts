@@ -105,6 +105,8 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
             resourceInputs["trafficMirrorFilterId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["trafficMirrorFilterId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TrafficMirrorFilterRule.__pulumiType, name, resourceInputs, opts);
     }
 }

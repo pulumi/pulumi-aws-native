@@ -197,6 +197,8 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id", "configuration_profile_id", "configuration_version", "deployment_strategy_id", "description", "environment_id", "kms_key_identifier", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Deployment, __self__).__init__(
             'aws-native:appconfig:Deployment',
             resource_name,

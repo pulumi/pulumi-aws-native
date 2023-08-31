@@ -164,6 +164,8 @@ class Alias(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
             __props__.__dict__["routing_config"] = routing_config
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["function_name", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Alias, __self__).__init__(
             'aws-native:lambda:Alias',
             resource_name,

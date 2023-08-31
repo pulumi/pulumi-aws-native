@@ -70,6 +70,11 @@ func NewBucket(ctx *pulumi.Context,
 		args = &BucketArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"bucketName",
+		"objectLockEnabled",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bucket
 	err := ctx.RegisterResource("aws-native:s3:Bucket", name, args, &resource, opts...)

@@ -69,6 +69,8 @@ export class ConnectorDefinitionVersion extends pulumi.CustomResource {
             resourceInputs["connectors"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["connectorDefinitionId", "connectors[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConnectorDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

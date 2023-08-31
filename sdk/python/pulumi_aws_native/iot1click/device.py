@@ -103,6 +103,8 @@ class Device(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Device, __self__).__init__(
             'aws-native:iot1click:Device',
             resource_name,

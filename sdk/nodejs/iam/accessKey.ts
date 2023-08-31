@@ -69,6 +69,8 @@ export class AccessKey extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["serial", "userName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AccessKey.__pulumiType, name, resourceInputs, opts);
     }
 }

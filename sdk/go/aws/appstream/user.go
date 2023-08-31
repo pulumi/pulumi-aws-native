@@ -35,6 +35,14 @@ func NewUser(ctx *pulumi.Context,
 	if args.AuthenticationType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthenticationType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"authenticationType",
+		"firstName",
+		"lastName",
+		"messageAction",
+		"userName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws-native:appstream:User", name, args, &resource, opts...)

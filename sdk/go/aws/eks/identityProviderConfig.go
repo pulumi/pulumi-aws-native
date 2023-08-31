@@ -42,6 +42,13 @@ func NewIdentityProviderConfig(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clusterName",
+		"identityProviderConfigName",
+		"oidc",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityProviderConfig
 	err := ctx.RegisterResource("aws-native:eks:IdentityProviderConfig", name, args, &resource, opts...)

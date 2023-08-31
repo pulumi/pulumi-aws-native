@@ -42,6 +42,10 @@ func NewAnomalyDetector(ctx *pulumi.Context,
 	if args.MetricSetList == nil {
 		return nil, errors.New("invalid value for required argument 'MetricSetList'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"anomalyDetectorName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnomalyDetector
 	err := ctx.RegisterResource("aws-native:lookoutmetrics:AnomalyDetector", name, args, &resource, opts...)

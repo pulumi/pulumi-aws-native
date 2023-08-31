@@ -85,6 +85,8 @@ export class ResourceSpecificLogging extends pulumi.CustomResource {
             resourceInputs["targetType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["targetName", "targetType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourceSpecificLogging.__pulumiType, name, resourceInputs, opts);
     }
 }

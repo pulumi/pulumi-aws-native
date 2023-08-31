@@ -40,6 +40,10 @@ func NewChannel(ctx *pulumi.Context,
 		args = &ChannelArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"vpc",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws-native:medialive:Channel", name, args, &resource, opts...)

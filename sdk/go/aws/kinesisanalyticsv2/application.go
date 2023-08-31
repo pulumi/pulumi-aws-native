@@ -49,6 +49,12 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ServiceExecutionRole == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceExecutionRole'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationMode",
+		"applicationName",
+		"runtimeEnvironment",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws-native:kinesisanalyticsv2:Application", name, args, &resource, opts...)

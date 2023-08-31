@@ -38,6 +38,12 @@ func NewServiceTemplate(ctx *pulumi.Context,
 		args = &ServiceTemplateArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"encryptionKey",
+		"name",
+		"pipelineProvisioning",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceTemplate
 	err := ctx.RegisterResource("aws-native:proton:ServiceTemplate", name, args, &resource, opts...)

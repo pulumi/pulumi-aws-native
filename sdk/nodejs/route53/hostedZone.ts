@@ -83,6 +83,8 @@ export class HostedZone extends pulumi.CustomResource {
             resourceInputs["vpcs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(HostedZone.__pulumiType, name, resourceInputs, opts);
     }
 }

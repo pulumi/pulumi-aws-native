@@ -150,6 +150,8 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["vpcZoneIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["autoScalingGroupName", "instanceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AutoScalingGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

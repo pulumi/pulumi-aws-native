@@ -231,6 +231,8 @@ class SimpleAd(pulumi.CustomResource):
             __props__.__dict__["alias"] = None
             __props__.__dict__["directory_id"] = None
             __props__.__dict__["dns_ip_addresses"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["create_alias", "description", "name", "password", "short_name", "size", "vpc_settings"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SimpleAd, __self__).__init__(
             'aws-native:directoryservice:SimpleAd',
             resource_name,

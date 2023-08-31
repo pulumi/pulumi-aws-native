@@ -32,6 +32,10 @@ func NewTopicRule(ctx *pulumi.Context,
 	if args.TopicRulePayload == nil {
 		return nil, errors.New("invalid value for required argument 'TopicRulePayload'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ruleName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicRule
 	err := ctx.RegisterResource("aws-native:iot:TopicRule", name, args, &resource, opts...)

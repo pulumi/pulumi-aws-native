@@ -33,6 +33,13 @@ func NewExtensionAssociation(ctx *pulumi.Context,
 		args = &ExtensionAssociationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"extensionIdentifier",
+		"extensionVersionNumber",
+		"resourceIdentifier",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExtensionAssociation
 	err := ctx.RegisterResource("aws-native:appconfig:ExtensionAssociation", name, args, &resource, opts...)

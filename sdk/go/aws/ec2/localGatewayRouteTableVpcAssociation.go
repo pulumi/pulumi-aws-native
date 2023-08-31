@@ -43,6 +43,11 @@ func NewLocalGatewayRouteTableVpcAssociation(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"localGatewayRouteTableId",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocalGatewayRouteTableVpcAssociation
 	err := ctx.RegisterResource("aws-native:ec2:LocalGatewayRouteTableVpcAssociation", name, args, &resource, opts...)

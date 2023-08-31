@@ -100,6 +100,8 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "availabilityZoneId", "cidrBlock", "ipv6Native", "outpostArn", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Subnet.__pulumiType, name, resourceInputs, opts);
     }
 }

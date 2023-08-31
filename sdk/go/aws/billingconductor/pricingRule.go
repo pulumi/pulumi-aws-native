@@ -62,6 +62,14 @@ func NewPricingRule(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"billingEntity",
+		"operation",
+		"scope",
+		"service",
+		"usageType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PricingRule
 	err := ctx.RegisterResource("aws-native:billingconductor:PricingRule", name, args, &resource, opts...)

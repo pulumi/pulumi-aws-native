@@ -69,6 +69,8 @@ export class SubscriptionDefinitionVersion extends pulumi.CustomResource {
             resourceInputs["subscriptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["subscriptionDefinitionId", "subscriptions[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SubscriptionDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -121,6 +121,8 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["trafficType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["deliverLogsPermissionArn", "destinationOptions", "logDestination", "logDestinationType", "logFormat", "logGroupName", "maxAggregationInterval", "resourceId", "resourceType", "trafficType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FlowLog.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -43,6 +43,12 @@ func NewEventIntegration(ctx *pulumi.Context,
 	if args.EventFilter == nil {
 		return nil, errors.New("invalid value for required argument 'EventFilter'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"eventBridgeBus",
+		"eventFilter",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventIntegration
 	err := ctx.RegisterResource("aws-native:appintegrations:EventIntegration", name, args, &resource, opts...)

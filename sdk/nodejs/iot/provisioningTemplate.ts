@@ -85,6 +85,8 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
             resourceInputs["templateType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["templateName", "templateType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ProvisioningTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

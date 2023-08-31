@@ -104,6 +104,8 @@ class ApplicationCloudWatchLoggingOption(pulumi.CustomResource):
             if cloud_watch_logging_option is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_watch_logging_option'")
             __props__.__dict__["cloud_watch_logging_option"] = cloud_watch_logging_option
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationCloudWatchLoggingOption, __self__).__init__(
             'aws-native:kinesisanalyticsv2:ApplicationCloudWatchLoggingOption',
             resource_name,

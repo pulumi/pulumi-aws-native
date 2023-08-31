@@ -55,6 +55,13 @@ func NewTransitGatewayPeeringAttachment(ctx *pulumi.Context,
 	if args.TransitGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"peerAccountId",
+		"peerRegion",
+		"peerTransitGatewayId",
+		"transitGatewayId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayPeeringAttachment
 	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayPeeringAttachment", name, args, &resource, opts...)

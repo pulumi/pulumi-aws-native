@@ -67,6 +67,8 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["topicRulePayload"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ruleName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TopicRule.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -32,6 +32,10 @@ func NewContactList(ctx *pulumi.Context,
 		args = &ContactListArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"contactListName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactList
 	err := ctx.RegisterResource("aws-native:ses:ContactList", name, args, &resource, opts...)

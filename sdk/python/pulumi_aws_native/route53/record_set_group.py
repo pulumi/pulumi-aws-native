@@ -132,6 +132,8 @@ class RecordSetGroup(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = hosted_zone_id
             __props__.__dict__["hosted_zone_name"] = hosted_zone_name
             __props__.__dict__["record_sets"] = record_sets
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["hosted_zone_id", "hosted_zone_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RecordSetGroup, __self__).__init__(
             'aws-native:route53:RecordSetGroup',
             resource_name,

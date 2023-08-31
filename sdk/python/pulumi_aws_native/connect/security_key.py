@@ -97,6 +97,8 @@ class SecurityKey(pulumi.CustomResource):
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
             __props__.__dict__["association_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_id", "key"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityKey, __self__).__init__(
             'aws-native:connect:SecurityKey',
             resource_name,

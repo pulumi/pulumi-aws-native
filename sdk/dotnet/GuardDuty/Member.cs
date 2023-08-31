@@ -57,6 +57,12 @@ namespace Pulumi.AwsNative.GuardDuty
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "detectorId",
+                    "email",
+                    "memberId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

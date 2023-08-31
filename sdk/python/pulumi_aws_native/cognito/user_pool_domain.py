@@ -120,6 +120,8 @@ class UserPoolDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
             __props__.__dict__["cloud_front_distribution"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "user_pool_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserPoolDomain, __self__).__init__(
             'aws-native:cognito:UserPoolDomain',
             resource_name,

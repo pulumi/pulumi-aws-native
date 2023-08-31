@@ -35,6 +35,10 @@ func NewVersion(ctx *pulumi.Context,
 	if args.FunctionName == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"functionName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Version
 	err := ctx.RegisterResource("aws-native:lambda:Version", name, args, &resource, opts...)

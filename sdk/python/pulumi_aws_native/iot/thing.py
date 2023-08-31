@@ -97,6 +97,8 @@ class Thing(pulumi.CustomResource):
             __props__.__dict__["attribute_payload"] = attribute_payload
             __props__.__dict__["thing_name"] = thing_name
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["thing_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Thing, __self__).__init__(
             'aws-native:iot:Thing',
             resource_name,

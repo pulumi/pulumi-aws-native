@@ -347,6 +347,8 @@ class Campaign(pulumi.CustomResource):
             __props__.__dict__["treatment_name"] = treatment_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["campaign_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Campaign, __self__).__init__(
             'aws-native:pinpoint:Campaign',
             resource_name,

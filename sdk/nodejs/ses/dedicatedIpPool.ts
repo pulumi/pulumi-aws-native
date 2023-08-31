@@ -61,6 +61,8 @@ export class DedicatedIpPool extends pulumi.CustomResource {
             resourceInputs["scalingMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["poolName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DedicatedIpPool.__pulumiType, name, resourceInputs, opts);
     }
 }

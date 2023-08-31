@@ -193,6 +193,8 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["tumblingWindowInSeconds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["amazonManagedKafkaEventSourceConfig", "eventSourceArn", "selfManagedEventSource", "selfManagedKafkaEventSourceConfig", "startingPosition", "startingPositionTimestamp"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EventSourceMapping.__pulumiType, name, resourceInputs, opts);
     }
 }

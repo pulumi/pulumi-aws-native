@@ -42,6 +42,13 @@ func NewPermission(ctx *pulumi.Context,
 	if args.Principal == nil {
 		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"actions[*]",
+		"certificateAuthorityArn",
+		"principal",
+		"sourceAccount",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Permission
 	err := ctx.RegisterResource("aws-native:acmpca:Permission", name, args, &resource, opts...)

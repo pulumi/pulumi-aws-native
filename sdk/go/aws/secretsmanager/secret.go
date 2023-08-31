@@ -38,6 +38,10 @@ func NewSecret(ctx *pulumi.Context,
 		args = &SecretArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Secret
 	err := ctx.RegisterResource("aws-native:secretsmanager:Secret", name, args, &resource, opts...)

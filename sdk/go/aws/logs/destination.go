@@ -40,6 +40,10 @@ func NewDestination(ctx *pulumi.Context,
 	if args.TargetArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"destinationName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Destination
 	err := ctx.RegisterResource("aws-native:logs:Destination", name, args, &resource, opts...)

@@ -73,6 +73,8 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["portalArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["portalArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IdentityProvider.__pulumiType, name, resourceInputs, opts);
     }
 }

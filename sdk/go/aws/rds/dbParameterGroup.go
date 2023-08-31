@@ -41,6 +41,12 @@ func NewDbParameterGroup(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dbParameterGroupName",
+		"description",
+		"family",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbParameterGroup
 	err := ctx.RegisterResource("aws-native:rds:DbParameterGroup", name, args, &resource, opts...)

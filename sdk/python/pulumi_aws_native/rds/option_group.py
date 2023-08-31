@@ -189,6 +189,8 @@ class OptionGroup(pulumi.CustomResource):
             __props__.__dict__["option_group_description"] = option_group_description
             __props__.__dict__["option_group_name"] = option_group_name
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["engine_name", "major_engine_version", "option_group_description", "option_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OptionGroup, __self__).__init__(
             'aws-native:rds:OptionGroup',
             resource_name,

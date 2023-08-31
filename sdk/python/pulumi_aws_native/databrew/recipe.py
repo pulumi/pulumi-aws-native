@@ -137,6 +137,8 @@ class Recipe(pulumi.CustomResource):
                 raise TypeError("Missing required property 'steps'")
             __props__.__dict__["steps"] = steps
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Recipe, __self__).__init__(
             'aws-native:databrew:Recipe',
             resource_name,

@@ -37,6 +37,11 @@ func NewDocumentationVersion(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"documentationVersion",
+		"restApiId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DocumentationVersion
 	err := ctx.RegisterResource("aws-native:apigateway:DocumentationVersion", name, args, &resource, opts...)

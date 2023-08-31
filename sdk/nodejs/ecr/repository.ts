@@ -94,6 +94,8 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["encryptionConfiguration", "repositoryName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -100,6 +100,8 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["filterInArns[*]", "networkInsightsPathId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkInsightsAnalysis.__pulumiType, name, resourceInputs, opts);
     }
 }

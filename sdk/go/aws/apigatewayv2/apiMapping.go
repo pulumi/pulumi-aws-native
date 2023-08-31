@@ -44,6 +44,10 @@ func NewApiMapping(ctx *pulumi.Context,
 	if args.Stage == nil {
 		return nil, errors.New("invalid value for required argument 'Stage'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiMapping
 	err := ctx.RegisterResource("aws-native:apigatewayv2:ApiMapping", name, args, &resource, opts...)

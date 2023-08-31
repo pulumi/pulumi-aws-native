@@ -431,6 +431,8 @@ class FlowSource(pulumi.CustomResource):
             __props__.__dict__["ingest_ip"] = None
             __props__.__dict__["source_arn"] = None
             __props__.__dict__["source_ingest_port"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FlowSource, __self__).__init__(
             'aws-native:mediaconnect:FlowSource',
             resource_name,

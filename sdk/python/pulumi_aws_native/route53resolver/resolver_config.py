@@ -109,6 +109,8 @@ class ResolverConfig(pulumi.CustomResource):
             __props__.__dict__["resource_id"] = resource_id
             __props__.__dict__["autodefined_reverse"] = None
             __props__.__dict__["owner_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autodefined_reverse_flag", "resource_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResolverConfig, __self__).__init__(
             'aws-native:route53resolver:ResolverConfig',
             resource_name,

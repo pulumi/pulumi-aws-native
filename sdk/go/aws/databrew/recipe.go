@@ -34,6 +34,11 @@ func NewRecipe(ctx *pulumi.Context,
 	if args.Steps == nil {
 		return nil, errors.New("invalid value for required argument 'Steps'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Recipe
 	err := ctx.RegisterResource("aws-native:databrew:Recipe", name, args, &resource, opts...)

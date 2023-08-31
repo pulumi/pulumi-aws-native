@@ -141,6 +141,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["visibleToAllUsers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["additionalInfo", "applications[*]", "autoScalingRole", "bootstrapActions[*]", "configurations[*]", "customAmiId", "ebsRootVolumeSize", "jobFlowRole", "kerberosAttributes", "logEncryptionKmsKeyId", "logUri", "name", "osReleaseLabel", "releaseLabel", "scaleDownBehavior", "securityConfiguration", "serviceRole", "steps[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

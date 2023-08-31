@@ -30,6 +30,10 @@ func NewServiceNetwork(ctx *pulumi.Context,
 		args = &ServiceNetworkArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceNetwork
 	err := ctx.RegisterResource("aws-native:vpclattice:ServiceNetwork", name, args, &resource, opts...)

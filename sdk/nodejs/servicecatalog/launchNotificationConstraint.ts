@@ -78,6 +78,8 @@ export class LaunchNotificationConstraint extends pulumi.CustomResource {
             resourceInputs["productId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["portfolioId", "productId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LaunchNotificationConstraint.__pulumiType, name, resourceInputs, opts);
     }
 }

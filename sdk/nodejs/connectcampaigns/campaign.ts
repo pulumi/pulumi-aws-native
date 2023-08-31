@@ -91,6 +91,8 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["connectInstanceArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Campaign.__pulumiType, name, resourceInputs, opts);
     }
 }

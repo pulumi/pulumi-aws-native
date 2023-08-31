@@ -253,6 +253,8 @@ class MetricStream(pulumi.CustomResource):
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["last_update_date"] = None
             __props__.__dict__["state"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MetricStream, __self__).__init__(
             'aws-native:cloudwatch:MetricStream',
             resource_name,

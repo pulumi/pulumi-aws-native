@@ -48,6 +48,13 @@ func NewResolverEndpoint(ctx *pulumi.Context,
 	if args.SecurityGroupIds == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupIds'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"direction",
+		"outpostArn",
+		"preferredInstanceType",
+		"securityGroupIds[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverEndpoint
 	err := ctx.RegisterResource("aws-native:route53resolver:ResolverEndpoint", name, args, &resource, opts...)

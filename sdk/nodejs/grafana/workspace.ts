@@ -172,6 +172,8 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["vpcConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clientToken"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }

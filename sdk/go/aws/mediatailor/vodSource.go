@@ -39,6 +39,11 @@ func NewVodSource(ctx *pulumi.Context,
 	if args.SourceLocationName == nil {
 		return nil, errors.New("invalid value for required argument 'SourceLocationName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"sourceLocationName",
+		"vodSourceName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VodSource
 	err := ctx.RegisterResource("aws-native:mediatailor:VodSource", name, args, &resource, opts...)

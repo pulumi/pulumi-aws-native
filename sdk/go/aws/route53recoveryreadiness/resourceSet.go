@@ -43,6 +43,11 @@ func NewResourceSet(ctx *pulumi.Context,
 	if args.Resources == nil {
 		return nil, errors.New("invalid value for required argument 'Resources'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceSetName",
+		"resourceSetType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceSet
 	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:ResourceSet", name, args, &resource, opts...)

@@ -40,6 +40,10 @@ func NewBaiduChannel(ctx *pulumi.Context,
 	if args.SecretKey == nil {
 		return nil, errors.New("invalid value for required argument 'SecretKey'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BaiduChannel
 	err := ctx.RegisterResource("aws-native:pinpoint:BaiduChannel", name, args, &resource, opts...)

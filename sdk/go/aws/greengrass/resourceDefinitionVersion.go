@@ -35,6 +35,11 @@ func NewResourceDefinitionVersion(ctx *pulumi.Context,
 	if args.Resources == nil {
 		return nil, errors.New("invalid value for required argument 'Resources'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceDefinitionId",
+		"resources[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceDefinitionVersion
 	err := ctx.RegisterResource("aws-native:greengrass:ResourceDefinitionVersion", name, args, &resource, opts...)

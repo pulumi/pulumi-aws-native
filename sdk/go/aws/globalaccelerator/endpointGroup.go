@@ -51,6 +51,11 @@ func NewEndpointGroup(ctx *pulumi.Context,
 	if args.ListenerArn == nil {
 		return nil, errors.New("invalid value for required argument 'ListenerArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"endpointGroupRegion",
+		"listenerArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointGroup
 	err := ctx.RegisterResource("aws-native:globalaccelerator:EndpointGroup", name, args, &resource, opts...)

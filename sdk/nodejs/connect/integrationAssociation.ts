@@ -73,6 +73,8 @@ export class IntegrationAssociation extends pulumi.CustomResource {
             resourceInputs["integrationType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instanceId", "integrationArn", "integrationType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IntegrationAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

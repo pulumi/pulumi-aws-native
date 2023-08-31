@@ -166,6 +166,8 @@ class ContactChannel(pulumi.CustomResource):
             __props__.__dict__["contact_id"] = contact_id
             __props__.__dict__["defer_activation"] = defer_activation
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_type", "contact_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ContactChannel, __self__).__init__(
             'aws-native:ssmcontacts:ContactChannel',
             resource_name,

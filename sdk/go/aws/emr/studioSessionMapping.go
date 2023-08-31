@@ -45,6 +45,12 @@ func NewStudioSessionMapping(ctx *pulumi.Context,
 	if args.StudioId == nil {
 		return nil, errors.New("invalid value for required argument 'StudioId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"identityName",
+		"identityType",
+		"studioId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StudioSessionMapping
 	err := ctx.RegisterResource("aws-native:emr:StudioSessionMapping", name, args, &resource, opts...)

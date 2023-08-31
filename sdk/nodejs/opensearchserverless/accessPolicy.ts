@@ -79,6 +79,8 @@ export class AccessPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

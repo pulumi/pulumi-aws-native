@@ -43,6 +43,14 @@ func NewDbInstance(ctx *pulumi.Context,
 	if args.DbInstanceClass == nil {
 		return nil, errors.New("invalid value for required argument 'DbInstanceClass'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"availabilityZone",
+		"dbClusterIdentifier",
+		"dbInstanceIdentifier",
+		"dbSnapshotIdentifier",
+		"dbSubnetGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbInstance
 	err := ctx.RegisterResource("aws-native:neptune:DbInstance", name, args, &resource, opts...)

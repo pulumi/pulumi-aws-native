@@ -63,6 +63,8 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["dashboardName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dashboardName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }
 }

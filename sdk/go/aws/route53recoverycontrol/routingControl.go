@@ -34,6 +34,11 @@ func NewRoutingControl(ctx *pulumi.Context,
 		args = &RoutingControlArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clusterArn",
+		"controlPanelArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoutingControl
 	err := ctx.RegisterResource("aws-native:route53recoverycontrol:RoutingControl", name, args, &resource, opts...)

@@ -236,6 +236,8 @@ class AppBlockBuilder(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AppBlockBuilder, __self__).__init__(
             'aws-native:appstream:AppBlockBuilder',
             resource_name,

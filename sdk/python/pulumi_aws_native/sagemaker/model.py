@@ -193,6 +193,8 @@ class Model(pulumi.CustomResource):
             __props__.__dict__["primary_container"] = primary_container
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_config"] = vpc_config
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containers[*]", "enable_network_isolation", "execution_role_arn", "inference_execution_config", "model_name", "primary_container", "vpc_config"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Model, __self__).__init__(
             'aws-native:sagemaker:Model',
             resource_name,

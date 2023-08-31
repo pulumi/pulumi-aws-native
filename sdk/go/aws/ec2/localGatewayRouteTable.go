@@ -44,6 +44,11 @@ func NewLocalGatewayRouteTable(ctx *pulumi.Context,
 	if args.LocalGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'LocalGatewayId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"localGatewayId",
+		"mode",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocalGatewayRouteTable
 	err := ctx.RegisterResource("aws-native:ec2:LocalGatewayRouteTable", name, args, &resource, opts...)

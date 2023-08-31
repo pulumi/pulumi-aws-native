@@ -79,6 +79,8 @@ export class ExtensionAssociation extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["extensionIdentifier", "extensionVersionNumber", "resourceIdentifier", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ExtensionAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

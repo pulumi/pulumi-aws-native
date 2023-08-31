@@ -76,6 +76,8 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
             resourceInputs["policyStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["mrapName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MultiRegionAccessPointPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

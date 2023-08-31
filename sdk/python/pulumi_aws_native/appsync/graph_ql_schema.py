@@ -116,6 +116,8 @@ class GraphQlSchema(pulumi.CustomResource):
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["definition"] = definition
             __props__.__dict__["definition_s3_location"] = definition_s3_location
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GraphQlSchema, __self__).__init__(
             'aws-native:appsync:GraphQlSchema',
             resource_name,

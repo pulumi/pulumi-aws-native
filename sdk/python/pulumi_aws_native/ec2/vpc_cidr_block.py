@@ -206,6 +206,8 @@ class VpcCidrBlock(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_provided_ipv6_cidr_block", "cidr_block", "ipv4_ipam_pool_id", "ipv4_netmask_length", "ipv6_cidr_block", "ipv6_ipam_pool_id", "ipv6_netmask_length", "ipv6_pool", "vpc_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcCidrBlock, __self__).__init__(
             'aws-native:ec2:VpcCidrBlock',
             resource_name,

@@ -31,6 +31,11 @@ func NewCapacityProvider(ctx *pulumi.Context,
 	if args.AutoScalingGroupProvider == nil {
 		return nil, errors.New("invalid value for required argument 'AutoScalingGroupProvider'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"autoScalingGroupProvider.autoScalingGroupArn",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CapacityProvider
 	err := ctx.RegisterResource("aws-native:ecs:CapacityProvider", name, args, &resource, opts...)

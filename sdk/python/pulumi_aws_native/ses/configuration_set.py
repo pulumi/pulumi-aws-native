@@ -176,6 +176,8 @@ class ConfigurationSet(pulumi.CustomResource):
             __props__.__dict__["suppression_options"] = suppression_options
             __props__.__dict__["tracking_options"] = tracking_options
             __props__.__dict__["vdm_options"] = vdm_options
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationSet, __self__).__init__(
             'aws-native:ses:ConfigurationSet',
             resource_name,

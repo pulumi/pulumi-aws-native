@@ -40,6 +40,10 @@ func NewListenerRule(ctx *pulumi.Context,
 	if args.Priority == nil {
 		return nil, errors.New("invalid value for required argument 'Priority'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"listenerArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ListenerRule
 	err := ctx.RegisterResource("aws-native:elasticloadbalancingv2:ListenerRule", name, args, &resource, opts...)

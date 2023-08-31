@@ -102,6 +102,20 @@ namespace Pulumi.AwsNative.IoTFleetWise
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "collectionScheme",
+                    "compression",
+                    "diagnosticsMode",
+                    "expiryTime",
+                    "name",
+                    "postTriggerCollectionDuration",
+                    "priority",
+                    "signalCatalogArn",
+                    "spoolingMode",
+                    "startTime",
+                    "targetArn",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

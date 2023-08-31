@@ -32,6 +32,10 @@ func NewAlias(ctx *pulumi.Context,
 	if args.TargetKeyId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetKeyId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"aliasName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alias
 	err := ctx.RegisterResource("aws-native:kms:Alias", name, args, &resource, opts...)

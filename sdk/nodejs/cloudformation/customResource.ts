@@ -60,6 +60,8 @@ export class CustomResource extends pulumi.CustomResource {
             resourceInputs["serviceToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["serviceToken"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomResource.__pulumiType, name, resourceInputs, opts);
     }
 }

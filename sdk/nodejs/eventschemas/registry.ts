@@ -69,6 +69,8 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["registryName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Registry.__pulumiType, name, resourceInputs, opts);
     }
 }

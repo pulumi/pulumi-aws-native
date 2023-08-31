@@ -126,6 +126,8 @@ class UserHierarchyGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_group_arn"] = parent_group_arn
             __props__.__dict__["user_hierarchy_group_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["parent_group_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserHierarchyGroup, __self__).__init__(
             'aws-native:connect:UserHierarchyGroup',
             resource_name,

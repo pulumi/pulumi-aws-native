@@ -52,6 +52,11 @@ func NewObjectType(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainName",
+		"objectTypeName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObjectType
 	err := ctx.RegisterResource("aws-native:customerprofiles:ObjectType", name, args, &resource, opts...)

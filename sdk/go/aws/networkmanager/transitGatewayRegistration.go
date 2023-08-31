@@ -35,6 +35,11 @@ func NewTransitGatewayRegistration(ctx *pulumi.Context,
 	if args.TransitGatewayArn == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"globalNetworkId",
+		"transitGatewayArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayRegistration
 	err := ctx.RegisterResource("aws-native:networkmanager:TransitGatewayRegistration", name, args, &resource, opts...)

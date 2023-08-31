@@ -75,6 +75,8 @@ export class ApiKey extends pulumi.CustomResource {
             resourceInputs["expires"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApiKey.__pulumiType, name, resourceInputs, opts);
     }
 }

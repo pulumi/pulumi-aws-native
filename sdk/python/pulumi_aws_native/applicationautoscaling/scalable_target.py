@@ -231,6 +231,8 @@ class ScalableTarget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_namespace'")
             __props__.__dict__["service_namespace"] = service_namespace
             __props__.__dict__["suspended_state"] = suspended_state
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_id", "scalable_dimension", "service_namespace"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ScalableTarget, __self__).__init__(
             'aws-native:applicationautoscaling:ScalableTarget',
             resource_name,

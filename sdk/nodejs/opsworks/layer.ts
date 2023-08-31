@@ -132,6 +132,8 @@ export class Layer extends pulumi.CustomResource {
             resourceInputs["volumeConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["stackId", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Layer.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -88,6 +88,8 @@ export class DomainConfiguration extends pulumi.CustomResource {
             resourceInputs["validationCertificateArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domainConfigurationName", "domainName", "serverCertificateArns[*]", "serviceType", "validationCertificateArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DomainConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

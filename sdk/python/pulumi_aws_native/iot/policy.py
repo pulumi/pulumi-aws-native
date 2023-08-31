@@ -96,6 +96,8 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["policy_name"] = policy_name
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Policy, __self__).__init__(
             'aws-native:iot:Policy',
             resource_name,

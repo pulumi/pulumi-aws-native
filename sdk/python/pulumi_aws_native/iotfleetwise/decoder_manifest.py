@@ -182,6 +182,8 @@ class DecoderManifest(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_modification_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["model_manifest_arn", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DecoderManifest, __self__).__init__(
             'aws-native:iotfleetwise:DecoderManifest',
             resource_name,

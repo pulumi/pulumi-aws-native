@@ -127,6 +127,8 @@ class MountTarget(pulumi.CustomResource):
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["file_system_id", "ip_address", "subnet_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MountTarget, __self__).__init__(
             'aws-native:efs:MountTarget',
             resource_name,

@@ -249,6 +249,8 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["job_definition_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint_name", "job_definition_name", "job_resources", "model_bias_app_specification", "model_bias_baseline_config", "model_bias_job_input", "model_bias_job_output_config", "network_config", "role_arn", "stopping_condition", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ModelBiasJobDefinition, __self__).__init__(
             'aws-native:sagemaker:ModelBiasJobDefinition',
             resource_name,

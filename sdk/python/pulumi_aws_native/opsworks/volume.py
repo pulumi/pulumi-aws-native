@@ -132,6 +132,8 @@ class Volume(pulumi.CustomResource):
             if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
             __props__.__dict__["stack_id"] = stack_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_volume_id", "stack_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Volume, __self__).__init__(
             'aws-native:opsworks:Volume',
             resource_name,

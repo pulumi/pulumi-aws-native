@@ -173,6 +173,8 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["proxy_url"] = None
             __props__.__dict__["stage_name"] = None
             __props__.__dict__["vpc_link_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_gateway_proxy", "environment_identifier", "name", "proxy_type", "vpc_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:refactorspaces:Application',
             resource_name,

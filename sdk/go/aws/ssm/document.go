@@ -48,6 +48,11 @@ func NewDocument(ctx *pulumi.Context,
 	if args.Content == nil {
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"documentType",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Document
 	err := ctx.RegisterResource("aws-native:ssm:Document", name, args, &resource, opts...)

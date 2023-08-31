@@ -148,6 +148,8 @@ class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
             if statistic is None and not opts.urn:
                 raise TypeError("Missing required property 'statistic'")
             __props__.__dict__["statistic"] = statistic
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination", "metric", "source", "statistic"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkPerformanceMetricSubscription, __self__).__init__(
             'aws-native:ec2:NetworkPerformanceMetricSubscription',
             resource_name,

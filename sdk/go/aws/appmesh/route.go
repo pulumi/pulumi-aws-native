@@ -45,6 +45,13 @@ func NewRoute(ctx *pulumi.Context,
 	if args.VirtualRouterName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualRouterName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"meshName",
+		"meshOwner",
+		"routeName",
+		"virtualRouterName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws-native:appmesh:Route", name, args, &resource, opts...)

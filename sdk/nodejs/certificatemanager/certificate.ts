@@ -84,6 +84,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["validationMethod"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["certificateAuthorityArn", "domainName", "domainValidationOptions[*]", "keyAlgorithm", "subjectAlternativeNames[*]", "validationMethod"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

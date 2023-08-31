@@ -67,6 +67,8 @@ export class AuthPolicy extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AuthPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -44,6 +44,13 @@ func NewLocationFSxOpenZfs(ctx *pulumi.Context,
 	if args.SecurityGroupArns == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupArns'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"fsxFilesystemArn",
+		"protocol",
+		"securityGroupArns[*]",
+		"subdirectory",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationFSxOpenZfs
 	err := ctx.RegisterResource("aws-native:datasync:LocationFSxOpenZfs", name, args, &resource, opts...)

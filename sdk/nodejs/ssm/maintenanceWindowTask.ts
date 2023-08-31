@@ -111,6 +111,8 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             resourceInputs["windowId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["taskType", "windowId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MaintenanceWindowTask.__pulumiType, name, resourceInputs, opts);
     }
 }

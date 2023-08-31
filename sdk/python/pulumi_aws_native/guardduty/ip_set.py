@@ -166,6 +166,8 @@ class IpSet(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detector_id", "format"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpSet, __self__).__init__(
             'aws-native:guardduty:IpSet',
             resource_name,

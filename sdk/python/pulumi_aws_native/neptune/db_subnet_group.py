@@ -134,6 +134,8 @@ class DbSubnetGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["db_subnet_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbSubnetGroup, __self__).__init__(
             'aws-native:neptune:DbSubnetGroup',
             resource_name,

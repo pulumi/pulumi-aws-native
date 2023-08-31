@@ -126,6 +126,8 @@ class ResourcePolicy(pulumi.CustomResource):
             if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourcePolicy, __self__).__init__(
             'aws-native:xray:ResourcePolicy',
             resource_name,

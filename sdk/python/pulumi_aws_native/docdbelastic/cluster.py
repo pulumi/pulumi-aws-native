@@ -237,6 +237,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["cluster_arn"] = None
             __props__.__dict__["cluster_endpoint"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["admin_user_name", "auth_type", "cluster_name", "kms_key_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:docdbelastic:Cluster',
             resource_name,

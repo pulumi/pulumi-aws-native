@@ -31,6 +31,11 @@ func NewBackupVault(ctx *pulumi.Context,
 		args = &BackupVaultArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"backupVaultName",
+		"encryptionKeyArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BackupVault
 	err := ctx.RegisterResource("aws-native:backup:BackupVault", name, args, &resource, opts...)

@@ -60,6 +60,12 @@ func NewMicrosoftTeamsChannelConfiguration(ctx *pulumi.Context,
 	if args.TeamsTenantId == nil {
 		return nil, errors.New("invalid value for required argument 'TeamsTenantId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"configurationName",
+		"teamId",
+		"teamsTenantId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MicrosoftTeamsChannelConfiguration
 	err := ctx.RegisterResource("aws-native:chatbot:MicrosoftTeamsChannelConfiguration", name, args, &resource, opts...)

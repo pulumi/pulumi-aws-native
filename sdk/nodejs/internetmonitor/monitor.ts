@@ -97,6 +97,8 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["trafficPercentageToMonitor"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["monitorName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }
 }

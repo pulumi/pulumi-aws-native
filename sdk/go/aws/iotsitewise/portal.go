@@ -55,6 +55,10 @@ func NewPortal(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"portalAuthMode",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Portal
 	err := ctx.RegisterResource("aws-native:iotsitewise:Portal", name, args, &resource, opts...)

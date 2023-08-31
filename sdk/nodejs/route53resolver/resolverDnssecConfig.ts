@@ -70,6 +70,8 @@ export class ResolverDnssecConfig extends pulumi.CustomResource {
             resourceInputs["validationStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResolverDnssecConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

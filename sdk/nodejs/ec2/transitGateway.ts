@@ -88,6 +88,8 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["vpnEcmpSupport"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["amazonSideAsn", "multicastSupport"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGateway.__pulumiType, name, resourceInputs, opts);
     }
 }

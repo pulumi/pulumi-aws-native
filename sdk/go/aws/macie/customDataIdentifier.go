@@ -42,6 +42,15 @@ func NewCustomDataIdentifier(ctx *pulumi.Context,
 	if args.Regex == nil {
 		return nil, errors.New("invalid value for required argument 'Regex'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"ignoreWords[*]",
+		"keywords[*]",
+		"maximumMatchDistance",
+		"name",
+		"regex",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomDataIdentifier
 	err := ctx.RegisterResource("aws-native:macie:CustomDataIdentifier", name, args, &resource, opts...)

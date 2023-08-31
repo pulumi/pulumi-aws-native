@@ -102,6 +102,8 @@ class TagOptionAssociation(pulumi.CustomResource):
             if tag_option_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tag_option_id'")
             __props__.__dict__["tag_option_id"] = tag_option_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_id", "tag_option_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TagOptionAssociation, __self__).__init__(
             'aws-native:servicecatalog:TagOptionAssociation',
             resource_name,

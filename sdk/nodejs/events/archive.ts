@@ -70,6 +70,8 @@ export class Archive extends pulumi.CustomResource {
             resourceInputs["sourceArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["archiveName", "sourceArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Archive.__pulumiType, name, resourceInputs, opts);
     }
 }

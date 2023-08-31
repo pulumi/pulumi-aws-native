@@ -36,6 +36,12 @@ func NewObservabilityConfiguration(ctx *pulumi.Context,
 		args = &ObservabilityConfigurationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"observabilityConfigurationName",
+		"tags[*]",
+		"traceConfiguration",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObservabilityConfiguration
 	err := ctx.RegisterResource("aws-native:apprunner:ObservabilityConfiguration", name, args, &resource, opts...)

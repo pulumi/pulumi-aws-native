@@ -70,6 +70,11 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "resourceSetName",
+                    "resourceSetType",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -87,6 +87,8 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["versionLabel"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationId", "configurationProfileId", "content", "contentType", "description", "latestVersionNumber", "versionLabel"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(HostedConfigurationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

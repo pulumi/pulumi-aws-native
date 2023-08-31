@@ -112,6 +112,8 @@ export class Container extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["serviceName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Container.__pulumiType, name, resourceInputs, opts);
     }
 }

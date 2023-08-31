@@ -88,6 +88,8 @@ export class SafetyRule extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["controlPanelArn", "ruleConfig", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SafetyRule.__pulumiType, name, resourceInputs, opts);
     }
 }

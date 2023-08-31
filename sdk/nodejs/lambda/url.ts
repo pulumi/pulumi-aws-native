@@ -97,6 +97,8 @@ export class Url extends pulumi.CustomResource {
             resourceInputs["targetFunctionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["qualifier", "targetFunctionArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Url.__pulumiType, name, resourceInputs, opts);
     }
 }

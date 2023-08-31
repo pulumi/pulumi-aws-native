@@ -49,6 +49,15 @@ func NewFaq(ctx *pulumi.Context,
 	if args.S3Path == nil {
 		return nil, errors.New("invalid value for required argument 'S3Path'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"fileFormat",
+		"indexId",
+		"name",
+		"roleArn",
+		"s3Path",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Faq
 	err := ctx.RegisterResource("aws-native:kendra:Faq", name, args, &resource, opts...)

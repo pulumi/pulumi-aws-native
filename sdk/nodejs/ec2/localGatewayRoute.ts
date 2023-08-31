@@ -85,6 +85,8 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["destinationCidrBlock", "localGatewayRouteTableId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocalGatewayRoute.__pulumiType, name, resourceInputs, opts);
     }
 }

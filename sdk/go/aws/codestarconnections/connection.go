@@ -38,6 +38,12 @@ func NewConnection(ctx *pulumi.Context,
 		args = &ConnectionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"connectionName",
+		"hostArn",
+		"providerType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws-native:codestarconnections:Connection", name, args, &resource, opts...)

@@ -82,6 +82,8 @@ export class IpamPoolCidr extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cidr", "ipamPoolId", "netmaskLength"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IpamPoolCidr.__pulumiType, name, resourceInputs, opts);
     }
 }

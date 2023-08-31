@@ -39,6 +39,12 @@ func NewUserPoolUserToGroupAttachment(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"groupName",
+		"userPoolId",
+		"username",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPoolUserToGroupAttachment
 	err := ctx.RegisterResource("aws-native:cognito:UserPoolUserToGroupAttachment", name, args, &resource, opts...)

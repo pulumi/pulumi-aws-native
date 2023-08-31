@@ -88,6 +88,8 @@ export class DeviceFleet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["deviceFleetName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeviceFleet.__pulumiType, name, resourceInputs, opts);
     }
 }

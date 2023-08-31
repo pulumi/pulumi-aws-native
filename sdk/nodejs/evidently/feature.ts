@@ -88,6 +88,8 @@ export class Feature extends pulumi.CustomResource {
             resourceInputs["variations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "project"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Feature.__pulumiType, name, resourceInputs, opts);
     }
 }

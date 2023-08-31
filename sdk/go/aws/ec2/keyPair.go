@@ -42,6 +42,14 @@ func NewKeyPair(ctx *pulumi.Context,
 	if args.KeyName == nil {
 		return nil, errors.New("invalid value for required argument 'KeyName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"keyFormat",
+		"keyName",
+		"keyType",
+		"publicKeyMaterial",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeyPair
 	err := ctx.RegisterResource("aws-native:ec2:KeyPair", name, args, &resource, opts...)

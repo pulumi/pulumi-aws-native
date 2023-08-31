@@ -199,6 +199,8 @@ class Webhook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_pipeline_version'")
             __props__.__dict__["target_pipeline_version"] = target_pipeline_version
             __props__.__dict__["url"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Webhook, __self__).__init__(
             'aws-native:codepipeline:Webhook',
             resource_name,

@@ -133,6 +133,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "resourcesVpcConfig.securityGroupIds[*]", "resourcesVpcConfig.subnetIds[*]", "roleArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

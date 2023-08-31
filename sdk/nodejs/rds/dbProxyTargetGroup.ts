@@ -85,6 +85,8 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
             resourceInputs["targetGroupName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["dbProxyName", "targetGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbProxyTargetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

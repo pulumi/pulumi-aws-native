@@ -100,6 +100,8 @@ export class BudgetsAction extends pulumi.CustomResource {
             resourceInputs["subscribers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["actionType", "budgetName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BudgetsAction.__pulumiType, name, resourceInputs, opts);
     }
 }

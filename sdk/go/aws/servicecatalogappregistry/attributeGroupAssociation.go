@@ -37,6 +37,11 @@ func NewAttributeGroupAssociation(ctx *pulumi.Context,
 	if args.AttributeGroup == nil {
 		return nil, errors.New("invalid value for required argument 'AttributeGroup'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"application",
+		"attributeGroup",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AttributeGroupAssociation
 	err := ctx.RegisterResource("aws-native:servicecatalogappregistry:AttributeGroupAssociation", name, args, &resource, opts...)

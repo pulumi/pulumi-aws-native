@@ -225,6 +225,8 @@ class User(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["server_id", "user_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(User, __self__).__init__(
             'aws-native:transfer:User',
             resource_name,

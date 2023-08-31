@@ -76,6 +76,8 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["vdmOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfigurationSet.__pulumiType, name, resourceInputs, opts);
     }
 }

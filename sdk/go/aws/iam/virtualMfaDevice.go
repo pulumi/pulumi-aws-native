@@ -33,6 +33,11 @@ func NewVirtualMfaDevice(ctx *pulumi.Context,
 	if args.Users == nil {
 		return nil, errors.New("invalid value for required argument 'Users'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"path",
+		"virtualMfaDeviceName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualMfaDevice
 	err := ctx.RegisterResource("aws-native:iam:VirtualMfaDevice", name, args, &resource, opts...)

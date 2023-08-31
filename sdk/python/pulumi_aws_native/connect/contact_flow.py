@@ -211,6 +211,8 @@ class ContactFlow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["contact_flow_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ContactFlow, __self__).__init__(
             'aws-native:connect:ContactFlow',
             resource_name,

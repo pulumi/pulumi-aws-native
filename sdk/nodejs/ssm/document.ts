@@ -115,6 +115,8 @@ export class Document extends pulumi.CustomResource {
             resourceInputs["versionName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["documentType", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Document.__pulumiType, name, resourceInputs, opts);
     }
 }

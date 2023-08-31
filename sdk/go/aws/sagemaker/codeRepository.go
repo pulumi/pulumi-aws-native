@@ -33,6 +33,10 @@ func NewCodeRepository(ctx *pulumi.Context,
 	if args.GitConfig == nil {
 		return nil, errors.New("invalid value for required argument 'GitConfig'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"codeRepositoryName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CodeRepository
 	err := ctx.RegisterResource("aws-native:sagemaker:CodeRepository", name, args, &resource, opts...)

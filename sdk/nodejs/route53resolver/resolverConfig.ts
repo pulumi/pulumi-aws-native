@@ -82,6 +82,8 @@ export class ResolverConfig extends pulumi.CustomResource {
             resourceInputs["resourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["autodefinedReverseFlag", "resourceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResolverConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

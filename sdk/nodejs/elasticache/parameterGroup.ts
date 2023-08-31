@@ -75,6 +75,8 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cacheParameterGroupFamily"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

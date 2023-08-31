@@ -76,6 +76,8 @@ export class DeploymentConfig extends pulumi.CustomResource {
             resourceInputs["trafficRoutingConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["computePlatform", "deploymentConfigName", "minimumHealthyHosts", "trafficRoutingConfig"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeploymentConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

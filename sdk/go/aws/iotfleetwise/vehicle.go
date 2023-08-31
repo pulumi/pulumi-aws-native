@@ -42,6 +42,10 @@ func NewVehicle(ctx *pulumi.Context,
 	if args.ModelManifestArn == nil {
 		return nil, errors.New("invalid value for required argument 'ModelManifestArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vehicle
 	err := ctx.RegisterResource("aws-native:iotfleetwise:Vehicle", name, args, &resource, opts...)

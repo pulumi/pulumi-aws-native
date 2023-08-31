@@ -48,6 +48,10 @@ func NewConfigRule(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"configRuleName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigRule
 	err := ctx.RegisterResource("aws-native:configuration:ConfigRule", name, args, &resource, opts...)

@@ -112,6 +112,8 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["teamId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["channelId", "teamId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SlackChannelConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

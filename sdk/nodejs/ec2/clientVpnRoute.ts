@@ -75,6 +75,8 @@ export class ClientVpnRoute extends pulumi.CustomResource {
             resourceInputs["targetVpcSubnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clientVpnEndpointId", "description", "destinationCidrBlock", "targetVpcSubnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ClientVpnRoute.__pulumiType, name, resourceInputs, opts);
     }
 }

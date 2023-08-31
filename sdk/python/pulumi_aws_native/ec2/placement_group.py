@@ -147,6 +147,8 @@ class PlacementGroup(pulumi.CustomResource):
             __props__.__dict__["strategy"] = strategy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["group_name"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["partition_count", "spread_level", "strategy", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PlacementGroup, __self__).__init__(
             'aws-native:ec2:PlacementGroup',
             resource_name,

@@ -88,6 +88,8 @@ export class MemberInvitation extends pulumi.CustomResource {
             resourceInputs["message"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["graphArn", "memberId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MemberInvitation.__pulumiType, name, resourceInputs, opts);
     }
 }

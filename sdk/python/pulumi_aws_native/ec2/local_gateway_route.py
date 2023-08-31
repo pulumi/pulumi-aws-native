@@ -146,6 +146,8 @@ class LocalGatewayRoute(pulumi.CustomResource):
             __props__.__dict__["network_interface_id"] = network_interface_id
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination_cidr_block", "local_gateway_route_table_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LocalGatewayRoute, __self__).__init__(
             'aws-native:ec2:LocalGatewayRoute',
             resource_name,

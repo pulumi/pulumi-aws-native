@@ -115,6 +115,8 @@ export class ConfigRule extends pulumi.CustomResource {
             resourceInputs["source"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["configRuleName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfigRule.__pulumiType, name, resourceInputs, opts);
     }
 }

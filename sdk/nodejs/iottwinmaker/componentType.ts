@@ -148,6 +148,8 @@ export class ComponentType extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["componentTypeId", "workspaceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ComponentType.__pulumiType, name, resourceInputs, opts);
     }
 }

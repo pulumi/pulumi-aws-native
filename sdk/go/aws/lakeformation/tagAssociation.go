@@ -39,6 +39,11 @@ func NewTagAssociation(ctx *pulumi.Context,
 	if args.Resource == nil {
 		return nil, errors.New("invalid value for required argument 'Resource'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"lfTags[*]",
+		"resource",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TagAssociation
 	err := ctx.RegisterResource("aws-native:lakeformation:TagAssociation", name, args, &resource, opts...)

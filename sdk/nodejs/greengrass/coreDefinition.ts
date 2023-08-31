@@ -72,6 +72,8 @@ export class CoreDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["initialVersion"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CoreDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }

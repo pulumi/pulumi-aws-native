@@ -36,6 +36,10 @@ func NewLabel(ctx *pulumi.Context,
 		args = &LabelArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Label
 	err := ctx.RegisterResource("aws-native:frauddetector:Label", name, args, &resource, opts...)

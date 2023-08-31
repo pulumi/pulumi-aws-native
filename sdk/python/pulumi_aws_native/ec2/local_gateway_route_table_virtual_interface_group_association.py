@@ -133,6 +133,8 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResour
             __props__.__dict__["local_gateway_route_table_virtual_interface_group_association_id"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["state"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["local_gateway_route_table_id", "local_gateway_virtual_interface_group_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LocalGatewayRouteTableVirtualInterfaceGroupAssociation, __self__).__init__(
             'aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation',
             resource_name,

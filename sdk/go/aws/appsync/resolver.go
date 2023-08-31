@@ -53,6 +53,12 @@ func NewResolver(ctx *pulumi.Context,
 	if args.TypeName == nil {
 		return nil, errors.New("invalid value for required argument 'TypeName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiId",
+		"fieldName",
+		"typeName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Resolver
 	err := ctx.RegisterResource("aws-native:appsync:Resolver", name, args, &resource, opts...)

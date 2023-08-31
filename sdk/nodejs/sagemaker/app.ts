@@ -103,6 +103,8 @@ export class App extends pulumi.CustomResource {
             resourceInputs["userProfileName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["appName", "appType", "domainId", "resourceSpec", "tags[*]", "userProfileName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(App.__pulumiType, name, resourceInputs, opts);
     }
 }

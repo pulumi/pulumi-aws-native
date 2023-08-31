@@ -50,6 +50,10 @@ func NewCompositeAlarm(ctx *pulumi.Context,
 	if args.AlarmRule == nil {
 		return nil, errors.New("invalid value for required argument 'AlarmRule'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"alarmName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CompositeAlarm
 	err := ctx.RegisterResource("aws-native:cloudwatch:CompositeAlarm", name, args, &resource, opts...)

@@ -76,6 +76,8 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["imageName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Image.__pulumiType, name, resourceInputs, opts);
     }
 }

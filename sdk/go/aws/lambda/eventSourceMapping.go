@@ -74,6 +74,15 @@ func NewEventSourceMapping(ctx *pulumi.Context,
 	if args.FunctionName == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"amazonManagedKafkaEventSourceConfig",
+		"eventSourceArn",
+		"selfManagedEventSource",
+		"selfManagedKafkaEventSourceConfig",
+		"startingPosition",
+		"startingPositionTimestamp",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSourceMapping
 	err := ctx.RegisterResource("aws-native:lambda:EventSourceMapping", name, args, &resource, opts...)

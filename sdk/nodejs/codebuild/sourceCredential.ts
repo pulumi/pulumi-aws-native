@@ -75,6 +75,8 @@ export class SourceCredential extends pulumi.CustomResource {
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["serverType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SourceCredential.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -30,6 +30,10 @@ func NewResolverDnssecConfig(ctx *pulumi.Context,
 		args = &ResolverDnssecConfigArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverDnssecConfig
 	err := ctx.RegisterResource("aws-native:route53resolver:ResolverDnssecConfig", name, args, &resource, opts...)

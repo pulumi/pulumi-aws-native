@@ -33,6 +33,10 @@ func NewRoleAlias(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"roleAlias",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoleAlias
 	err := ctx.RegisterResource("aws-native:iot:RoleAlias", name, args, &resource, opts...)

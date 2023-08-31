@@ -207,6 +207,8 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["pipeline_objects"] = pipeline_objects
             __props__.__dict__["pipeline_tags"] = pipeline_tags
             __props__.__dict__["pipeline_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Pipeline, __self__).__init__(
             'aws-native:datapipeline:Pipeline',
             resource_name,

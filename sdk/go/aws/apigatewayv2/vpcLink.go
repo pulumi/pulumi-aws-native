@@ -34,6 +34,11 @@ func NewVpcLink(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"securityGroupIds[*]",
+		"subnetIds[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcLink
 	err := ctx.RegisterResource("aws-native:apigatewayv2:VpcLink", name, args, &resource, opts...)

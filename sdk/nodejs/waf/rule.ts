@@ -69,6 +69,8 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["predicates"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["metricName", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }

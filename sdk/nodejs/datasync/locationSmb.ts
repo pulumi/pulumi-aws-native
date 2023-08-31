@@ -115,6 +115,8 @@ export class LocationSmb extends pulumi.CustomResource {
             resourceInputs["user"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["serverHostname"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocationSmb.__pulumiType, name, resourceInputs, opts);
     }
 }

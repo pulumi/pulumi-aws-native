@@ -32,6 +32,10 @@ func NewPolicyTemplate(ctx *pulumi.Context,
 	if args.Statement == nil {
 		return nil, errors.New("invalid value for required argument 'Statement'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"policyStoreId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyTemplate
 	err := ctx.RegisterResource("aws-native:verifiedpermissions:PolicyTemplate", name, args, &resource, opts...)

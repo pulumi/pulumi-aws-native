@@ -52,6 +52,10 @@ func NewMatchingWorkflow(ctx *pulumi.Context,
 	if args.WorkflowName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkflowName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"workflowName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MatchingWorkflow
 	err := ctx.RegisterResource("aws-native:entityresolution:MatchingWorkflow", name, args, &resource, opts...)

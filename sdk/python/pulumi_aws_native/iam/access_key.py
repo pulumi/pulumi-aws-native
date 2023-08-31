@@ -117,6 +117,8 @@ class AccessKey(pulumi.CustomResource):
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["secret_access_key"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["serial", "user_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessKey, __self__).__init__(
             'aws-native:iam:AccessKey',
             resource_name,

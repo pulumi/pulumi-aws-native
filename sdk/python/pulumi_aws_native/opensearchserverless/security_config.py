@@ -137,6 +137,8 @@ class SecurityConfig(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["saml_options"] = saml_options
             __props__.__dict__["type"] = type
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityConfig, __self__).__init__(
             'aws-native:opensearchserverless:SecurityConfig',
             resource_name,

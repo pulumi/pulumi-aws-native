@@ -168,6 +168,8 @@ class DbParameterGroup(pulumi.CustomResource):
             __props__.__dict__["family"] = family
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["db_parameter_group_name", "description", "family"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbParameterGroup, __self__).__init__(
             'aws-native:rds:DbParameterGroup',
             resource_name,

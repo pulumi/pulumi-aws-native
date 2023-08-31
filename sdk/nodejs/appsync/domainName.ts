@@ -70,6 +70,8 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["hostedZoneId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["certificateArn", "domainName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DomainName.__pulumiType, name, resourceInputs, opts);
     }
 }

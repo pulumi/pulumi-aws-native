@@ -30,6 +30,10 @@ func NewResourceGroup(ctx *pulumi.Context,
 	if args.ResourceGroupTags == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupTags'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceGroupTags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceGroup
 	err := ctx.RegisterResource("aws-native:inspector:ResourceGroup", name, args, &resource, opts...)

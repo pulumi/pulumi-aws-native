@@ -35,6 +35,11 @@ func NewIdentityPoolPrincipalTag(ctx *pulumi.Context,
 	if args.IdentityProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityProviderName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"identityPoolId",
+		"identityProviderName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityPoolPrincipalTag
 	err := ctx.RegisterResource("aws-native:cognito:IdentityPoolPrincipalTag", name, args, &resource, opts...)

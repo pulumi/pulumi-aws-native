@@ -87,6 +87,8 @@ export class VirtualService extends pulumi.CustomResource {
             resourceInputs["virtualServiceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["meshName", "meshOwner", "virtualServiceName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VirtualService.__pulumiType, name, resourceInputs, opts);
     }
 }

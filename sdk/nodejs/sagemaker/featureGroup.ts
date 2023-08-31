@@ -121,6 +121,8 @@ export class FeatureGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "eventTimeFeatureName", "featureGroupName", "offlineStoreConfig", "onlineStoreConfig", "recordIdentifierFeatureName", "roleArn", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FeatureGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

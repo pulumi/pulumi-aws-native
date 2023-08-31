@@ -40,6 +40,11 @@ func NewDecoderManifest(ctx *pulumi.Context,
 	if args.ModelManifestArn == nil {
 		return nil, errors.New("invalid value for required argument 'ModelManifestArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"modelManifestArn",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DecoderManifest
 	err := ctx.RegisterResource("aws-native:iotfleetwise:DecoderManifest", name, args, &resource, opts...)

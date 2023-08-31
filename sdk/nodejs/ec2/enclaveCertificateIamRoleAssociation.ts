@@ -85,6 +85,8 @@ export class EnclaveCertificateIamRoleAssociation extends pulumi.CustomResource 
             resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["certificateArn", "roleArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EnclaveCertificateIamRoleAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

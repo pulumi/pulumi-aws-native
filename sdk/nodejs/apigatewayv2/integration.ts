@@ -117,6 +117,8 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["tlsConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -33,6 +33,11 @@ func NewConnectionAlias(ctx *pulumi.Context,
 	if args.ConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"connectionString",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectionAlias
 	err := ctx.RegisterResource("aws-native:workspaces:ConnectionAlias", name, args, &resource, opts...)

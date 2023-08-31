@@ -111,6 +111,8 @@ export class CustomLineItem extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["billingGroupArn", "billingPeriodRange.exclusiveEndBillingPeriod", "billingPeriodRange.inclusiveStartBillingPeriod", "customLineItemChargeDetails.type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomLineItem.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -44,6 +44,11 @@ func NewUser(ctx *pulumi.Context,
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serverId",
+		"userName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws-native:transfer:User", name, args, &resource, opts...)

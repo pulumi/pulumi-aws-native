@@ -85,6 +85,8 @@ export class CustomMetric extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["metricName", "metricType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomMetric.__pulumiType, name, resourceInputs, opts);
     }
 }

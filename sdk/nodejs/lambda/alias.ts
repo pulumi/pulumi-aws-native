@@ -81,6 +81,8 @@ export class Alias extends pulumi.CustomResource {
             resourceInputs["routingConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["functionName", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Alias.__pulumiType, name, resourceInputs, opts);
     }
 }

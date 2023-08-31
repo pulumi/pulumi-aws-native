@@ -82,6 +82,8 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
             resourceInputs["linkId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["customerGatewayArn", "deviceId", "globalNetworkId", "linkId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomerGatewayAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

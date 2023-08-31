@@ -41,6 +41,10 @@ func NewBotAlias(ctx *pulumi.Context,
 	if args.BotId == nil {
 		return nil, errors.New("invalid value for required argument 'BotId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"botId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BotAlias
 	err := ctx.RegisterResource("aws-native:lex:BotAlias", name, args, &resource, opts...)

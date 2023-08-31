@@ -147,6 +147,8 @@ class GatewayResponse(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
             __props__.__dict__["status_code"] = status_code
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["response_type", "rest_api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GatewayResponse, __self__).__init__(
             'aws-native:apigateway:GatewayResponse',
             resource_name,

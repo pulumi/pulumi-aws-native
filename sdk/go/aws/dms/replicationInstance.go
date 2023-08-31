@@ -47,6 +47,13 @@ func NewReplicationInstance(ctx *pulumi.Context,
 	if args.ReplicationInstanceClass == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationInstanceClass'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"kmsKeyId",
+		"publiclyAccessible",
+		"replicationSubnetGroupIdentifier",
+		"resourceIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationInstance
 	err := ctx.RegisterResource("aws-native:dms:ReplicationInstance", name, args, &resource, opts...)

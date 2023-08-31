@@ -97,6 +97,8 @@ export class UserGroup extends pulumi.CustomResource {
             resourceInputs["userIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["engine", "userGroupId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

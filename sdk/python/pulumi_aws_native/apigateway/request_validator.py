@@ -146,6 +146,8 @@ class RequestValidator(pulumi.CustomResource):
             __props__.__dict__["validate_request_body"] = validate_request_body
             __props__.__dict__["validate_request_parameters"] = validate_request_parameters
             __props__.__dict__["request_validator_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "rest_api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RequestValidator, __self__).__init__(
             'aws-native:apigateway:RequestValidator',
             resource_name,

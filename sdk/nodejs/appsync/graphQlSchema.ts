@@ -66,6 +66,8 @@ export class GraphQlSchema extends pulumi.CustomResource {
             resourceInputs["definitionS3Location"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["apiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GraphQlSchema.__pulumiType, name, resourceInputs, opts);
     }
 }

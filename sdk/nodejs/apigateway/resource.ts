@@ -82,6 +82,8 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["restApiId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["parentId", "pathPart", "restApiId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Resource.__pulumiType, name, resourceInputs, opts);
     }
 }

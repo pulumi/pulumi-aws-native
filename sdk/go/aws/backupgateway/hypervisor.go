@@ -32,6 +32,11 @@ func NewHypervisor(ctx *pulumi.Context,
 		args = &HypervisorArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"kmsKeyArn",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Hypervisor
 	err := ctx.RegisterResource("aws-native:backupgateway:Hypervisor", name, args, &resource, opts...)

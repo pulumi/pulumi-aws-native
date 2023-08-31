@@ -69,6 +69,8 @@ export class SmsChannel extends pulumi.CustomResource {
             resourceInputs["shortCode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SmsChannel.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -33,6 +33,11 @@ func NewRule(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"metricName",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws-native:waf:Rule", name, args, &resource, opts...)

@@ -40,6 +40,13 @@ func NewFlywheel(ctx *pulumi.Context,
 	if args.DataLakeS3Uri == nil {
 		return nil, errors.New("invalid value for required argument 'DataLakeS3Uri'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dataLakeS3Uri",
+		"flywheelName",
+		"modelType",
+		"taskConfig",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Flywheel
 	err := ctx.RegisterResource("aws-native:comprehend:Flywheel", name, args, &resource, opts...)

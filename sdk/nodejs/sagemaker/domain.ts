@@ -163,6 +163,8 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["appNetworkAccessType", "authMode", "domainName", "domainSettings.rStudioServerProDomainSettings.defaultResourceSpec", "kmsKeyId", "subnetIds[*]", "tags[*]", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }

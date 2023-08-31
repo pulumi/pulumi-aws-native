@@ -132,6 +132,8 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["writeAttributes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["generateSecret", "userPoolId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserPoolClient.__pulumiType, name, resourceInputs, opts);
     }
 }

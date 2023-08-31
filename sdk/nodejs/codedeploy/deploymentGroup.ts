@@ -120,6 +120,8 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["triggerConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationName", "deploymentGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeploymentGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

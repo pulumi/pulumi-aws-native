@@ -45,6 +45,10 @@ func NewScheduledAudit(ctx *pulumi.Context,
 	if args.TargetCheckNames == nil {
 		return nil, errors.New("invalid value for required argument 'TargetCheckNames'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"scheduledAuditName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledAudit
 	err := ctx.RegisterResource("aws-native:iot:ScheduledAudit", name, args, &resource, opts...)

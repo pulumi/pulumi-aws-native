@@ -85,6 +85,8 @@ export class NetworkInsightsAccessScopeAnalysis extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["networkInsightsAccessScopeId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkInsightsAccessScopeAnalysis.__pulumiType, name, resourceInputs, opts);
     }
 }

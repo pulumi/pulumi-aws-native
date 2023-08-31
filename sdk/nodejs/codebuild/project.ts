@@ -144,6 +144,8 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }

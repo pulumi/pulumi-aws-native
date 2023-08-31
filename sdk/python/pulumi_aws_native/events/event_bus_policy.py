@@ -163,6 +163,8 @@ class EventBusPolicy(pulumi.CustomResource):
             if statement_id is None and not opts.urn:
                 raise TypeError("Missing required property 'statement_id'")
             __props__.__dict__["statement_id"] = statement_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["event_bus_name", "statement_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventBusPolicy, __self__).__init__(
             'aws-native:events:EventBusPolicy',
             resource_name,

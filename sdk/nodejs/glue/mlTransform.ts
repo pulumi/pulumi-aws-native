@@ -105,6 +105,8 @@ export class MlTransform extends pulumi.CustomResource {
             resourceInputs["workerType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["inputRecordTables"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MlTransform.__pulumiType, name, resourceInputs, opts);
     }
 }

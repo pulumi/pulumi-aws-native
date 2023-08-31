@@ -71,6 +71,10 @@ func NewCanary(ctx *pulumi.Context,
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Canary
 	err := ctx.RegisterResource("aws-native:synthetics:Canary", name, args, &resource, opts...)

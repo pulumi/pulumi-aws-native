@@ -162,6 +162,8 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["certificate_record"] = None
             __props__.__dict__["domain_status"] = None
             __props__.__dict__["status_reason"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_id", "domain_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Domain, __self__).__init__(
             'aws-native:amplify:Domain',
             resource_name,

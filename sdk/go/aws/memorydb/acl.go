@@ -34,6 +34,10 @@ func NewAcl(ctx *pulumi.Context,
 		args = &AclArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"aclName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Acl
 	err := ctx.RegisterResource("aws-native:memorydb:Acl", name, args, &resource, opts...)

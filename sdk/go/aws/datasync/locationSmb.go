@@ -50,6 +50,10 @@ func NewLocationSmb(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serverHostname",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationSmb
 	err := ctx.RegisterResource("aws-native:datasync:LocationSmb", name, args, &resource, opts...)

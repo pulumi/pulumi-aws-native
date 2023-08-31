@@ -97,6 +97,8 @@ export class OptionGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["engineName", "majorEngineVersion", "optionGroupDescription", "optionGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(OptionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

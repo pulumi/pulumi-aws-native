@@ -38,6 +38,11 @@ func NewSpace(ctx *pulumi.Context,
 	if args.DomainId == nil {
 		return nil, errors.New("invalid value for required argument 'DomainId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainId",
+		"spaceName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Space
 	err := ctx.RegisterResource("aws-native:sagemaker:Space", name, args, &resource, opts...)

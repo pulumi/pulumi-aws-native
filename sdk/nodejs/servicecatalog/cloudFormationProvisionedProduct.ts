@@ -103,6 +103,8 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["notificationArns[*]", "provisionedProductName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CloudFormationProvisionedProduct.__pulumiType, name, resourceInputs, opts);
     }
 }

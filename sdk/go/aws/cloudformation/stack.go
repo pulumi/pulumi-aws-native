@@ -47,6 +47,10 @@ func NewStack(ctx *pulumi.Context,
 		args = &StackArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"stackName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stack
 	err := ctx.RegisterResource("aws-native:cloudformation:Stack", name, args, &resource, opts...)

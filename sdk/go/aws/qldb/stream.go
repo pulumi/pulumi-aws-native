@@ -46,6 +46,15 @@ func NewStream(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"exclusiveEndTime",
+		"inclusiveStartTime",
+		"kinesisConfiguration",
+		"ledgerName",
+		"roleArn",
+		"streamName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stream
 	err := ctx.RegisterResource("aws-native:qldb:Stream", name, args, &resource, opts...)

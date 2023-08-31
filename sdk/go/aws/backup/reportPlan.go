@@ -43,6 +43,10 @@ func NewReportPlan(ctx *pulumi.Context,
 	if args.ReportSetting == nil {
 		return nil, errors.New("invalid value for required argument 'ReportSetting'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"reportPlanName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReportPlan
 	err := ctx.RegisterResource("aws-native:backup:ReportPlan", name, args, &resource, opts...)

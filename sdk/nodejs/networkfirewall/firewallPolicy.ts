@@ -73,6 +73,8 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["firewallPolicyName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FirewallPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -112,6 +112,8 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["targetAction"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["scheduledActionName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ScheduledAction.__pulumiType, name, resourceInputs, opts);
     }
 }

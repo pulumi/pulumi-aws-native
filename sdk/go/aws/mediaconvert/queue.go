@@ -32,6 +32,10 @@ func NewQueue(ctx *pulumi.Context,
 		args = &QueueArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("aws-native:mediaconvert:Queue", name, args, &resource, opts...)

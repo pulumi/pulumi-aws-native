@@ -86,6 +86,20 @@ namespace Pulumi.AwsNative.Pipes
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "name",
+                    "source",
+                    "sourceParameters.activeMqBrokerParameters.queueName",
+                    "sourceParameters.dynamoDbStreamParameters.startingPosition",
+                    "sourceParameters.kinesisStreamParameters.startingPosition",
+                    "sourceParameters.kinesisStreamParameters.startingPositionTimestamp",
+                    "sourceParameters.managedStreamingKafkaParameters.consumerGroupId",
+                    "sourceParameters.managedStreamingKafkaParameters.startingPosition",
+                    "sourceParameters.managedStreamingKafkaParameters.topicName",
+                    "sourceParameters.rabbitMqBrokerParameters.queueName",
+                    "sourceParameters.rabbitMqBrokerParameters.virtualHost",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

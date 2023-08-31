@@ -78,6 +78,8 @@ export class Discoverer extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["sourceArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Discoverer.__pulumiType, name, resourceInputs, opts);
     }
 }

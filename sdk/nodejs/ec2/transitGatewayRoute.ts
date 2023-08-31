@@ -69,6 +69,8 @@ export class TransitGatewayRoute extends pulumi.CustomResource {
             resourceInputs["transitGatewayRouteTableId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["blackhole", "destinationCidrBlock", "transitGatewayAttachmentId", "transitGatewayRouteTableId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayRoute.__pulumiType, name, resourceInputs, opts);
     }
 }

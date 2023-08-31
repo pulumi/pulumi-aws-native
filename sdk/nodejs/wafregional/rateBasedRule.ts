@@ -81,6 +81,8 @@ export class RateBasedRule extends pulumi.CustomResource {
             resourceInputs["rateLimit"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["metricName", "name", "rateKey"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RateBasedRule.__pulumiType, name, resourceInputs, opts);
     }
 }

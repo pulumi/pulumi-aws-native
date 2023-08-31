@@ -163,6 +163,8 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["validationConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "tags[*]", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Job.__pulumiType, name, resourceInputs, opts);
     }
 }

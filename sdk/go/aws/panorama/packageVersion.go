@@ -46,6 +46,13 @@ func NewPackageVersion(ctx *pulumi.Context,
 	if args.PatchVersion == nil {
 		return nil, errors.New("invalid value for required argument 'PatchVersion'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ownerAccount",
+		"packageId",
+		"packageVersion",
+		"patchVersion",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PackageVersion
 	err := ctx.RegisterResource("aws-native:panorama:PackageVersion", name, args, &resource, opts...)

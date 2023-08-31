@@ -274,6 +274,8 @@ class DbProxy(pulumi.CustomResource):
             __props__.__dict__["db_proxy_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["vpc_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["db_proxy_name", "engine_family", "vpc_subnet_ids[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbProxy, __self__).__init__(
             'aws-native:rds:DbProxy',
             resource_name,

@@ -127,6 +127,8 @@ export class Entity extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["entityId", "workspaceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Entity.__pulumiType, name, resourceInputs, opts);
     }
 }

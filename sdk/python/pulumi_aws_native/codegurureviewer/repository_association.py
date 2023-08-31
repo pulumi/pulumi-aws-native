@@ -189,6 +189,8 @@ class RepositoryAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["association_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket_name", "connection_arn", "name", "owner", "tags[*]", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RepositoryAssociation, __self__).__init__(
             'aws-native:codegurureviewer:RepositoryAssociation',
             resource_name,

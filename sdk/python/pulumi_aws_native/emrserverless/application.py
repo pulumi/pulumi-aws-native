@@ -296,6 +296,8 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["worker_type_specifications"] = worker_type_specifications
             __props__.__dict__["application_id"] = None
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:emrserverless:Application',
             resource_name,

@@ -28,6 +28,10 @@ func NewWalWorkspace(ctx *pulumi.Context,
 		args = &WalWorkspaceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"walWorkspaceName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WalWorkspace
 	err := ctx.RegisterResource("aws-native:emr:WalWorkspace", name, args, &resource, opts...)

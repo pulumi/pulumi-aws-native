@@ -56,6 +56,24 @@ func NewContainerRecipe(ctx *pulumi.Context,
 		args = &ContainerRecipeArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"components[*]",
+		"containerType",
+		"description",
+		"dockerfileTemplateData",
+		"dockerfileTemplateUri",
+		"imageOsVersionOverride",
+		"instanceConfiguration",
+		"kmsKeyId",
+		"name",
+		"parentImage",
+		"platformOverride",
+		"tags",
+		"targetRepository",
+		"version",
+		"workingDirectory",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContainerRecipe
 	err := ctx.RegisterResource("aws-native:imagebuilder:ContainerRecipe", name, args, &resource, opts...)

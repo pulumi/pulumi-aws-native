@@ -233,6 +233,8 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["source_network_interface_arns"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["task_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination_location_arn", "source_location_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Task, __self__).__init__(
             'aws-native:datasync:Task',
             resource_name,

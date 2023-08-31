@@ -41,6 +41,12 @@ func NewSchemaMapping(ctx *pulumi.Context,
 	if args.SchemaName == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"mappedInputFields[*]",
+		"schemaName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SchemaMapping
 	err := ctx.RegisterResource("aws-native:entityresolution:SchemaMapping", name, args, &resource, opts...)

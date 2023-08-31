@@ -51,6 +51,14 @@ func NewVerifiedAccessTrustProvider(ctx *pulumi.Context,
 	if args.TrustProviderType == nil {
 		return nil, errors.New("invalid value for required argument 'TrustProviderType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"deviceOptions",
+		"deviceTrustProviderType",
+		"policyReferenceName",
+		"trustProviderType",
+		"userTrustProviderType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VerifiedAccessTrustProvider
 	err := ctx.RegisterResource("aws-native:ec2:VerifiedAccessTrustProvider", name, args, &resource, opts...)

@@ -91,6 +91,8 @@ export class DhcpOptions extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domainName", "domainNameServers[*]", "netbiosNameServers[*]", "netbiosNodeType", "ntpServers[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DhcpOptions.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -46,6 +46,11 @@ func NewUserGroup(ctx *pulumi.Context,
 	if args.UserIds == nil {
 		return nil, errors.New("invalid value for required argument 'UserIds'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"engine",
+		"userGroupId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserGroup
 	err := ctx.RegisterResource("aws-native:elasticache:UserGroup", name, args, &resource, opts...)

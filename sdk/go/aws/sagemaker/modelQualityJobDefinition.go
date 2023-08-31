@@ -57,6 +57,20 @@ func NewModelQualityJobDefinition(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"endpointName",
+		"jobDefinitionName",
+		"jobResources",
+		"modelQualityAppSpecification",
+		"modelQualityBaselineConfig",
+		"modelQualityJobInput",
+		"modelQualityJobOutputConfig",
+		"networkConfig",
+		"roleArn",
+		"stoppingCondition",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelQualityJobDefinition
 	err := ctx.RegisterResource("aws-native:sagemaker:ModelQualityJobDefinition", name, args, &resource, opts...)

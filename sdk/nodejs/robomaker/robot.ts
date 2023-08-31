@@ -88,6 +88,8 @@ export class Robot extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["architecture", "fleet", "greengrassGroupId", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Robot.__pulumiType, name, resourceInputs, opts);
     }
 }

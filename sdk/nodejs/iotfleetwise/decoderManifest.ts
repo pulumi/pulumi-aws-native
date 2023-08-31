@@ -90,6 +90,8 @@ export class DecoderManifest extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["modelManifestArn", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DecoderManifest.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -153,6 +153,8 @@ export class CacheCluster extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cacheSubnetGroupName", "clusterName", "engine", "networkType", "port", "snapshotArns[*]", "snapshotName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CacheCluster.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -103,6 +103,8 @@ export class ImageVersion extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["baseImage", "imageName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ImageVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

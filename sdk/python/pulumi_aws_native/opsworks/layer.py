@@ -363,6 +363,8 @@ class Layer(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
             __props__.__dict__["volume_configurations"] = volume_configurations
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["stack_id", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Layer, __self__).__init__(
             'aws-native:opsworks:Layer',
             resource_name,

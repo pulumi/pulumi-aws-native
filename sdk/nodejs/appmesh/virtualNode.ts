@@ -87,6 +87,8 @@ export class VirtualNode extends pulumi.CustomResource {
             resourceInputs["virtualNodeName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["meshName", "meshOwner", "virtualNodeName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VirtualNode.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -142,6 +142,8 @@ class SamplingRule(pulumi.CustomResource):
             __props__.__dict__["sampling_rule_update"] = sampling_rule_update
             __props__.__dict__["tags"] = tags
             __props__.__dict__["rule_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["sampling_rule.version", "sampling_rule_record.sampling_rule.version"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SamplingRule, __self__).__init__(
             'aws-native:xray:SamplingRule',
             resource_name,

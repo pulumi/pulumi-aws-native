@@ -51,6 +51,10 @@ func NewContainer(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serviceName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Container
 	err := ctx.RegisterResource("aws-native:lightsail:Container", name, args, &resource, opts...)

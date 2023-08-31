@@ -128,6 +128,8 @@ class PackagingGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_name"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PackagingGroup, __self__).__init__(
             'aws-native:mediapackage:PackagingGroup',
             resource_name,

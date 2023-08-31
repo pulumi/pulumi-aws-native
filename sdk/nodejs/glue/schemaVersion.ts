@@ -73,6 +73,8 @@ export class SchemaVersion extends pulumi.CustomResource {
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["schema", "schemaDefinition"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SchemaVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

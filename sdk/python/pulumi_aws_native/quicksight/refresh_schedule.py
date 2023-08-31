@@ -113,6 +113,8 @@ class RefreshSchedule(pulumi.CustomResource):
             __props__.__dict__["data_set_id"] = data_set_id
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aws_account_id", "data_set_id", "schedule.schedule_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RefreshSchedule, __self__).__init__(
             'aws-native:quicksight:RefreshSchedule',
             resource_name,

@@ -46,6 +46,11 @@ func NewLaunch(ctx *pulumi.Context,
 	if args.ScheduledSplitsConfig == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduledSplitsConfig'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"project",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Launch
 	err := ctx.RegisterResource("aws-native:evidently:Launch", name, args, &resource, opts...)

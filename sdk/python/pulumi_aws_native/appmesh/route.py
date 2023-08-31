@@ -168,6 +168,8 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["uid"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["mesh_name", "mesh_owner", "route_name", "virtual_router_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Route, __self__).__init__(
             'aws-native:appmesh:Route',
             resource_name,

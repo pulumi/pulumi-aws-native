@@ -69,6 +69,8 @@ export class LoggerDefinitionVersion extends pulumi.CustomResource {
             resourceInputs["loggers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["loggerDefinitionId", "loggers[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LoggerDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

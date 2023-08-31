@@ -113,6 +113,8 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
             resourceInputs["templateName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationName", "environmentId", "platformArn", "solutionStackName", "sourceConfiguration"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfigurationTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

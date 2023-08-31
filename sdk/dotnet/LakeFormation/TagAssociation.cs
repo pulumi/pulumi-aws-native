@@ -62,6 +62,11 @@ namespace Pulumi.AwsNative.LakeFormation
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "lfTags[*]",
+                    "resource",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -148,6 +148,8 @@ class Ledger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'permissions_mode'")
             __props__.__dict__["permissions_mode"] = permissions_mode
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Ledger, __self__).__init__(
             'aws-native:qldb:Ledger',
             resource_name,

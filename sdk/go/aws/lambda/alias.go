@@ -39,6 +39,11 @@ func NewAlias(ctx *pulumi.Context,
 	if args.FunctionVersion == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionVersion'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"functionName",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alias
 	err := ctx.RegisterResource("aws-native:lambda:Alias", name, args, &resource, opts...)

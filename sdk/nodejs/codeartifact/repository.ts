@@ -115,6 +115,8 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["upstreams"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domainName", "domainOwner", "repositoryName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }

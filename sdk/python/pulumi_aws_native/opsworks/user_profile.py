@@ -131,6 +131,8 @@ class UserProfile(pulumi.CustomResource):
             __props__.__dict__["iam_user_arn"] = iam_user_arn
             __props__.__dict__["ssh_public_key"] = ssh_public_key
             __props__.__dict__["ssh_username"] = ssh_username
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["iam_user_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserProfile, __self__).__init__(
             'aws-native:opsworks:UserProfile',
             resource_name,

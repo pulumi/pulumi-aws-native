@@ -507,6 +507,8 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroups"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "port", "sourceRegion", "storageEncrypted", "timezone"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -808,6 +808,8 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
             __props__.__dict__["transit_encryption_mode"] = transit_encryption_mode
             __props__.__dict__["user_group_ids"] = user_group_ids
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["at_rest_encryption_enabled", "cache_subnet_group_name", "data_tiering_enabled", "engine", "global_replication_group_id", "kms_key_id", "network_type", "port", "preferred_cache_cluster_azs[*]", "replicas_per_node_group", "replication_group_id", "snapshot_arns[*]", "snapshot_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReplicationGroup, __self__).__init__(
             'aws-native:elasticache:ReplicationGroup',
             resource_name,

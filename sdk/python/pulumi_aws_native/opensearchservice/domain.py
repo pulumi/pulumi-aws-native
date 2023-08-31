@@ -331,6 +331,8 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_endpoint"] = None
             __props__.__dict__["domain_endpoints"] = None
             __props__.__dict__["service_software_options"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Domain, __self__).__init__(
             'aws-native:opensearchservice:Domain',
             resource_name,

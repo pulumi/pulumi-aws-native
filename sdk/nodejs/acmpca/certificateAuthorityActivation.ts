@@ -85,6 +85,8 @@ export class CertificateAuthorityActivation extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["certificateAuthorityArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CertificateAuthorityActivation.__pulumiType, name, resourceInputs, opts);
     }
 }

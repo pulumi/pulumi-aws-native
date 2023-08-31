@@ -81,6 +81,8 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["endpointName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

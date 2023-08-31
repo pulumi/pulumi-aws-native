@@ -132,6 +132,8 @@ class SigningProfile(pulumi.CustomResource):
             __props__.__dict__["profile_name"] = None
             __props__.__dict__["profile_version"] = None
             __props__.__dict__["profile_version_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["platform_id", "signature_validity_period"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SigningProfile, __self__).__init__(
             'aws-native:signer:SigningProfile',
             resource_name,

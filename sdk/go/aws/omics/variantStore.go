@@ -39,6 +39,13 @@ func NewVariantStore(ctx *pulumi.Context,
 	if args.Reference == nil {
 		return nil, errors.New("invalid value for required argument 'Reference'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"reference",
+		"sseConfig",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VariantStore
 	err := ctx.RegisterResource("aws-native:omics:VariantStore", name, args, &resource, opts...)

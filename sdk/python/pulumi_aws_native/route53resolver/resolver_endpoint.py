@@ -199,6 +199,8 @@ class ResolverEndpoint(pulumi.CustomResource):
             __props__.__dict__["host_vpc_id"] = None
             __props__.__dict__["ip_address_count"] = None
             __props__.__dict__["resolver_endpoint_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["direction", "outpost_arn", "preferred_instance_type", "security_group_ids[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResolverEndpoint, __self__).__init__(
             'aws-native:route53resolver:ResolverEndpoint',
             resource_name,

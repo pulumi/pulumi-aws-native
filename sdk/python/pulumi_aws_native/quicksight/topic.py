@@ -143,6 +143,8 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["topic_id"] = topic_id
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aws_account_id", "topic_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Topic, __self__).__init__(
             'aws-native:quicksight:Topic',
             resource_name,

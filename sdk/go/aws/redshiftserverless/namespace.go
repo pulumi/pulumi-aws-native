@@ -47,6 +47,11 @@ func NewNamespace(ctx *pulumi.Context,
 		args = &NamespaceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"namespaceName",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Namespace
 	err := ctx.RegisterResource("aws-native:redshiftserverless:Namespace", name, args, &resource, opts...)

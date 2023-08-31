@@ -159,6 +159,8 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyId", "resourceIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -91,6 +91,8 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["sourceFailoverConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "name", "source.name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Flow.__pulumiType, name, resourceInputs, opts);
     }
 }

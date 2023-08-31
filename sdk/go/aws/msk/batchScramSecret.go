@@ -30,6 +30,10 @@ func NewBatchScramSecret(ctx *pulumi.Context,
 	if args.ClusterArn == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clusterArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BatchScramSecret
 	err := ctx.RegisterResource("aws-native:msk:BatchScramSecret", name, args, &resource, opts...)

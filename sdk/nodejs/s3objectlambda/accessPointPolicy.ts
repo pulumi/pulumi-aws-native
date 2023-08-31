@@ -67,6 +67,8 @@ export class AccessPointPolicy extends pulumi.CustomResource {
             resourceInputs["policyDocument"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["objectLambdaAccessPoint"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AccessPointPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

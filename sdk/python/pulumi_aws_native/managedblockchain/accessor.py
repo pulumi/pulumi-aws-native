@@ -113,6 +113,8 @@ class Accessor(pulumi.CustomResource):
             __props__.__dict__["billing_token"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessor_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Accessor, __self__).__init__(
             'aws-native:managedblockchain:Accessor',
             resource_name,

@@ -195,6 +195,8 @@ class Feature(pulumi.CustomResource):
                 raise TypeError("Missing required property 'variations'")
             __props__.__dict__["variations"] = variations
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "project"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Feature, __self__).__init__(
             'aws-native:evidently:Feature',
             resource_name,

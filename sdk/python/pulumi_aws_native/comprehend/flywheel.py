@@ -190,6 +190,8 @@ class Flywheel(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_config"] = task_config
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_lake_s3_uri", "flywheel_name", "model_type", "task_config"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Flywheel, __self__).__init__(
             'aws-native:comprehend:Flywheel',
             resource_name,

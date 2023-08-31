@@ -37,6 +37,11 @@ func NewGroupPolicy(ctx *pulumi.Context,
 	if args.PolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"groupName",
+		"policyName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupPolicy
 	err := ctx.RegisterResource("aws-native:iam:GroupPolicy", name, args, &resource, opts...)

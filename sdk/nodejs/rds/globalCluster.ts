@@ -90,6 +90,8 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["storageEncrypted"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["engine", "globalClusterIdentifier", "sourceDbClusterIdentifier", "storageEncrypted"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GlobalCluster.__pulumiType, name, resourceInputs, opts);
     }
 }

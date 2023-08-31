@@ -97,6 +97,8 @@ export class KeyPair extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["keyFormat", "keyName", "keyType", "publicKeyMaterial", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(KeyPair.__pulumiType, name, resourceInputs, opts);
     }
 }

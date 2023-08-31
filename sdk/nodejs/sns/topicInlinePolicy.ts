@@ -67,6 +67,8 @@ export class TopicInlinePolicy extends pulumi.CustomResource {
             resourceInputs["topicArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["topicArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TopicInlinePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

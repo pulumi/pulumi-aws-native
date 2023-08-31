@@ -191,6 +191,8 @@ class GroupVersion(pulumi.CustomResource):
             __props__.__dict__["logger_definition_version_arn"] = logger_definition_version_arn
             __props__.__dict__["resource_definition_version_arn"] = resource_definition_version_arn
             __props__.__dict__["subscription_definition_version_arn"] = subscription_definition_version_arn
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_definition_version_arn", "core_definition_version_arn", "device_definition_version_arn", "function_definition_version_arn", "group_id", "logger_definition_version_arn", "resource_definition_version_arn", "subscription_definition_version_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GroupVersion, __self__).__init__(
             'aws-native:greengrass:GroupVersion',
             resource_name,

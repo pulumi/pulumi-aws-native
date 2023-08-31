@@ -88,6 +88,8 @@ export class ConfiguredTableAssociation extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["configuredTableIdentifier", "membershipIdentifier", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfiguredTableAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

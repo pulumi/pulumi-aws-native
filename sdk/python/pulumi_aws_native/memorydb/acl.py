@@ -128,6 +128,8 @@ class Acl(pulumi.CustomResource):
             __props__.__dict__["user_names"] = user_names
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["acl_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Acl, __self__).__init__(
             'aws-native:memorydb:Acl',
             resource_name,

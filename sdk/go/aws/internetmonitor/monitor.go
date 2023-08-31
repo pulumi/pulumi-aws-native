@@ -39,6 +39,10 @@ func NewMonitor(ctx *pulumi.Context,
 		args = &MonitorArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"monitorName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Monitor
 	err := ctx.RegisterResource("aws-native:internetmonitor:Monitor", name, args, &resource, opts...)

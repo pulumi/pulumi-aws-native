@@ -234,6 +234,8 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["jwt_configuration"] = jwt_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["authorizer_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Authorizer, __self__).__init__(
             'aws-native:apigatewayv2:Authorizer',
             resource_name,

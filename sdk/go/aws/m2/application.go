@@ -41,6 +41,13 @@ func NewApplication(ctx *pulumi.Context,
 	if args.EngineType == nil {
 		return nil, errors.New("invalid value for required argument 'EngineType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"engineType",
+		"kmsKeyId",
+		"name",
+		"roleArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws-native:m2:Application", name, args, &resource, opts...)

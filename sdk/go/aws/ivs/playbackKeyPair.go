@@ -34,6 +34,11 @@ func NewPlaybackKeyPair(ctx *pulumi.Context,
 		args = &PlaybackKeyPairArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"publicKeyMaterial",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlaybackKeyPair
 	err := ctx.RegisterResource("aws-native:ivs:PlaybackKeyPair", name, args, &resource, opts...)

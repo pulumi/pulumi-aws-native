@@ -85,6 +85,8 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["gatewayPlatform"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
 }

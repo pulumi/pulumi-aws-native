@@ -35,6 +35,10 @@ func NewApplicationOutputResource(ctx *pulumi.Context,
 	if args.Output == nil {
 		return nil, errors.New("invalid value for required argument 'Output'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationOutputResource
 	err := ctx.RegisterResource("aws-native:kinesisanalyticsv2:ApplicationOutputResource", name, args, &resource, opts...)

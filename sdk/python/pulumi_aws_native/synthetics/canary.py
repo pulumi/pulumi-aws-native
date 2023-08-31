@@ -367,6 +367,8 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["visual_reference"] = visual_reference
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["state"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Canary, __self__).__init__(
             'aws-native:synthetics:Canary',
             resource_name,

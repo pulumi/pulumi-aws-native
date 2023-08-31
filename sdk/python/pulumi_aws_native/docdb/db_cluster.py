@@ -420,6 +420,8 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["read_endpoint"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zones[*]", "db_cluster_identifier", "db_subnet_group_name", "engine_version", "kms_key_id", "master_username", "snapshot_identifier", "source_db_cluster_identifier", "storage_encrypted"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbCluster, __self__).__init__(
             'aws-native:docdb:DbCluster',
             resource_name,

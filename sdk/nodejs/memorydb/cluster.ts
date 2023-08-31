@@ -230,6 +230,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tlsEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clusterName", "dataTiering", "kmsKeyId", "port", "snapshotArns[*]", "snapshotName", "subnetGroupName", "tlsEnabled"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

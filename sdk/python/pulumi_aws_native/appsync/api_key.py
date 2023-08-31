@@ -119,6 +119,8 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["api_key"] = None
             __props__.__dict__["api_key_id"] = None
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApiKey, __self__).__init__(
             'aws-native:appsync:ApiKey',
             resource_name,

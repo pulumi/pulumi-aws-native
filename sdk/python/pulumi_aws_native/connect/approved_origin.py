@@ -96,6 +96,8 @@ class ApprovedOrigin(pulumi.CustomResource):
             if origin is None and not opts.urn:
                 raise TypeError("Missing required property 'origin'")
             __props__.__dict__["origin"] = origin
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_id", "origin"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApprovedOrigin, __self__).__init__(
             'aws-native:connect:ApprovedOrigin',
             resource_name,

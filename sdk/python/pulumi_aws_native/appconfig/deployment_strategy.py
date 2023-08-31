@@ -195,6 +195,8 @@ class DeploymentStrategy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'replicate_to'")
             __props__.__dict__["replicate_to"] = replicate_to
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "replicate_to"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeploymentStrategy, __self__).__init__(
             'aws-native:appconfig:DeploymentStrategy',
             resource_name,

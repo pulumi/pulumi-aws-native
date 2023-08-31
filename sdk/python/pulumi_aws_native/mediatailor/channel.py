@@ -185,6 +185,8 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tier"] = tier
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_name", "tier"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Channel, __self__).__init__(
             'aws-native:mediatailor:Channel',
             resource_name,

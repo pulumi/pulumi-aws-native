@@ -70,6 +70,8 @@ export class WarmPool extends pulumi.CustomResource {
             resourceInputs["poolState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["autoScalingGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(WarmPool.__pulumiType, name, resourceInputs, opts);
     }
 }

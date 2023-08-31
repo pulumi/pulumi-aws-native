@@ -58,6 +58,8 @@ export class SpotFleet extends pulumi.CustomResource {
             resourceInputs["spotFleetRequestConfigData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["spotFleetRequestConfigData.allocationStrategy", "spotFleetRequestConfigData.iamFleetRole", "spotFleetRequestConfigData.instanceInterruptionBehavior", "spotFleetRequestConfigData.instancePoolsToUseCount", "spotFleetRequestConfigData.launchSpecifications[*]", "spotFleetRequestConfigData.launchTemplateConfigs[*]", "spotFleetRequestConfigData.loadBalancersConfig", "spotFleetRequestConfigData.onDemandAllocationStrategy", "spotFleetRequestConfigData.onDemandMaxTotalPrice", "spotFleetRequestConfigData.onDemandTargetCapacity", "spotFleetRequestConfigData.replaceUnhealthyInstances", "spotFleetRequestConfigData.spotMaintenanceStrategies", "spotFleetRequestConfigData.spotMaxTotalPrice", "spotFleetRequestConfigData.spotPrice", "spotFleetRequestConfigData.tagSpecifications[*]", "spotFleetRequestConfigData.terminateInstancesWithExpiration", "spotFleetRequestConfigData.type", "spotFleetRequestConfigData.validFrom", "spotFleetRequestConfigData.validUntil"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SpotFleet.__pulumiType, name, resourceInputs, opts);
     }
 }

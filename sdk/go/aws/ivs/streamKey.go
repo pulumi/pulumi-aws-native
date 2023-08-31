@@ -36,6 +36,10 @@ func NewStreamKey(ctx *pulumi.Context,
 	if args.ChannelArn == nil {
 		return nil, errors.New("invalid value for required argument 'ChannelArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"channelArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StreamKey
 	err := ctx.RegisterResource("aws-native:ivs:StreamKey", name, args, &resource, opts...)

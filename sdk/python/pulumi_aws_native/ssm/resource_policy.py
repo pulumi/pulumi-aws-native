@@ -108,6 +108,8 @@ class ResourcePolicy(pulumi.CustomResource):
             __props__.__dict__["resource_arn"] = resource_arn
             __props__.__dict__["policy_hash"] = None
             __props__.__dict__["policy_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourcePolicy, __self__).__init__(
             'aws-native:ssm:ResourcePolicy',
             resource_name,

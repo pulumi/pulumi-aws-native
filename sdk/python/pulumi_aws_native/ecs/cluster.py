@@ -177,6 +177,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["service_connect_defaults"] = service_connect_defaults
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:ecs:Cluster',
             resource_name,

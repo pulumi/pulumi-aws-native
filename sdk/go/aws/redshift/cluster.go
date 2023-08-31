@@ -149,6 +149,16 @@ func NewCluster(ctx *pulumi.Context,
 	if args.NodeType == nil {
 		return nil, errors.New("invalid value for required argument 'NodeType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clusterIdentifier",
+		"clusterSubnetGroupName",
+		"dbName",
+		"masterUsername",
+		"ownerAccount",
+		"snapshotClusterIdentifier",
+		"snapshotIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws-native:redshift:Cluster", name, args, &resource, opts...)

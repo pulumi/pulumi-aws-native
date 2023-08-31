@@ -166,6 +166,8 @@ class StorageVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["storage_virtual_machine_id"] = None
             __props__.__dict__["uuid"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["file_system_id", "name", "root_volume_security_style"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StorageVirtualMachine, __self__).__init__(
             'aws-native:fsx:StorageVirtualMachine',
             resource_name,

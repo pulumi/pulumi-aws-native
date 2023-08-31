@@ -50,6 +50,13 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ShardCount == nil {
 		return nil, errors.New("invalid value for required argument 'ShardCount'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"adminUserName",
+		"authType",
+		"clusterName",
+		"kmsKeyId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws-native:docdbelastic:Cluster", name, args, &resource, opts...)

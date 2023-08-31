@@ -37,6 +37,14 @@ func NewDhcpOptions(ctx *pulumi.Context,
 		args = &DhcpOptionsArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainName",
+		"domainNameServers[*]",
+		"netbiosNameServers[*]",
+		"netbiosNodeType",
+		"ntpServers[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DhcpOptions
 	err := ctx.RegisterResource("aws-native:ec2:DhcpOptions", name, args, &resource, opts...)

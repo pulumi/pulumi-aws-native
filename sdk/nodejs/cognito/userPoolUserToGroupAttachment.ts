@@ -72,6 +72,8 @@ export class UserPoolUserToGroupAttachment extends pulumi.CustomResource {
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["groupName", "userPoolId", "username"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserPoolUserToGroupAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

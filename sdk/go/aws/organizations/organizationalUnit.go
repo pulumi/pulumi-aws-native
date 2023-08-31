@@ -36,6 +36,10 @@ func NewOrganizationalUnit(ctx *pulumi.Context,
 	if args.ParentId == nil {
 		return nil, errors.New("invalid value for required argument 'ParentId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"parentId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationalUnit
 	err := ctx.RegisterResource("aws-native:organizations:OrganizationalUnit", name, args, &resource, opts...)

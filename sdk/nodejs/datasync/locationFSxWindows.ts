@@ -112,6 +112,8 @@ export class LocationFSxWindows extends pulumi.CustomResource {
             resourceInputs["user"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["domain", "fsxFilesystemArn", "password", "securityGroupArns[*]", "subdirectory", "user"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocationFSxWindows.__pulumiType, name, resourceInputs, opts);
     }
 }

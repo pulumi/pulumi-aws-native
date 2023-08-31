@@ -65,6 +65,11 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.EngineName == nil {
 		return nil, errors.New("invalid value for required argument 'EngineName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"kmsKeyId",
+		"resourceIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws-native:dms:Endpoint", name, args, &resource, opts...)

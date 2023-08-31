@@ -146,6 +146,8 @@ class Entitlement(pulumi.CustomResource):
             __props__.__dict__["stack_name"] = stack_name
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_modified_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "stack_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Entitlement, __self__).__init__(
             'aws-native:appstream:Entitlement',
             resource_name,

@@ -81,6 +81,8 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "family", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbClusterParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

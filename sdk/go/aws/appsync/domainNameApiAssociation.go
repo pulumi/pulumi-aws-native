@@ -34,6 +34,10 @@ func NewDomainNameApiAssociation(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainNameApiAssociation
 	err := ctx.RegisterResource("aws-native:appsync:DomainNameApiAssociation", name, args, &resource, opts...)

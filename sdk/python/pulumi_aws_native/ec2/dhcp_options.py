@@ -187,6 +187,8 @@ class DhcpOptions(pulumi.CustomResource):
             __props__.__dict__["ntp_servers"] = ntp_servers
             __props__.__dict__["tags"] = tags
             __props__.__dict__["dhcp_options_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name", "domain_name_servers[*]", "netbios_name_servers[*]", "netbios_node_type", "ntp_servers[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DhcpOptions, __self__).__init__(
             'aws-native:ec2:DhcpOptions',
             resource_name,

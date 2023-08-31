@@ -37,6 +37,11 @@ func NewUserPolicy(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"policyName",
+		"userName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPolicy
 	err := ctx.RegisterResource("aws-native:iam:UserPolicy", name, args, &resource, opts...)

@@ -189,6 +189,8 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["token_key_name"] = token_key_name
             __props__.__dict__["token_signing_public_keys"] = token_signing_public_keys
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authorizer_name", "signing_disabled"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Authorizer, __self__).__init__(
             'aws-native:iot:Authorizer',
             resource_name,

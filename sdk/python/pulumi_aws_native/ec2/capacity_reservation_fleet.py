@@ -203,6 +203,8 @@ class CapacityReservationFleet(pulumi.CustomResource):
             __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["total_target_capacity"] = total_target_capacity
             __props__.__dict__["capacity_reservation_fleet_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocation_strategy", "end_date", "instance_match_criteria", "instance_type_specifications[*]", "tag_specifications[*]", "tenancy"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CapacityReservationFleet, __self__).__init__(
             'aws-native:ec2:CapacityReservationFleet',
             resource_name,

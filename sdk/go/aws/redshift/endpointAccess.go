@@ -59,6 +59,13 @@ func NewEndpointAccess(ctx *pulumi.Context,
 	if args.VpcSecurityGroupIds == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSecurityGroupIds'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clusterIdentifier",
+		"endpointName",
+		"resourceOwner",
+		"subnetGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointAccess
 	err := ctx.RegisterResource("aws-native:redshift:EndpointAccess", name, args, &resource, opts...)

@@ -133,6 +133,8 @@ class BaiduChannel(pulumi.CustomResource):
             if secret_key is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_key'")
             __props__.__dict__["secret_key"] = secret_key
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BaiduChannel, __self__).__init__(
             'aws-native:pinpoint:BaiduChannel',
             resource_name,

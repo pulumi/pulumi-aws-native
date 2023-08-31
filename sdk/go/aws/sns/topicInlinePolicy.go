@@ -35,6 +35,10 @@ func NewTopicInlinePolicy(ctx *pulumi.Context,
 	if args.TopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'TopicArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"topicArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicInlinePolicy
 	err := ctx.RegisterResource("aws-native:sns:TopicInlinePolicy", name, args, &resource, opts...)

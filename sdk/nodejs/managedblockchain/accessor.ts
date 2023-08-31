@@ -81,6 +81,8 @@ export class Accessor extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["accessorType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Accessor.__pulumiType, name, resourceInputs, opts);
     }
 }

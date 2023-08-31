@@ -42,6 +42,11 @@ func NewTrafficDistributionGroup(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficDistributionGroup
 	err := ctx.RegisterResource("aws-native:connect:TrafficDistributionGroup", name, args, &resource, opts...)

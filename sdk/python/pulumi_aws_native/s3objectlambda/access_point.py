@@ -112,6 +112,8 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["policy_status"] = None
             __props__.__dict__["public_access_block_configuration"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessPoint, __self__).__init__(
             'aws-native:s3objectlambda:AccessPoint',
             resource_name,

@@ -207,6 +207,8 @@ class Firewall(pulumi.CustomResource):
             __props__.__dict__["endpoint_ids"] = None
             __props__.__dict__["firewall_arn"] = None
             __props__.__dict__["firewall_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["firewall_name", "vpc_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Firewall, __self__).__init__(
             'aws-native:networkfirewall:Firewall',
             resource_name,

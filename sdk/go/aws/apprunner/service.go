@@ -47,6 +47,12 @@ func NewService(ctx *pulumi.Context,
 	if args.SourceConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'SourceConfiguration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"encryptionConfiguration",
+		"serviceName",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws-native:apprunner:Service", name, args, &resource, opts...)

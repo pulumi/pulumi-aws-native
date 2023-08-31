@@ -336,6 +336,8 @@ class Campaign(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_modification_time"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collection_scheme", "compression", "diagnostics_mode", "expiry_time", "name", "post_trigger_collection_duration", "priority", "signal_catalog_arn", "spooling_mode", "start_time", "target_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Campaign, __self__).__init__(
             'aws-native:iotfleetwise:Campaign',
             resource_name,

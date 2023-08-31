@@ -42,6 +42,14 @@ func NewVpcPeeringConnection(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"peerOwnerId",
+		"peerRegion",
+		"peerRoleArn",
+		"peerVpcId",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcPeeringConnection
 	err := ctx.RegisterResource("aws-native:ec2:VpcPeeringConnection", name, args, &resource, opts...)

@@ -46,6 +46,10 @@ func NewDataset(ctx *pulumi.Context,
 	if args.Schema == nil {
 		return nil, errors.New("invalid value for required argument 'Schema'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"datasetName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dataset
 	err := ctx.RegisterResource("aws-native:forecast:Dataset", name, args, &resource, opts...)

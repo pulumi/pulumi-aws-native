@@ -39,6 +39,10 @@ func NewMitigationAction(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"actionName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MitigationAction
 	err := ctx.RegisterResource("aws-native:iot:MitigationAction", name, args, &resource, opts...)

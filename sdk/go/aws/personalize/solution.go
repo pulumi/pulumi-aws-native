@@ -42,6 +42,16 @@ func NewSolution(ctx *pulumi.Context,
 	if args.DatasetGroupArn == nil {
 		return nil, errors.New("invalid value for required argument 'DatasetGroupArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"datasetGroupArn",
+		"eventType",
+		"name",
+		"performAutoMl",
+		"performHpo",
+		"recipeArn",
+		"solutionConfig",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Solution
 	err := ctx.RegisterResource("aws-native:personalize:Solution", name, args, &resource, opts...)

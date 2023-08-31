@@ -238,6 +238,8 @@ class ConfigurationTemplate(pulumi.CustomResource):
             __props__.__dict__["solution_stack_name"] = solution_stack_name
             __props__.__dict__["source_configuration"] = source_configuration
             __props__.__dict__["template_name"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name", "environment_id", "platform_arn", "solution_stack_name", "source_configuration"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationTemplate, __self__).__init__(
             'aws-native:elasticbeanstalk:ConfigurationTemplate',
             resource_name,

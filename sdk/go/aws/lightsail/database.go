@@ -71,6 +71,15 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.RelationalDatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'RelationalDatabaseName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"availabilityZone",
+		"masterDatabaseName",
+		"masterUsername",
+		"relationalDatabaseBlueprintId",
+		"relationalDatabaseBundleId",
+		"relationalDatabaseName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Database
 	err := ctx.RegisterResource("aws-native:lightsail:Database", name, args, &resource, opts...)

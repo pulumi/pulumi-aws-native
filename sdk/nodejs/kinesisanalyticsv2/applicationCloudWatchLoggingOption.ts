@@ -69,6 +69,8 @@ export class ApplicationCloudWatchLoggingOption extends pulumi.CustomResource {
             resourceInputs["cloudWatchLoggingOption"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApplicationCloudWatchLoggingOption.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -211,6 +211,8 @@ class NetworkAclEntry(pulumi.CustomResource):
             if rule_number is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_number'")
             __props__.__dict__["rule_number"] = rule_number
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["egress", "network_acl_id", "rule_number"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkAclEntry, __self__).__init__(
             'aws-native:ec2:NetworkAclEntry',
             resource_name,

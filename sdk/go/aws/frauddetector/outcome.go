@@ -36,6 +36,10 @@ func NewOutcome(ctx *pulumi.Context,
 		args = &OutcomeArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Outcome
 	err := ctx.RegisterResource("aws-native:frauddetector:Outcome", name, args, &resource, opts...)

@@ -308,6 +308,8 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ImagePipeline, __self__).__init__(
             'aws-native:imagebuilder:ImagePipeline',
             resource_name,

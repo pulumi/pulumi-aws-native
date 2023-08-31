@@ -66,6 +66,13 @@ func NewInstance(ctx *pulumi.Context,
 	if args.BundleId == nil {
 		return nil, errors.New("invalid value for required argument 'BundleId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"availabilityZone",
+		"blueprintId",
+		"bundleId",
+		"instanceName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws-native:lightsail:Instance", name, args, &resource, opts...)

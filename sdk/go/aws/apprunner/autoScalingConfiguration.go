@@ -40,6 +40,14 @@ func NewAutoScalingConfiguration(ctx *pulumi.Context,
 		args = &AutoScalingConfigurationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"autoScalingConfigurationName",
+		"maxConcurrency",
+		"maxSize",
+		"minSize",
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutoScalingConfiguration
 	err := ctx.RegisterResource("aws-native:apprunner:AutoScalingConfiguration", name, args, &resource, opts...)

@@ -42,6 +42,10 @@ func NewEmailChannel(ctx *pulumi.Context,
 	if args.Identity == nil {
 		return nil, errors.New("invalid value for required argument 'Identity'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailChannel
 	err := ctx.RegisterResource("aws-native:pinpoint:EmailChannel", name, args, &resource, opts...)

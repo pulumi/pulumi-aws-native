@@ -84,6 +84,8 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
             resourceInputs["tokenKeyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApnsVoipChannel.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -94,6 +94,8 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
             resourceInputs["templateS3Uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["organizationConformancePackName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(OrganizationConformancePack.__pulumiType, name, resourceInputs, opts);
     }
 }

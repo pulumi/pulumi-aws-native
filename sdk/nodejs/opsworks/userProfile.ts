@@ -69,6 +69,8 @@ export class UserProfile extends pulumi.CustomResource {
             resourceInputs["sshUsername"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["iamUserArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

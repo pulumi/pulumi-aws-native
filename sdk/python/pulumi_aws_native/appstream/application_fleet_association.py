@@ -96,6 +96,8 @@ class ApplicationFleetAssociation(pulumi.CustomResource):
             if fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_name'")
             __props__.__dict__["fleet_name"] = fleet_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_arn", "fleet_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationFleetAssociation, __self__).__init__(
             'aws-native:appstream:ApplicationFleetAssociation',
             resource_name,

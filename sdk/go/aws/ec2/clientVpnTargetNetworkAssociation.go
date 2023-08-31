@@ -35,6 +35,11 @@ func NewClientVpnTargetNetworkAssociation(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clientVpnEndpointId",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClientVpnTargetNetworkAssociation
 	err := ctx.RegisterResource("aws-native:ec2:ClientVpnTargetNetworkAssociation", name, args, &resource, opts...)

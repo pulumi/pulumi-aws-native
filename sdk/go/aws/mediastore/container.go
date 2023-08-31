@@ -34,6 +34,10 @@ func NewContainer(ctx *pulumi.Context,
 		args = &ContainerArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"containerName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Container
 	err := ctx.RegisterResource("aws-native:mediastore:Container", name, args, &resource, opts...)

@@ -65,6 +65,17 @@ namespace Pulumi.AwsNative.Ssm
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "bucketName",
+                    "bucketPrefix",
+                    "bucketRegion",
+                    "kmsKeyArn",
+                    "s3Destination",
+                    "syncFormat",
+                    "syncName",
+                    "syncType",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

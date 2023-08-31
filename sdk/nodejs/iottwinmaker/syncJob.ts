@@ -106,6 +106,8 @@ export class SyncJob extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["syncRole", "syncSource", "tags", "workspaceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SyncJob.__pulumiType, name, resourceInputs, opts);
     }
 }

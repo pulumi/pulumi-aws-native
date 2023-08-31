@@ -36,6 +36,10 @@ func NewFleet(ctx *pulumi.Context,
 	if args.SignalCatalogArn == nil {
 		return nil, errors.New("invalid value for required argument 'SignalCatalogArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"signalCatalogArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws-native:iotfleetwise:Fleet", name, args, &resource, opts...)

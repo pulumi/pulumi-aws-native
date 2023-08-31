@@ -64,6 +64,8 @@ export class MonitoringSubscription extends pulumi.CustomResource {
             resourceInputs["monitoringSubscription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["distributionId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MonitoringSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }

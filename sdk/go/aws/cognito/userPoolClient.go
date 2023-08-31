@@ -54,6 +54,11 @@ func NewUserPoolClient(ctx *pulumi.Context,
 	if args.UserPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"generateSecret",
+		"userPoolId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPoolClient
 	err := ctx.RegisterResource("aws-native:cognito:UserPoolClient", name, args, &resource, opts...)

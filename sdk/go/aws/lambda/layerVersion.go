@@ -41,6 +41,15 @@ func NewLayerVersion(ctx *pulumi.Context,
 	if args.Content == nil {
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"compatibleArchitectures[*]",
+		"compatibleRuntimes[*]",
+		"content",
+		"description",
+		"layerName",
+		"licenseInfo",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LayerVersion
 	err := ctx.RegisterResource("aws-native:lambda:LayerVersion", name, args, &resource, opts...)

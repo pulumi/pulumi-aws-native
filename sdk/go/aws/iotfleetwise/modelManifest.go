@@ -39,6 +39,10 @@ func NewModelManifest(ctx *pulumi.Context,
 	if args.SignalCatalogArn == nil {
 		return nil, errors.New("invalid value for required argument 'SignalCatalogArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelManifest
 	err := ctx.RegisterResource("aws-native:iotfleetwise:ModelManifest", name, args, &resource, opts...)

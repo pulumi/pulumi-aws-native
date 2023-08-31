@@ -94,6 +94,8 @@ export class LocationS3 extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["s3BucketArn", "s3Config", "s3StorageClass", "subdirectory"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocationS3.__pulumiType, name, resourceInputs, opts);
     }
 }

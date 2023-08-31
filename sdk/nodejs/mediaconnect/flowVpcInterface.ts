@@ -97,6 +97,8 @@ export class FlowVpcInterface extends pulumi.CustomResource {
             resourceInputs["subnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["flowArn", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FlowVpcInterface.__pulumiType, name, resourceInputs, opts);
     }
 }

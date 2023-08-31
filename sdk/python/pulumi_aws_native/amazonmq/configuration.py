@@ -182,6 +182,8 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["revision"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authentication_strategy", "engine_type", "engine_version", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Configuration, __self__).__init__(
             'aws-native:amazonmq:Configuration',
             resource_name,

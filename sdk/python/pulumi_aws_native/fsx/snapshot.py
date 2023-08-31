@@ -119,6 +119,8 @@ class Snapshot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'volume_id'")
             __props__.__dict__["volume_id"] = volume_id
             __props__.__dict__["resource_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["volume_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Snapshot, __self__).__init__(
             'aws-native:fsx:Snapshot',
             resource_name,

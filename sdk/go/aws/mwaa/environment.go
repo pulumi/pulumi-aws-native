@@ -58,6 +58,12 @@ func NewEnvironment(ctx *pulumi.Context,
 		args = &EnvironmentArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"kmsKey",
+		"name",
+		"networkConfiguration.subnetIds[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Environment
 	err := ctx.RegisterResource("aws-native:mwaa:Environment", name, args, &resource, opts...)

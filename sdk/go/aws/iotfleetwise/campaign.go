@@ -60,6 +60,20 @@ func NewCampaign(ctx *pulumi.Context,
 	if args.TargetArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"collectionScheme",
+		"compression",
+		"diagnosticsMode",
+		"expiryTime",
+		"name",
+		"postTriggerCollectionDuration",
+		"priority",
+		"signalCatalogArn",
+		"spoolingMode",
+		"startTime",
+		"targetArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Campaign
 	err := ctx.RegisterResource("aws-native:iotfleetwise:Campaign", name, args, &resource, opts...)

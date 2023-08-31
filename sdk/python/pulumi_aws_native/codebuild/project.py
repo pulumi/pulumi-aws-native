@@ -437,6 +437,8 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Project, __self__).__init__(
             'aws-native:codebuild:Project',
             resource_name,

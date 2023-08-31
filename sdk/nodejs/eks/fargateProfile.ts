@@ -94,6 +94,8 @@ export class FargateProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clusterName", "fargateProfileName", "podExecutionRoleArn", "selectors[*]", "subnets[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FargateProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

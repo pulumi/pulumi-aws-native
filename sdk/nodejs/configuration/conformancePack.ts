@@ -94,6 +94,8 @@ export class ConformancePack extends pulumi.CustomResource {
             resourceInputs["templateSsmDocumentDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["conformancePackName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConformancePack.__pulumiType, name, resourceInputs, opts);
     }
 }

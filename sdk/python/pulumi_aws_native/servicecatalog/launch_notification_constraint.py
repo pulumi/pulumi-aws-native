@@ -148,6 +148,8 @@ class LaunchNotificationConstraint(pulumi.CustomResource):
             if product_id is None and not opts.urn:
                 raise TypeError("Missing required property 'product_id'")
             __props__.__dict__["product_id"] = product_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portfolio_id", "product_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LaunchNotificationConstraint, __self__).__init__(
             'aws-native:servicecatalog:LaunchNotificationConstraint',
             resource_name,

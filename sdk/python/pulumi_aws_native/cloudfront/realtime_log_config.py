@@ -130,6 +130,8 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sampling_rate'")
             __props__.__dict__["sampling_rate"] = sampling_rate
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RealtimeLogConfig, __self__).__init__(
             'aws-native:cloudfront:RealtimeLogConfig',
             resource_name,

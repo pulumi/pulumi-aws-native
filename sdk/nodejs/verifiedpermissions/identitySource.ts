@@ -70,6 +70,8 @@ export class IdentitySource extends pulumi.CustomResource {
             resourceInputs["principalEntityType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["policyStoreId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IdentitySource.__pulumiType, name, resourceInputs, opts);
     }
 }

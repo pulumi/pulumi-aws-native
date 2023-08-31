@@ -146,6 +146,8 @@ class Listener(pulumi.CustomResource):
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["listener_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accelerator_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Listener, __self__).__init__(
             'aws-native:globalaccelerator:Listener',
             resource_name,

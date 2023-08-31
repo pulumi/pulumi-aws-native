@@ -70,6 +70,8 @@ export class BotVersion extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["botId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BotVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -69,6 +69,8 @@ export class ApplicationReferenceDataSource extends pulumi.CustomResource {
             resourceInputs["referenceDataSource"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApplicationReferenceDataSource.__pulumiType, name, resourceInputs, opts);
     }
 }

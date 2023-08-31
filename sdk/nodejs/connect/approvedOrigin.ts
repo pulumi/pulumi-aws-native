@@ -61,6 +61,8 @@ export class ApprovedOrigin extends pulumi.CustomResource {
             resourceInputs["origin"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instanceId", "origin"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApprovedOrigin.__pulumiType, name, resourceInputs, opts);
     }
 }

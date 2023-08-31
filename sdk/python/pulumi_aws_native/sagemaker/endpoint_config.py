@@ -193,6 +193,8 @@ class EndpointConfig(pulumi.CustomResource):
             __props__.__dict__["production_variants"] = production_variants
             __props__.__dict__["shadow_production_variants"] = shadow_production_variants
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["async_inference_config", "data_capture_config", "endpoint_config_name", "explainer_config", "kms_key_id", "production_variants[*]", "shadow_production_variants[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EndpointConfig, __self__).__init__(
             'aws-native:sagemaker:EndpointConfig',
             resource_name,

@@ -38,6 +38,17 @@ func NewGroupVersion(ctx *pulumi.Context,
 	if args.GroupId == nil {
 		return nil, errors.New("invalid value for required argument 'GroupId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"connectorDefinitionVersionArn",
+		"coreDefinitionVersionArn",
+		"deviceDefinitionVersionArn",
+		"functionDefinitionVersionArn",
+		"groupId",
+		"loggerDefinitionVersionArn",
+		"resourceDefinitionVersionArn",
+		"subscriptionDefinitionVersionArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupVersion
 	err := ctx.RegisterResource("aws-native:greengrass:GroupVersion", name, args, &resource, opts...)

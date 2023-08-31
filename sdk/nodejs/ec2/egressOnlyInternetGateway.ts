@@ -58,6 +58,8 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EgressOnlyInternetGateway.__pulumiType, name, resourceInputs, opts);
     }
 }

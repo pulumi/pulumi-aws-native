@@ -103,6 +103,8 @@ export class LocalGatewayRouteTable extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["localGatewayId", "mode"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocalGatewayRouteTable.__pulumiType, name, resourceInputs, opts);
     }
 }

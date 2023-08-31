@@ -126,6 +126,8 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["tracingConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["fifoTopic", "topicName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Topic.__pulumiType, name, resourceInputs, opts);
     }
 }

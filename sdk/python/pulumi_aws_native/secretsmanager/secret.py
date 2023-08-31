@@ -206,6 +206,8 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["replica_regions"] = replica_regions
             __props__.__dict__["secret_string"] = secret_string
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Secret, __self__).__init__(
             'aws-native:secretsmanager:Secret',
             resource_name,

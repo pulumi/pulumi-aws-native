@@ -31,6 +31,10 @@ func NewGroup(ctx *pulumi.Context,
 		args = &GroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"groupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws-native:iam:Group", name, args, &resource, opts...)

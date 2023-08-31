@@ -68,6 +68,14 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "maximumDuration",
+                    "name",
+                    "roleArn",
+                    "schemaS3Location",
+                    "snapshotS3Location",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -42,6 +42,11 @@ func NewResolverQueryLoggingConfig(ctx *pulumi.Context,
 		args = &ResolverQueryLoggingConfigArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"destinationArn",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverQueryLoggingConfig
 	err := ctx.RegisterResource("aws-native:route53resolver:ResolverQueryLoggingConfig", name, args, &resource, opts...)

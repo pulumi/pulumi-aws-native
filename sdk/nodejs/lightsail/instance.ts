@@ -163,6 +163,8 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "blueprintId", "bundleId", "instanceName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }

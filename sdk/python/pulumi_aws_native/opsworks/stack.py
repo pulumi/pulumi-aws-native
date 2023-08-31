@@ -449,6 +449,8 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["use_custom_cookbooks"] = use_custom_cookbooks
             __props__.__dict__["use_opsworks_security_groups"] = use_opsworks_security_groups
             __props__.__dict__["vpc_id"] = vpc_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clone_app_ids[*]", "clone_permissions", "service_role_arn", "source_stack_id", "vpc_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stack, __self__).__init__(
             'aws-native:opsworks:Stack',
             resource_name,

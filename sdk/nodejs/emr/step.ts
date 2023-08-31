@@ -78,6 +78,8 @@ export class Step extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["actionOnFailure", "hadoopJarStep", "jobFlowId", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Step.__pulumiType, name, resourceInputs, opts);
     }
 }

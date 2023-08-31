@@ -38,6 +38,16 @@ func NewAppBlock(ctx *pulumi.Context,
 	if args.SourceS3Location == nil {
 		return nil, errors.New("invalid value for required argument 'SourceS3Location'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
+		"displayName",
+		"name",
+		"packagingType",
+		"postSetupScriptDetails",
+		"setupScriptDetails",
+		"sourceS3Location",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppBlock
 	err := ctx.RegisterResource("aws-native:appstream:AppBlock", name, args, &resource, opts...)

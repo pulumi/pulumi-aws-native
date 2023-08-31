@@ -29,6 +29,10 @@ func NewNotebookInstanceLifecycleConfig(ctx *pulumi.Context,
 		args = &NotebookInstanceLifecycleConfigArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"notebookInstanceLifecycleConfigName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotebookInstanceLifecycleConfig
 	err := ctx.RegisterResource("aws-native:sagemaker:NotebookInstanceLifecycleConfig", name, args, &resource, opts...)

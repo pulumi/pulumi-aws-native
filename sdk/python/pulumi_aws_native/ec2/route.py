@@ -326,6 +326,8 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
             __props__.__dict__["vpc_peering_connection_id"] = vpc_peering_connection_id
             __props__.__dict__["cidr_block"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination_cidr_block", "destination_ipv6_cidr_block", "route_table_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Route, __self__).__init__(
             'aws-native:ec2:Route',
             resource_name,

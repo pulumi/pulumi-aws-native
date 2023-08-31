@@ -102,6 +102,8 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["targets"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Crawler.__pulumiType, name, resourceInputs, opts);
     }
 }

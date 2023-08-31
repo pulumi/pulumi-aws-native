@@ -229,6 +229,8 @@ class SlackChannelConfiguration(pulumi.CustomResource):
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")
             __props__.__dict__["team_id"] = team_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_id", "team_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SlackChannelConfiguration, __self__).__init__(
             'aws-native:supportapp:SlackChannelConfiguration',
             resource_name,

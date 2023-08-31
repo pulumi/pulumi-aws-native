@@ -76,6 +76,8 @@ export class VirtualCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["containerProvider", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VirtualCluster.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -36,6 +36,10 @@ func NewGameSessionQueue(ctx *pulumi.Context,
 		args = &GameSessionQueueArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GameSessionQueue
 	err := ctx.RegisterResource("aws-native:gamelift:GameSessionQueue", name, args, &resource, opts...)

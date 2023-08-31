@@ -112,6 +112,8 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["protocolType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Api.__pulumiType, name, resourceInputs, opts);
     }
 }

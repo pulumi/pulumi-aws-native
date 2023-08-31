@@ -133,6 +133,8 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
             __props__.__dict__["integration"] = integration
             __props__.__dict__["route"] = route
             __props__.__dict__["stage"] = stage
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApiGatewayManagedOverrides, __self__).__init__(
             'aws-native:apigatewayv2:ApiGatewayManagedOverrides',
             resource_name,

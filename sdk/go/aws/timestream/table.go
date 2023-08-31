@@ -43,6 +43,11 @@ func NewTable(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"databaseName",
+		"tableName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws-native:timestream:Table", name, args, &resource, opts...)

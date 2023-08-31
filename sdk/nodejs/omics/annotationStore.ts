@@ -94,6 +94,8 @@ export class AnnotationStore extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "reference", "sseConfig", "storeFormat", "storeOptions", "tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AnnotationStore.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -36,6 +36,11 @@ func NewContactChannel(ctx *pulumi.Context,
 		args = &ContactChannelArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"channelType",
+		"contactId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactChannel
 	err := ctx.RegisterResource("aws-native:ssmcontacts:ContactChannel", name, args, &resource, opts...)

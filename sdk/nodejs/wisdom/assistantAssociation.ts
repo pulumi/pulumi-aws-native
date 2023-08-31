@@ -82,6 +82,8 @@ export class AssistantAssociation extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["assistantId", "association", "associationType", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AssistantAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -160,6 +160,8 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["visibilityTimeout"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["fifoQueue", "queueName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }

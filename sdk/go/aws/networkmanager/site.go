@@ -42,6 +42,10 @@ func NewSite(ctx *pulumi.Context,
 	if args.GlobalNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"globalNetworkId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Site
 	err := ctx.RegisterResource("aws-native:networkmanager:Site", name, args, &resource, opts...)

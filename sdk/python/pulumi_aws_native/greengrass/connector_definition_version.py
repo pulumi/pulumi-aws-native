@@ -104,6 +104,8 @@ class ConnectorDefinitionVersion(pulumi.CustomResource):
             if connectors is None and not opts.urn:
                 raise TypeError("Missing required property 'connectors'")
             __props__.__dict__["connectors"] = connectors
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_definition_id", "connectors[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConnectorDefinitionVersion, __self__).__init__(
             'aws-native:greengrass:ConnectorDefinitionVersion',
             resource_name,

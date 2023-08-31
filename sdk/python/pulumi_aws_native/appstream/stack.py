@@ -282,6 +282,8 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["streaming_experience_settings"] = streaming_experience_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_settings"] = user_settings
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stack, __self__).__init__(
             'aws-native:appstream:Stack',
             resource_name,

@@ -39,6 +39,14 @@ func NewFhirDatastore(ctx *pulumi.Context,
 	if args.DatastoreTypeVersion == nil {
 		return nil, errors.New("invalid value for required argument 'DatastoreTypeVersion'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"datastoreName",
+		"datastoreTypeVersion",
+		"identityProviderConfiguration",
+		"preloadDataConfig",
+		"sseConfiguration",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FhirDatastore
 	err := ctx.RegisterResource("aws-native:healthlake:FhirDatastore", name, args, &resource, opts...)

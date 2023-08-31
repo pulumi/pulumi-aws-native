@@ -117,6 +117,8 @@ class TrafficMirrorFilter(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["network_services"] = network_services
             __props__.__dict__["tags"] = tags
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrafficMirrorFilter, __self__).__init__(
             'aws-native:ec2:TrafficMirrorFilter',
             resource_name,

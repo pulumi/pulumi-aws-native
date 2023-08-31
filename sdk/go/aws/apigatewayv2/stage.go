@@ -42,6 +42,11 @@ func NewStage(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiId",
+		"stageName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stage
 	err := ctx.RegisterResource("aws-native:apigatewayv2:Stage", name, args, &resource, opts...)

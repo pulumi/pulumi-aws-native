@@ -209,6 +209,8 @@ class DataCellsFilter(pulumi.CustomResource):
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["column_names[*]", "column_wildcard", "database_name", "name", "row_filter", "table_catalog_id", "table_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataCellsFilter, __self__).__init__(
             'aws-native:lakeformation:DataCellsFilter',
             resource_name,

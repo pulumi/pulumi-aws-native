@@ -49,6 +49,11 @@ func NewFlowVpcInterface(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"flowArn",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlowVpcInterface
 	err := ctx.RegisterResource("aws-native:mediaconnect:FlowVpcInterface", name, args, &resource, opts...)

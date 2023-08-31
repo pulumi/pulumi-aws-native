@@ -35,6 +35,10 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Environment
 	err := ctx.RegisterResource("aws-native:appconfig:Environment", name, args, &resource, opts...)

@@ -106,6 +106,8 @@ export class ConnectorProfile extends pulumi.CustomResource {
             resourceInputs["kmsArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["connectorLabel", "connectorProfileName", "connectorType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConnectorProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

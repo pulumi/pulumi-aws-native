@@ -78,6 +78,8 @@ export class ResourceUpdateConstraint extends pulumi.CustomResource {
             resourceInputs["tagUpdateOnProvisionedProduct"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["portfolioId", "productId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourceUpdateConstraint.__pulumiType, name, resourceInputs, opts);
     }
 }

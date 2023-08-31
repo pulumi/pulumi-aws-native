@@ -103,6 +103,8 @@ export class LifecycleHook extends pulumi.CustomResource {
             resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["autoScalingGroupName", "lifecycleHookName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LifecycleHook.__pulumiType, name, resourceInputs, opts);
     }
 }

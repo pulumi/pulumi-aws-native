@@ -147,6 +147,8 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
             __props__.__dict__["certificate_chain"] = certificate_chain
             __props__.__dict__["status"] = status
             __props__.__dict__["complete_certificate_chain"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_authority_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CertificateAuthorityActivation, __self__).__init__(
             'aws-native:acmpca:CertificateAuthorityActivation',
             resource_name,

@@ -38,6 +38,15 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"certificateAuthorityArn",
+		"domainName",
+		"domainValidationOptions[*]",
+		"keyAlgorithm",
+		"subjectAlternativeNames[*]",
+		"validationMethod",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws-native:certificatemanager:Certificate", name, args, &resource, opts...)

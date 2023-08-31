@@ -193,6 +193,8 @@ class UserPoolUser(pulumi.CustomResource):
             __props__.__dict__["user_pool_id"] = user_pool_id
             __props__.__dict__["username"] = username
             __props__.__dict__["validation_data"] = validation_data
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_metadata", "desired_delivery_mediums[*]", "force_alias_creation", "message_action", "user_attributes[*]", "user_pool_id", "username", "validation_data[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserPoolUser, __self__).__init__(
             'aws-native:cognito:UserPoolUser',
             resource_name,

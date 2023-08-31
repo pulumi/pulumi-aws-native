@@ -52,6 +52,18 @@ func NewDbCluster(ctx *pulumi.Context,
 		args = &DbClusterArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"availabilityZones[*]",
+		"dbClusterIdentifier",
+		"dbSubnetGroupName",
+		"engineVersion",
+		"kmsKeyId",
+		"masterUsername",
+		"snapshotIdentifier",
+		"sourceDbClusterIdentifier",
+		"storageEncrypted",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbCluster
 	err := ctx.RegisterResource("aws-native:docdb:DbCluster", name, args, &resource, opts...)

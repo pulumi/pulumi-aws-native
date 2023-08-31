@@ -148,6 +148,8 @@ class SmsTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'template_name'")
             __props__.__dict__["template_name"] = template_name
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["template_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SmsTemplate, __self__).__init__(
             'aws-native:pinpoint:SmsTemplate',
             resource_name,

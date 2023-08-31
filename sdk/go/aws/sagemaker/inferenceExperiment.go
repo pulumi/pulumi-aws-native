@@ -68,6 +68,14 @@ func NewInferenceExperiment(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"endpointName",
+		"kmsKey",
+		"name",
+		"roleArn",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InferenceExperiment
 	err := ctx.RegisterResource("aws-native:sagemaker:InferenceExperiment", name, args, &resource, opts...)

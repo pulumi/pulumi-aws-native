@@ -52,6 +52,11 @@ func NewFleet(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"fleetType",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws-native:appstream:Fleet", name, args, &resource, opts...)

@@ -31,6 +31,10 @@ func NewDeviceDefinition(ctx *pulumi.Context,
 		args = &DeviceDefinitionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"initialVersion",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeviceDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:DeviceDefinition", name, args, &resource, opts...)

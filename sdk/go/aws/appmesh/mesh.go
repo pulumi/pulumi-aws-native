@@ -33,6 +33,10 @@ func NewMesh(ctx *pulumi.Context,
 		args = &MeshArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"meshName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Mesh
 	err := ctx.RegisterResource("aws-native:appmesh:Mesh", name, args, &resource, opts...)

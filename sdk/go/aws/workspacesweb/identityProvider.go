@@ -36,6 +36,10 @@ func NewIdentityProvider(ctx *pulumi.Context,
 	if args.IdentityProviderType == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityProviderType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"portalArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityProvider
 	err := ctx.RegisterResource("aws-native:workspacesweb:IdentityProvider", name, args, &resource, opts...)

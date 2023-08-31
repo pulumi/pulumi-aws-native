@@ -69,6 +69,13 @@ func NewConnectAttachment(ctx *pulumi.Context,
 	if args.TransportAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransportAttachmentId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"coreNetworkId",
+		"edgeLocation",
+		"options",
+		"transportAttachmentId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectAttachment
 	err := ctx.RegisterResource("aws-native:networkmanager:ConnectAttachment", name, args, &resource, opts...)

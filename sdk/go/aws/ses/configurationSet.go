@@ -32,6 +32,10 @@ func NewConfigurationSet(ctx *pulumi.Context,
 		args = &ConfigurationSetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationSet
 	err := ctx.RegisterResource("aws-native:ses:ConfigurationSet", name, args, &resource, opts...)

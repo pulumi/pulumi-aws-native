@@ -36,6 +36,12 @@ func NewBuild(ctx *pulumi.Context,
 		args = &BuildArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"operatingSystem",
+		"serverSdkVersion",
+		"storageLocation",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Build
 	err := ctx.RegisterResource("aws-native:gamelift:Build", name, args, &resource, opts...)

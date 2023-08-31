@@ -48,6 +48,12 @@ func NewRepository(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainName",
+		"domainOwner",
+		"repositoryName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Repository
 	err := ctx.RegisterResource("aws-native:codeartifact:Repository", name, args, &resource, opts...)

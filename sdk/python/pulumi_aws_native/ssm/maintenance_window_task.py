@@ -286,6 +286,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             if window_id is None and not opts.urn:
                 raise TypeError("Missing required property 'window_id'")
             __props__.__dict__["window_id"] = window_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["task_type", "window_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MaintenanceWindowTask, __self__).__init__(
             'aws-native:ssm:MaintenanceWindowTask',
             resource_name,

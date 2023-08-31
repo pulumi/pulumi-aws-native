@@ -79,6 +79,8 @@ export class VpnGateway extends pulumi.CustomResource {
             resourceInputs["vpnGatewayId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["amazonSideAsn", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpnGateway.__pulumiType, name, resourceInputs, opts);
     }
 }

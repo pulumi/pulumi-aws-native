@@ -134,6 +134,8 @@ class UserPoolResourceServer(pulumi.CustomResource):
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identifier", "user_pool_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserPoolResourceServer, __self__).__init__(
             'aws-native:cognito:UserPoolResourceServer',
             resource_name,

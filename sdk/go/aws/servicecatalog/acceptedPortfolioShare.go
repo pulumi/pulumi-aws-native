@@ -32,6 +32,11 @@ func NewAcceptedPortfolioShare(ctx *pulumi.Context,
 	if args.PortfolioId == nil {
 		return nil, errors.New("invalid value for required argument 'PortfolioId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"acceptLanguage",
+		"portfolioId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AcceptedPortfolioShare
 	err := ctx.RegisterResource("aws-native:servicecatalog:AcceptedPortfolioShare", name, args, &resource, opts...)

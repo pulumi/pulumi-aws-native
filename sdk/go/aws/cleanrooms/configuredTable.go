@@ -44,6 +44,12 @@ func NewConfiguredTable(ctx *pulumi.Context,
 	if args.TableReference == nil {
 		return nil, errors.New("invalid value for required argument 'TableReference'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"allowedColumns[*]",
+		"analysisMethod",
+		"tableReference",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfiguredTable
 	err := ctx.RegisterResource("aws-native:cleanrooms:ConfiguredTable", name, args, &resource, opts...)

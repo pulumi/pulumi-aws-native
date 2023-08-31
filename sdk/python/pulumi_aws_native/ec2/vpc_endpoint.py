@@ -225,6 +225,8 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__.__dict__["creation_timestamp"] = None
             __props__.__dict__["dns_entries"] = None
             __props__.__dict__["network_interface_ids"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["service_name", "vpc_endpoint_type", "vpc_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcEndpoint, __self__).__init__(
             'aws-native:ec2:VpcEndpoint',
             resource_name,

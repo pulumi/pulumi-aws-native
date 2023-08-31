@@ -70,6 +70,8 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["topicId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "topicId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Topic.__pulumiType, name, resourceInputs, opts);
     }
 }

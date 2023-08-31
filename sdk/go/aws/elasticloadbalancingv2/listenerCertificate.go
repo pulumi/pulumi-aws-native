@@ -35,6 +35,10 @@ func NewListenerCertificate(ctx *pulumi.Context,
 	if args.ListenerArn == nil {
 		return nil, errors.New("invalid value for required argument 'ListenerArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"listenerArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ListenerCertificate
 	err := ctx.RegisterResource("aws-native:elasticloadbalancingv2:ListenerCertificate", name, args, &resource, opts...)

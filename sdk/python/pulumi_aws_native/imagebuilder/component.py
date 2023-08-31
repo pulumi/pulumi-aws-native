@@ -270,6 +270,8 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["encrypted"] = None
             __props__.__dict__["type"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["change_description", "data", "description", "kms_key_id", "name", "platform", "supported_os_versions[*]", "tags", "uri", "version"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Component, __self__).__init__(
             'aws-native:imagebuilder:Component',
             resource_name,

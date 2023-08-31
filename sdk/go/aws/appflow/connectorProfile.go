@@ -47,6 +47,12 @@ func NewConnectorProfile(ctx *pulumi.Context,
 	if args.ConnectorType == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectorType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"connectorLabel",
+		"connectorProfileName",
+		"connectorType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectorProfile
 	err := ctx.RegisterResource("aws-native:appflow:ConnectorProfile", name, args, &resource, opts...)

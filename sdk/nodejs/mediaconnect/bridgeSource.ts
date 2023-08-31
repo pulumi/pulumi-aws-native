@@ -73,6 +73,8 @@ export class BridgeSource extends pulumi.CustomResource {
             resourceInputs["networkSource"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["bridgeArn", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BridgeSource.__pulumiType, name, resourceInputs, opts);
     }
 }

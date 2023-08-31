@@ -226,6 +226,8 @@ class ScheduledAction(pulumi.CustomResource):
             __props__.__dict__["start_time"] = start_time
             __props__.__dict__["time_zone"] = time_zone
             __props__.__dict__["scheduled_action_name"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auto_scaling_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ScheduledAction, __self__).__init__(
             'aws-native:autoscaling:ScheduledAction',
             resource_name,

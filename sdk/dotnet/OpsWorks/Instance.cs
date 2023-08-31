@@ -114,6 +114,19 @@ namespace Pulumi.AwsNative.OpsWorks
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "autoScalingType",
+                    "availabilityZone",
+                    "blockDeviceMappings[*]",
+                    "ebsOptimized",
+                    "rootDeviceType",
+                    "stackId",
+                    "subnetId",
+                    "tenancy",
+                    "timeBasedAutoScaling",
+                    "virtualizationType",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

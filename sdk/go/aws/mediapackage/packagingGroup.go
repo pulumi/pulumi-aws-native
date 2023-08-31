@@ -34,6 +34,10 @@ func NewPackagingGroup(ctx *pulumi.Context,
 		args = &PackagingGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PackagingGroup
 	err := ctx.RegisterResource("aws-native:mediapackage:PackagingGroup", name, args, &resource, opts...)

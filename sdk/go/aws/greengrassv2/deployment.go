@@ -36,6 +36,15 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.TargetArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"components",
+		"deploymentName",
+		"deploymentPolicies",
+		"iotJobConfiguration",
+		"parentTargetArn",
+		"targetArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Deployment
 	err := ctx.RegisterResource("aws-native:greengrassv2:Deployment", name, args, &resource, opts...)

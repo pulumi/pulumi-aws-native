@@ -112,6 +112,8 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["tlsPolicyName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instancePort", "ipAddressType", "loadBalancerName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }

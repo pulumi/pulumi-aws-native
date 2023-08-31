@@ -63,6 +63,15 @@ namespace Pulumi.AwsNative.CertificateManager
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "certificateAuthorityArn",
+                    "domainName",
+                    "domainValidationOptions[*]",
+                    "keyAlgorithm",
+                    "subjectAlternativeNames[*]",
+                    "validationMethod",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -83,6 +83,8 @@ class NotificationChannel(pulumi.CustomResource):
             if config is None and not opts.urn:
                 raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["config"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NotificationChannel, __self__).__init__(
             'aws-native:devopsguru:NotificationChannel',
             resource_name,

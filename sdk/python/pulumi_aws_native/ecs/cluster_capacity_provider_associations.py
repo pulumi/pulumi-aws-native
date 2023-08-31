@@ -115,6 +115,8 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
             if default_capacity_provider_strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'default_capacity_provider_strategy'")
             __props__.__dict__["default_capacity_provider_strategy"] = default_capacity_provider_strategy
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClusterCapacityProviderAssociations, __self__).__init__(
             'aws-native:ecs:ClusterCapacityProviderAssociations',
             resource_name,

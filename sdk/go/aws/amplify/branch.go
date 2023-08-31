@@ -42,6 +42,11 @@ func NewBranch(ctx *pulumi.Context,
 	if args.AppId == nil {
 		return nil, errors.New("invalid value for required argument 'AppId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"appId",
+		"branchName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Branch
 	err := ctx.RegisterResource("aws-native:amplify:Branch", name, args, &resource, opts...)

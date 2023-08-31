@@ -106,6 +106,8 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["versionDescription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "dashboardId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }
 }

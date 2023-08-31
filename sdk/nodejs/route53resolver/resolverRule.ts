@@ -106,6 +106,8 @@ export class ResolverRule extends pulumi.CustomResource {
             resourceInputs["targetIps"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ruleType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResolverRule.__pulumiType, name, resourceInputs, opts);
     }
 }

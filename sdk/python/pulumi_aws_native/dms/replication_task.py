@@ -272,6 +272,8 @@ class ReplicationTask(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_endpoint_arn'")
             __props__.__dict__["target_endpoint_arn"] = target_endpoint_arn
             __props__.__dict__["task_data"] = task_data
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["replication_instance_arn", "resource_identifier", "source_endpoint_arn", "target_endpoint_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReplicationTask, __self__).__init__(
             'aws-native:dms:ReplicationTask',
             resource_name,

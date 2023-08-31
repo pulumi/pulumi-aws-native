@@ -35,6 +35,11 @@ func NewConnectorDefinitionVersion(ctx *pulumi.Context,
 	if args.Connectors == nil {
 		return nil, errors.New("invalid value for required argument 'Connectors'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"connectorDefinitionId",
+		"connectors[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectorDefinitionVersion
 	err := ctx.RegisterResource("aws-native:greengrass:ConnectorDefinitionVersion", name, args, &resource, opts...)

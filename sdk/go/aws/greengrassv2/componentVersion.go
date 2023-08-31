@@ -30,6 +30,11 @@ func NewComponentVersion(ctx *pulumi.Context,
 		args = &ComponentVersionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"inlineRecipe",
+		"lambdaFunction",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ComponentVersion
 	err := ctx.RegisterResource("aws-native:greengrassv2:ComponentVersion", name, args, &resource, opts...)

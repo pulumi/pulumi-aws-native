@@ -34,6 +34,11 @@ func NewModelPackageGroup(ctx *pulumi.Context,
 		args = &ModelPackageGroupArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"modelPackageGroupDescription",
+		"modelPackageGroupName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelPackageGroup
 	err := ctx.RegisterResource("aws-native:sagemaker:ModelPackageGroup", name, args, &resource, opts...)

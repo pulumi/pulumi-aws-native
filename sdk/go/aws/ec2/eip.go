@@ -40,6 +40,12 @@ func NewEip(ctx *pulumi.Context,
 		args = &EipArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domain",
+		"networkBorderGroup",
+		"transferAddress",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Eip
 	err := ctx.RegisterResource("aws-native:ec2:Eip", name, args, &resource, opts...)

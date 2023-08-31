@@ -191,6 +191,8 @@ class ConnectorProfile(pulumi.CustomResource):
             __props__.__dict__["kms_arn"] = kms_arn
             __props__.__dict__["connector_profile_arn"] = None
             __props__.__dict__["credentials_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_label", "connector_profile_name", "connector_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConnectorProfile, __self__).__init__(
             'aws-native:appflow:ConnectorProfile',
             resource_name,

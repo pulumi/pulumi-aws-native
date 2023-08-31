@@ -403,6 +403,8 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["usb_device_filter_strings"] = usb_device_filter_strings
             __props__.__dict__["vpc_config"] = vpc_config
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fleet_type", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Fleet, __self__).__init__(
             'aws-native:appstream:Fleet',
             resource_name,

@@ -34,6 +34,10 @@ func NewStandard(ctx *pulumi.Context,
 	if args.StandardsArn == nil {
 		return nil, errors.New("invalid value for required argument 'StandardsArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"standardsArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Standard
 	err := ctx.RegisterResource("aws-native:securityhub:Standard", name, args, &resource, opts...)

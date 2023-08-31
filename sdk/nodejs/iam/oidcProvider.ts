@@ -73,6 +73,8 @@ export class OidcProvider extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["url"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(OidcProvider.__pulumiType, name, resourceInputs, opts);
     }
 }

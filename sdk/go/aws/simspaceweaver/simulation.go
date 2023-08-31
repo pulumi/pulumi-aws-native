@@ -38,6 +38,14 @@ func NewSimulation(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"maximumDuration",
+		"name",
+		"roleArn",
+		"schemaS3Location",
+		"snapshotS3Location",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Simulation
 	err := ctx.RegisterResource("aws-native:simspaceweaver:Simulation", name, args, &resource, opts...)

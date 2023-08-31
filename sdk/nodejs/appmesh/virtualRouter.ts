@@ -87,6 +87,8 @@ export class VirtualRouter extends pulumi.CustomResource {
             resourceInputs["virtualRouterName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["meshName", "meshOwner", "virtualRouterName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VirtualRouter.__pulumiType, name, resourceInputs, opts);
     }
 }

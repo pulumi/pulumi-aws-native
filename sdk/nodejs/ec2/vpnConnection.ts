@@ -106,6 +106,8 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["vpnTunnelOptionsSpecifications"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["customerGatewayId", "staticRoutesOnly", "transitGatewayId", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

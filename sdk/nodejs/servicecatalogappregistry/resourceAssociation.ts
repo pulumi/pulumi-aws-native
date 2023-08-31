@@ -85,6 +85,8 @@ export class ResourceAssociation extends pulumi.CustomResource {
             resourceInputs["resourceType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["application", "resource", "resourceType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourceAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

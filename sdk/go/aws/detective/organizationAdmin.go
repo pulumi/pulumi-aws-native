@@ -32,6 +32,10 @@ func NewOrganizationAdmin(ctx *pulumi.Context,
 	if args.AccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AccountId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accountId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationAdmin
 	err := ctx.RegisterResource("aws-native:detective:OrganizationAdmin", name, args, &resource, opts...)

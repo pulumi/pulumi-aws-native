@@ -135,6 +135,8 @@ class Step(pulumi.CustomResource):
                 raise TypeError("Missing required property 'job_flow_id'")
             __props__.__dict__["job_flow_id"] = job_flow_id
             __props__.__dict__["name"] = name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action_on_failure", "hadoop_jar_step", "job_flow_id", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Step, __self__).__init__(
             'aws-native:emr:Step',
             resource_name,

@@ -157,6 +157,8 @@ class Theme(pulumi.CustomResource):
             if values is None and not opts.urn:
                 raise TypeError("Missing required property 'values'")
             __props__.__dict__["values"] = values
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Theme, __self__).__init__(
             'aws-native:amplifyuibuilder:Theme',
             resource_name,

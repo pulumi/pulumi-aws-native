@@ -448,6 +448,8 @@ class LaunchConfiguration(pulumi.CustomResource):
             __props__.__dict__["security_groups"] = security_groups
             __props__.__dict__["spot_price"] = spot_price
             __props__.__dict__["user_data"] = user_data
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["associate_public_ip_address", "block_device_mappings[*]", "classic_link_vpc_id", "classic_link_vpc_security_groups[*]", "ebs_optimized", "iam_instance_profile", "image_id", "instance_id", "instance_monitoring", "instance_type", "kernel_id", "key_name", "launch_configuration_name", "metadata_options", "placement_tenancy", "ram_disk_id", "security_groups[*]", "spot_price", "user_data"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LaunchConfiguration, __self__).__init__(
             'aws-native:autoscaling:LaunchConfiguration',
             resource_name,

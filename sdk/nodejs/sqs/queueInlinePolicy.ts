@@ -67,6 +67,8 @@ export class QueueInlinePolicy extends pulumi.CustomResource {
             resourceInputs["queue"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["queue"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(QueueInlinePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

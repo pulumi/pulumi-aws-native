@@ -142,6 +142,8 @@ class VpcIngressConnection(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["vpc_ingress_connection_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["service_arn", "tags[*]", "vpc_ingress_connection_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcIngressConnection, __self__).__init__(
             'aws-native:apprunner:VpcIngressConnection',
             resource_name,

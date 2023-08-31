@@ -200,6 +200,8 @@ class ProtectionGroup(pulumi.CustomResource):
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["protection_group_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["protection_group_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ProtectionGroup, __self__).__init__(
             'aws-native:shield:ProtectionGroup',
             resource_name,

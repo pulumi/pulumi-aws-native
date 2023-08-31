@@ -151,6 +151,8 @@ class TrafficDistributionGroup(pulumi.CustomResource):
             __props__.__dict__["is_default"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["traffic_distribution_group_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrafficDistributionGroup, __self__).__init__(
             'aws-native:connect:TrafficDistributionGroup',
             resource_name,

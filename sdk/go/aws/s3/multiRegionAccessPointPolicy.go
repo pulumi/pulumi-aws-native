@@ -37,6 +37,10 @@ func NewMultiRegionAccessPointPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"mrapName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MultiRegionAccessPointPolicy
 	err := ctx.RegisterResource("aws-native:s3:MultiRegionAccessPointPolicy", name, args, &resource, opts...)

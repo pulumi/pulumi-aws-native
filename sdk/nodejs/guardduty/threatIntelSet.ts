@@ -87,6 +87,8 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["detectorId", "format"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ThreatIntelSet.__pulumiType, name, resourceInputs, opts);
     }
 }

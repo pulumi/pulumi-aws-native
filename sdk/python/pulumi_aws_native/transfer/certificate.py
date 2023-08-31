@@ -236,6 +236,8 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["serial"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate", "certificate_chain", "private_key"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Certificate, __self__).__init__(
             'aws-native:transfer:Certificate',
             resource_name,

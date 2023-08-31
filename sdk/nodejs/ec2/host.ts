@@ -106,6 +106,8 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["outpostArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["assetId", "availabilityZone", "instanceFamily", "instanceType", "outpostArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Host.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -66,6 +66,8 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
             resourceInputs["roles"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["identityPoolId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IdentityPoolRoleAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

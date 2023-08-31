@@ -138,6 +138,8 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cloneAppIds[*]", "clonePermissions", "serviceRoleArn", "sourceStackId", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Stack.__pulumiType, name, resourceInputs, opts);
     }
 }

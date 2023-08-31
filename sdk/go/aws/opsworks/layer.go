@@ -64,6 +64,11 @@ func NewLayer(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"stackId",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Layer
 	err := ctx.RegisterResource("aws-native:opsworks:Layer", name, args, &resource, opts...)

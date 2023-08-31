@@ -47,6 +47,13 @@ func NewCustomLineItem(ctx *pulumi.Context,
 	if args.BillingGroupArn == nil {
 		return nil, errors.New("invalid value for required argument 'BillingGroupArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"billingGroupArn",
+		"billingPeriodRange.exclusiveEndBillingPeriod",
+		"billingPeriodRange.inclusiveStartBillingPeriod",
+		"customLineItemChargeDetails.type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomLineItem
 	err := ctx.RegisterResource("aws-native:billingconductor:CustomLineItem", name, args, &resource, opts...)

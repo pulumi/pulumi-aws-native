@@ -193,6 +193,8 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names
             __props__.__dict__["tags"] = tags
             __props__.__dict__["validation_method"] = validation_method
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_authority_arn", "domain_name", "domain_validation_options[*]", "key_algorithm", "subject_alternative_names[*]", "validation_method"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Certificate, __self__).__init__(
             'aws-native:certificatemanager:Certificate',
             resource_name,

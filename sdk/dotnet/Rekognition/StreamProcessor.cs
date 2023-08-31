@@ -110,6 +110,21 @@ namespace Pulumi.AwsNative.Rekognition
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "boundingBoxRegionsOfInterest[*]",
+                    "connectedHomeSettings",
+                    "dataSharingPreference",
+                    "faceSearchSettings",
+                    "kinesisDataStream",
+                    "kinesisVideoStream",
+                    "kmsKeyId",
+                    "name",
+                    "notificationChannel",
+                    "polygonRegionsOfInterest[*]",
+                    "roleArn",
+                    "s3Destination",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

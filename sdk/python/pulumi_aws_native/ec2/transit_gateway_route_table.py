@@ -103,6 +103,8 @@ class TransitGatewayRouteTable(pulumi.CustomResource):
             if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags[*]", "transit_gateway_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayRouteTable, __self__).__init__(
             'aws-native:ec2:TransitGatewayRouteTable',
             resource_name,

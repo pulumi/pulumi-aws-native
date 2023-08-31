@@ -55,6 +55,10 @@ func NewTrafficMirrorFilterRule(ctx *pulumi.Context,
 	if args.TrafficMirrorFilterId == nil {
 		return nil, errors.New("invalid value for required argument 'TrafficMirrorFilterId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"trafficMirrorFilterId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficMirrorFilterRule
 	err := ctx.RegisterResource("aws-native:ec2:TrafficMirrorFilterRule", name, args, &resource, opts...)

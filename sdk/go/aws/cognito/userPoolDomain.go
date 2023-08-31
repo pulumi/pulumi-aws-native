@@ -37,6 +37,11 @@ func NewUserPoolDomain(ctx *pulumi.Context,
 	if args.UserPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domain",
+		"userPoolId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPoolDomain
 	err := ctx.RegisterResource("aws-native:cognito:UserPoolDomain", name, args, &resource, opts...)

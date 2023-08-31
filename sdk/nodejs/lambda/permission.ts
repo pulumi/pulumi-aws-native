@@ -109,6 +109,8 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["sourceArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["action", "eventSourceToken", "functionName", "functionUrlAuthType", "principal", "principalOrgId", "sourceAccount", "sourceArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Permission.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -75,6 +75,8 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["replicationSubnetGroupIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReplicationSubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

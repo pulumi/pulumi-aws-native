@@ -34,6 +34,13 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.Status == nil {
 		return nil, errors.New("invalid value for required argument 'Status'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"caCertificatePem",
+		"certificateMode",
+		"certificatePem",
+		"certificateSigningRequest",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws-native:iot:Certificate", name, args, &resource, opts...)

@@ -117,6 +117,8 @@ export class BillingGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["primaryAccountId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BillingGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -66,6 +66,8 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
             resourceInputs["transitGatewayId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["tags[*]", "transitGatewayId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayRouteTable.__pulumiType, name, resourceInputs, opts);
     }
 }

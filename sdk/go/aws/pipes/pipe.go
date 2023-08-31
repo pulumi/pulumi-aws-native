@@ -50,6 +50,20 @@ func NewPipe(ctx *pulumi.Context,
 	if args.Target == nil {
 		return nil, errors.New("invalid value for required argument 'Target'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"source",
+		"sourceParameters.activeMqBrokerParameters.queueName",
+		"sourceParameters.dynamoDbStreamParameters.startingPosition",
+		"sourceParameters.kinesisStreamParameters.startingPosition",
+		"sourceParameters.kinesisStreamParameters.startingPositionTimestamp",
+		"sourceParameters.managedStreamingKafkaParameters.consumerGroupId",
+		"sourceParameters.managedStreamingKafkaParameters.startingPosition",
+		"sourceParameters.managedStreamingKafkaParameters.topicName",
+		"sourceParameters.rabbitMqBrokerParameters.queueName",
+		"sourceParameters.rabbitMqBrokerParameters.virtualHost",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipe
 	err := ctx.RegisterResource("aws-native:pipes:Pipe", name, args, &resource, opts...)

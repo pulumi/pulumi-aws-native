@@ -41,6 +41,10 @@ func NewEmailIdentity(ctx *pulumi.Context,
 	if args.EmailIdentity == nil {
 		return nil, errors.New("invalid value for required argument 'EmailIdentity'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"emailIdentity",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailIdentity
 	err := ctx.RegisterResource("aws-native:ses:EmailIdentity", name, args, &resource, opts...)

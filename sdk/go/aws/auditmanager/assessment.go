@@ -40,6 +40,11 @@ func NewAssessment(ctx *pulumi.Context,
 		args = &AssessmentArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"awsAccount",
+		"frameworkId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Assessment
 	err := ctx.RegisterResource("aws-native:auditmanager:Assessment", name, args, &resource, opts...)

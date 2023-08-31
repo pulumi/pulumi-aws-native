@@ -131,6 +131,8 @@ class VpcLink(pulumi.CustomResource):
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_link_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["security_group_ids[*]", "subnet_ids[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcLink, __self__).__init__(
             'aws-native:apigatewayv2:VpcLink',
             resource_name,

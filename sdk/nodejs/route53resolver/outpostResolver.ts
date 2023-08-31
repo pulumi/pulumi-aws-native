@@ -124,6 +124,8 @@ export class OutpostResolver extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["outpostArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(OutpostResolver.__pulumiType, name, resourceInputs, opts);
     }
 }

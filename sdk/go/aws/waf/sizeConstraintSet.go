@@ -32,6 +32,10 @@ func NewSizeConstraintSet(ctx *pulumi.Context,
 	if args.SizeConstraints == nil {
 		return nil, errors.New("invalid value for required argument 'SizeConstraints'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SizeConstraintSet
 	err := ctx.RegisterResource("aws-native:waf:SizeConstraintSet", name, args, &resource, opts...)

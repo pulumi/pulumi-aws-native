@@ -36,6 +36,11 @@ func NewTransitGateway(ctx *pulumi.Context,
 		args = &TransitGatewayArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"amazonSideAsn",
+		"multicastSupport",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGateway
 	err := ctx.RegisterResource("aws-native:ec2:TransitGateway", name, args, &resource, opts...)

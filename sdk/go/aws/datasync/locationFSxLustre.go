@@ -40,6 +40,12 @@ func NewLocationFSxLustre(ctx *pulumi.Context,
 	if args.SecurityGroupArns == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupArns'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"fsxFilesystemArn",
+		"securityGroupArns[*]",
+		"subdirectory",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationFSxLustre
 	err := ctx.RegisterResource("aws-native:datasync:LocationFSxLustre", name, args, &resource, opts...)

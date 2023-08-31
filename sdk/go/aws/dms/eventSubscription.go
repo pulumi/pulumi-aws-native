@@ -37,6 +37,11 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"sourceIds[*]",
+		"subscriptionName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws-native:dms:EventSubscription", name, args, &resource, opts...)

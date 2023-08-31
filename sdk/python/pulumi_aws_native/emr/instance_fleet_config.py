@@ -179,6 +179,8 @@ class InstanceFleetConfig(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["target_on_demand_capacity"] = target_on_demand_capacity
             __props__.__dict__["target_spot_capacity"] = target_spot_capacity
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_id", "instance_fleet_type", "instance_type_configs[*]", "launch_specifications", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceFleetConfig, __self__).__init__(
             'aws-native:emr:InstanceFleetConfig',
             resource_name,

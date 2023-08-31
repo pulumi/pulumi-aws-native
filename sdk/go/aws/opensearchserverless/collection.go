@@ -43,6 +43,12 @@ func NewCollection(ctx *pulumi.Context,
 		args = &CollectionArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"tags[*]",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Collection
 	err := ctx.RegisterResource("aws-native:opensearchserverless:Collection", name, args, &resource, opts...)

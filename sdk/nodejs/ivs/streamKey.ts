@@ -79,6 +79,8 @@ export class StreamKey extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["channelArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StreamKey.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -52,6 +52,18 @@ func NewTaskSet(ctx *pulumi.Context,
 	if args.TaskDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'TaskDefinition'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cluster",
+		"externalId",
+		"launchType",
+		"loadBalancers[*]",
+		"networkConfiguration",
+		"platformVersion",
+		"service",
+		"serviceRegistries[*]",
+		"taskDefinition",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TaskSet
 	err := ctx.RegisterResource("aws-native:ecs:TaskSet", name, args, &resource, opts...)

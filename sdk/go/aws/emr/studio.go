@@ -78,6 +78,15 @@ func NewStudio(ctx *pulumi.Context,
 	if args.WorkspaceSecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceSecurityGroupId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"authMode",
+		"engineSecurityGroupId",
+		"serviceRole",
+		"userRole",
+		"vpcId",
+		"workspaceSecurityGroupId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Studio
 	err := ctx.RegisterResource("aws-native:emr:Studio", name, args, &resource, opts...)

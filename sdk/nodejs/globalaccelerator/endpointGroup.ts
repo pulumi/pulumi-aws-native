@@ -118,6 +118,8 @@ export class EndpointGroup extends pulumi.CustomResource {
             resourceInputs["trafficDialPercentage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["endpointGroupRegion", "listenerArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EndpointGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

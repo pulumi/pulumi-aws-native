@@ -34,6 +34,11 @@ func NewTopicRuleDestination(ctx *pulumi.Context,
 		args = &TopicRuleDestinationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"httpUrlProperties",
+		"vpcProperties",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicRuleDestination
 	err := ctx.RegisterResource("aws-native:iot:TopicRuleDestination", name, args, &resource, opts...)

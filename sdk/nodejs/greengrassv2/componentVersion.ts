@@ -70,6 +70,8 @@ export class ComponentVersion extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["inlineRecipe", "lambdaFunction"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ComponentVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -37,6 +37,11 @@ func NewVolume(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ec2VolumeId",
+		"stackId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Volume
 	err := ctx.RegisterResource("aws-native:opsworks:Volume", name, args, &resource, opts...)

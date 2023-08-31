@@ -27,6 +27,10 @@ func NewAssessmentTarget(ctx *pulumi.Context,
 		args = &AssessmentTargetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"assessmentTargetName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssessmentTarget
 	err := ctx.RegisterResource("aws-native:inspector:AssessmentTarget", name, args, &resource, opts...)

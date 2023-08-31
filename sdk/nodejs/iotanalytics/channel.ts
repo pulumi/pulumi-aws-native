@@ -64,6 +64,8 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["channelName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }

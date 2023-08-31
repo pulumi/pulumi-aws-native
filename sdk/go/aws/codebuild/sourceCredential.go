@@ -40,6 +40,10 @@ func NewSourceCredential(ctx *pulumi.Context,
 	if args.Token == nil {
 		return nil, errors.New("invalid value for required argument 'Token'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"serverType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SourceCredential
 	err := ctx.RegisterResource("aws-native:codebuild:SourceCredential", name, args, &resource, opts...)

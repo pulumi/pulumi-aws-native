@@ -150,6 +150,8 @@ export class PricingRule extends pulumi.CustomResource {
             resourceInputs["usageType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["billingEntity", "operation", "scope", "service", "usageType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PricingRule.__pulumiType, name, resourceInputs, opts);
     }
 }

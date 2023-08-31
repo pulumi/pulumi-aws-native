@@ -58,6 +58,8 @@ export class BatchScramSecret extends pulumi.CustomResource {
             resourceInputs["secretArnList"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clusterArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BatchScramSecret.__pulumiType, name, resourceInputs, opts);
     }
 }

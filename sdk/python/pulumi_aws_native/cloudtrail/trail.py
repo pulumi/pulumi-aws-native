@@ -381,6 +381,8 @@ class Trail(pulumi.CustomResource):
             __props__.__dict__["trail_name"] = trail_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["sns_topic_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["trail_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Trail, __self__).__init__(
             'aws-native:cloudtrail:Trail',
             resource_name,

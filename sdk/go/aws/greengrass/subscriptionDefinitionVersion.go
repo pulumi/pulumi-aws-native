@@ -35,6 +35,11 @@ func NewSubscriptionDefinitionVersion(ctx *pulumi.Context,
 	if args.Subscriptions == nil {
 		return nil, errors.New("invalid value for required argument 'Subscriptions'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"subscriptionDefinitionId",
+		"subscriptions[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubscriptionDefinitionVersion
 	err := ctx.RegisterResource("aws-native:greengrass:SubscriptionDefinitionVersion", name, args, &resource, opts...)

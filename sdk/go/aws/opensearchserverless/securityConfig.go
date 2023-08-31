@@ -30,6 +30,11 @@ func NewSecurityConfig(ctx *pulumi.Context,
 		args = &SecurityConfigArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityConfig
 	err := ctx.RegisterResource("aws-native:opensearchserverless:SecurityConfig", name, args, &resource, opts...)

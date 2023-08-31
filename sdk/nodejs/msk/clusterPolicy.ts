@@ -73,6 +73,8 @@ export class ClusterPolicy extends pulumi.CustomResource {
             resourceInputs["policy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clusterArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ClusterPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

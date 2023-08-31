@@ -118,6 +118,8 @@ class UserPoolUserToGroupAttachment(pulumi.CustomResource):
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["group_name", "user_pool_id", "username"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserPoolUserToGroupAttachment, __self__).__init__(
             'aws-native:cognito:UserPoolUserToGroupAttachment',
             resource_name,

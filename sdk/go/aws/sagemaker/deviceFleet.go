@@ -41,6 +41,10 @@ func NewDeviceFleet(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"deviceFleetName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeviceFleet
 	err := ctx.RegisterResource("aws-native:sagemaker:DeviceFleet", name, args, &resource, opts...)

@@ -240,6 +240,8 @@ class Pipe(pulumi.CustomResource):
             __props__.__dict__["current_state"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["state_reason"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "source", "source_parameters.active_mq_broker_parameters.queue_name", "source_parameters.dynamo_db_stream_parameters.starting_position", "source_parameters.kinesis_stream_parameters.starting_position", "source_parameters.kinesis_stream_parameters.starting_position_timestamp", "source_parameters.managed_streaming_kafka_parameters.consumer_group_id", "source_parameters.managed_streaming_kafka_parameters.starting_position", "source_parameters.managed_streaming_kafka_parameters.topic_name", "source_parameters.rabbit_mq_broker_parameters.queue_name", "source_parameters.rabbit_mq_broker_parameters.virtual_host"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Pipe, __self__).__init__(
             'aws-native:pipes:Pipe',
             resource_name,

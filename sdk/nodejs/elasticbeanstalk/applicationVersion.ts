@@ -76,6 +76,8 @@ export class ApplicationVersion extends pulumi.CustomResource {
             resourceInputs["sourceBundle"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationName", "sourceBundle"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApplicationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -38,6 +38,12 @@ func NewModel(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"contentType",
+		"name",
+		"restApiId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Model
 	err := ctx.RegisterResource("aws-native:apigateway:Model", name, args, &resource, opts...)

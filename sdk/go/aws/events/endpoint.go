@@ -42,6 +42,10 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.RoutingConfig == nil {
 		return nil, errors.New("invalid value for required argument 'RoutingConfig'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws-native:events:Endpoint", name, args, &resource, opts...)

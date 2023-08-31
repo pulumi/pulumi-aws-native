@@ -90,6 +90,8 @@ export class ResourceSet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceSetName", "resourceSetType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourceSet.__pulumiType, name, resourceInputs, opts);
     }
 }

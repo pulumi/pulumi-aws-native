@@ -129,6 +129,8 @@ class IpamScope(pulumi.CustomResource):
             __props__.__dict__["ipam_scope_type"] = None
             __props__.__dict__["is_default"] = None
             __props__.__dict__["pool_count"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ipam_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpamScope, __self__).__init__(
             'aws-native:ec2:IpamScope',
             resource_name,

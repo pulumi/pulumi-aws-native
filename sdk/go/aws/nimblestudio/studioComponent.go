@@ -50,6 +50,12 @@ func NewStudioComponent(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"studioId",
+		"subtype",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StudioComponent
 	err := ctx.RegisterResource("aws-native:nimblestudio:StudioComponent", name, args, &resource, opts...)

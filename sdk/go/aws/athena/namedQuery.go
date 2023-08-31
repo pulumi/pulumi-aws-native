@@ -43,6 +43,14 @@ func NewNamedQuery(ctx *pulumi.Context,
 	if args.QueryString == nil {
 		return nil, errors.New("invalid value for required argument 'QueryString'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"database",
+		"description",
+		"name",
+		"queryString",
+		"workGroup",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NamedQuery
 	err := ctx.RegisterResource("aws-native:athena:NamedQuery", name, args, &resource, opts...)

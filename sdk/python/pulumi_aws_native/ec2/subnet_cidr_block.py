@@ -106,6 +106,8 @@ class SubnetCidrBlock(pulumi.CustomResource):
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ipv6_cidr_block", "subnet_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubnetCidrBlock, __self__).__init__(
             'aws-native:ec2:SubnetCidrBlock',
             resource_name,

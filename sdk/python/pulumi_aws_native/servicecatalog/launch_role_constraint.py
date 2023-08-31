@@ -162,6 +162,8 @@ class LaunchRoleConstraint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'product_id'")
             __props__.__dict__["product_id"] = product_id
             __props__.__dict__["role_arn"] = role_arn
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portfolio_id", "product_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LaunchRoleConstraint, __self__).__init__(
             'aws-native:servicecatalog:LaunchRoleConstraint',
             resource_name,

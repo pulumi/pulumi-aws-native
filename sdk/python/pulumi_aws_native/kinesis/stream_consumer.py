@@ -105,6 +105,8 @@ class StreamConsumer(pulumi.CustomResource):
             __props__.__dict__["consumer_arn"] = None
             __props__.__dict__["consumer_creation_timestamp"] = None
             __props__.__dict__["consumer_status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["consumer_name", "stream_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StreamConsumer, __self__).__init__(
             'aws-native:kinesis:StreamConsumer',
             resource_name,

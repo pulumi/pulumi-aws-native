@@ -100,6 +100,8 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
             resourceInputs["transportTransitGatewayAttachmentId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["options", "transportTransitGatewayAttachmentId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayConnect.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -38,6 +38,15 @@ func NewDeliveryStream(ctx *pulumi.Context,
 		args = &DeliveryStreamArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration",
+		"amazonopensearchserviceDestinationConfiguration.vpcConfiguration",
+		"deliveryStreamName",
+		"deliveryStreamType",
+		"elasticsearchDestinationConfiguration.vpcConfiguration",
+		"kinesisStreamSourceConfiguration",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeliveryStream
 	err := ctx.RegisterResource("aws-native:kinesisfirehose:DeliveryStream", name, args, &resource, opts...)

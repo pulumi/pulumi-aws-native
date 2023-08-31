@@ -60,6 +60,11 @@ func NewStackSetConstraint(ctx *pulumi.Context,
 	if args.StackInstanceControl == nil {
 		return nil, errors.New("invalid value for required argument 'StackInstanceControl'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"portfolioId",
+		"productId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StackSetConstraint
 	err := ctx.RegisterResource("aws-native:servicecatalog:StackSetConstraint", name, args, &resource, opts...)

@@ -32,6 +32,10 @@ func NewPlan(ctx *pulumi.Context,
 		args = &PlanArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"contactId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Plan
 	err := ctx.RegisterResource("aws-native:ssmcontacts:Plan", name, args, &resource, opts...)

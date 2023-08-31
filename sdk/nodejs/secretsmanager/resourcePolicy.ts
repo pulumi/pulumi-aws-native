@@ -69,6 +69,8 @@ export class ResourcePolicy extends pulumi.CustomResource {
             resourceInputs["secretId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["secretId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourcePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

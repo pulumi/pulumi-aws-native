@@ -288,6 +288,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["cluster_discovery_endpoint"] = None
             __props__.__dict__["cluster_discovery_endpoint_url"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_endpoint_encryption_type", "cluster_name", "iam_role_arn", "node_type", "sse_specification", "subnet_group_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:dax:Cluster',
             resource_name,

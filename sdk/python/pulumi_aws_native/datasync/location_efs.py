@@ -205,6 +205,8 @@ class LocationEfs(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["access_point_arn", "ec2_config", "efs_filesystem_arn", "file_system_access_role_arn", "in_transit_encryption", "subdirectory"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LocationEfs, __self__).__init__(
             'aws-native:datasync:LocationEfs',
             resource_name,

@@ -45,6 +45,13 @@ func NewDataset(ctx *pulumi.Context,
 	if args.SchemaArn == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"datasetGroupArn",
+		"datasetType",
+		"name",
+		"schemaArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dataset
 	err := ctx.RegisterResource("aws-native:personalize:Dataset", name, args, &resource, opts...)

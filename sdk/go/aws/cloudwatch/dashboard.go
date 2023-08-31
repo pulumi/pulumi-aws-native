@@ -32,6 +32,10 @@ func NewDashboard(ctx *pulumi.Context,
 	if args.DashboardBody == nil {
 		return nil, errors.New("invalid value for required argument 'DashboardBody'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dashboardName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dashboard
 	err := ctx.RegisterResource("aws-native:cloudwatch:Dashboard", name, args, &resource, opts...)

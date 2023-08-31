@@ -222,6 +222,8 @@ class NotificationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NotificationRule, __self__).__init__(
             'aws-native:codestarnotifications:NotificationRule',
             resource_name,

@@ -94,6 +94,8 @@ export class NetworkProfile extends pulumi.CustomResource {
             resourceInputs["uplinkLossPercent"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["projectArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

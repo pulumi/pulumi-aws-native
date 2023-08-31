@@ -70,6 +70,8 @@ export class RoleAlias extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["roleAlias"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RoleAlias.__pulumiType, name, resourceInputs, opts);
     }
 }

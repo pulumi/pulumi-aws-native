@@ -35,6 +35,10 @@ func NewMacro(ctx *pulumi.Context,
 	if args.FunctionName == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Macro
 	err := ctx.RegisterResource("aws-native:cloudformation:Macro", name, args, &resource, opts...)

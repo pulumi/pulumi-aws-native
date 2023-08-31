@@ -207,6 +207,8 @@ class Parameter(pulumi.CustomResource):
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Parameter, __self__).__init__(
             'aws-native:ssm:Parameter',
             resource_name,

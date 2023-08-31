@@ -36,6 +36,10 @@ func NewUserHierarchyGroup(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"parentGroupArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserHierarchyGroup
 	err := ctx.RegisterResource("aws-native:connect:UserHierarchyGroup", name, args, &resource, opts...)

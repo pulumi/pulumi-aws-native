@@ -63,6 +63,8 @@ export class AcceptedPortfolioShare extends pulumi.CustomResource {
             resourceInputs["portfolioId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["acceptLanguage", "portfolioId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AcceptedPortfolioShare.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -40,6 +40,11 @@ func NewTable(ctx *pulumi.Context,
 	if args.TableInput == nil {
 		return nil, errors.New("invalid value for required argument 'TableInput'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"catalogId",
+		"databaseName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws-native:glue:Table", name, args, &resource, opts...)

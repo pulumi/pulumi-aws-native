@@ -37,6 +37,10 @@ func NewIdentity(ctx *pulumi.Context,
 		args = &IdentityArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Identity
 	err := ctx.RegisterResource("aws-native:pinpointemail:Identity", name, args, &resource, opts...)

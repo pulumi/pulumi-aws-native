@@ -101,6 +101,14 @@ namespace Pulumi.AwsNative.S3Outposts
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "accessType",
+                    "customerOwnedIpv4Pool",
+                    "outpostId",
+                    "securityGroupId",
+                    "subnetId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

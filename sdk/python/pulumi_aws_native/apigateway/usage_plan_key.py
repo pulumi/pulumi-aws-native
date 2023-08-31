@@ -128,6 +128,8 @@ class UsagePlanKey(pulumi.CustomResource):
             if usage_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_plan_id'")
             __props__.__dict__["usage_plan_id"] = usage_plan_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["key_id", "key_type", "usage_plan_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UsagePlanKey, __self__).__init__(
             'aws-native:apigateway:UsagePlanKey',
             resource_name,

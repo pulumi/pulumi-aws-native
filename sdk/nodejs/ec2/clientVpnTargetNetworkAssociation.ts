@@ -66,6 +66,8 @@ export class ClientVpnTargetNetworkAssociation extends pulumi.CustomResource {
             resourceInputs["subnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["clientVpnEndpointId", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ClientVpnTargetNetworkAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -99,6 +99,8 @@ class MonitoringSubscription(pulumi.CustomResource):
             if monitoring_subscription is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_subscription'")
             __props__.__dict__["monitoring_subscription"] = monitoring_subscription
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["distribution_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MonitoringSubscription, __self__).__init__(
             'aws-native:cloudfront:MonitoringSubscription',
             resource_name,

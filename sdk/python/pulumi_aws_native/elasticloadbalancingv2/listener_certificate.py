@@ -104,6 +104,8 @@ class ListenerCertificate(pulumi.CustomResource):
             if listener_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_arn'")
             __props__.__dict__["listener_arn"] = listener_arn
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["listener_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ListenerCertificate, __self__).__init__(
             'aws-native:elasticloadbalancingv2:ListenerCertificate',
             resource_name,

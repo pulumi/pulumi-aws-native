@@ -56,6 +56,10 @@ func NewAnomalySubscription(ctx *pulumi.Context,
 	if args.SubscriptionName == nil {
 		return nil, errors.New("invalid value for required argument 'SubscriptionName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceTags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnomalySubscription
 	err := ctx.RegisterResource("aws-native:ce:AnomalySubscription", name, args, &resource, opts...)

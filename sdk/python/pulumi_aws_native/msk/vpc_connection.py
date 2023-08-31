@@ -168,6 +168,8 @@ class VpcConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authentication", "client_subnets[*]", "security_groups[*]", "target_cluster_arn", "vpc_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcConnection, __self__).__init__(
             'aws-native:msk:VpcConnection',
             resource_name,

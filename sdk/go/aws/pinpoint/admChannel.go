@@ -40,6 +40,10 @@ func NewAdmChannel(ctx *pulumi.Context,
 	if args.ClientSecret == nil {
 		return nil, errors.New("invalid value for required argument 'ClientSecret'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AdmChannel
 	err := ctx.RegisterResource("aws-native:pinpoint:AdmChannel", name, args, &resource, opts...)

@@ -194,6 +194,8 @@ class ConfigurationProfile(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["validators"] = validators
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id", "location_uri", "type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationProfile, __self__).__init__(
             'aws-native:appconfig:ConfigurationProfile',
             resource_name,

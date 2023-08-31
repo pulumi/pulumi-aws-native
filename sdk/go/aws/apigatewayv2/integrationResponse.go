@@ -50,6 +50,11 @@ func NewIntegrationResponse(ctx *pulumi.Context,
 	if args.IntegrationResponseKey == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationResponseKey'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiId",
+		"integrationId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationResponse
 	err := ctx.RegisterResource("aws-native:apigatewayv2:IntegrationResponse", name, args, &resource, opts...)

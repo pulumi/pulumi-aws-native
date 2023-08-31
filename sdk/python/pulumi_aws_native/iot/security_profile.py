@@ -208,6 +208,8 @@ class SecurityProfile(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_arns"] = target_arns
             __props__.__dict__["security_profile_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["security_profile_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityProfile, __self__).__init__(
             'aws-native:iot:SecurityProfile',
             resource_name,

@@ -44,6 +44,10 @@ func NewResponsePlan(ctx *pulumi.Context,
 	if args.IncidentTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'IncidentTemplate'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResponsePlan
 	err := ctx.RegisterResource("aws-native:ssmincidents:ResponsePlan", name, args, &resource, opts...)

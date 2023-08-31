@@ -67,6 +67,8 @@ export class ServiceActionAssociation extends pulumi.CustomResource {
             resourceInputs["serviceActionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["productId", "provisioningArtifactId", "serviceActionId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServiceActionAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

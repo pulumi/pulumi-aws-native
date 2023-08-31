@@ -70,6 +70,8 @@ export class MountTarget extends pulumi.CustomResource {
             resourceInputs["subnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["fileSystemId", "ipAddress", "subnetId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MountTarget.__pulumiType, name, resourceInputs, opts);
     }
 }

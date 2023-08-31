@@ -42,6 +42,11 @@ func NewSigningProfile(ctx *pulumi.Context,
 	if args.PlatformId == nil {
 		return nil, errors.New("invalid value for required argument 'PlatformId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"platformId",
+		"signatureValidityPeriod",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SigningProfile
 	err := ctx.RegisterResource("aws-native:signer:SigningProfile", name, args, &resource, opts...)

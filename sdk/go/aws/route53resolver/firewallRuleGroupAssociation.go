@@ -60,6 +60,11 @@ func NewFirewallRuleGroupAssociation(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"firewallRuleGroupId",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallRuleGroupAssociation
 	err := ctx.RegisterResource("aws-native:route53resolver:FirewallRuleGroupAssociation", name, args, &resource, opts...)

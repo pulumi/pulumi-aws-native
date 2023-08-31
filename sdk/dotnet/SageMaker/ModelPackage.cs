@@ -119,6 +119,21 @@ namespace Pulumi.AwsNative.SageMaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "clientToken",
+                    "domain",
+                    "driftCheckBaselines",
+                    "inferenceSpecification",
+                    "metadataProperties",
+                    "modelMetrics",
+                    "modelPackageDescription",
+                    "modelPackageGroupName",
+                    "samplePayloadUrl",
+                    "sourceAlgorithmSpecification",
+                    "task",
+                    "validationSpecification",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

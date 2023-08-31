@@ -54,6 +54,17 @@ func NewImageRecipe(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"blockDeviceMappings[*]",
+		"components[*]",
+		"description",
+		"name",
+		"parentImage",
+		"tags",
+		"version",
+		"workingDirectory",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImageRecipe
 	err := ctx.RegisterResource("aws-native:imagebuilder:ImageRecipe", name, args, &resource, opts...)

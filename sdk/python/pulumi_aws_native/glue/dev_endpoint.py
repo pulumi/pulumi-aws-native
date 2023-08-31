@@ -296,6 +296,8 @@ class DevEndpoint(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["worker_type"] = worker_type
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DevEndpoint, __self__).__init__(
             'aws-native:glue:DevEndpoint',
             resource_name,

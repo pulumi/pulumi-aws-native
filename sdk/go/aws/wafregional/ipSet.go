@@ -28,6 +28,10 @@ func NewIpSet(ctx *pulumi.Context,
 		args = &IpSetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpSet
 	err := ctx.RegisterResource("aws-native:wafregional:IpSet", name, args, &resource, opts...)

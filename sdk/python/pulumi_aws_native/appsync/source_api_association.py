@@ -156,6 +156,8 @@ class SourceApiAssociation(pulumi.CustomResource):
             __props__.__dict__["source_api_association_status"] = None
             __props__.__dict__["source_api_association_status_detail"] = None
             __props__.__dict__["source_api_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["merged_api_identifier", "source_api_identifier"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SourceApiAssociation, __self__).__init__(
             'aws-native:appsync:SourceApiAssociation',
             resource_name,

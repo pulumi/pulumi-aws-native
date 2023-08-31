@@ -35,6 +35,11 @@ func NewSubnetCidrBlock(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ipv6CidrBlock",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetCidrBlock
 	err := ctx.RegisterResource("aws-native:ec2:SubnetCidrBlock", name, args, &resource, opts...)

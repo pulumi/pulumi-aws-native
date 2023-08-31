@@ -141,6 +141,8 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["distributionName", "ipAddressType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Distribution.__pulumiType, name, resourceInputs, opts);
     }
 }

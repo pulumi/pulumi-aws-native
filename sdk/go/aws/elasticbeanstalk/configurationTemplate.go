@@ -54,6 +54,14 @@ func NewConfigurationTemplate(ctx *pulumi.Context,
 	if args.ApplicationName == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationName",
+		"environmentId",
+		"platformArn",
+		"solutionStackName",
+		"sourceConfiguration",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationTemplate
 	err := ctx.RegisterResource("aws-native:elasticbeanstalk:ConfigurationTemplate", name, args, &resource, opts...)

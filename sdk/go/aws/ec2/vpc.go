@@ -54,6 +54,12 @@ func NewVpc(ctx *pulumi.Context,
 		args = &VpcArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cidrBlock",
+		"ipv4IpamPoolId",
+		"ipv4NetmaskLength",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vpc
 	err := ctx.RegisterResource("aws-native:ec2:Vpc", name, args, &resource, opts...)

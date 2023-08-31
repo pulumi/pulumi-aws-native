@@ -37,6 +37,11 @@ func NewApplicationVersion(ctx *pulumi.Context,
 	if args.SourceBundle == nil {
 		return nil, errors.New("invalid value for required argument 'SourceBundle'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationName",
+		"sourceBundle",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationVersion
 	err := ctx.RegisterResource("aws-native:elasticbeanstalk:ApplicationVersion", name, args, &resource, opts...)

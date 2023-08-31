@@ -270,6 +270,8 @@ class MlTransform(pulumi.CustomResource):
                 raise TypeError("Missing required property 'transform_parameters'")
             __props__.__dict__["transform_parameters"] = transform_parameters
             __props__.__dict__["worker_type"] = worker_type
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["input_record_tables"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MlTransform, __self__).__init__(
             'aws-native:glue:MlTransform',
             resource_name,

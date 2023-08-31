@@ -69,6 +69,8 @@ export class DeviceDefinitionVersion extends pulumi.CustomResource {
             resourceInputs["devices"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["deviceDefinitionId", "devices[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeviceDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

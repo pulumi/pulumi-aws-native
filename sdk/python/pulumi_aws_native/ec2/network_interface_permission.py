@@ -118,6 +118,8 @@ class NetworkInterfacePermission(pulumi.CustomResource):
             if permission is None and not opts.urn:
                 raise TypeError("Missing required property 'permission'")
             __props__.__dict__["permission"] = permission
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aws_account_id", "network_interface_id", "permission"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkInterfacePermission, __self__).__init__(
             'aws-native:ec2:NetworkInterfacePermission',
             resource_name,

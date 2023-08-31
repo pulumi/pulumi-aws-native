@@ -53,6 +53,10 @@ func NewBillingGroup(ctx *pulumi.Context,
 	if args.PrimaryAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryAccountId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"primaryAccountId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BillingGroup
 	err := ctx.RegisterResource("aws-native:billingconductor:BillingGroup", name, args, &resource, opts...)

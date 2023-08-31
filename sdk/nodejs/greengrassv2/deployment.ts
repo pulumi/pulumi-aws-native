@@ -79,6 +79,8 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["targetArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["components", "deploymentName", "deploymentPolicies", "iotJobConfiguration", "parentTargetArn", "targetArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Deployment.__pulumiType, name, resourceInputs, opts);
     }
 }

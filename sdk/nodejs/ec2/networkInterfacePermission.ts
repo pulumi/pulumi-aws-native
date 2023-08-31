@@ -72,6 +72,8 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
             resourceInputs["permission"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "networkInterfaceId", "permission"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkInterfacePermission.__pulumiType, name, resourceInputs, opts);
     }
 }

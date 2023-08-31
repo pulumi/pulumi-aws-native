@@ -160,6 +160,8 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Canary.__pulumiType, name, resourceInputs, opts);
     }
 }

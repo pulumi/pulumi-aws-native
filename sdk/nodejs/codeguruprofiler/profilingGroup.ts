@@ -88,6 +88,8 @@ export class ProfilingGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["computePlatform", "profilingGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ProfilingGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

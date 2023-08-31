@@ -85,6 +85,8 @@ export class MetricFilter extends pulumi.CustomResource {
             resourceInputs["metricTransformations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["filterName", "logGroupName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MetricFilter.__pulumiType, name, resourceInputs, opts);
     }
 }

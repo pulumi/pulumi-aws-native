@@ -117,6 +117,8 @@ class GcmChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["enabled"] = enabled
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GcmChannel, __self__).__init__(
             'aws-native:pinpoint:GcmChannel',
             resource_name,

@@ -175,6 +175,8 @@ class RecordingConfiguration(pulumi.CustomResource):
             __props__.__dict__["thumbnail_configuration"] = thumbnail_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination_configuration", "name", "recording_reconnect_window_seconds", "rendition_configuration", "thumbnail_configuration"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RecordingConfiguration, __self__).__init__(
             'aws-native:ivs:RecordingConfiguration',
             resource_name,

@@ -136,6 +136,8 @@ export class FleetMetric extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["metricName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FleetMetric.__pulumiType, name, resourceInputs, opts);
     }
 }

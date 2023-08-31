@@ -70,6 +70,8 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
             resourceInputs["eventDestination"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["configurationSetName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfigurationSetEventDestination.__pulumiType, name, resourceInputs, opts);
     }
 }

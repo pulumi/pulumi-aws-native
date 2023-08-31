@@ -372,6 +372,8 @@ class PlaybackConfiguration(pulumi.CustomResource):
             __props__.__dict__["playback_configuration_arn"] = None
             __props__.__dict__["playback_endpoint_prefix"] = None
             __props__.__dict__["session_initialization_endpoint_prefix"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PlaybackConfiguration, __self__).__init__(
             'aws-native:mediatailor:PlaybackConfiguration',
             resource_name,

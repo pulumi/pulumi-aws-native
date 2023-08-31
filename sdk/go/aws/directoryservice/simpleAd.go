@@ -53,6 +53,16 @@ func NewSimpleAd(ctx *pulumi.Context,
 	if args.VpcSettings == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSettings'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"createAlias",
+		"description",
+		"name",
+		"password",
+		"shortName",
+		"size",
+		"vpcSettings",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SimpleAd
 	err := ctx.RegisterResource("aws-native:directoryservice:SimpleAd", name, args, &resource, opts...)

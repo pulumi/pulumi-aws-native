@@ -78,6 +78,8 @@ export class DeliveryChannel extends pulumi.CustomResource {
             resourceInputs["snsTopicArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryChannel.__pulumiType, name, resourceInputs, opts);
     }
 }

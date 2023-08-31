@@ -184,6 +184,8 @@ class Studio(pulumi.CustomResource):
             __props__.__dict__["sso_client_id"] = None
             __props__.__dict__["studio_id"] = None
             __props__.__dict__["studio_url"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["studio_name", "tags"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Studio, __self__).__init__(
             'aws-native:nimblestudio:Studio',
             resource_name,

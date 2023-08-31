@@ -91,6 +91,8 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["exclusiveEndTime", "inclusiveStartTime", "kinesisConfiguration", "ledgerName", "roleArn", "streamName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Stream.__pulumiType, name, resourceInputs, opts);
     }
 }

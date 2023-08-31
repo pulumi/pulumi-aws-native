@@ -97,6 +97,8 @@ export class AccountPolicy extends pulumi.CustomResource {
             resourceInputs["scope"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["policyName", "policyType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AccountPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

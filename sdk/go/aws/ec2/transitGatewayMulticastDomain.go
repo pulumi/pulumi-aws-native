@@ -42,6 +42,10 @@ func NewTransitGatewayMulticastDomain(ctx *pulumi.Context,
 	if args.TransitGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"transitGatewayId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayMulticastDomain
 	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayMulticastDomain", name, args, &resource, opts...)

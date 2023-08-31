@@ -56,6 +56,12 @@ func NewTransitGatewayMulticastGroupMember(ctx *pulumi.Context,
 	if args.TransitGatewayMulticastDomainId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayMulticastDomainId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"groupIpAddress",
+		"networkInterfaceId",
+		"transitGatewayMulticastDomainId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayMulticastGroupMember
 	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayMulticastGroupMember", name, args, &resource, opts...)

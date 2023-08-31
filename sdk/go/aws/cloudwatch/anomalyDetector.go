@@ -33,6 +33,15 @@ func NewAnomalyDetector(ctx *pulumi.Context,
 		args = &AnomalyDetectorArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dimensions[*]",
+		"metricMathAnomalyDetector",
+		"metricName",
+		"namespace",
+		"singleMetricAnomalyDetector",
+		"stat",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnomalyDetector
 	err := ctx.RegisterResource("aws-native:cloudwatch:AnomalyDetector", name, args, &resource, opts...)

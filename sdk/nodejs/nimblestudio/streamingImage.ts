@@ -109,6 +109,8 @@ export class StreamingImage extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ec2ImageId", "studioId", "tags"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StreamingImage.__pulumiType, name, resourceInputs, opts);
     }
 }

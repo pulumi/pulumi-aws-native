@@ -40,6 +40,10 @@ func NewAccountAuditConfiguration(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accountId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccountAuditConfiguration
 	err := ctx.RegisterResource("aws-native:iot:AccountAuditConfiguration", name, args, &resource, opts...)

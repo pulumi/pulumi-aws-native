@@ -133,6 +133,8 @@ class SourceCredential(pulumi.CustomResource):
                 raise TypeError("Missing required property 'token'")
             __props__.__dict__["token"] = token
             __props__.__dict__["username"] = username
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["server_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SourceCredential, __self__).__init__(
             'aws-native:codebuild:SourceCredential',
             resource_name,

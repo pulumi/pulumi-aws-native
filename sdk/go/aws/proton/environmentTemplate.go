@@ -38,6 +38,12 @@ func NewEnvironmentTemplate(ctx *pulumi.Context,
 		args = &EnvironmentTemplateArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"encryptionKey",
+		"name",
+		"provisioning",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnvironmentTemplate
 	err := ctx.RegisterResource("aws-native:proton:EnvironmentTemplate", name, args, &resource, opts...)

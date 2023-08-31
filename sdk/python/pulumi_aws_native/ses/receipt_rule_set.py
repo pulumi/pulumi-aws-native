@@ -85,6 +85,8 @@ class ReceiptRuleSet(pulumi.CustomResource):
             __props__ = ReceiptRuleSetArgs.__new__(ReceiptRuleSetArgs)
 
             __props__.__dict__["rule_set_name"] = rule_set_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["rule_set_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReceiptRuleSet, __self__).__init__(
             'aws-native:ses:ReceiptRuleSet',
             resource_name,

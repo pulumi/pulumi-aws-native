@@ -94,6 +94,8 @@ export class Template extends pulumi.CustomResource {
             resourceInputs["versionDescription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "templateId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Template.__pulumiType, name, resourceInputs, opts);
     }
 }

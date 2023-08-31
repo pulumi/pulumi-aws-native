@@ -30,6 +30,10 @@ func NewPackage(ctx *pulumi.Context,
 		args = &PackageArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"packageName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Package
 	err := ctx.RegisterResource("aws-native:panorama:Package", name, args, &resource, opts...)

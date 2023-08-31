@@ -100,6 +100,8 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["destination", "destinationIp", "destinationPort", "filterAtDestination", "filterAtSource", "protocol", "source", "sourceIp"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkInsightsPath.__pulumiType, name, resourceInputs, opts);
     }
 }

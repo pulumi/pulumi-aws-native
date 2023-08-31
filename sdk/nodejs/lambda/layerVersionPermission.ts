@@ -82,6 +82,8 @@ export class LayerVersionPermission extends pulumi.CustomResource {
             resourceInputs["principal"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["action", "layerVersionArn", "organizationId", "principal"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LayerVersionPermission.__pulumiType, name, resourceInputs, opts);
     }
 }

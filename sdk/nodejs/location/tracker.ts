@@ -82,6 +82,8 @@ export class Tracker extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "kmsKeyId", "positionFiltering", "trackerName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Tracker.__pulumiType, name, resourceInputs, opts);
     }
 }

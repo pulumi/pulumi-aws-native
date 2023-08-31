@@ -97,6 +97,8 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["firewallName", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Firewall.__pulumiType, name, resourceInputs, opts);
     }
 }

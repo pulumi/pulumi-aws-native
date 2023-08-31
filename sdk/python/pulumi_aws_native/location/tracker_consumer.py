@@ -96,6 +96,8 @@ class TrackerConsumer(pulumi.CustomResource):
             if tracker_name is None and not opts.urn:
                 raise TypeError("Missing required property 'tracker_name'")
             __props__.__dict__["tracker_name"] = tracker_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["consumer_arn", "tracker_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrackerConsumer, __self__).__init__(
             'aws-native:location:TrackerConsumer',
             resource_name,

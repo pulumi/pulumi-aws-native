@@ -84,6 +84,8 @@ export class HookTypeConfig extends pulumi.CustomResource {
             resourceInputs["typeName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["configurationAlias"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(HookTypeConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

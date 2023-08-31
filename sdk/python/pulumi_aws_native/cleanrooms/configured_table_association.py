@@ -166,6 +166,8 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["configured_table_association_identifier"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configured_table_identifier", "membership_identifier", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfiguredTableAssociation, __self__).__init__(
             'aws-native:cleanrooms:ConfiguredTableAssociation',
             resource_name,

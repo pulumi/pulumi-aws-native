@@ -78,6 +78,8 @@ export class EventBusPolicy extends pulumi.CustomResource {
             resourceInputs["statementId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["eventBusName", "statementId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EventBusPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

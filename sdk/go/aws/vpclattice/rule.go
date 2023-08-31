@@ -42,6 +42,12 @@ func NewRule(ctx *pulumi.Context,
 	if args.Priority == nil {
 		return nil, errors.New("invalid value for required argument 'Priority'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"listenerIdentifier",
+		"name",
+		"serviceIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws-native:vpclattice:Rule", name, args, &resource, opts...)

@@ -157,6 +157,8 @@ export class InferenceExperiment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["endpointName", "kmsKey", "name", "roleArn", "type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InferenceExperiment.__pulumiType, name, resourceInputs, opts);
     }
 }

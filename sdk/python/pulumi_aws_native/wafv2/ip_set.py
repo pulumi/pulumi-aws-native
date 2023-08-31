@@ -166,6 +166,8 @@ class IpSet(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "scope"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpSet, __self__).__init__(
             'aws-native:wafv2:IpSet',
             resource_name,

@@ -82,6 +82,8 @@ export class AggregationAuthorization extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["authorizedAccountId", "authorizedAwsRegion"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AggregationAuthorization.__pulumiType, name, resourceInputs, opts);
     }
 }

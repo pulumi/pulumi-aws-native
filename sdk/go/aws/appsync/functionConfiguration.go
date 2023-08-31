@@ -49,6 +49,10 @@ func NewFunctionConfiguration(ctx *pulumi.Context,
 	if args.DataSourceName == nil {
 		return nil, errors.New("invalid value for required argument 'DataSourceName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FunctionConfiguration
 	err := ctx.RegisterResource("aws-native:appsync:FunctionConfiguration", name, args, &resource, opts...)

@@ -64,6 +64,8 @@ export class Keyspace extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["keyspaceName", "replicationSpecification"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Keyspace.__pulumiType, name, resourceInputs, opts);
     }
 }

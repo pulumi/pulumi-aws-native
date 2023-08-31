@@ -160,6 +160,8 @@ class DevicePool(pulumi.CustomResource):
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["project_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DevicePool, __self__).__init__(
             'aws-native:devicefarm:DevicePool',
             resource_name,

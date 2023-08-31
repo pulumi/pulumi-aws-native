@@ -39,6 +39,12 @@ func NewResolverRuleAssociation(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"resolverRuleId",
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverRuleAssociation
 	err := ctx.RegisterResource("aws-native:route53resolver:ResolverRuleAssociation", name, args, &resource, opts...)

@@ -75,6 +75,8 @@ export class DbSecurityGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["ec2VpcId", "groupDescription"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbSecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

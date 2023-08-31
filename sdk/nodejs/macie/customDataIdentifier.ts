@@ -94,6 +94,8 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
             resourceInputs["regex"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["description", "ignoreWords[*]", "keywords[*]", "maximumMatchDistance", "name", "regex"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomDataIdentifier.__pulumiType, name, resourceInputs, opts);
     }
 }

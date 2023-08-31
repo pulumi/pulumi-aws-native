@@ -47,6 +47,11 @@ func NewIndex(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"edition",
+		"serverSideEncryptionConfiguration",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Index
 	err := ctx.RegisterResource("aws-native:kendra:Index", name, args, &resource, opts...)

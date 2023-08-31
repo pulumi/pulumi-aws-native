@@ -147,6 +147,8 @@ class Permission(pulumi.CustomResource):
             __props__.__dict__["is_resource_type_default"] = None
             __props__.__dict__["permission_type"] = None
             __props__.__dict__["version"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "policy_template", "resource_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Permission, __self__).__init__(
             'aws-native:ram:Permission',
             resource_name,

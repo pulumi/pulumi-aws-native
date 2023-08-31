@@ -36,6 +36,11 @@ func NewInstanceProfile(ctx *pulumi.Context,
 	if args.Roles == nil {
 		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instanceProfileName",
+		"path",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceProfile
 	err := ctx.RegisterResource("aws-native:iam:InstanceProfile", name, args, &resource, opts...)

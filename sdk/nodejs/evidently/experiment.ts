@@ -109,6 +109,8 @@ export class Experiment extends pulumi.CustomResource {
             resourceInputs["treatments"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "project"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Experiment.__pulumiType, name, resourceInputs, opts);
     }
 }

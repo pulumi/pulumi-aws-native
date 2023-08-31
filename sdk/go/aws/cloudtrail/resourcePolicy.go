@@ -35,6 +35,10 @@ func NewResourcePolicy(ctx *pulumi.Context,
 	if args.ResourcePolicy == nil {
 		return nil, errors.New("invalid value for required argument 'ResourcePolicy'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourcePolicy
 	err := ctx.RegisterResource("aws-native:cloudtrail:ResourcePolicy", name, args, &resource, opts...)

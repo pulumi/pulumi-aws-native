@@ -30,6 +30,11 @@ func NewSchedulingPolicy(ctx *pulumi.Context,
 		args = &SchedulingPolicyArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"tags",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SchedulingPolicy
 	err := ctx.RegisterResource("aws-native:batch:SchedulingPolicy", name, args, &resource, opts...)

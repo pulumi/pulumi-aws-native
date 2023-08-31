@@ -323,6 +323,8 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["task_role_arn"] = task_role_arn
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["task_definition_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["container_definitions[*]", "cpu", "ephemeral_storage", "execution_role_arn", "family", "inference_accelerators[*]", "ipc_mode", "memory", "network_mode", "pid_mode", "placement_constraints[*]", "proxy_configuration", "requires_compatibilities[*]", "runtime_platform", "task_role_arn", "volumes[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TaskDefinition, __self__).__init__(
             'aws-native:ecs:TaskDefinition',
             resource_name,

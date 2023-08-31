@@ -46,6 +46,11 @@ func NewDataSource(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"apiId",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataSource
 	err := ctx.RegisterResource("aws-native:appsync:DataSource", name, args, &resource, opts...)

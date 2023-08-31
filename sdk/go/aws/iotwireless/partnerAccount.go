@@ -44,6 +44,10 @@ func NewPartnerAccount(ctx *pulumi.Context,
 		args = &PartnerAccountArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"partnerAccountId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PartnerAccount
 	err := ctx.RegisterResource("aws-native:iotwireless:PartnerAccount", name, args, &resource, opts...)

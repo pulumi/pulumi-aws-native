@@ -41,6 +41,11 @@ func NewStateMachine(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"stateMachineName",
+		"stateMachineType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StateMachine
 	err := ctx.RegisterResource("aws-native:stepfunctions:StateMachine", name, args, &resource, opts...)

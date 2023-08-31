@@ -44,6 +44,11 @@ func NewDeploymentStrategy(ctx *pulumi.Context,
 	if args.ReplicateTo == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicateTo'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+		"replicateTo",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeploymentStrategy
 	err := ctx.RegisterResource("aws-native:appconfig:DeploymentStrategy", name, args, &resource, opts...)

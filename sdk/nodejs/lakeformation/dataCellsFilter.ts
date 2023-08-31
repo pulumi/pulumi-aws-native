@@ -103,6 +103,8 @@ export class DataCellsFilter extends pulumi.CustomResource {
             resourceInputs["tableName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["columnNames[*]", "columnWildcard", "databaseName", "name", "rowFilter", "tableCatalogId", "tableName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataCellsFilter.__pulumiType, name, resourceInputs, opts);
     }
 }

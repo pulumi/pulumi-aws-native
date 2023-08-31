@@ -45,6 +45,10 @@ func NewIpamScope(ctx *pulumi.Context,
 	if args.IpamId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ipamId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpamScope
 	err := ctx.RegisterResource("aws-native:ec2:IpamScope", name, args, &resource, opts...)

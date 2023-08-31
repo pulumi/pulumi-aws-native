@@ -66,6 +66,8 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
             resourceInputs["thingName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["principal", "thingName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ThingPrincipalAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

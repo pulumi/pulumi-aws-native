@@ -71,6 +71,10 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.PermissionType == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clientToken",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws-native:grafana:Workspace", name, args, &resource, opts...)

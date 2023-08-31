@@ -107,6 +107,24 @@ namespace Pulumi.AwsNative.OpsWorksCm
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "associatePublicIpAddress",
+                    "backupId",
+                    "customCertificate",
+                    "customDomain",
+                    "customPrivateKey",
+                    "engine",
+                    "engineModel",
+                    "engineVersion",
+                    "instanceProfileArn",
+                    "instanceType",
+                    "keyPair",
+                    "securityGroupIds[*]",
+                    "serverName",
+                    "serviceRoleArn",
+                    "subnetIds[*]",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

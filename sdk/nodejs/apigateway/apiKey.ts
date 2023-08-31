@@ -106,6 +106,8 @@ export class ApiKey extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["generateDistinctId", "name", "value"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApiKey.__pulumiType, name, resourceInputs, opts);
     }
 }

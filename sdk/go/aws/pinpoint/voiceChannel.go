@@ -32,6 +32,10 @@ func NewVoiceChannel(ctx *pulumi.Context,
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"applicationId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VoiceChannel
 	err := ctx.RegisterResource("aws-native:pinpoint:VoiceChannel", name, args, &resource, opts...)

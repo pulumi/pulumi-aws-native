@@ -229,6 +229,8 @@ class SlackChannelConfiguration(pulumi.CustomResource):
             __props__.__dict__["sns_topic_arns"] = sns_topic_arns
             __props__.__dict__["user_role_required"] = user_role_required
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration_name", "slack_workspace_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SlackChannelConfiguration, __self__).__init__(
             'aws-native:chatbot:SlackChannelConfiguration',
             resource_name,

@@ -299,6 +299,8 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["workflow_details"] = workflow_details
             __props__.__dict__["arn"] = None
             __props__.__dict__["server_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "identity_provider_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Server, __self__).__init__(
             'aws-native:transfer:Server',
             resource_name,

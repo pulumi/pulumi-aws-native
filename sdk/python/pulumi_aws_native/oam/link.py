@@ -134,6 +134,8 @@ class Link(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["label"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["label_template", "sink_identifier"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Link, __self__).__init__(
             'aws-native:oam:Link',
             resource_name,

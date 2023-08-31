@@ -75,6 +75,8 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["rules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["metricName", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(WebAcl.__pulumiType, name, resourceInputs, opts);
     }
 }

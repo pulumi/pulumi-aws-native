@@ -69,6 +69,8 @@ export class CodeRepository extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["codeRepositoryName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CodeRepository.__pulumiType, name, resourceInputs, opts);
     }
 }

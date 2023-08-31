@@ -35,6 +35,11 @@ func NewThingPrincipalAttachment(ctx *pulumi.Context,
 	if args.ThingName == nil {
 		return nil, errors.New("invalid value for required argument 'ThingName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"principal",
+		"thingName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingPrincipalAttachment
 	err := ctx.RegisterResource("aws-native:iot:ThingPrincipalAttachment", name, args, &resource, opts...)

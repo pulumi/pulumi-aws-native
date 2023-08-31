@@ -88,6 +88,8 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["versionNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Extension.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -42,6 +42,11 @@ func NewResourceSpecificLogging(ctx *pulumi.Context,
 	if args.TargetType == nil {
 		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"targetName",
+		"targetType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceSpecificLogging
 	err := ctx.RegisterResource("aws-native:iot:ResourceSpecificLogging", name, args, &resource, opts...)

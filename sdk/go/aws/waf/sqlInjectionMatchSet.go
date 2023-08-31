@@ -28,6 +28,10 @@ func NewSqlInjectionMatchSet(ctx *pulumi.Context,
 		args = &SqlInjectionMatchSetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SqlInjectionMatchSet
 	err := ctx.RegisterResource("aws-native:waf:SqlInjectionMatchSet", name, args, &resource, opts...)

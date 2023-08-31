@@ -50,6 +50,11 @@ func NewAccountPolicy(ctx *pulumi.Context,
 	if args.PolicyType == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"policyName",
+		"policyType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccountPolicy
 	err := ctx.RegisterResource("aws-native:logs:AccountPolicy", name, args, &resource, opts...)

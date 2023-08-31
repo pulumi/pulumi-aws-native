@@ -43,6 +43,11 @@ func NewInstanceStorageConfig(ctx *pulumi.Context,
 	if args.StorageType == nil {
 		return nil, errors.New("invalid value for required argument 'StorageType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instanceArn",
+		"resourceType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceStorageConfig
 	err := ctx.RegisterResource("aws-native:connect:InstanceStorageConfig", name, args, &resource, opts...)

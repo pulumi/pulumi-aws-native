@@ -41,6 +41,12 @@ func NewGateway(ctx *pulumi.Context,
 	if args.Networks == nil {
 		return nil, errors.New("invalid value for required argument 'Networks'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"egressCidrBlocks[*]",
+		"name",
+		"networks[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Gateway
 	err := ctx.RegisterResource("aws-native:mediaconnect:Gateway", name, args, &resource, opts...)

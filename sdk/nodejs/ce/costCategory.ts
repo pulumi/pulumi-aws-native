@@ -91,6 +91,8 @@ export class CostCategory extends pulumi.CustomResource {
             resourceInputs["splitChargeRules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CostCategory.__pulumiType, name, resourceInputs, opts);
     }
 }

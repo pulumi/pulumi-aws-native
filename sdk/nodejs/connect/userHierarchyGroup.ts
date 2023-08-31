@@ -76,6 +76,8 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
             resourceInputs["userHierarchyGroupArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["parentGroupArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserHierarchyGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -147,6 +147,8 @@ class OrganizationConfigRule(pulumi.CustomResource):
             __props__.__dict__["organization_custom_policy_rule_metadata"] = organization_custom_policy_rule_metadata
             __props__.__dict__["organization_custom_rule_metadata"] = organization_custom_rule_metadata
             __props__.__dict__["organization_managed_rule_metadata"] = organization_managed_rule_metadata
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["organization_config_rule_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OrganizationConfigRule, __self__).__init__(
             'aws-native:configuration:OrganizationConfigRule',
             resource_name,

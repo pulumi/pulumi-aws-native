@@ -63,6 +63,17 @@ namespace Pulumi.AwsNative.Greengrass
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "connectorDefinitionVersionArn",
+                    "coreDefinitionVersionArn",
+                    "deviceDefinitionVersionArn",
+                    "functionDefinitionVersionArn",
+                    "groupId",
+                    "loggerDefinitionVersionArn",
+                    "resourceDefinitionVersionArn",
+                    "subscriptionDefinitionVersionArn",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -38,6 +38,11 @@ func NewCustomMetric(ctx *pulumi.Context,
 	if args.MetricType == nil {
 		return nil, errors.New("invalid value for required argument 'MetricType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"metricName",
+		"metricType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomMetric
 	err := ctx.RegisterResource("aws-native:iot:CustomMetric", name, args, &resource, opts...)

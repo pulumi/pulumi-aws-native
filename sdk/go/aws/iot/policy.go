@@ -31,6 +31,10 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"policyName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws-native:iot:Policy", name, args, &resource, opts...)

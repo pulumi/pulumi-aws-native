@@ -35,6 +35,10 @@ func NewPublicRepository(ctx *pulumi.Context,
 		args = &PublicRepositoryArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"repositoryName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PublicRepository
 	err := ctx.RegisterResource("aws-native:ecr:PublicRepository", name, args, &resource, opts...)

@@ -97,6 +97,8 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["appId", "branchName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Branch.__pulumiType, name, resourceInputs, opts);
     }
 }

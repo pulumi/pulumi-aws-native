@@ -190,6 +190,8 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["unit"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["alarmName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Alarm.__pulumiType, name, resourceInputs, opts);
     }
 }

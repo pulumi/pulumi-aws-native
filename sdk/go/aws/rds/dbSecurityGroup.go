@@ -37,6 +37,11 @@ func NewDbSecurityGroup(ctx *pulumi.Context,
 	if args.GroupDescription == nil {
 		return nil, errors.New("invalid value for required argument 'GroupDescription'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"ec2VpcId",
+		"groupDescription",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DbSecurityGroup
 	err := ctx.RegisterResource("aws-native:rds:DbSecurityGroup", name, args, &resource, opts...)

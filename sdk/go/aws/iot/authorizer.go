@@ -37,6 +37,11 @@ func NewAuthorizer(ctx *pulumi.Context,
 	if args.AuthorizerFunctionArn == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizerFunctionArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"authorizerName",
+		"signingDisabled",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Authorizer
 	err := ctx.RegisterResource("aws-native:iot:Authorizer", name, args, &resource, opts...)

@@ -79,6 +79,8 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name", "resolverRuleId", "vpcId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResolverRuleAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

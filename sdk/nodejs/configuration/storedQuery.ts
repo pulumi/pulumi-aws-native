@@ -79,6 +79,8 @@ export class StoredQuery extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["queryName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StoredQuery.__pulumiType, name, resourceInputs, opts);
     }
 }

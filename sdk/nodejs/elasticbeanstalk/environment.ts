@@ -130,6 +130,8 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["versionLabel"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationName", "cnamePrefix", "environmentName", "solutionStackName", "tier.name", "tier.type"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }

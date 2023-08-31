@@ -35,6 +35,13 @@ func NewService(ctx *pulumi.Context,
 		args = &ServiceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"healthCheckCustomConfig",
+		"name",
+		"namespaceId",
+		"type",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws-native:servicediscovery:Service", name, args, &resource, opts...)

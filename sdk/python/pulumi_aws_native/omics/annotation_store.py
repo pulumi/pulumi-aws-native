@@ -179,6 +179,8 @@ class AnnotationStore(pulumi.CustomResource):
             __props__.__dict__["store_arn"] = None
             __props__.__dict__["store_size_bytes"] = None
             __props__.__dict__["update_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "reference", "sse_config", "store_format", "store_options", "tags"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AnnotationStore, __self__).__init__(
             'aws-native:omics:AnnotationStore',
             resource_name,

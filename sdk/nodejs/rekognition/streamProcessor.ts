@@ -130,6 +130,8 @@ export class StreamProcessor extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["boundingBoxRegionsOfInterest[*]", "connectedHomeSettings", "dataSharingPreference", "faceSearchSettings", "kinesisDataStream", "kinesisVideoStream", "kmsKeyId", "name", "notificationChannel", "polygonRegionsOfInterest[*]", "roleArn", "s3Destination"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StreamProcessor.__pulumiType, name, resourceInputs, opts);
     }
 }

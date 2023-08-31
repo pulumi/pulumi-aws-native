@@ -168,6 +168,8 @@ class EmailIdentity(pulumi.CustomResource):
             __props__.__dict__["dkim_dns_token_value1"] = None
             __props__.__dict__["dkim_dns_token_value2"] = None
             __props__.__dict__["dkim_dns_token_value3"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["email_identity"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EmailIdentity, __self__).__init__(
             'aws-native:ses:EmailIdentity',
             resource_name,

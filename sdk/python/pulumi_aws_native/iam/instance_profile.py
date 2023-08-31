@@ -126,6 +126,8 @@ class InstanceProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_profile_name", "path"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceProfile, __self__).__init__(
             'aws-native:iam:InstanceProfile',
             resource_name,

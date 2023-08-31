@@ -170,6 +170,8 @@ class KeyPair(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["key_fingerprint"] = None
             __props__.__dict__["key_pair_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["key_format", "key_name", "key_type", "public_key_material", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(KeyPair, __self__).__init__(
             'aws-native:ec2:KeyPair',
             resource_name,

@@ -208,6 +208,8 @@ class GameSessionQueue(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds
             __props__.__dict__["arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GameSessionQueue, __self__).__init__(
             'aws-native:gamelift:GameSessionQueue',
             resource_name,

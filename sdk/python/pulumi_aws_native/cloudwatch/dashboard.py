@@ -101,6 +101,8 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dashboard_body'")
             __props__.__dict__["dashboard_body"] = dashboard_body
             __props__.__dict__["dashboard_name"] = dashboard_name
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dashboard_name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dashboard, __self__).__init__(
             'aws-native:cloudwatch:Dashboard',
             resource_name,

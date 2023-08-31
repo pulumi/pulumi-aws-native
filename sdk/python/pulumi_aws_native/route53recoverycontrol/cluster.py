@@ -110,6 +110,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_arn"] = None
             __props__.__dict__["cluster_endpoints"] = None
             __props__.__dict__["status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:route53recoverycontrol:Cluster',
             resource_name,

@@ -163,6 +163,8 @@ class EmailChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
             __props__.__dict__["role_arn"] = role_arn
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EmailChannel, __self__).__init__(
             'aws-native:pinpoint:EmailChannel',
             resource_name,

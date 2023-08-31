@@ -134,6 +134,8 @@ class Permissions(pulumi.CustomResource):
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_lake_principal", "resource"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Permissions, __self__).__init__(
             'aws-native:lakeformation:Permissions',
             resource_name,

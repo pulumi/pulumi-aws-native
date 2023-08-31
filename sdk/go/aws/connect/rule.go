@@ -56,6 +56,11 @@ func NewRule(ctx *pulumi.Context,
 	if args.TriggerEventSource == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerEventSource'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instanceArn",
+		"triggerEventSource",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws-native:connect:Rule", name, args, &resource, opts...)

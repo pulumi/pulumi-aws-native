@@ -166,6 +166,8 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["videoContentSourceUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PlaybackConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

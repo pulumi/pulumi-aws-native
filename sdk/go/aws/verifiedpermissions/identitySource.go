@@ -33,6 +33,10 @@ func NewIdentitySource(ctx *pulumi.Context,
 	if args.Configuration == nil {
 		return nil, errors.New("invalid value for required argument 'Configuration'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"policyStoreId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentitySource
 	err := ctx.RegisterResource("aws-native:verifiedpermissions:IdentitySource", name, args, &resource, opts...)

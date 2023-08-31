@@ -38,6 +38,13 @@ func NewInstanceConnectEndpoint(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"clientToken",
+		"preserveClientIp",
+		"securityGroupIds[*]",
+		"subnetId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceConnectEndpoint
 	err := ctx.RegisterResource("aws-native:ec2:InstanceConnectEndpoint", name, args, &resource, opts...)

@@ -106,6 +106,8 @@ export class ApplicationInstance extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["applicationInstanceIdToReplace", "defaultRuntimeContextDevice", "description", "manifestOverridesPayload", "manifestPayload", "name", "runtimeRoleArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApplicationInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

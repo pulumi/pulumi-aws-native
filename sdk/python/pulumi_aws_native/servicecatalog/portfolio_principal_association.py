@@ -133,6 +133,8 @@ class PortfolioPrincipalAssociation(pulumi.CustomResource):
             if principal_type is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_type'")
             __props__.__dict__["principal_type"] = principal_type
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accept_language", "portfolio_id", "principal_arn", "principal_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PortfolioPrincipalAssociation, __self__).__init__(
             'aws-native:servicecatalog:PortfolioPrincipalAssociation',
             resource_name,

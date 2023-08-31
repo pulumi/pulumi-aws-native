@@ -104,6 +104,8 @@ class SubscriptionDefinitionVersion(pulumi.CustomResource):
             if subscriptions is None and not opts.urn:
                 raise TypeError("Missing required property 'subscriptions'")
             __props__.__dict__["subscriptions"] = subscriptions
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["subscription_definition_id", "subscriptions[*]"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubscriptionDefinitionVersion, __self__).__init__(
             'aws-native:greengrass:SubscriptionDefinitionVersion',
             resource_name,

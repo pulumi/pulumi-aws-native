@@ -55,6 +55,10 @@ func NewFleetMetric(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"metricName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FleetMetric
 	err := ctx.RegisterResource("aws-native:iot:FleetMetric", name, args, &resource, opts...)

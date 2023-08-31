@@ -45,6 +45,10 @@ func NewMonitoringSchedule(ctx *pulumi.Context,
 	if args.MonitoringScheduleConfig == nil {
 		return nil, errors.New("invalid value for required argument 'MonitoringScheduleConfig'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"monitoringScheduleName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitoringSchedule
 	err := ctx.RegisterResource("aws-native:sagemaker:MonitoringSchedule", name, args, &resource, opts...)

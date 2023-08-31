@@ -53,6 +53,11 @@ func NewModelCard(ctx *pulumi.Context,
 	if args.ModelCardStatus == nil {
 		return nil, errors.New("invalid value for required argument 'ModelCardStatus'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"modelCardName",
+		"securityConfig",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelCard
 	err := ctx.RegisterResource("aws-native:sagemaker:ModelCard", name, args, &resource, opts...)

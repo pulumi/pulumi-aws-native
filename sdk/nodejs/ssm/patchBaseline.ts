@@ -96,6 +96,8 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["operatingSystem"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PatchBaseline.__pulumiType, name, resourceInputs, opts);
     }
 }

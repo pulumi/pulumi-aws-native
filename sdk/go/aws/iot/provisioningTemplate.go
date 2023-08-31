@@ -40,6 +40,11 @@ func NewProvisioningTemplate(ctx *pulumi.Context,
 	if args.TemplateBody == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateBody'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"templateName",
+		"templateType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisioningTemplate
 	err := ctx.RegisterResource("aws-native:iot:ProvisioningTemplate", name, args, &resource, opts...)
