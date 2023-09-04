@@ -136,19 +136,19 @@
   "readOnlyProperties" : [ "/properties/State", "/properties/NextInvocations" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "redshift:CreateScheduledAction", "redshift:PauseCluster", "redshift:ResumeCluster", "redshift:ResizeCluster", "iam:PassRole" ]
+      "permissions" : [ "redshift:CreateScheduledAction", "redshift:DescribeScheduledActions", "redshift:DescribeTags", "redshift:PauseCluster", "redshift:ResumeCluster", "redshift:ResizeCluster", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "redshift:DescribeScheduledActions" ]
+      "permissions" : [ "redshift:DescribeScheduledActions", "redshift:DescribeTags" ]
     },
     "update" : {
-      "permissions" : [ "redshift:ModifyScheduledAction", "redshift:PauseCluster", "redshift:ResumeCluster", "redshift:ResizeCluster", "iam:PassRole" ]
+      "permissions" : [ "redshift:DescribeScheduledActions", "redshift:ModifyScheduledAction", "redshift:PauseCluster", "redshift:ResumeCluster", "redshift:ResizeCluster", "redshift:DescribeTags", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "redshift:DeleteScheduledAction" ]
+      "permissions" : [ "redshift:DescribeTags", "redshift:DescribeScheduledActions", "redshift:DeleteScheduledAction" ]
     },
     "list" : {
-      "permissions" : [ "redshift:DescribeScheduledActions" ]
+      "permissions" : [ "redshift:DescribeTags", "redshift:DescribeScheduledActions" ]
     }
   }
 }

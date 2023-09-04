@@ -16,7 +16,7 @@
         },
         "ProtocolVersion" : {
           "type" : "string",
-          "enum" : [ "HTTP1", "HTTP2" ]
+          "enum" : [ "HTTP1", "HTTP2", "GRPC" ]
         },
         "Port" : {
           "type" : "integer",
@@ -90,6 +90,10 @@
           "default" : "IPV4",
           "enum" : [ "IPV4", "IPV6" ]
         },
+        "LambdaEventStructureVersion" : {
+          "type" : "string",
+          "enum" : [ "V1", "V2" ]
+        },
         "VpcIdentifier" : {
           "type" : "string",
           "maxLength" : 2048,
@@ -100,7 +104,7 @@
           "$ref" : "#/definitions/HealthCheckConfig"
         }
       },
-      "required" : [ "Port", "Protocol", "VpcIdentifier" ]
+      "required" : [ ]
     },
     "Target" : {
       "type" : "object",
@@ -194,7 +198,7 @@
   },
   "required" : [ "Type" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/LastUpdatedAt", "/properties/Status" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/Config/Port", "/properties/Config/IpAddressType", "/properties/Config/Protocol", "/properties/Config/ProtocolVersion", "/properties/Config/VpcIdentifier" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/Config/Port", "/properties/Config/IpAddressType", "/properties/Config/Protocol", "/properties/Config/ProtocolVersion", "/properties/Config/VpcIdentifier", "/properties/Config/LambdaEventStructureVersion" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/Id" ], [ "/properties/Name" ] ],
   "handlers" : {

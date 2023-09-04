@@ -62,7 +62,7 @@
   "createOnlyProperties" : [ "/properties/DBParameterGroupName", "/properties/Description", "/properties/Family" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:AddTagsToResource", "rds:CreateDBParameterGroup", "rds:DescribeDBParameterGroups", "rds:DescribeDBParameters", "rds:DescribeEngineDefaultParameters", "rds:ListTagsForResource", "rds:ModifyDBParameterGroup" ]
+      "permissions" : [ "rds:AddTagsToResource", "rds:CreateDBParameterGroup", "rds:DescribeDBParameterGroups", "rds:DescribeDBParameters", "rds:DescribeEngineDefaultParameters", "rds:ListTagsForResource", "rds:ModifyDBParameterGroup", "rds:RemoveTagsFromResource" ]
     },
     "read" : {
       "permissions" : [ "rds:DescribeDBParameterGroups", "rds:DescribeDBParameters", "rds:DescribeEngineDefaultParameters", "rds:ListTagsForResource" ]
