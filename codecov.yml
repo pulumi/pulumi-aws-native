@@ -6,3 +6,9 @@ coverage:
     patch:
       default:
         informational: true
+component_management:
+  individual_components:
+    - component_id: provider
+      name: provider
+      paths:
+        - provider/**
