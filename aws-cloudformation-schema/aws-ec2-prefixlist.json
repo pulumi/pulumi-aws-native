@@ -88,6 +88,12 @@
   "required" : [ "PrefixListName", "MaxEntries", "AddressFamily" ],
   "readOnlyProperties" : [ "/properties/PrefixListId", "/properties/OwnerId", "/properties/Version", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/PrefixListId" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "EC2:CreateManagedPrefixList", "EC2:DescribeManagedPrefixLists", "EC2:CreateTags" ]

@@ -2,6 +2,12 @@
   "typeName" : "AWS::GuardDuty::Detector",
   "description" : "Resource Type definition for AWS::GuardDuty::Detector",
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "properties" : {
     "FindingPublishingFrequency" : {
       "type" : "string"
@@ -14,9 +20,8 @@
     },
     "Features" : {
       "type" : "array",
-      "uniqueItems" : false,
       "items" : {
-        "$ref" : "#/definitions/FeatureConfigurations"
+        "$ref" : "#/definitions/CFNFeatureConfiguration"
       }
     },
     "Id" : {
@@ -24,41 +29,71 @@
     },
     "Tags" : {
       "type" : "array",
-      "uniqueItems" : false,
       "items" : {
-        "$ref" : "#/definitions/Tag"
+        "$ref" : "#/definitions/TagItem"
       }
     }
   },
   "definitions" : {
-    "FeatureAdditionalConfiguration" : {
+    "TagItem" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Status" : {
-          "type" : "string"
+        "Key" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
         },
-        "Name" : {
-          "type" : "string"
+        "Value" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 256
         }
-      }
+      },
+      "required" : [ "Key", "Value" ]
     },
-    "FeatureConfigurations" : {
+    "CFNS3LogsConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Status" : {
-          "type" : "string"
+        "Enable" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enable" ]
+    },
+    "CFNKubernetesAuditLogsConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enable" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enable" ]
+    },
+    "CFNKubernetesConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AuditLogs" : {
+          "$ref" : "#/definitions/CFNKubernetesAuditLogsConfiguration"
+        }
+      },
+      "required" : [ "AuditLogs" ]
+    },
+    "CFNDataSourceConfigurations" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "S3Logs" : {
+          "$ref" : "#/definitions/CFNS3LogsConfiguration"
         },
-        "AdditionalConfiguration" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/FeatureAdditionalConfiguration"
-          }
+        "Kubernetes" : {
+          "$ref" : "#/definitions/CFNKubernetesConfiguration"
         },
-        "Name" : {
-          "type" : "string"
+        "MalwareProtection" : {
+          "$ref" : "#/definitions/CFNMalwareProtectionConfiguration"
         }
       }
     },
@@ -71,15 +106,6 @@
         }
       }
     },
-    "CFNS3LogsConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enable" : {
-          "type" : "boolean"
-        }
-      }
-    },
     "CFNScanEc2InstanceWithFindingsConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -89,54 +115,62 @@
         }
       }
     },
-    "CFNKubernetesAuditLogsConfiguration" : {
+    "CFNFeatureConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Enable" : {
-          "type" : "boolean"
-        }
-      }
-    },
-    "Tag" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Value" : {
-          "type" : "string"
+        "Name" : {
+          "type" : "string",
+          "enum" : [ "FLOW_LOGS", "CLOUD_TRAIL", "DNS_LOGS", "S3_DATA_EVENTS", "EKS_AUDIT_LOGS", "EBS_MALWARE_PROTECTION", "RDS_LOGIN_EVENTS", "LAMBDA_NETWORK_LOGS", "EKS_RUNTIME_MONITORING" ]
         },
-        "Key" : {
-          "type" : "string"
+        "Status" : {
+          "type" : "string",
+          "enum" : [ "ENABLED", "DISABLED" ]
+        },
+        "AdditionalConfiguration" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CFNFeatureAdditionalConfiguration"
+          }
         }
       },
-      "required" : [ "Value", "Key" ]
+      "required" : [ "Name", "Status" ]
     },
-    "CFNKubernetesConfiguration" : {
+    "CFNFeatureAdditionalConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "AuditLogs" : {
-          "$ref" : "#/definitions/CFNKubernetesAuditLogsConfiguration"
-        }
-      }
-    },
-    "CFNDataSourceConfigurations" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "MalwareProtection" : {
-          "$ref" : "#/definitions/CFNMalwareProtectionConfiguration"
+        "Name" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 256
         },
-        "S3Logs" : {
-          "$ref" : "#/definitions/CFNS3LogsConfiguration"
-        },
-        "Kubernetes" : {
-          "$ref" : "#/definitions/CFNKubernetesConfiguration"
+        "Status" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
         }
       }
     }
   },
   "required" : [ "Enable" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "guardduty:CreateDetector", "guardduty:GetDetector", "guardduty:TagResource", "iam:CreateServiceLinkedRole", "iam:GetRole" ]
+    },
+    "read" : {
+      "permissions" : [ "guardduty:GetDetector" ]
+    },
+    "delete" : {
+      "permissions" : [ "guardduty:ListDetectors", "guardduty:DeleteDetector" ]
+    },
+    "update" : {
+      "permissions" : [ "guardduty:UpdateDetector", "guardduty:GetDetector", "guardduty:ListDetectors", "iam:CreateServiceLinkedRole", "iam:GetRole" ]
+    },
+    "list" : {
+      "permissions" : [ "guardduty:ListDetectors" ]
+    }
+  },
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

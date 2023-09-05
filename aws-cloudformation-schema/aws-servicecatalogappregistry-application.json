@@ -54,13 +54,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "servicecatalog:CreateApplication", "servicecatalog:TagResource" ]
+      "permissions" : [ "servicecatalog:CreateApplication", "servicecatalog:TagResource", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "servicecatalog:GetApplication" ]
     },
     "update" : {
-      "permissions" : [ "servicecatalog:GetApplication", "servicecatalog:ListTagsForResource", "servicecatalog:TagResource", "servicecatalog:UntagResource", "servicecatalog:UpdateApplication" ]
+      "permissions" : [ "servicecatalog:GetApplication", "servicecatalog:ListTagsForResource", "servicecatalog:TagResource", "servicecatalog:UntagResource", "servicecatalog:UpdateApplication", "iam:CreateServiceLinkedRole" ]
     },
     "delete" : {
       "permissions" : [ "servicecatalog:DeleteApplication" ]

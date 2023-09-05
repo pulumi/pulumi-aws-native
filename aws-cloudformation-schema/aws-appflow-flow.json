@@ -166,8 +166,7 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/TaskPropertiesObject"
-          },
-          "additionalProperties" : false
+          }
         }
       },
       "required" : [ "SourceFields", "TaskType" ],
