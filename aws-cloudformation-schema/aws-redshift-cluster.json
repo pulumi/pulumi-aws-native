@@ -277,28 +277,28 @@
   "primaryIdentifier" : [ "/properties/ClusterIdentifier" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/DeferMaintenanceIdentifier", "/properties/Endpoint/Port", "/properties/Endpoint/Address" ],
   "createOnlyProperties" : [ "/properties/ClusterIdentifier", "/properties/OwnerAccount", "/properties/SnapshotIdentifier", "/properties/DBName", "/properties/SnapshotClusterIdentifier", "/properties/ClusterSubnetGroupName", "/properties/MasterUsername" ],
-  "writeOnlyProperties" : [ "/properties/MasterUserPassword" ],
+  "writeOnlyProperties" : [ "/properties/MasterUserPassword", "/properties/Classic" ],
   "tagging" : {
     "taggable" : true
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "redshift:DescribeClusters", "redshift:CreateCluster", "redshift:RestoreFromClusterSnapshot", "redshift:EnableLogging" ],
+      "permissions" : [ "redshift:DescribeClusters", "redshift:CreateCluster", "redshift:RestoreFromClusterSnapshot", "redshift:EnableLogging", "redshift:DescribeTags" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {
-      "permissions" : [ "redshift:DescribeClusters", "redshift:DescribeLoggingStatus", "redshift:DescribeSnapshotCopyGrant", "redshift:DescribeClusterDbRevisions" ]
+      "permissions" : [ "redshift:DescribeClusters", "redshift:DescribeLoggingStatus", "redshift:DescribeSnapshotCopyGrant", "redshift:DescribeClusterDbRevisions", "redshift:DescribeTags" ]
     },
     "update" : {
-      "permissions" : [ "redshift:DescribeClusters", "redshift:ModifyCluster", "redshift:ModifyClusterIamRoles", "redshift:EnableLogging", "redshift:CreateTags", "redshift:DeleteTags", "redshift:DisableLogging", "redshift:RebootCluster", "redshift:EnableSnapshotCopy", "redshift:DisableSnapshotCopy", "redshift:ModifySnapshotCopyRetentionPeriod", "redshift:ModifyAquaConfiguration", "redshift:ResizeCluster", "redshift:ModifyClusterMaintenance", "redshift:DescribeClusterDbRevisions", "redshift:ModifyClusterDbRevisions", "redshift:PauseCluster", "redshift:ResumeCluster", "redshift:RotateEncryptionKey" ],
+      "permissions" : [ "redshift:DescribeClusters", "redshift:ModifyCluster", "redshift:ModifyClusterIamRoles", "redshift:EnableLogging", "redshift:CreateTags", "redshift:DeleteTags", "redshift:DescribeTags", "redshift:DisableLogging", "redshift:RebootCluster", "redshift:EnableSnapshotCopy", "redshift:DisableSnapshotCopy", "redshift:ModifySnapshotCopyRetentionPeriod", "redshift:ModifyAquaConfiguration", "redshift:ResizeCluster", "redshift:ModifyClusterMaintenance", "redshift:DescribeClusterDbRevisions", "redshift:ModifyClusterDbRevisions", "redshift:PauseCluster", "redshift:ResumeCluster", "redshift:RotateEncryptionKey" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {
-      "permissions" : [ "redshift:DescribeClusters", "redshift:DeleteCluster" ],
+      "permissions" : [ "redshift:DescribeTags", "redshift:DescribeClusters", "redshift:DeleteCluster" ],
       "timeoutInMinutes" : 2160
     },
     "list" : {
-      "permissions" : [ "redshift:DescribeClusters" ]
+      "permissions" : [ "redshift:DescribeTags", "redshift:DescribeClusters" ]
     }
   }
 }

@@ -461,7 +461,7 @@
   "primaryIdentifier" : [ "/properties/DBInstanceIdentifier" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcAttribute", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "iam:GetRole", "iam:ListRoles", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "rds:AddRoleToDBInstance", "rds:AddTagsToResource", "rds:CreateDBInstance", "rds:CreateDBInstanceReadReplica", "rds:DescribeDBInstances", "rds:DescribeDBSnapshots", "rds:DescribeEvents", "rds:ModifyDBInstance", "rds:RebootDBInstance", "rds:RestoreDBInstanceFromDBSnapshot", "rds:RestoreDBInstanceToPointInTime", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
+      "permissions" : [ "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcAttribute", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "iam:GetRole", "iam:ListRoles", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "rds:AddRoleToDBInstance", "rds:AddTagsToResource", "rds:CreateDBInstance", "rds:CreateDBInstanceReadReplica", "rds:DescribeDBInstances", "rds:DescribeDBClusters", "rds:DescribeDBClusterSnapshots", "rds:DescribeDBInstanceAutomatedBackups", "rds:DescribeDBSnapshots", "rds:DescribeEvents", "rds:ModifyDBInstance", "rds:RebootDBInstance", "rds:RestoreDBInstanceFromDBSnapshot", "rds:RestoreDBInstanceToPointInTime", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {

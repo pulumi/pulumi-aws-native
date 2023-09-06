@@ -90,6 +90,7 @@ AWS::Cassandra::Table
 AWS::CertificateManager::Account
 AWS::Chatbot::MicrosoftTeamsChannelConfiguration
 AWS::Chatbot::SlackChannelConfiguration
+AWS::CleanRooms::AnalysisTemplate
 AWS::CleanRooms::Collaboration
 AWS::CleanRooms::ConfiguredTable
 AWS::CleanRooms::ConfiguredTableAssociation
@@ -162,6 +163,8 @@ AWS::Connect::TaskTemplate
 AWS::Connect::TrafficDistributionGroup
 AWS::Connect::User
 AWS::Connect::UserHierarchyGroup
+AWS::Connect::View
+AWS::Connect::ViewVersion
 AWS::ConnectCampaigns::Campaign
 AWS::ControlTower::EnabledControl
 AWS::CustomerProfiles::CalculatedAttributeDefinition
@@ -360,6 +363,7 @@ AWS::GreengrassV2::Deployment
 AWS::GroundStation::Config
 AWS::GroundStation::DataflowEndpointGroup
 AWS::GroundStation::MissionProfile
+AWS::GuardDuty::Detector
 AWS::HealthLake::FHIRDatastore
 AWS::IAM::GroupPolicy
 AWS::IAM::InstanceProfile
@@ -585,6 +589,11 @@ AWS::Organizations::Organization
 AWS::Organizations::OrganizationalUnit
 AWS::Organizations::Policy
 AWS::Organizations::ResourcePolicy
+AWS::PCAConnectorAD::Connector
+AWS::PCAConnectorAD::DirectoryRegistration
+AWS::PCAConnectorAD::ServicePrincipalName
+AWS::PCAConnectorAD::Template
+AWS::PCAConnectorAD::TemplateGroupAccessControlEntry
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
@@ -877,6 +886,8 @@ Lacework::Alerts::Channel
 Lacework::Alerts::Profile
 Lacework::Alerts::Rule
 Lacework::Queries::Query
+MongoDB::Atlas::APIKey
+MongoDB::Atlas::AccessListAPIKey
 MongoDB::Atlas::AlertConfiguration
 MongoDB::Atlas::Auditing
 MongoDB::Atlas::CloudBackUpRestoreJobs
@@ -886,9 +897,12 @@ MongoDB::Atlas::CloudBackupSnapshotExportBucket
 MongoDB::Atlas::Cluster
 MongoDB::Atlas::CustomDBRole
 MongoDB::Atlas::CustomDnsConfigurationClusterAws
+MongoDB::Atlas::DataLakePipeline
 MongoDB::Atlas::DataLakes
 MongoDB::Atlas::DatabaseUser
 MongoDB::Atlas::EncryptionAtRest
+MongoDB::Atlas::FederatedDatabaseInstance
+MongoDB::Atlas::FederatedQueryLimit
 MongoDB::Atlas::FederatedSettingsOrgRoleMapping
 MongoDB::Atlas::GlobalClusterConfig
 MongoDB::Atlas::LDAPConfiguration
@@ -901,11 +915,13 @@ MongoDB::Atlas::OrgInvitation
 MongoDB::Atlas::PrivateEndPointRegionalMode
 MongoDB::Atlas::PrivateEndpoint
 MongoDB::Atlas::PrivateEndpointADL
+MongoDB::Atlas::PrivatelinkEndpointServiceDataFederationOnlineArchive
 MongoDB::Atlas::Project
 MongoDB::Atlas::ProjectInvitation
 MongoDB::Atlas::ProjectIpAccessList
 MongoDB::Atlas::SearchIndex
 MongoDB::Atlas::ServerlessInstance
+MongoDB::Atlas::ServerlessPrivateEndpoint
 MongoDB::Atlas::Teams
 MongoDB::Atlas::ThirdPartyIntegration
 MongoDB::Atlas::Trigger
